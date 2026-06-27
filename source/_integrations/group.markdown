@@ -1,6 +1,6 @@
 ---
 title: Group
-description: Instructions on how to setup groups within Home Assistant.
+description: Instructions on how to set up groups within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -86,7 +86,7 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `on`.
 
 {% note %}
-For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, etc.), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
+For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, and so on), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
 {% endnote %}
 
 ### Button groups
@@ -207,7 +207,6 @@ Example YAML configuration of a button group:
 button:
   - platform: group
     name: "Restart all ESPHome devices"
-    device_class: opening
     entities:
       - button.device_1_restart
       - button.device_2_restart
@@ -499,7 +498,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, and so on.
 
 ### Attributes
 
@@ -511,18 +510,4 @@ These are the attributes available for an old-style group.
 | `order`                              | Integer representing the order in which the entity was created, starting with `0`.                           |
 | `auto`                               | Boolean that will always be set to `true`. Only appears in groups that were created with the `set` action.   |
 
-### Actions
-
-The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
-
-| Action   | Data              | Description                                                                   |
-| -------- | ----------------- | ----------------------------------------------------------------------------- |
-| `set`    | `Object ID`       | Group id and part of entity id.                                               |
-|          | `Name`            | Name of the group.                                                            |
-|          | `Icon`            | Name of the icon for the group.                                               |
-|          | `Entities`        | List of all members in the group. Not compatible with **delta**.              |
-|          | `Add Entities`    | List of members that will change on group listening.                          |
-|          | `Remove Entities` | List of members that will be removed from group listening.                    |
-|          | `All`             | Enable this option if the group should only turn on when all entities are on. |
-| `remove` | `Object ID`       | Group id and part of entity id.                                               |
-| `reload` | `Object ID`       | Group id and part of entity id.                                               |
+{% include integrations/actions.md %}

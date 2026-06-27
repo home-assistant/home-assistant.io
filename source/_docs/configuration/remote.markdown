@@ -1,6 +1,6 @@
 ---
-title: "Remote access"
-description: "Setting up remote access for Home Assistant."
+title: "Remote access to Home Assistant"
+description: "There are different ways to reach your Home Assistant from outside your home network. The recommended option is Home Assistant Cloud, which works without exposing anything to the internet."
 related:
   - docs: /docs/configuration/securing/
     title: Securing your instance
@@ -8,17 +8,19 @@ related:
     title: Home Assistant Cloud - remote access
 ---
 
-If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible. Below are a few options to do this.
+By default, your Home Assistant only listens on your local network, which keeps things private and secure. If you want to reach it from outside your home, for example to control your devices while you are at work or on holiday, you have a few options.
+
+The easiest and safest option for most people is [Home Assistant Cloud](/cloud/). Other options are listed further down for those who prefer to set things up themselves.
 
 {% tip %}
-Remember to follow the [securing checklist](/docs/configuration/securing/) before doing this.
+Before exposing Home Assistant to the internet, follow the [securing checklist](/docs/configuration/securing/).
 {% endtip %}
 
 ## Home Assistant Cloud
 
-Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Home Assistant Cloud remote access</a> feature without requiring any configuration.
+[Home Assistant Cloud](https://www.nabucasa.com) gives you remote access to your Home Assistant from anywhere, without opening any ports on your router and without exposing your home network to the internet. Setup takes a single toggle in the user interface.
 
-A unique remote URL will be generated and given to you along with a certificate so all your traffic to Home Assistant is encrypted automatically.
+A unique remote URL is generated for you, and all traffic between your device and your home is encrypted automatically. Your Home Assistant Cloud subscription also helps fund the development of Home Assistant itself.
 
 ## VPN
 
@@ -42,6 +44,7 @@ Just putting a port up is not secure. You should definitely consider encrypting 
 
 To set the URL under which your Home Assistant can be accessed from outside your local network, follow these steps:
 
-1. In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and make sure **Advanced mode** is enabled.
-2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. Under **Home Assistant URL**, enter the external URL that you previously set up for your instance.
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Home Assistant URL**, in the **Internet** field, enter the external URL that you previously set up for your instance.
+    - If you use Home Assistant Cloud, you can turn on **Use Home Assistant Cloud** instead, and your Nabu Casa URL is used automatically.
+3. Select **Save**.

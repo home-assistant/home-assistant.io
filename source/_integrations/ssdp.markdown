@@ -54,7 +54,6 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Imeon Inverter](/integrations/imeon_inverter/)
  - [Kaleidescape](/integrations/kaleidescape/)
  - [Keenetic NDMS2 Router](/integrations/keenetic_ndms2/)
- - [Konnected.io](/integrations/konnected/)
  - [LaMetric](/integrations/lametric/)
  - [LG webOS TV](/integrations/webostv/)
  - [Linn / OpenHome](/integrations/openhome/)

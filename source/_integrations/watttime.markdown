@@ -21,10 +21,10 @@ The **WattTime** {% term integration %} allows users to get real-time emissions 
 
 ## Registering an account
 
-WattTime account registration is accomplished [via the REST API itself](https://www.watttime.org/api-documentation/#register-new-user). The simplest way to do this is by using cURL on the command line:
+You need a WattTime account before you can set up this integration. Registration is done [via the WattTime API](https://docs.watttime.org/). The simplest way to register is by using cURL on the command line:
 
 ```bash
-curl -X "POST" "https://api2.watttime.org/v2/register" \
+curl -X "POST" "https://api.watttime.org/register" \
      -H 'Content-Type: application/json' \
      -d '{
        "username": "<USERNAME>",
@@ -34,7 +34,7 @@ curl -X "POST" "https://api2.watttime.org/v2/register" \
      }'
 ```
 
-Note that the `org` value can be anything you like – it doesn't need to represent a real entity.
+The `org` value can be anything you like. It does not need to represent a real organization.
 
 {% include integrations/config_flow.md %}
 
@@ -49,7 +49,4 @@ The sensors available to you will depend on the type of WattTime subscription yo
 | Marginal Operating Emissions Rate     | Pro                | The currently measured amount of lbs of CO2 per MWh                                                         |
 | Relative Marginal Emissions Intensity | All                | A percentage between the lowest (cleanest) and highest (highest) MOER values observed in the past two weeks |
 
-You can learn more about the data that WattTime collects by viewing these articles:
-
-- https://www.watttime.org/aer/what-is-aer/
-- https://www.watttime.org/aer/how-aer-works/
+You can learn more about the data that WattTime collects in the [WattTime API documentation](https://docs.watttime.org/) and on the [WattTime solutions page](https://watttime.org/solutions/load-shifting/).

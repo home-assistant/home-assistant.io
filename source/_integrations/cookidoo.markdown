@@ -43,7 +43,7 @@ Email:
 Password:
     description: "Enter the password for your Cookidoo account."
 Localization:
-    description: "Select the language and country for your Cookidoo account (e.g., English - United States)."
+    description: "Select the language and country for your Cookidoo account, for example, English - United States."
 {% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}

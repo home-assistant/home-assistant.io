@@ -6,6 +6,7 @@ ha_category:
   - Cover
   - Hub
   - Light
+  - Number
   - Scene
   - Switch
 ha_release: '2024.10'
@@ -19,6 +20,7 @@ ha_platforms:
   - cover
   - diagnostics
   - light
+  - number
   - scene
   - switch
 ha_integration_type: hub
@@ -32,10 +34,10 @@ ha_dhcp: true
 
 The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA devices into Home Assistant.
 
-This integration uses a local API which is available with firmware container version 11H.
+This integration uses a local API which is available since firmware container version 11H.
 
 See device section for support information: [buttons](#buttons), [covers](#covers), [lights](#lights),
-[scenes](#scenes) and [switches](#switches).
+[numbers](#numbers), [scenes](#scenes), and [switches](#switches).
 
 {% include integrations/config_flow.md %}
 
@@ -43,17 +45,33 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 ## Buttons
 
-- All devices that support an identification activity (for example, winking an awning or blinking a light)
-  can be triggered to perform such activity.
+- All devices that support an identification activity (for example, winking an awning or blinking a light) can be triggered to perform such activity.
 
 ## Covers
 
-- *Patio awnings* and *roller shutters/blinds* can be opened, closed, set to a certain position and stopped.
-- The integration and library *may* already support other types of awnings or covers with a single motor.
+- *Awnings*, *volant awnings* (vertical drop sun shades), and *roller shutters/blinds* can be opened, closed, set to a certain position, and stopped.
+- *Slat-based blinds* can additionally have their slats rotated open, closed, or to a specific rotation angle.
+
+### Rotation support
+
+Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration uses the maximum rotation angle as the fully closed position, but the minimum (opposite) angle is not treated as fully open. Instead when you set the slats to the open position in Home Assistant, they move to the position where the slats are parallel to the ground as expected. You can change the minimum and maximum rotation angles via configuration [number](#numbers) entities or [automatic learning](#automatic-learning).
 
 ## Lights
 
 - Dimmers (with brightness control) and switches are fully supported.
+
+## Numbers
+
+- *Slat-based blinds* have configuration entities to overwrite the minimum and maximum rotation angle.
+  This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
+- *Slat-drives supporting rotation* also have a diagnostic entity to control the raw rotation angle.
+  This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
+- *Slat-based covers* like roofs that only have rotation, but not position control, only have this entity.
+   For covers with rotation only, this entity appears as the main control.
+
+### Automatic learning
+
+The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation to allow automatic learning of the valid rotation range based on the current rotation angle. For learning, it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected and wait until the position has updated.
 
 ## Scenes
 

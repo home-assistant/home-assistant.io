@@ -23,7 +23,7 @@ ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
+The **BSB-LAN** {% term integration %} integrates [BSB-LAN](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
 BSBLan is a device that is made by `Frederik Holst` and with the help of many other contributors. The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling of heating systems such as `Elco Thision`, `Brötje` and similar systems. Also available is an ESP32 version of the board.
 
@@ -33,9 +33,13 @@ It can interface with the heating system over Boiler-System-Bus, Local Process B
 
 For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
+If your heating system exposes more than one heating circuit, Home Assistant discovers the available circuits automatically during setup. The integration creates one main BSB-LAN device for shared entities, and adds each detected heating circuit as its own sub-device so you can control each zone independently.
+
+If your heating system changes later, for example after you enable an extra circuit in the controller, run the integration's reconfigure flow to let Home Assistant discover the updated circuit list.
+
 ## Supported functionality
 
-Depending on your system, the following entities are available:
+Depending on your system and the available heating circuits, the following entities are available:
 
 - Button
 - Climate
@@ -43,11 +47,30 @@ Depending on your system, the following entities are available:
 - Sensor
 - Water heater
 
+### Device structure
+
+The integration groups entities by device in Home Assistant:
+
+- The main BSB-LAN device contains shared entities, like the **Sync time** button and temperature sensors.
+- Each detected heating circuit appears as a sub-device under the main BSB-LAN device.
+- If your system supports domestic hot water, it can also appear as its own sub-device.
+
 ### Buttons
 
-- **Sync time**: Synchronizes the BSB-Lan device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
+- **Sync time**: Synchronizes the BSB-LAN device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
 
-The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, for example, in a daily automation.
+The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, such as in a daily automation.
+
+### Climate
+
+- Home Assistant creates one climate entity for each detected heating circuit.
+- These appear in Home Assistant as **Heating circuit 1**, **Heating circuit 2**, and **Heating circuit 3**, depending on what your system exposes.
+- Each heating circuit is grouped under its own sub-device on the BSB-LAN device page.
+
+### Water heater
+
+- If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
+- The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
 
 ### Sensors
 
@@ -63,77 +86,11 @@ To use the **Total Energy** sensor, [enable the entity](/common-tasks/general/#e
 The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.
 {% endnote %}
 
-
-## Actions
-
-The integration provides the following actions.
-
-### Action: Set hot water schedule
-
-The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
-
-- **Target**: `device_id`
-  - **Description**: The BSB-Lan device to configure.
-  - **Required**: Yes
-- **Data attributes**:
-  - **`monday_slots`**: List of time slots for Monday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`tuesday_slots`**: List of time slots for Tuesday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`wednesday_slots`**: List of time slots for Wednesday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`thursday_slots`**: List of time slots for Thursday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`friday_slots`**: List of time slots for Friday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`saturday_slots`**: List of time slots for Saturday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`sunday_slots`**: List of time slots for Sunday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`standard_values_slots`**: List of standard/default time slots. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-
-Time slots are defined using time pickers for easy configuration without manual formatting. You only need to specify the days you want to configure.
-
-### Action `bsblan.sync_time`
-
-Synchronize Home Assistant time to the BSB-Lan device. Only updates if device time differs from Home Assistant time.
-
-- **Target**: `device_id`
-  - **Description**: The BSB-LAN device to sync time for.
-  - **Required**: Yes
-
-#### Examples
-
-Sync time for all BSB-Lan devices:
-
-```yaml
-action: bsblan.sync_time
-```
-
-Sync time for a specific device:
-
-```yaml
-action: bsblan.sync_time
-target:
-  device_id: "your_device_id"
-```
-
-Use in an automation to sync time daily:
-
-```yaml
-automation:
-  - alias: "Sync BSB-Lan time daily"
-    triggers:
-      - trigger: time
-        at: "03:00:00"
-    actions:
-      - action: bsblan.sync_time
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
-The following examples show how to use the BSB-Lan integration actions in Home Assistant automations.
+The following examples show how to use the BSB-LAN integration actions in Home Assistant automations.
 
 ### Setting a weekday and weekend schedule
 
@@ -181,7 +138,6 @@ data:
 
 This example automatically adjusts the hot water schedule based on the season.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -270,7 +226,6 @@ automation:
               end_time: "21:00:00"
 ```
 
-{% endraw %}
 
 For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 
@@ -278,4 +233,4 @@ To see a more detailed listing of the reported systems which are successfully us
 
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
-The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0).
+The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/bsb-lan/releases/tag/v5.0).

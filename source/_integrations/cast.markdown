@@ -26,14 +26,14 @@ Support for mDNS discovery in your local network is mandatory for automatic disc
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
-  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. To find the UUID for your device use a mDNS browser. Alternatively, if you're comfortable using Python, you can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`.
 Ignore CEC:
-  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data).
 {% endconfiguration_basic %}
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action. The action takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the action):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device. You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action. The action takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the action):
 
 ```yaml
 cast_downstairs_on_kitchen:
@@ -56,7 +56,7 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 Chromecasts generally don't resolve hosts through mDNS and also ignore DNS servers from DHCP, they instead use Google's public DNS servers, 8.8.8.8 and 8.8.4.4.
 
-This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1` using Google's DNS servers. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+This means media URLs must either specify the IP address of the server directly, for example, `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, for example, `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1` using Google's DNS servers. A hostname that can't be publicly resolved, for example, `http://homeassistant.local:8123/movie.mp4`, will fail to play.
 
 This is important when casting TTS or local media sources; the cast integration will cast such media from the local Home Assistant URL, which can be configured by navigating to **{% my network title="Settings > System > Network" %}** or by configuring an [`internal_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
 
@@ -236,7 +236,7 @@ Mandatory:
 
 Optional:
 
-- `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
+- `media_type`: Media type, for example, `video/mp4`, `audio/mp3`, or `image/jpeg`. Defaults to `video/mp4`.
 
 #### Example
 
@@ -261,7 +261,7 @@ Optional:
 
 #### Finding Media IDs
 
-Media ID can be found in the URL, e.g:
+You can find the media ID in the URL. For example:
 - Live channel: <https://radio.nrk.no/direkte/p1>, media ID is `p1`
 - Podcast: <https://radio.nrk.no/podkast/tazte_priv/l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314>, media ID is `l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314`
 - On-demand program: <https://radio.nrk.no/serie/radiodokumentaren/sesong/201011/MDUP01004510>, media ID is `MDUP01004510`
@@ -295,8 +295,8 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
 
 #### Finding Media IDs
 
- - Live programs: ID is in the URL, e.g. for <https://tv.nrk.no/direkte/nrk1>, the media ID is `nrk1`
- - On-demand programs: ID is found by clicking share button, e.g. for <https://tv.nrk.no/serie/uti-vaar-hage/sesong/2/episode/2> the share link is `https://tv.nrk.no/se?v=OUHA43000207` and the media ID is `OUHA43000207`
+ - Live programs: the media ID is in the URL. For example, for <https://tv.nrk.no/direkte/nrk1>, the media ID is `nrk1`
+ - On-demand programs: find the media ID by selecting the share button. For example, for <https://tv.nrk.no/serie/uti-vaar-hage/sesong/2/episode/2> the share link is `https://tv.nrk.no/se?v=OUHA43000207` and the media ID is `OUHA43000207`
 
 #### Media parameters
 
@@ -341,29 +341,22 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 ### [Supla](https://www.supla.fi/)
 
-Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing audio clip. E.g., [this episode](https://www.bbc.co.uk/sounds/play/p009ycqy) shows:
-
-|          |                                         |
-| -------- | --------------------------------------- |
-| 128bps   | dash (mf_cloudfront_nonbidi_dash_https) |
-| p009ycqz |                                         |
-
-With p009ycqz being the `media_id`
+[Supla](https://www.supla.fi/) is a Finnish audio streaming service. The `media_id` is the numeric ID from the Supla URL. For example, the ID for `https://www.supla.fi/audio/3601824` is `3601824`.
 
 #### Media parameters
 
 Mandatory:
 
 - `app_name`: `supla`
-- `media_id`: Supla item ID
+- `media_id`: The numeric ID from the Supla audio URL
 
 Optional:
 
-- `is_live`: Item is a livestream
+- `is_live`: Set to `true` if the item is a livestream
 
 #### Example
 
-Example values to cast the item at <https://www.supla.fi/audio/3601824>
+Example values to cast the item at `https://www.supla.fi/audio/3601824`:
 
 ```yaml
 'cast_supla_to_my_chromecast':

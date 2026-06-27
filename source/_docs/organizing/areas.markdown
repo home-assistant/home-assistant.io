@@ -2,15 +2,15 @@
 title: "Areas"
 description: "Group your devices and entities in areas and group areas in floors."
 related:
-  - docs: /docs/organizing/areas/
-    title: Areas
+  - docs: /dashboards/area/
+    title: Area card
   - docs: /docs/organizing/
   - docs: /docs/organizing/labels/
     title: Labels
   - docs: /docs/organizing/categories/
     title: Categories
-  - docs: /docs/configuration/templating/#areas
-    title: Using areas in template
+  - docs: /template-functions/#area
+    title: Using areas in templates
   - docs: /dashboards/dashboards/#home-dashboard
     title: Home dashboard
 ---
@@ -95,7 +95,7 @@ You can also edit the area details when you're on the area dashboard.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
 2. Select the area.
 3. In the top-right corner, select the edit {% icon "mdi:edit" %} button.
-4. In the **Update area** dialog, [edit the area details](#editing-an-area).```
+4. In the **Update area** dialog, [edit the area details](#editing-an-area).
 
 ## Reordering areas on built-in dashboards
 
