@@ -2,7 +2,7 @@
 title: "Trigger alarm"
 action: alarm_control_panel.alarm_trigger
 domain: alarm_control_panel
-description: "Manually trigger an alarm control panel. Optionally provide a code if your alarm panel requires one and override pending delay."
+description: "Manually trigger an alarm control panel. Optionally provide a code if your alarm panel requires one. If supported, you can also override the pending delay."
 related_actions:
   - alarm_control_panel.alarm_disarm
 ---
@@ -31,7 +31,7 @@ Code:
   description: The code to trigger the alarm. Not every alarm panel requires a code for triggering.
   required: false
 Delay time:
-  description: The overridden time of the 'pending' state before triggering the alarm.
+  description: Time in seconds to keep the alarm in the `pending` state before it triggers. Set to 0 to trigger immediately.
   required: false
 {% endoptions_ui %}
 
@@ -59,7 +59,7 @@ action: |
     code: "1234"
 {% endexample %}
 
-If you need to override the time of 'pending' state provided by the alarm configuration, specify the delay time in the `data` section:
+To override the pending delay configured on the alarm control panel, set `delay_time` in the `data` section:
 
 {% example %}
 action: |
