@@ -643,7 +643,6 @@ source/_integrations/motionblinds_matter.markdown @home-assistant/matter
 source/_integrations/motioneye.markdown @dermotduffy
 source/_integrations/motionmount.markdown @laiho-vogels
 source/_integrations/mqtt.markdown @emontnemery @jbouwh @bdraco
-source/_integrations/msteams.markdown @peroyvind
 source/_integrations/mta.markdown @OnFreund
 source/_integrations/mullvad.markdown @meichthys
 source/_integrations/music_assistant.markdown @music-assistant @arturpragacz
