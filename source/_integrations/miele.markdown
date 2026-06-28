@@ -283,7 +283,7 @@ When the configuration entry is loaded or after a streaming error (for example a
 
 Follow these instructions if you are instructed to do so by a developer or by Miele support. It is not needed for normal use of the integration.
 
-- Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
+- Visit [https://developer.miele.com](https://developer.miele.com/get-involved) and sign up for a developer account.
 - Enter an arbitrary name for your connection and the email of your login for the original Miele app.
 - On success, you will get an email with an activation link. Press the **Activate** button. Make note of the client ID and secret - you will need them for the next step.
 You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
