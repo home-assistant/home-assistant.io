@@ -28,7 +28,7 @@ The integration should work with any [FYTA Sensor](https://fyta.de/en/pages/fyta
 
 ## Prerequisites
 
-For the integration to work you need a [FYTA Sensor](https://fyta.de/en/pages/fyta-system) and a FYTA account.
+For the integration to work, you need a [FYTA Sensor](https://fyta.de/en/pages/fyta-system) and a FYTA account.
 
 {% include integrations/config_flow.md %}
 
