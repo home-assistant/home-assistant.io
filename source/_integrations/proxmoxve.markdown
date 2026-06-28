@@ -203,7 +203,6 @@ Some entities are not enabled by default, you can enable them via the device pag
 For VMs or LXCs:
 **Reboot** and **Shutdown** will attempt to perform a graceful action (if you have the guest agent installed). On a node this will attempt the graceful shutdown of every VM/LXC.
 **Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
-As a precaution, the **Stop** button for nodes is not enabled by default.
 {% endnote %}
 
 ## Data updates
