@@ -69,7 +69,7 @@ Available sensors will vary by model, year, and subscription type. The integrati
 
 \* Gen 1 odometer only updates every 500 miles. <br>
 
-EV sensors (EV battery level, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors are disabled by default and may report `unknown` on older Gen 2 vehicles that do not advertise the underlying tire-pressure recommendation in `vehicle_health`. The vehicle state sensor reports one of `ignition_off`, `ignition_acc` (accessory power), or `ignition_on`; if your vehicle reports a value not in that list, please file a bug — the disabled-by-default `vehicle_state (raw)` diagnostic companion will show the raw API string.
+EV sensors (EV battery level, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors are disabled by default and may report `unknown` on older Gen 2 vehicles that do not advertise the underlying tire-pressure recommendation in `vehicle_health`. The vehicle state sensor reports one of `ignition_off`, `ignition_acc` (accessory power), `ignition_on`, or `engine_on_remote_start`; if your vehicle reports a value not in that list, please file a bug and attach the integration's diagnostics download.
 
 ## Lock
 
