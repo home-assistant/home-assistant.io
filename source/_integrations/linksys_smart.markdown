@@ -6,7 +6,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.48
 ha_codeowners:
-  - "@jmalcic"
+  - '@jmalcic'
 ha_domain: linksys_smart
 ha_config_flow: true
 ha_ssdp: true
@@ -20,7 +20,7 @@ The **Linksys Smart Wi-Fi** {% term integration %} tracks devices connected to a
 
 ## Prerequisites
 
-For certain devices, before adding this integration, you may need to disable the "Access via wireless" option in the **Local Management Access** section of your router's administration page. If this option is not disabled, the integration may not authenticate correctly because the router expects only a password, but the integration sends both a username and a password. Not all devices require this option to be disabled.
+For certain devices, before adding this integration, you may need to disable the **Access via wireless** option in the **Local Management Access** section of your router's administration page. If this option is not disabled, the integration may not authenticate correctly because the router expects only a password, but the integration sends both a username and a password. Not all devices require this option to be disabled.
 
 ## Supported devices
 
@@ -64,7 +64,7 @@ The integration polls your Linksys router every 30 seconds for the list of conne
 
 ### Cannot connect to the router
 
-Make sure Home Assistant can reach your router on the network. Try opening `http://<your-router-ip>` in a browser from the same network segment as Home Assistant.
+Make sure Home Assistant can reach your router on the network. Try opening your router's admin page (for example, `http://192.168.1.1`) in a browser from the same network segment as Home Assistant.
 
 ### Invalid credentials
 
@@ -72,7 +72,7 @@ If Home Assistant reports an authentication error, verify your router admin pass
 
 ### Authentication fails even with the correct password
 
-If the integration cannot authenticate even after entering the correct password, check that the "Access via wireless" option is disabled in the **Local Management Access** section of your router's administration page. See [Prerequisites](#prerequisites) for details.
+If the integration cannot authenticate even after entering the correct password, check that the **Access via wireless** option is disabled in the **Local Management Access** section of your router's administration page. See [Prerequisites](#prerequisites) for details.
 
 ## Removing the integration
 
