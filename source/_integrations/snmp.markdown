@@ -25,6 +25,10 @@ Many routers, Wi-Fi access points, printers, and other network-connected devices
 There is currently support for the following device types within Home Assistant:
 
 - [Presence detection](#presence-detection)
+  - [SNMP v1 and v2c configuration](#snmp-v1-and-v2c-configuration)
+  - [SNMP v3 configuration](#snmp-v3-configuration)
+  - [YAML v1/v2c configuration (deprecated)](#yaml-v1v2c-configuration-deprecated)
+  - [YAML migration](#yaml-migration)
 - [Sensor](#sensor)
   - [Finding OIDs](#finding-oids)
   - [Examples](#examples)
@@ -33,6 +37,10 @@ There is currently support for the following device types within Home Assistant:
 
 {% important %}
 This device tracker needs SNMP to be enabled on the target network device. It could be that you need to install SNMP support manually on your router, switch, server, or any other device that you will be trying to extract information from.
+{% endimportant %}
+
+{% important %}
+Due to SNMP limitations, it is impossible to reliably fetch a stable MAC address from the server. Because of this, the integration cannot follow Home Assistant best practices when it comes to using the MAC address or some other unique reliable string as a `unique_id`. For this reason, you should make sure to set up a static IP address or a DHCP reservation.
 {% endimportant %}
 
 ## Presence detection
@@ -96,7 +104,9 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 ### YAML migration
 
-If you have an existing `device_tracker` configuration in your `configuration.yaml`, Home Assistant will automatically import it into a new config entry upon the first restart of Home Assistant after updating. Once the migration is complete, you can safely remove the legacy SNMP `device_tracker` section from your YAML files.
+While you can still use the old YAML configuration, it is now getting deprecated. If you have an existing configuration in your `configuration.yaml`, Home Assistant will automatically import it into a new config entry upon the first restart of Home Assistant after updating. 
+
+Once the migration is complete, a repair message will appear in your Home Assistant settings, prompting you to safely remove the legacy SNMP section from your YAML files.
 
 {% note %}
 Only the `device_tracker` platform is automatically migrated. Sensors and switches will continue to function from YAML. However, a bug in the legacy implementation caused some binary and string MAC addresses to generate incorrectly named entities. This has been fixed, which may result in new entities being created for some devices. If this happens, you'll need to enable the new entities and update any associated automations. Old entities will remain in the system but will consistently show as `not_home`. These can be safely deleted from `known_devices.yaml` once you've migrated to the new entities.
@@ -105,6 +115,10 @@ Only the `device_tracker` platform is automatically migrated. Sensors and switch
 ## Sensor
 
 The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
+
+{% warning %}
+While you can still use the old YAML configuration, it is now getting deprecated and will be automatically migrated to the UI. Once migrated, a repair message will appear in your Home Assistant settings prompting you to remove it.
+{% endwarning %}
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -279,6 +293,10 @@ The `value_template` option converts the original value to minutes.
 The `snmp` switch platform allows you to control SNMP-enabled equipment.
 
 Currently, only SNMP OIDs that accept integer values are supported. SNMP v1, v2c and v3 are supported.
+
+{% warning %}
+While you can still use the old YAML configuration, it is now getting deprecated and will be automatically migrated to the UI. Once migrated, a repair message will appear in your Home Assistant settings prompting you to remove it.
+{% endwarning %}
 
 To use an SNMP switch in your installation:
 
