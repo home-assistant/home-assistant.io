@@ -157,6 +157,16 @@ This means Home Assistant could not reach MAWAQIT. To resolve this:
 
 If your prayer time sensors stop updating after changing your MAWAQIT password, Home Assistant starts a reauthentication flow and prompts you to sign in again. Enter your current MAWAQIT email and password to restore the connection.
 
+## Diagnostics
+
+This integration provides downloadable diagnostics to help reproduce, test, and debug issues. The downloaded file contains no personal information. It includes:
+
+- Your configuration entry, with the API key and your Home Assistant location (latitude and longitude) redacted.
+- The public information of your selected mosque, such as its name, address, and prayer-time settings.
+- The most recent prayer times fetched from MAWAQIT.
+
+To download the diagnostics, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the MAWAQIT integration, open the {% icon "mdi:dots-vertical" %} menu on the integration entry, and select **Download diagnostics**. Attach the downloaded file when you report an issue to help the maintainers investigate.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
