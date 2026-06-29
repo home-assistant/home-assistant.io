@@ -66,6 +66,43 @@ minutes:
 
 {% include actions/more_examples.md %}
 
+### Automation: set the HVAC to turn off 30 minutes after everyone leaves home
+
+When the last person leaves the home zone, set the "time to off" timer to 30 minutes. This gives a short buffer in case someone returns quickly, while ensuring the system does not run indefinitely in an empty house.
+
+- **Trigger**: State
+  - **Entity**: Home
+  - **To**: 0
+- **Condition**: not
+  - **Condition**: State
+    - **Entity**: HVAC
+    - **State**: Off
+- **Action**: Set time to (30 minutes on the "time to off" sensor)
+
+{% details "YAML example for turning off HVAC when no one is at home" %}
+
+{% example %}
+automation: |
+  alias: "Set HVAC to turn off 30 minutes after everyone leaves"
+  triggers:
+    - trigger: state
+      entity_id: zone.home
+      to: "0"
+  conditions:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: climate.my_hvac
+          state: "off"
+  actions:
+    - action: advantage_air.set_time_to
+      data:
+        entity_id: sensor.myair_time_to_off
+        minutes: 30
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
