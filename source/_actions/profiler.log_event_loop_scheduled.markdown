@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to log what is scheduled in the event loop. This helps you track down integrations that do not stop listeners when Home Assistant stops, or that do not have sufficient locking to avoid scheduling updates before the previous update is finished.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To log the event loop schedule from an automation or a script:
@@ -42,8 +44,6 @@ Each upcoming scheduled item is logged, similar to this example:
 ```txt
 [homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 
