@@ -7,7 +7,7 @@ description: "Starts a new charge session on a Blue Current charge point."
 
 Use this action to start a new charge session on one of your Blue Current charge points. You can optionally provide a charging card ID to start the session with a specific card.
 
-This is handy in automations, for example to start charging your car automatically when cheaper night-time electricity rates begin.
+This is handy in an automation, for example, to start charging your car automatically when cheaper night-time electricity rates begin.
 
 {% include actions/ui_header.md %}
 
