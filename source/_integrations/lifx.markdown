@@ -97,13 +97,17 @@ The LIFX platform supports several software-controlled light effects and one har
 
 {% example %}
 automation: |
-  alias: "..."
+  alias: "Start a LIFX pulse effect"
   triggers:
-    # ...
+    - trigger: state
+      entity_id: binary_sensor.office_motion
+      to: "on"
   actions:
     - action: light.turn_on
       target:
-        entity_id: light.office, light.kitchen
+        entity_id:
+          - light.office
+          - light.kitchen
       data:
         effect: lifx_effect_pulse
 {% endexample %}
@@ -122,7 +126,7 @@ script: |
           brightness: 255
           period: 10
           spread: 30
-          change: 35
+          change: 35
 {% endexample %}
 
 ### Hardware effects
