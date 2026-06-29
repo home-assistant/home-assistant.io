@@ -7,7 +7,7 @@ description: "Sets the countdown timer that turns an Advantage Air system on or 
 
 Use this action to set the countdown timer that turns your Advantage Air system on or off after a set number of minutes. You target the relevant timer sensor entity, either the "time to on" or "time to off" sensor, and set how many minutes from now the system should switch.
 
-This is handy in automations, for example to turn the air conditioning off a set time after everyone has gone to bed.
+This is handy in an automation to turn the air conditioning off a set time after everyone has gone to bed, for example.
 
 {% include actions/ui_header.md %}
 
