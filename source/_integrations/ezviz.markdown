@@ -72,8 +72,6 @@ You can also change the camera options should you need to access a high or low r
 
 - This only works on the camera entities.
 
-{% include integrations/actions.md %}
-
 ### Alarm control panel entity
 
 The Alarm control panel entity in the EZVIZ platform allows users to manage and control the armed status of all their EZVIZ devices. With this entity, users can choose between three options: **Arm Away**, **Arm Sleep**, and **Disarm**.
@@ -118,6 +116,8 @@ A light entity will be added to cameras + light combos. You can turn it on/off a
 ### Image entity
 
 The image entity represents the last detected event from a camera and visually represents the event within Home Assistant.
+
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 
