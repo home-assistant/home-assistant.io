@@ -146,12 +146,12 @@ in_reply_to:
   description: >
     The ID of the status to reply to. Setting this makes the new post a reply, allowing you to create or continue a thread.
   required: false
-  type: str
+  type: string
 quoted_status:
   description: >
     The ID of the status to quote in this post.
   required: false
-  type: str
+  type: string
 {% endoptions_yaml %}
 
 {% note %}
