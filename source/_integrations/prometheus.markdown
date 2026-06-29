@@ -219,12 +219,12 @@ Metrics are exported only for the following domains:
 
 ## Info metrics
 
-The Prometheus exporter additionally exports several info endpoints: `area_info`, `entity_info` and `floor_info` for each area, entity and floor configured in your system. You can do a join across metrics to them get the labels from these onto the individual sensors if you want to use a metric of that hierarchy in a query. For example, to show temperature sensors averaged per area you might do:
+The Prometheus exporter additionally exports several info metics: `area_info`, `entity_info` and `floor_info` (prefixed by the namespace if configured) for each area, entity and floor configured in your system. You can do a join across metrics to them get the labels from these onto the individual sensors if you want to use a metric of that hierarchy in a query. For example, to show temperature sensors averaged per area you might do:
 
 ```promql
 avg by (area) (
-  homeassistant_sensor_temperature_celsius
+  sensor_temperature_celsius
     * on(entity) group_left(area)
-  homeassistant_entity_info
+  entity_info
 )
 ```
