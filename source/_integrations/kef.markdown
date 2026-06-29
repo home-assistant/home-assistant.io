@@ -95,7 +95,8 @@ media_player:
    volume_step: 0.05
 ```
 
-Just like in the KEF Control app, you can change the digital signal processing (DSP) settings of the speaker. The speaker's current DSP settings update automatically every hour and after each action. To refresh them manually, use the [Update DSP](/integrations/kef/#action-kefupdate_dsp) action.
+Just like in the KEF Control app, you can change the digital signal processing (DSP) settings of the speaker. The speaker's DSP settings update automatically every hour and after each action.
+To refresh them manually, use the [Update DSP](/actions/kef.update_dsp/) action.
 
 {% include integrations/actions.md %}
 
