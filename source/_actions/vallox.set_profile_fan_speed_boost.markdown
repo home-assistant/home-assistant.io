@@ -9,11 +9,11 @@ related_actions:
   - vallox.set_profile
 ---
 
-Use this action to set the fan speed of the `Boost` profile on your Vallox ventilation unit.
+Use this action to set the fan speed of the **Boost** profile on your Vallox ventilation unit.
 
 {% include actions/ui_header.md %}
 
-To set the Boost profile fan speed from an automation or a script:
+To set the **Boost** profile fan speed from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
@@ -42,7 +42,7 @@ action: |
     fan_speed: 80
 {% endexample %}
 
-This sets the Boost profile fan speed to 80%.
+This sets the **Boost** profile fan speed to 80%.
 
 ### Options in YAML
 
