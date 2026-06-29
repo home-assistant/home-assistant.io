@@ -8,6 +8,7 @@ ha_config_flow: true
 ha_release: 2023.5
 ha_codeowners:
   - '@Lash-L'
+  - '@rhys-saldanha'
 ha_domain: anova
 ha_integration_type: hub
 ha_platforms:
