@@ -46,7 +46,50 @@ To apply a theme interactively, use the theme selection drop-down box found on t
 
 To apply a theme as part of an automation, use the `select.select_option` action call. You can also apply a theme when starting the [`lifx.effect_move`](/actions/lifx.effect_move/) action.
 
-The following themes are available: `autumn`, `blissful`, `bias_lighting`, `calaveras`, `cheerful`, `christmas`, `dream`, `energizing`, `epic`, `evening`, `exciting`, `fantasy`, `focusing`, `gentle`, `halloween`, `hanukkah`, `holly`, `hygge`, `independence`, `intense`, `love`, `kwanzaa`, `mellow`, `party`, `peaceful`, `powerful`, `proud`, `pumpkin`, `relaxing`, `romance`, `santa`, `serene`, `shamrock`, `soothing`, `spacey`, `sports`, `spring`, `stardust`, `thanksgiving`, `tranquil`, `warming`, `zombie`.
+The following themes are available:
+
+- `autumn`
+- `blissful`
+- `bias_lighting`
+- `calaveras`
+- `cheerful`
+- `christmas`
+- `dream`
+- `energizing`
+- `epic`
+- `evening`
+- `exciting`
+- `fantasy`
+- `focusing`
+- `gentle`
+- `halloween`
+- `hanukkah`
+- `holly`
+- `hygge`
+- `independence`
+- `intense`
+- `love`
+- `kwanzaa`
+- `mellow`
+- `party`
+- `peaceful`
+- `powerful`
+- `proud`
+- `pumpkin`
+- `relaxing`
+- `romance`
+- `santa`
+- `serene`
+- `shamrock`
+- `soothing`
+- `spacey`
+- `sports`
+- `spring`
+- `stardust`
+- `thanksgiving`
+- `tranquil`
+- `warming`
+- `zombie`
 
 ## Light effects
 
