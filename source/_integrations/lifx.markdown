@@ -95,23 +95,23 @@ The following themes are available:
 
 The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/actions/light.turn_on/) action, for example like this:
 
-```yaml
-automation:
-  - alias: "..."
-    triggers:
-      # ...
-    actions:
-      - action: light.turn_on
-        target:
-          entity_id: light.office, light.kitchen
-        data:
-          effect: lifx_effect_pulse
-```
+{% example %}
+automation: |
+  alias: "..."
+  triggers:
+    # ...
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.office, light.kitchen
+      data:
+        effect: lifx_effect_pulse
+{% endexample %}
 
 However, if you want to fully control a light effect, you have to use its dedicated action, like this:
 
-```yaml
-script:
+{% example %}
+script: |
   colorloop_start:
     alias: "Start colorloop"
     sequence:
@@ -123,7 +123,7 @@ script:
           period: 10
           spread: 30
           change: 35
-```
+{% endexample %}
 
 ### Hardware effects
 
