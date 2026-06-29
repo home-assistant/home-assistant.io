@@ -91,7 +91,27 @@ On success, the integration reloads automatically.
 
 ## Data updates
 
-Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.
+Entities are updated only when new values are received from the device, but no more frequently than every 1 second.
+
+## Reduce Recorder storage
+
+Home Assistant stores each state change that Recorder keeps, so Victron GX entities can generate a lot of history data.
+
+If you do not need every entity, disable the ones you do not use under {% my integrations title="**Settings** > **Devices & services**" %} on the entity page.
+
+You can also reduce Recorder data growth by excluding specific high-churn
+Victron GX entities in the [Recorder integration](/integrations/recorder/). If
+you need to keep more data, you can tune Recorder settings like
+`commit_interval` and `purge_keep_days` to fit your setup.
+
+For example, to exclude one Victron GX entity from Recorder:
+
+```yaml
+recorder:
+  exclude:
+    entities:
+      - sensor.victron_venus_system_heartbeat
+```
 
 ## Supported functionality
 
@@ -174,7 +194,7 @@ Configurable time-of-day settings, such as:
 
 ## Known limitations
 
-- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
+- The integration receives updates through MQTT push, but limits entity updates to at most once every 1 second. This means rapidly changing values may appear with a short delay.
 
 ## Examples
 
