@@ -79,8 +79,6 @@ The Blue Current integration provides the following buttons:
 - Reboot
 - Stop charge session
 
-{% include integrations/actions.md %}
-
 ## Switch
 
 The Blue Current integration provides the following switches:
@@ -91,3 +89,5 @@ The Blue Current integration provides the following switches:
   - When enabled, visitors can't use the charge point. Only linked charging cards are allowed.
 - Toggle charge point block
   - Enables or disables a charge point.
+ 
+{% include integrations/actions.md %}
