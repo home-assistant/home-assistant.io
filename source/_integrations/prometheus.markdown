@@ -216,3 +216,15 @@ This use of `unless` (which can be slow to compute) is no longer necessary, but 
 Metrics are exported only for the following domains:
 
 `alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `geo_location`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`, `water_heater`
+
+## Info metrics
+
+The Prometheus exporter additionally exports several info endpoints: `area_info`, `entity_info` and `floor_info` for each area, entity and floor configured in your system. You can do a join across metrics to them get the labels from these onto the individual sensors if you want to use a metric of that hierarchy in a query. For example, to show temperature sensors averaged per area you might do:
+
+```promql
+avg by (area) (
+  homeassistant_sensor_temperature_celsius
+    * on(entity) group_left(area)
+  homeassistant_entity_info
+)
+```
