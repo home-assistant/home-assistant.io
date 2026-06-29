@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to investigate objects in memory. When [Profiler: Start log objects](/actions/profiler.start_log_objects/) highlights the growth of a collection of objects in memory, this action helps you investigate it. The representation of each object that matches the given **Type** is logged.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To dump log objects from an automation or a script:
@@ -64,8 +66,6 @@ action: profiler.dump_log_objects
 data:
   type: Template
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to stop logging the growth of objects in memory that you started with [Profiler: Start log objects](/actions/profiler.start_log_objects/).
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To stop logging objects from an automation or a script:
@@ -34,10 +36,6 @@ action: |
 This stops logging the growth of objects in memory.
 
 This action does not support targets.
-
-## Good to know
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

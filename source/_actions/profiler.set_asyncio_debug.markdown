@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to enable or disable asyncio debug mode. When enabled, `asyncio` runs in [debug mode](https://docs.python.org/3/library/asyncio-dev.html#debug-mode). This helps you identify an integration that is blocking the event loop.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To set asyncio debug mode from an automation or a script:
@@ -55,10 +57,6 @@ enabled:
 {% endoptions_yaml %}
 
 This action does not support targets.
-
-## Good to know
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

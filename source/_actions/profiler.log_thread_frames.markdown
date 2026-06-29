@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to log the current frames for each running thread. This helps you discover runaway threads, find out why the executor is overloaded, or track down other threading problems.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To log thread frames from an automation or a script:
@@ -51,8 +53,6 @@ The frames for each thread are logged, similar to this example:
   File "/usr/local/lib/python3.8/concurrent/futures/thread.py", line 57, in run
     result = self.fn(*self.args, **self.kwargs)
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

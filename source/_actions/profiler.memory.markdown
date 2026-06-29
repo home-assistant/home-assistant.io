@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to start the memory profiler for the specified number of seconds. It helps you analyze how Home Assistant uses memory.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To start the memory profiler from an automation or a script:
@@ -66,8 +68,6 @@ You can open the `hpy` file with any text editor. For a visual representation, u
 from guppy import hpy
 hpy().pb()
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

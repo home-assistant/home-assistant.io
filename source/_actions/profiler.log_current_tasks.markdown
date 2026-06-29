@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to log all currently running tasks. This helps you track down task leaks or find tasks that are delaying startup.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To log current tasks from an automation or a script:
@@ -42,8 +44,6 @@ Each running task is logged, similar to this example:
 ```txt
 [homeassistant.components.profiler] Task: <Task pending name='Task-1133' coro=<HubConnector._listener() running at /usr/local/lib/python3.12/site-packages/aioharmony/hubconnector_websocket.py:362> wait_for=<Future pending cb=[Task.task_wakeup()]>>
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

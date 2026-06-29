@@ -9,7 +9,9 @@ related_actions:
   - profiler.dump_log_objects
 ---
 
-Use this action to log statistics from [lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [lru-dict](https://pypi.org/project/lru-dict/). This helps you tune Home Assistant and locate memory leaks.
+Use this action to log statistics from [`lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [`lru-dict`](https://pypi.org/project/lru-dict/). This helps you tune Home Assistant and locate memory leaks.
+
+This action requires an administrator account.
 
 {% include actions/ui_header.md %}
 
@@ -34,10 +36,6 @@ action: |
 This logs statistics from the LRU caches.
 
 This action does not support targets.
-
-## Good to know
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to start the profiler for the specified number of seconds. It collects a set of statistics that show how much time each part of Home Assistant takes, which helps you track down a performance issue or a misbehaving integration.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To start the profiler from an automation or a script:
@@ -83,8 +85,6 @@ dot callgrind.dot -Tpng -o callgrind.png
 # Alternatively, both commands in a single line:
 gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

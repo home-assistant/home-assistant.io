@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to start logging the growth of objects in memory. Its primary use case is finding memory leaks. You can run it for long periods to find slow leaks. For finding fast leaks, [Profiler: Start log object sources](/actions/profiler.start_log_object_sources/) is preferred, although it is much more CPU intensive.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To start logging objects from an automation or a script:
@@ -58,8 +60,6 @@ This action does not support targets.
 ## Good to know
 
 See the [corresponding documentation for `growth()`](https://mg.pov.lt/objgraph/objgraph.html#objgraph.growth) for the format in which this data is logged.
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

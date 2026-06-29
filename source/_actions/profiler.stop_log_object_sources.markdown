@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to stop logging the growth of objects with sources in memory that you started with [Profiler: Start log object sources](/actions/profiler.start_log_object_sources/).
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To stop logging object sources from an automation or a script:
@@ -34,10 +36,6 @@ action: |
 This stops logging the growth of objects with sources in memory.
 
 This action does not support targets.
-
-## Good to know
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 

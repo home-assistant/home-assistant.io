@@ -11,6 +11,8 @@ related_actions:
 
 Use this action to log all sockets used by Home Assistant. This helps you identify which network connections are currently open, mainly to track down connections that are not being closed properly.
 
+This action requires an administrator account.
+
 {% include actions/ui_header.md %}
 
 To dump sockets from an automation or a script:
@@ -47,8 +49,6 @@ The sockets are logged, similar to this example:
 <socket.socket fd=11, family=10, type=1, proto=6, laddr=('::', 80, 0, 0)>
 <socket.socket fd=12, family=2, type=1, proto=6, laddr=('0.0.0.0', 80)>
 ```
-
-This action requires an administrator account.
 
 {% include actions/try_it.md %}
 
