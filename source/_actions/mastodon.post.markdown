@@ -61,6 +61,12 @@ Media description:
 Media warning:
   description: Mark the attached media as sensitive.
   required: false
+In reply to:
+  description: The ID of the status to reply to. Setting this makes the new post a reply, allowing you to create or continue a thread.
+  required: false
+Quote:
+  description: The ID of the status to quote in this post.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -136,6 +142,16 @@ media_warning:
   required: false
   type: boolean
   default: false
+in_reply_to:
+  description: >
+    The ID of the status to reply to. Setting this makes the new post a reply, allowing you to create or continue a thread.
+  required: false
+  type: str
+quoted_status:
+  description: >
+    The ID of the status to quote in this post.
+  required: false
+  type: str
 {% endoptions_yaml %}
 
 {% note %}
