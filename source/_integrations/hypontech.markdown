@@ -56,7 +56,7 @@ The integration provides one **Plant** device for each location (for example: Ba
 
 Each Plant device has the following diagnostic binary sensor:
 
-- **Status**: On when Hypontech Cloud reports the plant as online, and off when it reports offline. Other values are shown as `unknown`.
+- **Status**: On when Hypontech Cloud reports the plant as online, and off otherwise.
 All entities are updated every minute.
 
 ## Data updates
