@@ -65,7 +65,6 @@ Password:
 
 Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
 
-## Actions
 
 {% include integrations/actions.md %}
 
