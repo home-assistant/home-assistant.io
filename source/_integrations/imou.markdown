@@ -90,14 +90,14 @@ The integration exposes button entities when the cloud API reports that the acti
 
 The integration exposes switch entities when the cloud API reports that the toggle is supported for a device:
 
-- **Motion detect**: Enable or disable motion detection on supported cameras.
-- **Human detect**: Enable or disable human detection on supported cameras.
-- **White light**: Turn the camera white light on or off on supported models.
-- **Close camera**: Enable privacy mode that closes or disables the camera lens on supported models.
+- **Motion detection**: Enable or disable motion detection on supported cameras.
+- **Human detection**: Enable or disable human detection on supported cameras.
+- **White light**: Manually turn the camera white LED illuminator on or off on supported models.
+- **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **Abnormal sound alarm**: Enable or disable abnormal sound detection alarms.
-- **Audio encode control**: Enable or disable audio encoding on supported devices.
-- **Light**: Control an IoT light switch on supported smart plug or bulb devices.
-- **Plug switch**: Control the main power switch on supported IoT socket devices.
+- **Audio recording**: Enable or disable audio recording on supported cameras.
+- **Indicator light**: Turn the device status indicator LED on or off on supported models.
+- **Plug switch**: Control the main power relay on supported IoT socket devices (additional socket features such as power mode and live current are planned for follow-up platforms).
 
 ## Data updates
 
