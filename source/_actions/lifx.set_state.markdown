@@ -81,7 +81,8 @@ You can also use the color and brightness options from the [`light.turn_on`](/ac
 
 ## Good to know
 
-- The LIFX Z and Lightstrip have 8 zones per segment, up to 10 segments, for a maximum of 80 zones (numbered 0 to 79). The LIFX Beam has 10 zones per segment plus 1 per corner piece, up to 8 segments and 2 corners, for a maximum of 82 zones (numbered 0 to 81).
+- The LIFX Z and Lightstrip have 8 zones per segment, up to 10 segments, for a maximum of 80 zones (numbered 0 to 79).
+- The LIFX Beam has 10 zones per segment plus 1 per corner piece, up to 8 segments and 2 corners, for a maximum of 82 zones (numbered 0 to 81).
 
 {% include actions/targets.md domain="light" %}
 

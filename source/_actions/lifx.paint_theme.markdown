@@ -77,9 +77,51 @@ power_on:
   default: true
 {% endoptions_yaml %}
 
-## Good to know
+## Available themes
 
-- The available themes are `autumn`, `bias_lighting`, `blissful`, `calaveras`, `cheerful`, `christmas`, `dream`, `energizing`, `epic`, `evening`, `exciting`, `fantasy`, `focusing`, `gentle`, `halloween`, `hanukkah`, `holly`, `hygge`, `independence`, `intense`, `kwanzaa`, `love`, `mellow`, `party`, `peaceful`, `powerful`, `proud`, `pumpkin`, `relaxing`, `romance`, `santa`, `serene`, `shamrock`, `soothing`, `spacey`, `sports`, `spring`, `stardust`, `thanksgiving`, `tranquil`, `warming`, and `zombie`.
+The available themes are:
+- `autumn`
+- `bias_lighting`
+- `blissful`
+- `calaveras`
+- `cheerful`
+- `christmas`
+- `dream`
+- `energizing`
+- `epic`
+- `evening`
+- `exciting`
+- `fantasy`
+- `focusing`
+- `gentle`
+- `halloween`
+- `hanukkah`
+- `holly`
+- `hygge`
+- `independence`
+- `intense`
+- `kwanzaa`
+- `love`
+- `mellow`
+- `party`
+- `peaceful`
+- `powerful`
+- `proud`
+- `pumpkin`
+- `relaxing`
+- `romance`
+- `santa`
+- `serene`
+- `shamrock`
+- `soothing`
+- `spacey`
+- `sports`
+- `spring`
+- `stardust`
+- `thanksgiving`
+- `tranquil`
+- `warming`
+- `zombie`
 
 {% include actions/targets.md domain="light" %}
 
