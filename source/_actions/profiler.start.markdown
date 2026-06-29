@@ -61,30 +61,22 @@ This action does not support targets.
 
 When the profile is complete, the profiler generates a Python `cprof` file and a `callgrind.out` file in your configuration directory. The exact path to these files appears in a notification, so you can find and copy them.
 
-The `cprof` file can be viewed with:
+To view a `cprof` file, use:
 
 - [SnakeViz](https://jiffyclub.github.io/snakeviz/)
 - [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
-The `callgrind.out` file can be viewed with:
+To view a `callgrind.out` file, use:
 
 - [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
 - [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
-The gprof2dot tool generates [DOT](https://www.graphviz.org/doc/info/lang.html) files, which you can convert to images using the `dot` tool from [Graphviz](https://www.graphviz.org/), or view directly with [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters set the minimum percentage required to include a function in the output file:
+The gprof2dot tool generates [DOT](https://www.graphviz.org/doc/info/lang.html) files, which you can convert to images using the `dot` tool from [Graphviz](https://www.graphviz.org/), or view directly with [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters set the minimum percentage required to include a function in the output file.
+For example:
 
-```bash
-# Generate the .dot files:
-gprof2dot -f pstats -e 0.05 -n 0.25 profile.PROFILE_ID.cprof -o profile.dot
-gprof2dot -f callgrind -e 0.05 -n 0.25 callgrind.out.PROFILE_ID -o callgrind.dot
+- To generate the DOT files:
 
-# Convert to SVG and PNG formats:
-dot callgrind.dot -Tsvg -o callgrind.svg
-dot callgrind.dot -Tpng -o callgrind.png
-
-# Alternatively, both commands in a single line:
-gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
-```
+   
 
 {% include actions/try_it.md %}
 
