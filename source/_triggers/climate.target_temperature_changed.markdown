@@ -2,7 +2,7 @@
 title: "Thermostat target temperature changed"
 trigger: climate.target_temperature_changed
 domain: climate
-description: "Triggers after the temperature setpoint of one or more thermostats changes."
+description: "Triggers when the temperature setpoint of one or more thermostats changes."
 related_triggers:
   - climate.target_temperature_crossed_threshold
   - climate.target_humidity_changed

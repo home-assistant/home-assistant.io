@@ -2,7 +2,7 @@
 title: "Media player paused playing"
 trigger: media_player.paused_playing
 domain: media_player
-description: "Triggers after one or more media players pause playing."
+description: "Triggers when one or more media players pause playing."
 related_triggers:
   - media_player.started_playing
   - media_player.stopped_playing

@@ -77,19 +77,7 @@ The integration setup will next give you instructions to enter the [Application 
 {% enddetails %}
 
 
-### Action: Upload
-
-The `google_photos.upload` action allows you to upload photos from Home Assistant to Google Photos.
-
-{% details "Upload action details" %}
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `filename` | no | Path to the image to upload. | /mnt/image.jpg |
-| `album` | no | Album name that is the destination for the uploaded content. | London vacation |
-| `config_entry_id` | no | The ID of the Google Photos config entry. | a1bee602deade2b09bc522749bbce48e |
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 
 ## Troubleshooting

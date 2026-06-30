@@ -739,12 +739,4 @@ command_line:
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
 
-## Actions
-
-Available actions: `reload`.
-
-### Action: Reload
-
-The `command_line.reload` action allows you to reload all `command_line` entities.
-
-This action takes no data attributes.
+{% include integrations/actions.md %}

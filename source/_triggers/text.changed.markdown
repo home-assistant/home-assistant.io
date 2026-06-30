@@ -2,10 +2,10 @@
 title: "Text changed"
 trigger: text.changed
 domain: text
-description: "Triggers after the value of one or more text entities changes."
+description: "Triggers when the value of one or more text entities changes."
 ---
 
-The **Text changed** trigger fires after the value of a text {% term entity %} changes. It works with both [Text](/integrations/text/) entities exposed by your devices and integrations, and with [Text helpers](/integrations/input_text/). Use it to react when someone enters a new shopping list note, when a device reports a new status string, or when an automation updates a stored value.
+The **Text changed** trigger fires when the value of a text {% term entity %} changes. It works with both [Text](/integrations/text/) entities exposed by your devices and integrations, and with [Text helpers](/integrations/input_text/). Use it to react when someone enters a new shopping list note, when a device reports a new status string, or when an automation updates a stored value.
 
 {% include integrations/labs_entity_triggers_note.md %}
 

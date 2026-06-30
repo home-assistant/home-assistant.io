@@ -151,6 +151,10 @@ The following table describes which [API features](https://platform.claude.com/d
 | [Prompt caching (1hr)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration) | Extended 1-hour cache duration for less frequently accessed but important context, complementing the standard 5-minute cache. | Not supported | This is a more expensive version of prompt caching; it is probably not worth it for a smart home, but we might add this option in the future. Also, the chat session in Home Assistant expires in 5 minutes |
 | [Token counting](https://platform.claude.com/docs/en/api/messages-count-tokens) | Token counting enables you to determine the number of tokens in a message before sending it to Claude, helping you make informed decisions about your prompts and usage. | Not supported | This is probably not applicable to Home Assistant use cases |
 
+### Availability
+
+On start, the integration verifies the connection and validity of the API key, a config entry will not be loaded until this connectivity test succeeds. Additionally, there are periodic connectivity checks after startup. When the connection is considered to be broken, the `conversation` and `ai_task` entities will be shown as `Unavailable` until the connection is successful again. This does not prevent execution of the actions.
+
 ## Use cases
 
 The integration provides `conversation` and `ai_task` entities powered by Anthropic API. Please refer to the corresponding integrations for more details and examples:
