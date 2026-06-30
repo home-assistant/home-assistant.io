@@ -54,7 +54,7 @@ during integration setup. When turned off, it will clear the configured priority
 Other light sources independent of Home Assistant configured in Hyperion might still be 
 active and cause light to be emitted. To turn the light output off entirely 
 regardless of active light sources, you can enable the LED device entity that acts as 
-a global switch (see Advanced Entities).
+a global switch (see [Entities for higher extensibility and interoperability](/integrations/hyperion/#entities-for-higher-extensibility-and-interoperability).
 
 ## Effects
 
@@ -75,10 +75,10 @@ static colors will not).
 
 A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor provide more details on the nature of the effect. For a detailed description, refer to the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities).
 
-## Advanced entities
+## Entities for higher extensibility and interoperability
 
 The Hyperion integration comes with a series of disabled-by-default entities for
-advanced usecases. These entities expose 'raw' underlying Hyperion API components for
+particular usecases. These entities expose 'raw' underlying Hyperion API components for
 improved extensibility and interoperability which are particularly useful in cases where
 there are multiple Hyperion server clients (of which Home Assistant is one).
 
@@ -95,7 +95,7 @@ Provided entities for controlling external sources:
 
 ### Control over Hyperion functionality
 
-Further advanced entities to control Hyperion functionality:
+Further entities to control Hyperion functionality:
 
 - There will be additional `switch.[instance]_component_[component]` entities that can
   be used to toggle the relevant underlying Hyperion component as shown on the Hyperion
