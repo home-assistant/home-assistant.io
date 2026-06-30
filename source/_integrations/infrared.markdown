@@ -16,7 +16,7 @@ related:
     title: ESPHome infrared and radio frequency proxy component
 ---
 
-An infrared {% term entity %} represents either an infrared emitter or an infrared receiver. Emitters allow other integrations to send IR commands to control devices such as TVs, air conditioners, and other IR-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
+An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver). Emitters allow other integrations to send IR commands to control devices such as TVs, air conditioners, and other IR-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
 
 The **Infrared** {% term integration %} acts as an abstraction layer between IR hardware (such as ESPHome) and device-specific integrations that send commands to infrared-controlled devices, or receive signals from infrared remotes.
 
