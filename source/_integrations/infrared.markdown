@@ -22,12 +22,6 @@ The **Infrared** {% term integration %} acts as an abstraction layer between IR 
 
 {% include integrations/building_block_integration.md %}
 
-## Setting up devices that use infrared
-
-When setting up an integration for an IR-controlled device (such as an LG TV via infrared), you will typically be asked to select which IR emitter and/or receiver to use during the configuration process. This allows you to choose the specific infrared entity that is physically positioned near your device.
-
-The selected infrared entity must be provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter or receiver.
-
 ## Finding and adding integrations that support infrared
 
 The **Infrared** {% term integration %} is a building block that other integrations build on. To control an IR-controlled device or react to an infrared remote, you need an integration that supports infrared, such as one for your specific TV or air conditioner.
