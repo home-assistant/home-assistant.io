@@ -8,7 +8,7 @@ related_actions:
   - home_connect.change_setting
 ---
 
-Use this action to start or select a program on a Home Connect appliance, for example to start an eco dishwasher cycle or pick a coffee program ready to brew. If you leave the program out, the action instead sets options on the program that is already active or selected, so you can tweak a running cycle.
+Use this action to start or select a program on a Home Connect appliance, for example to start an eco dishwasher cycle or pick a coffee program ready to brew. If you omit the program, the action instead sets options on the program that is already active or selected, so you can tweak a running cycle.
 
 You always pick the appliance and whether the action affects the active or the selected program. After that, you either choose a program, set one or more options, or both. The available options depend on the type of appliance, so a washer and a coffee maker show different choices.
 
@@ -42,7 +42,8 @@ Program:
   required: false
 {% endoptions_ui %}
 
-In addition, the UI shows option groups for each appliance type. Only the options that apply to your appliance are used. See [Program options](#program-options) for the full list.
+In addition, the UI shows option groups for each appliance type. Only the options that apply to your appliance are used.
+For the full list, see [Program options](#program-options).
 
 {% include actions/yaml_header.md %}
 
@@ -74,7 +75,8 @@ program:
   type: string
 {% endoptions_yaml %}
 
-In addition, you can pass program options as extra keys in the `data` section. Only the options that apply to your appliance are used. See [Program options](#program-options) for the full list.
+In addition, you can pass program options as extra keys in the `data` section. Only the options that apply to your appliance are used.
+For the full list, see [Program options](#program-options).
 
 ### Program options
 
