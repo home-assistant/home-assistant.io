@@ -2,15 +2,13 @@
 title: "Zone occupancy detected"
 trigger: zone.occupancy_detected
 domain: zone
-description: "Triggers when a zone changes from empty to occupied."
+description: "Triggers when one or more zones become occupied."
 related_triggers:
   - zone.occupancy_cleared
   - zone.entered
 ---
 
 The **Zone occupancy detected** trigger fires when a selected zone changes from empty to occupied. Use it when the automation only needs to know that at least one person is now in the zone, instead of reacting to each specific person or device tracker.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

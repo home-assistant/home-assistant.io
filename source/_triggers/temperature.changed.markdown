@@ -2,7 +2,7 @@
 title: "Temperature changed"
 trigger: temperature.changed
 domain: temperature
-description: "Triggers after one or more temperature readings change."
+description: "Triggers when one or more temperature readings change."
 related_triggers:
   - temperature.crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Temperature changed** trigger fires after a temperature reading changes. Temperature shifts gradually as heating or cooling systems cycle, rises when the sun heats a room in the afternoon, or drops overnight. Use the threshold type to filter which changes matter to your automation.
 
 Use **Temperature changed** to log temperature trends, trigger heating or cooling when the temperature in a room changes noticeably, or alert you when a sensor reading shifts in a way that might signal a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

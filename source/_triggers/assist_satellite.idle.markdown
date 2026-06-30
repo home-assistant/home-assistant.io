@@ -2,7 +2,7 @@
 title: Satellite became idle
 trigger: assist_satellite.idle
 domain: assist_satellite
-description: Triggers after one or more Assist satellites return to the idle state.
+description: "Triggers when one or more Assist satellites become idle after having processed a command."
 related_triggers:
   - assist_satellite.started_listening
   - assist_satellite.started_processing
@@ -12,8 +12,6 @@ related_triggers:
 The **Satellite became idle** trigger fires when one or more Assist satellite {% term entities %} return to the idle state. This happens after a voice pipeline run is fully complete: the wake word was detected, the command was listened to, processed, and the spoken response has finished playing.
 
 Use it to automate clean-up or reset actions after each voice interaction. For example, create an automation to restore media volume that was lowered during the response, to turn off indicator lights that were switched on when listening began, to resume a paused media player, or to log the end of each voice session as part of an energy and resource monitoring routine.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

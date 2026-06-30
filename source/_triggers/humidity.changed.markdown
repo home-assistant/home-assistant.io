@@ -2,7 +2,7 @@
 title: "Relative humidity changed"
 trigger: humidity.changed
 domain: humidity
-description: "Triggers after one or more relative humidity readings change."
+description: "Triggers when one or more relative humidity values change."
 related_triggers:
   - humidity.crossed_threshold
 ---
@@ -12,8 +12,6 @@ The **Relative humidity changed** trigger fires after a humidity reading changes
 The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
 
 Use **Relative humidity changed** to log humidity trends, trigger a fan when the air in a room becomes noticeably more humid, or alert you when a sensor reading shifts in a way that might signal a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

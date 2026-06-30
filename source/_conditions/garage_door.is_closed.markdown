@@ -11,8 +11,6 @@ The **Garage door is closed** condition passes when one or more targeted garage 
 
 This condition is useful for security checks and routines that depend on a closed garage door, like arming an alarm or turning on climate control only after the opening is sealed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

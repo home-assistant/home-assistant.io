@@ -7,10 +7,11 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Switch
   - Time
 ha_iot_class: Cloud Push
 ha_release: 2026.6
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@cdnninja'
@@ -22,6 +23,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - time
 ha_integration_type: hub
 ha_dhcp: true
@@ -129,6 +131,15 @@ Set the player's ambient light color for each mode, picked from a fixed palette.
 
 - **Day mode color**: The ambient light color in day mode.
 - **Night mode color**: The ambient light color in night mode.
+
+### Switches
+
+Turn the following player settings on or off:
+
+- **Bluetooth pairing**: Enables Bluetooth so you can pair an audio device.
+- **Maximum headphone volume**: Limits the volume when headphones are connected.
+- **Day mode automatic brightness**: Automatically adjusts the display brightness in day mode (only available on players with a light sensor). Turning this off sets the brightness to 100%.
+- **Night mode automatic brightness**: Automatically adjusts the display brightness in night mode (only available on players with a light sensor). Turning this off sets the brightness to 100%.
 
 ### Binary sensors
 

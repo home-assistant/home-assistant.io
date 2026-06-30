@@ -2,7 +2,7 @@
 title: "Counter reset"
 trigger: counter.reset
 domain: counter
-description: "Triggers after one or more counters are reset."
+description: "Triggers when one or more counters are reset."
 related_triggers:
   - counter.incremented
   - counter.decremented
@@ -12,8 +12,6 @@ related_triggers:
 
 The **Counter reset** trigger fires when a counter {% term helper %} returns to its initial value.
 Use it when you want to restart a routine, clear a reminder, or react when a user-created counter has gone back to its starting point.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
