@@ -527,10 +527,10 @@ This is more than a nice-to-have. Your Pi's firmware needs to stay compatible wi
 
 A few things to keep in mind:
 
-- This needs [Home Assistant Operating System 18](https://github.com/home-assistant/operating-system/releases/tag/18.0) or newer and Home Assistant Supervisor 2026.06.0 or newer, which provide the support the update entity builds on. On older versions, the entity simply isn't there.
+- This needs [Home Assistant Operating System 18](https://github.com/home-assistant/operating-system/releases/tag/18.0) or newer, which provide the support the update entity builds on. On older versions, the entity simply isn't there.
 - On a Raspberry Pi 4, the firmware can only be updated when the board boots from an SD card. If your Pi 4 boots from USB storage, the update isn't available. This is one more reason we recommend using USB only as a data disk and keeping an SD card as the main boot device.
 - Not every board can update its firmware this way. Where an update can't be applied, the entity doesn't appear at all, so you shouldn't see an option that wouldn't work.
-- After the update is applied, Home Assistant prompts you to reboot the board to finish.
+- After the update is applied, Home Assistant prompts you to reboot your system to complete the update.
 
 There is a bit of irony here worth being candid about. Outdated firmware on some installations is exactly what led us to hold Raspberry Pi 5 and Home Assistant Yellow back from Operating System 18.0 for now. The new update entity is part of how we make it straightforward to get that firmware current, and we expect the issues that led to rolling that release back to be resolved in the upcoming 18.1 patch release.
 
