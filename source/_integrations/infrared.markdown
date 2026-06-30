@@ -39,9 +39,9 @@ The selected infrared entity must be provided by a hardware integration (such as
 
 ## Finding and adding integrations that support infrared
 
-Infrared is a building block that other integrations build on. To control an IR-controlled device or react to an infrared remote, you need an integration that supports infrared, such as one for your specific TV or air conditioner.
+The **Infrared** {% term integration %} is a building block that other integrations build on. To control an IR-controlled device or react to an infrared remote, you need an integration that supports infrared, such as one for your specific TV or air conditioner.
 
-To find and add these integrations:
+To find and add integrations that support infrared:
 
 1. In the Home Assistant documentation, go to the [Infrared category](/integrations/#infrared).
 2. Browse the listed integrations to find one that matches your IR-controlled device.
