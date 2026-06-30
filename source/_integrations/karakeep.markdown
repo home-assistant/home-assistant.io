@@ -56,7 +56,7 @@ Verify SSL certificate:
 
 The Karakeep integration provides sensors for account statistics. The Karakeep server version is shown on the integration's device page when your instance is running version `0.29.0` or later.
 
-## Sensors
+### Sensors
 
 For each config entry, the integration creates the following {% term sensors %}:
 
@@ -71,24 +71,32 @@ For each config entry, the integration creates the following {% term sensors %}:
 
 This integration retrieves data from Karakeep using a pull-based mechanism. The statistics sensors update every 5 minutes.
 
-## Removing the integration
-
-{% include integrations/remove_device_service.md %}
-
-If you no longer use the API key, you can remove it from your Karakeep instance.
-
 ## Troubleshooting
 
-{% details "The integration cannot connect to Karakeep" %}
+### Cannot connect to Karakeep
+
+#### Symptom: "Failed to connect"
+
+During setup, Home Assistant cannot reach the Karakeep instance.
+
+#### Resolution
 
 1. Make sure the URL includes `http://` or `https://`.
 2. Make sure Home Assistant can reach the Karakeep instance over the network.
 3. Check whether a reverse proxy, firewall, or TLS certificate issue is blocking access from Home Assistant.
 
-{% enddetails %}
+### Authentication fails during setup
 
-{% details "Authentication fails during setup" %}
+#### Symptom: "Invalid authentication"
+
+During setup, Home Assistant reports that the provided API key is not valid.
+
+#### Resolution
 
 Verify that the API key is copied correctly and is still valid in Karakeep.
 
-{% enddetails %}
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you no longer use the API key, you can remove it from your Karakeep instance.
