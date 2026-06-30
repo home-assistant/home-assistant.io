@@ -19,7 +19,7 @@ To set a light sleep timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your Modern Forms fan light.
-6. From the actions shown for that target, select **Set light sleep timer**.
+6. From the actions shown for that target, select **Modern Forms: Set light sleep timer**.
 7. Enter the **Sleep time** in minutes.
 8. Select **Save**.
 
