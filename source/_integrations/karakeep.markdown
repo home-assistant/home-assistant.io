@@ -69,7 +69,7 @@ For each config entry, the integration creates the following {% term sensors %}:
 
 ## Data updates
 
-This integration retrieves data from Karakeep using a pull-based mechanism. The statistics sensors update every 5 minutes.
+The Karakeep integration {% term polling polls %} the statistics from your Karakeep instance every 5 minutes.
 
 ## Troubleshooting
 
