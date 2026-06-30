@@ -54,7 +54,7 @@ during integration setup. When turned off, it will clear the configured priority
 Other light sources independent of Home Assistant configured in Hyperion might still be 
 active and cause light to be emitted. To turn the light output off entirely 
 regardless of active light sources, you can enable the LED device entity that acts as 
-a global switch (see [Entities for higher extensibility and interoperability](/integrations/hyperion/#entities-for-higher-extensibility-and-interoperability).
+a global switch (see [Entities for higher extensibility and interoperability](/integrations/hyperion/#entities-for-higher-extensibility-and-interoperability)).
 
 ## Effects
 
