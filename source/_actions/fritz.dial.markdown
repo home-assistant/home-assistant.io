@@ -9,8 +9,6 @@ related_actions:
 
 Use this action to make your FRITZ!Box dial a phone number. This is handy when you want the connected phones to ring as a notification, for example to ring the house phones when motion is detected at the front door.
 
-Only users with administrator rights can run this action.
-
 {% include actions/ui_header.md %}
 
 To dial a phone number from an automation or a script:
