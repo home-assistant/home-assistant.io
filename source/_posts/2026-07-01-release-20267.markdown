@@ -102,7 +102,10 @@ Enjoy the (beta) release!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Time format selection](#time-format-selection)
   - [Dedicated panels for infrared and radio frequency](#dedicated-panels-for-infrared-and-radio-frequency)
-  - [The ZHA Zigbee device management got an overhaul](#the-zha-zigbee-device-management-got-an-overhaul)
+  - [Zigbee got some major overhauls](#zigbee-got-some-major-overhauls)
+    - [ZHA Zigbee device management got UX improvements](#zha-zigbee-device-management-got-ux-improvements)
+    - [ZHA libraries updated to new major release](#zha-libraries-updated-to-new-major-release)
+    - [Public beta of Ziggurat Zigbee-stack](#public-beta-of-ziggurat-zigbee-stack)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -504,7 +507,12 @@ Thanks, [@balloob]!
 
 [@balloob]: https://github.com/balloob
 
-### The ZHA Zigbee device management got an overhaul
+
+### Zigbee got some major overhauls
+
+Home Assistant's built-in Zigbee gateway, the [ZHA integartion](/integrations/zha/) got part of its UI overhauled and a major changes under-the-hood to how custom ZHA Device Handlers (a.k.a. zha-quirks) for Zigbee devices are made and handled.
+
+#### ZHA Zigbee device management got UX improvements
 
 Managing a Zigbee device through [ZHA](/integrations/zha/) used to mean squinting at a cramped dialog. The clusters, bindings, signature, and neighbors tools were all there, but crammed into a small popup that left little room to breathe.
 
@@ -515,6 +523,29 @@ This release moves all of that onto a dedicated, full-page device view. The same
 Thanks, [@jpbede]!
 
 [@jpbede]: https://github.com/jpbede
+
+#### ZHA libraries updated to new major release
+
+The built-in Zigbee gateway, the [ZHA integration(/integrations/zha/), got all of its libraries (zigpy, zha, and zha-device-handlers) updated to 2.0.0 version. 
+
+This are major releases because they completely invert and revamp the Quirks API for ZHA Device Handlers so that it will allow the community to faster add support for new and complex Zigbee devices, (which is a [wanted change tracked on the Open Home Foundation's roadmap]( https://github.com/OpenHomeFoundation/roadmap/issues/194)).
+
+Thanks, [@puddly] and [@TheJulianJES]!
+
+[@puddly]: https://github.com/puddly
+[@TheJulianJES]: https://github.com/TheJulianJES
+
+#### Public beta of Ziggurat Zigbee-stack
+
+This release also includes support for a public beta of [Ziggurat](https://github.com/zigpy/ziggurat/), a 100% open-source, Rust-based host-side Zigbee-stack that can replace closed-source Zigbee Coordinator firmware on Zigbee adapters. 
+
+It is meant to replace the closed-source Zigbee Coordinator firmware on any Zigbee adapter with OpenThread RCP ([more info](https://github.com/zigpy/ziggurat/#ziggurat)) and runs inside of a new Home Assistant [app](https://github.com/zigpy/addons). 
+
+Ziggurat is fast, 100% open source, written in safe Rust, and lets your Zigbee network benefit from the computing power of a general purpose computer.
+
+Thanks, [@puddly]!
+
+[@puddly]: https://github.com/puddly
 
 ## Need help? Join the community
 
