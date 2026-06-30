@@ -104,15 +104,15 @@ Claude for Desktop can connect to Home Assistant using either a cloud-based remo
 When using a remote custom connector in Claude for Desktop, the connection is brokered through Anthropic's cloud infrastructure. This means your Home Assistant instance must be publicly accessible from the internet.
 
 1. Download [Claude for Desktop](https://claude.ai/download) and log in.
-2. Select your profile name, select **Settings**, and go to **Connectors**.
-3. Select **Add Custom Connector**.
+2. Select **Customize** from the side menu, and then **Connectors**.
+3. Select **+** in the **Connectors** pane, and then select **Add Custom Connector**.
 4. Enter the following details:
    - **Name**: "Home Assistant" (or any more descriptive name you prefer)
    - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp`
    - Under advanced settings:
      - **OAuth Client ID**: `https://claude.ai`
      - **OAuth Client Secret**: Leave this blank
-5. Select **OK**. Now select **Connect** next to the entry created with the name you provided above.
+5. Select **Add**. Then select **Connect** next to the entry created with the name you provided above.
 6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
 7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 

@@ -2,7 +2,7 @@
 title: "Lawn mower started returning to dock"
 trigger: lawn_mower.started_returning
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start returning to dock."
+description: "Triggers when one or more lawn mowers start returning to dock."
 ---
 
 The **Lawn mower started returning to dock** trigger fires when a mower stops mowing and starts returning to its dock.

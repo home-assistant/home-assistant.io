@@ -76,7 +76,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 {% endtabbed_block %}
 
-{% details "Advanced: changing the boot slot used during the update" %}
+{% details "Changing the boot slot used during the update" %}
 
 #### About boot slots used during the update
 

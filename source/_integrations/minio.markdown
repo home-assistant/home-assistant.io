@@ -118,39 +118,4 @@ automation:
         file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
 
-## Actions
-
-These actions are provided:
-
-- `get`
-- `put`
-- `remove`
-
-### Action: Get
-
-The `minio.get` action downloads a file from Minio storage.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action: Put
-
-The `minio.put` action uploads a file to Minio storage.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action: Remove
-
-The `minio.remove` action deletes a file from Minio storage.
-
-| Data attribute | Required | Description            |
-| ---------------------- | -------- | ---------------------- |
-| `bucket`               | yes      | Bucket to use          |
-| `key`                  | yes      | Object key of the file |
+{% include integrations/actions.md %}

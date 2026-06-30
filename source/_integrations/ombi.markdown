@@ -86,33 +86,4 @@ ombi:
   ssl: true
 ```
 
-## Actions
-
-### Submit request actions
-
-Available actions: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
-
-#### Action `submit_movie_request`
-
-Searches and requests the closest matching movie.
-
-| Data attribute | Optional | Description       |
-| ---------------------- | -------- | ----------------- |
-| `name`                 | no       | Search parameter. |
-
-#### Action `submit_music_request`
-
-Searches and requests the closest matching music album.
-
-| Data attribute | Optional | Description       |
-| ---------------------- | -------- | ----------------- |
-| `name`                 | no       | Search parameter. |
-
-#### Action `submit_tv_request`
-
-Searches and requests the closest matching TV show.
-
-| Data attribute | Optional | Description                                                                                |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------ |
-| `name`                 | no       | Search parameter.                                                                          |
-| `season`               | yes      | Which season(s) to request. Must be one of `first`, `latest` or `all`. Defaults to latest. |
+{% include integrations/actions.md %}

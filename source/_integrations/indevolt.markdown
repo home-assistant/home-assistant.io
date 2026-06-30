@@ -150,55 +150,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
 
-## Actions
-
-### Action: Charge the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `device_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `power`
-  - **Description**: The maximum charging power (0 - 2400W)
-  - **Optional**: No
-- **Data attribute**: `target_soc`
-  - **Description**: The target SOC (%): charging will stop when reached
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.charge
-data:
-  device_id: YOUR_DEVICE_ID
-  power: 1000
-  target_soc: 100
-```
-
-### Action: Discharge the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` action configure the battery to start discharging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `device_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `power`
-  - **Description**: The maximum charging power (0 - 2400W), keeping network limitations in mind
-  - **Optional**: No
-- **Data attribute**: `target_soc`
-  - **Description**: The target SOC (%): discharging will stop when reached
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.discharge
-data:
-  device_id: YOUR_DEVICE_ID
-  power: 800
-  target_soc: 10
-```
+{% include integrations/actions.md %}
 
 ## Examples
 

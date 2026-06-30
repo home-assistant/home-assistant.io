@@ -2,7 +2,7 @@
 title: "Alarm armed vacation"
 trigger: alarm_control_panel.armed_vacation
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in vacation mode."
+description: "Triggers when one or more alarms become armed in vacation mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed

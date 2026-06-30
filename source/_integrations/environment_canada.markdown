@@ -161,21 +161,4 @@ The configuration snippet below adds a template sensor containing the current fo
         temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
 ```
 
-## Actions
-
-### Action: Get forecasts
-
-The `environment_canada.get_forecasts` action allows you to get the raw forecast data from Environment Canada. It returns both the `daily_forecast` and the `hourly_forecast` data.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Weather entity to get forecast for.
-
-### Action: Set radar type
-
-The `environment_canada.set_radar_type` action allows you to set the type of radar to retrieve for the camera.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Camera to set the radar type for.
-| `radar_type` | no | One of "Auto", "Rain", or "Snow".
+{% include integrations/actions.md %}

@@ -139,49 +139,6 @@ The tutorial is using OpenAI, but this could also be done with the Google Gemini
 
 ## Actions
 
-### Generate content
-
-{% tip %}
-This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
-{% endtip %}
-
-Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (such as images or PDFs).
-This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
-
-| Data attribute | Optional | Description                                          | Example             |
-| -------------- | -------- | ---------------------------------------------------- | ------------------- |
-| `prompt`       | no       | The prompt for generating the content.               | Describe this image |
-| `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
-
-```yaml
-action: google_generative_ai_conversation.generate_content
-data:
-  prompt: >-
-    Very briefly describe what you see in this image from my doorbell camera.
-    Your message needs to be short to fit in a phone notification. Don't
-    describe stationary objects or buildings.
-  filenames: /tmp/doorbell_snapshot.jpg
-response_variable: generated_content
-```
-
-The response data field `text` will contain the generated content.
-
-Another example with multiple images:
-
-```yaml
-action: google_generative_ai_conversation.generate_content
-data:
-  prompt: >-
-    Briefly describe what happened in the following sequence of images
-    from my driveway camera.
-  filenames:
-    - /tmp/driveway_snapshot1.jpg
-    - /tmp/driveway_snapshot2.jpg
-    - /tmp/driveway_snapshot3.jpg
-    - /tmp/driveway_snapshot4.jpg
-response_variable: generated_content
-```
-
 ### Speak
 
 The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Gemini TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.

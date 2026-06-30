@@ -2,7 +2,7 @@
 title: "Shutter opened"
 trigger: cover.shutter_opened
 domain: cover
-description: "Triggers after one or more shutters open."
+description: "Triggers when one or more shutters open."
 related_triggers:
   - cover.shutter_closed
 ---
