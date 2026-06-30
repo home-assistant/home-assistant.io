@@ -5,11 +5,11 @@ description: "More information on what to do when a filesystem check fails on a 
 
 ## The issue
 
-At every boot, Home Assistant checks the integrity of its storage partitions. This check failed on one of the OS partitions, which means the filesystem is corrupted — files may be missing, unreadable, or in an inconsistent state.
+At every boot, Home Assistant checks the integrity of its storage partitions. This check failed on one of the OS partitions, which means the filesystem is corrupted. Files may be missing, unreadable, or in an inconsistent state.
 
 This is most commonly caused by an unexpected power loss or a failing storage device (SD card, USB drive, or eMMC).
 
-Your data partition — which stores your configuration, automations, and add-ons — is on a separate partition and is not affected by this issue.
+Your data partition—which stores your configuration, automations, and add-ons—is on a separate partition and is not affected by this issue.
 
 ## The solution
 
