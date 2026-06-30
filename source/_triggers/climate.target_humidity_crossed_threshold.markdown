@@ -2,7 +2,7 @@
 title: "Thermostat target humidity crossed threshold"
 trigger: climate.target_humidity_crossed_threshold
 domain: climate
-description: "Triggers after the humidity setpoint of one or more thermostats crosses a threshold."
+description: "Triggers when the humidity setpoint of one or more thermostats crosses a threshold."
 related_triggers:
   - climate.target_humidity_changed
   - climate.target_temperature_crossed_threshold

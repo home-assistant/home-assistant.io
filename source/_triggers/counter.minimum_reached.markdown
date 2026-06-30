@@ -2,7 +2,7 @@
 title: "Counter reached minimum"
 trigger: counter.minimum_reached
 domain: counter
-description: "Triggers after one or more counters reach their minimum value."
+description: "Triggers when one or more counters reach their minimum value."
 related_triggers:
   - counter.decremented
   - counter.maximum_reached

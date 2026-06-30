@@ -1,11 +1,11 @@
 ---
-title: "Option is selected"
+title: "Dropdown option is selected"
 condition: select.is_option_selected
 domain: select
 description: "Tests if one or more dropdowns have a specific option selected."
 ---
 
-The **Option is selected** condition passes when a dropdown {% term entity %} is currently set to a specific option. It works with both **Select** entities provided by integrations and the **Dropdown helper** ("input_select") you create yourself. Use it to gate automations on the current choice of a dropdown, such as only running a routine when **House mode** is set to "Home" or "Guest".
+The **Dropdown option is selected** condition passes when a dropdown {% term entity %} is currently set to a specific option. It works with both **Select** entities provided by integrations and the **Dropdown helper** ("input_select") you create yourself. Use it to gate automations on the current choice of a dropdown, such as only running a routine when **House mode** is set to "Home" or "Guest".
 
 When you target more than one dropdown, the **Condition passes if** option controls how the check combines results. You can require any targeted dropdown to be on the selected option, or demand that all of them are.
 
@@ -13,13 +13,13 @@ When you target more than one dropdown, the **Condition passes if** option contr
 
 {% include conditions/ui_header.md %}
 
-To use **Option is selected** in an automation:
+To use **Dropdown option is selected** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the dropdown entity you want to check. You can also select an area, a device, or a label.
-5. From the conditions shown for that target, select **Option is selected**.
+5. From the conditions shown for that target, select **Dropdown option is selected**.
 6. Under **Option**, select one or more options to check for. Only options available on the targeted dropdown are shown.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All** to control how the check behaves when multiple dropdowns are targeted.
 8. Under **For at least**, set how long the dropdown must have been on the selected option before the condition passes. Leave it at zero to pass immediately.
@@ -104,9 +104,9 @@ for:
 
 Some media players expose their sound mode as a select entity, for example `select.living_room_soundbar_sound_mode` with options like **Music**, **Movie**, and **Night**. When someone starts a movie, dim the lights for a cinema feel.
 
-- **Trigger**: Selection changed
+- **Trigger**: Dropdown selection changed
   - **Target**: Living room soundbar sound mode
-- **Condition**: Option is selected
+- **Condition**: Dropdown option is selected
   - **Target**: Living room soundbar sound mode
   - **Option**: Movie
 - **Action**: Turn on light

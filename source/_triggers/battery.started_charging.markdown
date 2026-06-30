@@ -2,7 +2,7 @@
 title: "Battery started charging"
 trigger: battery.started_charging
 domain: battery
-description: "Triggers after one or more battery-powered devices start charging."
+description: "Triggers when one or more batteries start charging."
 related_triggers:
   - battery.stopped_charging
   - battery.level_changed
