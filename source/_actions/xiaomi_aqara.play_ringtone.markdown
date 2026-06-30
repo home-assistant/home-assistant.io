@@ -36,14 +36,44 @@ Gateway MAC:
   description: The MAC address of the gateway. When you have a single gateway, it is selected automatically.
   required: true
 Ringtone ID:
-  description: The ID of the ringtone to play. See the list of available IDs below.
+  description: "The ID of the ringtone to play. See [available ringtone IDs](#available-ringtone-ids)."
   required: true
 Ringtone volume:
   description: The volume to play the ringtone at, in percent.
   required: false
 {% endoptions_ui %}
 
-The available **Ringtone ID** values are:
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `xiaomi_aqara.play_ringtone`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: xiaomi_aqara.play_ringtone
+  data:
+    gw_mac: aa:bb:cc:dd:ee:ff
+    ringtone_id: 8
+    ringtone_vol: 8
+{% endexample %}
+
+### Options in YAML
+
+{% options_yaml %}
+gw_mac:
+  description: The MAC address of the gateway. When you have a single gateway, it is used automatically.
+  required: true
+  type: string
+ringtone_id:
+  description: "The ID of the ringtone to play. See [available ringtone IDs](#available-ringtone-ids)."
+  required: true
+  type: integer
+ringtone_vol:
+  description: The volume to play the ringtone at, in percent.
+  required: false
+  type: integer
+{% endoptions_yaml %}
+
+### Available ringtone IDs
 
 - Alarms
   - 0: Police car 1
@@ -72,36 +102,6 @@ The available **Ringtone ID** values are:
   - 28: Orange
   - 29: Thinker
 - Custom ringtones uploaded through the Mi Home app, starting from 10001
-
-{% include actions/yaml_header.md %}
-
-In YAML, refer to this action as `xiaomi_aqara.play_ringtone`. A basic example looks like this:
-
-{% example %}
-action: |
-  action: xiaomi_aqara.play_ringtone
-  data:
-    gw_mac: aa:bb:cc:dd:ee:ff
-    ringtone_id: 8
-    ringtone_vol: 8
-{% endexample %}
-
-### Options in YAML
-
-{% options_yaml %}
-gw_mac:
-  description: The MAC address of the gateway. When you have a single gateway, it is used automatically.
-  required: true
-  type: string
-ringtone_id:
-  description: The ID of the ringtone to play. See the list of available IDs above.
-  required: true
-  type: integer
-ringtone_vol:
-  description: The volume to play the ringtone at, in percent.
-  required: false
-  type: integer
-{% endoptions_yaml %}
 
 {% include actions/try_it.md %}
 
