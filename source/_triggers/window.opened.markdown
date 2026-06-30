@@ -2,14 +2,12 @@
 title: "Window opened"
 trigger: window.opened
 domain: window
-description: "Triggers after one or more windows open."
+description: "Triggers when one or more windows open."
 related_triggers:
   - window.closed
 ---
 
 The **Window opened** trigger fires when a targeted window opens. Use it when you want Home Assistant to react right away, like sending an alert when a window opens after dark or pausing heating when fresh air starts coming in.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

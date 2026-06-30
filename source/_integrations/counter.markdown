@@ -95,8 +95,6 @@ If `restore` is set to `true`, the `initial` value is only used when no previous
 If you use a counter {% term helper %} in automations, create the helper separately before using these examples.
 Here are a few ways to use counter triggers, conditions, and actions together.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: send a reminder when a counter reaches its limit

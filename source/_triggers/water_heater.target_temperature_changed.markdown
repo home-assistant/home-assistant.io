@@ -2,7 +2,7 @@
 title: "Water heater target temperature changed"
 trigger: water_heater.target_temperature_changed
 domain: water_heater
-description: "Triggers after the temperature setpoint of one or more water heaters changes."
+description: "Triggers when the temperature setpoint of one or more water heaters changes."
 related_triggers:
   - water_heater.target_temperature_crossed_threshold
   - water_heater.operation_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater target temperature changed** trigger fires when the target temperature setting of a water heater {% term entity %} changes. The target temperature is the setpoint you want the water heater to maintain, not the current measured water temperature. Use this trigger when you want to react to any meaningful setpoint change, like sending an alert when someone raises the target temperature higher than usual.
 
 Use the threshold type to decide which changes matter. You can fire on any change, only when the new setpoint is above or below a value, or only when it lands inside or outside a range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

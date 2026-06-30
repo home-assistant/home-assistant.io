@@ -2,7 +2,7 @@
 title: "Vacuum paused cleaning"
 trigger: vacuum.paused_cleaning
 domain: vacuum
-description: "Triggers when a vacuum cleaner pauses cleaning."
+description: "Triggers when one or more vacuum cleaners pause cleaning."
 related_triggers:
   - vacuum.started_cleaning
   - vacuum.started_returning
@@ -12,8 +12,6 @@ The **Vacuum cleaner paused cleaning** trigger fires when a vacuum interrupts it
 Use this to send reminders, alert for stuck devices, or to chain additional automations.
 
 Use it to send a message when the robot needs help, turn on a nearby light so you can find it, or record how often it gets stuck in the same place.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

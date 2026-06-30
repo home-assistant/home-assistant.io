@@ -31,8 +31,6 @@ The Gate integration does not require any configuration. It becomes available au
 
 You can use these triggers and conditions to light your way, confirm that your property is secure, and get reminders when a gate is left open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn on the driveway lights when the gate opens after dark
