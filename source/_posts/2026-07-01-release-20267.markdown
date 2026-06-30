@@ -510,7 +510,7 @@ Thanks, [@balloob]!
 
 ### Zigbee got some major overhauls
 
-Home Assistant's built-in Zigbee gateway, the [ZHA integartion](/integrations/zha/) got part of its UI overhauled and a major changes under-the-hood to how custom ZHA Device Handlers (a.k.a. zha-quirks) for Zigbee devices are made and handled.
+Home Assistant's built-in Zigbee gateway, the [ZHA integration](/integrations/zha/), got a refresh to parts of its UI. It also includes major behind-the-scenes changes to how custom ZHA device handlers (also known as `zha-quirks`) are created and managed.
 
 #### ZHA Zigbee device management got UX improvements
 
@@ -537,9 +537,9 @@ Thanks, [@puddly] and [@TheJulianJES]!
 
 #### Public beta of Ziggurat Zigbee-stack
 
-This release also includes support for a public beta of [Ziggurat](https://github.com/zigpy/ziggurat/), a 100% open-source, Rust-based host-side Zigbee-stack that can replace closed-source Zigbee Coordinator firmware on Zigbee adapters. 
+This release also includes support for a public beta of [Ziggurat](https://github.com/zigpy/ziggurat/), a 100% open-source, Rust-based, host-side Zigbee stack that can replace closed-source Zigbee coordinator firmware on supported Zigbee adapters. 
 
-It is meant to replace the closed-source Zigbee Coordinator firmware on any Zigbee adapter with OpenThread RCP ([more info](https://github.com/zigpy/ziggurat/#ziggurat)) and runs inside of a new Home Assistant [app](https://github.com/zigpy/addons). 
+It is designed to run with an OpenThread RCP ([more info](https://github.com/zigpy/ziggurat/#ziggurat)) and is packaged as an Home Assistant [app](https://github.com/zigpy/addons).
 
 Ziggurat is fast, 100% open source, written in safe Rust, and lets your Zigbee network benefit from the computing power of a general purpose computer.
 
