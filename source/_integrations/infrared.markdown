@@ -22,20 +22,6 @@ The **Infrared** {% term integration %} acts as an abstraction layer between IR 
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an infrared entity
-
-The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the entity was last active:
-
-- For an emitter, the state is the date and time the last IR command was sent.
-- For a receiver, the state is the date and time the last IR signal was received.
-
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
-
-Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means we can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which integration or action triggered the IR event.
-
 ## Setting up devices that use infrared
 
 When setting up an integration for an IR-controlled device (such as an LG TV via infrared), you will typically be asked to select which IR emitter and/or receiver to use during the configuration process. This allows you to choose the specific infrared entity that is physically positioned near your device.
@@ -111,3 +97,17 @@ The terms above nest inside each other:
 - You select an infrared entity to control an IR-controlled device, which is separate hardware and not part of the remote adapter.
 
 For example, a single remote adapter with two built-in emitters appears in Home Assistant as two infrared entities, one per emitter.
+
+## The state of an infrared entity
+
+The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the entity was last active:
+
+- For an emitter, the state is the date and time the last IR command was sent.
+- For a receiver, the state is the date and time the last IR signal was received.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means we can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which integration or action triggered the IR event.
