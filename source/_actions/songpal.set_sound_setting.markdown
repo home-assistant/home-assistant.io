@@ -7,7 +7,7 @@ description: "Changes a sound setting on a Sony Songpal device."
 
 Use this action to change a sound setting on a Sony Songpal device, such as turning night mode on or off. You provide the name of the setting and the value you want to set.
 
-This is handy in automations, for example to switch on night mode on your soundbar in the evening so late-night viewing stays quiet.
+This is handy in an automation to switch on night mode on your soundbar in the evening so late-night viewing stays quiet, for example.
 
 {% include actions/ui_header.md %}
 
