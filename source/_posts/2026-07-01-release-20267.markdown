@@ -526,9 +526,9 @@ Thanks, [@jpbede]!
 
 #### ZHA libraries updated to new major release
 
-The built-in Zigbee gateway, the [ZHA integration(/integrations/zha/), got all of its libraries (zigpy, zha, and zha-device-handlers) updated to 2.0.0 version. 
+The built-in Zigbee gateway, the [ZHA integration](/integrations/zha/), got all of its libraries (zigpy, zha, and zha-device-handlers) updated to version 2.0.0.
 
-This are major releases because they completely invert and revamp the Quirks API for ZHA Device Handlers so that it will allow the community to faster add support for new and complex Zigbee devices, (which is a [wanted change tracked on the Open Home Foundation's roadmap]( https://github.com/OpenHomeFoundation/roadmap/issues/194)).
+These major releases revamp the quirks API for ZHA device handlers, making it faster for the community to add support for new and complex Zigbee devices (a [requested change tracked on the Open Home Foundation roadmap](https://github.com/OpenHomeFoundation/roadmap/issues/194)).
 
 Thanks, [@puddly] and [@TheJulianJES]!
 
