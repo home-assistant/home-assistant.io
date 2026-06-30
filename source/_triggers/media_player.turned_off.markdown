@@ -2,7 +2,7 @@
 title: "Media player turned off"
 trigger: media_player.turned_off
 domain: media_player
-description: "Triggers after one or more media players turn off."
+description: "Triggers when one or more media players turn off."
 related_triggers:
   - media_player.turned_on
   - media_player.stopped_playing

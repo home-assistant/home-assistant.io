@@ -202,6 +202,39 @@ To create a token:
 **Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
 {% endnote %}
 
+## Data updates
+
+Data is {% term polling polled %} from devices every 60 seconds.
+
+## Examples
+
+### Alert for offline VM
+
+This example automation will alert you if a critical VM is  offline beyond a reasonable time.
+
+{% example %}
+automation: |
+  alias: "Proxmox Database VM Offline Alert"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.databaseserver_status
+      from: "on"
+      to: "off"
+      for:
+        minutes: 15
+  actions:
+    - action: notify.send_message
+      metadata: {}
+      data:
+        message: "The Database Server VM has been offline for over 15 minutes."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
+
+## Known limitations
+
+Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
+
 ## Troubleshooting
 
 ### Buttons not working

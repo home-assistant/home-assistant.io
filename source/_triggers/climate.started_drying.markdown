@@ -2,7 +2,7 @@
 title: "Thermostat started drying"
 trigger: climate.started_drying
 domain: climate
-description: "Triggers after one or more thermostats start drying."
+description: "Triggers when one or more thermostats start drying."
 related_triggers:
   - climate.started_heating
   - climate.started_cooling

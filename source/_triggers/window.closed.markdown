@@ -2,7 +2,7 @@
 title: "Window closed"
 trigger: window.closed
 domain: window
-description: "Triggers after one or more windows close."
+description: "Triggers when one or more windows close."
 related_triggers:
   - window.opened
 ---

@@ -33,21 +33,7 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## Actions
-
-### Action: Clear
-
-The `system_log.clear` action manually clears the system log.
-
-### Action: Write
-
-The `system_log.write` action writes a log entry.
-
-| Data attribute | Optional | Description                                                                    |
-| ---------------------- | -------- | ------------------------------------------------------------------------------ |
-| `message`              | no       | Message to log                                                                 |
-| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.         |
-| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'. |
+{% include integrations/actions.md %}
 
 ## Events
 

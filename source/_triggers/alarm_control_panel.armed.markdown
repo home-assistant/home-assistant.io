@@ -2,7 +2,7 @@
 title: "Alarm armed"
 trigger: alarm_control_panel.armed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed, regardless of the mode."
+description: "Triggers when one or more alarms become armed, regardless of the mode."
 related_triggers:
   - alarm_control_panel.armed_away
   - alarm_control_panel.armed_home

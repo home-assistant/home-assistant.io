@@ -65,6 +65,8 @@ The Samsung Smart TV integration provides the following entities and functionali
 
 - **Device diagnostics**: Troubleshooting information for device connectivity and status
 
+{% include integrations/triggers.md %}
+
 ## Data updates
 
 The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.

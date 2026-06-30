@@ -86,33 +86,4 @@ There is a unique list of known event_codes are defined in
 and the inferred groups and their ranges of event codes are defined in
 [timeline.py](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/timeline.py).
 
-## Actions
-
-Available {% term actions %}: `change_setting`, `capture_image`, `trigger_automation`
-
-### Action: Change setting
-
-The `abode.change_setting` action is used to change settings on your Abode system.
-For a full list of settings and valid values, consult the
-[`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `setting` | No | The setting you wish to change. |
-| `value` | No | The value you wish to change the setting to. |
-
-### Action: Capture image
-
-The `abode.capture_image` action is used to request a new still image from your Abode camera.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
-
-### Action: Trigger automation
-
-The `abode.trigger_automation` action is used to trigger an automation on your Abode system.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations. |
+{% include integrations/actions.md %}

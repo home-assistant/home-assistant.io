@@ -119,12 +119,4 @@ intent_script:
       text: "{{ action_response['calendar.my_calendar'].events | length }}"   # use the action's response
 ```
 
-## Actions
-
-Available actions: `reload`.
-
-### Action: Reload
-
-The `intent_script.reload` action reloads the intent script from the YAML configuration, as a quicker alternative to restarting Home Assistant.
-
-This action takes no data attributes.
+{% include integrations/actions.md %}

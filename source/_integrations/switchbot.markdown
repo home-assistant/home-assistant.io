@@ -569,16 +569,7 @@ Features:
 - get tamper alarm
 - get doorbell event
 
-Actions:
-- add_password
-
-Examples:
-```yaml
-action: switchbot.add_password
-data:
-  device_id: c2d01328efd261f586e56d914e3af07e
-  password: 123456
-```
+This device supports the [Add password](/actions/switchbot.add_password/) action.
 
 ### Lights
 
@@ -901,6 +892,7 @@ Features:
 - next image
 - previous image
 
+{% include integrations/actions.md %}
 
 ## Data updates
 
