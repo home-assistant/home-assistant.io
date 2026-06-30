@@ -54,10 +54,10 @@ To find and add integrations that support infrared:
 
 ## Controlling devices without a wired infrared emitter
 
-To control an IR-controlled device, an infrared emitter has to sit close to it, with line-of-sight to the device. There are 2 options to achieve this:
+To control an IR-controlled device, an infrared emitter has to sit close to it, with line-of-sight to the device. There are two options to achieve this:
 
-- Using a wired IR emitter. A wired emitter, such as a USB-UIRT, plugs into your Home Assistant server, so it can only reach devices near the server, rarely your TV or air conditioner.
-- Using a remote adapter (proxy). A remote adapter, such as the [Seeed Studio XIAO IR Mate](https://esphome.io/projects/?type=ir), is a small ESPHome device with a built-in emitter that connects to Home Assistant over Wi-Fi (or Ethernet). You place it next to the IR-controlled device, and it sends IR commands over your network on behalf of Home Assistant, letting Home Assistant control IR-controlled devices anywhere in your home.
+- Using a wired IR emitter. A wired emitter, such as a USB-UIRT, plugs into your Home Assistant server, so it can only reach devices near the server, which is rarely in the same room as your TV or air conditioner.
+- Using a remote adapter (proxy). A remote adapter, such as the [Seeed Studio XIAO IR Mate](https://www.seeedstudio.com/XIAO-Smart-IR-Mate-p-6492.html), is a small ESPHome device with a built-in emitter that connects to Home Assistant over Wi-Fi (or Ethernet). You place it next to the IR-controlled device, and it sends IR commands over your network on behalf of Home Assistant, letting Home Assistant control IR-controlled devices anywhere in your home.
 
 When you set up an ESPHome device configured as a remote adapter, Home Assistant automatically discovers its built-in infrared emitters. Each emitter appears as an infrared entity, so you can select it when configuring an integration for an IR-controlled device.
 
@@ -68,13 +68,13 @@ When you set up an ESPHome device configured as a remote adapter, Home Assistant
     - Build your own using the [ESPHome infrared and radio frequency proxy component](https://esphome.io/components/ir_rf_proxy/) on an ESP32-based device.
 2. Position the remote adapter within line-of-sight of the IR-controlled device. Infrared signals do not pass through walls or other obstructions.
 3. Set up the remote adapter through the [ESPHome](/integrations/esphome/) integration. Home Assistant discovers its built-in infrared emitters and surfaces them as infrared entities.
-   - Depending on the device, you can follow the instructions in the [Ready-made Projects](https://esphome.io/projects/) section of the ESPHome documentation.
+    - Depending on the device, you can follow the instructions in the [Ready-made Projects](https://esphome.io/projects/) section of the ESPHome documentation.
 4. In Home Assistant, add the integration for your IR-controlled device, such as [LG Infrared](/integrations/lg_infrared/). During that integration's setup, when you are asked which infrared emitter to use, select the emitter from your remote adapter. For more information, refer to [Finding and adding integrations that support infrared](#finding-and-adding-integrations-that-support-infrared).
 5. If you need to control IR-controlled devices in different rooms, place multiple remote adapters around your home and select the one closest to each device.
 
-## About Infrared terminology
+## About infrared terminology
 
-This section explains some of the key term on this page and how they are used in Home Assistant documentation.
+This section explains some of the key terms on this page and how they are used in the Home Assistant documentation.
 
 ### Remote adapter (proxy)
 
