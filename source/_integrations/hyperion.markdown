@@ -78,7 +78,7 @@ A sensor (Visible Priority) provides the effect currently displayed by the Hyper
 ## Entities for higher extensibility and interoperability
 
 The Hyperion integration comes with a series of disabled-by-default entities for
-particular usecases. These entities expose 'raw' underlying Hyperion API components for
+particular use cases. These entities expose 'raw' underlying Hyperion API components for
 improved extensibility and interoperability which are particularly useful in cases where
 there are multiple Hyperion server clients (of which Home Assistant is one).
 
