@@ -18,6 +18,7 @@ ha_category:
   - Siren
   - Switch
   - Update
+  - USB Discovery
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true

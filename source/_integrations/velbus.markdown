@@ -9,6 +9,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - USB Discovery
 ha_iot_class: Local Push
 ha_release: '0.50'
 ha_config_flow: true

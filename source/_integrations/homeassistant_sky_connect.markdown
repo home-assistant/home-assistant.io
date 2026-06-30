@@ -5,6 +5,7 @@ ha_release: 2022.9
 ha_category:
   - Other
   - Update
+  - USB Discovery
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_sky_connect

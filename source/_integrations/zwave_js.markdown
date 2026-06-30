@@ -19,6 +19,7 @@ ha_category:
   - Siren
   - Switch
   - Update
+  - USB Discovery
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true

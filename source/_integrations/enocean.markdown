@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - USB Discovery
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_domain: enocean
@@ -155,10 +156,15 @@ name:
 
 The EnOcean sensor platform currently supports the following device types:
 
-- [power sensor](#power-sensor)
-- [humidity sensor](#humidity-sensor)
-- [temperature sensor](#temperature-sensor)
-- [window handle](#window-handle)
+- [Binary sensor](#binary-sensor)
+- [Automation example](#automation-example)
+- [Light](#light)
+- [Sensor](#sensor)
+  - [Power sensor](#power-sensor)
+  - [Humidity sensor](#humidity-sensor)
+  - [Temperature sensor](#temperature-sensor)
+  - [Window handle](#window-handle)
+- [Switch](#switch)
  
 To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file:
 
