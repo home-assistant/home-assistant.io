@@ -90,6 +90,11 @@ On the contrary, the Freebox immediately reports devices newly connected, so
 they should appear as "home" almost instantly, as soon as Home Assistant
 refreshes the devices states.
 
+## Buttons
+
+- **Reboot**
+  - **Description**: Restarts your Freebox router.
+
 ## Sensor
 
 This platform offers you sensors to monitor a Freebox router.
