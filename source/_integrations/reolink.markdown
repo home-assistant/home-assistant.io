@@ -491,6 +491,7 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - D500*
 - D800*
 - D1200*
+- E1
 
 *These models are only sold as a kit which includes a NVR.
 
