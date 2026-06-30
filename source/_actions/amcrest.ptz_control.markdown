@@ -21,7 +21,7 @@ To use this action in an automation or script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to control. You can also select an area, a device, or a label.
 6. From the actions shown for that target, select **Amcrest: PTZ control**.
-7. In the **Movement** field, select the direction you want to move.
+7. In the **Movement** field, select the direction you want the camera to move in.
 8. Optionally, set the **Travel time** to control how long the movement lasts.
 9. Select **Save**.
 
