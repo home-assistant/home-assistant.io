@@ -64,7 +64,7 @@ A Z-Wave network in Home Assistant includes the following elements:
 - this Z-Wave integration
 - Z-Wave end devices
 
-### Setting up a Z-Wave server in Home Assistant
+### Setting up a Z-Wave server using the Z-Wave JS app
 
 This section shows how to set up a Z-Wave server using the **Z-Wave JS** app in Home Assistant.
 
@@ -688,7 +688,7 @@ The chart below illustrates Options 1 and 3, which are available for Home Assist
 
 _This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
-This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
+This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-server-using-the-z-wave-js-app), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI Docker container**
 
