@@ -101,6 +101,22 @@ The sensor provides additional attributes for the latest tag:
 
 - `url`: A URL that will show you the commit the tag was created for on GitHub
 
+### Activity timestamps
+
+The following timestamp sensors are provided for each tracked repository and are
+**disabled by default**. Each exposes the relevant GitHub date as its state with a
+`timestamp` device class, which makes it possible to filter or sort repositories by
+recency — for example, to show only repositories with a release or issue in the last week.
+
+- **Latest commit committed**: When the latest commit on the default branch was committed
+- **Latest discussion created** / **updated**: When the latest discussion was opened / last updated
+- **Latest issue created** / **updated**: When the latest issue was opened / last updated
+- **Latest pull request created** / **updated**: When the latest pull request was opened / last updated
+- **Latest release published**: When the latest release was published
+- **Latest tag committed**: When the commit behind the latest tag was committed (not provided for annotated tags)
+
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+
 ### Diagnostic entities
 
 These entities are simpler diagnostic entities without any additional attributes:
