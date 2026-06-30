@@ -9,6 +9,11 @@ ha_domain: infrared
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - url: https://esphome.io/projects/?type=ir
+    title: ESPHome infrared and radio frequency proxy projects
+  - url: https://esphome.io/components/ir_rf_proxy/
+    title: ESPHome infrared and radio frequency proxy component
 ---
 
 An infrared {% term entity %} represents either an infrared emitter or an infrared receiver. Emitters allow other integrations to send IR commands to control devices such as TVs, air conditioners, and other IR-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
