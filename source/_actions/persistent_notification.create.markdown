@@ -84,9 +84,10 @@ The message supports the [Markdown formatting syntax](https://daringfireball.net
 `/local/` in this context refers to the `.homeassistant/www/` folder.
 {% endnote %}
 
-{% include actions/more_examples.md %}
+## Show runtime information
 
-To show runtime information, use a [template](/docs/templating/):
+To show runtime information, use a [template](/docs/templating/).
+For example:
 
 {% example %}
 action: |
