@@ -38,10 +38,10 @@ The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage you
 
 Here are some examples of how you can use the SMLIGHT integration in your smart home:
 
-- **Automated off-peak upgrades**: Set up an automation to automatically install SMLIGHT core or Zigbee firmware updates during off-peak hours (for example, at 3:00 AM on a Tuesday) to ensure your coordinators are always up to date with zero manual intervention or network disruption.
-- **Status LED sleep scheduling**: Use an automation to turn off status LEDs overnight when the room is occupied or when your house enters "Sleep" mode by toggling the **Disable LEDs** switch.
-- **Hardware health alerts**: Create an automation to send an alert if the **Core temperature** or **Zigbee temperature** exceeds a threshold (for example, 65°C), which is particularly useful if the device is installed in a hot attic, server cabinet, or electrical closet.
-- **Infrared (IR) control**: Connect the IR Emitter entity of an SLZB-Ultima device to a media player or climate platform via an infrared integration to automate legacy televisions or air conditioners when room occupancy is detected.
+- Automated off-peak upgrades: Set up an automation to automatically install SMLIGHT core or Zigbee firmware updates during off-peak hours (for example, at 3:00 AM on a Tuesday) to ensure your coordinators are always up to date with zero manual intervention or network disruption.
+- Status LED sleep scheduling: Use an automation to turn off status LEDs overnight when the room is occupied or when your house enters "Sleep" mode by toggling the **Disable LEDs** switch.
+- Hardware health alerts: Create an automation to send an alert if the **Core temperature** or **Zigbee temperature** exceeds a threshold (for example, 65°C), which is particularly useful if the device is installed in a hot attic, server cabinet, or electrical closet.
+- Infrared (IR) control: Connect the IR Emitter entity of an SLZB-Ultima device to a media player or climate platform via an infrared integration to automate legacy televisions or air conditioners when room occupancy is detected.
 
 ## Prerequisites
 
