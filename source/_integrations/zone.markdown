@@ -146,7 +146,7 @@ These examples show how you can use zone triggers and conditions in automations.
 
 When Nina enters the work zone, this automation sends a notification to your phone.
 
-- **Trigger**: Entered zone
+- **Trigger**: Zone entered
   - **Target**: Nina (`person.nina`)
   - **Zone**: Work (`zone.work`)
 - **Action**: Send a notification message

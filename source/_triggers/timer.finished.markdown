@@ -4,7 +4,7 @@ trigger: timer.finished
 domain: timer
 description: "Triggers when one or more timers finish."
 related_triggers:
-  - timer.time_remaining
+  - timer.remaining_time_reached
   - timer.cancelled
 ---
 

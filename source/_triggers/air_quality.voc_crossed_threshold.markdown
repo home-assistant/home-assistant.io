@@ -2,7 +2,7 @@
 title: "Volatile organic compounds level crossed threshold"
 trigger: air_quality.voc_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more volatile organic compounds levels cross a threshold."
+description: "Triggers when one or more volatile organic compounds levels cross a threshold."
 related_triggers:
   - air_quality.voc_changed
 ---

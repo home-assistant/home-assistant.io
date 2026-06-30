@@ -13,8 +13,6 @@ The **Dawn** trigger fires at dawn, the moment the morning twilight begins and t
 
 Use it to start a gentle wake-up routine, raise blinds before the sun is up, or switch off lights that ran through the night, all timed to the first light rather than a fixed clock time.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

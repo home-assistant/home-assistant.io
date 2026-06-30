@@ -2,7 +2,7 @@
 title: "Lawn mower paused mowing"
 trigger: lawn_mower.paused_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers pause mowing."
+description: "Triggers when one or more lawn mowers pause mowing."
 ---
 
 The **Lawn mower paused mowing** trigger fires when a mower stops in the middle of a run without docking.

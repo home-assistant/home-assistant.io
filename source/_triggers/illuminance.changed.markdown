@@ -2,7 +2,7 @@
 title: "Illuminance changed"
 trigger: illuminance.changed
 domain: illuminance
-description: "Triggers after one or more illuminance values change."
+description: "Triggers when one or more illuminance values change."
 related_triggers:
   - illuminance.crossed_threshold
   - illuminance.detected

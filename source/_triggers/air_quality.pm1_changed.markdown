@@ -2,7 +2,7 @@
 title: "PM1 level changed"
 trigger: air_quality.pm1_changed
 domain: air_quality
-description: "Triggers after one or more PM1 levels change."
+description: "Triggers when one or more PM1 levels change."
 related_triggers:
   - air_quality.pm1_crossed_threshold
 ---

@@ -2,7 +2,7 @@
 title: "Thermostat mode changed"
 trigger: climate.hvac_mode_changed
 domain: climate
-description: "Triggers after the HVAC mode of one or more climate devices changes."
+description: "Triggers when the mode of one or more thermostats changes."
 related_triggers:
   - climate.turned_on
   - climate.turned_off

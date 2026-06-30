@@ -13,8 +13,6 @@ The **Sunrise** trigger fires the moment the sun rises above the horizon at your
 
 Use it to open blinds, turn off outdoor or night lighting, or start your morning routine the moment the day begins.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
