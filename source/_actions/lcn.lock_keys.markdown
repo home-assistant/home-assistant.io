@@ -68,6 +68,20 @@ action: |
 
 This applies the key lock state changes to table `a` of the selected module.
 
+To lock the keys of table `a` for a period of time:
+
+{% example %}
+action: |
+  action: lcn.lock_keys
+  data:
+    device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
+    state: "1---T0--"
+    time: 10
+    time_unit: s
+{% endexample %}
+
+This applies the key lock state changes to table `a` of the selected module for 10 seconds.
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -107,22 +121,6 @@ time_unit:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
-
-### Lock keys for a time period
-
-This example locks the keys of table `a` for ten seconds.
-
-{% example %}
-action: |
-  action: lcn.lock_keys
-  data:
-    device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
-    state: "1---T0--"
-    time: 10
-    time_unit: s
-{% endexample %}
 
 {% include actions/stuck.md %}
 
