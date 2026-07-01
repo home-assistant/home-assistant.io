@@ -44,8 +44,8 @@ When you set up an ESPHome device configured as an infrared remote adapter, Home
 ### To set up an infrared remote adapter to control devices
 
 1. Get an infrared remote adapter of your choice.
-    - To find integrations that support infrared, in the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
-    - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
+   - To find integrations that support infrared, in the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
+   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
 2. Position the infrared remote adapter within line-of-sight of the IR-controlled device. Infrared signals do not pass through walls or other obstructions.
 3. Set up the infrared remote adapter through its integration. Home Assistant discovers its built-in infrared emitters and surfaces them as infrared entities.
 4. In Home Assistant, add the integration for your IR-controlled device, such as [LG Infrared](/integrations/lg_infrared/). During that integration's setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter. For more information, refer to [Finding and adding integrations that support infrared](#finding-and-adding-integrations-that-support-infrared).
