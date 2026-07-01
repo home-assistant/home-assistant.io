@@ -58,7 +58,7 @@ This section explains some of the key terms on this page and how they are used i
 
 ### Infrared remote adapter (proxy)
 
-A network-connected device, typically running ESPHome, that relays IR commands on behalf of Home Assistant over Wi-Fi or Ethernet. An infrared remote adapter is also known as an infrared proxy.
+A device that relays IR commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
 
 It has the following characteristics:
 
@@ -72,7 +72,7 @@ The component that sends out IR signals, the same kind of signal a physical remo
 
 #### Infrared receiver
 
-The component that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to learn remote codes or trigger automations. Like an emitter, a receiver is part of a piece of hardware, such as an infrared remote adapter. Each receiver appears as an infrared entity.
+The component that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update entities state or trigger automations. Like an emitter, a receiver is part of a piece of hardware, such as an infrared remote adapter. Each receiver appears as an infrared entity.
 
 ### IR-controlled device
 
