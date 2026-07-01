@@ -11,6 +11,10 @@ related_actions:
 
 This action resets a variable or setpoint on an LCN module back to its default value.
 
+{% important %}
+Ensure that the LCN module is configured properly to provide access to the defined variable. Otherwise the module might show unexpected behavior or return error messages.
+{% endimportant %}
+
 {% include actions/ui_header.md %}
 
 To reset a variable from an automation or a script:
@@ -65,10 +69,6 @@ variable:
   required: true
   type: string
 {% endoptions_yaml %}
-
-{% important %}
-Ensure that the LCN module is configured properly to provide access to the defined variable. Otherwise the module might show unexpected behavior or return error messages.
-{% endimportant %}
 
 {% include actions/try_it.md %}
 
