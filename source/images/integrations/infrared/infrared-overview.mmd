@@ -1,0 +1,26 @@
+flowchart TD
+    HA["Home Assistant"]
+
+    subgraph DEV["Device integrations"]
+        LG["LG Infrared"]
+        SAM["Samsung Infrared"]
+        OTHER["Other IR integrations ..."]
+    end
+
+    IRINT["Infrared integration"]
+
+    subgraph ADAPTER["Infrared remote adapter (proxy)"]
+        EM["Infrared emitter<br/>(infrared entity)"]
+        RC["Infrared receiver<br/>(infrared entity)"]
+    end
+
+    TV["Infrared-controlled device<br/>(TV, air conditioner)"]
+    REMOTE["Handheld IR remote"]
+
+    HA --- DEV
+    DEV --> IRINT
+    IRINT --> EM
+    EM -->|"IR"| TV
+    REMOTE -->|"IR"| RC
+    RC --> IRINT
+    IRINT --> DEV

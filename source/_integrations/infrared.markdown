@@ -22,6 +22,12 @@ The **Infrared** {% term integration %} acts as an abstraction layer between an 
 
 An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver). Emitters allow other integrations to send IR commands to control devices such as TVs, air conditioners, and other infrared-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
 
+You can control infrared-controlled devices from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. The chart illustrates how this is possible via the integrations.
+
+<p class='img'><img class='invertDark' style='max-height: 740px;' src='/images/integrations/infrared/infrared-overview.svg' alt="Diagram showing how the Infrared integration connects device integrations to the emitters and receivers of an infrared remote adapter.">
+How the Infrared integration connects device integrations to the emitters and receivers of an infrared remote adapter.
+</p>
+
 {% include integrations/building_block_integration.md %}
 
 ## Finding and adding integrations that support infrared
@@ -35,7 +41,7 @@ To set up infrared hardware and a device integration:
 
 ## Controlling devices from Home Assistant without a wired infrared emitter
 
-If you do not want to use a wired emitter plugged into to Home Assistant, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant over Wi-Fi. You place it within line-of-sight of the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
+If you do not want to use a wired infrared emitter plugged into to Home Assistant, you can use an infrared remote adapter (proxy). This is a small device that can connects to Home Assistant not only over Ethernet and other methods, but also over Wi-Fi. You place it within line-of-sight of the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
 
 ### Prerequisites
 
