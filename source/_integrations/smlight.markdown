@@ -133,10 +133,10 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 
 #### Infrared
 
-An [infrared](/integrations/infrared/) entity represents either an infrared emitter or an infrared receiver:
+An [Infrared](/integrations/infrared/) entity represents either an infrared emitter or an infrared receiver.
 
-- **Infrared emitter**: This entity can be used by other integrations as an infrared proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity to control your TV.
-- **Infrared receiver**: This entity receives IR signals captured by the SLZB-Ultima device. Other integrations, such as [LG Infrared](/integrations/lg_infrared/), can use this entity to expose button presses on your remote as event entities, allowing you to use a physical remote to trigger automations and control other devices in Home Assistant.
+- **Infrared emitter** - This entity can be used by other integrations as an infrared proxy to send infrared commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity to control your TV.
+- **Infrared receiver** - This entity receives infrared signals captured by the SLZB-Ultima device. Integrations like [LG Infrared](/integrations/lg_infrared/) can use this entity to expose button presses from your remote as an event entity, so you can use a physical remote to trigger automations and control other devices in Home Assistant.
 
 
 ## Bluetooth remote adapter (proxy)
