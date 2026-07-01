@@ -10,6 +10,8 @@ related_actions:
 
 The **Reset energy counter** action sets the energy counter of a Homematic IP measuring entity back to zero.
 
+This action is only available to Home Assistant administrators.
+
 {% include actions/ui_header.md %}
 
 To reset an energy counter from an automation or a script:
@@ -55,10 +57,6 @@ entity_id:
   required: true
   type: string
 {% endoptions_yaml %}
-
-## Good to know
-
-- This action is only available to Home Assistant administrators.
 
 {% include actions/try_it.md %}
 

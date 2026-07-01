@@ -11,6 +11,8 @@ related_actions:
 
 The **Set home cooling mode** action switches your entire Homematic IP home between heating and cooling. Enable cooling to switch to cooling mode, or disable it to revert to heating.
 
+This action is only available to Home Assistant administrators.
+
 {% include actions/ui_header.md %}
 
 To set the home cooling mode from an automation or a script:
@@ -65,10 +67,6 @@ accesspoint_id:
   required: false
   type: string
 {% endoptions_yaml %}
-
-## Good to know
-
-- This action is only available to Home Assistant administrators.
 
 {% include actions/try_it.md %}
 

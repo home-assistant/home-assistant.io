@@ -10,6 +10,8 @@ related_actions:
 
 The **Dump HAP config** action writes the configuration of your Homematic IP access points to a file. This can be helpful when you need the raw configuration for troubleshooting or development.
 
+This action is only available to Home Assistant administrators.
+
 {% include actions/ui_header.md %}
 
 To dump the access point configuration from an automation or a script:
@@ -78,7 +80,6 @@ anonymize:
 
 ## Good to know
 
-- This action is only available to Home Assistant administrators.
 - If you want to share the configuration for troubleshooting, prefer the **Download diagnostics** option on the integration page, which anonymizes sensitive information for you.
 
 {% include actions/try_it.md %}
