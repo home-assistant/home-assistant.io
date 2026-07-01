@@ -11,6 +11,10 @@ related_actions:
 
 This action sets a variable or setpoint on an LCN module to a fixed value. Use it to write a known value, for example a target temperature, to a regulator setpoint.
 
+{% important %}
+Ensure that the LCN module is configured properly to provide access to the defined variable. Otherwise the module might show unexpected behavior or return error messages.
+{% endimportant %}
+
 {% include actions/ui_header.md %}
 
 To set the absolute value of a variable from an automation or a script:
@@ -86,10 +90,6 @@ unit_of_measurement:
   required: false
   type: string
 {% endoptions_yaml %}
-
-{% important %}
-Ensure that the LCN module is configured properly to provide access to the defined variable. Otherwise the module might show unexpected behavior or return error messages.
-{% endimportant %}
 
 {% include actions/try_it.md %}
 
