@@ -292,20 +292,13 @@ also [define a custom polling
 interval](/common-tasks/general/#defining-a-custom-polling-interval)
 if needed.
 
-## Actions
+## NUT device commands
 
 {% important %}
-The username and password configured for the device must be granted
-`instcmds` permissions on the NUT server to use buttons and
-switches. Device {% term actions %} will not be available if user
-credentials are not specified. See the [NUT server
-documentation](https://networkupstools.org/documentation.html) for
-configuration information.
+The username and password configured for the device must be granted `instcmds` permissions on the NUT server to use buttons and switches. Device {% term actions %} will not be available if user credentials are not specified. See the [NUT server documentation](https://networkupstools.org/documentation.html) for configuration information.
 {% endimportant %}
 
-An action is available for each parameterless NUT
-[command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html)
-supported.
+Home Assistant creates a button for each supported parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html). Use the button entity in the UI or the standard button press action in an automation.
 
 ## Automation example
 
