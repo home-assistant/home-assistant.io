@@ -54,14 +54,11 @@ until_temp_limit:
     to true, or for one hour when set to false.
   required: true
   type: boolean
-  default: false
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="water_heater" %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
