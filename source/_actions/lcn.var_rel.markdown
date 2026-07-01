@@ -11,6 +11,10 @@ related_actions:
 
 This action changes a variable, setpoint, or threshold on an LCN module by a relative amount. Use a positive value to increase and a negative value to decrease the current value.
 
+{% important %}
+Ensure that the LCN module is configured properly to provide access to the defined variable. Otherwise the module might show unexpected behavior or return error messages.
+{% endimportant %}
+
 {% include actions/ui_header.md %}
 
 To shift the value of a variable from an automation or a script:
@@ -96,10 +100,6 @@ value_reference:
   default: current
   type: string
 {% endoptions_yaml %}
-
-{% important %}
-Ensure that the LCN module is configured properly to provide access to the defined variable. Otherwise the module might show unexpected behavior or return error messages.
-{% endimportant %}
 
 {% include actions/try_it.md %}
 
