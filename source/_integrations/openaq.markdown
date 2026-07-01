@@ -22,11 +22,9 @@ OpenAQ collects public air quality data from many providers around the world. In
 
 ## Prerequisites
 
-- You need an OpenAQ API key.
-   - Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register).
-   - You can manage your API key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
-- Treat your API key like a password.
-   - Do not share it or publish it in screenshots, logs, or public configuration examples.
+You need an OpenAQ API key. Sign up for an API key from the [OpenAQ Explorer registration page](https://explore.openaq.org/register). You can manage your API key from your [OpenAQ Explorer account settings](https://explore.openaq.org/account).
+
+Treat your API key like a password. Do not share it or publish it in screenshots, logs, or public configuration examples.
 
 {% include integrations/config_flow.md %}
 
@@ -46,7 +44,7 @@ After the OpenAQ integration is added, add at least one monitoring location:
 3. Select a point on the map, set a maximum search radius, and select **Submit**. The default radius is 25,000 meters (25 km), which is also the maximum.
 4. Choose one of the suggested monitoring locations.
 
-The radius field uses meters because OpenAQ searches by radius in meters. Home Assistant searches outward from the selected map point and shows up to 10 suggested monitoring locations. The suggestions are ranked by distance first. If multiple locations have the same distance, locations with more supported sensor measurements are shown first. The list shows the supported measurement names and distance for each suggestion. Monitoring locations that do not report any supported measurements are not shown. Monitoring locations that you already added are also not shown. To add another suggested monitoring location, run **Add monitoring location** again.
+The radius field uses meters because OpenAQ searches by radius in meters. Home Assistant searches outward from the selected map point and shows up to 10 suggested monitoring locations. The suggestions are ranked by distance first. If multiple locations have the same distance, locations with more supported sensor measurements are shown first. The list shows the supported measurement codes and distance for each suggestion. Monitoring locations that do not report any supported measurements are not shown. Monitoring locations that you already added are also not shown. To add another suggested monitoring location, run **Add monitoring location** again.
 
 You can add multiple OpenAQ monitoring locations to the same OpenAQ integration entry. The same OpenAQ location can only be added once, even across multiple OpenAQ integration entries.
 
@@ -54,25 +52,23 @@ You can add multiple OpenAQ monitoring locations to the same OpenAQ integration 
 The **OpenAQ** integration provides the following entities.
 
 ### Sensors
-The OpenAQ integration creates sensor entities for supported measurements that have a numeric latest value at the selected monitoring location.
+The OpenAQ integration creates sensor entities for supported measurements reported by the selected monitoring location. If a supported measurement does not have a latest value, Home Assistant creates the entity with an unknown state until OpenAQ reports a numeric latest value.
 
 Supported sensor measurements:
 
-- Black carbon
-- Carbon dioxide
-- Carbon monoxide
-- Nitrogen dioxide
-- Nitrogen monoxide
-- Nitrogen oxides
-- Ozone
-- PM1
-- PM2.5
-- PM10
-- Sulphur dioxide
+- BC: Black carbon
+- CO: Carbon monoxide
+- CO2: Carbon dioxide
+- NO: Nitrogen monoxide
+- NO2: Nitrogen dioxide
+- NOx: Nitrogen oxides
+- O3: Ozone
+- PM1: Particulate matter 1
+- PM2.5: Particulate matter 2.5
+- PM10: Particulate matter 10
+- SO2: Sulphur dioxide
 
 Home Assistant uses the unit reported by OpenAQ when creating sensor states. Common concentration units, such as parts per million, parts per billion, milligrams per cubic meter, and micrograms per cubic meter, are mapped to Home Assistant units.
-
-Home Assistant also creates a diagnostic distance sensor for each monitoring location. This sensor shows the distance between your Home Assistant location and the OpenAQ monitoring location in your configured length unit, such as miles for US customary units or kilometers for metric units. It is disabled by default.
 
 OpenAQ measurements can include many decimal places. Home Assistant suggests a sensible display precision for these sensors so dashboards stay readable. The raw state value is not rounded by the integration.
 
@@ -80,13 +76,13 @@ OpenAQ measurements can include many decimal places. Home Assistant suggests a s
 
 OpenAQ data is {% term polling polled %} every 10 minutes.
 
-When the integration loads, Home Assistant fetches the location details, its available sensors, and the latest measurements in parallel. On every subsequent poll, only the latest measurements are fetched. Location and sensor metadata are cached until the integration reloads. If Home Assistant cannot reach OpenAQ during a poll, the entities for that monitoring location become unavailable until the next successful poll.
+When the integration loads, Home Assistant fetches the location details, its available sensors, and the latest measurements. On every subsequent poll, only the latest measurements are fetched. Location and sensor metadata are cached until the integration reloads. If Home Assistant cannot reach OpenAQ during a poll, the entities for that monitoring location become unavailable until the next successful poll.
 
 ## Known limitations
 
 OpenAQ does not include every air quality monitoring location or provider in the world. Available measurements depend on the selected monitoring location and the data provided to OpenAQ.
 
-Sensors are created for supported measurements that have a numeric latest value when the monitoring location is set up. If a supported measurement is missing, has no latest value, or reports a non-numeric value, Home Assistant does not create an entity for it. Reload the integration after OpenAQ starts reporting a supported latest value for that location.
+Sensors are created for supported measurements reported by the monitoring location. If a supported measurement is missing from the monitoring location metadata, Home Assistant does not create an entity for it. If OpenAQ reports the supported measurement but no latest value is available, Home Assistant creates the entity with an unknown state.
 
 Unsupported OpenAQ parameters are ignored.
 
@@ -106,9 +102,9 @@ If Home Assistant reports that the OpenAQ rate limit was exceeded, wait and try 
 
 ### Expected sensors are missing
 
-Sensors are only created for supported parameters that have a numeric latest value at the selected OpenAQ monitoring location. Check the monitoring location in OpenAQ to confirm that it reports the expected parameter and has recent data.
+Sensors are only created for supported parameters reported by the selected OpenAQ monitoring location. Check the monitoring location in OpenAQ to confirm that it reports the expected parameter.
 
-If OpenAQ starts reporting a supported parameter after the monitoring location was added, reload the OpenAQ integration in Home Assistant.
+If OpenAQ starts reporting a supported parameter after the monitoring location was added, reload the OpenAQ integration in Home Assistant. If the entity exists but its state is unknown, wait for OpenAQ to report a numeric latest value.
 
 ## Removing the integration
 
