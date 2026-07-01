@@ -26,6 +26,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 {% options_ui %}
 Message:
   description: The message to show on the TV.
+  required: true
 Title:
   description: The notification title.
   required: false
@@ -102,11 +103,11 @@ interrupt:
   default: false
   type: boolean
 image:
-  description: Image upload settings. It can contain `url` or `path`.
+  description: Image upload settings. Provide either `url` or `path`. If you set `username`, `password`, or `auth`, you must also set `url`.
   required: false
   type: map
 icon:
-  description: Icon upload settings. It can contain `url` or `path`.
+  description: Icon upload settings. Provide either `url` or `path`. If you set `username`, `password`, or `auth`, you must also set `url`.
   required: false
   type: map
 {% endconfiguration %}
