@@ -87,8 +87,6 @@ The `schedules` option takes one or more schedules, which are all set in the sam
 
 {% include actions/try_it.md %}
 
-{% include actions/more_examples.md %}
-
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
