@@ -115,7 +115,7 @@ recency — for example, to show only repositories with a release or issue in th
 - **Latest release published**: When the latest release was published
 - **Latest tag committed**: When the commit behind the latest tag was committed (not provided for annotated tags)
 
-To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](/common-tasks/general/#to-enable-or-disable-a-single-entity).
 
 ### Diagnostic entities
 
@@ -138,7 +138,7 @@ In addition to the entities for each tracked repository, the integration provide
 - **Public gists**: Shows the number of public gists on your account
 - **Public repositories**: Shows the number of public repositories on your account
 
-To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](/common-tasks/general/#to-enable-or-disable-a-single-entity).
 
 ## Automation
 
