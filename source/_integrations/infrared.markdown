@@ -66,11 +66,11 @@ It has the following characteristics:
 
 #### Infrared emitter
 
-The component that sends out IR signals, the same kind of signal a physical remote sends. An emitter is what actually controls a device, and it is part of a piece of hardware, such as an infrared remote adapter. In Home Assistant, each emitter appears as an infrared entity that other integrations can use.
+The component of your remote adapter that sends out IR signals, the same kind of signal a physical remote sends. An emitter is what actually controls a device. In Home Assistant, each emitter appears as an infrared entity that other integrations can use.
 
 #### Infrared receiver
 
-The component that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update entities state or trigger automations. Like an emitter, a receiver is part of a piece of hardware, such as an infrared remote adapter. Each receiver appears as an infrared entity.
+The component of your remote adapter that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update entities state or trigger automations. Each receiver appears as an infrared entity.
 
 ### IR-controlled device
 
