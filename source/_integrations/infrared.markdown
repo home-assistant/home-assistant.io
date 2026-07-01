@@ -43,12 +43,11 @@ When you set up an ESPHome device configured as an infrared remote adapter, Home
 
 ### To set up an infrared remote adapter to control devices
 
-1. Get an ESPHome remote adapter. You have two options:
-    - Install ready-made firmware from your browser, without any programming. For example, the [Seeed Studio XIAO IR Mate](https://www.seeedstudio.com/XIAO-Smart-IR-Mate-p-6492.html) is a compact infrared emitter purpose-built for this. Browse the available [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
-    - Build your own using the [ESPHome infrared and radio frequency proxy component](https://esphome.io/components/ir_rf_proxy/) on an ESP32-based device.
+1. Get an infrared remote adapter of your choice.
+    - To find integrations that support infrared, in the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
+    - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
 2. Position the infrared remote adapter within line-of-sight of the IR-controlled device. Infrared signals do not pass through walls or other obstructions.
-3. Set up the infrared remote adapter through the [ESPHome](/integrations/esphome/) integration. Home Assistant discovers its built-in infrared emitters and surfaces them as infrared entities.
-    - Depending on the device, you can follow the instructions in the [Ready-made Projects](https://esphome.io/projects/) section of the ESPHome documentation.
+3. Set up the infrared remote adapter through its integration. Home Assistant discovers its built-in infrared emitters and surfaces them as infrared entities.
 4. In Home Assistant, add the integration for your IR-controlled device, such as [LG Infrared](/integrations/lg_infrared/). During that integration's setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter. For more information, refer to [Finding and adding integrations that support infrared](#finding-and-adding-integrations-that-support-infrared).
 5. If you need to control IR-controlled devices in different rooms, place multiple infrared remote adapters around your home and select the one closest to each device.
 
