@@ -11,8 +11,6 @@ related_conditions:
 
 The **PM2.5 value** condition passes when a PM2.5 sensor's reading meets a specific level. PM2.5 is the most widely used indicator of air quality, and for good reason: these fine particles (smaller than 2.5 micrometers) come from traffic, wildfires, and everyday cooking, and they affect respiratory health at surprisingly low concentrations. This condition gives your automation precision, closing the windows only when outdoor PM2.5 is above a safe limit or holding off on opening them until the reading drops back down.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

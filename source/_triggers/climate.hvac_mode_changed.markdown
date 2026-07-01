@@ -2,7 +2,7 @@
 title: "Thermostat mode changed"
 trigger: climate.hvac_mode_changed
 domain: climate
-description: "Triggers after the HVAC mode of one or more climate devices changes."
+description: "Triggers when the mode of one or more thermostats changes."
 related_triggers:
   - climate.turned_on
   - climate.turned_off
@@ -13,9 +13,6 @@ The **Thermostat mode changed** trigger fires after the HVAC mode of a climate {
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
 
 You can optionally filter the trigger to fire only when the thermostat switches to one or more specific modes. Leave the mode option empty to fire on any mode change.
-
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

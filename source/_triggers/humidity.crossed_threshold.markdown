@@ -2,7 +2,7 @@
 title: "Relative humidity crossed threshold"
 trigger: humidity.crossed_threshold
 domain: humidity
-description: "Triggers after one or more relative humidity readings cross a threshold."
+description: "Triggers when one or more relative humidity values cross a threshold."
 related_triggers:
   - humidity.changed
 ---
@@ -12,8 +12,6 @@ The **Relative humidity crossed threshold** trigger fires when a humidity readin
 Use **Relative humidity crossed threshold** to automate ventilation when the air becomes too humid, alert you when conditions in a sensitive room drift out of range, or coordinate devices that respond to specific humidity levels.
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

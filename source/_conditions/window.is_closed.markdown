@@ -9,8 +9,6 @@ related_conditions:
 
 The **Window is closed** condition passes when a targeted window is currently closed. Use it when you want to make sure the house is shut before you lock a door, arm an alarm, turn heating back on, or continue only if a window has stayed closed for a while.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -10,8 +10,6 @@ related_actions:
 
 The **Decrease fan speed** action is useful when you want a gentler airflow without picking an exact final value. Use it to lower the fan by one step or by a percentage you choose.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

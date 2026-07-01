@@ -11,8 +11,6 @@ The **Door is closed** condition passes when one or more targeted doors are curr
 
 This condition is useful for safety checks and routines that depend on a closed door, like starting a robot vacuum only after the patio door is shut or arming the house only after every entry point is closed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

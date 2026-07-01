@@ -9,8 +9,6 @@ The **Vacuum cleaner is encountering an error** condition passes when one or mor
 
 Use this when you want an automation to act only if the robot still needs attention, like sending a reminder later in the day, turning on a helper light, or skipping a follow-up routine until the issue is fixed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
