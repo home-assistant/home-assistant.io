@@ -128,10 +128,6 @@ The response data is a string with the description as provided by NINA.
 
 The integration checks for warnings every 5 minutes.
 
-## Known limitations
-
-This integration may only work with an Internet connection that supports IPv4.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
