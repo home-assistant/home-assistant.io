@@ -55,7 +55,7 @@ action: |
 command:
   description: The command, or list of commands, to send.
   required: true
-  type: string, list
+  type: string
 num_repeats:
   description: The number of times to repeat the command sequence.
   required: false
