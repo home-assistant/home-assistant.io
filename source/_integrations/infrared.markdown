@@ -94,7 +94,7 @@ The terms above nest inside each other:
 
 For example, a single infrared remote adapter with two built-in emitters appears in Home Assistant as two infrared entities, one per emitter.
 
-## The state of an infrared entity
+## About the state of an infrared entity
 
 The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the entity was last active:
 
