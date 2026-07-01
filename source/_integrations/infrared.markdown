@@ -34,12 +34,11 @@ To find and add integrations that support infrared:
 
 ## Controlling devices without a wired infrared emitter
 
-To control an infrared-controlled device, an infrared emitter has to sit close to it, with line-of-sight to the device. There are two options to achieve this:
+The problem with wired emitters is that because they need to plug into your Home Assistant server, they can therefore only reach devices near the server. And the server is rarely in the same room as your TV or air conditioner.
 
-- Using a wired IR emitter. A wired emitter, such as a USB-UIRT, plugs into your Home Assistant server, so it can only reach devices near the server, which is rarely in the same room as your TV or air conditioner.
-- Using an infrared remote adapter (proxy). An infrared remote adapter, such as the [Seeed Studio XIAO IR Mate](https://www.seeedstudio.com/XIAO-Smart-IR-Mate-p-6492.html), is a small ESPHome device with a built-in emitter that connects to Home Assistant over Wi-Fi (or Ethernet). You place it next to the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant, letting Home Assistant control infrared-controlled devices anywhere in your home.
+If you do not want to use a wired emitter, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant over Wi-Fi. You place it within line-of sight to the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
 
-When you set up an ESPHome device configured as an infrared remote adapter, Home Assistant automatically discovers its built-in infrared emitters. Each emitter appears as an infrared entity, so you can select it when configuring an integration for an infrared-controlled device.
+Home Assistant automatically discovers its built-in infrared emitters. Each emitter appears as an infrared entity, so you can select it when configuring an integration for an infrared-controlled device.
 
 ### To set up an infrared remote adapter to control devices
 
