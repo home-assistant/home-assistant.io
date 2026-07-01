@@ -98,7 +98,7 @@ Additional data for a device is available as separate sensors. The sensors are a
 
 ### Button
 
-Button entities are available for actions such as triggering a one-time charge of the water heater.
+Button entities are available to trigger actions like a one-time charge of the water heater.
 
 ### Number
 
@@ -134,15 +134,13 @@ The `climate.set_preset_mode` action supports the *eco* and *comfort* preset mod
 
 ### Invalid redirection URI
 
-If you get this error in the browser when adding or re-authenticating the integration:
+When adding or re-authenticating the integration, you get this error in the browser:
 
-`{"error":"invalid_request", "error_description":"Invalid redirection URI."}`
+```text
+{"error":"invalid_request", "error_description":"Invalid redirection URI."}
+```
 
-set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly:
-
-`https://my.home-assistant.io/redirect/oauth`
-
-Save the client (it may take up to an hour to become active) and try again.
+Set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly `https://my.home-assistant.io/redirect/oauth`, save (it may take up to an hour to become active), and try again.
 
 ### GATEWAY_OFFLINE
 
