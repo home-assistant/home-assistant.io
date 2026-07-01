@@ -62,8 +62,9 @@ A device that relays IR commands on behalf of Home Assistant. It can connect to 
 
 It has the following characteristics:
 
+- The infrared remote adapter is the hardware device.
 - The infrared remote adapter contains one or more emitters, and sometimes a receiver.
-- The infrared remote adapter is the hardware device. The emitters and receivers it contains are the parts that each become an infrared entity.
+- Each emitter and receiver as shown as a separate entity in Home Assistant.
 
 #### Infrared emitter
 
