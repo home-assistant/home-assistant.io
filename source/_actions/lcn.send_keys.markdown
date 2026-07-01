@@ -8,7 +8,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Send keys** action sends one or more keys to an LCN module, which runs the commands bound to those keys. You provide the keys as a string of key identifiers, for example `a1a5d8`.
+This action sends one or more keys to an LCN module, which runs the commands bound to those keys. You provide the keys as a string of key identifiers, for example `a1a5d8`.
 
 You can send the keys immediately or defer them. For deferred sending, set a **Time** and **Time unit**, and use the `hit` key state.
 
@@ -61,6 +61,18 @@ action: |
 
 This sends keys `a1`, `a5`, and `d8` to the selected module immediately.
 
+To send the same keys five seconds later:
+
+{% example %}
+action: |
+  action: lcn.send_keys
+  data:
+    device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
+    keys: a1a5d8
+    time: 5
+    time_unit: s
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -101,22 +113,6 @@ time_unit:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
-
-### Send keys deferred
-
-This example sends the same keys, but five seconds later.
-
-{% example %}
-action: |
-  action: lcn.send_keys
-  data:
-    device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
-    keys: a1a5d8
-    time: 5
-    time_unit: s
-{% endexample %}
 
 {% include actions/stuck.md %}
 
