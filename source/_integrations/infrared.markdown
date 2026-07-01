@@ -26,7 +26,7 @@ An infrared {% term entity %} represents either an [infrared emitter](#infrared-
 
 ## Finding and adding integrations that support infrared
 
-The **Infrared** {% term integration %} is a building block that other integrations build on. To control an infrared-controlled device or react to an infrared remote, you need an integration that supports infrared, such as one for your specific TV or air conditioner.
+The **Infrared** {% term integration %} is a building block that other integrations build on. To control an infrared-controlled device or react to an infrared remote, you typically need both infrared hardware that exposes an infrared emitter or receiver entity and an integration for your specific device.
 
 To set up infrared hardware and a device integration:
 
