@@ -146,53 +146,11 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
-### Getting device and chargers coordinates
+{% include integrations/actions.md %}
 
-The integration has a `raw_get_positions` action to retrieve device and chargers coordinates.
+### Getting device and charger coordinates
 
-Example:
-
-```yaml
-action: ecovacs.raw_get_positions
-target:
-  entity_id: vacuum.deebot_n8_plus
-```
-
-{% details "Action response example" %}
-The action returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
-
-```yaml
-vacuum.deebot_n8_plus:
-  ret: ok
-  resp:
-    header:
-      pri: 1
-      tzm: 480
-      ts: "1717748487712"
-      ver: 0.0.1
-      fwVer: 1.2.0
-      hwVer: 0.1.1
-    body:
-      code: 0
-      msg: ok
-      data:
-        deebotPos:
-          x: 1
-          y: 5
-          a: 85
-          invalid: 0
-        chargePos:
-          - x: 5
-            y: 9
-            a: 85
-            t: 1
-            invalid: 0
-        mid: "200465850"
-  id: 5o81
-  payloadType: j
-```
-
-{% enddetails %}
+The [Get raw positions](/actions/ecovacs.raw_get_positions/) action retrieves device and charger coordinates.
 
 ## Self-hosted configuration
 
