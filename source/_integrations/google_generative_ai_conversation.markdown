@@ -137,36 +137,7 @@ You can use this integration to [talk to Super Mario and, if you want, have him 
 
 The tutorial is using OpenAI, but this could also be done with the Google Gemini integration.
 
-## Actions
-
-### Speak
-
-The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Gemini TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
-
-Text-to-speech (TTS) generation is controllable, meaning you can use natural language to structure interactions and guide the style, accent, pace, and tone of the audio. You can change the way the text is spoken directly in the message by, e.g. entering "Say cheerfully: Have a wonderful day" instead of just "Have a wonderful day".
-
-For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
-
-In YAML, your action will look like this:
-
-```yaml
-action: tts.speak
-target:
-  entity_id: tts.google_generative_ai_tts
-data:
-  media_player_entity_id: media_player.tv
-  message: Say cheerfully: Have a wonderful day!
-  options:
-    voice: <voice-name>
-```
-
-You can configure the following options:
-
-| Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
-| `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
-
-The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
+{% include integrations/actions.md %}
 
 ## Video tutorial
 
