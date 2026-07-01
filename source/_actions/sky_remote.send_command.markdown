@@ -51,6 +51,8 @@ action: |
       - tvguide
 {% endexample %}
 
+This sends the commmands `sky` and `tvguide`.
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -103,7 +105,7 @@ Send the Sky and TV guide commands when you start your TV activity.
   - **Target**: Sky remote
   - **Command**: `sky`, `tvguide`
 
-{% details "Show example YAML" %}
+{% details "YAML example for opening the Sky TV guide" %}
 
 {% example %}
 automation: |
