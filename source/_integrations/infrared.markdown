@@ -28,11 +28,10 @@ An infrared {% term entity %} represents either an [infrared emitter](#infrared-
 
 The **Infrared** {% term integration %} is a building block that other integrations build on. To control an infrared-controlled device or react to an infrared remote, you need an integration that supports infrared, such as one for your specific TV or air conditioner.
 
-To find and add integrations that support infrared:
+To set up infrared hardware and a device integration:
 
-1. In the Home Assistant documentation, go to the [Infrared category](/integrations/#infrared).
-2. Browse the listed integrations to find one that matches your infrared-controlled device.
-3. Open the integration's page and follow its setup instructions.
+1. Add an integration that provides infrared entities, such as [Broadlink](/integrations/broadlink/), [SMLIGHT SLZB](/integrations/smlight/), or an ESPHome infrared proxy.
+2. Add the integration for your infrared-controlled device (for example, [LG Infrared](/integrations/lg_infrared/)) and select the infrared emitter or receiver entity when prompted.
 
 ## Controlling devices from Home Assistant without a wired infrared emitter
 
