@@ -41,8 +41,7 @@ If you do not want to use a wired emitter, you can use an infrared remote adapte
 ### Prerequisites
 
 - An infrared remote adapter. If you're unsure what to get:
-  - Find integrations that support infrared:
-    - In the documentation, search for the [infrared category](/integrations/#infrared).
+  - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
 
 ### To set up an infrared remote adapter to control devices
@@ -83,16 +82,6 @@ The appliance you want to control, such as a TV, air conditioner, amplifier, or 
 ### Infrared entity
 
 The Home Assistant representation of a single emitter or receiver. This is what you select when configuring an integration for an infrared-controlled device.
-
-### How these terms relate
-
-The terms above nest inside each other:
-
-- An infrared remote adapter contains one or more emitters, and sometimes a receiver.
-- Each emitter or receiver is represented in Home Assistant as an infrared {% term entity %}.
-- You select an infrared entity to control an infrared-controlled device, which is separate hardware and not part of the infrared remote adapter.
-
-For example, a single infrared remote adapter with two built-in emitters appears in Home Assistant as two infrared entities, one per emitter.
 
 ## About the state of an infrared entity
 
