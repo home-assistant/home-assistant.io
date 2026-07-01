@@ -65,7 +65,6 @@ enable:
     Turn valet mode on or off.
   required: true
   type: boolean
-  default: true
 pin:
   description: >
     A 4-digit code (1000 to 9999) used to enable or disable valet mode.

@@ -67,7 +67,6 @@ enable:
     Turn scheduled charging on or off.
   required: true
   type: boolean
-  default: true
 time:
   description: >
     The time at which charging should start, in `HH:MM` format. Required when you enable scheduled charging.

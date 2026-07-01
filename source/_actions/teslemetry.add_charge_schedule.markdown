@@ -97,7 +97,6 @@ enable:
     Whether this schedule should be active.
   required: true
   type: boolean
-  default: true
 location:
   description: >
     The approximate location the vehicle must be at to use this schedule, as a mapping with `latitude` and `longitude`. Defaults to your Home Assistant location.
