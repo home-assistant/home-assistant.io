@@ -10,7 +10,7 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-07/beta-social.png
+og_image: /images/blog/2026-07/social.png
 ---
 
 <lite-youtube videoid="ZinHM68qDHQ" videotitle="Home Assistant 2026.7 Release Party"></lite-youtube>
