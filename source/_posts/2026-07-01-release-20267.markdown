@@ -103,6 +103,7 @@ Enjoy the (beta) release!
   - [Time format selection](#time-format-selection)
   - [Dedicated panels for infrared and radio frequency](#dedicated-panels-for-infrared-and-radio-frequency)
   - [The ZHA Zigbee device management got an overhaul](#the-zha-zigbee-device-management-got-an-overhaul)
+  - [Keeping your Raspberry Pi firmware up to date](#keeping-your-raspberry-pi-firmware-up-to-date)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -463,7 +464,6 @@ There are many more improvements in this release; here are some of the other not
 - **A projector device class for media players.** Projectors are now a proper media player device class, surfaced through Google Assistant, HomeKit, and SmartThings too. Thanks, [@jtjart]!
 - **Template lights gain xy color.** Build template lights with full xy color support. Thanks, [@Petro31]!
 - **Clean a specific room from Google Assistant.** Ask Google to send your robot vacuum to a particular room. Thanks, [@joostlek]!
-- **A Raspberry Pi firmware update entity.** Running Home Assistant on a Raspberry Pi? You can now keep its firmware up to date from within Home Assistant. Thanks, [@sairon]!
 - **Snappier templates.** Under the hood, a template engine optimization makes templates render up to 40% faster. Thanks, [@frenck]!
 - **Clearer automation traces.** When you debug an automation or script, its trace now always includes template errors, making it easier to spot what went wrong. Thanks, [@emontnemery]!
 
@@ -515,6 +515,23 @@ This release moves all of that onto a dedicated, full-page device view. The same
 Thanks, [@jpbede]!
 
 [@jpbede]: https://github.com/jpbede
+
+### Keeping your Raspberry Pi firmware up to date
+
+Running Home Assistant Operating System on a Raspberry Pi? You are in good company: per our public, opt-in [analytics](https://analytics.home-assistant.io/), the Raspberry Pi platform currently powers about a third of all installations. As of this release, there is an {% term update "update entity" %} for the Pi's bootloader firmware, also often referred to as the <abbr title="electrically erasable programmable read-only memory">EEPROM</abbr> update. You can keep it current right from {% my updates title="**Settings** > **Updates**" %}, the same place you handle every other update.
+
+This is more than a nice-to-have: Especially on Raspberry Pi 5/Compute Module 5 the firmware contains bugfixes and compatibility improvements for NVMes, thermal improvements and much more. Until now, updating that firmware was cumbersome: you had to flash another SD card with a special image, or connect a keyboard and a display and run the `rpi-eeprom-update` command by hand. Now it is a single click.
+
+<img src='/images/blog/2026-07/temp-rpi-firmware-update.png' alt='Screenshot of the Raspberry Pi firmware update entity on the Settings, Updates page.' class='no-shadow' />
+
+A few things to keep in mind:
+
+- This needs [Home Assistant Operating System 18](https://github.com/home-assistant/operating-system/releases/tag/18.0) or newer, which provide the support the update entity builds on. On older versions, the entity simply isn't there.
+- On a Raspberry Pi 4, the firmware can only be updated when the board boots from an SD card. If your Pi 4 boots from USB storage, the update isn't available. This is a limitation of the update system. This is one more reason we recommend using USB only as a data disk and keeping an SD card as the main boot device.
+- Not every board can update its firmware this way. Besides Raspberry Pi 4 booting from USB storage, the Yellow with CM4 is currently not supported as well. Where an update can't be applied, the entity doesn't appear at all, so you don't see an update that wouldn't work.
+- After the update is applied, Home Assistant prompts you to reboot your system to complete the update.
+
+Thanks, [@sairon]!
 
 ## Need help? Join the community
 
