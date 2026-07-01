@@ -21,7 +21,7 @@ To lock or unlock a regulator setpoint from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **LCN: Lock regulator**.
 6. Select the LCN module or group in the **Device** field, choose the **Setpoint**.
-7. _Optional_: in **State**, select the state of the lock.
+7. _Optional_: In **State**, select the state of the lock.
 8. Select **Save**.
 
 This action does not support targets. Instead, you select the LCN module or group through the **Device** field.
