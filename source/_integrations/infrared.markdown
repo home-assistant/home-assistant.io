@@ -42,7 +42,7 @@ If you do not want to use a wired emitter, you can use an infrared remote adapte
 
 - An infrared remote adapter. If you're unsure what to get:
   - Find integrations that support infrared:
-    - In the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
+    - In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
 
 ### To set up an infrared remote adapter to control devices
