@@ -11,8 +11,6 @@ The **Valve closed** trigger fires after a valve {% term entity %} transitions t
 
 Use it to react the moment a valve is closed, whether it was closed manually, by a schedule, through an {% term automation %}, or by a voice command. For example, you can create an automation to log when irrigation ends, confirm that a gas valve has been shut off, or chain follow-up actions after a valve closes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -121,7 +119,7 @@ automation: |
               (trigger.to_state.last_changed
               - trigger.from_state.last_changed).total_seconds() / 60
             ) | round(1)
-          }} 
+          }}
         liters_used: >
           {{ (duration_min * 12) | round(0) }}
     - action: notify.send_message

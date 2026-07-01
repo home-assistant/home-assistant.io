@@ -5,15 +5,13 @@ domain: vacuum
 description: "Triggers when one or more vacuum cleaners encounter an error."
 related_triggers:
   - vacuum.paused_cleaning
-  - vacuum.docked
+  - vacuum.returned_to_dock
 ---
 
 The **Vacuum cleaner encountered an error** trigger fires as soon as your vacuum reports an error state.
 You can use it to create alerts, notifications, or proactive automations when something interrupts a cleaning session.
 
 This is useful when you want to know right away that the robot is tangled, blocked, out of water, or needs another kind of manual help before it can continue.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -22,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner encountered an error**.
+4. From the search box, search for and select **Vacuum cleaner encountered an error**.
 5. Under **Targets**, pick the vacuum entities (or an area/floor) you want to monitor.
 6. Under **Trigger when**, pick **Each**, **First**, or **All** to control group behavior.
 7. Under **For at least**, enter how long the vacuum must remain in the error state before the trigger fires.

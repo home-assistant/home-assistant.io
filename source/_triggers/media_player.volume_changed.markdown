@@ -12,8 +12,6 @@ The **Media player volume changed** trigger fires when a media player's volume c
 
 Use **Media player volume changed** to adjust lights when volume gets high, send a notification when volume drops too low, or react to any change for logging and other routines.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player volume changed** in an automation:

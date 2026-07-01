@@ -11,8 +11,6 @@ The **Gate closed** trigger fires when a targeted gate changes to closed. Use it
 
 This trigger is useful for turning lights back off, confirming that a gate finished closing, or starting routines that should happen only after the gate is shut.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

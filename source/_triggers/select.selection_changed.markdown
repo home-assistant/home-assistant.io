@@ -9,8 +9,6 @@ The **Dropdown selection changed** trigger fires when the selected option of a d
 
 This trigger fires when the selected option changes from one valid option to another. To run only when the dropdown is set to a specific option, combine it with the [Dropdown option is selected](/conditions/select.is_option_selected/) condition.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Dropdown selection changed** in an automation:

@@ -67,7 +67,7 @@ If your vacuum supports a separate power state, this automation turns it off aft
 automation: |
   alias: "Turn off vacuum after docking"
   triggers:
-    - trigger: vacuum.docked
+    - trigger: vacuum.returned_to_dock
       target:
         entity_id: vacuum.downstairs
   actions:

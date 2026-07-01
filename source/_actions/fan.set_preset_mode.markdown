@@ -12,8 +12,6 @@ The **Set fan preset mode** action is useful when your fan offers named modes li
 
 Available preset modes come from the integration that provides the fan entity. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed/) component provides **Low**, **Medium**, and **High** presets by default.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

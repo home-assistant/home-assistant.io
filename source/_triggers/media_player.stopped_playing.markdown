@@ -12,8 +12,6 @@ The **Media player stopped playing** trigger fires when playback stops on a medi
 
 Use **Media player stopped playing** to turn off lights, return a room to its normal state, or start another routine only when playback is fully finished.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player stopped playing** in an automation:

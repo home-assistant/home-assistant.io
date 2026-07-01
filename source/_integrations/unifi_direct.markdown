@@ -8,13 +8,14 @@ ha_release: 0.59
 ha_domain: unifi_direct
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@tofuSCHNITZEL'
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 This {% term integration %} allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs from [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi Network application.

@@ -64,11 +64,11 @@ A Z-Wave network in Home Assistant includes the following elements:
 - this Z-Wave integration
 - Z-Wave end devices
 
-### Setting up a Z-Wave server in Home Assistant
+### Setting up a Z-Wave server using the Z-Wave JS app
 
 This section shows how to set up a Z-Wave server using the **Z-Wave JS** app in Home Assistant.
 
-For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
+For other ways to set up a Z-Wave server, refer to [Setting up a Z-Wave server without using the Z-Wave JS app](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app).
 
 Once you have set up the Z-Wave server, you can [add devices to the network](#adding-a-new-device-to-the-z-wave-network).
 
@@ -430,7 +430,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 1. Button to **manually idle notifications**: Any Notification Command Class (CC) values on a device that have an idle state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own. A device can have multiple Notification CC values. For example one for detecting smoke and one for detecting carbon monoxide.
 
-## Using advanced features (UI only)
+## Features only available from the UI
 
 While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (such as entities, states, automations, and actions), there are some features that are only available through the UI.
 
@@ -671,7 +671,7 @@ actions:
 
 {% include integrations/triggers.md %}
 
-## Advanced installation instructions
+## Setting up a Z-Wave server without using the Z-Wave JS app
 
 If you are using Home Assistant Container or you do not want to use the built-in Z-Wave JS app, you need to run the Z-Wave JS Server yourself, which the Z-Wave integration will connect to.
 
@@ -688,7 +688,7 @@ The chart below illustrates Options 1 and 3, which are available for Home Assist
 
 _This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
-This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
+This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-server-using-the-z-wave-js-app), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI Docker container**
 
@@ -842,9 +842,9 @@ Many users have reported issues with interference when the adapter was directly 
 
 ### How do I access the Z-Wave logs?
 
-#### The easy way
+#### Enabling and disabling Z-Wave JS logging from the UI
 
-##### Enable Z-Wave JS logging
+To enable Z-Wave JS logging:
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
 2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Enable debug logging**.
@@ -852,21 +852,17 @@ Many users have reported issues with interference when the adapter was directly 
 3. If you want to change the log level, on the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}, select the cogwheel {% icon "mdi:cog-outline" %}.
    - Select the **Logs** tab, then select the log level.
 
-##### Disable Z-Wave JS logging
+To disable Z-Wave JS logging:
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
 2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable debug logging**.
    - **Result**: The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
 
-#### The advanced way
+#### Enabling and disabling Z-Wave JS logging in the configuration file or via an automation
 
-##### Enable Z-Wave JS logging manually, or via an automation
+To enable Z-Wave JS logging, set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. When the integration detects that the log level has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if the level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
 
-Set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. When the integration detects that the log level has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if the level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
-
-##### Disable Z-Wave JS logging manually, or via an automation
-
-Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
+To disable Z-Wave JS logging, set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
 
 ## Unsupported functionality
 

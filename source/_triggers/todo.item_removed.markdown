@@ -10,8 +10,6 @@ related_triggers:
 
 The **To-do item removed** trigger is useful when you want Home Assistant to react after an item disappears from a list. You can use it to notify someone, refresh a related routine, or keep another system in sync with your to-do list.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

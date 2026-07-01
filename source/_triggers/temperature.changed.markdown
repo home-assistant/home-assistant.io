@@ -11,8 +11,6 @@ The **Temperature changed** trigger fires after a temperature reading changes. T
 
 Use **Temperature changed** to log temperature trends, trigger heating or cooling when the temperature in a room changes noticeably, or alert you when a sensor reading shifts in a way that might signal a problem.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 {% include triggers/threshold_changed_steps.md

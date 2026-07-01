@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Car
+  - Device tracker
   - Lock
   - Sensor
 ha_platforms:

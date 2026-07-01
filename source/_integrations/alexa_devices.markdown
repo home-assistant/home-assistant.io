@@ -9,6 +9,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - To-do list
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
@@ -22,8 +23,10 @@ ha_platforms:
   - event
   - media_player
   - notify
+  - select
   - sensor
   - switch
+  - todo
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -117,8 +120,9 @@ In addition to sensors, you can use the following entities:
 - **Button** - Execute Alexa routines
 - **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
-- **Select** - Select default device
+- **Select** - Select Drop In status
 - **Switch** - Do not disturb
+- **To-do list** - Shopping, to-do, and custom lists.
 
 ## Examples
 

@@ -11,8 +11,6 @@ The **Shade is open** condition passes when one or more targeted shades are curr
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a shade is open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -12,8 +12,6 @@ related_conditions:
 
 The **Thermostat is drying** condition passes when a thermostat {% term entity %} is actively in dry mode, removing excess humidity from the air. This is common in air conditioning systems with dehumidification capabilities. A thermostat set to dry mode does not run continuously. It cycles to maintain comfortable humidity levels. Use **Thermostat is drying** to confirm the system is in an active drying cycle, rather than just set to dry mode and idle.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Thermostat is drying** in an automation:
