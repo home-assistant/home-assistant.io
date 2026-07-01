@@ -1,5 +1,5 @@
 ---
-title: Vacuum is returning
+title: Vacuum cleaner is returning
 condition: vacuum.is_returning
 domain: vacuum
 description: "Passes when the vacuum cleaner is returning to the dock."
