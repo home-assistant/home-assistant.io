@@ -97,53 +97,7 @@ If you are having issues and want to report a problem, always start with making 
 
 If the state of {% term entities %} are only reflected in Home Assistant when the {% term integration %} is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
 
-## Device actions
-
-Available actions: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
-
-### Action `deconz.configure`
-
-Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `field`                | No       | String representing a specific device in deCONZ.                            |
-| `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
-| `data`                 | No       | Data is a JSON object with what data you want to alter.                     |
-
-Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
-
-```json
-{ "field": "/lights/1", "data": {"name": "light2"} }
-```
-
-```json
-{ "entity": "light.light1", "data": {"name": "light2"} }
-```
-
-```json
-{ "entity": "light.light1", "field: "/state", "data": {"on": true} }
-```
-
-```json
-{ "field": "/config", "data": {"permitjoin": 60} }
-```
-
-### Action `deconz.device_refresh`
-
-Refresh with devices added to deCONZ after Home Assistants latest restart.
-
-{% note %}
-deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must currently (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
-{% endnote %}
-
-### Action `deconz.remove_orphaned_entries`
-
-Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
-
-{% note %}
-It is recommended to use this {% term action %} after a restart of Home Assistant Core to have deCONZ integration properly mirrored to deCONZ.
-{% endnote %}
+{% include integrations/actions.md %}
 
 ## Remote control devices
 

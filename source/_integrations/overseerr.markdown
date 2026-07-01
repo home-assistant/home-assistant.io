@@ -82,23 +82,7 @@ There are sensors for:
  - Audio issues
  - Subtitle issues
 
-## Actions
-
-The Seerr integration has the following actions:
-
-### Request actions
-
-- `seerr.get_requests` - Get a list of media requests
-
-### Get requests
-
-Get a list of media requests using the `seerr.get_requests` action.
-
-- **config_entry_id** (*Required*): The ID of the Seerr config entry to get data from.
-- **status** (*Optional*): The status to filter the results on.
-- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
-- **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
-
+{% include integrations/actions.md %}
 
 ## Use cases
 

@@ -2,7 +2,7 @@
 title: "Counter reset"
 trigger: counter.reset
 domain: counter
-description: "Triggers after one or more counters are reset."
+description: "Triggers when one or more counters are reset."
 related_triggers:
   - counter.incremented
   - counter.decremented

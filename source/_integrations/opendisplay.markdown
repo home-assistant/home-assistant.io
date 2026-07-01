@@ -90,35 +90,7 @@ actions:
 ```
 {% enddetails %}
 
-## Actions
-
-### Action: Upload image
-
-The `opendisplay.upload_image` action allows you to upload an image to a display. The image is resized and dithered to match the display's resolution and color palette.
-
-| Data attribute      | Description                                                                                      | Required | Default   |
-| ------------------- | ------------------------------------------------------------------------------------------------ | -------- | --------- |
-| `device_id`         | The OpenDisplay device to upload the image to.                                                   | Yes      | -         |
-| `image`             | The image to upload, selected from a media source.                                               | Yes      | -         |
-| `rotation`          | Clockwise rotation in degrees: 0, 90, 180, or 270.                                               | No       | 0         |
-| `dither_mode`       | Dithering algorithm for converting to the display's color palette.                               | No       | Burkes    |
-| `refresh_mode`      | Refresh mode to use. Full clears ghosting but is slower; fast is not supported on all displays.  | No       | Full      |
-| `fit_mode`          | How the image is fitted to the display.                                                          | No       | Contain   |
-| `tone_compression`  | Dynamic range compression strength as a percentage (0–100). Omit to use automatic adjustment.    | No       | Automatic |
-
-**Refresh modes**:
-
-- **Full**: Clears ghosting but takes longer
-- **Fast**: Faster refresh, not supported on all displays
-
-**Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice, and Ninke
-
-**Fit modes**:
-
-- **Contain**: Scale to fit within the display, pad remaining space with white
-- **Cover**: Scale to fill the display, crop edges that overflow
-- **Stretch**: Distort to fill the exact display dimensions
-- **Crop**: Center-crop at native resolution without scaling
+{% include integrations/actions.md %}
 
 ## Examples
 

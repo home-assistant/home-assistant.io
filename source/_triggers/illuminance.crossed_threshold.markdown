@@ -2,7 +2,7 @@
 title: "Illuminance crossed threshold"
 trigger: illuminance.crossed_threshold
 domain: illuminance
-description: "Triggers after one or more illuminance values cross a threshold."
+description: "Triggers when one or more illuminance values cross a threshold."
 related_triggers:
   - illuminance.changed
   - illuminance.detected

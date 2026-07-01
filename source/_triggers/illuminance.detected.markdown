@@ -1,15 +1,15 @@
 ---
-title: "Light detected"
+title: "Light level detected"
 trigger: illuminance.detected
 domain: illuminance
-description: "Triggers after one or more light sensors start detecting light."
+description: "Triggers when one or more light sensors start detecting light."
 related_triggers:
   - illuminance.cleared
   - illuminance.changed
   - illuminance.crossed_threshold
 ---
 
-The **Light detected** trigger fires when one or more light sensors start detecting light.
+The **Light level detected** trigger fires when one or more light sensors start detecting light.
 
 Use it to automate actions when a dark area becomes lit, like sending a notification when a closet light is accidentally left on, or turning off a night light at dawn when an outdoor sensor first picks up daylight.
 
@@ -22,7 +22,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light detected**.
+4. From the search box, search for and select **Light level detected**.
 5. Select **Add target** (see [Targets](#targets)) and pick the light sensor that you want to watch. You can also select an area, a floor, a device, or a label.
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, you can set how long the sensor must keep detecting light before the trigger fires. Leave it at zero to fire immediately.
@@ -101,7 +101,7 @@ for:
 
 When the closet light sensor detects light for more than 10 minutes, send a notification so a light left on by mistake doesn't go unnoticed.
 
-- **Trigger**: Light detected
+- **Trigger**: Light level detected
   - **Target**: Closet light sensor
   - **For at least**: 00:10:00
 - **Action**: Send a notification message

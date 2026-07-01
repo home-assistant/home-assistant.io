@@ -52,42 +52,7 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 | `from`               | The sender of the message.
 | `message`            | The SMS message content.
 
-## Actions
-
-### Action: Connect LTE
-
-The `netgear_lte.connect_lte` action asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
-
-### Action: Disconnect LTE
-
-The `netgear_lte.disconnect_lte` action asks the modem to close its LTE connection.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`                 | yes      | The modem that should disconnect (optional when just one modem is configured).
-
-### Action: Delete SMS
-
-The `netgear_lte.delete_sms` action deletes messages from the modem inbox. This can be used to clean up after incoming SMS events.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`                 | yes      | The modem that should have a message deleted (optional when just one modem is configured).
-| `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
-
-### Action: Set option
-
-The `netgear_lte.set_option` action sets modem configuration options (otherwise available in the modem web UI).
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`                 | yes      | The modem to set options on (optional when just one modem is configured).
-| `autoconnect`          | yes      | Autoconnect value: `never`/`home`/`always`, with `home` meaning "not roaming".
-| `failover`             | yes      | Failover mode: `wire` (wired connection only), `mobile` (mobile connection only), `auto` (wired connection with failover to mobile connection).
+{% include integrations/actions.md %}
 
 ## Examples
 

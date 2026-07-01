@@ -2,7 +2,7 @@
 title: "Carbon monoxide level crossed threshold"
 trigger: air_quality.co_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more carbon monoxide levels cross a threshold."
+description: "Triggers when one or more carbon monoxide levels cross a threshold."
 related_triggers:
   - air_quality.co_changed
 ---

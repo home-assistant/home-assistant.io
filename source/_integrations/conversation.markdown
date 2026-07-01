@@ -145,24 +145,4 @@ intents:
 
 It's now possible to say "engage all lights in the bedroom", which will turn on every light in the area named "bedroom".
 
-
-## Action `conversation.process`
-
-Send a message to a conversation agent for processing.
-
-| Data attribute | Optional | Description                                                                                                               |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `text`                 | no       | Transcribed text input                                                                                                    |
-| `language`             | yes      | Language of the text                                                                                                      |
-| `agent_id`             | yes      | ID of conversation agent. The conversation agent is the brains of the assistant. It processes the incoming text commands. |
-| `conversation_id`      | yes      | ID of a new or previous conversation. Will continue an old conversation or start a new one.                               |
-
-This action can return [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data). The response is the same response as for the
-[`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
-
-## Action `conversation.reload`
-
-| Data attribute | Optional | Description                                                              |
-| ---------------------- | -------- | ------------------------------------------------------------------------ |
-| `language`             | yes      | Language to clear intent cache for. No value clears all languages        |
-| `agent_id`             | yes      | ID of conversation agent. Defaults to the built-in Home Assistant agent. |
+{% include integrations/actions.md %}

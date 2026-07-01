@@ -2,7 +2,7 @@
 title: "Media player muted"
 trigger: media_player.muted
 domain: media_player
-description: "Triggers after one or more media players are muted."
+description: "Triggers when one or more media players are muted."
 related_triggers:
   - media_player.unmuted
   - media_player.volume_changed

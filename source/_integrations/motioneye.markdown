@@ -211,66 +211,7 @@ in automations (etc).
 }
 ```
 
-## Actions
-
-All actions accept either an `entity_id` or `device_id`.
-
-### motioneye.snapshot
-
-Trigger a camera snapshot (e.g. saving an image to disk).
-
-Parameters:
-
-| Parameter               | Description                                           |
-| ----------------------- | ----------------------------------------------------- |
-| `entity_id` `device_id` | An entity id or device id to trigger the snapshot on. |
-
-Note: This is a thin wrapper on the [`motioneye.action` call](#action).
-
-<a name="action"></a>
-
-### motioneye.action
-
-Trigger a motionEye action (see [motionEye Action Buttons](https://github.com/ccrisan/motioneye/wiki/Action-Buttons)).
-
-Parameters:
-
-| Parameter               | Description                                                                                                                                                                                                                                              |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id` `device_id` | An entity id or device id to trigger the action on.                                                                                                                                                                                                      |
-| `action`                | A string representing the motionEye action to trigger. One of `snapshot`, `lock`, `unlock`, `light_on`, `light_off`, `alarm_on`, `alarm_off`, `up`, `right`, `down`, `left`, `zoom_in`, `zoom_out`, `preset1`-`preset9`, `record_start` or `record_stop` |
-
-**Note**: `record_start` and `record_stop` action are only partially implemented in motionEye itself and thus do not function as would be expected ([relevant code](https://github.com/ccrisan/motioneye/blob/dev/motioneye/handlers.py#L1741)).
-
-### motioneye.set_text_overlay
-
-Set the text overlay for a camera.
-
-Parameters:
-
-| Parameter                              | Description                                                                                                                                                                 |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id` `device_id`                | An entity id or device id to set the text overlay on.                                                                                                                       |
-| `left_text` `right_text`               | One of `timestamp`, `camera-name`, `custom-text` or `disabled` to show a timestamp, the  name of the camera, custom text or nothing at all, on the left or right-hand side. |
-| `custom_left_text` `custom_right_text` | Custom text to show on the left or right, if the `custom-text` value is selected.                                                                                           |
-
-**Note**:
-
-- Calling this action triggers a reset of the motionEye cameras which will pause the
-  stream / recordings / motion detection (etc).
-- Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
-
-#### Example:
-
-```yaml
-action: motioneye.set_text_overlay
-data:
-  left_text: timestamp
-  right_text: custom-text
-  custom_right_text: "Alarm armed"
-target:
-  entity_id: camera.office
-```
+{% include integrations/actions.md %}
 
 ## Media Browsing
 
