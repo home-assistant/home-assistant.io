@@ -126,14 +126,16 @@ play_plex_on_tv:
     - action: button.press
       target:
         entity_id: button.scan_clients_plex
-    - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
+    - wait_template: >-
+        {{ not is_state('media_player.plex_smart_tv', 'unavailable') }}
       timeout: "00:00:10"
       continue_on_timeout: false
     - action: media_player.play_media
       target:
         entity_id: media_player.plex_smart_tv
       data:
-        media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
+        media_content_id: >
+          {"library_name": "Movies", "title": "Zoolander"}
         media_content_type: movie
 ```
 
@@ -143,196 +145,13 @@ Notifications of new releases of Plex Media Server are shown using an Update ent
 
 Automatic upgrades of Plex Media Server can be triggered for some installation types, such as Windows and certain NAS devices.
 
+{% include integrations/actions.md %}
+
 ## Media player
 
 The Plex media player platform will create media player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
 
 By default, the Plex integration will create media player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
-
-### Action: Play media
-
-The `media_player.play_media` action plays media hosted on a Plex server on a Plex client or other supported device.
-
-Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
-
-- `shuffle`: Shuffles the playback order of the media. Accepts `1` or `true` to enable.
-- `resume`: Resumes playback at the last partially watched position if available, otherwise plays at the beginning.
-- `offset`: The desired playback start position in seconds.
-- `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
-- `username`: A username for a local Plex user account. This is only required if the Plex server has multiple users and you wish to play media for a specific user.
-- `continuous`: Plex will automatically play the next episode in the series. Accepts `1` or `true` to enable.
-
-Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
-
-{% note %}
-Refer to these links if casting to non-Plex players:
-
-- [Chromecast](/integrations/cast/#plex)
-- [Sonos](/integrations/plex#sonos-playback)
-{% endnote %}
-
-{% important %}
-The integration must be configured with a token for playback commands to work. This can occur if using the `List of IP addresses and networks that are allowed without auth` option on the Plex server. If that feature is required, it's recommended to configure the integration with that feature temporarily disabled.
-{% endimportant %}
-
-#### Music
-
-| Data attribute | Description                                                                                                                                                                                                                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                        |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` or `artist.title`</li><li>`album_name` or `album.title`</li><li>`track_name` or `track.title`</li><li>`track_number` or `track.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
-| `media_content_type`   | `MUSIC`                                                                                                                                                                                                                                                                                          |
-
-##### Examples:
-
-Play Hello from Adele's album 25 in the library Music
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
-```
-
-Play a random track from Stevie Wonder in the library Music
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
-```
-
-#### Playlist
-
-| Data attribute | Description                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                           |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`playlist_name` (Required)</li><li>`shuffle` (0 or 1)</li></ul> |
-| `media_content_type`   | `PLAYLIST`                                                                                          |
-
-##### Example:
-
-Plays the playlist The Best of Disco with shuffle enabled
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: PLAYLIST
-media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
-```
-
-#### TV episode
-
-| Data attribute | Description                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                                                                            |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li><li>`continuous` (0 or 1)</li></ul> |
-| `media_content_type`   | `EPISODE`                                                                                                                                                                                                                                                                                                                                            |
-
-##### Examples:
-
-Play Rick and Morty S2E5 from library Adult TV
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: EPISODE
-media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5 }'
-```
-
-Play a random episode of Sesame Street from the library Kids TV
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: EPISODE
-media_content_id: '{ "library_name": "Kids TV", "show_name": "Sesame Street", "shuffle": "1" }'
-```
-
-Resume the next unfinished episode of 60 Minutes from the library News TV
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: EPISODE
-media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
-```
-
-Play Rick and Morty episodes continuously starting from S2E5
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: EPISODE
-media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5, "continuous": 1}'
-```
-#### Movie
-
-| Data attribute | Description                                                                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                       |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li></ul> |
-| `media_content_type`   | `movie`                                                                                                                                         |
-
-##### Examples:
-
-Play Blade from the library Adult Movies
-
-```yaml
-entity_id: media_player.plex_player
-media_content_type: movie
-media_content_id: '{ "library_name": "Adult Movies", "title": "Blade" }'
-```
-
-#### Advanced searches
-
-Instead of searching for a specific known piece of media, many additional parameters are available to run more powerful searches. This can also be used when a simple search for a title has multiple matches, such as with movie remakes.
-
-These are examples of optional keys that can be included in the `media_content_id` JSON payload customize the search:
-
-- `unwatched`: Restrict search to unwatched items only (`true`, `false`)
-- `actor`: Restrict search for movies that include a specific actor
-- `collection`: Restrict search within a named Plex collection ("Back to the Future", "Indiana Jones")
-- `contentRating`: Restrict search to a specific content rating ("PG", "R")
-- `country`: Restrict search to a specific country of origin
-- `decade`: Restrict search to a specific decade ("1960", "2010")
-- `director`: Restrict search to a specific director
-- `genre`: Restrict search to a specific genre ("Animation", "Drama", "Sci-Fi")
-- `resolution`: Restrict search to a specific video resolution (480, 720, 1080, "4k")
-- `year`: Restrict search to a specific year
-
-More parameters and additional details can be found in the `plexapi` library [documentation](https://python-plexapi.readthedocs.io/en/latest/modules/library.html#plexapi.library.LibrarySection.search).
-
-##### Examples
-
-Below are examples of advanced searches. All examples show what can be sent in the `media_content_id` parameter.
-
-Note that some searches may require `"maxresults": 1` to limit the result to a single item. However, an "item" may be a group of media, such as an album, season, artist, or show.
-
-The search will attempt to guess the type of media based on the search parameters by using the most specific media type provided. For example, a search using `artist.title` and `album.year` will search for albums for the artist that were released in a specific year. If you add `track.title` to the search, it will instead try to find the track. You may specify the type of media to search for with the `libtype` parameter which can be one of `movie`, `episode`, `season`, `show`, `track`, `album`, or `artist`. This could be useful if searching for an album where you only know the name of a specific track (see example below).
-
-```json
-# Play the original instead of the 2004 remake:
-{ "library_name": "Movies", "title": "The Manchurian Candidate", "year": 1962 }
-
-# "Lazy" searches are also possible (would find the sequel, "Die Hard: With a Vengeance"):
-{ "library_name": "Movies", "title": "die hard", "year": 1995 }
-
-# Play for an artist's album where only a track name is known:
-{ "library_name": "Music", "artist.title": "Stevie", "track.title": "Higher Ground" }
-
-# Play all albums with "orange" in the title:
-{ "library_name": "Music", "album.title": "orange", "allow_multiple": true }
-
-# Watch the most recently added movie
-{ "library_name": "Movies", "sort": "addedAt:desc", "maxresults": 1 }
-
-# Play an unwatched movie from the "Bond" collection which was released in the 2000s
-{ "library_name": "Movies", "collection": "Bond", "decade": 2000, "unwatched": true }
-
-# Play the most recently added TV show which has been partially watched
-{ "library_name": "TV Shows", "inProgress": true, "sort": "addedAt:desc", "maxresults": 1 }
-
-# Listen to a random electronic album which was added over 3 years ago but hasn't been listened to for at least 3 months
-{ "library_name": "Music", "addedAt<<": "3y", "album.genre": "Electronic", "album.lastViewedAt<<": "3mon", "sort": "random", "maxresults": 1 }
-
-# Watch the worst rated movie from the 2000s starring either Nicolas Cage or Danny Devito
-{ "library_name": "Movies", "actor": ["Nicolas Cage", "Danny DeVito"], "decade": 2000, "sort": "audienceRating:asc", "maxresults": 1 }
-```
 
 ### Compatibility
 
@@ -354,27 +173,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 2. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
 3. [Sonos](/integrations/sonos/) integration configured.
 
-Call the `media_player.play_media` action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
-
-### Examples:
-
-Play a track with advanced filtering on a Sonos Speaker
-
-```yaml
-entity_id: media_player.sonos_speaker
-media_content_type: music
-media_content_id: 'plex://{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
-```
-
-Play a playlist on a Sonos Speaker
-
-```yaml
-entity_id: media_player.sonos_speaker
-media_content_type: playlist
-media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
-```
-
-{% include integrations/actions.md %}
+Call the [Play specified media](/actions/plex.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both `music` and `playlist` `media_content_type` values are supported.
 
 ## Notes
 
