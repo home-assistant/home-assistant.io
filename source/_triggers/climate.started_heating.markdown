@@ -13,8 +13,6 @@ The **Thermostat started heating** trigger fires after a thermostat {% term enti
 
 Use this trigger to react to the start of active heating, for example to turn on a fan to distribute warm air or to close window coverings to retain heat.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat started heating** in an automation:

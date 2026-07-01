@@ -8,8 +8,6 @@ description: "Triggers when one or more lawn mowers encounter an error."
 The **Lawn mower encountered an error** trigger fires when a mower reports a problem while it is working.
 Use it to notify you quickly, pause related automations, or turn on a nearby light before you go outside to check what happened.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

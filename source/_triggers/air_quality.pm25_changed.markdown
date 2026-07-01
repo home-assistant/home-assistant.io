@@ -11,8 +11,6 @@ The **PM2.5 level changed** trigger fires after the PM2.5 (particulate matter 2.
 
 Imagine your windows closing automatically the moment outdoor particle levels jump during a nearby wildfire, keeping smoke outside where it belongs. Use this trigger to turn on an air purifier, close windows, or send an alert whenever your PM2.5 sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

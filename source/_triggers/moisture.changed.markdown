@@ -13,8 +13,6 @@ The **Moisture content changed** trigger fires after a moisture reading changes.
 
 Use **Moisture content changed** to log soil moisture trends, trigger plant watering when the soil becomes too dry, or alert you when a reading shifts in a way that might signal a problem.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Moisture content changed** in an automation:

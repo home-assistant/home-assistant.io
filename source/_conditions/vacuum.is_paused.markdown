@@ -9,8 +9,6 @@ The **Vacuum cleaner is paused** condition passes when one or more targeted vacu
 
 Use this when you want an automation to continue only if the robot is stopped mid-run, like sending a reminder, turning on a nearby light, or resuming later as part of a scheduled routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

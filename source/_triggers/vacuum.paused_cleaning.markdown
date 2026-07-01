@@ -13,8 +13,6 @@ Use this to send reminders, alert for stuck devices, or to chain additional auto
 
 Use it to send a message when the robot needs help, turn on a nearby light so you can find it, or record how often it gets stuck in the same place.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -9,8 +9,6 @@ related_conditions:
 
 The **Carbon dioxide value** condition passes when a carbon dioxide (CO2) sensor's reading meets a specific level. A stuffy meeting room, a crowded living room on movie night, or a bedroom with the door closed overnight all push CO2 levels higher than you would expect. This condition lets your automation act only when CO2 is genuinely elevated, so the ventilation fan starts when it is truly needed and stays off when the air is fine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

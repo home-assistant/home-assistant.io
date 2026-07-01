@@ -12,8 +12,6 @@ The **Water heater turned off** trigger fires when a water heater {% term entity
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each water heater that turns off, only for the first one, or only after all targeted water heaters are off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Water heater turned off** in an automation:

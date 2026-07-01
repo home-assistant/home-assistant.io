@@ -9,8 +9,6 @@ The **Dropdown option is selected** condition passes when a dropdown {% term ent
 
 When you target more than one dropdown, the **Condition passes if** option controls how the check combines results. You can require any targeted dropdown to be on the selected option, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Dropdown option is selected** in an automation:

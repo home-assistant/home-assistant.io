@@ -26,8 +26,6 @@ This {% term integration %} provides automation triggers and conditions for enti
 
 Here are a few ways you can use power automations in Home Assistant.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: notify when the washing machine finishes

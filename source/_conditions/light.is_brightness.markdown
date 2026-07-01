@@ -12,8 +12,6 @@ The **Light brightness** condition passes when a light {% term entity %}'s brigh
 
 When you target more than one light, the condition's **behavior** option controls how the check combines. You can require any targeted light's brightness to match, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

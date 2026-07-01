@@ -10,8 +10,6 @@ related_triggers:
 
 The **To-do item completed** trigger is useful when you want an automation to run after someone finishes a task on a list. You can use it to lock up for the night, clean up completed items, or send a confirmation that a chore is done.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

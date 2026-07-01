@@ -13,8 +13,6 @@ The **Humidifier turned off** trigger fires after a humidifier {% term entity %}
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns off, only after all targeted humidifiers have turned off, or every single time any of them turn off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier turned off** in an automation:

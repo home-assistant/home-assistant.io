@@ -9,8 +9,6 @@ related_triggers:
 
 The **Smoke cleared** trigger fires after a smoke sensor {% term entity %} stops detecting smoke, letting your home confirm that the danger has passed and it is safe to breathe easy again. After the chaos of a smoke alarm, an automatic all-clear brings real relief. Use this trigger to re-lock doors that were unlocked during evacuation, send a reassuring notification to your family, or restore your home to its normal routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

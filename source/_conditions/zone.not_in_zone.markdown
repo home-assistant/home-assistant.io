@@ -12,8 +12,6 @@ The **Is not in zone** condition passes when a selected person or device tracker
 
 When you target more than one person or device tracker, the **Check when** option controls whether one matching target is enough or every selected target must be outside the zone.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

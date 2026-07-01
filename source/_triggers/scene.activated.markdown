@@ -7,8 +7,6 @@ description: "Triggers when one or more scenes are activated."
 
 Use this trigger when you want an automation to run every time a scene is activated. This is useful when activating a scene should also kick off follow-up actions, such as sending a notification, starting media playback, or adjusting devices that are not part of the scene itself.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

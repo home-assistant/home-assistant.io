@@ -12,8 +12,6 @@ The **Media player volume crossed threshold** trigger fires when volume crosses 
 
 Use **Media player volume crossed threshold** to react when listening gets too loud, when background music becomes too quiet, or when volume moves into or out of a range.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player volume crossed threshold** in an automation:

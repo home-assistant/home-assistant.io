@@ -11,8 +11,6 @@ The **Garage door opened** trigger fires when a targeted garage door changes to 
 
 This trigger is useful for turning on lights when you arrive, sending alerts if the garage opens while nobody is home, and starting routines that depend on access to the garage.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

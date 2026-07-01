@@ -14,8 +14,6 @@ Use this trigger to track dehumidification cycles, send alerts when the air beco
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier started drying** in an automation:

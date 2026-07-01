@@ -11,8 +11,6 @@ The **Volatile organic compounds ratio crossed threshold** trigger fires when th
 
 Picture your kitchen extractor fan turning on the instant cooking fumes push the VOC ratio past its normal baseline, clearing the air before odors spread through the house. Or getting an alert on your phone when cleaning products cause a spike so you know to open a window. This trigger reacts to relative shifts in air quality, which is ideal for catching sudden changes even when absolute readings vary from sensor to sensor.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -10,8 +10,6 @@ related_triggers:
 
 The **Alarm armed vacation** trigger fires after an alarm control panel {% term entity %} switches to the armed vacation state. Vacation mode is for extended absences when you want maximum protection and the appearance that someone is still home. Use this trigger to start routines that simulate occupancy, like cycling lights on and off on a random schedule, pausing mail delivery notifications, or lowering the thermostat to save energy while you are away for days or weeks.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
