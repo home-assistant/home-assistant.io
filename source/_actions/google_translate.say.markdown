@@ -97,7 +97,7 @@ Speak a French message on the living room media player.
   - **Message**: La porte est ouverte.
   - **Language**: fr
 
-{% details "Show example YAML" %}
+{% details "YAML example for playing a French message" %}
 
 {% example %}
 automation: |

@@ -101,7 +101,7 @@ Speak a short message on the living room media player when the front door opens.
   - **Media player entity**: Living room
   - **Message**: The front door is open.
 
-{% details "Show example YAML" %}
+{% details "YAML example for announcing an open door" %}
 
 {% example %}
 automation: |
