@@ -8,7 +8,7 @@ related_actions:
   - teslemetry.navigation_gps_request
 ---
 
-The **Set valet mode** action turns valet mode on or off for your Tesla vehicle. Valet mode limits the car's speed and power, locks the glovebox and frunk, and hides personal data, so you can hand the keys to a parking attendant with peace of mind.
+The **Set valet mode** action turns valet mode on or off for your Tesla vehicle. Valet mode limits the car's speed and power, locks the glovebox and front trunk, and hides personal data, so you can hand the keys to a parking attendant with peace of mind.
 
 Use it to automatically enable valet mode in certain situations, for example when the car arrives at a restaurant or hotel, and turn it back off when you return.
 

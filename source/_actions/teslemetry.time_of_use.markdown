@@ -7,7 +7,7 @@ related_actions:
   - teslemetry.set_scheduled_charging
 ---
 
-The **Time of use settings** action updates the time of use tariff for a Tesla energy site, such as a Powerwall. The tariff tells the energy site when electricity is cheap or expensive, so it can decide when to charge from the grid and when to draw from the battery.
+The **Time of use settings** action updates the time of use tariff for a Tesla energy site, such as a [Powerwall](/integrations/powerwall/). The tariff tells the energy site when electricity is cheap or expensive, so it can decide when to charge from the grid and when to draw from the battery.
 
 Use it to keep your Powerwall in sync with your utility's pricing, for example switching to a seasonal tariff when your rates change.
 

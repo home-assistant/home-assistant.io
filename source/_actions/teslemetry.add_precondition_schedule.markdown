@@ -9,7 +9,7 @@ related_actions:
   - teslemetry.set_scheduled_departure
 ---
 
-The **Add precondition schedule** action creates a location-based preconditioning schedule for your Tesla vehicle, or modifies an existing one. Preconditioning warms up or cools down the cabin so the car is comfortable by a set time on the days you choose.
+The **Add precondition schedule** action creates a location-based preconditioning schedule for your Tesla vehicle, or modifies an existing one. Preconditioning warms the battery for improved performance and warms up or cools down the cabin so the car is comfortable by a set time on the days you choose.
 
 Use it to have the cabin ready for your routine, for example preconditioning on weekday mornings before you leave for work. To change an existing schedule, pass its schedule ID.
 

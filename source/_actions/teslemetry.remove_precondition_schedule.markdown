@@ -10,7 +10,8 @@ related_actions:
 
 The **Remove precondition schedule** action deletes a location-based preconditioning schedule from your Tesla vehicle. You identify the schedule to remove by its schedule ID.
 
-Use it to clean up preconditioning schedules you no longer need, for example removing a schedule after a change in your routine.
+Preconditioning warms the battery for improved performance and warms up or cools down the cabin so the car is comfortable by a set time on the days you choose.
+Use this action to clean up preconditioning schedules you no longer need, for example removing a schedule after a change in your routine.
 
 {% include actions/ui_header.md %}
 
