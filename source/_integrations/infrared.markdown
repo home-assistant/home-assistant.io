@@ -48,7 +48,7 @@ If you do not want to use a wired emitter, you can use an infrared remote adapte
 ### To set up an infrared remote adapter to control devices
 
 1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
-2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant discovers infrared emitters and shows each as a separate infrared entity.
+2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant discovers infrared emitters and shows each as a separate infrared {% term entity %}.
 3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
    - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
 4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
@@ -66,15 +66,15 @@ It has the following characteristics:
 
 - The infrared remote adapter is the hardware device.
 - The infrared remote adapter contains one or more emitters, and sometimes a receiver.
-- Each emitter and receiver as shown as a separate entity in Home Assistant.
+- Each emitter and receiver as shown as a separate {% term entity %} in Home Assistant.
 
 #### Infrared emitter
 
-The component of your remote adapter that sends out IR signals. This is the same kind of signal a physical remote sends. An emitter is what actually controls a device. In Home Assistant, each emitter appears as an infrared entity that other integrations can use.
+The component of your remote adapter that sends out IR signals. This is the same kind of signal a physical remote sends. An emitter is what actually controls a device. In Home Assistant, each emitter appears as an infrared {% term entity %} that other integrations can use.
 
 #### Infrared receiver
 
-The component of your remote adapter that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update the entity's state or trigger automations. Each receiver appears as an infrared entity.
+The component of your remote adapter that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update the entity's {% term state %} or trigger {% term automations %}. Each receiver appears as an infrared {% term entity %}.
 
 ### Infrared-controlled device
 
@@ -89,14 +89,14 @@ The Home Assistant representation of a single emitter or receiver. This is what 
 The terms above nest inside each other:
 
 - An infrared remote adapter contains one or more emitters, and sometimes a receiver.
-- Each emitter or receiver is represented in Home Assistant as an infrared entity.
+- Each emitter or receiver is represented in Home Assistant as an infrared {% term entity %}.
 - You select an infrared entity to control an infrared-controlled device, which is separate hardware and not part of the infrared remote adapter.
 
 For example, a single infrared remote adapter with two built-in emitters appears in Home Assistant as two infrared entities, one per emitter.
 
 ## About the state of an infrared entity
 
-The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the entity was last active:
+The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the {% term entity %} was last active:
 
 - For an emitter, the state is the date and time the last IR command was sent.
 - For a receiver, the state is the date and time the last IR signal was received.
@@ -106,4 +106,4 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means we can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which integration or action triggered the IR event.
+Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means we can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the IR event.
