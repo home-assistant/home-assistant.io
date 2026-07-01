@@ -375,7 +375,7 @@ homekit:
       type: heater_cooler
 ```
 
-Changing the accessory type for an entity you have already paired resets its configuration in the Home app, so any scenes, automations, or room assignments that referenced it need to be recreated.
+The accessory keeps its identifier, which is derived from the entity ID, so its room assignment and name are preserved when the accessory type changes. Any Home app scenes or automations that referenced the old controls may need to be recreated against the new tile.
 
 ### Accessory mode
 
