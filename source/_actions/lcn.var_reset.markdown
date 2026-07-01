@@ -9,7 +9,7 @@ related_actions:
   - lcn.lock_regulator
 ---
 
-The **Reset variable** action resets a variable or setpoint on an LCN module back to its default value.
+This action resets a variable or setpoint on an LCN module back to its default value.
 
 {% include actions/ui_header.md %}
 
@@ -71,8 +71,6 @@ Ensure that the LCN module is configured properly to provide access to the defin
 {% endimportant %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

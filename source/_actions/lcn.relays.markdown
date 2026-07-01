@@ -9,7 +9,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Relays** action sets the state of the eight relays on an LCN module in one call. You provide the states as a string of eight characters, where each character controls one relay.
+This action sets the state of the eight relays on an LCN module in one call. You provide the states as a string of eight characters, where each character controls one relay.
 
 Each character represents the state change of a relay:
 
@@ -76,8 +76,6 @@ state:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

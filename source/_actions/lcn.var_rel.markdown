@@ -9,7 +9,7 @@ related_actions:
   - lcn.lock_regulator
 ---
 
-The **Shift variable** action changes a variable, setpoint, or threshold on an LCN module by a relative amount. Use a positive value to increase and a negative value to decrease the current value.
+This action changes a variable, setpoint, or threshold on an LCN module by a relative amount. Use a positive value to increase and a negative value to decrease the current value.
 
 {% include actions/ui_header.md %}
 
@@ -102,8 +102,6 @@ Ensure that the LCN module is configured properly to provide access to the defin
 {% endimportant %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

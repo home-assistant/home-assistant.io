@@ -9,7 +9,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Output relative brightness** action changes the brightness of an output port on an LCN module by a relative amount. Use a positive value to brighten and a negative value to dim, for example to step a light up by 30%.
+This action changes the brightness of an output port on an LCN module by a relative amount. Use a positive value to brighten and a negative value to dim, for example to step a light up by 30%.
 
 {% include actions/ui_header.md %}
 
@@ -75,8 +75,6 @@ brightness:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

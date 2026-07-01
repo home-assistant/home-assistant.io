@@ -8,7 +8,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **LED** action sets the state of one of the LEDs on an LCN module. You can turn an LED on or off, or make it blink or flicker, which is handy for status indication.
+This action sets the state of one of the LEDs on an LCN module. You can turn an LED on or off, or make it blink or flicker, which is handy for status indication.
 
 {% include actions/ui_header.md %}
 
@@ -76,7 +76,6 @@ state:
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
-
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

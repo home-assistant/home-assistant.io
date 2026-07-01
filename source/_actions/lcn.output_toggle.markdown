@@ -9,7 +9,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Toggle output** action switches an output port on an LCN module between on and off. If the output is currently off, it turns on, and the other way around.
+This action switches an output port on an LCN module between on and off. If the output is currently off, it turns on, and the other way around.
 
 {% include actions/ui_header.md %}
 
@@ -75,8 +75,6 @@ transition:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

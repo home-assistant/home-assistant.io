@@ -9,7 +9,7 @@ related_actions:
   - lcn.var_reset
 ---
 
-The **Lock regulator** action locks or unlocks a regulator setpoint on an LCN module. While a setpoint is locked, its value cannot be changed by the regulator.
+This action locks or unlocks a regulator setpoint on an LCN module. While a setpoint is locked, its value cannot be changed by the regulator.
 
 {% include actions/ui_header.md %}
 
@@ -78,8 +78,6 @@ state:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

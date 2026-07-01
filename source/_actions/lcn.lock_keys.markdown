@@ -9,7 +9,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Lock keys** action locks or unlocks the keys of a table on an LCN module. You provide the lock states as a string of eight characters, where each character controls one key lock.
+This action locks or unlocks the keys of a table on an LCN module. You provide the lock states as a string of eight characters, where each character controls one key lock.
 
 Each character represents the state change of a key lock:
 
@@ -63,7 +63,6 @@ action: |
   action: lcn.lock_keys
   data:
     device_id: 91aa039a2fb6e0b9f9ec7eb219a6b7d2
-    table: a
     state: "1---T0--"
 {% endexample %}
 

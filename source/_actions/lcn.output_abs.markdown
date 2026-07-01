@@ -9,7 +9,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Output absolute brightness** action sets the brightness of an output port on an LCN module to a fixed percentage. Use it to drive a dimmable output directly, for example to set a light to exactly 60%.
+This action sets the brightness of an output port on an LCN module to a fixed percentage. Use it to drive a dimmable output directly, for example to set a light to exactly 60%.
 
 {% include actions/ui_header.md %}
 
@@ -84,8 +84,6 @@ transition:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

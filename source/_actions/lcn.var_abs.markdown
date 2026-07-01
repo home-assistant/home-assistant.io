@@ -9,7 +9,7 @@ related_actions:
   - lcn.lock_regulator
 ---
 
-The **Set absolute variable** action sets a variable or setpoint on an LCN module to a fixed value. Use it to write a known value, for example a target temperature, to a regulator setpoint.
+This action sets a variable or setpoint on an LCN module to a fixed value. Use it to write a known value, for example a target temperature, to a regulator setpoint.
 
 {% include actions/ui_header.md %}
 
@@ -92,8 +92,6 @@ Ensure that the LCN module is configured properly to provide access to the defin
 {% endimportant %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

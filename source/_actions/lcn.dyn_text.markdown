@@ -7,7 +7,7 @@ related_actions:
   - lcn.pck
 ---
 
-The **Dynamic text** action sends a line of text to an LCN-GTxD display. The display supports four rows, and you can set each row independently with up to 60 characters encoded in UTF-8.
+This action sends a line of text to an LCN-GTxD display. The display supports four rows, and you can set each row independently with up to 60 characters encoded in UTF-8.
 
 {% include actions/ui_header.md %}
 
@@ -21,7 +21,7 @@ To send dynamic text from an automation or a script:
 6. Select the LCN module or group in the **Device** field, choose the **Row**, and enter the **Text**.
 7. Select **Save**.
 
-This action does not support targets. Instead, you select the LCN module or group through the **Device** field.
+This action does not support targets. Instead, you select the LCN module or group in the **Device** field.
 
 ### Options in the UI
 
@@ -73,8 +73,6 @@ text:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

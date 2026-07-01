@@ -9,7 +9,7 @@ related_actions:
   - lcn.send_keys
 ---
 
-The **PCK** action sends an arbitrary PCK command to an LCN module. Use it to send commands that are not covered by the other LCN actions. You only specify the command part of the PCK command, without the address header.
+This action sends an arbitrary PCK command to an LCN module. Use it to send commands that are not covered by the other LCN actions. You only specify the command part of the PCK command, without the address header.
 
 {% include actions/ui_header.md %}
 
@@ -66,8 +66,6 @@ pck:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
