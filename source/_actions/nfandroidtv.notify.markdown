@@ -1,6 +1,6 @@
 ---
 title: "Send notification"
-action: notify.notify
+action: nfandroidtv.notify
 domain: nfandroidtv
 description: "Sends a notification to an Android TV or Fire TV device."
 ---
