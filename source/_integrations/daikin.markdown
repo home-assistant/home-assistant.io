@@ -15,6 +15,7 @@ ha_domain: daikin
 ha_zeroconf: true
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
   - switch
 ha_integration_type: device

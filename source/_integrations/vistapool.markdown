@@ -12,11 +12,12 @@ ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@fdebrus"
+  - '@fdebrus'
 ha_domain: vistapool
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - number
   - select

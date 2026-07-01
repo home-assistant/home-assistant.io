@@ -23,6 +23,7 @@ ha_platforms:
   - event
   - media_player
   - notify
+  - select
   - sensor
   - switch
   - todo

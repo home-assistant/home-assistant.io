@@ -10,6 +10,7 @@ ha_codeowners:
   - '@sarahseidman'
 ha_domain: droplet
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: device
 ha_zeroconf: true

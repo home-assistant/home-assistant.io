@@ -1,18 +1,22 @@
 ---
 title: Gitter
-description: Instructions on how to integrate a Gitter room sensor with Home Assistant
+description: Connect and control your Gitter devices using the Matrix integration
 ha_category:
-  - Sensor
-ha_iot_class: Cloud Polling
-ha_release: 0.47
+  - Hub
+  - Notifications
+ha_release: 0.69
 ha_domain: gitter
-ha_platforms:
-  - sensor
-ha_integration_type: integration
+ha_integration_type: virtual
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_supporting_domain: matrix
+ha_supporting_integration: Matrix
+ha_codeowners:
+  - '@PaarthShah'
+ha_platforms:
+  - notify
+ha_iot_class: Cloud Push
 ---
 
 This **Gitter** {% term integration %} allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.

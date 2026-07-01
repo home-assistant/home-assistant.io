@@ -1,7 +1,7 @@
 ---
 title: IoTorero
 description: Connect and control your IoTorero devices using the ESPHome integration
-ha_release: 2026.7
+ha_release: 0.85
 ha_category:
   - Alarm
   - DIY
@@ -50,4 +50,3 @@ ha_zeroconf: true
 [IoTorero](https://www.athom.tech/) devices work locally and integrate seamlessly with the [ESPHome](/integrations/esphome/) {% term integration %} in Home Assistant. As all connectivity is done locally, status updates and device control from Home Assistant happen instantly.
 
 {% include integrations/supported_brand.md %}
-

@@ -19,6 +19,7 @@ ha_codeowners:
 ha_domain: yoto
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - number
   - select

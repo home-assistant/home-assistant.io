@@ -23,12 +23,14 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
   - switch
   - update
 ha_integration_type: device
 ha_zeroconf: true
+ha_dhcp: true
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).

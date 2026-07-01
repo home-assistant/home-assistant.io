@@ -6,9 +6,9 @@ ha_category:
   - Energy
   - Sensor
 ha_codeowners:
-  - "@AjinkyaGokhale"
-  - "@amitkio"
-ha_quality_scale: bronze
+  - '@AjinkyaGokhale'
+  - '@amitkio'
+ha_quality_scale: silver
 ha_domain: energieleser
 ha_integration_type: device
 ha_iot_class: Local Polling
