@@ -225,7 +225,7 @@ homekit:
               description: Only for `switch`, `fan`, and `climate` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. For `climate` entities, the type is chosen automatically when you leave this unset.
               required: false
               type: string
-              default: '`switch`'
+              default: "`switch` for `switch` entities, `fan` for `fan` entities, and chosen automatically for `climate` entities"
             stream_count:
               description: Only for `camera` entities. The number of simultaneous streams the camera can support.
               required: false
@@ -363,9 +363,9 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Climate accessory type
 
-Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps, which expose two or more fan speeds or a swing mode, are exposed as a Heater Cooler accessory. This puts the mode, target temperature, thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
+Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps, which expose two or more fan speeds or a swing mode, are exposed as a Heater Cooler accessory. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
 
-You do not need to configure anything for this to work. If you want full control and prefer a specific accessory type for an entity, set its `type` to `heater_cooler` or `thermostat` in the entity configuration:
+You do not need to configure anything for this to work. If you want full control and prefer a specific accessory type for an entity, set its `type` to `heater_cooler` or `thermostat` in the `entity_config` of your HomeKit YAML configuration:
 
 ```yaml
 # Example configuration.yaml entry
