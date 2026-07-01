@@ -27,15 +27,7 @@ This integration currently supports the following models:
 
 {% include integrations/config_flow.md %}
 
-## Actions
-
-Currently supported actions are:
-
-- `start`
-- `pause`
-- `continue`
-- `stop`
-- `return_to_base`
+{% include integrations/actions.md %}
 
 ## Integration entities
 
