@@ -8,7 +8,7 @@ related_actions:
   - fully_kiosk.set_config
 ---
 
-The **Start application** action launches an Android app on the device running Fully Kiosk Browser.
+This action launches an Android app on the device running Fully Kiosk Browser.
 
 You refer to the app by its package name, for example `de.ozerov.fully` for Fully Kiosk Browser itself.
 
@@ -64,8 +64,6 @@ application:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

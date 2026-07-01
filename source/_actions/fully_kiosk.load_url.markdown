@@ -8,7 +8,7 @@ related_actions:
   - fully_kiosk.start_application
 ---
 
-The **Load URL** action tells Fully Kiosk Browser to open a specific web address on your device.
+This action tells Fully Kiosk Browser to open a specific web address on your device.
 
 {% include actions/ui_header.md %}
 
@@ -62,8 +62,6 @@ url:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

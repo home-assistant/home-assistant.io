@@ -8,7 +8,7 @@ related_actions:
   - fully_kiosk.start_application
 ---
 
-The **Set configuration** action changes one of the many configuration parameters of Fully Kiosk Browser on your device.
+This action changes one of the many configuration parameters of Fully Kiosk Browser on your device.
 
 You can find the list of available keys in the Fully Kiosk Browser remote admin panel by selecting the **Show keys** button.
 
@@ -72,8 +72,6 @@ value:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
