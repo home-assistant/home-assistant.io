@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 related:
   - docs: /integrations/#infrared
-  - title: Integrations supporting infrared
+    title: Integrations supporting infrared
   - url: https://esphome.io/projects/?type=ir
     title: ESPHome infrared and radio frequency proxy projects
   - url: https://esphome.io/components/ir_rf_proxy/
