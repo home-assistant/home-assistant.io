@@ -36,11 +36,11 @@ To find and add integrations that support infrared:
 
 ## Controlling devices without a wired infrared emitter
 
-If you do not want to use a wired emitter, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant over Wi-Fi. You place it within line-of sight to the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
+If you do not want to use a wired emitter, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant over Wi-Fi. You place it within line-of-sight of the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
 
 ### Prerequisites
 
-- An infrared remote adapter. If your unsure what to get:
+- An infrared remote adapter. If you're unsure what to get:
   - Find integrations that support infrared:
     - In the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
@@ -66,7 +66,7 @@ It has the following characteristics:
 
 - The infrared remote adapter is the hardware device.
 - The infrared remote adapter contains one or more emitters, and sometimes a receiver.
-- Each emitter and receiver as shown as a separate {% term entity %} in Home Assistant.
+- Each emitter and receiver is shown as a separate {% term entity %} in Home Assistant.
 
 #### Infrared emitter
 
