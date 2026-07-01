@@ -34,11 +34,9 @@ To find and add integrations that support infrared:
 
 ## Controlling devices without a wired infrared emitter
 
-The problem with wired emitters is that because they need to plug into your Home Assistant server, they can therefore only reach devices near the server. And the server is rarely in the same room as your TV or air conditioner.
-
 If you do not want to use a wired emitter, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant over Wi-Fi. You place it within line-of sight to the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
 
-Home Assistant automatically discovers its built-in infrared emitters. Each emitter appears as an infrared entity, so you can select it when configuring an integration for an infrared-controlled device.
+In Home Assistant, each emitter appears as an infrared entity. You can select it when configuring an integration for an infrared-controlled device.
 
 ### To set up an infrared remote adapter to control devices
 
