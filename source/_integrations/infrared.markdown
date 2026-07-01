@@ -36,17 +36,21 @@ To find and add integrations that support infrared:
 
 If you do not want to use a wired emitter, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant over Wi-Fi. You place it within line-of sight to the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
 
-In Home Assistant, each emitter appears as an infrared entity. You can select it when configuring an integration for an infrared-controlled device.
+### Prerequisites
+
+- An infrared remote adapter. If your unsure what to get:
+  - Find integrations that support infrared:
+    - In the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
+  - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
 
 ### To set up an infrared remote adapter to control devices
 
-1. Get an infrared remote adapter of your choice.
-   - To find integrations that support infrared, in the documentation, search for the [infrared category](https://www.home-assistant.io/integrations/?cat=infrared).
-   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
-2. Position the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other obstructions.
-3. Set up the infrared remote adapter through its integration. Home Assistant discovers its built-in infrared emitters and surfaces them as infrared entities.
-4. In Home Assistant, add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/). During that integration's setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter. For more information, refer to [Finding and adding integrations that support infrared](#finding-and-adding-integrations-that-support-infrared).
-5. If you need to control infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home and select the one closest to each device.
+1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
+2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant discovers infrared emitters and shows each as a separate infrared entity.
+3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
+   - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
+4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
+   - During setup of the infrared-controlled device, select the remote adapter closest to that device.
 
 ## About infrared terminology
 
