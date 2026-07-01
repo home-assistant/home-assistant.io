@@ -105,90 +105,11 @@ media_player:
 
 {% enddetails %}
 
-## Play media action
-
-The `play_media` {% term action %} can be used in an {% term automation %} or {% term script %} to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
-
- 1. Channel number *(for example, '1' or '6')*
- 2. Exact app or channel name *(for example, 'Google Play' or 'CNN')*
- 3. Substring in app or channel name *(for example, 'BFM' in 'BFM TV')*
- 4. URI-string of app or channel *(for example, 'tv:dvbt?trip=9999.441.41104&srvName=BBC HD')*
-
-**Example to open YouTube app:**
-
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.bravia_tv
-data:
-  media_content_id: "YouTube"
-  media_content_type: "app"
-```
-
-**Example to switch to channel number 11:**
-
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.bravia_tv
-data:
-  media_content_id: 11
-  media_content_type: "channel"
-```
-
-**Example to switch to channel including 'news' in its name:**
-
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.bravia_tv
-data:
-  media_content_id: "news"
-  media_content_type: "channel"
-```
+{% include integrations/actions.md %}
 
 ## Remote
 
-The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` action.
-
-The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with an invalid command, for example, `Test`. A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). The list of commands can also be displayed by downloading the {% term diagnostics %} from the device info in the [Integration Settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
-
-**Example to send `Down` key command:**
-
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.bravia_tv
-data:
-  command: "Down"
-```
-
-{% details "Some commonly used commands" %}
-
-- Up
-- Down
-- Left
-- Right
-- Confirm
-- Return
-- Home
-- Exit
-- Rewind
-- Forward
-- ActionMenu
-- SyncMenu
-- Num0
-- Num1
-- Num2
-- Num3
-- Num4
-- Num5
-- Num6
-- Num7
-- Num8
-- Num9
-
-{% enddetails %}
+The {% term integration %} supports `remote` {% term platform %}. Use the [Send remote command](/actions/braviatv.send_command/) action to send remote control commands to your TV.
 
 ## Buttons
 
