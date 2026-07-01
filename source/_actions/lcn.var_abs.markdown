@@ -24,8 +24,9 @@ To set the absolute value of a variable from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **LCN: Set absolute variable**.
-6. Select the LCN module or group in the **Device** field, choose the **Variable**, and set the **Value**.
-7. Select **Save**.
+6. Select the LCN module or group in the **Device** field, and then choose the **Variable**.
+7. _Optional_: In **Value**, enter the variable or setpoint value.
+8. Select **Save**.
 
 This action does not support targets. Instead, you select the LCN module or group through the **Device** field.
 
