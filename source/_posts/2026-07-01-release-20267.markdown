@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2026.7 Beta: Automations that speak your language"
+title: "2026.7: Automations that speak your language"
 description: "Purpose-specific triggers and conditions graduate from Labs to become the new default, letting your automations describe what you want instead of the technical building blocks underneath. The logbook is rebuilt into the new Activity timeline, an update-all button, dedicated infrared and radio frequency panels, an overhauled ZHA Zigbee device management, and 10 new integrations from the community!"
-date: 2026-06-24 00:00:00
+date: 2026-07-01 00:00:00
 date_formatted: "July 1, 2026"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,51 +14,6 @@ og_image: /images/blog/2026-07/beta-social.png
 ---
 
 <lite-youtube videoid="ZinHM68qDHQ" videotitle="Home Assistant 2026.7 Release Party"></lite-youtube>
-
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.7** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/145)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/819)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/152)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
 
 {% tip %}
 
@@ -78,7 +33,9 @@ But honestly? I've got a second favorite this release, and that surprised me a l
 
 And that's just the start. There's a new update-all button, dedicated panels for infrared and radio frequency, an overhauled ZHA Zigbee device management, and 10 new integrations from our community.
 
-Enjoy the (beta) release!
+One more thing before you dive in: the Open Home Foundation is exhibiting at [IFA Berlin](https://www.openhomefoundation.org/blog/ifa-berlin-2026-save-the-date/) for the first time, from September 4 to 8, 2026. We'd love to meet you there, so come say hello. There's also a [community meetup](https://luma.com/6f8seuhh) on Sunday, September 6, and everyone's welcome. You can [read all about it here](https://www.openhomefoundation.org/blog/ifa-berlin-2026-save-the-date/).
+
+Enjoy the release!
 
 ../Frenck
 
@@ -108,7 +65,7 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@piitaya], [@sairon], and [@agners] who helped write the release notes this release. Thanks to them, these release notes are in great shape. ❤️_
 
 [@frenck]: https://github.com/frenck
 
@@ -286,6 +243,7 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 
 - **[Avosdim]**, provided by [Motionblinds], added by [@mbo18]
 - **[BWT]**, provided by [SEKO PoolDose], added by [@lmaertin]
+- **[Gitter]**, provided by [Matrix], added by [@tr4nt0r]
 - **[Nexen]**, provided by [Hypontech Cloud], added by [@jcisio]
 
 [@jcisio]: https://github.com/jcisio
@@ -293,8 +251,10 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 [@mbo18]: https://github.com/mbo18
 [Avosdim]: /integrations/avosdim
 [BWT]: /integrations/bwt
+[Gitter]: /integrations/gitter
 [Hypontech Cloud]: /integrations/hypontech
 [Motionblinds]: /integrations/motion_blinds
+[Matrix]: /integrations/matrix
 [Nexen]: /integrations/nexen
 [SEKO PoolDose]: /integrations/pooldose
 
@@ -302,9 +262,9 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 
 It is not just new {% term integrations %} that have been added; existing ones keep getting better too. Here are some of the noteworthy improvements this release:
 
-- **[Alexa Devices]** gained switches to toggle announcements and communications on your Amazon Echo devices. Thanks, [@chemelli74]!
+- **[Alexa Devices]** gained switches to toggle announcements and communications on your Amazon Echo devices, thanks to [@chemelli74]. It also added a to-do list platform, so you can manage your Alexa shopping and to-do lists from Home Assistant, thanks to [@lonlazer].
 - **[SwitchBot]** added a button event entity for the Contact Sensor, plus switch controls for the Standing Fan. Thanks, [@prmx] and [@Onero-testdev]!
-- **[Overkiz]** now supports fans. Thanks, [@iMicknl]!
+- **[Overkiz]** now supports [Rexel Energeasy Connect], through both its cloud and local API. Thanks, [@iMicknl]!
 - **[SwitchBot Cloud]** can now upload images to the SwitchBot AI Art Frame. Thanks, [@XiaoLing-git]!
 - **[SMTP]** gained notify entities, the modern way to send email notifications. Thanks, [@tr4nt0r]!
 - **[GitHub]** added entities that track GitHub user accounts. Thanks, [@joostlek]!
@@ -341,6 +301,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@iMicknl]: https://github.com/iMicknl
 [@Imou-OpenPlatform]: https://github.com/Imou-OpenPlatform
 [@joostlek]: https://github.com/joostlek
+[@lonlazer]: https://github.com/lonlazer
 [@Marcello17]: https://github.com/Marcello17
 [@Onero-testdev]: https://github.com/Onero-testdev
 [@petschni]: https://github.com/petschni
@@ -367,6 +328,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [Overkiz]: /integrations/overkiz
 [PAJ GPS]: /integrations/paj_gps
 [Rabbit Air]: /integrations/rabbitair
+[Rexel Energeasy Connect]: https://www.energeasy-connect.com/
 [Samsung Infrared]: /integrations/samsung_infrared
 [SwitchBot]: /integrations/switchbot
 [SwitchBot Cloud]: /integrations/switchbot_cloud
@@ -440,13 +402,24 @@ Time for a little cleaning, and no, we did not wait for spring. The following {%
 
 - **Acer projector** has been removed. It had been broken since 2019.
 - **Ampio Smog** has been removed. The air quality service it polled is offline and its library has been unmaintained since 2019, so it no longer works.
+- **ATEN Rack PDU** has been removed. It had been broken since 2024 over a dependency conflict, and its maintainer stepped down with no one to take over.
 - **Avi-on** has been removed. It depended on the `bluepy` library, which Home Assistant dropped back in 2022.7, and which has been unmaintained since 2018.
 - **BeeWi SmartClim** has been removed for the same reason: it relied on the long-unmaintained `bluepy` library that Home Assistant dropped in 2022.7.
+- **BlinkStick** has been removed. It was disabled in 2024 because it relied on a non-open-source library that has been unmaintained since 2020.
+- **Clementine** has been removed. It had been broken since 2023, and its library has been unmaintained since 2018.
+- **Dovado** has been removed. It was disabled in 2024.7 because it relied on a non-open-source library that has been unmaintained since 2017.
 - **ELIQ Online** has been removed. Its API endpoint no longer exists, and the underlying library has been unmaintained for years.
+- **Gitter** has been removed. Gitter migrated to Matrix back in 2023 and its old API no longer works, so it is now a virtual integration handled by the [Matrix](/integrations/matrix/) integration, which you can use to connect instead.
+- **Greenwave Reality** has been removed. It had been broken since around 2022, because the devices use an outdated encryption key that modern systems reject, and its library has been unmaintained since 2018.
+- **Logentries** has been removed. The service was rebranded to InsightOps years ago and is no longer offered, and its API endpoint no longer responds.
+- **Microsoft Face** has been removed, together with the Microsoft Face Detect and Microsoft Face Identify integrations that built on it. They had been broken since 2022 after a change to Microsoft's Azure face API.
 - **MS Teams** has been removed. The integration relied on Office 365 Connectors, which Microsoft [discontinued on May 22, 2026](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/), so it no longer works.
+- **Mycroft** has been removed. It was disabled in 2023.6 over an unresolvable dependency conflict, and its library has not been updated since.
 - **SCSGate** has been removed. It required obscure DIY hardware that is no longer available, its library has been unmaintained for a decade, and it had effectively no users left.
+- **ThermoWorks Smoke** has been removed. It was disabled in 2024.10 over a dependency conflict, and its library has been unmaintained since 2019.
 - **Tikteck** has been removed.
 - **UniFi LED** has been removed. The hardware is discontinued and the integration had no remaining users.
+- **Watson TTS** has been removed. It was disabled in 2023 over a dependency conflict, and no one stepped up to update it since.
 
 ## Other noteworthy changes
 
@@ -520,16 +493,16 @@ Thanks, [@jpbede]!
 
 Running Home Assistant Operating System on a Raspberry Pi? You are in good company: per our public, opt-in [analytics](https://analytics.home-assistant.io/), the Raspberry Pi platform currently powers about a third of all installations. As of this release, there is an {% term update "update entity" %} for the Pi's bootloader firmware, also often referred to as the <abbr title="electrically erasable programmable read-only memory">EEPROM</abbr> update. You can keep it current right from {% my updates title="**Settings** > **Updates**" %}, the same place you handle every other update.
 
-This is more than a nice-to-have: Especially on Raspberry Pi 5/Compute Module 5 the firmware contains bugfixes and compatibility improvements for NVMes, thermal improvements and much more. Until now, updating that firmware was cumbersome: you had to flash another SD card with a special image, or connect a keyboard and a display and run the `rpi-eeprom-update` command by hand. Now it is a single click.
+This is more than a nice-to-have. Especially on the Raspberry Pi 5 and Compute Module 5, the firmware contains bug fixes, compatibility improvements for <abbr title="Non-Volatile Memory Express">NVMe</abbr> drives, thermal improvements, and much more. Until now, updating that firmware was cumbersome: you had to flash another SD card with a special image, or connect a keyboard and a display and run the `rpi-eeprom-update` command by hand. Now it takes a single step.
 
 <img src='/images/blog/2026-07/temp-rpi-firmware-update.png' alt='Screenshot of the Raspberry Pi firmware update entity on the Settings, Updates page.' class='no-shadow' />
 
 A few things to keep in mind:
 
-- This needs [Home Assistant Operating System 18](https://github.com/home-assistant/operating-system/releases/tag/18.0) or newer, which provide the support the update entity builds on. On older versions, the entity simply isn't there.
-- On a Raspberry Pi 4, the firmware can only be updated when the board boots from an SD card. If your Pi 4 boots from USB storage, the update isn't available. This is a limitation of the update system. This is one more reason we recommend using USB only as a data disk and keeping an SD card as the main boot device.
-- Not every board can update its firmware this way. Besides Raspberry Pi 4 booting from USB storage, the Yellow with CM4 is currently not supported as well. Where an update can't be applied, the entity doesn't appear at all, so you don't see an update that wouldn't work.
-- After the update is applied, Home Assistant prompts you to reboot your system to complete the update.
+- This needs [Home Assistant Operating System 18](https://github.com/home-assistant/operating-system/releases/tag/18.0) or newer, which provides the support the update entity builds on. On older versions, the entity simply isn't there.
+- On a Raspberry Pi 4, the firmware can only be updated when the board boots from an SD card. If your Pi 4 boots from USB storage, the update isn't available. This is a limitation of the update system, and one more reason we recommend using USB only as a data disk while keeping an SD card as the main boot device.
+- Not every board can update its firmware this way. Besides a Raspberry Pi 4 booting from USB storage, the Home Assistant Yellow with a Compute Module 4 isn't supported either. Where an update can't be applied, the entity doesn't appear at all, so you don't see an update that wouldn't work.
+- After the update is applied, Home Assistant prompts you to reboot to complete it.
 
 Thanks, [@sairon]!
 
@@ -746,6 +719,8 @@ If you are a custom integration developer and want to learn about changes and ne
 
 - [Changes to device tracker entity models](https://developers.home-assistant.io/blog/2026/06/15/device-tracker-changes)
 - [Frontend component updates in 2026.7](https://developers.home-assistant.io/blog/2026/06/23/frontend-component-updates-2026.7)
+- [Introducing new unit enumerators](https://developers.home-assistant.io/blog/2026/06/30/new-unit-enumerators)
+- [Deprecation of the `home_assistant_start` flag of `async_initialize_triggers`](https://developers.home-assistant.io/blog/2026/06/30/async-initialize-triggers-home-assistant-start-deprecated)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
