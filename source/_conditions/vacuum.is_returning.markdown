@@ -1,5 +1,5 @@
 ---
-title: Vacuum is returning
+title: Vacuum cleaner is returning
 condition: vacuum.is_returning
 domain: vacuum
 description: "Passes when the vacuum cleaner is returning to the dock."
@@ -18,7 +18,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner is returning**.
+4. From the search box, search for and select **Vacuum cleaner is returning**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the vacuum must keep returning before the condition passes.
@@ -89,7 +89,7 @@ for:
 At night, this automation checks whether the vacuum is currently returning to the dock. If it is, the nearby light turns on to help light the final part of its path.
 
 - **Trigger**: Time: 22:00
-- **Condition**: Vacuum is returning
+- **Condition**: Vacuum cleaner is returning
 - **Target**: Downstairs vacuum
 - **Action**: Turn on light
 
