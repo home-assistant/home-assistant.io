@@ -153,54 +153,9 @@ The easiest way to check if the integration is working is to check [My Google Ac
 
 On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages).
 
-## Actions
+{% include integrations/actions.md %}
 
-### Send text command
-
-You can use the `google_assistant_sdk.send_text_command` action to send commands to Google Assistant.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `command`              | no       | Command(s) to send to Google Assistant. |
-| `media_player`         | yes      | Name(s) of media player entities to play the Google Assistant's audio response on. This does **not** target the device for the command itself. |
-
-Examples:
-
-```yaml
-action: google_assistant_sdk.send_text_command
-data:
-  command: "turn off kitchen TV"
-```
-
-```yaml
-# Say a joke on the living room speaker. The `media_player` entity receives the audio response.
-action: google_assistant_sdk.send_text_command
-data:
-  command: "tell me a joke"
-  media_player: media_player.living_room_speaker
-```
-
-```yaml
-# Stream a camera to a Chromecast-enabled TV or display.
-# The target device ("living room tv") must be part of the command itself.
-action: google_assistant_sdk.send_text_command
-data:
-  command: "show the front door camera on the living room tv"
-```
-
-Note: To control a specific device, like streaming a camera to a TV, you must include the device's name (as known by Google Assistant) in the text `command`. The `media_player` parameter is only used for playing back Google Assistant's audio response and will not direct the video stream.
-
-You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
-
-```yaml
-action: google_assistant_sdk.send_text_command
-data:
-  command:
-    - "open the garage door"
-    - "1234"
-```
-
-### Action: Broadcast message
+## Broadcast message
 
 The `notify.google_assistant_sdk` action allows you to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
 
