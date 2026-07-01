@@ -1,5 +1,5 @@
 ---
-title: Vacuum is paused
+title: Vacuum cleaner is paused
 condition: vacuum.is_paused
 domain: vacuum
 description: "Passes when the vacuum cleaner is paused."
@@ -18,7 +18,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner is paused**.
+4. From the search box, search for and select **Vacuum cleaner is paused**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the vacuum must stay paused before the condition passes.
@@ -89,7 +89,7 @@ for:
 This automation checks every 15 minutes whether the hallway vacuum is paused. If it is, Home Assistant sends a reminder so you can decide whether to resume it or clear an obstacle.
 
 - **Trigger**: Every 15 minutes
-- **Condition**: Vacuum is paused
+- **Condition**: Vacuum cleaner is paused
   - **Target**: Hallway vacuum
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

@@ -1,5 +1,5 @@
 ---
-title: Vacuum is cleaning
+title: Vacuum cleaner is cleaning
 condition: vacuum.is_cleaning
 domain: vacuum
 description: "Passes when the vacuum cleaner is cleaning."
@@ -18,7 +18,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner is cleaning**.
+4. From the search box, search for and select **Vacuum cleaner is cleaning**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the vacuum must keep cleaning before the condition passes.
@@ -89,9 +89,9 @@ for:
 When movie mode starts, this automation first checks whether the living room vacuum is actively cleaning. If it is, Home Assistant pauses it so the room is quiet.
 
 - **Trigger**: Movie mode turns on
-- **Condition**: Vacuum is cleaning
+- **Condition**: Vacuum cleaner is cleaning
 - **Target**: Living room vacuum
-- **Action**: Pause cleaning
+- **Action**: Pause vacuum cleaner
 
 {% details "YAML example for pausing a vacuum during movie mode" %}
 
