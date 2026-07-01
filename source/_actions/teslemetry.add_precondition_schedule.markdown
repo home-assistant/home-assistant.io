@@ -122,14 +122,7 @@ name:
   type: string
 {% endoptions_yaml %}
 
-## Good to know
-
-- Pass an existing schedule ID to modify that schedule instead of creating a new one.
-- If you leave the location empty, the schedule uses your Home Assistant location.
-
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 
