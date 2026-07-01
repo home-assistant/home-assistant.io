@@ -30,73 +30,73 @@ To set the heater profile from an automation or a script:
 Hour 00:
   description: The target temperature at 00:00 local time, in degrees Celsius.
   required: false
-hour_01:
+Hour 01:
   description: The target temperature at 01:00 local time, in degrees Celsius.
   required: false
-hour_02:
+Hour 02:
   description: The target temperature at 02:00 local time, in degrees Celsius.
   required: false
-hour_03:
+Hour 03:
   description: The target temperature at 03:00 local time, in degrees Celsius.
   required: false
-hour_04:
+Hour 04:
   description: The target temperature at 04:00 local time, in degrees Celsius.
   required: false
-hour_05:
+Hour 05:
   description: The target temperature at 05:00 local time, in degrees Celsius.
   required: false
-hour_06:
+Hour 06:
   description: The target temperature at 06:00 local time, in degrees Celsius.
   required: false
-hour_07:
+Hour 07:
   description: The target temperature at 07:00 local time, in degrees Celsius.
   required: false
-hour_08:
+Hour 08:
   description: The target temperature at 08:00 local time, in degrees Celsius.
   required: false
-hour_09:
+Hour 09:
   description: The target temperature at 09:00 local time, in degrees Celsius.
   required: false
-hour_10:
+Hour 10:
   description: The target temperature at 10:00 local time, in degrees Celsius.
   required: false
-hour_11:
+Hour 11:
   description: The target temperature at 11:00 local time, in degrees Celsius.
   required: false
-hour_12:
+Hour 12:
   description: The target temperature at 12:00 local time, in degrees Celsius.
   required: false
-hour_13:
+Hour 13:
   description: The target temperature at 13:00 local time, in degrees Celsius.
   required: false
-hour_14:
+Hour 14:
   description: The target temperature at 14:00 local time, in degrees Celsius.
   required: false
-hour_15:
+Hour 15:
   description: The target temperature at 15:00 local time, in degrees Celsius.
   required: false
-hour_16:
+Hour 16:
   description: The target temperature at 16:00 local time, in degrees Celsius.
   required: false
-hour_17:
+Hour 17:
   description: The target temperature at 17:00 local time, in degrees Celsius.
   required: false
-hour_18:
+Hour 18:
   description: The target temperature at 18:00 local time, in degrees Celsius.
   required: false
-hour_19:
+Hour 19:
   description: The target temperature at 19:00 local time, in degrees Celsius.
   required: false
-hour_20:
+Hour 20:
   description: The target temperature at 20:00 local time, in degrees Celsius.
   required: false
-hour_21:
+Hour 21:
   description: The target temperature at 21:00 local time, in degrees Celsius.
   required: false
-hour_22:
+Hour 22:
   description: The target temperature at 22:00 local time, in degrees Celsius.
   required: false
-hour_23:
+Hour 23:
   description: The target temperature at 23:00 local time, in degrees Celsius.
   required: false
 {% endoptions_ui %}
