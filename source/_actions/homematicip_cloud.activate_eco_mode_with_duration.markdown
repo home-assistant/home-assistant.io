@@ -32,7 +32,7 @@ Duration:
   description: The duration of eco mode in minutes.
   required: true
 Access point ID:
-  description: The ID (SGTIN) of the Homematic IP access point. If you have only one access point, you can leave this out.
+  description: The ID (Serialized Global Trade Item Number, or SGTIN) of the Homematic IP access point. If you have only one access point, you can leave this out.
   required: false
 {% endoptions_ui %}
 
@@ -59,7 +59,7 @@ duration:
   type: integer
 accesspoint_id:
   description: >
-    The ID (SGTIN) of the Homematic IP access point. If you have only one
+    The ID (Serialized Global Trade Item Number, or SGTIN) of the Homematic IP access point. If you have only one
     access point, you can leave this out.
   required: false
   type: string

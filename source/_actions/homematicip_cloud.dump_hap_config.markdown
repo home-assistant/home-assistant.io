@@ -33,7 +33,7 @@ Config output path:
   description: The path where the configuration is stored. Defaults to your Home Assistant configuration directory.
   required: false
 Config output file prefix:
-  description: The name of the configuration file. The SGTIN of the access point is always appended.
+  description: The name of the configuration file. The Serialized Global Trade Item Number (SGTIN) of the access point is always appended.
   required: false
 Anonymize:
   description: Turn on to anonymize the configuration.
@@ -65,7 +65,7 @@ config_output_path:
   type: string
 config_output_file_prefix:
   description: >
-    The name of the configuration file. The SGTIN of the access point is always
+    The name of the configuration file. The Serialized Global Trade Item Number (SGTIN) of the access point is always
     appended.
   required: false
   default: hmip-config

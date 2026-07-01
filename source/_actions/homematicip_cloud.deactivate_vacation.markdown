@@ -28,7 +28,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Access point ID:
-  description: The ID (SGTIN) of the Homematic IP access point. If you have only one access point, you can leave this out.
+  description: The ID (Serialized Global Trade Item Number, or SGTIN) of the Homematic IP access point. If you have only one access point, you can leave this out.
   required: false
 {% endoptions_ui %}
 
@@ -48,7 +48,7 @@ This deactivates vacation mode immediately.
 {% options_yaml %}
 accesspoint_id:
   description: >
-    The ID (SGTIN) of the Homematic IP access point. If you have only one
+    The ID (Serialized Global Trade Item Number, or SGTIN) of the Homematic IP access point. If you have only one
     access point, you can leave this out.
   required: false
   type: string

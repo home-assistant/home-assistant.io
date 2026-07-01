@@ -32,7 +32,7 @@ Endtime:
   description: "The time when eco mode should automatically be disabled, in the format `YYYY-MM-DD HH:MM`."
   required: true
 Access point ID:
-  description: The ID (SGTIN) of the Homematic IP access point. If you have only one access point, you can leave this out.
+  description: The ID (Serialized Global Trade Item Number, or SGTIN) of the Homematic IP access point. If you have only one access point, you can leave this out.
   required: false
 {% endoptions_ui %}
 
@@ -60,7 +60,7 @@ endtime:
   type: string
 accesspoint_id:
   description: >
-    The ID (SGTIN) of the Homematic IP access point. If you have only one
+    The ID (Serialized Global Trade Item Number, or SGTIN) of the Homematic IP access point. If you have only one
     access point, you can leave this out.
   required: false
   type: string

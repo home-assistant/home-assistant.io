@@ -82,7 +82,7 @@ name:
   type: string
 accesspoint:
   required: true
-  description: This is the access point ID (SGTIN).
+  description: This is the access point ID (Serialized Global Trade Item Number, or SGTIN).
   type: string
 authtoken:
   required: true
@@ -219,7 +219,7 @@ Here is how you can help getting it added:
 While you wait, you can often expose the device through the Homematic IP app's own automations. The effects on devices that Home Assistant already supports will then show up there.
 
 {% note %}
-All actions that operate on the access point accept an optional `accesspoint_id` parameter (the SGTIN). If your installation has only one access point, you can leave this out. With multiple access points, you can find the ID at the top of the integration page or printed on the back of the access point.
+All actions that operate on the access point accept an optional `accesspoint_id` parameter (Serialized Global Trade Item Number, or SGTIN). If your installation has only one access point, you can leave this out. With multiple access points, you can find the ID at the top of the integration page or printed on the back of the access point.
 {% endnote %}
 
 {% include integrations/actions.md %}
