@@ -54,78 +54,19 @@ Once added, a new device will appear with the same set of entities available for
 - Xbox One (S/X)
 - Xbox Series S/X
 
+{% include integrations/actions.md %}
+
 ## Media player
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
-
-### Action: Play media
-
-The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
-
-You can find Product IDs using the {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
-
-| Data attribute         | Description                           |
-| ---------------------- | --------------------------------------|
-| `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`     | "Home"/{product_id}                   |
-| `media_content_type`   | Any Value                             |
-
-#### Examples
-
-```yaml
-entity_id: media_player.xboxone
-media_content_type: ""
-media_content_id: "Home"
-```
-
-```yaml
-entity_id: media_player.xboxone
-media_content_type: ""
-media_content_id: "9WZDNCRFJ3TJ" # Netflix
-```
 
 ## Remote
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Action: Send command
-
-The `send_command` action sends controller commands or text input to the Xbox console.
-
-| Data attribute | Optional | Description                                                       |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the Xbox remote.                           |
-| `command`              | no       | List of the controller commands or text input to be sent. |
-| `num_repeats`          | yes      | Number of times to repeat the commands.                   |
-| `delay_secs`           | yes      | Interval in seconds between one send and another.         |
-
-**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`,`GoHome`, `GoBack`, `ShowGuideTab`, `ShowGuide`
-
-#### Examples
-
-```yaml
-entity_id: remote.xboxone
-command: "A"
-```
-
-```yaml
-entity_id: remote.xboxone
-command: "A"
-num_repeats: 20
-```
-
-```yaml
-entity_id: remote.xboxone
-command:
-  - Right
-  - Right
-  - A
-delay_sec: 0.1
-```
-
 ### Picture elements card
 
-Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It uses the [Send remote command](/actions/xbox.send_command/) action. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities. Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
   <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
