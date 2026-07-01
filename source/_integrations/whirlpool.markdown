@@ -5,7 +5,6 @@ ha_category:
   - Button
   - Climate
   - Hub
-  - Number
   - Select
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
@@ -19,7 +18,6 @@ ha_platforms:
   - button
   - climate
   - diagnostics
-  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -73,7 +71,6 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 - [Binary Sensor](#binary_sensor)
 - [Button](#button)
 - [Climate](#climate)
-- [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 
@@ -100,12 +97,6 @@ The following actions are also available:
 - [**turn on/off**](/integrations/climate#action-climateturn_on)
 - [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)
-
-### Number
-
-The number platform provides the following functionality:
-
-- set the target temperature for an oven cavity
 
 ### Select
 
