@@ -42,7 +42,7 @@ While this integration is part of [`default_config:`](/integrations/default_conf
 bluetooth:
 ```
 
-## Viewing your Bluetooth adapters
+## Viewing your Bluetooth adapters and proxies
 
 You can see all your Bluetooth adapters and proxies in one place from the **Bluetooth** configuration panel. Together, local adapters and proxies are known as scanners, because both receive Bluetooth signals for Home Assistant.
 
@@ -50,8 +50,8 @@ You can see all your Bluetooth adapters and proxies in one place from the **Blue
    - At the top, a status summary shows how many Bluetooth connections are currently active.
 2. Under **My network**, you can see an overview of your Bluetooth setup, split into adapters, connections, and advertisements.
    - To open the network map, select **Show map**. The map shows how your Bluetooth devices connect to Home Assistant through your scanners. A legend distinguishes between Home Assistant, scanners, known devices, and unknown devices. Select a device to highlight its connections, or use the search box to find a specific device.
-3. To view your scanners, select the adapters row. For each one, you can see its name, area, state, and capabilities.
-   - To change the settings of a specific scanner, select the {% icon "mdi:cog" %} settings icon next to it.
+3. To view your scanners, select **Adapters**. For each one, you can see its name, area, state, and capabilities.
+   - To change the settings of a specific scanner, select the {% icon "mdi:cog-outline" %} settings icon next to it.
    - To view more details, select a scanner to open its device page.
 
 ## Requirements for Linux systems
