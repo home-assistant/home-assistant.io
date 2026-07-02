@@ -18,7 +18,7 @@ related:
     title: ESPHome infrared and radio frequency proxy component
 ---
 
-The **Infrared** {% term integration %} allows you to use Home Assistant to send commands to infrared-controlled devices, or to receive signals from infrared remotes. The intergation acts as an abstraction layer between the following components :
+The **Infrared** {% term integration %} allows you to use Home Assistant to send commands to infrared-controlled devices, or to receive signals from infrared remotes. The intergation acts as an abstraction layer between the following components:
 
 - An infrared remote adapter (proxy)
 - An integration that provides infrared entities by integrating a infrared remote adapter (such as [ESPHome](/integrations/esphome/) or [SMLIGHT SLZB](/integrations/smlight/))
