@@ -467,7 +467,7 @@ This section explains some of the key terms on this page and how they are used i
 
 ### Bluetooth adapter
 
-Bluetooth hardware that is directly connected to the machine running Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card. Home Assistant talks to it directly through the operating system. On Linux, this happens through BlueZ and D-Bus.
+A Bluetooth adapter is Bluetooth hardware that is directly connected to the system running Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card. Home Assistant talks to it through the operating system. On Linux, Home Assistant uses [BlueZ](http://www.bluez.org/) via [D-Bus](https://en.wikipedia.org/wiki/D-Bus).
 
 ### Bluetooth proxy (remote adapter)
 
@@ -475,7 +475,7 @@ A separate networked device, typically an ESP32 running ESPHome, that you place 
 
 ### Scanner
 
-The general term for anything that receives Bluetooth signals for Home Assistant. Both local Bluetooth adapters and Bluetooth proxies are scanners. In the network map, all of these appear as scanners.
+The general term for anything that receives Bluetooth signals for Home Assistant. Both local Bluetooth adapters and Bluetooth proxies are scanners. In Home Assistant, all of these show up as scanners.
 
 ### Advertisement
 
@@ -487,4 +487,4 @@ An active, two-way link between Home Assistant and a Bluetooth device. Some devi
 
 ### Scanning mode
 
-How a scanner looks for Bluetooth devices. In **Active** mode, the scanner asks devices for extra details, which uses more battery on those devices. In **Passive** mode, the scanner only listens, which uses the least battery but may leave out some details. **Auto** uses passive scanning where supported and falls back to active scanning when it is not.
+How a scanner looks for Bluetooth devices. In **Active** mode, the scanner asks devices for extra details, which uses more battery on those devices. In **Passive** mode, the scanner only listens, which uses the least battery but may leave out some details. **Auto** uses passive scanning where supported and falls back to active scanning when it is not. For details, see [Scanning modes](#scanning-modes).
