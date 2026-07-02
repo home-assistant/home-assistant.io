@@ -42,6 +42,18 @@ While this integration is part of [`default_config:`](/integrations/default_conf
 bluetooth:
 ```
 
+## Viewing your Bluetooth adapters
+
+You can see all your Bluetooth adapters and proxies in one place from the **Bluetooth** configuration panel. Together, local adapters and proxies are known as scanners, because both receive Bluetooth signals for Home Assistant.
+
+1. Go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+   - At the top, a status summary shows how many Bluetooth connections are currently active.
+2. Under **My network**, you can see an overview of your Bluetooth setup, split into adapters, connections, and advertisements.
+   - To open the network map, select **Show map**. The map shows how your Bluetooth devices connect to Home Assistant through your scanners. A legend distinguishes between Home Assistant, scanners, known devices, and unknown devices. Select a device to highlight its connections, or use the search box to find a specific device.
+3. To view your scanners, select the adapters row. For each one, you can see its name, area, state, and capabilities.
+   - To change the settings of a specific scanner, select the {% icon "mdi:cog" %} settings icon next to it.
+   - To view more details, select a scanner to open its device page.
+
 ## Requirements for Linux systems
 
 For Bluetooth to function on Linux systems:
@@ -296,12 +308,12 @@ Each Bluetooth adapter can be configured to use one of three scanning modes. **A
 
 Auto and Passive both require an adapter that supports passive scanning. On Linux, this needs BlueZ 5.63 or later with experimental features enabled (available with Home Assistant Operating System 9.4 and later). On adapters that do not support passive scanning, Auto falls back to Active automatically.
 
-## Options
+## Configuration options
 
 1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
 2. Select **Adapters**.
 3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
-   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
+   - Not all adapters have configuration options. If you don't see a cogwheel icon, your adapter does not support options.
    - Under **Scanning mode**, pick **Auto**, **Active**, or **Passive**.
 
 ## Remote adapters (Bluetooth proxies)
