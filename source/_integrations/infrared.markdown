@@ -18,19 +18,19 @@ related:
     title: ESPHome infrared and radio frequency proxy component
 ---
 
-The **Infrared** {% term integration %} allows you to use Home Assistant to send commands to infrared-controlled devices, or to receive signals from infrared remotes. The intergation acts as an abstraction layer between the following components:
+The **Infrared** {% term integration %} allows you to use Home Assistant to send commands to infrared-controlled devices, or to receive signals from infrared remotes. The integration acts as an abstraction layer between the following components:
 
 - An infrared remote adapter (proxy)
-- An integration that provides infrared entities by integrating a infrared remote adapter (such as [ESPHome](/integrations/esphome/) or [SMLIGHT SLZB](/integrations/smlight/))
-- Device-specific integrations (such as [LG Infrared](/integrations/lg_infrared/)), or [Samsung Infrared](/integrations/samsung_infrared/)
-
-An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver). Emitters allow other integrations to send IR commands to control devices such as TVs, air conditioners, and other infrared-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
+- An integration that provides infrared entities by integrating an infrared remote adapter (such as [ESPHome](/integrations/esphome/) or [SMLIGHT SLZB](/integrations/smlight/))
+- Device-specific integrations (such as [LG Infrared](/integrations/lg_infrared/) or [Samsung Infrared](/integrations/samsung_infrared/))
 
 You can control infrared-controlled devices from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. The chart illustrates how this is possible via the integrations.
 
-<p class='img'><img class='invertDark' style='max-height: 740px;' src='/images/integrations/infrared/infrared-overview.png' alt="Diagram showing how the Infrared integration connects device integrations to the emitters and receivers of an infrared remote adapter.">
-How the Infrared integration connects device integrations to the emitters and receivers of an infrared remote adapter.
+<p class='img'><img class='invertDark' src='/images/integrations/infrared/infrared-overview.png' alt="Diagram showing how the Infrared integration connects device integrations to an infrared remote adapter through a remote adapter integration.">
+How the Infrared integration connects device integrations to an infrared remote adapter through a remote adapter integration.
 </p>
+
+An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver). Emitters allow other integrations to send <abbr title="Infrared">IR</abbr> commands to control devices such as TVs, air conditioners, and other infrared-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
 
 {% include integrations/building_block_integration.md %}
 
@@ -42,8 +42,8 @@ You can use an infrared remote adapter (proxy) to control devices directly from 
 
 The **Infrared** {% term integration %} is a building block that other integrations build on. It cannot control devices directly. To control devices from Home Assistant, a few other components are needed.
 
-- Administrator rights in Home Assistant
-- An infrared controlled device, such as a TV, air conditioner, amplifier, or soundbar.
+- Administrator rights in Home Assistant.
+- An infrared-controlled device, such as a TV, air conditioner, amplifier, or soundbar.
 - An infrared remote adapter. If you're unsure what to get:
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
