@@ -22,9 +22,15 @@ Because the integration communicates over infrared, it operates in a one-way, fi
 
 This integration supports many branded and unbranded LED bulbs, lamps, and LED strip controllers that use generic infrared remotes. If your device uses one of the remote controls listed below, it may be compatible with this integration.
 
-{% details "24-key infrared remote" %}
+{% details "24-key remote" %}
 
-![24-key infrared remote](/images/integrations/led_infrared/24-key.jpg)
+![24-key remote](/images/integrations/led_infrared/24-key.png)
+
+{% enddetails %}
+
+{% details "13-key remote" %}
+
+![13-key remote](/images/integrations/led_infrared/13-key.png)
 
 {% enddetails %}
 
