@@ -81,6 +81,6 @@ However, there is a community [project](https://github.com/uncaught/gpio-shutter
 
 ### Velux KIG 300 (included in the Velux Active (KIX 300) kit)
 
-The Velux KIG 300 is not supported by this {% term integration %}. To integrate the Velux KIG 300 with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, and covers. If you obtained the KIG 300 as part of the Velux Active (KIX 300) kit, the included KLA 300 air quality sensor will also be supported by the HomeKit integration.
+The Velux KIG 300 is not supported by this {% term integration %}. To integrate the Velux KIG 300 with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, and covers. If you obtained the KIG 300 as part of the Velux Active (KIX 300) kit, the included KLA 300 air quality sensor will also be supported by the HomeKit Controller integration.
 
 Add the Velux KIG 300 using HomeKit pairing (using the pairing code on the sticker on the bottom of the device) and the devices connected to the gateway, including sensors, will be automatically discovered and added to Home Assistant.
