@@ -20,7 +20,7 @@ To turn a light off from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Light: Turn off light**.
+5. From the search box, search for and select **Turn off light**.
 6. Under **Targets**, choose what you want to turn off:
     - To turn off a specific light, select the entity.
     - To turn off every light in a room, select an area.
@@ -85,7 +85,7 @@ flash:
 
 Fade the bedroom light out over five seconds, which is a much nicer way to end a movie than an instant off.
 
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 - **Target**: Bedroom light
 - **Transition**: 5 seconds
 
@@ -106,7 +106,7 @@ action: |
 
 Target a floor instead of a specific entity and Home Assistant resolves it to every light on that floor.
 
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 - **Target**: Ground floor
 
 {% details "YAML example for turning off every light on a floor" %}
@@ -125,7 +125,7 @@ action: |
 Turn the porch light off automatically as the sun comes up. No more wasted electricity after you've already gone to bed or left for work.
 
 - **Trigger**: Sun: Above horizon
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 - **Target**: Porch light
 
 {% details "YAML example for a sunrise porch light off" %}
@@ -149,7 +149,7 @@ automation: |
 When the last person leaves home, turn off every light in the house. A simple way to save energy without having to think about it.
 
 - **Trigger**: Zone: Everyone leaves home
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 - **Target**: All lights (by label)
 
 {% details "YAML example for turning off all lights when nobody is home" %}
@@ -179,7 +179,7 @@ automation: |
 At 11 in the evening, fade every light in the living room out over ten seconds. A calmer way to end the day than flipping a switch.
 
 - **Trigger**: Time: 23:00
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 - **Target**: Living room
 - **Transition**: 10 seconds
 

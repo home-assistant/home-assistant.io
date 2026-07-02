@@ -15,7 +15,7 @@ To use this action in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an automation, or select **Create automation**.
-3. In the **Add action** section, search for and select **Vacuum: Start vacuum cleaner**.
+3. In the **Add action** section, search for and select **Start vacuum cleaner**.
 4. Choose one or more vacuum entities or an area.
 5. Configure as needed and select **Save**.
 

@@ -85,7 +85,7 @@ Picture this: it is the middle of the night and a smoke sensor activates in the 
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Light: Turn on light (flash)
+- **Action**: Turn on light (flash)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
