@@ -40,6 +40,8 @@ You can use an infrared remote adapter (proxy) to control devices directly from 
 
 ### Prerequisites
 
+The **Infrared** {% term integration %} is a building block that other integrations build on. It cannot control devices directly. To control devices from Home Assistant, a few other components are needed.
+
 - Administrator rights in Home Assistant
 - An infrared controlled device, such as a TV, air conditioner, amplifier, or soundbar.
 - An infrared remote adapter. If you're unsure what to get:
