@@ -16,7 +16,7 @@ ha_integration_type: device
 
 The **LED Infrared** {% term integration %} lets you control lights using any infrared transmitter previously configured in Home Assistant.
 
-Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the light but there is no feedback channel to confirm the current state of the light. The integration therefore uses assumed states.
+Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the light, but there is no feedback channel to confirm the current state of the light. The integration therefore uses assumed states.
 
 ## Supported devices
 
@@ -79,7 +79,7 @@ A light entity is created when an infrared emitter is configured.
 
 ## LED Infrared automation examples
 
-The following example demonstrates how to automate a LED Infrared device. For additional automation examples, refer to the light platform [actions reference](/integrations/light/#list-of-actions).
+The following example demonstrates how to automate an LED Infrared device. For additional automation examples, refer to the light platform [actions reference](/integrations/light/#list-of-actions).
 
 {% include docs/paste_yaml_tip.md %}
 
