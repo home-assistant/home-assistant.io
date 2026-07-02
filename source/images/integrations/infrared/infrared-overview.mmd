@@ -10,9 +10,9 @@ flowchart LR
 
     IRINT["Infrared integration"]
 
-    PROXYINT["Proxy integration<br/>(ESPHome, SMLIGHT SLZB, ...)"]
+    PROXYINT["Remote adapter (Proxy) integration<br/>(ESPHome, SMLIGHT SLZB, ...)"]
 
-    subgraph ADAPTER["Infrared proxy"]
+    subgraph ADAPTER["Infrared remote adapter (proxy)"]
         EM["Infrared emitter<br/>(infrared entity)"]
         RC["Infrared receiver<br/>(infrared entity)"]
     end

@@ -20,14 +20,14 @@ related:
 
 The **Infrared** {% term integration %} allows you to use Home Assistant to send commands to infrared-controlled devices, or to receive signals from infrared remotes. The integration acts as an abstraction layer between the following components:
 
-- An infrared proxy
-- An integration that provides infrared entities by integrating an infrared proxy (such as [ESPHome](/integrations/esphome/) or [SMLIGHT SLZB](/integrations/smlight/))
+- An infrared remote adapter (proxy)
+- An integration that provides infrared entities by integrating an infrared remote adapter (such as [ESPHome](/integrations/esphome/) or [SMLIGHT SLZB](/integrations/smlight/))
 - Device-specific integrations (such as [LG Infrared](/integrations/lg_infrared/) or [Samsung Infrared](/integrations/samsung_infrared/))
 
 You can control infrared-controlled devices from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. The chart illustrates how this is possible via the integrations.
 
-<p class='img'><img class='invertDark' src='/images/integrations/infrared/infrared-overview.png' alt="Diagram showing how the Infrared integration connects device integrations to an infrared proxy through a proxy integration.">
-How the Infrared integration connects device integrations to an infrared proxy through a proxy integration.
+<p class='img'><img class='invertDark' src='/images/integrations/infrared/infrared-overview.png' alt="Diagram showing how the Infrared integration connects device integrations to an infrared remote adapter through a remote adapter integration.">
+How the Infrared integration connects device integrations to an infrared remote adapter through a remote adapter integration.
 </p>
 
 An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver).
@@ -36,7 +36,7 @@ An infrared {% term entity %} represents either an [infrared emitter](#infrared-
 
 ## Controlling infrared-controlled devices from Home Assistant
 
-You can use an infrared proxy to control devices directly from Home Assistant.
+You can use an infrared remote adapter (proxy) to control devices directly from Home Assistant.
 
 ### Prerequisites
 
@@ -44,42 +44,42 @@ The **Infrared** {% term integration %} is a building block that other integrati
 
 - Administrator rights in Home Assistant.
 - An infrared-controlled device, such as a TV, air conditioner, amplifier, or soundbar.
-- An infrared proxy. If you're unsure what to get:
+- An infrared remote adapter. If you're unsure what to get:
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
 
 ### To control infrared-controlled devices from Home Assistant
 
-1. Place the infrared proxy within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
-2. In Home Assistant, add the integration for your infrared proxy. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
+1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
+2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
    - To add the integration, follow the steps in the integration documentation.
 3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
    - To add the integration, follow the steps in the integration documentation.
-   - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared proxy.
-4. If you have infrared-controlled devices in different rooms, place multiple infrared proxies around your home.
-   - During setup of the infrared-controlled device, select the proxy closest to that device.
+   - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
+4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
+   - During setup of the infrared-controlled device, select the remote adapter closest to that device.
 
 ## About infrared terminology
 
 This section explains some of the key terms on this page and how they are used in the Home Assistant documentation.
 
-### Infrared proxy
+### Infrared remote adapter (proxy)
 
-A device that relays <abbr title="Infrared">IR</abbr> commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology.
+A device that relays <abbr title="Infrared">IR</abbr> commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
 
 It has the following characteristics:
 
-- The infrared proxy is the hardware device.
-- The infrared proxy contains one or more emitters, and sometimes a receiver.
+- The infrared remote adapter is the hardware device.
+- The infrared remote adapter contains one or more emitters, and sometimes a receiver.
 - Each emitter and receiver is shown as a separate {% term entity %} in Home Assistant.
 
 #### Infrared emitter
 
-The component of your proxy that sends out IR signals. This is the same kind of signal a physical remote sends. An emitter is what actually controls a device. In Home Assistant, each emitter appears as an infrared {% term entity %} that other integrations can use.
+The component of your remote adapter that sends out IR signals. This is the same kind of signal a physical remote sends. An emitter is what actually controls a device. In Home Assistant, each emitter appears as an infrared {% term entity %} that other integrations can use.
 
 #### Infrared receiver
 
-The component of your proxy that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update the entity's {% term state %} or trigger {% term automations %}. Each receiver appears as an infrared {% term entity %}.
+The component of your remote adapter that catches IR signals sent by a device like a handheld remote. Home Assistant can use those signals, for example to update the entity's {% term state %} or trigger {% term automations %}. Each receiver appears as an infrared {% term entity %}.
 
 ### Infrared-controlled device
 
