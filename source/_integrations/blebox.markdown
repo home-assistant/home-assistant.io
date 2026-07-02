@@ -172,7 +172,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation (90 degree and 180 degree mode)
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### shutterBoxDC
 
