@@ -57,31 +57,10 @@ The **LED Infrared** integration provides the following entities.
 
 A light entity is created when an infrared emitter is configured.
 
-- **LED strip**
-  - **Description**: Represents the LED device and allows you to control it via IR commands.
-  - **Supported features**: Turn on, turn off, effects.
-  - **Available effects**:
-    - Flash
-    - Strobe
-    - Fade
-    - Smooth
-    - Solid colors:
-      - Red
-      - Green
-      - Blue
-      - White
-      - Tomato
-      - Light green
-      - Sky blue
-      - OrangeRed
-      - Cyan
-      - Rebecca purple
-      - Orange
-      - Turquoise
-      - Purple
-      - Yellow
-      - Dark cyan
-      - Plum
+- **Light**
+  - **Description**: Represents the LED device and allows it to be controlled using infrared (IR) commands.
+  - **Supported features**: Turn on, turn off, and select effects.
+  - **Available effects**: Depend on the capabilities of the configured IR remote.
 
 ## LED Infrared automation examples
 
