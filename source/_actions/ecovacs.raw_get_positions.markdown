@@ -39,13 +39,13 @@ This retrieves the raw position response for `vacuum.deebot_n8_plus`.
 
 ### Options in YAML
 
-This action has no additional options.
+This action has no additional YAML options beyond the target. Optionally, set `response_variable` to store the response.
 
 {% include actions/targets.md domain="vacuum" %}
 
 ## Response data
 
-The action returns a raw response with the position of the vacuum and charger. The exact response structure depends on the vacuum model and firmware.
+The action returns a raw response with the positions of the vacuum and charger. The exact response structure depends on the vacuum model and firmware.
 
 The response includes coordinates under `resp -> body -> data` like this:
 
