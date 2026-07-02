@@ -66,7 +66,7 @@ Infrared is a line-of-sight technology. Unlike radio-based technologies, infrare
 For the best results, keep the following in mind:
 
 - Place each infrared remote adapter so it has a clear, unobstructed line-of-sight to the devices it controls.
-- Keep the adapter within a reasonable distance of the device. The usable range depends on your adapter's emitter strength and the sensitivity of the device's infrared receiver.
+- Keep the adapter within the range supported by your adapter’s emitter strength and the device’s infrared receiver sensitivity.
 - Point the emitter towards the device's infrared receiver window. A physical remote works best when aimed at the device, and an infrared remote adapter is no different.
 - Avoid placing the adapter where strong sunlight, direct light from fluorescent lamps, or other infrared sources shine onto the device's receiver, as these can interfere with the signal.
 
