@@ -34,9 +34,9 @@ A radio frequency {% term entity %} represents a [radio frequency transmitter](#
 
 {% include integrations/building_block_integration.md %}
 
-## Controlling radio frequency-controlled devices from Home Assistant
+## Setting up radio frequency control in Home Assistant
 
-You can use a radio frequency remote adapter (proxy) to control devices directly from Home Assistant.
+You can set up a radio frequency remote adapter (proxy) to control devices directly from Home Assistant.
 
 ### Prerequisites
 
@@ -49,7 +49,7 @@ The **Radio Frequency** {% term integration %} is a building block that other in
   - You could also follow an example from the [ESPHome radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
   - Make sure the remote adapter supports the frequency and modulation that your device uses, such as 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr>.
 
-### To control radio frequency-controlled devices from Home Assistant
+### To set up radio frequency control in Home Assistant
 
 1. Place the radio frequency remote adapter within range of the radio frequency-controlled device.
 2. In Home Assistant, add the integration for your radio frequency remote adapter. Home Assistant creates a separate radio frequency {% term entity %} for each transmitter it provides.
@@ -59,6 +59,17 @@ The **Radio Frequency** {% term integration %} is a building block that other in
    - During integration setup, when you are asked which radio frequency transmitter to use, select the transmitter from your radio frequency remote adapter.
 4. If you have radio frequency-controlled devices in different rooms, place multiple radio frequency remote adapters around your home.
    - During setup of the radio frequency-controlled device, select the remote adapter closest to that device.
+
+## Viewing your radio frequency remote adapters
+
+You can see all your radio frequency remote adapters in one place from the **Radio frequency** configuration panel.
+
+1. Go to {% my config_radiofrequency title="**Settings** > **Radio Frequency**" %}.
+   - At the top, a status summary shows how many of your radio frequency remote adapters are currently online.
+2. Select **Devices** to open the list of radio frequency remote adapters. For each one, you can see:
+   - The name of the adapter.
+   - When it was last used.
+3. To view more details, select a radio frequency remote adapter to open its device page.
 
 ## About radio frequency terminology
 
