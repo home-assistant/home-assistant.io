@@ -64,7 +64,7 @@ The **Radio Frequency** {% term integration %} is a building block that other in
 
 You can see all your radio frequency remote adapters in one place from the **Radio frequency** configuration panel.
 
-1. Go to {% my config_radiofrequency title="**Settings** > **Radio Frequency**" %}.
+1. Go to {% my config_radiofrequency title="**Settings** > **Radio frequency**" %}.
    - At the top, a status summary shows how many of your radio frequency remote adapters are currently online.
 2. Select **Devices** to open the list of radio frequency remote adapters. For each one, you can see:
    - The name of the adapter.
