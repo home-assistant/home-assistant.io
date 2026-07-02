@@ -44,9 +44,67 @@ For each endpoint configured in Gatus, the integration creates one binary sensor
 
 - **Connectivity**: Reports `on` (connected) when the most recent check for that endpoint succeeded, and `off` (disconnected) when it failed.
 
+## Gatus automation examples
+
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Send a notification when a service goes down
+
+Get notified the moment one of your monitored endpoints fails its health check.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when a Gatus endpoint goes down"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.my_gatus_endpoint
+      to: "off"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "Service {{ trigger.to_state.name }} is down!"
+{% endexample %}
+
+{% enddetails %}
+
+### Send a notification when a service recovers
+
+Get notified when a previously failing endpoint comes back online.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when a Gatus endpoint recovers"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.my_gatus_endpoint
+      from: "off"
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "Service {{ trigger.to_state.name }} is back online."
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration {% term polling polls %} your Gatus instance every 30 seconds.
+
+## Known limitations
+
+- Endpoints added to Gatus after the integration is set up will not appear automatically. You need to reload the integration for new endpoints to show up as entities in Home Assistant.
+- The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
 
 ## Troubleshooting
 
