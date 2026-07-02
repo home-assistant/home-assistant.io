@@ -460,3 +460,31 @@ The following integrations are automatically discovered by the Bluetooth integra
  - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
  - [Xiaomi BLE](/integrations/xiaomi_ble/)
  - [Yale Access Bluetooth](/integrations/yalexs_ble/)
+
+## About Bluetooth terminology
+
+This section explains some of the key terms on this page and how they are used in the Home Assistant documentation.
+
+### Bluetooth adapter
+
+Bluetooth hardware that is directly connected to the machine running Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card. Home Assistant talks to it directly through the operating system. On Linux, this happens through BlueZ and D-Bus.
+
+### Bluetooth proxy (remote adapter)
+
+A separate networked device, typically an ESP32 running ESPHome, that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. You can add several proxies to extend Bluetooth coverage across rooms and floors, because Bluetooth itself is short-range. A Bluetooth proxy is also known as a remote adapter.
+
+### Scanner
+
+The general term for anything that receives Bluetooth signals for Home Assistant. Both local Bluetooth adapters and Bluetooth proxies are scanners. In the network map, all of these appear as scanners.
+
+### Advertisement
+
+A small message that a Bluetooth device broadcasts to announce itself and share basic information, such as sensor readings. Reading advertisements does not require a connection, so any scanner in range can pick them up.
+
+### Connection
+
+An active, two-way link between Home Assistant and a Bluetooth device. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. Making connections requires a scanner that supports active connections. Some proxies can only listen for advertisements and cannot connect to devices.
+
+### Scanning mode
+
+How a scanner looks for Bluetooth devices. In **Active** mode, the scanner asks devices for extra details, which uses more battery on those devices. In **Passive** mode, the scanner only listens, which uses the least battery but may leave out some details. **Auto** uses passive scanning where supported and falls back to active scanning when it is not.
