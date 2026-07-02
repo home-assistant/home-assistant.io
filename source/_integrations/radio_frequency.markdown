@@ -51,14 +51,27 @@ The **Radio Frequency** {% term integration %} is a building block that other in
 
 ### To control radio frequency-controlled devices from Home Assistant
 
-1. Place the radio frequency remote adapter within range of the radio frequency-controlled device.
+1. Place the radio frequency remote adapter within range of the radio frequency-controlled device. For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
 2. In Home Assistant, add the integration for your radio frequency remote adapter. Home Assistant creates a separate radio frequency {% term entity %} for each transmitter it provides.
    - To add the integration, follow the steps in the integration documentation.
 3. Add the integration for your radio frequency-controlled device, such as [Honeywell String Lights](/integrations/honeywell_string_lights/).
    - To add the integration, follow the steps in the integration documentation.
    - During integration setup, when you are asked which radio frequency transmitter to use, select the transmitter from your radio frequency remote adapter.
-4. If you have radio frequency-controlled devices in different rooms, place multiple radio frequency remote adapters around your home.
-   - During setup of the radio frequency-controlled device, select the remote adapter closest to that device.
+4. If some radio frequency-controlled devices are out of range or respond unreliably, place additional radio frequency remote adapters closer to them.
+   - During setup of the radio frequency-controlled device, select the remote adapter that is within range and provides the most reliable signal.
+
+## About device placement and coverage
+
+Radio frequency is a radio-based technology. Unlike infrared, RF signals can pass through walls, furniture, and other objects, so a single remote adapter can often reach devices in more than one room. Range and reliability still depend on where you place the adapter.
+
+For the best results, keep the following in mind:
+
+- Place the radio frequency remote adapter within the range supported by your adapter's transmitter strength and the device's receiver sensitivity.
+- Keep some distance between the adapter and large metal objects, which can block or reflect RF signals.
+- If your adapter has an antenna, position it for the best coverage. Its orientation can affect range and signal strength.
+- Avoid placing the adapter near sources of radio interference, such as other devices on the same frequency (for example, 433.92&nbsp;MHz), Wi-Fi routers, or USB 3.0 hardware. To see how much USB 3.0 hardware can affect nearby radio devices, refer to [Connectivity issues due to interference](https://support.nabucasa.com/hc/en-us/articles/26124431414557-Connectivity-issues-due-to-interference).
+
+Because RF signals can pass through walls, a single remote adapter can often cover devices in more than one room. If some devices are out of range or respond unreliably, add another radio frequency remote adapter closer to them. During setup of each radio frequency-controlled device, select the remote adapter that is within range and provides the most reliable signal.
 
 ## About radio frequency terminology
 
