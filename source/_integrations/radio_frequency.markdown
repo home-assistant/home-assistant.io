@@ -13,9 +13,9 @@ related:
   - docs: /integrations/#radio-frequency
     title: Integrations supporting radio frequency
   - url: https://esphome.io/projects/?type=irrf
-    title: ESPHome infrared and radio frequency proxy projects
+    title: ESPHome radio frequency proxy projects
   - url: https://esphome.io/components/ir_rf_proxy/
-    title: ESPHome infrared and radio frequency proxy component
+    title: ESPHome radio frequency proxy component
 ---
 
 The **Radio Frequency** {% term integration %} allows you to use Home Assistant to send commands to radio frequency-controlled devices. The integration acts as an abstraction layer between the following components:
@@ -46,7 +46,7 @@ The **Radio Frequency** {% term integration %} is a building block that other in
 - A radio frequency-controlled device, such as a remote outlet, garage door, or string lights.
 - A radio frequency remote adapter. If you're unsure what to get:
   - Find integrations that support radio frequency: In the documentation, search for the [radio frequency category](/integrations/#radio-frequency).
-  - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
+  - You could also follow an example from the [ESPHome radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
   - Make sure the remote adapter supports the frequency and modulation that your device uses, such as 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr>.
 
 ### To control radio frequency-controlled devices from Home Assistant
