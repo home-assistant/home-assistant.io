@@ -53,7 +53,7 @@ A repair issue in {% my integrations title="**Settings** > **Devices & services*
 
 ## Supported functionality
 
-The integration creates a {% term "device tracker" %} entity for each device known to your Internet-Box. 
+The integration creates a {% term "device tracker" %} entity for each device known to your UniFi AP. 
 You can use these entities to track the presence of people in your home. For more information on how to assign tracked devices to people, see the [device tracker integration page](/integrations/device_tracker/).
 
 ## Data updates
@@ -65,7 +65,7 @@ Home Assistant {% term polling polls %} your UniFi AP every 30 seconds to retrie
 If the setup fails or the integration stops working, check the following:
 
 - Make sure the IP address of your UniFi AP is correct and reachable from Home Assistant.
-- Make sure the Device Administrator username and password is correct. The integration signs in to your Unifi AP over SSH to read the list of connected devices, so it needs valid credentials.
+- Make sure the Device Administrator username and password is correct. The integration signs in to your UniFi AP over SSH to read the list of connected devices, so it needs valid credentials.
 
 ## Removing the integration
 
