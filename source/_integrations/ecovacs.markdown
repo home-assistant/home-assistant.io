@@ -148,13 +148,10 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 
 {% include integrations/actions.md %}
 
-### Getting device and charger coordinates
-
-The [Get raw positions](/actions/ecovacs.raw_get_positions/) action retrieves device and charger coordinates.
-
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+
 - `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
