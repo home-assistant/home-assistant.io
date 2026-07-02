@@ -49,6 +49,8 @@ You can use an infrared remote adapter (proxy) to control devices directly from 
 
 ### Prerequisites
 
+- Administrator rights in Home Assistant
+- An infrared controlled device, such as a TV, air conditioner, amplifier, or soundbar.
 - An infrared remote adapter. If you're unsure what to get:
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
