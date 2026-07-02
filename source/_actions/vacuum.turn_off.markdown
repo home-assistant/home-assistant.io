@@ -57,7 +57,7 @@ target:
 
 If your vacuum supports a separate power state, this automation turns it off after it has finished cleaning and returned to the dock.
 
-- **Trigger**: Vacuum returned to dock
+- **Trigger**: Vacuum cleaner returned to dock
 - **Action**: Turn off vacuum
 - **Target**: Downstairs vacuum
 
