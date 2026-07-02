@@ -21,7 +21,7 @@ To turn a light on from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Light: Turn on light**.
+5. From the search box, search for and select **Turn on light**.
 6. Under **Targets**, choose what you want to turn on:
     - To turn on a specific light, select the entity.
     - To turn on every light in a room, select an area.
@@ -151,7 +151,7 @@ profile:
 
 When you start winding down in the evening, dim the kitchen light to a warm white tone.
 
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 - **Target**: Kitchen light
 - **Brightness percentage**: 80
 - **Color**: warm_white
@@ -174,7 +174,7 @@ action: |
 
 A long transition is a gentle way to wake up. Instead of snapping the light on, fade it up slowly.
 
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 - **Target**: Bedroom light
 - **Brightness percentage**: 100
 - **Transition**: 10 seconds
@@ -197,7 +197,7 @@ action: |
 
 Target an area instead of a specific entity and Home Assistant resolves it to every light inside the room.
 
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 - **Target**: Living room
 - **Brightness percentage**: 60
 
@@ -219,7 +219,7 @@ action: |
 Greet the evening by turning the porch light on at a warm white tone as the sun drops below the horizon. Nice and welcoming without running the light at full power.
 
 - **Trigger**: Sun: Below horizon
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 - **Target**: Porch light
 - **Brightness percentage**: 60
 - **Color**: warm_white
@@ -249,7 +249,7 @@ Fade the bedroom light up over ten seconds at 7 in the morning on weekdays. A ki
 
 - **Trigger**: Time: 07:00
 - **Condition**: Day of the week is Monday to Friday
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 - **Target**: Bedroom light
 - **Brightness percentage**: 100
 - **Transition**: 10 seconds
@@ -287,7 +287,7 @@ When you arrive home after dark, turn on every light in the living room at a com
 
 - **Trigger**: Person: Paulus changes to home
 - **Condition**: Sun is below horizon
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 - **Target**: Living room
 - **Brightness percentage**: 60
 

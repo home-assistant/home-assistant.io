@@ -85,7 +85,7 @@ Use this automation when a button helps you locate a device and you want a nearb
 
 - **Trigger**: Button pressed
   - **Target**: Front door camera identify button
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for turning on a light from an identify button" %}
 
