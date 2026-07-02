@@ -7,7 +7,7 @@ related_triggers:
   - lock.locked
 ---
 
-The **Lock opened** trigger helps you react when a lock reports that it is open. Use it when you want Home Assistant to respond to a door that has been opened, like turning on lights, pausing an alarm workflow, or sending a message that an entry point is no longer closed.
+The **Lock opened** trigger helps you react when a lock releases its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action on locks that support it. Use it when you want Home Assistant to respond as someone is let in, like turning on lights, pausing an alarm workflow, or logging entry events.
 
 {% include triggers/ui_header.md %}
 
@@ -74,16 +74,16 @@ for:
 ## Good to know
 
 - The trigger fires only when a lock changes into the open state from a known state. If a lock comes back from `unavailable` or `unknown`, that recovery does not fire this trigger.
-- Not every lock reports an open state. Use this trigger only with locks that support open-state reporting.
-- To react when the same door becomes secure again, use [Lock locked](/triggers/lock.locked/).
+- Only locks that support the [Open](/actions/lock.open/) action can reach the open state. On other locks, this trigger never fires.
+- To react when the same lock is secured again, use [Lock locked](/triggers/lock.locked/).
 
 {% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
 
-### Automation: turn on the hall light when the front door opens at night
+### Automation: turn on the hall light when the front door lock opens at night
 
-When you arrive home after dark, it helps if the hallway is already lit. This automation turns on the hall light when the front door lock reports open after sunset.
+When you unlatch the front door to come in after dark, it helps if the hallway is already lit. This automation turns on the hall light when the front door lock reaches the open state after sunset.
 
 - **Trigger**: Lock opened
 - **Target**: Front door lock
@@ -92,11 +92,11 @@ When you arrive home after dark, it helps if the hallway is already lit. This au
 - **Condition**: Sun is below the horizon
 - **Action**: Turn on
 
-{% details "YAML example for lighting the hall when the door opens" %}
+{% details "YAML example for lighting the hall when the lock opens" %}
 
 {% example %}
 automation: |
-  alias: "Turn on the hall light when the front door opens"
+  alias: "Turn on the hall light when the front door lock opens"
   triggers:
     - trigger: lock.opened
       target:
@@ -115,9 +115,9 @@ automation: |
 
 {% enddetails %}
 
-### Automation: pause the alarm countdown when the patio door opens
+### Automation: pause the alarm countdown when the patio door lock opens
 
-If you have created a script to handle alarm entry steps, opening the patio door can start a different response. This automation runs that script when the patio door lock reports open.
+If you have created a script to handle alarm entry steps, unlatching the patio door lock can start a different response. This automation runs that script when the patio door lock reaches the open state.
 
 - **Trigger**: Lock opened
 - **Target**: Patio door lock
@@ -129,7 +129,7 @@ If you have created a script to handle alarm entry steps, opening the patio door
 
 {% example %}
 automation: |
-  alias: "Run the patio entry script when the door opens"
+  alias: "Run the patio entry script when the patio door lock opens"
   triggers:
     - trigger: lock.opened
       target:
