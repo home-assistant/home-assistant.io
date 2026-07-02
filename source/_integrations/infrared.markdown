@@ -61,13 +61,14 @@ The **Infrared** {% term integration %} is a building block that other integrati
 
 ## Viewing your infrared remote adapters
 
-You can see all your infrared emitters and receivers in one place from the **Infrared** configuration panel.
+You can see all your infrared remote adapters in one place from the **Infrared** configuration panel.
 
 1. Go to {% my config_infrared title="**Settings** > **Infrared**" %}.
-2. Review the list of infrared {% term entity "entities" %} provided by your infrared remote adapters.
-   - The panel shows which infrared remote adapters are currently online.
-   - For each emitter, the state shows the date and time the last IR command was sent.
-   - For each receiver, the state shows the date and time the last IR signal was received.
+   - At the top, a status summary shows how many of your infrared remote adapters are currently online.
+2. Select **Devices** to open the list of infrared remote adapters. For each one, you can see:
+   - The name of the adapter.
+   - The type: emitter, receiver, or both.
+   - When it was last used.
 3. To view more details, select an infrared remote adapter to open its device page.
 
 ## About device placement and coverage
