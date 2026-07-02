@@ -10,11 +10,7 @@ ha_codeowners:
 ha_domain: besen_bs20
 ha_bluetooth: true
 ha_platforms:
-  - number
-  - select
-  - sensor
   - switch
-  - text
 ha_config_flow: true
 ha_integration_type: device
 ---
@@ -46,7 +42,7 @@ Sync charger clock:
 
 ## Supported devices
 
-Known supported device:
+The following device is known to be supported by this integration:
 
 - [Besen BS20 EV Charging Station](https://www.besen-group.com/products/ev-charging-station/bs20/)
 
@@ -54,57 +50,36 @@ Other Besen wallboxes using the same `ACP#` Bluetooth protocol may also work.
 
 ## Entities
 
-The exact entity set depends on charger model, board revision, reported phase count, and supported firmware responses.
+The {% term integration %} provides a switch to start or stop charging.
 
-The {% term integration %} can provide:
-
-- A switch to start or stop charging.
-- Number entities for charge current and LCD brightness.
-- Sensors for power, energy, phase voltage and current, charger status, plug state, error state, temperature, RSSI, charger time, and software version.
-- Select entities for language and temperature unit.
-- A text entity for the charger name.
-
-Diagnostic or less commonly used entities may be disabled by default.
+The switch state follows the charging state reported by the charger.
 
 ## Data updates
 
 The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
 
-This is a local-push integration. There is no cloud dependency.
+This is a local push integration. There is no cloud dependency.
 
 ## Actions
 
 The integration does not provide custom actions. Use the standard entity actions instead:
 
-- `switch.turn_on` and `switch.turn_off` on the charging switch.
-- `number.set_value` on charge current.
-- `select.select_option` on language or temperature unit.
-- `text.set_value` on the charger name.
+- `switch.turn_on` starts charging.
+- `switch.turn_off` stops charging.
 
 ## Examples
 
-Start charging after solar surplus has been available for 5 minutes:
+Start charging when an off-peak tariff starts:
 
 ```yaml
-alias: Start EV charging on solar surplus
+alias: Start EV charging off peak
 triggers:
-  - trigger: numeric_state
-    entity_id: sensor.solar_surplus_power
-    above: 2500
-    for: "00:05:00"
-conditions:
-  - condition: state
-    entity_id: sensor.besen_bs20_plug_state
-    state: "Connected Locked"
+  - trigger: time
+    at: "23:00:00"
 actions:
-  - action: number.set_value
-    target:
-      entity_id: number.besen_bs20_charge_amps
-    data:
-      value: 8
   - action: switch.turn_on
     target:
-      entity_id: switch.besen_bs20_charging
+      entity_id: switch.besen_bs20_charge
 ```
 
 Stop charging before a peak tariff starts:
@@ -117,14 +92,14 @@ triggers:
 actions:
   - action: switch.turn_off
     target:
-      entity_id: switch.besen_bs20_charging
+      entity_id: switch.besen_bs20_charge
 ```
 
 ## Troubleshooting
 
 ### The charger is not discovered
 
-- Confirm it appears in **Settings > Bluetooth > Advertisement monitor** as `ACP#...`.
+- Confirm it appears in **Settings** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
 - Move an ESPHome Bluetooth proxy closer to the charger.
 - Make sure the proxy is added to Home Assistant through the ESPHome integration.
 - Run an active scan or temporarily place a local Bluetooth adapter near the charger.
@@ -137,7 +112,7 @@ Stop any existing bridge, app, container, add-on, or service that may already be
 
 ### The charger becomes unavailable
 
-- Check **Settings > Bluetooth > Connection monitor**.
+- Check **Settings** > **Bluetooth** > **Connection monitor**.
 - Verify the proxy has free active connection slots.
 - Stop any old MQTT bridge or companion process that may still hold the charger's Bluetooth connection.
 - Prefer Ethernet ESPHome Bluetooth proxies when possible.
@@ -151,6 +126,8 @@ Use the integration's reauthentication prompt or reconfigure flow to enter the c
 
 The integration does not support:
 
+- Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
+- Reporting detailed charger telemetry as Home Assistant sensor entities.
 - Wi-Fi provisioning.
 - Password reset.
 - Device reset.
