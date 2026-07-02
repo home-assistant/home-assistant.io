@@ -71,8 +71,6 @@ Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, 
 
 If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-{% include integrations/actions.md %}
-
 ## Scenes
 
 Specifying a target option in a [Scene](/integrations/scene/) is simple:
@@ -100,6 +98,11 @@ scene:
         state: Bob
 ```
 
+{% include integrations/triggers.md domain="select" %}
+
+{% include integrations/conditions.md domain="select" %}
+
+{% include integrations/actions.md %}
 
 ## Automation examples
 
@@ -181,7 +184,3 @@ input_select:
         retain: true
         payload: "{{ states('input_select.thermostat_mode') }}"
 ```
-
-{% include integrations/triggers.md domain="select" %}
-
-{% include integrations/conditions.md domain="select" %}
