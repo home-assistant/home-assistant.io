@@ -30,7 +30,7 @@ You can control infrared-controlled devices from Home Assistant without touching
 How the Infrared integration connects device integrations to an infrared remote adapter through a remote adapter integration.
 </p>
 
-An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver). Emitters allow other integrations to send <abbr title="Infrared">IR</abbr> commands to control devices such as TVs, air conditioners, and other infrared-controlled appliances. Receivers allow other integrations to react to IR signals captured by the hardware.
+An infrared {% term entity %} represents either an [infrared emitter](#infrared-emitter) or an [infrared receiver](#infrared-receiver).
 
 {% include integrations/building_block_integration.md %}
 
@@ -65,7 +65,7 @@ This section explains some of the key terms on this page and how they are used i
 
 ### Infrared remote adapter (proxy)
 
-A device that relays IR commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
+A device that relays <abbr title="Infrared">IR</abbr> commands on behalf of Home Assistant. It can connect to Home Assistant over Wi-Fi, Ethernet, or other technology. An infrared remote adapter is also known as an infrared proxy.
 
 It has the following characteristics:
 
