@@ -25,7 +25,7 @@ This {% term integration %} allows you to detect presence by looking at devices 
 To set up the integration, you need the following:
 
 - The IP address of your UniFi AP.
-- - The SSH device username and password. You can set this in the UniFi Network application under **Device Updates and Settings** > **Device SSH Settings**.
+- The SSH device username and password. You can set this in the UniFi Network application under **Device Updates and Settings** > **Device SSH Settings**.
 
 {% include integrations/config_flow.md %}
 
@@ -64,7 +64,7 @@ Home Assistant {% term polling polls %} your UniFi AP every 30 seconds to retrie
 If the setup fails or the integration stops working, check the following:
 
 - Make sure the IP address of your UniFi AP is correct and reachable from Home Assistant.
-- Make sure the SSH device username and password is correct. The integration signs in to your UniFi AP over SSH to read the list of connected devices, so it needs valid credentials.
+- Make sure the SSH device username and password are correct. The integration signs in to your UniFi AP over SSH to read the list of connected devices, so it needs valid credentials.
 
 ## Removing the integration
 
