@@ -90,7 +90,7 @@ When you dim the ceiling light below 40% in the evening, turn on the accent ligh
 - **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Condition**: Ceiling light brightness is below 40%
-- **Action**: Light: Turn on (accent lights)
+- **Action**: Turn on light (accent lights)
 
 {% details "YAML example for mood lighting on dim" %}
 
