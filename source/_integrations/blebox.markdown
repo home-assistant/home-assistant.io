@@ -196,7 +196,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation (90 degree and 180 degree mode)
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### switchBox
 
@@ -655,7 +655,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation (90 degree and 180 degree mode)
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 24 GO SWITCHSHUTT
 
@@ -771,7 +771,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation (90 degree and 180 degree mode)
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 54 GO SWITCHSHUTT
 
@@ -887,7 +887,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation (90 degree and 180 degree mode)
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
