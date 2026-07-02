@@ -226,7 +226,7 @@ automation: |
   alias: "Black out display when no one is home"
   triggers:
     - trigger: state
-      entity_id: group.all_persons
+      entity_id: group.family
       to: "not_home"
   actions:
     - action: kiosker.blackout_set
@@ -254,7 +254,7 @@ automation: |
   alias: "Clear kiosk blackout on arrival"
   triggers:
     - trigger: state
-      entity_id: group.all_persons
+      entity_id: group.family
       to: "home"
   actions:
     - action: kiosker.blackout_set

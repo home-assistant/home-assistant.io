@@ -75,11 +75,11 @@ Determine which lights are in one group but not another.
 
 {% example %}
 template: |
-  {% set all_lights = expand("group.all_lights")
+  {% set home_lights = expand("group.home_lights")
      | map(attribute="entity_id") | list %}
   {% set automated = expand("group.automated_lights")
      | map(attribute="entity_id") | list %}
-  {{ difference(all_lights, automated) }}
+  {{ difference(home_lights, automated) }}
 type: list
 output: '["light.porch", "light.garage"]'
 {% endexample %}

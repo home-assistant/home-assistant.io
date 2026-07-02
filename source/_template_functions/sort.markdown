@@ -114,7 +114,7 @@ Sort lights by brightness in descending order and get the first one.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | selectattr("state", "eq", "on")
     | sort(attribute="attributes.brightness", reverse=true)
     | map(attribute="entity_id")
@@ -130,7 +130,7 @@ Sort a group of entities by their friendly name attribute for display.
 
 {% example %}
 template: |
-  {% for entity in expand("group.all_lights")
+  {% for entity in expand("group.home_lights")
     | sort(attribute="name") %}
     {{ entity.name }}: {{ entity.state }}
   {% endfor %}

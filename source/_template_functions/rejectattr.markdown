@@ -24,7 +24,7 @@ This is useful when you want to exclude {% term entities %} based on an attribut
 
 {% template_function_usage %}
 filter: |
-  {{ expand("group.all_lights")
+  {{ expand("group.home_lights")
     | rejectattr("state", "eq", "off")
     | map(attribute="entity_id")
     | list
@@ -72,7 +72,7 @@ When no test is specified, items are removed if the attribute value is truthy.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | rejectattr("attributes.brightness")
     | map(attribute="entity_id")
     | list
@@ -99,7 +99,7 @@ Remove entities that are unavailable or unknown before processing.
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("group.home_sensors")
     | rejectattr("state", "in", ["unavailable", "unknown"])
     | map(attribute="entity_id")
     | list
@@ -116,7 +116,7 @@ Keep only entities that are not in the "off" state.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | rejectattr("state", "eq", "off")
     | map(attribute="name")
     | join(", ")
@@ -132,7 +132,7 @@ Remove sensors of a particular device class from a collection.
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("group.home_sensors")
     | rejectattr("attributes.device_class", "eq", "battery")
     | map(attribute="entity_id")
     | list
@@ -149,7 +149,7 @@ Combine both filters to precisely control which entities are included.
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("group.home_sensors")
     | rejectattr("state", "in", ["unavailable", "unknown"])
     | selectattr("attributes.device_class", "eq", "temperature")
     | map(attribute="state")

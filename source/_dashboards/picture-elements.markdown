@@ -502,7 +502,7 @@ elements:
       left: 60%
     action: homeassistant.turn_off
     target:
-      entity_id: group.all_lights
+      entity_id: group.home_lights
   - type: icon
     icon: mdi:home
     tap_action:

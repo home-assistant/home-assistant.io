@@ -63,7 +63,7 @@ Combination of vertical and horizontal stack card:
 type: vertical-stack
 cards:
   - type: picture-entity
-    entity: group.all_lights
+    entity: group.home_lights
     image:  /local/house.png
   - type: horizontal-stack
     cards:

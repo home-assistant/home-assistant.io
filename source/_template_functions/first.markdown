@@ -79,7 +79,7 @@ Find the first light that is currently on.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="entity_id")
     | first

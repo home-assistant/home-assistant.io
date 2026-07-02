@@ -78,7 +78,7 @@ Sort entities by their last changed time and pick the last one.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | sort(attribute="last_changed")
     | map(attribute="entity_id")
     | last

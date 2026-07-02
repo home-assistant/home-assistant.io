@@ -72,7 +72,7 @@ Use `attribute=` to pull a specific property from each item in the list.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | map(attribute="entity_id")
     | list
   }}
@@ -104,7 +104,7 @@ Use dotted notation to access nested attributes.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="attributes.brightness")
     | list
@@ -145,7 +145,7 @@ output: "21.2"
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | map(attribute="name")
     | list
   }}
@@ -192,7 +192,7 @@ Use `default=` to handle items that may not have the requested attribute.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | map(attribute="attributes.brightness", default=0)
     | list
   }}

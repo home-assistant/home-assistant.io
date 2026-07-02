@@ -154,7 +154,7 @@ Combine `select` with [`list`](/template-functions/list/) and [`length`](/templa
 {% example %}
 template: |
   {{
-    expand("group.all_doors")
+    expand("group.home_doors")
     | map(attribute="state")
     | select("equalto", "on")
     | list

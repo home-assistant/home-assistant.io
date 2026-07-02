@@ -64,7 +64,7 @@ Find out how many distinct states exist among a group of {% term entities %}.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | map(attribute="state")
     | set
     | list

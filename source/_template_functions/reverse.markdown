@@ -72,7 +72,7 @@ Reverse the alphabetical order of expanded entities.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("group.home_lights")
     | sort(attribute="entity_id")
     | reverse
     | map(attribute="entity_id")
