@@ -36,8 +36,6 @@ Bluetooth address:
   description: "The BLE address of the charger. Discovery fills this automatically when Home Assistant sees an ACP# advertisement."
 PIN:
   description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
-Sync charger clock:
-  description: "Keeps the charger's internal clock aligned during heartbeat handling."
 {% endconfiguration_basic %}
 
 ## Supported devices
@@ -120,7 +118,7 @@ Stop any existing bridge, app, container, add-on, or service that may already be
 
 ### The PIN is rejected
 
-Use the integration's reauthentication prompt or reconfigure flow to enter the current 6-digit PIN.
+Remove and add the integration again with the current 6-digit PIN.
 
 ## Known limitations
 
