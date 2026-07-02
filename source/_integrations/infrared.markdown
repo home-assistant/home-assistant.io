@@ -39,9 +39,9 @@ To set up infrared hardware and a device integration:
 1. Add an integration that provides infrared entities, such as [Broadlink](/integrations/broadlink/), [SMLIGHT SLZB](/integrations/smlight/), or an ESPHome infrared proxy.
 2. Add the integration for your infrared-controlled device (for example, [LG Infrared](/integrations/lg_infrared/)) and select the infrared emitter or receiver entity when prompted.
 
-## Controlling devices from Home Assistant without a wired infrared emitter
+## Controlling infrared-controlled devices from Home Assistant
 
-If you do not want to use a wired infrared emitter plugged into to Home Assistant, you can use an infrared remote adapter (proxy). This is a small device that connects to Home Assistant not only over Ethernet and other methods, but also over Wi-Fi. You place it within line-of-sight of the infrared-controlled device, and it sends IR commands over your network on behalf of Home Assistant.
+You can use an infrared remote adapter (proxy) to control devices directly from Home Assistant.
 
 ### Prerequisites
 
