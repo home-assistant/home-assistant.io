@@ -95,6 +95,12 @@ scene:
       input_text.example: Hello!
 ```
 
+{% include integrations/triggers.md domain="text" %}
+
+{% include integrations/conditions.md domain="text" %}
+
+{% include integrations/actions.md %}
+
 ## Automation examples
 
 Here's an example using `input_text` in an action in an automation.
@@ -128,9 +134,3 @@ automation:
         data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
-
-{% include integrations/triggers.md domain="text" %}
-
-{% include integrations/conditions.md domain="text" %}
-
-{% include integrations/actions.md %}
