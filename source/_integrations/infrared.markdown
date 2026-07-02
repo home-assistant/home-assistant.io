@@ -46,7 +46,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
 - An infrared-controlled device, such as a TV, air conditioner, amplifier, or soundbar.
 - An infrared proxy. If you're unsure what to get:
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
-  - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
+  - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
 
 ### To control infrared-controlled devices from Home Assistant
 
