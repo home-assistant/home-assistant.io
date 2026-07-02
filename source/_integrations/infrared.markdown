@@ -46,7 +46,7 @@ You can use an infrared remote adapter (proxy) to control devices directly from 
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=ir).
 
-### To set up an infrared remote adapter to control devices
+### To control infrared-controlled devices from Home Assistant
 
 1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
 2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
