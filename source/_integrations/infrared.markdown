@@ -50,7 +50,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
 
 ### To control infrared-controlled devices from Home Assistant
 
-1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
+1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects. For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
 2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
    - To add the integration, follow the steps in the integration documentation.
 3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
@@ -58,6 +58,19 @@ The **Infrared** {% term integration %} is a building block that other integrati
    - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
 4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
    - During setup of the infrared-controlled device, select the remote adapter closest to that device.
+
+## About device placement and coverage
+
+Infrared is a line-of-sight technology. Unlike radio-based technologies, infrared signals do not pass through walls, furniture, or other objects. The placement of your infrared remote adapter has a direct effect on how reliably your devices respond.
+
+For the best results, keep the following in mind:
+
+- Place each infrared remote adapter so it has a clear, unobstructed line-of-sight to the devices it controls.
+- Keep the adapter within the range supported by your adapter’s emitter strength and the device’s infrared receiver sensitivity.
+- Point the emitter towards the device's infrared receiver window. A physical remote works best when aimed at the device, and an infrared remote adapter is no different.
+- Avoid placing the adapter where strong sunlight, direct light from fluorescent lamps, or other infrared sources shine onto the device's receiver, as these can interfere with the signal.
+
+To cover devices in more than one room, use a separate infrared remote adapter in each room. Infrared signals do not travel between rooms, so a single adapter cannot control devices behind a wall or in another space. During setup of each infrared-controlled device, select the remote adapter that is closest to it and has a clear line-of-sight.
 
 ## About infrared terminology
 
