@@ -79,8 +79,8 @@ The Velux KLF 150 is not supported by this {% term integration %}, even though V
 
 However, there is a community [project](https://github.com/uncaught/gpio-shutter-bridge) that bridges the KLF 150's GPIO interface with MQTT. Using this project with additional hardware, you can control your KLF 150 through the [MQTT Cover integration](/integrations/cover.mqtt/).
 
-### Velux Active (KIX 300)
+### Velux KIG 300 (included in the Velux Active KIX 300 kit)
 
-The Velux Active (KIX 300) set is not supported by this {% term integration %}. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, covers, and the air quality sensor KLA 300.
+The Velux KIG 300 is not supported by this {% term integration %}. To integrate the Velux KIG 300 with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, and covers. If you obtained the KIG 300 as part of the Velux Active (KIX 300) kit, the KLA 300 air quality sensor will also be supported.
 
-Add the Velux Active gateway using HomeKit pairing (with the pairing code on the sticker at the bottom of the Velux Active gateway) and the devices connected to the gateway - including sensors - will be automatically discovered and added to Home Assistant.
+Add the Velux KIG 300 using HomeKit pairing (with the pairing code on the sticker at the bottom of the Velux KIG 300) and the devices connected to the gateway - including sensors - will be automatically discovered and added to Home Assistant.
