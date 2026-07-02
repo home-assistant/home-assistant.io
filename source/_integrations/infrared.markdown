@@ -34,15 +34,6 @@ How the Infrared integration connects device integrations to the emitters and re
 
 {% include integrations/building_block_integration.md %}
 
-## Finding and adding integrations that support infrared
-
-The **Infrared** {% term integration %} is a building block that other integrations build on. To control an infrared-controlled device or react to an infrared remote, you typically need both infrared hardware that exposes an infrared emitter or receiver entity and an integration for your specific device.
-
-To set up infrared hardware and a device integration:
-
-1. Add an integration that provides infrared entities, such as [Broadlink](/integrations/broadlink/), [SMLIGHT SLZB](/integrations/smlight/), or an ESPHome infrared proxy.
-2. Add the integration for your infrared-controlled device (for example, [LG Infrared](/integrations/lg_infrared/)) and select the infrared emitter or receiver entity when prompted.
-
 ## Controlling infrared-controlled devices from Home Assistant
 
 You can use an infrared remote adapter (proxy) to control devices directly from Home Assistant.
