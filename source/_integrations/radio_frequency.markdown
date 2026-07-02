@@ -62,7 +62,7 @@ The **Radio Frequency** {% term integration %} is a building block that other in
 
 ## About device placement and coverage
 
-Radio frequency is a radio-based technology. Unlike infrared, RF signals can pass through walls, furniture, and other objects, so a single remote adapter can often reach devices in more than one room. Range and reliability still depend on where you place the adapter.
+Radio frequency is a radio-based technology. Unlike infrared, <abbr title="Radio frequency">RF</abbr> signals can pass through walls, furniture, and other objects, so a single remote adapter can often reach devices in more than one room. Range and reliability still depend on where you place the adapter.
 
 For the best results, keep the following in mind:
 
@@ -71,7 +71,7 @@ For the best results, keep the following in mind:
 - If your adapter has an antenna, position it for the best coverage. Its orientation can affect range and signal strength.
 - Avoid placing the adapter near sources of radio interference, such as other devices on the same frequency (for example, 433.92&nbsp;MHz), Wi-Fi routers, or USB 3.0 hardware. To see how much USB 3.0 hardware can affect nearby radio devices, refer to [Connectivity issues due to interference](https://support.nabucasa.com/hc/en-us/articles/26124431414557-Connectivity-issues-due-to-interference).
 
-Because RF signals can pass through walls, a single remote adapter can often cover devices in more than one room. If some devices are out of range or respond unreliably, add another radio frequency remote adapter closer to them. During setup of each radio frequency-controlled device, select the remote adapter that is within range and provides the most reliable signal.
+If some devices are out of range or respond unreliably, add another radio frequency remote adapter closer to them. During setup of each radio frequency-controlled device, select the remote adapter that is within range and provides the most reliable signal.
 
 ## About radio frequency terminology
 
