@@ -107,7 +107,6 @@ The integration {% term polling polls %} your Gatus instance every 30 seconds.
 
 ## Known limitations
 
-- Endpoints added to Gatus after the integration is set up will not appear automatically. You need to reload the integration for new endpoints to show up as entities in Home Assistant.
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
 
 ## Troubleshooting
