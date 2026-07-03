@@ -2376,3 +2376,58 @@ For a summary in a more readable format
 [@zhangluofeng]: https://github.com/zhangluofeng
 [@zweckj]: https://github.com/zweckj
 [@zxdavb]: https://github.com/zxdavb
+
+## Release 2026.7.1 - July 3
+
+- Proximity: Fix/improve matching against trackers with `in_zones` attributes ([@kbuck1] - [#172602])
+- Fix HomeKit Controller doorbell event entity to use ring event type ([@frenck] - [#173621])
+- Retry ecobee setup on transient refresh failure ([@frenck] - [#173720])
+- Handle cname records in dnsip ([@gjohansson-ST] - [#175313])
+- Bump habluetooth to 6.26.2 ([@bdraco] - [#175317])
+- Fix airOS advanced settings migration ([@CoMPaTech] - [#175319])
+- Fix SolarEdge energy sensors losing unit of measurement ([@frenck] - [#175335])
+- Switchbot_cloud: fixed cloud hook error ([@XiaoLing-git] - [#175336])
+- Homee: fix unavailable entities ([@Taraman17] - [#175367])
+- catch SMTPException and TimeoutError in SMTP config flow ([@tr4nt0r] - [#175369])
+- Fix Hitachi Yutaki DHW turn-on command in Overkiz ([@iMicknl] - [#175374])
+- Homee: fix unavailable entities - FollowUp ([@Taraman17] - [#175380])
+- Bump py-synologydsm-api to 2.10.2 ([@mib1185] - [#175383])
+- Fix KNX telegram history migration for data of 2026.3 and earlier ([@martinhoefling] - [#175396])
+- Fall back to PyPI when the extra index is down ([@bdraco] - [#175404])
+- Fix Overkiz Rexel gateway setup failing with Local API ([@iMicknl] - [#175409])
+- Bump pylamarzocco to 2.4.1 ([@zweckj] - [#175468])
+- Redact debug output in FRITZ!Box Tools ([@mib1185] - [#175469])
+- Update frontend to 20260624.4 ([@bramkragten] - [#175490])
+
+[#172602]: https://github.com/home-assistant/core/pull/172602
+[#173621]: https://github.com/home-assistant/core/pull/173621
+[#173720]: https://github.com/home-assistant/core/pull/173720
+[#175313]: https://github.com/home-assistant/core/pull/175313
+[#175317]: https://github.com/home-assistant/core/pull/175317
+[#175319]: https://github.com/home-assistant/core/pull/175319
+[#175335]: https://github.com/home-assistant/core/pull/175335
+[#175336]: https://github.com/home-assistant/core/pull/175336
+[#175367]: https://github.com/home-assistant/core/pull/175367
+[#175369]: https://github.com/home-assistant/core/pull/175369
+[#175374]: https://github.com/home-assistant/core/pull/175374
+[#175380]: https://github.com/home-assistant/core/pull/175380
+[#175383]: https://github.com/home-assistant/core/pull/175383
+[#175396]: https://github.com/home-assistant/core/pull/175396
+[#175404]: https://github.com/home-assistant/core/pull/175404
+[#175409]: https://github.com/home-assistant/core/pull/175409
+[#175468]: https://github.com/home-assistant/core/pull/175468
+[#175469]: https://github.com/home-assistant/core/pull/175469
+[#175490]: https://github.com/home-assistant/core/pull/175490
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Taraman17]: https://github.com/Taraman17
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@iMicknl]: https://github.com/iMicknl
+[@kbuck1]: https://github.com/kbuck1
+[@martinhoefling]: https://github.com/martinhoefling
+[@mib1185]: https://github.com/mib1185
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
