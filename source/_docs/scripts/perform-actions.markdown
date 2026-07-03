@@ -15,7 +15,7 @@ Use the **Actions** tab under {% my developer_services title="**Settings** > **D
 
 ### The basics
 
-Perform the action `homeassistant.turn_on` on the {% term entity %} `light.living_room`. This will turn all members of `light.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
+Perform the action `homeassistant.turn_on` on the {% term entity %} `light.living_room`, which is a [light group](/integrations/group/). This turns on every light that is a member of the group. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 action: homeassistant.turn_on
@@ -80,9 +80,9 @@ entity_id: switch.ac
 ### Using the Actions developer tool
 
 You can use the **Actions** developer tool to test data to pass in an action.
-For example, you may test turning on or off a 'group' (See [groups](/integrations/group/) for more info)
+For example, you may test turning a [light group](/integrations/group/) on or off.
 
-To turn a group on or off, pass the following info:
+To turn a light group on or off, pass the following info:
 
 - Domain: `homeassistant`
 - Action: `turn_on`
