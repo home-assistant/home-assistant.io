@@ -216,9 +216,9 @@ action: |
 
 ### Automation: porch light at sunset
 
-Greet the evening by turning the porch light on at a warm white tone as the sun drops below the horizon. Nice and welcoming without running the light at full power.
+Greet the evening by turning the porch light on at a warm white tone as the sun sets. Nice and welcoming without running the light at full power.
 
-- **Trigger**: Sun: Below horizon
+- **Trigger**: Sunset
 - **Action**: Turn on light
 - **Target**: Porch light
 - **Brightness percentage**: 60
@@ -230,8 +230,7 @@ Greet the evening by turning the porch light on at a warm white tone as the sun 
 automation: |
   alias: "Porch light at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: light.turn_on
       target:

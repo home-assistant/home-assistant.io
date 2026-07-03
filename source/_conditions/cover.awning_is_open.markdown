@@ -88,7 +88,7 @@ for:
 
 At sunset, this automation checks whether the awning is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Awning is open
   - **Target**: Patio awning
 - **Action**: Close cover
@@ -99,8 +99,7 @@ At sunset, this automation checks whether the awning is still open. If it is, Ho
 automation: |
   alias: "Close the awning at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.awning_is_open
       target:
