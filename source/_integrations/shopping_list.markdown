@@ -34,6 +34,13 @@ A `shopping_list_updated` event is triggered when items in the list are modified
 | `item.name`            | The text attached to the item, for example `Milk`                                                                                                      |
 | `item.complete`        | A boolean indicated whether the item has been marked as complete.                                                                                      |
 
+The possible values for `action` here are as follows.
+
+- `add`: A new item being added.
+- `update`: An item being updated (unless using the `shopping_list.complete_item` action, or one of the whole list actions).
+- `complete`: An item being completed (via the `shopping_list.complete_item` action only).
+- `remove`: An item being removed.
+
 ```yaml
 alias: "Notify on new shopping list item"
 triggers:
@@ -49,13 +56,6 @@ actions:
         clickAction: "/shopping-list"
         url: "/shopping-list"
 ```
-
-The possible values for `action` here are:
-
-- `add`: A new item being added.
-- `update`: An item being updated (unless using the `shopping_list.complete_item` action, or one of the whole list actions).
-- `complete`: An item being completed (via the `shopping_list.complete_item` action only).
-- `remove`: An item being removed.
 
 You can also trigger an automation when a `shopping_list_updated` event was triggered by any of the following actions:
 
