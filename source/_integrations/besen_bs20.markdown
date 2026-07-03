@@ -19,14 +19,6 @@ The **Besen BS20** {% term integration %} connects Home Assistant to Besen BS20-
 
 This integration talks directly to the charger through Home Assistant's [Bluetooth](/integrations/bluetooth) stack.
 
-## Prerequisites
-
-- A Besen BS20 or compatible charger advertising as `ACP#...`.
-- The charger's Bluetooth address and 6-digit PIN.
-- A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
-
-ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
-
 {% include integrations/config_flow.md %}
 
 Home Assistant can discover chargers that advertise as `ACP#...`. If discovery does not find your charger, add the integration manually and enter the charger's Bluetooth address.
@@ -38,6 +30,14 @@ PIN:
   description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
 {% endconfiguration_basic %}
 
+## Prerequisites
+
+- A Besen BS20 or compatible charger advertising as `ACP#...`.
+- The charger's Bluetooth address and 6-digit PIN.
+- A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
+
+ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
+
 ## Supported devices
 
 The following device is known to be supported by this integration:
@@ -46,7 +46,7 @@ The following device is known to be supported by this integration:
 
 Other Besen wallboxes using the same `ACP#` Bluetooth protocol may also work.
 
-## Entities
+## Supported functionality
 
 The {% term integration %} provides a switch to start or stop charging.
 
