@@ -7,7 +7,7 @@ related_conditions:
   - lock.is_locked
 ---
 
-The **Lock is open** condition helps you check whether a lock currently has its latch released, so the door can be pushed open without turning the handle. A lock reaches this state through the [Open](/actions/lock.open/) action on locks that support it. Use it when an automation should continue only while the lock is in the open state.
+The **Lock is open** condition helps you check whether a lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. A lock reaches this state through the [Open](/actions/lock.open/) action on locks that support it. Use it when an automation should continue only while the lock is in the open state.
 
 {% include conditions/ui_header.md %}
 

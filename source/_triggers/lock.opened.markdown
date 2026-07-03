@@ -7,7 +7,7 @@ related_triggers:
   - lock.locked
 ---
 
-The **Lock opened** trigger helps you react when a lock releases its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action on locks that support it. Use it when you want Home Assistant to respond as someone is let in, like turning on lights, pausing an alarm workflow, or logging entry events.
+The **Lock opened** trigger helps you react when a lock is no longer secured and releases its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action on locks that support it. Use it when you want Home Assistant to respond as someone is let in, like turning on lights, pausing an alarm workflow, or logging entry events.
 
 {% include triggers/ui_header.md %}
 

@@ -26,7 +26,7 @@ A lock entity can have the following states. The three main states line up with 
 - **Locking**: The lock is in the process of being locked.
 - **Unlocked**: The lock is no longer secured, the result of the [Unlock](/actions/lock.unlock/) action. On a lock with a separate latch, the door can still be held shut until you turn the handle.
 - **Unlocking**: The lock is in the process of being unlocked.
-- **Open**: The lock has released its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action, which is only available on locks that support it.
+- **Open**: The lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action, which is only available on locks that support it.
 - **Opening**: The lock is in the process of releasing its latch.
 - **Jammed**: The lock tried to move but got stuck before it finished, for example because the bolt is misaligned or something is blocking it.
 - **Unavailable**: The entity is currently unavailable.
