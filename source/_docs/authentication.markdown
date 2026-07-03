@@ -29,8 +29,7 @@ Your password is the key to your home, so choose a strong, unique one. This matt
 
 You can manage how you sign in from your own account profile.
 
-To open it, at the bottom of the sidebar, select your avatar, and then select the **Security** tab {% my profile_security badge %}.
-These settings only affect your own account.
+To open it, go to {% my profile_security title="**User profile** > **Security** tab " %}. These settings only affect your own account.
 
 On the **Security** tab, you can:
 
