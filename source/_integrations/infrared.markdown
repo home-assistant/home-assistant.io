@@ -34,9 +34,9 @@ An infrared {% term entity %} represents either an [infrared emitter](#infrared-
 
 {% include integrations/building_block_integration.md %}
 
-## Controlling infrared-controlled devices from Home Assistant
+## Setting up infrared control in Home Assistant
 
-You can use an infrared remote adapter (proxy) to control devices directly from Home Assistant.
+You can set up an infrared remote adapter (proxy) to control devices directly from Home Assistant.
 
 ### Prerequisites
 
@@ -48,7 +48,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
 
-### To control infrared-controlled devices from Home Assistant
+### To set up infrared control in Home Assistant
 
 1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects. For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
 2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
@@ -58,6 +58,18 @@ The **Infrared** {% term integration %} is a building block that other integrati
    - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
 4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
    - During setup of the infrared-controlled device, select the remote adapter closest to that device.
+
+## Viewing your infrared remote adapters
+
+You can see all your infrared remote adapters in one place from the **Infrared** configuration panel.
+
+1. Go to {% my config_infrared title="**Settings** > **Infrared**" %}.
+   - At the top, a status summary shows how many of your infrared remote adapters are currently online.
+2. Select **Devices** to open the list of infrared remote adapters. For each one, you can see:
+   - The name of the adapter.
+   - The type: emitter, receiver, or both.
+   - When it was last used.
+3. To view more details, select an infrared remote adapter to open its device page.
 
 ## About device placement and coverage
 
