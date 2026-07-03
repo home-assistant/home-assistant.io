@@ -37,7 +37,7 @@ This {% term integration %} provides the following platforms:
 
 ## Breaking change
 
-Existing YAML configuration (`configuration.yaml`) is no longer the primary setup method. On first start after this update, the YAML entry is automatically imported as a config entry and a repair issue will appear asking you to remove the `keba:` block from `configuration.yaml`.
+The KEBA integration now uses the UI for setup. If you have an existing `keba:` entry in `configuration.yaml`, it will be automatically imported as a config entry on the first startup after this update. A repair issue will then appear, asking you to remove the `keba:` block from `configuration.yaml`.
 
 ## Actions
 
@@ -49,8 +49,10 @@ The charging station can be authorized and deauthorized using actions (`keba.aut
 
 ### Enable and Disable `keba.enable` and `keba.disable`
 
+The `keba.enable` and `keba.disable` actions start and stop the charging process on the station.
+
 {% important %}
-The `keba.enable` and `keba.disable` actions are deprecated and will be removed in a future release. Use the **Switch** entity to enable or disable the charging process instead.
+These actions are deprecated and will be removed in a future release. Use the **Switch** entity to enable or disable the charging process instead.
 {% endimportant %}
 
 ### Set Target Energy `keba.set_energy`
@@ -91,9 +93,9 @@ The `keba.set_failsafe` action sets the failsafe mode of the charging station. P
 
 ## Notifications
 
-Some Keba chargers are equipped with a LED text display. The notify entity may be used to display text on this display.
+Some Keba chargers are equipped with an LED text display. Use the notify entity to display text on this display.
 
-The `message` part of the event payload is shown on the display. Scrolling is performed if needed. A maximum of 23 characters can be shown.
+The `message` field of the notify action is shown on the display. Scrolling is performed if needed. A maximum of 23 characters can be shown.
 
 The optional `data` part may contain specifications of the message duration. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. By default, the message is shown a minimum of 2 seconds and a maximum of 10 seconds.
 
