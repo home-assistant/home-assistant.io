@@ -103,6 +103,10 @@ You will be prompted to set a password for the newly created user. Depending on 
 /user set [find username=homeassistant] password=PASSWORD
 ```
 
+## Supported functionality
+
+The **MikroTik** {% term integration %} provides the following entities.
+
 ### Sensors
 
 The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
@@ -111,5 +115,5 @@ The integration creates sensor entities when the connected device exposes that i
 - Memory usage
 - Disk usage
 - CPU usage
-- Device Temperature
-- Device Power Voltage
+- Device temperature
+- Device power voltage
