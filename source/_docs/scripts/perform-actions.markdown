@@ -15,12 +15,12 @@ Use the **Actions** tab under {% my developer_services title="**Settings** > **D
 
 ### The basics
 
-Perform the action `homeassistant.turn_on` on the {% term entity %} `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
+Perform the action `homeassistant.turn_on` on the {% term entity %} `light.living_room`. This will turn all members of `light.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 action: homeassistant.turn_on
 target:
-  entity_id: group.living_room
+  entity_id: light.living_room
 ```
 
 ### Targeting areas and devices
@@ -53,7 +53,7 @@ You can also specify other parameters beside the entity to target. For example, 
 ```yaml
 action: light.turn_on
 target:
-  entity_id: group.living_room
+  entity_id: light.living_room
 data:
   brightness: 120
   rgb_color: [255, 0, 0]
@@ -86,7 +86,7 @@ To turn a group on or off, pass the following info:
 
 - Domain: `homeassistant`
 - Action: `turn_on`
-- Action data: `{ "entity_id": "group.kitchen" }`
+- Action data: `{ "entity_id": "light.kitchen" }`
 
 ### Use templates to determine the attributes
 
