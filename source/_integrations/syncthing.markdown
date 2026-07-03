@@ -30,7 +30,7 @@ the key on the right of the settings dialog.
   
 ## Integration entities
 
-The Syncthing integration adds one sensor per configured device and syncing folder:
+The Syncthing integration adds a sensor for each configured device and each synced folder:
 
 ![Syncthing Sensors](/images/integrations/syncthing/sensors.png)
 
