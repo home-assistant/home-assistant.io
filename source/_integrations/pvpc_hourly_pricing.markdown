@@ -8,10 +8,11 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@azogue'
+  - '@chiro79'
 ha_domain: pvpc_hourly_pricing
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 This {% term integration %} uses the official API to get the hourly price of electricity in Spain from <https://www.esios.ree.es/en/pvpc>.
@@ -28,8 +29,7 @@ More information available at <https://www.cnmc.es/en/> and <https://www.omie.es
 
 To configure PVPC Hourly Pricing, set it up via the integrations panel in the configuration screen.
 
-Set a name for the price sensor (default is `sensor.pvpc`), and select one of the two available tariffs,
-according to your geographic position in Spain:
+During setup, select one of the two available tariffs, according to your geographic position in Spain:
 
 - `2.0TD`, for the Peninsula, the Balearic Islands and the Canary Islands.
 - `2.0TD (Ceuta/Melilla)`, for the cities of Ceuta and Melilla.

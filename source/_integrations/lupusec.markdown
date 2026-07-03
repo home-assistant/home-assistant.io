@@ -16,7 +16,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ---
 

@@ -12,7 +12,7 @@ ha_domain: airtouch5
 ha_platforms:
   - climate
   - cover
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **AirTouch 5** {% term integration %} allows you to control ducted air conditioning systems that are using the [AirTouch 5](https://www.airtouch.net.au/smart-air-conditioning/airtouch-5/) controller.

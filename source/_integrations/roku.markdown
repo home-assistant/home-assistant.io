@@ -26,7 +26,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Roku integration allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
+The **Roku** {% term integration %} allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
 
 {% include integrations/config_flow.md %}
 
@@ -108,7 +108,7 @@ The following commands are currently supported depending on device type and manu
 - volume_mute
 - volume_up
 
-Strings can be be typed by using the command `Lit_STRING` (e.g. `Lit_example` will type "example"). Punctuation and spaces are allowed in the string.
+Strings can be typed by using the command `Lit_STRING` (e.g. `Lit_example` will type "example"). Punctuation and spaces are allowed in the string.
 
 ##### Example
 
@@ -200,7 +200,7 @@ actions:
 
 The `media_player.play_media` action may be used to send media URLs (primarily videos) for direct playback on your device.
 
-This feature makes use of the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work with the configuration defaults. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+This feature uses the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work with the configuration defaults. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
 
 The following third-party applications have been tested with this integration:
 
@@ -259,7 +259,7 @@ actions:
 
 ### Camera stream integration
 
-The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and makes use of the PlayOnRoku API.
+The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and uses the PlayOnRoku API.
 
 #### Example
 
@@ -272,18 +272,7 @@ actions:
       media_player: media_player.roku
 ```
 
-### Additional actions
-
-The integration exposes additional actions to control a Roku device.
-
-#### Action `roku.search`
-
-This action allows you to emulate opening the search screen and entering the search keyword.
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | yes | The entities to search on. | media_player.roku
-| `keyword` | no | The keyword to search for. | Space Jam
+{% include integrations/actions.md %}
 
 ## Tips and tricks
 

@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: google_photos
 ha_codeowners:
   - '@allenporter'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/media_source
     title: Media source integration documentation
@@ -66,7 +66,7 @@ The integration setup will next give you instructions to enter the [Application 
 
 1. Continue through the steps of selecting the account you want to authorize.
 
-2. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+2. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that to proceed.
 
 3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Select **Continue**. Keep in mind this is giving sensitive access to your private Photo Library.
 
@@ -77,20 +77,7 @@ The integration setup will next give you instructions to enter the [Application 
 {% enddetails %}
 
 
-### Action `google_photos.upload`
-
-You can use the `google_photos.upload` action to upload Photos from Home Assistant
-to Google Photos.
-
-{% details "Upload action details" %}
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `filename` | no | Path to the image to upload. | /mnt/image.jpg |
-| `album` | no | Album name that is the destination for the uploaded content. | London vacation |
-| `config_entry_id` | no | The ID of the Google Photos config entry. | a1bee602deade2b09bc522749bbce48e |
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 
 ## Troubleshooting

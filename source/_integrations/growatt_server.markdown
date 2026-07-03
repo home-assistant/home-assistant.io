@@ -8,13 +8,15 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_domain: growatt_server
 ha_platforms:
+  - diagnostics
   - number
   - sensor
   - switch
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@johanzander'
+ha_quality_scale: gold
 ---
 
 The **Growatt** {% term integration %} enables you to retrieve data from Growatt inverters and control certain inverter settings.
@@ -67,13 +69,28 @@ The integration supports two authentication methods:
 
 ### Obtaining an API token
 
-To obtain an API token for your Growatt account:
+You can generate an API token using either the web interface or the ShinePhone mobile app.
+
+{% details "Generate API token via web interface" %}
 
 1. Log in to your Growatt account on the [Growatt server](https://server.growatt.com/).
 2. Navigate to **Settings** > **Account Management** > **API Key**.
-3. Generate or retrieve your API token.
-4. Use this token during the integration setup in Home Assistant.
+3. Select **Generate** or **Retrieve** to get your API token.
+4. Copy the token and use it during the integration setup in Home Assistant.
 
+{% enddetails %}
+
+{% details "Generate API token via ShinePhone mobile app" %}
+
+1. Download and install the **ShinePhone** app from the [App Store (iOS)](https://apps.apple.com/us/app/shinephone/id1500039308) or [Google Play Store (Android)](https://play.google.com/store/apps/details?id=com.growatt.shinephone).
+2. Log in with your Account Manager username (visitor accounts cannot generate API tokens).
+3. Go to the **Me** tab.
+4. Select your username.
+5. Select **API Token**.
+6. Select **Reopen** to generate a new API token.
+7. Copy the token and use it during the integration setup in Home Assistant.
+
+{% enddetails %}
 
 ### Compatibility
 
@@ -100,6 +117,18 @@ Authentication using API token is currently supported for the following inverter
 **MOD 3-10KTL3-XH Series**: 3000TL3-XH, 4000TL3-XH, 5000TL3-XH, 6000TL3-XH, 7000TL3-XH, 8000TL3-XH, 9000TL3-XH, 10KTL3-XH
 
 **MID 11-30KTL3-XH Series**: 11KTL3-XH, 12KTL3-XH, 13KTL3-XH, 15KTL3-XH, 17KTL3-XH, 20KTL3-XH, 25KTL3-XH, 30KTL3-XH
+
+**SPH 3000-6000 Series**: SPH 3000, SPH 3600, SPH 4000, SPH 4600, SPH 5000, SPH 6000
+
+**SPH 3000-6000TL BL-UP Series**: SPH 3000 TL3 BL-UP, SPH 3600 TL3 BL-UP, SPH 4000 TL3 BL-UP, SPH 4600 TL3 BL-UP, SPH 5000 TL3 BL-UP, SPH 6000 TL3 BL-UP
+
+**SPH 10000TL-X Series**: SPH 10000TL-X
+
+**SPH 4000-10000TL3 BH Series**: SPH 4000TL3 BH, SPH 5000TL3 BH, SPH 6000TL3 BH, SPH 7000TL3 BH, SPH 8000TL3 BH, SPH 10000TL3 BH
+
+**SPH 4000-10000TL3 BH-UP Series**: SPH 4000TL3 BH-UP, SPH 5000TL3 BH-UP, SPH 6000TL3 BH-UP, SPH 7000TL3 BH-UP, SPH 8000TL3 BH-UP, SPH 10000TL3 BH-UP
+
+**SPH 3000-6000TL BL-US Series**: SPH 3000TL BL-US, SPH 4000TL BL-US, SPH 5000TL BL-US, SPH 6000TL BL-US
 
 ## Known limitations
 
@@ -134,41 +163,7 @@ These controls directly modify your inverter's operational settings. Only change
 - **AC charge**
   - **Description**: Enable or disable AC charging
 
-## Actions
-
-The integration provides the following actions for managing Time-of-Use (TOU) battery schedules on MIN inverters:
-
-### Action `growatt_server.update_time_segment`
-
-Configure individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
-
-{% important %}
-This action modifies your inverter's TOU scheduling settings. Incorrect configuration may affect your battery's charging/discharging behavior and energy costs. Ensure you understand your electricity tariff structure before making changes.
-{% endimportant %}
-
-**Data attributes:**
-
-- **device_id** *(string, optional)*: The device ID of the inverter. Required only when multiple devices are present
-- **segment_id** *(integer, required)*: Time segment number (1-9)
-- **batt_mode** *(string, required)*: Energy priority mode for the system:
-  - `load_first`: Prioritize powering home loads from available energy sources (solar/battery), discharge battery when needed to meet home consumption
-  - `battery_first`: Prioritize charging the battery from available sources (solar/grid)
-  - `grid_first`: Prioritize exporting energy to grid from available sources (solar/battery), will discharge battery for grid export
-
-  {% note %}
-  The battery mode controls when and why discharge occurs. The actual discharge rate is controlled by the **Discharge power** number entity (0-100%).
-  {% endnote %}
-- **start_time** *(time, required)*: Start time for the segment (HH:MM format)
-- **end_time** *(time, required)*: End time for the segment (HH:MM format)
-- **enabled** *(boolean, required)*: Whether this time segment is active
-
-### Action `growatt_server.read_time_segments`
-
-Read the current configuration of all 9 time segments from the inverter. This action returns the complete TOU schedule configuration.
-
-**Data attributes:**
-
-- **device_id** *(string, optional)*: The device ID of the MIN inverter. Required only when multiple devices are present
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -179,12 +174,12 @@ Charge the battery during cheap electricity hours (e.g., midnight to 6 AM):
 ```yaml
 action: growatt_server.update_time_segment
 data:
+  device_id: "YOUR_MIN_DEVICE_ID"
   segment_id: 1
   batt_mode: "battery_first"
   start_time: "00:00"
   end_time: "06:00"
   enabled: true
-  # For multiple devices, add device_id: "MIN12345"
 ```
 
 {% note %}
@@ -198,6 +193,7 @@ Export battery power to grid during expensive electricity hours (e.g., 4 PM to 8
 ```yaml
 action: growatt_server.update_time_segment
 data:
+  device_id: "YOUR_MIN_DEVICE_ID"
   segment_id: 2
   batt_mode: "grid_first"
   start_time: "16:00"
@@ -216,6 +212,7 @@ Prioritize home consumption during typical usage hours (e.g., 6 AM to 10 PM):
 ```yaml
 action: growatt_server.update_time_segment
 data:
+  device_id: "YOUR_MIN_DEVICE_ID"
   segment_id: 3
   batt_mode: "load_first"
   start_time: "06:00"
@@ -229,10 +226,55 @@ Check your current time segment settings:
 
 ```yaml
 action: growatt_server.read_time_segments
+data:
+  device_id: "YOUR_MIN_DEVICE_ID"
 ```
+
+### Writing SPH AC charge times
+
+Configure charge behavior and two charge periods on an SPH inverter:
+
+```yaml
+action: growatt_server.write_ac_charge_times
+data:
+  device_id: "YOUR_SPH_DEVICE_ID"
+  charge_power: 100
+  charge_stop_soc: 95
+  mains_enabled: true
+  period_1_start: "00:00"
+  period_1_end: "06:00"
+  period_1_enabled: true
+  period_2_start: "12:00"
+  period_2_end: "14:00"
+  period_2_enabled: false
+```
+
+### Reading SPH AC discharge times
+
+Read the current discharge periods from an SPH inverter:
+
+```yaml
+action: growatt_server.read_ac_discharge_times
+data:
+  device_id: "YOUR_SPH_DEVICE_ID"
+```
+
+## Data updates
+
+The **Growatt** integration {% term polling polls %} data from the Growatt cloud every 5 minutes.
 
 ## Troubleshooting
 
+### API token authentication shows "No plant found" error
+
+If you're getting a "No plant found" error when using API token authentication, but username/password authentication works correctly, the problem is often related to how the API token was created.
+
+Some people have reported that API tokens generated via the web interface do not work properly, while tokens generated in the ShinePhone mobile app work correctly.
+
+Try the following steps:
+
+1. Generate a new API token using the **ShinePhone mobile app** instead of the web interface.
+2. Reconfigure the Growatt integration in Home Assistant to use the new API token. See the **Obtaining an API token** section above for detailed instructions on generating and using a token via the mobile app.
 ### Account locked or authentication failing
 
 If you're experiencing authentication failures or account lockouts:
@@ -248,6 +290,43 @@ If you're experiencing authentication failures or account lockouts:
    - If you experience frequent lockouts, temporarily disable the integration before restarting Home Assistant.
    - To disable: Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Growatt integration, click the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable**.
    - Re-enable after Home Assistant has fully restarted.
+
+### Enable debug logging
+
+To help diagnose issues, enable debug logging:
+
+1. Add the following to your {% term "`configuration.yaml`" %} file:
+
+   ```yaml
+   logger:
+     logs:
+       homeassistant.components.growatt_server: debug
+   ```
+
+2. Restart Home Assistant.
+3. Try to set up or reload the integration.
+4. Check the logs under {% my logs title="**Settings** > **System** > **Logs**" %}.
+
+For more information about debug logging, see [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Reporting issues
+
+If you encounter problems with the integration that you cannot resolve using the troubleshooting steps above:
+
+1. Enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the integration.
+2. Reload the integration from {% my integrations title="**Settings** > **Devices & services**" %}, select **Growatt**, open the three dots menu {% icon "mdi:dots-vertical" %}, then select **Reload**.
+3. Wait for the issue to occur or try to reproduce it.
+4. Download the logs from {% my logs title="**Settings** > **System** > **Logs**" %}.
+5. If possible, also download the [diagnostics](/integrations/diagnostics) data for the integration.
+6. [Report the issue](https://github.com/home-assistant/core/issues) on GitHub, including:
+   - The debug logs
+   - The diagnostics data
+   - Your inverter model
+   - Screenshots
+   - A clear description of the problem
+   - Steps to reproduce the issue
+
+Providing debug logs will help resolve your issue much faster.
 
 ## Removing the integration
 

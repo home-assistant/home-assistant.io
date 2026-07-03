@@ -28,7 +28,7 @@ Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides a
 
 Scrape uses configuration subentries for configuring the sensors.
 
-1. Setup the resource configuration once per resource you want to scrape information from.
+1. Set up the resource configuration once per resource you want to scrape information from.
 2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
 
 {% endnote %}
@@ -73,7 +73,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
@@ -179,8 +179,6 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [homepage](/)
 
-{% raw %}
-
 ```yaml
 scrape:
 # Example configuration.yaml entry
@@ -190,13 +188,9 @@ scrape:
         select: ".release-date"
 ```
 
-{% endraw %}
-
 ### Available implementations
 
 Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -207,8 +201,6 @@ scrape:
         select: 'a[href="#all"]'
         value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
-
-{% endraw %}
 
 ### Get a value out of a tag
 
@@ -257,8 +249,6 @@ scrape:
 
 This example tries to retrieve the price for electricity.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 scrape:
@@ -270,5 +260,3 @@ scrape:
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"
 ```
-
-{% endraw %}

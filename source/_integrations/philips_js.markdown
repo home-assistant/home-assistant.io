@@ -19,7 +19,7 @@ ha_platforms:
   - media_player
   - remote
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
@@ -37,10 +37,10 @@ Before adding the integration, it is worth checking if this integration works fo
 1. Check if your TV responds to one of the following combinations:
     - `http://IP_ADDRESS_OF_TV:1925/system`
     - `https://IP_ADDRESS_OF_TV:1926/system`
-2. If you get a response, then this integration can be used. 
+2. If you get a response, then this integration can be used.
    - In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
-3. For older TVs, follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). 
-   - Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. 
+3. For older TVs, follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html).
+   - Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925.
    - This is true at least for some models before year 2011.
    - Also, note that version 6 of the API needs to be authenticated by a PIN code displayed on your TV.
 
@@ -70,7 +70,7 @@ Before adding the integration, it is worth checking if this integration works fo
 
 ### Turn on device
 
-The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be set up to execute when the `media_player` is asked to turn on.
 
 ### Remote
 

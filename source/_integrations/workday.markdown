@@ -17,7 +17,7 @@ ha_platforms:
   - binary_sensor
   - calendar
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Workday** {% term integration %} indicates whether the current day is a workday or not.
@@ -26,7 +26,7 @@ It allows specifying which days of the week will count as workdays and also uses
 
 This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
 
-The `workday` {% term integration %} also provides a `calendar` entity that may be used to see upcoming workdays.
+The `workday` {% term integration %} also provides a {% term calendar %} entity that may be used to see upcoming workdays.
 
 ## Setup
 
@@ -54,32 +54,7 @@ The offset can be used to see if future days are workdays. For example, put `1` 
 
 Additional categories can be added through the configuration to include optional holidays according to the lists provided in the [python-holidays library](https://github.com/vacanza/python-holidays?tab=readme-ov-file#available-countries)
 
-## Action `workday.check_date`
-
-
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-providing feedback if the date is a workday or not.
-
-| Data attribute | Required | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `check_date` | yes | Date to test if workday or not. | 2022-03-10
-
-{% raw %}
-```yaml
-action: workday.check_date
-target:
-  entity_id: binary_sensor.workday
-data:
-  check_date: "2023-12-25"
-response_variable: check_date
-```
-{% endraw %}
-
-The response data field `check_date` is providing:
-
-| Response data | Description | Example |
-| ---------------------- | ----------- | -------- |
-| `workday` | Is date a workday. | True
+{% include integrations/actions.md %}
 
 ## Automation example
 

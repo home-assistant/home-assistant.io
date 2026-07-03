@@ -1,9 +1,11 @@
 ---
 title: "Using automation blueprints"
-description: "How to create automations based off blueprints."
+description: "Blueprints are ready-made automations shared by the Home Assistant community. Install a blueprint and create your own automation by filling in a few fields, no YAML required."
 ---
 
-Automation blueprints are pre-made {% term automations %} that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+Blueprints are the easiest way to add an automation to your Home Assistant. They are ready-made automations shared by the Home Assistant community: someone else has already done the thinking and the writing, and you just plug in your own devices.
+
+You can find blueprints for almost any common use case, from "turn the lights on when motion is detected" to "announce the weather every morning at 7" to "notify me when the laundry is done". You install a blueprint once and can use it as many times as you like, with different devices and settings each time.
 
 Quick links:
 
@@ -13,13 +15,13 @@ Quick links:
 
 Automations based on a blueprint need to be configured. What needs to be configured differs by blueprint.
 
-1. To create your first automation based on a blueprint, go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
-2. Find the blueprint that you want to use and select **Create Automation**.
+1. To create your first automation based on a blueprint, go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
+2. Find the blueprint that you want to use and select **Create automation**.
    - This opens the automation editor with the blueprint selected.
 3. Give it a name and configure the blueprint.
-4. Select the blue **Save Automation** button in the bottom right corner.
+4. Select the blue **Save automation** button in the bottom right corner.
 
-Done! If you want to revisit the configuration values, go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+Done! If you want to revisit the configuration values, go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 
 ## Importing blueprints
 
@@ -32,7 +34,7 @@ Home Assistant can import blueprints from the Home Assistant forums, GitHub, and
       https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
       ```
 
-2. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+2. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 3. Select the blue **{% my blueprint_import blueprint="https://github.com/home-assistant/core/blob/master/homeassistant/components/automation/blueprints/motion_light.yaml" %}** button in the bottom right.
    - A new dialog will pop-up asking you for the URL.
 4. Enter the URL and select **Preview**.
@@ -47,7 +49,7 @@ You can tweak an imported blueprint by "taking control" of this blueprint. Home 
 
 To edit an imported blueprint, follow these steps:
 
-1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Select the blueprint from the list.
 3. Select the {% icon "mdi:dots-vertical" %} and select **Take control**.
 4. A preview of the automation is shown.
@@ -74,7 +76,7 @@ The quickest way to get these changes, is by re-importing the blueprint. This wi
 
 ### To re-import a blueprint
 
-1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. On the blueprint that you want to re-import, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Re-import blueprint**.
 
 ## Updating an imported blueprint in YAML
@@ -85,7 +87,7 @@ the community provides feedback, new functionality is added.
 If you do not want to [re-import the blueprint](/docs/automation/using_blueprints/#re-importing-a-blueprint) for some reason, you can manually edit
 its {% term YAML %} content to keep it up to date:
 
-1. Navigate to the blueprints directory (`blueprints/automation/`).
+1. Go to the blueprints directory (`blueprints/automation/`).
    The location of this directory depends on the installation type. It's
    similar to how you find [`configuration.yaml`](/docs/configuration/#editing-configurationyaml).
 2. Next, you must find the blueprint to update. The path name of a blueprint consists of:

@@ -14,7 +14,7 @@ ha_domain: solarlog
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
@@ -34,12 +34,12 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 
 {% important %}
 If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons, it is recommended to activate the user's password.
-Please note that the open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
+The open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 Name:
@@ -118,8 +118,6 @@ In addition, information from devices connected to the Solar-Log device becomes 
 
 In case you would like to get additional calculated sensors such as the amount of excess solar power available or the energy returned to the grid, you can use the [template platform](/integrations/template/).
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 template:
@@ -127,8 +125,6 @@ template:
     - name: "Solarlog return to grid"
       state: "{{ states('sensor.solarlog_consumption_year') | float(0) - states('sensor.self_consumption_year') | float(0) }}"
 ```
-
-{% endraw %}
 
 ## Data updates
 

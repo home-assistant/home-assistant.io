@@ -10,8 +10,9 @@ ha_domain: google_weather
 ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
   - weather
 ---
@@ -49,10 +50,9 @@ The `weather.get_forecasts` action uses the cached forecast data and will not is
 
 ## Troubleshooting
 
-- [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
+- [Enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
 
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-

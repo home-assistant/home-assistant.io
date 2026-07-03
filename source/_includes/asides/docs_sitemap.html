@@ -15,7 +15,7 @@
         <li>{% active_link /docs/automation/services/ Automation actions %}</li>
         <li>{% active_link /docs/automation/templating/ Templates %}</li>
         <li>{% active_link /docs/automation/yaml/ YAML %}</li>
-        <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automation %}</li>
+        <li>{% active_link /docs/automation/troubleshooting/ Testing and troubleshooting automations %}</li>
       </ul>
       {% endif %}
     </li>
@@ -90,17 +90,16 @@
     </li>
   
     <li>
-      {% icon "mdi:cog" %} Advanced
+      {% icon "mdi:cog" %} Dashboard configuration
       <ul>
-        <li>{% active_link /dashboards/features/ Features %}</li>
-        <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
-        <li>{% active_link /dashboards/actions/ Actions %}</li>
+        <li>{% active_link /dashboards/features/ Card features %}</li>
+        <li>{% active_link /dashboards/header-footer/ Card headers & footers %}</li>
+        <li>{% active_link /dashboards/actions/ Dashboard actions %}</li>
         <li><a
             class="external-link" 
             href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
             >Developing custom cards
-            {% icon "tabler:external-link" %}
-          </a></li>
+                     </a></li>
       </ul>
     </li>
 
@@ -121,8 +120,9 @@
     <li>{% icon "mdi:comment-processing-outline" %} {% active_link /voice_control/best_practices Best practices %}
       <ul>
         <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to Assist %}</li>
-        <li>{% active_link /voice_control/assign_areas_floors/ Assigning devices to areas and areas to floors %}</li>
+        <li>{% active_link /voice_control/assign_areas_floors/ Assigning areas to floors and an area to a device %}</li>
         <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li> 
+        <li>{% active_link /voice_control/exposing_scripts_to_llms/ Exposing scripts to LLMs %}</li>
         <li>{% active_link /voice_control/builtin_sentences/ Talking to Assist - Sentences starter pack %}</li>
       </ul>
     </li>
@@ -179,8 +179,35 @@
   <ul>
     <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
     <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+    <li>{% active_link /docs/energy/battery/ Home batteries %}</li>
+    <li>{% active_link /docs/energy/gas/ Gas usage %}</li>
+    <li>{% active_link /docs/energy/water/ Water usage %}</li>
     <li>{% active_link /docs/energy/individual-devices/ Individual devices %}</li>
     <li>{% active_link /docs/energy/faq/ FAQ %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
+  {% icon "mdi:code-braces" %} {% active_link /docs/templating/ Templating %}
+  {% if doc == 'templating' or root == 'template-functions' or include.docs_index %}
+  <ul>
+    <li>{% active_link /docs/templating/introduction/ Introduction %}</li>
+    <li>{% active_link /docs/templating/where-to-use/ Where to use templates %}</li>
+    <li>{% active_link /docs/templating/syntax/ Template syntax %}</li>
+    <li>{% active_link /docs/templating/loops-and-conditions/ Loops and conditions %}</li>
+    <li>{% active_link /docs/templating/yaml/ Templates in YAML %}</li>
+    <li>{% active_link /docs/templating/states/ Working with states %}</li>
+    <li>{% active_link /docs/templating/types/ Types and conversion %}</li>
+    <li>{% active_link /docs/templating/dates-and-times/ Dates and times %}</li>
+    <li>{% active_link /docs/templating/python-methods/ Python methods %}</li>
+    <li>{% active_link /docs/templating/patterns/ Common patterns %}</li>
+    <li>{% active_link /docs/templating/debugging/ Debugging templates %}</li>
+    <li>{% active_link /docs/templating/errors/ Error messages %}</li>
+    <li>{% active_link /docs/templating/custom-templates/ Custom templates and macros %}</li>
+    <li>{% active_link /docs/templating/tutorial-battery-alerts/ Tutorial: Low battery alerts %}</li>
+    <li>{% active_link /docs/templating/tutorial-average-temperature/ Tutorial: Average temperature %}</li>
+    <li>{% active_link /template-functions/ Template functions reference %}</li>
   </ul>
   {% endif %}
 </li>
@@ -198,22 +225,23 @@
 </li>
 
 <li>
-  {% icon "mdi:cogs" %} {% active_link /docs/configuration/ Advanced configuration %}
+  {% icon "mdi:cogs" %} {% active_link /docs/configuration/basic Configuration %}
   {% if doc == 'configuration' or include.docs_index %}
   <ul>
-    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
-    <li>{% active_link /docs/configuration/basic/ Basic information %}</li>
+    <li>{% active_link /docs/configuration/basic/ Home information %}</li>
+    <li>{% active_link /docs/configuration/user-configuration/ People and user configuration %}</li>
     <li>{% active_link /docs/configuration/customizing-devices/ Customizing entities %}</li>
+    <li>{% active_link /docs/configuration/remote/ Remote access to Home Assistant %}</li>
+    <li>{% active_link /docs/configuration/securing/ Securing your Home Assistant %}</li>
+    <li>{% active_link /docs/configuration/secrets/ Storing secrets in YAML %}</li>
+    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
+    <li>{% active_link /docs/configuration/ The configuration.yaml file %}</li>
     <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
-    <li>{% active_link /docs/configuration/securing/ Security check points %}</li>
-    <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
     <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
     <li>{% active_link /docs/configuration/packages/ Packages %}</li>
-    <li>{% active_link /docs/configuration/secrets/ Storing secrets %}</li>
     <li>{% active_link /docs/configuration/events/ Events %}</li>
     <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
     <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
-    <li>{% active_link /docs/configuration/templating/ Templating %}</li>
     <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
   </ul>
   {% endif %}
@@ -231,53 +259,28 @@
 </li>
 
 <li>
-  {% icon "mdi:database" %} {% active_link /docs/backend/ Backend %}
-  {% if doc == 'backend' or include.docs_index %}
-  <ul>
-    <li>{% active_link /docs/frontend/ User interface %}</li>
-    <li>{% active_link /docs/backend/database/ Database %}</li>
-  </ul>
-  {% endif %}
-</li>
-
-<li>
   {% icon "mdi:palette" %} {% active_link /docs/tools/ Tools and helpers %}
   {% if doc == 'tools' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/tools/dev-tools/ Developer tools %}</li>
-    <li>{% active_link /docs/tools/quick-bar/ Quick bar %}</li>
+    <li>{% active_link /docs/tools/quick-search/ Quick search %}</li>
     <li>{% active_link /docs/tools/check_config/ check_config %}</li>
   </ul>
   {% endif %}
 </li>
 
 <li>
-  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android apps {% icon "tabler:external-link" %}</a>
-</li>
-
-<li>
-  {% icon "simple-icons:mqtt" %} {% active_link /integrations/mqtt MQTT %}
-  {% if doc == 'mqtt' or include.docs_index %}
-  <ul>
-    <li>{% active_link /integrations/mqtt/#broker-configuration Broker %}</li>
-    <li>{% active_link /integrations/mqtt/#advanced-broker-configuration Certificate %}</li>
-    <li>{% active_link /integrations/mqtt/#mqtt-discovery Discovery %}</li>
-    <li>{% active_link /integrations/mqtt/#publish--dump-actions Publish action %}</li>
-    <li>{% active_link /integrations/mqtt/#birth-and-last-will-messages Birth and last will messages %}</li>
-    <li>{% active_link /integrations/mqtt/#testing-your-setup Testing your setup %}</li>
-    <li>{% active_link /integrations/mqtt/#logging Logging %}</li>
-  </ul>
-  {% endif %}
+  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android apps</a>
 </li>
 
 <li>
   {% icon "bitcoin-icons:node-hardware-filled" %} Official hardware
   <ul>
-    <li><a href="https://support.nabucasa.com/hc/en-us/categories/24638797677853-Home-Assistant-Green">Home Assistant Green {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://support.nabucasa.com/hc/en-us/categories/24734620813469">Home Assistant Connect ZBT-1 {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://support.nabucasa.com/hc/en-us/categories/29400540866973">Home Assistant Connect ZBT-2 {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://support.nabucasa.com/hc/en-us/categories/28669861145885">Home Assistant Connect ZWA-2 {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow">Home Assistant Yellow {% icon "tabler:external-link" %}</a></li>
-    <li><a href="https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition">Home Assistant Voice Preview Edition {% icon "tabler:external-link" %}</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24638797677853">Home Assistant Green</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24734620813469">Home Assistant Connect ZBT-1</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/29400540866973">Home Assistant Connect ZBT-2</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/28669861145885">Home Assistant Connect ZWA-2</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24734575925149">Home Assistant Yellow</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24451727188125">Home Assistant Voice Preview Edition</a></li>
   </ul>
 </li>

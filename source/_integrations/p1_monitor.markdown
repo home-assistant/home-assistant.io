@@ -12,7 +12,7 @@ ha_domain: p1_monitor
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **P1 Monitor** {% term integration %} allows you to gather data from your [P1 Monitor](https://www.ztatz.nl/p1-monitor/) device and use it in Home Assistant.

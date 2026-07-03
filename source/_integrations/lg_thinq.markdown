@@ -21,7 +21,7 @@ ha_platforms:
   - switch
   - vacuum
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@LG-ThinQ-Integration'
 ha_dhcp: true
@@ -300,11 +300,9 @@ A read-only property which has states is represented as a sensor platform.
 
 ### Notification, error event
 
-> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Guide: [Automating on event](/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
-
-{% raw %}
 
 ```yaml
 alias: lack of water example
@@ -323,8 +321,6 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 

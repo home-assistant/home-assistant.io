@@ -12,7 +12,7 @@ ha_domain: airnow
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **AirNow** {% term integration %} uses the [AirNow](https://www.airnow.gov/) web service

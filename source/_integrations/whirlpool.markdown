@@ -2,8 +2,10 @@
 title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Hub
+  - Select
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -13,14 +15,16 @@ ha_codeowners:
 ha_domain: whirlpool
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
+  - select
   - sensor
 ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
-The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool and Maytag appliances to Home Assistant.
+The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool, Maytag, KitchenAid, and Consul appliances to Home Assistant.
 
 ## Supported devices
 
@@ -57,7 +61,7 @@ Password:
 Region:
     description: "The region in which your account is registered."
 Brand:
-    description: "The brand of the mobile app. It may not be the same brand as the appliances."
+    description: "The brand of the mobile app. It may or may not be the same brand as the appliances."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -65,7 +69,9 @@ Brand:
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
 - [Binary Sensor](#binary_sensor)
+- [Button](#button)
 - [Climate](#climate)
+- [Select](#select)
 - [Sensor](#sensor)
 
 ### Binary Sensor
@@ -74,17 +80,29 @@ The binary sensor platform provides the following functionality:
 
 - state of the washer/dryer machine door (open/closed)
 
+### Button
+
+The button platform provides the following functionality:
+
+- stop the current cooking program for an oven cavity
+
 ### Climate
 
 The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance through the user interface. The current inside temperature is also displayed on the thermostat card.
 
 The following actions are also available:
 
-- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `fan_only`)
-- [**target temperature**](/integrations/climate#action-climateset_temperature)
-- [**turn on/off**](/integrations/climate#action-climateturn_on)
-- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
-- [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)
+- [**set_hvac_mode**](/integrations/climate/#action-set-hvac-mode) (`off`, `heat`, `cool`, `fan_only`)
+- [**target temperature**](/integrations/climate/#action-set-temperature)
+- [**turn on/off**](/integrations/climate/#action-turn-on)
+- [**fan mode**](/integrations/climate/#action-set-fan-mode) (`low`, `medium`, `high`)
+- [**swing mode**](/integrations/climate/#action-set-swing-mode) (`off`, `horizontal`)
+
+### Select
+
+The select platform provides the following entity for refrigerators:
+
+- **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
 
 ### Sensor
 

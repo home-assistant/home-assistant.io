@@ -81,7 +81,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 
 ### Creating a backup automation using the backup action
 
-If the backup automation settings provided in the UI do not match your use case, you can manually configure your own backup automation using the [backup.create_automatic](/integrations/backup/#action-backupcreate_automatic) action.
+If the backup automation settings provided in the UI do not match your use case, you can manually configure your own backup automation using the [`backup.create_automatic`](/actions/backup.create_automatic/) action.
 
 Using the {% my developer_call_service service="backup.create_automatic" %} action in your own automation allows you to create automated backups on any schedule you like, or even add conditions and actions around it. For example, you could make an automation that triggers on a calendar, turns on your NAS, waits until it is online, and then triggers a backup.
 
@@ -112,7 +112,7 @@ There are multiple ways to download your local backup from your Home Assistant i
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
-   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
+   - Result: The selected backup is stored in the **Downloads** folder of your computer.
 4. If a backup is stored on multiple locations, you can select where you download it from:
    - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
@@ -129,13 +129,13 @@ If you were logged in to Home Assistant Cloud and had Cloud backup enabled when 
 There are two ways to download the backup from Home Assistant Cloud:
 
 - **Option 1**: From the backups page
-  1. Got to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
+  1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and select **Show all backups**.
   2. Select the backup from the list.
   3. Under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 - **Option 2**: From your Home Assistant Cloud account
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+  2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
 
 ### Deleting obsolete backups
 
@@ -162,7 +162,7 @@ To delete old backups, follow these steps:
 There are two ways to use a backup:
 
 - On your current system to recover your settings.
-- During onboarding, to migrate your setup to a new device or to device on which you performed a factory reset.
+- During onboarding, to migrate your setup to a new device or to a device on which you performed a factory reset.
 
 #### Estimated duration
 

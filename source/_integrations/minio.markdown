@@ -83,8 +83,6 @@ listen:
 
 Automations can be triggered on new files created on the Minio server using the `data_template`.
 
-{% raw %}
-
 ```yaml
 #Automatically upload new local files
 automation:
@@ -120,41 +118,4 @@ automation:
         file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
 
-{% endraw %}
-
-## Actions
-
-These actions are provided:
-
-- `get`
-- `put`
-- `remove`
-
-### Action `minio.get`
-
-Download file.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action `minio.put`
-
-Upload file.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action `minio.remove`
-
-Delete file.
-
-| Data attribute | Required | Description            |
-| ---------------------- | -------- | ---------------------- |
-| `bucket`               | yes      | Bucket to use          |
-| `key`                  | yes      | Object key of the file |
+{% include integrations/actions.md %}

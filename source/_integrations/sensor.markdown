@@ -1,6 +1,6 @@
 ---
 title: Sensor
-description: Instructions on how to setup your sensors with Home Assistant.
+description: Instructions on how to set up your sensors with Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.7
@@ -57,7 +57,8 @@ The following device classes are supported for sensors:
 - **blood_glucose_concentration**: Blood glucose concentration in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide (CO₂) concentration in ppm
 - **carbon_monoxide**: Carbon Monoxide (CO) concentration in ppb, ppm, µg/m³, mg/m³
-- **current**: Current in A, mA
+- **conductivity**: Conductivity in S/cm, mS/cm, or µS/cm
+- **current**: Current in A, mA, µA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
 - **date**: Date string (ISO 8601)
@@ -67,17 +68,17 @@ The following device classes are supported for sensors:
 - **energy_distance**: Energy per distance in kWh/100km, Wh/km, mi/kWh, or km/kWh.
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
-- **frequency**: Frequency in Hz, kHz, MHz, or GHz
+- **frequency**: Frequency in mHz, Hz, kHz, MHz, or GHz
 - **gas**: Gas volume in L, m³, ft³, CCF, or MCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
 - **moisture**: Percentage of water in a substance in %
 - **monetary**: The monetary value ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes))
-- **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in ppb, µg/m³
+- **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in ppb, ppm, µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in ppb, µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
-- **ozone**: Concentration of Ozone in bbp or µg/m³
+- **ozone**: Concentration of Ozone in ppb, ppm, or µg/m³
 - **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
@@ -93,10 +94,11 @@ The following device classes are supported for sensors:
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
-- **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
+- **sulphur_dioxide**: Concentration of sulphur dioxide in ppb or µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **temperature_delta**: Temperature difference between two measurements in °C, °F, or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
+- **uptime**: Last boot time as datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV

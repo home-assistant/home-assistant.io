@@ -35,7 +35,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Tesla Fleet** {% term integration %} lets you control Tesla vehicles and energy sites using the [Tesla Fleet API](https://developer.tesla.com/).
@@ -46,8 +46,8 @@ You need to configure developer credentials and host a public key file to allow 
 
 - A [Tesla](https://tesla.com) account with verified email
 - A web domain to host your public key file:
-  - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
-  - External hosting service ([FleetKey.net](https://fleetkey.net), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
+  - [NGINX Home Assistant SSL proxy app](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
+  - External hosting service, such as [FleetKey.net](https://fleetkey.net) or [MyTeslamate.com](https://app.myteslamate.com/fleet)
 
 {% warning %}
 The China region is currently not supported by this {% term integration %}.
@@ -69,7 +69,10 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 3. Configure client details:
    - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
    - Allowed Origin URL(s): Enter your domain's URL, for example `https://yourdomain.com/`
-   - Allowed Redirect URI: Enter `https://my.home-assistant.io/redirect/oauth`
+   - Allowed Redirect URI: Enter one of the following:
+     - The literal string `https://my.home-assistant.io/redirect/oauth` if the [`My Home Assistant`](/integrations/my/) integration is enabled (it is by default).
+       - Home Assistant uses [this service](https://my.home-assistant.io/) by default to redirect requests towards your instance.
+     - `<HOME_ASSISTANT_URL>/auth/external/callback` if you do not have the [`My Home Assistant`](/integrations/my/) integration enabled.
    - Allowed Returned URL(s): Leave this field empty (not required)
 
 4. Select desired API scopes:
@@ -112,7 +115,7 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
    - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
    - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
 
-## Hosting with NGINX Add-on (optional)
+## Hosting with NGINX app (optional)
 
 1. Create the NGINX configuration:
 
@@ -124,23 +127,23 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 
 2. Copy the public key shown during setup to `/share/tesla`
 
-3. Configure the NGINX Add-on:
-    - Go to **Settings** > **Add-ons** > **NGINX Home Assistant SSL proxy** > **Configuration**
+3. Configure the NGINX app:
+    - Go to **Settings** > **Apps** > **NGINX Home Assistant SSL proxy** > **Configuration**
     - Change `customize.active` from `false` to `true`
     - Leave `config.default` at its default value: `nginx_proxy_default*.conf`
 
-4. Restart the NGINX Add-on and verify your public key is accessible at:
+4. Restart the NGINX app and verify your public key is accessible at:
  `https://yourdomain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
 
 ## Data updates
 
 The {% term integration %} {% term polling polls %} each vehicle every 10 minutes while it's awake. This is designed to stay within Tesla's $10 monthly credit for most users, which you can monitor usage in the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard). Energy product APIs are free to use.
 
-If you need different polling intervals, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
+If you need different polling intervals, you can [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All {% term actions %} on vehicle {% term entities %} will fail with an error if this is required and the key has not been setup correctly.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All {% term actions %} on vehicle {% term entities %} will fail with an error if this is required and the key has not been set up correctly.
 
 Your public key must be added to each of these vehicles by visiting `https://tesla.com/_ak/YOUR_DOMAIN` and following the instructions in the Tesla app.
 If you're using an iPhone, you may need to use Safari to open the webpage and finish the setup.
@@ -219,6 +222,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor         | Charger power                              | Yes     |
 | Sensor         | Charger voltage                            | Yes     |
 | Sensor         | Charging                                   | Yes     |
+| Sensor         | Destination                                | No      |
 | Sensor         | Distance to arrival                        | Yes     |
 | Sensor         | Driver temperature setting                 | No      |
 | Sensor         | Estimate battery range                     | No      |

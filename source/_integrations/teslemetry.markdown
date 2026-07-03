@@ -4,6 +4,7 @@ description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Car
   - Climate
   - Cover
@@ -24,6 +25,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - climate
   - cover
   - device_tracker
@@ -35,7 +37,8 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The **Teslemetry** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
@@ -44,7 +47,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
+Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured to run certain commands.
 
 {% include integrations/config_flow.md %}
 
@@ -166,6 +169,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Current speed limit|No|
 |Sensor|DC charging energy in|No|
 |Sensor|DC charging power|No|
+|Sensor|Destination|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
@@ -255,6 +259,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Grid services enabled|Yes|
 |Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
+|Calendar|Buy tariff|Yes|
+|Calendar|Sell tariff|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|
@@ -304,75 +310,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |---|---|---|
 |Sensor|Teslemetry credits|Yes|
 
-## Actions
-
-Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.
-
-### Navigate to coordinates
-
-`teslemetry.navigation_gps_request`
-
-| Field         | Description                | Example                          |
-|---------------|----------------------------|----------------------------------|
-| device_id     | The vehicle's device ID    | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| gps           | Dictionary of coordinates  |                                  |
-| gps.latitude  | Latitude in degrees        | -27.9699373                      |
-| gps.longitude | Longitude in degrees       | 153.4081865                      |
-| order         | Order for this destination | 1                                |
-
-### Set scheduled charging
-
-`teslemetry.set_scheduled_charging`
-
-| Field     | Description                           | Example                          |
-|-----------|---------------------------------------|----------------------------------|
-| device_id | The vehicle's device ID              | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable    | Enable or disable scheduled charging | true                             |
-| time      | Time to start charging in HH:MM       | 6:00                             |
-
-### Set scheduled departure
-
-`teslemetry.set_scheduled_departure`
-
-| Field                           | Description                               | Example                          |
-|---------------------------------|-------------------------------------------|----------------------------------|
-| device_id                       | The vehicle's device ID                  | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable                          | Enable or disable scheduled departure     | true                             |
-| preconditioning_enabled         | Enable preconditioning                    | true                             |
-| preconditioning_weekdays_only   | Enable preconditioning on weekdays only   | false                            |
-| departure_time                  | Planned departure time (HH:MM)         | 6:00                             |
-| off_peak_charging_enabled       | Enable off-peak charging                  | false                            |
-| off_peak_charging_weekdays_only | Enable off-peak charging on weekdays only | false                            |
-| end_off_peak_time               | Time to complete charging by (HH:MM)      | 5:00                             |
-
-### Valet Mode
-
-`teslemetry.valet_mode`
-
-| Field         | Description                  | Example                          |
-|---------------|------------------------------|----------------------------------|
-| device_id     | The vehicle's device ID      | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable        | Enable or disable valet mode | true                             |
-| pin           | 4-digit pin                  | 1234                             |
-
-### Speed Limit
-
-`teslemetry.speed_limit`
-
-| Field         | Description                   | Example                          |
-|---------------|-------------------------------|----------------------------------|
-| device_id     | The vehicle's device ID       | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable        | Enable or disable speed limit | true                             |
-| pin           | 4-digit pin                   | 1234                             |
-
-### Time of use
-
-`teslemetry.time_of_use`
-
-| Field         | Description                  | Example                                                                                                          |
-|---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|
-| device_id     | The energy site's device ID  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
-| tou_settings  | Time of use settings         | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
+{% include integrations/actions.md %}
 
 ## Energy dashboard
 
@@ -434,11 +372,11 @@ automation:
       - platform: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
-    action:
-      - service: switch.turn_on
+    actions:
+      - action: switch.turn_on
         target:
           entity_id: switch.my_tesla_charge
-      - service: number.set_value
+      - action: number.set_value
         target:
           entity_id: number.my_tesla_charge_current
         data:
@@ -455,8 +393,8 @@ automation:
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
-    action:
-      - service: climate.turn_on
+    actions:
+      - action: climate.turn_on
         target:
           entity_id: climate.my_tesla_climate
 ```
@@ -519,8 +457,8 @@ condition:
   - condition: zone
     entity_id: !input route_entity
     zone: !input route_zone
-action:
-  - service: cover.open_cover
+actions:
+  - action: cover.open_cover
     target:
       entity_id: !input cover_entity
 mode: restart

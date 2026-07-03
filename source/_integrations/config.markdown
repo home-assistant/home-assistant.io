@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Instructions on how to setup the configuration panel for Home Assistant.
+description: Instructions on how to set up the configuration panel for Home Assistant.
 ha_category:
   - Front end
 ha_release: 0.39
@@ -24,7 +24,7 @@ The **Settings** menu provides access to the following panels:
 
 ### Home Assistant Cloud
 
-Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/articles/26260474250269-List-of-Home-Assistant-Cloud-features) to use features such as secure remote access, voice assistants, or cloud storage for backups.
+Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
 
 ### Devices & services
 

@@ -12,7 +12,7 @@ ha_codeowners:
 ha_platforms:
   - lawn_mower
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_domain: husqvarna_automower_ble
 ---
 
@@ -22,7 +22,7 @@ The integration is based on [AutoMower-BLE](https://github.com/alistair23/AutoMo
 
 ### Prerequisites
 
-1. Setup a [Bluetooth controller](https://www.home-assistant.io/integrations/bluetooth/). An ESPHome Bluetooth proxy works well and allows locating a device close to the mower.
+1. Set up a [Bluetooth controller](/integrations/bluetooth/). An ESPHome Bluetooth proxy works well and allows locating a device close to the mower.
 2. Enter the pairing mode on the mower. Different models will do this in different ways. For the 305, for example, the mower will enter pairing mode for the first 3 minutes after powering on. Ensure the mower is in pairing mode when adding the integration. This only needs to be done once per BLE controller (so changing the ESPHome device will require a repair).
 3. When manually adding the integration to Home Assistant, you will need to enter the mower BLE Mac address. You can find this in the ESPHome logs, on an Android phone, or by some other means.
 

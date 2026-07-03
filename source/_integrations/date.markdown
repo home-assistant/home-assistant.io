@@ -31,17 +31,4 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Actions
-
-### Date actions
-
-Available {% term actions %}: `date.set_value`
-
-### Action`date.set_value`
-
-Set a new value for the date {% term entity %}.
-
-| Data attribute | Optional | Description                                                                |
-| -------------- | -------- | -------------------------------------------------------------------------- |
-| `entity_id`    | no       | String or list of strings that point at `entity_id`'s of dates to control. |
-| `date`         | no       | New date value to set.                                                     |
+{% include integrations/actions.md %}

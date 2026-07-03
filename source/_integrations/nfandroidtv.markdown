@@ -22,11 +22,27 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 {% include integrations/config_flow.md %}
 
+## Notifiers
+
+The **Notifications for Android TV / Fire TV** {% term integration %} will add a notify {% term entity %} for your configured TV. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on using the notifiers in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% details "Example YAML configuration" %}
+
+```yaml
+action: notify.send_message
+data:
+  title: "Just a reminder"
+  message: "You are awesome!"
+  entity_id: notify.my_tv
+```
+
+{% enddetails %}
+
 ## Actions
 
-The following options can be specified inside the data field for the notify action:
+### Action: Notify
 
-### Action `notify.[name_of_your_tv]`
+The `notify.[name_of_your_tv]` action sends a notification to your Android TV. The following options can be specified inside the data field for the notify action:
 
 {% configuration %}
 duration:
@@ -75,7 +91,7 @@ interrupt: 1
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided. |
-| `icon`                 |      yes | Groups the attributes for icon upload.  It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
+| `icon`                 |      yes | Groups the attributes for icon upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
 | `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon`, or both.
 | `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
@@ -113,8 +129,6 @@ icon:
 
 Example of an automation with an action, full configuration:
 
-{% raw %}
-
 ```yaml
 action: notify.living_room_tv
 data:
@@ -129,6 +143,4 @@ data:
     interrupt: 0
 ```
 
-{% endraw %}
-
-Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.
+`path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.

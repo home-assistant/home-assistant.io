@@ -13,7 +13,7 @@ ha_domain: oralb
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.
@@ -44,7 +44,7 @@ The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes
 
 - Mode - selected cleaning mode e.g. daily clean.
 - Number of sectors - brushing areas set in the **Set Pacer Visualisation** in the brushing preferences in the mobile app.
-- Sector - the current sector of brush goal you are in (i.e. if brush goal is 2:00 minutes, and you are at 0:37, you are in sector 2)
+- Sector - the current sector of brush goal you are in (that is, if brush goal is 2:00 minutes, and you are at 0:37, you are in sector 2)
 - Time - total brushing time in seconds.
 - Toothbrush state - whether the toothbrush is running, idle.
 - Battery - toothbrush battery percentage.

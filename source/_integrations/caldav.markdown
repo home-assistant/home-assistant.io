@@ -10,7 +10,7 @@ ha_domain: caldav
 ha_platforms:
   - calendar
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 related:
   - docs: /integrations/todo
@@ -112,7 +112,7 @@ calendar:
 
 This will create two entities for the calendar name Agenda: "HomeOffice" and "WarmupFlat" with events matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
 
-Please note that if you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
+If you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
 
 {% configuration %}
 url:
@@ -129,7 +129,7 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. It cannot be used if `custom_calender` option is used.
+  description: List of the calendars to filter. Empty or absent means no filtering; that is, all calendars will be added. It cannot be used if the `custom_calendars` option is used.
   type: list
 custom_calendars:
   required: false

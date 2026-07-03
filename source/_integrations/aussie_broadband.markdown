@@ -14,7 +14,7 @@ ha_domain: aussie_broadband
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Aussie Broadband** {% term integration %} displays various service metrics using the Aussie Broadband API.

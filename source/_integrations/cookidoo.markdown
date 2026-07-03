@@ -2,8 +2,10 @@
 title: Cookidoo
 description: Instructions on how to integrate the Cookidoo todo list with Home Assistant.
 ha_category:
-  - To-do list
   - Calendar
+  - Calendar
+  - To-do list
+  - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 2025.1
 ha_config_flow: true
@@ -41,7 +43,7 @@ Email:
 Password:
     description: "Enter the password for your Cookidoo account."
 Localization:
-    description: "Select the language and country for your Cookidoo account (e.g., English - United States)."
+    description: "Select the language and country for your Cookidoo account, for example, English - United States."
 {% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}

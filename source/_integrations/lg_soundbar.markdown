@@ -8,7 +8,7 @@ ha_release: 0.81
 ha_domain: lg_soundbar
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ---
 

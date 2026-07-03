@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: mpd
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

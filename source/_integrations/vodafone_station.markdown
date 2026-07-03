@@ -6,6 +6,7 @@ ha_category:
   - Image
   - Presence detection
   - Sensor
+  - Switch
 ha_release: 2023.9
 ha_domain: vodafone_station
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - image
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -35,18 +37,23 @@ The integration supports models from the following brands: Sercomm, Technicolor,
 
 This {% term integration %} was tested against the following models:
 
+Homeware (custom OpenWrt):
+
+- Vodafone Ultra Hub Pro II (DGM4980VDF) - United Kingdom
+- Vodafone Vox30 WiFi Hub (THG3000) - United Kingdom
+
 Sercomm:
 
-- Vodafone Power Station (SHG3000)
-- Vodafone Power Station WiFi 6 (SHG3060)
-- Vodafone WiFi 6 Station (RHG3006)
-- Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
-- Vodafone H300S
+- Vodafone Power Station (SHG3000) - Italy
+- Vodafone Power Station WiFi 6 (SHG3060) - Italy
+- Vodafone WiFi 6 Station (RHG3006) - Italy
+- Vodafone Gigabox (SHG3000) - Ireland (supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/))
+- Vodafone H300S - Greece
 
 Technicolor:
 
-- Vodafone Power Station (THG3000)
-- Vodafone WiFi 6 Station (CGA6444VF)
+- Vodafone Power Station (THG3000) - Germany
+- Vodafone WiFi 6 Station (CGA6444VF) - Germany
 
 UltraHub:
 
@@ -78,6 +85,7 @@ There is support for the following platform types within Home Assistant:
 - **Device tracker** - presence detection by looking at connected devices.
 - **Image** - generate QR code for Guest Wi-Fi.
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
+- **Switch** - enable/disable main and guest Wi-Fi.
 
 ## Examples
 
@@ -105,9 +113,11 @@ automation:
       entity_id: device_tracker.appletv
       to: "not_home"
   actions:
-    -  action: notify.mobile_app_phone
-       data:
-         message: "TV lost network connection"
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "TV lost network connection"
 ```
 
 ### Automation: notify router CPU usage too high
@@ -120,9 +130,11 @@ automation:
       entity_id: sensor.vodafone_station_xxxx_cpu_usage
       above: 80
   actions:
-    - action: notify.mobile_app_phone
-       data:
-         message: "Router CPU above 80%."
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Router CPU above 80%."
 ```
 
 ## Data updates

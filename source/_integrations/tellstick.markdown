@@ -22,7 +22,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **TellStick** {% term integration %} integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are a number of vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
+The **TellStick** {% term integration %} integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are several vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -44,10 +44,10 @@ To get started, add the {% term integration %} to your {% term "`configuration.y
 tellstick:
 ```
 
-There is a [TellStick add-on](/addons/tellstick/) available in the Home Assistant add-on store.
+There is a [TellStick app for Home Assistant](/addons/tellstick/) (formerly known as TellStick add-on) available in the Home Assistant app store.
 
 ```yaml
-# Example configuration.yaml entry with the TellStick add-on
+# Example configuration.yaml entry with the TellStick app
 tellstick:
   host: core-tellstick
   port: [50800, 50801]
@@ -60,7 +60,7 @@ signal_repetitions:
   type: integer
   default: 1
 host:
-  description: If you run TellStick on another server or with the Home Assistant add-on.
+  description: If you run TellStick on another server or with the TellStick app for Home Assistant.
   required: inclusive
   type: string
 port:

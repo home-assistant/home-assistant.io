@@ -19,7 +19,7 @@ Home Assistant also has integrations build into the platform that connect with e
 
 ## Home Assistant integrations
 
-Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own. 
+Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own.
 
 Some hardware with water meters may also provide additional practical functions or sensors, such as [valve](/integrations/valve), for example, for controlling water shutoff, or temperature and pressure (to enable freeze alarms).
 
@@ -78,3 +78,7 @@ Maybe you like to build one yourself?
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [RESTful](/integrations/rest) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
 
 For any of the above-listed options, make sure it actually works with the type of water meter you have before getting one.
+
+### Reading the meter wirelessly via RTL-SDR
+
+{% include energy/rtl_sdr.md %}

@@ -40,103 +40,14 @@ automation:
         notification_id: invalid_config
 ```
 
-See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
-for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) for additional trigger data available for conditions or actions.
 
-### Action
+{% include integrations/actions.md %}
 
-The `persistent_notification.create` action takes in `message`, `title`, and `notification_id`.
+## Use as a notifier
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification. |
-| `title`                |      yes | Title of the notification. |
-| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID. |
+Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) when that integration is loaded. It is available as `notify.persistent_notification`. This lets you use it with features that require a notifier, such as [notify groups](/integrations/group/#notify-groups) or the [Alert integration](/integrations/alert/).
 
-Here is how an [action](/docs/automation/action) of your [automation setup](/getting-started/automation/) with static content could look like.
+You can place the following attribute inside `data` for extended functionality:
 
-```yaml
-actions:
-  - action: persistent_notification.create
-    data:
-      message: "Your message goes here"
-      title: "Custom subject"
-```
-
-If you want to show some runtime information, you have to use [templates](/docs/configuration/templating/).
-
-{% raw %}
-
-```yaml
-actions:
-  - action: persistent_notification.create
-    data:
-      title: >
-        Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
-      message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"
-```
-
-{% endraw %}
-
-The `persistent_notification.dismiss` action requires a `notification_id`.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `notification_id`      |      no  | the `notification_id` is required to identify the notification that should be removed.
-
-This action allows you to remove a notifications by script or automation.
-
-```yaml
-actions:
-  - action: persistent_notification.dismiss
-    data:
-      notification_id: "1234"
-```
-
-The `persistent_notification.dismiss_all` action allows you to remove all notifications.
-
-```yaml
-actions:
-  - action: persistent_notification.dismiss_all
-```
-
-### Markdown support
-
-The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
-
-| Type | Message |
-| ---- | ------- |
-| Headline 1 | `# Headline` |
-| Headline 2 | `## Headline` |
-| Newline | `\n` |
-| Bold | `**My bold text**` |
-| Italic | `*My italic text*` |
-| Link | `[Link](https://home-assistant.io/)` |
-| Image | `![image](/local/my_image.jpg)` |
-
-{% note %}
-`/local/` in this context refers to the `.homeassistant/www/` folder.
-{% endnote %}
-
-### Create a persistent notification
-
-Choose the **{% my developer_services title="Actions" %}** tab from the **Developer Tools** sidebar item, then select the {% my developer_services service="persistent_notification.create" title="`persistent_notification.create`" %} action from the **Action** dropdown. Enter something like the sample below into the **data** field and press the **Perform action** button.
-
-```json
-{
-  "notification_id": "1234",
-  "title": "Sample notification",
-  "message": "This is a sample text."
-}
-```
-This will create the notification entry shown above.
-
-### Use as a notifier
-
-Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) if that integration is loaded. It is available as `notify.persistent_notification`. This enables it to be used with features that require a notifier like [Notify Groups](/integrations/group/#notify-groups) or the [Alert integration](/integrations/alert/).
-
-The following attributes can be placed inside `data` for extended functionality.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID. |
+- `notification_id`: When a notification ID is given, it overwrites the notification if one with that ID already exists.

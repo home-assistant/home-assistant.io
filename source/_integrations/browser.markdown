@@ -1,6 +1,6 @@
 ---
 title: Browser
-description: Instructions on how to setup the browser integration with Home Assistant.
+description: Instructions on how to set up the browser integration with Home Assistant.
 ha_category:
   - Utility
 ha_release: pre 0.7
@@ -25,22 +25,4 @@ To load this integration, add the following lines to your {% term "`configuratio
 browser:
 ```
 
-### Actions
-
-Once loaded, the `browser` platform will expose {% term actions %} that can be called to perform various {% term actions %}.
-
-Available actions: `browser/browse_url`.
-
-| Data attribute | Optional | Description      |
-| ---------------------- | -------- | ---------------- |
-| `url`                  | no       | The URL to open. |
-
-### Usage
-
-To use this {% term action %}, select the **Actions** tab from the **Developer Tools**. Choose the action *browser/browse_url* from the list of **Actions:** and enter the URL into the **data** field and select **Perform action**.
-
-```json
-{"url": "http://www.google.com"}
-```
-
-This will open the given URL on the host machine.
+{% include integrations/actions.md %}

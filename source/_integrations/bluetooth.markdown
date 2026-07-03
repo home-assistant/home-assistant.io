@@ -250,7 +250,7 @@ These adapters do not have a reset pin. When they stop responding, there is curr
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
-- Belkin F8T003 ver 2. - Fails to setup and add successfully
+- Belkin F8T003 ver 2. - Fails to set up and add successfully
 - Bluegiga BLED112 - No driver available yet for USB ID `2458:0001`
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
@@ -286,13 +286,23 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
-## Passive scanning
+## Scanning modes
 
-Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assistant Operating System 9.4 and later.
+Each Bluetooth adapter can be configured to use one of three scanning modes. **Auto** is recommended for most setups. To change it, follow the steps in the [Options](#options) section below.
 
-Many integrations require active scanning and may not function when scanning is passive.
+- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
+- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
+- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
 
-{% include integrations/option_flow.md %}
+Auto and Passive both require an adapter that supports passive scanning. On Linux, this needs BlueZ 5.63 or later with experimental features enabled (available with Home Assistant Operating System 9.4 and later). On adapters that do not support passive scanning, Auto falls back to Active automatically.
+
+## Options
+
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+2. Select **Adapters**.
+3. On the adapter of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select your options.
+   - Not all adapters have options. If you don't see a cogwheel icon, your adapter does not support options.
+   - Under **Scanning mode**, pick **Auto**, **Active**, or **Passive**.
 
 ## Remote adapters (Bluetooth proxies)
 
@@ -300,7 +310,7 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
-For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/index.html).
+For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
 
 {% tip %}
 - The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
@@ -344,14 +354,14 @@ When switching to an adapter with better performance, disable the old, less perf
 The below adapters are listed from best-performing to worst-performing:
 
 - [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
-- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
+- [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#scanning-modes)
 - [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [Ethernet-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
 - [Wi-Fi-connected Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker/#configuration-variables)
-- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#scanning-modes)
 - [Onboard high performance adapter](#cypress-based-adapters) with active scanning
-- [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
+- [Known working adapters](#known-working-adapters) with [passive scanning](#scanning-modes)
 - [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
@@ -450,3 +460,31 @@ The following integrations are automatically discovered by the Bluetooth integra
  - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
  - [Xiaomi BLE](/integrations/xiaomi_ble/)
  - [Yale Access Bluetooth](/integrations/yalexs_ble/)
+
+## About Bluetooth terminology
+
+This section explains some of the key terms on this page and how they are used in the Home Assistant documentation.
+
+### Bluetooth adapter
+
+A Bluetooth adapter is Bluetooth hardware that is directly connected to the system running Home Assistant, such as a built-in radio, a USB dongle, or a Bluetooth card. Home Assistant talks to it through the operating system. On Linux, Home Assistant uses [BlueZ](http://www.bluez.org/) via [D-Bus](https://en.wikipedia.org/wiki/D-Bus).
+
+### Bluetooth proxy (remote adapter)
+
+A separate networked device, typically an ESP32 running ESPHome, that you place elsewhere in your home. It receives Bluetooth signals from nearby devices and relays them to Home Assistant over Wi-Fi or Ethernet. You can add several proxies to extend Bluetooth coverage across rooms and floors, because Bluetooth itself is short-range. A Bluetooth proxy is also known as a remote adapter.
+
+### Scanner
+
+The general term for anything that receives Bluetooth signals for Home Assistant. Both local Bluetooth adapters and Bluetooth proxies are scanners. In Home Assistant, all of these show up as scanners.
+
+### Advertisement
+
+A small message that a Bluetooth device broadcasts to announce itself and share basic information, such as sensor readings. Reading advertisements does not require a connection, so any scanner in range can pick them up.
+
+### Connection
+
+An active, two-way link between Home Assistant and a Bluetooth device. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. Making connections requires a scanner that supports active connections. Some proxies can only listen for advertisements and cannot connect to devices.
+
+### Scanning mode
+
+How a scanner looks for Bluetooth devices. In **Active** mode, the scanner asks devices for extra details, which uses more battery on those devices. In **Passive** mode, the scanner only listens, which uses the least battery but may leave out some details. **Auto** uses passive scanning where supported and falls back to active scanning when it is not. For details, see [Scanning modes](#scanning-modes).

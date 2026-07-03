@@ -1,0 +1,31 @@
+{%- assign domain_data = site.data.condition_domains | where: 'key', page.domain | first -%}
+{%- if domain_data -%}
+  {%- assign domain_label = domain_data.label -%}
+{%- else -%}
+  {%- assign integration = site.integrations | where: 'ha_domain', page.domain | first -%}
+  {%- assign domain_label = integration.title | default: page.domain -%}
+{%- endif -%}
+
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h2 class="h1 title epsilon">{% icon "mdi:help-circle-outline" %} Condition: <code>{{ page.condition }}</code></h2>
+
+    {%- if page.domain -%}
+    <div class='section'>
+      {% icon "mdi:puzzle-outline" %}&nbsp;Integration: <a href='/integrations/{{ page.domain }}/'>{{ domain_label }}</a>
+    </div>
+    {%- endif -%}
+
+    {%- if page.since -%}
+    <div class='section'>
+      {% icon "mdi:history" %}&nbsp;Since Home Assistant {{ page.since }}
+    </div>
+    {%- endif -%}
+
+    {%- if page.deprecated_in_favor_of and page.deprecated_in_favor_of != "" -%}
+    <div class='section'>
+      {% icon "mdi:alert" %}&nbsp;<strong>Deprecated.</strong> Use <a href="/conditions/{{ page.deprecated_in_favor_of }}/"><code>{{ page.deprecated_in_favor_of }}</code></a> instead.
+    </div>
+    {%- endif -%}
+  </div>
+</section>

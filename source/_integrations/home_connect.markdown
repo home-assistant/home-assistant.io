@@ -4,6 +4,8 @@ description: Instructions on how to set up the Home Connect integration within H
 ha_category:
   - Binary sensor
   - Button
+  - Climate
+  - Fan
   - Hub
   - Light
   - Number
@@ -22,13 +24,15 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
+  - fan
   - light
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
 ha_dhcp: true
 ---
@@ -63,7 +67,7 @@ You can find information about supported devices on the [Home Connect website](h
 - Go to `https://my.home-assistant.io/` and make sure that your Home Assistant URL is set there. For example: `http://homeassistant:8123/` or `http://homeassistant.local:8123`
 
 4. On success, you will be redirected to the **Applications** page. Select **Details** for your app. Make note of the client ID and secret - you will need it for the next step. Log out of the Home Connect developer portal.
-5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](https://www.home-assistant.io/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
+5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
 
 {% important %}
 
@@ -171,6 +175,29 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Partial open door**
   - **Description**: Opens the door of the appliance partially.
   - **Availability**: Oven
+
+{% enddetails %}
+
+### Climate
+
+{% details "List of climate entities" %}
+
+- **Air conditioner**:
+  - **Description**: Controls the air conditioner appliance.
+  - **Availability**: Air conditioner
+  - **Controls**:
+    - Active program: HVAC modes + preset modes
+    - Fan speed mode: fan speed
+ 
+{% enddetails %}
+### Fan
+
+{% details "List of fan entities" %}
+
+- **Air conditioner**:
+  - **Description**: Controls the fan speed of air conditioner appliances.
+  - **Availability**: Air conditioner
+  - **Controls**: fan speed percentage, fan speed mode
 
 {% enddetails %}
 
@@ -376,6 +403,10 @@ Both entities can use these options, but the availability of these will depend o
 - **Automatic**: `cooking_common_program_hood_automatic`
 - **Venting**: `cooking_common_program_hood_venting`
 - **Delayed shut off**: `cooking_common_program_hood_delayed_shut_off`
+- **3D hot air**: `cooking_oven_program_heating_mode_3_d_hot_air`
+- **Air fry**: `cooking_oven_program_heating_mode_air_fry`
+- **Grill (large area)**: `cooking_oven_program_heating_mode_grill_large_area`
+- **Grill (small area)**: `cooking_oven_program_heating_mode_grill_small_area`
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
@@ -384,6 +415,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Top bottom heating**: `cooking_oven_program_heating_mode_top_bottom_heating`
 - **Top bottom heating eco**: `cooking_oven_program_heating_mode_top_bottom_heating_eco`
 - **Bottom heating**: `cooking_oven_program_heating_mode_bottom_heating`
+- **Bread baking**: `cooking_oven_program_heating_mode_bread_baking`
 - **Pizza setting**: `cooking_oven_program_heating_mode_pizza_setting`
 - **Slow cook**: `cooking_oven_program_heating_mode_slow_cook`
 - **Intensive heat**: `cooking_oven_program_heating_mode_intensive_heat`
@@ -392,6 +424,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Special Heat-Up for frozen products**: `cooking_oven_program_heating_mode_frozen_heatup_special`
 - **Desiccation**: `cooking_oven_program_heating_mode_desiccation`
 - **Defrost**: `cooking_oven_program_heating_mode_defrost`
+- **Dough proving**: `cooking_oven_program_heating_mode_dough_proving`
 - **Proof**: `cooking_oven_program_heating_mode_proof`
 - **Hot air + 30 RH**: `cooking_oven_program_heating_mode_hot_air_30_steam`
 - **Hot air + 60 RH**: `cooking_oven_program_heating_mode_hot_air_60_steam`
@@ -434,7 +467,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Rinse spin drain**: `laundry_care_washer_program_rinse_rinse_spin_drain`
 - **Sensitive**: `laundry_care_washer_program_sensitive`
 - **Shirts blouses**: `laundry_care_washer_program_shirts_blouses`
-- **Spin/drain**: `laundry_care_washer_program_spin_spin_drain`
+- **Spin/drain**: `laundry_care_washer_program_spin_drain`
 - **Sport fitness**: `laundry_care_washer_program_sport_fitness`
 - **Towels**: `laundry_care_washer_program_towels`
 - **Super 15 min**: `laundry_care_washer_program_super_153045_super_15`
@@ -1045,66 +1078,7 @@ Some devices only have the state `on` and turn off is not supported by the appli
 
 {% enddetails %}
 
-## Actions
-
-The Home Connect integration makes various actions available.
-Available actions: `set_program_and_options`, and `change_setting`
-
-### Action `home_connect.set_program_and_options`
-
-Starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | ID of the device. |
-| `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
-| `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
-| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
-| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
-| `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
-| `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
-| `consumer_products_cleaning_robot_option_suction_power` | yes | Defines the suction power. |
-| `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
-| `consumer_products_coffee_maker_option_fill_quantity` | yes | Describes the amount of water (in ml) used in a coffee machine program. |
-| `consumer_products_coffee_maker_option_coffee_temperature` | yes | Describes the coffee temperature used in a coffee machine program. |
-| `consumer_products_coffee_maker_option_bean_container` | yes | Defines the preferred bean container. |
-| `consumer_products_coffee_maker_option_flow_rate` | yes | Defines the water-coffee contact time. The duration extends to coffee intensity. |
-| `consumer_products_coffee_maker_option_multiple_beverages` | yes | Defines if double dispensing is enabled. |
-| `consumer_products_coffee_maker_option_coffee_milk_ratio` | yes | Defines the amount of milk. |
-| `consumer_products_coffee_maker_option_hot_water_temperature` | yes | Defines the temperature suitable for the type of tea. |
-| `b_s_h_common_option_start_in_relative` | yes | Defines when the program should start, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
-| `dishcare_dishwasher_option_intensiv_zone` | yes | Defines if the cleaning is done with higher spray pressure on the lower basket for very dirty pots and pans. |
-| `dishcare_dishwasher_option_brilliance_dry` | yes | Defines if the program sequence is optimized with a special drying cycle to ensure more shine on glasses and plastic items. |
-| `dishcare_dishwasher_option_vario_speed_plus` | yes | Defines if the program duration is shortened dynamically (up to 66% less run time) with the usual optimum cleaning and drying. |
-| `dishcare_dishwasher_option_silence_on_demand` | yes | Defines if the extra silent mode is activated for a selected period of time. |
-| `dishcare_dishwasher_option_half_load` | yes | Defines if economical cleaning is enabled for smaller loads. This reduces energy and water consumption and also saves time. The utensils can be placed in the upper and lower baskets. |
-| `dishcare_dishwasher_option_extra_dry` | yes | Defines if improved drying for glasses and plasticware is enabled. |
-| `dishcare_dishwasher_option_hygiene_plus` | yes | Defines if the cleaning is done with increased temperatures. This ensures maximum hygienic cleanliness for regular use. |
-| `dishcare_dishwasher_option_eco_dry` | yes | Defines if the door is opened automatically for extra energy efficient and effective drying. |
-| `dishcare_dishwasher_option_zeolite_dry` | yes | Defines if the program sequence is optimized with special drying cycle ensures improved drying for glasses, plates and plasticware. |
-| `laundry_care_dryer_option_drying_target` | yes | Describes the drying target for a dryer program. For example: Iron Dry, Cupboard Dry, Extra Dry. |
-| `cooking_hood_option_venting_level` | yes | Defines the required fan setting. |
-| `cooking_hood_option_intensive_level` | yes | Defines the intensive setting. |
-| `cooking_oven_option_setpoint_temperature` | yes | Defines the target cavity temperature, which will be held by the oven. |
-| `b_s_h_common_option_duration` | yes | Defines the run-time of the program. Afterwards, the appliance is stopped. |
-| `cooking_oven_option_fast_pre_heat` | yes | Defines if the cooking compartment is heated up quickly. Please note that the setpoint temperature has to be equal to or higher than 100 °C or 212 °F. Otherwise, the fast pre-heat option is not activated. |
-| `cooking_oven_option_warming_level` | yes | Defines the level of the warming drawer. |
-| `laundry_care_washer_option_temperature` | yes | Defines the temperature of the washing program. |
-| `laundry_care_washer_option_spin_speed` | yes | Defines the spin speed of a washer program. |
-| `b_s_h_common_option_finish_in_relative` | yes | Defines when the program should end, in seconds from now. For example: a value of 9000 means in 2 h 30 min. |
-| `laundry_care_washer_option_i_dos1_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 1) |
-| `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
-| `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
-
-### Action `home_connect.change_setting`
-
-Changes a setting.
-
-| Data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-| `key` | no | Key of the setting. |
-| `value` | no | Value of the setting. |
+{% include integrations/actions.md %}
 
 ## Automation examples
 
@@ -1114,8 +1088,6 @@ Get started with these automation examples
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Notify when program ends"
 triggers:
@@ -1124,12 +1096,10 @@ triggers:
       - sensor.appliance_operation_state
     to: finished
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ### Start a program when electricity is cheap
@@ -1137,8 +1107,6 @@ actions:
 Because electricity is typically cheaper at night, this automation will activate the silent mode when starting the program at night.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Start program when electricity is cheap"
@@ -1156,21 +1124,19 @@ actions:
         after: '22:00:00'
         before: '06:00:00'
     then:
-      - service: home_connect.set_program_and_options
+      - action: home_connect.set_program_and_options
         data:
           device_id: "your_device_id"
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
           dishcare_dishwasher_option_silence_on_demand: true
     else:
-      - service: home_connect.set_program_and_options
+      - action: home_connect.set_program_and_options
         data:
           device_id: "your_device_id"
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates
@@ -1215,7 +1181,7 @@ Some programs that are available to select on the app, on the physical device or
 
 ##### Description
 
-If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
+If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
 
 ##### Solution
 

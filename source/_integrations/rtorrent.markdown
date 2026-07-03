@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `rtorrent` {% term integration %} allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.
+The **rTorrent** {% term integration %} allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

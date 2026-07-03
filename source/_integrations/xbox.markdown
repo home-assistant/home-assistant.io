@@ -9,7 +9,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
-  - '@hunterjm'
   - '@tr4nt0r'
 ha_domain: xbox
 ha_config_flow: true
@@ -20,9 +19,10 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 The **Xbox** {% term integration %} allows you to connect Home Assistant to the **Xbox Network**.
@@ -58,11 +58,11 @@ Once added, a new device will appear with the same set of entities available for
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Action `play_media`
+### Action: Play media
 
-Launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
+The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
-You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+You can find Product IDs using the {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
@@ -88,7 +88,9 @@ media_content_id: "9WZDNCRFJ3TJ" # Netflix
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Action `send_command`
+### Action: Send command
+
+The `send_command` action sends controller commands or text input to the Xbox console.
 
 | Data attribute | Optional | Description                                                       |
 | ---------------------- | -------- | --------------------------------------------------------- |
@@ -330,7 +332,7 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
 
-You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the {% term integration %}.
+You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then set up the {% term integration %}.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -348,6 +350,10 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 ## Data updates
 
 This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
+
+## Known limitations
+
+- Xbox consoles cannot be woken up through Home Assistant when they are in **energy saving**. When an Xbox is turned off, it will eventually enter energy saving automatically. To enable remote wake via Home Assistant, the console must be set to **sleep mode** in the power options. Be aware that this mode consumes significantly more energy compared to **shutdown (energy saving) mode**. For more details, see the [Xbox documentation on power modes](https://support.xbox.com/en-US/help/hardware-network/power/learn-about-power-modes).
 
 ## Troubleshooting
 

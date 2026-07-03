@@ -41,7 +41,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The [HomeKit](https://developer.apple.com/apple-home/) Device {% term integration %} allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit Bridge](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -134,13 +134,13 @@ This section describes how to add it via Home Assistant's preferred {% term Thre
 
 - A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure the HomeKit device has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth).
-- **Thread network**: In order to use HomeKit over Thread, you need a working border router.
+- **Thread network**: To use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
   - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
   - If you have a Home Assistant Yellow, Connect&nbsp;ZBT-1, or Connect&nbsp;ZBT-2, you can enable Thread to set up an Open Thread border router and with that a {% term Thread %} network.
-    - Documentation on [enabling Thread on Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517)
-    - Documentation on [enabling Thread on Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517)
-    - Documentation on [enabling Thread on Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421)
+    - Documentation on [enabling Thread on Yellow](https://support.nabucasa.com/hc/articles/25742476767517)
+    - Documentation on [enabling Thread on Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517)
+    - Documentation on [enabling Thread on Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421)
 
 #### To add a HomeKit device to a Thread network via Home Assistant
 
@@ -286,7 +286,7 @@ homekit:
 
 `netdisco` is not used by Home Assistant to discover HomeKit devices, so if it can't see your device the problem is more likely to be environmental than with Home Assistant itself.
 
-Alternatively if you are less comfortable with the command line you could use Discovery for [Mac](https://apps.apple.com/app/discovery-dns-sd-browser/id1381004916) or [iOS](https://apps.apple.com/app/discovery-dns-sd-browser/id305441017), Android [Service Browser](https://play.google.com/store/apps/details?id=com.druk.servicebrowser) or [All My Lan](https://apps.microsoft.com/store/detail/all-my-lan/9WZDNCRDN19V). These are a less useful diagnostic as they aren't running from the same point on your network as Home Assistant. Even if it is visible in this tool it might still be a networking issue. They can give sometimes give clues.
+Alternatively if you are less comfortable with the command line you could use Discovery for [Mac](https://apps.apple.com/app/id1381004916) or [iOS](https://apps.apple.com/app/id305441017), Android [Service Browser](https://play.google.com/store/apps/details?id=com.druk.servicebrowser) or [All My Lan](https://apps.microsoft.com/store/detail/all-my-lan/9WZDNCRDN19V). These are a less useful diagnostic as they aren't running from the same point on your network as Home Assistant. Even if it is visible in this tool it might still be a networking issue. They can give sometimes give clues.
 
 Where a discovery tool does give an IP, check it is what you expect (compare to DHCP leases in your router for example). Can you ping it? If not, you have a network problem.
 
@@ -306,7 +306,7 @@ You may say a log entry that looks like this:
 HomeKit device update skipped as previous poll still in flight
 ```
 
-In these cases it's unlikely that the integration itself is directly responsible. This is a safety feature to avoid overloading your Home Assistant instance. It means that Home Assistant tried to poll your accessory but the previous poll was still happening. This means it is taking over 1 minute to poll your accessory. This could be caused by a number of things:
+In these cases it's unlikely that the integration itself is directly responsible. This is a safety feature to avoid overloading your Home Assistant instance. It means that Home Assistant tried to poll your accessory but the previous poll was still happening. This means it is taking over 1 minute to poll your accessory. This could be caused by several things:
 
 - You have too many blocking synchronous integrations for your Home Assistant instance. All synchronous integrations share a thread pool, and if there are lots of tasks to run on it they will queued, which will cause delays. In the worst cases this queue can build up faster than it can be emptied. Faster hardware may help, but you may need to disable some integrations.
 - Your network connection to an accessory is poor and the integration is unable to reach the accessory reliably. This will likely require a change to your network setup to improve Wi-Fi coverage or replace damaged cabling.

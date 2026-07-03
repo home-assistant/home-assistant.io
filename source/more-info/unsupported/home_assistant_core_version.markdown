@@ -15,7 +15,7 @@ after deprecation, which corresponds to 6 Home Assistant Core releases.
 On installations using an unsupported Home Assistant Core release, the
 Supervisor stops refreshing its update information. This means you will no
 longer receive updates for any component, including Home Assistant Core or
-Add-on updates.
+app (formerly known as add-ons) updates.
 
 ## The solution
 

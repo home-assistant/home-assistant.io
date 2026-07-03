@@ -20,7 +20,7 @@ To use Torque sensors with your installation, you must configure both the Torque
 
 ### Torque application
 
-In **Settings** -> **Data Logging & Upload**:
+In **Settings** > **Data Logging & Upload**:
 
 Under the **Logging Preferences** header:
 

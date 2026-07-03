@@ -1,12 +1,12 @@
 ---
-title: "Common tasks - Operating System"
-description: "Common tasks for Home Assistant Operating System"
+title: "Common tasks - Home Assistant Operating System"
+description: "Tasks specific to Home Assistant Operating System installations, such as updating the OS, working with network storage, and accessing the underlying system."
 installation: os
 installation_name: "Operating System"
 related:
   - docs: /docs/configuration/
 ---
-This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
+This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific apps (formerly known as add-ons) or topics listed here.
 
 {% include common-tasks/file_access.md %}
 
@@ -43,7 +43,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 - [Backup your installation](/common-tasks/general/#backups).
   - Make sure the backup is stored on a [backup location](/common-tasks/general/#defining-backup-locations) outside of the device where Home Assistant is installed.
-    - For example, if Home Assistant is installed on [Home Assistant Green](https://www.home-assistant.io/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/#about-the-backup-storage-on-home-assistant-cloud) or another location.
+    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/#about-the-backup-storage-on-home-assistant-cloud) or another location.
   - So that you can [restore from that backup](/common-tasks/general/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
@@ -55,7 +55,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
     1. Open the **Settings** panel.
     2. On the top you will be presented with an update notification.
-       - **Troubleshooting**: If you do not see that notification:
+       - Troubleshooting: If you do not see that notification:
          - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
          - Go to {% my updates title="**System** > **Updates**" %}.
            - Select the update notification.
@@ -76,7 +76,7 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 {% endtabbed_block %}
 
-{% details "Advanced: changing the boot slot used during the update" %}
+{% details "Changing the boot slot used during the update" %}
 
 #### About boot slots used during the update
 

@@ -2,6 +2,7 @@
 title: Sunricher DALI
 description: Instructions on how to integrate Sunricher DALI with Home Assistant.
 ha_category:
+  - Binary sensor
   - Light
   - Sensor
 ha_release: 2025.11
@@ -11,15 +12,18 @@ ha_codeowners:
   - '@niracler'
 ha_domain: sunricher_dali
 ha_platforms:
+  - binary_sensor
   - button
+  - diagnostics
   - light
   - scene
   - sensor
-ha_integration_type: integration
-ha_quality_scale: bronze
+ha_integration_type: hub
+ha_quality_scale: silver
 related:
   - url: https://www.sunricher.com/din-rail-ethernet-dali-gateway-sr-gw-eda.html
     title: SR-GW-EDA DALI Gateway
+ha_dhcp: true
 ---
 
 The **Sunricher DALI** {% term integration %} allows you to control and monitor DALI lighting devices connected to [Sunricher](https://www.sunricher.com/) gateways. The integration receives real-time push updates to keep entity states synchronized.
@@ -63,6 +67,25 @@ DALI scenes configured on the gateway are automatically imported into Home Assis
 DALI sensor devices connected to the gateway are represented as sensor entities:
 
 - **Illuminance sensor**: Reports ambient light level in lux
+
+Each DALI light device also provides:
+
+- **Energy sensor**: Tracks cumulative energy consumption in Wh. This sensor is compatible with the Energy Dashboard and updates when the device reports energy data.
+
+### Binary sensors
+
+DALI motion sensor devices create two binary sensor entities:
+
+- **Motion**: Instantaneous motion detection. Turns on when movement is detected and off when movement stops.
+- **Occupancy**: Persistent presence detection. Turns on when any activity is detected (motion, occupancy, or presence) and remains on until the area becomes vacant.
+
+| Device event | Motion sensor | Occupancy sensor |
+| ------------ | ------------- | ---------------- |
+| MOTION       | On            | On               |
+| NO_MOTION    | Off           | No change        |
+| OCCUPANCY    | No change     | On               |
+| PRESENCE     | No change     | On               |
+| VACANT       | No change     | Off              |
 
 ### Buttons
 

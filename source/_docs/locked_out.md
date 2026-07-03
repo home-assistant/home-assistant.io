@@ -1,12 +1,12 @@
 ---
 title: "I'm locked out!"
-description: "Options for regaining access"
+description: "Options for regaining access to your Home Assistant when you are locked out, including resetting the owner password and recovering your data."
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line
-  - url: https://support.nabucasa.com/hc/en-us/articles/25463622043165
+  - url: https://support.nabucasa.com/hc/articles/25463622043165
     title: Reset the Yellow
-  - url: https://support.nabucasa.com/hc/en-us/articles/25161225495837
+  - url: https://support.nabucasa.com/hc/articles/25161225495837
     title: Reset the Green
 ---
 
@@ -25,10 +25,10 @@ You are the **owner** of the Home Assistant server and you cannot login because 
    - you are using the {% term "Home Assistant Operating System" %}
    - you have access to the Home Assistant server.
 2. Open a terminal connection to Home Assistant:
-   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/en-us/articles/25153288092829).
+   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/articles/25153288092829).
    - If you are using a Home Assistant Yellow, follow these steps:
-     - [to access the console from Windows](https://support.nabucasa.com/hc/en-us/articles/25454894609693)
-     - [to access the console from Linux or macOS](https://support.nabucasa.com/hc/en-us/articles/25454972435357).
+     - [to access the console from Windows](https://support.nabucasa.com/hc/articles/25454894609693)
+     - [to access the console from Linux or macOS](https://support.nabucasa.com/hc/articles/25454972435357).
    - If you are using another system, connect keyboard and monitor. The procedure might be similar the one used for Green.
    - If you are using a Home Assistant OVA (virtualization image):
      - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox).
@@ -71,16 +71,16 @@ Use this procedure only if the following conditions are met:
 
 1. If you are using a Home Assistant Yellow or Green, refer to their documentation.
    - If you are using a Home Assistant Yellow, refer to the following procedure:
-     - [Resetting the owner password on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25455301907997)
+     - [Resetting the owner password on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25455301907997)
    - If you are using a Home Assistant Green, refer to the following procedure:
-     - [Resetting the owner password on Home Assistant Green](https://support.nabucasa.com/hc/en-us/articles/25142896227357)
+     - [Resetting the owner password on Home Assistant Green](https://support.nabucasa.com/hc/articles/25142896227357)
 2. If you are not using a Yellow or Green: Connect to the console of the Home Assistant server:
    - If you are using a virtual machine, connect to your virtual machine console.
    - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Home Assistant Green.
 3. Once you have opened the Home Assistant command line, enter the following command:
    - **Command**: `auth reset --interactive`
    - This will display a list of users. Select your user and enter a new password when prompted.
-   - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
+   - Troubleshooting: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 4. You can now log in to Home Assistant using this new password.
 
 #### To reset a user's password, via the container command line
@@ -97,13 +97,12 @@ If you are running Home Assistant in a container, you can use the command line i
 
 Only the owner can change other user's passwords.
 
-1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
-2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
-3. At the bottom of the dialog box, select **Change Password**.
+1. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
+2. At the bottom of the dialog box, select **Change password**.
    - Note: this is available as the owner, not administrator.
-4. Enter the new password, and select **OK**.
-5. Confirm the new password by entering it again, and select **OK** again.
-6. A confirmation box will be displayed with the text **Password was changed successfully**.
+3. Enter the new password, and select **OK**.
+4. Confirm the new password by entering it again, and select **OK** again.
+5. A confirmation box will be displayed with the text **Password was changed successfully**.
 
 ## Preparing the system to start a new onboarding process
 
@@ -112,8 +111,8 @@ If you lose the password associated with the owner account and the steps above d
 - If you have an external backup with an administrator account of which you still know the login credentials, you can restore that backup.
 - If you do not have a backup, resetting the device will erase all data.
 
-- If you have a Home Assistant Green, [reset the Green](https://support.nabucasa.com/hc/en-us/articles/25161225495837).
-- If you have a Home Assistant Yellow, [reset the Yellow](https://support.nabucasa.com/hc/en-us/articles/25463622043165).
+- If you have a Home Assistant Green, [reset the Green](https://support.nabucasa.com/hc/articles/25161225495837).
+- If you have a Home Assistant Yellow, [reset the Yellow](https://support.nabucasa.com/hc/articles/25463622043165).
 
 ## Recovering data for Home Assistant
 
@@ -149,13 +148,3 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
-
-## Deleting a user
-
-You need to be an owner or have administrator rights to delete a user.
-
-1. Go to {% my people title="**Settings** > **People**" %} and select the person which you want to delete.
-   - Note: you cannot delete the owner.
-2. At the bottom of the dialog box, select **Delete**.
-   - A confirmation dialog box will be displayed.
-3. To confirm, select **OK**.

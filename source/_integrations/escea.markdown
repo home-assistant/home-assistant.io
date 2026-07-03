@@ -12,7 +12,7 @@ ha_domain: escea
 ha_homekit: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Escea** {% term integration %} allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
@@ -20,7 +20,7 @@ The **Escea** {% term integration %} allows monitoring and control of local [Esc
 ## Supported hardware
 
 Support all current Escea fireplaces with the Smart Heat feature, including the DF, DL, DS, and DX series.
-Though these fireplaces are supported, they can only be integrated if they were connected via Ethernet when installed (i.e., these fireplaces do not support Wi-Fi).
+Though these fireplaces are supported, they can only be integrated if they were connected via Ethernet when installed (that is, these fireplaces do not support Wi-Fi).
 
 {% include integrations/config_flow.md %}
 
@@ -45,4 +45,4 @@ logger:
     pescea: debug
 ```
 
-This will help you to find network connection issues etc.
+This will help you to find network connection issues.

@@ -21,7 +21,7 @@ ha_codeowners:
   - '@slovdahl'
   - '@viiru-'
   - '@yozik04'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Vallox** {% term integration %} lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -66,37 +66,4 @@ The four standard Vallox profiles are supported:
 - `Boost`
 - `Fireplace`
 
-## Fan actions
-
-### Action `vallox.set_profile_fan_speed_home`
-
-Set the fan speed of the `Home` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action `vallox.set_profile_fan_speed_away`
-
-Set the fan speed of the `Away` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action `vallox.set_profile_fan_speed_boost`
-
-Set the fan speed of the `Boost` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action `vallox.set_profile` 
-
-Set the profile, and optionally a duration for the profile to be active.
-
-| Data attribute | Optional | Description                                                                                                                                                                           |
-|----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
-| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. |
+{% include integrations/actions.md %}

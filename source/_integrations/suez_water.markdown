@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: suez_water
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
@@ -39,14 +39,14 @@ Extra attributes of `Water usage yesterday` sensor:
 The integration provides statistics containing all available data from Suez.
 The data is fetched every 12 hours and is updated once a day by Suez.
 
-You can find the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "suez_water".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "suez_water".
 **Note: Due to Suez's daily update schedule, data for the current day will not be available, and yesterday's data may be delayed depending on when you check**
 
 At the initial setup, the integration pulls historical daily usage since the counter installation.
 
 {% details "Prerequisites" %}
 
-- The Energy dashboard must be enabled in your Home Assistant instance. If you haven't set it up yet, please refer to the [Energy dashboard documentation](/home-assistant-energy/).
+- The Energy dashboard must be enabled in your Home Assistant instance. If you haven't set it up yet, please refer to the [Energy dashboard documentation](/docs/energy/).
 
 {% enddetails %}
 

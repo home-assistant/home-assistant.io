@@ -9,12 +9,13 @@ ha_config_flow: true
 ha_release: 2023.9
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@h3l1o5'
+  - '@aeon-matrix'
 ha_domain: yardian
 ha_platforms:
   - binary_sensor
+  - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Yardian** {% term integration %} allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
@@ -42,13 +43,4 @@ The **Yardian** integration provides the following entities.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone.
 
 
-## Actions
-
-### yardian.start_irrigation
-
-Start a zone for a given number of minutes. This action accepts an Yardian Zone switch {% term entity %} and allows a given duration.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
+{% include integrations/actions.md %}

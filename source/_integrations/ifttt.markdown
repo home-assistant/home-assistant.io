@@ -1,6 +1,6 @@
 ---
 title: IFTTT
-description: Instructions on how to setup IFTTT within Home Assistant.
+description: Instructions on how to set up IFTTT within Home Assistant.
 ha_category:
   - Automation
 ha_iot_class: Cloud Push
@@ -32,8 +32,6 @@ For example, set the body of the IFTTT webhook to:
 
 You then need to consume that incoming information with the following automation:
 
-{% raw %}
-
 ```yaml
 automation:
 - alias: "The optional automation alias"
@@ -48,8 +46,6 @@ automation:
         entity_id: '{{ trigger.event.data.entity_id }}'
     
 ```
-
-{% endraw %}
 
 ## Sending events to IFTTT
 
@@ -82,7 +78,7 @@ ifttt:
 
 ### Testing your trigger
 
-You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant sidebar, click on **Developer Tools** > **Actions** tab. Select `IFTTT: Trigger` as the action and fill in the following values:
+You can use **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
 
 {% configuration_basic %}
 event:
@@ -121,13 +117,11 @@ Choose *Webhooks* service.
 Select *Receive a web request*.
 ![Receive a web request.](/images/integrations/ifttt/choose_webhook_trigger.png)
 
-You need to setup a unique trigger for each event you sent to IFTTT.
-![You need to setup a unique trigger for each event you sent to IFTTT.](/images/integrations/ifttt/setup_trigger.png)
+You need to set up a unique trigger for each event you sent to IFTTT.
+![You need to set up a unique trigger for each event you sent to IFTTT.](/images/integrations/ifttt/setup_trigger.png)
 
 Add the *Then That* action. The below example sends a notification to the IFTTT mobile app and adds `value1` to the message:
 ![Example notification "then that" action.](/images/integrations/ifttt/setup_then_that.png)
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml Automation entry
@@ -141,11 +135,7 @@ automation:
       data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
 
-{% endraw %}
-
 IFTTT can also be used in scripts and with templates. Here is the above automation broken into an automation and script using variables and templates.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml Automation entry
@@ -162,10 +152,6 @@ automation:
         value3: "{{ trigger.event.data.to_state.state }}"
 ```
 
-{% endraw %}
-
-{% raw %}
-
 ```yaml
 #Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).
 ifttt_notify:
@@ -173,5 +159,3 @@ ifttt_notify:
     - action: ifttt.trigger
       data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
-
-{% endraw %}

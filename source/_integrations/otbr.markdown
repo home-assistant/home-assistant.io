@@ -15,12 +15,14 @@ The **OpenThread Border Router** {% term integration %} allows calling an OpenTh
 
 This integration is installed automatically when the **OpenThread Border Router** app for Home Assistant (formerly known as add-on) is installed. For Home Assistant Yellow, Connect&nbsp;ZBT-1, or Connect&nbsp;ZBT-2 refer to the following procedures:
 
-- [Enabling Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517)
-- [Enabling Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517)
-- [Enabling Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421)
+- [Enabling Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517)
+- [Enabling Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517)
+- [Enabling Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421)
 
 Installing this integration manually is an advanced use case, for example if you run your own border router. If you do have such a use case, follow these steps:
 
 {% include integrations/config_flow.md %}
+
+When asked to provide a URL, enter the address of your border router's REST API. The URL uses plain HTTP, not HTTPS, and includes the host and port of your border router. A standard OpenThread border router exposes its REST API on port `8081`, so your URL typically looks like `http://192.168.1.42:8081`. Replace the IP address with your border router's IP address.
 
 To view the app documentation, go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Documentation** tab.

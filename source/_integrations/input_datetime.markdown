@@ -12,7 +12,7 @@ ha_domain: input_datetime
 ha_integration_type: helper
 ---
 
-The **Input Datetime** {% term integration %} allows the user to define date and time values
+The **Input Datetime** {% term integration %} allows you to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
@@ -73,7 +73,7 @@ input_datetime:
         default: <today> 00:00 | 00:00 | <today>
 {% endconfiguration %}
 
-### Attributes
+## Attributes
 
 A datetime input entity's state exports several attributes that can be useful in
 automations and templates.
@@ -85,28 +85,11 @@ automations and templates.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)                 |
 | `timestamp`                | A timestamp representing the time held in the input.<br>(only available if `has_time: true`) |
 
-### Restore state
+## Restore state
 
-If you set a valid value for `initial`, this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial`, this integration will start with the state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-### Actions
-
-Available actions: `input_datetime.set_datetime` and `input_datetime.reload`.
-
-#### input_datetime.set_datetime
-
-| Data attribute | Format String       | Description                                                                      |
-| -------------- | ------------------- | -------------------------------------------------------------------------------- |
-| `date`         | `%Y-%m-%d`          | This can be used to dynamically set the date.                                    |
-| `time`         | `%H:%M:%S`          | This can be used to dynamically set the time.                                    |
-| `datetime`     | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.                        |
-| `timestamp`    | N/A                 | This can be used to dynamically set both the date & time using a UNIX timestamp. |
-
-To set both the date and time in the same call, use `date` and `time` together, or use `datetime` or `timestamp` by itself. Using `datetime` or `timestamp` has the advantage that both can be set using one template.
-
-#### input_datetime.reload
-
-`input_datetime.reload` action allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -127,10 +110,8 @@ automation:
 ```
 
 To dynamically set the `input_datetime` you can call
-`input_datetime.set_datetime`. The values for `date`, `time` and/or `datetime` must be in a certain format for the call to be successful. (See action description above.)
+`input_datetime.set_datetime`. The values for `date`, `time` and/or `datetime` must be in a certain format for the call to be successful. See the [Set input datetime value](/actions/input_datetime.set_datetime/) action for the expected formats.
 If you have a `datetime` object, you can use its `timestamp` method. Or, if you have a timestamp, you can just use it directly.
-
-{% raw %}
 
 ```yaml
 # Sets time to 05:30:00
@@ -178,5 +159,3 @@ If you have a `datetime` object, you can use its `timestamp` method. Or, if you 
   data:
     timestamp: "{{ now().timestamp() }}"
 ```
-
-{% endraw %}

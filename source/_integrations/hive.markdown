@@ -23,7 +23,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_homekit: true
 ---
 
@@ -33,7 +33,7 @@ The **Hive** {% term integration %} for Home Assistant allows you to interact wi
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant. 2FA authentication must be enabled to use this integration. Once configured, Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
 {% note %}
-Please note that the credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
+The credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -44,77 +44,7 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 
 - **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
   
-## Actions
-
-### Action `hive.boost_heating_on`
-
-You can use the action `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this action.
-
-| Data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `climate.heating`                         |
-| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
-| `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
-
-Examples:
-
-```yaml
-# Example script to boost heating, boost period and target temperature specified.
-script:
-  boost_heating:
-    sequence:
-      - action: hive.boost_heating_on
-        target:
-          entity_id: "climate.heating"
-        data:
-          time_period: "01:30:00"
-          temperature: "20.5"
-```
-
-### Action `hive.boost_heating_off`
-
-You can use the `hive.boost_heating_off` action to turn your heating boost off.
-
-| Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `climate.heating` |
-
-Examples:
-
-```yaml
-# Example script to boost heating, boost period and target temperature specified.
-script:
-  boost_heating:
-    sequence:
-      - action: hive.boost_heating_off
-        target:
-          entity_id: "climate.heating"
-```
-
-### Action `hive.boost_hot_water`
-
-You can use the `hive.boost_hot_water` action to set your hot water to boost for a period of time.
-
-| Data attribute | Optional | Description                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `water_heater.hot_water`                   |
-| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
-| `on_off`               | no       | String, The mode to set the boost to on or off e.g., `on`               |
-
-Examples:
-
-```yaml
-# Example script to boost hot water, boost period specified
-script:
-  boost_hot_water:
-    sequence:
-      - action: "hive.boost_hot_water"
-        target:
-          entity_id: "water_heater.hot_water"
-        data:
-          time_period: "01:30:00"
-          on_off: "on"
-```
+{% include integrations/actions.md %}
 
 ## Platforms
 
@@ -184,3 +114,11 @@ The `hive` water heater platform integrates your Hive hot water into Home Assist
 The platform supports the following Hive products:
 
 - Hot Water Control
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+{% note %}
+Removing the integration will also deregister this Home Assistant instance from your Hive account. If you set up the integration again, you will need to register a new device during the configuration process.
+{% endnote %}

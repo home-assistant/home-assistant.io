@@ -11,7 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Both [Anthem]'s current and last generation of <abbr title="Audio & video">A/V</abbr> receivers and processors support IP-based network control. This Home Assistant {% term integration %} adds proper "local push" support for any of these receivers on your network.
@@ -56,7 +56,7 @@ port:
 
 {% warning %}
 
-The {% term integration %} will maintain a persistent connection to the network control port which will prevent any other application from communicating with the receiver. This includes the Anthem iOS and Android remote control apps as well as the ARC-2 Anthem Room Calibration software. If you want to use another application that makes use of the network control port, disable this {% term integration %} and restart Home Assistant.
+The {% term integration %} will maintain a persistent connection to the network control port which will prevent any other application from communicating with the receiver. This includes the Anthem iOS and Android remote control apps as well as the ARC-2 Anthem Room Calibration software. If you want to use another application that uses the network control port, disable this {% term integration %} and restart Home Assistant.
 <br /><br />
 *The underlying Python module has hooks for halting and resuming the network connection but those functions are currently unsupported by the Home Assistant platform.*
 

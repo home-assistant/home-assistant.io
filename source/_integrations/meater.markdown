@@ -13,7 +13,7 @@ ha_domain: meater
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Meater** {% term integration %} allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.

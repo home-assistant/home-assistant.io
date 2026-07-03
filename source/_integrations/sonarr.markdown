@@ -1,6 +1,6 @@
 ---
 title: Sonarr
-description: Instructions on how to integrate Sonarr with Home Assistant
+description: Instructions on how to integrate Sonarr with Home Assistant.
 ha_category:
   - Downloading
 ha_release: 0.34
@@ -11,30 +11,31 @@ ha_codeowners:
   - '@ctalkington'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The **Sonarr** {% term integration %} pulls data from a given [Sonarr](https://sonarr.tv/) instance. This integration only supports Sonarr v3 instances.
+The **Sonarr** {% term integration %} pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 URL:
-  description: The IP, FQDN, or URL of your Sonarr instance including the port number if you are not using port 8989 and your custom URL base if applicable.
+  description: The URL of your Sonarr instance, including the port number and base path if applicable (for example, `http://localhost:8989` or `http://192.168.1.100:8989/sonarr`).
 API Key:
-  description: To retrieve your API key, open your Sonarr web interface and navigate to Settings, then the General tab. Your Sonarr API Key will be listed on this page under the Security section.
+  description: Your Sonarr API key. To find it, open your Sonarr web interface and navigate to **Settings** > **General**. The API key is listed under the **Security** section.
 {% endconfiguration_basic %}
 
 ## Sensors
 
 The Sonarr integration will add the following sensors:
 
-`sensor.sonarr_upcoming`: The number of upcoming episodes.
+- **Upcoming**: The number of upcoming episodes.
+- **Commands**: The number of commands being run. (disabled by default)
+- **Disk space**: Available disk space in gigabytes. (disabled by default)
+- **Queue**: The number of episodes in the download queue. (disabled by default)
+- **Shows**: The number of series in Sonarr. (disabled by default)
+- **Wanted**: The number of episodes still wanted. (disabled by default)
 
-The remaining five sensors are disabled by default and can be enabled on the device page.
+The sensors provide summary counts. For detailed information about each item, such as series details or download progress, use the corresponding {% term actions %} described below.
 
-- `sensor.sonarr_commands`: The number of commands being run.
-- `sensor.sonarr_disk_space`: Available disk space.
-- `sensor.sonarr_queue`: The number of episodes in the queue.
-- `sensor.sonarr_shows`: The number of series in Sonarr.
-- `sensor.sonarr_wanted`: The number of episodes still wanted.
+{% include integrations/actions.md %}

@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: speedtestdotnet
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Speedtest.net** {% term integration %} uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
@@ -43,8 +43,6 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 
 In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,11 +80,9 @@ automation:
           rgb_color: [255, 0, 0]
 ```
 
-{% endraw %}
-
 ## Notes
 
 - When running on Raspberry Pi the maximum speed is limited by the LAN adapter. The Raspberry Pi 3+ models come with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
 - Running this integration can have negative effects on the system's performance as it requires a fair amount of memory.
-- If run frequently, this integration has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
+- If run frequently, this integration can use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
 - While the speedtest is running your network capacity is fully utilized. This may have a negative effect on other devices using the network such as gaming consoles or streaming boxes.

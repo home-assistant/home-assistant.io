@@ -78,7 +78,7 @@ Components will get a default name that is a combination of the IHC group and IH
 
 ## Manual setup
 
-Each device is associated with an IHC resource id. To manually setup integrations you specify resource ids from the IHC project. The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand.
+Each device is associated with an IHC resource id. To manually set up integrations you specify resource ids from the IHC project. The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand.
 
 The project file is an XML file and you can view it with any text/XML editor. You can rename it to have the XML extension and use a browser like Chrome or Internet Explorer. The resources are the \<airlink_xxx> or \<dataline_xxx> elements. Shown as inputs or outputs of products in the IHC application. You can also use inputs and outputs from function blocks. These are the \<resource_input> and \<resource_output> elements from the project file.
 
@@ -90,7 +90,7 @@ See the manual of each device type for configuration options.
 
 ## Binary sensor
 
-Before you can use the IHC Binary Sensor platform, you must setup the IHC integration.
+Before you can use the IHC Binary Sensor platform, you must set up the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as binary sensors:
 
@@ -124,7 +124,7 @@ ihc:
 
 {% configuration %}
 binary_sensor:
-  description: List of binary sensors to setup manually.
+  description: List of binary sensors to set up manually.
   required: false
   type: map
   keys:
@@ -159,7 +159,7 @@ The resource id should be an id of a boolean IHC resource. For more information 
 
 ## Sensor
 
-Before you can use the IHC Sensor platform, you must setup the IHC integration.
+Before you can use the IHC Sensor platform, you must set up the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as sensors:
 
@@ -187,7 +187,7 @@ ihc:
 
 {% configuration %}
 sensor:
-  description: List of sensors to setup manually.
+  description: List of sensors to set up manually.
   required: false
   type: map
   keys:
@@ -217,7 +217,7 @@ The resource id should be a IHC float resource. For more information about IHC r
 
 ## Light
 
-Before you can use the IHC Light platform, you must setup the IHC integration.
+Before you can use the IHC Light platform, you must set up the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as light devices:
 
@@ -248,7 +248,7 @@ ihc:
 
 {% configuration %}
 light:
-  description: List of lights to setup manually
+  description: List of lights to set up manually
   required: false
   type: map
   keys:
@@ -287,7 +287,7 @@ In the example above 12345 is ihc resource id and "tablelight" is the name. The 
 
 ## Switch
 
-Before you can use the IHC Switch platform, you must setup the IHC integration.
+Before you can use the IHC Switch platform, you must set up the IHC integration.
 
 When auto setup is enabled the following products will be found in the ihc project and setup as switch devices:
 
@@ -311,7 +311,7 @@ ihc:
 
 {% configuration %}
 switch:
-  description: List of switches to setup manually
+  description: List of switches to set up manually
   required: false
   type: map
   keys:
@@ -343,46 +343,4 @@ switch:
 
 The resource id should be a boolean resource (On/Off). For more information about IHC resource ids see [Manual Setup](#manual-setup).
 
-## Actions
-
-Below are the service functions for the IHC integrations.
-
-### Action `ihc.pulse`
-
-| Data attribute | Optional | Description                                                                                         |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
-| `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
-
-This action will send a pulse to the specified IHC resource.
-On and Off with a 400ms delay.
-
-### Action `ihc.set_runtime_value_bool`
-
-| Data attribute | Optional | Description                                                                                         |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
-| `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
-| `value`                | no       | The boolean value to set. (true or false)                                                           |
-
-This action will set the specified boolean resource on the IHC controller.
-
-### Action `ihc.set_runtime_value_float`
-
-| Data attribute | Optional | Description                                                                                         |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
-| `ihc_id`               | no       | The float IHC resource ID.                                                                          |
-| `value`                | no       | The float value to set.                                                                             |
-
-This action will set the specified float resource on the IHC controller.
-
-### Action `ihc.set_runtime_value_int`
-
-| Data attribute | Optional | Description                                                                                         |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
-| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
-| `ihc_id`               | no       | The integer IHC resource ID.                                                                        |
-| `value`                | no       | The integer value to set.                                                                           |
-
-This action will set the specified integer resource on the IHC controller.
+{% include integrations/actions.md %}

@@ -12,6 +12,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tschamm'
+  - '@mosandlt'
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
@@ -19,10 +20,10 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant in order to control and monitor your Bosch Smart Home devices.
+The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant to control and monitor your Bosch Smart Home devices.
 
 There is currently support for the following device types within Home Assistant:
 

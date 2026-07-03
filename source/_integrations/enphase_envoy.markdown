@@ -1,6 +1,6 @@
 ---
 title: Enphase Envoy
-description: Instructions on how to setup Enphase Envoy with Home Assistant.
+description: Instructions on how to set up Enphase Envoy with Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.76
@@ -19,11 +19,11 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
-The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/en-us/products-and-services/envoy-and-combiner), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
+The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/installers/communication), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
 
 ## Supported devices
 
@@ -49,6 +49,10 @@ This integration does not work with:
 - With <abbr title="IQ Gateway">Envoy</abbr> firmware 7 and greater:
   - an Enlighten cloud username and password.
   - Home Assistant 2023.9 or newer.
+
+{% note %}
+Currently, Multi Factor Authentication for the Enlighten account is not supported by this integration. It should be disabled during Envoy configuration and token refresh.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -122,6 +126,10 @@ The Envoy device reports aggregated data for all connected micro-inverters.
 
 When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
 
+{% note %}
+For Envoy non-metered, the production data is read from an endpoint described in the [API](#enphase-api-reference). For Envoy-metered the data is read from an endpoint not listed in the API. The data quality of the used endpoint was fine in older firmware versions, but reportedly varies with recent firmware versions. As an alternative consider using the [Production CT](#current-transformers) entities.
+{% endnote %}
+
 #### Individual micro-inverter production data
 
 The Envoy reports individual micro-inverter device production data. SN is the micro-inverter serial-number.
@@ -156,7 +164,7 @@ Due to a limitation in the Envoy firmware, the inverter device data is only avai
 
 ### House consumption data
 
-House consumption data requires an Envoy Metered equipped and configured with at least 1 consumption <abbr title="current transformers">[CT](#current-transformers)</abbr>.
+House consumption data requires an Envoy Metered equipped and configured with at least 1 consumption <abbr title="current transformers">[CT](#current-transformers)</abbr>, net- or total-consumption. The Envoy calculates the house consumption values in one of its endpoint reports. The used endpoint is not in the official [API](#enphase-api-reference) documentation and data quality has varied / may vary with firmware evolutions. If a total-consumption CT is installed , consider using the [total-consumption CT](#current-transformers) entities as an alternative.
 
 #### Consumption Sensor Entities
 
@@ -176,7 +184,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 The Envoy Metered can be equipped with up-to 6 <abbr title="current transformers">CT</abbr>. These can be assigned to production, consumption and/or storage measurements in single or multiple phase setups.
 
-The below diagram shows CT installation positions and how they are referred to.
+The below diagram shows CT installation positions and how they are referred to. When used with an IQ Combiner more CT may be installed and visible. For more detail on combiner configuration see the [IQ Combiner reference](#iq-combiner-reference).
 
 - The production CT measures the energy exchange between Solar production and the switchboard.
 - If the consumption CT is installed as **Load only** a.k.a.  **total-consumption** it measures energy exchange from the switchboard to the loads/house.
@@ -204,40 +212,40 @@ Phase entity names are the names used for the aggregated entities, with the phas
 
 #### Current transformer entities
 
-CT measure multiple properties of the energy exchange which are available as Envoy device entities. These are all disabled by default, enable them as desired.
+CT measure multiple properties of the energy exchange which are available as Envoy device entities. Some are enabled by default, others not, enable the latter as desired.
 
-##### Production CT sensor entities
+The CT entity names use format: **Envoy <abbr title="Envoy serial number">SN</abbr> <abbr title="CT Entity name part from table">CT Entity</abbr>**. SN is the envoy serial number as with all other entities. The CT Entity part contains the actual CT name in the description, shown as \<type\> in the table below.
 
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency production CT**: Frequency in Hz.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage production CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage))
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Production CT current**: Current in A.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor production CT**: Powerfactor, ratio of active to apparent power.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status production CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active production CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
+| CT Entity | Enabled | Description |
+| ----------------------------------------- | - | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **\<type\> CT energy delivered**          | Y | Accumulated energy delivered to the switchboard in Wh.                                                                                    |
+| **\<type\> CT energy received**           | Y | Accumulated energy received from the switchboard in Wh.                                                                                   |
+| **\<type\> CT power**                     | Y | Power in W. Positive to the switchboard                                                                                                   |
+| **Frequency \<type\> CT**                 | N | Frequency in Hz.                                                                                                                          |
+| **Voltage \<type\> CT**                   | N | Voltage in V. (see limitations [Summed voltage](#summed-voltage)).                                                                        |
+| **\<type\> CT current**                   | N | Current in A.                                                                                                                             |
+| **Powerfactor \<type\> CT**               | N | Powerfactor, ratio of active to apparent power.                                                                                           |
+| **Metering status \<type\> CT**           | N | Status of the metering process: `normal`, `not-metering`, `check-wiring`.                                                                 |
+| **Meter status flags active \<type\> CT** | N | Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero. |
 
-##### Net-consumption CT sensor entities
+For example, the Production CT Voltage entity name for Envoy 1234 would be **Envoy 1234 Voltage production CT**.
 
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency net consumption CT**: Frequency in Hz .
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage net consumption CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage)
-- **Envoy <abbr title="Envoy serial number">SN</abbr> net consumption CT current**: Current in A.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor net consumption CT**: Power factor, ratio of active to apparent power.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status net consumption CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active net consumption CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
+From the past, some name exceptions exist and are maintained for backward compatibility. These are listed in below table showing supported CT. For example, energy delivered by the net-consumption ct is named **Envoy 1234 lifetime net energy consumption** rather then the standard **Envoy 1234 net consumption CT energy delivered**.
 
-##### Storage CT sensor entities
-
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Frequency storage CT**: Frequency in Hz.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Voltage storage CT**: Voltage in V. (see limitations [Summed voltage](#summed-voltage)
-- **Envoy <abbr title="Envoy serial number">SN</abbr> storage CT current**: Current in A.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Powerfactor storage CT**: Power factor, ratio of active to apparent power.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Metering status storage CT**: Status of the metering process: `normal`, `not-metering`, `check-wiring`.
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Meter status flags active storage CT**: Count of CT status flags active. See troubleshooting [CT Active flag count is non-zero](#ct-active-flag-count-is-non-zero) when non-zero.
-
-For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-sensor-entities) description.
+| CT Type | Description | entity name exceptions |
+| --- | --- | --- |
+| Production | solar to switchboard |  |
+| Net-consumption | [grid to switchboard](#grid-sensor-entities) | energy delivered: **lifetime net energy consumption** <br> energy received: **lifetime net energy production** <br> power: **current net power consumption** |
+| Total-consumption | House load to switchboard |  |
+| Storage | [Batteries to switchboard](#battery-storage-data) | energy delivered: **Lifetime battery energy discharged:** <br> energy received:**Lifetime battery energy charged** <br> power: **Current battery discharge** |
+| Backfeed | combiner to switchboard | |
+| Load | backup load to switchboard | |
+| EVSE | Combiner to EV | |
+| PV3P | 3th party PV to switchboard | |
 
 ### Grid sensor entities
 
-When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available. See Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) when using these.
+When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available. See Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) when using these. These are the net-consumption CT entities, but use a non-standard CT naming scheme.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
@@ -249,10 +257,11 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 #### Grid Balanced import/export sensor entities
 
-When the Envoy Metered is equipped with either a [total-consumption CT](#current-transformers) or a [net-consumption CT](#current-transformers), the balance of grid import and export is available as well. The balanced power and energy entities are disabled by default, enable these as desired.
+When the Envoy Metered is equipped with a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no grid import and export measurements are available. The Envoy calculates a balance of grid import and export in one of its endpoint reports. These balanced power and energy entities are available, disabled by default.
+
+The used endpoint is not in the official API documentation and data quality has varied / may vary with firmware evolutions.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
-  (This is the same value as [Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption](#grid-sensor-entities) when using a net-consumption CT.)
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption**: Lifetime energy balance (difference) of imported and exported grid energy in Wh, default display in kWh.
 
 When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disabled phase entities are available as well.
@@ -278,7 +287,7 @@ Aggregated IQ battery data includes all installed IQ Batteries.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Reserve battery level**: Configured aggregated IQ Battery backup state of charge in %
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Reserve battery energy**: Configured aggregated IQ battery backup energy content in Wh
 
-If a [storage <abbr title="current transformers">CT</abbr>](#storage-ct-sensor-entities) is installed:
+If a [storage <abbr title="current transformers">CT</abbr>](#current-transformer-entities) is installed below entities are available. These are the storage CT entities, but use a non-standard CT naming scheme.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current battery discharge**: Current power in/out of the battery in W.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime battery energy discharged**: Lifetime energy discharged from the battery in Wh, default display format MWh.
@@ -413,7 +422,7 @@ The names of entities and devices are derived from the load_name configured in t
 
 ### IQ Meter Collar data
 
-The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#net-consumption-ct-sensor-entities) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
+The IQ Meter Collar has the net-consumption CT integrated. The CT data is reported in the [net-consumption data](#current-transformers) and [grid sensors](#grid-sensor-entities). In addition the status of the collar is available in entities.
 
 #### Collar status entities
 
@@ -466,13 +475,15 @@ Every 4 hours, the actual firmware version in the Envoy is compared to the known
 
 The firmware version is not available as an entity, but rather as an attribute of the envoy. To use the firmware in automation, scripts or templates, use below example with any envoy entity.
 
-{% raw %}
-
 ```yaml
 {{device_attr(device_id('sensor.envoy_SN_current_power_production'),'sw_version')}}
 ```
 
-{% endraw %}
+### Firmware update alert
+
+To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](/docs/blueprint/) from the community blueprints exchange.
+
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/automation/catsmanac/Track_envoy_firmware.yaml`. Use the [automation example](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651#p-3741023-example-10) shown in the blueprint exchange to implement an automation that will create a notification when the firmware changes.
 
 ## Energy dashboard
 
@@ -495,9 +506,9 @@ With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumpt
 
 #### Electricity grid with balanced consumption entities
 
-With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) or a [net-consumption CT](#grid-sensor-entities) installed, the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
+With a [total-consumption CT](#grid-balanced-importexport-sensor-entities), the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
 
-To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/filter-positive-or-negative-value-changes-in-a-sensor-entity/943919/1) is available in the community blueprints exchange.
+To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/943919) is available in the community blueprints exchange.
 
 Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/catsmanac/Filter_positive_or_negative_value_changes_in_sensor_entity.yaml`. Use the directions and templates in the blueprint exchange topic to implement such a split.
 
@@ -623,7 +634,45 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
+## Envoy replacement
+
+When the physical Envoy needs to be replaced, some preparation is needed to assure data continuation from the old one. This description assumes that the new Envoy replaces the old one in the existing installation and is connected in the same way. The new Envoy will have a different serial number and probably a different IP address.  
+
+### Background
+
+In the Home Assistant configuration, the Envoy entities are identified by their unique identification. The Envoy serial number is part of this unique_id. For micro-inverters, Enpower and/or Encharge devices, the unique_id contains the serial number of these devices instead of the Envoy serial number.
+
+The actual data stored in states, short- and long-term statistics, is identified by an entity identifier. This entity_id is registered in the entity configuration as well. Using the entity_id, the data in the data stores is connected to the entity. Similar to the unique_id, this entity_id contains the serial number of the Envoy, micro-inverters, Enpower, and/or Encharge devices.
+
+When adding the new Envoy, new entities are created, each containing the new Envoy's serial number in unique_id and entity_id. For the Envoy data, this results in states and short- and long-term statistics starting from that point in time. Data from the old Envoy cannot be seen in the new Envoy. For the micro-inverters and Enpower/Encharge device data, the serial numbers remain the same, and data will continue from the old data.
+
+To 'chain' the data of the old Envoy to the new Envoy, the entities of the new Envoy should connect to the existing data. To do so, we need to make sure the existing data can be found when using the new entity_id that contains the new Envoy serial number. This can be done by updating the entity_id of the old Envoy entities and replacing their old serial numbers with the new Envoy serial number. See [customizing entities](/docs/configuration/customizing-devices/) for how to change the entity_id. This should be done **before** the new Envoy is configured in Home Assistant.
+
+### Replacement process
+
+Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. First, complete the steps below.
+
+1. Find all entities for the old Envoy.
+   1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   2. Use the filter to filter the Enphase_envoy integration. Also include disabled entities.
+2. For each entity inspect the entity ID field ([customizing entities](/docs/configuration/customizing-devices/)) and replace the old Envoy serial number by the new Envoy serial number.
+3. Update any actions, cards, scripts, automations, dashboards, and other tools that use the original entity_id to use the new entity_id.
+4. Once completed, remove the old Envoy from Home Assistant
+5. Only now add the new Envoy to Home Assistant. The data from the old Envoy should now be visible in the new Envoy.
+
+### Post replacement awareness
+
+Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
+
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
+
 ## Known issues and limitations
+
+### Reported issues
+
+For reported issues in GitHub, refer to [issues list for the Enphase Envoy integration](https://github.com/home-assistant/core/issues?q=label%3A%22integration%3A+enphase_envoy%22).
+
+For topics in the Home Assistant community, use this [filter of topics that contain the text Enphase](https://community.home-assistant.io/search?q=enphase%20order%3Alatest).
 
 ### Firmware changes
 
@@ -670,11 +719,11 @@ These issues may result in log entries like:
 Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
 ```
 
-If these entries occur frequently and are a nuisance then disable the entity. It's data is at best doubtful.
+If these entries occur frequently and are a nuisance then disable the entity. Its data is at best doubtful.
 
 ### Lifetime reset
 
-Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer Tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
 
 {% details "History example for Envoy Lifetime energy production value reset" %}
 
@@ -699,7 +748,7 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 
 {% enddetails %}
 
-To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/correct-envoy-lifetime-production-energy/942918/1) is available in the community blueprints exchange.
+To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/942918) is available in the community blueprints exchange.
 
 Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/marcelhoogantink/correct_envoy_lifetime_production_energy.yaml`. Use the templates shown in the blueprint exchange to implement an entity with a corrected lifetime value.
 
@@ -723,7 +772,32 @@ Envoy Metered with a net-consumption CT measures current and energy exchange bet
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
+### Data outage around 11 PM
+
+Shortly after 11 PM, data requests to the Envoy may fail. This has been reported for various firmware versions and at different times. The Envoy is reportedly recycling internal processes or performing cleanup tasks. While this activity is ongoing, data requests may fail. The issue is typically observed as log entries and gaps in historical data. These gaps may last until a new value comes in. For some entities, this may not happen until the next sunrise, when solar generation resumes.
+
+{% details "History example for Envoy Lifetime energy production with gaps at 11 PM" %}
+
+The example below shows data gaps starting at 11 PM on multiple, but not all, days.
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_11pm_outages.png" alt="envoy lifetime energy production 11 PM outages">
+  <figcaption>Envoy Lifetime energy production data gaps at 11 PM.</figcaption>
+</figure>
+
+{% enddetails %}
+
 ## Troubleshooting
+
+### Enlighten authentication issues
+
+If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
+
+- Before HA version 2026.1.2: KeyError: 'is_consumer'
+- As of Home Assistant version 2026.1.2
+  - KeyError: 'session_id'
+  - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
+
+These error may also appear in the log upon token refresh, 11 months after initial token collection.
 
 ### Periodic network connection issues
 
@@ -750,9 +824,9 @@ This integration provides debug log and {% term diagnostics %} report as describ
 When experiencing issues during the use of the integration, enable the debug log for the <abbr title="IQ Gateway">Envoy</abbr>. Then restart the integration. This will add details on the data collection to the Home Assistant log file. Leave the debug log enabled long enough to capture the occurrence of the issue. If the issue is intermittent, this may take a while and it may grow the log file quite a bit.
 
 If you're expecting features to show but they are not shown, make sure to reload the integration while debug logging is enabled.
-When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
+When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected. Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
 
-Once the issue occurred, stop the debug logging again (_download of debug log file will start automatically_). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
+Once the issue occurred, stop the debug logging again (*download of debug log file will start automatically*). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
 
 The debug log will show all communication with the Envoy / IQ Gateway. Lines starting with below examples are log entries for the integration:
 
@@ -822,4 +896,15 @@ Shows all entities created by the integration based on the findings of the initi
 
 The data to build test fixtures from. This section is only available when the option to Collect test fixture data is enabled in the integration [options](#options).
 
+___
+
+## References
+
+### Enphase API reference
+
+[EB-00060-2.0-EN, June 2025](https://enphase.com/download/accessing-iq-gateway-local-apis-or-local-ui-token-based-authentication)
+
+### IQ Combiner reference
+
+[TEB-00269-2.0-EN, March 2025](https://enphase.com/it-it/media/26097)
 ___

@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tjhorner'
 ha_domain: weatherkit
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - sensor
   - weather

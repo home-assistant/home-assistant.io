@@ -48,11 +48,11 @@ Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters, Switches and Cameras a
 - Tasmota Switches will be added as either Home Assistant `binary_sensor` entities or `automation triggers` depending on the `switchmode` used when `SetOption114` is enabled.
 - The fan functionality in Tasmota devices with module configured as `iFan02` or `iFan03` will be added as Home Assistant `fan` entities. Tuya fans are not supported.
 - The camera functionality in ESP32 Tasmota devices with [tasmota32-webcam](https://templates.blakadder.com/ai-thinker_ESP32-CAM.html) firmware will be added as Home Assistant `Camera` entities. Note that this functionality is supported only when the Tasmota device and the Home Assistant server are on the same network.
-- The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
+- The integration will also create up to eight Status Sensors, each one with a different information. All the Status Sensors are disabled by default.
   ![iot](/images/integrations/tasmota/tasmota_status_sensors.png)
 
 {% include integrations/config_flow.md %}
 
 You must also configure each Tasmota device's MQTT settings to communicate with whatever MQTT broker you are using. Enter the broker address under host, and enter a username/password combination that allows access to the broker.
 
-If using the Mosquitto Broker add-on for Home Assistant, first create a new Home Assistant user under {% my users title="Settings > People" %}. Then, in **Tasmota** > **Configure MQTT** under "Host" enter the address of your Home Assistant instance and under "User" and "Password" enter the Home Assistant user you just created.
+If you are using the Home Assistant Mosquitto Broker app, first create a new Home Assistant user under {% my users title="Settings > People" %}. Then, in **Tasmota** > **Configure MQTT** under "Host" enter the address of your Home Assistant instance and under "User" and "Password" enter the Home Assistant user you just created.

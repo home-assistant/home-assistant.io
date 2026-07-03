@@ -1,6 +1,6 @@
 ---
 title: Downloader
-description: Instructions on how to setup the downloader integration with Home Assistant.
+description: Instructions on how to set up the downloader integration with Home Assistant.
 ha_category:
   - Downloading
 ha_release: pre 0.7
@@ -20,7 +20,7 @@ If the path is not absolute, it’s assumed to be relative to the Home Assistant
 
 ### Use the action
 
-Go to the "Developer Tools", then to "Actions", and choose `downloader.download_file` from the list of available actions. Fill the "data" field as shown in the example below and select "Perform action".
+Go to the "Developer tools", then to "Actions", and choose `downloader.download_file` from the list of available actions. Fill the "data" field as shown in the example below and select "Perform action".
 
 ```json
 {"url":"http://domain.tld/path/to/file"}

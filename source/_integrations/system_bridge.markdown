@@ -101,11 +101,23 @@ This integration is available as a media source to use with the media browser in
 
 The integration provides an update component, which will notify you when a new version of the app is available.
 
-## Actions
+## Notifiers
 
-### Notifications `notify.system_bridge_hostname`
+The **System Bridge** {% term integration %} adds a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For more customizable notifications, you can use the [notify platform](#notifications-notifysystem_bridge_hostname) instead. For further instructions on using notifiers in automations, refer to the [getting started with automation page](/getting-started/automation/).
 
-You can send notifications to the device using the `notify` platform.
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.my_device
+  data:
+    title: "Reminder"
+    message: "Have you considered frogs?"
+{% endexample %}
+
+## Notifications
+
+You can send notifications to the device using the `notify.system_bridge_hostname` notify entity.
 
 ```yaml
 action: notify.system_bridge_hostname
@@ -128,26 +140,22 @@ data:
   message: "This is a message"
 ```
 
-#### Parameters
+### Parameters
 
-| Parameter | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| target    | The target to send the notification to. This can be ignored. |
-| title     | The title of the notification.                               |
-| message   | The message of the notification.                             |
-| data      | The data to send to the device. See below for info.          |
+- **target**: The target to send the notification to. This can be ignored.
+- **title**: The title of the notification.
+- **message**: The message of the notification.
+- **data**: The data to send to the device. See below for more information.
 
-##### Actions (`data` parameter)
+#### Actions (`data` parameter)
 
-This is an array of actions that can be sent to the device. These are buttons that show below the title, message and image.
+This is a list of actions that can be sent to the device. These are buttons that show below the title, message, and image.
 
-| Parameter | Description                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------- |
-| command   | The command to send to the device. For example `api` will send a request to the System Bridge API.                         |
-| label     | The label of the button.                                                                                                   |
-| data      | The data to send to the device. The available parameters for the `api` command are: `endpoint`, `method` `body`, `params`. |
+- **command**: The command to send to the device. For example, `api` sends a request to the System Bridge API.
+- **label**: The label of the button.
+- **data**: The data to send to the device. The available parameters for the `api` command are `endpoint`, `method`, `body`, and `params`.
 
-Here is an example action that will open a URL in the device's browser:
+Here is an example action that opens a URL in the device's browser:
 
 ```yaml
 - command: api
@@ -159,185 +167,8 @@ Here is an example action that will open a URL in the device's browser:
       url: "http://homeassistant.local:8123/lovelace/cameras"
 ```
 
-##### Audio (`data` parameter)
+#### Audio (`data` parameter)
 
-This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
+This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file, such as an MP3.
 
-### Action `system_bridge.get_process_by_id`
-
-Returns a process by its pid.
-
-{% my developer_call_service service="system_bridge.get_process_by_id" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.get_process_by_id
-data:
-  bridge: "deviceid"
-  id: 17752
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: 17752
-name: steam.exe
-cpu_usage: 0.9
-created: 1698951361.6117153
-memory_usage: 0.23782578821487121
-path: C:\Program Files (x86)\Steam\steam.exe
-status: running
-username: hostname\user
-working_directory: null
-```
-
-### Action `system_bridge.get_processes_by_name`
-
-Returns a count and a list of processes matching the name provided.
-
-{% my developer_call_service service="system_bridge.get_processes_by_name" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.get_processes_by_name
-data:
-  bridge: "deviceid"
-  name: discord
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-count: 1
-processes:
-  - id: 11196
-    name: Discord.exe
-    cpu_usage: 0.3
-    created: 1698951365.770648
-    memory_usage: 0.07285296297215042
-    path: C:\Users\user\AppData\Local\Discord\app\Discord.exe
-    status: running
-    username: hostname\user
-    working_directory: null
-```
-
-### Action `system_bridge.open_path`
-
-Open a URL or file on the server using the default application.
-
-{% my developer_call_service service="system_bridge.open_path" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.open_path
-data:
-  bridge: "deviceid"
-  path: "C:\\image.jpg"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: OPENED
-data:
-  path: C:\image.jpg
-message: Path opened
-```
-
-### Action `system_bridge.open_url`
-
-Open a URL or file on the server using the default application.
-
-{% my developer_call_service service="system_bridge.open_url" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.open_url
-data:
-  bridge: "deviceid"
-  url: "https://home-assistant.io"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: OPENED
-data:
-  url: https://home-assistant.io
-message: URL opened
-```
-
-### Action`system_bridge.send_keypress`
-
-Send a keypress to the server.
-
-{% my developer_call_service service="system_bridge.send_keypress" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.send_keypress
-data:
-  bridge: "deviceid"
-  key: "a"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: KEYBOARD_KEY_PRESSED
-data:
-  key: a
-message: Key pressed
-```
-
-### Action `system_bridge.send_text`
-
-Sends text for the server to type.
-
-{% my developer_call_service service="system_bridge.send_text" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.send_text
-data:
-  bridge: "deviceid"
-  text: "Hello"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: KEYBOARD_TEXT_SENT
-data:
-  text: Hello
-message: Text entered
-```
-
-### Action `system_bridge.power_command`
-
-Sends power command to the system.
-
-Supported commands are:
-
-- `hibernate`
-- `lock`
-- `logout`
-- `restart`
-- `shutdown`
-- `sleep`
-
-{% my developer_call_service service="system_bridge.power_command" title="Show action in your Home Assistant instance." %}
-
-```yaml
-action: system_bridge.power_command
-data:
-  bridge: "device"
-  command: "sleep"
-```
-
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
-
-```yaml
-id: abc123
-type: POWER_SLEEPING
-data: {}
-message: Sleeping
-```
+{% include integrations/actions.md %}

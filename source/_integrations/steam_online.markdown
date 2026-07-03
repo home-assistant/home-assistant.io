@@ -30,7 +30,7 @@ Go to your profile, select "Edit Profile", "Privacy Settings".
 
 ## Setup
 
-You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.
+You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform. The domain name appears to not have any effect, but it's recommended to set this to your Home Assistant domain name. If you wish to avoid the proprietary Steam mobile application (needed because API key creation requires Steam Guard Mobile Authenticator), you can temporarily enroll in Steam Guard in the app, create an API key, then unregister Steam Guard again. The new API key will continue to function.
 
 To find an account's 64-bit SteamID:
 

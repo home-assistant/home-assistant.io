@@ -39,6 +39,7 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_integration_type: device
 ha_dhcp: true
 ha_quality_scale: platinum
@@ -66,9 +67,9 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
 
-If you're looking for pre-built solutions, the [Voice PE](https://www.home-assistant.io/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
+If you're looking for pre-built solutions, the [Voice PE](/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
 
 For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
 
@@ -145,6 +146,16 @@ ESPHome devices can call any [Home Assistant Action](https://esphome.io/componen
 
 The [Native API Component](https://esphome.io/components/api/) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api/#homeassistanttag_scanned-action) for more information.
 
+### Bluetooth proxy scanning mode
+
+For ESPHome devices running the [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/) on a recent firmware, you can choose how the proxy scans for Bluetooth devices. The default is **Auto**, which is recommended for most setups. To change it, open the device in {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure**, and pick a **Bluetooth scanning mode**:
+
+- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
+- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
+- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
+
+The first time Home Assistant connects to a proxy, the device's YAML mode is honored if it was set to passive; otherwise the proxy starts in **Auto**. After that, the choice saved in Home Assistant takes ownership of the running mode and changing `bluetooth_proxy:` `mode:` in the device YAML no longer affects the running mode.
+
 ## Entity naming and IDs
 
 - Entity name is a combination of the friendly name (or name if unset) and component name
@@ -213,7 +224,7 @@ If you want the device to send logs without requiring you to be actively monitor
 
 2. To adjust the logging level, there are two options:
     - enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics),
-    - or use the [Developer Tools](/docs/tools/dev-tools/#actions-tab) to call the [`logger.set_level`](/integrations/logger/#action-set_level) action to specify the desired level:
+    - or use the [Developer tools](/docs/tools/dev-tools/#actions-tab) to call the [`logger.set_level`](/integrations/logger/#action-set-level) action to specify the desired level:
 
       ```yaml
       action: logger.set_level

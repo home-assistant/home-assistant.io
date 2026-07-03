@@ -32,46 +32,19 @@ These are not the same as *Device Auth* credentials previously recommended for [
 
 {% include integrations/google_oauth.md %}
 
-## Troubleshooting
+## Sending emails
 
-If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
-
-### Action `google_mail.set_vacation`
-
-You can use the `google_mail.set_vacation` action to set vacation options.
-
-{% details "Create event action  details" %}
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `enabled` | yes | Turn this off to end vacation responses. | True
-| `title` | no | The subject for the email. | Vacation
-| `message` | yes | Body of the email. | I am on vacation.
-| `plain_text` | no | Choose to send message in plain text or HTML. | True
-| `restrict_contacts` | no | Restrict automatic reply to contacts. | True
-| `restrict_domain` | no | Restrict automatic reply to domain. This only affects GSuite accounts. | False
-| `start` | no | First day of the vacation. | 11-20-2022
-| `end` | no | Last day of the vacation. | 11-26-2022
-
-{% enddetails %}
-
-The added `notify` service will be named after the email address you chose on the consent screen. For example, an email address named "example@gmail.com" wil display as `notify.example_gmail_com`.
-
-### Google Mail notify action data
+The `notify` action added by this integration is named after the email address you chose on the consent screen. For example, an email address named "example@gmail.com" will display as `notify.example_gmail_com`.
 
 The following attributes can be placed inside the `data` key of the action for extended functionality:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `cc`               |      yes | List of recipients to be carbon-copied.
-| `bcc`                   |      yes | List of recipients to be blind-carbon-copied.
-| `from`                   |      yes | Default is current authenticated user. Typically only applies to GSuite accounts where the user has delegate access to a shared mailbox.
-| `send`                 |      yes | Default is true. Set this to false to create a draft instead. Recipients are not required in this instance.
-| `alias_from`           |      yes | Name that will be showed to the receivers instead of the user email. You have to set `from` if you want to use this option. |
+- `cc`: List of recipients to be carbon-copied.
+- `bcc`: List of recipients to be blind-carbon-copied.
+- `from`: Defaults to the current authenticated user. Typically only applies to Google Workspace accounts where the user has delegate access to a shared mailbox.
+- `send`: Defaults to `true`. Set this to `false` to create a draft instead. Recipients are not required in this case.
+- `alias_from`: Name that is shown to the recipients instead of your email address. To use this option, you must also set `from`.
 
-### Examples
-
-This is the full service call to send an email:
+This is the full action to send an email:
 
 ```yaml
 action: notify.example_gmail_com
@@ -89,8 +62,14 @@ data:
     alias_from: "Example alias"
 ```
 
-### Video tutorial
+{% include integrations/actions.md %}
+
+## Video tutorial
 
 This video tutorial explains how to set up Gmail in Home Assistant and how you can create a dashboard and automations to send email and toggle your out-of-office notice.
 
 <lite-youtube videoid="IHKliqSFZvM" videotitle="How To send e-mail PERFECTLY using Gmail in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
+## Troubleshooting
+
+If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.

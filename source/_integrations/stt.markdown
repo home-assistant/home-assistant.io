@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_category: []
 ha_integration_type: entity
 related:
-  - url: https://support.nabucasa.com/hc/en-us/articles/29718084245149
+  - url: https://support.nabucasa.com/hc/articles/29718084245149
     title: Nabu Casa Cloud speech-to-text service
   - docs: /voice_control/voice_remote_cloud_assistant/
     title: Setting up a Nabu Casa Cloud voice assistant

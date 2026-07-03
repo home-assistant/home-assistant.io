@@ -15,7 +15,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Hyperion** {% term integration %} allows you to integrate your
@@ -52,9 +52,9 @@ added/removed from Home Assistant.
 The default light entity will send data to Hyperion on the priority you have configured 
 during integration setup. When turned off, it will clear the configured priority again. 
 Other light sources independent of Home Assistant configured in Hyperion might still be 
-active and cause light to be emitted. In order to turn the light output off entirely 
+active and cause light to be emitted. To turn the light output off entirely 
 regardless of active light sources, you can enable the LED device entity that acts as 
-a global switch (see Advanced Entities).
+a global switch (see [Entities for higher extensibility and interoperability](/integrations/hyperion/#entities-for-higher-extensibility-and-interoperability)).
 
 ## Effects
 
@@ -67,7 +67,7 @@ A Hyperion camera entity is created that shows a stream of the input to Hyperion
 USB Capture device). This could be used to show a small "preview window" next to TV
 controls, for example.
 
-Please note that only the currently live Hyperion priority can be streamed, and only
+Only the currently live Hyperion priority can be streamed, and only
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
 
@@ -75,10 +75,10 @@ static colors will not).
 
 A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor provide more details on the nature of the effect. For a detailed description, refer to the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities).
 
-## Advanced entities
+## Entities for higher extensibility and interoperability
 
 The Hyperion integration comes with a series of disabled-by-default entities for
-advanced usecases. These entities expose 'raw' underlying Hyperion API components for
+particular use cases. These entities expose 'raw' underlying Hyperion API components for
 improved extensibility and interoperability which are particularly useful in cases where
 there are multiple Hyperion server clients (of which Home Assistant is one).
 
@@ -95,7 +95,7 @@ Provided entities for controlling external sources:
 
 ### Control over Hyperion functionality
 
-Further advanced entities to control Hyperion functionality:
+Further entities to control Hyperion functionality:
 
 - There will be additional `switch.[instance]_component_[component]` entities that can
   be used to toggle the relevant underlying Hyperion component as shown on the Hyperion
@@ -160,7 +160,7 @@ To capture the screen on a USB capture device, when playing something on a media
         entity_id: switch.[instance]_component_usb_capture
 ```
 
-To toggle the LED device together with the light entity in order to turn light output on or off for all sources. In this example both entities are turned on together, create another automation with the values reversed for turning both off:
+To toggle the LED device together with the light entity to turn light output on or off for all sources. In this example both entities are turned on together, create another automation with the values reversed for turning both off:
 
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"

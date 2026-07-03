@@ -6,7 +6,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pantherale0'
 ha_domain: anglian_water
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - sensor
 ha_category:
@@ -32,9 +32,9 @@ The following devices are not supported by the integration:
 
 {% configuration_basic %}
 Username:
-    description: "The username / email used to login to your Anglian Water account."
+    description: "The username / email used to log in to your Anglian Water account."
 Password:
-    description: "The password used to login to your Anglian Water account."
+    description: "The password used to log in to your Anglian Water account."
 Account number:
     description: "If a valid smart meter is not associated with the default billing account linked to your Anglian Water login, please have your latest bill handy. You will be asked to provide the account number found at the top."
 {% endconfiguration_basic %}
@@ -53,6 +53,24 @@ The **Anglian Water** integration provides the following entities.
 
 - **Yesterday consumption**
   - **Description**: Yesterday's total water consumption in litres (this may not update until after 12pm).
+
+## Long-term statistics
+
+The **Anglian Water** integration allows you to import all your historical consumption readings from your Anglian Water account into long-term statistic entities. These entities can be displayed in your Home Assistant energy dashboard, providing a comprehensive view of your consumption data over time.
+
+### Identifying Anglian Water statistic entities
+
+The statistic entities imported via this integration have an `anglian_water:` prefix. This prefix helps you identify and distinguish these entities from other sensor statistics when setting up the long-term statistics in the energy dashboard.
+
+### Setting up long-term statistics in the energy dashboard
+
+To set up the **Anglian Water** long-term statistics in your Home Assistant energy dashboard, follow these steps:
+
+1. Go to the energy configuration panel of your Home Assistant instance.
+   [![Open your Home Assistant instance and show your energy configuration panel.](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
+2. Go to **Water consumption**.
+3. Select **Add water source**.
+4. Choose the **Water** entity, for example, `anglian_water:account_meter_usage`.
 
 ## Data updates
 

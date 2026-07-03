@@ -18,7 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - water_heater
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Nibe Heat Pump** {% term integration %} allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.

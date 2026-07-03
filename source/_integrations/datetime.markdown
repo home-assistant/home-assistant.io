@@ -31,17 +31,4 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Actions
-
-### datetime actions
-
-Available {% term actions %}: `datetime.set_value`
-
-### Action `datetime.set_value`
-
-Set a new value for the datetime {% term entity %}.
-
-| Data attribute | Optional | Description                                                                                                  |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`    | no       | String or list of strings that point at `entity_id`'s of datetimes to control.                               |
-| `datetime`     | no       | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used. |
+{% include integrations/actions.md %}

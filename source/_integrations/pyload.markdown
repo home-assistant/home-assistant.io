@@ -57,10 +57,12 @@ URL:
   description: "The full URL of the pyLoad web interface, including the protocol (HTTP or HTTPS), hostname or IP address, port, and any path prefix if applicable. Example: `https://example.com:8000/path`"
 Verify SSL certificate:
   description: "If checked, the SSL certificate will be validated to ensure a secure connection."
-Username:
-  description: "The username used to access the pyLoad instance."
-Password:
-  description: "The password associated with the pyLoad account."
+API key:
+  description: "The API key to authenticato with the pyLoad API."
+Username [Deprecated]:
+  description: "The username used to access the pyLoad instance. No longer supported with pyLoad 0.5.0b3.dev97 or later."
+Password [Deprecated]:
+  description: "The password associated with the pyLoad account. No longer supported with pyLoad 0.5.0b3.dev97 or later."
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -93,8 +95,6 @@ This automation will pause new downloads when your available disk space falls be
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Monitor pyLoad download queue"
 description: "Pause new downloads when the disk space is low."
@@ -106,13 +106,11 @@ actions:
   - action: switch.turn_off
     target:
       entity_id: switch.pyload_pause_resume_queue
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: "Free space is low, pausing pyLoad queue."
 mode: single
 ```
-
-{% endraw %}
 
 {% enddetails %}
 
@@ -121,8 +119,6 @@ mode: single
 This automation halts all active pyLoad downloads when watching Netflix on your media player.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Halt pyLoad downloads when watching Netflix"
@@ -145,8 +141,6 @@ actions:
     message: "pyLoad downloads have been halted because Netflix streaming started."
 mode: single
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

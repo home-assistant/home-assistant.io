@@ -1,6 +1,6 @@
 ---
 title: Hunter Douglas PowerView
-description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
+description: Instructions on how to set up Hunter Douglas PowerView scenes within Home Assistant.
 ha_category:
   - Button
   - Cover
@@ -27,7 +27,7 @@ ha_platforms:
   - sensor
 ha_zeroconf: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Hunter Douglas PowerView** {% term integration %} allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/smart-automation) devices in Home Assistant. The product is also known by the brand name Luxaflex Powerview in Europe and Australia [as explained on their website](https://www.hunterdouglasgroup.com/worldwide-offices/), however this integration should work for both brands.
