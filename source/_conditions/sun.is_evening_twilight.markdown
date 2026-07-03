@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: It is evening twilight**.
+4. From the search box, search for and select **It is evening twilight**.
 5. Under **Twilight type**, select **Any**, **Civil**, **Nautical**, or **Astronomical**.
 6. Select **Save**.
 

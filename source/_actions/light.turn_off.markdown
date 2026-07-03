@@ -124,7 +124,7 @@ action: |
 
 Turn the porch light off automatically as the sun comes up. No more wasted electricity after you've already gone to bed or left for work.
 
-- **Trigger**: Sun: Above horizon
+- **Trigger**: Sunrise
 - **Action**: Turn off light
 - **Target**: Porch light
 
@@ -134,8 +134,7 @@ Turn the porch light off automatically as the sun comes up. No more wasted elect
 automation: |
   alias: "Porch light off at sunrise"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   actions:
     - action: light.turn_off
       target:
