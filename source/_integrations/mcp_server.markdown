@@ -53,7 +53,7 @@ The Home Assistant Model Context Protocol Server integration implements the
 [Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
 allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can 
+and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
@@ -87,13 +87,11 @@ an OAuth Client ID. Instead, the Client ID is the base URL of the client applica
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
-1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
-
-2. Create a **Long-lived access token**
-
+1. At the bottom of the sidebar, select your avatar, and then select the **Security** tab {% my profile_security badge %}.
+2. Under **Long-lived access tokens**, select **Create token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
-For more information about Authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/#your-account-profile).
+For more information about authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/).
 
 ### Example: Claude for Desktop
 
