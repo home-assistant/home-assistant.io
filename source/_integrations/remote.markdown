@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 The **Remote** {% term integration%} manages the state of the remote entities and allows you to control them.
 
-- Maintains a state per remote and a combined state `all_remotes`.
+- Maintains a state for each of your remotes.
 - Registers actions `remote.turn_on`, `remote.turn_off`, `remote.toggle`, and `remote.send_command` to control remotes.
 
 {% include integrations/building_block_integration.md %}

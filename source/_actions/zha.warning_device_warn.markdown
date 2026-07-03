@@ -116,9 +116,9 @@ automation: |
         entity_id: binary_sensor.hallway_motion
         to: "on"
     conditions:
-      - condition: state
-        entity_id: group.family
-        state: "not_home"
+      - condition: zone.occupancy_is_not_detected
+        options:
+          zone: zone.home
     actions:
       - action: zha.warning_device_warn
         data:

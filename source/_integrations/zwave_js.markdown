@@ -490,8 +490,6 @@ The following features can be accessed from the device panel of any Z-Wave devic
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (adapters and devices with the Firmware Update Metadata Command Class).
 - **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
 
-{% include integrations/actions.md %}
-
 ## Events
 
 There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
@@ -670,6 +668,8 @@ actions:
 <a id="zwave_jsevent-trigger"></a>
 
 {% include integrations/triggers.md %}
+
+{% include integrations/actions.md %}
 
 ## Setting up a Z-Wave server without using the Z-Wave JS app
 

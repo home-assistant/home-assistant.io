@@ -42,7 +42,7 @@ Performing an action can be done in various ways. For all the different possibil
 - alias: "Bedroom lights on"
   action: light.turn_on
   target:
-    entity_id: group.bedroom
+    entity_id: light.bedroom
   data:
     brightness: 100
 ```

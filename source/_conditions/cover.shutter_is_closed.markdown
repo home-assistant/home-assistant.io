@@ -88,7 +88,7 @@ for:
 
 At sunrise, this automation checks whether the shutter is still closed. If it is, Home Assistant opens it to let in daylight.
 
-- **Trigger**: Sun: Sunrise
+- **Trigger**: Sunrise
 - **Condition**: Shutter is closed
   - **Target**: Kitchen shutter
 - **Action**: Open cover
@@ -99,8 +99,7 @@ At sunrise, this automation checks whether the shutter is still closed. If it is
 automation: |
   alias: "Open the shutter at sunrise"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: cover.shutter_is_closed
       target:

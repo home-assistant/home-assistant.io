@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Sun: Sun elevation crossed threshold**.
+4. From the search box, search for and select **Sun elevation crossed threshold**.
 5. Under **Threshold type**, configure which crossing fires the trigger:
    - Select **Above** or **Below** and enter an angle in degrees to fire when the elevation crosses that angle.
    - Select **In range** and enter a lower and upper angle to fire when the elevation crosses into that range.

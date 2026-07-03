@@ -79,8 +79,6 @@ input_text:
         default: text
 {% endconfiguration %}
 
-{% include integrations/actions.md %}
-
 ## Restore state
 
 If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
@@ -96,6 +94,12 @@ scene:
     entities:
       input_text.example: Hello!
 ```
+
+{% include integrations/triggers.md domain="text" %}
+
+{% include integrations/conditions.md domain="text" %}
+
+{% include integrations/actions.md %}
 
 ## Automation examples
 
@@ -130,7 +134,3 @@ automation:
         data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
-
-{% include integrations/triggers.md domain="text" %}
-
-{% include integrations/conditions.md domain="text" %}
