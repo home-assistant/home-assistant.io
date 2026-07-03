@@ -128,6 +128,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
+|Select|Seat cooler front left|Yes|
+|Select|Seat cooler front right|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
