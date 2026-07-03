@@ -135,7 +135,6 @@ For more details, refer to [About device placement and coverage](#about-device-p
 
 A command controls a device in the wrong room, or a device does not respond even though another one does.
 
-
 #### Resolution
 
 To resolve this issue, try the following steps:
@@ -152,7 +151,6 @@ To resolve this issue, try the following steps:
 #### Symptom: "The receiver's state never updates"
 
 You send a signal from a handheld remote, but the infrared receiver's {% term state %} does not update to show a recent timestamp.
-
 
 #### Resolution
 
