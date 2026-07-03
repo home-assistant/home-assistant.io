@@ -97,26 +97,59 @@ actions:
 
 ### The charger is not discovered
 
-- Confirm it appears in **Settings** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
-- Move an ESPHome Bluetooth proxy closer to the charger.
-- Make sure the proxy is added to Home Assistant through the ESPHome integration.
-- Run an active scan or temporarily place a local Bluetooth adapter near the charger.
+#### Symptom: The charger is missing from setup
+
+Home Assistant does not discover the charger automatically.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Confirm the charger appears in **Settings** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
+2. Move an ESPHome Bluetooth proxy closer to the charger.
+3. Make sure the proxy is added to Home Assistant through the ESPHome integration.
+4. Run an active scan or temporarily place a local Bluetooth adapter near the charger.
 
 ### No connectable Bluetooth path is available
 
-The charger may be visible only through a passive or non-connectable adapter. Use an ESPHome Bluetooth proxy with active connections enabled, or a local Bluetooth adapter supported by Home Assistant.
+#### Symptom: "No connectable Bluetooth path is available"
 
-Stop any existing bridge, app, container, add-on, or service that may already be connected to the charger. The charger can only keep one active Bluetooth client connection.
+When setting up or loading the integration, Home Assistant reports that no connectable Bluetooth path is available.
+
+#### Description
+
+The charger may be visible only through a passive or non-connectable adapter. The charger can keep only one active Bluetooth client connection.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Use an ESPHome Bluetooth proxy with active connections enabled, or a local Bluetooth adapter supported by Home Assistant.
+2. Stop any app, bridge, container, add-on, or service that may already be connected to the charger.
 
 ### The charger becomes unavailable
 
-- Check **Settings** > **Bluetooth** > **Connection monitor**.
-- Verify the proxy has free active connection slots.
-- Stop any old MQTT bridge or companion process that may still hold the charger's Bluetooth connection.
-- Prefer Ethernet ESPHome Bluetooth proxies when possible.
-- Avoid placing the proxy next to strong Wi-Fi or USB 3.0 interference sources.
+#### Symptom: The charge switch is unavailable
+
+The charge switch becomes unavailable after the integration was set up.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Check **Settings** > **Bluetooth** > **Connection monitor**.
+2. Verify the proxy has free active connection slots.
+3. Stop any old MQTT bridge or companion process that may still hold the charger's Bluetooth connection.
+4. Prefer Ethernet ESPHome Bluetooth proxies when possible.
+5. Avoid placing the proxy next to strong Wi-Fi or USB 3.0 interference sources.
 
 ### The PIN is rejected
+
+#### Symptom: The charger rejected the PIN
+
+During setup, Home Assistant reports that the charger rejected the PIN.
+
+#### Resolution
 
 Remove and add the integration again with the current 6-digit PIN.
 
@@ -134,5 +167,7 @@ The integration does not support:
 - Safety-certified load balancing.
 
 ## Removing the integration
+
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
