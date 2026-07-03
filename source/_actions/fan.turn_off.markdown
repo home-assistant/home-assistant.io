@@ -84,7 +84,7 @@ automation: |
 This avoids running the fan when no one is home.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: Turn off fan
 - **Target**: Living room fan
 

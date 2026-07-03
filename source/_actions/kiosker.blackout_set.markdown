@@ -214,7 +214,7 @@ action: |
 When everyone leaves, cover the screen so the display is not showing anything while the house is empty.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: Kiosker: Set blackout
 - **Device**: Living room kiosk
 - **Visible**: on
@@ -244,7 +244,7 @@ automation: |
 When the first person gets home, remove the overlay and restore the normal display.
 
 - **Trigger**: Zone occupancy detected
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: Kiosker: Set blackout
 - **Device**: Living room kiosk
 - **Visible**: off

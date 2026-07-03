@@ -106,7 +106,7 @@ action: |
 If everyone has been away from home for a full day, upgrade the alarm from away mode to vacation mode automatically. This gives you extended protection without having to remember to switch modes before a trip.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
   - **For at least**: 24:00:00
 - **Action**: Alarm control panel: Arm alarm vacation
 - **Target**: Home alarm

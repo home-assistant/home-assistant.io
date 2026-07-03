@@ -106,7 +106,7 @@ action: |
 When the last person walks out the door, arm the alarm in away mode. A simple way to make sure you never forget to set the alarm.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: Alarm control panel: Arm alarm away
 - **Target**: Home alarm
 

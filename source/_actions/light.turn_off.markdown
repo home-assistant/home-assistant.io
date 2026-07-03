@@ -149,7 +149,7 @@ automation: |
 When the last person leaves home, turn off every light in the house. A simple way to save energy without having to think about it.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: Turn off light
 - **Target**: All lights (by label)
 

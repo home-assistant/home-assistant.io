@@ -60,7 +60,7 @@ target:
 When the last person leaves home, this automation starts the downstairs vacuum so it can clean while the house is empty.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: Start cleaning
 - **Target**: Downstairs vacuum
 

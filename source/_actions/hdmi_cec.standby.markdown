@@ -60,7 +60,7 @@ This action has no additional options in YAML.
 When the last person leaves home, put all connected CEC devices into standby.
 
 - **Trigger**: Zone occupancy cleared
-  - **Zone**: Home
+  - **Zone**: Home (`zone.home`)
 - **Action**: HDMI-CEC: Standby
 
 {% details "YAML example for standby when leaving home" %}
