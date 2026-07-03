@@ -65,7 +65,7 @@ Before setting up the NeoPool integration, make sure:
   The connector is a standard 2.54 mm 5-pin PCB female header.
 
 {% note %}
-The NeoPool device acts as a Modbus _server_, this integration is a Modbus _client_. Only one Modbus client can be connected to a given Modbus connector at a time.
+The NeoPool device acts as a Modbus _server_. This integration is a Modbus _client_. Only one Modbus client can be connected to a given Modbus connector at a time.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
