@@ -59,7 +59,8 @@ target:
 
 When the last person leaves home, this automation starts the downstairs vacuum so it can clean while the house is empty.
 
-- **Trigger**: Everyone leaves home
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
 - **Action**: Start cleaning
 - **Target**: Downstairs vacuum
 
@@ -69,9 +70,9 @@ When the last person leaves home, this automation starts the downstairs vacuum s
 automation: |
   alias: "Start vacuum when house is empty"
   triggers:
-    - trigger: state
-      entity_id: group.family
-      to: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: vacuum.start
       target:
