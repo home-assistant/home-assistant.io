@@ -9,11 +9,9 @@ ha_codeowners:
   - "@jmalcic"
 ha_domain: linksys_smart
 ha_config_flow: true
-ha_ssdp: true
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **Linksys Smart Wi-Fi** {% term integration %} tracks devices connected to a Linksys Smart Wi-Fi router, so you can use device presence in your automations and dashboards.
@@ -68,7 +66,7 @@ Make sure Home Assistant can reach your router on the network. Try opening `http
 
 ### Invalid credentials
 
-If Home Assistant reports an authentication error, verify your router admin password in the router's administration page. If you recently changed your router password, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Linksys Smart Wi-Fi integration, and select **Re-authenticate** to update the credentials.
+If Home Assistant reports an authentication error, verify your router admin password in the router's administration page. If your credentials have changed, remove the integration and add it again with the updated password.
 
 ### Authentication fails even with the correct password
 
