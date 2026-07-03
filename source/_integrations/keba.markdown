@@ -49,10 +49,10 @@ The charging station can be authorized and deauthorized using actions (`keba.aut
 
 ### Enable and Disable `keba.enable` and `keba.disable`
 
-The `keba.enable` and `keba.disable` actions start and stop the charging process on the station.
+The `keba.enable` and `keba.disable` actions send the `ena 1` or `ena 0` command to start or stop the charging process on the station.
 
 {% important %}
-These actions are deprecated and will be removed in a future release. Use the **Switch** entity to enable or disable the charging process instead.
+These actions are deprecated and will be removed in a future release. Use the **Switch** entity instead — it also shows the current charging state at a glance.
 {% endimportant %}
 
 ### Set Target Energy `keba.set_energy`
