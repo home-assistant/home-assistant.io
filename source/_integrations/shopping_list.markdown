@@ -62,6 +62,6 @@ You can also trigger an automation when a `shopping_list_updated` event was trig
 - `clear`: A completed item was cleared from the list.
 - `sorted`: The items in the list were sorted by name.
 - `reorder`: An item has been reordered in the list.
-- `update_list`: All items have been updated (via the `shopping_list.complete_all` or `shopping_list.incomplete_all` actions).
+- `update_list`: All items have been updated, such as via the `shopping_list.complete_all` or `shopping_list.incomplete_all` actions.
 
 In these cases, the event does not return a list item.
