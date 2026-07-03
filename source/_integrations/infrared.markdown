@@ -111,9 +111,6 @@ Because the {% term state %} of an infrared entity is a timestamp, it changes ev
 
 You send a command from Home Assistant, the infrared emitter's {% term state %} updates to show it was used, but the infrared-controlled device does not react.
 
-#### Description
-
-The emitter sent the IR signal, but the device did not receive it. Because infrared is a line-of-sight technology, the signal was most likely blocked, out of range, or aimed away from the device's infrared receiver.
 
 #### Resolution
 
@@ -138,9 +135,6 @@ For more details, refer to [About device placement and coverage](#about-device-p
 
 A command controls a device in the wrong room, or a device does not respond even though another one does.
 
-#### Description
-
-Each infrared remote adapter only reaches devices within its line-of-sight. If the emitter selected during setup belongs to an adapter in a different room, its signal cannot reach the intended device.
 
 #### Resolution
 
@@ -159,9 +153,6 @@ To resolve this issue, try the following steps:
 
 You send a signal from a handheld remote, but the infrared receiver's {% term state %} does not update to show a recent timestamp.
 
-#### Description
-
-The receiver did not detect the IR signal. As with emitters, receivers need a clear line-of-sight, and the handheld remote must be aimed at the receiver.
 
 #### Resolution
 
