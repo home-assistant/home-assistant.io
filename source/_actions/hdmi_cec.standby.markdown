@@ -59,7 +59,8 @@ This action has no additional options in YAML.
 
 When the last person leaves home, put all connected CEC devices into standby.
 
-- **Trigger**: A presence helper switches to away
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home
 - **Action**: HDMI-CEC: Standby
 
 {% details "YAML example for standby when leaving home" %}
@@ -68,9 +69,9 @@ When the last person leaves home, put all connected CEC devices into standby.
 automation: |
   alias: "Standby when away"
   triggers:
-    - trigger: state
-      entity_id: group.family
-      to: "not_home"
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: hdmi_cec.standby
 {% endexample %}

@@ -83,8 +83,8 @@ automation: |
 
 This avoids running the fan when no one is home.
 
-- **Trigger**: Zone: Person leaves home zone
-- **Condition**: Group family is away
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home
 - **Action**: Turn off fan
 - **Target**: Living room fan
 
@@ -94,14 +94,9 @@ This avoids running the fan when no one is home.
 automation: |
   alias: "Turn off living room fan when home is empty"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
-  conditions:
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: fan.turn_off
       target:

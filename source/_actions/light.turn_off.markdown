@@ -148,7 +148,8 @@ automation: |
 
 When the last person leaves home, turn off every light in the house. A simple way to save energy without having to think about it.
 
-- **Trigger**: Zone: Everyone leaves home
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home
 - **Action**: Turn off light
 - **Target**: All lights (by label)
 
@@ -158,14 +159,9 @@ When the last person leaves home, turn off every light in the house. A simple wa
 automation: |
   alias: "Lights off when everyone leaves"
   triggers:
-    - trigger: zone
-      entity_id: person.paulus
-      zone: zone.home
-      event: leave
-  conditions:
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: light.turn_off
       target:
