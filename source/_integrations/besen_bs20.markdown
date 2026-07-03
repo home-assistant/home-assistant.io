@@ -17,7 +17,7 @@ ha_integration_type: device
 
 The **Besen BS20** {% term integration %} connects Home Assistant to Besen BS20-family EV chargers over Bluetooth Low Energy.
 
-This integration talks directly to the charger through Home Assistant's [Bluetooth](/integrations/bluetooth) stack. It does not require MQTT, a sidecar process, or a Home Assistant add-on.
+This integration talks directly to the charger through Home Assistant's [Bluetooth](/integrations/bluetooth) stack.
 
 ## Prerequisites
 
