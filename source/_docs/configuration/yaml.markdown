@@ -124,9 +124,9 @@ This means that you've mistakenly entered a tab character, instead of spaces.
 
 ### Upper and lower case
 
-Home Assistant is case-sensitive, so you must use the correct case when you reference states and entities. A state of `'on'` is not the same as `'On'` or `'ON'`. Entity IDs are always lowercase, so a reference like `binary_sensor.Front_Door` will not match the actual entity `binary_sensor.front_door`.
+Home Assistant is case-sensitive. State values can use any case, so `'on'` is not the same as `'On'` or `'ON'`. Entity IDs, on the other hand, are always lowercase, so a reference like `binary_sensor.Front_Door` will not match the actual entity `binary_sensor.front_door`.
 
-If you're having trouble, check the exact case Home Assistant uses under **Developer tools** > **States**.
+If you're unsure what case a state uses, check how Home Assistant reports it under **Developer tools** > **States**.
 
 ### Booleans
 
