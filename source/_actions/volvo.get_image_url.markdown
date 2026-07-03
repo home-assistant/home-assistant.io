@@ -57,7 +57,7 @@ entry:
 images:
   description: The image angles to retrieve. This option accepts a list of image angle values. Leave empty to get all available images.
   required: false
-  type: string
+  type: [string, list]
 {% endoptions_yaml %}
 
 This action does not support targets.
