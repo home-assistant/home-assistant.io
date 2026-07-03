@@ -1,28 +1,21 @@
 ---
 title: NeoPool
 description: Instructions on how to integrate NeoPool / Sugar Valley pool controllers with Home Assistant.
-ha_release: 2026.7
+ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@svasek'
+  - "@svasek"
 ha_domain: neopool
 ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
   - sensor
-  - switch
 ha_integration_type: hub
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_category:
   - Hub
 ---
 
-The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus TCP, providing real-time monitoring and control of water chemistry, filtration, lighting, heating, and auxiliary relays without any cloud dependency.
+The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus TCP, providing real-time monitoring of water chemistry, filtration, and hydrolysis without any cloud dependency.
 
 The same control system is sold under many brand names worldwide, including **Hidrolife**, **Aquascenic**, **Oxilife**, **Bionet**, **Hidroniser**, **UVScenic**, **Station**, and **Aquarite**, distributed by **Hayward**, **Brilix** (Albixon), **Bayrol**, **Certikin**, **Poolstar**, **GrupAquadirect**, **Pentair**, **ProducPool**, **Pool Technologie**, **Kripsol**, and others.
 
@@ -32,14 +25,14 @@ _VistaPool_ is the name of Hayward's mobile/web app for cloud-based pool managem
 
 ## Use cases
 
-The NeoPool integration brings your pool controller into Home Assistant, providing comprehensive data and control capabilities:
+The NeoPool integration brings your pool controller into Home Assistant, providing comprehensive data and control capabilities. Which entities appear depends on which modules and options the controller reports; unavailable ones are hidden automatically.
 
-- **Monitor water chemistry in real time**: track pH, Redox/ORP, free chlorine, salt, conductivity, water temperature, hydrolysis intensity and voltage from your dashboard.
-- **Automate filtration schedules**: switch between Manual, Auto, Heating, Smart, and Intelligent modes; configure timers; or drive filtration purely from Home Assistant.
-- **Track pool energy consumption**: when the filtration pump wattage is configured, the integration exposes instantaneous power and a cumulative energy sensor that can be added to the [Home Assistant Energy dashboard](/docs/energy/).
-- **Get notified of pool problems**: receive alerts when low-flow, sensor faults, or alarm conditions are detected.
-- **Run seasonal automations**: enable winter mode automatically on a date, or pause polling entirely during the off-season while keeping all entities registered.
-- **Control auxiliary relays**: manage pool lighting, heating, UV lamp, and up to four AUX relays with per-relay timer/period/mode entities.
+- **Monitor water chemistry**: track pH, Redox/ORP, free chlorine, conductivity, and water temperature.
+- **Monitor hydrolysis/electrolysis**: read current production intensity, cell voltage, polarity state, and cell wear counters.
+- **Monitor ionization**: read the current ionization level and polarity.
+- **Monitor filtration**: read the current mode, variable-speed percentage, and Intelligent-mode scheduling data.
+- **Track backwash cycles**: read the remaining time when a Besgo automatic filter valve is running a cycle.
+- **Surface pool-controller problems**: expose alarm states as sensor readings, and raise a repair issue if the controller's GPIO configuration register becomes corrupted.
 
 ## Supported devices
 
@@ -61,12 +54,12 @@ Before setting up the NeoPool integration, make sure:
 - The RS-485 wiring is connected to the controller's `WIFI` or `EXTERNAL` port (do **not** use `DISPLAY` unless the internal LCD is disconnected). The pinout (top to bottom) is:
 
   ```text
-       ___
-    1 |*  |– +12V (from internal power supply)
-    2 |*  |– NC (not connected)
-    3 |*  |– Modbus A+
-    4 |*  |– Modbus B-
-    5 |*__|– GND
+  .  ___
+  1 |*  |– +12V (from internal power supply)
+  2 |*  |– NC (not connected)
+  3 |*  |– Modbus A+
+  4 |*  |– Modbus B-
+  5 |*__|– GND
   ```
 
   The connector is a standard 2.54 mm 5-pin PCB female header.
@@ -88,197 +81,37 @@ Unit ID:
   description: The Modbus unit (server) ID of the NeoPool controller. Defaults to `1`.
 Modbus framer:
   description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP.
-Filtration pump power:
-  description: Rated wattage of the filtration pump. When non-zero, the integration creates instantaneous power and cumulative energy sensors usable in the [Energy dashboard](/docs/energy/). Set to `0` to disable.
-Enable filtration timers 1/2/3:
-  description: Create timer entities for the controller's three filtration schedules. Enable only the timers you actually use.
-Enable pool cover sensor:
-  description: Create a binary sensor exposing the pool cover open/closed state.
-Enable light relay:
-  description: Create entities to control and monitor the pool light relay.
 {% endconfiguration_basic %}
-
-The above configuration can also be adjusted later. Go to {% my integrations title="**Settings** > **Devices & services**" %} > {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
 ## Supported functionality
 
-This integration provides device-class-aware entities for every feature exposed by the controller. Capability detection automatically hides entities for hardware modules that are not present (for example, hydrolysis-related entities are not registered if the hydrolysis module is absent).
+The integration exposes the controller's runtime state as sensor entities. **Only entities backed by a detected hardware module or an enabled controller option are registered**; the rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that sensor.
 
 ### Sensors
 
-- **Water temperature**: current pool water temperature in °C / °F.
-- **pH**: measured pH value.
-- **Redox / ORP**: measured oxidation-reduction potential in mV.
-- **Free chlorine**: measured chlorine concentration (if chlorine module is present).
-- **Salt**: salt concentration in g/L (if hydrolysis module is present).
-- **Conductivity**: measured water conductivity (if conductivity module is present).
-- **Hydrolysis intensity**: current production level in % (if hydrolysis module is present).
-- **Hydrolysis voltage**: current cell voltage (diagnostic, disabled by default).
-- **Ionization**: current ionization level (if ionization module is present).
-- **Filtration speed**: current variable-speed filtration percentage (if supported).
-- **Backwash remaining**: time remaining in the active backwash cycle (if Besgo automatic filter valve is configured).
-- **Filtration pump power**: instantaneous power draw in W (only when pump wattage is configured in the integration's options).
-- **Filtration pump energy**: cumulative energy consumption in Wh / kWh, suitable for the [Energy dashboard](/docs/energy/).
-- **Device time**: the controller's internal clock.
-- **Hydrolysis cell runtime**: five counters that track wear on the electrolytic cell (if the hydrolysis module is present). The "since reset" counter is enabled by default; the cumulative total, the per-polarity runtime (polarity 1 / polarity 2), and the polarity-change count are diagnostic and disabled by default.
-
-### Binary sensors
-
-Around 50 binary sensors covering:
-
-- **Relay states**: Filtration, Light, AUX1–AUX4, pH acid pump.
-- **Module detection**: pH, Redox, Chlorine, Conductivity, Hydrolysis, Ionization modules present.
-- **Regulation status**: pH, Redox, Chlorine, Conductivity, Hydrolysis regulation active.
-- **Problem indicators**: low flow, pH/Redox sensor faults, time-sync drift, alarm conditions.
-- **Heating**: heating relay active (if heating relay assigned).
-- **UV lamp**: UV lamp active (if UV relay assigned).
-- **Pool cover**: cover open/closed (if cover sensor enabled).
-
-### Numbers
-
-- **pH setpoint**, **Redox setpoint**, **Chlorine setpoint**, **Temperature setpoint**.
-- **Hydrolysis production setpoint** (if hydrolysis module is present).
-- **Hydrolysis cover reduction %** (if hydrolysis module + cover sensor enabled).
-- **Hydrolysis shutdown temperature threshold** (if hydrolysis module + temperature sensor + cover sensor enabled).
-
-### Switches
-
-- **Manual filtration**: start/stop filtration manually.
-- **Light** and **AUX1–AUX4** relay switches (can be enabled in options).
-- **Automatic time sync**: keep the controller clock in sync with Home Assistant (disabled by default).
-- **Winter mode**: suspends Modbus communication while keeping all entities registered.
-- **Climate mode** (if heating relay + temperature sensor present).
-- **Smart antifreeze** (if temperature sensor present).
-- **UV mode** (if UV relay assigned).
-- **Hydrolysis cover reduction enable** (if hydrolysis module + cover sensor enabled).
-- **Hydrolysis temperature shutdown enable** (if hydrolysis module + temperature sensor + cover sensor enabled).
-
-### Selects
-
-- **Filtration mode**: Manual, Auto, Heating, Smart, Intelligent, Backwash (Backwash auto-enabled if Besgo valve configured).
-- **Filtration timers**: three independent automatic timers per day.
-- **Filtration speed** (if variable-speed pump is supported).
-- **Boost control**: Inactive, Normal, Hydro (if hydrolysis / electrolysis module present).
-- **pH pump activation delay**.
-- **Intelligent mode minimum filtration time** (if heating + temperature sensor present).
-- **Backwash repeat interval** and **Backwash valve mode** (if Besgo valve configured).
-- Per-relay **timer / period / mode** controls for AUX and Light relays.
-
-### Buttons
-
-- **Manual time sync**: push Home Assistant's time to the controller.
-- **Reset alarm/error**: clear latched controller alarm states.
-- **Start backwash**: manually start a backwash cycle (only if Besgo automatic filter valve is configured).
-- **Reset cell runtime counter**: reset the hydrolysis cell user counters (if the hydrolysis module is present, disabled by default). The controller resets all user counters (cell partial, ION, and UV) together in one atomic operation; there is no per-counter button.
-
-### Light
-
-- **Pool light** with on/off control (and brightness/effect when supported by the relay configuration).
+- **Water temperature**: current pool water temperature (when the temperature sensor is present).
+- **pH**: measured pH level (when the pH module is present).
+- **Redox / ORP**: measured oxidation-reduction potential in mV (when the Redox module is present).
+- **Free chlorine**: measured chlorine concentration (when the chlorine module is present).
+- **Conductivity**: measured water conductivity (when the conductivity module is present).
+- **pH pump status**: current state of the pH dosing pump (off, idle, dosing acid, dosing base) (when the pH module is present).
+- **pH alarm**: latched pH-regulation alarm state (when the pH module is present).
+- **Hydrolysis intensity**: current production level in % (when the hydrolysis module is present).
+- **Hydrolysis voltage**: current cell voltage (when the hydrolysis module is present; diagnostic, disabled by default).
+- **Hydrolysis polarity**: current polarity of the electrolytic cell (when the hydrolysis module is present).
+- **Ionization intensity**: current ionization level (when the ionization module is present).
+- **Ionization polarity**: current polarity of the ionization electrodes (when the ionization module is present).
+- **Filtration mode**: current mode reported by the controller (Manual, Auto, Heating, Smart, Intelligent, Backwash).
+- **Filtration speed**: current variable-speed filtration percentage (when the controller reports a variable-speed pump).
+- **Intelligent-mode intervals** and **time to next interval**: scheduling data for Intelligent mode (when a heating relay and temperature sensor are configured).
+- **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
+- **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. The "since reset" counter is enabled by default; the others are diagnostic and disabled by default.
 
 ## Data updates
 
 The integration {% term polling polls %} the controller over Modbus TCP at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
 
-If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), the integration applies an adaptive backoff that increases the interval between attempts to up to 3 minutes, then returns to the normal interval once the controller is reachable again. While in backoff, all entities transition to `unavailable` so automations can react to the loss of communication.
-
-When the **winter mode** switch is enabled, the integration stops communicating with the controller for the off-season. All entities remain available in your dashboards and automations, but no data is retrieved until winter mode is turned off again.
-
-{% include integrations/actions.md %}
-
-## Examples
-
-The real power of this integration comes from automating filtration, seasonal modes, and direct register writes from Home Assistant. Here are a few ideas to get you started.
-
-{% include docs/paste_yaml_tip.md %}
-
-### Schedule manual filtration
-
-Run filtration once a day from 10:00 to 15:00, but only when the controller is in **Manual** mode. In automatic modes the controller runs filtration on its own schedule and the manual switch is unavailable, so the filtration mode condition prevents the automation from firing for nothing. Two time triggers share an automation, distinguished by trigger ID, and an outer `choose:` block keeps each branch idempotent (it only acts when the switch is in the opposite state).
-
-- **Triggers**: time-based, `10:00:00` (turn on) and `15:00:00` (turn off).
-- **Condition**: filtration mode is `manual`.
-- **Action**: turn the manual filtration switch on or off as appropriate.
-
-{% details "YAML example for scheduling manual filtration" %}
-
-{% example %}
-automation: |
-  alias: "Pool: scheduled filtration"
-  triggers:
-    - trigger: time
-      at: "10:00:00"
-      id: turn_on
-    - trigger: time
-      at: "15:00:00"
-      id: turn_off
-  conditions:
-    - condition: state
-      entity_id: select.pool_filt_mode
-      state: manual
-  actions:
-    - choose:
-        - conditions:
-            - condition: trigger
-              id: turn_on
-            - condition: state
-              entity_id: switch.pool_filt_manual_state
-              state: "off"
-          sequence:
-            - action: switch.turn_on
-              target:
-                entity_id: switch.pool_filt_manual_state
-        - conditions:
-            - condition: trigger
-              id: turn_off
-            - condition: state
-              entity_id: switch.pool_filt_manual_state
-              state: "on"
-          sequence:
-            - action: switch.turn_off
-              target:
-                entity_id: switch.pool_filt_manual_state
-{% endexample %}
-
-{% enddetails %}
-
-### Auto-enable winter mode based on the season
-
-Turn winter mode on at the start of November and back off at the start of April so the controller stops polling the network and the pool hardware while it is off-season. Two automations sharing a single midnight trigger; each fires only on its target date.
-
-- **Trigger**: time-based, daily at `00:00:00`.
-- **Condition**: today is the configured switch-over date (`November 1st` to enable, `April 1st` to disable).
-- **Action**: turn the winter mode switch on or off.
-
-{% details "YAML example for seasonal winter mode" %}
-
-{% example %}
-automation: |
-  alias: "Pool: enter winter mode"
-  triggers:
-    - trigger: time
-      at: "00:00:00"
-  conditions:
-    - condition: template
-      value_template: "{{ now().month == 11 and now().day == 1 }}"
-  actions:
-    - action: switch.turn_on
-      target:
-        entity_id: switch.pool_winter_mode
-automation: |
-  alias: "Pool: exit winter mode"
-  triggers:
-    - trigger: time
-      at: "00:00:00"
-  conditions:
-    - condition: template
-      value_template: "{{ now().month == 4 and now().day == 1 }}"
-  actions:
-    - action: switch.turn_off
-      target:
-        entity_id: switch.pool_winter_mode
-{% endexample %}
-
-{% enddetails %}
+If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), all entities transition to `unavailable` until the next successful poll.
 
 ## Known limitations
 
@@ -315,7 +148,7 @@ All entities provided by the integration become `unavailable` simultaneously, of
 
 #### Description
 
-The integration has lost contact with the Modbus gateway. It applies an adaptive backoff up to three minutes; once the gateway is reachable again, entities recover automatically.
+The integration has lost contact with the Modbus gateway. Entities recover automatically on the next successful poll after connectivity is restored.
 
 #### Resolution
 
@@ -338,22 +171,6 @@ The integration detected a known-bad value in the controller's GPIO configuratio
 #### Resolution
 
 Follow the steps in the repair flow to acknowledge or fix the condition. The issue clears automatically once the register reads a valid value again.
-
-### Backwash button does not appear
-
-#### Symptom: the **Start backwash** button is missing from the device
-
-The integration is set up successfully but the Backwash entities (button, repeat interval, valve mode) are not registered.
-
-#### Description
-
-The Backwash entities are only created when a Besgo automatic filter valve is configured on the controller. The integration probes the relevant register set during setup and skips the entities if the valve is not detected.
-
-#### Resolution
-
-1. Confirm the Besgo valve is wired and configured via the controller's native interface.
-2. Reload the integration (or restart Home Assistant) so the capability probe runs again.
-3. If the valve is installed but still not detected, double-check the controller's relay assignment for the valve.
 
 ## Removing the integration
 
