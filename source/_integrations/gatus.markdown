@@ -12,7 +12,7 @@ ha_domain: gatus
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ---
 
 The **Gatus** {% term integration %} connects Home Assistant with your [Gatus](https://gatus.io) monitoring instance. Gatus is a developer-oriented health dashboard that lets you monitor your services using HTTP, ICMP, TCP, and DNS queries, and evaluate results based on conditions like status codes, response times, certificate expiration, and response bodies.
@@ -33,6 +33,10 @@ You need the base URL of your Gatus instance, for example `http://gatus.local:80
 URL:
   description: "The full base URL of your Gatus status page instance, including the protocol and port. For example: `http://gatus.local:8080` or `https://status.example.com`."
 {% endconfiguration_basic %}
+
+### Supported versions
+
+This integration supports **Gatus version 5.x.x or higher**
 
 ## Supported functionality
 
