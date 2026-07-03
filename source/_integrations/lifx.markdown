@@ -121,7 +121,7 @@ script: |
     sequence:
       - action: lifx.effect_colorloop
         target:
-          entity_id: group.livingroom
+          entity_id: light.livingroom
         data:
           brightness: 255
           period: 10
