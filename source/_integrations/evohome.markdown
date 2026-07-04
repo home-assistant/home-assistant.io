@@ -289,16 +289,13 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% endraw %}
 
-All Evohome entities may have faults. Low battery faults are exposed directly as **Binary sensor** entities. For other fault types, such as communication faults, you can use the `active_faults` attribute:
+All Evohome entities may have faults. Low battery faults are exposed directly as **Binary sensor** entities. For other fault types, such as communication faults, you can use the `status` attribute:
 
 {% raw %}
 
 ```text
-{% if state_attr('climate.bedroom', 'status').active_faults %}
-  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType.endswith('CommunicationLost') %}
-    A device has lost communication
-  {% endif %}
-    There is a fault!
+{% if state_attr('climate.bedroom', 'status').activeFaults %}
+  There is a fault!
 {% else %}
   Yay, everything is OK :)
 {% endif %}
