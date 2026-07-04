@@ -33,17 +33,18 @@ This integration requires a working [Bluetooth](/integrations/bluetooth/) setup,
 
 ## Supported functionality
 
-The **Chef iQ** {% term integration %} provides the following {% term entities %}.
+The **OKOK Scale** {% term integration %} provides the following {% term entities %}.
 
 ### Sensors
 
 A scale exposes the following sensors:
 
-- **Weicght**: the measured weight.
+- **Weight**: the measured weight.
+- **Impedance**: the measured impedance, if supported by the scale.
 - **Battery**: the scale battery percentage.
 - **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).
 
-The battery level and ... are sent in a separate Bluetooth advertisement from the weight, so they may appear a few seconds later after setup.
+The battery level and impedance are sent in a separate Bluetooth advertisement from the weight, so they may appear a few seconds later after setup.
 
 ## Troubleshooting
 
