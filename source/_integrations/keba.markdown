@@ -6,7 +6,6 @@ ha_category:
   - Lock
   - Notifications
   - Sensor
-  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -18,7 +17,6 @@ ha_platforms:
   - lock
   - notify
   - sensor
-  - switch
 ha_integration_type: integration
 ---
 
@@ -29,7 +27,6 @@ This {% term integration %} provides the following platforms:
 - Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Switch: Enable or disable the charging process (`ena` command).
 - Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found in the [actions](#actions) section.
 - Notify: Show a text on chargers with a built-in LED display.
 
@@ -50,10 +47,6 @@ The charging station can be authorized and deauthorized using actions (`keba.aut
 ### Enable and Disable `keba.enable` and `keba.disable`
 
 The `keba.enable` and `keba.disable` actions send the `ena 1` or `ena 0` command to start or stop the charging process on the station.
-
-{% important %}
-These actions are deprecated and will be removed in a future release. Use the **Switch** entity instead — it also shows the current charging state at a glance.
-{% endimportant %}
 
 ### Set Target Energy `keba.set_energy`
 
