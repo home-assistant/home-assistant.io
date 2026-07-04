@@ -2,6 +2,7 @@
 title: Honeywell Total Connect Comfort (Europe)
 description: Instructions on how to integrate a Honeywell Evohome/TCC system with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Hub
   - Water heater
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@zxdavb'
 ha_domain: evohome
 ha_platforms:
+  - binary_sensor
   - button
   - climate
   - water_heater
@@ -80,13 +82,19 @@ Each heating zone is represented as a **Climate** entity that exposes the zone's
 
 Each zone also provides a **Button** entity to clear any override and return the zone to Evohome's **FollowSchedule** mode.
 
+Each zone also provides a diagnostic **Binary sensor** entity that is on when any device in the zone — the thermostat or a TRV actuator — is reporting a low battery.
+
 The Evohome controller is also represented as a **Climate** entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all **Climate** entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
 
 The controller also provides a **Button** entity to reset the system mode. This returns the system to **AutoWithReset** when supported, or **Auto** when **AutoWithReset** is unsupported, and resets all zones and DHW to **FollowSchedule**.
 
+The controller also provides a diagnostic **Binary sensor** entity that is on when the controller is reporting a low battery. Not all controller hardware has a battery, so this sensor may never activate on some systems.
+
 The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
 
 If present, it also provides a **Button** entity to clear any DHW override and return the DHW controller to Evohome's **FollowSchedule** mode.
+
+If present, the DHW temperature sensor also provides a diagnostic **Binary sensor** entity that is on when it is reporting a low battery.
 
 Note that support for schedules is limited. They cannot be changed, and there is no way to back up or restore that data. For that functionality, refer to the [evohome-async documentation](https://github.com/zxdavb/evohome-async).
 
@@ -281,16 +289,16 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% endraw %}
 
-All Evohome entities may have faults, and these can be turned into sensors, or:
+All Evohome entities may have faults. Low battery faults are exposed directly as **Binary sensor** entities. For other fault types, such as communication faults, you can use the `active_faults` attribute:
 
 {% raw %}
 
 ```text
 {% if state_attr('climate.bedroom', 'status').active_faults %}
-  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType == 'TempZoneActuatorLowBattery' %}
-    There is a low battery
+  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType.endswith('CommunicationLost') %}
+    A device has lost communication
   {% endif %}
-    There is a Fault!
+    There is a fault!
 {% else %}
   Yay, everything is OK :)
 {% endif %}
