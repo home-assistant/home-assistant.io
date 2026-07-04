@@ -165,6 +165,8 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
+On Protect releases newer than 7.1, the application reports each sensor's capabilities and entities are only created for functions the device actually supports. This unlocks proper support for the USL sensor family: for example, a USL Entry gets contact and tamper entities, a USL Environmental gets temperature, humidity, light level, and leak entities, and a USL GlassBreak gets motion and tamper entities. On older releases, every function gets an entity, matching the UP Sense.
+
 - **Sensors** - A sensor is provided for each major function of the smart sensor device:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
   - **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
@@ -172,6 +174,7 @@ UniFi Protect smart sensors are a bit different than normal sensors. They are a 
   - **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   - **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or — on Protect releases newer than 7.1 — if the sensor supports water-leak detection and a leak channel is enabled.
   - **Tamper** - A binary sensor to detect tampering.
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
