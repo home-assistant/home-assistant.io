@@ -100,7 +100,7 @@ You can use the `onedrive.upload` action to upload one or more files from Home A
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `filename` | no | One or more local file paths to upload. Accepts a single string or a list of strings. | /media/image.jpg |
+| `filename` | no | One or more local file paths to upload. Accepts a single string or a list of strings. Supports wildcards. | /media/image.jpg |
 | `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded files. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
 | `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
 
@@ -120,12 +120,37 @@ data:
     - /media/image_2.jpg
   destination_folder: Snapshots/2025
   config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Upload all JPG files in a folder using a wildcard
+action: onedrive.upload
+data:
+  filename: /media/snapshots/*.jpg
+  destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Upload all JPG files in a folder and its subfolders
+action: onedrive.upload
+data:
+  filename: /media/snapshots/**/*.jpg
+  destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 ```
 
 
 {% enddetails %}
 
 The path part of `filename` must be in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+### Wildcards
+
+The `filename` attribute supports wildcards (glob patterns), so you can upload several files without listing each one:
+
+- `*` matches any number of characters within a single folder level. For example, `/media/snapshots/*.jpg` uploads every JPG file in the `snapshots` folder.
+- `**` matches folders recursively. For example, `/media/snapshots/**/*.jpg` uploads every JPG file in the `snapshots` folder and all of its subfolders.
+
+When a wildcard matches files in subfolders, those subfolders are recreated inside the `destination_folder` on OneDrive, preserving the original structure.
+
+If a wildcard pattern does not match any files, the action fails with an error listing the patterns that had no matches.
 
 The `destination_folder` must comply with [OneDrive naming restrictions](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa). Folder names cannot contain the following characters: `" * : < > ? / \ |`.
 
