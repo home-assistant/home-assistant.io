@@ -218,8 +218,18 @@ template:
             {{ device_entities(device_id(trigger.event.data.entity_id))
                | select('match', '^media_player\.')
                | first }}
-          serial_number: >
-            {{ (device_attr(device_id(trigger.event.data.entity_id), 'identifiers') | list)[0][1] }}
+          serial_number: >-
+            {% set dev = device_id(trigger.event.data.entity_id) %}
+            {{
+              (
+                device_attr(dev, 'identifiers')
+                | default([], true)
+                | list
+                | first
+                | last
+              )
+              | default(none)
+            }}
           device_id: >
             {{ device_id(trigger.event.data.entity_id) }}
           last_called_timestamp: >
