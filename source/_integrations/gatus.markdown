@@ -108,6 +108,7 @@ The integration {% term polling polls %} your Gatus instance every 30 seconds.
 ## Known limitations
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
+- The integration requires manual reconfiguation when a new endpoint is added or removed.
 
 ## Troubleshooting
 
