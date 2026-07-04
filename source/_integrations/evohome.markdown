@@ -82,7 +82,7 @@ Each heating zone is represented as a **Climate** entity that exposes the zone's
 
 Each zone also provides a **Button** entity to clear any override and return the zone to Evohome's **FollowSchedule** mode.
 
-Each zone also provides a diagnostic **Binary sensor** entity that is on when any device in the zone — the thermostat or a <abbr title="thermostatic radiator valve">TRV</abbr> actuator — is reporting a low battery.
+Each zone also provides a diagnostic **Binary sensor** entity that is on when any device in the zone — the thermostat or a <abbr title="thermostatic radiator valve">TRV</abbr> — is reporting a low battery.
 
 The Evohome controller is also represented as a **Climate** entity that exposes the system's current operating mode. A controller has neither a current temperature nor a setpoint, but all **Climate** entities in Home Assistant are required to report a temperature, so this value is calculated as the average of all zones.
 
