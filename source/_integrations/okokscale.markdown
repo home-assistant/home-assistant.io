@@ -10,12 +10,11 @@ ha_domain: okokscale
 ha_integration_type: device
 ha_platforms:
   - sensor
+ha_bluetooth: true
 ha_quality_scale: bronze
 ---
 
-The **OKOK Scale** {% term integration %} allows you to connect your [OKOK·International App](https://ohme-ev.com/) supported scale to Home Assistant.
-
-{% include integrations/building_block_integration.md %}
+The **OKOK Scale** {% term integration %} allows you to connect your [OKOK·International App](https://okokapp.com/) supported scale to Home Assistant.
 
 ## Supported devices
 
@@ -23,11 +22,9 @@ The following device is known to be supported by the integration:
 
 - Tristar WG-2440
 
-{% include integrations/config_flow.md %}
-
 ## Prerequisites
 
-This integration requires a working [Bluetooth](/integrations/bluetooth/) setup, either a local Bluetooth adapter or an [ESPHome Bluetooth proxy](/integrations/esphome/). The scale is battery-powered and only broadcasts while it is awake, so make sure it is awake by doing a measuremtn before adding it.
+This integration requires a working [Bluetooth](/integrations/bluetooth/) setup, either a local Bluetooth adapter or an [ESPHome Bluetooth proxy](/integrations/esphome/). The scale is battery-powered and only broadcasts while it is awake, so make sure it is awake by doing a measurement before adding it.
 
 {% include integrations/config_flow.md %}
 
@@ -51,7 +48,7 @@ The battery level and impedance are sent in a separate Bluetooth advertisement f
 If the device is not discovered, try the following:
 
 1. Make sure that the scale is awake and broadcasting by doing a measurement.
-2. Make sure your scale is in range of the  Bluetooth adapter or proxy.
+2. Make sure your scale is in range of the Bluetooth adapter or proxy.
 3. Make sure the [Bluetooth](/integrations/bluetooth/) integration is set up and working.
 
 ## Removing the integration
