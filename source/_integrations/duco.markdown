@@ -115,7 +115,7 @@ The following sensor entities are created per node, depending on the node type:
 
 #### Target flow level
 
-Available for the main ventilation box (BOX) and supported valve or extract node families with ventilation data. Shows the actual airflow target as reported by the Duco box, as a percentage (0–100%). This value reflects the real airflow configured in the Duco firmware and differs from the abstract speed levels (33%, 66%, or 100%) shown in the fan entity. For example, if your Duco system is configured with manual speed levels of 15%, 30%, and 100%, this sensor shows those values.
+Available for the main ventilation box (BOX) and supported valve or extract node families with ventilation data. Shows the actual airflow target as reported by the Duco box, as a percentage (0–100%). This value reflects the real airflow configured in the Duco firmware. On the main ventilation box, it can differ from the abstract speed levels (33%, 66%, or 100%) shown in the fan entity. For example, if your Duco system is configured with manual speed levels of 15%, 30%, and 100%, this sensor shows those values.
 
 #### Ventilation state
 
