@@ -26,11 +26,11 @@ The **llama.cpp** {% term integration %} allows you to use a local or remote ser
 This integration lets you connect with self-hosted models running on servers such as llama.cpp, llama-cpp-python, vLLM, DeepSeek, or other compatible API backends.
 
 {% note %}
-If you are using Ollama, you should prefer the official {% term Ollama %} integration.
+If you are using Ollama, you should prefer the official [Ollama](/integrations/ollama/) integration.
 {% endnote %}
 
 {% note %}
-If you are using OpenRouter, you should prefer the official {% term OpenRouter %} integration.
+If you are using OpenRouter, you should prefer the official [OpenRouter](/integrations/open_router/) integration.
 {% endnote %}
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
