@@ -108,7 +108,7 @@ uart:
 serial_proxy:
   - id: meter_serial_proxy
     uart_id: meter_uart
-     # Name shown in Home Assistant.
-     name: "Heat meter IR cable"
+    # Name shown in Home Assistant.
+    name: "Heat meter IR cable"
     port_type: TTL
 ```
