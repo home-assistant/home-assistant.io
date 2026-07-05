@@ -17,7 +17,7 @@ ha_integration_type: device
 
 The **Landis+Gyr Heat Meter** {% term integration %} for Home Assistant allows you to read the meter values from Ultraheat devices by Landis & Gyr. These devices are commonly used for district heating. The integration has been tested with the Landis & Gyr Ultraheat 50, UH50 (type LUGCUH50) and T550 (type LGUHT550). Other models could work. The T330 is not yet supported.
 
-The device is read through the optical interface. An IR head is needed and connected to Home Assistant. You choose to use either a USB IR read/write head (IEC 62056-21) or connect a TTL IR read/write head to an ESP of your choice and connect it through ESPHome. 
+The device is read through the optical interface. An IR head is needed and connected to Home Assistant. You can choose to use either a USB IR read/write head (IEC 62056-21) or connect a TTL IR read/write head to an ESP of your choice and connect it through ESPHome. 
 
 ![USB IR reader](/images/integrations/landisgyr_heat_meter/usb_ir_reader.png)
 
@@ -64,7 +64,7 @@ Either heat usage or volume usage can be used as "Gas" on the energy dashboard. 
 
 ## Polling the device
 
-Polling is by default done only once per day (and once right after adding the integration). Supposedly, every time the Heat Meter values are read, battery time of the device goes down by about 30 minutes. This is not supported by any evidence though an it seems safe to poll more frequently.
+Polling is by default done only once per day (and once right after adding the integration). Supposedly, every time the Heat Meter values are read, battery time of the device goes down by about 30 minutes. This is not supported by any evidence though, and it seems safe to poll more frequently.
 
 ### Polling manually (optional)
 
@@ -99,8 +99,8 @@ Include this in your ESPHome config:
 ```yaml
 uart:
   - id: meter_uart
-    tx_pin: GPIO17   # Replace with your board's TX pin
-    rx_pin: GPIO18   # Replace with your board's RX pin
+    tx_pin: YOUR_BOARD_TX_PIN   # For example GPIO17
+    rx_pin: YOUR_BOARD_RX_PIN   # For example GPIO17
     baud_rate: 300
     data_bits: 7
     parity: EVEN
