@@ -51,6 +51,8 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 
 {% include integrations/config_flow.md %}
 
+The first time you connect, Home Assistant automatically registers its own connection with Teslemetry for your installation. You don't need to create or manage any application credentials yourself. If your session ever expires and you're asked to re-authenticate, Home Assistant reuses that same connection.
+
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
