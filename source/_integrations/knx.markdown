@@ -154,7 +154,36 @@ Group monitor history:
   description: "Hours of telegram history to load when you open the group monitor."
 Retention period:
   description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup. Set this to `0` to delete all telegram history every night."
+Telegram storage backend:
+  description: "Where KNX telegrams are stored. Select *Internal storage (Default)* to keep them in the built-in Home Assistant database, or *PostgreSQL (External)* to store them in a separate PostgreSQL database. See [PostgreSQL telegram store](#postgresql-telegram-store) for details."
 {% endconfiguration_basic %}
+
+### PostgreSQL telegram store
+
+By default, Home Assistant stores KNX telegram history in its own database. If you would rather keep this history in an external database, select the **PostgreSQL (External)** storage backend. This is useful when you want to keep long-term telegram history in a dedicated time series database, query it with other tools, or share it with analysis tools.
+
+The PostgreSQL backend builds on [TimescaleDB](https://www.timescale.com/), so your PostgreSQL server needs the TimescaleDB extension available. The first time Home Assistant connects, it enables the extension and creates the table and hypertable it needs. Because of this, the database must already exist, and the account you provide needs permission to create extensions and tables in it.
+
+When you select **PostgreSQL (External)** and continue, Home Assistant asks for the connection details and checks that it can reach the server before saving:
+
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of the PostgreSQL server."
+Port:
+  description: "Port the PostgreSQL server listens on. The default is `5432`."
+Username:
+  description: "Username used to connect to the PostgreSQL server."
+Password:
+  description: "Password for the account. Leave this blank to keep the password you entered previously."
+Database name:
+  description: "Name of the existing database to store telegrams in."
+Use TLS:
+  description: "Encrypt the connection to the PostgreSQL server with TLS."
+{% endconfiguration_basic %}
+
+{% note %}
+The connection check confirms that Home Assistant can reach the server and sign in. It does not verify that the TimescaleDB extension is available, so make sure your server provides it before you switch to this backend.
+{% endnote %}
 
 ## Basic configuration
 
