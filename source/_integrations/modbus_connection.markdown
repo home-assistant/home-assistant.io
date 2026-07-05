@@ -17,7 +17,7 @@ The **Modbus Connection** {% term integration %} owns a single [Modbus](https://
 
 Modbus is a serial communications protocol widely used in industrial and building automation to talk to devices such as power meters, PLCs, HVAC controllers, and inverters. A physical Modbus link usually accepts only one client at a time, so it cannot be opened independently by several integrations at once.
 
-This integration solves that by owning the connection in one place. You set up each connection once, and then point Modbus device integrations at it. This is the modern, UI-based way to use Modbus in Home Assistant, as opposed to the legacy YAML-based [Modbus](/integrations/modbus/) {% term integration %}.
+This integration solves that by owning the connection in one place. You set up each connection once, and then point Modbus device integrations at it. This is the UI-based way to use Modbus in Home Assistant. If you prefer to register Modbus entities manually in YAML, use the [Manual Modbus](/integrations/modbus/) {% term integration %} instead.
 
 This {% term integration %} does not create any entities of its own. It only provides the shared connection that device integrations consume.
 
@@ -59,7 +59,7 @@ Byte size:
   description: "The number of data bits: 7 or 8 (default 8)."
 {% endconfiguration_basic %}
 
-You can add the integration more than once to set up several connections, for example one per gateway or serial port. A connection to a link that is already configured is prevented, so the same endpoint cannot be set up twice.
+You can add the integration more than once to set up several connections, for example one per gateway or serial port. Home Assistant blocks duplicate connections, so you cannot set up the same endpoint twice.
 
 ## Using the connection
 
@@ -67,7 +67,7 @@ After you set up a connection, add a Modbus device integration and point it at t
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
