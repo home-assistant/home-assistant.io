@@ -60,11 +60,11 @@ Further data that is read from the device is added as diagnostic entities:
 
 ## Energy dashboard
 
-Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If your device reports GJ, make sure to supply price/GJ and for MWh support price/MWh. In either case the energy dashboard converts usage to kWh.
+Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If your device reports GJ, enter the price per GJ. If your device reports MWh, enter the price per MWh. In both cases, the energy dashboard converts usage to kWh.
 
 ## Polling the device
 
-Polling is by default done only once per day (and once right after adding the integration). Supposedly, every time the Heat Meter values are read, battery time of the device goes down by about 30 minutes. This is not supported by any evidence though, and it seems safe to poll more frequently.
+Polling is by default done only once per day (and once right after adding the integration). Some sources claim that every time the Heat Meter values are read, battery life goes down by about 30 minutes, but this is not confirmed.
 
 ### Polling manually (optional)
 
@@ -75,12 +75,11 @@ If you're comfortable with YAML, this code could be used:
 ```yaml
 alias: Heat Meter update
 triggers:
-  - minutes: /10
+  - minutes: "/10"
     trigger: time_pattern
 actions:
-  - data: {}
-    target:
-      entity_id: sensor.heat_meter_heat_usage_gj
+  - target:
+      entity_id: sensor.heat_meter_heat_usage_gj  # If your device reports MWh this will be heat_meter_heat_usage_mwh
     action: homeassistant.update_entity
 mode: single
 ```
@@ -91,8 +90,8 @@ For more detailed steps on how to define a custom polling interval, follow the p
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Using a ESPHome cable
-An USB IR head works without extra work, but some may prefer a wireless setup using an ESP device.
+## Using an ESPHome cable
+A USB IR head works without extra setup, but you may prefer a wireless setup using an ESP device.
 Use a TTL optical head, **not** a USB head (not yet supported by ESPHome).
 
 Include this in your ESPHome config:
@@ -100,7 +99,7 @@ Include this in your ESPHome config:
 uart:
   - id: meter_uart
     tx_pin: YOUR_BOARD_TX_PIN   # For example GPIO17
-    rx_pin: YOUR_BOARD_RX_PIN   # For example GPIO17
+    rx_pin: YOUR_BOARD_RX_PIN   # For example GPIO18
     baud_rate: 300
     data_bits: 7
     parity: EVEN
@@ -109,6 +108,7 @@ uart:
 serial_proxy:
   - id: meter_serial_proxy
     uart_id: meter_uart
-    name: "Heat meter IR cable"  # Name that the serial proxy will get in Home Assistant
+     # Name shown in Home Assistant.
+     name: "Heat meter IR cable"
     port_type: TTL
 ```
