@@ -69,7 +69,7 @@ A [media source](/integrations/media_source/) is provided for your [Immich](http
 
 ### Search
 
-The search is not a simple filename search; it is contextual and requires the [**Smart Search**](https://docs.immich.app/features/searching) feature to be enabled on your Immich server. Because it is context-aware, the results depend on where you start your search: for example, starting from the albums overview will only return media in albums, while searching from a specific person's overview will only show images related to that person.
+The search is not a simple filename search; it is contextual and requires the [Smart Search](https://docs.immich.app/features/searching) feature to be enabled on your Immich server. Because it is context-aware, the results depend on where you start your search: for example, starting from the albums overview will only return assets in albums, while searching from a specific person's overview will only show assets related to that person.
 
 ## Sensors
 
