@@ -17,7 +17,7 @@ ha_integration_type: device
 
 The **Landis+Gyr Heat Meter** {% term integration %} for Home Assistant allows you to read the meter values from Ultraheat devices by Landis & Gyr. These devices are commonly used for district heating. The integration has been tested with the Landis & Gyr Ultraheat 50, UH50 (type LUGCUH50) and T550 (type LGUHT550). Other models could work. The T330 is not yet supported.
 
-The device is read through the optical interface. An IR head is needed and connected to Home Assistant. You can choose to use either a USB IR read/write head (IEC 62056-21) or connect a TTL IR read/write head to an ESP of your choice and connect it through ESPHome. 
+The device is read through the optical interface. You need an IR head connected to Home Assistant. You can use either a USB IR read/write head (IEC 62056-21) or a TTL IR read/write head connected to an ESPHome device.
 
 ![USB IR reader](/images/integrations/landisgyr_heat_meter/usb_ir_reader.png)
 
