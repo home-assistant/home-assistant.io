@@ -332,6 +332,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **Base Memory**: Set to at least **2048 MB**, which is 2 GB.
        - **Number of CPUs**: Set to at least **2**.
        - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
+       - If you are using **VirtualBox 6** set **Paravirtualization Interface** to **None**.
     5. Select **Next**.
     6. In the **Summary** step, review the settings and select **Finish**.
 
