@@ -1,13 +1,13 @@
 ---
-title: Besen BS20
-description: Instructions on how to integrate Besen BS20 EV chargers over Bluetooth Low Energy with Home Assistant.
+title: Besen
+description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
 ha_category:
   - Car
 ha_release: 2026.8
 ha_iot_class: Local Push
 ha_codeowners:
   - '@moryoav'
-ha_domain: besen_bs20
+ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
   - switch
@@ -15,21 +15,21 @@ ha_config_flow: true
 ha_integration_type: device
 ---
 
-The **Besen BS20** {% term integration %} connects Home Assistant to Besen BS20-family EV chargers over Bluetooth Low Energy.
+The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.
 
 This integration talks directly to the charger through Home Assistant's [Bluetooth](/integrations/bluetooth) stack.
 
 ## Supported devices
 
-The following device is known to be supported by this integration:
+The following device has been verified to work with this integration:
 
 - [Besen BS20 EV Charging Station](https://www.besen-group.com/products/ev-charging-station/bs20/)
 
-Other Besen wallboxes using the same `ACP#` Bluetooth protocol may also work.
+Other Besen chargers using the same `ACP#` Bluetooth protocol may also work.
 
 ## Prerequisites
 
-- A Besen BS20 or compatible charger advertising as `ACP#...`.
+- A Besen charger advertising as `ACP#...`.
 - The charger's Bluetooth address and 6-digit PIN.
 - A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
 
@@ -77,7 +77,7 @@ triggers:
 actions:
   - action: switch.turn_on
     target:
-      entity_id: switch.besen_bs20_charge
+      entity_id: switch.besen_charge
 ```
 
 Stop charging before a peak tariff starts:
@@ -90,7 +90,7 @@ triggers:
 actions:
   - action: switch.turn_off
     target:
-      entity_id: switch.besen_bs20_charge
+      entity_id: switch.besen_charge
 ```
 
 ## Troubleshooting
