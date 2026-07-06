@@ -174,7 +174,7 @@ On Protect releases newer than 7.1, the application reports each sensor's capabi
   - **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   - **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
-  - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or — on Protect releases newer than 7.1 — if the sensor supports water-leak detection and a leak channel is enabled.
+  - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or (on UniFi Protect versions newer than 7.1) if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
