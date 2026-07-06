@@ -40,6 +40,8 @@ Before setting up the LED Infrared integration, you need a working infrared tran
 
 {% include integrations/config_flow.md %}
 
+Select the device type that matches your remote control, then select at least one infrared emitter or receiver. Selecting only the device type is not enough to complete the setup.
+
 {% configuration_basic %}
 Device type:
   description: The type of remote control used for the LED light bulb, lamp, or controller.
