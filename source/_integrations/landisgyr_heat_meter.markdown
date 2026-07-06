@@ -90,7 +90,7 @@ For more detailed steps on how to define a custom polling interval, follow the p
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Using an USB cable or ESPHome cable
+## Using a USB cable or ESPHome cable
 
 The heat meter is read through a small infrared (IR) read/write head that clips onto the meter's optical port. You can connect this head in two ways:
 
