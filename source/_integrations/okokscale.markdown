@@ -14,7 +14,7 @@ ha_bluetooth: true
 ha_quality_scale: bronze
 ---
 
-The **OKOK Scale** {% term integration %} allows you to connect your [OKOK·International App](https://okokapp.com/) supported scale to Home Assistant.
+The **OKOK Scale** {% term integration %} allows you to connect your [OKOK·International App](https://okokapp.com/) supported scale to Home Assistant. This lets you keep an eye on your weight over time in Home Assistant, chart it on a dashboard, and use each new measurement in your automations.
 
 ## Supported devices
 
