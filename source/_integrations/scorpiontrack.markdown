@@ -42,7 +42,7 @@ You can paste either the full shared-location URL or just the token from that UR
 
 {% configuration_basic %}
 Share URL or token:
-  description: Paste the full ScorpionTrack shared-location URL or only the token from that URL.
+  description: "Paste the full ScorpionTrack shared-location URL or only the token from that URL."
 {% endconfiguration_basic %}
 
 ## Supported functionality
