@@ -3,7 +3,7 @@ title: Harman Luxury Audio
 description: Instructions on how to integrate Harman Luxury Audio streamers into Home Assistant.
 ha_category:
   - Media player
-ha_release: "2026.8"
+ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -49,8 +49,8 @@ A media player entity is created for the device, exposing:
 
 ## Known limitations
 
-- **Power cannot be controlled** from Home Assistant. The device only reports its power state; it is switched on and off by its own remote, front panel, or automatic standby. The media player reports `off` when the device is in standby but does not offer power on/off.
-- **Transport control depends on the active source.** Spotify Connect and AirPlay are controlled by the sending app: the device can pause them, but only the source app can resume. Because of this, transport buttons are shown only when the current source reports them as available. For those sources, use the originating app to start or resume playback.
+- Power cannot be controlled from Home Assistant. The device only reports its power state; it is switched on and off by its own remote, front panel, or automatic standby. The media player reports `off` when the device is in standby but does not offer power on/off.
+- Transport control depends on the active source. Spotify Connect and AirPlay are controlled by the sending app: the device can pause them, but only the source app can resume. Because of this, transport buttons are shown only when the current source reports them as available. For those sources, use the originating app to start or resume playback.
 
 ## Removing the integration
 
