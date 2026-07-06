@@ -607,30 +607,31 @@ The Smart detection event reports _which_ type was detected, not the richer reco
 
 #### Example Smart Detection Automation
 
-```yaml
-alias: Person Detected Notification
-description: Automation that triggers when a person is detected
-triggers:
-  - event_type: state_changed
-    event_data:
-      entity_id: event.driveway_camera_smart_detection # Replace with your camera entity
-    trigger: event
-conditions:
-  - condition: template
-    value_template: >
-      {% raw %}{{
-         trigger.event.data.old_state is not none and
-         not trigger.event.data.old_state.attributes.get('restored', false) and
-         trigger.event.data.old_state.state != 'unavailable' and
-         trigger.event.data.new_state is not none and
-         trigger.event.data.new_state.attributes.event_type == 'person'
-       }}{% endraw %}
-actions:
-  - data:
-      message: A person was detected.
-      title: Smart Detection
-    action: notify.mobile_app_your_device # Replace with your notification target
-```
+{% example %}
+automation: |
+  alias: "Person detected notification"
+  description: "Automation that triggers when a person is detected"
+  triggers:
+    - trigger: event
+      event_type: state_changed
+      event_data:
+        entity_id: event.driveway_camera_smart_detection # Replace with your camera entity
+  conditions:
+    - condition: template
+      value_template: >
+        {{
+          trigger.event.data.old_state is not none and
+          not trigger.event.data.old_state.attributes.get('restored', false) and
+          trigger.event.data.old_state.state != 'unavailable' and
+          trigger.event.data.new_state is not none and
+          trigger.event.data.new_state.attributes.event_type == 'person'
+        }}
+  actions:
+    - action: notify.mobile_app_your_device # Replace with your notification target
+      data:
+        message: "A person was detected."
+        title: "Smart detection"
+{% endexample %}
 
 ### Sound Detection Event
 
