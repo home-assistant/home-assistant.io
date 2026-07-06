@@ -49,11 +49,11 @@ scrape:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value. One of `resource` or `resource_template` must be used.
+  description: The resource or endpoint that contains the value. One of `resource` and `resource_template` must be used.
   required: true
   type: string
 resource_template:
-  description: The resource or endpoint that contains the value with template support. One of `resource` or `resource_template` must be used.
+  description: The resource or endpoint that contains the value with template support. One of `resource` and `resource_template` must be used.
   required: true
   type: template
 method:
