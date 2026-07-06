@@ -174,66 +174,86 @@ target:
 
 ### Create a "Last Called" sensor
 
-The integration exposes an event entity for each Alexa device that records voice interactions. Each voice interaction updates the corresponding event entity. The following trigger-based template sensor tracks the Alexa device that most recently received a voice command and exposes related entities and attributes for use in automations.
+The integration exposes an event entity for each Alexa device that records voice interactions. Each voice interaction updates the corresponding event entity. The following state-based template sensor tracks the Alexa device that most recently received a voice command and exposes related entities and attributes for use in automations.
 
 {% details "Template sensor" %}
 
 ```yaml
+# Example state-based configuration.yaml entry
 template:
-  - trigger:
-      - platform: event
-        event_type: state_changed
-    condition:
-      - condition: template
-        value_template: >
-          {% set entity_id = trigger.event.data.entity_id %}
-          {% set new = trigger.event.data.new_state %}
-          {{ entity_id in integration_entities('alexa_devices')
-             and entity_id.startswith('event.')
-             and new is not none
-             and new.attributes.get('event_type') == 'triggered'
-             and new.state not in ['unknown', 'unavailable', 'none', '']
-             and new.attributes.get('voice_command') not in [none, '', 'unknown'] }}
-    sensor:
-      - name: Alexa Devices Last Called
-        unique_id: alexa_devices_last_called
-        state: >
-          {{ trigger.event.data.new_state.state }}
-        attributes:
-          event_entity: >-
-            {{ trigger.event.data.entity_id }}
-          voice_command: >
-            {{ trigger.event.data.new_state.attributes.get('voice_command') }}
-          voice_reply: >
-            {{ trigger.event.data.new_state.attributes.get('voice_reply') }}
-          notify_announce: >
-            {{ device_entities(device_id(trigger.event.data.entity_id))
-               | select('match', '^notify\..*_announce$')
-               | first }}
-          notify_speak: >
-            {{ device_entities(device_id(trigger.event.data.entity_id))
-               | select('match', '^notify\..*_speak$')
-               | first }}
-          media_player: >
-            {{ device_entities(device_id(trigger.event.data.entity_id))
-               | select('match', '^media_player\.')
-               | first }}
-          serial_number: >-
-            {% set dev = device_id(trigger.event.data.entity_id) %}
-            {{
-              (
-                device_attr(dev, 'identifiers')
-                | default([], true)
-                | list
-                | first
-                | last
-              )
+  - sensor:
+    - name: Alexa Devices Last Called
+      unique_id: alexa_devices_last_called
+      state: >
+        {{
+          integration_entities('alexa_devices')
+            | select('match', '^event\.')
+            | select('has_value')
+            | map('states')
+            | sort
+            | last
+        }}
+      attributes:
+        event_entity: >
+          {{
+            integration_entities('alexa_devices')
+              | select('match', '^event\.')
+              | select('has_value')
+              | select('is_state', this.state)
+              | first
               | default(none)
-            }}
-          device_id: >
-            {{ device_id(trigger.event.data.entity_id) }}
-          last_called_timestamp: >
-            {{ trigger.event.data.new_state.state }}
+          }}
+      
+        voice_command: >
+          {{ state_attr(this.attributes.event_entity, 'voice_command') }}
+      
+        voice_reply: >
+          {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+      
+        notify_announce: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^notify\..*_announce$')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        notify_speak: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^notify\..*_speak$')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        media_player: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^media_player\.')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        serial_number: >-
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {% set identifiers = device_attr(dev, 'identifiers') if dev else none %}
+          {{
+            (identifiers | default([], true) | list | first | default([]) | last)
+            | default(none)
+          }}
+      
+        device_id: >
+          {{ device_id(this.attributes.event_entity) if this.attributes.event_entity else none }}
 ```
 {% enddetails %}
 
@@ -241,7 +261,7 @@ This sensor automatically tracks all Alexa devices in the integration and does n
 
 #### Attributes
 
-The sensor exposes `media_player`, `notify_speak`, `notify_announce`, `voice_command`, `voice_reply`, and device metadata (including `device_id`, `serial_number`, `event_entity`, and `last_called_timestamp`) as attributes for use in automations.
+The sensor exposes `media_player`, `notify_speak`, `notify_announce`, `voice_command`, `voice_reply`, and device metadata `device_id`, `serial_number`, and `event_entity` as attributes for use in automations.
 
 {% details "Example: Reply to the last Alexa device used" %}
 
