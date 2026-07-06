@@ -3,7 +3,7 @@ title: ScorpionTrack
 description: Instructions on how to integrate ScorpionTrack shared vehicle locations into Home Assistant.
 ha_category:
   - Device tracker
-ha_release: 2026.5
+ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack
 ha_platforms:
@@ -49,17 +49,7 @@ Share URL or token:
 
 The **ScorpionTrack** integration creates one {% term "device tracker" %} for each vehicle included in the share.
 
-Each tracker is intended to represent the vehicle directly on the Home Assistant map and in zone logic. The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
-
-The following tracker attributes are exposed when available:
-
-- Vehicle registration, make, and model
-- Current address reported by ScorpionTrack
-- Heading and cardinal direction
-- Ignition state
-- Last reported timestamp
-- Position age and stale-state information
-- Speed in the distance units preferred by the share
+Each tracker represents the vehicle directly on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share. The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
 ## Data updates
 
