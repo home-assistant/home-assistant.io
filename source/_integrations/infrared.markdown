@@ -127,3 +127,61 @@ In addition, the entity can have the following states:
 - **Unknown**: The state is not yet known.
 
 Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the IR event.
+
+## Troubleshooting
+
+### The device does not respond to commands
+
+#### Symptom: "The command is sent, but nothing happens"
+
+You send a command from Home Assistant, the infrared emitter's {% term state %} updates to show it was used, but the infrared-controlled device does not react.
+
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Make sure nothing blocks the path between the emitter and the device:
+   - Infrared signals do not pass through walls, furniture, or cabinet doors.
+   - Remove any objects between the emitter and the device.
+2. Check the distance between the emitter and the device:
+   - Move the infrared remote adapter closer to the device.
+   - The usable range depends on your adapter's emitter strength and the device's receiver sensitivity.
+3. Point the emitter towards the device's infrared receiver window:
+   - Aim the emitter the same way you would aim a handheld remote.
+4. Reduce infrared interference:
+   - Avoid strong sunlight, direct light from fluorescent lamps, or other infrared sources shining onto the device's receiver.
+
+For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
+
+### The wrong device responds, or a device in another room does not respond
+
+#### Symptom: "Commands reach the wrong device"
+
+A command controls a device in the wrong room, or a device does not respond even though another one does.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Check which emitter is selected for the infrared-controlled device:
+   - Open the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
+   - Confirm the selected emitter belongs to the infrared remote adapter in the same room as the device.
+2. If needed, select the emitter from the adapter closest to the device.
+3. If you have devices in more than one room, use a separate infrared remote adapter in each room:
+   - Infrared signals do not travel between rooms.
+
+### An infrared receiver does not pick up signals
+
+#### Symptom: "The receiver's state never updates"
+
+You send a signal from a handheld remote, but the infrared receiver's {% term state %} does not update to show a recent timestamp.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Aim the handheld remote directly at the infrared receiver.
+2. Move closer to the receiver and make sure nothing blocks the path.
+3. Replace the batteries in the handheld remote if signals are weak or intermittent.
+4. Reduce infrared interference from strong sunlight or other infrared sources near the receiver.

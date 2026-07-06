@@ -39,7 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
-If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikout](https://github.com/revk/ESP32-Faikout).
+If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikout](https://codeberg.org/RevK/ESP32-Faikout).
 
 {% include integrations/config_flow.md %}
 
