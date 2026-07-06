@@ -407,7 +407,6 @@ layout: null
 /docs/installation/virtualenv /installation
 /hassio /getting-started
 /hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
-/hassio/enable_i2c /common-tasks/os#enable-i2c
 /hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
 /hassio/haos_common_tasks /common-tasks/os
 /hassio/hassos_faq /faq
