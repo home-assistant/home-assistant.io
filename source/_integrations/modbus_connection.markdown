@@ -25,17 +25,17 @@ This {% term integration %} does not create any entities of its own. It only pro
 
 You need one of the following ways to reach your Modbus network:
 
-- For a **network** connection: a Modbus TCP gateway or a device that speaks Modbus TCP (or RTU-over-TCP), reachable by hostname or IP address on your network.
-- For a **serial** connection: a serial (RTU) device connected to the machine running Home Assistant, for example a USB-to-RS485 adapter appearing as `/dev/ttyUSB0`. A network serial proxy is also supported and appears in the serial device list.
+- For a *network* connection: a Modbus TCP gateway or a device that speaks Modbus TCP (or RTU-over-TCP), reachable by hostname or IP address on your network.
+- For a *serial* connection: a serial (RTU) device connected to the machine running Home Assistant, for example a USB-to-RS485 adapter appearing as `/dev/ttyUSB0`. A network serial proxy is also supported and appears in the serial device list.
 
 {% include integrations/config_flow.md %}
 
 When you add the integration, you first choose how the Modbus network is connected:
 
-- **Network**: for Modbus TCP and RTU-over-TCP connections.
-- **Serial**: for Modbus RTU connections over a serial port, including network serial proxies.
+- **Modbus TCP**: for Modbus TCP and RTU-over-TCP connections.
+- **Serial (including serial proxies and networked connections)**: for Modbus RTU connections over a serial port.
 
-### Network
+### Modbus TCP
 
 {% configuration_basic %}
 Host:
