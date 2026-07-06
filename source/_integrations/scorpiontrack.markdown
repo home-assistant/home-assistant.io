@@ -30,11 +30,11 @@ Before setting up the integration, you need:
 
 Create the share in the ScorpionTrack customer portal:
 
-1. Open the ScorpionTrack location share page at [app.scorpiontrack.com/customer/locationshare](https://app.scorpiontrack.com/customer/locationshare)
-2. Create a new shared-location entry
-3. Add every vehicle you want Home Assistant to track
-4. Choose a suitable expiry time for the share
-5. Copy the generated share URL
+1. Open the ScorpionTrack location share page at [app.scorpiontrack.com/customer/locationshare](https://app.scorpiontrack.com/customer/locationshare).
+2. Create a new shared-location entry.
+3. Add every vehicle you want Home Assistant to track.
+4. Choose a suitable expiry time for the share.
+5. Copy the generated share URL.
 
 You can paste either the full shared-location URL or just the token from that URL.
 
@@ -46,8 +46,6 @@ Share URL or token:
 {% endconfiguration_basic %}
 
 ## Supported functionality
-
-### Entities
 
 The **ScorpionTrack** integration creates one {% term "device tracker" %} for each vehicle included in the share.
 
