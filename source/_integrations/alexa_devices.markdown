@@ -126,7 +126,7 @@ In addition to sensors, you can use the following entities:
 
 ## Communications
 
-The integration includes support for Communications configuration settings for each Alexa Device. Toggle entities are provided for Communications and Announcements, providing users direct control to enable/disable their devices capability. A Select entity for Drop-in settings is also included, providing users the ability to enable/disable Drop-in support for their device and what kind of Drop-in support they want to allow. These configuration settings mimic the settings as they appear in the Alexa App.
+The integration exposes configuration entities for communication settings on each Alexa device. You can toggle **Communications** and **Announcements**, and choose a **Drop In** mode using a select entity. These settings match what you see in the Alexa app.
 
 {% warning %}
 
