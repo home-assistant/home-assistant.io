@@ -96,20 +96,6 @@ Start a dimming sequence at a set time each night. This blueprint lets you pick 
 
 {% details "Example YAML" %}
 
-```yaml
-triggers:
-  - trigger: time
-    at: "22:00:00"
-actions:
-  - action: select.select_option
-    target:
-      entity_id: select.jar_dimming_time
-    data:
-      option: "30"
-  - action: light.turn_on
-    target:
-      entity_id: light.jar
-
 {% example %}
 automation: |
   triggers:
@@ -136,19 +122,6 @@ Keep the light from dimming while you're still up. This blueprint pauses the dim
 
 {% details "Example YAML" %}
 
-```yaml
-triggers:
-  - trigger: state
-    entity_id: binary_sensor.bedroom_motion
-    to: "on"
-conditions:
-  - condition: state
-    entity_id: light.jar
-    state: "on"
-actions:
-  - action: button.press
-    target:
-      entity_id: button.jar_pause_dimming
 {% example %}
 automation: |
   triggers:
@@ -179,29 +152,6 @@ The `sensor.jar_dimming_end_time` sensor is disabled by default. You must enable
 
 {% details "Example YAML" %}
 
-{% raw %}
-
-```yaml
-triggers:
-  - trigger: time
-    at: "22:00:00"
-actions:
-  - action: select.select_option
-    target:
-      entity_id: select.jar_dimming_time
-    data:
-      option: "30"
-  - action: light.turn_on
-    target:
-      entity_id: light.jar
-  - wait_for_trigger:
-      - trigger: template
-        value_template: >-
-          {% set end = states('sensor.jar_dimming_end_time') | as_datetime %}
-          {% if end is not none %}
-            {{ ((end - now()).total_seconds() / 60) | round(0) <= 10 }}
-          {% else %}
-            false
 {% example %}
 automation: |
   triggers:
