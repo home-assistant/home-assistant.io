@@ -91,8 +91,15 @@ For more detailed steps on how to define a custom polling interval, follow the p
 {% include common-tasks/define_custom_polling.md %}
 
 ## Using an ESPHome cable
-A USB IR head works without extra setup, but you may prefer a wireless setup using an ESP device.
-Use a TTL optical head, **not** a USB head (not yet supported by ESPHome).
+
+The heat meter is read through a small infrared (IR) read/write head that clips onto the meter's optical port. You can connect this head in two ways:
+
+- **USB IR head**: plugs directly into the machine running Home Assistant and
+  works without any extra setup.
+- **TTL IR head**: wires to an ESP device (such as an ESP32) and reaches Home
+  Assistant wirelessly over your network through ESPHome.
+
+If you want a wireless setup, use a TTL IR head with an ESP device. A USB IR head cannot be used this way because ESPHome does not yet support USB IR heads.
 
 Include this in your ESPHome config:
 ```yaml
