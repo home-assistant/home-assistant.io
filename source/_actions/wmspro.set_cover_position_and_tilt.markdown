@@ -6,7 +6,7 @@ description: "Moves the cover and tilt to the target position simultaneously, pr
 since: "2026.8"
 ---
 
-The **Set cover position and tilt** action moves a cover to a target position and tilt in a single command. Because both values are sent together, the individual actions will not cancel out each other on the WMS radio channel.
+The **Set cover position and tilt** action moves a cover to a target position and tilt in a single command. Because both values are sent together, the individual actions will not cancel each other out on the WMS radio channel.
 
 This action is available only for covers that support setting both position and tilt, and that accept the combined command. If your cover does not support it, the action returns an error.
 
