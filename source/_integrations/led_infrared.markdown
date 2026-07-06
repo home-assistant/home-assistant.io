@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **LED Infrared** {% term integration %} lets you control lights using any infrared transmitter previously configured in Home Assistant.
+The **LED Infrared** {% term integration %} lets you control lights with any infrared emitter that has been previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the light, but there is no feedback channel to confirm the current state of the light. The integration therefore uses assumed states.
 
