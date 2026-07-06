@@ -19,8 +19,8 @@ This is a presence detection scanner for OpenWrt using [luci](https://openwrt.or
 Before this scanner can be used you have to install the luci RPC package on OpenWrt:
 
 ```bash
-# opkg update
-# opkg install luci-mod-rpc
+apk update
+apk add luci-mod-rpc
 ```
 
 To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
@@ -54,7 +54,7 @@ ssl:
   default: false
   type: boolean
 verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs)
   required: false
   type: boolean
   default: true
@@ -62,7 +62,7 @@ verify_ssl:
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
-This device tracker provides a number of additional attributes for each tracked device (if it is at home): `flags`, `ip`, `device`, and `host`. The first three attributes are taken from the ARP table returned by the luci RPC. The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWrt routers.
+This device tracker provides several additional attributes for each tracked device (if it is at home): `flags`, `ip`, `device`, and `host`. The first three attributes are taken from the ARP table returned by the luci RPC. The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWrt routers.
 
 {% note %}
 Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 

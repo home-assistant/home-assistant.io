@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to setup automation based on the information.
+The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to set up automation based on the information.
 
 {% include integrations/config_flow.md %}
 
@@ -47,8 +47,6 @@ The event includes the name, category, and status of the downloaded nzb.
 
 Example automation to send a Telegram message on a completed download:
 
-{% raw %}
-
 ```yaml
 - alias: "Completed Torrent"
   triggers:
@@ -62,8 +60,6 @@ Example automation to send a Telegram message on a completed download:
         title: "Download completed!"
         message: "{{trigger.event.data.name}}"
 ```
-
-{% endraw %}
 
 ## Actions
 

@@ -59,13 +59,12 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/integrations/light/#action-lightturn_on).
+A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/actions/light.turn_on/).
 
 ### Use templates to decide which action to perform
 
 You can use [templating] support to dynamically choose which action to perform. For example, you can perform a certain action based on if a light is on.
 
-{% raw %}
 
 ```yaml
 action: >
@@ -77,7 +76,6 @@ action: >
 entity_id: switch.ac
 ```
 
-{% endraw %}
 
 ### Using the Actions developer tool
 
@@ -94,7 +92,6 @@ To turn a group on or off, pass the following info:
 
 Templates can also be used for the data that you pass to the action.
 
-{% raw %}
 
 ```yaml
 action: thermostat.set_temperature
@@ -109,11 +106,9 @@ data:
   temperature: "{{ 22 - distance(states.device_tracker.paulus) }}"
 ```
 
-{% endraw %}
 
 You can use a template returning a native dictionary as well, which is useful if the attributes to be set depend on the situation.
 
-{% raw %}
 
 ```yaml
 action: climate.set_temperature
@@ -125,7 +120,6 @@ data: >
   {% endif %}
 ```
 
-{% endraw %}
 
 ### Use templates to handle response data
 
@@ -137,7 +131,6 @@ Templates can also be used for handling response data. The action can specify
 a `response_variable`. This is the [variable](/docs/scripts/#variables)
 that contains the response data. You can define any name for your `response_variable`. This example performs an action and stores the response in the variable called `agenda`.
 
-{% raw %}
 
 ```yaml
 action: calendar.get_events
@@ -149,7 +142,6 @@ data:
 response_variable: agenda
 ```
 
-{% endraw %}
 
 You may then use the response data in the variable `agenda` in another action
 in the same script. The example below sends a notification using the response
@@ -159,7 +151,6 @@ data.
 Which data fields can be used in an action depends on the type of notification that is used.
 {% endimportant %}
 
-{% raw %}
 
 ```yaml
 action: notify.gmail_com
@@ -175,7 +166,6 @@ data:
     </p>
 ```
 
-{% endraw %}
 
 ### `homeassistant` actions
 
@@ -188,7 +178,7 @@ There are four `homeassistant` actions that aren't tied to any single domain, th
 
 Complete action details and examples can be found on the [Home Assistant integration][homeassistant-integration-actions] page.
 
-[templating]: /docs/configuration/templating/
+[templating]: /docs/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/

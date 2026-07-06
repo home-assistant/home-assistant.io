@@ -44,7 +44,7 @@ Write down its IP address and port number. If you have trouble finding a device 
 
 ## Pairing
 
-This {% term integration %} requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
+This {% term integration %} requires an access token to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
 
 ### Pair using the Home Assistant frontend
 
@@ -213,16 +213,7 @@ The list of apps that are provided by default is statically defined [here](https
 pyvizio --ip=0 get-apps-list
 ```
 
-## Action `vizio.update_setting`
-
-This action allows you to update a setting on a given VIZIO device. You will need to know the type of setting and the name of the setting to perform this action. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | yes | The devices to update a setting for. | `media_player.vizio_smartcast`
-| `setting_type` | no | The type of setting. | `audio`
-| `setting_name` | no | The name of the setting. | `eq`
-| `new_value` | no | The new value to set the setting to. | `Music`
+{% include integrations/actions.md %}
 
 ## Remote
 

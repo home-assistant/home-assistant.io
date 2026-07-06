@@ -53,6 +53,7 @@ The following selectors are currently available:
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
+  - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -360,13 +361,11 @@ choose:
 
 Following this example, if the user entered a value in both selectors, but submitted with 'Icon' option selected, the output might be:
 
-{% raw %}
 ```yaml
 active_choice: Icon
 Icon: mdi:light
 Template: "{{ something else }}"
 ```
-{% endraw %}
 
 ## Color temperature selector
 
@@ -1132,13 +1131,6 @@ accept:
     List of media types the user is allowed to select.
   type: list
   required: false
-multiple:
-  description: >
-    Allows selecting multiple media items. If set to `true`, the resulting value of
-    this selector will be a list instead of a single object.
-  type: boolean
-  default: false
-  required: false
 {% endconfiguration %}
 
 The output of the media selector is a mapping with information about
@@ -1183,19 +1175,6 @@ metadata:
     - media_content_type: provider
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
-```
-
-Example output when `multiple` is set to `true` (a list of media objects):
-
-```yaml
-- media_content_id: media-source://media_source/local/image1.jpg
-  media_content_type: image/jpeg
-  metadata:
-    title: image1.jpg
-- media_content_id: media-source://media_source/local/image2.jpg
-  media_content_type: image/jpeg
-  metadata:
-    title: image2.jpg
 ```
 
 ## Number selector
@@ -1648,8 +1627,7 @@ target:
 
 ## Template selector
 
-The template selector can be used to input a Jinja2 template. This is useful
-for allowing more advanced user-input that use Jinja2 templates.
+The template selector can be used to input a Jinja2 template. This is useful when a fixed value is not enough and the input needs to reference entity states, respond to conditions, or perform calculations.
 
 ![Screenshot of an template selector](/images/blueprints/selector-template.png)
 

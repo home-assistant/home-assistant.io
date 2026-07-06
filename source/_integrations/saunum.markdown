@@ -231,47 +231,7 @@ The **Saunum** integration provides the following entities.
 Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a potential safety or operational issue that should be addressed immediately. The sauna heater will automatically shut down when safety alarms are triggered.
 {% endimportant %}
 
-## Actions
-
-The **Saunum** integration provides the following actions.
-
-### Action: Start session
-
-The `saunum.start_session` action starts a sauna session with custom duration, target temperature, and fan duration. This action provides more granular control than the climate entity, allowing you to specify all session parameters in a single call.
-
-- **Data attribute**: `entity_id`
-  - **Description**: The entity ID of the Saunum climate entity.
-  - **Required**: Yes
-
-- **Data attribute**: `duration`
-  - **Description**: Session duration as a time period (for example, `{"hours": 2}`). Defaults to 2 hours.
-  - **Required**: No
-
-- **Data attribute**: `target_temperature`
-  - **Description**: Target temperature in Celsius (40-100). Defaults to 80.
-  - **Required**: No
-
-- **Data attribute**: `fan_duration`
-  - **Description**: Fan duration as a time period (for example, `{"minutes": 10}`). Defaults to 10 minutes.
-  - **Required**: No
-
-{% note %}
-You cannot start a sauna session when the sauna door is open. The control unit will prevent heating as a safety measure.
-{% endnote %}
-
-#### Example
-
-```yaml
-action: saunum.start_session
-target:
-  entity_id: climate.saunum_leil
-data:
-  duration:
-    hours: 2
-  target_temperature: 80
-  fan_duration:
-    minutes: 10
-```
+{% include integrations/actions.md %}
 
 ## Automations
 
@@ -286,8 +246,6 @@ Send a notification and turn on the sauna light when the target temperature is r
 <!-- markdownlint-enable MD034 -->
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Sauna ready notification with light"
@@ -318,7 +276,9 @@ actions:
   - action: light.turn_on
     target:
       entity_id: light.saunum_leil
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "{{ notification_title }}"
       message: >-
@@ -326,8 +286,6 @@ actions:
         {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
 
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

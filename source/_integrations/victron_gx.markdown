@@ -1,11 +1,15 @@
 ---
-title: Victron GX Communication Center Integration
+title: Victron GX
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
   - Binary sensor
+  - Button
+  - Number
+  - Presence detection
   - Select
   - Sensor
   - Switch
+  - Time
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,9 +18,14 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - binary_sensor
+  - button
+  - device_tracker
+  - diagnostics
+  - number
   - select
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -25,7 +34,8 @@ related:
     title: Victron MQTT Python library
   - url: https://tomer-w.github.io/victron_mqtt/
     title: Supported entities documentation
-ha_quality_scale: bronze
+ha_quality_scale: platinum
+ha_ssdp: true
 ---
 
 The **Victron GX Integration** integration connects to [Victron Energy](https://www.victronenergy.com/) GX devices using MQTT, providing real-time monitoring and control of your Victron system, including inverters, solar chargers, battery systems, grid meters, and <abbr title="electric vehicle">EV</abbr> chargers.
@@ -109,6 +119,15 @@ Status indicators for various system states, such as:
 - Connection status
 - Relay states
 
+#### Numbers
+
+Adjustable numeric settings for fine-tuning device parameters, such as:
+
+- Battery charge current limits
+- Grid setpoint for <abbr title="Energy Storage System">ESS</abbr>
+- Minimum state of charge limits
+- <abbr title="electric vehicle">EV</abbr> charger current limits
+
 #### Selects
 
 Configurable options for controlling device behavior, such as:
@@ -120,6 +139,13 @@ Configurable options for controlling device behavior, such as:
 - <abbr title="Energy Storage System">ESS</abbr> mode (optimized with or without phase compensation, or external control)
 - <abbr title="Dynamic Energy Storage System">DESS</abbr> mode (auto/VRM, buy, sell, off, or Node-RED)
 - <abbr title="Energy Storage System">ESS</abbr> schedule charge slot days
+
+#### Device trackers
+
+GPS-equipped Victron devices (such as those with a built-in or connected GPS module) are exposed as device tracker entities, providing:
+
+- Latitude and longitude
+- Altitude, course, and speed (when available)
 
 #### Switches
 
@@ -135,6 +161,17 @@ Toggle controls for enabling or disabling device functions, such as:
 - PV DC overvoltage feed-in
 - VE.Bus PowerAssist, ignore AC input, and grid lost alarm settings
 
+#### Times
+
+Configurable time-of-day settings, such as:
+
+- <abbr title="Energy Storage System">ESS</abbr> BatteryLife schedule charge start times
+
+#### Buttons
+
+- **Reboot device**
+  - **Description**: Reboots the GX device.
+
 ## Known limitations
 
 - The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
@@ -144,8 +181,6 @@ Toggle controls for enabling or disabling device functions, such as:
 ### Send a notification when the battery is low
 
 You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -163,7 +198,6 @@ automation:
             {{ states('sensor.battery_soc') }}%.
 ```
 
-{% endraw %}
 ## Troubleshooting
 
 ### Cannot connect

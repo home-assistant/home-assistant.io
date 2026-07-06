@@ -84,7 +84,9 @@ automation:
         below: 10
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Softener is almost out of salt"
           message: > 

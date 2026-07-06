@@ -21,7 +21,7 @@ ha_integration_type: device
 The **SolarEdge** {% term integration %} allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 It provides two main features:
 
-1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. This requires a site ID and an API key.
+1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. If your site includes one or more SolarEdge batteries, additional sensors for battery state of charge, power, and daily charge/discharge energy are also created. This requires a site ID and an API key.
 2.  Module-level statistics: Retrieves energy production data per inverter, string, and module, and inserts it into Home Assistant statistics. This is useful for identifying underperforming modules. This requires a site ID, username, and password.
 
 You can configure either feature individually or both at the same time for the same site.
@@ -174,7 +174,6 @@ Finally, create an automation that updates the sensors and notifies you. Example
 Update the SQL sensor entity IDs to match your setup.
 {% endnote %}
 
-{% raw %}
 ```yaml
 alias: "Notify: Low solar production modules"
 triggers:
@@ -205,14 +204,13 @@ actions:
           notification_id: solaredge_modules_low_production_alert
 mode: single
 ```
-{% endraw %}
 
 ## Known limitations
 
 Specifically for the module statistics:
 
 - The integration intentionally doesn't create any entities/sensors for module data. All data is only available in statistics. This is because data is often delayed by a couple of hours.
-- The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-homeassistantreload_config_entry) action from an automation.
+- The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-reload-config-entry) action from an automation.
 - The API provides data at a 15-minute interval, but Home Assistant long-term statistics are limited to a 1-hour interval. The integration aggregates the 15-minute data into hourly statistics.
 
 ## Removing the integration

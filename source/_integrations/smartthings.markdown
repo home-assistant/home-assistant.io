@@ -404,6 +404,10 @@ The SmartThings integration does not support all SmartThings capabilities. Only 
    - Do not create a GitHub Issue for feature requests, as issues are intended for bug reports.
    - When creating a feature request, attach the [device diagnostics](#viewing-device-diagnostics) for the device that is missing functionality. This helps identify which capabilities your device exposes and speeds up the implementation.
 
+## SmartThings community
+
+The SmartThings integration is complex due to the breadth of devices and capabilities it supports. If you need community support or want to discuss device integration topics with other SmartThings users, you can join the [SmartThings Integration community on Discord](https://discord.gg/EJYdwMCz7K).
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}

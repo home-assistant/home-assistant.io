@@ -7,7 +7,6 @@ ha_release: 0.47
 ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
-  - '@hunterjm'
   - '@jterrace'
 ha_config_flow: true
 ha_platforms:
@@ -15,7 +14,6 @@ ha_platforms:
   - button
   - camera
   - diagnostics
-  - event
   - sensor
   - switch
 ha_integration_type: device
@@ -40,7 +38,7 @@ Most of the ONVIF devices support more than one audio/video profile. Each profil
 | -------| ----------- |
 | RTSP transport mechanism | RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`. |
 | Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` integration](/integrations/ffmpeg). |
-| Use wallclock as timestamps | ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
+| Use wallclock as timestamps | Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
 | Enable Webhooks | If the device supports notifications via a Webhook, the integration will attempt to set up a Webhook. Disable this option to force falling back to trying PullPoint if the device supports it. |
 
 #### Snapshots
@@ -54,7 +52,7 @@ By default, the integration will only enable the camera entity for the first H26
 
 ### Supported sensors
 
-This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant.  Below is a list of currently supported event topics along with the entities they create.
+This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant. Below is a list of currently supported event topics along with the entities they create.
 
 To help with development of this integration, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
 
@@ -71,7 +69,7 @@ To help with development of this integration, enable `info` level logging for `h
 | Image too blurry | Binary sensor | Problem | Device reports blurry image. |
 | Image too dark | Binary sensor | Problem | Device reports dark image. |
 | Image too bright | Binary sensor | Problem | Device reports bright image. |
-| Global scene change | Binary sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
+| Global scene change | Binary sensor | Problem | Device reports a large portion of the video content changing. The cause can be tamper actions like camera movement or coverage. |
 | Tamper detector | Binary sensor | Problem |  Detects any kind of tampering to the image sensor. |
 | Storage failure | Binary sensor | Problem | Storage failure on device. |
 | Recording job state | Binary sensor | None | Whether or not the device is actively recording. |

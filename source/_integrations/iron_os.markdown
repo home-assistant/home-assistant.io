@@ -59,7 +59,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 ## Number controls
 
-- **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
+- **Setpoint temperature:** Allows you to set the desired target temperature for the soldering iron tip.
 
 ## Binary sensors
 
@@ -157,8 +157,6 @@ Automatically activate the fume extractor when soldering begins and deactivate i
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -189,8 +187,6 @@ actions:
         target:
           entity_id: switch.fume_extractor
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

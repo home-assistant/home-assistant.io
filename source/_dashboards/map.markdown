@@ -10,7 +10,7 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /docs/configuration/basic/#editing-the-general-settings
+  - docs: /docs/configuration/basic/#editing-the-home-information
     title: Edit your home location
   - docs: /getting-started/presence-detection/
     title: Getting started tutorial on presence detection
@@ -23,7 +23,7 @@ The map card allows you to display your home zone, entities, and other predefine
 Screenshot of the map card.
 </p>
 
-## Adding the map card to your dashboard
+## Adding the map card to a dashboard
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
@@ -33,7 +33,7 @@ Screenshot of the map card.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 2. [Add the map card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.
 3. By default, you see the house {% icon "mdi:house" %} icon on your map. It represents your [home zone](/integrations/zone/#about-the-home-zone).
-   - To change the location of your home, you need to [edit your home's location in the general settings](/docs/configuration/basic/#editing-the-general-settings).
+   - To change the location of your home, you need to [edit your home's location in the home information](/docs/configuration/basic/#editing-the-home-information).
 
     ![Edit map card settings](/images/dashboards/map_card_config.png)
 4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).

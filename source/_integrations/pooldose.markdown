@@ -74,6 +74,7 @@ The following devices are known to be supported by the integration:
 - SEKO PoolDose Double Spa
 - SEKO PoolDose pH+ORP CF Group Wi-Fi
 - SEKO PoolDose pH
+- BWT MEDO CONNECT Wi-Fi
 - VÁGNER POOL VA DOS BASIC
 - VÁGNER POOL VA DOS EXACT
 
@@ -215,7 +216,6 @@ This integration provides the following entities.
 
 This automation monitors your pool's ORP level and sends a notification when it goes outside the recommended range.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pool ORP out of range"
@@ -234,13 +234,11 @@ automation:
           title: "Pool ORP alert"
           message: "ORP level is {{ trigger.id }}: {{ states('sensor.pool_device_orp') }} mV"
 ```
-{% endraw %}
 
 ### Monitor pH levels and send alerts
 
 This automation monitors your pool's pH level and sends a notification when it goes outside the recommended range.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pool pH out of range"
@@ -259,13 +257,11 @@ automation:
           title: "Pool pH alert"
           message: "pH level is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
-{% endraw %}
 
 ### Pause dosing when pH is extreme
 
 This automation pauses the dosing system when the pH level reaches dangerously high or low values, preventing excessive chemical dosing.
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Pause dosing on extreme pH"
@@ -287,7 +283,6 @@ automation:
           title: "Pool dosing paused"
           message: "Dosing paused - pH is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
-{% endraw %}
 
 ### Pool monitoring dashboard
 
@@ -473,7 +468,7 @@ This integration provides diagnostics to help with debugging and troubleshooting
 - The device information reported by the coordinator with sensitive values redacted.
 - The most recent data fetched from the device by the coordinator.
 
-To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
+To collect diagnostics, go to **Settings** > **Devices & services**, open the PoolDose integration,
 click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
 
 ## Removing the integration
