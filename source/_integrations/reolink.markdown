@@ -384,7 +384,6 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
-- [E1](https://reolink.com/product/e1/)
 - [E1 Pro](https://reolink.com/product/e1-pro/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
@@ -492,6 +491,7 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - D500*
 - D800*
 - D1200*
+- E1
 
 *These models are only sold as a kit which includes a NVR.
 
