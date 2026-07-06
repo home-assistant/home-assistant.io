@@ -2,7 +2,7 @@
 title: "Light turned on"
 trigger: light.turned_on
 domain: light
-description: "Triggers after one or more lights turn on."
+description: "Triggers when one or more lights turn on."
 related_triggers:
   - light.turned_off
   - light.brightness_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Light turned on** trigger fires after a light {% term entity %} turns on. Use it to start an automation the moment the light lights up, whether someone flipped a physical switch, pressed a button in the UI, or called an action in another automation.
 
 When you target more than one light, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted light turns on, the last time the final targeted light turns on, or every single time any of them turn on.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

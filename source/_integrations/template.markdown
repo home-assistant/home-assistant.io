@@ -1130,7 +1130,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1187,7 +1187,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1360,7 +1360,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+      description: Defines a template to get the color temperature of the light in Kelvin. The template must return a value between 2000 and 6535.
       required: false
       type: template
       default: optimistic
@@ -2729,7 +2729,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/

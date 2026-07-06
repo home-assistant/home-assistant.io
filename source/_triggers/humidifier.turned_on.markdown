@@ -2,7 +2,7 @@
 title: "Humidifier turned on"
 trigger: humidifier.turned_on
 domain: humidifier
-description: "Triggers after one or more humidifiers turn on."
+description: "Triggers when one or more humidifiers turn on."
 related_triggers:
   - humidifier.turned_off
   - humidifier.started_humidifying
@@ -12,8 +12,6 @@ related_triggers:
 The **Humidifier turned on** trigger fires after a humidifier {% term entity %} turns on. Use it to start an automation the moment the device powers up, whether you turned it on manually, through the app, or via another automation.
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, only after all targeted humidifiers have turned on, or every single time any of them turn on.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

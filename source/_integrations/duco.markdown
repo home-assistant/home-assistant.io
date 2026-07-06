@@ -47,7 +47,7 @@ Other Duco systems that expose public API version 2.1 or newer can be set up, bu
 
 The following node types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength.
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
@@ -139,6 +139,12 @@ To see when a timed state ends, use the [State end time](#state-end-time) sensor
 #### State end time
 
 Available for the main ventilation box (BOX). Shows the time at which the current timed ventilation state ends. When no timer is active, this sensor is unavailable.
+
+#### Filter remaining
+
+Available for Duco box models that expose a filter timer via the local API. Shows the remaining filter lifetime in days.
+
+On models that do not expose a filter timer, this sensor is not created.
 
 #### CO₂ concentration
 

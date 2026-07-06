@@ -2,7 +2,7 @@
 title: "Temperature crossed threshold"
 trigger: temperature.crossed_threshold
 domain: temperature
-description: "Triggers after one or more temperature readings cross a threshold."
+description: "Triggers when one or more temperature readings cross a threshold."
 related_triggers:
   - temperature.changed
 ---
@@ -12,8 +12,6 @@ The **Temperature crossed threshold** trigger fires when a temperature reading c
 Use **Temperature crossed threshold** to automate heating or cooling when the temperature becomes uncomfortable, alert you when conditions in a room drift out of range, or coordinate devices that respond to specific temperature levels.
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

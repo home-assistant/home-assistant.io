@@ -2,7 +2,7 @@
 title: "Battery stopped charging"
 trigger: battery.stopped_charging
 domain: battery
-description: "Triggers after one or more battery-powered devices stop charging."
+description: "Triggers when one or more battery-powered devices stop charging."
 related_triggers:
   - battery.started_charging
   - battery.level_changed
@@ -10,8 +10,6 @@ related_triggers:
 ---
 
 The **Battery stopped charging** trigger fires when a battery-powered device transitions from actively charging to not charging. A device stops charging when it is unplugged, removed from its dock, or when it reaches full charge and the charger cuts off. Use this trigger to detect when a device is unplugged unexpectedly, confirm when a charge cycle completes, or start automations that should run once a device is ready to use.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

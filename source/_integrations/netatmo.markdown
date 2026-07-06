@@ -233,4 +233,4 @@ To confirm your Home Assistant instance is receiving events via webhooks, you ca
 
 ### Light
 
-If the lights show as unavailable the issue usually is that webhook is banned by Netatmo. To solve that [unregister](#un-register-webhooks) the webhook, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook and then [register](#un-register-webhooks) the webhook.
+If the lights show as unavailable, the webhook has likely been banned by Netatmo. To resolve this, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook, and then reload the integration.
