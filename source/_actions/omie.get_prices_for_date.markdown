@@ -22,7 +22,7 @@ To get prices from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **OMIE - Spain and Portugal electricity prices: Get prices for date**.
-6. Select the **Date** you want, and choose the **Country** to get prices for.
+6. Select the **Date** you want, and choose the **Countries** to get prices for.
 7. Select **Save**.
 
 ### Options in the UI
@@ -31,8 +31,8 @@ To get prices from an automation or a script:
 Date:
   description: The date to get the prices for.
   required: true
-Country:
-  description: The country to get the prices for. Choose Spain, Portugal, or Both. Defaults to Both.
+Countries:
+  description: The countries to get the prices for. Choose Spain, Portugal, or both. Both are selected by default.
   required: true
 {% endoptions_ui %}
 
@@ -45,7 +45,9 @@ action: |
   action: omie.get_prices_for_date
   data:
     date: "2026-07-08"
-    country: both
+    countries:
+      - es
+      - pt
   response_variable: prices
 {% endexample %}
 
@@ -59,17 +61,17 @@ date:
     The date to get the prices for, in YYYY-MM-DD format.
   required: true
   type: string
-country:
+countries:
   description: >
-    The country to get the prices for. One of es, pt, or both.
+    The countries to get the prices for. A list containing es, pt, or both.
     Defaults to both.
   required: true
-  type: string
+  type: list
 {% endoptions_yaml %}
 
 ## Response data
 
-The response contains a key for each requested country: `es` for Spain and `pt` for Portugal. If you request **Both**, both keys are present.
+The response contains a key for each requested country: `es` for Spain and `pt` for Portugal. If you request both countries, both keys are present.
 
 Each key holds a list of quarter-hourly intervals. Each interval includes the following fields:
 
