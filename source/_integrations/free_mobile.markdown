@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.11
 ha_iot_class: Cloud Push
 ha_domain: free_mobile
+ha_quality_scale: legacy
 ha_config_flow: true
 ha_platforms:
   - notify
@@ -47,7 +48,7 @@ To confirm that your username and access token are valid, Home Assistant sends a
 
 ### Notify actions
 
-A notify action is created using the integration entry name, without spaces. To send a text message, refer to it in an automation or script like in this example:
+A notify action is created using the integration entry name, without spaces. By default, Home Assistant uses your Free Mobile username as the entry name. To send a text message, refer to it in an automation or script like in this example:
 
 ```yaml
 - alias: "Send SMS When Someone Arrives"
