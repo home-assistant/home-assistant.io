@@ -213,14 +213,28 @@ These triggers wrap the underlying `netatmo_event` types for supported devices.
 
 The following device triggers are available:
 
-- **Smart Indoor Camera**: detected movement, detected a person, detected a
-  person has left, detected a human, detected an animal, detected a vehicle,
-  detected an outdoor event, turned on, turned off, detected an alarm.
-- **Smart Outdoor Camera**: detected an outdoor event, detected a human,
-  detected an animal, detected a vehicle, turned on, turned off.
-- **Smart Thermostat** and **Smart Valve**: target temperature set manually,
-  resumed its schedule, switched mode (with a subtype for schedule, frost
-  guard, or away).
+- **Smart Indoor Camera**
+  - Detected movement
+  - Detected a person
+  - Detected that a person left
+  - Detected a human
+  - Detected an animal
+  - Detected a vehicle
+  - Detected an outdoor event
+  - Turned on
+  - Turned off
+  - Detected an alarm
+- **Smart Outdoor Camera**
+  - Detected an outdoor event
+  - Detected a human
+  - Detected an animal
+  - Detected a vehicle
+  - Turned on
+  - Turned off
+- **Smart Thermostat** and **Smart Valve**
+  - Target temperature set manually
+  - Resumed its schedule
+  - Switched mode (subtype: schedule, frost guard, or away)
 
 ## Development / Testing with your own client ID
 
