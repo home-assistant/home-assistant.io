@@ -25,6 +25,7 @@ With this integration, you can:
 
 - Track upcoming departure times at transit stops.
 - Monitor real-time bike and dock availability at [Vélo'v](https://velov.grandlyon.com/) bike-sharing stations.
+- Monitor real-time parking space availability at TCL park & ride (P+R) facilities.
 
 ## Prerequisites
 
@@ -47,7 +48,7 @@ Password:
   description: "Your password on data.grandlyon.com."
 {% endconfiguration_basic %}
 
-After setting up the integration, you can add transit stops and Vélo'v bike-sharing stations as sub-entries from the integration's configuration page.
+After setting up the integration, you can add transit stops, Vélo'v bike-sharing stations, and park & ride facilities as sub-entries from the integration's configuration page.
 
 ### Adding a transit stop
 
@@ -72,6 +73,17 @@ Line:
 {% configuration_basic %}
 Station:
   description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom in on the map and select a station. The ID will be displayed at the top of the panel displayed on the right of the screen. The field is called **idstation**."
+{% endconfiguration_basic %}
+
+### Adding a park & ride
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
+2. Select **Add park & ride**.
+3. Select the park & ride you want to monitor. You can search the list by name, or enter a park & ride ID directly.
+
+{% configuration_basic %}
+Park & ride:
+  description: "The park & ride identifier. You can find park & ride IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/parcs-relais-reseau-transports-commun-lyonnais-disponibilites-temps-reel/donnees). Zoom in on the map and select a park & ride. The ID will be displayed in the panel on the right of the screen."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -150,6 +162,25 @@ For each Vélo'v station you add, the following sensor entities are created:
 - **Electrical removable battery bikes**
   - **Description**: The number of electrical bikes with a removable battery available at the station. Disabled by default.
 
+#### Park & ride sensors
+
+For each park & ride you add, the following sensor entities are created:
+
+- **Available parking spaces**
+  - **Description**: The number of parking spaces currently available at the facility.
+
+- **Capacity**
+  - **Description**: The total number of parking spaces at the facility.
+
+- **Accessible parking spaces**
+  - **Description**: The number of parking spaces reserved for people with reduced mobility. Disabled by default.
+
+- **Opening hours**
+  - **Description**: The opening hours of the facility. Disabled by default.
+
+- **Name**
+  - **Description**: The name of the park & ride facility. Disabled by default.
+
 ## Examples
 
 ### Refresh data more frequently during a time window
@@ -215,6 +246,10 @@ Make sure the line identifier and stop ID are correct. You can verify these on t
 ### Vélo'v station shows no data
 
 Make sure the station ID is correct. You can verify it on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees).
+
+### Park & ride shows no data
+
+Make sure the park & ride ID is correct. You can verify it on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/parcs-relais-reseau-transports-commun-lyonnais-disponibilites-temps-reel/donnees).
 
 ## Removing the integration
 

@@ -217,51 +217,53 @@ pyvizio --ip=0 get-apps-list
 
 ## Remote
 
-The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive.
+The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive. You can use either the native key name (for example, `vol_up`) or a human-friendly alias (for example, `volume_up`).
 
 ### Available commands
 
 #### TV commands
 
-| Command |
-| :------ |
-| `back` |
-| `cc_toggle` |
-| `ch_down` |
-| `ch_prev` |
-| `ch_up` |
-| `down` |
-| `exit` |
-| `home` |
-| `info` |
-| `input_next` |
-| `left` |
-| `left2` |
-| `menu` |
-| `mute_off` |
-| `mute_on` |
-| `mute_toggle` |
-| `ok` |
-| `pause` |
-| `pic_mode` |
-| `pic_size` |
-| `play` |
-| `pow_off` |
-| `pow_on` |
-| `pow_toggle` |
-| `right` |
-| `seek_back` |
-| `seek_fwd` |
-| `smartcast` |
-| `up` |
-| `vol_down` |
-| `vol_up` |
+| Command | Additional aliases |
+| :------ | :------ |
+| `back` | |
+| `cc_toggle` | `closed_captions`, `cc` |
+| `ch_down` | `channel_down` |
+| `ch_prev` | `previous_channel` |
+| `ch_up` | `channel_up` |
+| `down` | |
+| `exit` | |
+| `home` | |
+| `info` | |
+| `input_next` | `next_input` |
+| `left` | |
+| `left2` | |
+| `menu` | |
+| `mute_off` | |
+| `mute_on` | |
+| `mute_toggle` | `mute`, `toggle_mute` |
+| `ok` | `enter`, `select` |
+| `pause` | |
+| `pic_mode` | `picture_mode` |
+| `pic_size` | `picture_size` |
+| `play` | |
+| `pow_off` | `off`, `power_off` |
+| `pow_on` | `on`, `power_on` |
+| `pow_toggle` | `power_toggle`, `toggle_power`, `power` |
+| `right` | |
+| `seek_back` | `reverse`, `rewind` |
+| `seek_fwd` | `forward`, `fast_forward`, `ff` |
+| `smartcast` | |
+| `up` | |
+| `vol_down` | `volume_down` |
+| `vol_up` | `volume_up` |
 
 #### Speaker commands
 
 Speakers support a subset of the commands above:
 
 `mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
+
+Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
 
 ### Examples
 
@@ -297,7 +299,7 @@ target:
   entity_id: remote.vizio_smartcast
 data:
   command:
-    - vol_up
+    - volume_up
   num_repeats: 5
   delay_secs: 0.4
 ```
