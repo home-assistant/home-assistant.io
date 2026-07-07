@@ -75,18 +75,26 @@ package_friendly_name:
   type: string
 {% endoptions_yaml %}
 
+## Good to know
+
+- Combine this action with dashboard {% term helpers %} to create an automation that adds a package in 17Track when you enter the new package data from the dashboard:
+  - Create an [input text](/integrations/input_text/) helper for each one of the following required fields: **Package tracking number to add**, **Package friendly name** and **17Track service**, and then add them to a new card in your dashboard.
+  - Since the value of **17Track service** (`config_entry_ID`) never changes once set, you can pre-fill it in the helper and leave it fixed. Only the first two helpers need to be filled in each time you want to add a package.
+  - You can also create an [input button](/integrations/input_button/) helper and add it as the trigger of your automation, as described in the [automation example for tracking a package by entering all package data in dashboard helpers](/actions/seventeentrack.add_package/#automation-track-a-package-by-entering-all-package-data-in-dashboard-helpers).
+
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Automation: track a package when a tracking number arrives
+### Automation: track a package by entering the tracking number in a dashboard helper
 
 When a helper that holds a new tracking number changes, add that package to 17Track.
 
-- **Trigger**: A text helper with a tracking number changes
+- **Trigger**: State
+  - **Entity**: Tracking number (`input_text.tracking_number`)
 - **Action**: 17TRACK: Add a package
 
-{% details "YAML example for adding a package from a helper" %}
+{% details "YAML example for adding a package using a text helper" %}
 
 {% example %}
 automation: |
@@ -100,6 +108,54 @@ automation: |
         config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
         package_tracking_number: "{{ states('input_text.tracking_number') }}"
         package_friendly_name: "New order"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: track a package by entering all package data in dashboard helpers
+
+Enter the tracking number and friendly name of a new package in a dedicated card on your dashboard and then press a button to start this automation. The automation reads the two text helpers that were added and, if the tracking number is not empty, passes the values as data to the **17TRACK: Add a package** action. After that, it clears the input fields for the next use.
+
+- **Trigger**: State
+  - **Entity**: Add package to 17Track (`input_button.add_package_to_17track`)
+- **Condition**: Template
+- **Action**: 17TRACK: Add package
+- **Action**: Input text: Set input text value
+  - **Target**: Package tracking number
+- **Action**: Input text: Set input text value
+  - **Target**: Package friendly name
+
+{% details "YAML example for adding a package using dashboard helpers" %}
+
+{% example %}
+automation: |
+  alias: "Add package to 17Track from dashboard helpers"
+  triggers:
+    - trigger: state
+      entity_id: input_button.add_package_to_17track
+  conditions:
+    - condition: template
+      value_template: >
+        {{ states('input_text.package_tracking_number') | length > 0 }}
+  actions:
+    - action: seventeentrack.add_package
+      data:
+        config_entry_id: >
+          {{ states('input_text.seventeentrack_config_entry_id') }}
+        package_tracking_number: >
+          {{ states('input_text.package_tracking_number') }}
+        package_friendly_name: >
+          {{ states('input_text.package_friendly_name') }}
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.package_tracking_number
+      data:
+        value: ""
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.package_friendly_name
+      data:
+        value: ""
 {% endexample %}
 
 {% enddetails %}
