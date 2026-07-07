@@ -2,12 +2,6 @@
 title: EvolvIOT
 description: Instructions on how to set up EvolvIOT devices in Home Assistant.
 ha_category:
-  - Binary sensor
-  - Fan
-  - Light
-  - Number
-  - Select
-  - Sensor
   - Switch
 ha_config_flow: true
 ha_release: 2026.8
@@ -16,12 +10,6 @@ ha_codeowners:
   - '@system-buru'
 ha_domain: evolviot
 ha_platforms:
-  - binary_sensor
-  - fan
-  - light
-  - number
-  - select
-  - sensor
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -33,9 +21,9 @@ The **EvolvIOT** {% term integration %} allows you to connect your EvolvIOT acco
 
 ## Supported functionality
 
-The integration exposes supported EvolvIOT device controls as Home Assistant entities, depending on the capabilities reported by EvolvIOT.
+The integration exposes supported EvolvIOT switch controls as Home Assistant switch entities.
 
-Supported entity types include binary sensors, fans, lights, number controls, select controls, sensors, and switches.
+Switch entities can be turned on or off from Home Assistant.
 
 ## Local control
 
