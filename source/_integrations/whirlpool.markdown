@@ -96,7 +96,11 @@ The following actions are also available:
 
 The number platform provides the following entity for ovens:
 
-- **Target temperature**: Sets the target temperature for an oven cavity, keeping the current cook mode. If the oven is idle, a bake cycle is started at the set temperature. This replaces the deprecated oven target temperature sensor.
+- **Target temperature**: Sets the target temperature for an oven cavity, keeping the current cooking mode.
+
+{% important %}
+If the oven is idle, setting the target temperature starts a bake cycle at the set temperature.
+{% endimportant %}
 
 ### Select
 
