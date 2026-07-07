@@ -97,7 +97,7 @@ The select platform provides the following entity for refrigerators:
 
 The select platform provides the following entity for ovens:
 
-- **Cook mode**: Sets the cook mode of an oven cavity, keeping the current target temperature. Selecting `Standby` turns the oven off by stopping the current cook. This replaces the deprecated oven cook mode sensor.
+- **Cook mode**: Sets the cook mode of an oven cavity, keeping the current target temperature. Selecting `Standby` turns the oven off by stopping the current cook.
 
 ### Sensor
 
