@@ -4,6 +4,7 @@ description: Instructions on how to integrate Whirlpool appliances with Home Ass
 ha_category:
   - Climate
   - Hub
+  - Number
   - Select
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
@@ -16,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -68,6 +70,7 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 
 - [Binary Sensor](#binary_sensor)
 - [Climate](#climate)
+- [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 
@@ -88,6 +91,12 @@ The following actions are also available:
 - [**turn on/off**](/integrations/climate/#action-turn-on)
 - [**fan mode**](/integrations/climate/#action-set-fan-mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate/#action-set-swing-mode) (`off`, `horizontal`)
+
+### Number
+
+The number platform provides the following entity for ovens:
+
+- **Target temperature**: Sets the target temperature for an oven cavity, keeping the current cook mode. If the oven is idle, a bake cycle is started at the set temperature. This replaces the deprecated oven target temperature sensor.
 
 ### Select
 
