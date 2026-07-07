@@ -168,7 +168,8 @@ automation: |
       target:
         entity_id: fan.living_room
       data:
-        percentage: "{{ state_attr('light.living_room_ceiling', 'brightness_pct') | int }}"
+        percentage: >-
+          {{ state_attr('light.living_room_ceiling', 'brightness_pct') | int }}
 {% endexample %}
 ```
 
@@ -203,5 +204,8 @@ Example:
 Use the `lite-youtube` element for YouTube videos. For `videoid`, use the part of the YouTube URL that comes after `watch?v=`. Use `videoStartAt` only when playback should start at a specific time.
 
 ```html
-<lite-youtube videoid="ZgoaoTpIhm8" videoStartAt="3907" videotitle="Introducing the Home Assistant Voice Preview Edition - Voice: Chapter 8"></lite-youtube>
+<lite-youtube videoid="ZgoaoTpIhm8"
+  videoStartAt="3907"
+  videotitle="Introducing Home Assistant Voice Preview Edition">
+</lite-youtube>
 ```
