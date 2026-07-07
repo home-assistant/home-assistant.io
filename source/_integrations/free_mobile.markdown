@@ -6,13 +6,10 @@ ha_category:
 ha_release: 0.11
 ha_iot_class: Cloud Push
 ha_domain: free_mobile
+ha_config_flow: true
 ha_platforms:
   - notify
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
-ha_quality_scale: legacy
+ha_integration_type: service
 ---
 
 The **Free Mobile** {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
@@ -33,30 +30,43 @@ If you disable and re-enable the SMS API option, please be sure to update your t
 
 ## Configuration
 
-To use this notification platform in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: free_mobile
-    username: YOUR_ACCOUNT_ID
-    access_token: TOKEN
-```
-
-{% configuration %}
-name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
-  required: false
-  type: string
-  default: notify
+{% configuration_basic %}
 username:
   description: This is the id given by FreeMobile to access your online account.
-  required: true
-  type: string
 access_token:
   description: You can get this token by activating the SMS API in your online account.
-  required: true
-  type: string
 {% endconfiguration %}
+
+{% note %}
+To confirm that your username and access token are valid, Home Assistant sends a text message to your phone during setup.
+{% endnote %}
+
+## Supported functionality
+
+### Notify actions
+
+A notify action is created using your Free Mobile username, without spaces. To send a text message, refer to it in an automation or script like in this example:
+
+```yaml
+- alias: "Send SMS When Someone Arrives"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: notify.YOUR_USERNAME
+      data:
+        message: "Someone is at the front door"
+```
+
+## Troubleshooting
+
+If sending a text message fails, Home Assistant can raise one of the following errors:
+
+- **Wrong username or access token**: The username or access token is no longer valid. Reactivating the SMS API option in your Free Mobile account generates a new token, so update it in your configuration if you have recently done so.
+- **At least one parameter is missing**: The message sent to the action was empty.
+- **Too many SMS sent in a short time**: Free Mobile limits how many text messages you can send in a short period. Wait a while before sending another message.
+- **Free Mobile server error**: The Free Mobile SMS API is temporarily unavailable. Try again later.
+
