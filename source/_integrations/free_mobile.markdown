@@ -47,7 +47,7 @@ To confirm that your username and access token are valid, Home Assistant sends a
 
 ### Notify actions
 
-A notify action is created using your Free Mobile username, without spaces. To send a text message, refer to it in an automation or script like in this example:
+A notify action is created using the integration entry name, without spaces. To send a text message, refer to it in an automation or script like in this example:
 
 ```yaml
 - alias: "Send SMS When Someone Arrives"
@@ -65,7 +65,7 @@ A notify action is created using your Free Mobile username, without spaces. To s
 
 If sending a text message fails, Home Assistant can raise one of the following errors:
 
-- **Wrong username or access token**: The username or access token is no longer valid. Reactivating the SMS API option in your Free Mobile account generates a new token, so update it in your configuration if you have recently done so.
+- **Wrong username or access token**: The username or access token is no longer valid. Reactivating the SMS API option in your Free Mobile account generates a new token, so update it in the integration entry if you have recently done so.
 - **At least one parameter is missing**: The message sent to the action was empty.
 - **Too many SMS sent in a short time**: Free Mobile limits how many text messages you can send in a short period. Wait a while before sending another message.
 - **Free Mobile server error**: The Free Mobile SMS API is temporarily unavailable. Try again later.
