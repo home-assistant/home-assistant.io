@@ -9,7 +9,7 @@ related_actions:
   - shopping_list.clear_completed_items
 ---
 
-Use this action to mark an item as completed without removing it from the list. It marks the first item whose name matches, so you can tick something off as you put it in your basket while keeping it on the list for next time.
+Use this action to mark an item as completed without removing it from the list. It marks every item whose name matches, so you can tick something off as you put it in your basket while keeping it on the list for next time. Items that are already marked as complete are not updated.
 
 {% include actions/ui_header.md %}
 
@@ -54,6 +54,8 @@ name:
 
 - This action keeps the item on the list. To remove it instead, use [Remove shopping list item](/actions/shopping_list.remove_item/).
 - To clear out all completed items at once, use [Clear completed shopping list items](/actions/shopping_list.clear_completed_items/).
+- This action (only) triggers a [`shopping_list_updated` event](/integrations/shopping_list/#using-in-automations) with `action` value of `"complete"`.
+  Other actions that modify the status of an item use an `action` value of `"update"` instead.
 
 {% include actions/try_it.md %}
 
