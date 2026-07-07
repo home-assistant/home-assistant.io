@@ -1697,7 +1697,7 @@ article.listing {
     margin-top: 1.75em;
     line-height: 1.4;
 
-    &:has(.title-link) {
+    &:has(> a.title-link) {
       padding-right: 0.5rem;
     }
   }
