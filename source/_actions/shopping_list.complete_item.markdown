@@ -2,7 +2,7 @@
 title: "Complete shopping list item"
 action: shopping_list.complete_item
 domain: shopping_list
-description: "Marks the first item with matching name as completed in the shopping list."
+description: "Marks every incomplete item with matching name as completed in the shopping list."
 related_actions:
   - shopping_list.incomplete_item
   - shopping_list.complete_all
@@ -54,8 +54,8 @@ name:
 
 - This action keeps the item on the list. To remove it instead, use [Remove shopping list item](/actions/shopping_list.remove_item/).
 - To clear out all completed items at once, use [Clear completed shopping list items](/actions/shopping_list.clear_completed_items/).
-- This action (only) triggers a [`shopping_list_updated` event](/integrations/shopping_list/#using-in-automations) with `action` value of `"complete"`.
-  Other actions that modify the status of an item use an `action` value of `"update"` instead.
+- This action triggers a [`shopping_list_updated` event](/integrations/shopping_list/#using-in-automations) with `action` value of `"complete"`.
+  Every other action that modifies the status of specific items uses an `action` value of `"update"` instead.
 
 {% include actions/try_it.md %}
 
