@@ -31,6 +31,10 @@ The **LG ThinQ** {% term integration %} allows you to connect LG ThinQ devices t
 
 - Control LG appliances as Home Assistant entities through the LG ThinQ Connect API.
 
+> [!CAUTION]
+> This integration has unexpected behaviour when using remote start functionality or delayed start functionality on LG washers. It will remote start the default cycle, which is usually a cotton cycle at a fast spin rate. LG have [indicated](https://github.com/home-assistant/core/issues/151084#issuecomment-3306603518) that they do not have plans to fix this. Do not use this integration to remote or delay washer starts if a non-default program is required for your washer loads. For more information see [#151084](https://github.com/home-assistant/core/issues/151084) and [#143046](https://github.com/home-assistant/core/issues/143046)
+
+
 ## Prerequisites
 
 - This feature works via LG ThinQ cloud. Therefore, an internet connection is required.
