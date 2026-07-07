@@ -62,9 +62,9 @@ phase:
 
 ## Good to know
 
-- This trigger does not use a target. It follows the moon phase, which is the same everywhere on Earth, so it does not depend on your [home location](/docs/configuration/basic/).
-- The phase is based on the date, so the trigger fires at most once a day, when the phase changes.
-- With a specific phase selected, the trigger fires the moment the moon enters that phase, not for the whole time the moon stays in it. To test whether the moon is currently in a phase, use the [Moon phase](/conditions/moon.is_phase/) condition instead.
+- This trigger does not use a target. Home Assistant calculates the phase from the current local date, so it does not depend on your [home location](/docs/configuration/basic/).
+- The phase is based on the date, so Home Assistant checks for a phase change once per day, at midnight (local time).
+- With a specific phase selected, the trigger fires at the daily check when Home Assistant detects that the moon has entered that phase, not for the whole time the moon stays in it. To test whether the moon is currently in a phase, use the [Moon phase](/conditions/moon.is_phase/) condition instead.
 
 {% include triggers/try_it.md %}
 

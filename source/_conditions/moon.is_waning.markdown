@@ -35,7 +35,7 @@ This passes while the moon is waning.
 
 ## Good to know
 
-- This condition does not use a target. It checks the moon phase, which is the same everywhere on Earth, so it does not depend on your [home location](/docs/configuration/basic/).
+- This condition does not use a target. Home Assistant calculates the phase from the current local date, so it does not depend on your [home location](/docs/configuration/basic/).
 - The moon wanes from the full moon back to the new moon, then waxes from the new moon up to the full moon. For the opposite check, use [Moon is waxing](/conditions/moon.is_waxing/).
 - The phase is based on the date, so it changes at most once a day.
 - To test for a single phase instead of the direction, use [Moon phase](/conditions/moon.is_phase/).

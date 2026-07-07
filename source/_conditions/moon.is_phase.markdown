@@ -56,7 +56,7 @@ phase:
 
 ## Good to know
 
-- This condition does not use a target. It checks the moon phase, which is the same everywhere on Earth, so it does not depend on your [home location](/docs/configuration/basic/).
+- This condition does not use a target. Home Assistant calculates the phase from the current local date, so it does not depend on your [home location](/docs/configuration/basic/).
 - This is a point-in-time check. It reflects the phase at the moment the automation runs.
 - The phase is based on the date, so it changes at most once a day.
 - To test the direction the moon is heading rather than a single phase, use [Moon is waxing](/conditions/moon.is_waxing/) or [Moon is waning](/conditions/moon.is_waning/).
