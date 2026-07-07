@@ -51,7 +51,9 @@ There is support for the following device families within Home Assistant:
 
 {% warning %}
 
-This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security**, and then select **Your login approvals**. You must ensure the authenticator app is set up as your preferred method for 2FA.
+This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Se[...]
+
+You must ensure the authenticator app is set up as your preferred method for 2FA.
 
 {% endwarning %}
 
@@ -70,7 +72,7 @@ This integration requires multi-factor authentication using an authentication ap
 
 ## Notifications
 
-This integration creates **Speak** and **Announce** notify entities for devices that support them. To make a device say something, use the generic [`notify.send_message`](/integrations/notify/) action.
+This integration creates **Speak** and **Announce** notify entities for devices that support them. To make a device say something, use the generic [`notify.send_message`](/integrations/notify/) ac[...]
 
 The **Speak** entity reads your message out loud on the device. The **Announce** entity plays the Alexa notification chime first and then reads your message.
 
@@ -82,9 +84,9 @@ When sending notifications to multiple devices, you may experience delays due to
 
 {% details "Advanced message markup" %}
 
-Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips. Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-ssml.html).
+Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips. Details of this are covered in [Amazon's doc[...]
 
-Audio files must meet certain criteria on size, bit and sample rates and must be served over HTTPS (see [documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-ssml.html)).
+Audio files must meet certain criteria on size, bit and sample rates and must be served over HTTPS (see [documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis[...]
 
 Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html) which contains the markup you will need for that clip.
 
@@ -124,33 +126,33 @@ In addition to sensors, you can use the following entities:
 
 ## Communications
 
-The integration provides configuration entities for managing communication settings on Alexa devices. You can toggle communications and announcements, or use a select entity to change the drop-in mode.
+The integration exposes configuration entities for communication settings on each Alexa device. You can toggle **Communications** and **Announcements**, and choose a **Drop In** mode using a sele[...]
 
 {% warning %}
 
-Amazon applies rate limits to these configuration changes. Rate limit warnings may appear in the logs, but the integration caches entity values to prevent them from appearing as unavailable.
+Amazon rate limits these settings and the Developers are aware of this. Please, DO NOT submit issues regarding these warnings. These rate limit warnings will appear in the logs. The integration c[...]
 
 {% endwarning %}
 
-<img width="346" height="351" alt="configuration_controls" src="https://github.com/user-attachments/assets/9aba2655-bb3e-4432-9607-7d0102b3039f" />
+<img width="346" height="351" alt="configuration_controls" src="/images/integrations/alexa_devices/configuration_controls.png" />
 
-## Media players
+## Media Players
 
-The integration includes media player support for echo devices and third-party devices that have built-in Alexa. Media player entities are added as typical Home Assistant media players with support for volume control, muting, play/pause, and media selection.
+The integration includes media_player support for echo devices and third-party devices that have built-in Alexa. The media_player entities are added as typical Home Assistant media players with c[...]
 
-Currently, Fire Stick, Fire Cube, and other FireTV devices do not include media player support, but support may be added in a future update.
+Currently, Fire Stick, Fire Cube, and other FireTV devices do not include media_player support, but support may be added in a future update.
 
-<img width="346" height="167" alt="media_player_entity" src="https://github.com/user-attachments/assets/6105acbc-124f-403d-add7-3af72131d911" />
+<img width="346" height="167" alt="media_player_entity" src="/images/integrations/alexa_devices/media_player_entity.png" />
 
 ## To-do
 
-To-do list support has been added to Alexa Devices. Users can add items to and remove items from their Alexa Shopping List, as well as the Alexa To-do List and any custom lists created by the user. Lists can be accessed from the To-do lists tab in the Home Assistant menu bar. Sensor entities are created for each list and appear under the user's account in the Alexa Devices integration page (the same page that includes the user's Alexa Routine buttons). These sensors will show a state of how many items are on the list. Supported features include Create todo item, Delete todo item, and Update todo item.
+To-do list support has been added to Alexa Devices. Users can add items to and remove items from their Alexa Shopping List, as well as the Alexa To-do List and any custom lists created by the use[...]
 
-## Voice attributes
+## Voice Attributes
 
-The integration includes voice event entities for each Alexa device. The entity state displays a timestamp for when the device was last spoken to or activated. The entity attributes provide additional details about the last voice interaction, including the event type, intent, voice command, voice reply, and friendly name. You can use these attributes to create template helpers.
+The integration includes Voice event entities for each Alexa Device. The entity will show a state of time for when the Alexa Device was last spoken to or initiated from the Alexa App. The entity…[...]
 
-<img width="580" height="473" alt="voice_event" src="https://github.com/user-attachments/assets/7448d260-4daa-4a30-a89f-09cadf0f9de8" />
+<img width="580" height="473" alt="voice_event" src="/images/integrations/alexa_devices/voice_event.png" />
 
 ## Examples
 
@@ -201,12 +203,11 @@ target:
 
 ```
 
-### Last device templates
+### Last Device Templates
 
-Many users would like to know which Alexa device was last used, especially when spoken to, which can help in scripts, automations, and blueprints.
+Many users would like to know which Alexa Device was last used, especially when spoken to, which can help in scripts, automations, and/or blueprints.
 
 ```yaml
-{% raw %}
 {% set entity =
   integration_entities('alexa_devices')
   | select('match', 'event.')
@@ -216,15 +217,14 @@ Many users would like to know which Alexa device was last used, especially when 
   | first
 %}
 {{ entity.attributes.friendly_name | regex_replace(' ?Voice event$', '') }}
-{% endraw %}
+
 ```
 
-<img width="579" height="474" alt="last_called_device" src="https://github.com/user-attachments/assets/ee7c5fd1-5879-49dc-83f2-95ef39f9cf74" />
+<img width="579" height="474" alt="last_called_device" src="/images/integrations/alexa_devices/last_called_device.png" />
 
-This template can be modified to provide a user with any information they need from the voice attributes, such as including what was the exact voice command used during the event.
+This template can be modified to provide a user with any information they need from the Voice Attributes, such as including what was the exact voice command used during the event.
 
 ```yaml
-{% raw %}
 {% set entity =
   integration_entities('alexa_devices')
   | select('match', 'event.')
@@ -235,15 +235,14 @@ This template can be modified to provide a user with any information they need f
 %}
 {{ entity.attributes.friendly_name | regex_replace(' ?Voice event$', '') }}
 {{ entity.attributes.voice_command }}
-{% endraw %}
+
 ```
 
-<img width="580" height="472" alt="last_called_event" src="https://github.com/user-attachments/assets/be6b7130-29d2-49ec-aab4-1e19dd5af140" />
+<img width="580" height="472" alt="last_called_event" src="/images/integrations/alexa_devices/last_called_event.png" />
 
-You can also template the attributes for a specific entity_id, making it even simpler to use in scripts, automations, and blueprints.
+You can also template the attributes for a specific entity_id, making it even more simple to use in scripts, automations, and/or blueprints 
 
 ```yaml
-{% raw %}
 {{
   integration_entities('alexa_devices')
   | select('match', 'event.')
@@ -258,10 +257,10 @@ You can also template the attributes for a specific entity_id, making it even si
   | select('match', 'notify.*_speak')
   | list
 }}
-{% endraw %}
+
 ```
 
-<img width="581" height="475" alt="last_called_entity" src="https://github.com/user-attachments/assets/7edb9479-81dc-49e2-a450-30b0517a1b49" />
+<img width="581" height="475" alt="last_called_entity" src="/images/integrations/alexa_devices/last_called_entity.png" />
 
 ## Data updates
 
@@ -269,9 +268,9 @@ This integration {% term polling polls %} data from the device every five minute
 
 ## Known limitations
 
-- This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security**, and then select **Your login approvals**.
+- This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** [...]
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
-- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration. This should be resolved in a future release.
+- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 
 ## Troubleshooting
 
@@ -281,7 +280,7 @@ This integration {% term polling polls %} data from the device every five minute
 
 ##### Description
 
-You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration. This is because the authentication details are not being provided correctly.
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication deta[...]
 
 You need to ensure you are:
 
@@ -289,7 +288,7 @@ You need to ensure you are:
 - set up to use app based 2FA
 - not set up to receive SMS 2FA codes
 
-To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can log in.
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can lo[...]
 
 ### Sensors unavailable
 
@@ -305,7 +304,7 @@ In logs.
 
 ##### Description
 
-This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will allow you to use the integration without these errors.
+This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling pollin[...]
 
 ## Removing the integration
 
