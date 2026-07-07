@@ -11,7 +11,7 @@ The OMIE sensors always reflect the current price. This action lets you fetch th
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
-Prices for the next day are published daily at around 13:30 CET. If you request a date that has not been published yet, the action reports that the prices are not available.
+Prices for the next day are published daily at around 13:30 CET/CEST. If you request a date that has not been published yet, the action reports that the prices are not available.
 
 {% include actions/ui_header.md %}
 
@@ -23,7 +23,8 @@ To get prices from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **OMIE - Spain and Portugal electricity prices: Get prices for date**.
 6. Select the **Date** you want, and choose the **Countries** to get prices for.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `prices`.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -60,7 +61,7 @@ date:
   description: >
     The date to get the prices for, in YYYY-MM-DD format.
   required: true
-  type: string
+  type: date
 countries:
   description: >
     The countries to get the prices for. A list containing es, pt, or both.
@@ -75,8 +76,8 @@ The response contains a key for each requested country: `es` for Spain and `pt` 
 
 Each key holds a list of quarter-hourly intervals. Each interval includes the following fields:
 
-- `start`: The start time of the interval, in Central European Time.
-- `end`: The end time of the interval, in Central European Time.
+- `start`: The start time of the interval, in CET/CEST.
+- `end`: The end time of the interval, in CET/CEST.
 - `price`: The electricity spot price for the interval, in €/kWh.
 
 A shortened example of the response looks like this:
