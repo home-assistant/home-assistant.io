@@ -508,10 +508,11 @@ Features:
 - switch picture
 - display current picture
 
-Actions:
-- upload_art_frame_image
+Action:
 
-Examples:
+- `switchbot_cloud.upload_art_frame_image`
+
+Example:
 ```yaml
 action: switchbot_cloud.upload_art_frame_image
 data:
