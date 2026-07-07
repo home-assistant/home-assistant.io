@@ -186,7 +186,7 @@ Line pictograms rarely change, so the **Line pictogram** image is refreshed once
 
 - The integration provides up to three upcoming departures per stop. If fewer departures are available, the remaining sensors show as unavailable.
 - There is no estimated data for subways, only theoretical.
-- If no pictogram is available for a line, the **Line pictogram** image shows as unavailable. This doesn't affect the departure sensors for that stop.
+- If no pictogram is available for a line, the **Line pictogram** image shows as unavailable. This does not affect the departure sensors for that stop.
 
 ## Troubleshooting
 
