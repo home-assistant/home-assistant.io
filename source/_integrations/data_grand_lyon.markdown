@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - image
   - sensor
 ha_integration_type: service
 ha_quality_scale: platinum
@@ -110,6 +111,13 @@ For each transit stop you add, the following sensor entities are created:
 - **Next departure 3 type**
   - **Description**: Whether the departure time is _estimated_ or _theoretical_. Disabled by default.
 
+#### Transit stop image
+
+For each transit stop you add, the following image entity is created:
+
+- **Line pictogram**
+  - **Description**: The official pictogram of the transit line you monitor at this stop, such as the colored badge for a bus, tram, or subway line. You can show it on a dashboard with a [picture entity card](/dashboards/picture-entity/) to make the stop easier to recognize at a glance.
+
 #### Vélo'v station binary sensors
 
 For each Vélo'v station you add, the following binary sensor entity is created:
@@ -172,10 +180,13 @@ actions:
 
 The integration polls data from the Data Grand Lyon API every 5 minutes by default.
 
+Line pictograms rarely change, so the **Line pictogram** image is refreshed once a day.
+
 ## Known limitations
 
 - The integration provides up to three upcoming departures per stop. If fewer departures are available, the remaining sensors show as unavailable.
 - There is no estimated data for subways, only theoretical.
+- If no pictogram is available for a line, the **Line pictogram** image shows as unavailable. This doesn't affect the departure sensors for that stop.
 
 ## Troubleshooting
 
