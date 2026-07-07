@@ -34,7 +34,7 @@ If you disable and re-enable the SMS API option, please be sure to update your t
 
 {% configuration_basic %}
 username:
-  description: This is the id given by FreeMobile to access your online account.
+  description: This is the ID given by Free Mobile to access your online account.
 access_token:
   description: You can get this token by activating the SMS API in your online account.
 {% endconfiguration_basic %}
