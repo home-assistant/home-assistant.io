@@ -54,8 +54,8 @@ name:
 
 - This action keeps the item on the list. To remove it instead, use [Remove shopping list item](/actions/shopping_list.remove_item/).
 - To clear out all completed items at once, use [Clear completed shopping list items](/actions/shopping_list.clear_completed_items/).
-- This action triggers a [`shopping_list_updated` event](/integrations/shopping_list/#using-in-automations) with `action` value of `"complete"`.
-  All other actions that modify the status of specific items use an `action` value of `"update"` instead.
+- This action triggers a [`shopping_list_updated` event](/integrations/shopping_list/#using-in-automations) with the `action` attribute set to `complete`.
+  All other actions that modify the status of specific items use an `action` value of `update` instead.
 
 {% include actions/try_it.md %}
 
