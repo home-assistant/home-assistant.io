@@ -207,11 +207,9 @@ Example:
 
 ## Device triggers
 
-In addition to the raw [webhook events](#webhook-events), Netatmo provides
-device triggers that can be selected directly in the automation editor
-(**Settings** > **Automations & scenes** > **Add automation** > **Add trigger** >
-**Device**). These wrap the underlying `netatmo_event` types for the supported
-devices.
+In addition to the raw [webhook events](#webhook-events), the Netatmo integration provides device triggers that you can select in the automation editor.
+Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create or open an automation, then select **Add trigger** > **Device**.
+These triggers wrap the underlying `netatmo_event` types for supported devices.
 
 The following device triggers are available:
 
