@@ -122,7 +122,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: Closing a shade at sunset:
+### Automation: Closing a shade at sunset
 
 Closing a shade at sunset helps keep extra privacy, especially when it's getting dark.
 
