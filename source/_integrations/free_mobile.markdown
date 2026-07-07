@@ -37,7 +37,7 @@ username:
   description: This is the id given by FreeMobile to access your online account.
 access_token:
   description: You can get this token by activating the SMS API in your online account.
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 {% note %}
 To confirm that your username and access token are valid, Home Assistant sends a text message to your phone during setup.
