@@ -95,7 +95,7 @@ The **Liebherr** integration provides temperature monitoring, setpoint control, 
 
 The integration creates cover entities for appliances equipped with an AutoDoor feature. The AutoDoor allows you to open and close the appliance door remotely.
 
-- **AutoDoor**: Controls the automatic door. Supports open and close actions (opening and closing the door).
+- **AutoDoor**: Controls the automatic door. Supports opening and closing the door.
 
 For appliances with multiple cooling zones, a separate cover entity is created for each zone that has an AutoDoor:
 
