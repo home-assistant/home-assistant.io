@@ -29,6 +29,7 @@ Sensor type:
 {% endconfiguration_basic %}
 
 The available options are:
+
 - **Time**: The current local time, for example, `14:30`.
 - **Date**: The current date, for example, `2026-04-12`.
 - **Date & Time**: The current date and time, for example, `2026-04-12, 14:30`.
