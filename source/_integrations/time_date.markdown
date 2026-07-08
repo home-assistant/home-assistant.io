@@ -29,11 +29,11 @@ Sensor type:
 {% endconfiguration_basic %}
 
 The available options are:
+- **Time**: The current local time, for example, `14:30`.
 - **Date**: The current date, for example, `2026-04-12`.
 - **Date & Time**: The current date and time, for example, `2026-04-12, 14:30`.
-- **Date & Time (ISO)**: The current date and time in ISO 8601 format, for example, `2026-04-12T14:30:00`.
 - **Date & Time (UTC)**: The current date and time in UTC, for example, `2026-04-12, 12:30`.
-- **Time**: The current local time, for example, `14:30`.
+- **Date & Time (ISO)**: The current date and time in ISO 8601 format, for example, `2026-04-12T14:30:00`.
 - **Time & Date**: The current time and date (reversed order), for example, `14:30, 2026-04-12`.
 - **Time (UTC)**: The current time in UTC, for example, `12:30`.
 
@@ -45,16 +45,16 @@ The **Time & Date** integration provides the following entity.
 
 Depending on the sensor type selected during configuration, one of the following sensors is available.
 
+- **Time**
+  - **Description**: The current local time, in the format `HH:MM`.
 - **Date**
   - **Description**: The current date, in the format `YYYY-MM-DD`.
 - **Date & Time**
   - **Description**: The current date and time, in the format `YYYY-MM-DD, HH:MM`.
-- **Date & Time (ISO)**
-  - **Description**: The current date and time, in the ISO 8601 format `YYYY-MM-DDTHH:MM:SS`.
 - **Date & Time (UTC)**
   - **Description**: The current date and time in UTC, in the format `YYYY-MM-DD, HH:MM`.
-- **Time**
-  - **Description**: The current local time, in the format `HH:MM`.
+- **Date & Time (ISO)**
+  - **Description**: The current date and time, in the ISO 8601 format `YYYY-MM-DDTHH:MM:SS`.
 - **Time & Date**
   - **Description**: The current time and date (reversed order), in the format `HH:MM, YYYY-MM-DD`.
 - **Time (UTC)**
