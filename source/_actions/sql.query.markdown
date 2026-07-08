@@ -7,7 +7,11 @@ description: "Executes a read-only SQL query and returns the result."
 
 The **Query** action runs a read-only `SELECT` query against a database and returns the rows it finds.
 
-This is useful when you want an automation or script to pull data on demand, for example to look up recent history or summarize values, without creating a dedicated sensor for it. Only `SELECT` statements are allowed.
+This is useful when you want an automation or script to pull data on demand, for example to look up recent history or summarize values, without adding a separate sensor for each query. Only `SELECT` statements are allowed.
+
+{% important %}
+The **Query** action only becomes available after the [SQL integration](/integrations/sql/) is set up. Setting up the integration adds at least one SQL sensor, and that is what makes this action appear. If the **SQL: Query** action is missing, add the SQL integration first from {% my integrations title="**Settings** > **Devices & services**" %}, or configure it in YAML.
+{% endimportant %}
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you enter the query to run, and optionally the database to run it against.
 
