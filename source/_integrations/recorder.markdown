@@ -43,7 +43,7 @@ A bare minimum requirement is to have at least as much free temporary space avai
 
 For example, if your database is 1.5&nbsp;GiB on disk, you must always have at least 1.5&nbsp;GiB free.
 
-## Advanced configuration
+## Customizing the recorder configuration
 
 To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
