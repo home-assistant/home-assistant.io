@@ -126,33 +126,33 @@ In addition to sensors, you can use the following entities:
 
 ## Communications
 
-The integration exposes configuration entities for communication settings on each Alexa device. You can toggle **Communications** and **Announcements**, and choose a **Drop In** mode using a sele[...]
+The integration exposes configuration entities for communication settings on each Alexa device. You can toggle **Communications** and **Announcements**, and choose a **Drop In** mode using a select entity. These settings match what you see in the Alexa app.
 
 {% warning %}
 
-Amazon rate limits these settings and the Developers are aware of this. Please, DO NOT submit issues regarding these warnings. These rate limit warnings will appear in the logs. The integration c[...]
+Amazon applies rate limits to these configuration changes. Rate limit warnings may appear in the logs, but the integration caches entity values to prevent them from appearing as unavailable.
 
 {% endwarning %}
 
-<img width="346" height="351" alt="configuration_controls" src="/images/integrations/alexa_devices/configuration_controls.png" />
+<img width="346" height="351" alt="configuration_controls" src="/images/integrations/alexa_devices/alexa_devices_configuration_controls.png" />
 
 ## Media Players
 
-The integration includes media_player support for echo devices and third-party devices that have built-in Alexa. The media_player entities are added as typical Home Assistant media players with c[...]
+The integration includes media player support for echo devices and third-party devices that have built-in Alexa. Media player entities are added as typical Home Assistant media players with support for volume control, muting, play/pause, and media selection.
 
-Currently, Fire Stick, Fire Cube, and other FireTV devices do not include media_player support, but support may be added in a future update.
+Currently, Fire Stick, Fire Cube, and other FireTV devices do not include media player support, but support may be added in a future update.
 
-<img width="346" height="167" alt="media_player_entity" src="/images/integrations/alexa_devices/media_player_entity.png" />
+<img width="346" height="167" alt="media_player_entity" src="/images/integrations/alexa_devices/alexa_devices_media_player_entity.png" />
 
 ## To-do
 
-To-do list support has been added to Alexa Devices. Users can add items to and remove items from their Alexa Shopping List, as well as the Alexa To-do List and any custom lists created by the use[...]
+To-do list support has been added to Alexa Devices. Users can add items to and remove items from their Alexa Shopping List, as well as the Alexa To-do List and any custom lists created by the user. Lists can be accessed from the To-do lists tab in the Home Assistant menu bar. Sensor entities are created for each list and appear under the user's account in the Alexa Devices integration page (the same page that includes the user's Alexa Routine buttons). These sensors will show a state of how many items are on the list. Supported features include Create todo item, Delete todo item, and Update todo item.
 
 ## Voice Attributes
 
-The integration includes Voice event entities for each Alexa Device. The entity will show a state of time for when the Alexa Device was last spoken to or initiated from the Alexa App. The entity…[...]
+The integration includes voice event entities for each Alexa device. The entity state displays a timestamp for when the device was last spoken to or activated. The entity attributes provide additional details about the last voice interaction, including the event type, intent, voice command, voice reply, and friendly name. You can use these attributes to create template helpers.
 
-<img width="580" height="473" alt="voice_event" src="/images/integrations/alexa_devices/voice_event.png" />
+<img width="580" height="473" alt="voice_event" src="/images/integrations/alexa_devices/alexa_devices_voice_event.png" />
 
 ## Examples
 
@@ -220,7 +220,7 @@ Many users would like to know which Alexa Device was last used, especially when 
 
 ```
 
-<img width="579" height="474" alt="last_called_device" src="/images/integrations/alexa_devices/last_called_device.png" />
+<img width="579" height="474" alt="last_called_device" src="/images/integrations/alexa_devices/alexa_devices_last_called_device.png" />
 
 This template can be modified to provide a user with any information they need from the Voice Attributes, such as including what was the exact voice command used during the event.
 
@@ -238,7 +238,7 @@ This template can be modified to provide a user with any information they need f
 
 ```
 
-<img width="580" height="472" alt="last_called_event" src="/images/integrations/alexa_devices/last_called_event.png" />
+<img width="580" height="472" alt="last_called_event" src="/images/integrations/alexa_devices/alexa_devices_last_called_event.png" />
 
 You can also template the attributes for a specific entity_id, making it even more simple to use in scripts, automations, and/or blueprints 
 
@@ -260,7 +260,7 @@ You can also template the attributes for a specific entity_id, making it even mo
 
 ```
 
-<img width="581" height="475" alt="last_called_entity" src="/images/integrations/alexa_devices/last_called_entity.png" />
+<img width="581" height="475" alt="last_called_entity" src="/images/integrations/alexa_devices/alexa_devices_last_called_entity.png" />
 
 ## Data updates
 
