@@ -16,6 +16,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - number
   - sensor
   - switch
 ha_quality_scale: gold
@@ -1059,6 +1060,126 @@ modbus:
         offset: 0
         precision: 1
         data_type: integer
+```
+
+## Configuring number entities
+
+The Modbus number platform allows you to read and write numeric values from holding registers.
+
+Number entities can be changed from the UI or via the `number.set_value` action.
+
+Number entities only support **holding registers**, because input registers are read-only in Modbus.
+
+Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+
+{% configuration %}
+numbers:
+ description: "A list of all number entities in this modbus instance."
+ required: false
+ type: map
+ keys:
+  device_class:
+   description: "The [type/class](/integrations/number/#device-class) of the number to set the icon in the frontend."
+   required: false
+   type: device_class
+  input_type:
+   description: "Modbus register type for the number entity."
+   required: false
+   default: holding
+   type: list
+   keys:
+    holding:
+     description: "Holding register."
+  min_value:
+   description: "Minimum allowed value in the UI."
+   required: false
+   type: float
+   default: 0
+  max_value:
+   description: "Maximum allowed value in the UI."
+   required: false
+   type: float
+   default: 100
+  step:
+   description: "Step size for the UI control."
+   required: false
+   type: float
+   default: 1
+  unit_of_measurement:
+   description: "Unit to attach to the value."
+   required: false
+   type: string
+{% endconfiguration %}
+
+Number entities also support the same `data_type`, `count`, `structure`, `scale`, `offset`, `precision`, and `swap` parameters as [sensors](#configuring-sensor-entities).
+
+Number entities only support **holding registers**, because input registers are read-only in Modbus.
+
+{% note %}
+If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
+{% endnote %}
+
+### Example: typical number configuration
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    numbers:
+      - name: Power limit
+        address: 40220
+        data_type: int16
+        scale: 0.1
+        precision: 1
+        step: 0.1
+        min_value: 0
+        max_value: 100
+        unit_of_measurement: kW
+```
+
+### Example: full number configuration
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    numbers:
+      - name: Temperature setpoint
+        slave: 10
+        address: 51
+        input_type: holding
+        data_type: int16
+        device_class: temperature
+        unit_of_measurement: °C
+        scale: 1
+        offset: 0
+        precision: 0
+        min_value: 5
+        max_value: 35
+        step: 0.5
+        scan_interval: 15
+        unique_id: temp_setpoint
+```
+
+### Example: float32 number with swap
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    numbers:
+      - name: Float setpoint
+        address: 1000
+        data_type: float32
+        swap: word
+        precision: 2
+        step: 0.1
 ```
 
 ## Configuring platform switch
