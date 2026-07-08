@@ -216,25 +216,17 @@ The following device triggers are available:
 - **Smart Indoor Camera**
   - Detected movement
   - Detected a person
-  - Detected that a person left
-  - Detected a human
-  - Detected an animal
-  - Detected a vehicle
-  - Detected an outdoor event
-  - Turned on
-  - Turned off
+  - Detected a person has left
   - Detected an alarm
 - **Smart Outdoor Camera**
   - Detected an outdoor event
   - Detected a human
   - Detected an animal
   - Detected a vehicle
-  - Turned on
-  - Turned off
 - **Smart Thermostat** and **Smart Valve**
   - Target temperature set manually
-  - Resumed its schedule
-  - Switched mode (subtype: schedule, frost guard, or away)
+  - Has resumed its schedule
+  - Switched to "{subtype}" (subtype: Schedule, Frost guard, or Away)
 
 ## Development / Testing with your own client ID
 
