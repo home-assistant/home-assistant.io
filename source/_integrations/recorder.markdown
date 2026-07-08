@@ -28,7 +28,7 @@ The flow of data looks like this:
 
 The chart illustrates how data flows from a change in your home, through the recorder, into the database, and back out to the features that show you what happened over time.
 
-<p class='img'><img class='invertDark' src='/images/integrations/recorder/recorder-overview.png' alt="Diagram showing how the Recorder integration writes state changes and events to a database that history, logbook, dashboard graphs, and statistics read from.">
+<p class='img'><img class='invertDark' src='/images/integrations/recorder/recorder-overview.png' alt="Diagram showing how the Recorder integration writes state changes and events to a database that history, activity, dashboard graphs, and statistics read from.">
 How the Recorder integration writes state changes and events to a database that other features read from.
 </p>
 
