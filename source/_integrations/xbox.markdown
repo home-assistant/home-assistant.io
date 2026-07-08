@@ -9,7 +9,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
-  - '@hunterjm'
   - '@tr4nt0r'
 ha_domain: xbox
 ha_config_flow: true
@@ -333,7 +332,7 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
 
-You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the {% term integration %}.
+You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then set up the {% term integration %}.
 
 {% details "I have manually disabled My Home Assistant" %}
 

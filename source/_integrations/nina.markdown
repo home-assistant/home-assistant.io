@@ -12,8 +12,8 @@ ha_codeowners:
 ha_domain: nina
 ha_platforms:
   - binary_sensor
-  - sensor
   - diagnostics
+  - sensor
 ha_integration_type: service
 ha_quality_scale: silver
 ---
@@ -127,10 +127,6 @@ The response data is a string with the description as provided by NINA.
 ## Data updates
 
 The integration checks for warnings every 5 minutes.
-
-## Known limitations
-
-This integration may only work with an Internet connection that supports IPv4.
 
 ## Removing the integration
 

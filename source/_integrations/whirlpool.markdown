@@ -2,6 +2,7 @@
 title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Hub
   - Select
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: whirlpool
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - select
@@ -67,6 +69,7 @@ Brand:
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
 - [Binary Sensor](#binary_sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Select](#select)
 - [Sensor](#sensor)
@@ -77,17 +80,23 @@ The binary sensor platform provides the following functionality:
 
 - state of the washer/dryer machine door (open/closed)
 
+### Button
+
+The button platform provides the following functionality:
+
+- stop the current cooking program for an oven cavity
+
 ### Climate
 
 The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance through the user interface. The current inside temperature is also displayed on the thermostat card.
 
 The following actions are also available:
 
-- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `fan_only`)
-- [**target temperature**](/integrations/climate#action-climateset_temperature)
-- [**turn on/off**](/integrations/climate#action-climateturn_on)
-- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
-- [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)
+- [**set_hvac_mode**](/integrations/climate/#action-set-hvac-mode) (`off`, `heat`, `cool`, `fan_only`)
+- [**target temperature**](/integrations/climate/#action-set-temperature)
+- [**turn on/off**](/integrations/climate/#action-turn-on)
+- [**fan mode**](/integrations/climate/#action-set-fan-mode) (`low`, `medium`, `high`)
+- [**swing mode**](/integrations/climate/#action-set-swing-mode) (`off`, `horizontal`)
 
 ### Select
 

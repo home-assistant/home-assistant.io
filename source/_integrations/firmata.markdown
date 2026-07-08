@@ -21,7 +21,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-[Firmata](https://github.com/firmata/protocol) can be used to add analog and digital inputs and outputs to Home Assistant. This allows for buttons, switches, motion detectors, relay control, sensors, potentiometers, dimmers, etc. The integration can currently connect to a Firmata board via serial or serial over USB.
+[Firmata](https://github.com/firmata/protocol) can be used to add analog and digital inputs and outputs to Home Assistant. This allows for buttons, switches, motion detectors, relay control, sensors, potentiometers, and dimmers. The integration can currently connect to a Firmata board via serial or serial over USB.
 
 The Firmata protocol is a standard protocol for microcontrollers. Most of these boards support digital and analog inputs and outputs. [Arduino](https://www.arduino.cc/) and Arduino-compatible microcontroller development boards are the most popular boards to use with Firmata.
 
@@ -95,12 +95,12 @@ switches:
     initial:
       description: The initial output of the pin after initialization. Note that this is inverted if `negate` is enabled.
       required: false
-      default: False
+      default: false
       type: boolean
     negate:
       description: Flips the output of the digital pin
       required: false
-      default: False
+      default: false
       type: boolean
 lights:
   description: PWM/Analog outputs to configure
@@ -154,7 +154,7 @@ binary_sensors:
     negate:
       description: Flips the input of the digital or analog pin
       required: false
-      default: False
+      default: false
       type: boolean
 sensors:
   description: Analog input to configure
@@ -166,7 +166,7 @@ sensors:
       required: true
       type: string
     pin:
-      description: The analog pin number on the board. This should be in the form `A0`, `A1`, etc.
+      description: The analog pin number on the board. This should be in the form `A0` or `A1`.
       required: true
       type: string
     pin_mode:

@@ -1,6 +1,6 @@
 ---
-title: "Cards"
-description: "Introduction to the role of cards on the dashboard and how to add a card."
+title: "Dashboard cards"
+description: "Cards are the building blocks of a Home Assistant dashboard. Each card shows information from your home or lets you control a device, and you add them with a single tap."
 related:
   - docs: /dashboards/actions/
     title: Card tap actions
@@ -29,7 +29,7 @@ There are several different card types, each with their own configuration option
 - **Grouping other cards**: [vertical stack](/dashboards/vertical-stack/), [horizontal stack](/dashboards/horizontal-stack/), [grid](/dashboards/grid/)
 - **Logic function**: [conditional](/dashboards/conditional/), [entity filter](/dashboards/entity-filter/)
 - **Display generic data**: [sensor](/dashboards/sensor/), [history graph](/dashboards/history-graph/), [statistic](/dashboards/statistic/), [statistics graph](/dashboards/statistics-graph/), [energy](/dashboards/energy/), [gauge](/dashboards/gauge/), [clock](/dashboards/clock/), [Markdown](/dashboards/markdown/), [webpage](/dashboards/iframe/)
-- **Control devices and entities**: [button](/dashboards/button/), [entity](/dashboards/entity/)
+- **Control devices and entities**: [button](/dashboards/button/), [entity](/dashboards/entity/), [shortcut](/dashboards/shortcut/)
 - **Display data and control entities**: [tile](/dashboards/tile/), [heading](/dashboards/heading/), [entities](/dashboards/entities/), [glance](/dashboards/glance/), [area](/dashboards/area/), [picture](/dashboards/picture/), [picture entity](/dashboards/picture-entity/), [picture elements](/dashboards/picture-elements/), [picture glance](/dashboards/picture-glance/)
 
 ## Adding cards to your dashboard
@@ -45,15 +45,17 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
      ![Add card in masonry layout](/images/dashboards/add_card_masonary_layout.png)
 
 2. There are two methods to add a card:
-   - If you have an idea of what card type you want to use for an entity, add **By card** type:
+
+   - **By entity**.
+        - Select the entities from the list.
+        - Then, select the card you want from the preview.
+        - If you can't see your entity, check the **Unassigned** section. Entities that are not assigend to an area are listed there.
+        ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
+
+   - **By card**:
         - Browse the list of available cards.
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
         ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
-
-   - If you want to add cards for multiple entities at once, select **By entity**.
-        - Select the entities from the list.
-        - Then, select **Continue**.
-        ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
 
 3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 4. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).

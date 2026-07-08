@@ -2,7 +2,9 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
+  - Binary sensor
   - DIY
+  - Event
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Push
@@ -11,7 +13,10 @@ ha_codeowners:
 ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
+  - event
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -52,43 +57,52 @@ To avoid typing the key manually, scan the QR code on your device's display. The
 
 If the encryption key changes after the device has been set up, Home Assistant will prompt you to re-enter the key.
 
-## Actions
+## Supported functionality
 
-### Action: Upload image
+The **OpenDisplay** integration provides the following entities.
 
-The `opendisplay.upload_image` action allows you to upload an image to a display. The image is resized and dithered to match the display's resolution and color palette.
+### Sensors
 
-| Data attribute      | Description                                                                                      | Required | Default   |
-| ------------------- | ------------------------------------------------------------------------------------------------ | -------- | --------- |
-| `device_id`         | The OpenDisplay device to upload the image to.                                                   | Yes      | -         |
-| `image`             | The image to upload, selected from a media source.                                               | Yes      | -         |
-| `rotation`          | Clockwise rotation in degrees: 0, 90, 180, or 270.                                               | No       | 0         |
-| `dither_mode`       | Dithering algorithm for converting to the display's color palette.                               | No       | Burkes    |
-| `refresh_mode`      | Refresh mode to use. Full clears ghosting but is slower; fast is not supported on all displays.  | No       | Full      |
-| `fit_mode`          | How the image is fitted to the display.                                                          | No       | Contain   |
-| `tone_compression`  | Dynamic range compression strength as a percentage (0–100). Omit to use automatic adjustment.    | No       | Automatic |
+- **Temperature**: Chip temperature
+- **Battery Voltage**: (Only if the device has a battery configured) Shows the current voltage of the attached battery
 
-**Refresh modes**:
+### Button events
 
-- **Full**: Clears ghosting but takes longer
-- **Fast**: Faster refresh, not supported on all displays
+OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
 
-**Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice, and Ninke
+- `button_down`: Fires when the button is pressed.
+- `button_up`: Fires when the button is released.
 
-**Fit modes**:
+{% note %}
+Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
+{% endnote %}
 
-- **Contain**: Scale to fit within the display, pad remaining space with white
-- **Cover**: Scale to fill the display, crop edges that overflow
-- **Stretch**: Distort to fill the exact display dimensions
-- **Crop**: Center-crop at native resolution without scaling
+{% details "Turn on a light when a button is pressed" %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: event.opendisplay_1234_button_1
+    attribute: event_type
+    to: button_down
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.my_light
+```
+{% enddetails %}
+
+### Binary sensors
+
+- **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands.
+
+{% include integrations/actions.md %}
 
 ## Examples
 
 ### Uploading an image
 
 {% details "Upload an image from local media" %}
-
-{% raw %}
 
 ```yaml
 action: opendisplay.upload_image
@@ -99,8 +113,6 @@ data:
     media_content_type: "image/png"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 ### Updating the display on a schedule
@@ -108,8 +120,6 @@ data:
 You can use an {% term automation %} to refresh the display at a set time each day.
 
 {% details "Update display daily at 8:00 AM" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -123,8 +133,6 @@ actions:
         media_content_id: "media-source://media_source/local/daily.png"
         media_content_type: "image/png"
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

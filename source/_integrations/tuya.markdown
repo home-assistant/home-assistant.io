@@ -93,6 +93,8 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
+{% include integrations/actions.md %}
+
 ## Troubleshooting
 
 ### Unsupported device or missing device functionality
@@ -116,6 +118,21 @@ When Tuya updates the terms and conditions of iot.tuya.com, the integration will
 
 To fix this:
 
-1. Login to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
+1. Log in to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
 2. Restart Home Assistant.
 3. Reconfigure the Tuya integration.
+
+### Feeder meal plan not supported
+
+
+#### Symptom: "Feeder not supported" warning
+
+Home Assistant shows a warning that this particular feeder is not supported.
+
+#### Description
+
+Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) to be integrated based on feeders `product_id`. 
+
+#### Resolution
+
+Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control).

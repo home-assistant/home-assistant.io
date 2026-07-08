@@ -21,9 +21,9 @@ The glance card is useful to group multiple sensors in a compact overview. Keep 
 Screenshot of the glance card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -57,6 +57,11 @@ show_state:
   description: Show entity state text.
   type: boolean
   default: "true"
+time_format:
+  required: false
+  description: >
+    Controls how timestamp states are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).

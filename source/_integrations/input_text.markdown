@@ -79,20 +79,11 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### Actions
+## Restore state
 
-This integration provides an action to modify the state of the `input_text` and an action to reload the `input_text` configuration without restarting Home Assistant itself.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-| Action      | Data                      | Description                                       |
-| ----------- | ------------------------- | ------------------------------------------------- |
-| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities. |
-| `reload`    |                           | Reload `input_text` configuration                 |
-
-### Restore state
-
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
-
-### Scenes
+## Scenes
 
 To set the state of the input_text in a [Scene](/integrations/scene/):
 
@@ -104,11 +95,15 @@ scene:
       input_text.example: Hello!
 ```
 
+{% include integrations/triggers.md domain="text" %}
+
+{% include integrations/conditions.md domain="text" %}
+
+{% include integrations/actions.md %}
+
 ## Automation examples
 
 Here's an example using `input_text` in an action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_text' in an action in an automation
@@ -139,5 +134,3 @@ automation:
         data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
-
-{% endraw %}

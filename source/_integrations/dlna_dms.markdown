@@ -25,7 +25,7 @@ The name/title of the DMS device is the same as the title of the config entry. I
 
 Media source URIs for DLNA DMS look like `media-source://dlna_dms/<source_id>/<media_identifier>`.
 
-Here `<source_id>` is the slugified name of the DMS device. For example, "DLNA Server" becomes "dlna_server". If multiple DMS devices have the same name, an underscore and a unique number will be appended to the end of some of them, e.g., "server", "server_1", "server_2".
+Here `<source_id>` is the slugified name of the DMS device. For example, "DLNA Server" becomes "dlna_server". If multiple DMS devices have the same name, an underscore and a unique number will be appended to the end of some of them, for example, "server", "server_1", or "server_2".
 
 The `<media_identifier>` can have one of three forms:
 
