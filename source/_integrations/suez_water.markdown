@@ -46,7 +46,7 @@ At the initial setup, the integration pulls historical daily usage since the cou
 
 {% details "Prerequisites" %}
 
-- The Energy dashboard must be enabled in your Home Assistant instance. If you haven't set it up yet, please refer to the [Energy dashboard documentation](/home-assistant-energy/).
+- The Energy dashboard must be enabled in your Home Assistant instance. If you haven't set it up yet, please refer to the [Energy dashboard documentation](/docs/energy/).
 
 {% enddetails %}
 

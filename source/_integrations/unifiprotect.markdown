@@ -56,7 +56,7 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
 
-### Public API features {#public-api-features}
+### Public API features
 
 Some entities depend on features that were added to the UniFi Protect public API in a specific version. If your UniFi Protect version is older than the version that introduced a given feature, the corresponding entity will not be available. You can look up which features were introduced in which version on the [UniFi Protect developer portal](https://developer.ui.com/protect/).
 
@@ -78,7 +78,7 @@ It is recommended you use the Administrator or a user with full read/write acces
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
+1. Log in to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
 **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
 2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (for example _192.168.1.1/admins/_).
 3. Click on **+** in the top right corner and select **Add Admin**.
@@ -102,15 +102,9 @@ Currently, creating an API key requires you to be logged in as an administrator.
 
 ### Camera streams
 
-The integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
-you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
-check that this is done. To check and enable the feature:
+Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSPS</abbr> streams provided by the UniFi Protect public API. Home Assistant reads the streams that are active on each camera and uses the highest-quality one as the default live feed.
 
-1. Open UniFi Protect and click on _Devices_.
-2. Select the camera you want to ensure can stream in UniFi Protect.
-3. Click the _Settings_ tab in the top right.
-4. Expand the _Share_ _Livestream_ section near the bottom.
-5. Enable a minimum of one stream out of those available. The Stream with the Highest resolution is the default enabled one.
+If a camera does not have a stream available yet, Home Assistant creates a repair that can enable one for you in a single step. Until a stream is available, the live feed falls back to repeatedly refreshing camera snapshots, which can put extra load on your UniFi Protect console.
 
 {% include integrations/config_flow.md %}
 
@@ -138,12 +132,13 @@ G3 Series cameras do _not_ have Smart detections.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-- **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera {% term entity %} will be enabled by default.
-  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} will be added for the Package Camera. The Package Camera {% term entity %} will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
+- **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
+  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
 - **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
+  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
+- **Events** - Cameras with Smart Detections expose event {% term entity %} entities for momentary detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
@@ -209,7 +204,7 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 ### UniFi Protect relays
 
-Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires a UniFi Protect version that includes **Relay information & management** in the public API. See [Public API features](#public-api-features).
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
 
 - **Switch**: A switch entity is added for each relay output channel to turn the output on or off.
 
@@ -219,18 +214,24 @@ Relay input channels are not yet supported.
 
 ### UniFi Protect sirens
 
-Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires a UniFi Protect version that includes **Siren information & management** in the public API. See [Public API features](#public-api-features).
+Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
 
 - **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
 
 ### NVR
 
-Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets a number of entities that can be used for tracking and controlling your UniFi Protect system:
+Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets several entities that can be used for tracking and controlling your UniFi Protect system:
 
-- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. When armed, the system is set to the _armed away_ state. This requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
-- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. Requires a UniFi Protect version that includes **Arm profile management** in the public API. See [Public API features](#public-api-features).
+- **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
+- **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
 - **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
+
+{% important %}
+The **Alarm Manager** and **Alarm profile** entities are only available when the UniFi Protect Alarm Manager is set to _Local_ mode. While it is in _Global_ mode, these entities do not appear, because arm profiles are currently not exposed by the public API in that mode.
+
+UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub, so the alarm entities are currently unavailable if you use any of those devices.
+{% endimportant %}
 
 ## Media source
 
@@ -261,97 +262,7 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 | `{nvr_id}:event:{event_id}`      | MP4 video clip for specific event. |
 | `{nvr_id}:eventthumb:{event_id}` | JPEG thumbnail for specific event. |
 
-## Actions
-
-### Action: Add doorbell text
-
-The `unifiprotect.add_doorbell_text` action adds a new custom message for Doorbells.
-
-| Data attribute | Optional | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
-| `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
-
-### Action: Remove doorbell text
-
-The `unifiprotect.remove_doorbell_text` action removes an existing message for Doorbells.
-
-| Data attribute | Optional | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
-| `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
-
-### Action: Set chime paired doorbells
-
-The `unifiprotect.set_chime_paired_doorbells` action sets the paired doorbell(s) with a smart chime.
-
-| Data attribute | Optional | Description                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
-| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
-
-### Action: Remove privacy zone
-
-The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a camera.
-
-| Data attribute | Optional | Description                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
-| `name`                 | No       | The name of the zone to remove.                                                                         |
-
-### Action: PTZ go to preset
-
-The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
-
-| Data attribute | Optional | Description                                                                                    |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
-| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
-
-#### Example usage
-
-```yaml
-action: unifiprotect.ptz_goto_preset
-data:
-  device_id: your_device_id_here
-  preset: "Home"
-```
-
-### Action: Get user keyring info
-
-The `unifiprotect.get_user_keyring_info` action retrieves keyring information for a UniFi Protect instance.
-
-| Data attribute | Optional | Description                                                                                                 |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`    | No       | Any device from the UniFi Protect instance you want to retrieve keyring information for.                    |
-
-#### Example Usage
-
-```yaml
-action: unifiprotect.get_user_keyring_info
-data:
-  device_id: your_device_id_here
-```
-
-The response will include a list of users with their full names, statuses, and associated keys (fingerprint or NFC).
-
-#### Example Response
-
-```yaml
-users:
-  - full_name: User One
-    user_status: ACTIVE
-    ulp_id: d23e27e0-a32a-41e5-9424-be646330c2d5
-    keys: []
-  - full_name: User Two
-    user_status: ACTIVE
-    ulp_id: a243ffdb-3ab2-4186-b2fe-0b53ccb29f24
-    keys:
-      - key_type: nfc
-        nfc_id: ABCDEF12
-      - key_type: fingerprint
-        fingerprint_id: "1"
-```
+{% include integrations/actions.md %}
 
 ## Views
 
@@ -377,7 +288,7 @@ Four URLs for proxy API endpoints:
 
 - Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html).
 
-`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
+`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (for example, an entity ID of a detected object sensor).
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and find the event when the sensor started detecting motion.
 
@@ -514,7 +425,7 @@ actions:
     action: notify.mobile_app_your_device # Replace with your notification target
 ```
 
-You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+You can obtain the `nfc_id` using the [Action unifiprotect.get_user_keyring_info](#action-get-user-keyring-info).
 
 {% warning %}
 When processing NFC scans, always validate the scanned ID. Unknown NFC cards also trigger the scan event. Additionally, this event was developed using third-party cards, as the developer did not have access to official UniFi cards at the time. With third-party cards, the scan relies on the card's serial number. While this approach is not uncommon, it is essential to note that the card's serial number is generally not considered a secure identifier and can be duplicated relatively easily. When the device becomes unavailable and becomes available again in Home Assistant, repeated event processing can occur. The state change is not an issue with the integration but should be considered, mainly if the device is used for actions such as unlocking doors.
@@ -529,7 +440,7 @@ When processing NFC scans, always validate the scanned ID. Unknown NFC cards als
   - **ulp_id**: The ID used to identify the person. If no fingerprint match is found, the `ulp_id` will be empty and the `event_type` will be `not_identified`.
 - **Description**: This event is triggered when a fingerprint is scanned by a compatible device. If the fingerprint is recognized, it provides a `ulp_id`, which represents the internal user ID. If the fingerprint is not recognized, the `event_type` will be set to `not_identified`, and no `ulp_id` will be provided.
 
-You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-unifiprotectget_user_keyring_info).
+You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info](#action-get-user-keyring-info).
 
 #### Example G4 Doorbell Fingerprint Identified Automation
 

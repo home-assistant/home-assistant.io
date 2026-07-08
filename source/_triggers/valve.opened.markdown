@@ -2,7 +2,7 @@
 title: "Valve opened"
 trigger: valve.opened
 domain: valve
-description: "Triggers after one or more valves open."
+description: "Triggers when one or more valves open."
 related_triggers:
   - valve.closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Valve opened** trigger fires after a valve {% term entity %} transitions to the open state. Valve entities represent water, gas, or air valves in your home.
 
 Use it to react the moment a valve is opened, whether it was opened manually, by a schedule, through an {% term automation %}, or by a voice command. Use this trigger in an automation to log irrigation activity, send a notification when the main water valve opens unexpectedly, or start a timer to auto-close a valve after a set duration.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -32,7 +30,7 @@ To use this trigger in an automation:
 Trigger when:
   description: |
     When multiple valves are targeted, controls when the trigger fires:
-    
+
     - **Each** (default) fires every time any targeted valve opens.
     - **First** fires only when the first of a group opens.
     - **All** fires only after every targeted valve is open.
@@ -61,7 +59,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: |
     When multiple valves are targeted, controls when the trigger fires:
-    
+
     - `each`: fires every time any targeted valve opens.
     - `first`: fires only when the first valve in the group opens.
     - `all`: fires only after every targeted valve is open.

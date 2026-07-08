@@ -2,7 +2,7 @@
 title: "Shutter closed"
 trigger: cover.shutter_closed
 domain: cover
-description: "Triggers after one or more shutters close."
+description: "Triggers when one or more shutters close."
 related_triggers:
   - cover.shutter_opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Shutter closed** trigger fires when a targeted shutter changes to closed. Use it when you want Home Assistant to react as soon as a shutter closes.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shutter closes.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

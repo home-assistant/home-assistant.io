@@ -46,13 +46,17 @@ This integration supports any door managed by a UniFi Access controller, includi
 Before setting up this integration, make sure you have the following:
 
 - A running UniFi Access controller (for example, on a UniFi Dream Machine Pro or Cloud Key Gen2 Plus with the Access application installed).
-- An API token generated from the UniFi Access controller settings:
-  1. Open the UniFi Access web interface.
-  2. Navigate to **Settings** > **Advanced**.
-  3. Under **API Token**, select **Create Token**.
-  4. Give the token a descriptive name (for example, _Home Assistant_) and save it.
-  5. Copy the generated token — you will need it during setup.
+- An API token generated in the UniFi Access controller's web interface:
+  1. Open your console's IP address in a browser and select **Access** at the top.
+  2. In the left menu, go to **Settings** > **General**, then under **API Token**, select **Create New**.
+  3. Give the token a descriptive name, for example _Home Assistant_, and copy it — you will need it during setup.
+
+  For full details, see Ubiquiti's [Getting Started with the Official UniFi API](https://help.ui.com/hc/en-us/articles/30076656117655-Getting-Started-with-the-Official-UniFi-API) and the [UniFi Access API reference (PDF)](https://assets.identity.ui.com/unifi-access/api_reference.pdf), section "1.1 Create API Token & Download API Documentation".
 - Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
+
+{% important %}
+Create the token in the **UniFi Access** controller's web interface, as shown above. Do not use the console's **Integrations** page (the UniFi OS Control Plane), where UniFi Protect API keys are created. A key made there belongs to the console, and UniFi Access rejects it with a message that the key is associated with UniFi Protect. On newer consoles, the two pages look similar, so it is easy to pick the wrong one.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 

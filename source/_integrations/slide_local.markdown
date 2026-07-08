@@ -38,7 +38,7 @@ LED flashes 2x slow: local API disabled, cloud API enabled
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 hostname:

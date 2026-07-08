@@ -65,7 +65,7 @@ If you have successfully tested this integration with another Acaia model, pleas
 
 ## Possible use-cases
 
-This integration can be used in combination with integrations for smart coffee machines, such as the [La Marzocco integration](https://www.home-assistant.io/integrations/lamarzocco/) integration.
+This integration can be used in combination with integrations for smart coffee machines, such as the [La Marzocco integration](/integrations/lamarzocco/) integration.
 It could also be used to display the weight on secondary displays when brewing on a Pyxis or Lunar where you cannot see the display.
 
 ## Automations

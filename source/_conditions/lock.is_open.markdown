@@ -9,8 +9,6 @@ related_conditions:
 
 The **Lock is open** condition helps you check whether a lock is currently open. Use it when an automation should continue only while a door is still open, like leaving a light on or delaying another action until the door is closed again.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

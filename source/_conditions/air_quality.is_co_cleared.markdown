@@ -10,8 +10,6 @@ related_conditions:
 
 The **Carbon monoxide cleared** condition passes when one or more carbon monoxide sensors are no longer detecting carbon monoxide (CO). After a CO event, you want to be absolutely sure the air is safe before letting your automation silence the alarm or tell the household everything is fine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

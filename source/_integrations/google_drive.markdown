@@ -68,7 +68,7 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 
 {% details "Example YAML configuration" %}
 
-Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & Services** > **Entities**) and replace `notify.my_device` with your actual notifier.
+Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & services** > **Entities**) and replace `notify.my_device` with your actual notifier.
 
 ```yaml
 alias: Alert when Google Account is close to storage limit

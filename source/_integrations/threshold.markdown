@@ -99,7 +99,7 @@ name:
 
 ### Is the temperature rising or falling
 
-The hysteresis parameter can be used in this use-case to avoid frequent state changes around the maximum or the minimum of a temperature curve. We also have to utilize the [derivative sensor](/integrations/derivative/) for this use-case:
+The hysteresis parameter can be used in this use-case to avoid frequent state changes around the maximum or the minimum of a temperature curve. We also have to use the [derivative sensor](/integrations/derivative/) for this use-case:
 
 ```yaml
 sensor:  

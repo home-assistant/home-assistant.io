@@ -87,7 +87,6 @@ source/_integrations/assist_pipeline.markdown @synesthesiam @arturpragacz
 source/_integrations/assist_satellite.markdown @home-assistant/core @synesthesiam @arturpragacz
 source/_integrations/asuswrt.markdown @kennedyshead @ollo69 @Vaskivskyi
 source/_integrations/atag.markdown @MatsNL
-source/_integrations/aten_pe.markdown @mtdcr
 source/_integrations/atlanticcityelectric.markdown @tronikos
 source/_integrations/atome.markdown @baqs
 source/_integrations/august.markdown @bdraco
@@ -116,7 +115,6 @@ source/_integrations/bang_olufsen.markdown @mj23000
 source/_integrations/battery.markdown @home-assistant/core
 source/_integrations/bauknecht.markdown @abmantis @mkmer
 source/_integrations/bayesian.markdown @HarvsG
-source/_integrations/beewi_smartclim.markdown @alemuro
 source/_integrations/bge.markdown @tronikos
 source/_integrations/binary_sensor.markdown @home-assistant/core
 source/_integrations/bizkaibus.markdown @UgaitzEtxebarria
@@ -644,7 +642,6 @@ source/_integrations/motionblinds_matter.markdown @home-assistant/matter
 source/_integrations/motioneye.markdown @dermotduffy
 source/_integrations/motionmount.markdown @laiho-vogels
 source/_integrations/mqtt.markdown @emontnemery @jbouwh @bdraco
-source/_integrations/msteams.markdown @peroyvind
 source/_integrations/mta.markdown @OnFreund
 source/_integrations/mullvad.markdown @meichthys
 source/_integrations/music_assistant.markdown @music-assistant @arturpragacz
@@ -1066,7 +1063,6 @@ source/_integrations/unifi.markdown @Kane610
 source/_integrations/unifi_access.markdown @imhotep @RaHehl
 source/_integrations/unifi_direct.markdown @tofuSCHNITZEL
 source/_integrations/unifi_discovery.markdown @RaHehl
-source/_integrations/unifiled.markdown @florisvdk
 source/_integrations/unifiprotect.markdown @RaHehl
 source/_integrations/upb.markdown @gwww
 source/_integrations/upc_connect.markdown @pvizeli @fabaff
@@ -1104,7 +1100,6 @@ source/_integrations/vivotek.markdown @HarlemSquirrel
 source/_integrations/vizio.markdown @raman325
 source/_integrations/vlc_telnet.markdown @rodripf @MartinHjelmare
 source/_integrations/vodafone_station.markdown @paoloantinori @chemelli74
-source/_integrations/voice_assistant.markdown @balloob @synesthesiam
 source/_integrations/voip.markdown @synesthesiam @jaminh
 source/_integrations/volumio.markdown @OnFreund
 source/_integrations/volvo.markdown @thomasddn
