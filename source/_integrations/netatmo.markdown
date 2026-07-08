@@ -205,6 +205,29 @@ Example:
         title: "Netatmo event"
 ```
 
+## Device triggers
+
+In addition to the raw [webhook events](#webhook-events), the Netatmo integration provides device triggers that you can select in the automation editor.
+Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create or open an automation, then select **Add trigger** > **Device**.
+These triggers wrap the underlying `netatmo_event` types for supported devices.
+
+The following device triggers are available:
+
+- **Smart Indoor Camera**
+  - Detected movement
+  - Detected a person
+  - Detected a person has left
+  - Detected an alarm
+- **Smart Outdoor Camera**
+  - Detected an outdoor event
+  - Detected a human
+  - Detected an animal
+  - Detected a vehicle
+- **Smart Thermostat** and **Smart Valve**
+  - Target temperature set manually
+  - Has resumed its schedule
+  - Switched to "{subtype}" (subtype: Schedule, Frost guard, or Away)
+
 ## Development / Testing with your own client ID
 
 To enable the Netatmo integration with your own development credentials, you have
