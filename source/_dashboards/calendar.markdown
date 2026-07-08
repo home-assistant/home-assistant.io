@@ -48,7 +48,7 @@ theme:
   type: string
 show_addfab:
   required: false
-  description: Show a button to create a new event. There has to be at least one mutable calendar.
+  description: Show a button to create a new event. You need at least one calendar that allows you to create events.
   type: boolean
 {% endconfiguration %}
 
