@@ -19,13 +19,16 @@ The **Time & Date** {% term integration %} provides sensors for the current date
 
 {% include integrations/config_flow.md %}
 
-During setup, select the display option for the sensor you want to create. The integration creates one sensor in the selected format.
+## Configuration options
+
+During setup, select the sensor type. The integration creates one sensor in the selected format.
 
 {% configuration_basic %}
-Display option:
-  description: "The date or time format for the sensor. Available options:"
+Sensor type:
+  description: "The date, time, or date and time sensor with data in a given format."
 {% endconfiguration_basic %}
 
+The available options are:
 - **Date**: The current date, for example, `2026-04-12`.
 - **Date & Time**: The current date and time, for example, `2026-04-12, 14:30`.
 - **Date & Time (ISO)**: The current date and time in ISO 8601 format, for example, `2026-04-12T14:30:00`.
@@ -33,6 +36,31 @@ Display option:
 - **Time**: The current local time, for example, `14:30`.
 - **Time & Date**: The current time and date (reversed order), for example, `14:30, 2026-04-12`.
 - **Time (UTC)**: The current time in UTC, for example, `12:30`.
+
+## Supported functionality
+
+The **Time & Date** integration provides the following entity.
+
+### Sensor
+
+Depending on the sensor type selected during configuration, one of the following sensors is available.
+
+- **Date**
+  - **Description**: The current date, in the format `YYYY-MM-DD`.
+- **Date & Time**
+  - **Description**: The current date and time, in the format `YYYY-MM-DD, HH:MM`.
+- **Date & Time (ISO)**
+  - **Description**: The current date and time, in the ISO 8601 format `YYYY-MM-DDTHH:MM:SS`.
+- **Date & Time (UTC)**
+  - **Description**: The current date and time in UTC, in the format `YYYY-MM-DD, HH:MM`.
+- **Time**
+  - **Description**: The current local time, in the format `HH:MM`.
+- **Time & Date**
+  - **Description**: The current time and date (reversed order), in the format `HH:MM, YYYY-MM-DD`.
+- **Time (UTC)**
+  - **Description**: The current time in UTC, in the format `HH:MM`.
+
+You can display the data of the sensor entity in a dashboard view by following the [instructions on how to add a card from a view](/dashboards/cards/#to-add-a-card-from-a-view).
 
 ## Data updates
 
