@@ -20,7 +20,7 @@ The **NeoPool** {% term integration %} integrates pool controllers built around 
 The same control system is sold under many brand names worldwide, including **Hidrolife**, **Aquascenic**, **Oxilife**, **Bionet**, **Hidroniser**, **UVScenic**, **Station**, and **Aquarite**, distributed by **Hayward**, **Brilix** (Albixon), **Bayrol**, **Certikin**, **Poolstar**, **GrupAquadirect**, **Pentair**, **ProducPool**, **Pool Technologie**, **Kripsol**, and others.
 
 {% note %}
-_VistaPool_ is the name of Hayward's mobile/web app for cloud-based pool management. The **NeoPool** integration works entirely locally via Modbus and does not require or use the VistaPool app or any cloud service.
+_VistaPool_ is the name of Hayward's mobile/web app for cloud-based pool management. The **NeoPool** integration works entirely locally via Modbus and does not require or use the VistaPool app or any cloud service. If you prefer to use the cloud API instead, see the [Vistapool integration](/integrations/vistapool/).
 {% endnote %}
 
 ## Use cases
@@ -94,7 +94,7 @@ The integration exposes the controller's runtime state as sensor entities. **Onl
 - **Redox / ORP**: measured oxidation-reduction potential in mV (when the Redox module is present).
 - **Free chlorine**: measured chlorine concentration (when the chlorine module is present).
 - **Conductivity**: measured water conductivity (when the conductivity module is present).
-- **pH pump status**: current state of the pH dosing pump (off, idle, dosing acid, dosing base) (when the pH module is present).
+- **pH pump status**: current state of the pH dosing pump (off, idle, acid pump, base pump, both pumps) (when the pH module is present).
 - **pH alarm**: latched pH-regulation alarm state (when the pH module is present).
 - **Hydrolysis intensity**: current production level in % (when the hydrolysis module is present).
 - **Hydrolysis voltage**: current cell voltage (when the hydrolysis module is present; diagnostic, disabled by default).
@@ -105,7 +105,7 @@ The integration exposes the controller's runtime state as sensor entities. **Onl
 - **Filtration speed**: current variable-speed filtration percentage (when the controller reports a variable-speed pump).
 - **Intelligent-mode intervals** and **time to next interval**: scheduling data for Intelligent mode (when a heating relay and temperature sensor are configured).
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
-- **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. The "since reset" counter is enabled by default; the others are diagnostic and disabled by default.
+- **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
 
 ## Data updates
 
