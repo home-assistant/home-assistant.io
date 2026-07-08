@@ -6,4 +6,4 @@ flowchart LR
 
     CHANGE -->|"State change<br/>or event"| REC
     REC -->|"Writes"| DB
-    DB -->|"Reads"| CONSUMERS
+    DB -->|"Read by"| CONSUMERS
