@@ -73,7 +73,7 @@ Sensors that include the time update every minute. The date-only sensor updates 
 
 ## Creating a custom time and date sensor
 
-If you want a sensor with a custom date or time format, you can create a [template sensor](/integrations/template/) in your {% term "`configuration.yaml`" %} file. The example below uses the sensor created by the **Date & Time (ISO)** display option as the source and reformats it with [`timestamp_custom()`](/template-functions/timestamp_custom/) using standard [Python datetime formatting](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
+If you want a sensor with a custom date or time format, you can create a [template sensor](/integrations/template/) in your {% term "`configuration.yaml`" %} file. The example below uses the sensor created using the **Date & Time (ISO)** sensor type as the source and reformats it with [`timestamp_custom()`](/template-functions/timestamp_custom/) using standard [Python datetime formatting](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
 
 Add the following to your {% term "`configuration.yaml`" %}:
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -90,7 +90,7 @@ template:
         icon: "mdi:calendar-clock"
 ```
 
-This requires the **Date & Time (ISO)** display option to be set up in this integration.
+This requires the **Date & Time (ISO)** sensor type to be set up in this integration.
 
 ## More time-related resources
 
