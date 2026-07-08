@@ -138,10 +138,11 @@ The `condition` {% term action %} only stops executing the current sequence bloc
   state: "home"
 ```
 
-`condition` can also be a list of conditions and execution will then only continue if ALL conditions return `true`.
+To test multiple conditions, use `condition: and` to supply a list of conditions and execution will then only continue if ALL conditions return `true`.
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
+  condition: and
   conditions:
     - condition: state
       entity_id: "device_tracker.paulus"
