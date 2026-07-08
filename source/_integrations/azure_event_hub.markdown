@@ -9,10 +9,13 @@ ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/products/event-hubs/) or to an [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
+The **Azure Event Hub** {% term integration %} allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/products/event-hubs/) or to an [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
 
 ## First time setup
 
@@ -22,7 +25,7 @@ You need to create an Event Hub namespace and an Event Hub in that namespace, yo
 
 You must then create a Shared Access Policy for the Event Hub with 'Send' claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Event Hubs [go here](https://learn.microsoft.com/azure/event-hubs/authenticate-shared-access-signature).
 
-Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
+Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can set up the integration itself.
 
 The alternative approach is to use a connection string and instance name, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string). In the case of IoT Hub, you need to put the Device ID as the instance name.
 
@@ -30,17 +33,17 @@ The final thing to consider is how often you want the integration to send messag
 
 {% include integrations/config_flow.md %}
 
-You can setup [filters](#filter-configuration) through the `configuration.yaml`.
+You can set up [filters](#filter-configuration) through the {% term "`configuration.yaml`" %}.
 
-<div class='note warning'>
+{% warning %}
 Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space and bandwidth.
-</div>
+{% endwarning %}
 
-<div class='note warning'>
+{% note %}
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
-</div>
+{% endnote %}
 
-### Filter Configuration
+### Filter configuration
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 
@@ -94,7 +97,7 @@ filter:
 
 ## Using the data in Azure
 
-There are a number of ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://learn.microsoft.com/azure/event-hubs/event-hubs-capture-overview).
+There are several ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://learn.microsoft.com/azure/event-hubs/event-hubs-capture-overview).
 
 Other storages in Azure (and outside) are possible with an [Azure Stream Analytics job](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs), for instance for [Cosmos DB](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output), [Azure SQL DB](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf), [Azure Table Storage](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs), custom writing to [Azure Blob Storage](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-custom-path-patterns-blob-storage-output) and [Topic and Queues](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-output).
 

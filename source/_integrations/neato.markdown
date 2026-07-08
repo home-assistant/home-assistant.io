@@ -2,6 +2,7 @@
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
 ha_category:
+  - Button
   - Camera
   - Sensor
   - Switch
@@ -9,32 +10,39 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
-ha_codeowners:
-  - '@dshokouhi'
-  - '@Santobert'
 ha_domain: neato
 ha_platforms:
+  - button
   - camera
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
+The **Neato** {% term integration %} allows you to control your [Neato Botvac Connected Robots][botvac-connected].
+
+{% important %}
+
+Vorwerk is phasing out Neato cloud services. On 6 October 2025, they [announced](https://support.neatorobotics.com/support/solutions/articles/204000073686) that the cloud platform can no longer be maintained in a reliable and future-proof way.
+
+Because the Neato Developer Network is no longer available, you can no longer set up this integration as a new installation. Existing setups may continue to work until the cloud is fully shut down.
+
+{% endimportant %}
 
 There is support for the following platform types within Home Assistant:
 
 - **Camera** - allows you to view the latest cleaning map.
 - **Sensor** - allows you to view the battery level.
 - **Switch** - allows you to enable or disable the schedule.
+- [**Button**](#button) - allows you to dismiss an alert visible in the app.
 - [**Vacuum**](#vacuum)
 
 ## Prerequisites
 
-Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
+Previously, you would visit the Neato Developer Network to create a new app and obtain credentials. The Neato Developer Network is no longer available, so new credentials can no longer be created. The steps below are kept for reference for users who already have existing credentials.
 
-<div class='note'>
+{% important %}
 
 You will have to enter a name, a description, and the redirect URI:
 
@@ -45,7 +53,7 @@ You will have to enter a name, a description, and the redirect URI:
 - **Privacy Policy URL**: leave blank
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
-</div>
+{% endimportant %}
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -58,7 +66,7 @@ authentication process.
 
 Internal examples: `https://192.168.0.2:8123/auth/external/callback`, `https://homeassistant.local:8123/auth/external/callback`." 
 
-Please note that your instance must be accessible via HTTPS. However, your
+Your instance must be accessible via HTTPS. However, your
 instance does not need to be exposed to the Internet.
 
 {% enddetails %}
@@ -67,20 +75,22 @@ instance does not need to be exposed to the Internet.
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-<div class='note'>
-
+{% note %}
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
+{% endnote %}
 
-</div>
+## Button
+
+Each `neato` vacuum has a _Dismiss alert_ button. This allows you to dismiss an alert visible in the app (e.g. dust bin full) and preventing the vacuum to start cleaning.
 
 ## Vacuum
 
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected][botvac-connected].
 The status will contain attributes on the robots last clean session.
 
-### Services
+### Actions
 
-Currently supported services are:
+Currently supported actions are:
 
 - `start`
 - `pause`
@@ -89,30 +99,26 @@ Currently supported services are:
 - `locate`
 - `clean_spot`
 
-And a specific Platform Service:
+And a specific integration-specific action:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+#### Action: Custom cleaning
 
-#### Service `neato.custom_cleaning`
+The `neato.custom_cleaning` action starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
-Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
-
-<div class='note'>
-
+{% note %}
 Not all Botvac models support all the attributes. Only the Neato Botvac D7 supports the `zone` attribute.
 Some information about the capabilities might be found on the [Neato Developer Portal](https://developers.neatorobotics.com/api/robot-remote-protocol/housecleaning).
+{% endnote %}
 
-</div>
-
-| Service data attribute | Optional | Description                                                                                                                                                                   |
+| Data attribute | Optional | Description                                                                                                                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                                                                                                                                                  |
 | `mode`                 | yes      | Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.                                                                                               |
 | `navigation`           | yes      | Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set. Deep cleaning is only supported on the Botvac D7.                                                                           |
-| `category`             | yes      | Whether to use a persistent map or not for cleaning (i.e., No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found). |
-| `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone i.e., complete house cleanup.                                                                  |
+| `category`             | yes      | Whether to use a persistent map or not for cleaning (that is, No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found). |
+| `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone, that is, complete house cleanup.                                                                  |
 
 [botvac-connected]: https://neatorobotics.com/products
 

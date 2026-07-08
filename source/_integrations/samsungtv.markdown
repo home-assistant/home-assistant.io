@@ -2,14 +2,13 @@
 title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
-  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:
@@ -19,40 +18,59 @@ ha_platforms:
 ha_zeroconf: true
 ha_dhcp: true
 ha_integration_type: device
+ha_quality_scale: gold
 ---
 
-The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
+The **Samsung Smart TV** {% term integration %} allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
-### Setup
+{% include integrations/config_flow.md %}
 
-Go to the integrations page in your configuration and click on new integration -> Samsung TV.
-If your TV is on and you have enabled [SSDP](/integrations/ssdp) discovery, it's likely that you just have to confirm the detected device.
+{% configuration_basic %}
+  host:
+    description: The IP address of the TV.
+  name:
+    description: The friendly name of the TV.
+{% endconfiguration_basic %}
 
-When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
+## Supported devices
 
-### YAML Configuration
+The following Samsung TV models are known to be supported by the integration:
 
-YAML configuration is around for people that prefer YAML.
-To use this integration, add the following to your `configuration.yaml` file:
+- Samsung Smart TVs with Tizen operating system (2016 and later)
+- Samsung TVs with WebSocket API support
+- Samsung TV models with both REST API and WebSocket capabilities
 
-```yaml
-# Example configuration.yaml entry
-samsungtv:
-  - host: IP_ADDRESS
-```
+For specific model compatibility, check your TV's specifications to ensure it has a smart platform and network connectivity.
 
-{% configuration %}
-host:
-  description: "The hostname or IP of the Samsung Smart TV, e.g., `192.168.0.10`."
-  required: true
-  type: string
-name:
-  description: The name you would like to give to the Samsung Smart TV.
-  required: false
-  type: string
-{% endconfiguration %}
+## Supported functionality
 
-After saving the YAML configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
+The Samsung Smart TV integration provides the following entities and functionality:
+
+### Media player
+
+- **Power control**: Turn the TV on and off
+- **Volume control**: Adjust volume and mute/unmute
+- **Channel selection**: Change channels directly by number
+- **Source selection**: Switch between TV, HDMI inputs, and applications
+- **Playback control**: Play, pause, stop, and fast forward media
+- **Media information**: Display current channel, source, and playback metadata
+
+### Remote
+
+- **Key commands**: Send remote control commands to your TV using standard key codes
+- **Command sequences**: Execute multiple commands in sequence
+- **Extended key support**: Navigation, menu control, and specialized functions
+
+### Diagnostics
+
+- **Device diagnostics**: Troubleshooting information for device connectivity and status
+
+{% include integrations/triggers.md %}
+
+## Data updates
+
+The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.
+For older TV models that still use the legacy bridge implementation (internally called `SamsungTvBridge`), the integration polls the TV every 10 seconds to retrieve the latest state information.
 
 ### Turn on action
 
@@ -67,11 +85,11 @@ wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
-    trigger:
-      - platform: samsungtv.turn_on
+    triggers:
+      - trigger: samsungtv.turn_on
         entity_id: media_player.samsung_smart_tv
-    action:
-      - service: wake_on_lan.send_magic_packet
+    actions:
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
 ```
@@ -82,7 +100,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 #### Changing channels
 
-Changing channels can be done by calling the `media_player.play_media` service
+Changing channels can be done by calling the `media_player.play_media` action
 with the following payload:
 
 ```yaml
@@ -98,19 +116,22 @@ Some older models also expose the installed applications through the WebSocket, 
 
 ### Remote
 
-The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
+The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` action. The supported keys vary between TV models.
 
 {% details "Full keycodes list" %}
 
-**Power Keys**
+#### Power Keys
+
 Key|Description
 ---|-----------
 KEY_POWEROFF|PowerOFF
 KEY_POWERON|PowerOn
 KEY_POWER|PowerToggle
+
 ____________
 
-**Input Keys**
+#### Input Keys
+
 Key|Description
 ---|-----------
 KEY_SOURCE|Source
@@ -130,9 +151,11 @@ KEY_TV|TV
 KEY_ANTENA|AnalogTV
 KEY_DTV|DigitalTV
 KEY_AMBIENT|AmbientMode
-_____________
 
-**Number Keys**
+____________
+
+#### Number Keys
+
 Key|Description
 ---|-----------
 KEY_1|Key1
@@ -145,9 +168,11 @@ KEY_7|Key7
 KEY_8|Key8
 KEY_9|Key9
 KEY_0|Key0
-___________
 
-**Misc Keys**
+____________
+
+#### Misc Keys
+
 Key|Description
 ---|-----------
 KEY_PANNEL_CHDOWN|3D
@@ -155,9 +180,11 @@ KEY_ANYNET|AnyNet+
 KEY_ESAVING|EnergySaving
 KEY_SLEEP|SleepTimer
 KEY_DTV_SIGNAL|DTVSignal
-______________
 
-**Channel Keys**
+____________
+
+#### Channel Keys
+
 Key|Description
 ---|-----------
 KEY_CHUP|ChannelUp
@@ -167,17 +194,21 @@ KEY_FAVCH|FavoriteChannels
 KEY_CH_LIST|ChannelList
 KEY_AUTO_PROGRAM|AutoProgram
 KEY_MAGIC_CHANNEL|MagicChannel
-_____________
 
-**Volume Keys**
+____________
+
+#### Volume Keys
+
 Key|Description
 ---|-----------
 KEY_VOLUP|VolumeUp
 KEY_VOLDOWN|VolumeDown
 KEY_MUTE|Mute
-________________
 
-**Direction Keys**
+____________
+
+#### Direction Keys
+
 Key|Description
 ---|-----------
 KEY_UP|NavigationUp
@@ -186,9 +217,12 @@ KEY_LEFT|NavigationLeft
 KEY_RIGHT|NavigationRight
 KEY_RETURN|NavigationReturn/Back
 KEY_ENTER|NavigationEnter
+KEY_EXIT|NavigationExit
+
 ____________
 
-**Media Keys**
+#### Media Keys
+
 Key|Description
 ---|-----------
 KEY_REWIND|Rewind
@@ -201,9 +235,11 @@ KEY_LIVE|Live
 KEY_QUICK_REPLAY|fnKEY_QUICK_REPLAY
 KEY_STILL_PICTURE|fnKEY_STILL_PICTURE
 KEY_INSTANT_REPLAY|fnKEY_INSTANT_REPLAY
-____________________
 
-**Picture in Picture**
+____________
+
+#### Picture in Picture
+
 Key|Description
 ---|-----------
 KEY_PIP_ONOFF|PIPOn/Off
@@ -216,9 +252,11 @@ KEY_AUTO_ARC_PIP_WIDE|PIPWide
 KEY_AUTO_ARC_PIP_RIGHT_BOTTOM|PIPBottomRight
 KEY_AUTO_ARC_PIP_SOURCE_CHANGE|PIPSourceChange
 KEY_PIP_SCAN|PIPScan
-_______
 
-**Modes**
+____________
+
+#### Modes
+
 Key|Description
 ---|-----------
 KEY_VCR_MODE|VCRMode
@@ -228,25 +266,31 @@ KEY_TV_MODE|TVMode
 KEY_DVD_MODE|DVDMode
 KEY_STB_MODE|STBMode
 KEY_PCMODE|PCMode
+
 ____________
 
-**Color Keys**
+#### Color Keys
+
 Key|Description
 ---|-----------
 KEY_GREEN|Green
 KEY_YELLOW|Yellow
 KEY_CYAN|Cyan
 KEY_RED|Red
-__________
 
-**Teletext**
+____________
+
+#### Teletext
+
 Key|Description
 ---|-----------
 KEY_TTX_MIX|TeletextMix
 KEY_TTX_SUBFACE|TeletextSubface
-______________
 
-**AspectRatio**
+____________
+
+#### AspectRatio
+
 Key|Description
 ---|-----------
 KEY_ASPECT|AspectRatio
@@ -255,9 +299,11 @@ KEY_4_3|AspectRatio4:3
 KEY_16_9|AspectRatio16:9
 KEY_EXT14|AspectRatio3:4(Alt)
 KEY_EXT15|AspectRatio16:9(Alt)
-______________
 
-**Picture Mode**
+____________
+
+#### Picture Mode
+
 Key|Description
 ---|-----------
 KEY_PMODE|PictureMode
@@ -269,9 +315,11 @@ KEY_GAME|PictureModeGame
 KEY_CUSTOM|PictureModeCustom
 KEY_EXT9|PictureModeMovie(Alt)
 KEY_EXT10|PictureModeStandard(Alt)
-_______
 
-**Menus**
+____________
+
+#### Menus
+
 Key|Description
 ---|-----------
 KEY_MENU|Menu
@@ -283,9 +331,11 @@ KEY_GUIDE|Guide
 KEY_DISC_MENU|DiscMenu
 KEY_DVR_MENU|DVRMenu
 KEY_HELP|Help
-_____
 
-**OSD**
+____________
+
+#### OSD
+
 Key|Description
 ---|-----------
 KEY_INFO|Info
@@ -293,9 +343,11 @@ KEY_CAPTION|Caption
 KEY_CLOCK_DISPLAY|ClockDisplay
 KEY_SETUP_CLOCK_TIMER|SetupClock
 KEY_SUB_TITLE|Subtitle
-______
 
-**Zoom**
+____________
+
+#### Zoom
+
 Key|Description
 ---|-----------
 KEY_ZOOM_MOVE|ZoomMove
@@ -303,9 +355,11 @@ KEY_ZOOM_IN|ZoomIn
 KEY_ZOOM_OUT|ZoomOut
 KEY_ZOOM1|Zoom1
 KEY_ZOOM2|Zoom2
+
 ____________
 
-**Other Keys**
+#### Other Keys
+
 Key|Description
 ---|-----------
 KEY_WHEEL_LEFT|WheelLeft
@@ -362,9 +416,12 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
-_______________
+KEY_MINUS|Minus
 
-**Auto Arc Keys**
+____________
+
+#### Auto Arc Keys
+
 Key|Description
 ---|-----------
 KEY_AUTO_ARC_C_FORCE_AGING|
@@ -390,9 +447,11 @@ KEY_AUTO_ARC_CAPTION_KOR|
 KEY_AUTO_ARC_ANTENNA_AIR|
 KEY_AUTO_ARC_ANTENNA_CABLE|
 KEY_AUTO_ARC_ANTENNA_SATELLITE|
+
 ____________
 
-**Panel Keys**
+#### Panel Keys
+
 Key|Description
 ---|-----------
 KEY_PANNEL_POWER|
@@ -403,9 +462,11 @@ KEY_PANNEL_ENTER|
 KEY_PANNEL_MENU|
 KEY_PANNEL_SOURCE|
 KEY_PANNEL_ENTER|
-_______________
 
-**Extended Keys**
+____________
+
+#### Extended Keys
+
 Key|Description
 ---|-----------
 KEY_EXT1|
@@ -446,15 +507,15 @@ KEY_EXT39|
 KEY_EXT40|
 KEY_EXT41|
 
-Please note that some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
+Some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
 
-The code list has been extracted from: https://github.com/kdschlosser/samsungctl and https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md
+The code list has been extracted from: <https://github.com/kdschlosser/samsungctl> and <https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md>
 {% enddetails %}
 
 **Example to send sequence of commands:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   device_id: 72953f9b4c9863e28ddd52c87dcebe05
 data:
@@ -467,19 +528,32 @@ data:
 
 ```
 
-### Known issues and restrictions
+## Known limitations
 
-#### Subnet/VLAN
+### Subnet/VLAN restrictions
 
-Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
-It may be possible to bypass this issue by using IP masquerading or a proxy.
+Samsung Smart TVs do not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant, the integration will fail to establish a connection. It may be possible to bypass this issue by using IP masquerading or a proxy.
 
-#### H and J models
+### H and J models
 
-Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This is automatically detected when attempting to send commands using the WebSocket connection, and will trigger the corresponding authentication flow.
 
-#### Samsung TV keeps asking for permission
+## Troubleshooting
 
-The default setting on newer televisions is to ask for permission on ever connection attempt.
-To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
-It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`
+### Samsung TV keeps asking for permission
+
+The default setting on newer televisions is to ask for permission on every connection attempt.
+
+#### Resolution
+
+1. On your TV, navigate to **Device connection manager** > **Access notification**.
+2. Change the setting to **First time only**.
+3. In **Device connection manager** > **Device list**, clean up any previous connection attempts from Home Assistant.
+
+After making these changes, the TV should no longer ask for permission on each connection.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

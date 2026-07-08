@@ -12,18 +12,16 @@ ha_domain: http
 ha_integration_type: system
 ---
 
-The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The **HTTP** {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<div class='note'>
-
-The option `server_host` should only be used on a Home Assistant Core installation!
-
-</div>
+{% warning %}
+The option `server_host` should only be used on a Home Assistant Container installation!
+{% endwarning %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,12 +35,12 @@ server_host:
   type: [list, string]
   default: "0.0.0.0, ::"
 server_port:
-  description: Let you set a port to use.
+  description: Allows you to specify which port Home Assistant should listen on.
   required: false
   type: integer
   default: 8123
 ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If you are using the [Let's Encrypt app for Home Assistant](https://github.com/home-assistant/addons/tree/master/letsencrypt) (formerly known as Let's Encrypt add-on), this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX app for Home Assistant](https://github.com/home-assistant/addons/tree/master/nginx_proxy) (formerly known as NGINX add-on) instead of using this option.
   required: false
   type: string
 ssl_peer_certificate:
@@ -50,11 +48,11 @@ ssl_peer_certificate:
   required: false
   type: string
 ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If you are using the [Let's Encrypt app](https://github.com/home-assistant/addons/tree/master/letsencrypt), this will be at `/ssl/privkey.pem`.
   required: false
   type: string
 cors_allowed_origins:
-  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e., `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
+  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin. That is, `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
   required: false
   type: [string, list]
 use_x_forwarded_for:
@@ -62,17 +60,22 @@ use_x_forwarded_for:
   required: false
   type: boolean
   default: false
+use_x_frame_options:
+  description: "Controls the `X-Frame-Options` header to help prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking)."
+  required: false
+  type: boolean
+  default: true
 trusted_proxies:
-  description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care. If the immediate upstream proxy is not in the list, the request will be rejected. If any other intermediate proxy is not in the list, the first untrusted proxy will be considered the client."
+  description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header. This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care. If the immediate upstream proxy is not in the list, the request will be rejected. If any other intermediate proxy is not in the list, the first untrusted proxy will be considered the client."
   required: false
   type: [string, list]
 ip_ban_enabled:
   description: Flag indicating whether additional IP filtering is enabled.
   required: false
   type: boolean
-  default: false
+  default: true
 login_attempts_threshold:
-  description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
+  description: "Number of failed login attempts from a single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
   required: false
   type: integer
   default: -1
@@ -83,7 +86,7 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
-The sample below shows a configuration entry with possible values:
+The sample below shows a configuration entry in the {% term "`configuration.yaml`" %} file with possible values:
 
 ```yaml
 # Example configuration.yaml entry
@@ -116,6 +119,16 @@ http:
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
+{% important %}
+When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
+{% endimportant %}
+
+{% note %}
+
+The `use_x_forwarded_for` and `trusted_proxies` settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+
+{% endnote %}
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
@@ -126,38 +139,47 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## IP filtering and banning
 
-If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and the maximum number of attempts. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+
+{% note %}
+
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+
+{% endnote %}
 
 ```yaml
 127.0.0.1:
   banned_at: "2016-11-16T19:20:03"
 ```
 
-After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
+After a ban is added a Persistent Notification will appear in the Home Assistant frontend.
+
+To clear an IP ban, you can either:
+
+- Remove the specific IP entry from `ip_bans.yaml`, or  
+- Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
+
+After making changes, restart Home Assistant to apply them.
 
 ## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
-<div class='note'>
+{% important %}
+If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+{% endimportant %}
 
-  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+{% caution %}
+Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+{% endcaution %}
 
-</div>
-
-<div class='note warning'>
-
-  Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
-
-</div>
-
-## Binary Sensor
+## Binary sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -169,9 +191,9 @@ The URL for a binary sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
 The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -203,6 +225,13 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     "last_updated": "16:45:51 05-02-2016",
     "state": "off"
 }
+```
+
+To delete the sensor, send DELETE request with curl
+
+```bash
+$ curl -X DELETE -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       http://localhost:8123/api/states/binary_sensor.radio
 ```
 
 ### Examples
@@ -247,9 +276,9 @@ The URL for a sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -284,4 +313,4 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-For more examples please visit the [HTTP Binary Sensor](#examples) page.
+For more examples please visit the [HTTP binary sensor](#examples) page.

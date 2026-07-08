@@ -5,6 +5,7 @@ ha_category:
   - Network
   - Sensor
   - Switch
+  - Update
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,99 +15,201 @@ ha_domain: adguard
 ha_platforms:
   - sensor
   - switch
+  - update
 ha_integration_type: service
 ---
 
-AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental
-control (adult content blocking) capabilities. The AdGuard integration allows
-you to control and monitor your AdGuard Home instance in Home Assistant.
+The **AdGuard Home** {% term integration %} lets you monitor and control your [AdGuard Home](https://adguard.com/adguard-home/overview.html) instance from Home Assistant.
+
+AdGuard Home is network-wide software for blocking advertisements and tracking. It works at the DNS level, so once your devices use it as their DNS server, every phone, laptop, tablet, and smart device on your network is protected automatically, with nothing to install on each one. It blocks advertisements, trackers, and known malicious domains across the board.
+
+With this integration, you can keep an eye on how much AdGuard Home is blocking right from your dashboard, and turn its protection features on or off without opening the AdGuard Home interface. Picture stricter filtering switching on the moment guests join your Wi-Fi, parental controls turning on while the kids do their homework, and a notification reaching you when DNS lookups start to slow down. Because every feature is available to your automations, you decide when and how your network protects itself.
+
+## Prerequisites
+
+Before you set up the integration, make sure you have:
+
+- AdGuard Home installed and running on your network
+- The IP address or hostname of your AdGuard Home instance
+- Admin access to AdGuard Home
 
 {% include integrations/config_flow.md %}
 
-## Sensors
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your AdGuard Home instance. For example: `192.168.1.100` or `adguard.local`."
+Port:
+  description: "The port AdGuard Home is running on. Default is `3000` for the web interface."
+Username:
+  description: "Your AdGuard Home admin username."
+Password:
+  description: "Your AdGuard Home admin password."
+Verify SSL certificate:
+  description: "Enable SSL certificate verification when connecting via HTTPS."
+{% endconfiguration_basic %}
 
-This integration provides sensors for the following information from AdGuard Home:
+## Supported functionality
 
-- Number of DNS queries.
-- Number of blocked DNS queries.
-- Ratio (%) of blocked DNS queries.
-- Number of requests blocked by safe browsing.
-- Number of safe searches enforced.
-- Number of requests blocked by parental control.
-- Total number of active filter rules loaded.
-- Average response time of AdGuard's DNS server in milliseconds.
+### Sensors
 
-## Switches
+This integration provides sensors that give you insight into what AdGuard Home is doing on your network:
 
-The integration will create a number of switches:
+- **DNS queries**: The total number of DNS lookups AdGuard Home has handled.
+- **DNS queries blocked**: How many of those lookups were blocked.
+- **DNS queries blocked ratio**: The share of all queries that were blocked, as a percentage.
+- **Safe browsing blocked**: The number of requests blocked for matching known phishing or malware sites.
+- **Safe searches enforced**: How many times safe search was enforced on search engines.
+- **Parental control blocked**: The number of requests blocked by parental control.
+- **Rules count**: The total number of active filter rules currently loaded.
+- **Average processing speed**: The average response time of the AdGuard Home DNS server, in milliseconds.
 
-- AdGuard Protection (master switch).
-- Filtering.
-- Safe Browsing.
-- Parental Control.
-- Safe Search.
-- Query Log.
+### Switches
 
-These switches allow you to automate things easily. For example, one could
-write an automation to turn off Safe Search after the kids' bedtime.
+The integration provides switches to control AdGuard Home features:
 
-The "AdGuard Protection" switch is a master switch. It will turn off and
-bypass all AdGuard features, regardless of whether they are switched on or not.
+- **Protection**: The master switch that controls all AdGuard Home protection at once.
+- **Filtering**: Enables DNS filtering using your blocklists.
+- **Safe browsing**: Blocks known phishing and malware sites.
+- **Parental control**: Blocks adult content.
+- **Safe search**: Enforces safe search on search engines.
+- **Query log**: Records DNS queries, which AdGuard Home needs to produce statistics.
 
-<div class="note">
-Turning off Query Log will result in all sensors not receiving updates anymore.
-AdGuard relies on Query Log to provide stats.
-</div>
+These switches enable powerful automations. For example, you could automatically enable parental controls during school hours or disable ad blocking for specific time periods.
 
-## Services
+The **Protection** switch acts as a master control. When turned off, it bypasses all AdGuard Home protection, regardless of the individual switch states.
 
-These services allow one to manage filter subscriptions in AdGuard Home.
-Using these services in automations could be helpful to block certain
-sites/domains at certain times.
+{% important %}
+Turning off **Query log** stops all sensor updates. AdGuard Home requires query logging to provide statistics.
+{% endimportant %}
 
-For example, you could create a custom filter list that blocks social media sites
-during the day and releases them during the evening.
+### Update
 
-### Service `add_url`
+The integration provides an {% term update %} entity to check for and install AdGuard Home software updates.
 
-Add a new filter subscription to AdGuard Home.
+{% note %}
+For Docker-based installations of AdGuard Home, no update entity is available for the AdGuard Home software. If you have installed the [AdGuard Home app for Home Assistant](https://github.com/hassio-addons/addon-adguard-home) (formerly known as AdGuard Home add-on) on {% term "Home Assistant Operating System" %}, Home Assistant provides an update entity for the AdGuard Home app for Home Assistant.
+{% endnote %}
 
-| Service data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `name`                 | No       | The name of the filter subscription.                         |
-| `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
+{% include integrations/actions.md %}
 
-### Service `remove_url`
+## Examples
 
-Removes a filter subscription from AdGuard Home.
+### Block social media during work hours
 
-| Service data attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `url`                  | No       | The filter subscription URL to remove. |
+This automation blocks social media sites during business hours:
 
-### Service `enable_url`
+```yaml
+automation:
+  - alias: "Block social media during work"
+    triggers:
+      - trigger: time
+        at: "09:00:00"
+    actions:
+      - action: adguard.add_url
+        data:
+          name: "Social media blocklist"
+          url: "https://raw.githubusercontent.com/example/social-media-blocklist/main/list.txt"
+      - action: adguard.refresh
 
-Enables a filter subscription in AdGuard Home.
+  - alias: "Unblock social media after work"
+    triggers:
+      - trigger: time
+        at: "17:00:00"
+    actions:
+      - action: adguard.remove_url
+        data:
+          url: "https://raw.githubusercontent.com/example/social-media-blocklist/main/list.txt"
+```
 
-| Service data attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `url`                  | No       | The filter subscription URL to enable. |
+### Enable strict filtering when guests arrive
 
-### Service `disable_url`
+Automatically enable all protection features when guests connect to your network:
 
-Disables a filter subscription in AdGuard Home.
+```yaml
+automation:
+  - alias: "Enable strict filtering for guests"
+    triggers:
+      - trigger: state
+        entity_id: group.guest_devices
+        from: "not_home"
+        to: "home"
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id:
+            - switch.adguard_parental_control
+            - switch.adguard_safe_browsing
+            - switch.adguard_safe_search
+```
 
-| Service data attribute | Optional | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `url`                  | No       | The filter subscription URL to disable. |
+### Monitor DNS performance
 
-### Service `refresh`
+Send a notification if DNS response time exceeds threshold:
 
-Refresh all filter subscriptions in AdGuard Home.
 
-| Service data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `force`                | Yes      | Force update (bypasses AdGuard Home throttling).  |
+```yaml
+automation:
+  - alias: "Alert on slow DNS"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.adguard_average_processing_speed
+        above: 50
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "DNS Performance Alert"
+          message: "AdGuard DNS response time is {{ states('sensor.adguard_average_processing_speed') }}ms"
+```
 
-By default, `force` is set to `false`. Forcing an update bypasses AdGuard Home's
-throttling logic, so use with care.
+
+## Data updates
+
+The AdGuard Home integration polls for updates every 10 seconds to provide near real-time statistics and ensure switch states remain synchronized.
+
+## Known limitations
+
+AdGuard Home only filters devices that use it as their DNS server. A device on mobile data, connected through a VPN, or set to use a different DNS server bypasses AdGuard Home entirely. For those devices, your blocklists, parental controls, and safe browsing settings do not apply.
+
+## Troubleshooting
+
+### Integration fails to connect
+
+#### Symptom: "Cannot connect to AdGuard Home"
+
+When setting up the integration, you receive a connection error.
+
+##### Resolution
+
+1. Verify AdGuard Home is running:
+
+   - Access the AdGuard Home web interface at `http://YOUR_IP:3000`.
+   - Check the service status on your server.
+
+2. Check network connectivity:
+
+   - Ensure Home Assistant can reach the AdGuard Home instance.
+   - Verify no firewall rules block port 3000.
+
+3. Confirm credentials:
+   - Test login via the AdGuard Home web interface.
+   - Ensure you're using admin credentials.
+
+### Sensors show unavailable
+
+If sensors display as unavailable:
+
+1. Check that **Query log** switch is enabled.
+2. Verify AdGuard Home is processing DNS queries.
+3. Ensure at least one device uses AdGuard Home as DNS server.
+
+### Actions fail with "Filter URL not found"
+
+This error occurs when trying to enable, disable, or remove a non-existent filter URL. Verify the exact URL using the AdGuard Home web interface under **Filters** > **DNS blocklists**.
+
+## Removing the integration
+
+This integration follows standard integration removal. After removal, your AdGuard Home instance continues running with its current configuration.
+
+{% include integrations/remove_device_service.md %}

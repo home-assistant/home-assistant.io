@@ -2,78 +2,96 @@
 title: Enigma2 (OpenWebif)
 description: Instructions on how to integrate an Enigma2 based box running OpenWebif into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: '0.90'
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@fbradyirl'
+  - '@autinerd'
 ha_domain: enigma2
+ha_config_flow: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `enigma2` platform allows you to control a Linux based set-top box which is running [Enigma2](https://github.com/oe-alliance/oe-alliance-enigma2) with the OpenWebif plugin installed.
+The **Enigma2** {% term integration %} allows you to control a Linux based set-top box which is running [Enigma2](https://github.com/oe-alliance/oe-alliance-enigma2) with the OpenWebif plugin installed.
 
-[OpenWebif](https://github.com/E2OpenPlugins/e2openplugin-OpenWebif) is an open source web interface for Enigma2 based set-top boxes.
+[OpenWebif](https://github.com/E2OpenPlugins/e2openplugin-OpenWebif) is an open-source web interface for Enigma2 based set-top boxes.
 
-To manually add a set-top box to your installation, add the following to your `configuration.yaml` file:
+### Prerequisites
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: enigma2
-    host: IP_ADDRESS
-```
+Your device needs to have the OpenWebif plugin installed. On most devices it is installed by default, if not, it is available via the Plugins menu within your Enigma2 distribution.
 
-{% configuration %}
-  host:
-    description: The IP/hostname of the Enigma2 set-top box on your home network.
-    required: true
-    type: string
-  use_channel_icon:
-    description: By default, a screen grab of the current channel is shown. If you prefer the channel icon to be shown instead, set this to true.
-    required: false
-    type: boolean
-    default: false
-  deep_standby:
-    description: If set to true, when the user selects Turn Off, the box will go into "deep standby" mode, meaning it can be only awoken by the remote control or via Wake On Lan (if box supports that).
-    required: false
-    type: boolean
-    default: false
-  mac_address:
-    description: If specified, a Wake On Lan packet is sent to this MAC address, when Turn On is selected.
-    required: false
-    type: string
-    default: empty
-  source_bouquet:
-    description: Provide a specific bouquet reference for the bouquet you would like to see loaded into the media player "Sources" interface.
-    required: false
-    type: string
-    default: empty
-  port:
-    description: Port which OpenWebif is listening on.
-    required: false
-    type: integer
-    default: 80
-  username:
-    description: The username of a user with privileges to access the box. This is only required if you have enabled the setting "Enable HTTP Authentication" in OpenWebif settings. _(e.g., on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_.
-    required: false
-    type: string
-    default: root
-  password:
-    description: The password for your given account. Again, this is only required if you have enabled the setting "Enable HTTP Authentication" in OpenWebif settings. _(e.g., on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_.
-    required: false
-    type: string
-    default: dreambox
-  ssl:
-    description: Use HTTPS instead of HTTP to connect. This is only required if you have enabled the setting "Enable HTTPS" in OpenWebif settings. _(e.g., on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_. You will need to ensure you have a valid CA certificate in place or SSL verification will fail with this component.
-    required: false
-    type: boolean
-    default: false
-  name:
-    description: A name for easy identification of the device.
-    required: false
-    type: string
-    default: Enigma2 Media Player
-{% endconfiguration %}
+Please beware that the OpenWebif setting "Require client cert for HTTPS" is not supported.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The IP address or hostname of your device."
+Port:
+    description: "The port number of the OpenWebif service running. (default: 80)."
+Username:
+    description: "The username, if HTTP(S) authentication is enabled."
+Password:
+    description: "The password, if HTTP(S) authentication is enabled."
+Uses an SSL certificate:
+    description: "Whether HTTPS is enabled."
+Verify SSL certificate:
+    description: "Whether the SSL certificate should be verified."
+{% endconfiguration_basic %}
+
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Turn off to deep standby:
+    description: "Shuts the device down (called Deep Standby) on turning off the device. **Important**: When the device is in *Deep Standby*, it can no longer be reached! Turning on the device is only possible via one of the following methods: Wake on LAN, Power button on the device, or the Remote control."
+Bouquet to use as media source:
+    description: "Sets the bouquet to use for the source list."
+{% endconfiguration_basic %}
+
+## Entities
+
+Currently, the following entity is exposed:
+
+### Media player
+
+The following actions are supported:
+
+- Play/Pause
+- Channel up and down (using the previous/next track buttons in the media player controls)
+- Volume control
+- Channel switching via source list
+
+The bouquet for the source list can be configured via the Configuration options.
+
+## Data updates
+
+This integration fetches data from the device every 15 seconds by default.
+
+## Troubleshooting
+
+### Getting a 403.6 IP address rejected error on setup
+
+#### Description
+
+OpenWebif has a protection by default, so that only devices in the same subnet can connect to the device.
+
+#### Resolution
+
+There are two possible solutions to resolve this problem:
+
+- Enable HTTP(S) authentication (recommended for security)
+- Enable the OpenWebif setting "Enable access from VPNs"
+
+{% note %}
+If you choose to enable VPN access without authentication, ensure your network is properly secured as OpenWebif is not designed for publicly facing the internet.
+{% endnote %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

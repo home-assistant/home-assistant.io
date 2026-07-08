@@ -1,18 +1,28 @@
 ---
 type: card
-title: "Tile Card"
+title: "Tile card"
 sidebar_label: Tile
-description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
+description: "The tile card gives you a quick overview of an entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /dashboards/naming/
+    title: Card naming
+  - docs:  /dashboards/features/
+    title: Card features
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
+The tile card gives you a quick overview of an {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the **More info** dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
-  Screenshot of Tile cards.
+  <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
+  The circular background behind an icon indicates that there is a tap action.
+  The "Downstairs" and "Upstairs" climate entities have a badge and a feature that is bottom-aligned.
 </p>
 
-To add the Tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 {% configuration %}
 type:
@@ -25,15 +35,15 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the name of entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
-  description: Overwrites the icon of entity.
+  description: Overwrites the entity icon.
   type: string
 color:
   required: false
-  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
   type: string
   default: state
 show_entity_picture:
@@ -46,18 +56,55 @@ vertical:
   description: Displays the icon above the name and state.
   type: boolean
   default: false
+hide_state:
+  required: false
+  description: Hide the entity state.
+  type: boolean
+  default: false
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
+time_format:
+  required: false
+  description: >
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
   type: map
+icon_hold_action:
+  required: false
+  description: Action taken on icon tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+icon_double_tap_action:
+  required: false
+  description: Action taken on icon double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 features:
   required: false
-  description: Additional widgets to control your entity. See [available features](/dashboards/tile/#tile-features).
+  description: Additional widgets to control your entity. See [available features](/dashboards/features).
   type: list
+features_position:
+  required: false
+  description: Position of the features on the tile card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`. `inline` is not compatible with the `vertical` option.
+  type: string
+  default: bottom
+
 {% endconfiguration %}
 
 ## Examples
@@ -86,6 +133,16 @@ show_entity_picture: true
 type: tile
 entity: person.anne_therese
 vertical: true
+hide_state: true
+```
+
+```yaml
+type: tile
+entity: light.living_room
+state_content:
+  - state
+  - brightness
+  - last-changed
 ```
 
 ```yaml
@@ -93,162 +150,11 @@ type: tile
 entity: vacuum.ground_floor
 features:
   - type: vacuum-commands
-      commands:
-        - start_pause
-        - return_home
-```
-
-## Available color tokens
-
-Some color tokens are available to colorize the tile card : `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
-
-## Tile features
-
-Some entities have support for "features". These widgets add quick controls to the tile card.
-
-### Alarm modes
-
-Widget that display buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/alarm_modes.png' alt='Screenshot of the tile card with alarm modes feature'>
-  Screenshot of the tile card with alarm modes feature
-</p>
-
-```yaml
-features:
-  - type: "alarm-modes"
-    modes:
-      - armed_home
-      - armed_away
-      - armed_night
-      - armed_vacation
-      - armed_custom_bypass
-      - disarmed
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`alarm-modes`"
-  type: string
-modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass` and `disarmed`.
-  type: list
-{% endconfiguration %}
-
-### Cover open/close
-
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/cover_open_close.png' alt='Screenshot of the tile card with open/close feature'>
-  Screenshot of the tile card with cover open/close feature
-</p>
-
-```yaml
-features:
-  - type: "cover-open-close"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`cover-open-close`"
-  type: string
-{% endconfiguration %}
-
-### Cover tilt
-
-Widget that display buttons to open, close or stop a [cover](/integrations/cover).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/cover_tilt.png' alt='Screenshot of the tile card with tilt feature'>
-  Screenshot of the tile card with cover tilt feature
-</p>
-
-```yaml
-features:
-  - type: "cover-tilt"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`cover-tilt`"
-  type: string
-{% endconfiguration %}
-
-### Fan speed
-
-Widget that display speed controls for a [fan](/integrations/fan).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/fan_speed.png' alt='Screenshot of the tile card with fan speed feature'>
-  Screenshot of the tile card with fan speed feature
-</p>
-
-```yaml
-features:
-  - type: "fan-speed"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`fan-speed`"
-  type: string
-{% endconfiguration %}
-
-### Light brightness
-
-Widget that display a slider to select the brightness for a [light](/integrations/light).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/light_brightness.png' alt='Screenshot of the tile card with light brightness feature'>
-  Screenshot of the tile card with light brightness feature
-</p>
-
-```yaml
-features:
-  - type: "light-brightness"
-```
-
-{% configuration %}
-type:
-  required: true
-  description: "`light-brightness`"
-  type: string
-{% endconfiguration %}
-
-### Vacuum commands
-
-Widget that display buttons to control a [vacuum](/integrations/vacuum).
-
-<p class='img'>
-  <img src='/images/dashboards/tile-features/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands feature'>
-  Screenshot of the tile card with vacuum commands feature
-</p>
-
-```yaml
-features:
-  - type: "vacuum-commands"
     commands:
       - start_pause
-      - stop
-      - clean_spot
-      - locate
       - return_home
 ```
 
-{% configuration %}
-type:
-  required: true
-  description: "`vacuum-commands`"
-  type: string
-commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
-  type: list
-{% endconfiguration %}
+## Available colors
+
+The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).

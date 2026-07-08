@@ -11,13 +11,18 @@ ha_domain: nilu
 ha_platforms:
   - air_quality
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `nilu` air quality platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](https://www.luftkvalitet.info) and [nilu.no](https://nilu.no/) available in Home Assistant.
+The **NILU** {% term integration %} shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](https://www.luftkvalitet.info) and [nilu.no](https://nilu.no/) available in Home Assistant.
 
 ## Configuration
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -76,7 +81,7 @@ Health effects may occur in asthmatics and people with other respiratory disease
 
 Sensitive groups in the population can have health effects. Respiratory irritation and discomfort may occur in healthy subjects. People with heart or respiratory distress should reduce outdoor activity and not stay in the most polluted areas.
 
-Source: [Explanations in Norwegian](http://www.luftkvalitet.info/home/Varslingsklasser.aspx)
+Source: [Health Recommendations and Pollution Classes](https://luftkvalitet.miljodirektoratet.no/artikkel/en/articles/health-recommendations-and-pollution-classes/)
 
 ## Available areas
 
@@ -137,7 +142,7 @@ Example where the sensors are also added to the map.
 # Additionally adds the sensors to the map.
 air_quality:
   - platform: nilu
-    show_on_map: True
+    show_on_map: true
 ```
 
 Example of a specific station.

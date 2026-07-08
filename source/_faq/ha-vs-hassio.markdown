@@ -1,13 +1,19 @@
 ---
-title: "Home Assistant vs. Home Assistant Core"
-description: "Home Assistant vs. Home Assistant Core"
+title: "What is the difference between Home Assistant Operating System and Home Assistant Container?"
+description: "Home Assistant Operating System is the recommended, all-in-one installation method. Home Assistant Container is for people who already run Docker on their own Linux system and want to manage it themselves."
 ha_category: Installation
 ---
 
-Home Assistant Core is a Python program, in simple words. It can be run on various operating systems and provide the ability to track, control and automate your devices.
-When people talking about Home Assistant Core they usually refer to a standalone [installation method](/docs/installation/).
+Home Assistant offers two installation methods: {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}. Both run the same Home Assistant software, so the choice is mostly about how much of the underlying system you want to manage yourself.
 
-[Home Assistant](/hassio/) is a combination of Home Assistant Core and tools which allows one to run it easily on a Raspberry Pi and other platforms without setting up an operating system first.
-Home Assistant is an all-in one-solution and has a management user interface that can be used from the Home Assistant frontend. This interface is not present in a Home Assistant Core setup.
+[Home Assistant Operating System](/installation/#about-installation-types) is the recommended installation method for almost everyone. It is an all-in-one solution that includes the operating system, Home Assistant itself, and a management user interface. It supports {% term apps %}, takes care of upgrading everything for you, and powers official hardware like [Home Assistant Green](/green/) and [Home Assistant Yellow](/yellow/).
 
-Be aware that add-ons are only available in regular Home Assistant installations.
+[Home Assistant Container](/installation/alternative/) runs Home Assistant as a Docker container on a Linux system you provide and maintain yourself. It is intended for people who already run Docker and want to integrate Home Assistant with their existing setup. Home Assistant Container does not support apps, and you are responsible for updates and the host operating system.
+
+You may still see references to "Home Assistant Core" or "Home Assistant Supervised" in older articles. These were earlier installation methods that are no longer offered or supported. Today's recommended path is Home Assistant Operating System.
+
+Learn more:
+
+- [About installation types](/installation/#about-installation-types)
+- [Home Assistant Green](/green/)
+- [Home Assistant Yellow](/yellow/)

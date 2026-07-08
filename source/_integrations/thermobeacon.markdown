@@ -12,7 +12,7 @@ ha_domain: thermobeacon
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [ThermoBeacon](http://www.seven-like.com/) devices into Home Assistant.

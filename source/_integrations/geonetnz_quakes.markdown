@@ -6,17 +6,17 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.98
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
 ha_platforms:
+  - diagnostics
   - geo_location
   - sensor
 ha_integration_type: service
 ---
 
-The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
+The **GeoNet NZ Quakes** {% term integration %} lets you use a GeoJSON feed provided by 
 New Zealand's [GeoNet](https://www.geonet.org.nz/) with information 
 about quakes in the New Zealand region that happened within the last 7 days. 
 It retrieves incidents from a feed and 
@@ -35,7 +35,7 @@ converted to the unit (kilometers or miles) configured in Home Assistant.
 
 The data is updated every 5 minutes.
 
-<div class='note'>
+{% note %}
 
 The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](https://creativecommons.org/licenses/by/3.0/nz/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
@@ -43,11 +43,11 @@ Please refer to the [creator's disclaimer notice](https://www.geonet.org.nz/disc
 
 We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science and LINZ, for providing data/images used in this integration.
 
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -66,7 +66,7 @@ the standard ones:
 | locality    | Distance and direction to the nearest locality. |
 | quality     | The quality of this information: best, good, caution, deleted. |
 
-Please note that the reported MMI may be lower than the minimum requested MMI. 
+The reported MMI may be lower than the minimum requested MMI. 
 This integration is passing the requested MMI value to the feed source and 
 displays all entries retrieved without further filtering by MMI.
 
@@ -91,7 +91,7 @@ from the feed.
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

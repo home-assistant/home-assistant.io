@@ -2,30 +2,35 @@
 title: FFmpeg Motion
 description: Instructions on how to integrate an FFmpeg-based motion binary sensor
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_motion
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `ffmpeg` platform allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.
+The **FFmpeg Motion** {% term integration %} allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
-<div class='note'>
+{% note %}
 
-If the `ffmpeg` process is broken, the sensor will be unavailable. To control the FFmpeg process of sensor, use the service `ffmpeg.start`, `ffmpeg.stop`, `ffmpeg.restart`.
+If the `ffmpeg` process is broken, the sensor will be unavailable. To control the FFmpeg process of the sensor, use the `ffmpeg.start`, `ffmpeg.stop`, and `ffmpeg.restart` actions.
 
-</div>
+{% endnote %}
 
 ## Motion
 
-FFmpeg doesn't have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change in order to detect motion with the option 'changes', the percent value of change between frames. If you want a really small value for 'changes', you can also add a denoise filter.
+FFmpeg doesn't have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change to detect motion with the option 'changes', the percent value of change between frames. If you want a really small value for 'changes', you can also add a denoise filter.
 
 ## Configuration
 
-To add FFmpeg with motion detection to your installation, add the following to your `configuration.yaml` file:
+To add FFmpeg with motion detection to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +64,7 @@ reset:
   type: integer
   default: 20
 repeat:
-  description: How many events need to be detected in *repeat_time* in order to trigger a motion, 0 repeats means deactivated.
+  description: How many events need to be detected in *repeat_time* to trigger a motion, 0 repeats means deactivated.
   required: false
   type: integer
   default: 0

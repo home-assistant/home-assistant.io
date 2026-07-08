@@ -1,10 +1,45 @@
-<h1>Awaken your home</h1>
+<h1>Awaken<br><span class="line2">your home</span></h1>
 <p class="lead">
-  {{ site.description }}
+  Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
 </p>
 
-<p class='hero-buttons'>
-  <a href='/getting-started/'>Get started</a>
-  <a href='https://demo.home-assistant.io' target='_blank'>View demo</a>
-  <a href='/integrations/'>Browse 1900+ integrations</a>
-</p>
+{%- assign integration_count = 0 -%}
+{%- for comp in site.integrations -%}
+  {%- if comp.ha_category and comp.title -%}
+    {%- assign integration_count = integration_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class='hero-buttons'>
+  <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
+  <div>
+    <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
+    <a href='/integrations/'>Browse {{ integration_count | minus: 1 | divided_by: 100 | times: 100 }}+ integrations</a>
+   {%- comment -%}
+    Subtracting 1 forces a conservative buffer so milestones only flip over 
+    after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601).
+   {%- endcomment -%}
+  </div>
+</div>
+
+<div class="hero-socialproof">
+  <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/#the-top-open-source-projects-by-contributors" target="_blank" class="">
+    <div class="hero-github-top-project">
+      <img src="/images/frontpage/hero-github-logo.svg" alt="GitHub logo"/>
+      <img src="/images/frontpage/hero-trophy.svg" alt="Top open source project trophy"/>
+      <p><strong>Top open source project</strong> by contributors in 2025</p>
+    </div>
+  </a>
+
+  <!-- <div class="hero-socialproof-asseenon">
+    <p>As seen on</p>
+    <div class="logos">
+      <a href="https://www.theverge.com/23744526/smart-home-assistant-how-to-automation" target="_blank">
+        <img src="/images/frontpage/hero-socialproof-theverge.svg" alt="The Verge"/>
+      </a>
+      <a href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/" target="_blank">
+        <img src="/images/frontpage/hero-socialproof-arstechnica.svg" alt="ArsTechnica" height="48"/>
+      </a>
+    </div>
+  </div> -->
+</div>

@@ -10,29 +10,23 @@ ha_domain: timer
 ha_integration_type: helper
 ---
 
-The `timer` integration aims to simplify automations based on (dynamic) durations.
+The **Timer** {% term integration %} lets you create and manage countdown timers in Home Assistant.
 
-When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restarts the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
+You can use timers in automations and scripts to keep a bathroom fan running for 20 minutes, remind yourself when laundry is nearly done, or turn lights off after motion has stopped.
 
-<div class='note'>
-  
+{% note %}
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
 
-However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
-
-</div>
+However, automations using the `timer.finished` event **will not** trigger on startup if the timer expires when Home Assistant is not running.
+{% endnote %}
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=timer title="Timer" %} option.
 
-You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
+The preferred way to create a timer is from the user interface. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper**, and then select **Timer**.
 
-{% my helpers badge %}
+If you removed `default_config:` from your {% term "`configuration.yaml`" %}, add `timer:` first before creating timers from the UI.
 
-To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
-
-Timers can also be configured via configuration.yaml:
-To add a timer to your installation, add the following to your `configuration.yaml` file:
+You can also define timers in YAML. To add a timer, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -61,154 +55,113 @@ timer:
       required: false
       type: icon
     restore:
-      description: When true, active and paused timers will be restored to the correct state and time on Home Assistant startup and restarts. If an active timer was supposed to end while Home Assistant is stopped, the `timer.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
+      description: When true, active and paused timers are restored after Home Assistant starts or restarts.
       required: false
       type: boolean
       default: false
 {% endconfiguration %}
 
-Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+## Configuration options
 
-## Possible States
+When you create or edit a timer from the UI, the following options are available.
 
-| State | Description |
-| ----- | ----------- |
-| `idle` | Timer is idle because the timer finished, was canceled or was never started |
-| `active` | Timer is currently running because it was (re-)started |
-| `paused` | Timer is paused because it was paused |
+{% configuration_basic %}
+Name:
+  description: Friendly name of the timer.
+Duration:
+  description: The starting duration for the timer.
+Icon:
+  description: Optional icon to show for the timer.
+Restore:
+  description: Restores active and paused timers after Home Assistant starts or restarts.
+{% endconfiguration_basic %}
 
-## Events
+Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix it with `mdi:`.
 
-|           Event | Description |
-| --------------- | ----------- |
-| `timer.cancelled` | Fired when a timer has been canceled |
-| `timer.finished` | Fired when a timer has completed and includes `finished_at` date/time in event data. `finished_at` should usually be now, or within the last several seconds, but if the `restore` property is true, `finished_at` may be further in the past since this event will fire on startup for any timers that would have ended while Home Assistant was stopped. |
-| `timer.started` | Fired when a timer has been started |
-| `timer.restarted` | Fired when a timer has been restarted |
-| `timer.paused` | Fired when a timer has been paused |
+## Supported functionality
 
-## Services
+The **Timer** integration provides timer entities that you can use in dashboards, scripts, and automations.
 
-### Service `timer.start`
+Use a timer when you want a countdown that can be started, paused, changed, canceled, finished, shown on a dashboard, or reused across multiple automations. Unlike an automation's `for` option, a timer is its own entity, so you can see it, manage it, and use the same countdown in more than one place. If you only need to wait until another trigger or condition stays true for a while, using that automation's `for` option is often simpler.
 
-Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
-You can also use `entity_id: all` and all active timers will be started.
+- **Timer entity**
+  - **Description**: Represents a countdown that you can start, pause, change, cancel, or finish.
+  - **States**: `idle`, `active`, and `paused`.
+  - **Remarks**: A timer returns to `idle` when it finishes, is canceled, or has not been started yet.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      yes | Duration in seconds or `01:23:45` format until the timer finishes. |
+{% include integrations/triggers.md %}
 
-### Service `timer.change`
+{% include integrations/conditions.md %}
 
-Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed.
+{% include integrations/actions.md %}
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      no  | Duration in seconds or `00:00:00` to add or subtract from the running timer. |
+## Timer automation examples
 
-### Service `timer.pause`
+{% include docs/paste_yaml_tip.md %}
 
-Pause a running timer. This will retain the remaining duration for later continuation. You can also use `entity_id: all` and all active timers will be paused.
+### Automation: turn off the bathroom fan when the timer finishes
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+Use a timer to keep the fan running for a fixed amount of time after a shower.
 
-### Service `timer.cancel`
+- **Trigger**: Timer finished
+  - **Target**: Bathroom fan timer
+  - **Trigger when**: Each
+- **Action**: Turn off fan
 
-Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active timers will be canceled.
+{% details "YAML example for a bathroom fan timer" %}
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+{% example %}
+automation: |
+  alias: "Turn off bathroom fan when the timer finishes"
+  triggers:
+    - trigger: timer.finished
+      target:
+        entity_id: timer.bathroom_fan
+  actions:
+    - action: fan.turn_off
+      target:
+        entity_id: fan.bathroom
+{% endexample %}
 
-### Service `timer.finish`
+{% enddetails %}
 
-Manually finish a running timer earlier than scheduled. You can also use `entity_id: all` and all active timers will be finished.
+### Automation: send a reminder when only five minutes remain
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+Get a reminder shortly before a timer finishes, like when laundry or cooking time is almost done.
 
-### Service `timer.reload`
+- **Trigger**: Timer time remaining
+  - **Target**: Laundry timer
+  - **Time remaining**: 00:05:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-Reload `timer`'s configuration without restarting Home Assistant itself. This service takes no service data attributes.
+{% details "YAML example for a laundry timer reminder" %}
 
-### Use the service
+{% example %}
+automation: |
+  alias: "Notify when five minutes remain on the laundry timer"
+  triggers:
+    - trigger: timer.remaining_time_reached
+      target:
+        entity_id: timer.laundry
+      options:
+        remaining: "00:05:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The laundry timer has five minutes left."
+{% endexample %}
 
-Navigate to **Developer Tools** -> **Services** and select the `timer.start` service, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and click **Call Service** button.
+{% enddetails %}
 
-## Examples
+## Known limitations
 
-Set a timer called `test` to a duration of 30 seconds.
+- If a timer finishes while Home Assistant is not running, automations that use the **Timer finished** trigger do not run after startup.
 
-```yaml
-# Example configuration.yaml entry
-timer:
-  test:
-    duration: "00:00:30"
-```
+## Removing the integration
 
-### Control a timer from the frontend
+To remove a timer created from the UI, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select the timer, and delete it.
 
-```yaml
-# Example automations.yaml entry
-- alias: "Timerswitch"
-  id: "Timerstart"
-  # Timer is started when the switch pumprun is set to on.
-  trigger:
-  - platform: state
-    entity_id: switch.pumprun
-    to: "on"
-  action:
-  - service: timer.start
-    target:
-      entity_id: timer.test
-
-# When timer is stopped, the time run out, another message is sent
-- alias: "Timerstop"
-  id: "Timerstop"
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.test
-  action:
-  - service: notify.nma
-    data:
-      message: "Timer stop"
-```
-
-### Control a timer manually
-
-With the [`script`](/integrations/script/) integration you would be able to control a timer (see above for a `timer` configuration sample) manually.
-
-```yaml
-script:
-  start_timer:
-    alias: "Start timer"
-    sequence:
-      - service: timer.start
-        target:
-          entity_id: timer.test
-  pause_timer:
-    alias: "Pause timer"
-    sequence:
-      - service: timer.pause
-        target:
-          entity_id: timer.test
-  cancel_timer:
-    alias: "Cancel timer"
-    sequence:
-      - service: timer.cancel
-        target:
-          entity_id: timer.test
-  finish_timer:
-    alias: "Finish timer"
-    sequence:
-      - service: timer.finish
-        target:
-          entity_id: timer.test
-```
+If you configured a timer in YAML, remove it from your {% term "`configuration.yaml`" %} file and reload or restart Home Assistant.

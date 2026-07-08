@@ -1,6 +1,6 @@
 ---
 title: Apprise
-description: Instructions on how to add Apprise notifications to Home Assistant.
+description: Instructions on how to use Apprise to send notifications from Home Assistant to more than 140 notification services.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
@@ -11,83 +11,156 @@ ha_domain: apprise
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The [Apprise service](https://github.com/caronc/apprise/) is an all-in-one solution to open up Home Assistant to _just about_ every Notification platform (such as Amazon SNS, Discord, Telegram, Slack, MSTeams, Twilio, etc.)
+The Apprise integration connects Home Assistant to [more than 140 notification services](https://appriseit.com/services/), including Amazon SNS, Discord, Telegram, Slack, Microsoft Teams, Twilio, and many more. A single Apprise configuration can route alerts to multiple services at once, so your automations stay simple and provider-independent.
 
 ## Configuration
 
-To use Apprise supported notifications, add the following to your `configuration.yaml` file:
+To use Apprise notifications, add the following to your {% term "`configuration.yaml`" %} file and restart Home Assistant.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+### Direct URL
+
+The simplest setup. Add one or more Apprise URLs directly to your configuration. Visit the [Apprise services directory](https://appriseit.com/services/) to find the right URL format for your service:
 
 ```yaml
-# Example configuration.yaml entry using URLs
 notify:
-  - platform: apprise
-    url: YOUR_APPRISE_URLS
+  - name: NOTIFIER_NAME
+    platform: apprise
+    url: YOUR_APPRISE_URL
 ```
 
-You can also pre-define your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
+You can pass a list to notify multiple services at once:
 
 ```yaml
-# Example configuration.yaml entry using externally located Apprise
-# Configuration Files/Sites:
 notify:
-  - platform: apprise
-    config: YOUR_APPRISE_CONFIG_URLS
+  - name: NOTIFIER_NAME
+    platform: apprise
+    url:
+      - YOUR_FIRST_URL
+      - YOUR_SECOND_URL
 ```
 
-There is no restriction on the number of URLs or Apprise Configuration locations you wish to define. You can also use both of the lines in conjunction with one another:
+Every service listed under `url` is always notified together on every action call. If you need to selectively notify different services depending on the situation, use the configuration file approach instead, which supports tag-based targeting.
+
+### Configuration file
+
+To notify multiple services or use tag-based routing, store your service URLs in a separate file and reference it:
 
 ```yaml
-# Example configuration.yaml entry using all options
 notify:
-  - platform: apprise
-    config: YOUR_APPRISE_CONFIG_URLS
-    url: YOUR_APPRISE_URLS
+  - name: NOTIFIER_NAME
+    platform: apprise
+    config: /config/apprise.yml
 ```
+
+Then create `/config/apprise.yml` and list your services:
+
+```yaml
+# /config/apprise.yml
+urls:
+  - tgram://BOT_TOKEN/CHAT_ID:
+      tag: telegram
+  - mailtos://YOUR_USER:YOUR_PASSWORD@smtp.gmail.com:
+      tag: email
+```
+
+### Remote Apprise API
+
+If you run a self-hosted [Apprise API](https://appriseit.com/api/) instance, you can point the `config` option directly to it. This is useful when you manage multiple Home Assistant installations and want to keep your notification services defined in one place:
+
+```yaml
+notify:
+  - name: NOTIFIER_NAME
+    platform: apprise
+    config: https://apprise.example.com/get/YOUR_PROFILE_KEY
+```
+
+You can also use `url` and `config` together in the same entry, and you can define as many services as you like in either option. For details on YAML and plain text configuration file formats, see the [Apprise configuration documentation](https://appriseit.com/config/).
+
+## Configuration options
 
 {% configuration %}
 name:
-  description: The notifier will bind to the service `notify.NAME`.
+  description: The notifier will bind to the action `notify.NAME`.
   required: false
   type: string
   default: notify
 url:
-  description: One or more Apprise URLs
+  description: >-
+    One or more Apprise URLs pointing to notification services. Accepts a
+    single URL string or a list of URL strings. All listed services are
+    notified on every call.
   required: false
-  type: string
+  type: list
 config:
-  description: One or more Apprise Configuration URLs
+  description: >-
+    A path or URL pointing to an Apprise configuration file or a remote
+    Apprise API endpoint.
   required: false
   type: string
 {% endconfiguration %}
 
-## Example service call
+## Sending a notification
+
+Once Home Assistant restarts, use the notify service you defined to send notifications from an automation:
 
 ```yaml
-- service: notify.apprise
+- action: notify.NOTIFIER_NAME
   data:
-    message: "A message from Home Assistant"
+    title: "Motion detected"
+    message: "Front door camera triggered."
 ```
 
-If you're using configuration files to store your Apprise URLs in, then you have the added bonus of associating tags with them. By default, Apprise in Home Assistant will only notify the elements that have no tags associated with them. You can optionally focus on only notifying a specific service based on the tag(s) you assigned them like so:
+### Tag-based targeting
+
+When you use a configuration file, you can assign tags to your services and use the `target` field to control who receives each message. By default, Apprise only notifies services that have no tags assigned. Use `target` to reach tagged services:
 
 ```yaml
-- service: notify.apprise
+- action: notify.NOTIFIER_NAME
   data:
-    message: "A message from Home Assistant"
-    target: [
-      "tag_name1",
-    ]
+    message: "Security alert: front door opened."
+    target: "security"
 ```
 
-The tag `all` is reserved to notify absolutely everything, whether you have a tag associated with a URL or not.
+How multiple tags combine in `target`:
 
-## Notes
+- A list sends to every service tagged with _any_ of the listed values (OR logic).
+- A space-separated string sends only to services that carry _all_ of the listed tags (AND logic).
+- The reserved tag `all` notifies every service, whether tagged or not.
 
-There are over 50 supported Notification services supported by Apprise. Each has their own tweaks and customizations you can leverage.
+```yaml
+# OR logic: notify anything tagged "security" or "family"
+- action: notify.NOTIFIER_NAME
+  data:
+    message: "Alert."
+    target:
+      - "security"
+      - "family"
+```
 
-- For instructions on how to construct the URLs, visit [here](https://github.com/caronc/apprise/wiki#notification-services).
-- For instructions on how you can customize your own Apprise configuration files (referenced through the `config` directive), check out the following:
-  - [Text Formatted URLs](https://github.com/caronc/apprise/wiki/config_text)
-  - [YAML Formatted URLs](https://github.com/caronc/apprise/wiki/config_yaml)
+```yaml
+# AND logic: notify only services tagged BOTH "security" AND "family"
+- action: notify.NOTIFIER_NAME
+  data:
+    message: "Alert."
+    target: "security family"
+```
+
+## Troubleshooting
+
+If notifications are not sending, enable debug logging for the Apprise component in your {% term "`configuration.yaml`" %}:
+
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.components.apprise: debug
+```
+
+After restarting, your Home Assistant logs will show which configuration files Apprise loads, how it resolves tags, and whether each notification dispatches successfully. This makes it easy to spot invalid URLs or connectivity issues.

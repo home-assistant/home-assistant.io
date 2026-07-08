@@ -1,116 +1,63 @@
 ---
-title: Device Tracker
-description: Instructions on how to setup device tracking within Home Assistant.
+title: Device tracker
+description: Instructions on how to set up device tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: device_tracker
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /integrations/person/
+    title: Person
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
-## Configuring a `device_tracker` platform
+{% include integrations/building_block_integration.md %}
 
-To get started add the following lines to your `configuration.yaml` (example for Netgear):
+To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/). You can connect device trackers to [person](/integrations/person/) entities and use them with [zones](/integrations/zone/) for automations that react when people or tracked devices enter or leave a place.
 
-```yaml
-# Example configuration.yaml entry for Netgear device
-device_tracker:
-  - platform: netgear
-    host: IP_ADDRESS
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    new_device_defaults:
-      track_new_devices: true
-```
+## The state of a tracked device
 
-The following optional parameters can be used with any platform:
+- The name of the smallest [zone](/integrations/zone/) the device is currently in.
+- **Home** if the device is in the [home zone](/integrations/zone#home-zone).
+- **Not home** if the device is not in any zone.
 
-<div class='note'>
-  Device tracker will only look for the following global settings under the configuration of the first configured platform:
-</div>
+In addition, the entity can have the following states:
 
-| Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
-|----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `interval_seconds`   | 12      | Seconds between each scan for new devices. This only applies to local device trackers, not applications that push updates. |
-| `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-<div class='note'>
+### Zones
 
-  Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
+The state attribute `in_zones` is a list of all zones a device is in, sorted by size with the smallest zone first.
 
-</div>
+### Coordinates
 
-The extended example from above would look like the following sample:
+If an exact location is known and shared, a device tracker will have the state attributes `latitude`, `longitude`, and optionally `gps_accuracy` in meters.
 
-```yaml
-# Example configuration.yaml entry for Netgear device
-device_tracker:
-  - platform: netgear
-    host: IP_ADDRESS
-    username: YOUR_USERNAME
-    interval_seconds: 10
-    consider_home: 180
-    new_device_defaults:
-      track_new_devices: true
-```
+### Type of device tracker
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/integrations/owntracks/) and [Nmap](/integrations/nmap_tracker/). The state of the device will be determined by the source that reported last.
+Device trackers can either track the exact position of a device, for example with GPS, or track whether the device is connected to a fixed device, such as a Wi-Fi router or Bluetooth beacon.
 
-## `known_devices.yaml`
+#### Position trackers
 
-<div class='note warning'>
+Device trackers that track the position of a device, for example with GPS or another GNSS, have the `tracking_type` state attribute set to `position`.
 
-As of 0.94 `known_devices.yaml` is being phased out and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes OwnTracks, GeoFency, GPSLogger, Locative and Huawei LTE.
+#### Connection trackers
 
-</div>
+Device trackers that track whether a device is connected to a fixed device have the `tracking_type` state attribute set to `connection`. Connection device trackers assume the device is in their associated zone when connected. The default associated zone is the [home zone](/integrations/zone#home-zone), but you can [customize](/docs/configuration/customizing-devices/) the device tracker to use a different zone.
 
-Once `device_tracker` is enabled, a file will be created in your configuration dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
+### Legacy device trackers
 
-Here's an example configuration for a single device:
+Some integrations provide an older device tracker model which do not have the `tracking_type` or `in_zones` state attributes. These device trackers are scheduled for removal in the first half of 2027.
 
-```yaml
-devicename:
-  name: Friendly Name
-  mac: EA:AA:55:E7:C6:94
-  picture: https://www.home-assistant.io/images/favicon-192x192.png
-  track: true
-```
-
-<div class='note warning'>
-
-In the example above, `devicename` refers to the detected name of the device.  For example, with `nmap`, this will be the MAC address (with byte separators omitted).
-
-</div>
-
-| Parameter      | Default                       | Description                                                                                             |
-|----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
-| `name`         | Host name or "Unnamed Device" | The friendly name of the device.                                                                         |
-| `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP.     |
-| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your `configuration.yaml` file and just use `picture: /local/favicon-192x192.png`. The path 'local' is mapped to the 'www' folder you create.                                     |
-| `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
-| `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
-| `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
-| `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
-
-## Device states
-
-The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
-
-## `device_tracker.see` service
-
-The `device_tracker.see` service can be used to manually update the state of a device tracker:
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `dev_id`               |       no | The `object_id`, for example `tardis` for `device_tracker.tardis` |
-| `location_name`        |      yes | The location, `home`, `not_home`, or the name of the zone |
-| `host_name`            |      yes | The hostname of the device tracker |
-| `mac`                  |      yes | The MAC address of the entity (only specify if you're updating a network based tracker) |
-| `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |
-| `gps_accuracy`         |      yes | The accuracy of the GPS fix |
-| `battery`              |      yes | The battery level of the device |
+<p class='img'>
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the developer tools' />
+Screenshot showing the state of a device tracker entity in the developer tools.
+</p>

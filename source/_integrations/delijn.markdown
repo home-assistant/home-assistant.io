@@ -13,9 +13,13 @@ ha_domain: delijn
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `delijn` sensor will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
+The **De Lijn** {% term integration %} will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
 
 ## Setup
 
@@ -24,7 +28,8 @@ For valid stop IDs check for the 6 digits at the physical stops or visit the [st
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -46,7 +51,7 @@ next_departure:
   type: list
   keys:
     stop_id:
-      description: "ID of the stop, e.g.,  `200552`."
+      description: "ID of the stop, for example, `200552`."
       required: true
       type: string
     number_of_departures:
@@ -76,4 +81,4 @@ sensor:
 
 ## Custom dashboard card
 
-Works best with the following custom dashboard card: <https://github.com/bollewolle/delijn-card>
+Works best with the following custom dashboard card: [delijn-card](https://github.com/bollewolle/delijn-card)

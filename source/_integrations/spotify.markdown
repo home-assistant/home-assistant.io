@@ -2,33 +2,33 @@
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@frenck'
+  - '@joostlek'
 ha_domain: spotify
-ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_integration_type: service
 ---
 
-The Spotify media player integration lets you control your Spotify
+The **Spotify** {% term integration %} lets you control your Spotify
 account playback and browse the [Spotify](https://www.spotify.com/) media
 library from Home Assistant.
 
 ## Prerequisites
 
-- An active Spotify account. A premium account is not required, but recommended.
-  Premium accounts can be controlled (pause, play, next, etc.), while
-  free accounts can only be used for browsing and current playback status.
-- Spotify compatible playback [source](#selecting-output-source) device
+- An active Spotify Premium account. As of February 2026, Spotify requires a
+  Premium account to access the Developer Portal and create an application.
+  This means the integration only works with a Spotify Premium account.
+- A Spotify-compatible playback [source](#selecting-output-source) device.
 - A Spotify Developer application. Instructions for that are in
   the next step.
- 
+
 ### Create a Spotify application
 
 For Home Assistant to communicate with Spotify, we need to create
@@ -42,42 +42,44 @@ to allow you to log in with your Spotify account.
 
 2. Log in to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
 
-3. Click the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
+3. Select the [**Create app**](https://developer.spotify.com/dashboard/create) button in the top right.
   
-  ![Spotify Developer Dashboard](/images/integrations/spotify/create-spotify-application.png)
-   
+    ![Spotify Developer Dashboard](/images/integrations/spotify/create-spotify-application.png)
+
 4. Enter a name and description; feel free to use any name and description you like.
 
-   Set the _"Redirect URI"_ to the following:
-   
-   `https://my.home-assistant.io/redirect/oauth`
+   - Set the _"Redirect URI"_ to the following:
 
-   Please copy and paste the exact URL above. You **do not** have to change it.
+    `https://my.home-assistant.io/redirect/oauth`
 
-  ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
+    - Please copy and paste the exact URL above. You **do not** have to change it.
 
-5. Check the box to agree with the requirements and click the **Save** button
+    ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
+
+5. Select Web API.
+
+6. Check the box to agree with the requirements and click the **Save** button
    to confirm the application creation.
 
-6. Spotify will now show the new application you have just created. Click on
+7. Spotify will now show the new application you have just created. Select
    the **Settings** button in the top right to configure it.
 
-  ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
+   ![Edit the Spotify Application settings](/images/integrations/spotify/edit-settings.png)
 
-7. Before we can start configuring Home Assistant, we need to grab the application
+8. Before we can start configuring Home Assistant, we need to grab the application
    credentials Home Assistant needs.
 
-  Click on the **View client secret** button to reveal the client secret.
+   - Select on the **View client secret** button to reveal the client secret.
 
-  ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
+   ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
 
-8. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
+9. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
    that Home Assistant needs to communicate with Spotify and is what we
    call: Application credentials.
 
-  ![Get the application credentials from the Spotify Application](/images/integrations/spotify/application-credentials.png)
+   ![Get the application credentials from the Spotify Application](/images/integrations/spotify/application-credentials.png)
 
-   You will need the _"Client ID"_ and _"Client secret"_ during the Spotify
+   - You will need the _"Client ID"_ and _"Client secret"_ during the Spotify
    integration setup process in Home Assistant.
 
 You can now continue with the next chapter to configure the Spotify integration
@@ -98,13 +100,18 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
+## Data updates
+
+The integration {% term polling polls %} at least every 30 seconds.
+If the track that is playing ends in less than 30 seconds, the integration will poll again after the track has ended to update the state again.
+
 ## Using multiple Spotify accounts
 
 This integration supports multiple Spotify accounts at once. You don't need to
 create another Spotify application in the Spotify Developer Portal.
 Multiple Spotify accounts can be linked to a _single_ Spotify application.
 
-You will have to add those accounts into the **Users and Access** section of
+You will have to add those accounts into the **User Management** section of
 your application in the Spotify Developer Portal.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify
@@ -117,25 +124,26 @@ To play media Spotify first needs a device selected for audio output known as th
 
 ```yaml
 # Example code to select an AV receiver as the output device
-service: media_player.select_source
-entity_id: media_player.spotify
+action: media_player.select_source
+target:
+  entity_id: media_player.spotify
 data:
   source: "Denon AVR-X2000"
 ```
 
-The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="Developer Tools States" %}.
+The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
 
 ## Playing Spotify playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
-[media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service, for example:
+[media_player.play_media](/integrations/media_player/#action-play-media) action, for example:
 
 ```yaml
 # Example script to play playlist
 script:
   play_jazz_guitar:
     sequence:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.spotify
         data:
@@ -145,6 +153,12 @@ script:
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app). Alternatively a Spotify URI string (e.g. `spotify:playlist:5xddIVAtLrZKtt4YGLM1SQ`) can be supplied for the `media_content_id`.
 
-## Unsupported Devices
+## Unsupported devices
 
-- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
+- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API. One workaround to use Sonos players with Spotify is through [Music Assistant](https://www.music-assistant.io/) using the action `music_assistant.play_media`. Music Assistant creates another media_player entity named after the original media_player, which you can use to play from Spotify.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

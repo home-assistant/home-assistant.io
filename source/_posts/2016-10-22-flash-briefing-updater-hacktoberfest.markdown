@@ -200,7 +200,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
  - Fix a spelling problem on user-facing error ([@robbiet480])
  - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
-## Breaking changes
+## Backward-incompatible changes
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]
@@ -208,7 +208,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
  - The Z-Wave entity ID change mentioned above
 
 ## If you need help...
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 ## Until next time
 

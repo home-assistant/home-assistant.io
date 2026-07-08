@@ -1,12 +1,13 @@
 ---
 title: Overkiz
-description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
+description: Instructions on how to integrate gateways that use the Overkiz IoT platform with Home Assistant.
 ha_category:
-  - Alarm Control Panel
-  - Binary Sensor
+  - Alarm
+  - Binary sensor
   - Button
   - Climate
   - Cover
+  - Fan
   - Hub
   - Light
   - Lock
@@ -16,15 +17,12 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 2022.2
 ha_config_flow: true
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@imicknl'
-  - '@vlebourl'
-  - '@tetienne'
-  - '@nyroDev'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
@@ -35,6 +33,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - lock
   - number
@@ -47,47 +46,182 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
+The Overkiz (by Somfy) IoT platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
 
-## Supported hubs
+## Supported vendors
 
 - Atlantic Cozytouch
+- Bouygues Flexom
+- Hexaom HexaConnect
 - Hitachi Hi Kumo
 - Nexity Eugénie
 - Rexel Energeasy Connect
-- Somfy Connectivity Kit
-- Somfy Connexoon IO
-- Somfy Connexoon RTS
+- Sauter Cozytouch
+- Simu LiveIn2
 - Somfy TaHoma
-- Somfy TaHoma Beecon
-- Somfy TaHoma Switch
 - Thermor Cozytouch
-
-
-## Supported devices
+- Ubiwizz
 
 Over 6000 devices from 60 brands are compatible with the Overkiz platform. This integration will retrieve your devices and map them to the relevant Home Assistant platforms.
 
+### Local API support
+
+Local API availability depends on your specific gateway. The following gateways support the local API:
+
+- Somfy Connexoon IO
+- Somfy Connexoon RTS
+- Somfy TaHoma v2
+- Somfy TaHoma Beecon
+- Somfy TaHoma Switch
+- Rexel Energeasy Connect Rail Din
+- Rexel Energeasy Connect V2
+- Rexel Energeasy Connect V3
+- Rexel Energeasy Connect V3 Rail Din
+
 {% include integrations/config_flow.md %}
+
+The Overkiz integration supports both the Overkiz cloud API and the local API (only supported by some gateways). With a compatible gateway, you can connect locally, allowing device control without an internet connection. Start by selecting the server or app that you use to control your devices.
+
+### Log in to Overkiz (Cloud API)
+
+{% configuration_basic %}
+"Username":
+  description: "Username for your Overkiz cloud account (account you use in your IoT app)."
+Password:
+  description: "Password for your Overkiz cloud account (account you use in your IoT app)."
+{% endconfiguration_basic %}
+
+### Log in to Rexel Energeasy Connect (Cloud API)
+
+If you select Rexel Energeasy Connect as your server, you sign in through your browser instead of entering a username and password in Home Assistant.
+
+1. After selecting Rexel Energeasy Connect, you are taken to the Rexel sign-in page.
+2. Sign in with the account you use in the Energeasy Connect app, and authorize Home Assistant.
+3. If your account has more than one gateway, select the gateway you want to add.
+
+### Log in to Overkiz (Local API)
+
+To connect Home Assistant to your gateway using the local API, you need a [compatible gateway](#local-api-support) and a token. How you generate this token depends on your gateway.
+
+Scenarios and climate entities are **not** supported via the local API.
+
+{% tabbed_block %}
+- title: Somfy TaHoma
+  content: |
+
+    On a Somfy gateway, you generate the token by enabling [Somfy TaHoma Developer Mode](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started) in the TaHoma by Somfy app:
+
+    1. Open the TaHoma by Somfy app on your device.
+    2. Go to **Account** > **Configure the installation** > **Access the parameters of your TaHoma box**.
+    3. Activate Developer Mode by tapping seven times on the PIN of your gateway (for example, `2001-1234-5678`).
+    4. Generate a token to authenticate your requests.
+
+    For more details, follow the [official instructions](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode?tab=readme-ov-file#getting-started).
+
+- title: Rexel Energeasy Connect
+  content: |
+
+    On a Rexel Energeasy Connect gateway, you generate the token in the Energeasy Connect app:
+
+    1. Open the Energeasy Connect app and go to **Settings** > **My home** > **Maintenance**.
+    2. Select your gateway, then select **Local API**.
+    3. Generate a token to authenticate your requests.
+
+    For more details, see [Rexel's instructions on activating the local API](https://assistance.energeasyconnect.com/hc/fr/articles/21853189930652-Activation-de-l-API-Locale-HTTP) (FR).
+{% endtabbed_block %}
+
+{% configuration_basic %}
+"Host":
+  description: "The hostname or IP address of your Overkiz gateway. The hostname is your Gateway PIN + .local:8443 (e.g. 1234-4567-8912.local)."
+"Token":
+  description: "Token generated by the app used to control your device."
+Verify SSL:
+  description: "Verify the SSL certificate of your gateway. This option is available only when connecting via the hostname."
+{% endconfiguration_basic %}
+
+{% include integrations/actions.md %}
+
+## Data updates
+
+How often this integration retrieves data depends on how you connect:
+
+- When connected through the local API, it polls every 5 seconds.
+- When connected through the cloud API, it polls every 30 seconds.
+- When connected through the cloud API and you only have stateless devices (such as RTS), it polls every hour to reduce unnecessary load on the Overkiz API.
 
 ## Known limitations
 
-### Z-Wave, Hue and Sonos not supported
+### Unsupported hardware
 
-Even though most Overkiz hubs support adding Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant which are more stable and feature-rich.
+Some devices that appear in your vendor app may not use the Overkiz platform and are not accessible through the Overkiz API. For example, Somfy Protect devices and some Atlantic Cozytouch devices are not supported by this integration.
+
+If you have a Cozytouch device that is not supported by the Overkiz integration, you can explore [custom components](https://github.com/gduteil/cozytouch) created by the community. These may provide support for additional Cozytouch devices.
+
+### Zigbee, Z-Wave, Hue, and Sonos devices are not supported
+
+Even though most Overkiz gateways support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant, which provide more frequent state updates and are more feature-rich.
+
+### Stateless RTS covers
+
+RTS covers do not report their state back to the gateway, so Home Assistant cannot track their state after they are controlled. If you only control your RTS cover from Home Assistant, you can use the [template cover](/integrations/template/#cover) to create a stateful cover entity. This will help you track the current state (open or closed) and use the cover in automations and scenes.
+
+```yaml
+cover:
+  - platform: template
+    covers:
+      stateful_rts_test_shutter: # unique ID
+        friendly_name: "Stateful RTS Test Shutter" # your name
+        optimistic: true # default when no state is available
+        open_cover:
+          - action: cover.open_cover
+            target:
+              entity_id: cover.rts_test_shutter # change to your device id
+        close_cover:
+          - action: cover.close_cover
+            target:
+              entity_id: cover.rts_test_shutter # change to your device id
+        stop_cover:
+          - action: cover.stop_cover
+            target:
+              entity_id: cover.rts_test_shutter # change to your device id
+```
+
+### Troubleshooting connection issues with the local API
+
+If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
 
 ### Overkiz API limits
+
+**Device state changes are not broadcasted for all devices**
+
+Some Overkiz devices do not broadcast status changes. To update their status, the vendor's app (for example, Somfy TaHoma) requests a status update when opened. The app then broadcasts the states via events that the Overkiz integration also listens to. The Overkiz integration cannot replicate this behavior, as it does not know when you access the Home Assistant dashboard or run automations.
+
+As a result, the state of some Overkiz devices in Home Assistant may not always be up-to-date.
 
 **Server busy, please try again later. (Too many executions)**
 
 During peak hours, it could happen that the Overkiz platform is unable to execute your command. The integration will try to retry this command, however, this is not guaranteed to succeed.
 
-### Internet connectivity required
+**Execution queue is full on gateway**
 
-This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://developer.somfy.com/developer-mode), which is not supported in Home Assistant yet.
+The Overkiz API only supports 10 requests in its execution queue. If you try to command more devices at the same time, for example with a group, this will fail with `EXEC_QUEUE_FULL`. To work around this, you can create a scenario in the corresponding application and call that scenario instead after syncing it in the integration.
 
-Another option if you are only using Somfy IO compatible devices is to purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
+### Device support via the local API
 
-#### Local API via HomeKit Controller
+Various sensors, scenarios, and climate entities are **not** supported via the Somfy TaHoma Developer Mode due to limitations of the local API. If your device functions with the Cloud API but not with the Local API, this is an inherent limitation of the Local API and cannot be resolved.
 
-If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited set of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+### Device support via HomeKit
+
+If your gateway (e.g. Somfy Connectivity Kit) supports HomeKit, a sensor named **HomeKit Setup Code** will be added to Home Assistant. To configure the [HomeKit Controller](/integrations/homekit_controller/) integration for local control, follow these steps:
+
+1. Locate the **HomeKit Setup Code** sensor in Home Assistant.
+2. Retrieve the setup code value from the sensor.
+3. Use this setup code to configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant.
+
+Only a [limited set of devices is supported via HomeKit](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

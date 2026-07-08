@@ -1,8 +1,13 @@
 ---
 type: card
-title: "Markdown Card"
+title: "Markdown card"
 sidebar_label: Markdown
 description: "The Markdown card is used to render Markdown"
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).
@@ -12,13 +17,13 @@ The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 Screenshot of the Markdown card.
 </p>
 
-The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
+The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`. JavaScript in HTML blocks is not supported.
 
-To add the Markdown card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -27,7 +32,7 @@ type:
   type: string
 content:
   required: true
-  description: "Content to render as [Markdown](https://commonmark.org/help/). May contain [templates](/docs/configuration/templating/)."
+  description: "Content to render as [Markdown](https://commonmark.org/help/). May contain [templates](/docs/templating/)."
   type: string
 title:
   required: false
@@ -38,7 +43,7 @@ card_size:
   required: false
   type: integer
   default: none
-  description: The algorithm for placing cards aesthetically may have problems with the Markdown card if it contains templates. You can use this value to help it estimate the height of the card in units of 50 pixels (approximately 3 lines of text in default size). (e.g., `4`)
+  description: The algorithm for placing cards aesthetically may have problems with the Markdown card if it contains templates. You can use this value to help it estimate the height of the card in units of 50 pixels (approximately 3 lines of text in default size), for example `4`.
 entity_id:
   required: false
   type: [string, list]
@@ -48,6 +53,28 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_empty:
+  required: false
+  description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false` hides that empty card instead.
+  default: true
+  type: boolean
+text_only:
+  required: false
+  description: Display the card without border, background, padding and title.
+  default: false
+  type: boolean
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ### Example
@@ -66,7 +93,6 @@ A special template variable - `config` is set up for the `content` of the card. 
 
 For example:
 
-{% raw %}
 
 ```yaml
 type: entity-filter
@@ -87,13 +113,11 @@ card:
     And the door is {% if is_state('binary_sensor.door', 'on') %} open {% else %} closed {% endif %}.
 ```
 
-{% endraw %}
 
 A special template variable - `user` is set up for the `content` of the card. It contains the currently logged in user.
 
 For example:
 
-{% raw %}
 
 ```yaml
 type: markdown
@@ -101,7 +125,6 @@ content: |
   Hello, {{user}}
 ```
 
-{% endraw %}
 
 ### Icons
 
@@ -109,7 +132,6 @@ You can use [Material Design Icons](https://pictogrammers.com/library/mdi/) icon
 
 For example:
 
-{% raw %}
 
 ```yaml
 type: markdown
@@ -117,12 +139,10 @@ content: |
   <ha-icon icon="mdi:home-assistant"></ha-icon>
 ```
 
-{% endraw %}
-
 
 ## ha-alert
 
-You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
+You can also use our [`ha-alert`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
 
 Example:
 
@@ -139,4 +159,65 @@ content: |
   <ha-alert alert-type="info">This is an info alert — check it out!</ha-alert>
   <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
   <ha-alert title="Test alert">This is an alert with a title</ha-alert>
+```
+
+## ha-qr-code
+
+You can also create QR-Codes in the Markdown card.
+
+<p class='img'>
+<img src='/images/dashboards/markdown_card_qr_code.png' alt='Screenshot of the markdown card with QR codes'>
+Screenshot of the Markdown card with QR codes.
+</p>
+
+Available parameters:
+
+- data: The actual data to encode in the QR-Code
+- scale: A scale factor for the QR code, default is 4
+- width: Width of the QR code in pixels
+- margin: A margin around the QR code
+- error-correction-level: low; medium; quartile; high
+- center-image: An image to place on top of the qr code (might need a higher error-correction-level)
+
+```yaml
+type: markdown
+content: >-
+  <ha-qr-code data='hallo' width="180"></ha-qr-code>
+
+  <ha-qr-code data='hallo' scale="6" margin="0"
+  center-image="/static/icons/favicon-192x192.png"></ha-qr-code>
+
+  <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
+  center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
+```
+
+## Presentation Tables
+
+HTML tables with `role="presentation"` receive special styling optimized for layout purposes rather than data display. These tables are useful for creating structured layouts with icons, status information, and formatted content.
+
+### Default Styling
+
+Tables marked with `role="presentation"` have:
+- No borders by default
+- No padding by default
+- Middle vertical alignment for cells
+
+Example: Status Card
+Here's an example creating a status notification with an icon and multi-line text:
+
+```html
+  <table role="presentation">
+    <tr>
+      <td rowspan="3" width="70">
+        <img src="/local/icons/alert.png" width="48" height="48"/>
+      </td>
+      <td><strong>System Status Alert</strong></td>
+    </tr>
+    <tr>
+      <td>Priority: High - Requires attention</td>
+    </tr>
+    <tr>
+      <td>Active since: 2024-01-22 14:30</td>
+    </tr>
+  </table>
 ```

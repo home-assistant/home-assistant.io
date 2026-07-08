@@ -16,9 +16,13 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `tellstick` integration integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are a number of vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
+The **TellStick** {% term integration %} integrates [TellStick][tellstick-gateway] devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are several vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,17 +36,18 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To get started, add the devices to your `configuration.yaml` file.
+To get started, add the {% term integration %} to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 tellstick:
 ```
 
-There is a [TellStick add-on](/addons/tellstick/) available in the Home Assistant add-on store.
+There is a [TellStick app for Home Assistant](/addons/tellstick/) (formerly known as TellStick add-on) available in the Home Assistant app store.
 
 ```yaml
-# Example configuration.yaml entry with the TellStick add-on
+# Example configuration.yaml entry with the TellStick app
 tellstick:
   host: core-tellstick
   port: [50800, 50801]
@@ -55,7 +60,7 @@ signal_repetitions:
   type: integer
   default: 1
 host:
-  description: If you run TellStick on another server or with the Home Assistant add-on.
+  description: If you run TellStick on another server or with the TellStick app for Home Assistant.
   required: inclusive
   type: string
 port:
@@ -68,7 +73,7 @@ port:
 
 This `tellstick` cover platform allows you to control your [TellStick][tellstick-gateway] covers.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,7 +85,7 @@ cover:
 
 This `tellstick` light platform allows you to control your [TellStick][tellstick-gateway] dimmers.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,7 +97,7 @@ light:
 
 The `tellstick` sensor platform allows you to get current meteorological data from a [TellStick][tellstick-gateway] device.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -167,7 +172,7 @@ sensor:
 
 This `tellstick` switch platform allows you to control [TellStick][tellstick-gateway] devices.
 
-To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your `configuration.yaml` file:
+To use your TellStick device, you first have to set up your [Tellstick hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

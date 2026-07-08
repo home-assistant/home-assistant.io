@@ -10,15 +10,24 @@ ha_domain: matrix
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_codeowners:
+  - '@PaarthShah'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This {% term integration %} allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
 ## Configuration
+
+To enable the Matrix {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,11 +72,15 @@ commands:
   default: empty
   keys:
     word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with '!my_command'."
+      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will handle any message starting with '!my_command'."
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will handle any message that matches the regular expression."
+      required: false
+      type: string
+    reaction:
+      description: "Specifies an emoji reaction that the bot should listen to. The bot will handle any message that is reacted to with this emoji."
       required: false
       type: string
     name:
@@ -81,23 +94,19 @@ commands:
       default: empty
 {% endconfiguration %}
 
-<div class="note">
+{% warning %}
+To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+{% endwarning %}
 
-In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
-
-</div>
-
-### Event Data
+### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
-If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
+If the command is a word command, the `data` field contains a list of the command's arguments, that is, everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
 ### Comprehensive Configuration Example
 
 This example also uses the [matrix `notify` platform](#notifications).
-
-{% raw %}
 
 ```yaml
 # The Matrix integration
@@ -115,6 +124,8 @@ matrix:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
       name: introduction
+    - reaction: 👍
+      name: thumbsup
 
 notify:
   - name: matrix_notify
@@ -122,40 +133,66 @@ notify:
     default_room: "#hasstest:matrix.org"
 
 automation:
-  - alias: 'React to !testword'
-    trigger:
-      platform: event
-      event_type: matrix_command
-      event_data:
-        command: testword
-    action:
-      service: notify.matrix_notify
-      data:
-        message: "It looks like you wrote !testword"
-  - alias: 'React to an introduction'
-    trigger:
-      platform: event
-      event_type: matrix_command
-      event_data:
-        command: introduction
-    action:
-      service: notify.matrix_notify
-      data:
-        message: "Hello {{trigger.event.data.args['name']}}"
-```
+  - alias: "Respond to !testword"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "It looks like you wrote !testword"
 
-{% endraw %}
+  - alias: "Respond to an introduction"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: introduction
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "Hello {{trigger.event.data.args['name']}}"
+
+  - alias: "Respond to a reaction in a thread"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: thumbsup
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "I saw that {{trigger.event.data.args['reaction']}} -- glad you appreciated this!"
+          data:
+            thread_id: "{{trigger.event.data.thread_parent}}"
+
+  - alias: "React to a command"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
+    actions:
+      - action: matrix.react
+        data:
+          reaction: "✅"
+          room: "{{trigger.event.data.room}}"
+          message_id: "{{trigger.event.data.event_id}}"
+```
 
 This configuration will:
 
-- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
+- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel and also place a ✅ reaction on the original message.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
+- Listen in both rooms for messages reacted to with 👍 and answer in a thread with "I saw that 👍 -- glad you appreciated this!"
 
 ## Notifications
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](https://matrix.org/) room. Rooms can be both direct as well as group chats.
 
-To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your `configuration.yaml` file:
+To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -167,7 +204,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -181,7 +218,6 @@ The target room has to be precreated, the room id can be obtained from the rooms
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-
 ### Message formats
 
 Matrix supports sending messages using a [limited HTML subset](https://spec.matrix.org/v1.2/client-server-api/#mroommessage-msgtypes). To specify the message format, add it in the notification `data`.
@@ -190,13 +226,13 @@ Supported formats are: `text` (default), and `html`.
 
 ```yaml
 # Example of notification as HTML
-action:
-  service: notify.matrix_notify
-  data:
-    message: >-
-      <h1>Hello, world!</h1>
+actions:
+  - action: notify.matrix_notify
     data:
-      format: "html"
+      message: >-
+        <h1>Hello, world!</h1>
+      data:
+        format: "html"
 ```
 
 ### Images in notification
@@ -205,18 +241,17 @@ It is possible to send images with notifications. To do so, add a list of paths 
 
 ```yaml
 # Example of notification with images
-action:
-  service: notify.matrix_notify
-  data:
-    message: "Test with images"
+actions:
+  - action: notify.matrix_notify
     data:
-      images:
-        - /path/to/picture.jpg
+      message: "Test with images"
+      data:
+        images:
+          - /path/to/picture.jpg
 ```
 
-<div class='note'>
-
-If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+{% important %}
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/integrations/homeassistant/#allowlist_external_dirs).
 
 ```yaml
 configuration.yaml
@@ -226,4 +261,24 @@ homeassistant:
     - /tmp
 ```
 
-</div>
+{% endimportant %}
+
+### Replying in threads
+
+The `matrix_command` event will contain an `event_id` field that represents the message identifier for the received message.
+It will also contain a `thread_parent` field that contains the message identifier for the parent message of the thread.
+If the message was inside of a thread, `thread_parent` will be the identifier of the root message of the thread. If it
+is not inside of a thread, `thread_parent` will be the same as `event_id`.
+
+To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
+a reply message. For example:
+
+```yaml
+action: notify.matrix_notify
+data:
+  message: "Reply message goes here"
+  data:
+    thread_id: "{{ trigger.event.data.thread_parent }}"
+```
+
+{% include integrations/actions.md %}

@@ -15,9 +15,11 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - select
   - sensor
   - switch
 ha_iot_class: Local Polling
+ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

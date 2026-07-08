@@ -7,15 +7,16 @@ ha_iot_class: Cloud Push
 ha_release: 0.67
 ha_domain: freedns
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-With the `freedns` integration you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
+With the **FreeDNS** {% term integration %} you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
 
 ## Setup (Default API V1)
 
 You need to determine your update URL or your access token.
 
-1. Head over to the [FreeDNS](https://freedns.afraid.org) website and login to your account.
+1. Head over to the [FreeDNS](https://freedns.afraid.org) website and log in to your account.
 2. Select the menu "Dynamic DNS"
 3. You should now see your update candidates in a table at the bottom of the page.
 4. Copy the link target of the "Direct URL".
@@ -24,7 +25,8 @@ You need to determine your update URL or your access token.
 
 ## Configuration (API V1)
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,7 +38,7 @@ freedns:
 
 You need to determine your update URL or your access token.
 
-1. Head over to the [FreeDNS](https://freedns.afraid.org) website and login to your account.
+1. Head over to the [FreeDNS](https://freedns.afraid.org) website and log in to your account.
 2. Select the menu "Dynamic DNS"
 3. You should now see your update candidates in a table at the bottom of the page.
 4. Head over to page [Version 2](https://freedns.afraid.org/dynamic/v2/), and enable the candidate.
@@ -46,7 +48,7 @@ You need to determine your update URL or your access token.
 
 ## Configuration (API V2)
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

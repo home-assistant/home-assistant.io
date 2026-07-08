@@ -71,7 +71,7 @@ If you follow our [twitter feed](https://twitter.com/home_assistant) then you ma
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 
@@ -79,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Added cycles config option to LaMetric notifications ([@frittes] - [#10656]) ([notify.lametric docs]) (breaking change)
 - Fix name collision when using multiple Hue bridges ([@zBart] - [#10486]) ([light.hue docs]) (breaking change)

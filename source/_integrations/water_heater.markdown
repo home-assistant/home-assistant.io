@@ -1,6 +1,6 @@
 ---
-title: Water Heater
-description: Instructions on how to setup water heater devices within Home Assistant.
+title: Water heater
+description: Instructions on how to set up water heater devices within Home Assistant.
 ha_release: 0.81
 ha_domain: water_heater
 ha_quality_scale: internal
@@ -10,9 +10,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
+The **Water heater** {% term integration %} lets you monitor and control supported hot water heaters in Home Assistant. You can use it to check whether a water heater is on or off, adjust the target temperature, change the operation mode, and build automations around those changes.
 
-To enable this integration, pick one of the platforms, and add it to your `configuration.yaml`:
+To enable this {% term integration %}, pick one of the platforms, and add it to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,88 +20,107 @@ water_heater:
   platform: demo
 ```
 
-## Services
+{% warning %}
 
-### Water heater control services
+ Misconfiguring Water Heater automations may allow water temperatures to drop into ranges between 25°C to 45°C (77°F and 113°F) which allows for Legionella bacteria growth. This can pose serious health risks, including death from Legionnaires' disease. Maintain water temperature ≥ 60°C (140°F) for bacterial safety.
 
-Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
+{% endwarning %}
 
-<div class='note'>
+## The state of a water heater entity
 
-Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
+A water heater entity state reflects the current operation of the device. Common states include:
 
-</div>
+- **On**: The water heater is on.
+- **Off**: The water heater is off.
+- **Eco**: Energy efficient mode, provides energy savings and fast heating.
+- **Electric**: Electric only mode. This mode uses the most energy.
+- **Performance**: High performance mode.
+- **High demand**: Meet high demands when the water heater is undersized.
+- **Heat pump**: Heat pump is the slowest to heat, but it uses less energy.
+- **Gas**: Gas only mode. This mode uses the most energy.
 
-### Service `water_heater.set_temperature`
+The exact states depend on the platform and the water heater model.
 
-Sets target temperature of water heater device.
+In addition, the entity can have the following states:
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
-| `temperature` | no | New target temperature for water heater
-| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-#### Automation example 
+{% include integrations/triggers.md %}
 
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: water_heater.set_temperature
+{% include integrations/conditions.md %}
+
+{% include integrations/actions.md %}
+
+## Water heater automation examples
+
+You can use water heater triggers and conditions in automations to keep hot water ready when you need it, while still using less energy the rest of the day.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: lower the recirculation pump when the water heater enters Eco mode
+
+When the water heater changes to **Eco** mode, lower the recirculation pump speed to match the lower-demand schedule.
+
+- **Trigger**: Water heater operation mode changed
+  - **Target**: Utility room water heater
+  - **Operation mode**: Eco
+- **Action**: Turn on switch
+
+{% details "YAML example for lowering the recirculation pump in Eco mode" %}
+
+{% example %}
+automation: |
+  alias: "Lower recirculation pump in Eco mode"
+  triggers:
+    - trigger: water_heater.operation_mode_changed
       target:
-        entity_id: water_heater.demo
-      data:
-        temperature: 24
+        entity_id: water_heater.utility_room
+      options:
         operation_mode: eco
-```
-
-### Service `water_heater.set_operation_mode`
-
-Set operation mode for water heater device
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
-| `operation_mode` | no | New value of operation mode
-
-#### Automation example
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: water_heater.set_operation_mode
+  actions:
+    - action: switch.turn_on
       target:
-        entity_id: water_heater.demo
-      data:
-        operation_mode: eco
-```
+        entity_id: switch.recirculation_pump_low_speed
+{% endexample %}
 
-### Service `water_heater.set_away_mode`
+{% enddetails %}
 
-Turn away mode on or off for water heater device
+### Automation: enable away mode only when the target temperature is already low
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Use `entity_id: all` to target all.
-| `away_mode` | no | New value of away mode. 'on'/'off' or True/False
+When everybody leaves home, enable away mode only if the target temperature is already below your normal daytime setting.
 
-#### Automation example
+- **Trigger**: State: Person changes to not_home
+- **Condition**: Water heater target temperature
+  - **Target**: Utility room water heater
+  - **Threshold type**: Below (50°C)
+- **Action**: Set water heater away mode
 
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: water_heater.set_away_mode
+{% details "YAML example for enabling away mode from a lower setpoint" %}
+
+{% example %}
+automation: |
+  alias: "Enable away mode when the setpoint is already low"
+  triggers:
+    - trigger: state
+      entity_id: person.alex
+      to: "not_home"
+  conditions:
+    - condition: water_heater.is_target_temperature
       target:
-        entity_id: water_heater.demo
+        entity_id: water_heater.utility_room
+      options:
+        threshold:
+          type: below
+          value:
+            number: 50
+            unit_of_measurement: "°C"
+  actions:
+    - action: water_heater.set_away_mode
+      target:
+        entity_id: water_heater.utility_room
       data:
         away_mode: true
-```
+{% endexample %}
+
+{% enddetails %}

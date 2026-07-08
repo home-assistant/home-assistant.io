@@ -1,14 +1,14 @@
 ---
-title: "MQTT Tag Scanner"
+title: "MQTT tag scanner"
 description: "Instructions on how to integrate MQTT scanner within Home Assistant."
 ha_category:
-  - Tag Scanner
+  - Tag scanner
 ha_release: 0.116
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` tag scanner platform uses an MQTT message payload to generate tag scanned events.
+The **MQTT tag scanner** {% term integration %} uses an MQTT message payload to generate tag scanned events.
 
 ## Configuration
 
@@ -21,7 +21,7 @@ topic:
   required: true
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a tag ID."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that returns a tag ID."
   required: false
   type: template
 device:
@@ -30,13 +30,13 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -53,8 +53,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

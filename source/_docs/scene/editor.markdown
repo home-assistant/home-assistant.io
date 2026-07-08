@@ -1,25 +1,25 @@
 ---
-title: "Scenes Editor"
+title: "Scenes editor"
 description: "Instructions on how to use the scenes editor."
 ---
 
-From the UI choose **Settings** which is located in the sidebar, then click on **Automations & Scenes** to go to the scene editor. Press the **Add Scene** button in the lower right corner to get started.
+From the UI choose **Settings** which is located in the sidebar, then select **Automations & scenes** to go to the scene editor. Press the **Add scene** button in the lower right corner to get started.
 
 Choose a meaningful name for your scene.
 
 ![Scene editor](/images/docs/scenes/editor.png)
 
-Select all the {% term devices %} (or {% term entities %} when advanced mode is enabled on your user profile) you want to include in your scene.
+Select all the {% term devices %} or {% term entities %} you want to include in your scene.
 The state of your devices will be saved, so it can be restored when you are finished creating your scene.
-Set the state of the devices to how you want them to be in your scene, this can be done by clicking on it and edit the state from the popup, or any other method that changes the state.
+Set the state of the devices to how you want them to be in your scene, this can be done by selecting it and edit the state from the popup, or any other method that changes the state.
 On the moment you save the scene, all the states of your devices are stored in the scene.
 When you leave the editor the states of the devices are restored to the state from before you started editing.
 The menu on the top-right has options to **Duplicate scene** and **Delete scene**.
 
-A scene can be called in {% term automation %} action and {% term scripts %} using a turn on scene {% term service %}:
+A scene can be called in {% term automation %} action and {% term scripts %} using a turn on scene {% term action %}:
 
 ```yaml
-service: scene.turn_on
+action: scene.turn_on
 target:
   entity_id: scene.my_unique_id
 ```
@@ -77,6 +77,6 @@ For example:
       brightness: 200
 ```
 
-<div class='note'>
-Any comments in the YAML file will be lost and templates will be reformatted when you update a scene via the editor.
-</div>
+{% note %}
+Any comments in the {% term YAML %} file will be lost and templates will be reformatted when you update a scene via the editor.
+{% endnote %}

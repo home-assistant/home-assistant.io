@@ -51,7 +51,7 @@ Another option is to use our powerful CLI, that is shipped with the SSH add-on. 
 
 After some confusion about the statement of supporting virtual environments and running Hass.io on top of a custom Linux; so let's clarify it.
 
-The supported ways to run Hass.io are documented here: <https://www.home-assistant.io/hassio/installation/>
+The supported ways to run Hass.io are [documented here](/installation/)
 
 This also includes running Hass.io on Linux using the [Generic Linux](https://github.com/home-assistant/hassio-installer) installer, which is a supported method.
 

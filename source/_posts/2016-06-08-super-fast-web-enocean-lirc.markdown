@@ -37,7 +37,7 @@ Alright, time for the changes:
  - Sensor: [DTE Energy Bridge] now supported ([@kylehendricks])
  - Media Player: [Kodi] now supports different turn off commands ([@armills])
 
-### Breaking Changes
+### Backward-incompatible changes
 
  - Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error
  - The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have [been updated].

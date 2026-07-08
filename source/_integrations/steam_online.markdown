@@ -14,17 +14,15 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The Steam integration will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
+The **Steam** {% term integration %} will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
+{% important %}
 Steam has a friends list privacy feature that interferes with easily adding sensors to track friends' activities. Setting the friends list to Public during initial setup will allow the integration to see them for easy adding. It is **not** necessary to keep the friends list Public.
 
 Go to your profile, select "Edit Profile", "Privacy Settings".
-
-</div>
+{% endimportant %}
 
 <p class='img'>
   <img src='/images/screenshots/steam_privacy_settings.png' />
@@ -32,9 +30,14 @@ Go to your profile, select "Edit Profile", "Privacy Settings".
 
 ## Setup
 
-You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.
+You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform. The domain name appears to not have any effect, but it's recommended to set this to your Home Assistant domain name. If you wish to avoid the proprietary Steam mobile application (needed because API key creation requires Steam Guard Mobile Authenticator), you can temporarily enroll in Steam Guard in the app, create an API key, then unregister Steam Guard again. The new API key will continue to function.
 
-To find an account's 64-bit SteamID on profiles without a custom URL you can check the URL of the profile page, the long string of numbers at the end is the 64-bit SteamID. If the profile has a custom URL you will have to copy the URL into [STEAMID I/O](https://steamid.io/) to find the 64-bit SteamID.
+To find an account's 64-bit SteamID:
+
+1. Open Steam.
+2. Open the dropdown menu labeled with your username.
+3. Select **Account details**.
+   - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
 
 ## Examples
 

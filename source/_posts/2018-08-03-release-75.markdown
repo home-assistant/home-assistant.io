@@ -59,14 +59,14 @@ This release also includes a bunch more Tuya integrations thanks to [@huangyupen
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Moon sensor states are now lowercase with underscores instead of spaces, allowing it to be translated in the frontend. ([@pvizeli] - [#15498]) ([sensor.moon docs]) (breaking change)
 - Insteon Mini-Remote now emit events instead of show as a binary sensor ([@teharris1] - [#15523]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)

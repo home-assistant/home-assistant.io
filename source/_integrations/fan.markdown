@@ -1,6 +1,6 @@
 ---
 title: Fan
-description: Instructions on how to setup Fan devices within Home Assistant.
+description: Instructions on how to set up Fan devices within Home Assistant.
 ha_category:
   - Fan
 ha_release: 0.27
@@ -11,197 +11,72 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Fan integration allows you to control and monitor Fan devices.
+The **Fan** {% term integration %} allows you to control and monitor fan devices.
 
-## Services
+{% include integrations/building_block_integration.md %}
 
-### Fan control services
+## The state of a fan entity
 
-Available services:
-`fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`, `fan.increase_speed`, `fan.decrease_speed`
+The state of a fan entity can be either **On** or **Off**.
 
-<div class='note'>
+In addition, the entity can have the following states:
 
-Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** -> **Services**.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-</div>
+## Supported functionality
 
-### Service `fan.set_percentage`
+The **Fan** integration provides fan entities with these common features:
 
-Sets the speed percentage for fan device.
+- Turning a fan on and off.
+- Setting the speed as a percentage.
+- Setting a preset mode.
+- Turning oscillation on or off.
+- Changing the rotation direction.
+- Increasing or decreasing the speed in steps.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage` | no | Percentage speed setting
+Not every fan supports every action. The actions available for a specific fan depend on the features exposed by that device.
 
-#### Automation example
+{% include integrations/triggers_conditions_actions.md %}
+
+## Fan automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Turn on the bedroom fan at bedtime
+
+Start the bedroom fan automatically when you usually go to bed.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: fan.set_percentage
-      target:
-        entity_id: fan.kitchen
-      data:
-        percentage: 33
+  - alias: "Turn on bedroom fan at bedtime"
+    triggers:
+      - trigger: time
+        at: "22:00:00"
+    actions:
+      - action: fan.turn_on
+        target:
+          entity_id: fan.bedroom
 ```
 
-### Service `fan.set_preset_mode`
+### Automation: Notify when the bathroom fan has been left on
 
-Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides three available presets by default: `Low`, `Medium`, and `High`.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `preset_mode` | no | The preset mode
-
-#### Automation example
+If the bathroom fan has been running for a while, send a reminder to turn it off after the room has cleared.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: fan.set_preset_mode
-      target:
-        entity_id: fan.kitchen
-      data:
-        preset_mode: auto
-```
-
-### Service `fan.set_direction`
-
-Sets the rotation for fan device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `direction` | no | The direction to rotate. Either `forward` or `reverse`
-
-#### Automation example
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: fan.set_direction
-      target:
-        entity_id: fan.kitchen
-      data:
-        direction: forward
-```
-
-### Service `fan.oscillate`
-
-Sets the oscillation for fan device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `oscillating` | no | Flag to turn on/off oscillation. Either `True` or `False`.
-
-#### Automation example
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: fan.oscillate
-      target:
-        entity_id: fan.kitchen
-      data:
-        oscillating: True
-```
-
-### Service `fan.turn_on`
-
-Turn fan device on. This is only supported if the fan device supports being turned off.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage` | yes | Percentage speed setting
-| `preset_mode` | yes | The preset mode
-
-### Service `fan.turn_off`
-
-Turn fan device off. This is only supported if the fan device supports being turned on.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-
-
-#### Automation example
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: fan.set_speed
-      target:
-        entity_id: fan.kitchen
-      data:
-        speed: low
-```
-
-### Service `fan.increase_speed`
-
-Increases the speed of the fan device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage_step` | yes | Increase speed by a percentage. Should be between 0..100.
-
-#### Automation example
-
-```yaml
-automation:
-  trigger:
-  - platform: device
-    device_id: 097cd9f706a86e9163acb64ba7d630da
-    domain: lutron_caseta
-    type: press
-    subtype: raise
-  action:
-  - service: fan.increase_speed
-    target:
-      entity_id: fan.dining_room_fan_by_front_door
-```
-
-### Service `fan.decrease_speed`
-
-Decreases the speed of the fan device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage_step` | yes | Decrease speed by a percentage. Should be between 0..100.
-
-#### Automation example
-
-```yaml
-automation:
-  trigger:
-  - platform: device
-    device_id: 097cd9f706a86e9163acb64ba7d630da
-    domain: lutron_caseta
-    type: press
-    subtype: lower
-  action:
-  - service: fan.decrease_speed
-    target:
-      entity_id: fan.dining_room_fan_by_front_door
+  - alias: "Bathroom fan reminder"
+    triggers:
+      - trigger: fan.turned_on
+        target:
+          entity_id: fan.bathroom
+        options:
+          behavior: each
+          for: "00:20:00"
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "The bathroom fan has been on for 20 minutes."
 ```

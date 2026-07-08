@@ -1,42 +1,42 @@
 ### Synology NAS
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
-
+Synology with DSM now supports container management through the Container Manager package, allowing you to install Home Assistant without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/ContainerManager>.
 The steps would be:
 
-- Install "Docker" package on your Synology NAS
-- Launch Docker-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
-- Wait for some time until your NAS has pulled the image
-- Move to the "Image"-section of the Docker-app
-- Click on "Launch"
-- Within "Network" select "Use same network as Docker Host" and click Next
-- Choose a container-name you want (e.g., "homeassistant")
-- Set "Enable auto-restart" if you like
-- Click on "Advanced Settings". To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Click Save to exit Advanced Settings.
-- Click Next
-- Within "Volume Settings" click on "Add Folder" and choose either an existing folder or add a new folder (e.g. in "docker" shared folder, add new folder named "homeassistant" and then within that new folder add another new folder "config"), then click Select. Then edit the "mount path" to be "/config". This configures where Home Assistant will store configs and logs.
-- Ensure "Run this container after the wizard is finished" is checked and click Done
-- Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
+- Using Synology's Package Center, install the **Container Manager** package.
+- Launch the Container Manager app and navigate to the **Registry** section.
+- On the Registry page, search for `homeassistant/home-assistant` and select **Download**. Choose the **stable** tag.
+- Wait for the image to be pulled.
+- Navigate to the **Image** section of the Container Manager app.
+- Select the `homeassistant/home-assistant` image and select **Run**.
+- On the **General Settings** page:
+  - Choose a container-name you want (for example, `homeassistant`).
+  - Set **Enable auto-restart** if you like.
+  - Select **Next**.
+- On the **Advanced Settings** page:
+  - In the **Volume Settings** section, select **Add Folder** and choose either an existing folder or add a new folder (for example, in the `docker` shared folder, add a new folder named `homeassistant` and then within that new folder add another new folder `config`), then select **Select**. Then edit the **Mount path** to be `/config` with the permissions set as **Read/Write**. This configures where Home Assistant will store configs and logs.
+  - To ensure that Home Assistant displays the correct timezone, in the **Environment** section, select the **Add** button and in the **Variable** field add `TZ` and in the value add your timezone (for example, `Europe/London`). Timezones can be found [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  - In the **Network** section, set the Network dropdown as `host`.
+- Select **Next**.
+- Ensure **Run this container after the wizard is finished** is checked and select **Done**.
+- Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`).
 
-If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in "Control Panel -> Security" and then the Firewall tab. Click "Edit Rules" besides the Firewall Profile dropdown box. Create a new rule and select "Custom" for Ports and add 8123. Edit Source IP if you like or leave it at default "All". Action should stay at "Allow".
+If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in **Control Panel** > **Security** and then the **Firewall** tab. Select **Edit Rules** besides the **Firewall Profile** dropdown box. Create a new rule and select **Custom** for Ports and add 8123. Edit Source IP if you like or leave it at default **All**. Action should stay at **Allow**.
 
-To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal access to your Synology NAS:
+To use a Z-Wave USB stick for Z-Wave control, the Home Assistant Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal access to your Synology NAS:
 
 <https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal>
 
 
-<div class='note'>
-
+{% tip %}
 [See this page for accessing the Terminal via SSH](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General_Setup/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet)
-
-</div>
+{% endtip %}
 
 Adjust the following Terminal command as follows :
 
-- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration
-- Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
-- Replace "Australia/Melbourne" with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration -  make sure that you keep the `:/config` part
+- Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (for example, `/dev/ttyACM0` for most Synology users)
+- Replace `Australia/Melbourne` with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 Run it in Terminal.
 
@@ -48,43 +48,46 @@ Complete the remainder of the Z-Wave configuration by [following the instruction
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
-- Go to the Docker-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
-- Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
-- Move to "Container"-section
-- Stop your container if it's running
-- Right-click on it and select "Action"->"Reset". You won't lose any data, as all files are stored in your configuration-directory
-- Start the container again - it will then boot up with the new Home Assistant image
+- Go to the **Container Manager** app and move to the **Image** section.
+- Find `homeassistant/home-assistant` within Image and select **Update**.
+- Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar).
+- Move to the **Container** section.
+- Stop your container if it's running.
+- Right-click on it and select **Action** > **Reset**. You won't lose any data, as all files are stored in your configuration-directory.
+- Start the container again - it will then boot up with the new Home Assistant image.
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
 
-- Go to the Docker-app and move to "Container"-section
-- Right-click on it and select "Action"->"Restart".
+- Go to the **Container Manager** app and move to the **Container** section.
+- Right-click on it and select **Action** > **Restart**.
 
-<div class='note'>
+{% note %}
 
 If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne.
 
-</div>
+{% endnote %}
 
 ### QNAP NAS
 
-As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
+QNAP with QTS supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>.
 
 The steps would be:
 
-- Install "Container Station" package on your Qnap NAS
-- Launch Container Station and move to "Create Container"-section
-- Search image "homeassistant/home-assistant" with Docker Hub and click on "Install"
-  Make attention to CPU architecture of your NAS. For ARM CPU types the correct image is "homeassistant/armhf-homeassistant"
-- Choose "stable" version and click next
-- Choose a container-name you want (e.g., "homeassistant")
-- Click on "Advanced Settings"
-- Within "Shared Folders" click on "Volume from host" > "Add" and choose either an existing folder or add a new folder. The "mount point has to be `/config`, so that Home Assistant will use it for the configuration and logs.
-- Within "Network" and select Network Mode to "Host"
-- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-- Click on "Create"
-- Wait for some time until your NAS has created the container
-- Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`)
+- Install the **Container Station** package on your Qnap NAS.
+- Launch Container Station and move to the **Create Container** section.
+- Search image `homeassistant/home-assistant` with Docker Hub and select **Install**.
+- Choose the **stable** version and select **Next**.
+- Choose a container-name you want (for example, `homeassistant`).
+- Select **Advanced Settings**.
+- Within **Shared Folders** select **Volume from host** > **Add** and choose either an existing folder or add a new folder. The mount point has to be `/config`, so that Home Assistant will use it for the configuration and logs.
+- Within **Network** and select Network Mode to **Host**.
+- To ensure that Home Assistant displays the correct timezone go to the **Environment** tab and select the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+- Select **Create**.
+- Wait for some time until your NAS has created the container.
+- Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`).
 
-Remark: To update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove "config" folder).
+Remark: To update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove the `config` folder).
+
+### Community Notes
+
+Note that some users have reported issues creating Home Assistant containers on ARM QNAP systems (for example, TS-233) with Container Station 3. A possible workaround is the **Docker compose** approach based on a YAML file (see section **Docker compose**). In the QNAP Container Station 3 UI, this can be accessed by going to the **Applications** section and selecting **Create**. You are then prompted to enter YAML code, which can be copied from that shown in the **Docker compose** section. Take care to modify this code in two ways: firstly, add a first line reading `version: '3'`; secondly, replace the text `/PATH_TO_YOUR_CONFIG` by a valid path on your NAS system, for example `/share/Container/HomeAssistant/config`.

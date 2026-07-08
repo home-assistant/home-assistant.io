@@ -14,11 +14,11 @@ ha_platforms:
   - button
   - climate
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The Möhlenhoff Alpha 2 integration allows you to control a
-[Möhlenhoff Alpha 2](https://www.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
+The **Möhlenhoff Alpha 2** {% term integration %} allows you to control a [Möhlenhoff Alpha 2](https://dev.moehlenhoff.de/en/products/room-by-room-control/oem-alpha-2-system)
+
 temperature control system.
 
 ## Prerequisites
@@ -38,19 +38,19 @@ taken from the name of the heat area defined in the Alpha 2 base station.
 
 The state is polled from the base every 60 seconds.
 
-Please note that after changing the temperature in Home Assistant,
+After changing the temperature in Home Assistant,
 it may take up to 10 minutes for your room control units to display these
 changes.
 
-### Integration services
+### Actions
 
-This integration supports the following services (see [Climate](/integrations/climate/)).
+This integration supports the following actions (see [Climate](/integrations/climate/)).
 
-- [`set_temperature`](/integrations/climate/#service-climateset_temperature)
-- [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
+- [`set_temperature`](/integrations/climate/#action-set-temperature)
+- [`set_hvac_mode`](/integrations/climate/#action-set-hvac-mode)
   - `heat` for heating mode
   - `cool` for cooling mode
-- [`set_preset_mode`](/integrations/climate/#service-climateset_preset_mode)
+- [`set_preset_mode`](/integrations/climate/#action-set-preset-mode)
   - `auto` enable schedule based operation
   - `day` enable day mode
   - `night` enable night mode

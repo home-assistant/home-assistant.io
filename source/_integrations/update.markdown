@@ -8,42 +8,34 @@ ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
-An update entity is an entity that indicates if an update is available for a
+An update {% term entity %} is an entity that indicates if an update is available for a
 device or service. This can be any update, including update of a firmware
 for a device like a light bulb or router, or software updates for things like
 add-ons or containers.
 
-The state of the update entity indicates if there is an update pending or not,
-and if there is an update available, more information on that update can be
-provided by an integration to the entity. For example, the version that is
-available, a summary of the release notes, and even links that provide more
-information on the available update.
+{% include integrations/building_block_integration.md %}
 
-Lastly, there are two services available for the update entity. If possible and
-made available by the integration providing the update entity, triggering
-the actual update from Home Assistant. The other service exposed allows for
-skipping the offered update.
-
-<div class='note'>
-
-Update entities are here to be consumed and provided by other integrations and
-are are not designed to be created manually directly.
-
-This page, therefore, does not provide instructions on how to create update
-entities. Please see the ["Update" category](/integrations/#update) on the
-integrations page to find integration offering update entities.
-
-</div>
+For a list of {% term integrations %} offering update entities, on the integrations page, select the ["Update" category](/integrations/#update).
 
 ## The state of an update entity
 
-The state of an update entity reflects whether an update is available or not.
-When the state is `on`, it means there is an update available; when everything
-is up-to-date, the state is `off`.
+The state of an update {% term entity %} reflects whether an update is available or not.
+When the state is **On**, it means there is an update available; when everything
+is up-to-date, the state is **Off**.
 
-Additionally, the following state attributes are exposed to provide more
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+The following state attributes are exposed to provide more
 information on the update state:
 
 - `title`: The title/name of the available software or firmware. As the device
@@ -56,107 +48,85 @@ information on the update state:
 - `release_summary`: A summary of the release notes for the update available.
 - `release_url`: A link to the full release announcement for the update available.
 
-## Device Classes
+## Device class
 
-The way these update entities are displayed in the frontend depend on their
-device classes. The following device classes are supported for switches:
+{% include integrations/device_class_intro.md %}
+
+The following device classes are supported for update entities:
 
 - **`None`**: A generic software update. This is the default and doesn't need
   to be set.
-- **`firmware`**: This update integration provides firmwares.
+- **`firmware`**: This update {% term integration %} provides firmwares.
 
-## Services
+{% include integrations/triggers.md %}
 
-The update entity exposes two services that can be used to install or skip
-an offered software update.
+{% include integrations/conditions.md %}
 
-### Service {% my developer_call_service service="update.install" %}
+{% include integrations/actions.md %}
 
-The {% my developer_call_service service="update.install" %} service can be used
-to install an offered update to the device or service.
+## Update automation examples
 
-This service is only available for an update entity if an integration provides
-this capability. Additionally, if allowed by the integration, the service
-provides for installing a specific version and even could make a
-backup before installing the update.
+Update entities are useful when you want to stay informed about available updates or take action at the right time. Here are a few examples to help you get started.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`.
-| `version`              |     yes  | A specific update version to install, if not provided, the latest available update will be installed. Availability of this atrribute is dependent on the integration.
-| `backup`               |     yes  | If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the integration.
+{% include docs/paste_yaml_tip.md %}
 
-Example service call:
+### Automation: send a notification when an update becomes available
 
-```yaml
-service: update.install
-target:
-  entity_id:
-    - update.my_light_bulb
-```
+If an update for a device or service becomes available, this automation sends a
+notification to your phone right away.
 
-### Service {% my developer_call_service service="update.skip" %}
+- **Trigger**: Update became available
+  - **Target**: Office router update
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-The {% my developer_call_service service="update.skip" %} service can be used
-to skip an offered update to the device or service.
+{% details "YAML example for notifying you about a new update" %}
 
-After skipping an offered update, the entity will return to the `off` state,
-which means there is no update available.
-
-```yaml
-service: update.skip
-target:
-  entity_id:
-    - update.my_light_bulb
-```
-
-Even if an update is skipped and shows as `off` (meaning no update), if there
-is a newer version available, calling the `update.install` service on the entity
-will still install the latest version.
-
-### Service {% my developer_call_service service="update.clear_skipped" %}
-
-The {% my developer_call_service service="update.clear_skipped" %} service can
-be used to remove skipped version marker of a previously skipped an offered
-update to the device or service.
-
-After skipping an offered update, the entity will return to the `off` state,
-but will not return to it until a newer version becomes available again.
-
-Using the `update.clear_skipped` service, the skipped version marker can be
-removed and thus the entity will return to the `on` state and the update
-notification will return.
-
-```yaml
-service: update.clear_skipped
-target:
-  entity_id:
-    - update.my_light_bulb
-```
-
-This can be helpful to, for example, in an automation that weekly unskips
-all updates you have previously marked as skipped; as a reminder to update.
-
-## Example: Sending update available notifications
-
-A common use case for using update entities is to notify you if an update
-has become available for installation. Using the update entities,
-this is fairly straightforward to do.
-
-This is a YAML example for an automation that sends out a notification when
-the update for a light bulb becomes available.
-
-```yaml
-automation:
-  - alias: "Send notification when update available"
-    trigger:
-      platform: state
-      entity_id: update.my_light_bulb
-      to: "on"
-    action:
-      alias: "Send notification to my phone about the update"
-      service: notify.iphone
+{% example %}
+automation: |
+  alias: "Send a notification when an update becomes available"
+  triggers:
+    - trigger: update.became_available
+      target:
+        entity_id: update.office_router_firmware
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
-        title: "New update available"
-        message: "New update available for my_light_bulb!"
-```
+        title: "Update available"
+        message: >
+          A new update is available for the office router.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: install an update during the evening if it is still available
+
+If you prefer to install updates at a quieter time, this automation checks each
+evening whether an update is still available and starts the installation.
+
+- **Trigger**: Time: 21:00
+- **Condition**: Update is available
+  - **Target**: Office router update
+- **Action**: Install update
+
+{% details "YAML example for installing an update in the evening" %}
+
+{% example %}
+automation: |
+  alias: "Install an update during the evening if it is still available"
+  triggers:
+    - trigger: time
+      at: "21:00:00"
+  conditions:
+    - condition: update.is_available
+      target:
+        entity_id: update.office_router_firmware
+  actions:
+    - action: update.install
+      target:
+        entity_id: update.office_router_firmware
+{% endexample %}
+
+{% enddetails %}

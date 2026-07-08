@@ -1,10 +1,12 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
+description: Instructions on how to set up VeSync devices with Home Assistant.
 ha_category:
   - Fan
   - Light
+  - Number
   - Switch
+  - Update
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -12,42 +14,56 @@ ha_codeowners:
   - '@markperdue'
   - '@webdjoe'
   - '@thegardenmonkey'
+  - '@cdnninja'
+  - '@iprak'
+  - '@sapuseven'
 ha_domain: vesync
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - fan
+  - humidifier
   - light
+  - number
+  - select
   - sensor
   - switch
-ha_integration_type: integration
+  - update
+ha_integration_type: hub
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
-The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
+The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
 
-The devices must be added to the VeSync App before this integration can discover them.
+The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
 The following platforms are supported:
 
-- **light**
-- **switch**
+- **binary sensor**
 - **fan**
+- **humidifier**
+- **light**
+- **number**
 - **sensor**
+- **switch**
+- **update**
 
-## Supported Devices
+## Supported devices
 
-This integration supports devices controllable by the VeSync App.  The following devices are supported by this integration:
+This {% term integration %} supports devices controllable by the VeSync App. The following devices are supported by this {% term integration %}. This list may not be exhaustive as devices have multiple model numbers within this.
 
 ### Bulbs
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
 - Etekcity WiFi Dimmable and Tunable White LED Bulb (ESL100CW)
 
-### Wall Switches
+### Wall switches
 
 - Etekcity In Wall Smart Switch (EWSL01-USA)
 - Etekcity Wifi Dimmer Switch (ESD16)
 - Etekcity Wifi Dimmer Switch (ESWD16)
 
-### Outlet Plugs
+### Outlet plugs
 
 - Etekcity 7 Amp US outlet - ESW01-USA (Round)
 - Etekcity 10 Amp US outlet - ESW10-USA (Round)
@@ -61,26 +77,43 @@ This integration supports devices controllable by the VeSync App.  The following
 - Core 300S: Smart True HEPA Air Purifier
 - Core 400S: Smart True HEPA Air Purifier
 - Core 600S: Smart True HEPA Air Purifier
+- EverestAir: Smart Air Purifier
+- Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
+- Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+- LEVOIT Smart Tower Fan (LTF-F422S-WUS)
+
+### Humidifiers
+
+- Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
+- Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
+- Superior6000S: Superior 6000S Smart Evaporative Humidifier
+
+### Air Fryers
+
+- Cosori 3.7 and 5.8 Quart Air Fryer
 
 ## Prerequisite
 
-Before you can use this integration, all devices must be registered with the
+Before you can use this {% term integration %}, all devices must be registered with the
 VeSync App. Once registration is complete, continue with the steps described in
 the configuration section below.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Removing the integration
 
-| Service | Description |
-|---------|-------------|
-| `update_devices` | Poll Vesync server to find and add any new devices |
+This integration follows standard integration removal. No extra steps are required.
 
-## Power & Energy Sensors
+{% include integrations/remove_device_service.md %}
+
+{% include integrations/actions.md %}
+
+## Power & energy sensors
 
 Many VeSync outlets support power & energy monitoring. This data is exposed as sensor entities alongside the outlet
-itself. Note that prior versions of the integration exposed these as state attributes on the outlet switch entity.
+itself. Note that prior versions of the {% term integration %} exposed these as state attributes on the outlet switch {% term entity %}.
 
 | Sensor                                    | Description                                                             | Example |
 | ------------------------------------------|-------------------------------------------------------------------------|---------|
@@ -91,16 +124,20 @@ itself. Note that prior versions of the integration exposed these as state attri
 | `sensor.<outlet name>_energy_use_monthly` | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30   |
 | `sensor.<outlet name>_energy_use_yearly`  | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25  |
 
-## Fan & Air Quality Sensors
-All VeSync air purifiers expose the remaining filter life, and some also expose air quality measurements.
+## Fan & air quality sensors
+All VeSync air purifiers expose the remaining filter lifetime, and some also expose air quality measurements.
 
-| Sensor                                  | Description                                                        | Example |
-| --------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)         | 142       |
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/EverestAir)   | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
-| `pm2_5`                 | The current air quality reading. (Core300s/400s/600s)                                  | 8         |
+| `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
 
-## Fan Exposed Attributes
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
+## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
 
@@ -109,20 +146,66 @@ VeSync air purifiers will expose the following details depending on the features
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
 | `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
+| `oscillating`           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
-## Extracting Attribute data
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, on).                               | off       |
 
-In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
+## Humidifier
+
+Sensors and settings exposed by VeSync humidifiers.
+
+| Sensor                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `humidity`              | Current humidity (in %)                                                            | 35        |
+
+| Number                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
+
+
+## Binary Sensors
+
+| Binary Sensor           | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
+| `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+
+## Air Fryers
+
+Sensors and settings exposed by VeSync Air Fryers.
+
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `cook_status`           | Current status of the fryer                                                            | cooking   |
+| `current_temp`          | Current internal temperature of the fryer,  Unknown when off.                          | 150C      |
+| `cook_set_temp`         | The target cooking temperature                                                         | 165C      |
+| `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
+| `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
+| `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+
+## Extracting attribute data
+
+To get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 
-Adapted from the [TP-Link integration](https://www.home-assistant.io/integrations/tplink/#plugs).
-
-{% raw %}
+Adapted from the [TP-Link integration](/integrations/tplink/#plugs).
 
 ```yaml
 template:
@@ -131,4 +214,3 @@ template:
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
 ```
-{% endraw %}

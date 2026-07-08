@@ -1,0 +1,200 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
+@use "sass:color";
+
+$meta-color: color.adjust($text-color, $lightness: 20%);
+
+article {
+  blockquote {
+    @include clearfix;
+    border-left: 2px solid $primary-color;
+    color: color.adjust($text-color, $lightness: 15%);
+    font-family: $sans-serif;
+    font-size: 1.25em;
+    font-style: italic;
+    padding-left: 15px;
+
+    footer {
+      float: right;
+      font-family: $sans-serif;
+      font-size: 0.8em;
+      strong::after {
+        content: " \2014 ";
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pullquote-left::before,
+  .pullquote-right::before {
+    @media only screen and (max-width: $palm-end) {
+      border-top: 1px dotted $primary-color;
+      border-bottom: 1px dotted $primary-color;
+      padding: 0 10px;
+      width: 100%;
+    }
+    border: medium none;
+    color: $primary-color;
+    content: "\201C"attr(data-pullquote) "\201D";
+    float: right;
+    font-family: $sans-serif;
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.45em;
+    margin: 0.3em 0 1em 1.5em;
+    padding: 0;
+    position: relative;
+    top: 7px;
+    width: 45%;
+  }
+
+  &.post {
+    ul {
+      li {
+        margin-bottom: 1.25rem;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        li {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .tags {
+    list-style-type: none;
+    margin: 0;
+    display: inline;
+
+    li {
+      display: inline;
+      margin-right: 2px;
+      &::after {
+        content: ",";
+      }
+      &:last-child::after {
+        content: "";
+      }
+      a {
+        color: $meta-color;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .meta {
+    $meta-color: $site-background;
+    font-size: 12px;
+    padding: 0 0 5px;
+    > * {
+      margin-right: 15px;
+      white-space: nowrap;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .comments::before {
+      content: "💬";
+      padding-right: 3px;
+    }
+  }
+
+  // Blog listings, index page
+  &.listing {
+    margin-bottom: 20px;
+    h1 {
+      margin-bottom: .5em;
+      a {
+        color: $title-color;
+        text-decoration: none;
+      }
+    }
+    .entry-content {
+      margin: 1em 0;
+    }
+
+    .crosspost-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 0.25em;
+      padding: 5px 14px;
+      border-radius: 16px;
+      background-color: $primary-color;
+      color: #fff;
+      font-family: $sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      line-height: 1.3;
+      text-decoration: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: color.adjust($primary-color, $lightness: -8%);
+        color: #fff;
+      }
+
+      iconify-icon {
+        flex-shrink: 0;
+      }
+    }
+
+    .crosspost-image img {
+      border: 0;
+      box-shadow: none;
+      margin-bottom: 0.5em;
+    }
+    + hr {
+      border: none;
+      border-bottom: 2px solid $grayLighter;
+      margin: 2em 0 2.5em;
+    }
+  }
+
+  &.post {
+    @media only screen and (max-width: $palm-end) {
+      .tags {
+        clear: both;
+        margin-top: 7px;
+      }
+    }
+    h1 {
+      margin-bottom: 0.5em;
+    }
+    .meta {
+      margin-bottom: 3em;
+    }
+
+    > header + img + p{
+      margin-top: 24px;
+    }
+  }
+}
+
+.wwha-footer-mobile {
+  display: none;
+
+  @media only screen and (max-width: $lap-end) {
+    display: block;
+  }
+}
+
+.wwha-sidebar-desktop {
+  display: block;
+
+  @media only screen and (max-width: $lap-end) {
+    display: none;
+  }
+}

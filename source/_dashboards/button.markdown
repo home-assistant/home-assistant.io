@@ -1,22 +1,33 @@
 ---
 type: card
-title: "Button Card"
+title: "Button card"
 sidebar_label: Button
 description: "The Button card allows you to add buttons to perform tasks."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /docs/scripts/
+    title: Scripts
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Button card allows you to add buttons to perform tasks.
+The button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three Button Cards'>
-Screenshot of three Button Cards.
+<img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three button cards'>
+Screenshot of three button cards.
 </p>
-
-To add the Button card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 All options for this card can be configured via the user interface.
 
-## Card Settings
+{% include dashboard/edit_dashboard.md %}
+
+## Card settings
 
 {% configuration_basic %}
 Entity:
@@ -25,23 +36,27 @@ Name:
   description: The button name that is displayed on the card. If this field is left blank and the card interacts with an entity, the button name defaults to the entity name. Otherwise, no name is displayed.
 Icon:
   description: The icon that is displayed on the card. If this field is left blank and the card interacts with an entity, the icon defaults to the entity domain icon. Otherwise, no icon is displayed.
-Show Name:
-  description: A toggle to show or hide the button name.
-Show Icon:
-  description: A toggle to show or hide the icon.
 Icon Height:
   description: The height of the icon, in pixels.
+Color:
+  description: The color of the icon.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+Show Name:
+  description: A toggle to show or hide the button name.
+Show State:
+  description: A toggle to show or hide the state of the entity.
+Show Icon:
+  description: A toggle to show or hide the icon.
 Tap Action:
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
 Hold Action:
   description: The action taken on card tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -54,8 +69,8 @@ entity:
   type: string
 name:
   required: false
-  description: The button name that is displayed on the card. It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/). It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
+  type: [string, map, list]
   default: Entity name
 icon:
   required: false
@@ -82,11 +97,11 @@ icon_height:
   description: The height of the icon. Any CSS value may be used.
   type: string
   default: auto
-state_color:
+color:
   required: false
-  description: If false, the icon does not change color when the entity is active.
-  type: boolean
-  default: true
+  description: Set the color for the icon. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
+  type: string
+  default: state
 tap_action:
   required: false
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
@@ -119,20 +134,82 @@ type: button
 entity: light.living_room
 ```
 
-Button Card with a button name and a script that runs when card is tapped:
+Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
+
+<p class='img'>
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
+Screenshot of the button card with script action.
+</p>
 
 ```yaml
 type: button
 name: Turn Off Lights
 show_state: false
 tap_action:
-  action: call-service
-  service: script.turn_on
+  action: perform-action
+  perform_action: script.turn_on
   data:
     entity_id: script.turn_off_lights
 ```
 
+Example of 4 buttons on a vertical stack card:
+
 <p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
-Screenshot of the Button card with Script Service.
+<img src='/images/dashboards/buttons_on_vertical_stack_card.png' alt='Screenshot of a vertical stack card with 4 buttons and an entity selector'>
+Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
+
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+
+```yaml
+type: vertical-stack
+cards:
+  - entities:
+      - entity: input_select.living_room_scene
+        name: Scene
+    show_header_toggle: false
+    type: entities
+  - type: horizontal-stack
+    cards:
+      - name: Watch Netflix
+        entity: script.netflix
+        type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Watch YouTube
+        entity: script.youtube
+        type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Wake PC
+        entity: script.wake_on_lan
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:desktop-tower
+        show_name: true
+        show_icon: true
+        show_state: false
+      - name: Go to sleep
+        entity: script.sleep
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:sleep
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+```
+
+## Available colors
+
+The following colors are available to colorize the button card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).

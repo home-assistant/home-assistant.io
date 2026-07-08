@@ -2,84 +2,151 @@
 title: LG Netcast
 description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: '0.20'
 ha_domain: lg_netcast
 ha_platforms:
   - media_player
+  - remote
 ha_codeowners:
   - '@Drafteed'
-ha_integration_type: integration
+  - '@splinter98'
+ha_integration_type: device
 ---
 
-The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
+The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).
+For the new LG webOS TV's use the [LG webOS TV](/integrations/webostv#media-player) platform.
 
-To add a LG TV to your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: lg_netcast
-    host: IP_ADDRESS
-```
+{% include integrations/triggers.md %}
 
-{% configuration %}
-host:
-  description: The IP address of the LG Smart TV, e.g., 192.168.0.20.
-  required: true
-  type: string
-access_token:
-  description: The access token needed to connect.
-  required: false
-  type: string
-name:
-  description: The name you would like to give to the LG Smart TV.
-  required: false
-  default: LG TV Remote
-  type: string
-turn_on_action:
-  description: Defines an [action](/docs/automation/action/) to turn the TV on.
-  required: false
-  type: string
-{% endconfiguration %}
+## Change channel through play_media action
 
-To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
-After starting Home Assistant the TV will display the access token on screen.
-Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
-
-<div class='note'>
-  The access token will not change until you factory reset your TV.
-</div>
-
-## Advanced configuration
-
-The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
-
-```yaml
-wake_on_lan: # enables `wake_on_lan` integration
-
-# Enables the `lg_netcast` media player
-media_player:
-  - platform: lg_netcast
-    host: 192.168.0.20
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: AA-BB-CC-DD-EE-FF
-        broadcast_address: 11.22.33.44
-```
-
-## Change channel through play_media service
-
-The `play_media` service can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
+The `play_media` action can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
 
 ```yaml
 # Example action entry in script to switch to channel number 15
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.lg_tv
 data:
   media_content_id: 15
   media_content_type: channel
+```
+
+## Remote
+
+The LG Netcast remote platform creates a `Remote` entity for each configured TV. This entity allows you to send remote control commands. To power on the TV, use the [Device is requested to turn on](/triggers/lg_netcast.turn_on/) trigger.
+
+### Action: Send command
+
+The `remote.send_command` action sends one or more remote commands to the TV.
+
+- **Data attribute**: `command`
+  - **Description**: Command, or list of commands, to send. See the list below.
+  - **Optional**: No
+
+- **Data attribute**: `num_repeats`
+  - **Description**: Number of times to repeat the command sequence. The default is `1`.
+  - **Optional**: Yes
+
+- **Data attribute**: `delay_secs`
+  - **Description**: Delay in seconds between commands and repeats.
+  - **Optional**: Yes
+
+{% details "Full key code list" %}
+
+- `APPS`
+- `ASPECT_RATIO`
+- `AUDIO_DESCRIPTION`
+- `AV_MODE`
+- `BACK`
+- `BLUE`
+- `CHANNEL_DOWN`
+- `CHANNEL_UP`
+- `DASH`
+- `DOWN`
+- `ENERGY_SAVING`
+- `EPG`
+- `EXIT`
+- `EXTERNAL_INPUT`
+- `FAST_FORWARD`
+- `FAVORITE_CHANNEL`
+- `GREEN`
+- `HOME_MENU`
+- `LEFT`
+- `LIVE_TV`
+- `LR_3D`
+- `MARK`
+- `MUTE_TOGGLE`
+- `NUMBER_0`
+- `NUMBER_1`
+- `NUMBER_2`
+- `NUMBER_3`
+- `NUMBER_4`
+- `NUMBER_5`
+- `NUMBER_6`
+- `NUMBER_7`
+- `NUMBER_8`
+- `NUMBER_9`
+- `OK`
+- `PAUSE`
+- `PIP_CHANNEL_DOWN`
+- `PIP_CHANNEL_UP`
+- `PIP_SECONDARY_VIDEO`
+- `PLAY`
+- `POWER`
+- `PREVIOUS_CHANNEL`
+- `PROGRAM_INFORMATION`
+- `PROGRAM_LIST`
+- `QUICK_MENU`
+- `RECORD`
+- `RECORDING_LIST`
+- `RED`
+- `REPEAT`
+- `RESERVATION_PROGRAM_LIST`
+- `REWIND`
+- `RIGHT`
+- `SHOW_SUBTITLE`
+- `SIMPLINK`
+- `SKIP_BACKWARD`
+- `SKIP_FORWARD`
+- `STOP`
+- `SWITCH_VIDEO`
+- `TELE_TEXT`
+- `TEXT_OPTION`
+- `UP`
+- `VIDEO_3D`
+- `VOLUME_DOWN`
+- `VOLUME_UP`
+- `YELLOW`
+
+{% enddetails %}
+
+### Examples
+
+Send a single command:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.lg_tv
+data:
+  command: HOME_MENU
+```
+
+Send repeated commands with a delay:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.lg_tv
+data:
+  command:
+    - VOLUME_UP
+  num_repeats: 5
+  delay_secs: 0.3
 ```

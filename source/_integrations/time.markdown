@@ -11,21 +11,24 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Time integration is built for the controlling and monitoring of times on devices.
+The **Time** {% term integration %} is built for controlling and monitoring times on devices.
 
-Time entities cannot be implemented manually, but can be provided by other integrations. If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
+{% include integrations/building_block_integration.md %}
 
-## Services
+If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-### time services
+## The state of a time entity
 
-Available services: `time.set_value`
+The state of a time {% term entity %} is a timestamp in the format HH:MM:SS.
 
-### Service `time.set_value`
+<p class='img'>
+<img src='/images/integrations/time/state_time.png' alt='Screenshot showing the state of a time entity in the developer tools' />
+Screenshot showing the state of a time entity in the developer tools.
+</p>
 
-Set a new value for the time entity.
+In addition, the entity can have the following states:
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of times to control.
-| `time` | no | New time value to set.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+{% include integrations/actions.md %}

@@ -1,71 +1,102 @@
 ---
 title: Backup
-description: Allow creating backups of container and core installations.
+description: Create and restore backups of your Home Assistant installation.
 ha_category:
+  - Event
   - Other
+  - Sensor
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: backup
 ha_codeowners:
   - '@home-assistant/core'
 ha_iot_class: Calculated
-ha_integration_type: system
+ha_platforms:
+  - diagnostics
+  - event
+  - sensor
+ha_integration_type: service
+related:
+  - docs: /common-tasks/general/#backups
+    title: Backups
+  - docs: /common-tasks/general/#defining-backup-locations
+    title: Backup locations
+  - docs: /getting-started/onboarding/
+    title: Recover from backup during onboarding
+  - docs: /more-info/backup-emergency-kit/
+    title: Backup emergency kit
 ---
 
-The Backup integration allow you to create and download backups for your Home Assistant Core and Home Assistant Container installations. This backup file can be used if you migrate to Home Assistant Operating System.
+The **Backup** {% term integration %} creates and restores backups across all [installation types](/installation/#about-installation-types).
 
-<div class="note">
+To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
 
-If you use Home Assistant Operating System or Home Assistant Supervised, [back up functionality is already built-in](/common-tasks/os/#backups).
+You no longer need to create your own automation to make backups. You can [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process) instead. If you do want to trigger a backup yourself, the integration provides actions for it.
 
-</div>
+{% include integrations/actions.md %}
 
+## Restoring a backup
 
-### Manual configuration
+To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/general/#restoring-a-backup).
 
-The backup integration is by default enabled. If you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration the following example shows you how to enable this integration manually:
+## Event entity
 
-```yaml
-# Example configuration.yaml entry
-backup:
-```
+The **Backup** {% term integration %} provides an {% term "Event entity" %} that represents the state of the last automatic backup (_completed_, _in progress_, or _failed_). It also provides several event attributes you can use in automations.
 
-You need to restart Home Assistant after you add this configuration.
-When it has started up again you will find a new "Backup" entry in the main menu (**{% my backup title="Settings > System > Backups" %}**).
+| Attribute | Description |
+| --- | --- |
+| `event_type` | The translated state of the last automatic backup task (_possible states: completed, in progress, failed_). |
+| `backup_stage` | The current automatic backup stage (_is `None` when `event_type` is not in progress_). |
+| `failed_reason` | The reason for a failed automatic backup (_is `None` when `event_type` is completed or in progress_). |
 
-The backup files are stored in a new "backups" subdirectory in the root of your configuration directory.
+### Usage examples
 
-## Services
-
-The backup integration exposes a service that can be used to automate the backup
-process.
-
-### Service {% my developer_call_service service="backup.create" %}
-
-The {% my developer_call_service service="backup.create" %} service can be used
-to create a backup for your Home Assistant instance. 
-
-The service has no additional options or parameters.
-
-Example service call:
+Send a notification to the mobile app when an automatic backup fails:
 
 ```yaml
-service: backup.create
+alias: "Backup failed"
+triggers:
+  - trigger: state
+    entity_id:
+      - event.backup_automatic_backup
+conditions:
+  - condition: state
+    entity_id: event.backup_automatic_backup
+    attribute: event_type
+    state: failed
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: "Automatic backup failed"
+      message: >-
+        The last automatic backup failed due to
+        {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}
 ```
 
-## Example: Backing up every night at 3:00 AM
 
+## Sensors
 
-This is a YAML example for an automation that initiate a backup every night
-at 3 AM:
+The **Backup** {% term integration %} provides several sensors.
 
-```yaml
-automation:
-  - alias: "Backup Home Assistant every night at 3 AM"
-    trigger:
-      platform: time
-      at: "03:00:00"
-    action:
-      alias: "Create backup now"
-      service: backup.create
-```
+### Backup manager state
+
+The current state of the backup system. Possible states are:
+
+- Idle
+- Creating a backup
+- Receiving a backup
+- Restoring a backup
+
+### Next scheduled automatic backup
+
+The timestamp of the next scheduled automatic backup.
+
+### Last attempted automatic backup
+
+The timestamp of the last attempted automatic backup.
+
+### Last successful automatic backup
+
+The timestamp of the last successful automatic backup.

@@ -1,6 +1,6 @@
 ---
 title: Jewish Calendar
-description: Instructions on how to integrate the Jewish Calendar integration within Home Assistant.
+description: Instructions on integrating the Jewish Calendar integration within Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Calculated
@@ -10,85 +10,122 @@ ha_codeowners:
 ha_domain: jewish_calendar
 ha_platforms:
   - binary_sensor
+  - calendar
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
-The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
+The **Jewish Calendar** {% term integration %} exposes Jewish calendar information through multiple sensors.
+{% include integrations/config_flow.md %}
 
-## Configuration
+{% configuration_basic %}
+Language:
+  description: The language to be used for textual sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are `english` and `hebrew`. Default value is `english`.
 
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
+Diaspora:
+  description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
 
-```yaml
-# Example configuration.yaml entry
-jewish_calendar:
-```
+Latitude, Longitude, Time Zone and Elevation:
+  description: Allows you to override the default location information provided by Home Assistant for the calculations.
+{% endconfiguration_basic %}
 
-{% configuration %}
-language:
-  required: false
-  default: english
-  description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are 'english' and 'hebrew'.
-  type: string
-latitude:
-  required: false
-  description: Latitude for time calculations of the sensor.
-  default: Home Assistant location
-  type: integer
-longitude:
-  required: false
-  description: Longitude for time calculations of the sensor.
-  default: Home Assistant location
-  type: integer
-diaspora:
-  required: false
-  description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
-  default: false
-  type: string
-candle_lighting_minutes_before_sunset:
-  required: false
-  description: Number of minutes before sunset to report as candle lighting time.
-  default: 18
-  type: integer
-havdalah_minutes_after_sunset:
-  required: false
-  description: Number of minutes after sunset to report as havdalah time. If this is set to 0, uses the time that the sun is 8.5 degrees below the horizon (same as the `first_stars` sensor). If non-zero, this value is added as an offset to the time of sunset to report havdalah.
-  default: 0
-  type: integer
-{% endconfiguration %}
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Minutes before sunset for candle lighting:
+  description: How many minutes before sunset is considered candle-lighting time. In Israel, this is usually 20, 30, or 40 minutes depending on your location. Outside of Israel, it's customary to use either 18 or 24. *The default is set to 18 minutes.*
+
+Minutes after sunset for Havdalah:
+  description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
+
+Daily events to display:
+  description: Select which daily events should appear in the daily events calendar. By default, the Hebrew date, sunrise, sunset, and nightfall are displayed.
+
+Learning schedule to display:
+  description: Select which learning schedules should appear in the learning schedule calendar. Currently, Daf Yomi is the only available option.
+
+Yearly events to display:
+  description: Select which yearly events should appear in the yearly events calendar. By default, holidays, Torah portion, candle lighting, and Havdalah are displayed. You can also add the Omer count.
+{% endconfiguration_basic %}
+
+## Calendars
+
+The **Jewish Calendar** {% term integration %} provides three calendar entities, each focusing on a different type of Jewish calendar event. You can customize which event types are displayed in each calendar through the integration's configuration options.
+
+### Daily events
+
+The daily events calendar shows time-based events that occur every day, such as the Hebrew date and halachic prayer times. The following event types can be configured:
+
+- **Hebrew date**: The Hebrew date for each day (for example, "1 Tishrei 5779")
+- **Alot Hashachar**: Halachic dawn
+- **Netz Hachama**: Halachic sunrise
+- **Sof Zman Shema (Gr"A)**: Latest time for Shema according to the Gr"a
+- **Sof Zman Shema (Mg"A)**: Latest time for Shema according to the Mg"A
+- **Sof Zman Tefilla (Gr"A)**: Latest time for Tefilla according to the Gr"a
+- **Sof Zman Tefilla (Mg"A)**: Latest time for Tefilla according to the Mg"A
+- **Chatzot Hayom**: Halachic midday
+- **Mincha Gedola**: Earliest time for Mincha
+- **Mincha Ketana**: Preferable time for Mincha
+- **Plag Hamincha**: Plag Hamincha
+- **Shkia**: Sunset
+- **T'set Hakochavim**: Nightfall
+
+By default, the Hebrew date, sunrise (Netz Hachama), sunset (Shkia), and nightfall (T'set Hakochavim) are displayed.
+
+### Learning schedule
+
+The learning schedule calendar shows daily study schedules. This calendar is disabled by default and can be enabled through the entity settings. The following event types can be configured:
+
+- **Daf Yomi**: The daily Talmud study page according to the Daf Yomi cycle
+
+### Yearly events
+
+The yearly events calendar shows events tied to the Jewish calendar year, such as holidays and the weekly Torah portion. The following event types can be configured:
+
+- **Jewish holidays**: Jewish holidays, including Rosh Hashana, Yom Kippur, Sukkot, Chanukah, Purim, Pesach, Shavuot, and more
+- **Torah portion**: The weekly Torah portion (Parshat Hashavua)
+- **Omer count**: The daily Omer count during the 49 days between Pesach and Shavuot
+- **Candle lighting**: Timed events for Shabbat and holiday candle lighting based on your location and configured offset
+- **Havdalah**: Timed events for Shabbat and holiday Havdalah based on your location and configured offset
+
+By default, holidays, Torah portion, candle lighting, and Havdalah are displayed. The Omer count can be added through the configuration options.
 
 ## Sensor list
 
 ### Data sensors
 
 - `date`: Shows the hebrew date for today.
-- `weekly_portion`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
+- `parshat_hashavua`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
 - `holiday`: If it is a holiday, shows the name of the holiday _(see below for more info)_.
-- `omer_count`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
+- `day_of_the_omer`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
 - `daf_yomi`: Shows the date's daf yomi page.
 
 ### Time sensors
 
-*Note: Due to the variety of rabbinic opinions on how to calculate the different times, we do not take any responsibility on your religious reliance upon these calculations.*
+*Note: Due to the variety of rabbinic opinions on calculating the different times, we do not take any responsibility for your religious reliance upon these calculations.*
 
 Time sensor states are represented as ISO8601 formatted *UTC time*.
 
-- `first_light`: First light of dawn (Alot Hashachar - עלות השחר)
-- `talit`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
-- `sunrise`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
-- `gra_end_shma`: Last time for reading of the Shma according to the Gr"a.
-- `mga_end_shma`: Last time for reading of the Shma according to the MG"A.
-- `gra_end_tefilla`: Last time for full shacharit according to the Gr"a.
-- `mga_end_tefilla`: Last time for full shacharit according to the MG"A.
-- `midday`: Half way through the day (Chatzot Hayom - חצות היום)
-- `big_mincha`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
-- `little_mincha`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
-- `plag_mincha`: Time of the Plag Hamincha (פלג המנחה)
-- `sunset`: Sunset (Shkiya - שקיעה)
-- `first_stars`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
+- `alot_hashachar`: First light of dawn (Alot Hashachar - עלות השחר)
+- `talit_and_tefillin`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
+- `hanetz_hachama`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
+- `latest_time_for_shma_gr_a`: Last time for the reading of the Shma according to the Gr"a.
+- `latest_time_for_shma_mg_a`: Last time for the reading of the Shma according to the MG"A.
+- `latest_time_for_tefilla_gr_a`: Last time for full shacharit according to the Gr"a.
+- `latest_time_for_tefilla_mg_a`: Last time for full shacharit according to the MG"A.
+- `chatzot_hayom`: Half way through the day (Chatzot Hayom - חצות היום)
+- `mincha_gedola`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
+- `mincha_ketana`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
+- `plag_hamincha`: Time of the Plag Hamincha (פלג המנחה)
+- `shkia`: Sunset (Shkiya - שקיעה)
+- `t_set_hakochavim`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
+- `t_set_hakochavim_3_stars`: Time at which 3 stars are visible, mostly used for Havdalah
 - `upcoming_shabbat_candle_lighting`: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
-- `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
+- `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (that is, if a holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
 - `upcoming_candle_lighting`: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the `upcoming_shabbat_candle_lighting` sensor.
 - `upcoming_havdalah`: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the `upcoming_shabbat_havdalah` sensor.
 
@@ -100,60 +137,58 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 
 ### Holiday sensor
 
-The holiday sensor includes 3 attributes: *type*, *type_id* and *id*.
-The *type_id* is useful for cases to condition automations based on a range of types.
+The holiday sensor includes 2 attributes: *type*, and *id*.
+
+The *id* is useful for automations so they're not language-dependent.
+
+On Rosh Chodesh Tevet, which always falls on Chanukah, the sensor will report both values: "Rosh Chodesh, Chanukah".
+
+In Israel, on the 30th of Shvat, the sensor will report: "Rosh Chodesh, Family day". On the 22nd of Tishrei it will report: "Shmini Atzeret, Simchat Torah".
 
 The following is the list of holidays the sensor knows about with their selected type:
 
-| ID                   | English                    | Hebrew                | Type                      | Type_ID |
-|----------------------|----------------------------|-----------------------|---------------------------|:-------:|
-| erev_rosh_hashana    | Erev Rosh Hashana          | ערב ראש השנה          | EREV_YOM_TOV              | 2       |
-| rosh_hashana_i       | Rosh Hashana I             | א' ראש השנה           | YOM_TOV                   | 1       |
-| rosh_hashana_ii      | Rosh Hashana II            | ב' ראש השנה           | YOM_TOV                   | 1       |
-| tzom_gedaliah        | Tzom Gedaliah              | צום גדליה             | FAST_DAY                  | 5       |
-| erev_yom_kippur      | Erev Yom Kippur            | עיוה"כ                | EREV_YOM_TOV              | 2       |
-| yom_kippur           | Yom Kippur                 | יום הכפורים           | YOM_TOV                   | 1       |
-| erev_sukkot          | Erev Sukkot                | ערב סוכות             | EREV_YOM_TOV              | 2       |
-| sukkot               | Sukkot                     | סוכות                 | YOM_TOV                   | 1       |
-| hol_hamoed_sukkot    | Hol hamoed Sukkot          | חול המועד סוכות       | HOL_HAMOED                | 3       |
-| hoshana_raba         | Hoshana Raba               | הושענא רבה            | EREV_YOM_TOV              | 2       |
-| simchat_torah        | Simchat Torah              | שמחת תורה             | YOM_TOV                   | 1       |
-| chanukah             | Chanukah                   | חנוכה                 | MELACHA_PERMITTED_HOLIDAY | 4       |
-| asara_btevet         | Asara B'Tevet              | צום עשרה בטבת         | FAST_DAY                  | 5       |
-| tu_bshvat            | Tu B'Shvat                 | ט"ו בשבט              | MINOR_HOLIDAY             | 7       |
-| taanit_esther        | Ta'anit Esther             | תענית אסתר            | FAST_DAY                  | 5       |
-| purim                | Purim                      | פורים                 | MELACHA_PERMITTED_HOLIDAY | 4       |
-| shushan_purim        | Shushan Purim              | שושן פורים            | MELACHA_PERMITTED_HOLIDAY | 4       |
-| erev_pesach          | Erev Pesach                | ערב פסח               | EREV_YOM_TOV              | 2       |
-| pesach               | Pesach                     | פסח                   | YOM_TOV                   | 1       |
-| hol_hamoed_pesach    | Hol hamoed Pesach          | חול המועד פסח         | HOL_HAMOED                | 3       |
-| pesach_vii           | Pesach VII                 | שביעי פסח             | YOM_TOV                   | 1       |
-| yom_haatzmaut        | Yom HaAtzma'ut             | יום העצמאות           | MODERN_HOLIDAY            | 6       |
-| lag_bomer            | Lag B'Omer                 | ל"ג בעומר             | MINOR_HOLIDAY             | 7       |
-| erev_shavuot         | Erev Shavuot               | ערב שבועות            | EREV_YOM_TOV              | 2       |
-| shavuot              | Shavuot                    | שבועות                | YOM_TOV                   | 1       |
-| tzom_tammuz          | Tzom Tammuz                | צום שבעה עשר בתמוז    | FAST_DAY                  | 5       |
-| tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY                  | 5       |
-| tu_bav               | Tu B'Av                    | ט"ו באב               | MINOR_HOLIDAY             | 7       |
-| yom_hashoah          | Yom HaShoah                | יום השואה             | MEMORIAL_DAY              | 8       |
-| yom_hazikaron        | Yom HaZikaron              | יום הזכרון            | MEMORIAL_DAY              | 8       |
-| yom_yerushalayim     | Yom Yerushalayim           | יום ירושלים           | MODERN_HOLIDAY            | 6       |
-| shmini_atzeret       | Shmini Atzeret             | שמיני עצרת            | YOM_TOV                   | 1       |
-| pesach_viii          | Pesach VIII                | אחרון של פסח          | YOM_TOV                   | 1       |
-| shavuot_ii           | Shavuot II                 | שני של שבועות         | YOM_TOV                   | 1       |
-| sukkot_ii            | Sukkot II                  | שני של סוכות          | YOM_TOV                   | 1       |
-| pesach_ii            | Pesach II                  | שני של פסח            | YOM_TOV                   | 1       |
-| family_day           | Family Day                 | יום המשפחה            | ISRAEL_NATIONAL_HOLIDAY   | 9       |
-| memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום הזיכרון לחללי מערכות ישראל שמקום קבורתם לא נודע | MEMORIAL_DAY | 8      |
-| rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY              | 8       |
-| zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום זאב ז'בוטינסקי    | MEMORIAL_DAY              | 8       |
+| ID                   | English                    | Hebrew                | Type                      |
+|----------------------|----------------------------|-----------------------|---------------------------|
+| erev_rosh_hashana    | Erev Rosh Hashana          | ערב ראש השנה          | EREV_YOM_TOV              |
+| rosh_hashana_i       | Rosh Hashana I             | א' ראש השנה           | YOM_TOV                   |
+| rosh_hashana_ii      | Rosh Hashana II            | ב' ראש השנה           | YOM_TOV                   |
+| tzom_gedaliah        | Tzom Gedaliah              | צום גדליה             | FAST_DAY                  |
+| erev_yom_kippur      | Erev Yom Kippur            | עיוה"כ                | EREV_YOM_TOV              |
+| yom_kippur           | Yom Kippur                 | יום הכפורים           | YOM_TOV                   |
+| erev_sukkot          | Erev Sukkot                | ערב סוכות             | EREV_YOM_TOV              |
+| sukkot               | Sukkot                     | סוכות                 | YOM_TOV                   |
+| sukkot_ii            | Sukkot II                  | שני של סוכות          | YOM_TOV                   |
+| hol_hamoed_sukkot    | Hol hamoed Sukkot          | חול המועד סוכות       | HOL_HAMOED                |
+| hoshana_raba         | Hoshana Raba               | הושענא רבה            | EREV_YOM_TOV              |
+| shmini_atzeret       | Shmini Atzeret             | שמיני עצרת            | YOM_TOV                   |
+| simchat_torah        | Simchat Torah              | שמחת תורה             | YOM_TOV                   |
+| chanukah             | Chanukah                   | חנוכה                 | MELACHA_PERMITTED_HOLIDAY |
+| rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY              |
+| asara_btevet         | Asara B'Tevet              | צום עשרה בטבת         | FAST_DAY                  |
+| tu_bshvat            | Tu B'Shvat                 | ט"ו בשבט              | MINOR_HOLIDAY             |
+| family_day           | Family Day                 | יום המשפחה            | ISRAEL_NATIONAL_HOLIDAY   |
+| memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום הזיכרון לחללי מערכות ישראל שמקום קבורתם לא נודע | MEMORIAL_DAY |
+| taanit_esther        | Ta'anit Esther             | תענית אסתר            | FAST_DAY                  |
+| purim                | Purim                      | פורים                 | MELACHA_PERMITTED_HOLIDAY |
+| shushan_purim        | Shushan Purim              | שושן פורים            | MELACHA_PERMITTED_HOLIDAY |
+| erev_pesach          | Erev Pesach                | ערב פסח               | EREV_YOM_TOV              |
+| pesach               | Pesach                     | פסח                   | YOM_TOV                   |
+| pesach_ii            | Pesach II                  | שני של פסח            | YOM_TOV                   |
+| hol_hamoed_pesach    | Hol hamoed Pesach          | חול המועד פסח         | HOL_HAMOED                |
+| pesach_vii           | Pesach VII                 | שביעי פסח             | YOM_TOV                   |
+| pesach_viii          | Pesach VIII                | אחרון של פסח          | YOM_TOV                   |
+| yom_hashoah          | Yom HaShoah                | יום השואה             | MEMORIAL_DAY              |
+| yom_hazikaron        | Yom HaZikaron              | יום הזכרון            | MEMORIAL_DAY              |
+| yom_haatzmaut        | Yom HaAtzma'ut             | יום העצמאות           | MODERN_HOLIDAY            |
+| lag_bomer            | Lag B'Omer                 | ל"ג בעומר             | MINOR_HOLIDAY             |
+| yom_yerushalayim     | Yom Yerushalayim           | יום ירושלים           | MODERN_HOLIDAY            |
+| erev_shavuot         | Erev Shavuot               | ערב שבועות            | EREV_YOM_TOV              |
+| shavuot              | Shavuot                    | שבועות                | YOM_TOV                   |
+| shavuot_ii           | Shavuot II                 | שני של שבועות         | YOM_TOV                   |
+| tzom_tammuz          | Tzom Tammuz                | צום שבעה עשר בתמוז    | FAST_DAY                  |
+| zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום זאב ז'בוטינסקי    | MEMORIAL_DAY              |
+| tisha_bav            | Tish'a B'Av                | תשעה באב              | FAST_DAY                  |
+| tu_bav               | Tu B'Av                    | ט"ו באב               | MINOR_HOLIDAY             |
+| rosh_chodesh         | Rosh Chodesh               | ראש חודש              | ROSH_CHODESH              |
 
-## Full configuration example
-
-```yaml
-# Example configuration.yaml entry
-jewish_calendar:
-  language: english
-  diaspora: true
-  havdalah_minutes_after_sunset: 50
-```
+{% include integrations/actions.md %}
