@@ -15,9 +15,9 @@ related:
     title: SQL integration
 ---
 
-The **Recorder** {% term integration %} stores the history of your Home Assistant system in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database, along with the events happening on your system. This is what makes it possible to look back in time and see what happened in your home.
+The **Recorder** {% term integration %} stores the history of your Home Assistant system in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database. It can also store events that happen on your system, which makes it possible to look back in time and see what happened in your home.
 
-Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Logbook**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would only know the current state of your home and would forget everything the moment it changed.
+Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Logbook**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
 
 The flow of data looks like this:
 
