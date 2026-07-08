@@ -11,7 +11,7 @@ The OMIE sensors always reflect the current price. This action lets you fetch th
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
-Prices for the next day are published daily at around 13:30 CET/CEST. If you request a date that has not been published yet, the action reports that the prices are not available.
+Prices for the next day are published daily at around 13:30 CET/CEST. If you request a date that has not been published yet, the action reports that the prices are not available. Similarly if you request a date that is previous to the date when quarter-hourly prices became available, the action reports that no prices exist for that date and tells you the earliest date you can request.
 
 {% include actions/ui_header.md %}
 
