@@ -50,6 +50,7 @@ show_addfab:
   required: false
   description: Show a button to create a new event. You need at least one calendar that allows you to create events.
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
