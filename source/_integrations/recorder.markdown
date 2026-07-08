@@ -15,16 +15,16 @@ related:
     title: SQL integration
 ---
 
-The **Recorder** {% term integration %} stores the history of your Home Assistant system in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database. It can also store events that happen on your system, which makes it possible to look back in time and see what happened in your home.
+The **Recorder** {% term integration %} stores the history of your Home Assistant entities in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database. It can also store events that happen on your system, which makes it possible to look back in time and see what happened in your home.
 
-Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Logbook**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
+Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Activity**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
 
 The flow of data looks like this:
 
 1. Something in your home changes, such as a device turning on or a sensor reporting a new value.
 2. Home Assistant registers this as a state change or an event.
 3. The recorder writes the change to the database.
-4. Features like history, logbook, dashboard graphs, and statistics read from that database to show you what happened over time.
+4. Features like history, activity, dashboard graphs, and statistics read from that database to show you what happened over time.
 
 The chart illustrates how data flows from a change in your home, through the recorder, into the database, and back out to the features that show you what happened over time.
 
