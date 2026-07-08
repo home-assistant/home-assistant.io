@@ -89,7 +89,7 @@ The Liebherr appliances operate based on the temperature unit selected on the de
 
 ## Supported functionality
 
-The **Liebherr** integration provides temperature monitoring, climate control, door control (AutoDoor), presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+The **Liebherr** integration provides temperature monitoring, setpoint control, door control (AutoDoor), presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
 
 ### Covers
 
