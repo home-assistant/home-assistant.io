@@ -68,9 +68,7 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
    - [define header and footer](/dashboards/header-footer/)
    - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
-10. Select **Add to dashboard**.
-
-   ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
+10. In the top right of the screen, select **Done** to save the changes of the view.
 
 ### To add a card from the device page
 
