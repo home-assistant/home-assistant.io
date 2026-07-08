@@ -54,20 +54,9 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 {% include integrations/config_flow.md %}
 
-To add the integration:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select **Add integration**, then select **A Better Routeplanner**.
-3. Sign in to ABRP when prompted.
-4. Select the vehicles you want to add to Home Assistant.
-
-Home Assistant handles authentication for you. You do not need API credentials or a developer app.
+During setup, you sign in to ABRP and select which vehicles you want to add to Home Assistant. Home Assistant handles authentication for you, so you do not need API credentials or a developer app.
 
 To monitor vehicles from more than one ABRP account, add the integration once for each account.
-
-## Configuration options
-
-This integration does not have additional configuration options.
 
 ## Supported functionality
 
