@@ -46,6 +46,10 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_addfab:
+  required: false
+  description: Show a button to create a new event. There has to be at least one mutable calendar.
+  type: boolean
 {% endconfiguration %}
 
 ### Examples
