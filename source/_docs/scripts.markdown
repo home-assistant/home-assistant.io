@@ -142,7 +142,7 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
-  conditions:
+  condition:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
