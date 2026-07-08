@@ -877,7 +877,7 @@ The following reset methods can be used (depending on the bulb version):
   - Newer Philips Hue bulbs can reset via Bluetooth using the official Android app.
   - This is an option even if the bulb is already paired to a bridge.
 - **Hue Thief command-line tool**:
-  - Advanced users can use a third-party tool called [Hue Thief](https://github.com/vanviegen/hue-thief/).
+  - If you are comfortable using a command-line tool, you can use a third-party tool called [Hue Thief](https://github.com/vanviegen/hue-thief/).
   - This requires an EZSP-based Zigbee USB stick.
 
 #### Factory-reset using a Zigbee remote
