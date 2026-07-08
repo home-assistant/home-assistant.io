@@ -38,13 +38,17 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
 
 ### To add a card from a view
 
-1. Depending on your dashboard view layout:
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. Select your dashboard from the list.
+3. If your dashboard has multiple [views](/dashboards/views/), select the view to which you want to add a card.
+4. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
+5. Depending on your dashboard view layout:
    - For Sections layout, select {% icon "mdi:plus" %} in the section (bottom left).
      ![Add card in sections layout](/images/dashboards/add_card_sections_layout.png)
    - For other layout types (such as Masonry, Panel, or Sidebar), in the bottom right of the view, select **Add card**.
      ![Add card in masonry layout](/images/dashboards/add_card_masonary_layout.png)
 
-2. There are two methods to add a card:
+6. There are two methods to add a card:
 
    - **By entity**.
         - Select the entities from the list.
@@ -57,14 +61,14 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
         ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
 
-3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
-4. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
-5. Customize your card:
+7. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
+8. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
+9. Customize your card:
    - [define card actions](/dashboards/actions/).
    - [define header and footer](/dashboards/header-footer/)
    - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
-6. Select **Add to dashboard**.
+10. Select **Add to dashboard**.
 
    ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
 
