@@ -63,7 +63,7 @@ The **Steam** integration provides the following entities.
 - **Now playing**
   - **Description**: The title of the game the user is currently playing. If the user is not playing a game, the sensor is unavailable.
   - **Attributes**:
-    - **Game ID**: The Steam App ID of the currently played game.
+    - **Steam App ID**: The Steam App ID of the currently played game.
 
 ## Examples
 
