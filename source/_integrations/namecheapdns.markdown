@@ -13,6 +13,7 @@ related:
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
 With the **Namecheap DynamicDNS** {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) or [PremiumDNS](https://www.namecheap.com/security/premiumdns/) services.

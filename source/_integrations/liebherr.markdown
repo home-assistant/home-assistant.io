@@ -9,7 +9,7 @@ ha_domain: liebherr
 ha_integration_type: hub
 ha_zeroconf: true
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
@@ -20,16 +20,25 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
+  - Cover
+  - Light
   - Number
+  - Select
   - Sensor
   - Switch
 ha_platforms:
+  - cover
+  - diagnostics
+  - light
   - number
+  - select
   - sensor
   - switch
 ---
 
 The **Liebherr** {% term integration %} allows you to control and monitor [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud-based [SmartDevice HomeAPI](https://developer.liebherr.com/apis/smartdevice-homeapi/). With this integration, you can monitor temperatures, adjust cooling settings, and create automations to alert you when temperatures exceed safe food storage thresholds.
+
+Use case: Monitor food storage temperatures, send alerts when thresholds are exceeded, optimize energy consumption, and automatically adjust cooling settings when you're away from home.
 
 ## Supported devices
 
@@ -80,7 +89,25 @@ The Liebherr appliances operate based on the temperature unit selected on the de
 
 ## Supported functionality
 
-The **Liebherr** integration provides temperature monitoring and control for refrigerator and freezer zones in your SmartDevice appliances.
+The **Liebherr** integration provides temperature monitoring, setpoint control, door control (AutoDoor), presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Covers
+
+The integration creates cover entities for appliances equipped with an AutoDoor feature. The AutoDoor allows you to open and close the appliance door remotely.
+
+- **AutoDoor**: Controls the automatic door. Supports opening and closing the door.
+
+For appliances with multiple cooling zones, a separate cover entity is created for each zone that has an AutoDoor:
+
+- **Top zone AutoDoor**: Controls the automatic door for the uppermost compartment.
+- **Middle zone AutoDoor**: Controls the automatic door for the middle compartment (if present).
+- **Bottom zone AutoDoor**: Controls the automatic door for the lowermost compartment (if present).
+
+### Lights
+
+The integration creates light entities for controlling the interior lighting of your appliance.
+
+- **Presentation light**: Controls the presentation light inside the appliance with 5 brightness levels. The light can be turned on, off, or dimmed to any of the available intensity levels.
 
 ### Numbers
 
@@ -108,6 +135,14 @@ For appliances with multiple cooling zones (like a fridge-freezer combination), 
 - **Middle zone**: The middle compartment (if present)
 - **Bottom zone**: The lowermost cooling compartment (if present)
 
+### Selects
+
+The integration creates select entities for special features available on your appliance. Not all selects may be available depending on your appliance model and its capabilities. For appliances with multiple cooling zones, a separate select entity is created for each zone.
+
+- **IceMaker**: Controls the automatic ice maker. Options are Off, On, and MaxIce (if supported by the appliance). MaxIce temporarily increases ice production for occasions when you need more ice.
+- **HydroBreeze**: Controls the HydroBreeze misting system that keeps fruits and vegetables fresh by periodically spraying a fine mist. Options are Off, Low, Medium, and High.
+- **BioFresh-Plus**: Controls the BioFresh-Plus compartment temperature setting. Options represent temperature combinations for the two BioFresh-Plus drawers (for example 0|0, 0|-2, -2|-2, -2|0), allowing you to optimize storage conditions for different types of fresh food.
+
 ### Switches
 
 The integration creates switch entities for special operating modes available on your appliance. Not all switches may be available depending on your appliance model and its capabilities.
@@ -123,17 +158,55 @@ These switches apply to individual cooling zones. For appliances with multiple z
 
 These switches apply to the entire appliance:
 
-- **Party mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
-- **Night mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
+- **PartyMode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
+- **NightMode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
 
-## Use cases
+## Automations
 
-The **Liebherr** integration enables smart refrigerator and freezer management with practical automation opportunities:
+Examples of automations you can create using the Liebherr integration.
 
-- Energy optimization: Adjust cooling temperatures based on door sensors or usage patterns to save energy.
-- Temperature monitoring: Send alerts when temperatures exceed safe food storage thresholds.
-- Vacation mode: Automatically adjust temperature settings when you're away from home for extended periods.
-- Smart scheduling: Integrate with your daily routines to optimize cooling performance and energy consumption.
+### Night mode schedule
+
+Schedule your Liebherr appliance to automatically enable night mode at bedtime and disable it in the morning for quieter overnight operation.
+
+<!-- markdownlint-disable MD034 -->
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/liebherr-night-mode-schedule/997705" %}
+<!-- markdownlint-enable MD034 -->
+
+{% details "Example YAML configuration" %}
+
+```yaml
+alias: "Liebherr Night Mode Schedule"
+description: >-
+  Automatically enable night mode at bedtime and disable it in the morning for
+  quieter overnight operation.
+triggers:
+  - trigger: time
+    at: "22:00:00"
+    id: night_mode_on
+  - trigger: time
+    at: "07:00:00"
+    id: night_mode_off
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: night_mode_on
+        sequence:
+          - action: switch.turn_on
+            target:
+              entity_id: switch.my_fridge_night_mode
+      - conditions:
+          - condition: trigger
+            id: night_mode_off
+        sequence:
+          - action: switch.turn_off
+            target:
+              entity_id: switch.my_fridge_night_mode
+mode: single
+```
+
+{% enddetails %}
 
 ## Data updates
 
@@ -227,15 +300,19 @@ The API key is valid, but no appliances are currently connected to the Liebherr 
 
 The integration loses connection to the Liebherr cloud service. This can happen due to internet connectivity issues, API service interruptions, or appliance offline status.
 
-1. Check internet connectivity:
+1. Check for API rate limiting:
+   - If you performed many actions in quick succession, the API may temporarily rate limit your requests.
+   - Wait a few minutes for the rate limit to reset, and the appliances should become available again.
+
+2. Check internet connectivity:
    - Ensure your Home Assistant instance has a stable internet connection.
    - Verify your appliances are connected to Wi-Fi and online in the SmartDevice app.
 
-2. Check the API service status:
+3. Check the API service status:
    - The SmartDevice HomeAPI is a beta service and may occasionally be unavailable.
    - Wait a few minutes for the service to recover.
 
-3. Restart the integration:
+4. Restart the integration:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Select the **Liebherr** integration.
    - Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**.

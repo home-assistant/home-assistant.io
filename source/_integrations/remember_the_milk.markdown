@@ -77,7 +77,7 @@ At the moment, smart syntax is *not* supported when updating tasks. All smart sy
 
 ## Completing tasks with service `complete_task`
 
-Complete a tasks that was privously created from Home Assistant. You can not complete tasks that were created outside of Home Assistant.
+Complete a tasks that was privously created from Home Assistant. You cannot complete tasks that were created outside of Home Assistant.
 
 If you have created your task with an `id`, calling `<account>_complete_task` with the parameter `id` will then complete your task.
 
@@ -88,8 +88,6 @@ If you have created your task with an `id`, calling `<account>_complete_task` wi
 ## Automation example
 
 Here's an example for an automation that creates a new task whenever `sensor.mysensor` is `on` and completes it when the sensor reports `off`. This way it reminds you to switch it off. By using the `entity_id` as ID for the task, you can use the same rule also for multiple sensors.
-
-{% raw %}
 
 ```yaml
 - triggers:
@@ -110,8 +108,6 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
       data:
         id: "{{trigger.entity_id}}"
 ```
-
-{% endraw %}
 
 ## Disclaimer
 

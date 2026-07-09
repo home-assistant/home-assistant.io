@@ -55,7 +55,7 @@ Turn off all devices that were switched on from the start of the current activit
 
 ### Action `remote.turn_on`
 
-Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified. The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
 | Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
@@ -184,8 +184,6 @@ The `harmony.sync` action forces synchronization between the Harmony device and 
 
 Template sensors can be utilized to display current activity in the frontend.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -197,11 +195,7 @@ template:
         {{ state_attr('remote.bedroom', 'current_activity') }}
 ```
 
-{% endraw %}
-
 The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is "PowerOff".
-
-{% raw %}
 
 ```yaml
 automation:
@@ -228,5 +222,3 @@ automation:
         target:
           entity_id: input_boolean.notify
 ```
-
-{% endraw %}

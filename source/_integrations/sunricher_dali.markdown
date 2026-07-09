@@ -14,10 +14,11 @@ ha_domain: sunricher_dali
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - scene
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 related:
   - url: https://www.sunricher.com/din-rail-ethernet-dali-gateway-sr-gw-eda.html

@@ -37,7 +37,7 @@ example in companion app notification.
 This folder is by default configured in the path `/media`.
 
 Home Assistant OS users can access this folder by using,
-for example, the Samba add-on. Users of Home Assistant Container can
+for example, the Samba app. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 Files served from `media` are protected by Home Assistant authentication
@@ -96,7 +96,7 @@ data:
 
 ### Identifying a media source from the media browser
 
-If you wish to make use of the `media-source://` URI for an action, and the media is already available in the media browser (either as locally stored on the Home Assistant machine, or mapped using network storage) the following steps can help to determine the `media-source` uri.
+If you wish to use the `media-source://` URI for an action, and the media is already available in the media browser (either as locally stored on the Home Assistant machine, or mapped using network storage) the following steps can help to determine the `media-source` uri.
 
 1. Select **Media** in the sidebar.
 2. Navigate to the folder containing the media you wish to play.\

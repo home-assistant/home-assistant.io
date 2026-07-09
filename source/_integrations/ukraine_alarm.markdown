@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: ukraine_alarm
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Ukraine Alarm** {% term integration %} uses the siren.pp.ua API - public wrapper for [Ukraine Alarm](https://www.ukrainealarm.com/) web service to offer air-raid siren notifications. The {% term integration %} will create 6 binary sensors for your selected region in Ukraine:

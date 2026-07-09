@@ -40,8 +40,7 @@ automation:
         notification_id: invalid_config
 ```
 
-See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
-for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) for additional trigger data available for conditions or actions.
 
 ### Action: Create
 
@@ -63,9 +62,7 @@ actions:
       title: "Custom subject"
 ```
 
-If you want to show some runtime information, you have to use [templates](/docs/configuration/templating/).
-
-{% raw %}
+If you want to show some runtime information, you have to use [templates](/docs/templating/).
 
 ```yaml
 actions:
@@ -75,8 +72,6 @@ actions:
         Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
       message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"
 ```
-
-{% endraw %}
 
 The `persistent_notification.dismiss` action requires a `notification_id`.
 

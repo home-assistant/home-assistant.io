@@ -16,7 +16,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: device
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -103,8 +103,6 @@ EnOcean binary sensors have no state, they only generate 'button_pressed' events
 
 Sample automation to switch lights on and off:
 
-{% raw %}
-
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
@@ -120,8 +118,6 @@ automation:
         target:
           entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
-
-{% endraw %}
 
 You can find the `event_data` `id` by going to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
 

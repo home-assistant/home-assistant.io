@@ -64,12 +64,14 @@ data:
 The following commands are supported:
 
 #### Power & Navigation
+
 - `power` - Turns Sky box on or off
 - `up`, `down`, `left`, `right` - Navigate menus and guides
 - `select` - Confirm selection
 - `backup` - Return to previous screen or step in navigation. 
 
 #### Menu Access
+
 - `sky` - Exits menus and returns to live TV
 - `tvguide` - Open the TV guide
 - `boxoffice` - Access Sky Box Office
@@ -77,21 +79,26 @@ The following commands are supported:
 - `interactive` - Access interactive features
 
 #### Channel Controls
+
 - `channelup` - Moves to next channel or to next page in menus
 - `channeldown` - Moves to previous channel or to previous page in menus
 
 #### Information and Help
+
 - `i` - Displays information about the current program
 - `text` - Access text services when on live TV
 - `help` - Access subtitles or audio description when in live TV
 
 #### Color Coded Shortcut Buttons
+
 `red`, `green`, `yellow`, `blue` - Perform specific actions or open options within the user interface. The functions of these buttons vary depending on the menu or app currently in use.
 
 #### Numeric Keypad
+
 `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` - Number keys used for channel or PIN input
 
 #### Playback Controls
+
 - `play` - Starts or resumes playback.
 - `pause` - Pauses playback.
 - `stop` - Stops playback entirely.
@@ -100,6 +107,7 @@ The following commands are supported:
 - `rewind` - Rewinds playback to go back.
 
 #### SkyQ Only
+
 - `sidebar` - Opens the SkyQ sidebar
 - `dismiss` - Dismiss interactive content 
 - `search` - Opens SkyQ search interface

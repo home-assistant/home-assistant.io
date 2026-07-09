@@ -9,24 +9,36 @@ ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
   - '@Bre77'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_quality_scale: bronze
+ha_platforms:
+  - diagnostics
 ---
 
-The **Splunk** {% term integration %} makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
+[Splunk](https://www.splunk.com/) is a data platform for searching, monitoring, and analyzing machine-generated data. The **Splunk** {% term integration %} sends all Home Assistant state changes to a Splunk instance using the [HTTP Event Collector (HEC)](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) feature.
+
+## Prerequisites
+
+- A Splunk instance (version 6.3 or later) that is network-accessible from Home Assistant.
+- The HTTP Event Collector (HEC) must be enabled and a token created. To set this up in Splunk:
+  1. Go to **Settings** > **Data inputs**.
+  2. Select **HTTP Event Collector**.
+  3. Select **Global Settings** and ensure HEC is **Enabled**.
+  4. Select **New Token** and follow the prompts to create a token for Home Assistant.
+  5. Copy the generated token value for use in the configuration below.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Token:
-  description: "The HTTP Event Collector (HEC) token created in your Splunk instance."
+  description: "The HTTP Event Collector (HEC) token configured in your Splunk instance."
 Host:
   description: "The hostname or IP address of your Splunk instance."
 Port:
   description: "The port of the HTTP Event Collector on your Splunk instance."
-Use SSL:
+Uses an SSL certificate:
   description: "Whether to use HTTPS to connect to your Splunk instance."
 Verify SSL certificate:
   description: "Whether to verify the SSL certificate of your Splunk instance."
@@ -99,3 +111,12 @@ splunk:
 ```
 
 {% include common-tasks/filters.md %}
+
+## Removing the integration
+
+To remove the Splunk integration:
+
+1. Remove the `splunk:` section from your {% term "`configuration.yaml`" %} file.
+2. Restart Home Assistant.
+
+Data already sent to your Splunk instance will remain there and can still be queried.
