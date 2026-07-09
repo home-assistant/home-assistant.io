@@ -1103,6 +1103,11 @@ image:
       default: true
 {% endconfiguration %}
 
+### Templating images hosted by Home Assistant
+
+A template image can also select images you have [hosted locally](/integrations/http/#hosting-files) on the Home Assistant server. However the `url` key must be still provide a full URL, a relative URL is not supported. So to get the right path you need to provide the full local URL of your Home Assistant server, as seen by the local network. So for an example image stored in /config/www/test.png, you might provide a URL field such as: `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png` (depending on how your network is configured).
+
+
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
