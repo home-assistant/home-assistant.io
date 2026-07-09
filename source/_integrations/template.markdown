@@ -1103,9 +1103,9 @@ image:
       default: true
 {% endconfiguration %}
 
-### Templating images hosted by Home Assistant
+### Using locally hosted images
 
-A template image can also select images you have [hosted locally](/integrations/http/#hosting-files) on the Home Assistant server. However the `url` key must be still provide a full URL, a relative URL is not supported. So to get the right path you need to provide the full local URL of your Home Assistant server, as seen by the local network. So for an example image stored in /config/www/test.png, you might provide a URL field such as: `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png` (depending on how your network is configured).
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how you access Home Assistant.
 
 
 ## Light
