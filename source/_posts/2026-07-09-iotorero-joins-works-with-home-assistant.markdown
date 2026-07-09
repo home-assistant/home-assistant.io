@@ -12,7 +12,7 @@ og_image: /images/blog/2026-07-iotorero/art.webp
 
 <img src="/images/blog/2026-07-iotorero/art.webp" alt="IoTorero joins Works with Home Assistant" style="border: 0;box-shadow: none;">
 
-The Works with Home Assistant program powers up this month as we welcome our new partner, IoTorero! 🎉 Experts in pre-flashed smart home hardware, IoTorero bring the very first ESPHome-ready smart plugs and relays to the program (and that’s not all).<!--more-->
+The Works with Home Assistant program powers up this month as we welcome our new partner, <a href="https://www.athom.tech/" target="_blank" rel="noopener noreferrer">IoTorero</a>! 🎉 Experts in pre-flashed smart home hardware, IoTorero bring the very first ESPHome-ready smart plugs and relays to the program (and that’s not all).<!--more-->
 
 ## IoTorero enters the ring
 
