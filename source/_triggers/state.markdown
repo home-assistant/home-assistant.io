@@ -37,10 +37,10 @@ Attribute:
   description: Entity attribute to watch instead of the main state.
   required: false
 From:
-  description: The entity starting state or starting attribute value to match.
+  description: The starting state or starting attribute value to match.
   required: false
 To:
-  description: The new entity state or new attribute value to match.
+  description: The new state or new attribute value to match.
   required: false
 For:
   description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
@@ -72,23 +72,23 @@ entity_id:
   required: true
   type: [string, list]
 from:
-  description: The entity starting state to match. You can use one state or a list of states.
+  description: The starting state or starting attribute value to match. You can use one state or a list of states.
   required: false
   type: [string, list]
 to:
-  description: The entity new state to match. You can use one state or a list of states.
+  description: The new state or new attribute value to match. You can use one state or a list of states.
   required: false
   type: [string, list]
 not_from:
-  description: The entity starting state to exclude. You can use one state or a list of states. This option is available in YAML only.
+  description: The starting state or starting attribute value to exclude. You can use one state or a list of states. This option is available in YAML only.
   required: false
   type: [string, list]
 not_to:
-  description: The entity new state to exclude. You can use one state or a list of states. This option is available in YAML only.
+  description: The new state or new attribute value to exclude. You can use one state or a list of states. This option is available in YAML only.
   required: false
   type: [string, list]
 attribute:
-  description: The entity attribute value to watch instead of the main state.
+  description: The entity attribute to watch instead of the main state.
   required: false
   type: string
 for:
