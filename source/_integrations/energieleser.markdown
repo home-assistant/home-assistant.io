@@ -8,7 +8,7 @@ ha_category:
 ha_codeowners:
   - "@AjinkyaGokhale"
   - "@amitkio"
-ha_quality_scale: gold
+ha_quality_scale: bronze
 ha_domain: energieleser
 ha_integration_type: device
 ha_iot_class: Local Polling
@@ -120,7 +120,7 @@ automation:
 
 ## Known limitations
 
-**Rate limits:** The energieleser devices can be overwhelmed by excessive HTTP requests. If you configure multiple apps or integrations to poll the same device simultaneously, the device may hit a rate limit or temporarily become unresponsive.
+Rate limits: The energieleser devices can be overwhelmed by excessive HTTP requests. If you configure multiple apps or integrations to poll the same device simultaneously, the device may reach a rate limit or become temporarily unresponsive.
 
 ## Troubleshooting
 
