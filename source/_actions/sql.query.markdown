@@ -10,7 +10,7 @@ The **Query** action runs a read-only `SELECT` query against a database and retu
 This is useful when you want an automation or script to pull data on demand, for example to look up recent history or summarize values, without adding a separate sensor for each query. Only `SELECT` statements are allowed.
 
 {% important %}
-The **Query** action is only available once the [SQL integration](/integrations/sql/) has been set up.
+The **Query** action is only available after you set up the [SQL integration](/integrations/sql/) by adding at least one SQL sensor.
 {% endimportant %}
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you enter the query to run, and optionally the database to run it against.
