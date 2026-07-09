@@ -153,7 +153,7 @@ If you want a message when a person arrives, this automation watches for a state
 
 - **Trigger**: State
   - **Entity**: Person entity (`person.sam`)
-  - **To**: `home`
+  - **To**: Home
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
