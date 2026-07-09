@@ -68,7 +68,7 @@ Saving HTTP server settings restarts Home Assistant. After Home Assistant restar
 
 ## YAML configuration
 
-The `http:` YAML configuration is deprecated and has been replaced by the **HTTP server** settings in the UI. During the migration period, Home Assistant can still import supported `http:` YAML options into the UI-managed settings.
+The `http:` YAML configuration is deprecated and has been replaced by the **HTTP server** settings in the UI. During the migration period, Home Assistant can still import supported `http:` YAML options into the UI-managed settings. Support for `http:` YAML configuration is planned to be removed in Home Assistant 2027.6.
 
 If you already have an `http:` block in your {% term "configuration.yaml" %} file, Home Assistant imports it once and creates a repair issue asking you to remove the YAML configuration. After it has been imported, the `http:` block is ignored.
 
