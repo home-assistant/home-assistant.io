@@ -62,7 +62,7 @@ Before you set up the integration, make sure you have the following:
 - At least one Netatmo device set up and working in the Netatmo app.
 - An active internet connection. The integration talks to Netatmo's cloud service, so your devices need to be reachable through your Netatmo account.
 
-To receive instant updates through [webhook events](#webhook-events), your Home Assistant instance also needs to be reachable from the internet over port `443`. You can use [Home Assistant Cloud](/cloud/) or your own external URL for this. This is optional, but recommended for the best responsiveness.
+To receive instant updates through [webhook events](#webhook-events), your Home Assistant instance needs to be reachable from the internet. This is optional, but recommended for the best responsiveness. See [Webhook Events](#webhook-events) for setup requirements and limitations.
 
 {% include integrations/config_flow.md %}
 
