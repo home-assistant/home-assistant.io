@@ -51,3 +51,7 @@ ha_brand: true
 {% include integrations/wwha.md url="https://www.athom.tech/" %}
 
 {% include integrations/supported_brand.md %}
+
+## Supported devices
+
+{% include integrations/device_list.html brand="iotorero" %}
