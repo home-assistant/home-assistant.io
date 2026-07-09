@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
+ha_quality_scale: bronze
 ha_platforms:
   - binary_sensor
   - button
@@ -94,9 +95,27 @@ PHEV vehicles get two additional binary sensors:
 
 ### Vehicle health
 
-The vehicle's warning indicators (MILs) are exposed as diagnostic binary sensors. **Vehicle health** is enabled by default and reflects the overall rollup; the individual indicators below are **disabled by default** — enable the ones you want to track. Only indicators your vehicle actually reports are created.
+The vehicle's warning indicators (Malfunction Indicator Lamps, or MILs) are exposed as diagnostic binary sensors. **Vehicle health** is enabled by default and reflects the overall rollup; the individual indicators below are **disabled by default** — enable the ones you want to track. Only indicators your vehicle actually reports are created.
 
-Airbag, AWD, ABS, transmission temperature, blind spot/rear cross traffic, check engine, electronic brakeforce distribution, electric parking brake, engine oil level, EyeSight, idle stop & start, oil pressure, electric power steering, reverse automatic braking, steering responsive headlights, telematics, tire pressure, vehicle dynamics control, and washer fluid.
+- Airbag
+- AWD
+- ABS
+- Transmission temperature
+- Blind spot / rear cross traffic
+- Check engine
+- Electronic brakeforce distribution
+- Electric parking brake
+- Engine oil level
+- EyeSight
+- Idle stop & start
+- Oil pressure
+- Electric power steering
+- Reverse automatic braking
+- Steering responsive headlights
+- Telematics
+- Tire pressure
+- Vehicle dynamics control
+- Washer fluid
 
 ## Lock
 
@@ -171,4 +190,4 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 This integration follows standard integration removal. No additional steps are required when removing the integration from Home Assistant.
 
-If you also want to revoke Home Assistant's access to your MySubaru account, log in to [mysubaru.com](https://www.mysubaru.com) and remove the Home Assistant device under **Settings → Devices**.
+If you also want to revoke Home Assistant's access to your MySubaru account, log in to [mysubaru.com](https://www.mysubaru.com) and remove the Home Assistant device under **Settings** > **Devices**.
