@@ -89,7 +89,7 @@ Modbus framer:
 
 {% configuration_basic %}
 Enable pool light relay:
-  description: Turn on if your pool controller has a pool light wired to the lighting relay. When enabled, a `Pool light` entity is registered so you can switch the light from Home Assistant. Off by default because the lighting GPIO field is exposed by every controller regardless of whether a light is actually connected.
+  description: Turn on if your pool controller has a pool light wired to the lighting relay. When enabled, a **Pool light** entity is added so you can switch the light from Home Assistant. Off by default because the controller cannot detect whether a physical light is wired to the relay.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -98,7 +98,7 @@ The integration exposes the controller's runtime state as sensor entities, plus 
 
 ### Light
 
-- **Pool light**: switches the pool light relay on and off. Registered when the lighting GPIO is configured on the controller and the pool light relay has been enabled in the integration options. The entity state reflects the actual relay state regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to a manual mode; if the timer is in an automatic mode, the service call fails with an error so Home Assistant does not fight the schedule. Change the timer mode to manual on the controller itself to control the light directly.
+- **Pool light**: switches the pool light relay on and off. Added when the pool light relay has been enabled in the integration options and the controller has a lighting relay configured. The entity state reflects the actual relay state regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to a manual mode; if the timer is in an automatic mode, Home Assistant shows an error and does not change the relay so it does not fight the schedule. Change the timer mode to manual on the controller itself to control the light directly.
 
 ### Sensors
 
