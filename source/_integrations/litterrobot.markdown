@@ -84,7 +84,6 @@ Password:
 | Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4 and 5.                    |
 | Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4 and 5.                                     |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4 and 5.                                        |
-| Night light preset            | `select`        | View and select one of seven saturated colors for the night light, only for Litter-Robot 5.                 |
 | Sleep mode start (per day)    | `time`          | Set each day of the week's sleep mode start time, only for Litter-Robot 5.                                  |
 | Sleep mode end (per day)      | `time`          | Set each day of the week's sleep mode end time, only for Litter-Robot 5.                                    |
 | Change filter                 | `button`        | Button to indicate the filter was changed and reset the replacement date, only for Litter-Robot 5.          |
