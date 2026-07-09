@@ -139,7 +139,7 @@ data:
 
 {% enddetails %}
 
-The path part of `filename` must be in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file. When you use a wildcard, the folder part before the first wildcard must be allow-listed. For example, for `/media/snapshots/**/*.jpg`, the `/media/snapshots` folder must be in `allowlist_external_dirs`.
 
 ### Wildcards
 
