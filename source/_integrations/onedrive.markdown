@@ -151,7 +151,7 @@ The `filename` attribute supports wildcards (glob patterns), so you can upload s
 When a wildcard matches files in subfolders, those subfolders are recreated inside the `destination_folder` on OneDrive, preserving the original structure.
 
 If a wildcard pattern does not match any files, the action fails with an error listing the patterns that had no matches.
-
+The characters `*`, `?`, and `[` are always treated as wildcards. To upload a file whose name contains one of these characters literally, make sure the file exists under that exact name.
 The `destination_folder` must comply with [OneDrive naming restrictions](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa). Folder names cannot contain the following characters: `" * : < > ? / \ |`.
 
 ### Action `onedrive.delete`
