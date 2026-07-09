@@ -66,7 +66,7 @@ Common fields include:
 - `engineCapacity`
 - `co2Emissions`
 - `fuelType`
-- `colour`
+- `color`
 
 {% include actions/try_it.md %}
 

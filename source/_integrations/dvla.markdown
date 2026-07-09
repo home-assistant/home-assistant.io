@@ -22,7 +22,7 @@ ha_quality_scale: bronze
 
 The **DVLA** {% term integration %} retrieves vehicle information from the UK Driver and Vehicle Licensing Agency (DVLA) Vehicle Enquiry Service.
 
-You can use this integration to monitor UK vehicle details in Home Assistant, such as tax status, MOT status, tax due date, make, fuel type, colour, engine capacity, CO2 emissions, and other fields returned by DVLA.
+You can use this integration to monitor UK vehicle details in Home Assistant, such as tax status, MOT status, tax due date, make, fuel type, color, engine capacity, CO2 emissions, and other fields returned by DVLA.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Common sensor entities include:
 - Engine capacity
 - CO2 emissions
 - Fuel type
-- Colour
+- Color
 - Wheelplan
 - Revenue weight
 - Euro status
