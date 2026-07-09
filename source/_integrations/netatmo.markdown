@@ -58,7 +58,7 @@ There is currently support for the following device types within Home Assistant:
 
 Before you set up the integration, make sure you have the following:
 
-- A Netatmo account. If you don't have one yet, create one in the [Netatmo app](https://www.netatmo.com/) or on the [Netatmo website](https://www.netatmo.com/) and add your devices there first.
+- A Netatmo account. If you don't have one yet, create one in the Netatmo app or on the [Netatmo website](https://www.netatmo.com/) and add your devices there first.
 - At least one Netatmo device set up and working in the Netatmo app.
 - An active internet connection. The integration talks to Netatmo's cloud service, so your devices need to be reachable through your Netatmo account.
 
