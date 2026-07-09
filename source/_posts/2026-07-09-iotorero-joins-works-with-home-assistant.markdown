@@ -21,7 +21,7 @@ If you’ve spent any time browsing pre-flashed smart home tech online, there’
 Other smart devices run manufacturer-written software, which is tuned to work well with Home Assistant for certification to the program. IoTorero go a step further to make sure their tech is accessible for all: all seven of their certified devices are pre-flashed with ESPHome, meaning there’s no installation required – the devices will integrate into your Home Assistant setup straight out of the box. And because their devices are genuinely open, you can always tweak and customize them if you want to.
 
 <div class="alert">
-<p>"Since inception in 2020, IoTorero (Athom Technology) has been dedicated to the research, development, and manufacturing of open source smart home hardware products. We provide Home Assistant users with high-quality devices pre-flashed with ESPHome firmware. By joining the Works with Home Assistant program, we ensure that customers can select and purchase our products with complete confidence."</p>
+<p>“Since inception in 2020, IoTorero (Athom Technology) has been dedicated to the research, development, and manufacturing of open source smart home hardware products. We provide Home Assistant users with high-quality devices pre-flashed with ESPHome firmware. By joining the Works with Home Assistant program, we ensure that customers can select and purchase our products with complete confidence.”</p>
 <em style="text-align: right; display: block;">- Aiden Tang, CTO and Co-Founder, IoTorero</em>
 </div>
 
@@ -49,7 +49,7 @@ The Power Monitoring Mini Relay brings that same convenience to hardwired setups
 
 ## Proxy points
 
-Another nifty feature across IoTorero’s devices is that they double as Bluetooth proxies. This means they pick up signals from nearby Bluetooth low-energy (BLE) devices and pass them on to Home Assistant, extending your Bluetooth range without having to buy an extra, dedicated device. The Open Home Foundation’s recent blog post, <a href="https://www.openhomefoundation.org/blog/proxy-all-the-things-no-device-left-behind/" target="_blank" rel="noopener noreferrer">Proxy all the things: no device left behind</a>, explains why this is so important: turning everyday hardware into a "bridge" for other devices means getting more out of what you already own, instead of buying something new for every job. And one less gadget to buy means one less device ending up as e-waste ♻️.
+Another nifty feature across IoTorero’s devices is that they double as Bluetooth proxies. This means they pick up signals from nearby Bluetooth low-energy (BLE) devices and pass them on to Home Assistant, extending your Bluetooth range without having to buy an extra, dedicated device. The Open Home Foundation’s recent blog post, <a href="https://www.openhomefoundation.org/blog/proxy-all-the-things-no-device-left-behind/" target="_blank" rel="noopener noreferrer">Proxy all the things: no device left behind</a>, explains why this is so important: turning everyday hardware into a “bridge” for other devices means getting more out of what you already own, instead of buying something new for every job. And one less gadget to buy means one less device ending up as e-waste ♻️.
 
 ## Old friends, new badge
 

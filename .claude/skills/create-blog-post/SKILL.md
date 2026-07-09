@@ -171,7 +171,7 @@ If the blog post category is `Works-with-Home-Assistant`, look for a section tha
 - **Backticks**: Strip erroneous `\`` characters (preserve code blocks/inline code)
 - **Text content**: Do not change the author's wording, phrasing, or writing style. The blog text should stay as-is. If you spot obvious typos or locale spelling issues (such as British English instead of American English), do not fix them silently — collect them and ask the user for confirmation before applying any changes.
 - **Emojis**: Preserve all emojis that appear in the blog content. Do not strip them out.
-- **Apostrophes and quotes**: Convert straight apostrophes (`'`) and straight double quotes (`"`) in prose to their curly/typographic equivalents (`’`, `“`/`”`). Only apply this to body text — never to HTML attribute values, URLs, code blocks/inline code, or Liquid/Jekyll syntax.
+- **Apostrophes and quotes**: Convert straight apostrophes (`'`) and speech marks (`"`) in prose — including quoted statements, like in blockquotes — to their curly equivalents (`’`, `“`/`”`). Only apply this to body text — never to HTML attribute values, URLs, code blocks/inline code, or Liquid/Jekyll syntax.
 
 ### 7. Build Blog Post
 
