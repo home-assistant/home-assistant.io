@@ -45,8 +45,9 @@ ha_platforms:
 ha_iot_class: Local Push
 ha_dhcp: true
 ha_zeroconf: true
+ha_brand: true
 ---
 
-[IoTorero](https://www.athom.tech/) devices work locally and integrate seamlessly with the [ESPHome](/integrations/esphome/) {% term integration %} in Home Assistant. As all connectivity is done locally, status updates and device control from Home Assistant happen instantly.
+{% include integrations/wwha.md url="https://www.athom.tech/" %}
 
 {% include integrations/supported_brand.md %}
