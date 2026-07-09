@@ -14,7 +14,7 @@ ha_integration_type: system
 
 The **HTTP** {% term integration %} serves the Home Assistant frontend and APIs. You can manage the HTTP server settings from the UI under {% my network title="**Settings** > **System** > **Network**" %}.
 
-The integration provides these platforms:
+The integration supports these entity types:
 
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
