@@ -1,0 +1,94 @@
+---
+title: Send raw node command
+action: isy994.send_raw_node_command
+domain: isy994
+description: "Sends a raw ISY REST command to a node using its Home Assistant entity."
+related_actions:
+  - isy994.send_node_command
+  - isy994.send_program_command
+---
+
+With this action, you can send a raw ISY REST command (such as `DON` or `DOF`) to a node using its Home Assistant entity. This is useful for devices that are not fully supported in Home Assistant yet, such as controls for many NodeServer nodes. Refer to the ISY (or PyISY Python module) documentation for the valid commands.
+
+{% include actions/ui_header.md %}
+
+To use this action in an automation or script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the ISY entity you want to control. You can also select an area, a device, or a label.
+6. From the actions shown for that target, select **ISY: Send raw node command**.
+7. In the **Command** field, enter the ISY REST command, and set any of the other options you need.
+8. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Command:
+  description: The ISY REST command to send to the node, such as `DON`.
+Value:
+  description: The integer value to send with the command, if the command requires one.
+Parameters:
+  description: A mapping of parameters to send in the query string, for example to control colored bulbs or advanced parameters.
+Unit of measurement:
+  description: The ISY unit of measurement to send with the command, if the command requires one.
+{% endoptions_ui %}
+
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `isy994.send_raw_node_command`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: isy994.send_raw_node_command
+  target:
+    entity_id: light.front_porch
+  data:
+    command: DON
+{% endexample %}
+
+This sends the raw `DON` command to the `light.front_porch` node.
+
+### Options in YAML
+
+{% options_yaml %}
+command:
+  description: The ISY REST command to send to the node, such as `DON`.
+  required: true
+  type: string
+value:
+  description: The integer value to send with the command, if the command requires one. From 0 to 255.
+  required: false
+  type: integer
+parameters:
+  description: A mapping of parameters to send in the query string, for example to control colored bulbs or advanced parameters.
+  required: false
+  type: map
+unit_of_measurement:
+  description: The ISY unit of measurement to send with the command, if the command requires one. From 0 to 120.
+  required: false
+  type: integer
+{% endoptions_yaml %}
+
+<a id="targets"></a>
+<a id="targets-of-the-action"></a>
+
+## Targets of the action
+
+This action requires a target. The target is the object of the action. You can point the action at a single {% term entity %}, a device, an area, a floor, or a label, and Home Assistant runs the action on every matching ISY entity behind that target.
+
+- **Entity**: one specific ISY entity, such as `light.front_porch`.
+- **Device**: every ISY entity that belongs to a device.
+- **Area**: every ISY entity in a room or area.
+- **Floor**: every ISY entity on a floor.
+- **Label**: every ISY entity that shares a label.
+
+You can also select different target types in one action. For example, you can add a specific entity and an area as targets in the same action to run the action on both of them at once.
+
+{% include actions/try_it.md %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

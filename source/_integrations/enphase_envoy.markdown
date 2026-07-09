@@ -1,6 +1,6 @@
 ---
 title: Enphase Envoy
-description: Instructions on how to setup Enphase Envoy with Home Assistant.
+description: Instructions on how to set up Enphase Envoy with Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.76
@@ -257,7 +257,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 #### Grid Balanced import/export sensor entities
 
-When the Envoy metered is equipped with a a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no grid import and export measurements are available. The Envoy calculates a balance of grid import and export in one of its endpoint reports. These balanced power and energy entities are available, disabled by default.
+When the Envoy Metered is equipped with a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no grid import and export measurements are available. The Envoy calculates a balance of grid import and export in one of its endpoint reports. These balanced power and energy entities are available, disabled by default.
 
 The used endpoint is not in the official API documentation and data quality has varied / may vary with firmware evolutions.
 
@@ -481,7 +481,7 @@ The firmware version is not available as an entity, but rather as an attribute o
 
 ### Firmware update alert
 
-To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](https://www.home-assistant.io/docs/blueprint/) from the community blueprints exchange.
+To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](/docs/blueprint/) from the community blueprints exchange.
 
 Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/automation/catsmanac/Track_envoy_firmware.yaml`. Use the [automation example](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651#p-3741023-example-10) shown in the blueprint exchange to implement an automation that will create a notification when the firmware changes.
 
@@ -644,7 +644,7 @@ In the Home Assistant configuration, the Envoy entities are identified by their 
 
 The actual data stored in states, short- and long-term statistics, is identified by an entity identifier. This entity_id is registered in the entity configuration as well. Using the entity_id, the data in the data stores is connected to the entity. Similar to the unique_id, this entity_id contains the serial number of the Envoy, micro-inverters, Enpower, and/or Encharge devices.
 
-When adding the new Envoy, new entities are created, each containing the new Envoy's serial number in unique_id and entity_id. For the Envoy data, this results in states and short- and long-term statistics starting from that point in time. Data from the old Envoy can not be seen in the new Envoy. For the micro-inverters and Enpower/Encharge device data, the serial numbers remain the same, and data will continue from the old data.
+When adding the new Envoy, new entities are created, each containing the new Envoy's serial number in unique_id and entity_id. For the Envoy data, this results in states and short- and long-term statistics starting from that point in time. Data from the old Envoy cannot be seen in the new Envoy. For the micro-inverters and Enpower/Encharge device data, the serial numbers remain the same, and data will continue from the old data.
 
 To 'chain' the data of the old Envoy to the new Envoy, the entities of the new Envoy should connect to the existing data. To do so, we need to make sure the existing data can be found when using the new entity_id that contains the new Envoy serial number. This can be done by updating the entity_id of the old Envoy entities and replacing their old serial numbers with the new Envoy serial number. See [customizing entities](/docs/configuration/customizing-devices/) for how to change the entity_id. This should be done **before** the new Envoy is configured in Home Assistant.
 
@@ -664,7 +664,7 @@ Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. 
 
 Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
 
-When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
 
 ## Known issues and limitations
 
@@ -772,6 +772,20 @@ Envoy Metered with a net-consumption CT measures current and energy exchange bet
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
+### Data outage around 11 PM
+
+Shortly after 11 PM, data requests to the Envoy may fail. This has been reported for various firmware versions and at different times. The Envoy is reportedly recycling internal processes or performing cleanup tasks. While this activity is ongoing, data requests may fail. The issue is typically observed as log entries and gaps in historical data. These gaps may last until a new value comes in. For some entities, this may not happen until the next sunrise, when solar generation resumes.
+
+{% details "History example for Envoy Lifetime energy production with gaps at 11 PM" %}
+
+The example below shows data gaps starting at 11 PM on multiple, but not all, days.
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_11pm_outages.png" alt="envoy lifetime energy production 11 PM outages">
+  <figcaption>Envoy Lifetime energy production data gaps at 11 PM.</figcaption>
+</figure>
+
+{% enddetails %}
+
 ## Troubleshooting
 
 ### Enlighten authentication issues
@@ -779,7 +793,7 @@ In multiphase installations with batteries, in countries with phase-balancing gr
 If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
-- As of HA version 2026.1.2
+- As of Home Assistant version 2026.1.2
   - KeyError: 'session_id'
   - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
 
@@ -810,7 +824,7 @@ This integration provides debug log and {% term diagnostics %} report as describ
 When experiencing issues during the use of the integration, enable the debug log for the <abbr title="IQ Gateway">Envoy</abbr>. Then restart the integration. This will add details on the data collection to the Home Assistant log file. Leave the debug log enabled long enough to capture the occurrence of the issue. If the issue is intermittent, this may take a while and it may grow the log file quite a bit.
 
 If you're expecting features to show but they are not shown, make sure to reload the integration while debug logging is enabled.
-When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
+When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected. Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
 
 Once the issue occurred, stop the debug logging again (*download of debug log file will start automatically*). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
 

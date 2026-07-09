@@ -139,6 +139,23 @@ This means that the IP address or the port specified is wrong.
 
 To resolve this issue, verify the device’s IP address and port by navigating to them in a web browser.
 
+### Can’t update data
+
+#### Symptom: Device storage error
+
+During data refresh, the device may fail to provide the expected data and logs the error above.
+In most cases, the device web UI shows some or all pages as blank.
+
+##### Description
+
+This usually indicates that the SD card is failing and can no longer be read reliably.
+One of the most commonly affected files is `DATA\BPAGES.BIN`.
+
+##### Resolution
+
+To resolve this issue, replace the SD card.
+If a backup is not available, restore the configuration and firmware using [Comelit SimpleProg](https://pro.comelitgroup.com/it-it/downloads/domotica/software-3/simpleprog).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

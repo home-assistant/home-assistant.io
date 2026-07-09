@@ -1,6 +1,6 @@
 ---
 title: OneDrive
-description: Instructions on how to setup OneDrive to be used with backups.
+description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
   - Backup
@@ -100,11 +100,9 @@ You can use the `onedrive.upload` action to upload one or more files from Home A
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `filename` | no | One or more local file paths to upload. Accepts a single string or a list of strings. | /media/image.jpg |
+| `filename` | no | One or more local file paths to upload. Accepts a single string or a list of strings. Supports wildcards. | /media/image.jpg |
 | `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded files. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
 | `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
-
-{% raw %}
 
 ```yaml
 # Upload a single file
@@ -112,6 +110,7 @@ action: onedrive.upload
 data:
   filename: /media/image.jpg
   destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 
 # Upload multiple files
 action: onedrive.upload
@@ -120,11 +119,75 @@ data:
     - /media/image_1.jpg
     - /media/image_2.jpg
   destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Upload all JPG files in a folder using a wildcard
+action: onedrive.upload
+data:
+  filename: /media/snapshots/*.jpg
+  destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Upload all JPG files in a folder and its subfolders
+action: onedrive.upload
+data:
+  filename: /media/snapshots/**/*.jpg
+  destination_folder: Snapshots/2025
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
 ```
 
-{% endraw %}
 
 {% enddetails %}
+
+The path part of `filename` must be in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file. When you use a wildcard, the folder part before the first wildcard must be allow-listed. For example, for `/media/snapshots/**/*.jpg`, the `/media/snapshots` folder must be in `allowlist_external_dirs`.
+
+### Wildcards
+
+The `filename` attribute supports wildcards (glob patterns), so you can upload several files without listing each one:
+
+- `*` matches any number of characters within a single folder level. For example, `/media/snapshots/*.jpg` uploads every JPG file in the `snapshots` folder.
+- `**` matches folders recursively. For example, `/media/snapshots/**/*.jpg` uploads every JPG file in the `snapshots` folder and all of its subfolders. 
+- `?` matches a single character.
+-  `[` starts a character range, such as  `[0-9]`.
+
+When a wildcard matches files in subfolders, those subfolders are recreated inside the `destination_folder` on OneDrive, preserving the original structure.
+
+If a wildcard pattern does not match any files, the action fails with an error listing the patterns that had no matches.
+The characters `*`, `?`, and `[` are always treated as wildcards. To upload a file whose name contains one of these characters literally, make sure the file exists under that exact name.
+The `destination_folder` must comply with [OneDrive naming restrictions](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa). Folder names cannot contain the following characters: `" * : < > ? / \ |`.
+
+### Action `onedrive.delete`
+
+You can use the `onedrive.delete` action to delete one or more files from your OneDrive app folder.
+
+{% details "Delete action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `destination_path` | no | One or more paths to files inside your `Apps/Home Assistant` app folder to delete. Supports subfolders. | Snapshots/2025/image.jpg |
+| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to delete from). | a1bee602deade2b09bc522749bbce48e |
+
+```yaml
+# Delete a single file
+action: onedrive.delete
+data:
+  destination_path: Snapshots/2025/image.jpg
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+
+# Delete multiple files
+action: onedrive.delete
+data:
+  destination_path:
+    - Snapshots/2025/image.jpg
+    - Snapshots/2025/image2.jpg
+  config_entry_id: a1bee602deade2b09bc522749bbce48e
+```
+
+{% enddetails %}
+
+{% note %}
+The `onedrive.delete` action removes only files, not the folders that were created during upload. Whether the deleted file is moved to the Recycle Bin or permanently removed depends on the **Delete files permanently** option in the integration settings.
+{% endnote %}
 
 ## Automations
 
@@ -151,7 +214,9 @@ triggers:
     from: "nearing"
     to: "critical"
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: OneDrive is almost full!
       message: >
@@ -164,7 +229,7 @@ mode: single
 
 ## Getting application credentials
 
-This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
+This integration comes with a predefined set of [application credentials](/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
 
 Even if you use the default credentials, nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 

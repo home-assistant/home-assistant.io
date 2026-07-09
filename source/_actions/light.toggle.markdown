@@ -9,9 +9,9 @@ related_actions:
   - light.turn_off
 ---
 
-The **Toggle** action flips a light to the opposite state. If the light is off, it turns on. If it's on, it turns off. This is handy for a single button or a motion sensor that should cycle a light without you having to know what state it's in.
+The **Toggle light** action flips a light to the opposite state. If the light is off, it turns on. If it's on, it turns off. This is handy for a single button or a motion sensor that should cycle a light without you having to know what state it's in.
 
-When **Toggle** turns a light on, you can also set the brightness, color, color temperature, or a transition at the same time, just like you would with **Turn on**. Those options are ignored when **Toggle** turns the light off.
+When **Toggle light** turns a light on, you can also set the brightness, color, color temperature, or a transition at the same time, just like you would with **Turn on light**. Those options are ignored when **Toggle light** turns the light off.
 
 {% include actions/ui_header.md %}
 
@@ -21,13 +21,13 @@ To toggle a light from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Light: Toggle**.
+5. From the search box, search for and select **Light: Toggle light**.
 6. Under **Targets**, choose what you want to toggle:
     - To toggle a specific light, select the entity.
     - To toggle every light in a room, select an area.
     - To toggle every light on a floor, select a floor.
     - To toggle lights sharing a tag, select a label.
-7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition that should apply when the light turns on.
+7. _Optional_: under **Additional options**, set the brightness, color, color temperature, or transition that should apply when the light turns on.
 8. Select **Save**.
 
 ### Options in the UI
@@ -138,9 +138,9 @@ profile:
 
 ## Good to know
 
-- The **Toggle** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
-- When **Toggle** turns a light on, any brightness, color, or transition options you set are applied. When it turns a light off, those options are ignored.
-- If you use **Toggle** on a group of lights, each light in the group flips its own state. Some lights may turn on while others turn off. To treat a group as one unit, create a dedicated [light group](/integrations/group/) first.
+- The **Toggle light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
+- When **Toggle light** turns a light on, any brightness, color, or transition options you set are applied. When it turns a light off, those options are ignored.
+- If you use **Toggle light** on a group of lights, each light in the group flips its own state. Some lights may turn on while others turn off. To treat a group as one unit, create a dedicated [light group](/integrations/group/) first.
 - If you already know the state you want, use [Turn on a light](/actions/light.turn_on/) or [Turn off a light](/actions/light.turn_off/) instead. They make the intent clearer in the automation's name.
 
 {% include actions/try_it.md %}
@@ -151,7 +151,7 @@ profile:
 
 Wire a physical button or a dashboard tile to a single toggle action so it acts like a light switch.
 
-- **Action**: Light: Toggle
+- **Action**: Light: Toggle light
 - **Target**: Hallway light
 
 {% details "YAML example for a one-button hallway toggle" %}
@@ -169,7 +169,7 @@ action: |
 
 When the toggle turns the kitchen light on, have it come up dim and warm instead of at full blast.
 
-- **Action**: Light: Toggle
+- **Action**: Light: Toggle light
 - **Target**: Kitchen light
 - **Brightness percentage**: 40
 - **Color**: warm_white
@@ -193,7 +193,7 @@ action: |
 Keep a smart button on the wall and flip the hallway light whenever you press it. A great way to add a light switch where there isn't one.
 
 - **Trigger**: Device: Button pressed
-- **Action**: Light: Toggle
+- **Action**: Light: Toggle light
 - **Target**: Hallway light
 
 {% details "YAML example for a button-driven hallway toggle" %}
@@ -222,7 +222,7 @@ automation: |
 When the bathroom motion sensor fires, flip the light. The next motion event flips it back, so you can also use the same automation to cut the light when you leave.
 
 - **Trigger**: Motion sensor detects motion
-- **Action**: Light: Toggle
+- **Action**: Light: Toggle light
 - **Target**: Bathroom light
 
 {% details "YAML example for toggling the bathroom light on motion" %}
@@ -247,7 +247,7 @@ automation: |
 When the pantry door opens, flip the light. Close the door and the same trigger flips it back off the next time around.
 
 - **Trigger**: Door sensor opens
-- **Action**: Light: Toggle
+- **Action**: Light: Toggle light
 - **Target**: Pantry light
 
 {% details "YAML example for a pantry door toggle" %}

@@ -2,7 +2,7 @@
 title: "Volatile organic compounds ratio crossed threshold"
 trigger: air_quality.voc_ratio_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more volatile organic compounds ratios cross a threshold."
+description: "Triggers when one or more volatile organic compounds ratios cross a threshold."
 related_triggers:
   - air_quality.voc_ratio_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Volatile organic compounds ratio crossed threshold** trigger fires when the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors crosses a specific level. While the VOC level measures an absolute concentration, the VOC ratio expresses the reading as a proportion of a reference baseline, making it easier to spot relative changes. Some sensors report this as a percentage or index value.
 
 Picture your kitchen extractor fan turning on the instant cooking fumes push the VOC ratio past its normal baseline, clearing the air before odors spread through the house. Or getting an alert on your phone when cleaning products cause a spike so you know to open a window. This trigger reacts to relative shifts in air quality, which is ideal for catching sudden changes even when absolute readings vary from sensor to sensor.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -23,7 +21,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Volatile organic compounds ratio crossed threshold**.
 6. Under **Threshold type**, set the VOC ratio the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -31,14 +29,11 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Threshold type:
-  description: The VOC ratio the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
+  description: The VOC ratio the reading has to cross for the trigger to fire. You must enter a fixed number, or reference a helper entity that provides the value.
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,7 +47,7 @@ trigger: |
     entity_id: sensor.kitchen_voc_ratio
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the kitchen VOC ratio sensor crosses 50 in either direction.
@@ -69,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -102,7 +97,7 @@ Frying and searing create a burst of fumes that quickly fills the kitchen. This 
 - **Trigger**: Volatile organic compounds ratio crossed threshold
 - **Target**: Kitchen VOC ratio sensor
 - **Threshold type**: 50
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Action**: Turn on fan (kitchen extractor)
 
 {% details "YAML example for VOC ratio kitchen extractor" %}
@@ -116,7 +111,7 @@ automation: |
         entity_id: sensor.kitchen_voc_ratio
       options:
         threshold: 50
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

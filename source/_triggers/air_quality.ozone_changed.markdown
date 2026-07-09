@@ -2,7 +2,7 @@
 title: "Ozone level changed"
 trigger: air_quality.ozone_changed
 domain: air_quality
-description: "Triggers after one or more ozone levels change."
+description: "Triggers when one or more ozone levels change."
 related_triggers:
   - air_quality.ozone_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Ozone level changed** trigger fires after the ozone (O3) reading on one or more air quality sensors changes by a meaningful amount. Ground-level ozone forms when sunlight reacts with pollutants from vehicles and industry. It is the primary ingredient in smog and tends to peak on hot, sunny afternoons. If you enjoy opening the windows on a warm day, ozone monitoring helps you decide whether the outdoor air is actually better than what's already inside.
 
 Imagine your HVAC switching to recirculation mode on a scorching summer afternoon because ozone levels shifted, keeping your family comfortable without pulling smoggy air indoors. Use this trigger to close windows, pause outdoor ventilation, or send a health reminder whenever ozone readings shift noticeably.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,7 +28,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the ozone level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

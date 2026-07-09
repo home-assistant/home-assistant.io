@@ -46,7 +46,7 @@ You must have a developer account to distribute the data.
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
-     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+     - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
    - **Change logo**: Optional
 6. **Save** your changes.
    - Once saved, the *ClientID* and *Secret* fields will be populated.
@@ -103,10 +103,9 @@ If you see a warning like `Webhook not registered - HTTPS is required` or `Webho
 
 To resolve this:
 
-1. Make sure **Advanced mode** is enabled in your {% my profile title="**User profile**" %}.
-2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
-4. Select **Save**.
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
+3. Select **Save**.
 
 You can keep the **Local Network** URL set to your internal HTTP address. Home Assistant uses the **Internet** URL for webhooks, while integrations that prefer local communication continue to use the **Local Network** URL.
 

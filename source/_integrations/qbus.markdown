@@ -8,6 +8,7 @@ ha_category:
   - Hub
   - Light
   - Scene
+  - Select
   - Sensor
   - Switch
 ha_platforms:
@@ -16,6 +17,7 @@ ha_platforms:
   - cover
   - light
   - scene
+  - select
   - sensor
   - switch
 ha_iot_class: Local Push
@@ -39,7 +41,7 @@ The controllers cannot communicate directly with MQTT. Therefore, you need to in
 
 For information on setting up Home Assistant with a **Qbus** controller, refer to the [Qbus documentation](https://iot.qbus.be/). The documentation is currently only available in Dutch, but translations are planned for the future.
 
-Once the Qbus controller is connected to the MQTT server, you need to set up an MQTT client in Home Assistant to enable communication between Home Assistant and your **Qbus** system. This client should connect to the same MQTT Server as your Qbus controller. For detailed instructions, refer to the [MQTT integration documentation](https://www.home-assistant.io/integrations/mqtt/).
+Once the Qbus controller is connected to the MQTT server, you need to set up an MQTT client in Home Assistant to enable communication between Home Assistant and your **Qbus** system. This client should connect to the same MQTT Server as your Qbus controller. For detailed instructions, refer to the [MQTT integration documentation](/integrations/mqtt/).
 
 {% include integrations/config_flow.md %}
 
@@ -55,8 +57,9 @@ There is currently support for the following **Qbus** products within Home Assis
 - **Binary sensor**: display values from weather stations and controller information.
 - **Climate**: manage thermostats by setting temperature and choosing presets.
 - **Cover**: operate covers with support for actions like open, close, stop, position adjustment, and tilt — depending on your setup.
-- **Light**: control dimmer lights, allowing both on/off functionality and brightness adjustment.
+- **Light**: control dimmer lights and multi-color lights, allowing both on/off functionality and brightness adjustment. Multi-color lights also support changing the color and applying effects.
 - **Scene**: activate predefined scenes.
+- **Select**: select stepper values.
 - **Sensor**: display sensor values from devices like gauges, humidity sensors, thermostats, ventilation, and weather stations.
 - **Switch**: toggle on/off outputs.
 

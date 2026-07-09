@@ -1,8 +1,9 @@
 ---
-title: Victron GX Communication Center Integration
+title: Victron GX
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
   - Binary sensor
+  - Button
   - Number
   - Presence detection
   - Select
@@ -17,7 +18,9 @@ ha_codeowners:
 ha_domain: victron_gx
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
+  - diagnostics
   - number
   - select
   - sensor
@@ -31,7 +34,8 @@ related:
     title: Victron MQTT Python library
   - url: https://tomer-w.github.io/victron_mqtt/
     title: Supported entities documentation
-ha_quality_scale: bronze
+ha_quality_scale: platinum
+ha_ssdp: true
 ---
 
 The **Victron GX Integration** integration connects to [Victron Energy](https://www.victronenergy.com/) GX devices using MQTT, providing real-time monitoring and control of your Victron system, including inverters, solar chargers, battery systems, grid meters, and <abbr title="electric vehicle">EV</abbr> chargers.
@@ -163,6 +167,11 @@ Configurable time-of-day settings, such as:
 
 - <abbr title="Energy Storage System">ESS</abbr> BatteryLife schedule charge start times
 
+#### Buttons
+
+- **Reboot device**
+  - **Description**: Reboots the GX device.
+
 ## Known limitations
 
 - The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
@@ -172,8 +181,6 @@ Configurable time-of-day settings, such as:
 ### Send a notification when the battery is low
 
 You can use this automation to receive a notification when your battery state of charge drops below a certain threshold. Replace `sensor.battery_soc` with your actual battery charge entity.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -191,7 +198,6 @@ automation:
             {{ states('sensor.battery_soc') }}%.
 ```
 
-{% endraw %}
 ## Troubleshooting
 
 ### Cannot connect

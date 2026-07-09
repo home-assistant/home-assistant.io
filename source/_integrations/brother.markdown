@@ -97,7 +97,7 @@ The Brother integration provides the following entities.
   - **Description**: Remaining lifetime percentage of the fuser unit
 - **Laser remaining lifetime**
   - **Description**: Remaining lifetime percentage of the laser unit
-- **Last restart**
+- **Uptime**
   - **Description**: Date and time of the last printer restart
   - **Remarks**: This entity is disabled by default
 - **Magenta drum page counter**

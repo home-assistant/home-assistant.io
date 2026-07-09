@@ -9,7 +9,7 @@ related_actions:
   - light.toggle
 ---
 
-The **Turn on** action turns a light on. You can simply switch it on, or go further and set the brightness, color, color temperature, or an effect at the same time.
+The **Turn on light** action turns a light on. You can simply switch it on, or go further and set the brightness, color, color temperature, or an effect at the same time.
 
 This action works with any light {% term entity %} in Home Assistant, whether it's a single bulb, a group of lights, or a smart fixture. If the light is already on, calling the action updates its attributes (such as brightness or color) without flashing off first.
 
@@ -21,13 +21,13 @@ To turn a light on from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Light: Turn on**.
+5. From the search box, search for and select **Light: Turn on light**.
 6. Under **Targets**, choose what you want to turn on:
     - To turn on a specific light, select the entity.
     - To turn on every light in a room, select an area.
     - To turn on every light on a floor, select a floor.
     - To turn on lights sharing a tag, select a label.
-7. _Optional_: under **Advanced options**, set the brightness, color, color temperature, or transition.
+7. _Optional_: under **Additional options**, set the brightness, color, color temperature, or transition.
 8. Select **Save**.
 
 ### Options in the UI
@@ -138,7 +138,7 @@ profile:
 
 ## Good to know
 
-- The **Turn on** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
+- The **Turn on light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
 - If the light is already on, the call updates its attributes (brightness, color) without flashing off first.
 - Not every light supports every field. A bulb that only dims ignores color fields, and a color-only light ignores color temperature. Home Assistant quietly skips fields the device can't handle.
 - To reverse this action, use [Turn off a light](/actions/light.turn_off/). To flip a light between on and off with a single call, use [Toggle a light](/actions/light.toggle/).
@@ -151,7 +151,7 @@ profile:
 
 When you start winding down in the evening, dim the kitchen light to a warm white tone.
 
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 - **Target**: Kitchen light
 - **Brightness percentage**: 80
 - **Color**: warm_white
@@ -174,7 +174,7 @@ action: |
 
 A long transition is a gentle way to wake up. Instead of snapping the light on, fade it up slowly.
 
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 - **Target**: Bedroom light
 - **Brightness percentage**: 100
 - **Transition**: 10 seconds
@@ -197,7 +197,7 @@ action: |
 
 Target an area instead of a specific entity and Home Assistant resolves it to every light inside the room.
 
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 - **Target**: Living room
 - **Brightness percentage**: 60
 
@@ -219,7 +219,7 @@ action: |
 Greet the evening by turning the porch light on at a warm white tone as the sun drops below the horizon. Nice and welcoming without running the light at full power.
 
 - **Trigger**: Sun: Below horizon
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 - **Target**: Porch light
 - **Brightness percentage**: 60
 - **Color**: warm_white
@@ -249,7 +249,7 @@ Fade the bedroom light up over ten seconds at 7 in the morning on weekdays. A ki
 
 - **Trigger**: Time: 07:00
 - **Condition**: Day of the week is Monday to Friday
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 - **Target**: Bedroom light
 - **Brightness percentage**: 100
 - **Transition**: 10 seconds
@@ -287,7 +287,7 @@ When you arrive home after dark, turn on every light in the living room at a com
 
 - **Trigger**: Person: Paulus changes to home
 - **Condition**: Sun is below horizon
-- **Action**: Light: Turn on
+- **Action**: Light: Turn on light
 - **Target**: Living room
 - **Brightness percentage**: 60
 

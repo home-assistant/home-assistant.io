@@ -3,6 +3,7 @@ title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Climate
+  - Infrared
   - Light
   - Radio Frequency
   - Remote
@@ -19,6 +20,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
+  - infrared
   - light
   - radio_frequency
   - remote
@@ -35,7 +37,7 @@ related:
 
 The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors.
 
-The manufacturer's app is required in order to connect new devices to the network.
+The manufacturer's app is required to connect new devices to the network.
 
 The following devices are supported:
 
@@ -58,6 +60,7 @@ The {% term entities %} have the same name as the device by default. To change t
 The {% term entities %} are divided into the following subdomains:
 
 - [Climate](#climate)
+- [Infrared](#infrared)
 - [Radio frequency](#radio-frequency)
 - [Remote](#remote)
 - [Select](#select)
@@ -69,6 +72,13 @@ The {% term entities %} are divided into the following subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
+
+## Infrared
+
+The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
+
+The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information. 
+The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
 
 ## Radio frequency
 
@@ -141,7 +151,7 @@ _Tip:_ Click Notifications in the sidebar after using the action and follow the 
 
 #### Learning a sequence of commands
 
-In order to streamline the learning process, you may want to provide a list of commands to be learned sequentially:
+To streamline the learning process, you may want to provide a list of commands to be learned sequentially:
 
 ```yaml
 # Example configuration.yaml entry

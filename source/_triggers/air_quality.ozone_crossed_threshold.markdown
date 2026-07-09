@@ -2,7 +2,7 @@
 title: "Ozone level crossed threshold"
 trigger: air_quality.ozone_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more ozone levels cross a threshold."
+description: "Triggers when one or more ozone levels cross a threshold."
 related_triggers:
   - air_quality.ozone_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Ozone level crossed threshold** trigger fires when the ozone (O3) reading on one or more air quality sensors crosses a specific level. Ground-level ozone forms when sunlight reacts with pollutants from vehicles and industry, and it tends to peak on hot, sunny afternoons. High ozone levels irritate the lungs and are especially risky during outdoor exercise.
 
 Imagine getting a notification before your afternoon run telling you ozone is too high to exercise outside today. Or having your ventilation system close its fresh-air intake automatically when ozone spikes, so your indoor air stays clean without you thinking about it. This trigger watches the sky for you and lets your home take action the instant conditions become unhealthy.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -23,7 +21,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Ozone level crossed threshold**.
 6. Under **Threshold type**, set the ozone level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -32,13 +30,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The ozone concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,7 +47,7 @@ trigger: |
     entity_id: sensor.backyard_ozone
   options:
     threshold: 100
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the backyard ozone sensor crosses 100 in either direction.
@@ -69,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -100,11 +95,12 @@ for:
 On hot afternoons, ground-level ozone spikes without any visible sign. This automation sends a notification when your backyard ozone sensor crosses 100, giving you a friendly heads-up to take your workout inside.
 
 - **Trigger**: Ozone level crossed threshold
-- **Target**: Backyard ozone sensor
-- **Threshold type**: 100
-- **Trigger when**: Any
+  - **Target**: Backyard ozone sensor
+  - **Threshold type**: 100
+  - **Trigger when**: Each
 - **Condition**: Ozone is above 100
-- **Action**: Notify mobile app
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for ozone exercise advisory" %}
 
@@ -117,13 +113,15 @@ automation: |
         entity_id: sensor.backyard_ozone
       options:
         threshold: 100
-        behavior: any
+        behavior: each
   conditions:
     - condition: numeric_state
       entity_id: sensor.backyard_ozone
       above: 100
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "High ozone outside"
         message: >

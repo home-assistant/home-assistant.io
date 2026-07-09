@@ -19,13 +19,13 @@ This {% term integration %} allows you to locally control a MicroBot Push (previ
 
 ### Prerequisites
 
-In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A Naran/Keymitt hub is not required.
+To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A Naran/Keymitt hub is not required.
 
 The device will need to be in pairing mode before adding to Home Assistant. To reset the MicroBot Push, turn it off, then back on, and immediately hold the push button while the LED is red. After approximately 5 seconds, the LED will flash rapidly, at which point release the button. The LED will blink blue if the pairing mode has been successfully activated.
 
 If you have multiple devices, you will need to know the BTLE MAC address of your device to tell them apart.
 
-Please note, that the devices cannot remain paired to the MicroBot application for this integration to function. They will be paired to Home Assistant exclusively.
+The devices cannot remain paired to the MicroBot application for this integration to function. They will be paired to Home Assistant exclusively.
 
 {% include integrations/config_flow.md %}
 

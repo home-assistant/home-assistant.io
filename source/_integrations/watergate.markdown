@@ -20,7 +20,7 @@ ha_integration_type: device
 ---
 
 The **Watergate** {% term integration %} integrates your Watergate Devices (currently Sonic Wi-Fi) with your Home Assistant.
-With this integration, you are able to:
+With this integration, you can:
 
 - Control your valve
 - Monitor live telemetry (water flow, water pressure, water temperature)

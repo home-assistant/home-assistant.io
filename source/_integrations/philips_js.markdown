@@ -70,7 +70,7 @@ Before adding the integration, it is worth checking if this integration works fo
 
 ### Turn on device
 
-The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+The Philips TV does not always support turning on via the API. You can either turn it on via an IR blaster or on some models using Wake On LAN (WOL). To trigger this command from the entities, the integration exposes a `device trigger` that can be set up to execute when the `media_player` is asked to turn on.
 
 ### Remote
 
