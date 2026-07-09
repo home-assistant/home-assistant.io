@@ -57,14 +57,14 @@ The **Steam** integration provides the following entities.
     - **Game header image**: The URL of the header image for the game the user is currently playing.
     - **Game icon**: The URL of the icon for the game the user is currently playing.
 - **Last online**
-  - **Description**: The date and time the Steam user was last seen online
+  - **Description**: The date and time the Steam user was last seen online.
 - **Level**
   - **Description**: The current Steam level of the user.
 - **Now playing**
   - **Description**: The title of the game the user is currently playing. If the user is not playing a game, the sensor is unavailable.
   - **Attributes**:
     - **Game ID**: The Steam App ID of the currently played game.
-  
+
 ## Examples
 
 If you want to add the accounts to a group for example you will have to use:
