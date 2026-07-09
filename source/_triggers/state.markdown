@@ -98,10 +98,6 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-If you want to trigger on all state changes but ignore attribute-only changes, set one of `from`, `to`, `not_from`, or `not_to` to an empty value in YAML.
-
-In YAML, `from`, `to`, `not_from`, and `not_to` each accept either one state or a list of states.
-
 ## Targets of the trigger
 
 This trigger watches one or more entities:
