@@ -28,6 +28,10 @@ the key on the right of the settings dialog.
 
 {% include integrations/config_flow.md %}
   
+## Notes
+Device Sensors are updated on events only.
+Status may be set as `unknown` or have an outdated value until the next event arrives.
+
 ## Integration entities
 
 The Syncthing integration adds a sensor for each configured device and each synced folder:
