@@ -69,28 +69,28 @@ The vertical swing mode values changed in Home Assistant 2026.x. If you have aut
 
 The vertical swing mode controls the up/down airflow direction and supports the following positions:
 
-- `default` — device default position
-- `full_swing` — full vertical sweep
-- `fixed_upper` — fixed at the upper position
-- `fixed_upper_middle` — fixed at the upper-middle position
-- `fixed_middle` — fixed at the middle position
-- `fixed_lower_middle` — fixed at the lower-middle position
-- `fixed_lower` — fixed at the lower position
-- `swing_upper` — oscillates in the upper range
-- `swing_upper_middle` — oscillates in the upper-middle range
-- `swing_middle` — oscillates in the middle range
-- `swing_lower_middle` — oscillates in the lower-middle range
-- `swing_lower` — oscillates in the lower range
+- `default`: device default position
+- `full_swing`: full vertical sweep
+- `fixed_upper`: fixed at the upper position
+- `fixed_upper_middle`: fixed at the upper-middle position
+- `fixed_middle`: fixed at the middle position
+- `fixed_lower_middle`: fixed at the lower-middle position
+- `fixed_lower`: fixed at the lower position
+- `swing_upper`: oscillates in the upper range
+- `swing_upper_middle`: oscillates in the upper-middle range
+- `swing_middle`: oscillates in the middle range
+- `swing_lower_middle`: oscillates in the lower-middle range
+- `swing_lower`: oscillates in the lower range
 
 The horizontal swing mode controls the left/right airflow direction and supports the following positions:
 
-- `default` — device default position
-- `full_swing` — full horizontal sweep
-- `left` — fixed at the left position
-- `left_center` — fixed at the left-center position
-- `center` — fixed at the center position
-- `right_center` — fixed at the right-center position
-- `right` — fixed at the right position
+- `default`: device default position
+- `full_swing`: full horizontal sweep
+- `left`: fixed at the left position
+- `left_center`: fixed at the left-center position
+- `center`: fixed at the center position
+- `right_center`: fixed at the right-center position
+- `right`: fixed at the right position
 
 ## Switch
 
