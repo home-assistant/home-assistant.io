@@ -49,8 +49,15 @@ The **Steam** integration provides the following entities.
 - **Primary sensor**
   - **Name**: The Steam profile name of the account.
   - **Description**: Represents the account's current presence status.
-  - **Available states**: Online, Offline, Away, Busy, Looking to play, Looking to trade, or Snooze
-  - **Attributes**
+  - **Available states**:
+    - Online
+    - Offline
+    - Away
+    - Busy
+    - Snooze
+    - Looking to play
+    - Looking to trade
+  - **Attributes**:
     - **Account created**: The date and time when the Steam account was created.
     - **Real name**: The user's real name, if provided on their Steam profile.
     - **Game image**: The URL of the logo image for the game the user is currently playing.
