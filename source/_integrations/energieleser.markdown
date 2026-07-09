@@ -38,7 +38,7 @@ The integration supports the following energieleser devices:
 
 Ensure your energieleser device is connected to the same local network as your Home Assistant instance and its IP address is accessible.
 
-For detailed hardware setup instructions, please refer to the [official energieleser documentation](https://docs.energieleser.de/).
+For detailed hardware setup instructions, refer to the [energieleser documentation](https://docs.energieleser.de/).
 
 {% include integrations/config_flow.md %}
 
@@ -86,17 +86,17 @@ The energieleser integration primarily provides the following features based on 
 
 ## Data updates
 
-The integration is {% term polling %} new data from the device every 10 seconds over your local network.
+The integration {% term polling polls %} data from the device every 10 seconds over your local network.
 
 ## Use cases
 
 You can use the energieleser integration for a variety of smart home scenarios, such as:
 
 - Monitoring your energy consumption: Add the sensors to the Home Assistant Energy dashboard to track your daily, monthly, and yearly consumption of electricity, gas, water, or heat.
-- Automation based on usage: Trigger automations when electricity consumption goes above or below certain thresholds (e.g., turn on appliances when excess solar power is being exported).
+- Automation based on usage: Trigger automations when electricity consumption goes above or below certain thresholds (for example, turn on appliances when excess solar power is being exported).
 - Detection of leaks and anomalies: Create alerts for continuous water flow or unusual gas usage patterns to detect potential leaks.
 
-## Example Automations and Scripts
+## Automation examples
 
 Below is an example automation to notify you when high power consumption is detected.
 
