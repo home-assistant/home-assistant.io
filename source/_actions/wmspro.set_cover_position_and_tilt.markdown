@@ -83,19 +83,19 @@ When the afternoon sun starts shining in, you can lower the blinds part way and 
 
 {% example %}
 automation: |
-  alias: "Tilt the living room blinds in the afternoon"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sun.sun
-      attribute: elevation
-      below: 25
-  actions:
-    - action: wmspro.set_cover_position_and_tilt
-      target:
-        entity_id: cover.living_room_blind
-      data:
-        position: 60
-        tilt_position: 30
+  - alias: "Tilt the living room blinds in the afternoon"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sun.sun
+        attribute: elevation
+        below: 25
+    actions:
+      - action: wmspro.set_cover_position_and_tilt
+        target:
+          entity_id: cover.living_room_blind
+        data:
+          position: 60
+          tilt_position: 30
 {% endexample %}
 
 {% enddetails %}
