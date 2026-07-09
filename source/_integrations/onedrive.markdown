@@ -146,7 +146,9 @@ The path part of `filename` must be in the `allowlist_external_dirs` in your [`h
 The `filename` attribute supports wildcards (glob patterns), so you can upload several files without listing each one:
 
 - `*` matches any number of characters within a single folder level. For example, `/media/snapshots/*.jpg` uploads every JPG file in the `snapshots` folder.
-- `**` matches folders recursively. For example, `/media/snapshots/**/*.jpg` uploads every JPG file in the `snapshots` folder and all of its subfolders.
+- `**` matches folders recursively. For example, `/media/snapshots/**/*.jpg` uploads every JPG file in the `snapshots` folder and all of its subfolders. 
+- `?` matches a single character.
+-  `[` starts a character range, such as  `[0-9]`.
 
 When a wildcard matches files in subfolders, those subfolders are recreated inside the `destination_folder` on OneDrive, preserving the original structure.
 
