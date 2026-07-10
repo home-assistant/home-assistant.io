@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_ssdp: true
-ha_quality_scale: platinum
+ha_quality_scale: bronze
 ---
 
 The **Habitron** {% term integration %} connects Home Assistant to a [Habitron](https://www.habitron.de/) SmartHub and the modules on its Smart-X bus. This initial version exposes the Habitron measured values (temperature, humidity, illuminance, air quality, wind, logic counters, and hub diagnostics) as sensor entities; further entity types are being added in follow-up releases. State changes are delivered push-style by the SmartHub, with a coordinator-driven heartbeat for liveness detection.
