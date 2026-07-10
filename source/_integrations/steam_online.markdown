@@ -60,6 +60,10 @@ The **Steam** integration provides the following entities.
   - **Attributes**:
     - **Account created**: The date and time when the Steam account was created.
     - **Real name**: The user's real name, if provided on their Steam profile.
+    - **Level**: The current Steam level of the user.
+    - **Last online**: The date and time the Steam user was last seen online.
+    - **Game**: The title of the game the user is currently playing.
+    - **Game ID**: The Steam App ID of the currently played game.
     - **Game image**: The URL of the logo image for the game the user is currently playing.
     - **Game header image**: The URL of the header image for the game the user is currently playing.
     - **Game icon**: The URL of the icon for the game the user is currently playing.
@@ -68,7 +72,7 @@ The **Steam** integration provides the following entities.
 - **Level**
   - **Description**: The current Steam level of the user.
 - **Now playing**
-  - **Description**: The title of the game the user is currently playing. If the user is not playing a game, the sensor is unavailable.
+  - **Description**: The title of the game the user is currently playing.
   - **Attributes**:
     - **Steam App ID**: The Steam App ID of the currently played game.
 
