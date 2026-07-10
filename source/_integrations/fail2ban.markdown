@@ -168,7 +168,7 @@ server {
 
 Once that's added to the NGINX configuration, allow Home Assistant to parse the `X-Forwarded-For` header. Go to {% my network title="**Settings** > **System** > **Network**" %}. In the **HTTP server** section, turn on **Trust X-Forwarded-For** and add the IP address or CIDR network of the NGINX reverse proxy to **Trusted proxies**.
 
-At this point, once the Let's Encrypt and Home Assistant dockers are restarted, Home Assistant should be correctly logging the originating IP of any failed login attempt. Once that's done and verified, we can move onto the final step.
+At this point, once the Let's Encrypt and Home Assistant containers are restarted, Home Assistant should be correctly logging the originating IP of any failed login attempt. Once that's done and verified, we can move on to the final step.
 
 #### Add the fail2ban sensor
 
