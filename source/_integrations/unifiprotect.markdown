@@ -10,7 +10,6 @@ ha_category:
   - Event
   - Hub
   - Light
-  - Lock
   - Media player
   - Media source
   - Number
@@ -30,7 +29,6 @@ ha_platforms:
   - diagnostics
   - event
   - light
-  - lock
   - media_player
   - number
   - select
