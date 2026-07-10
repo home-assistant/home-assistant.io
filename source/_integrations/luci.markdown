@@ -5,6 +5,7 @@ ha_category:
   - Presence detection
 ha_iot_class: Local Polling
 ha_release: pre 0.7
+ha_config_flow: true
 ha_codeowners:
   - '@mzdrale'
 ha_domain: luci
@@ -14,57 +15,56 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This is a presence detection scanner for OpenWrt using [luci](https://openwrt.org/docs/techref/luci).
+The **OpenWrt (luci)** {% term integration %} tracks the devices connected to a router that runs [OpenWrt](https://openwrt.org/) with the [LuCI](https://openwrt.org/docs/techref/luci) web interface. Home Assistant polls the router locally, so you can use the presence of a phone or another device to tell who is home and trigger automations based on that.
 
-Before this scanner can be used you have to install the luci RPC package on OpenWrt:
+## Supported devices
 
-```bash
-apk update
-apk add luci-mod-rpc
-```
+This integration works with routers running OpenWrt that have the LuCI web interface and its RPC package installed. It has been used with a wide range of OpenWrt-supported hardware.
 
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Prerequisites
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: luci
-    host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
-```
+Before you add the integration, prepare your router:
 
-{% configuration %}
-host:
-  description: The hostname or IP address of your router, e.g., `192.168.1.1`.
-  required: true
-  type: string
-username:
-  description: The username of a user with administrative privileges, usually `admin`.
-  required: true
-  type: string
-password:
-  description: The password for your given admin account.
-  required: true
-  type: string
-ssl:
-  description: If your router enforces SSL connections, set to `true`.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs)
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+- Install the LuCI RPC package on your OpenWrt router. Connect to the router over SSH and run:
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+  ```bash
+  apk update
+  apk add luci-mod-rpc
+  ```
 
-This device tracker provides several additional attributes for each tracked device (if it is at home): `flags`, `ip`, `device`, and `host`. The first three attributes are taken from the ARP table returned by the luci RPC. The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWrt routers.
+  On OpenWrt versions that use the older package manager, use `opkg update` and `opkg install luci-mod-rpc` instead.
 
-{% note %}
-Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
-If you want to locally fix your OpenWrt installation, you can apply the change manually to `/usr/lib/lua/luci/controller/rpc.lua`, or simply set a fixed timeout. The default is 3600.
-{% endnote %}
+- Have the credentials of a user with administrative privileges ready. This is usually the `admin` account.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your router, for example `192.168.1.1`."
+Username:
+    description: "The username of a user with administrative privileges on the router, usually `admin`."
+Password:
+    description: "The password for that account."
+SSL:
+    description: "Connect to the router over HTTPS. Enabled by default. Turn this off if your router only serves the LuCI interface over HTTP."
+Verify SSL certificate:
+    description: "Verify the router's SSL certificate. Disabled by default, because most routers use a self-signed certificate. Only enable this if your router presents a certificate that Home Assistant can validate."
+{% endconfiguration_basic %}
+
+If the credentials for your router change later, Home Assistant asks you to enter the new username and password so it can reconnect. You don't need to remove and add the integration again.
+
+## Supported functionality
+
+For each device it finds on the router, the integration creates a {% term "device tracker" %} entity that shows whether the device is home or away. Each entity also exposes the device's IP address, hostname, and MAC address.
+
+To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
+
+## Known limitations
+
+Some OpenWrt installations are affected by [a small bug](https://github.com/openwrt/luci/issues/576) where the timeout for LuCI RPC calls is not set, which makes the calls fail. To fix this on your router, you can apply the change manually to the `/usr/lib/lua/luci/controller/rpc.lua` file, or set a fixed timeout. The default is 3600.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
