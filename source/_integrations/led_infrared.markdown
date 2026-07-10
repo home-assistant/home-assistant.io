@@ -40,15 +40,13 @@ Before setting up the LED Infrared integration, you need a working infrared tran
 
 {% include integrations/config_flow.md %}
 
-Select the device type that matches your remote control, then select at least one infrared emitter or receiver. Selecting only the device type is not enough to complete the setup.
+Select the device type that matches your remote control, then select an infrared emitter.
 
 {% configuration_basic %}
 Device type:
   description: The type of remote control used for the LED light bulb, lamp, or controller.
 Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
-Infrared receiver:
-  description: The infrared receiver entity to use for receiving commands from your infrared remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver.
 {% endconfiguration_basic %}
 
 ## Supported functionality
