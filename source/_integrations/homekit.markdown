@@ -365,7 +365,7 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps, which expose two or more fan speeds or a swing mode, are exposed as a Heater Cooler accessory. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
 
-This choice is made automatically the first time an entity is added to HomeKit. Entities that were already exposed before this feature was introduced keep their Thermostat accessory, and a repair issue offers to switch eligible ones to the Heater Cooler accessory. You can accept the repair to switch, or dismiss it to keep the Thermostat.
+This choice is made automatically the first time an entity is added to HomeKit. Entities that were already exposed before this feature was introduced keep their Thermostat accessory, and you can switch them to the Heater Cooler accessory at any time.
 
 You can also pick the accessory type yourself at any time. For a bridge created in the UI, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure** on the HomeKit bridge, and choose **Thermostat** or **Heater Cooler** for each climate entity in the climate step. For a bridge set up in YAML, set the entity's `type` to `heater_cooler` or `thermostat` in `entity_config`:
 
