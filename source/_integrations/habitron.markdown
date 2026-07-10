@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: habitron
 ha_integration_type: hub
 ha_platforms:
-  - diagnostics
   - sensor
 ha_ssdp: true
 ha_quality_scale: bronze
@@ -38,7 +37,7 @@ Token for WebSocket authentication:
   description: "Optional. Paste a long-lived access token from your Home Assistant profile here. Only required when Home Assistant runs on a separate host from the SmartHub."
 {% endconfiguration_basic %}
 
-The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home Assistant's guideline that polling intervals are not user-configurable. Parameters can be changed later with the **Reconfigure** option on the integration entry, which updates the connection without removing devices or entities.
+The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home Assistant's guideline that polling intervals are not user-configurable.
 
 ## Supported functions
 
@@ -51,56 +50,10 @@ The integration combines **push** and **polling**:
 - **Push updates**: The SmartHub publishes input/output/sensor changes as they happen, so entities update promptly.
 - **Heartbeat polling**: Every 10 seconds the coordinator pulls the compact system status from the SmartHub. This serves as a liveness probe—entities become *unavailable* when the heartbeat fails (timeout, network error, or refused connection).
 
-## Actions
-
-All actions live on the `habitron` domain. When several SmartHubs are configured, singleton actions (everything except `update_entity`) target the first-loaded entry and log a warning. Failure cases raise a validation error with a translated message.
-
-| Action | Purpose | Fields |
-| --- | --- | --- |
-| `habitron.hub_restart` | Soft-restart the SmartHub service. | — |
-| `habitron.hub_reboot` | Reboot the SmartHub host. | — |
-| `habitron.rtr_restart` | Restart the Habitron router. | — |
-| `habitron.mod_restart` | Restart one or all Habitron modules. | `mod_nmbr` (optional, 1–64; omit for all) |
-| `habitron.save_module_smc` | Persist a module's rule/name definitions. | `mod_nmbr` (1–64) |
-| `habitron.save_module_smg` | Persist a module's settings. | `mod_nmbr` (1–64) |
-| `habitron.save_router_smr` | Persist the router settings. | — |
-| `habitron.save_module_status` | Persist live module status. | `mod_nmbr` (1–64) |
-| `habitron.save_router_status` | Persist router status (currents/voltages/timeouts). | — |
-| `habitron.update_entity` | Inject a state-change event into a specific SmartHub for HA → Habitron round-trips. | `hub_uid`, `mod_nmbr`, `evnt_type`, `evnt_arg1`, `evnt_arg2`, optional `evnt_arg3`–`evnt_arg5`, optional `rtr_nmbr` |
-
-## Examples
-
-### Save a module backup once a week
-
-```yaml
-automation:
-  - alias: "Habitron: weekly module backup"
-    triggers:
-      - trigger: time
-        at: "03:30:00"
-    conditions:
-      - condition: time
-        weekday:
-          - sun
-    actions:
-      - repeat:
-          count: 10
-          sequence:
-            - action: habitron.save_module_smc
-              data:
-                mod_nmbr: "{{ repeat.index }}"
-            - action: habitron.save_module_smg
-              data:
-                mod_nmbr: "{{ repeat.index }}"
-            - delay: "00:00:02"
-      - action: habitron.save_router_smr
-      - action: habitron.save_router_status
-```
-
 ## Known limitations
 
 - **Module discovery is configuration-time**, not bus-side hot-plug. New modules must first be registered in the SmartHub web UI; afterwards, reloading the integration picks them up. Stale modules are removed from the device registry automatically on the next setup pass.
-- **No re-authentication flow.** The optional access token can be edited through the **Reconfigure** option, but the SmartHub does not push authentication-failure states back into Home Assistant.
+- **No re-authentication flow.** The SmartHub does not push authentication-failure states back into Home Assistant.
 
 ## Troubleshooting
 
@@ -121,7 +74,6 @@ logger:
     homeassistant.helpers.update_coordinator: debug
 ```
 
-A [diagnostics](/integrations/diagnostics/) download from the entry's menu is the fastest way to share state with the maintainer.
 
 ## Removing the integration
 
