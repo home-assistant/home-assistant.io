@@ -365,7 +365,9 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps, which expose two or more fan speeds or a swing mode, are exposed as a Heater Cooler accessory. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
 
-You do not need to configure anything for this to work. If you want full control and prefer a specific accessory type for an entity, set its `type` to `heater_cooler` or `thermostat` in the `entity_config` of your HomeKit YAML configuration:
+This choice is made automatically the first time an entity is added to HomeKit. Entities that were already exposed before this feature was introduced keep their Thermostat accessory, and a repair issue offers to switch eligible ones to the Heater Cooler accessory. You can accept the repair to switch, or dismiss it to keep the Thermostat.
+
+You can also pick the accessory type yourself at any time. For a bridge created in the UI, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure** on the HomeKit bridge, and choose **Thermostat** or **Heater Cooler** for each climate entity in the climate step. For a bridge set up in YAML, set the entity's `type` to `heater_cooler` or `thermostat` in `entity_config`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -374,8 +376,6 @@ homekit:
     climate.living_room:
       type: heater_cooler
 ```
-
-The entity configuration is only available for HomeKit bridges set up in YAML. A bridge you created in the UI offers limited options, so to use this setting you need to move it to a YAML configuration.
 
 The accessory keeps its identifier, which is derived from the entity ID, so its room assignment and name are preserved when the accessory type changes. Any Home app scenes or automations that referenced the old controls may need to be recreated against the new tile.
 
