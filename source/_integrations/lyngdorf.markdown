@@ -3,7 +3,7 @@ title: Lyngdorf
 description: Instructions on how to integrate Lyngdorf audio processors into Home Assistant.
 ha_category:
   - Media player
-ha_release: 2026.3
+ha_release: 2026.8
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
