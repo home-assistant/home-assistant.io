@@ -3,7 +3,7 @@ title: Gatus
 description: Instructions on how to integrate Gatus with Home Assistant.
 ha_category:
   - Binary sensor
-ha_release: 2026.7
+ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -109,6 +109,7 @@ The integration {% term polling polls %} your Gatus instance every 30 seconds.
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
 - The integration requires manual reconfiguation when a new endpoint is added or removed.
+- The integration currently does not support authenticated instances
 
 ## Troubleshooting
 
