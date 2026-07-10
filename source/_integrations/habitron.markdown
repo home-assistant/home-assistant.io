@@ -4,7 +4,7 @@ description: Instructions on how to integrate Habitron SmartHub into Home Assist
 ha_category:
   - Sensor
 ha_release: 2026.7
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@dneprojects'
@@ -16,7 +16,7 @@ ha_ssdp: true
 ha_quality_scale: bronze
 ---
 
-The **Habitron** {% term integration %} connects Home Assistant to a [Habitron](https://www.habitron.de/) SmartHub and the modules on its Smart-X bus. This initial version exposes the Habitron measured values (temperature, humidity, illuminance, air quality, wind, logic counters, and hub diagnostics) as sensor entities; further entity types are being added in follow-up releases. State changes are delivered push-style by the SmartHub, with a coordinator-driven heartbeat for liveness detection.
+The **Habitron** {% term integration %} connects Home Assistant to a [Habitron](https://www.habitron.de/) SmartHub and the modules on its Smart-X bus. This initial version exposes the Habitron measured values (temperature, humidity, illuminance, air quality, wind, logic counters, and hub diagnostics) as sensor entities; further entity types are being added in follow-up releases. Values are refreshed by a coordinator-driven heartbeat that also detects when the SmartHub becomes unreachable.
 
 ## Supported devices
 
@@ -45,10 +45,7 @@ The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home A
 
 ## Data updates
 
-The integration combines **push** and **polling**:
-
-- **Push updates**: The SmartHub publishes input/output/sensor changes as they happen, so entities update promptly.
-- **Heartbeat polling**: Every 10 seconds the coordinator pulls the compact system status from the SmartHub. This serves as a liveness probe—entities become *unavailable* when the heartbeat fails (timeout, network error, or refused connection).
+Every 10 seconds the coordinator pulls the compact system status from the SmartHub and refreshes the entities from it. The same heartbeat serves as a liveness probe—entities become *unavailable* when it fails (timeout, network error, or refused connection). Push-style delivery of individual bus events is planned for a follow-up release.
 
 ## Known limitations
 
