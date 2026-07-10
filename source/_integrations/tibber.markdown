@@ -78,7 +78,7 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - net kWh produced since last hour shift
 - Current on L1, L2 and L3
 - Estimate of kWh consumption current hour
-- kWh consumed since since last hour shift
+- kWh consumed since last hour shift
 - Average consumption since midnight (Watt)
 - Last meter active import register state (kWh)
 - Last meter active export register state (kWh)

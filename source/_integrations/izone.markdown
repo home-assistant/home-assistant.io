@@ -132,24 +132,6 @@ logger:
     pizone: debug
 ```
 
-This will help you to find network connection issues etc.
+This will help you to find network connection issues.
 
-## Actions
-
-### Action: Set minimum airflow
-
-The `izone.airflow_min` action sets the minimum airflow for a particular zone.
-
-| Data attribute | Optional | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`      | no       | Airflow percent in 5% increments               |
-
-### Action: Set maximum airflow
-
-The `izone.airflow_max` action sets the maximum airflow for a particular zone.
-
-| Data attribute | Optional | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`      | no       | Airflow percent in 5% increments               |
+{% include integrations/actions.md %}

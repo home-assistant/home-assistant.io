@@ -108,8 +108,9 @@ schedule:
       type: icon
     "monday|tuesday|wednesday|thursday|friday|saturday|sunday":
       description: A schedule for each day of the week.
-      required: true
+      required: false
       type: list
+      default: []
       keys:
         from:
           description: The start time to mark the schedule as active/on.
@@ -130,10 +131,8 @@ schedule:
 
 A schedule entity exports state attributes that can be useful in automations and templates.
 
-| Attribute | Description |
-| ----- | ----- |
-| `next_event` | A datetime object containing the next time the schedule is going to change state. |
-| `key_1`, `key_2`, ... | The mapping values from **Additional data** / `data` settings of a time block when the respective block is active. |
+- `next_event`: A datetime object containing the next time the schedule is going to change state.
+- `key_1`, `key_2`, ...: The mapping values from **Additional data** or `data` settings of a time block when that block is active.
 
 ## Behavior at block boundaries
 
@@ -148,128 +147,76 @@ When two time blocks on the same day touch (for example, one block from `07:00` 
 
 Overlapping time blocks on the same day are not allowed and are rejected during configuration validation.
 
-## Automation example
+{% include integrations/triggers.md %}
 
-A schedule creates an on/off schedule entity that is `on` within the times set. You can use the `light_schedule` example from above in an automation to turn on a light when the schedule is active.
+{% include integrations/conditions.md %}
 
-```yaml
-triggers:
-  - trigger: state
-    entity_id:
-      - schedule.light_schedule
-    to: "on"
-actions:
-  - action: light.turn_on
-    target:
-      entity_id: light.kitchen
-    data:
-      brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
-      kelvin: "{{ state_attr('schedule.light_schedule', 'color_temp') }}"
-```
+{% include integrations/actions.md %}
 
-Another automation can be added to turn the lights off once the schedule is inactive:
+## Schedule automation examples
 
-```yaml
-triggers:
-  - trigger: state
-    entity_id:
-      - schedule.light_schedule
-    to: "off"
-actions:
-  - action: light.turn_off
-    target:
-      entity_id: light.kitchen
-```
+You can use a schedule to decide when an automation should start, or to check whether a routine is currently active.
+Here are two examples you can adapt to your own schedules.
 
-## Actions
+{% include docs/paste_yaml_tip.md %}
 
-To interact with schedules from {% term scripts %} and {% term automations %}, the schedule integration provides the following {% term actions %}.
+### Automation: turn on the porch light when the evening schedule starts
 
-### Action: Reload
+If you use a schedule to define when your porch light should be active, you can start the light automatically when that schedule block begins.
 
-The `schedule.reload` action reloads the schedule's configuration from YAML without the need to restart Home Assistant itself.
+- **Trigger**: Schedule block started
+  - **Target**: Evening porch light schedule
+- **Action**: Turn on light
+  - **Target**: Porch light
 
-### Action: Get schedule
+{% details "YAML example for turning on the porch light when the evening schedule starts" %}
 
-The `schedule.get_schedule` action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the configured time ranges of a schedule.
-It can return multiple schedules.
+{% example %}
+automation: |
+  alias: "Turn on the porch light when the evening schedule starts"
+  triggers:
+    - trigger: schedule.block_started
+      target:
+        entity_id: schedule.evening_porch_light
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.porch
+{% endexample %}
 
-```yaml
-action: schedule.get_schedule
-target:
-  entity_id:
-    - schedule.vacuum_robot
-    - schedule.air_purifier
-response_variable: schedules
-```
+{% enddetails %}
 
-The response data contains a field for every schedule entity (for example, `schedule.vacuum_robot` and `schedule.air_purifier` in this case).
+### Automation: start the robot vacuum only when both quiet-time schedules are off
 
-Every schedule entity response has seven fields (one for each day of the week in lowercase), containing a list of the selected time ranges.
-Days without any ranges will be returned as an empty list.
+If you use schedules to keep certain times interruption-free, you can start your robot vacuum only when both of those schedules are no longer active.
 
-```yaml
-schedule.vacuum_robot:
-  monday:
-    - from: "09:00:00"
-      to: "15:00:00"
-  tuesday: []
-  wednesday: []
-  thursday:
-    - from: "09:00:00"
-      to: "15:00:00"
-  friday: []
-  saturday: []
-  sunday: []
-schedule.air_purifier:
-  monday:
-    - from: "09:00:00"
-      to: "18:00:00"
-  tuesday: []
-  wednesday: []
-  thursday:
-    - from: "09:00:00"
-      to: "18:00:00"
-  friday: []
-  saturday:
-    - from: "10:30:00"
-      to: "12:00:00"
-    - from: "14:00:00"
-      to: "19:00:00"
-  sunday: []
-```
+- **Trigger**: Time: 14:00
+- **Condition**: Schedule is off
+  - **Target**: Quiet time schedule, Meeting schedule
+  - **Condition passes if**: All
+- **Action**: Start vacuum cleaner
+  - **Target**: Living room vacuum
 
-The example below uses the response data from above in a template for another action.
+{% details "YAML example for starting the robot vacuum when both quiet-time schedules are off" %}
 
-```yaml
-action: notify.nina
-data:
-  title: Today's schedules
-  message: >-
-    Your vacuum robot will run today:
-    {% for event in schedules["schedule.vacuum_robot"][now().strftime('%A').lower()] %}
-    - from {{ event.from }} until {{ event.to }}<br>
-    {% endfor %}
-    Your air purifier will run today:
-    {% for event in schedules["schedule.air_purifier"][now().strftime('%A').lower()] %}
-    - from {{ event.from }} until {{ event.to }}<br>
-    {% endfor %}
-```
+{% example %}
+automation: |
+  alias: "Start the robot vacuum when both quiet-time schedules are off"
+  triggers:
+    - trigger: time
+      at: "14:00:00"
+  conditions:
+    - condition: schedule.is_off
+      target:
+        entity_id:
+          - schedule.quiet_time
+          - schedule.meeting_time
+      options:
+        behavior: all
+  actions:
+    - action: vacuum.start
+      target:
+        entity_id: vacuum.living_room
+{% endexample %}
 
-If you want to run the above action both once per day and whenever one of the schedules changes, you can create an {% term automation %} that combines a time-based {% term trigger %} with an {% term event %} trigger per entity.
-
-```yaml
-triggers:
-  - trigger: time
-    at: "07:30:00"
-  - trigger: event
-    event_type: entity_registry_updated
-    event_data:
-      action: update
-      entity_id: schedule.vacuum_robot
-  - trigger: event
-    event_type: entity_registry_updated
-    event_data:
-      action: update
-      entity_id: schedule.air_purifier
-```
+{% enddetails %}

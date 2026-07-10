@@ -36,7 +36,7 @@ This {% term integration %} is tested with the following hardware/software:
 
 The 433 MHz spectrum is used by many manufacturers. Mostly using their own protocol/standard, they use this spectrum to communicate with devices such as light switches, blinds, weather stations, alarms, and various other sensors.
 
-The RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
+The RFLink Gateway supports several RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
 
 {% note %}
 Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1, and MySensors devices.
@@ -134,7 +134,7 @@ rflink:
 
 ### Adding devices Automatically
 
-In order to have your devices discovered automatically, you need to add the following to the configuration.
+To have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
@@ -198,7 +198,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 ### Technical Overview
 
-- The `rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- The `rflink` Python module is an asyncio transport/protocol which is set up to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet IDs.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
@@ -410,7 +410,7 @@ devices:
         fire_event:
           description: Fire a `button_pressed` event if this device is turned on or off.
           required: false
-          default: False
+          default: false
           type: boolean
         signal_repetitions:
           description: The number of times every RFLink command should repeat.
@@ -578,7 +578,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink switch devices (see below).
@@ -876,7 +876,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink switch devices (see below).
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink switch devices (see below).

@@ -49,11 +49,4 @@ The **Yardian** integration provides the following entities.
   
 ## Actions
 
-### yardian.start_irrigation
-
-Start a zone for a given number of minutes. This action accepts a Yardian Zone switch {% term entity %} and allows a given duration.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
+{% include integrations/actions.md %}

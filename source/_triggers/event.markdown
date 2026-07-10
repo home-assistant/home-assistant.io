@@ -2,13 +2,18 @@
 title: "Manual event received"
 trigger: event
 domain: homeassistant
-description: "Triggers when an event is received."
+description: "Triggers when an event is fired on the Home Assistant event bus."
 related_triggers:
+  - event.received
   - homeassistant
   - state
 ---
 
-The **Manual event received** trigger is useful when you want an automation to react to an event on the Home Assistant event bus. Use it when an integration, a script, or an API call fires an event and you want to match the event type, event data, or the user who triggered it.
+The **Manual event received** trigger fires an automation when a named event is emitted on the Home Assistant event bus. Use it when an integration, a script, or an API call fires an internal event and you want to match the event type, event data, or the user who triggered it.
+
+{% note %}
+This trigger listens to the internal Home Assistant event bus. It is not the same as the [**Event received**](/triggers/event.received/) trigger, which fires when a physical event entity — such as a doorbell or a remote control button — detects an event type. If you want to react to a button press or doorbell ring, use the [**Event received**](/triggers/event.received/) trigger instead.
+{% endnote %}
 
 {% include triggers/ui_header.md %}
 

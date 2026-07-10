@@ -2,7 +2,7 @@
 title: "Shade opened"
 trigger: cover.shade_opened
 domain: cover
-description: "Triggers after one or more shades open."
+description: "Triggers when one or more shades open."
 related_triggers:
   - cover.shade_closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Shade opened** trigger fires when a targeted shade changes to open. Use it when you want Home Assistant to react as soon as a shade opens.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shade opens.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

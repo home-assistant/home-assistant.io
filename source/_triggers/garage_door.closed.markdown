@@ -2,7 +2,7 @@
 title: "Garage door closed"
 trigger: garage_door.closed
 domain: garage_door
-description: "Triggers after one or more garage doors close."
+description: "Triggers when one or more garage doors close."
 related_triggers:
   - garage_door.opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Garage door closed** trigger fires when a targeted garage door changes to closed. Use it when you want an automation to wait for the garage door to finish closing before it continues.
 
 This trigger is useful for turning lights off after you park, resuming a security routine after the garage is shut, and confirming that a close cycle has finished.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

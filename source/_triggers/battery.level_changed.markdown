@@ -2,7 +2,7 @@
 title: "Battery level changed"
 trigger: battery.level_changed
 domain: battery
-description: "Triggers after one or more battery level readings change."
+description: "Triggers when the battery level of one or more batteries changes."
 related_triggers:
   - battery.level_crossed
 ---
@@ -12,8 +12,6 @@ The **Battery level changed** trigger fires after a battery level reading change
 The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
 
 Use **Battery level changed** to get notified when a device starts running low, log battery drain over time, or trigger a reminder to swap out the batteries in a frequently used sensor.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

@@ -97,7 +97,7 @@ In cases where the wrong station is being selected, it is possible to provide th
 
 To retrieve the ID using `curl`:
 
-1. Login into the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
+1. Log in to the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
 2. Click "* Generera accesstoken", and then "Kopiera". 
 3. Execute the following `curl` command, replacing "<ACCESS_TOKEN>" and "<STATION_NAME>" as necessary:
 

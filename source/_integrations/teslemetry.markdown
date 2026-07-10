@@ -47,7 +47,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
+Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured to run certain commands.
 
 {% include integrations/config_flow.md %}
 
@@ -143,6 +143,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
+|Select|Seat cooler front left|Yes|
+|Select|Seat cooler front right|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|

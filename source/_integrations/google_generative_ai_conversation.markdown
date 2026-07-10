@@ -32,7 +32,7 @@ related:
 
 The **Google Gemini** {% term integration %} adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Gemini](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -115,7 +115,7 @@ description: >-
   Makes a Google search to answer questions that are completely unrelated with
   the smart home and are exclusively about current events or information in
   real-time like the current president, results of last night's game, release
-  dates, etc.
+  dates.
 fields:
   query:
     selector:
@@ -138,49 +138,6 @@ You can use this integration to [talk to Super Mario and, if you want, have him 
 The tutorial is using OpenAI, but this could also be done with the Google Gemini integration.
 
 ## Actions
-
-### Generate content
-
-{% tip %}
-This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
-{% endtip %}
-
-Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally attachments (images, PDFs, etc.).
-This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the generated content.
-
-| Data attribute | Optional | Description                                          | Example             |
-| -------------- | -------- | ---------------------------------------------------- | ------------------- |
-| `prompt`       | no       | The prompt for generating the content.               | Describe this image |
-| `filenames`    | yes      | File names for attachments to include in the prompt. | /tmp/image.jpg      |
-
-```yaml
-action: google_generative_ai_conversation.generate_content
-data:
-  prompt: >-
-    Very briefly describe what you see in this image from my doorbell camera.
-    Your message needs to be short to fit in a phone notification. Don't
-    describe stationary objects or buildings.
-  filenames: /tmp/doorbell_snapshot.jpg
-response_variable: generated_content
-```
-
-The response data field `text` will contain the generated content.
-
-Another example with multiple images:
-
-```yaml
-action: google_generative_ai_conversation.generate_content
-data:
-  prompt: >-
-    Briefly describe what happened in the following sequence of images
-    from my driveway camera.
-  filenames:
-    - /tmp/driveway_snapshot1.jpg
-    - /tmp/driveway_snapshot2.jpg
-    - /tmp/driveway_snapshot3.jpg
-    - /tmp/driveway_snapshot4.jpg
-response_variable: generated_content
-```
 
 ### Speak
 

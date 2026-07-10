@@ -1,6 +1,6 @@
 ---
 title: Fibaro
-description: Instructions on how to setup Fibaro Home Center and Yubii Home within Home Assistant.
+description: Instructions on how to set up Fibaro Home Center and Yubii Home within Home Assistant.
 ha_category:
   - Binary sensor
   - Climate

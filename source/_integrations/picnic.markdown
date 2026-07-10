@@ -1,6 +1,6 @@
 ---
 title: Picnic
-description: How to setup and use the Picnic integration in Home Assistant.
+description: How to set up and use the Picnic integration in Home Assistant.
 ha_category:
   - Other
 ha_release: 2021.5
@@ -48,27 +48,6 @@ This integration provides the following sensors. Some sensors are disabled by de
 
 This integration provides a list containing the content of your shopping cart. This list is provided as a [to-do list](/integrations/todo/) and can also be found in the to-do list dashboard in the main sidebar of your Home Assistant instance.
 
-You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [`picnic.add_product`](#action-picnicadd_product) action, a search will be done and the first item found will be added.
+You can add products to your shopping cart by entering a name in the **Add item** field. Just like with the [Add a product to the cart](/actions/picnic.add_product/) action, Picnic searches for the product and adds the first result to your cart.
 
-## Actions
-
-### Action `picnic.add_product`
-
-Add a product to your cart using the `picnic.add_product` action, either using a product ID or a product name.
-A search will be done and the first result will be added to the cart when one adds a product using a product name.
-The action will fail when no product can be found, or when no `product_id` or `product_name` is specified.
-
-| Data attribute | Optional | Description                                                                      |
-|------------------------|----------|----------------------------------------------------------------------------------|
-| `config_entry_id`      | No       | The Id of the Picnic service config entry.                                       |
-| `product_id`           | yes      | The Picnic product ID.                                                           |
-| `product_name`         | yes      | A product name to search for, the first search result will be added to the cart. |
-| `amount`               | yes      | The amount to add, defaults to 1.                                                |
-
-```yaml
-# Example automation action to add a product to the cart by name.
-- action: picnic.add_product
-  data:
-    config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
-    product_name: "Picnic cola zero"
-```
+{% include integrations/actions.md %}

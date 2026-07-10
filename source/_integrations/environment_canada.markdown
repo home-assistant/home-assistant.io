@@ -42,8 +42,8 @@ The integration will create the entities listed below.
 ### Radar map (Camera)
 
 - Loop of radar imagery from the last 3 hours.
-- This entity is disabled by default can be enabled in the entry's settings dialog.
-- By default, this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the action described below.
+- This entity is disabled by default and can be enabled in the entry's settings dialog.
+- Radar display settings can be customized through the integration options. See [Radar camera options](#radar-camera-options) below.
 
 ### Sensors
 
@@ -88,6 +88,29 @@ The integration will create the entities listed below.
 - Endings
 
 The alert sensors use the number of current alerts as their state, with an attribute containing the title of each alert.
+
+## Radar camera options
+
+You can customize the radar display settings.
+The following settings are available:
+
+- **Radar type**: The radar layer to display: **Rain**, **Snow**, or **Precipitation type** (a composite layer showing the type of precipitation). The default is **Precipitation type**.
+- **Show legend**: Whether to show the color legend on the radar image (default: off).
+- **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
+- **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
+- **Map radius**: Radius of the radar map in kilometers, from 10 to 2,000 km (default: 200 km).
+
+### Configuring radar camera display
+
+To configure the radar camera display:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Environment Canada** integration.
+3. Select **Configure** (the cogwheel icon).
+4. Change the options you want.
+5. Select **Submit**.
+
+Changing these settings reloads the integration, so the new radar settings take effect immediately. The radar camera entity is briefly unavailable during the reload.
 
 ## Solving problems
 
@@ -173,8 +196,8 @@ To get the alerts in a sensor with all the alert data, use the following, replac
       event: start
     - platform: event
       event_type: event_template_reloaded
-  action:
-    - service: environment_canada.get_alerts
+  actions:
+    - action: environment_canada.get_alerts
       data:
         config_entry_id: "CONFIG_ENTRY_ID"
       response_variable: alerts
@@ -186,29 +209,4 @@ To get the alerts in a sensor with all the alert data, use the following, replac
         alerts: "{{ alerts }}"
 ```
 
-## Actions
-
-### Action: Get alerts
-
-The `environment_canada.get_alerts` action allows you to get the weather alert data from Environment Canada. For each of the alert categories (warnings, watches, advisories, statements, and endings) a list of alerts is provided.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `config_entry_id` | no | Weather service to get alerts for. |
-
-### Action: Get forecasts
-
-The `environment_canada.get_forecasts` action allows you to get the raw forecast data from Environment Canada. It returns both the `daily_forecast` and the `hourly_forecast` data.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Weather entity to get forecast for. |
-
-### Action: Set radar type
-
-The `environment_canada.set_radar_type` action allows you to set the type of radar to retrieve for the camera.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Camera to set the radar type for. |
-| `radar_type` | no | One of "Auto", "Rain", or "Snow". |
+{% include integrations/actions.md %}
