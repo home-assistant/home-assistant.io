@@ -275,6 +275,13 @@ If you are running an older Windows version or have a stricter network configura
 
 {% else %}
 
+Follow this guide if you are already running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on [Home Assistant Yellow](/installation/yellow), [Raspberry Pi](/installation/raspberrypi), or [ODROID](/installation/odroid).
+
+{% if page.installation_type == 'macos' %}
+
+If VirtualBox is not supported on your Mac and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
+{% endif %}
+
 ### Download the appropriate image
 
 - [VirtualBox (Intel chip)][vdi] (.vdi)
@@ -291,27 +298,18 @@ If you are running an older Windows version or have a stricter network configura
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
-After downloading, decompress the image. If the image comes in a ZIP file, for example, unzip it.
+After downloading the image, extract it if necessary. For example, if it comes in a ZIP file, unzip it.
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
+### Create and configure the virtual machine
 
-{% if page.installation_type == 'macos' %}
+When creating the virtual machine, assign memory and CPU resources based on your expected workload. You can increase these resources later if your workload grows.
 
-- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
-{% endif %}
+Minimum resources:
 
-### Create the virtual machine
+- Memory: 2 GB of RAM
+- Processors: 2 vCPUs
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your app needs).
-
-Minimum recommended assignments:
-
-- 2 GB RAM
-- 2vCPU
-
-*All these can be extended if your usage calls for more resources.*
-
-### Hypervisor specific configuration
+To create the virtual machine, follow the instructions for the hypervisor you use:
 
 {% tabbed_block %}
 
@@ -319,51 +317,52 @@ Minimum recommended assignments:
   content: |
     
     #### Create the virtual machine
-    
-    1. Open VirtualBox and select the **New** button (the blue star).
-    2. **Name:** Type Home Assistant.
-    3. **ISO Image:** Leave this as **None** or **Empty**.
-    4. **Type & Version:** Select **Linux**, then select **Oracle Linux (64-bit)** (or **ARM 64-bit** if you are using a Mac with an M1/M2/M3 chip).
-    5. Select **Next**.
- 
-    #### Configure hardware
-    1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
-    2. **Number of CPUs:** Move the slider to at least **2**.
-    3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
-    4. **Secure Boot:** Deselect **Enable Secure Boot**. Home Assistant OS does not boot with Secure Boot enabled.
-    5. Select **Next**.
 
-    #### Finalizing the wizard
+    The following steps use VirtualBox Basic Mode, which provides a simplified wizard for creating and configuring a virtual machine.
 
-    1. On the **Virtual Hard Disk** screen, leave the settings as they are (it will suggest creating a new disk). We will swap this for your downloaded file in the next step.
-    2. Select **Finish**.
+    1. Open VirtualBox, and select **New** on the toolbar.
+    2. In the **Virtual machine name and operating system** step, specify the following settings:
+       - **Name**: Enter **Home Assistant**.
+       - **VM Folder**: Select a location to store the virtual machine files.
+       - **ISO Image**: Leave blank.
+       - **OS**: Select **Linux**.
+       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, or M3), select **ARM 64-bit** instead.
+    3. Select **Next**.
+    4. In the **Specify virtual hardware** step, specify the following settings:
+       - **Base Memory**: Set to at least **2048 MB**, which is 2 GB.
+       - **Number of CPUs**: Set to at least **2**.
+       - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
+    5. Select **Next**.
+    6. In the **Summary** step, review the settings and select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
+  
+    Configure the virtual machine to use the Home Assistant disk (VDI) that you downloaded and extracted earlier.
 
-    1. Select your new "Home Assistant" VM in the left-hand list and select the **Settings** icon (the orange gear).
-    2. Go to the **Storage** section on the left menu.
-    3. In the **Storage Devices** list, you will see a disk already listed under **Controller: SATA**. Right-click that disk and select **Remove Attachment**. This removes the empty placeholder disk.
-    4. Select the **Add Hard Disk** icon (the small disk with a green plus symbol) located next to the words **Controller: SATA**.
-    5. In the window that pops up, select the **Add** button at the top.
-    6. Find and select the `.vdi` file you previously downloaded and unzipped.
+    1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
+    2. Go to the **Storage** section.
+    3. In the **Storage Devices** list, under **Controller: SATA**, right-click the empty placeholder disk and select **Remove attachment**.
+    4. Next to **Controller: SATA**, select the **Add hard disk** icon (the blue disk with a plus sign).
+    5. In the dialog that appears, select the **Add** button.
+    6. Find and select the downloaded `.vdi` file.
     7. Select **Choose** to confirm the file.
 
     #### Configure network
 
     1. While still in the **Settings** window, go to the **Network** section.
-    2. Change the **Attached to** setting from **NAT** to **Bridged Adapter**.
-    3. Under **Name**, select the adapter you use for internet access. This allows Home Assistant to talk to other devices in your home.
+    2. In **Attached to**, change the setting to **Bridged Adapter**.
+    3. In **Name**, select the network adapter you use for internet access. Home Assistant uses this adapter to communicate with other devices on your network. If your computer uses Wi-Fi, select your Wi-Fi adapter. If it uses a wired connection, select your Ethernet adapter.
     4. Select **OK**.
 
-    {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
-    free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
-    be enabled using your host machine's terminal:
+    #### Enable automatic disk space reclamation (optional)
+
+    {% icon "mdi:alert-outline" %} By default, VirtualBox does not reclaim unused disk space from virtual disks. To enable automatic disk shrinking for the Home Assistant VDI, run the following command on the host machine:
 
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
 
-    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
+    For more information about the command, see [VBoxManage storageattach command](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
 {% unless page.installation_type == 'macos' %}
 

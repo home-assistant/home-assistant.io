@@ -63,7 +63,7 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 
 ## Supported functionality
 
-The **Vistopool** integration provides the following entities.
+The **Vistapool** integration provides the following entities.
 
 ### Buttons
 

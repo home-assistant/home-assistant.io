@@ -20,22 +20,31 @@ To use this trigger in an automation:
 4. Select the type of trigger to add.
 5. Select **State**.
 6. In **Entity**, select the entity whose state Home Assistant should watch.
-7. Optional: In **Attribute**, select an attribute instead of the main state.
-8. Optional: In **From** and **To**, limit which changes should match.
-9. Optional: In **For**, enter how long the new state must last before the trigger fires.
-10. Select **Save**.
+7. If you want to pick another entity, select **Add entity** and then select it from the list.
+8. Optional: In **Attribute**, select an attribute instead of the main state.
+9. Optional: In **From**, enter the state (or attribute value) the entity must have before the trigger fires.
+10. Optional: In **To**, enter the state (or attribute value) the entity must have when the trigger fires.
+11. Optional: In **For**, enter how long the entity must be in the new state, or hold the new attribute value, before the trigger fires. Instead of a **Duration**, you can enter a **Template**.
+12. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
+Entity:
+  description: Entity whose state to watch.
+  required: true
 Attribute:
-  description: Optional entity attribute to watch instead of the main state.
+  description: Entity attribute to watch instead of the main state.
+  required: false
 From:
-  description: Optional starting state to match.
+  description: The starting state or starting attribute value to match.
+  required: false
 To:
-  description: Optional new state to match.
+  description: The new state or new attribute value to match.
+  required: false
 For:
-  description: Optional amount of time the new state must last before the trigger fires.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -59,52 +68,49 @@ trigger:
   required: true
   type: string
 entity_id:
-  description: The entity to watch.
+  description: The ID of the entity or a list of IDs of the entities to watch.
   required: true
-  type: string
+  type: [string, list]
 from:
-  description: Optional starting state to match. You can use one state or a list of states.
+  description: The starting state or starting attribute value to match. You can use one state or a list of states.
   required: false
-  type: string
+  type: [string, list]
 to:
-  description: Optional new state to match. You can use one state or a list of states.
+  description: The new state or new attribute value to match. You can use one state or a list of states.
   required: false
-  type: string
+  type: [string, list]
 not_from:
-  description: Optional starting state to exclude. You can use one state or a list of states. YAML only.
+  description: The starting state or starting attribute value to exclude. You can use one state or a list of states. This option is available in YAML only.
   required: false
-  type: string
+  type: [string, list]
 not_to:
-  description: Optional new state to exclude. You can use one state or a list of states. YAML only.
+  description: The new state or new attribute value to exclude. You can use one state or a list of states. This option is available in YAML only.
   required: false
-  type: string
+  type: [string, list]
 attribute:
-  description: Optional attribute to watch instead of the main state.
+  description: The entity attribute to watch instead of the main state.
   required: false
   type: string
 for:
-  description: Optional time the new state must remain unchanged before the trigger fires.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false
   type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
-
-If you want to trigger on all state changes but ignore attribute-only changes, set one of `from`, `to`, `not_from`, or `not_to` to an empty value in YAML.
-
-In YAML, `from`, `to`, `not_from`, and `not_to` each accept either one state or a list of states.
 
 ## Targets of the trigger
 
-This trigger watches one or more entities selected by `entity_id`.
+This trigger watches one or more entities:
 
-- Use a single `entity_id` to watch one entity.
-- Use a list of `entity_id` values in YAML to watch more than one entity.
+- Use the UI option **Entity**, or YAML option `entity_id`, to watch one entity.
+- Select **Add entity** and pick another entity from the UI, or use a list of `entity_id` values in YAML, to watch more than one entity.
 
 ## Good to know
 
-- If you do not set **From** or **To**, this trigger fires on all state changes. It also fires when only an attribute changes.
-- If you set **From**, **To**, `not_from`, or `not_to`, attribute-only changes do not fire the trigger.
-- You cannot combine `from` with `not_from`, or `to` with `not_to`.
-- If you use `for`, the timer resets if Home Assistant restarts or automations reload.
+- If you do not set any of **From**, **To**, `not_from`, or `not_to`, this trigger fires on all state changes. It also fires when only an attribute changes.
+- If you set one of the options **From** (`from`), **To** (`to`), `not_from`, or `not_to`, attribute-only changes do not fire the trigger.
+- You cannot combine the options `from` with `not_from`, or `to` with `not_to`.
+- If you use the **For** (`for`) option, the timer resets if Home Assistant restarts or automations reload.
 
 {% include triggers/try_it.md %}
 
@@ -116,7 +122,7 @@ If a door stays open longer than expected, this automation sends a message to yo
 
 - **Trigger**: State
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
-  - **To**: `on`
+  - **To**: On
   - **For**: 5 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -147,7 +153,7 @@ If you want a message when a person arrives, this automation watches for a state
 
 - **Trigger**: State
   - **Entity**: Person entity (`person.sam`)
-  - **To**: `home`
+  - **To**: Home
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
