@@ -34,6 +34,7 @@ The username and password required for this integration are the same credentials
 
 ## Data updates
 
-This integration is mostly push-based over the local network. State changes are delivered in real time via a WebSocket connection to the Control4 Director. The only exception is the media player platform, where playback position is polled every 5 seconds.
+This integration is mostly push-based over the local network. State changes are delivered in real time via a WebSocket connection to the Control4 Director. The media player platform is the only exception. It polls a small set of room state (power, volume, mute, source, and
+playback status) on a fixed 5-second interval, since Control4 does not push updates for that data.
 
-During setup or reload of a config entry the integration must contact the Control4 cloud to obtain a short-lived local token. During setup or reload of a config entry the integration must contact the Control4 cloud to obtain a local token. The token has an expiry date and is refreshed automatically in the background.
+During setup or reload of a config entry, the integration contacts the Control4 cloud to obtain a short-lived local token. The token has an expiry date and is refreshed automatically in the background.
