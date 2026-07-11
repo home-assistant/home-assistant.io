@@ -51,6 +51,26 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 
 {% include integrations/config_flow.md %}
 
+## Bluetooth vehicle control
+
+By default, Teslemetry sends every vehicle command through the cloud. If Home Assistant has access to a [Bluetooth adapter](/integrations/bluetooth/), you can pair a vehicle over Bluetooth so its commands are sent directly to the car over a local connection, with an automatic fall back to the cloud when the local connection isn't available.
+
+### Requirements
+
+- A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
+- The vehicle must be awake and within Bluetooth range of that adapter while you set up pairing.
+
+### Setting up Bluetooth control
+
+Each vehicle has its own **Set up Bluetooth control** action.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
+2. Find the vehicle you want to pair, and select **Set up Bluetooth control**.
+3. Home Assistant scans for the vehicle over Bluetooth. Make sure the vehicle is awake and nearby, then continue.
+4. Approve Home Assistant's virtual key by tapping your key card against the center console card reader of the vehicle.
+
+You only need to do this once per vehicle. Once a vehicle is paired and in range, Home Assistant routes its commands over the local Bluetooth connection first and falls back to the cloud automatically, for example, when the vehicle is out of Bluetooth range. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster.
+
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
