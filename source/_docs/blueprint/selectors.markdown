@@ -878,15 +878,15 @@ To reliably target specific hardware, combine the filter with
 `device.manufacturer`, `device.model`, or `device.model_id`.
 {% endtip %}
 
-For example, to filter for a specific device:
+Filter for a specific device using the device filter:
 
 ```yaml
 entity:
   multiple: true
   filter:
-    device:
-      manufacturer: IKEA of Sweden
-      model: BILRESA dual button
+    - device:
+        manufacturer: IKEA of Sweden
+        model: BILRESA dual button
 ```
 
 ## Floor selector
