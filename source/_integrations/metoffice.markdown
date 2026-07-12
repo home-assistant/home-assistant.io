@@ -70,7 +70,7 @@ Only probability of precipitation, temperature, weather and wind speed are enabl
 
 ### Forecasts
 
-The integration supports two types of forecasts:
+The integration supports three types of forecasts:
 
 - **Hourly forecast**: Available for the next 3 days with detailed conditions including temperature, precipitation, wind, and cloud coverage.
 - **Twice daily forecast**: Available for the next 7 days, showing expected conditions for day and night.
