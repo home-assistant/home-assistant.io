@@ -142,6 +142,20 @@ When adding or re-authenticating the integration, you get this error in the brow
 
 Set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly `https://my.home-assistant.io/redirect/oauth`, save (it may take up to an hour to become active), and try again.
 
+### Client not registered
+
+When adding the integration, you get this error in the browser:
+
+```text
+{"error":"invalid_request", "error_description":"Client not registered."}
+```
+
+The Client ID sent to Viessmann does not match a client in the developer portal. This usually happens after you have set up ViCare before: Home Assistant keeps your old Client ID as an application credential and reuses it automatically, even after you remove the integration. To enter a new Client ID, delete the stored one first:
+
+1. Go to **Settings** > **Devices & services** > **⋮** (top right) > **Application credentials**.
+2. Delete the **Viessmann ViCare** entry.
+3. Add the integration again and enter the **Client ID** from your current client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com).
+
 ### GATEWAY_OFFLINE
 
 The ViCare API tends to lose contact with the gateway from time to time. This will be logged in Home Assistant with:
