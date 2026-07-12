@@ -27,28 +27,58 @@ The **Met Office** weather {% term integration %} uses the Met Office's [DataHub
 
 {% include integrations/config_flow.md %}
 
-## Entities
+Details about the <abbr title="Application Programming Interface">API</abbr> are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
+
+### Configuration Options
+
+The following configuration options are required:
+
+- **API Key**: The API key provided by the MetOffice when subscribing to the Site Specific Global Spot.
+- **Latitude**: The latitude of the weather forecast location.
+- **Longitude**: The longitude of the weather forecast location.
+
+### Multiple Forecast Locations
+
+If adding multiple forecasts, it is important to note that there are restrictions of the number of API queries allowed on the free tier. Currently that restricts this integration to a single location. Multiple locations require a paid plan.
+
+The Latitude and Longitude of the forecast location are used to generate the unique ID for a given forecast. Therefore if adding multiple forecasts, each must have a unique location.
+
+## Weather platform
+
+The weather platform provides current conditions and forecasts that can be used with the weather dashboard card.
 
 This integration creates several weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, hourly, and twice-daily), and sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
 
-The available sensor entities:
+### Current conditions
 
-- "feels like" temperature
-- humidity
-- probability of precipitation
-- station name
-- temperature
-- pressure
-- UV index
-- visibility
-- weather
-- wind direction
-- wind gust
-- wind speed
+The following current weather data is provided:
+
+- **Station Name**: Closest weather station for the configured location
+- **Temperature** (°C): Current air temperature
+- **Feels like temperature** (°C): Subjective temperature accounting for wind and humidity
+- **Humidity** (%): Relative humidity
+- **Probability of precipitation** (%): Chance of rain for the next hour
+- **UV index**: UV index on standard international scale
+- **Pressure** (hPa): Atmospheric pressure
+- **Wind speed** (m/s): Current wind speed
+- **Wind direction** (degrees): Wind direction in degrees
+- **Wind gust** (m/s): Maximum wind gust speed
+- **Visibility distance** (km): Distance of visibility
+- **Weather**: One word summary of current weather conditions
 
 Only probability of precipitation, temperature, weather and wind speed are enabled by default.
 
-Details about the API are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
+### Forecasts
+
+The integration supports two types of forecasts:
+
+- **Hourly forecast**: Available for the next 3 days with detailed conditions including temperature, precipitation, wind, and cloud coverage.
+- **Twice daily forecast**: Available for the next 7 days, showing expected conditions for day and night.
+- **Daily forecast**: Available for the next 7 days, showing daily high/low temperatures and midday conditions.
+
+### Data updates
+
+Weather data is automatically updated every 15 minutes from the MetOffice DataHub.
 
 ## Removing the integration
 
