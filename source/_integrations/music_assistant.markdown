@@ -24,7 +24,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/). Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/). Media players allow you to control media playback and see the currently playing item.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Media player](#media-player-entities)
 - [Button](#favorite-current-song-button)
 
-Depending on the player provider and active plugins, additional platforms are supported: [Image, Number, Select, Sensor, Switch, Text](#player-options).
+Depending on the player provider and active plugins, additional platforms are supported. See [Player options](#player-options) and [Party mode](#party-mode).
 
 
 All of the Home Assistant [Media Player Control Actions](/integrations/media_player/#media-control-actions) are supported.
