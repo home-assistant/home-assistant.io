@@ -16,7 +16,9 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Met Office** weather {% term integration %} uses the Met Office's [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub) for weather data.
+The Met Office is the UK's national meteorological service, providing public weather forecast services for the UK.
+
+The **Met Office** weather {% term integration %} uses the Met Office's [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub) to retrieve forecast data for a specified location, providing a Weather entity with hourly, twice-daily, and daily forecasts.
 
 ## Prerequisites
 
