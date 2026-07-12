@@ -60,11 +60,11 @@ The following current weather data is provided:
 - **Humidity** (%): Relative humidity
 - **Probability of precipitation** (%): Chance of rain for the next hour
 - **UV index**: UV index on standard international scale
-- **Pressure** (hPa): Atmospheric pressure
+- **Pressure** (Pa): Atmospheric pressure
 - **Wind speed** (m/s): Current wind speed
 - **Wind direction** (degrees): Wind direction in degrees
 - **Wind gust** (m/s): Maximum wind gust speed
-- **Visibility distance** (km): Distance of visibility
+- **Visibility distance** (m): Distance of visibility
 - **Weather**: One word summary of current weather conditions
 
 Only probability of precipitation, temperature, weather and wind speed are enabled by default.
