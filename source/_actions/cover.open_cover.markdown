@@ -31,7 +31,7 @@ To open a cover from an automation or a script:
 Speed:
   description: >
     The speed at which to open the cover. This option only appears if your
-    cover integration supports it, and the available speeds are listed in the
+    cover supports speed selection, and the available speeds are listed in the
     `supported_speeds` attribute of the cover entity.
   required: false
 {% endoptions_ui %}
