@@ -95,7 +95,7 @@ library_only:
   type: boolean
   default: false
 username:
-  description: Search in the library of this Music Assistant user. This pays respect to configured provider filters.
+  description: Search in the library of this Music Assistant user. If the specified user has provider filtering configured, the results will be filtered accordingly.
   required: false
   type: string
 {% endoptions_yaml %}
