@@ -152,9 +152,10 @@ When adding the integration, you get this error in the browser:
 
 The Client ID sent to Viessmann does not match a client in the developer portal. This usually happens after you have set up ViCare before: Home Assistant keeps your old Client ID as an application credential and reuses it automatically, even after you remove the integration. To enter a new Client ID, delete the stored one first:
 
-1. Go to **Settings** > **Devices & services** > **⋮** (top right) > **Application credentials**.
-2. Delete the **Viessmann ViCare** entry.
-3. Add the integration again and enter the **Client ID** from your current client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com).
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
+3. Select the **Viessmann ViCare** credential, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+4. Add the integration again and enter the **Client ID** from your current client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com).
 
 ### GATEWAY_OFFLINE
 
