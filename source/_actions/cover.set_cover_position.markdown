@@ -23,13 +23,20 @@ To set a cover position from an automation or a script:
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the cover you want to move.
 6. From the actions shown for that target, select **Set cover position**.
 7. Set the **Position** you want to apply.
-8. Select **Save**.
+8. _Optional_: Set the **Speed** if your cover supports multiple speeds.
+9. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Position:
   description: The target position as a percentage, from 0 (closed) to 100 (open).
+Speed:
+  description: >
+    The speed at which to move the cover. This option only appears if your
+    cover integration supports it, and the available speeds are listed in the
+    `supported_speeds` attribute of the cover entity.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -47,6 +54,18 @@ action: |
 
 This moves `cover.living_room_blind` to the halfway position.
 
+If your cover supports multiple speeds, you can set the speed in the `data` section:
+
+{% example %}
+action: |
+  action: cover.set_cover_position
+  target:
+    entity_id: cover.living_room_blind
+  data:
+    position: 50
+    speed: "fast"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -54,6 +73,13 @@ position:
   description: The target position as a percentage, from 0 (closed) to 100 (open).
   required: true
   type: integer
+speed:
+  description: >
+    The speed at which to move the cover. Use one of the values listed in the
+    `supported_speeds` attribute of the cover entity. Only use this if your
+    cover integration supports it.
+  required: false
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}

@@ -22,11 +22,19 @@ To open a cover from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the cover you want to open.
 6. From the actions shown for that target, select **Open cover**.
-7. Select **Save**.
+7. _Optional_: Set the **Speed** if your cover supports multiple speeds.
+8. Select **Save**.
 
 ### Options in the UI
 
-This action has no additional options beyond the target.
+{% options_ui %}
+Speed:
+  description: >
+    The speed at which to open the cover. This option only appears if your
+    cover integration supports it, and the available speeds are listed in the
+    `supported_speeds` attribute of the cover entity.
+  required: false
+{% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
@@ -41,9 +49,28 @@ action: |
 
 This opens `cover.living_room_blind`.
 
+If your cover supports multiple speeds, you can set the speed in the `data` section:
+
+{% example %}
+action: |
+  action: cover.open_cover
+  target:
+    entity_id: cover.living_room_blind
+  data:
+    speed: "fast"
+{% endexample %}
+
 ### Options in YAML
 
-This action has no additional YAML options beyond the target.
+{% options_yaml %}
+speed:
+  description: >
+    The speed at which to open the cover. Use one of the values listed in the
+    `supported_speeds` attribute of the cover entity. Only use this if your
+    cover integration supports it.
+  required: false
+  type: string
+{% endoptions_yaml %}
 
 {% include actions/targets.md %}
 
