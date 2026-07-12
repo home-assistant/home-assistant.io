@@ -334,7 +334,7 @@ The **Manual record** switch will turn off automatically after 10 minutes. There
 
 Polling the status of the **Hardwired chime enabled** switch can make the hardwired chime rattle a bit depending on the model of the chime. Therefore the status of this switch is only polled one time (about 1 minute after the integration starts). The rattle at startup can only happen if you chose to enable this switch.
 
-The **Pre-siren on event** only takes effect when the **Siren on event** is also ON.
+The **Pre-siren on event** switch only takes effect when the **Siren on event** switch is ON.
 
 ### Light entities
 
