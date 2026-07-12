@@ -763,7 +763,10 @@ filter:
       description: >
         Can be set to an integration domain. Limits the list of entities to entities
         provided by the set integration domain, for example,
-        [`zha`](/integrations/zha).
+        [`matter`](/integrations/matter). An entity and the device it belongs to can be
+        provided by different integrations, so this option only filters by the
+        entity's integration. To filter by the device's integration, use the
+        `integration` option under `device` instead.
       type: string
       required: false
     device:
@@ -776,7 +779,9 @@ filter:
           description: >
             Can be set to an integration domain. Limits the list of entities to
             entities that belong to devices provided by the set integration
-            domain, for example, [`zha`](/integrations/zha).
+            domain, for example, [`hue`](/integrations/hue). This filters by the
+            integration that provides the device, which can differ from the
+            integration that provides the entity itself.
           type: string
           required: false
         manufacturer:
@@ -850,7 +855,7 @@ light.living_room
 
 An example entity selector that, will only show entities that are:
 
-- Provided by the [ZHA](/integrations/zha) integration.
+- Provided by the [Hue](/integrations/hue) integration.
 - From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
@@ -861,9 +866,25 @@ And this is what it looks like in YAML:
 entity:
   multiple: true
   filter:
-    - integration: zha
+    - integration: hue
       domain: binary_sensor
       device_class: motion
+```
+
+{% tip %}
+Integration filters aren't reliable for devices that can connect through
+multiple integrations, such as Matter or Zigbee.
+To reliably target specific hardware, combine the filter with
+`device.manufacturer`, `device.model`, or `device.model_id`.
+{% endtip %}
+
+```yaml
+entity:
+  multiple: true
+  filter:
+    device:
+      manufacturer: IKEA of Sweden
+      model: BILRESA dual button
 ```
 
 ## Floor selector
