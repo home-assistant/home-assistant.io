@@ -31,7 +31,7 @@ To close a cover from an automation or a script:
 Speed:
   description: >
     The speed at which to close the cover. This option only appears if your
-    cover integration supports it, and the available speeds are listed in the
+    cover supports it, and the available speeds are listed in the
     `supported_speeds` attribute of the cover entity.
   required: false
 {% endoptions_ui %}
@@ -67,7 +67,7 @@ speed:
   description: >
     The speed at which to close the cover. Use one of the values listed in the
     `supported_speeds` attribute of the cover entity. Only use this if your
-    cover integration supports it.
+    cover supports it.
   required: false
   type: string
 {% endoptions_yaml %}
