@@ -155,7 +155,7 @@ The Client ID sent to Viessmann does not match a client in the developer portal.
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
 3. Select the **Viessmann ViCare** credential, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-4. Add the integration again and enter the **Client ID** from your current client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com).
+4. Add the integration again. Setup now prompts for the application credentials again; enter the **Client ID** from your current client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com).
 
 ### GATEWAY_OFFLINE
 
