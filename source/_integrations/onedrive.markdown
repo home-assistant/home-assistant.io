@@ -1,6 +1,6 @@
 ---
 title: OneDrive
-description: Instructions on how to setup OneDrive to be used with backups.
+description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
   - Backup
@@ -88,24 +88,7 @@ The integration provides the following sensors, which are updated every 5 minute
 A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
 {% endnote %}
 
-## Actions
-
-This integration provides the following actions:
-
-### Action `onedrive.upload`
-
-You can use the `onedrive.upload` action to upload files from Home Assistant
-to OneDrive. For example, to upload `camera` snapshots.
-
-{% details "Upload action details" %}
-
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `filename` | no | Path to the file to upload. | /media/image.jpg |
-| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded content. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
-| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 ## Automations
 
@@ -116,8 +99,6 @@ Get started with these automation examples.
 Send an alert when the drive usage is close to the storage limit and needs cleanup.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: Alert when OneDrive is close to storage limit
@@ -134,7 +115,9 @@ triggers:
     from: "nearing"
     to: "critical"
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: OneDrive is almost full!
       message: >
@@ -142,14 +125,12 @@ actions:
         states('sensor.my_drive_total_available') }}GB.  Only {{ states('sensor.my_drive_remaining_storage') }}GB remaining.
 mode: single
 ```
-
-{% endraw %}
 {% enddetails %}
 
 
 ## Getting application credentials
 
-This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
+This integration comes with a predefined set of [application credentials](/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
 
 Even if you use the default credentials, nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 

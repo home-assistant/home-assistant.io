@@ -4,7 +4,9 @@ title: "Security audits of Home Assistant"
 description: "Home Assistant hired Cure53 to do a security audit as part of our regular security assessments. You are safe. No authentication bypasses have been found."
 date: 2023-10-19 00:00:00
 date_formatted: "October 19, 2023"
-author: Paulus Schoutsen & Franck Nijhof
+author:
+  - Paulus Schoutsen
+  - Franck Nijhof
 comments: true
 categories:
   - Announcements

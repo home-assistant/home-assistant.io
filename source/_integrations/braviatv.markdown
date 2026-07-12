@@ -42,13 +42,12 @@ Using the media browser, you can view a list of all installed applications and T
 
 ## Using with Google Cast
 
-The Bravia TV {% term integration %} provides information about the power status of the device, current source, and volume. It gives you the ability to control playback, run applications, and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, etc.). In turn, the [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (for example on Home Screen) and does not allow you to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
+The Bravia TV {% term integration %} provides information about the power status of the device, current source, and volume. It gives you the ability to control playback, run applications, and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, and more). In turn, the [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (for example, on Home Screen) and does not allow you to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
 
 {% details "Example YAML configuration" %}
 
 Replace `media_player.sony_tv_native` with your Bravia TV integration media player {% term entity %} ID. Replace `media_player.sony_tv_cast` with your Google Cast integration media player {% term entity %} ID.
 
-{% raw %}
 
 ```yaml
 media_player:
@@ -103,7 +102,6 @@ media_player:
           entity_id: media_player.sony_tv_native
 ```
 
-{% endraw %}
 
 {% enddetails %}
 
@@ -111,10 +109,10 @@ media_player:
 
 The `play_media` {% term action %} can be used in an {% term automation %} or {% term script %} to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
 
- 1. Channel number *(i.e., '1' or '6')*
- 2. Exact app or channel name *(i.e., 'Google Play' or 'CNN')*
- 3. Substring in app or channel name *(i.e., 'BFM' in 'BFM TV')*
- 4. URI-string of app or channel *(i.e., 'tv:dvbt?trip=9999.441.41104&srvName=BBC HD')*
+ 1. Channel number *(for example, '1' or '6')*
+ 2. Exact app or channel name *(for example, 'Google Play' or 'CNN')*
+ 3. Substring in app or channel name *(for example, 'BFM' in 'BFM TV')*
+ 4. URI-string of app or channel *(for example, 'tv:dvbt?trip=9999.441.41104&srvName=BBC HD')*
 
 **Example to open YouTube app:**
 
@@ -153,7 +151,7 @@ data:
 
 The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` action.
 
-The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). The list of commands can also be displayed by downloading the {% term diagnostics %} from the device info in the [Integration Settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
+The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with an invalid command, for example, `Test`. A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). The list of commands can also be displayed by downloading the {% term diagnostics %} from the device info in the [Integration Settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
 
 **Example to send `Down` key command:**
 
@@ -216,9 +214,9 @@ See [Using with Google Cast](#using-with-google-cast) section for more details.
 
 ### Power consumption ~15 W when the TV in standby mode while integration is enabled
 
-The Bravia TV is [local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term action %} manually.
+The Bravia TV is [local polling integration](/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term action %} manually.
 
-Please note that this behavior can be caused not only by the integration, but also by some applications installed on the TV.
+This behavior can be caused not only by the integration, but also by some applications installed on the TV.
 
 ### For TVs older than 2013
 

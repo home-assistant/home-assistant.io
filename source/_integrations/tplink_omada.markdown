@@ -13,6 +13,7 @@ ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
   - switch
   - update
@@ -41,6 +42,7 @@ A local account must be used for login. Do not turn on two-factor authentication
 TP-Link Omada Controller:
 
 - OC200
+- OC220
 - OC300
 - Software Controller
 
@@ -90,24 +92,11 @@ The integration can track Wi-Fi devices connected to access points managed by th
 
 ### Data updates
 
-The TP-Link Omada integration fetches data from the Omada Controller every 5 minutes by default. If you want to increase the polling frequency of client updates, follow [these instructions](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval). You only need to request a refresh from one of the tracked devices, all of the tracked devices will be refreshed at the same time.
+The TP-Link Omada integration fetches data from the Omada Controller every 5 minutes by default. If you want to increase the polling frequency of client updates, follow [these instructions](/common-tasks/general/#defining-a-custom-polling-interval). You only need to request a refresh from one of the tracked devices, all of the tracked devices will be refreshed at the same time.
 
 Note: The TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network, even with more regular polling updates.
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Reconnect client
-
-The `tplink_omada.reconnect_client` action is used to force a Wi-Fi client to reconnect to the network. This is useful if you have a troublesome client network connection that needs to be reset.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The instance of the Omada integration that the Wi-Fi client is connected to.
-  - **Optional**: Yes
-- **Data attribute**: `mac`
-  - **Description**: The MAC address of the Wi-Fi client to reconnect.
-  - **Optional**: No
+{% include integrations/actions.md %}
 
 ## Removing the integration
 

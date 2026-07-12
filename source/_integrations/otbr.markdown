@@ -23,4 +23,6 @@ Installing this integration manually is an advanced use case, for example if you
 
 {% include integrations/config_flow.md %}
 
+When asked to provide a URL, enter the address of your border router's REST API. The URL uses plain HTTP, not HTTPS, and includes the host and port of your border router. A standard OpenThread border router exposes its REST API on port `8081`, so your URL typically looks like `http://192.168.1.42:8081`. Replace the IP address with your border router's IP address.
+
 To view the app documentation, go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Documentation** tab.

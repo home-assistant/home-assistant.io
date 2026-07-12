@@ -212,7 +212,7 @@ Check the [Lovelace changelog](https://www.home-assistant.io/lovelace/changelog/
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 ## Reporting Issues
 

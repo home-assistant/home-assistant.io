@@ -12,6 +12,7 @@ ha_domain: v2c
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - light
   - number
   - sensor
   - switch
@@ -22,9 +23,10 @@ The **V2C** {% term integration %} allows monitoring and control of a local [V2C
 
 There is currently support for the following platforms within Home Assistant:
 
-- [Sensor](#sensor)
 - [Binary sensor](#binary-sensor)
+- [Sensor](#sensor)
 - [Number](#number)
+- [Light](#light)
 - [Switch](#switch)
 
 ## Prerequisites
@@ -58,6 +60,13 @@ The V2C integration currently exposes the following sensors:
 The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
+
+## Light
+
+The V2C integration currently exposes the following lights:
+
+- Logo LED: Indicates the light behind the V2C logo.
+- Light LED: Indicates the light of the charger.
 
 ## Switch
 

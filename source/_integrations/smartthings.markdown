@@ -18,6 +18,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
   - Vacuum
   - Valve
@@ -42,6 +43,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
   - vacuum
   - valve
@@ -54,6 +56,14 @@ ha_quality_scale: bronze
 ---
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
+
+{% warning %}
+**Upcoming breaking API change (October 2026).**
+
+Samsung has announced that free access to the SmartThings API will be phased out starting in **October 2026**. After this date, the SmartThings API access will require a paid Personal Plan subscription ($4.99/month).
+
+If you use this integration, you will need to either subscribe to Samsung's Personal Plan or migrate your devices (like local Zigbee/Z-Wave devices) before October 2026 to avoid a service disruption. For full details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
+{% endwarning %}
 
 ## Prerequisites
 
@@ -344,6 +354,10 @@ The SmartThings Switch lets you control devices that have the [`switch`](https:/
 | `samsungce.steamClosetSanitizeMode`    |
 | `samsungce.washerBubbleSoak`           |
 
+### Time
+
+The SmartThings time platform lets you control the start and end time for the do not disturb mode on supported devices.
+
 ### Update
 
 The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
@@ -379,6 +393,13 @@ Debug logs can be helpful for diagnosing state updates, for example by selecting
 
 - To enable debug logs, follow the [steps to enable debug logs](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
+### Viewing device diagnostics
+
+The SmartThings integration provides diagnostics at two levels. To download diagnostics, follow the [steps to download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+
+- **Device diagnostics**: Contains all capabilities and their current states for a single device. This is useful when troubleshooting a specific device — it shows exactly what capabilities, attributes, and attribute values the device exposes to the SmartThings API.
+- **Config entry diagnostics**: Contains information about all capabilities and devices in your SmartThings location, but without the current state values. This is useful for getting a comprehensive overview of available capabilities across all your connected devices.
+
 ### Missing device functionality
 
 The SmartThings integration does not support all SmartThings capabilities. Only the capabilities listed in this documentation are supported. If a feature of your device is not available in Home Assistant, there are a few possible reasons:
@@ -387,15 +408,13 @@ The SmartThings integration does not support all SmartThings capabilities. Only 
    - The capability you are looking for might not yet be supported by this integration. 
 2. To see if the necessary capability is available for your device in the API, check the [SmartThings Developer Portal](https://my.smartthings.com/advanced/devices).
    - Some device features are only available in the SmartThings app and are not exposed through the API. 
-3. If the capability is available in the SmartThings API but not yet supported by this integration, you can request support by creating a [GitHub Discussion](https://github.com/orgs/home-assistant/discussions?discussions_q=is%3Aopen+label%3A%22integration%3A+smartthings%22). 
+3. If the capability is available in the SmartThings API but not yet supported by this integration, you can request support by creating a [GitHub Discussion](https://github.com/orgs/home-assistant/discussions?discussions_q=is%3Aopen+label%3A%22integration%3A+smartthings%22).
    - Do not create a GitHub Issue for feature requests, as issues are intended for bug reports.
+   - When creating a feature request, attach the [device diagnostics](#viewing-device-diagnostics) for the device that is missing functionality. This helps identify which capabilities your device exposes and speeds up the implementation.
 
-### Viewing device diagnostics
+## SmartThings community
 
-The SmartThings integration provides diagnostics at two levels. To download diagnostics, follow the [steps to download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
-
-- **Device diagnostics**: Contains all capabilities and their current states for a single device. This is useful when troubleshooting a specific device — it shows exactly what capabilities, attributes, and attribute values the device exposes to the SmartThings API.
-- **Config entry diagnostics**: Contains information about all capabilities and devices in your SmartThings location, but without the current state values. This is useful for getting a comprehensive overview of available capabilities across all your connected devices.
+The SmartThings integration is complex due to the breadth of devices and capabilities it supports. If you need community support or want to discuss device integration topics with other SmartThings users, you can join the [SmartThings Integration community on Discord](https://discord.gg/EJYdwMCz7K).
 
 ## Removing the integration
 

@@ -20,7 +20,7 @@ related:
 
 The **Switch** {% term integration %} manages the state of the switch entities and allows you to control them.
 
-- Maintains a state per switch and a combined state `all_switches`.
+- Maintains a state for each of your switches.
 - Registers actions `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
 
 {% include integrations/building_block_integration.md %}
@@ -43,6 +43,10 @@ In addition, the entity can have the following states:
 - **None**: Generic switch. This is the default and doesn't need to be set.
 - **outlet**: A switch for a power outlet.
 - **switch**: A generic switch.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 ## Using the actions
 
