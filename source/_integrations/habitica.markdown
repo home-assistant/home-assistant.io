@@ -3,7 +3,7 @@ title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
   - Calendar
-  - Gaming 
+  - Gaming
   - Image
   - Sensor
   - To-do list
