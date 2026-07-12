@@ -3,6 +3,7 @@ title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
   - Binary sensor
+  - Gaming
   - Media player
   - Sensor
 ha_release: 2025.7

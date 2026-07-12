@@ -3,6 +3,7 @@ title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
   - Binary sensor
+  - Gaming
   - Media player
   - Media source
   - Remote

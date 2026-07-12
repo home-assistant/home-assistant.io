@@ -2,6 +2,7 @@
 title: Lichess
 description: Instructions on how to integrate Lichess with Home Assistant.
 ha_category:
+  - Gaming
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true
