@@ -67,10 +67,13 @@ The **Steam** integration provides the following entities.
     - **Game image**: The URL of the logo image for the game the user is currently playing.
     - **Game header image**: The URL of the header image for the game the user is currently playing.
     - **Game icon**: The URL of the icon for the game the user is currently playing.
+
 - **Last online**
   - **Description**: The date and time the Steam user was last seen online.
+
 - **Level**
   - **Description**: The current Steam level of the user.
+
 - **Now playing**
   - **Description**: The title of the game the user is currently playing.
   - **Attributes**:
