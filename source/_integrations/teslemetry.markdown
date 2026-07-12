@@ -69,7 +69,23 @@ Each vehicle has its own **Set up Bluetooth control** action.
 3. Home Assistant scans for the vehicle over Bluetooth. Make sure the vehicle is awake and nearby, then continue.
 4. Approve Home Assistant's virtual key by tapping your key card against the center console card reader of the vehicle.
 
-You only need to do this once per vehicle. Once a vehicle is paired and in range, Home Assistant routes its commands over the local Bluetooth connection first and falls back to the cloud automatically, for example, when the vehicle is out of Bluetooth range. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster.
+You only need to do this once per vehicle.
+
+Whether a paired vehicle's commands route locally over Bluetooth or through the cloud is decided when Home Assistant starts or when you reload the Teslemetry integration. If the vehicle is within Bluetooth range at that moment, its commands use the local connection first, with an automatic fall back to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster.
+
+If the vehicle is out of Bluetooth range at that moment, for example, because it's away from home when Home Assistant starts, its commands use the cloud for the rest of that session. Home Assistant doesn't automatically switch a vehicle back to Bluetooth when it returns into range. To pick up Bluetooth control again, reload the Teslemetry integration (or restart Home Assistant) while the vehicle is in range.
+
+### Removing Bluetooth control
+
+Removing the Teslemetry integration, or the pairing for a single vehicle, stops Home Assistant from routing that vehicle's commands over Bluetooth and forgets the stored Bluetooth address. It does not revoke Home Assistant's virtual key from the vehicle itself. That key stays authorized on the car until you remove it there.
+
+To fully revoke Home Assistant's access:
+
+1. Sit in the vehicle, and on the touchscreen, select **Controls** > **Locks**.
+2. In the list of keys, find the one that was added when you set up Bluetooth control for Home Assistant, and select its trash icon.
+3. When prompted, confirm the removal by tapping an authenticated key card or key fob against the center console card reader.
+
+If you use other apps that also connect to the vehicle over a virtual key, they'll appear in the same list, so make sure you remove the correct one.
 
 ## Entities
 
