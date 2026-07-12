@@ -47,3 +47,11 @@ The available sensor entities:
 Only probability of precipitation, temperature, weather and wind speed are enabled by default.
 
 Details about the API are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, you are free to unsubscribe from the Global Spot service on your Met Office DataHub account.
