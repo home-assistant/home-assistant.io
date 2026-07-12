@@ -1627,24 +1627,6 @@ entity:
         [`zha`](/integrations/zha).
       type: string
       required: false
-    manufacturer:
-      description: >
-        When set, it limits the targets to entities that belong to devices provided
-        by the set manufacturer name.
-      type: string
-      required: false
-    model:
-      description: >
-        When set, it limits the targets to entities that belong to devices that have
-        the set model.
-      type: string
-      required: false
-    model_id:
-      description: >
-        When set, the targets are limited to entities that belong to devices that have
-        the set model ID.
-      type: string
-      required: false
     domain:
       description: >
         Limits the targets to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
