@@ -182,7 +182,7 @@ Use TLS:
 {% endconfiguration_basic %}
 
 {% note %}
-The connection check confirms that Home Assistant can reach the server and sign in. It does not verify that the TimescaleDB extension is available, so make sure your server provides it before you switch to this backend.
+The connection check confirms that Home Assistant can reach the server, sign in, and that the TimescaleDB extension is available.
 {% endnote %}
 
 ## Basic configuration
