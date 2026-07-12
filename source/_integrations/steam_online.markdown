@@ -1,14 +1,16 @@
 ---
 title: Steam
-description: Instructions on how to set up Steam sensors in Home Assistant.
+description: Instructions on how to set up Steam in Home Assistant.
 ha_category:
   - Social
+  - Image
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
 ha_platforms:
   - sensor
+  - image
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: service
@@ -69,7 +71,7 @@ Image entities provide artwork for the Steam account or the game the account is 
 
 - **Library hero capsule**
   - **Description**: The game's wide hero artwork displayed at the top of the Steam library page.
-  - **Image size**: 1920 x 620 px.
+  - **Image size**: 1920 × 620 px.
   - **Remarks**: Entity disabled by default.
 
 - **Library logo**
@@ -83,7 +85,7 @@ Image entities provide artwork for the Steam account or the game the account is 
 
 - **Page background**
   - **Description**: The background artwork used on the game's Steam store page.
-  - **Image size**: 1438 x 810 px.
+  - **Image size**: 1438 × 810 px.
   - **Remarks**: Entity disabled by default.
 
 - **Small capsule**
