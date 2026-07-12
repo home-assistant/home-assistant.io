@@ -878,6 +878,8 @@ To reliably target specific hardware, combine the filter with
 `device.manufacturer`, `device.model`, or `device.model_id`.
 {% endtip %}
 
+For example, to filter for a specific device:
+
 ```yaml
 entity:
   multiple: true
