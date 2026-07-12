@@ -45,7 +45,7 @@ Limit:
 Only library items:
   description: Only include results that are in the library.
 Username:
-  description: Search in the library of this Music Assistant user. This pays respect to configured provider filters.
+  description: Search in the library of this Music Assistant user. If the specified user has provider filtering configured, the results will be filtered accordingly.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
