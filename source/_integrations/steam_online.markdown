@@ -39,6 +39,63 @@ To find an account's 64-bit SteamID:
 3. Select **Account details**.
    - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
 
+## Supported functionality
+
+The **Steam** integration provides the following entities.
+
+### Images
+
+Image entities provide artwork for the Steam account or the game the account is currently playing. Game-related image entities are only available while a game is actively being played.
+
+- **App icon**
+  - **Description**: The game's application icon.
+  - **Image size**: 32 × 32 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Avatar**
+  - **Description**: The Steam user's profile avatar.
+  - **Image size**: 184 × 184 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Header capsule**
+  - **Description**: The game's header artwork as displayed on its Steam store page.
+  - **Image size**: 460 × 215 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Library capsule**
+  - **Description**: The game's vertical library artwork used in the Steam library.
+  - **Image size**: 600 × 900 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Library hero capsule**
+  - **Description**: The game's wide hero artwork displayed at the top of the Steam library page.
+  - **Image size**: 1920 x 620 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Library logo**
+  - **Description**: The transparent logo displayed on top of the library hero artwork.
+  - **Image size**: Varies by game.
+  - **Remarks**: Entity disabled by default.
+
+- **Main capsule**
+  - **Description**: The game's main capsule artwork used throughout the Steam store.
+  - **Image size**: 616 × 353 px.
+
+- **Page background**
+  - **Description**: The background artwork used on the game's Steam store page.
+  - **Image size**: 1438 x 810 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Small capsule**
+  - **Description**: The game's small capsule artwork used in lists and search results.
+  - **Image size**: 231 × 87 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Vertical capsule**
+  - **Description**: The game's vertical store capsule artwork.
+  - **Image size**: 374 × 448 px or 748 × 896 px.
+  - **Remarks**: Entity disabled by default.
+
 ## Examples
 
 If you want to add the accounts to a group for example you will have to use:
