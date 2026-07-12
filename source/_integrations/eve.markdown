@@ -22,3 +22,9 @@ works_with:
 ## Supported devices
 
 {% include integrations/device_list.html brand="eve" %}
+
+## Known limitations
+
+Some Eve devices were originally sold as Bluetooth or HomeKit-only models and need a firmware upgrade to Matter before you can set them up in Home Assistant via the Matter integration. Eve's upgrade process requires an iPhone or iPad, together with an Apple Thread border router such as a HomePod mini or Apple TV 4K (2nd generation or later). Without an Apple device, these models cannot be upgraded to Matter.
+
+Before buying, check [Eve's upgrade to Matter guide](https://www.evehome.com/en/upgrade-to-matter) to confirm whether a device already supports Matter out of the box or needs to be upgraded first.

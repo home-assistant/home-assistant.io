@@ -58,7 +58,7 @@ You can also change the camera options should you need to access a high or low r
 
 - Example: If you set the **Request Timeout** to 30 seconds (default option), Home Assistant will wait up to 30 seconds for a response from the EZVIZ API before timing out.
 
-- Please note this only works on the main EZVIZ cloud entity.
+- This only works on the main EZVIZ cloud entity.
 
 `Arguments passed to ffmpeg for cameras`:
 
@@ -70,7 +70,7 @@ You can also change the camera options should you need to access a high or low r
 
 - Cameras typically default to the main stream if this is invalid or not specified.
 
-- Please note this only works on the camera entities.
+- This only works on the camera entities.
 
 ### Action `ezviz.alarm_sound`
 

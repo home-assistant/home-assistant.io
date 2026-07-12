@@ -117,7 +117,7 @@ entity: weather.openweathermap
 forecast_type: daily
 ```
 
-### Advanced
+### Using icons
 
 #### Themeable icons
 

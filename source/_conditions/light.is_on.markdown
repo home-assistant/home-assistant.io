@@ -12,8 +12,6 @@ The **Light is on** condition passes when a light {% term entity %} is currently
 
 When you target more than one light, the condition's **behavior** option controls how the check combines results. You can require any targeted light to be on, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -31,7 +29,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one targeted light is on, or **All** to pass only when every targeted light is on.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -55,7 +52,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}

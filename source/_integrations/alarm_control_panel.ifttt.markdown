@@ -81,7 +81,7 @@ optimistic:
 
 {% warning %}
 
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be sent unprotected through the IFTTT Webhooks. It is advised to [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 
 {% endwarning %}
 
@@ -91,7 +91,7 @@ Next, you will need to set up the required IFTTT applets as listed below.
 
 This platform supports the `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night` actions. For each of these actions, an IFTTT webhook will be triggered.
 
-For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
+For this system to operate correctly, the following IFTTT applets have to be set up. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
 
 - **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** disarm the alarm system.
 - **IF** Webhook event `YOUR_ARM_HOME_EVENT` is called, **THEN** set the alarm system to armed home.

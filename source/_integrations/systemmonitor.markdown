@@ -78,7 +78,6 @@ As such, time spent in this subset of the stall state is tracked separately and 
 - **Battery empty**: Expected time when the battery is empty if not plugged in
 - **Charging**: Battery is charging (binary sensor)
 - **Fan speed**: Built-in fan speeds
-- **Last boot**: The date and time when the system was last started
 - **Load (1 min)**: System load average over the last 1 minute
 - **Load (5 min)**: System load average over the last 5 minutes
 - **Load (15 min)**: System load average over the last 15 minutes
@@ -90,6 +89,7 @@ As such, time spent in this subset of the stall state is tracked separately and 
 - **Swap free**: Amount of available swap memory
 - **Swap use**: Amount of used swap memory
 - **Swap usage (%)**: Percentage of swap memory used
+- **Uptime**: The date and time when the system was last started
 
 ## Add `process` binary sensor
 
@@ -122,4 +122,4 @@ tmpfs           934M     0  934M   0% /dev/shm
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
 - The unit of measurement (Celsius vs. Fahrenheit) will be chosen based on the system configuration.
-- Only the very first processor related hardware sensor is read, i.e. no individual core temperatures are available (even if the hardware sensor provides that level of detail).
+- Only the very first processor related hardware sensor is read, that is, no individual core temperatures are available (even if the hardware sensor provides that level of detail).

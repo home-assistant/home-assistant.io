@@ -44,6 +44,10 @@ In addition, the entity can have the following states:
 - **outlet**: A switch for a power outlet.
 - **switch**: A generic switch.
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Using the actions
 
 In the frontend open **Settings**. Select **Developer tools**, click **Actions**. From the **Action** dropdown menu choose `switch.turn_on` or `switch.turn_off` from the list of available actions. In the Entity dropdown menu choose or enter the entity ID you want to work with. This will enter something like the sample below into the **data** field. Now select **Perform action**.

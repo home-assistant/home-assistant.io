@@ -2,7 +2,7 @@
 title: Dexcom
 description: Instructions on how to integrate your Dexcom CGM data into Home Assistant.
 ha_category:
-  - Sensor
+  - Health
 ha_release: 0.113
 ha_iot_class: Cloud Polling
 ha_config_flow: true

@@ -48,7 +48,7 @@ logo:
   required: true
   type: string
 url:
-  description: URL of the hackerspace's web site.
+  description: URL of the hackerspace's website.
   required: true
   type: string
 location:
@@ -89,7 +89,7 @@ contact:
       required: false
       type: string
     keymasters:
-      description: Persons who carry a key and are able to open the space upon request. One of the fields must be specified.
+      description: Persons who carry a key and can open the space upon request. One of the fields must be specified.
       required: false
       type: list
       keys:
