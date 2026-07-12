@@ -866,27 +866,6 @@ entity:
       device_class: motion
 ```
 
-Entity properties (`integration`, `domain`, `device_class`, and
-`supported_features`) stay at the top level of each `filter` entry. Device
-properties (`integration`, `manufacturer`, `model`, and `model_id`) must be
-placed inside the `device` object. This lets you narrow the list by the
-entity's underlying device, which is helpful when the same physical device is
-exposed by multiple integrations, such as Matter, ZHA, or Zigbee2MQTT, while
-still picking the exact entity.
-
-The following example only shows event entities that belong to a specific
-device model:
-
-```yaml
-entity:
-  multiple: true
-  filter:
-    - domain: event
-      device:
-        manufacturer: IKEA of Sweden
-        model: BILRESA Dual Button
-```
-
 ## Floor selector
 
 The floor selector shows a floor finder that can pick
