@@ -80,6 +80,8 @@ You can set up the {% term integration %} in one of two ways:
 
 You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
 
+<a id="local-user"></a>
+
 ### Full access
 
 You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
