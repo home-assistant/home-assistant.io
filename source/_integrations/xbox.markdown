@@ -54,19 +54,29 @@ Once added, a new device will appear with the same set of entities available for
 - Xbox One (S/X)
 - Xbox Series S/X
 
-{% include integrations/actions.md %}
-
 ## Media player
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
+
+### Launching apps in automations
+
+To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
+
+You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
 ## Remote
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
+### Sending commands in automations
+
+To send controller commands or text input to the Xbox console, use the [**Send remote command**](/actions/remote.send_command/) action and select your Xbox remote as the target.
+
+Supported controller commands include `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`, `GoHome`, `GoBack`, `ShowGuideTab`, and `ShowGuide`.
+
 ### Picture elements card
 
-Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It uses the [Send remote command](/actions/xbox.send_command/) action. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities. Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It uses the [Send remote command](/actions/remote.send_command/) action. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities. Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
   <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
