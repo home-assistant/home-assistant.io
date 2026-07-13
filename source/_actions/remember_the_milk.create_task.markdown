@@ -24,7 +24,7 @@ To create a Remember The Milk task from an automation or a script:
 
 {% options_ui %}
 Name:
-  description: The name of the task to create. You can use Remember The Milk smart syntax when creating a new task.
+  description: The name of the task to create. You can use [Remember The Milk smart syntax](https://www.rememberthemilk.com/help/answer/basics-smartadd-howdoiuse) when creating a new task.
 ID:
   description: An identifier for the task. If a task with this ID already exists, the action updates the task instead of creating a new one.
   required: false
@@ -48,7 +48,7 @@ This creates or updates the task with the ID `water_plants`.
 
 {% options_yaml %}
 name:
-  description: The name of the task to create. You can use Remember The Milk smart syntax when creating a new task.
+  description: The name of the task to create. You can use [Remember The Milk smart syntax](https://www.rememberthemilk.com/help/answer/basics-smartadd-howdoiuse) when creating a new task.
   required: true
   type: string
 id:
@@ -62,6 +62,7 @@ This action does not support targets.
 ## Good to know
 
 - Replace `myaccount` in the YAML example with the account name you configured for Remember The Milk.
+- If you do not set an ID, each action run creates a new task.
 - Smart syntax is not supported when updating tasks. If the ID already exists, smart syntax commands are ignored and become normal text in the task name.
 - Use the same ID with [Complete task](/actions/remember_the_milk.complete_task/) to complete the task later.
 
