@@ -64,6 +64,30 @@ To launch an app or return to the Xbox dashboard, use the [**Play specified medi
 
 You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
+Example YAML to return to the Xbox dashboard:
+
+```yaml
+actions:
+  - action: media_player.play_media
+    target:
+      entity_id: media_player.xboxone
+    data:
+      media_content_id: "Home"
+      media_content_type: app
+```
+
+Example YAML to launch Netflix:
+
+```yaml
+actions:
+  - action: media_player.play_media
+    target:
+      entity_id: media_player.xboxone
+    data:
+      media_content_id: "9WZDNCRFJ3TJ"
+      media_content_type: app
+```
+
 ## Remote
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
@@ -73,6 +97,32 @@ The Xbox remote platform will create Remote entities for each console linked to 
 To send controller commands or text input to the Xbox console, use the [**Send remote command**](/actions/remote.send_command/) action and select your Xbox remote as the target.
 
 Supported controller commands include `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`, `GoHome`, `GoBack`, `ShowGuideTab`, and `ShowGuide`.
+
+Example YAML to send one button press:
+
+```yaml
+actions:
+  - action: remote.send_command
+    target:
+      entity_id: remote.xboxone
+    data:
+      command: "A"
+```
+
+Example YAML to send multiple button presses:
+
+```yaml
+actions:
+  - action: remote.send_command
+    target:
+      entity_id: remote.xboxone
+    data:
+      command:
+        - Right
+        - Right
+        - "A"
+      delay_secs: 0.1
+```
 
 ### Picture elements card
 
