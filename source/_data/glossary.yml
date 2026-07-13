@@ -90,8 +90,7 @@
     - backups
 - term: Binary sensor
   definition: >-
-    A binary sensor is an entity that reports one of two mutually exclusive
-    states, on or off. The device class determines how those states are labeled in the UI. For example, open/closed for a door or
+    A binary sensor is an entity that reports one of two mutually exclusive states, on or off. The device class determines how those states are labeled in the UI. For example, open/closed for a door or
     detected/clear for motion.
   link: /integrations/binary_sensor
   aliases:
