@@ -19,7 +19,7 @@ ha_integration_type: helper
 ha_config_flow: true
 ---
 
-The **Random** {% term integration %} creates random values or a random state. This is useful when you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
+The **Random (Helper)** {% term integration %} creates random values or a random state. This is useful when you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
 
 ## Configuration
 
@@ -27,6 +27,7 @@ The preferred way to create a random helper is through the user interface.
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
 2. Select **{% my config_flow_start domain=page.ha_domain title=page.title %}**.
+3. Select **Random binary sensor** to create random states or **Random sensor** to create random values.
 
 ## Binary sensor
 The random binary sensor creates random states (`true`, 1, `on` or `false`, 0, `off`).
