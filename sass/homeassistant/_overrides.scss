@@ -2307,7 +2307,7 @@ h6 {
       img {
         width: 30px;
         border: none;
-        border-radius: 100%;
+        border-radius: 100% !important;
         box-shadow: none;
 
         &.meta-link {
