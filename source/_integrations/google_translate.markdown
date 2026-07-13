@@ -110,6 +110,23 @@ You can also use supported BCP 47 tags or the 2-2 digit format for your supporte
 | es-es   | es       | es     |
 | es-us   | es       | com    |
 
-{% include integrations/actions.md %}
+## Using Google Translate text-to-speech in automations
+
+To play a message with Google Translate text-to-speech from an automation or a script, use the [**Speak**](/actions/tts.speak/) action and select your Google Translate text-to-speech entity as the target. The entity is named for the language and top-level domain you created it with, for example `tts.google_en_com`.
+
+To use this action from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your Google Translate text-to-speech entity.
+6. From the actions shown for that target, select **Speak**.
+7. Select the media player, enter the message, and set any other options.
+8. Select **Save**.
+
+You can use `language` to set the language for a specific message. You can use `options.tld` to set the Google Translate top-level domain, for example `co.uk` for UK English.
+
+If you set up the legacy `google_translate` text-to-speech platform in {% term "configuration.yaml" %}, use the [**Say a TTS message**](/actions/tts.say/) action instead. The legacy action is registered as `tts.google_translate_say` unless you set a custom `service_name` in the platform configuration.
 
 For more information about using text-to-speech with Home Assistant and more details on all the options it provides, see the [TTS documentation](/integrations/tts/).
