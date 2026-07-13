@@ -85,6 +85,10 @@ Some sensors are disabled by default because they provide information that is on
   - **Description**: Indicates whether the onboard battery is low.
   - **Available for models**: All battery-powered models
 
+- **External power**:
+  - **Description**: Indicates whether external power is present.
+  - **Available for models**: All externally-powered models
+
 ### Sensors
 
 - **Level depth**:
