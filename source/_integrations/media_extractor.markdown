@@ -26,7 +26,7 @@ Media extractor doesn't transcode streams, it just tries to find a stream that m
 
 {% include integrations/actions.md %}
 
-### Format query
+## Format query
 
 The query can be used to select the right media.
 Query examples with explanations:
@@ -39,7 +39,7 @@ Query examples with explanations:
 
 More info about queries can be found [here](https://github.com/ytdl-org/youtube-dl#format-selection).
 
-### Cookies
+## Cookies
 
 Some supported video services provide a better experience when you are logged in. For example, if you use Twitch Turbo or are subscribed to a Twitch streamer, logging in prevents the video stream from showing an "An ad is currently playing. Come back after the break." message until the ad is over. Other examples are private or purchased YouTube videos which you can only watch while logged in.
 You can add a Netscape format cookie file in the Home Assistant configuration directory. The cookie file will be loaded each time a stream is loaded:
