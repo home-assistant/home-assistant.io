@@ -44,7 +44,11 @@ An overview of supported languages is available at [complete list of supported l
 
 List of models and their capabilities can be determined at [models documentation](https://elevenlabs.io/docs/capabilities/speech-to-text#models).
 
-{% include integrations/actions.md %}
+## Action speak
+
+To use ElevenLabs text-to-speech from an automation or a script, use the [**Speak**](/actions/tts.speak/) action and select your ElevenLabs text-to-speech entity as the target. The entity is named ElevenLabs by default.
+
+You can set ElevenLabs-specific `voice` and `model` options in the action's **Options** field. For supported options, see [Configuration](#configuration).
 
 ### Configuration
 
