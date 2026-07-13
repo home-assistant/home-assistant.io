@@ -35,7 +35,7 @@ host:
 
 ## Remote
 
-The Sky Remote platform creates a [Remote](/integrations/remote/) entity for the device. This entity allows you to send commands with the `remote.send_command` action.
+The Sky Remote platform creates a [Remote](/integrations/remote/) entity for the device. This entity allows you to send commands with the [**Send remote command**](/actions/remote.send_command/) action. It also supports the [**Turn on via remote**](/actions/remote.turn_on/) and [**Turn off via remote**](/actions/remote.turn_off/) actions.
 
 ### Sending remote commands in automations
 
