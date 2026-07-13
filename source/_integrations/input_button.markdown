@@ -19,7 +19,7 @@ When you press a button helper, Home Assistant records the timestamp of the pres
 ## Configuration
 
 
-1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
 2. Select **{% my config_flow_start domain="input_button" title="Button" %}**.
 
 Input buttons can also be configured via {% term "`configuration.yaml`" %}:
