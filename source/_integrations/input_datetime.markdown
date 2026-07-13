@@ -160,11 +160,11 @@ If you have a `datetime` object, you can use its `timestamp` method. Or, if you 
 
 ## Troubleshooting
 
-### The Date and/or time helper option is missing from the user interface
+### The **Date and/or time** helper option is missing from the UI
 
 #### Symptom
 
-When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Date and/or time** option is not listed.
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Date and/or time** option is not listed.
 
 #### Description
 
