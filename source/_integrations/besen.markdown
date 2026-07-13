@@ -52,12 +52,6 @@ The {% term integration %} provides a switch to start or stop charging.
 
 The switch state follows the charging state reported by the charger.
 
-## Data updates
-
-The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
-
-This is a local push integration. There is no cloud dependency.
-
 ## Actions
 
 The integration does not provide custom actions. Use the standard entity actions instead:
@@ -92,6 +86,25 @@ actions:
     target:
       entity_id: switch.besen_charge
 ```
+
+## Data updates
+
+The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
+
+This is a local push integration. There is no cloud dependency.
+
+## Known limitations
+
+The integration does not support:
+
+- Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
+- Reporting detailed charger telemetry as Home Assistant sensor entities.
+- Wi-Fi provisioning.
+- Password reset.
+- Device reset.
+- Charging history download.
+- Firmware updates through Home Assistant.
+- Safety-certified load balancing.
 
 ## Troubleshooting
 
@@ -152,19 +165,6 @@ During setup, Home Assistant reports that the charger rejected the PIN.
 #### Resolution
 
 Remove and add the integration again with the current 6-digit PIN.
-
-## Known limitations
-
-The integration does not support:
-
-- Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
-- Reporting detailed charger telemetry as Home Assistant sensor entities.
-- Wi-Fi provisioning.
-- Password reset.
-- Device reset.
-- Charging history download.
-- Firmware updates through Home Assistant.
-- Safety-certified load balancing.
 
 ## Removing the integration
 
