@@ -32,10 +32,7 @@ To set a cover position from an automation or a script:
 Position:
   description: The target position as a percentage, from 0 (closed) to 100 (open).
 Speed:
-  description: >
-    The speed at which to move the cover. This option only appears if your
-    cover supports it, and the available speeds are listed in the
-    `supported_speeds` attribute of the cover entity.
+  description: The speed at which to move the cover. This option only appears if your cover supports it, and the available speeds are listed in the `supported_speeds` attribute of the cover entity.
   required: false
 {% endoptions_ui %}
 
@@ -74,10 +71,7 @@ position:
   required: true
   type: integer
 speed:
-  description: >
-    The speed at which to move the cover. Use one of the values listed in the
-    `supported_speeds` attribute of the cover entity. Only use this if your
-    cover supports it.
+  description: The speed at which to move the cover. Use one of the values listed in the `supported_speeds` attribute of the cover entity. Only use this if your cover supports it.
   required: false
   type: string
 {% endoptions_yaml %}

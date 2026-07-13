@@ -29,10 +29,7 @@ To open a cover from an automation or a script:
 
 {% options_ui %}
 Speed:
-  description: >
-    The speed at which to open the cover. This option only appears if your
-    cover supports speed selection, and the available speeds are listed in the
-    `supported_speeds` attribute of the cover entity.
+  description: The speed at which to open the cover. This option only appears if your cover supports speed selection, and the available speeds are listed in the `supported_speeds` attribute of the cover entity.
   required: false
 {% endoptions_ui %}
 
@@ -64,10 +61,7 @@ action: |
 
 {% options_yaml %}
 speed:
-  description: >
-    The speed at which to open the cover. Use one of the values listed in the
-    `supported_speeds` attribute of the cover entity. Only use this if your
-    cover supports it.
+  description: The speed at which to open the cover. Use one of the values listed in the `supported_speeds` attribute of the cover entity. Only use this if your cover supports it.
   required: false
   type: string
 {% endoptions_yaml %}
