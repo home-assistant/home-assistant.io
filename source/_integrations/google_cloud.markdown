@@ -30,25 +30,25 @@ The **Google Cloud** {% term integration %} allows you to use [Google Cloud Plat
 4. [Make sure that billing is enabled for your Google Cloud Platform project](https://cloud.google.com/billing/docs/how-to/modify-project).
 5. Enable needed Cloud API visiting one of the links below or [APIs library](https://console.cloud.google.com/apis/library), selecting your `Project` from the dropdown list and clicking the `Continue` button:
 
-
     - [Text-to-speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
     - [Speech-to-text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
+
 6. Set up authentication:
 
-    1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
-    2. From the toolbar above the `Service account` list, select `Create service account`.
-    3. In the `Service account name` field, enter any name.
+   1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
+   2. From the toolbar above the `Service account` list, select `Create service account`.
+   3. In the `Service account name` field, enter any name.
 
-    If you are requesting a text-to-speech API key:
+      If you are requesting a text-to-speech API key:
 
-    4. Don't select a value from the Role list. **No role is required to access this service**.
-    5. Click `Create`. If a note appears, warning that this service account has no role, you may ignore that.
-    6. Return to the `Service account` list page and click on the service account you created in step 5 to see the details for this service account.
-    7. Choose the `Keys` tab within the details view for this service account.
-    8. In the `Add Key` dropdown, select `Create New Key`.
-    9. Specify a `JSON` key type  and click `Create`.
-    10. A `[serviceaccountname].json` file will download to your browser.
-    11. Upload this file when asked in the integration setup.
+        1. Don't select a value from the Role list. **No role is required to access this service**.
+        2. Click `Create`. If a note appears, warning that this service account has no role, you may ignore that.
+        3. Return to the `Service account` list page and click on the service account you created in step 5 to see the details for this service account.
+        4. Choose the `Keys` tab within the details view for this service account.
+        5. In the `Add Key` dropdown, select `Create New Key`.
+        6. Specify a `JSON` key type  and click `Create`.
+        7. A `[serviceaccountname].json` file will download to your browser.
+        8. Upload this file when asked in the integration setup.
 
 
 ## Google Cloud text-to-speech
@@ -61,56 +61,76 @@ The Cloud text-to-speech API is priced monthly based on the number of characters
 
 ### Text-to-speech configuration
 
-Below settings can be configured in the options of the integration and in the `options` parameter of the `tts.speak` service.
+The following settings can be configured in the integration options and in the **Options** field of the **TTS: Speak** action.
 
 {% configuration %}
-language:
-  description: "Default language of the voice, e.g.,  `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). Also there are extra not documented but supported languages (see dropdown [here](https://cloud.google.com/text-to-speech/#streaming_demo_section))."
-  required: false
-  type: string
-  default: en-US
-gender:
-  description: "Default gender of the voice, e.g.,  `male`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
-  required: false
-  type: string
-  default: neutral
-voice:
-  description: "Default voice name, e.g.,  `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). **Important! This parameter will override `language` and `gender` parameters if set**."
-  required: false
-  type: string
 encoding:
-  description: "Default audio encoder. Supported encodings are `ogg_opus`, `mp3` and `linear16`."
+  description: "Default audio encoding. For supported values, see the [Google Cloud text-to-speech API reference](https://cloud.google.com/text-to-speech/docs/reference/rest/v1/AudioEncoding)."
   required: false
   type: string
   default: mp3
-speed:
-  description: "Default rate/speed of the voice, in the range [0.25, 4.0]. 1.0 is the normal native speed supported by the specific voice. 2.0 is twice as fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed."
-  required: false
-  type: float
-  default: 1.0
-pitch:
-  description: "Default pitch of the voice, in the range [-20.0, 20.0]. 20 means increase of 20 semitones from the original pitch. -20 means decrease of 20 semitones from the original pitch."
+gain:
+  description: >
+    Default volume gain, in decibels. Supported values range from `-96.0` to `16.0`.
+    If unset, or set to a value of 0.0 (dB), it plays at normal native signal amplitude.
+    A value of `-6.0` (dB) plays at approximately half the amplitude of the normal native signal amplitude.
+    A value of `+6.0` (dB) plays at approximately twice the amplitude of the normal native signal amplitude.
+    We strongly recommend not to exceed `+10` (dB), as there's usually no effective increase in loudness for any value greater than that.
   required: false
   type: float
   default: 0.0
-gain:
-  description: "Default volume gain (in dB) of the voice, in the range [-96.0, 16.0]. If unset, or set to a value of 0.0 (dB), will play at normal native signal amplitude. A value of -6.0 (dB) will play at approximately half the amplitude of the normal native signal amplitude. A value of +6.0 (dB) will play at approximately twice the amplitude of the normal native signal amplitude. Strongly recommend not to exceed +10 (dB) as there's usually no effective increase in loudness for any value greater than that."
+gender:
+  description: "Default voice gender. For supported voices and genders, see the [Google Cloud text-to-speech voices documentation](https://cloud.google.com/text-to-speech/docs/voices)."
+  required: false
+  type: string
+  default: neutral
+language:
+  description: "Default language of the voice, for example, `en-US`. For supported languages, see the [Google Cloud text-to-speech voices documentation](https://cloud.google.com/text-to-speech/docs/voices)."
+  required: false
+  type: string
+  default: en-US
+pitch:
+  description: "Default pitch of the voice. Supported values range from `-20.0` to `20.0`."
   required: false
   type: float
   default: 0.0
 profiles:
-  description: "An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text-to-speech. Effects are applied on top of each other in the order they are given. Supported profile ids listed [here](https://cloud.google.com/text-to-speech/docs/audio-profiles)."
+  description: "Default audio profiles to apply. For supported values, see the [Google Cloud audio profiles documentation](https://cloud.google.com/text-to-speech/docs/audio-profiles)."
   required: false
   type: list
   default: "[]"
+speed:
+  description: "Default speaking rate of the voice. Supported values range from `0.25` to `4.0`."
+  required: false
+  type: float
+  default: 1.0
 text_type:
-  description: "Default text type. Supported text types are `text` and `ssml`. Read more on what is that and how to use SSML [here](https://cloud.google.com/text-to-speech/docs/ssml)."
+  description: "Default text type. Use `text` or `ssml`. For more information, see the [Google Cloud SSML documentation](https://cloud.google.com/text-to-speech/docs/ssml)."
   required: false
   type: string
   default: "text"
+voice:
+  description: "Default voice name, for example, `en-US-Wavenet-F`. This overrides `language` and `gender` when set. For supported voices, see the [Google Cloud text-to-speech voices documentation](https://cloud.google.com/text-to-speech/docs/voices)."
+  required: false
+  type: string
 {% endconfiguration %}
 
-{% include integrations/actions.md %}
+### Using Google Cloud text-to-speech in automations
+
+To play a message from an automation or script, use the [**Speak**](/actions/tts.speak/) action and select your Google Cloud text-to-speech entity as the target.
+
+To speak a message from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your Google Cloud text-to-speech entity.
+6. From the actions shown for that target, select **Speak**. To use Google Cloud-specific settings, set them in **Options**. For supported options, see [Text-to-speech configuration](#text-to-speech-configuration).
+7. Select the **Media player entity** to play the message on, set the **Message**, and set any other options you want to use.
+8. Select **Save**.
+
+If you still use the legacy Google Cloud text-to-speech platform in `configuration.yaml`, use the [**Say a TTS message**](/actions/tts.say/) action. In YAML, the legacy Google Cloud action is `tts.google_cloud_say`.
 
 ## Google Cloud speech-to-text
 
