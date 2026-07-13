@@ -40,11 +40,11 @@ Before setting up the integration, make sure you have:
 To get the client certificate and private key from the Harbor app:
 
 1. Open the app
-2. Go to live
-3. Open Camera Settings
-4. Scroll all the way down until you find `Advanced Settings`
-6. Hit `Request Client Certs`
-7. Save the certs in a location that you can access for integration setup (delete them once you set up the integration).
+2. Go to **Live**.
+3. Open **Camera Settings**.
+4. Scroll all the way down until you find **Advanced Settings**.
+5. Select **Request Client Certs**.
+6. Save the certs in a location that you can access for integration setup. Delete them once you set up the integration.
 
 {% include integrations/config_flow.md %}
 
