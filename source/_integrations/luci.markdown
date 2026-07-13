@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: luci
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 
