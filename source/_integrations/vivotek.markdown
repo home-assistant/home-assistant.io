@@ -45,4 +45,21 @@ stream_path:
   description: This parameter allows you to override the stream path. The default is `live.sdp`.
 {% endconfiguration_basic %}
 
-{% include integrations/actions.md %}
+## Using VIVOTEK cameras in automations
+
+VIVOTEK provides a camera entity. To use a VIVOTEK camera in an automation or script, use one of the shared camera actions and select your VIVOTEK camera as the target.
+
+To use a camera action from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your VIVOTEK camera.
+6. From the actions shown for that target, select the camera action you want to use.
+7. Set the required fields, if any.
+8. Select **Save**.
+
+Supported camera actions include [**Enable camera motion detection**](/actions/camera.enable_motion_detection/), [**Disable camera motion detection**](/actions/camera.disable_motion_detection/), [**Take camera snapshot**](/actions/camera.snapshot/), and [**Play camera stream**](/actions/camera.play_stream/).
+
+For VIVOTEK cameras, the motion detection actions enable or disable the first event configured on the camera.
