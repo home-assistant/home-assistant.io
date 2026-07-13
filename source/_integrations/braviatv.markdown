@@ -57,6 +57,39 @@ To open an app or channel from an automation or a script:
 
 The TV selects the best matching application or channel according to the media content ID. Matches can use a channel number, exact app or channel name, part of an app or channel name, or a URI string.
 
+Example to open the YouTube app:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.bravia_tv
+data:
+  media_content_id: "YouTube"
+  media_content_type: "app"
+```
+
+Example to switch to channel number 11:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.bravia_tv
+data:
+  media_content_id: "11"
+  media_content_type: "channel"
+```
+
+Example to switch to a channel that includes `news` in its name:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.bravia_tv
+data:
+  media_content_id: "news"
+  media_content_type: "channel"
+```
+
 ## Using with Google Cast
 
 The Bravia TV {% term integration %} provides information about the power status of the device, current source, and volume. It gives you the ability to control playback, run applications, and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, and more). In turn, the [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (for example, on Home Screen) and does not allow you to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
@@ -138,6 +171,16 @@ To send a Bravia remote command from an automation or a script:
 8. Select **Save**.
 
 The available commands depend on your TV model. To see the supported commands for your TV, call `remote.send_command` with an invalid command, such as `Test`, and then check [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). You can also download the {% term diagnostics %} from the device info in the [integration settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
+
+Example to send the `Down` key command:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.bravia_tv
+data:
+  command: "Down"
+```
 
 Some commonly used commands are:
 
