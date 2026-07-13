@@ -73,7 +73,7 @@ command:
   description: >
     A single command or a list of commands to learn.
   required: false
-  type: [string, list]
+  type: string
 command_type:
   description: >
     Type of command to learn. Accepts `ir` or `rf`.
