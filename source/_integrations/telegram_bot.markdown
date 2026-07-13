@@ -89,30 +89,17 @@ If you have a Home Assistant Cloud subscription, you can [enable remote access](
 
 If your Home Assistant is behind a publicly accessible reverse proxy (for example NGINX, Caddy, Traefik) with HTTPS enabled, do the following:
 
-1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure *Home Assistant URL*.
-2. Configure the [HTTP integration](/integrations/http) to allow Home Assistant to accept connections from your reverse proxy:
-   - Set `use_x_forwarded_for` to `true`.
-   - Add the IP address of the reverse proxy to `trusted_proxies`.
-
-Example `configuration.yaml`:
-
-```yaml
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 192.168.0.0/16
-```
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure **Home Assistant URL**.
+2. In the **HTTP server** section, allow Home Assistant to accept connections from your reverse proxy:
+   - Turn on **Trust X-Forwarded-For**.
+   - Add the IP address or CIDR network of the reverse proxy to **Trusted proxies**.
 
 #### Direct
 
 If your Home Assistant is publicly accessible, do the following:
 
-1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure *Home Assistant URL*.
-2. Configure the [HTTP integration](/integrations/http) to enable HTTPS on your Home Assistant by configuring the following variables:
-   - `server_host`
-   - `server_port`
-   - `ssl_certificate`
-   - `ssl_key`
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure **Home Assistant URL**.
+2. In the **HTTP server** section, configure the settings needed for HTTPS, such as **Server port**, **Listen addresses**, **SSL certificate path**, and **SSL key path**.
 
 {% include integrations/config_flow.md %}
 

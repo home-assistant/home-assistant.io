@@ -44,9 +44,11 @@ See device section for support information: [buttons](#buttons), [covers](#cover
 The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 {% include integrations/actions.md %}
-### Supported functionality
+
+## Supported functionality
 
 The **WMS WebControl pro** integration provides the following entities.
+
 ### Buttons
 
 - All devices that support an identification activity (for example, winking an awning or blinking a light) can be triggered to perform such activity.

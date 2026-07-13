@@ -41,9 +41,45 @@ To find an account's 64-bit SteamID:
 3. Select **Account details**.
    - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
 
+
 ## Supported functionality
 
 The **Steam** integration provides the following entities.
+
+### Sensors
+
+- **Primary sensor**
+  - **Name**: The Steam profile name of the account.
+  - **Description**: Represents the account's current presence status.
+  - **Available states**:
+    - Online
+    - Offline
+    - Away
+    - Busy
+    - Snooze
+    - Looking to play
+    - Looking to trade
+  - **Attributes**:
+    - **Account created**: The date and time when the Steam account was created.
+    - **Real name**: The user's real name, if provided on their Steam profile.
+    - **Level**: The current Steam level of the user.
+    - **Last online**: The date and time the Steam user was last seen online.
+    - **Game**: The title of the game the user is currently playing.
+    - **Game ID**: The Steam App ID of the currently played game.
+    - **Game image**: The URL of the logo image for the game the user is currently playing.
+    - **Game header image**: The URL of the header image for the game the user is currently playing.
+    - **Game icon**: The URL of the icon for the game the user is currently playing.
+
+- **Last online**
+  - **Description**: The date and time the Steam user was last seen online.
+
+- **Level**
+  - **Description**: The current Steam level of the user.
+
+- **Now playing**
+  - **Description**: The title of the game the user is currently playing.
+  - **Attributes**:
+    - **Steam App ID**: The Steam App ID of the currently played game.
 
 ### Images
 
