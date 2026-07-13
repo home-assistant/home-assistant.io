@@ -52,6 +52,37 @@ To browse, search, or play Jellyfin media from an automation or a script, use th
 
 Jellyfin supports the `next` and `add` enqueue options for the `media_player.play_media` action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
 
+The following examples show how to play Jellyfin media from a script. Replace the `media_content_id` values with IDs from your own Jellyfin library. You can find these IDs by browsing or searching your Jellyfin library with the `media_player.browse_media` and `media_player.search_media` actions.
+
+Play a movie on a Jellyfin client that supports playback:
+
+```yaml
+play_jellyfin_movie:
+  alias: "Play Jellyfin movie"
+  sequence:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.living_room
+      data:
+        media_content_id: a982a31451450daeda02c89952e6d7cf
+        media_content_type: movie
+```
+
+Add a TV episode to play next on a Jellyfin client:
+
+```yaml
+queue_jellyfin_episode:
+  alias: "Queue Jellyfin episode"
+  sequence:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.living_room
+      data:
+        media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
+        media_content_type: episode
+        enqueue: next
+```
+
 ### Remote entities
 
 This integration also creates a `remote` {% term entity %} for sending [Jellyfin remote commands](https://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Session/GeneralCommandType.cs) to each client, if supported. For example, the following script can be used to tell the client to navigate right twice, down once, and select the focused item:
