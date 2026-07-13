@@ -49,19 +49,18 @@
   link: /getting-started/concepts-terminology/#apps
 - term: Area
   definition: >-
-    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room. Areas allow you to target actions at an entire group of devices.
-    For example, turning off all the lights in the living room. Locations within
-    your home such as living room, dance floor, etc. Areas can be assigned to
-    floors. Areas can also be used for automatically generated cards, such as
-    the [Area card](/dashboards/area/).
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage. Areas let you target a whole group of devices at
+    once, for example, turning off all the lights in the living room. They also
+    give voice assistants the context to understand commands
+    like "turn on the kitchen lights". Areas can be assigned to floors and used
+    in automations, scripts, and dashboard cards like the
+    [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room.
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage.
   aliases:
     - areas
   link: /docs/organizing/areas/
