@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The **Input boolean** {% term integration %} lets you create a toggle {% term helper %}: an entity that stores an on or off {% term state %} you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable switch for your automations, scripts, and dashboards. For example, you can create a toggle helper to enable or disable a set of automations, mark guest mode as active, or track whether you are on vacation.
 
-On a dashboard, a toggle helper appears as a switch you can turn on or off. Each time the value changes, Home Assistant records a new state, which you can use as a trigger or a {% term condition %} in your automations. Your automations and scripts can also change the value, which makes a toggle helper a convenient way to share a setting between the UI and your automations.
+On a dashboard, a toggle helper appears as a switch you can turn on or off. Each time the value changes, Home Assistant records a new state, which you can use as a trigger or a {% term condition %} in your automations. Your automations and scripts can also change the value, which makes a toggle helper a convenient way to share a setting between the user interface and your automations.
 
 ## Configuration
 
@@ -96,15 +96,15 @@ target:
 
 ## Troubleshooting
 
-### The Toggle helper option is missing from the user interface
+### The toggle helper option is missing from the user interface
 
 #### Symptom
 
-When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Toggle** option is not listed.
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Toggle** option is not listed.
 
 #### Description
 
-Toggle helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+Toggle helpers are available when [`default_config:`](/integrations/default_config/) is enabled (this is the default), or when you configure `input_boolean:` manually in your {% term "`configuration.yaml`" %}. If you removed `default_config:` and have not configured `input_boolean:`, the option is no longer available.
 
 #### Resolution
 
