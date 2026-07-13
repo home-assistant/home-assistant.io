@@ -75,7 +75,7 @@ command:
   description: >
     A single command or a list of commands to send.
   required: true
-  type: string or list
+  type: string
 num_repeats:
   description: >
     Number of times to repeat the command.

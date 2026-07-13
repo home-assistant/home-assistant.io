@@ -65,7 +65,7 @@ command:
   description: >
     A single command or a list of commands to delete.
   required: true
-  type: string or list
+  type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
