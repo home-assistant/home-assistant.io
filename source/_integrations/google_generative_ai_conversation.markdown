@@ -112,9 +112,9 @@ But you can do the following workaround that exposes a script to voice assistant
         response_variable: result
     alias: "Assist: Search Google"
     description: >-
-      Makes a Google search to answer questions that are completely unrelated with
-      the smart home and are exclusively about current events or information in
-      real-time like the current president, results of last night's game, release
+      Uses Google Search to answer questions that are completely unrelated to
+      the smart home, and focus on current events or information in real time,
+      such as the current president, last night's game results, or release
       dates.
     fields:
       query:
