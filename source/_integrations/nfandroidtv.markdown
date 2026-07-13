@@ -63,7 +63,17 @@ data:
 
 ### Notification data options
 
-Use the following options inside the `data` field of the TV notify action, such as `notify.my_android_tv`.
+The following options are available when using the legacy TV notify action, such as `notify.my_android_tv`. These options are not supported by `notify.send_message`.
+
+In YAML, add these options under the nested `data` field:
+
+```yaml
+action: notify.my_android_tv
+data:
+  message: "You are awesome!"
+  data:
+    duration: 10
+```
 
 <!-- textlint-disable terminology -->
 
@@ -146,8 +156,7 @@ These examples show how to use the TV notify entity in automations. Replace the 
 Show a notification on the TV when the doorbell detects motion.
 
 - **Trigger**: State, doorbell motion changes to detected
-- **Action**: Send a notification message
-  - **Target**: Living room TV (`notify.living_room_tv`)
+- **Action**: Send a notification via `notify.living_room_tv`
   - **Message**: Someone is at the front door.
   - **Data**:
     - **Duration**: 4
@@ -163,9 +172,7 @@ automation: |
       entity_id: binary_sensor.doorbell_motion
       to: "on"
   actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.living_room_tv
+    - action: notify.living_room_tv
       data:
         message: "Someone is at the front door."
         data:
