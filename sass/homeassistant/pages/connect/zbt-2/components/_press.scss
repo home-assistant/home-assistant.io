@@ -1,0 +1,8 @@
+@use '../../mixins' as *;
+@use '../../press' as *;
+
+#landingpage {
+    section#press {
+        @include press-section;
+    }
+}
