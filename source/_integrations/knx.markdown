@@ -1273,9 +1273,7 @@ device_class:
 
 The KNX date platform allows you to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Date entities restore their last known state after Home Assistant is restarted. Dates that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration. Until the bus responds or the state is restored, the state is unknown if no previous state exists.
-{% endnote %}
+Date entities restore their last known state after Home Assistant is restarted. Dates that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 {% note %}
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
@@ -1336,9 +1334,7 @@ sync_state:
 
 The KNX datetime platform allows you to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-DateTime entities restore their last known state after Home Assistant is restarted. DateTimes that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration. Until the bus responds or the state is restored, the state is unknown if no previous state exists.
-{% endnote %}
+DateTime entities restore their last known state after Home Assistant is restarted. DateTimes that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 {% note %}
 System timezone is used as DPT 19.001 doesn't provide timezone information.
@@ -1722,9 +1718,7 @@ data:
 
 The KNX number platform allows you to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
 Number entities restore their last known state after Home Assistant is restarted. Numbers that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
 
 Number entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -1836,9 +1830,7 @@ scene_number:
 
 The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Select entities restore their last known state after Home Assistant is restarted. Selects that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration. Until the bus responds or the state is restored, the state is unknown if no previous state exists.
-{% endnote %}
+Select entities restore their last known state after Home Assistant is restarted. Selects that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 ```yaml
 # Example configuration.yaml entry
@@ -2078,9 +2070,7 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 The KNX text platform allows you to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
 Text entities restore their last known state after Home Assistant is restarted. Texts that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
 
 Text entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -2135,9 +2125,7 @@ mode:
 
 The KNX time platform allows you to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Time entities restore their last known state after Home Assistant is restarted. Times that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration. Until the bus responds or the state is restored, the state is unknown if no previous state exists.
-{% endnote %}
+Time entities restore their last known state after Home Assistant is restarted. Times that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 {% note %}
 The `day` field of the time telegram will always be set to 0 (`no day`).
