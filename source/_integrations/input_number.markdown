@@ -12,12 +12,16 @@ ha_domain: input_number
 ha_integration_type: helper
 ---
 
-The **Input number** {% term integration %} allows you to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+The **Input number** {% term integration %} lets you create a number {% term helper %}: an entity that stores a numeric value you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable setting for your automations, scripts, and dashboards. For example, you can create a number helper for a target temperature, a brightness level, or a delay in minutes, then read or change that value from anywhere in Home Assistant.
 
-The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
+On a dashboard, a number helper appears as a slider or a numeric input box, so you can adjust the value directly. Each time the value changes, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the value, which makes a number helper a convenient way to share a setting between the UI and your automations.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
+## Creating a number helper
+
+1. Go to **{% my helpers title="Settings > Devices & services > Helpers" %}**.
+2. Select the add button, then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
+
+## YAML configuration
 
 Input numbers can also be configured via {% term "`configuration.yaml`" %}:
 
@@ -239,3 +243,21 @@ automation:
         target:
           entity_id: switch.something
 ```
+
+## Troubleshooting
+
+### The Number helper option is missing from the user interface
+
+#### Symptom
+
+When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Number** option is not listed.
+
+#### Description
+
+Number helpers are provided through `default_config:`, which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_number:` to your [`configuration.yaml` file](/docs/configuration/).
+2. Restart Home Assistant.
+3. After the restart, create your number helpers from the user interface.
