@@ -68,11 +68,13 @@ position:
   required: false
   default: bottom-right
   type: string
+<!-- textlint-disable terminology -->
 color:
   description: "The notification color, one of `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber`, or `pink`."
   required: false
   default: grey
   type: string
+<!-- textlint-enable terminology -->
 transparency:
   description: "The notification transparency, one of `0%`, `25%`, `50%`, `75%`, or `100%`."
   required: false
