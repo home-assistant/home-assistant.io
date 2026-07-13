@@ -114,199 +114,205 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 
 ### Vehicles
 
-|Domain|Name|Enabled|
-|---|---|---|
-|Binary sensor|Automatic blind spot camera|No|
-|Binary sensor|Automatic emergency braking off|No|
-|Binary sensor|Battery heater|No|
-|Binary sensor|Blind spot collision warning chime|No|
-|Binary sensor|BMS full charge|No|
-|Binary sensor|Brake pedal|No|
-|Binary sensor|Cabin overheat protection actively cooling|No|
-|Binary sensor|Cellular|Yes|
-|Binary sensor|Charge cable|Yes|
-|Binary sensor|Charge enable request|No|
-|Binary sensor|Charge port cold weather mode|No|
-|Binary sensor|Charger has multiple phases|No|
-|Binary sensor|Dashcam|No|
-|Binary sensor|DC DC|No|
-|Binary sensor|Defrost for preconditioning|No|
-|Binary sensor|Drive rail|No|
-|Binary sensor|Driver seat belt|No|
-|Binary sensor|Driver seat occupied|No|
-|Binary sensor|Emergency lane departure avoidance|No|
-|Binary sensor|Europe vehicle|No|
-|Binary sensor|Fast charger present|No|
-|Binary sensor|Front driver door|Yes|
-|Binary sensor|Front driver window|Yes|
-|Binary sensor|Front passenger door|Yes|
-|Binary sensor|Front passenger window|Yes|
-|Binary sensor|GPS state|No|
-|Binary sensor|Guest mode enabled|No|
-|Binary sensor|Hazard lights|No|
-|Binary sensor|High beams|No|
-|Binary sensor|Homelink nearby|No|
-|Binary sensor|HVAC auto mode|No|
-|Binary sensor|High voltage interlock loop fault|No|
-|Binary sensor|Located at favorite|Yes|
-|Binary sensor|Located at home|Yes|
-|Binary sensor|Located at work|Yes|
-|Binary sensor|Offroad lightbar|No|
-|Binary sensor|Passenger seat belt|No|
-|Binary sensor|Pin to drive enabled|No|
-|Binary sensor|Preconditioning enabled|No|
-|Binary sensor|Preconditioning|No|
-|Binary sensor|Rear display HVAC|No|
-|Binary sensor|Rear driver door|Yes|
-|Binary sensor|Rear driver window|Yes|
-|Binary sensor|Rear passenger door|Yes|
-|Binary sensor|Rear passenger window|Yes|
-|Binary sensor|Remote start|No|
-|Binary sensor|Right hand drive|No|
-|Binary sensor|Scheduled charging pending|No|
-|Binary sensor|Seat vent enabled|No|
-|Binary sensor|Service mode|No|
-|Binary sensor|Speed limited|No|
-|Binary sensor|Status|Yes|
-|Binary sensor|Supercharger session trip planner|No|
-|Binary sensor|Tire pressure warning front left|No|
-|Binary sensor|Tire pressure warning front right|No|
-|Binary sensor|Tire pressure warning rear left|No|
-|Binary sensor|Tire pressure warning rear right|No|
-|Binary sensor|Trip charging|No|
-|Binary sensor|User present|Yes|
-|Binary sensor|Wi-Fi|Yes|
-|Binary sensor|Wiper heat|No|
-|Button|Flash lights|Yes|
-|Button|HomeLink|Yes|
-|Button|Honk horn|Yes|
-|Button|Keyless driving|Yes|
-|Button|Play fart|Yes|
-|Button|Wake|Yes|
-|Climate|Cabin overheat protection|Yes|
-|Climate|Climate|Yes|
-|Cover|Charge port door|Yes|
-|Cover|Frunk|Yes|
-|Cover|Sunroof|No|
-|Cover|Trunk|Yes|
-|Cover|Vent windows|Yes|
-|Device tracker|Location|Yes|
-|Device tracker|Origin|No|
-|Device tracker|Route|Yes|
-|Lock|Charge cable lock|Yes|
-|Lock|Lock|Yes|
-|Lock|Speed limit|Yes|
-|Media player|Media player|Yes|
-|Number|Charge current|Yes|
-|Number|Charge limit|Yes|
-|Select|Seat cooler front left|Yes|
-|Select|Seat cooler front right|Yes|
-|Select|Seat heater front left|Yes|
-|Select|Seat heater front right|Yes|
-|Select|Seat heater rear center|No|
-|Select|Seat heater rear left|No|
-|Select|Seat heater rear right|No|
-|Select|Seat heater third row left|No|
-|Select|Seat heater third row right|No|
-|Select|Steering wheel heater|Yes|
-|Sensor|Battery level|Yes|
-|Sensor|Battery range|Yes|
-|Sensor|BMS state|No|
-|Sensor|Brake pedal position|No|
-|Sensor|Brick voltage max|No|
-|Sensor|Brick voltage min|No|
-|Sensor|Charge cable|No|
-|Sensor|Charge energy added|Yes|
-|Sensor|Charge rate|Yes|
-|Sensor|Charger current|Yes|
-|Sensor|Charger power|Yes|
-|Sensor|Charger voltage|Yes|
-|Sensor|Charging|Yes|
-|Sensor|Cruise follow distance|No|
-|Sensor|Cruise set speed|No|
-|Sensor|Current speed limit|No|
-|Sensor|DC charging energy in|No|
-|Sensor|DC charging power|No|
-|Sensor|Destination|No|
-|Sensor|Distance to arrival|Yes|
-|Sensor|Driver temperature setting|No|
-|Sensor|Estimate battery range|No|
-|Sensor|Exterior color|No|
-|Sensor|Fast charger type|No|
-|Sensor|Front drive inverter axle speed|No|
-|Sensor|Front drive inverter battery voltage|No|
-|Sensor|Front drive inverter heatsink temperature|No|
-|Sensor|Front drive inverter motor current|No|
-|Sensor|Front drive inverter state|No|
-|Sensor|Front drive inverter temperature|No|
-|Sensor|Front drive unit actual torque|No|
-|Sensor|Front drive unit stator temperature|No|
-|Sensor|HVAC power state|No|
-|Sensor|Ideal battery range|No|
-|Sensor|Inside temperature|Yes|
-|Sensor|Left temperature request|No|
-|Sensor|Odometer|No|
-|Sensor|Outside temperature|Yes|
-|Sensor|Passenger temperature setting|No|
-|Sensor|Power|No|
-|Sensor|Rear drive inverter axle speed|No|
-|Sensor|Rear drive inverter battery voltage|No|
-|Sensor|Rear drive inverter heatsink temperature|No|
-|Sensor|Rear drive inverter motor current|No|
-|Sensor|Rear drive inverter state|No|
-|Sensor|Rear drive inverter temperature|No|
-|Sensor|Rear drive unit actual torque|No|
-|Sensor|Rear drive unit stator temperature|No|
-|Sensor|Rear left drive inverter axle speed|No|
-|Sensor|Rear left drive inverter battery voltage|No|
-|Sensor|Rear left drive inverter heatsink temperature|No|
-|Sensor|Rear left drive inverter motor current|No|
-|Sensor|Rear left drive inverter state|No|
-|Sensor|Rear left drive inverter temperature|No|
-|Sensor|Rear left drive unit actual torque|No|
-|Sensor|Rear left drive unit stator temperature|No|
-|Sensor|Rear right drive inverter axle speed|No|
-|Sensor|Rear right drive inverter battery voltage|No|
-|Sensor|Rear right drive inverter heatsink temperature|No|
-|Sensor|Rear right drive inverter motor current|No|
-|Sensor|Rear right drive inverter state|No|
-|Sensor|Rear right drive inverter temperature|No|
-|Sensor|Rear right drive unit actual torque|No|
-|Sensor|Rear right drive unit stator temperature|No|
-|Sensor|Right temperature request|No|
-|Sensor|Roof color|No|
-|Sensor|Scheduled charging mode|No|
-|Sensor|Scheduled charging start time|No|
-|Sensor|Scheduled departure time|No|
-|Sensor|Secondary drive unit torque command|No|
-|Sensor|Sentry mode|Yes|
-|Sensor|Shift state|No|
-|Sensor|Speed|No|
-|Sensor|State of charge at arrival|No|
-|Sensor|Time at arrival|Yes|
-|Sensor|Time at full charge|Yes|
-|Sensor|Time to arrival|Yes|
-|Sensor|Time to full charge|Yes|
-|Sensor|Tire pressure front left|No|
-|Sensor|Tire pressure front right|No|
-|Sensor|Tire pressure last measured front left|No|
-|Sensor|Tire pressure last measured front right|No|
-|Sensor|Tire pressure last measured rear left|No|
-|Sensor|Tire pressure last measured rear right|No|
-|Sensor|Tire pressure rear left|No|
-|Sensor|Tire pressure rear right|No|
-|Sensor|Traffic delay|No|
-|Sensor|Usable Battery level|No|
-|Sensor|Drive unit torque command|No|
-|Switch|Auto seat climate left|Yes|
-|Switch|Auto seat climate right|Yes|
-|Switch|Auto steering wheel heater|Yes|
-|Switch|Charge|Yes|
-|Switch|Defrost|Yes|
-|Switch|Guest mode|Yes|
-|Switch|Sentry mode|Yes|
-|Switch|Valet mode|Yes|
-|Update|Update|Yes|
+The **Bluetooth** column marks entities whose commands can actuate the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter at the time Home Assistant starts. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
+
+{% note %}
+Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through the cloud or streaming, even for an entity marked **Yes**. If a vehicle is out of Bluetooth range when Home Assistant starts, its commands use the cloud for that session, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+{% endnote %}
+
+|Domain|Name|Enabled|Bluetooth|
+|---|---|---|---|
+|Binary sensor|Automatic blind spot camera|No|No|
+|Binary sensor|Automatic emergency braking off|No|No|
+|Binary sensor|Battery heater|No|No|
+|Binary sensor|Blind spot collision warning chime|No|No|
+|Binary sensor|BMS full charge|No|No|
+|Binary sensor|Brake pedal|No|No|
+|Binary sensor|Cabin overheat protection actively cooling|No|No|
+|Binary sensor|Cellular|Yes|No|
+|Binary sensor|Charge cable|Yes|No|
+|Binary sensor|Charge enable request|No|No|
+|Binary sensor|Charge port cold weather mode|No|No|
+|Binary sensor|Charger has multiple phases|No|No|
+|Binary sensor|Dashcam|No|No|
+|Binary sensor|DC DC|No|No|
+|Binary sensor|Defrost for preconditioning|No|No|
+|Binary sensor|Drive rail|No|No|
+|Binary sensor|Driver seat belt|No|No|
+|Binary sensor|Driver seat occupied|No|No|
+|Binary sensor|Emergency lane departure avoidance|No|No|
+|Binary sensor|Europe vehicle|No|No|
+|Binary sensor|Fast charger present|No|No|
+|Binary sensor|Front driver door|Yes|No|
+|Binary sensor|Front driver window|Yes|No|
+|Binary sensor|Front passenger door|Yes|No|
+|Binary sensor|Front passenger window|Yes|No|
+|Binary sensor|GPS state|No|No|
+|Binary sensor|Guest mode enabled|No|No|
+|Binary sensor|Hazard lights|No|No|
+|Binary sensor|High beams|No|No|
+|Binary sensor|Homelink nearby|No|No|
+|Binary sensor|HVAC auto mode|No|No|
+|Binary sensor|High voltage interlock loop fault|No|No|
+|Binary sensor|Located at favorite|Yes|No|
+|Binary sensor|Located at home|Yes|No|
+|Binary sensor|Located at work|Yes|No|
+|Binary sensor|Offroad lightbar|No|No|
+|Binary sensor|Passenger seat belt|No|No|
+|Binary sensor|Pin to drive enabled|No|No|
+|Binary sensor|Preconditioning enabled|No|No|
+|Binary sensor|Preconditioning|No|No|
+|Binary sensor|Rear display HVAC|No|No|
+|Binary sensor|Rear driver door|Yes|No|
+|Binary sensor|Rear driver window|Yes|No|
+|Binary sensor|Rear passenger door|Yes|No|
+|Binary sensor|Rear passenger window|Yes|No|
+|Binary sensor|Remote start|No|No|
+|Binary sensor|Right hand drive|No|No|
+|Binary sensor|Scheduled charging pending|No|No|
+|Binary sensor|Seat vent enabled|No|No|
+|Binary sensor|Service mode|No|No|
+|Binary sensor|Speed limited|No|No|
+|Binary sensor|Status|Yes|No|
+|Binary sensor|Supercharger session trip planner|No|No|
+|Binary sensor|Tire pressure warning front left|No|No|
+|Binary sensor|Tire pressure warning front right|No|No|
+|Binary sensor|Tire pressure warning rear left|No|No|
+|Binary sensor|Tire pressure warning rear right|No|No|
+|Binary sensor|Trip charging|No|No|
+|Binary sensor|User present|Yes|No|
+|Binary sensor|Wi-Fi|Yes|No|
+|Binary sensor|Wiper heat|No|No|
+|Button|Flash lights|Yes|Yes|
+|Button|HomeLink|Yes|Yes|
+|Button|Honk horn|Yes|Yes|
+|Button|Keyless driving|Yes|Yes|
+|Button|Play fart|Yes|Yes|
+|Button|Wake|Yes|Yes|
+|Climate|Cabin overheat protection|Yes|Yes|
+|Climate|Climate|Yes|Yes|
+|Cover|Charge port door|Yes|Yes|
+|Cover|Frunk|Yes|Yes|
+|Cover|Sunroof|No|Yes|
+|Cover|Trunk|Yes|Yes|
+|Cover|Vent windows|Yes|Yes|
+|Device tracker|Location|Yes|No|
+|Device tracker|Origin|No|No|
+|Device tracker|Route|Yes|No|
+|Lock|Charge cable lock|Yes|Yes|
+|Lock|Lock|Yes|Yes|
+|Lock|Speed limit|Yes|Yes|
+|Media player|Media player|Yes|Yes|
+|Number|Charge current|Yes|Yes|
+|Number|Charge limit|Yes|Yes|
+|Select|Seat cooler front left|Yes|Yes|
+|Select|Seat cooler front right|Yes|Yes|
+|Select|Seat heater front left|Yes|Yes|
+|Select|Seat heater front right|Yes|Yes|
+|Select|Seat heater rear center|No|Yes|
+|Select|Seat heater rear left|No|Yes|
+|Select|Seat heater rear right|No|Yes|
+|Select|Seat heater third row left|No|Yes|
+|Select|Seat heater third row right|No|Yes|
+|Select|Steering wheel heater|Yes|Yes|
+|Sensor|Battery level|Yes|No|
+|Sensor|Battery range|Yes|No|
+|Sensor|BMS state|No|No|
+|Sensor|Brake pedal position|No|No|
+|Sensor|Brick voltage max|No|No|
+|Sensor|Brick voltage min|No|No|
+|Sensor|Charge cable|No|No|
+|Sensor|Charge energy added|Yes|No|
+|Sensor|Charge rate|Yes|No|
+|Sensor|Charger current|Yes|No|
+|Sensor|Charger power|Yes|No|
+|Sensor|Charger voltage|Yes|No|
+|Sensor|Charging|Yes|No|
+|Sensor|Cruise follow distance|No|No|
+|Sensor|Cruise set speed|No|No|
+|Sensor|Current speed limit|No|No|
+|Sensor|DC charging energy in|No|No|
+|Sensor|DC charging power|No|No|
+|Sensor|Destination|No|No|
+|Sensor|Distance to arrival|Yes|No|
+|Sensor|Driver temperature setting|No|No|
+|Sensor|Estimate battery range|No|No|
+|Sensor|Exterior color|No|No|
+|Sensor|Fast charger type|No|No|
+|Sensor|Front drive inverter axle speed|No|No|
+|Sensor|Front drive inverter battery voltage|No|No|
+|Sensor|Front drive inverter heatsink temperature|No|No|
+|Sensor|Front drive inverter motor current|No|No|
+|Sensor|Front drive inverter state|No|No|
+|Sensor|Front drive inverter temperature|No|No|
+|Sensor|Front drive unit actual torque|No|No|
+|Sensor|Front drive unit stator temperature|No|No|
+|Sensor|HVAC power state|No|No|
+|Sensor|Ideal battery range|No|No|
+|Sensor|Inside temperature|Yes|No|
+|Sensor|Left temperature request|No|No|
+|Sensor|Odometer|No|No|
+|Sensor|Outside temperature|Yes|No|
+|Sensor|Passenger temperature setting|No|No|
+|Sensor|Power|No|No|
+|Sensor|Rear drive inverter axle speed|No|No|
+|Sensor|Rear drive inverter battery voltage|No|No|
+|Sensor|Rear drive inverter heatsink temperature|No|No|
+|Sensor|Rear drive inverter motor current|No|No|
+|Sensor|Rear drive inverter state|No|No|
+|Sensor|Rear drive inverter temperature|No|No|
+|Sensor|Rear drive unit actual torque|No|No|
+|Sensor|Rear drive unit stator temperature|No|No|
+|Sensor|Rear left drive inverter axle speed|No|No|
+|Sensor|Rear left drive inverter battery voltage|No|No|
+|Sensor|Rear left drive inverter heatsink temperature|No|No|
+|Sensor|Rear left drive inverter motor current|No|No|
+|Sensor|Rear left drive inverter state|No|No|
+|Sensor|Rear left drive inverter temperature|No|No|
+|Sensor|Rear left drive unit actual torque|No|No|
+|Sensor|Rear left drive unit stator temperature|No|No|
+|Sensor|Rear right drive inverter axle speed|No|No|
+|Sensor|Rear right drive inverter battery voltage|No|No|
+|Sensor|Rear right drive inverter heatsink temperature|No|No|
+|Sensor|Rear right drive inverter motor current|No|No|
+|Sensor|Rear right drive inverter state|No|No|
+|Sensor|Rear right drive inverter temperature|No|No|
+|Sensor|Rear right drive unit actual torque|No|No|
+|Sensor|Rear right drive unit stator temperature|No|No|
+|Sensor|Right temperature request|No|No|
+|Sensor|Roof color|No|No|
+|Sensor|Scheduled charging mode|No|No|
+|Sensor|Scheduled charging start time|No|No|
+|Sensor|Scheduled departure time|No|No|
+|Sensor|Secondary drive unit torque command|No|No|
+|Sensor|Sentry mode|Yes|No|
+|Sensor|Shift state|No|No|
+|Sensor|Speed|No|No|
+|Sensor|State of charge at arrival|No|No|
+|Sensor|Time at arrival|Yes|No|
+|Sensor|Time at full charge|Yes|No|
+|Sensor|Time to arrival|Yes|No|
+|Sensor|Time to full charge|Yes|No|
+|Sensor|Tire pressure front left|No|No|
+|Sensor|Tire pressure front right|No|No|
+|Sensor|Tire pressure last measured front left|No|No|
+|Sensor|Tire pressure last measured front right|No|No|
+|Sensor|Tire pressure last measured rear left|No|No|
+|Sensor|Tire pressure last measured rear right|No|No|
+|Sensor|Tire pressure rear left|No|No|
+|Sensor|Tire pressure rear right|No|No|
+|Sensor|Traffic delay|No|No|
+|Sensor|Usable Battery level|No|No|
+|Sensor|Drive unit torque command|No|No|
+|Switch|Auto seat climate left|Yes|Yes|
+|Switch|Auto seat climate right|Yes|Yes|
+|Switch|Auto steering wheel heater|Yes|Yes|
+|Switch|Charge|Yes|Yes|
+|Switch|Defrost|Yes|Yes|
+|Switch|Guest mode|Yes|Yes|
+|Switch|Sentry mode|Yes|Yes|
+|Switch|Valet mode|Yes|Yes|
+|Update|Update|Yes|Yes|
 
 ### Energy sites
 
