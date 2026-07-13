@@ -71,7 +71,16 @@ This does not mean that everything reported from EA channels will be fixed immed
 Also, make sure your report is reproducible and provides all necessary context: always include the Protect version, and if your issue concerns specific cameras, please mention the model(s) as well. Whenever possible, also provide relevant excerpts from the error log.
 {% endimportant %}
 
-### Local user
+### Connection modes
+
+You can set up the {% term integration %} in one of two ways:
+
+- **Full access**: uses a local user and an API key, and gives you access to all the entities described in this page.
+- **API key only**: uses only an API key, without a local user. This is a good option if you don't want to create a local user, but it currently only provides the **Alarm Manager** entity and camera entities (streams and snapshots). All other entities require full access.
+
+You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
+
+### Full access
 
 You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
 It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
@@ -100,6 +109,16 @@ In addition to the username and password, you now need to create an API key for 
 Currently, creating an API key requires you to be logged in as an administrator.
 {% endtip %}
 
+### API key only
+
+If you want to set up the {% term integration %} without creating a local user, you only need an API key.
+
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
+3. Enter a new name for the API key, like "Home Assistant".
+4. Select **Create API Key** and copy the generated key.
+5. When you add the {% term integration %}, choose the **API key only** option and enter the key.
+
 ### Camera streams
 
 Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSPS</abbr> streams provided by the UniFi Protect public API. Home Assistant reads the streams that are active on each camera and uses the highest-quality one as the default live feed.
@@ -107,6 +126,18 @@ Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSP
 If a camera does not have a stream available yet, Home Assistant creates a repair that can enable one for you in a single step. Until a stream is available, the live feed falls back to repeatedly refreshing camera snapshots, which can put extra load on your UniFi Protect console.
 
 {% include integrations/config_flow.md %}
+
+## Reconfiguration
+
+You can switch between **full access** and **API key only** at any time without removing and re-adding the {% term integration %}:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **UniFi Protect** {% term integration %}, select the three-dot menu and choose **Reconfigure**.
+3. Choose the connection mode you want to switch to and follow the steps on screen.
+
+{% note %}
+If you switch from full access to API key only, the entities that are no longer supported become unavailable. They become available again if you switch back to full access.
+{% endnote %}
 
 ## Device support
 
@@ -132,7 +163,7 @@ G3 Series cameras do _not_ have Smart detections.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-- **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
+- **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default. This is the only camera entity available in [API key only](#api-key-only) mode; the rest of this list requires full access.
   - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
 - **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
@@ -235,6 +266,10 @@ The **Alarm Manager** and **Alarm profile** entities are only available when the
 
 UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you adopt sensors, relays, fobs, or an Alarm Hub, so the alarm entities are currently unavailable if you use any of those devices.
 {% endimportant %}
+
+{% note %}
+The **Alarm Manager** entity is available in [API key only](#api-key-only) mode. The **Alarm profile** entity requires full access.
+{% endnote %}
 
 ## Media source
 
