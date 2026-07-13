@@ -75,7 +75,7 @@ Also, make sure your report is reproducible and provides all necessary context: 
 
 You can set up the {% term integration %} in one of two ways:
 
-- **Full access**: uses a local user and an API key, and gives you access to all the entities described in this page. This is currently the recommended option for most people.
+- **Full access**: uses a local user and an API key, and gives you access to all the entities described on this page. This is currently the recommended option for most people.
 - **API key only**: uses only an API key, without a local user. It currently only provides the **Alarm Manager** entity and camera entities (streams and snapshots). All other entities require full access.
 
 You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
