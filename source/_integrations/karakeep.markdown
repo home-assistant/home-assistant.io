@@ -1,7 +1,7 @@
 ---
 title: Karakeep
 description: Instructions on how to integrate Karakeep into Home Assistant.
-ha_release: 2026.7
+ha_release: 2026.8
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
