@@ -2040,8 +2040,7 @@ The KNX switch platform is used as an interface to switching actuators.
 
 Switch entities can be created from the frontend in the KNX panel or via YAML.
 
-Switch will restore their last known state after Home Assistant was restarted.
-Switches that have a `state_address` configured request their current state from the KNX bus according to state updater configuration.
+Switches restore their last known state after Home Assistant is restarted. Switches that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration. Until the bus responds or the state is restored, the state is unknown if no previous state exists.
 
 {% details "Configuration of KNX switch entities via YAML" %}
 
