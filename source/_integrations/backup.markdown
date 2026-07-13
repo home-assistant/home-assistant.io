@@ -27,62 +27,13 @@ related:
     title: Backup emergency kit
 ---
 
-The **Backup** {% term integration %} creates and restores backups across all [installation types](/installation/#about-installation-methods).
+The **Backup** {% term integration %} creates and restores backups across all [installation types](/installation/#about-installation-types).
 
 To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
 
-## Actions
+You no longer need to create your own automation to make backups. You can [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process) instead. If you do want to trigger a backup yourself, the integration provides actions for it.
 
-The **Backup** integration exposes actions you can use to automate the backup process.
-
-However, you no longer need to create your own automation. You can [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process) instead.
-
-### Action: Create automatic
-
-The `backup.create_automatic` action allows you to create a backup of your Home Assistant instance.
-
-The automation editor does not show a UI editor because the action uses the same settings you defined under {% my backup title="**Settings** > **System** > **Backups**" %}, under **Backup settings**. For a more detailed description, refer to the documentation on [automatic backups](/common-tasks/general/#setting-up-an-automatic-backup-process).
-
-Use this action to create backups with predefined settings on a more flexible schedule than the built-in automatic backup schedule.
-
-The action has no additional options or parameters.
-
-Example action:
-
-```yaml
-action: backup.create_automatic
-```
-
-### Action: Create
-
-The `backup.create` action allows you to create a backup of your Home Assistant instance.
-
-- This action is only available in [core and container installations](/installation/#about-installation-methods).
-- The action has no additional options or parameters.
-- The backup is only saved to local storage.
-- The backup created with `backup.create` always includes the database.
-- The backup is created without a password.
-
-Example action:
-
-```yaml
-action: backup.create
-```
-
-### Example: Backing up every night at 3:00 AM
-
-Here's a YAML example of an automation that creates a backup every night at 3 AM:
-
-```yaml
-automation:
-  - alias: "Backup Home Assistant every night at 3 AM"
-    triggers:
-      - trigger: time
-        at: "03:00:00"
-    actions:
-      - alias: "Create backup now"
-        action: backup.create
-```
+{% include integrations/actions.md %}
 
 ## Restoring a backup
 
@@ -114,7 +65,9 @@ conditions:
     attribute: event_type
     state: failed
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Automatic backup failed"
       message: >-

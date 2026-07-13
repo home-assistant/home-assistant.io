@@ -2,7 +2,7 @@
 title: "Nitrogen dioxide level crossed threshold"
 trigger: air_quality.no2_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more nitrogen dioxide levels cross a threshold."
+description: "Triggers when one or more nitrogen dioxide levels cross a threshold."
 related_triggers:
   - air_quality.no2_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrogen dioxide level crossed threshold** trigger fires when the nitrogen dioxide (NO2) reading on one or more air quality sensors crosses a specific level. Nitrogen dioxide is a reddish-brown gas with a sharp odor, produced primarily by vehicle traffic and gas appliances. Elevated NO2 irritates the airways and worsens respiratory conditions like asthma, so the WHO recommends keeping short-term exposure below 25 micrograms per cubic meter.
 
 If you live near a busy road, this trigger is a game-changer. Have your ventilation system close its fresh-air intake automatically when street-side NO2 rises past your limit, keeping traffic pollution out of the house. Or get an alert on your phone during rush hour so you know to keep the kids inside until levels drop. Your home watches the air for you and reacts the instant conditions change.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -23,7 +21,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Nitrogen dioxide level crossed threshold**.
 6. Under **Threshold type**, set the nitrogen dioxide level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -32,13 +30,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The nitrogen dioxide concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,7 +47,7 @@ trigger: |
     entity_id: sensor.street_side_no2
   options:
     threshold: 40
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the street-side NO2 sensor crosses 40 in either direction.
@@ -69,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -102,7 +97,7 @@ Living near a busy road means NO2 spikes every rush hour. This automation closes
 - **Trigger**: Nitrogen dioxide level crossed threshold
 - **Target**: Street-side NO2 sensor
 - **Threshold type**: 40
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Condition**: NO2 is above 40
 - **Action**: Close cover (fresh-air intake)
 
@@ -117,7 +112,7 @@ automation: |
         entity_id: sensor.street_side_no2
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   conditions:
     - condition: numeric_state
       entity_id: sensor.street_side_no2

@@ -59,7 +59,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 ## Number controls
 
-- **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
+- **Setpoint temperature:** Allows you to set the desired target temperature for the soldering iron tip.
 
 ## Binary sensors
 

@@ -14,6 +14,7 @@ ha_release: 0.39
 ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
+  - '@ssyrell'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -28,7 +29,7 @@ ha_dhcp: true
 ---
 
 {% important %}
-The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
+The Insteon apps (Director or Insteon for Hub) are a paid service using the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
 {% endimportant %}
 
 This {% term integration %} adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
@@ -80,7 +81,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 ### Managing Insteon scenes
 
-Insteon scenes can be created, changed or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To trigger an Insteon scene see [Triggering Insteon Scenes](#triggering-insteon-scenes) below.
+Insteon scenes can be created, changed, or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To control an Insteon scene, see [Controlling Insteon scenes](#controlling-insteon-scenes) below.
 
 ### Device properties
 
@@ -120,9 +121,9 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 
-## Triggering Insteon scenes
+## Controlling Insteon scenes
 
-Triggering an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
+Controlling an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The Insteon scene number to trigger.
@@ -131,11 +132,12 @@ Triggering an Insteon scene on or off is done via automations. Two actions are p
 
 ```yaml
 automation:
-  # Trigger an Insteon scene 25
+  # Control an Insteon scene 25
   - alias: "Turn on scene 25"
     actions:
       - action: insteon.scene_on
-        group: 25
+        data:
+          group: 25
 ```
 
 ## Events and Mini-Remotes

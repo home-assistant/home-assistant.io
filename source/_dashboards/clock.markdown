@@ -4,8 +4,8 @@ title: "Clock card"
 sidebar_label: Clock
 description: "The Clock card shows the current time in a variety of formats and sizes."
 related:
-  - docs: /docs/frontend/#user--or-browser-dependent-settings
-    title: Setup your time format and timezone
+  - docs: /docs/configuration/basic/
+    title: Set your time zone
 ---
 
 The Clock card shows the current time in a variety of formats, sizes and time zones.

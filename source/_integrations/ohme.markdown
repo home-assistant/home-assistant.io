@@ -108,6 +108,9 @@ The Ohme integration provides the following entities.
 - **Price cap**
   - **Description**: Prevents charging when the electricity price exceeds a defined threshold. The threshold can be set by the service `ohme.set_price_cap`. ***Not available with some energy providers and tariffs.***
   - **Available for devices**: all
+- **Solar boost**
+  - **Description**: Uses excess solar power when available.
+  - **Available for devices**: Home Pro (CT clamp required)
 - **Lock buttons**
   - **Description**: Disable the controls on the device.
   - **Available for devices**: all
@@ -124,27 +127,7 @@ The Ohme integration provides the following entities.
   - **Description**: Sets the time you need your vehicle charged by.
   - **Available for devices**: all
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: List charge slots
-
-The `ohme.list_charge_slots` action is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
-
-| Data attribute         | Optional | Description                                                  |
-|------------------------|----------|--------------------------------------------------------------|
-| `config_entry`         | No       | The config entry of the account to get the charge list from. |
-
-### Action: Set price cap
-
-The `ohme.set_price_cap` action is used to set the price cap threshold. This can be toggled by the switch **Price cap**.
-
-| Data attribute         | Optional | Description                                                 |
-|------------------------|----------|-------------------------------------------------------------|
-| `config_entry`         | No       | The config entry of the account to apply the price cap to.  |
-| `price_cap`            | No       | Threshold in 1/100ths of your local currency.               |
-
+{% include integrations/actions.md %}
 
 ## Use cases
 
@@ -174,7 +157,9 @@ triggers:
       - sensor.ohme_home_pro_status
     from: unplugged
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: "Vehicle plugged in"
 ```
@@ -186,9 +171,7 @@ You may need to power cycle your charger. Please see the [manufactuer's guidance
 
 ## Data updates
 
-This integration fetches data every 30 seconds with the following exceptions:
-- CT readings are fetched every minute.
-- Device settings are fetched every 30 minutes.
+This integration fetches data every 30 seconds with the exception of device settings which are fetched every 30 minutes.
 
 ## Known limitations
 

@@ -10,8 +10,6 @@ related_conditions:
 
 The **Volatile organic compounds value** condition passes when a <abbr title="volatile organic compounds">VOC</abbr> sensor's reading meets a specific level. VOCs are invisible gases released by paints, cleaning supplies, new furniture, and even scented candles. You often notice them as that "new car" or "fresh paint" smell, and at higher concentrations they affect comfort and health. This condition lets your automation respond proportionally, turning on the ventilation fan only when VOC readings are genuinely elevated and leaving it off during a normal day so you save energy.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -30,10 +28,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The VOC level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

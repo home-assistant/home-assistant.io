@@ -1,16 +1,16 @@
 ---
-title: "Understanding Home Energy Management"
-description: "How to get started using home energy management in Home Assistant."
+title: "Home energy management"
+description: "Track and understand how energy is used in your home with Home Assistant. See where your power is going, get the most out of your solar panels, and save money on your bills."
 toc: false
 ---
 
-Home Assistant allows you to get on top of your energy use with its home energy management feature. Gain new insights, optimize your solar panel production, plan energy usage and save money.
+Home Assistant turns your home into a clear, easy-to-read picture of how energy flows in and out of it. You can see how much electricity you draw from the grid and when, how much your solar panels produced today, how full your home battery is, and which appliances are quietly costing you the most. With that information, you can plan when to run the dishwasher, charge the car when power is cheap or your panels are at their peak, and set automations that quietly save you money in the background.
 
 {% my energy badge %} {% my config_energy badge %}
 
-Home energy management helps you track and understand how energy is used in your home. It works with different types of utilities, such as electricity, gas, and water. For each utility, usage is grouped into three types: consumption, production, and storage/flow. You can start using it even if you just have one source connected to Home Assistant. Each source you add will complement the others, giving you even more insight into energy in your home.
+The energy dashboard works with electricity, gas, and water. For each one, your usage is grouped into three simple types: what you consume, what you produce, and what you store. You can start with a single source, even just your electricity meter, and add more as you go. Every source you add makes the picture more complete.
 
-Home Assistant is an open platform and so home energy management is not restricted to specific hardware. Any energy monitoring hardware that integrates with Home Assistant can be used as a data source. Check out the following sections for in-depth explanations and hardware recommendations.
+Home Assistant is open and works with hardware from many different brands, so you are not locked into one ecosystem. Any energy monitor, smart plug, solar inverter, or utility meter that integrates with Home Assistant can feed data into the energy dashboard.
 
 - [Integrate your energy use from the electricity grid](/docs/energy/electricity-grid/)
 - [Integrate your solar panels](/docs/energy/solar-panels/)

@@ -25,7 +25,7 @@ If the `ffmpeg` process is broken, the sensor will be unavailable. To control th
 
 ## Motion
 
-FFmpeg doesn't have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change in order to detect motion with the option 'changes', the percent value of change between frames. If you want a really small value for 'changes', you can also add a denoise filter.
+FFmpeg doesn't have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change to detect motion with the option 'changes', the percent value of change between frames. If you want a really small value for 'changes', you can also add a denoise filter.
 
 ## Configuration
 
@@ -64,7 +64,7 @@ reset:
   type: integer
   default: 20
 repeat:
-  description: How many events need to be detected in *repeat_time* in order to trigger a motion, 0 repeats means deactivated.
+  description: How many events need to be detected in *repeat_time* to trigger a motion, 0 repeats means deactivated.
   required: false
   type: integer
   default: 0

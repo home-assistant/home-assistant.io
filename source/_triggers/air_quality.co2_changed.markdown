@@ -2,7 +2,7 @@
 title: "Carbon dioxide level changed"
 trigger: air_quality.co2_changed
 domain: air_quality
-description: "Triggers after one or more carbon dioxide levels change."
+description: "Triggers when one or more carbon dioxide levels change."
 related_triggers:
   - air_quality.co2_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Carbon dioxide level changed** trigger fires after the carbon dioxide (CO2) reading on one or more air quality sensors changes by a meaningful amount. Carbon dioxide builds up naturally in occupied rooms from breathing, cooking, and heating. A bedroom with the door closed overnight or a packed meeting room after lunch are classic spots where CO2 creeps up without anyone noticing. Rising CO2 is one of the clearest signs that a space needs fresh air.
 
 Imagine your bedroom ventilation fan spinning up automatically in the middle of the night because CO2 climbed while you slept, so you wake up feeling refreshed instead of groggy. Use this trigger to automate ventilation, log indoor air quality trends, or remind household members to open a window when CO2 shifts noticeably.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,7 +28,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the carbon dioxide level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

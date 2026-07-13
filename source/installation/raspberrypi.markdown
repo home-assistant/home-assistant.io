@@ -38,7 +38,7 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 3. Choose the operating system type:
    - Select **Other specific-purpose OS** > **Home automation** > **Home Assistant**.
     ![Choose the operating system type: Other specific-purpose OS](/images/installation/rpi-ha-1.webp)
-4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
+4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;4 or RPi&nbsp;5).
     ![Choose the Home Assistant OS](/images/installation/rpi-ha-2.webp)
 5. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.

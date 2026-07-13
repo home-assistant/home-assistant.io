@@ -49,7 +49,7 @@ The following current weather data is provided:
 - **Wind direction** (degrees): Wind direction in degrees
 - **Wind gust speed** (m/s): Maximum wind gust speed
 - **Cloud coverage** (%): Percentage of cloud cover
-- **Condition**: Weather condition (clear, cloudy, rainy, etc.)
+- **Condition**: Weather condition (such as clear, cloudy, or rainy)
 
 ### Forecasts
 

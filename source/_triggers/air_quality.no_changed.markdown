@@ -2,7 +2,7 @@
 title: "Nitrogen monoxide level changed"
 trigger: air_quality.no_changed
 domain: air_quality
-description: "Triggers after one or more nitrogen monoxide levels change."
+description: "Triggers when one or more nitrogen monoxide levels change."
 related_triggers:
   - air_quality.no_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrogen monoxide level changed** trigger fires after the nitrogen monoxide (NO) reading on one or more air quality sensors changes by a meaningful amount. Nitrogen monoxide is a reactive gas produced mainly by vehicle engines and combustion processes. It quickly converts to nitrogen dioxide in the atmosphere and plays a key role in smog formation. If you live near a busy road or intersection, rush-hour traffic sends NO levels climbing, and that pollution easily seeps indoors through open windows.
 
 Imagine your home automatically logging pollution patterns near the driveway so you know which hours to keep the windows shut. Use this trigger to track pollution data, activate ventilation, or send alerts whenever your NO sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,7 +28,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the nitrogen monoxide level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

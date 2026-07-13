@@ -107,30 +107,28 @@ You now have a cloud project ready for the next section to configure authenticat
 
 {% details "Configure OAuth Consent screen [Cloud Console]" %}
 
-By the end of this section you will have configured the OAuth Consent Screen, needed for giving Home Assistant access to
-your cloud project.
+By the end of this section you will have configured the OAuth consent screen, needed to give Home Assistant access to your cloud project.
 
-1. Go to the [Google API Console](https://console.developers.google.com/apis/credentials).
+1. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
 
-2. Click [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and configure it.
+2. If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created.
 
-3. Select **External** then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
-    ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
+3. Click **Branding** in the left sidebar. Fill in the required fields:
+   - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
+   - **User support email**: Select your Google account email.
+   - **Developer contact email**: Enter your email address under Developer contact information.
+   
+   Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
 
-4. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**. Omit unnecessary information (e.g. logo) to avoid additional review by Google.
+4. Click **Audience** in the left sidebar.
+   - Under **User type**, confirm it shows **External**.
+   - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-5. On the *Scopes* step click **Save and Continue**.
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
 
-6. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
-    ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
+   Make sure the status is not **Testing**, or you will get logged out every 7 days.
 
-7. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is **In Production**.
-
-    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
-
-8. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
-
-9. Make sure the status is not *Testing*, or you will get logged out every 7 days.
+   The warning says your app will be available to any user with a Google Account. This refers to the fields you entered on the Branding page if someone finds the URL. This does not expose your Google Account or Nest data.
 
 {% enddetails %}
 
@@ -159,7 +157,7 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
+8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant. Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
 
 {% enddetails %}
 
@@ -315,8 +313,11 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 - [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
 - [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
+- [Fan](https://developers.google.com/nest/device-access/traits/device/fan)
 
-Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
+If your thermostat supports a fan timer, Home Assistant adds a timestamp sensor based on the Fan trait that shows when the fan will turn off. This value represents a specific date and time rather than a countdown or remaining duration. The sensor state is `unknown` when the fan timer is inactive.
+
+Given a thermostat named `Upstairs`, sensors are created with names such as `sensor.upstairs_temperature`, `sensor.upstairs_humidity`, or `sensor.upstairs_fan_timer_timeout` (if supported).
 
 {% note %}
 
@@ -360,7 +361,7 @@ support capturing media (snapshots or clips) through device triggers. The table 
 
 ## Event
 
-All doorbells and cameras support event entities. See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
+All doorbells and cameras support event entities. See the [Event](/integrations/event/) integration documentation for more about how to use event entities in automations.
 
 There are two classes of event entities that are available based on the above camera features:
 
@@ -369,6 +370,8 @@ There are two classes of event entities that are available based on the above ca
 
 Nest event entities are updated immediately when an event message is received
 without waiting for any media to be fetched. See Device Triggers for media support.
+
+{% include integrations/actions.md %}
 
 ## Device Triggers
 
@@ -598,7 +601,7 @@ during the account linking process means that the Google Account used cannot acc
 ##### Resolution
 
 - You can organize your homes and devices in the Google Home App and [share homes and devices](https://support.google.com/googlenest/answer/9155535) across accounts. Ensure the account being used has access to the Home.
-- If you formerly had a Nest account, ensure that it is migrated successfully to a Google Account. If your Google Home has multiple members, please note that the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
+- If you formerly had a Nest account, ensure that it is migrated successfully to a Google Account. If your Google Home has multiple members, the individual who initially set up the home must complete the migration of their Nest Account to a Google Account before you can establish a connection with Home Assistant.
 
 #### Symptom: Error 400: redirect_uri_mismatch 
 
@@ -867,6 +870,6 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 After deleting the integration, you may also want to remove any unused information in
-your Google Account that was added during the set up process.  See the integration
+your Google Account that was added during the set up process. See the integration
 configuration instructions for how to find where OAuth credentials and Device Access projects
 are configured.
