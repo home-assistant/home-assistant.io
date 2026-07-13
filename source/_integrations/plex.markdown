@@ -153,6 +153,73 @@ The Plex media player platform will create media player entities for each connec
 
 By default, the Plex integration will create media player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
+### Playing Plex media in automations
+
+To play media hosted on a Plex server, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Plex media player as the target. You can play music, playlists, TV episodes, movies, and search results from your Plex libraries.
+
+To use this action from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select the Plex media player.
+6. From the actions shown for that target, select **Play specified media**.
+7. Select the media from the media browser, or enter the **Media content ID** and **Media content type**.
+8. Select **Save**.
+
+The `media_content_id` value can be a JSON payload that identifies the Plex media to play. The payload can include these common search parameters:
+
+- `library_name`: The Plex library to search. Required for most searches.
+- `shuffle`: Shuffles the playback order of the media. Use `true` to enable it.
+- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning.
+- `offset`: The playback start position in seconds.
+- `allow_multiple`: Allows multiple matches in a search and enqueues all found items for playback. Use `true` to enable it.
+- `username`: The local Plex user account to use. This is only needed when the Plex server has multiple users and you want to play media for a specific user.
+- `continuous`: Automatically plays the next episode in the series. Use `true` to enable it.
+
+For music, the JSON payload can include `artist_name`, `artist.title`, `album_name`, `album.title`, `track_name`, `track.title`, `track_number`, and `track.index`.
+
+For playlists, the JSON payload can include `playlist_name`.
+
+For TV episodes, the JSON payload can include `show_name`, `show.title`, `season_number`, `season.index`, `episode_number`, and `episode.index`.
+
+For movies, the JSON payload can include `title`.
+
+More search parameters are available in the [`plexapi` library documentation](https://python-plexapi.readthedocs.io/en/latest/modules/library.html#plexapi.library.LibrarySection.search).
+
+{% important %}
+The integration must be configured with a token for playback commands to work. If you use the Plex server option **List of IP addresses and networks that are allowed without auth**, configure the integration while that option is temporarily disabled.
+{% endimportant %}
+
+This example plays a movie from a Plex library.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.plex_player
+data:
+  media_content_type: movie
+  media_content_id: >
+    {"library_name": "Movies", "title": "Blade"}
+```
+
+This example plays a random TV episode from a Plex library.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.plex_player
+data:
+  media_content_type: EPISODE
+  media_content_id: >
+    {
+      "library_name": "Kids TV",
+      "show_name": "Sesame Street",
+      "shuffle": true
+    }
+```
+
 ### Compatibility
 
 | Client             | Limitations                                |
@@ -173,7 +240,19 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 2. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
 3. [Sonos](/integrations/sonos/) integration configured.
 
-Call the [Play specified media](/actions/plex.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both `music` and `playlist` `media_content_type` values are supported.
+Call the [Play specified media](/actions/media_player.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both `music` and `playlist` `media_content_type` values are supported.
+
+This example plays a Plex playlist directly on a Sonos speaker.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.sonos_speaker
+data:
+  media_content_type: plex://playlist
+  media_content_id: >
+    {"playlist_name": "Party Mix"}
+```
 
 ## Notes
 
