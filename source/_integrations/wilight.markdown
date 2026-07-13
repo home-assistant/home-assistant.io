@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 The **WiLight** {% term integration %} allows you to control your Fans from within Home Assistant.
 
-The fan uses the standard [fan actions](/integrations/fan/#actions). You can set the speed percentage, set the direction, toggle the fan, turn it off, or turn it on.
+The fan uses the standard [fan actions](/integrations/fan/#actions). You can set the speed percentage, set the direction, toggle the fan, turn it off, or turn it on. WiLight fans have three speed levels: 33%, 66%, and 100%. If you set an intermediate percentage, Home Assistant uses the next higher WiLight speed level. Setting the speed to 0% turns the fan off.
 
 ## Irrigation
 
