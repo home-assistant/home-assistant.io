@@ -39,14 +39,14 @@ The **Google Cloud** {% term integration %} allows you to use [Google Cloud Plat
    2. From the toolbar above the `Service account` list, select `Create service account`.
    3. In the `Service account name` field, enter any name.
 
-      If you are requesting a text-to-speech API key:
+      If you are setting up text-to-speech:
 
         1. Don't select a value from the Role list. **No role is required to access this service**.
         2. Click `Create`. If a note appears, warning that this service account has no role, you may ignore that.
-        3. Return to the `Service account` list page and click on the service account you created in step 5 to see the details for this service account.
+        3. Return to the `Service account` list page and click on the service account you created to see the details for this service account.
         4. Choose the `Keys` tab within the details view for this service account.
         5. In the `Add Key` dropdown, select `Create New Key`.
-        6. Specify a `JSON` key type  and click `Create`.
+        6. Specify a `JSON` key type and click `Create`.
         7. A `[serviceaccountname].json` file will download to your browser.
         8. Upload this file when asked in the integration setup.
 
@@ -61,7 +61,7 @@ The Cloud text-to-speech API is priced monthly based on the number of characters
 
 ### Text-to-speech configuration
 
-The following settings can be configured in the integration options and in the **Options** field of the **TTS: Speak** action.
+The following settings can be configured in the integration options and in the **Options** field of the [**Speak**](/actions/tts.speak/) action.
 
 {% configuration %}
 encoding:
@@ -98,7 +98,7 @@ profiles:
   description: "Default audio profiles to apply. For supported values, see the [Google Cloud audio profiles documentation](https://cloud.google.com/text-to-speech/docs/audio-profiles)."
   required: false
   type: list
-  default: "[]"
+  default: []
 speed:
   description: "Default speaking rate of the voice. Supported values range from `0.25` to `4.0`."
   required: false
