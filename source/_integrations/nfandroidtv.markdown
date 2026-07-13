@@ -33,7 +33,7 @@ On some TVs, opening the app and following its setup wizard will prompt you to g
 
 ## Sending notifications
 
-The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the notify action created for your TV, such as `notify.my_android_tv`.
+The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the [**Notifications: Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select your TV notify entity as the target.
 
 You can send a basic message, or add images and icons for camera snapshots, reminders, and status updates.
 
