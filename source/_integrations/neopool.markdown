@@ -94,11 +94,11 @@ Enable pool light relay:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay. **Only entities backed by a detected hardware module or an enabled controller option are registered**; the rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
+The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay. **Only entities backed by a detected hardware module or an enabled controller option are registered**. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
 
 ### Light
 
-- **Pool light**: switches the pool light relay on and off. Added when the pool light relay has been enabled in the integration options and the controller has a lighting relay configured. The entity state reflects the actual relay state regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to a manual mode; if the timer is in an automatic mode, Home Assistant shows an error and does not change the relay so it does not fight the schedule. Change the timer mode to manual on the controller itself to control the light directly.
+- **Pool light**: switches the pool light relay on and off. Added when the pool light relay is enabled in the integration options, and the controller has a lighting relay configured. The entity state reflects the relay's actual state, regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to manual mode. If the timer is in automatic mode, Home Assistant shows an error and does not change the relay, so it does not override the schedule. Change the timer mode to manual on the controller itself to control the light directly.
 
 ### Sensors
 
