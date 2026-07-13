@@ -145,8 +145,6 @@ Notifications of new releases of Plex Media Server are shown using an Update ent
 
 Automatic upgrades of Plex Media Server can be triggered for some installation types, such as Windows and certain NAS devices.
 
-{% include integrations/actions.md %}
-
 ## Media player
 
 The Plex media player platform will create media player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
