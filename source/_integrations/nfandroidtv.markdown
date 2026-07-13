@@ -40,7 +40,9 @@ You can send a basic message, or add images and icons for camera snapshots, remi
 {% details "Example YAML configuration" %}
 
 ```yaml
-action: notify.my_tv
+action: notify.send_message
+target:
+  entity_id: notify.my_tv
 data:
   title: "Just a reminder"
   message: "You are awesome!"
@@ -146,7 +148,9 @@ automation: |
       entity_id: binary_sensor.doorbell_motion
       to: "on"
   actions:
-    - action: notify.living_room_tv
+    - action: notify.send_message
+      target:
+        entity_id: notify.living_room_tv
       data:
         message: "Someone is at the front door."
         data:
