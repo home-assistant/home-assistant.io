@@ -8,8 +8,8 @@
 #   quote (bool), blue (bool), background_image, background_image_alt,
 #   video, video_poster
 zbt-2:
-  title: "What people are saying"
-  lead: "Reviewers and community members share their experience with Home Assistant Connect ZBT-2"
+  title: "A connection you can count on"
+  lead: "Discover how reviewers and community members experience the ZBT-2"
   cards:
     - href: "https://smarthomescene.com/reviews/home-assistant-zbt-2-zigbee-and-thread-coordinator-review/"
       text: '"Setting up the ZBT-2 in Home Assistant could not be easier."'
@@ -102,8 +102,8 @@ zbt-2:
       video_poster: /images/frontpage/nc-card.webp
 
 zwa-2:
-  title: "What people are saying"
-  lead: "Reviewers and community members share their experience with Home Assistant Connect ZWA-2"
+  title: "Reach that goes the distance"
+  lead: "Explore what reviewers and community members think about the ZWA-2"
   cards:
     - href: "https://www.theverge.com/tech/759542/home-assistant-connect-zwa-2-z-wave-long-range-antenna"
       text: "This big stick solved my smart garden connectivity problems"
@@ -195,8 +195,8 @@ zwa-2:
       video_poster: /images/frontpage/nc-card.webp
 
 voice-pe:
-  title: "What people are saying"
-  lead: "Reviewers and community members share their experience with Home Assistant Voice Preview Edition"
+  title: "Hear it from the community"
+  lead: "Find out what users and reviewers have to say about the Home Assistant Voice Preview Edition"
   cards:
     - href: "https://arstechnica.com/gadgets/2024/12/home-assistants-voice-preview-edition-is-a-little-box-with-big-privacy-powers/"
       text: "Home Assistant's Voice Preview Edition is a little box with big privacy powers"
@@ -266,8 +266,8 @@ voice-pe:
       link_icon: "/images/community-cards/document-icon.png"
 
 green:
-  title: "What people are saying"
-  lead: "Reviewers and community members share their experience with Home Assistant Green"
+  title: "An easy choice"
+  lead: "See what reviewers and community members have to say about the Home Assistant Green"
   cards:
     - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
       text: "The Home Assistant Green is here to make the most powerful smart home platform more accessible"
