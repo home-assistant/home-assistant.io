@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The **Input select** {% term integration %} lets you create a dropdown {% term helper %}: an entity that stores one value chosen from a list of options you define. Because the value is not tied to a physical device, you can use it as a selectable setting for your automations, scripts, and dashboards. For example, you can create a dropdown helper to pick who cooks today, choose a thermostat mode, or select a house scene.
 
-On a dashboard, a dropdown helper appears as a list you can pick from. Each time you select a new option, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the selected option, which makes a dropdown helper a convenient way to share a setting between the UI and your automations.
+On a dashboard, a dropdown helper appears as a dropdown menu you can select from. Each time you select a new option, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the selected option, which makes a dropdown helper a convenient way to share a setting between the UI and your automations.
 
 ## Creating a dropdown helper
 
@@ -193,7 +193,7 @@ input_select:
 
 #### Symptom
 
-When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Dropdown** option is not listed.
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Dropdown** option is not listed.
 
 #### Description
 
