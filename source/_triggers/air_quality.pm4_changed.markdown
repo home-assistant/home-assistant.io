@@ -11,8 +11,6 @@ The **PM4 level changed** trigger fires after the PM4 (particulate matter 4 micr
 
 Imagine your home office air purifier starting as soon as pollen counts shift on a spring afternoon, so you stay focused instead of reaching for tissues. Use this trigger to start filtration, log changes, or notify household members whenever PM4 readings shift noticeably.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

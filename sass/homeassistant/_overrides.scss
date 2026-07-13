@@ -1696,6 +1696,10 @@ article.listing {
   h2 {
     margin-top: 1.75em;
     line-height: 1.4;
+
+    &:has(> a.title-link) {
+      padding-right: 0.5rem;
+    }
   }
 
   h3 {

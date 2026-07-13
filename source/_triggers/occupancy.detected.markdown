@@ -11,8 +11,6 @@ The **Occupancy detected** trigger fires when one or more occupancy sensors repo
 
 Use it to automate actions, such as turning on lights, adjusting climate, or sending notifications, when a room or area becomes occupied. Use a single sensor for a specific room and a group of sensors for larger spaces.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

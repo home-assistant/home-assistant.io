@@ -11,8 +11,6 @@ The **Valve is open** condition passes when a targeted valve {% term entity %} i
 
 Use it when you want an automation to continue only if a valve is actively letting water, gas, or air through. For example, create an automation to avoid sending a "start irrigation" action when the main water valve is already open, or gate a water-conservation alert on whether an irrigation valve is still running.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

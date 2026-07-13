@@ -12,8 +12,6 @@ The **Media player paused playing** trigger fires when playback pauses on a medi
 
 Use **Media player paused playing** to raise the lights, lower background noise, or send a reminder when something has been left paused for a while.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player paused playing** in an automation:

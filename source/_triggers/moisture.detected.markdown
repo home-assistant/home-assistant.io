@@ -11,8 +11,6 @@ related_triggers:
 
 The **Moisture detected** trigger fires when one or more moisture binary sensors start detecting water. Use it with leak sensors under a sink, behind a dishwasher, next to a washing machine, or in a basement to react the moment water is present.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

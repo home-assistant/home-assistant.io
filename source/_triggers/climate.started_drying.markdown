@@ -13,8 +13,6 @@ The **Thermostat started drying** trigger fires after a thermostat {% term entit
 
 Use this trigger to react to the start of active drying, for example to close windows to prevent more humid air from entering or to turn on additional ventilation to help remove moisture.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat started drying** in an automation:

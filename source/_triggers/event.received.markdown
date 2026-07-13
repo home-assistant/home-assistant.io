@@ -10,8 +10,6 @@ related_triggers:
 
 The **Event received** trigger runs an automation when a physical event entity — such as a doorbell, a remote control button, or a motion sensor — detects a specific type of event. Use it when you want to react to a particular event type, like a doorbell ring or a double press, rather than any state change on the entity.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

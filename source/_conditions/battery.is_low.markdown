@@ -11,7 +11,7 @@ related_conditions:
 
 The **Battery is low** condition passes when a battery-powered device reports that its battery is running low. Many devices, like door sensors, smoke detectors, and remote controls, expose a dedicated low-battery indicator that flips on once the charge drops past the manufacturer's threshold. Use **Battery is low** to run an automation only when at least one of your devices needs attention, for example to skip an arming routine while a critical sensor is low.
 
-{% include integrations/labs_entity_triggers_note.md %}
+For a visual overview of all battery statuses, open {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include conditions/ui_header.md %}
 

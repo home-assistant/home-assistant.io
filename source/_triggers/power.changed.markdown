@@ -11,8 +11,6 @@ The **Power changed** trigger fires when a power reading changes and the new val
 
 Use **Power changed** when you want to react to the latest power reading right away, such as noticing when an appliance starts drawing noticeable power or when a circuit moves outside its normal operating range.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Power changed** in an automation:

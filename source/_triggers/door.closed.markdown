@@ -11,8 +11,6 @@ The **Door closed** trigger fires when a targeted door changes to closed. Use it
 
 This trigger is especially useful for routines that should wait for a clear end state, such as a garage door finishing its close cycle or a back door being fully shut before you lock it.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -117,7 +115,7 @@ If you turn on a nearby hallway light while bringing things in from the car, the
 - **Trigger**: Door closed
 - **Target**: Garage door
 - **For at least**: 00:01:00
-- **Action**: Light: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the hallway light" %}
 

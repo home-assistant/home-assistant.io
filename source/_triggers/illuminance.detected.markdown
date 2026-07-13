@@ -13,8 +13,6 @@ The **Light level detected** trigger fires when one or more light sensors start 
 
 Use it to automate actions when a dark area becomes lit, like sending a notification when a closet light is accidentally left on, or turning off a night light at dawn when an outdoor sensor first picks up daylight.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

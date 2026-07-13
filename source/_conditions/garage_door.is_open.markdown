@@ -11,8 +11,6 @@ The **Garage door is open** condition passes when one or more targeted garage do
 
 This condition is useful for reminders, security checks, and routines that should warn you when a garage door has been left open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

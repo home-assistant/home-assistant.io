@@ -11,8 +11,6 @@ related_conditions:
 
 The **Battery is not charging** condition passes when a battery-powered device is not actively charging. A device is not charging when it is unplugged, off its dock, or fully charged with the charger no longer drawing power. Use **Battery is not charging** to run an automation only when a device is on battery power, for example to skip a heavy task while a phone is unplugged, or to confirm a robot vacuum is off its dock before sending it to clean.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Battery is not charging** in an automation:

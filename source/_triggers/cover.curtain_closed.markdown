@@ -11,8 +11,6 @@ The **Curtain closed** trigger fires when a targeted curtain changes to closed. 
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a curtain closes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

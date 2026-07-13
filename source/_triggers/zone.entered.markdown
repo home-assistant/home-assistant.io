@@ -12,8 +12,6 @@ The **Zone entered** trigger fires when a person or device tracker enters a sele
 
 When you target more than one person or device tracker, the **Trigger when** option controls whether the automation runs for each arrival, only the first arrival, or only after all selected targets are in the zone.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

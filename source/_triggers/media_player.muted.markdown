@@ -12,8 +12,6 @@ The **Media player muted** trigger fires when a media player becomes muted. Use 
 
 Use **Media player muted** to adjust nearby lighting for quiet listening, pause another routine that depends on audio, or send a notification when a shared media player is muted.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player muted** in an automation:

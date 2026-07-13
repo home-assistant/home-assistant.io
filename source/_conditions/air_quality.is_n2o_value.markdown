@@ -10,8 +10,6 @@ related_conditions:
 
 The **Nitrous oxide value** condition passes when a nitrous oxide (N2O) sensor's reading meets a specific level. N2O is a greenhouse gas that shows up in agricultural settings, greenhouses, and some industrial spaces. If you monitor a greenhouse or workshop, this condition lets your automation turn on ventilation only when N2O levels genuinely need attention, keeping fans off during normal readings so you save energy and reduce noise.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -85,7 +83,7 @@ behavior:
 
 Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, especially on warm nights. This automation runs each morning at sunrise and checks the current reading. If N2O is at or above 500 ppb, the ventilation fan turns on so the air is fresh before you start working. On mornings when levels stayed low, the fan stays off, keeping the greenhouse warm and saving energy.
 
-- **Trigger**: Sun: At sunrise
+- **Trigger**: Sunrise
 - **Condition**: Air Quality: Nitrous oxide value
 - **Target**: Greenhouse N2O sensor
 - **Threshold type**: 500
@@ -98,8 +96,7 @@ Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, es
 automation: |
   alias: "Morning greenhouse ventilation if N2O is high"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: air_quality.is_n2o_value
       target:

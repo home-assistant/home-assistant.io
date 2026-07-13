@@ -74,6 +74,7 @@ The following devices are known to be supported by the integration:
 - SEKO PoolDose Double Spa
 - SEKO PoolDose pH+ORP CF Group Wi-Fi
 - SEKO PoolDose pH
+- BWT MEDO CONNECT Wi-Fi
 - VÁGNER POOL VA DOS BASIC
 - VÁGNER POOL VA DOS EXACT
 

@@ -10,8 +10,6 @@ related_conditions:
 
 The **Zone occupancy is detected** condition passes when the selected zone is occupied. Use it to make an automation continue only if at least one person is in a zone.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

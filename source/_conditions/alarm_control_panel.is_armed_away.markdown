@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed away** condition passes when one or more alarm control panel {% term entities %} are armed in away mode. Use it to stop automations that make no sense in an empty house, like skipping thermostat schedules, holding back welcome-home lighting, or pausing the robot vacuum. On the flip side, use it to _enable_ away-only automations, like dropping the heating to a setback temperature to save energy while nobody is home.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

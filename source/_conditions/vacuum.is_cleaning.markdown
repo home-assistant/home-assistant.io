@@ -9,8 +9,6 @@ The **Vacuum cleaner is cleaning** condition passes when one or more targeted va
 
 Use this when you want an automation to continue only if the robot is actively cleaning, like pausing it for a quiet activity, avoiding another floor-cleaning routine, or sending a status update only while the run is still underway.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

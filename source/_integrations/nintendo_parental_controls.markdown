@@ -13,7 +13,8 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_category: []
+ha_category:
+  - Gaming
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
