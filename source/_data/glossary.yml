@@ -110,7 +110,7 @@
     - blueprints
 - term: Button
   definition: >-
-    A button entity works like a physical push button: you press it to make something happen, such as restarting a device or triggering an automation. A button has no `on` or `off` state, but it remembers when it was last pressed. This lets you see when it was last used and set time-based conditions, such as only running an automation if the button wasn't already pressed in the last minute.
+    A button entity works like a physical push button: you press it to make something happen, such as restarting a device or triggering an automation. A button has no `on` or `off` state, but it remembers when it was last pressed. This lets you see when it was last used and set time-based conditions, such as only running an automation if the button wasn't pressed in the last minute.
   link: /integrations/button
   aliases:
     - buttons
