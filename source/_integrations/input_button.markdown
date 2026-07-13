@@ -12,21 +12,15 @@ ha_domain: input_button
 ha_integration_type: helper
 ---
 
-The **Input button** helper {% term integration %} allows you to define buttons that
-can be pressed via the user interface, and can be used to trigger things,
-like an automation.
+The **Input button** {% term integration %} lets you create a button {% term helper %}: an entity you can press, but that does not store an on or off {% term state %}. Because the button is not tied to a physical device, you can use it to start something from the user interface, such as running a script or triggering an {% term automation %}. For example, you can create a button helper to ring a doorbell chime, restart a routine, or send yourself a notification.
+
+When you press a button helper, Home Assistant records the timestamp of the press. Your automations can use that press as a trigger, which makes a button helper a convenient way to start an action from a dashboard.
 
 ## Configuration
 
-The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**
-and click the add button; next choose the **{% my config_flow_start domain="input_button" title="Button" %}** option.
 
-To be able to add **Helpers** via the user interface you should have
-`default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by
-default unless you removed it. If you removed `default_config:` from your
-configuration, you must add `input_button:` to your `configuration.yaml` first,
-then you can use the UI.
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_button" title="Button" %}**.
 
 Input buttons can also be configured via {% term "`configuration.yaml`" %}:
 
@@ -77,3 +71,21 @@ actions:
 ```
 
 {% include integrations/actions.md %}
+
+## Troubleshooting
+
+### The Button helper option is missing from the user interface
+
+#### Symptom
+
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Button** option is not listed.
+
+#### Description
+
+Button helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_button:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your button helpers from the user interface.
