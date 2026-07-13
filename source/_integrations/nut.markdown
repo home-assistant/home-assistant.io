@@ -298,7 +298,7 @@ if needed.
 The username and password configured for the device must be granted `instcmds` permissions on the NUT server to use buttons and switches. Device {% term actions %} will not be available if user credentials are not specified. See the [NUT server documentation](https://networkupstools.org/documentation.html) for configuration information.
 {% endimportant %}
 
-Home Assistant creates a button for each supported parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html). Use the button entity in the UI or the standard button press action in an automation.
+Home Assistant creates a device action for each supported parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html). For supported outlet commands, you can also use the switch entity, the button entity in the UI, or the standard [button press action](/actions/button.press/) in an automation.
 
 ## Automation example
 
