@@ -37,6 +37,17 @@ The **Notifications for Android TV / Fire TV** {% term integration %} adds a not
 
 You can send a basic message, or add images and icons for camera snapshots, reminders, and status updates.
 
+To send a notification from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Search for and select **Notifications: Send a notification message**.
+6. Under **Targets**, select the notify entity for your TV.
+7. Enter the **Message** and set any other options.
+8. Select **Save**.
+
 {% details "Example YAML configuration" %}
 
 ```yaml
@@ -125,6 +136,8 @@ auth:
 Local image and icon paths are validated against `allowlist_external_dirs` in {% term "configuration.yaml" %}.
 
 ## Notifications for Android TV / Fire TV automation examples
+
+These examples show how to use the TV notify entity in automations. Replace the example entity IDs with the ones from your Home Assistant instance.
 
 ### Automation: show a doorbell notification
 
