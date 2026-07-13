@@ -363,7 +363,7 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Climate accessory type
 
-Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps, which offer two or more fan speeds or a swing mode that can be turned off, are listed as Heater Cooler accessories. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
+Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps that offer two or more fan speeds or a swing mode that can be turned off are listed as Heater Cooler accessory type. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
 
 This choice is made automatically the first time an entity is added to HomeKit. Entities that were already exposed before this feature was introduced keep their Thermostat accessory, and you can switch them to the Heater Cooler accessory at any time.
 
