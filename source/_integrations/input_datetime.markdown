@@ -16,8 +16,6 @@ The **Input Datetime** {% term integration %} lets you create a date and time {%
 
 On a dashboard, a date and time helper appears as a date picker, a time picker, or both. Each time the value changes, Home Assistant records a new {% term state %}, which you can use in your automations and templates. Your automations and scripts can also change the value, which makes a date and time helper a convenient way to share a setting between the UI and your automations.
 
-The preferred way to create a date and time helper is through the user interface.
-
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
 2. Select **{% my config_flow_start domain="input_datetime" title="Date and/or time" %}**.
 
