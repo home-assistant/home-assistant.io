@@ -36,11 +36,27 @@ Show incompatible media when browsing:
   description: "When browsing media, show all media files and links, even if the device reports that it is not compatible with the media type."
 {% endconfiguration_basic %}
 
-{% include integrations/actions.md %}
+## Actions
+
+DLNA devices can support a range of features. Depending on the device itself, the following [media player](/integrations/media_player/#actions) actions may be supported:
+
+- `media_player.volume_up`, `media_player.volume_down`, and `media_player.volume_set`
+- `media_player.volume_mute`
+- `media_player.media_play`
+- `media_player.media_pause` and `media_player.media_play_pause`
+- `media_player.media_stop`
+- `media_player.media_next_track`
+- `media_player.media_previous_track`
+- `media_player.play_media`
+- `media_player.shuffle_set`
+- `media_player.repeat_set`
+- `media_player.select_sound_mode`
 
 ## Playing media
 
 Most DLNA DMR devices can play media from local HTTP servers. For best results, use HTTP instead of HTTPS, and refer to the server using an IP address instead of a hostname, for example, `http://192.168.1.1:8080/song.mp3`.
+
+To play media on a DLNA DMR device from an automation or a script, use the [**Play specified media**](/actions/media_player.play_media/) action and select the DLNA media player as the target.
 
 ### Media sources
 
