@@ -65,6 +65,8 @@ data:
 
 Use the following options inside the `data` field of the TV notify action, such as `notify.my_android_tv`.
 
+<!-- textlint-disable terminology -->
+
 {% configuration %}
 duration:
   description: The duration in seconds for which the notification is displayed.
@@ -81,13 +83,11 @@ position:
   required: false
   default: bottom-right
   type: string
-<!-- textlint-disable terminology -->
 color:
   description: "The notification color, one of `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber`, or `pink`."
   required: false
   default: grey
   type: string
-<!-- textlint-enable terminology -->
 transparency:
   description: "The notification transparency, one of `0%`, `25%`, `50%`, `75%`, or `100%`."
   required: false
@@ -107,6 +107,8 @@ icon:
   required: false
   type: map
 {% endconfiguration %}
+
+<!-- textlint-enable terminology -->
 
 For `image` and `icon`, use these nested settings:
 
