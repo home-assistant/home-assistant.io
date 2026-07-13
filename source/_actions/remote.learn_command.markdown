@@ -85,6 +85,7 @@ alternative:
     Store the code as an alternative. This is useful for discrete codes, such as a code that only turns a device on.
   required: false
   type: boolean
+  default: false
 timeout:
   description: >
     How long to wait for the command to be learned, in seconds.
