@@ -51,7 +51,7 @@
   definition: >-
     An area in Home Assistant is a [logical grouping](/docs/organizing/) of
     devices and entities that represents a room or space in your home, such as
-    the living room, kitchen, or garage. Areas let you target a whole group at
+    the living room, kitchen, or garage. Areas let you target a whole group of devices at
     once, for example, turning off all the lights in the living room. They also
     give voice assistants the context to understand commands
     like "turn on the kitchen lights". Areas can be assigned to floors and used
