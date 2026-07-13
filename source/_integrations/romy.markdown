@@ -31,6 +31,8 @@ This integration currently supports the following models:
 
 ROMY provides a vacuum entity. To control it in automations or scripts, use the shared vacuum actions, such as [Start cleaning](/actions/vacuum.start/), [Stop vacuum](/actions/vacuum.stop/), [Return to base](/actions/vacuum.return_to_base/), or [Set fan speed](/actions/vacuum.set_fan_speed/), and select your ROMY vacuum as the target.
 
+On ROMY vacuums, the [Start cleaning](/actions/vacuum.start/) action starts or continues a cleaning run.
+
 ROMY supports these fan speed values: `default`, `normal`, `silent`, `intensive`, `super_silent`, `high`, and `auto`.
 
 ## Integration entities
