@@ -97,33 +97,33 @@ But you can do the following workaround that exposes a script to voice assistant
 9. Create a script (**Settings** > **Automations & scenes** > **Scripts** > **Create script**)
 10. Select 3 dots > **Edit in YAML** and enter the following (edit the `conversation.google_generative_ai_2` to match the entity created from the 1st step):
 
-```yaml
-sequence:
-  - action: conversation.process
-    metadata: {}
-    data:
-      agent_id: conversation.google_generative_ai_2
-      text: "{{ query }}"
-    response_variable: result
-  - variables:
-      result:
-        response: "{{ result.response.speech.plain.speech }}"
-  - stop: ""
-    response_variable: result
-alias: "Assist: Search Google"
-description: >-
-  Makes a Google search to answer questions that are completely unrelated with
-  the smart home and are exclusively about current events or information in
-  real-time like the current president, results of last night's game, release
-  dates.
-fields:
-  query:
-    selector:
-      text: null
-    name: Query
-    description: The query to search Google for
-    required: true
-```
+    ```yaml
+    sequence:
+      - action: conversation.process
+        metadata: {}
+        data:
+          agent_id: conversation.google_generative_ai_2
+          text: "{{ query }}"
+        response_variable: result
+      - variables:
+          result:
+            response: "{{ result.response.speech.plain.speech }}"
+      - stop: ""
+        response_variable: result
+    alias: "Assist: Search Google"
+    description: >-
+      Makes a Google search to answer questions that are completely unrelated with
+      the smart home and are exclusively about current events or information in
+      real-time like the current president, results of last night's game, release
+      dates.
+    fields:
+      query:
+        selector:
+          text: null
+        name: Query
+        description: The query to search Google for
+        required: true
+    ```
 
 11. Select **Save script**
 12. Select 3 dots > **Settings** > **Voice assistants**
@@ -131,13 +131,52 @@ fields:
 
 {% enddetails %}
 
+## Using Google Gemini text-to-speech in automations
+
+The **Google Gemini** integration adds a text-to-speech entity. To play a spoken message from an automation or script, use the [**Speak**](/actions/tts.speak/) action and select your Google Gemini text-to-speech entity as the target.
+
+To speak a message from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your Google Gemini text-to-speech entity.
+6. From the actions shown for that target, select **Speak**. To choose a Gemini voice, set `voice` in **Options**. For supported options, see [Google Gemini text-to-speech action options](#google-gemini-text-to-speech-action-options).
+7. Select the **Media player entity** to play the message on, set the **Message**, and set any other options you want to use.
+8. Select **Save**.
+
+{% details "Example YAML configuration" %}
+
+```yaml
+action: tts.speak
+target:
+  entity_id: tts.google_ai_tts
+data:
+  media_player_entity_id: media_player.living_room
+  message: "Say cheerfully: Have a wonderful day!"
+  options:
+    voice: achernar
+```
+
+{% enddetails %}
+
+### Google Gemini text-to-speech action options
+
+{% configuration %}
+voice:
+  description: "The voice name to use for the generated speech. The default is `zephyr`. For available voices, see the [Google AI speech generation documentation](https://ai.google.dev/gemini-api/docs/speech-generation#voices)."
+  required: false
+  type: string
+{% endconfiguration %}
+
+Google Gemini detects the input language automatically. For supported languages, see the [Google AI speech generation documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages).
+
 ## Talking to Super Mario
 
-You can use this integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
+You can use Google Gemini to follow the [Super Mario voice assistant tutorial](/voice_control/assist_create_open_ai_personality/) and let him control devices in your home.
 
-The tutorial is using OpenAI, but this could also be done with the Google Gemini integration.
-
-{% include integrations/actions.md %}
+The tutorial uses OpenAI, but you can follow the same approach with the Google Gemini integration.
 
 ## Video tutorial
 
