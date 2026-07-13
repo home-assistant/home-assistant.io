@@ -162,7 +162,7 @@ Telegram storage backend:
 
 By default, Home Assistant stores KNX telegram history in an internal SQLite telegram store. If you would rather keep this history in an external database, select the **PostgreSQL (External)** storage backend. This is useful when you want to keep long-term telegram history in a dedicated time-series database, query it with other tools, or share it with analysis tools.
 
-The PostgreSQL backend builds on [TimescaleDB](https://www.timescale.com/), so your PostgreSQL server needs the TimescaleDB extension available. The first time Home Assistant connects, it enables the extension and creates the table and hypertable it needs. Because of this, the database must already exist, and the account you provide needs permission to create extensions and tables in it.
+The PostgreSQL backend works with any PostgreSQL server. When the [TimescaleDB](https://www.timescale.com/) extension is available, it is used automatically: telegrams are stored in a hypertable and older data is compressed. Without the extension, telegrams are stored in regular PostgreSQL tables with identical functionality. The first time Home Assistant connects, it creates the tables it needs (and enables the TimescaleDB extension when available). The database must already exist, and the account you provide needs permission to create tables in it.
 
 When you select **PostgreSQL (External)** and continue, Home Assistant asks for the connection details and checks that it can reach the server before saving:
 
@@ -182,7 +182,7 @@ Use TLS:
 {% endconfiguration_basic %}
 
 {% note %}
-The connection check confirms that Home Assistant can reach the server, sign in, and that the TimescaleDB extension is available.
+The connection check confirms that Home Assistant can reach the server and sign in. TimescaleDB is detected automatically and is not required.
 {% endnote %}
 
 ## Basic configuration
