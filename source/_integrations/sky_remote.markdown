@@ -63,12 +63,13 @@ Supported commands include:
 
 In YAML, a basic example looks like this:
 
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.192_168_1_250
-data:
-  command:
-    - sky
-    - tvguide
-```
+{% example %}
+action: |
+  action: remote.send_command
+  target:
+    entity_id: remote.192_168_1_250
+  data:
+    command:
+      - sky
+      - tvguide
+{% endexample %}
