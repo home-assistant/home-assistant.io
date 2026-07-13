@@ -48,6 +48,10 @@ Audio Codec:
 
 This integration sets up every media session connected to the Jellyfin server as a media player in Home Assistant. These entities will display media information, playback progress, and playback controls. Browsing media inside Home Assistant in a player's context provides all supported library types.
 
+To browse, search, or play Jellyfin media from an automation or a script, use the [`media_player.browse_media`](/actions/media_player.browse_media/), [`media_player.search_media`](/actions/media_player.search_media/), and [`media_player.play_media`](/actions/media_player.play_media/) actions with your Jellyfin media player entity.
+
+Jellyfin supports the `next` and `add` enqueue options for the `media_player.play_media` action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
+
 ### Remote entities
 
 This integration also creates a `remote` {% term entity %} for sending [Jellyfin remote commands](https://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Session/GeneralCommandType.cs) to each client, if supported. For example, the following script can be used to tell the client to navigate right twice, down once, and select the focused item:
