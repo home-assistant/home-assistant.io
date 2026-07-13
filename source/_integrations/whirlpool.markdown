@@ -74,7 +74,7 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 - [Select](#select)
 - [Sensor](#sensor)
 
-### Binary Sensor
+### Binary sensor
 
 The binary sensor platform provides the following functionality:
 
