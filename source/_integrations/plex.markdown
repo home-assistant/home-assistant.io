@@ -176,6 +176,8 @@ The `media_content_id` value can be a JSON payload that identifies the Plex medi
 - `username`: The local Plex user account to use. This is only needed when the Plex server has multiple users and you want to play media for a specific user.
 - `continuous`: Automatically plays the next episode in the series. Use `true` to enable it.
 
+The search tries to find the type of media based on the most specific media type in the search. For example, a search using `artist.title` and `album.year` searches for albums by the artist from that year. If you add `track.title`, the search looks for a track instead. To choose the media type directly, add `libtype` with one of these values: `movie`, `episode`, `season`, `show`, `track`, `album`, or `artist`.
+
 For music, the JSON payload can include `artist_name`, `artist.title`, `album_name`, `album.title`, `track_name`, `track.title`, `track_number`, and `track.index`.
 
 For playlists, the JSON payload can include `playlist_name`.
@@ -183,6 +185,8 @@ For playlists, the JSON payload can include `playlist_name`.
 For TV episodes, the JSON payload can include `show_name`, `show.title`, `season_number`, `season.index`, `episode_number`, and `episode.index`.
 
 For movies, the JSON payload can include `title`.
+
+For more specific searches, the JSON payload can also include filters supported by Plex, such as `actor`, `collection`, `contentRating`, `decade`, `director`, `genre`, `resolution`, `sort`, `unwatched`, and `year`. Some searches may need `maxresults` to limit the result to a single item.
 
 More search parameters are available in the [`plexapi` library documentation](https://python-plexapi.readthedocs.io/en/latest/modules/library.html#plexapi.library.LibrarySection.search).
 
@@ -209,12 +213,30 @@ action: media_player.play_media
 target:
   entity_id: media_player.plex_player
 data:
-  media_content_type: EPISODE
+  media_content_type: episode
   media_content_id: >
     {
       "library_name": "Kids TV",
       "show_name": "Sesame Street",
       "shuffle": true
+    }
+```
+
+This example plays the oldest unwatched movie from a Plex collection.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.plex_player
+data:
+  media_content_type: movie
+  media_content_id: >
+    {
+      "library_name": "Movies",
+      "collection": "Back to the Future",
+      "unwatched": true,
+      "sort": "year:asc",
+      "maxresults": 1
     }
 ```
 
@@ -240,6 +262,23 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 
 Call the [Play specified media](/actions/media_player.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both `music` and `playlist` `media_content_type` values are supported.
 
+This example plays a track directly on a Sonos speaker.
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.sonos_speaker
+data:
+  media_content_type: plex://music
+  media_content_id: >
+    {
+      "library_name": "Music",
+      "artist_name": "Adele",
+      "album_name": "25",
+      "track_name": "Hello"
+    }
+```
+
 This example plays a Plex playlist directly on a Sonos speaker.
 
 ```yaml
@@ -251,6 +290,8 @@ data:
   media_content_id: >
     {"playlist_name": "Party Mix"}
 ```
+
+{% include integrations/actions.md %}
 
 ## Notes
 
