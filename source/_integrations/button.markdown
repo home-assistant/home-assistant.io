@@ -16,7 +16,7 @@ related:
     title: Dashboard
 ---
 
-A button {% term entity %} works like a physical push button: you press it to make something happen, such as restarting a router or identifying a device. It can be compared to a momentary switch, push-button, or other form of stateless switch.
+A button {% term entity %} works like a physical push button: you press it to make something happen, such as restarting a router or identifying a device. It can be compared to a momentary switch, push button, or other form of stateless switch.
 
 Unlike a switch, a button has no `on` or `off` state. Instead, it remembers when it was last pressed, so you can see when it was last used and react to each press in an {% term automation %}.
 
