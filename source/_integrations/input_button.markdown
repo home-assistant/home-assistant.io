@@ -78,7 +78,7 @@ actions:
 
 #### Symptom
 
-When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Button** option is not listed.
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Button** option is not listed.
 
 #### Description
 
