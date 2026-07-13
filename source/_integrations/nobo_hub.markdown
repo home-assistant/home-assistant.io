@@ -28,6 +28,20 @@ on the back of the hub. If the hub is on a different network than Home Assistant
 
 {% include integrations/config_flow.md %}
 
+## Reconfiguration
+
+You can update the IP address without removing and re-adding the integration.
+
+This is useful when:
+
+- The hub has moved to a new network and the stored IP address no longer reaches it.
+- You want to switch between internal and external addresses (for example, when the hub is reachable on multiple subnets).
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Nobø Ecohub** integration, select the three dots menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
+3. Enter the new IP address.
+4. Select **Submit** to save.
+
 # Heaters
 
 Each zone containing floor or wall mounted heaters is represented as an HVAC entity. Adding and removing zones
