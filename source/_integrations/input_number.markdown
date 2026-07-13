@@ -18,8 +18,8 @@ On a dashboard, a number helper appears as a slider or a numeric input box, so y
 
 ## Creating a number helper
 
-1. Go to **{% my helpers title="Settings > Devices & services > Helpers" %}**.
-2. Select the add button, then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_number" title="Number" %}**.
 
 ## YAML configuration
 
@@ -254,10 +254,10 @@ When you go to **{% my helpers title="Settings > Devices & services > Helpers" %
 
 #### Description
 
-Number helpers are provided through `default_config:`, which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+Number helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
 
 #### Resolution
 
-1. Add `input_number:` to your [`configuration.yaml` file](/docs/configuration/).
+1. Add `input_number:` to your {% term "`configuration.yaml`" %}.
 2. Restart Home Assistant.
 3. After the restart, create your number helpers from the user interface.
