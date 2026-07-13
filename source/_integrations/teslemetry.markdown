@@ -53,11 +53,11 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 
 ## Local Powerwall control
 
-By default, Teslemetry sends energy site commands through the cloud. If your energy site includes a Powerwall gateway, you can also pair Home Assistant with the gateway so it can send commands to it directly over your local network. Local commands are faster, and Home Assistant automatically falls back to the cloud any time the local connection isn't available, so your existing cloud-based energy entities keep working either way.
+By default, Teslemetry sends energy site commands through the cloud. If your energy site includes a Powerwall 2 or Powerwall 3, you can also pair Home Assistant so it can send commands to it directly over your local network. Local commands are faster, and Home Assistant automatically falls back to the cloud any time the local connection isn't available, so your existing cloud-based energy entities keep working either way.
 
 ### Requirements
 
-- A Powerwall gateway that's reachable on your local network.
+- A Powerwall 2 and gateway or Powerwall 3 that's reachable on your local network.
 
 ### Setting up local control
 
@@ -67,8 +67,8 @@ To pair your Powerwall gateway:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
 2. On the energy site you want to pair, select **Set up local control**.
-3. Home Assistant registers an access key with your Powerwall gateway. If the key hasn't been approved yet, flick the switch on the side of your primary Powerwall off and back on to approve it, then continue in Home Assistant. You only need to do this once.
-4. Enter the local network address of your Powerwall gateway and its Wi-Fi password. Only the last 5 characters of the password printed on the gateway are needed.
+3. Home Assistant registers an access key with your Energy Site. If the key hasn't been approved yet, flick the switch on the side of your primary Powerwall off and back on to approve it, then continue in Home Assistant. You only need to do this once.
+4. Enter the local network address of your Powerwall/gateway (if required) and its Wi-Fi password. Only the last 5 characters of the password printed on the inside of your Powerwall/gateway are needed.
 
 Once paired, Home Assistant stores the gateway's address and password on the subentry and sends energy commands to it directly, falling back to the cloud automatically whenever the gateway can't be reached.
 
