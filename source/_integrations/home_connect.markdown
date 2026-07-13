@@ -937,6 +937,15 @@ All the event sensors will have the following possible values:
 - **Rinse aid nearly empty**:
   - **Description**: Event triggered when the rinse aid supply is running low.
   - **Availability**: Dishwasher
+- **Machine care reminder**:
+  - **Description**: Event triggered when the appliance recommends running the Machine Care program (a cleaning cycle without dishes).
+  - **Availability**: Dishwasher
+- **Machine care and filter cleaning reminder**:
+  - **Description**: Event triggered when the appliance recommends running the Machine Care program and cleaning the filter and spray arm.
+  - **Availability**: Dishwasher
+- **Machine care and low maintenance filter cleaning reminder**:
+  - **Description**: Event triggered when the appliance recommends running the Machine Care program; cleaning the filter and spray arm is optional.
+  - **Availability**: Dishwasher
 - **Bean container empty**:
   - **Description**: Event triggered when the bean container is empty.
   - **Availability**: Coffee maker
