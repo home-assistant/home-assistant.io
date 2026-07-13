@@ -96,7 +96,9 @@ The following actions are also available:
 
 The light platform provides the following functionality:
 
-- turn the oven cavity light on or off
+- turn an oven cavity light on or off
+
+Ovens with two cavities have separate light entities for the upper and lower cavity.
 
 ### Select
 
