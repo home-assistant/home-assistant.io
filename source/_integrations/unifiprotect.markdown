@@ -74,7 +74,7 @@ Also, make sure your report is reproducible and provides all necessary context: 
 You can set up the {% term integration %} in one of two ways:
 
 - **Full access**: uses a local user and an API key, and gives you access to all the entities described on this page. This is currently the recommended option for most people.
-- **API key only**: uses only an API key, without a local user. It currently only provides the **Alarm Manager** entity and camera entities (streams and snapshots). All other entities require full access.
+- **API key only**: uses only an API key, without a local user. It currently only provides the **Alarm Manager** entity and camera entities (streams and snapshots). All other entities require full access. See the table below for the full breakdown by domain, and the [device type table](#device-support) for a breakdown by device.
 
 You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
 
@@ -158,7 +158,7 @@ You can switch between **full access** and **API key only** at any time without 
 3. Choose the connection mode you want to switch to and follow the steps on screen.
 
 {% note %}
-If you switch from full access to API key only, the entities that are no longer supported become unavailable. They become available again if you switch back to full access.
+If you switch from full access to API key only, the entities that are no longer supported become unavailable. They become available again if you switch back to full access. See [Connection modes](#connection-modes) for which entities are supported in each mode.
 {% endnote %}
 
 ## Device support
