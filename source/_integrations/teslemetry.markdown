@@ -62,18 +62,16 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 
 ### Setting up Bluetooth control
 
-Each vehicle has its own **Set up Bluetooth control** action.
+Each vehicle has its own Bluetooth pairing, set up through its **Reconfigure** action.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. Find the vehicle you want to pair, and select **Set up Bluetooth control**.
+2. Find the vehicle you want to pair, select the cogwheel {% icon "mdi:cog-outline" %}, and then select **Reconfigure**.
 3. Home Assistant scans for the vehicle over Bluetooth. Make sure the vehicle is awake and nearby, then continue.
 4. Approve Home Assistant's virtual key by tapping your key card against the center console card reader of the vehicle.
 
 You only need to do this once per vehicle.
 
-Whether a paired vehicle's commands route locally over Bluetooth or through the cloud is decided when Home Assistant starts or when you reload the Teslemetry integration. If the vehicle is within Bluetooth range at that moment, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster.
-
-If the vehicle is out of Bluetooth range at that moment, for example, because it's away from home when Home Assistant starts, its commands use the cloud for the rest of that session. Home Assistant doesn't automatically switch a vehicle back to Bluetooth when it returns into range. To pick up Bluetooth control again, reload the Teslemetry integration (or restart Home Assistant) while the vehicle is in range.
+When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
 ### Removing Bluetooth control
 
@@ -94,10 +92,10 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 
 ### Vehicles
 
-The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter when Home Assistant starts or when you reload the Teslemetry integration. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
+The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
 
 {% note %}
-Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. If a vehicle is out of Bluetooth range when Home Assistant starts or the integration reloads, its commands use the cloud for that session, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
 {% endnote %}
 
 |Domain|Name|Enabled|Bluetooth|
