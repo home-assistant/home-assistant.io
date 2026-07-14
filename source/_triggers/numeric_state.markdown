@@ -92,7 +92,7 @@ value_template:
   required: false
   type: string
 for:
-  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Accepts a duration string in `HH:MM:SS` format. Default is `00:00:00` (fires immediately).
+  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. Default is `00:00:00` (fires immediately).
   required: false
   type: string
   default: "00:00:00"
