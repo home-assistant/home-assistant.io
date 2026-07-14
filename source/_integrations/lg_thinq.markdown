@@ -144,7 +144,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Button
 
-A writable property which has only two states that can be toggled is represented as a binary sensor platform.
+A writable property which has only two states that can be toggled is represented as a button platform.
 
 | Device |Property |Action |
 | ------ |-------- | ------ |
