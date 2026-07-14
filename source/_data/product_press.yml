@@ -85,7 +85,6 @@ zbt-2:
       author: "derekakessler"
       author_image: "/images/community-cards/reddit-logo.webp"
       author_image_alt: "Reddit logo"
-      blue: true
       link_icon: "/images/community-cards/document-icon.png"
     - href: "https://www.matteralpha.com/how-to/home-assistant-connect-thread-dongle-first-take-the-finest-dongle-ever"
       text: '"A special advantage of Home Assistant''s official hardware is the long-term maintenance and auto-update feature"'
@@ -140,14 +139,12 @@ zwa-2:
       author: "ekobres"
       author_image: "/images/community-cards/reddit-logo.webp"
       author_image_alt: "Reddit logo"
-      blue: true
       link_icon: "/images/community-cards/document-icon.png"
     - href: "https://www.reddit.com/r/homeassistant/comments/1q6iaoj/zwa2_zwave_antenna_is_really_really_good/"
       text: '"ZWA-2 Z-wave antenna is really, really good."'
       author: "brahmy"
       author_image: "/images/community-cards/reddit-logo.webp"
       author_image_alt: "Reddit logo"
-      blue: true
       link_icon: "/images/community-cards/document-icon.png"
     - href: "https://www.youtube.com/watch?v=OhyN6Ni-w0U"
       text: "Put your Home Assistant ZWA-2 where YOU want it using portable Z-Wave."
@@ -179,7 +176,6 @@ zwa-2:
       author: "jmcgeejr"
       author_image: "/images/community-cards/reddit-logo.webp"
       author_image_alt: "Reddit logo"
-      blue: true
       link_icon: "/images/community-cards/document-icon.png"
     - href: "https://www.xda-developers.com/home-assistant-connect-zwa-2-review/"
       text: "I've been testing the new Home Assistant Z-Wave hub, and it's a game-changer for smart home devices"
