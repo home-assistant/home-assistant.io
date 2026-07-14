@@ -37,7 +37,9 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Netatmo** {% term integration %} is the main integration to integrate all Netatmo related platforms.
+[Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
+
+The **Netatmo** {% term integration %} connects these devices to Home Assistant, so you can monitor and control your Netatmo products alongside the rest of your smart home. It communicates with Netatmo's cloud service, so an active internet connection and a Netatmo account are required.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -51,6 +53,16 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Webhook Events](#webhook-events)
+
+## Prerequisites
+
+Before you set up the integration, make sure you have the following:
+
+- A Netatmo account. If you don't have one yet, create one in the Netatmo app or on the [Netatmo website](https://www.netatmo.com/) and add your devices there first.
+- At least one Netatmo device set up and working in the Netatmo app.
+- An active internet connection. The integration talks to Netatmo's cloud service, so your devices need to be reachable through your Netatmo account.
+
+To receive instant updates through [webhook events](#webhook-events), your Home Assistant instance needs to be reachable from the internet. This is optional, but recommended for the best responsiveness. See [Webhook Events](#webhook-events) for setup requirements and limitations.
 
 {% include integrations/config_flow.md %}
 
@@ -257,3 +269,9 @@ To confirm your Home Assistant instance is receiving events via webhooks, you ca
 ### Light
 
 If the lights show as unavailable the issue usually is that webhook is banned by Netatmo. To solve that [unregister](#un-register-webhooks) the webhook, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook and then [register](#un-register-webhooks) the webhook.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

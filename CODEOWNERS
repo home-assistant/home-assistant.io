@@ -263,7 +263,7 @@ source/_integrations/dwd_weather_warnings.markdown @runningman84 @stephan192
 source/_integrations/dynalite.markdown @ziv1234
 source/_integrations/eafm.markdown @Jc2k
 source/_integrations/earn_e_p1.markdown @Miggets7
-source/_integrations/eastron.markdown @DCSBL
+source/_integrations/eastron.markdown @DCSBL @lexpostma
 source/_integrations/easyenergy.markdown @klaasnicolaas
 source/_integrations/ecoforest.markdown @pjanuario
 source/_integrations/econet.markdown @w1ll1am23
@@ -452,7 +452,7 @@ source/_integrations/homekit_controller.markdown @Jc2k @bdraco
 source/_integrations/homematic.markdown @pvizeli
 source/_integrations/homematicip_cloud.markdown @hahn-th @lackas
 source/_integrations/homevolt.markdown @danielhiversen @liudger
-source/_integrations/homewizard.markdown @DCSBL
+source/_integrations/homewizard.markdown @DCSBL @lexpostma
 source/_integrations/honeywell.markdown @mkmer
 source/_integrations/honeywell_string_lights.markdown @balloob
 source/_integrations/hr_energy_qube.markdown @MattieGit
