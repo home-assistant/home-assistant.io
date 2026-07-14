@@ -23,7 +23,7 @@ To use this trigger in an automation:
 7. Optional: In **Attribute**, select an attribute instead of the main state.
 8. Optional: In **Above**, enter a number to fire the trigger only if the value of the numeric state or attribute is above that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is above the value of the selected entity.
 9. Optional: In **Below**, enter a number to fire the trigger only if the value of the numeric state or attribute is below that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is below the value of the selected entity.
-10. Optional: Enter a number in both **Above** and **Below** to fire the trigger if the value of the numeric state or attribute is inside the range. If you don´t set **Above** and **Below**, the trigger fires on every change of the numeric state or attribute value.
+10. Optional: Enter a number in both **Above** and **Below** to fire the trigger if the value of the numeric state or attribute is inside the range. If you don't set **Above** and **Below**, the trigger fires on every change of the numeric state or attribute value.
 11. Optional: In **Value template**, enter a template that will be used to calculate the numeric value.
 12. Optional: In **For**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
 13. Select **Save**.
@@ -47,7 +47,7 @@ Value template:
   description: The limited template to use for calculating the numeric value.
   required: false
 For:
-  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0`hours, `00` minutes and `00` seconds (fires immediately).
+  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
 {% endoptions_ui %}
 

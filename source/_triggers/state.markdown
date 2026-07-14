@@ -18,8 +18,8 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Search for and select the **State** trigger.
-5. In **Entity**, select the entity whose state Home Assistant should watch.
-6. If you want to pick another entity, select **Add entity** and then select it from the list.
+5. In **Entity**, select the entity whose state or attribute value Home Assistant should watch.
+6. Optional: Select **Add entity** to watch additional entities.
 7. Optional: In **Attribute**, select an attribute instead of the main state.
 8. Optional: In **From**, enter the state (or attribute value) the entity must have before the trigger fires.
 9. Optional: In **To**, enter the state (or attribute value) the entity must have when the trigger fires.
