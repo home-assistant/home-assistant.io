@@ -33,7 +33,7 @@ On some TVs, opening the app and following its setup wizard will prompt you to g
 
 ## Sending notifications
 
-The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the [**Notifications: Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select your TV notify entity as the target.
+The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select your TV notify entity as the target.
 
 You can send a basic message, or add images and icons for camera snapshots, reminders, and status updates.
 
@@ -43,7 +43,7 @@ To send a notification from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Notifications: Send a notification message**.
+5. Search for and select **Send a notification message**.
 6. Under **Targets**, select the notify entity for your TV.
 7. Enter the **Message** and set any other options.
 8. Select **Save**.
@@ -63,7 +63,7 @@ data:
 
 ### Notification data options
 
-The following options are available when using the legacy TV notify action, such as `notify.my_android_tv`. These options are not supported by `notify.send_message`.
+The following options are available when using the legacy TV notify action `notify.my_android_tv`. These options are not supported by `notify.send_message`.
 
 In YAML, add these options under the nested `data` field:
 
@@ -147,7 +147,7 @@ auth:
 
 Local image and icon paths are validated against `allowlist_external_dirs` in {% term "configuration.yaml" %}.
 
-## Notifications for Android TV / Fire TV automation examples
+## Automation examples
 
 These examples show how to use the TV notify entity in automations. Replace the example entity IDs with the ones from your Home Assistant instance.
 
