@@ -1585,7 +1585,7 @@ The Modbus number platform allows you to read and write numeric values from hold
 
 Number entities can be changed from the UI or via the `number.set_value` action.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+Only scalar `data_type` values are supported. See the configuration below and [Parameter usage](#parameters-usage-matrix) for allowed `swap` combinations.
 
 {% configuration %}
 numbers:
@@ -1624,11 +1624,74 @@ numbers:
       description: "Unit to attach to the value."
       required: false
       type: string
+    data_type:
+      description: "Response representation. Only scalar numeric types are supported. Register count and structure are set automatically from `data_type`."
+      required: false
+      default: int16
+      type: list
+      keys:
+        float16:
+          description: "16 bit signed float (1 register holds 1 value)."
+        float32:
+          description: "32 bit signed float (2 registers holds 1 value)."
+        float64:
+          description: "64 bit signed float (4 register holds 1 value)."
+        int16:
+          description: "16 bit signed integer (1 register holds 1 value)."
+        int32:
+          description: "32 bit signed integer (2 registers holds 1 value)."
+        int64:
+          description: "64 bit signed integer (4 registers holds 1 value)."
+        uint16:
+          description: "16 bit unsigned integer (1 register holds 1 value)."
+        uint32:
+          description: "32 bit unsigned integer (2 registers holds 1 value)."
+        uint64:
+          description: "64 bit unsigned integer (4 registers holds 1 value)."
+    offset:
+      description: "Final offset (output = scale * value + offset)."
+      required: false
+      type: float
+      default: 0
+    precision:
+      description: "Number of valid decimals."
+      required: false
+      type: integer
+      default: 0
+    scale:
+      description: "Scale factor (output = scale * value + offset)."
+      required: false
+      type: float
+      default: 1
+    swap:
+      description: "Swap the order of bytes/words."
+      required: false
+      default: none
+      type: list
+      keys:
+        byte:
+          description: "Swap bytes AB -> BA."
+        word:
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`, `float16`**"
+        word_byte:
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`, `float16`**"
+    write_type:
+      description: "Type of write request."
+      required: false
+      default: holding
+      type: list
+      keys:
+        holding:
+          description: "`write_register` is called for a single register, otherwise `write_registers`."
+        holdings:
+          description: "`write_registers` is always called, even for a single register."
 {% endconfiguration %}
 
-Number entities also support the same `data_type`, `count`, `structure`, `scale`, `offset`, `precision`, and `swap` parameters as [sensors](#configuring-sensor-entities).
-
 Number entities only support **holding registers**, because input registers are read-only in Modbus.
+
+Number entities do **not** support `count`, `structure`, `data_type: custom`, `data_type: string`, `slave_count`, or `virtual_count`. Use [sensors](#configuring-sensor-entities) for custom or string register layouts.
+
+For `swap` combinations with scalar data types, refer to [Parameter usage](#parameters-usage-matrix) (the `count` and `structure` rows do not apply to number entities).
 
 {% note %}
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
