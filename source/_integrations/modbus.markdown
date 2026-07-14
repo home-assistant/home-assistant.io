@@ -1585,47 +1585,45 @@ The Modbus number platform allows you to read and write numeric values from hold
 
 Number entities can be changed from the UI or via the `number.set_value` action.
 
-Number entities only support **holding registers**, because input registers are read-only in Modbus.
-
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
 {% configuration %}
 numbers:
- description: "A list of all number entities in this modbus instance."
- required: false
- type: map
- keys:
-  device_class:
-   description: "The [type/class](/integrations/number/#device-class) of the number to set the icon in the frontend."
-   required: false
-   type: device_class
-  input_type:
-   description: "Modbus register type for the number entity."
-   required: false
-   default: holding
-   type: list
-   keys:
-    holding:
-     description: "Holding register."
-  min_value:
-   description: "Minimum allowed value in the UI."
-   required: false
-   type: float
-   default: 0
-  max_value:
-   description: "Maximum allowed value in the UI."
-   required: false
-   type: float
-   default: 100
-  step:
-   description: "Step size for the UI control."
-   required: false
-   type: float
-   default: 1
-  unit_of_measurement:
-   description: "Unit to attach to the value."
-   required: false
-   type: string
+  description: "A list of all number entities in this modbus instance."
+  required: false
+  type: map
+  keys:
+    device_class:
+      description: "The [type/class](/integrations/number/#device-class) of the number to set the icon in the frontend."
+      required: false
+      type: device_class
+    input_type:
+      description: "Modbus register type for the number entity."
+      required: false
+      default: holding
+      type: list
+      keys:
+        holding:
+          description: "Holding register."
+    min_value:
+      description: "Minimum allowed value in the UI."
+      required: false
+      type: float
+      default: 0
+    max_value:
+      description: "Maximum allowed value in the UI."
+      required: false
+      type: float
+      default: 100
+    step:
+      description: "Step size for the UI control."
+      required: false
+      type: float
+      default: 1
+    unit_of_measurement:
+      description: "Unit to attach to the value."
+      required: false
+      type: string
 {% endconfiguration %}
 
 Number entities also support the same `data_type`, `count`, `structure`, `scale`, `offset`, `precision`, and `swap` parameters as [sensors](#configuring-sensor-entities).
