@@ -345,6 +345,7 @@ source/_integrations/garage_door.markdown @home-assistant/core
 source/_integrations/garages_amsterdam.markdown @klaasnicolaas
 source/_integrations/gardena_bluetooth.markdown @elupus
 source/_integrations/gate.markdown @home-assistant/core
+source/_integrations/gatus.markdown @TN-1
 source/_integrations/gaviota.markdown @starkillerOG
 source/_integrations/gdacs.markdown @exxamalte
 source/_integrations/generic.markdown @davet2001
