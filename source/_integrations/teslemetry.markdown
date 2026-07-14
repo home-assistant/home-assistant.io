@@ -53,7 +53,7 @@ Vehicles delivered in 2024 and later will require a [virtual key](https://teslem
 
 ## Bluetooth vehicle control
 
-By default, Teslemetry sends every vehicle command through the cloud. If Home Assistant has access to a [Bluetooth adapter](/integrations/bluetooth/), you can pair a vehicle over Bluetooth so its commands are sent directly to the car over a local connection, with an automatic fall back to the cloud when the local connection isn't available.
+By default, Teslemetry sends every vehicle command through the cloud. If Home Assistant has access to a [Bluetooth adapter](/integrations/bluetooth/), you can pair a vehicle over Bluetooth so its commands are sent directly to the car over a local connection, with an automatic fallback to the cloud when the local connection isn't available.
 
 ### Requirements
 
@@ -71,7 +71,7 @@ Each vehicle has its own **Set up Bluetooth control** action.
 
 You only need to do this once per vehicle.
 
-Whether a paired vehicle's commands route locally over Bluetooth or through the cloud is decided when Home Assistant starts or when you reload the Teslemetry integration. If the vehicle is within Bluetooth range at that moment, its commands use the local connection first, with an automatic fall back to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster.
+Whether a paired vehicle's commands route locally over Bluetooth or through the cloud is decided when Home Assistant starts or when you reload the Teslemetry integration. If the vehicle is within Bluetooth range at that moment, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster.
 
 If the vehicle is out of Bluetooth range at that moment, for example, because it's away from home when Home Assistant starts, its commands use the cloud for the rest of that session. Home Assistant doesn't automatically switch a vehicle back to Bluetooth when it returns into range. To pick up Bluetooth control again, reload the Teslemetry integration (or restart Home Assistant) while the vehicle is in range.
 
@@ -89,23 +89,30 @@ If you use other apps that also connect to the vehicle over a virtual key, they'
 
 ## Local Powerwall control
 
-By default, Teslemetry sends every energy site command through the cloud. If Home Assistant can reach your energy gateway on your local network, you can pair the site so its commands are sent directly to the gateway, with an automatic fall back to the cloud when needed.
+By default, Teslemetry sends every energy site command through the cloud. If your energy site includes a Powerwall and Home Assistant can reach its gateway on your local network, you can pair the site so its commands are sent directly to the gateway, with an automatic fallback to the cloud when needed.
 
 ### Requirements
 
+- Your energy site must include a Powerwall (battery). Solar-only and Wall Connector-only sites don't have a gateway to pair, so local control isn't available for them.
 - Home Assistant must be able to reach your energy gateway's local network address.
-- The Wi-Fi password printed on the gateway. Home Assistant only needs the last five characters, so you can enter the full password if that's easier. It's trimmed automatically.
+- The Wi-Fi password printed on the gateway. Home Assistant only needs the last five characters, so you can enter the full password if that's easier. Home Assistant trims it automatically.
 
 ### Setting up local control
 
-Each energy site has its own **Set up local control** action.
+Each energy site with a Powerwall has its own **Set up local control** action.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
 2. Find the energy site you want to pair, and select **Set up local control**.
-3. Home Assistant registers itself as an authorized client on your energy gateway. Approve it by flicking the switch on the side of your primary Powerwall off and back on, then continue. This only needs to be done once per site.
+3. Home Assistant registers itself as an authorized client on your energy gateway. Approve it by toggling the switch on the side of your primary Powerwall off and back on, then continue. This only needs to be done once per site.
 4. Enter the local network address (host) of your energy gateway and its Wi-Fi password, then continue. Home Assistant verifies the local connection before finishing setup.
 
 Once a site is paired, Home Assistant tries the local gateway first for each command and falls back to the cloud automatically if the gateway can't be reached. This can make commands like changing the backup reserve or operation mode feel noticeably faster.
+
+### Removing local Powerwall control
+
+Removing the Teslemetry integration, or the local pairing for a single energy site, stops Home Assistant from routing that site's commands over the local network and forgets the stored gateway address and password. It does not revoke Home Assistant's authorized-client key from the gateway itself. That key stays authorized, so it isn't lost if you set up local control again later, or if another app or integration relies on the same credential.
+
+If you want to fully revoke Home Assistant's local access, remove its authorized client entry from your energy gateway directly. Check your gateway's own documentation for the exact steps, as they can vary by hardware and firmware version.
 
 ## Entities
 
@@ -114,10 +121,10 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 
 ### Vehicles
 
-The **Bluetooth** column marks entities whose commands can actuate the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter at the time Home Assistant starts. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
+The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter when Home Assistant starts or when you reload the Teslemetry integration. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
 
 {% note %}
-Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through the cloud or streaming, even for an entity marked **Yes**. If a vehicle is out of Bluetooth range when Home Assistant starts, its commands use the cloud for that session, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. If a vehicle is out of Bluetooth range when Home Assistant starts or the integration reloads, its commands use the cloud for that session, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
 {% endnote %}
 
 |Domain|Name|Enabled|Bluetooth|
