@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: led_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - light
 ha_integration_type: device
 ---
