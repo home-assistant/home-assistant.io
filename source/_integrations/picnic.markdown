@@ -40,7 +40,7 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Last order total price         | The total price of the last order. |
 | Next delivery ETA start        | Start of the ETA window of the next delivery, will get more precise if the driver is underway. |
 | Next delivery ETA end          | End of the ETA window of the next delivery. |
-| Next delivery estimated arrival | Precise estimated arrival of the next delivery, based on the live position of the delivery vehicle. Only available shortly before the delivery, `unknown` otherwise. |
+| Estimated arrival of next delivery | Precise estimated arrival time of the next delivery, based on the live position of the delivery vehicle. Only available shortly before the delivery, `unknown` otherwise. |
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
 
