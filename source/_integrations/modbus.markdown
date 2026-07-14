@@ -1694,7 +1694,7 @@ Number entities do **not** support `count`, `structure`, `data_type: custom`, `d
 For `swap` combinations with scalar data types, refer to [Parameter usage](#parameters-usage-matrix) (the `count` and `structure` rows do not apply to number entities).
 
 {% note %}
-If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
+If you specify `scale` or `offset` as floating-point values, double-precision floating-point arithmetic is used to calculate the final value. This can cause a loss of precision for values larger than `2^53`.
 {% endnote %}
 
 ### Example: typical number configuration
@@ -1714,7 +1714,7 @@ modbus:
         step: 0.1
         min_value: 0
         max_value: 100
-        unit_of_measurement: kW
+        unit_of_measurement: "kW"
 ```
 
 ### Example: full number configuration
@@ -1732,7 +1732,7 @@ modbus:
         input_type: holding
         data_type: int16
         device_class: temperature
-        unit_of_measurement: °C
+        unit_of_measurement: "°C"
         scale: 1
         offset: 0
         precision: 0
