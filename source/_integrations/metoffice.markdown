@@ -44,38 +44,73 @@ If adding multiple forecasts, it is important to note that there are restriction
 
 The Latitude and Longitude of the forecast location are used to generate the unique ID for a given forecast. Therefore if adding multiple forecasts, each must have a unique location.
 
-## Weather platform
+## Supported functionality
+
+The **Met Office** integration provides the following entities.
+
+This integration creates several weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, hourly, and twice-daily), and sensor entities for individual reporting on each of the individual measurements
+
+### Weather
 
 The weather platform provides current conditions and forecasts that can be used with the weather dashboard card.
 
-This integration creates several weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, hourly, and twice-daily), and sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
+The integration supports three types of forecasts:
 
-### Current conditions
+- **Hourly forecast**
+  - **Description**: Detailed conditions including temperature, precipitation, wind, and cloud coverage.
+  - **Remarks**: Provides information for next 3 days
+- **Twice daily forecast**
+  - **Description**: Shows expected conditions for day and night.
+  - **Remarks**: Provides information for next 7 days
+- **Daily forecast**
+  - **Description**: Shows daily high/low temperatures and midday conditions.
+  - **Remarks**: Provides information for next 7 days
+
+### Sensors
 
 The following current weather data is provided:
 
-- **Station Name**: Closest weather station for the configured location
-- **Temperature** (°C): Current air temperature
-- **Feels like temperature** (°C): Subjective temperature accounting for wind and humidity
-- **Humidity** (%): Relative humidity
-- **Probability of precipitation** (%): Chance of rain for the next hour
-- **UV index**: UV index on standard international scale
-- **Pressure** (Pa): Atmospheric pressure
-- **Wind speed** (m/s): Current wind speed
-- **Wind direction** (degrees): Wind direction in degrees
-- **Wind gust** (m/s): Maximum wind gust speed
-- **Visibility distance** (m): Distance of visibility
-- **Weather**: One word summary of current weather conditions
+- **Weather**
+  - **Description**: One word summary of current weather conditions
+- **Temperature**
+  - **Description**: Current air temperature
+  - **Unit**: °C
+- **Wind speed**
+  - **Description**: Current wind speed
+  - **Unit**: m/s
+- **Probability of precipitation**
+  - **Description**: Chance of rain for the next hour
+  - **Unit**: %
+- **UV index**
+  - **Description**: UV index on standard international scale
+  
+The following sensors are also provided however are disabled by default:
 
-Only probability of precipitation, temperature, weather and wind speed are enabled by default.
+- **Feels like temperature**
+  - **Description**: Subjective temperature accounting for wind and humidity
+  - **Unit**: °C
+- **Humidity**
+  - **Description**: Relative humidity
+  - **Unit**: %
+- **Pressure**
+  - **Description**: Atmospheric pressure
+  - **Unit**: Pa
+- **Wind direction**
+  - **Description**: Wind direction in degrees
+  - **Unit**: ° (degrees)
+- **Wind gust**
+  - **Description**: Maximum wind gust speed
+  - **Unit**: m/s
+- **Visibility distance**
+  - **Description**: Distance of visibility
+  - **Unit**: m
 
-### Forecasts
+#### Diagnostic sensors
 
-The integration supports three types of forecasts:
+The following diagnostic sensors are disabled by default.
 
-- **Hourly forecast**: Available for the next 3 days with detailed conditions including temperature, precipitation, wind, and cloud coverage.
-- **Twice daily forecast**: Available for the next 7 days, showing expected conditions for day and night.
-- **Daily forecast**: Available for the next 7 days, showing daily high/low temperatures and midday conditions.
+- **Station Name**
+  - **Description**: Closest weather station for the configured location
 
 ## Data updates
 
