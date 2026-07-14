@@ -112,7 +112,7 @@ When the cloud API reports that a measurement is supported for a device, the int
 - **Energy consumption**: Total energy used in kilowatt-hours on supported socket devices.
 - **Usage duration**: Total operating time in minutes on supported socket devices.
 - **Cycles today**: Number of switch cycles for the current day on supported socket devices.
-- **Storage used**: Storage utilization as a percentage when a storage medium is present. When storage is unavailable or abnormal, the entity shows a corresponding status instead of a percentage.
+- **Storage used**: Storage utilization as a percentage. When the storage medium is unavailable or reports an abnormal condition, the entity state is `unknown`.
 - **Status**: Device connectivity state (`online`, `offline`, `sleep`, or `upgrading`). This sensor remains available when the device is offline so you can still see its last reported state.
 
 Battery, storage used, and status sensors are shown under **Diagnostic** on the device page. Other sensors appear under **Sensors**.
