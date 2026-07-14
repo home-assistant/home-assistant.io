@@ -50,6 +50,7 @@ The integration supports the following Edifier speaker models and remote profile
 - RC20G
 - RC31A
 - RC80B
+- S3000 Pro
 - S360DB
 
 Several of these models share the same IR command set, so other Edifier speakers that ship with the same remote may also work — try the closest model in the list. If your model is not listed and you want it supported, please [open an issue on the infrared-protocols repository](https://github.com/home-assistant-libs/infrared-protocols/issues) with captured IR signals from your remote.
@@ -69,11 +70,15 @@ The **Edifier Infrared** integration provides the following entities.
 Some models also provide button entities for functionality that is not exposed by the media player entity, such as selecting a specific input or toggling sound effects. The available buttons depend on the selected model, because not every Edifier remote exposes the same buttons. Possible buttons include:
 
 - **Bluetooth**: Switches the speaker to its Bluetooth input.
+- **USB**: Switches the speaker to its USB input.
 - **Line 1** and **Line 2**: Switch the speaker to the corresponding line input.
+- **Line / Balanced**: Toggles between the line and balanced inputs.
 - **AUX**: Switches the speaker to its auxiliary input.
 - **PC**: Switches the speaker to its PC input.
 - **Optical**: Switches the speaker to its optical input.
 - **Coaxial**: Switches the speaker to its coaxial input.
+- **Optical / Coaxial**: Toggles between the optical and coaxial inputs.
+- **Classic EQ**, **Dynamic EQ**, **Monitor EQ**, and **Vocal EQ**: Select the corresponding equalizer preset.
 - **FX on** and **FX off**: Turn the speaker's sound effects on or off.
 
 

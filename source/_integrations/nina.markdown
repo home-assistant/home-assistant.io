@@ -120,9 +120,66 @@ The following attributes are available for the warnings.
 - **Attributes**:
   - `id`: Individual ID for each warning.
 
+## Actions
+
+The integration provides the following actions.
+
+### Action: Get warning details
+
+The `nina.get_details` action is used to fetch all details of a warning.
+
+- **Target**: NINA binary sensor entity
+  - **Description**: The NINA warning binary sensor to get the recommended actions for.
+  - **Optional**: No
+
 #### Response data
 
-The response data is a string with the description as provided by NINA.
+The response data is an object containing all the warning data. Returns `null` when no warning is active.
+
+```json
+{
+  {
+  "binary_sensor.bad_ditzenbach_goppingen_baden_wurttemberg_warning_1": {
+    "headline": "Amtliche WARNUNG vor extremer HITZE",
+    "description": "Am Freitag wird eine extreme Wärmebelastung bis zu einer Höhe von 400m erwartet.<br/><br/>Am Samstag wird eine extreme Wärmebelastung bis zu einer Höhe von 600m erwartet.<br/><br/>Heute ist der 9. Tag der Warnsituation in Folge.",
+    "sender": "Zentrum für Medizin-Meteorologische Forschung",
+    "severity": "Severe",
+    "recommended_actions": "Hitzebelastung kann für den menschlichen Körper gefährlich werden und zu einer Vielzahl von gesundheitlichen Problemen führen. Vermeiden Sie nach Möglichkeit die Hitze, trinken Sie ausreichend Wasser und halten Sie die Innenräume kühl.",
+    "affected_areas": "Gemeinde Oberreichenbach, Gemeinde Neuweiler, Gemeinde Simmersfeld, Gemeinde Simmozheim, Gemeinde Rohrdorf, Gemeinde Ostelsheim, Gemeinde Egenhausen, Gemeinde Dobel, Gemeinde Schopfloch, Stadt Haiterbach, Gemeinde Gechingen, Gemeinde Wörnersberg, Gemeinde Enzklösterle, Gemeinde Seewald, Gemeinde Waldachtal, Stadt Bonndorf im Schwarzwald, Stadt Engen, Gemeinde Eigeltingen, Mitgliedsgemeinde in Verwaltungsgemeinschaft Pfofeld, Stadt Pappenheim und 229 weitere.",
+    "web": "https://dwd.de/warnungen",
+    "id": "dwd.2.49.0.0.276.0.DWD.PVW.1782460800000.559ba8f2-38a1-484f-b6e7-1424f85d1441.MUL",
+    "sent": "2026-06-26T09:59:50+02:00",
+    "start": "2026-06-26T10:00:00+02:00",
+    "expires": "2026-06-27T19:00:00+02:00"
+  }
+}
+```
+
+## Examples
+
+{% details "Example usage" %}
+{% raw %}
+
+```yaml
+alias: "Notify on NINA warning with full affected areas"
+description: "When a NINA warning becomes active, fetch the full list of affected areas and send a notification."
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.nina_warning_1
+    to: "on"
+actions:
+  - action: nina.get_details
+    target:
+      entity_id: binary_sensor.nina_warning_1
+    response_variable: warning_data
+  - action: notify.mobile_app
+    data:
+      title: "NINA warning active"
+      message: "Affected areas: {{ warning_data['binary_sensor.nina_warning_1']['affected_areas'] }}"
+```
+
+{% endraw %}
+{% enddetails %}
 
 ## Data updates
 
