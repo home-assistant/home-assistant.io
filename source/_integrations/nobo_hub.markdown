@@ -133,13 +133,42 @@ The HVAC mode and preset are linked, so a change to one updates the other:
 
 ## Examples
 
-A few practical ways to use the integration in automations:
+A few practical ways to use the integration:
 
 - Activate away mode when nobody is home: use a state change on your home and away group or a person {% term entity %} as the trigger, and have the automation select **Away** on the global override selector. When someone returns, change the global override back to **None** to follow the normal week profiles again.
-- Use a cabin profile on weekends: select a different week profile for a zone based on a time trigger, for example switching the living room zone to a weekend profile every Friday afternoon and back to a weekday profile on Sunday evening.
 - Preheat before arrival: when you start the drive to a cabin, set the relevant zones to preset **Comfort**. On arrival, switch them back to preset **None** to let the week profile take over again.
 - Pause heating when the heat pump can carry the load: when your heat pump is producing enough heat, switch the Nobø zones to preset **Eco** to avoid double-heating. Switch back to **None** when the heat pump stops.
 - Show room temperatures on a dashboard: add the temperature sensors from your Nobø Switches to a dashboard alongside your other room sensors to keep an eye on every zone at a glance.
+
+### Following presence with the global override
+
+This pair of automations sets the global override to **Away** when everyone leaves home, and clears it again when the first person returns so every zone goes back to its normal week profile. Replace `group.family` with your own presence group or person {% term entity %}, and `select.my_eco_hub_global_override` with the name of your hub's global override selector.
+
+{% example %}
+automation: |
+  - alias: "Nobø: set away when everyone leaves"
+    triggers:
+      - trigger: state
+        entity_id: group.family
+        to: "not_home"
+    actions:
+      - action: select.select_option
+        target:
+          entity_id: select.my_eco_hub_global_override
+        data:
+          option: "away"
+  - alias: "Nobø: clear away when someone comes home"
+    triggers:
+      - trigger: state
+        entity_id: group.family
+        to: "home"
+    actions:
+      - action: select.select_option
+        target:
+          entity_id: select.my_eco_hub_global_override
+        data:
+          option: "none"
+{% endexample %}
 
 ### Turning a zone fully off
 
@@ -148,6 +177,17 @@ The Nobø system does not expose an off preset, because the away preset doubles 
 1. In the Nobø Energy mobile app, create a new week profile and set every day to state off.
 2. To turn a zone off, switch that zone to the new week profile. You can do this from Home Assistant by changing the **Week profile** select entity for the zone.
 3. To turn the zone on again, switch back to your normal week profile.
+
+To automate this, use a `select.select_option` action on the zone's week profile selector. Replace `select.cabin_week_profile` with the week profile selector for your zone, and `Off` with the exact name of the profile you created in the Nobø Energy app.
+
+{% example %}
+action: |
+  - action: select.select_option
+    target:
+      entity_id: select.cabin_week_profile
+    data:
+      option: "Off"
+{% endexample %}
 
 The climate entity for the zone shows HVAC mode **Off** while the active week profile keeps the zone off. On/off receivers in the zone are switched off, and heaters with their own thermostat are no longer driven by the hub.
 
