@@ -91,7 +91,7 @@ attribute:
   required: false
   type: string
 for:
-  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
   required: false
   type: string
   default: "00:00:00"
