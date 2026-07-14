@@ -44,7 +44,7 @@ To configure options for DSMR integration go to {% my integrations title="**Sett
 
 #### Time between updates
 
-Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter. Setting it to a value higher than 0 will result in power, current, voltage and power factor readings being averaged over the chosen interval. The remaining readings are passed through at the chosen interval. This ensures that the values published are representative of the chosen interval.
+Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter. Setting it to a value higher than 0 will result in power, current, voltage, and power factor readings being averaged over the chosen interval. The remaining readings are passed through at the chosen interval. This ensures that the values published are representative of the chosen interval.
 
 {% important %}
 Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
