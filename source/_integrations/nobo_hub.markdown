@@ -18,7 +18,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ha_dhcp: true
 related:
-  - docs: /common-tasks/general/#defining-a-new-area
+  - docs: /docs/organizing/areas/#creating-an-area
     title: Areas in Home Assistant
   - docs: /docs/automation/
     title: Automations
@@ -50,6 +50,8 @@ The integration is built around the Nobø Ecohub and supports the devices that t
 - **Nobø Switch (SW4)**: Exposed as a temperature {% term sensor %}. If the switch is linked to a zone in the Nobø Energy app, its temperature is also shown as the current temperature of that zone.
 
 Individual heaters, switches, and zones must be added and configured using the Nobø Energy mobile app. Home Assistant reads whatever the hub already knows about.
+
+Each zone is added as a device in Home Assistant, and its zone name is offered as a suggested [area](/docs/organizing/areas/#creating-an-area). You can accept the suggestion to group the zone's entities with the rest of that room, or pick a different area.
 
 ## Prerequisites
 
@@ -111,7 +113,7 @@ Each zone in your hub is exposed as a climate entity. You can use it to set the 
   - **Heat**: The zone is overridden and stays in the selected preset (away, eco, or comfort) until the override ends.
   - **Off**: Shown only when the current week profile sets the zone to off. You cannot select this mode manually. See [Turning a zone fully off](#turning-a-zone-fully-off).
 - **Presets**: **None**, **Comfort**, **Eco**, and **Away**. In **Away**, the setpoint is fixed at 7°C for frost protection and cannot be changed, and any on/off receivers in the zone are switched off.
-- **Target temperatures**: Eco (low) and comfort (high) setpoints, between 7°C and 30°C, in steps of 1°C. Changing a target temperature is only possible for zones that contain a thermostat that supports remote temperature changes.
+- **Target temperatures**: Eco (low) and comfort (high) setpoints, between 7°C and 30°C, in steps of 1°C. You can change these setpoints on any zone, but a new value only takes effect if the zone contains a thermostat that supports remote control of its eco or comfort temperature.
 
 The HVAC mode and preset are linked, so a change to one updates the other:
 
@@ -192,7 +194,7 @@ To avoid this issue, give the hub a static IP address or a DHCP reservation on y
 
 ### Setting a target temperature does not seem to do anything
 
-Eco and comfort temperatures can only be changed for zones that include a thermostat that supports remote control of the temperature setpoints. Zones that contain only on/off receivers or older heaters follow the fixed setpoints from the Nobø system and ignore temperature changes from Home Assistant.
+The eco and comfort setpoints always update, but they only take effect on zones that include a thermostat that supports remote control of the temperature setpoints. Zones that contain only on/off receivers or heaters without this support keep following their own temperature settings and ignore the new setpoint.
 
 ## Removing the integration
 
