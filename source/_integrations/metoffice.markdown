@@ -29,7 +29,7 @@ The **Met Office** weather {% term integration %} uses the Met Office's [DataHub
 
 {% configuration_basic %}
 API Key:
-  description: The API key provided by the MetOffice when subscribing to the Site Specific Global Spot.
+  description: The API key provided by the Met Office when subscribing to the Site Specific Global Spot dataset.
 Latitude:
   description: The latitude of the weather forecast location.
 Longitude:
@@ -38,7 +38,7 @@ Longitude:
 
 Details about the <abbr title="Application Programming Interface">API</abbr> are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
 
-### Multiple Forecast Locations
+### Multiple forecast locations
 
 If adding multiple forecasts, it is important to note that there are restrictions of the number of API queries allowed on the free tier. Currently that restricts this integration to a single location. Multiple locations require a paid plan.
 
@@ -77,13 +77,13 @@ The integration supports three types of forecasts:
 - **Twice daily forecast**: Available for the next 7 days, showing expected conditions for day and night.
 - **Daily forecast**: Available for the next 7 days, showing daily high/low temperatures and midday conditions.
 
-### Data updates
+## Data updates
 
-Weather data is automatically updated every 15 minutes from the MetOffice DataHub.
+Weather data is automatically updated every 15 minutes from the Met Office DataHub.
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
