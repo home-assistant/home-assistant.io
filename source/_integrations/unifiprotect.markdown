@@ -97,7 +97,7 @@ The table below shows which {% term entity %} domains are available in each mode
 | Text                |     ✅      |                —                |
 
 {% note %}
-This table reflects the entities currently supported by this {% term integration %}. More domains are expected to become available in API key only mode over time.
+This table reflects the entities currently supported by this {% term integration %}. The UniFi Protect public Integration API is actively growing, so expect more domains to become available in API key only mode over time.
 {% endnote %}
 
 <a id="local-user"></a>
