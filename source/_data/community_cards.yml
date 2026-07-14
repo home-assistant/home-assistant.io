@@ -7,7 +7,6 @@ cards:
     video_poster: /images/frontpage/nc-card.webp
   - href: "https://www.reddit.com/r/homeassistant/comments/1h3hqfr/home_assistant_saved_my_house_thanks/"
     text: "Home Assistant saved my house. Thanks!"
-    blue: true
     author_image: "/images/community-cards/reddit-logo.webp"
     author_image_alt: "Reddit logo"
     author: "ightfoot_labs"
@@ -78,7 +77,6 @@ cards:
     link_icon: "/images/community-cards/document-icon.png"
   - href: "https://www.reddit.com/r/homeassistant/comments/1t0q8wb/how_home_assistant_saved_my_car/"
     text: "How Home Assistant saved my car"
-    blue: true
     author_image: "/images/community-cards/reddit-logo.webp"
     author_image_alt: "Reddit logo"
     author: "RDUKE7777777"
