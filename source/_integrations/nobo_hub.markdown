@@ -26,7 +26,7 @@ related:
 
 The **Nobø Ecohub** {% term integration %} connects Home Assistant to your [Nobø Ecohub](https://www.glendimplex.no/produkter/varmestyring/11123610/noboe-hub/c-77/p-330), a Norwegian heating controller from Glen Dimplex Nordic AS. The hub manages electric panel heaters, floor heating, and on/off receivers grouped into zones, and lets you follow weekly heating schedules with eco, comfort, and away setpoints.
 
-With this integration, you can control your heating zones, switch between week profiles, and read temperatures from any connected Nobø Switch — all locally over your network, without depending on a cloud service.
+With this integration, you can control your heating zones, switch between week profiles, and read temperatures from any connected Nobø Switch—all locally over your network, without depending on a cloud service.
 
 This integration is not officially supported or endorsed by Glen Dimplex Nordic AS, and the authors and maintainers are not official partners of Glen Dimplex Nordic AS.
 
@@ -153,7 +153,7 @@ For more background on week profiles, see the [Nobø Ecohub manual](https://help
 
 ## Data updates
 
-The integration uses a local push connection to your Nobø Ecohub. When you set up the integration, Home Assistant opens a persistent TCP connection to the hub and registers for live updates. Any change made on the hub — for example, when a week profile changes state, when the temperature reported by a Nobø Switch changes, or when someone presses a Nobø Switch — is pushed to Home Assistant within seconds.
+The integration uses a local push connection to your Nobø Ecohub. When you set up the integration, Home Assistant opens a persistent TCP connection to the hub and registers for live updates. Any change made on the hub—for example, when a week profile changes state, when the temperature reported by a Nobø Switch changes, or when someone presses a Nobø Switch—is pushed to Home Assistant within seconds.
 
 The current preset of a zone can also change on its own, when the active week profile moves from one scheduled state to the next. The hub does not send an event for this. To keep the zone's preset accurate, the integration re-checks the active week profile against the clock every 60 seconds. This check is local and does not add any traffic to the hub.
 
@@ -163,9 +163,9 @@ If the connection to the hub is lost, for example because the hub's IP address h
 
 The integration cannot manage the configuration of your Nobø system. The following must be done in the Nobø Energy mobile app:
 
-- **Registering or deregistering Nobø devices**: Heaters, on/off receivers, and Nobø Switches have to be paired with and removed from the hub from the Nobø Energy app.
-- **Creating or deleting zones**: Zones, including their name and which devices belong to them, are defined in the Nobø Energy app.
-- **Creating, updating, or deleting week profiles**: Week profile schedules can only be edited in the Nobø Energy app. From Home Assistant, you can only select which of the existing profiles is active for a zone.
+- Registering or deregistering Nobø devices: Heaters, on/off receivers, and Nobø Switches have to be paired with and removed from the hub in the Nobø Energy app.
+- Creating or deleting zones: Zones, including their name and which devices belong to them, are defined in the Nobø Energy app.
+- Creating, updating, or deleting week profiles: Week profile schedules can only be edited in the Nobø Energy app. In Home Assistant, you can only select which existing profile is active for a zone.
 
 ## Troubleshooting
 
