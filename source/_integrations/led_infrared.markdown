@@ -2,6 +2,7 @@
 title: LED Infrared
 description: Integration to control LED infrared lights with Home Assistant.
 ha_category:
+  - Button
   - Light
 ha_release: 2026.8
 ha_iot_class: Assumed State
