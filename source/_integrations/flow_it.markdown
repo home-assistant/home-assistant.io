@@ -34,11 +34,10 @@ By using automatic discovery, Home Assistant configures the integration using th
 
 You can set it up from the discovered card on the **Settings** > **Devices & services** page by entering your credentials (the default username is usually `api`).
 
-## Removal
+## Removing the integration
 
-To remove the Flow-it integration from your Home Assistant instance:
+This integration follows standard integration removal.
 
-1. Go to **Settings** > **Devices & services**.
-2. Find the **Flow-it** integration card.
-3. Select the three-dot menu.
-4. Select **Delete**.
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
