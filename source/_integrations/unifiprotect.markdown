@@ -80,6 +80,28 @@ You can set up the {% term integration %} in one of two ways:
 
 You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
 
+The table below shows which {% term entity %} domains are available in each mode:
+
+| Domain              | Full access |          API key only           |
+| ------------------- | :---------: | :-----------------------------: |
+| Alarm control panel |     ✅      |               ✅                |
+| Binary sensor       |     ✅      |                —                |
+| Button              |     ✅      |                —                |
+| Camera              |     ✅      | ✅ (streams and snapshots only) |
+| Event               |     ✅      |                —                |
+| Light               |     ✅      |                —                |
+| Media player        |     ✅      |                —                |
+| Number              |     ✅      |                —                |
+| Select              |     ✅      |                —                |
+| Sensor              |     ✅      |                —                |
+| Siren               |     ✅      |                —                |
+| Switch              |     ✅      |                —                |
+| Text                |     ✅      |                —                |
+
+{% note %}
+This table reflects the entities currently supported by this {% term integration %}. More domains are expected to become available in API key only mode over time.
+{% endnote %}
+
 <a id="local-user"></a>
 
 ### Full access
