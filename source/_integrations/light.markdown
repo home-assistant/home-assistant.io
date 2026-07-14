@@ -21,7 +21,7 @@ Light {% term entities %} can have the following {% term states %}: `on` or `off
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with differents states: `on`, `off`, or `unavailable`'>
-  Three lights with differents states: `on`, `off`, or `unavailable`.
+  Three lights with different states: `on`, `off`, or `unavailable`.
 </p>
 
 ## Default turn-on values
