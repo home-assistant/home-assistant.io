@@ -62,6 +62,20 @@ A light entity is created when an infrared emitter is configured.
   - **Supported features**: Turn on, turn off, and select effects.
   - **Available effects**: Depend on the capabilities of the configured IR remote.
 
+### Buttons
+
+- **Brightness up**
+  - **Description**: Increases the brightness of the light by one step.
+  - **Available for**: 13-key remote, 24-key remote
+
+- **Brightness down**
+  - **Description**: Decreases the brightness of the light by one step.
+  - **Available for**: 13-key remote, 24-key remote
+
+- **Timer**
+  - **Description**: Enables the timer, turning the light on for 6 hours and off for 18 hours in a repeating 24-hour cycle.
+  - **Available for**: 13-key remote
+
 ## LED Infrared automation examples
 
 The following example demonstrates how to automate an LED Infrared device. For additional automation examples, refer to the light platform [actions reference](/integrations/light/#list-of-actions).
