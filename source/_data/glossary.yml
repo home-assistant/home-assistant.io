@@ -49,19 +49,18 @@
   link: /getting-started/concepts-terminology/#apps
 - term: Area
   definition: >-
-    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room. Areas allow you to target actions at an entire group of devices.
-    For example, turning off all the lights in the living room. Locations within
-    your home such as living room, dance floor, etc. Areas can be assigned to
-    floors. Areas can also be used for automatically generated cards, such as
-    the [Area card](/dashboards/area/).
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage. Areas let you target a whole group of devices at
+    once, for example, turning off all the lights in the living room. They also
+    give voice assistants the context to understand commands
+    like "turn on the kitchen lights". Areas can be assigned to floors and used
+    in automations, scripts, and dashboard cards like the
+    [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room.
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage.
   aliases:
     - areas
   link: /docs/organizing/areas/
@@ -90,8 +89,7 @@
     - backups
 - term: Binary sensor
   definition: >-
-    A binary sensor returns information about things that only have two states -
-    such as on or off.
+    A binary sensor is an entity that reports one of two mutually exclusive states, on or off. The device class determines how those states are labeled in the UI. For example, open/closed for a door or detected/clear for motion.
   link: /integrations/binary_sensor
   aliases:
     - binary_sensor
@@ -110,8 +108,7 @@
     - blueprints
 - term: Button
   definition: >-
-    A button entity can fire an event, or trigger an action towards a device or
-    service. It can be compared to a physical push button. The button entity does not have a state like `on` or `off`, but keeps the timestamp of when it was last pressed in the Home Assistant UI or via an action.
+    A button entity works like a physical push button: you press it to make something happen, such as restarting a device or triggering an automation. A button has no `on` or `off` state, but it remembers when it was last pressed. This lets you see when it was last used and set time-based conditions, such as only running an automation if the button wasn't pressed in the last minute.
   link: /integrations/button
   aliases:
     - buttons
