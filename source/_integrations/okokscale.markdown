@@ -41,7 +41,9 @@ A scale exposes the following sensors:
 - **Battery**: the scale battery percentage.
 - **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).
 
-The battery level and impedance are sent in a separate Bluetooth advertisement from the weight, so they may appear a few seconds later after setup.
+{% important %}
+Updates of the battery and impedance sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, please ensure it supports active connections.
+{% endimportant %}
 
 ## Troubleshooting
 
