@@ -42,7 +42,7 @@ A scale exposes the following sensors:
 - **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).
 
 {% important %}
-Updates of the battery and impedance sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, please ensure it supports active connections.
+Updates of the battery and impedance sensor require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, ensure it supports active connections.
 {% endimportant %}
 
 ## Troubleshooting
