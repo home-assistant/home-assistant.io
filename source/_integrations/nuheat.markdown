@@ -110,4 +110,25 @@ Returns the maximum supported temperature by the thermostat
 | ---------------| ----------- |
 | Integer | Maximum supported temperature
 
-{% include integrations/actions.md %}
+## Using the thermostat in automations
+
+To control a NuHeat thermostat from an automation or a script, use the climate actions and select your NuHeat climate entity as the target.
+
+Available actions include:
+
+- [**Set thermostat HVAC mode**](/actions/climate.set_hvac_mode/): Set the thermostat to `auto` or `heat` mode.
+- [**Set thermostat preset mode**](/actions/climate.set_preset_mode/): Set the schedule hold mode. Available preset modes are `Run Schedule`, `Temporary Hold`, and `Permanent Hold`.
+- [**Set thermostat target temperature**](/actions/climate.set_temperature/): Set the target floor temperature.
+
+To use these actions from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your NuHeat climate entity.
+6. From the actions shown for that target, select the thermostat action you want to use.
+7. Set the required fields.
+8. Select **Save**.
+
+NuHeat thermostats do not have an off mode. To stop active heating, set the thermostat to its minimum temperature with the `heat` HVAC mode. This puts the thermostat in `Permanent Hold`, and it stops heating unless freeze protection is needed.
