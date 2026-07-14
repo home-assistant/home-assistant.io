@@ -4,7 +4,7 @@ description: Instructions on how to integrate Mammotion robotic lawn mowers with
 ha_category:
   - Lawn Mower
 ha_release: 2026.2
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Poll
 ha_config_flow: true
 ha_codeowners:
   - '@mikey0000'
