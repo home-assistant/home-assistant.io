@@ -2,9 +2,7 @@
 title: LinknLink
 description: Instructions on how to integrate LinknLink eMotion Ultra devices with Home Assistant.
 ha_category:
-  - Binary sensor
   - Sensor
-  - Switch
 ha_config_flow: true
 ha_release: 2026.8
 ha_iot_class: Local Polling
@@ -12,9 +10,7 @@ ha_codeowners:
   - '@acmen0102'
 ha_domain: linknlink
 ha_platforms:
-  - binary_sensor
   - sensor
-  - switch
 ha_integration_type: device
 works_with:
   - local
@@ -73,15 +69,6 @@ The integration can provide the following sensor entities:
 - Detected position
 - Wi-Fi signal strength
 
-### Binary sensors
-
-The integration can provide motion and presence binary sensor entities.
-
-### Switches
-
-When an eMotion child device reports a writable `power` or `switch` field, the
-integration provides a switch entity for local control.
-
 ## Data updates
 
 This integration uses local {% term polling %}. Home Assistant requests updated
@@ -91,14 +78,15 @@ session is re-established when the device becomes reachable again.
 
 ## Actions
 
-This integration does not provide custom actions. Switch entities use the
-standard Home Assistant switch actions.
+This integration does not provide custom actions.
 
 ## Known limitations
 
 - The integration does not configure Wi-Fi. Initial BLE provisioning must be
   completed with the LinknLink app.
 - Automatic network discovery is not provided in the initial release.
+- The initial release exposes sensor entities only. Motion and presence binary
+  sensors and child-device controls are not yet exposed.
 - The initial release uses polling and does not enable local UDP position push.
 - Changing the device IP address requires removing and adding the integration
   again. Assigning a stable DHCP lease is recommended.
