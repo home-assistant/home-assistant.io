@@ -2431,3 +2431,161 @@ For a summary in a more readable format
 [@mib1185]: https://github.com/mib1185
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
+
+## Release 2026.7.2 - July 10
+
+- Store recovery HTTP config with the full trusted proxy network ([@agners] - [#176075])
+- Trigger reauth on Teslemetry LoginRequired errors ([@Bre77] - [#174255])
+- Bump ical to 13.3.0 ([@FuNK3Y] - [#175090])
+- Bump uiprotect to 15.4.0 ([@RaHehl] - [#175347])
+- Correct availability check for Huntedouglas Powerview tilt-only shades ([@kingy444] - [#175350])
+- Bump uiprotect to 15.4.1 ([@RaHehl] - [#175540])
+- Bump aioamazondevices to 14.1.9 ([@chemelli74] - [#175563])
+- Bump pylamarzocco to 2.4.2 ([@zweckj] - [#175564])
+- Homee: fix covers not reacting correctly to commands ([@Taraman17] - [#175565])
+- Add options update listener to Rain Bird integration ([@allenporter] - [#175571])
+- Bump habluetooth to 6.26.5 ([@bdraco] - [#175595])
+- Include melcloud_home in Mitsubishi brand ([@scop] - [#175635])
+- Bump python-roborock to 5.25.0 ([@allenporter] - [#175645])
+- Bump python-bsblan to 6.1.5 ([@liudger] - [#175651])
+- Fix temperature bound resolution for BSBLAN climate devices ([@liudger] - [#175704])
+- Bump python-bsblan to 6.1.6 ([@liudger] - [#175711])
+- Bump uiprotect to 15.4.2 ([@RaHehl] - [#175712])
+- Bump axis to v73 ([@Kane610] - [#175717])
+- fix typos in KlikAanKlikUit integration ([@Phunkafizer] - [#175720])
+- Fix Teslemetry covers reporting a false closed/open state when data is missing ([@Bre77] - [#175748])
+- Ensure http2 stream cleaned up on shudown for Alexa Devices ([@jamesonuk] - [#175766])
+- Add debug logging with full exception details to legacy notify action in SMTP integration ([@tr4nt0r] - [#175781])
+- Fix for Roborock uninitialized coordinator data ([@allenporter] - [#175789])
+- Bump onvif-zeep-async to 4.2.1 ([@bdraco] - [#175795])
+- Bump bleak-esphome to 3.9.7 ([@bdraco] - [#175796])
+- Don't restart a Wyoming satellite pipeline if there's an error ([@synesthesiam] - [#175798])
+- Fix missing `To` headers in SMTP integration ([@tr4nt0r] - [#175803])
+- Bump pywmspro to 0.4.2 ([@mback2k] - [#175805])
+- Bump holidays to 0.100 ([@gjohansson-ST] - [#175809])
+- Fix tesla_fleet media player volume step calculation ([@Bre77] - [#175813])
+- Fix weatherflow_cloud websocket double-connect ([@jeeftor] - [#169573])
+- Fix for Atlantic heaters missing regulation mode in Overkiz ([@iMicknl] - [#175817])
+- Bump pyoverkiz to 2.0.4 ([@iMicknl] - [#175818])
+- Add MIT-0 to OSI approved SPDX licenses ([@iMicknl] - [#175819])
+- Bump aioruckus to 0.46.3 ([@ms264556] - [#175824])
+- Fixed YoLink water meter controller valve status showing as "Unknown" ([@matrixd2] - [#175835])
+- Fix RollerShutterUno covers reporting open when closed in Overkiz ([@iMicknl] - [#175837])
+- Add missing holiday categories in holiday ([@gjohansson-ST] - [#175841])
+- Re-import Rexel client credential in Overkiz config flow ([@iMicknl] - [#175852])
+- Bump uiprotect to 15.4.3 ([@RaHehl] - [#175861])
+- Bump venstarcolortouch to 0.22 ([@hplato] - [#175867])
+- Fix ZHA device trigger cache not resolving quirks ([@TheJulianJES] - [#175895])
+- Pin cffi to 2.0.0 in package constraints ([@allenporter] - [#175907])
+- Fix Teslemetry insufficient-credits polling storm ([@Bre77] - [#175913])
+- Fix Teslemetry cabin overheat protection restored temperatures ([@epenet] - [#175973])
+- Refresh hassio coordinator after OS update install ([@agners] - [#176004])
+- Fix Rexel OAuth2 session expiring after a day in Overkiz ([@iMicknl] - [#176010])
+- bump py-synologydsm-api to 2.10.3 ([@mib1185] - [#176012])
+- Fix max color temperature in Elgato ([@joostlek] - [#176072])
+- Sonos - avoid blocking call to get uid ([@PeteRager] - [#176109])
+- Fix rest_command digest auth with templated hosts ([@jpbede] - [#176155])
+- Bump reolink_aio to 0.21.4 ([@starkillerOG] - [#176156])
+- Skip global ESPHome update lock when dashboard has a build queue ([@bdraco] - [#176162])
+- Bump zha-quirks to 2.1.1 ([@TheJulianJES] - [#176173])
+- Bump dsmr-parser to 1.11.0 ([@balloob] - [#175639])
+- Bump dsmr_parser to 1.11.1 ([@jasperslits] - [#176192])
+- Bump tuya-device-handlers to 0.0.25 ([@epenet] - [#176213])
+- Update frontend to 20260624.5 ([@bramkragten] - [#176216])
+- Add dynamic icon for lightbulb group ([@karwosts] - [#176218])
+
+[#169573]: https://github.com/home-assistant/core/pull/169573
+[#174255]: https://github.com/home-assistant/core/pull/174255
+[#175090]: https://github.com/home-assistant/core/pull/175090
+[#175347]: https://github.com/home-assistant/core/pull/175347
+[#175350]: https://github.com/home-assistant/core/pull/175350
+[#175540]: https://github.com/home-assistant/core/pull/175540
+[#175563]: https://github.com/home-assistant/core/pull/175563
+[#175564]: https://github.com/home-assistant/core/pull/175564
+[#175565]: https://github.com/home-assistant/core/pull/175565
+[#175571]: https://github.com/home-assistant/core/pull/175571
+[#175595]: https://github.com/home-assistant/core/pull/175595
+[#175635]: https://github.com/home-assistant/core/pull/175635
+[#175639]: https://github.com/home-assistant/core/pull/175639
+[#175645]: https://github.com/home-assistant/core/pull/175645
+[#175651]: https://github.com/home-assistant/core/pull/175651
+[#175704]: https://github.com/home-assistant/core/pull/175704
+[#175711]: https://github.com/home-assistant/core/pull/175711
+[#175712]: https://github.com/home-assistant/core/pull/175712
+[#175717]: https://github.com/home-assistant/core/pull/175717
+[#175720]: https://github.com/home-assistant/core/pull/175720
+[#175748]: https://github.com/home-assistant/core/pull/175748
+[#175766]: https://github.com/home-assistant/core/pull/175766
+[#175781]: https://github.com/home-assistant/core/pull/175781
+[#175789]: https://github.com/home-assistant/core/pull/175789
+[#175795]: https://github.com/home-assistant/core/pull/175795
+[#175796]: https://github.com/home-assistant/core/pull/175796
+[#175798]: https://github.com/home-assistant/core/pull/175798
+[#175803]: https://github.com/home-assistant/core/pull/175803
+[#175805]: https://github.com/home-assistant/core/pull/175805
+[#175809]: https://github.com/home-assistant/core/pull/175809
+[#175813]: https://github.com/home-assistant/core/pull/175813
+[#175817]: https://github.com/home-assistant/core/pull/175817
+[#175818]: https://github.com/home-assistant/core/pull/175818
+[#175819]: https://github.com/home-assistant/core/pull/175819
+[#175824]: https://github.com/home-assistant/core/pull/175824
+[#175835]: https://github.com/home-assistant/core/pull/175835
+[#175837]: https://github.com/home-assistant/core/pull/175837
+[#175841]: https://github.com/home-assistant/core/pull/175841
+[#175852]: https://github.com/home-assistant/core/pull/175852
+[#175861]: https://github.com/home-assistant/core/pull/175861
+[#175867]: https://github.com/home-assistant/core/pull/175867
+[#175895]: https://github.com/home-assistant/core/pull/175895
+[#175907]: https://github.com/home-assistant/core/pull/175907
+[#175913]: https://github.com/home-assistant/core/pull/175913
+[#175973]: https://github.com/home-assistant/core/pull/175973
+[#176004]: https://github.com/home-assistant/core/pull/176004
+[#176010]: https://github.com/home-assistant/core/pull/176010
+[#176012]: https://github.com/home-assistant/core/pull/176012
+[#176072]: https://github.com/home-assistant/core/pull/176072
+[#176075]: https://github.com/home-assistant/core/pull/176075
+[#176109]: https://github.com/home-assistant/core/pull/176109
+[#176155]: https://github.com/home-assistant/core/pull/176155
+[#176156]: https://github.com/home-assistant/core/pull/176156
+[#176162]: https://github.com/home-assistant/core/pull/176162
+[#176173]: https://github.com/home-assistant/core/pull/176173
+[#176192]: https://github.com/home-assistant/core/pull/176192
+[#176213]: https://github.com/home-assistant/core/pull/176213
+[#176216]: https://github.com/home-assistant/core/pull/176216
+[#176218]: https://github.com/home-assistant/core/pull/176218
+[@Bre77]: https://github.com/Bre77
+[@FuNK3Y]: https://github.com/FuNK3Y
+[@Kane610]: https://github.com/Kane610
+[@PeteRager]: https://github.com/PeteRager
+[@Phunkafizer]: https://github.com/Phunkafizer
+[@RaHehl]: https://github.com/RaHehl
+[@Taraman17]: https://github.com/Taraman17
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@agners]: https://github.com/agners
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@hplato]: https://github.com/hplato
+[@iMicknl]: https://github.com/iMicknl
+[@jamesonuk]: https://github.com/jamesonuk
+[@jasperslits]: https://github.com/jasperslits
+[@jeeftor]: https://github.com/jeeftor
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@karwosts]: https://github.com/karwosts
+[@kingy444]: https://github.com/kingy444
+[@liudger]: https://github.com/liudger
+[@matrixd2]: https://github.com/matrixd2
+[@mback2k]: https://github.com/mback2k
+[@mib1185]: https://github.com/mib1185
+[@ms264556]: https://github.com/ms264556
+[@scop]: https://github.com/scop
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
