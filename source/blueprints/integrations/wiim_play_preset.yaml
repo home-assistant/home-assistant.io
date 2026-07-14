@@ -36,6 +36,5 @@ action:
     target:
       entity_id: !input wiim_player
     data:
-      media:
-        media_content_type: music
-        media_content_id: !input preset_id
+      media_content_type: music
+      media_content_id: !input preset_id
