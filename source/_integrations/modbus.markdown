@@ -1654,10 +1654,9 @@ numbers:
       type: float
       default: 0
     precision:
-      description: "Number of valid decimals."
+      description: "Number of valid decimals. Defaults to 0 for integer data types and 2 for floating-point data types when omitted."
       required: false
       type: integer
-      default: 0
     scale:
       description: "Scale factor (output = scale * value + offset)."
       required: false
