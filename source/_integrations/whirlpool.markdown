@@ -108,7 +108,7 @@ The select platform provides the following entity for refrigerators:
 
 ### Sensor
 
-The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining, and the "wash & go" tank fill status as sensors for each device.
+The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining, and the "wash & go" tank fill status as sensors for each device. For ovens, a kitchen timer end time sensor shows when the active timer will finish.
 
 ## Removing the integration
 
