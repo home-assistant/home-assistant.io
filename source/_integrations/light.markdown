@@ -20,7 +20,7 @@ The **Light** {% term integration %} allows you to track and control various lig
 Light {% term entities %} can have the following {% term states %}: `on` or `off`. The list of available attributes depends on the {% term device %}. Refer to the integration documentation of your light.
 
 <p class='img'>
-  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with differents states: `on`, `off`, or `unavailable`'>
+  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>
   Three lights with different states: `on`, `off`, or `unavailable`.
 </p>
 
