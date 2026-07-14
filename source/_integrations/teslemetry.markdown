@@ -61,12 +61,12 @@ By default, Teslemetry sends energy site commands through the cloud. If your ene
 
 ### Setting up local control
 
-Each Powerwall-capable energy site adds a **Set up local control** subentry to the Teslemetry {% term integration %}. Sites with only a wall connector or solar panels don't get this subentry, because local control only applies to Powerwall systems.
+Each Powerwall-capable energy site gets its own local control subentry, set up through its **Reconfigure** action. Sites with only a wall connector or solar panels don't get this subentry, because local control only applies to Powerwall systems.
 
 To pair your Powerwall or Backup Gateway:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. On the energy site you want to pair, select **Set up local control**.
+2. On the energy site you want to pair, select the cogwheel {% icon "mdi:cog-outline" %}, and then select **Reconfigure**.
 3. Home Assistant registers an access key with your Energy Site. If the key hasn't been approved yet, flick the On/Off switch on your primary Powerwall off and back on to approve it, then continue in Home Assistant. You only need to do this once.
 4. Home Assistant automatically discovers and fills in your Powerwall system's local network address. Confirm the address, or edit it if needed, and enter its Wi-Fi password. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
 
