@@ -17,21 +17,20 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Select the type of trigger to add.
-5. Select **State**.
-6. In **Entity**, select the entity whose state Home Assistant should watch.
-7. If you want to pick another entity, select **Add entity** and then select it from the list.
-8. Optional: In **Attribute**, select an attribute instead of the main state.
-9. Optional: In **From**, enter the state (or attribute value) the entity must have before the trigger fires.
-10. Optional: In **To**, enter the state (or attribute value) the entity must have when the trigger fires.
-11. Optional: In **For**, enter how long the entity must be in the new state, or hold the new attribute value, before the trigger fires. Instead of a **Duration**, you can enter a **Template**.
-12. Select **Save**.
+4. Search for and select the **State** trigger.
+5. In **Entity**, select the entity whose state or attribute value Home Assistant should watch.
+6. Optional: Select **Add entity** to watch additional entities.
+7. Optional: In **Attribute**, select an attribute instead of the main state.
+8. Optional: In **From**, enter the state (or attribute value) the entity must have before the trigger fires.
+9. Optional: In **To**, enter the state (or attribute value) the entity must have when the trigger fires.
+10. Optional: In **For**, enter how long the entity must be in the new state, or hold the new attribute value, before the trigger fires. Instead of a **Duration**, you can enter a **Template**.
+11. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Entity:
-  description: Entity whose state to watch.
+  description: Entity whose state or attribute value to watch.
   required: true
 Attribute:
   description: Entity attribute to watch instead of the main state.
@@ -92,7 +91,7 @@ attribute:
   required: false
   type: string
 for:
-  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
   required: false
   type: string
   default: "00:00:00"
