@@ -87,33 +87,6 @@ To fully revoke Home Assistant's access:
 
 If you use other apps that also connect to the vehicle over a virtual key, they'll appear in the same list, so make sure you remove the correct one.
 
-## Local Powerwall control
-
-By default, Teslemetry sends every energy site command through the cloud. If your energy site includes a Powerwall and Home Assistant can reach its gateway on your local network, you can pair the site so its commands are sent directly to the gateway, with an automatic fallback to the cloud when needed.
-
-### Requirements
-
-- Your energy site must include a Powerwall (battery). Solar-only and Wall Connector-only sites don't have a gateway to pair, so local control isn't available for them.
-- Home Assistant must be able to reach your energy gateway's local network address.
-- The Wi-Fi password printed on the gateway. Home Assistant only needs the last five characters, so you can enter the full password if that's easier. Home Assistant trims it automatically.
-
-### Setting up local control
-
-Each energy site with a Powerwall has its own **Set up local control** action.
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. Find the energy site you want to pair, and select **Set up local control**.
-3. Home Assistant registers itself as an authorized client on your energy gateway. Approve it by toggling the switch on the side of your primary Powerwall off and back on, then continue. This only needs to be done once per site.
-4. Enter the local network address (host) of your energy gateway and its Wi-Fi password, then continue. Home Assistant verifies the local connection before finishing setup.
-
-Once a site is paired, Home Assistant tries the local gateway first for each command and falls back to the cloud automatically if the gateway can't be reached. This can make commands like changing the backup reserve or operation mode feel noticeably faster.
-
-### Removing local Powerwall control
-
-Removing the Teslemetry integration, or the local pairing for a single energy site, stops Home Assistant from routing that site's commands over the local network and forgets the stored gateway address and password. It does not revoke Home Assistant's authorized-client key from the gateway itself. That key stays authorized, so it isn't lost if you set up local control again later, or if another app or integration relies on the same credential.
-
-If you want to fully revoke Home Assistant's local access, remove its authorized client entry from your energy gateway directly. Check your gateway's own documentation for the exact steps, as they can vary by hardware and firmware version.
-
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
