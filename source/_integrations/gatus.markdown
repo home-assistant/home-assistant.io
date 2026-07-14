@@ -58,6 +58,16 @@ Here are a few ideas to get you started.
 
 Get notified the moment one of your monitored endpoints fails its health check.
 
+To create this automation in the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
+2. Add a **State** trigger.
+3. In **Entity**, select the Gatus binary sensor for the endpoint you want to monitor.
+4. In **To**, enter `off`.
+5. Add the **Send a notification message** action.
+6. In **Target**, select the notification entity for your device, for example **My Phone** (`notify.my_phone`).
+7. In **Message**, enter `Service {{ trigger.to_state.name }} is down!`.
+
 {% details "Example YAML configuration" %}
 
 {% example %}
@@ -80,6 +90,18 @@ automation: |
 ### Send a notification when a service recovers
 
 Get notified when a previously failing endpoint comes back online.
+
+To create this automation in the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
+2. Add a **State** trigger.
+3. In **Entity**, select the Gatus binary sensor for the endpoint you want to monitor.
+4. In **From**, enter `off`.
+5. In **To**, enter `on`.
+6. Add the **Send a notification message** action.
+7. In **Target**, select the notification entity for your device, for example **My Phone** (`notify.my_phone`).
+8. In **Message**, enter `Service {{ trigger.to_state.name }} is back online.`.
+
 
 {% details "Example YAML configuration" %}
 
