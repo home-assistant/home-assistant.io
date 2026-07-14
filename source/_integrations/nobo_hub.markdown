@@ -150,7 +150,7 @@ automation: |
     triggers:
       - trigger: state
         entity_id: group.family
-        to: "not_home"
+        from: "home"
     actions:
       - action: select.select_option
         target:
