@@ -84,10 +84,8 @@ action: media_player.play_media
 target:
   entity_id: media_player.living_room_wiim
 data:
-  media:
-    media_content_type: music
-    media_content_id: "1"
-```
+  media_content_type: music
+  media_content_id: "1"
 
 ### Group two WiiM players
 
