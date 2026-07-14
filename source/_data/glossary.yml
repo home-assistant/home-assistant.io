@@ -257,15 +257,15 @@
     entities. An entity is usually part of a device or a service. Entities have
     states. **Example for entities as part of a device** A combined temperature
     and humidity sensor device provides two sensor entities. One for temperature
-    (e.g. `sensor.temperature` with state `21.0` and unit `°C`) and one for
-    humidity (e.g. `sensor.humidity` with state `65.4` and unit `%`). **Example
+    (such as `sensor.temperature` with state `21.0` and unit `°C`) and one for
+    humidity (such as `sensor.humidity` with state `65.4` and unit `%`). **Example
     for entities as part of a service** A weather service that provides 3
     entities: wind speed, air pressure, and ozon level. **Example of an entity
     used for control** A fan that is turned on when the temperature exceeds
     30&nbsp;°C. There are standardized types of entities for common integrations
     such as light, switch, camera, sensor, fan, or vacuum. Some entities are not
     part of a device or service. Examples of standalone entities are automation,
-    script, scene entities, and helper entities (e.g. input helpers). Most
+    script, scene entities, and helper entities (such as input helpers). Most
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
@@ -512,7 +512,7 @@
     Platforms are building blocks provided by some integrations to be used by
     other integrations. For example, the [Light](/integrations/light)
     integration provides the `light platform` that is utilized by all
-    integrations providing `light` entities such as e.g.
+    integrations providing `light` entities, such as
     [Hue](/integrations/hue).
   excerpt: >
     Platforms are building blocks provided by some integrations to be used by
