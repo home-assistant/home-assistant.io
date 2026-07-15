@@ -457,7 +457,7 @@ Features:
 - set night light, only applicable for [Standing Fan]
   - off
   - bright
-  - dark
+  - soft
 
 #### Air Purifier
 
