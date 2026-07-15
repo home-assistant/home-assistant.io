@@ -71,14 +71,14 @@ In the configuration of the energy dashboard ({% my config_energy title="**Setti
 
 {% configuration_basic %}
 Counter ID:
-  description: "The water counter ID. It should be found automatically during setup. If it was not found, follow these steps to find your counter ID:
+  description: |
+    The water counter ID. It should be found automatically during setup. If it was not found, follow these steps to find your counter ID:
 
    1. Go to your _Tout Sur Mon Eau_ [user account page](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr). You must be authenticated to access this page.
    2. Open the browser's developer tools (press <kbd>F12</kbd> or right-click > **Inspect**).
    3. In the developer tools, go to the **Network** tab.
    4. Reload the page.
    5. In the **Network** tab, search for `id_PDS=`. The 10-digit number that follows it is your counter ID.
-  "
 
 {% endconfiguration_basic %}
 
