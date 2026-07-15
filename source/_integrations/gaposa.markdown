@@ -12,6 +12,7 @@ ha_codeowners:
 ha_platforms:
   - cover
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Gaposa** {% term integration %} lets you open, close, and stop [Gaposa](https://www.gaposa.it/eng) motorized blinds and shades from Home Assistant. Every motor on your Gaposa account becomes a [cover entity](/integrations/cover/) you can include in automations, scripts, and dashboards.
@@ -21,14 +22,14 @@ The integration talks to the Gaposa cloud service through the same account you u
 ## Supported devices
 
 - The [Gaposa LinkIt hub](https://www.gaposa.it/eng/prod/?residential/electronics/control-units/home-automation/linkit) is required to bridge between Home Assistant and your motors.
-- Any Gaposa roller-shade motor that you have already paired with your LinkIt hub through the RollApp mobile application. Use the mobile app to enroll new motors, assign them names, and organize them into rooms — the Home Assistant integration picks up whatever the app reports on your account.
+- Any Gaposa roller-shade motor that you have already paired with your LinkIt hub through the RollApp mobile application. Use the mobile app to enroll new motors, assign them names, and organize them into rooms. The Home Assistant integration picks up whatever the app reports on your account.
 
 ## Prerequisites
 
 Before setting up the integration:
 
 1. Install the [Gaposa RollApp mobile application](https://www.gaposa.it/eng/news/rollapp/) and create a Gaposa cloud account.
-2. Enroll your LinkIt hub in the mobile app and pair each motor you want to control.
+2. Enroll your [Gaposa LinkIt hub](https://www.gaposa.it/eng/prod/?residential/electronics/control-units/home-automation/linkit) in the mobile app and pair each motor you want to control.
 3. Request a Gaposa cloud API key from [Gaposa support](https://www.gaposa.it/eng). The API key is tied to your account and is used to authenticate Home Assistant with the cloud service.
 4. Have your RollApp username and password ready.
 
@@ -93,14 +94,14 @@ The integration does not support position presets or partial-open commands — t
 
 ## Data updates
 
-The integration {% term polling polls %} the Gaposa cloud every 10 minutes during normal operation. After a transient failure, it retries every minute until it recovers and then returns to the regular interval.
+The integration {% term polling polls %} the Gaposa cloud every 10 minutes during normal operation. If a poll fails because of a network error, a request timeout, or a temporary cloud outage, the interval shortens to one minute until a subsequent poll succeeds, then returns to 10 minutes.
 
 Because Gaposa does not push state changes, you may see a short delay between a shade moving and Home Assistant reflecting the new state. Commands you send from Home Assistant take effect immediately and update the entity state straight away; the next scheduled refresh confirms the motor reached its target.
 
 ## Known limitations
 
 - The integration is cloud-polled, not cloud-pushed. Updates made to shades through the RollApp, a physical remote, or wall switches may take up to 10 minutes to show up in Home Assistant.
-- Motor position is not reported — only a three-state model of `open`, `closed`, or somewhere in between after a stop.
+- Motor position is not reported. Only a three-state model of `open`, `closed`, or somewhere in between after a stop.
 - Adding, renaming, or removing motors in the RollApp mobile application requires reloading the integration in Home Assistant before the changes appear. Removed motors stay in Home Assistant as unavailable entities until you delete them manually.
 
 ## Troubleshooting
