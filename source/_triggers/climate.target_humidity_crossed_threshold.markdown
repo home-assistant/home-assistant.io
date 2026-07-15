@@ -2,7 +2,7 @@
 title: "Thermostat target humidity crossed threshold"
 trigger: climate.target_humidity_crossed_threshold
 domain: climate
-description: "Triggers after the humidity setpoint of one or more thermostats crosses a threshold."
+description: "Triggers when the humidity setpoint of one or more thermostats crosses a threshold."
 related_triggers:
   - climate.target_humidity_changed
   - climate.target_temperature_crossed_threshold
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat target humidity crossed threshold** trigger fires after the target humidity (setpoint) of a thermostat {% term entity %} crosses a threshold value. Unlike [Thermostat target humidity changed](/triggers/climate.target_humidity_changed/), which fires whenever the target changes and lands at a particular value, this trigger fires only at the moment the setpoint crosses from one side of the threshold to the other.
 
 Use this trigger when you want to react to the exact moment a humidity setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less humid target.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

@@ -2,7 +2,7 @@
 title: "Water heater operation mode changed"
 trigger: water_heater.operation_mode_changed
 domain: water_heater
-description: "Triggers after the operation mode of one or more water heaters changes to a specific mode."
+description: "Triggers when the operation mode of one or more water heaters changes to a specific mode."
 related_triggers:
   - water_heater.turned_on
   - water_heater.turned_off
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater operation mode changed** trigger fires when a water heater {% term entity %} changes to one of the operation modes you select. Use it when you want an automation to react to a specific mode, like switching related devices to an energy-saving setup when the water heater changes to **Eco** mode.
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each matching change, only for the first one, or only after all targeted water heaters reach the selected mode.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

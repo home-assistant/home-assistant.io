@@ -52,24 +52,25 @@ After setting up the integration, you can add transit stops and Vélo'v bike-sha
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
 2. Select **Add transit stop**.
-3. Enter the following information:
+3. Select the stop you want to monitor. You can filter the list by stop name, address or city, or enter a stop ID directly. Address and city aren't always available.
+4. Select the line you want to monitor on that stop. The list is pre-filtered by known lines on this stop. You can enter a line identifier directly.
 
 {% configuration_basic %}
+Stop ID:
+  description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/points-arret-reseau-transports-commun-lyonnais/donnees). Zoom in on the map and select a stop. The ID will be displayed at the bottom of the panel displayed on the right of the screen. The field is called **id**."
 Line:
   description: "The transit line identifier (for example, `C1` or `T2`)."
-Stop ID:
-  description: "The stop identifier. You can find the stop identifier on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/points-arret-reseau-transports-commun-lyonnais/donnees). Zoom on the map and click on a stop. The ID will be displayed on the panel on the right, at the bottom. The field is called `id`."
 {% endconfiguration_basic %}
 
 ### Adding a Vélo'v station
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Data Grand Lyon** integration.
 2. Select **Add Vélo'v station**.
-3. Enter the following information:
+3. Select the station you want to monitor. You can filter the list by station name, address or city, or enter a station ID directly. Address and city aren't always available.
 
 {% configuration_basic %}
-Station ID:
-  description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom on the map and click on a station. The ID will be displayed on the panel on the right, at the top. The field is called `idstation`."
+Station:
+  description: "The Vélo'v station identifier. You can find station IDs on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/stations-velo-v-metropole-lyon/donnees). Zoom in on the map and select a station. The ID will be displayed at the top of the panel displayed on the right of the screen. The field is called **idstation**."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -198,7 +199,19 @@ To resolve this issue, try the following steps:
 
 ### Transit stop shows no data
 
-Make sure the line identifier and stop ID are correct. You can verify these on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info).
+First, make sure the line identifier and stop ID are correct. You can verify these on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info).
+
+If the identifiers are correct, the source itself may not have real-time data for that stop. Real-time departures are not available for every stop or at every time of day. You can check whether the source has live data using the official [TCL app](https://www.tcl.fr/decouvrir/les-applications-tcl/lapplication-tcl). Open your stop in the app and look at the next departures:
+
+- If the next departure shows a green real-time indicator, live data is available in the source and the integration should report departures.
+
+  ![Screenshot of the TCL app showing departures with a green real-time indicator](/images/integrations/data_grand_lyon/tcl_live_data.jpeg)
+
+- If the next departure is shown in gray (for example, as a fixed time or as **Terminus de la ligne**), there is very likely no live data available in the source.
+
+  ![Screenshot of the TCL app showing departures in gray without real-time data](/images/integrations/data_grand_lyon/tcl_no_live_data.jpeg)
+
+When the source has no live data, it often comes back later. Sometimes the data returns after a few hours, and sometimes it takes a few days.
 
 ### Vélo'v station shows no data
 

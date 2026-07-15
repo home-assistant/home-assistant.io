@@ -1103,6 +1103,11 @@ image:
       default: true
 {% endconfiguration %}
 
+### Using locally hosted images
+
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
+
+
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
@@ -1318,31 +1323,35 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: inclusive
       type: action
     set_level:
-      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), `brightness_pct` (a value between 0 and 100), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
       required: false
       type: action
     set_temperature:
-      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgb_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_xy:
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     state:
@@ -1368,6 +1377,11 @@ light:
       description: Defines an action to run when the light is turned off. May receive the variable `transition`.
       required: true
       type: action
+    xy:
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      required: false
+      type: template
+      default: optimistic
 
 {% endconfiguration %}
 
@@ -1382,7 +1396,10 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
 7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. None of the above match, and `turn_on` is called.
+8. `rgb_color` is provided and `set_rgb` is defined.
+9. `xy_color` is provided and `set_xy` is defined.
+10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+11. None of the above match, and `turn_on` is called.
 
 Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
@@ -2717,7 +2734,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/

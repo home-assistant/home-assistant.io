@@ -13,8 +13,6 @@ The **Satellite is listening** condition passes when a targeted Assist satellite
 
 Use it when you want an automation to continue only if a satellite is actively capturing audio input. For example, confirm that a satellite is already listening before triggering a follow-up visual cue, or gate a scene change on whether any satellite in the room is mid-capture to avoid disrupting the voice interaction.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

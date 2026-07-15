@@ -960,6 +960,10 @@ a.material-card:hover {
   .recent-posts {
     .blog-date {
       white-space: nowrap;
+
+      .shared-from {
+        white-space: normal;
+      }
     }
 
     ol {
@@ -1680,10 +1684,11 @@ article.listing {
     &.btn {
       font-size: 1.1em;
       text-decoration: none;
-      transition: box-shadow .33;
+      transition: box-shadow .33s;
 
-      &:hover {
-        box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
+      &:hover,
+      &:focus-visible {
+        box-shadow: 0 0 1px rgba(0, 0, 0, .5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 8px 24px hsla(207, 100%, 10%, 0.25);
       }
     }
   }
@@ -1691,6 +1696,10 @@ article.listing {
   h2 {
     margin-top: 1.75em;
     line-height: 1.4;
+
+    &:has(> a.title-link) {
+      padding-right: 0.5rem;
+    }
   }
 
   h3 {

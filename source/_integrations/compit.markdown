@@ -359,7 +359,7 @@ When the SPM sensor is connected to a Nano Color thermostat, it is displayed as 
 
 - **Ventilation gear**
   - **Description**: Current ventilation gear setting.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Alarm code**
   - **Description**: System alarm code.
@@ -428,6 +428,23 @@ Switch entities let you turn device modes and features on or off.
 ### Climate
 
 The climate entity reflects the current heating or cooling state and the **active** target temperature. Use the climate entity when you want to change the target temperature temporarily or for the current session (for example, turning up the heat for the evening). The climate entity is where you set what temperature the device is aiming for right now.
+
+The following devices provide a climate entity:
+
+- **Nano Color** (Room thermostat)
+- **Nano Color 2** (Room thermostat)
+- **Nano One** (Room thermostat)
+- **R900** (Heat pump controller)
+
+The available features depend on the device:
+
+- **Nano Color**, **Nano Color 2**, and **Nano One** support target temperature, preset mode, fan mode, and HVAC mode.
+  - Presets: Home, Eco, None, Away
+  - Fan modes: Off, Auto, Low, Medium, High
+  - HVAC modes: Cool, Heat, Off
+- **R900** supports preset mode and HVAC mode.
+  - Presets: Home, Away
+  - HVAC modes: Heat, Off
 
 ### Fans
 

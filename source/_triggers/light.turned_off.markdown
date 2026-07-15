@@ -2,7 +2,7 @@
 title: "Light turned off"
 trigger: light.turned_off
 domain: light
-description: "Triggers after one or more lights turn off."
+description: "Triggers when one or more lights turn off."
 related_triggers:
   - light.turned_on
   - light.brightness_changed
@@ -12,8 +12,6 @@ The **Light turned off** trigger fires after a light {% term entity %} turns off
 
 When you target more than one light, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted light turns off, the last time the final targeted light turns off, or every single time any of them turn off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -21,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light turned off**.
+4. From the search box, search for and select **Light turned off**.
 5. Under **Targets**, choose what to watch:
     - To watch a specific light, select the entity.
     - To watch every light in a room, select an area.

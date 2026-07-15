@@ -11,8 +11,6 @@ The **Valve is closed** condition passes when a targeted valve {% term entity %}
 
 Use it when you want an automation to continue only if no fluid is flowing through a valve. For example, create an automation to confirm that the main water shutoff is closed before performing maintenance, gate a leak-response action on whether the supply valve has been shut off, or prevent a heating system from firing while a gas valve is closed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

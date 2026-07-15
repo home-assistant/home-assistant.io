@@ -150,8 +150,10 @@ State updater:
   description: "Sets the default behavior for periodically reading state addresses from the KNX Bus."
 Rate limit:
   description: "Maximum outgoing telegrams per second. `0` to disable limit - which is recommended."
-Telegram history limit:
-  description: "Number of Telegrams to keep in memory for the KNX panels group monitor."
+Group monitor history:
+  description: "Hours of telegram history to load when you open the group monitor."
+Retention period:
+  description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup. Set this to `0` to delete all telegram history every night."
 {% endconfiguration_basic %}
 
 ## Basic configuration
@@ -452,130 +454,7 @@ Every telegram that matches an address pattern with its destination field will b
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
 - `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
-## Actions
-
-To directly interact with the KNX bus, you can use the following actions:
-
-### Send
-
-```txt
-Domain: knx
-Action: send
-Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
-```
-
-{% configuration %}
-address:
-  description: KNX group address.
-  type: string
-payload:
-  description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
-  type: [integer, list]
-type:
-  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
-  type: [string, integer, float]
-response:
-  description: If set to `true`, the telegram will be sent as a `GroupValueResponse` instead of a `GroupValueWrite`.
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-```yaml
-# Example script to send a fixed value and the state of an entity
-alias: "My Script"
-sequence:
-  - action: knx.send
-    data:
-      address: 1/1/1
-      type: percent
-      payload: 50
-      response: false
-  - action: knx.send
-    data:
-      address: 1/1/1
-      payload: [128]  # 50 % as 1-byte raw value
-      response: false
-  - action: knx.send
-    data:
-      address: 3/3/3
-      type: temperature
-      payload: "{{ states('sensor.dew_point') }}"
-      response: false
-```
-
-### Read
-
-You can use the `homeassistant.update_entity` action call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests, use the `knx.read` action. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
-
-```txt
-Domain: knx
-Action: read
-Data: {"address": "1/0/15"}
-```
-
-{% configuration %}
-address:
-  description: Group address(es) to send read request to. Lists will read multiple group addresses.
-  type: [string, list]
-{% endconfiguration %}
-
-```yaml
-# Example automation to update a cover position after 10 seconds of movement initiation
-automation:
-  - triggers:
-      - trigger: knx.telegram
-        # Cover move trigger
-        destination: "0/4/20"
-    actions:
-      - delay: 0:0:10
-      - action: knx.read
-        data:
-          # Cover position address
-          address: "0/4/21"
-
-  - triggers:
-      - trigger: homeassistant
-        event: start
-    actions:
-      # Register the group address to trigger a knx_event
-      - action: knx.event_register
-        data:
-          # Cover move trigger
-          address: "0/4/20"
-```
-
-### Register event
-
-The `knx.event_register` action can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in {% term "`configuration.yaml`" %} cannot be unregistered. See [knx_event](#events)
-
-{% configuration %}
-address:
-  description: Group address that shall be added or removed.
-  required: true
-  type: [string, list]
-remove:
-  description: If `true` the group address will be removed.
-  required: false
-  type: boolean
-  default: false
-type:
-  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
-  type: [string, integer]
-  required: false
-{% endconfiguration %}
-
-### Register exposure
-
-The `knx.exposure_register` action can be used to register (or unregister) exposures to the KNX bus. Exposures defined in {% term "`configuration.yaml`" %} cannot be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
-
-{% configuration %}
-remove:
-  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `true` can be used to remove exposures. Only `address` is required for removal.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/actions.md %}
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
@@ -728,7 +607,7 @@ The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/)
 
 {% note %}
 
-Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](#send).
+Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](/actions/knx.send/).
 
 {% endnote %}
 
@@ -1936,7 +1815,7 @@ The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensor
 
 {% note %}
 
-Sensors are read-only entities. To write to the KNX bus, configure a [KNX Number entity](#number) or use the [`knx.send` action](#send).
+Sensors are read-only entities. To write to the KNX bus, configure a [KNX Number entity](#number) or use the [`knx.send` action](/actions/knx.send/).
 
 {% endnote %}
 

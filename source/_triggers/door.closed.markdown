@@ -2,7 +2,7 @@
 title: "Door closed"
 trigger: door.closed
 domain: door
-description: "Triggers after one or more doors close."
+description: "Triggers when one or more doors close."
 related_triggers:
   - door.opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Door closed** trigger fires when a targeted door changes to closed. Use it when you want an automation to run only after a door is shut, like locking up, turning lights off, or resuming another routine.
 
 This trigger is especially useful for routines that should wait for a clear end state, such as a garage door finishing its close cycle or a back door being fully shut before you lock it.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -117,7 +115,7 @@ If you turn on a nearby hallway light while bringing things in from the car, the
 - **Trigger**: Door closed
 - **Target**: Garage door
 - **For at least**: 00:01:00
-- **Action**: Light: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the hallway light" %}
 

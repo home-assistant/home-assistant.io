@@ -986,6 +986,7 @@ support_url:
     'url_t':               'url_topic',
     'url_tpl':             'url_template',
     'val_tpl':             'value_template',
+    'vis':                 'visible_by_default',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
     'xy_cmd_t':            'xy_command_topic',
@@ -1517,96 +1518,7 @@ script:
           retain: true
 ```
 
-## Publish & Dump actions
-
-The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
-
-### Action: Publish
-
-The `mqtt.publish` action publishes a message to an MQTT topic.
-
-| Data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
-| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
-| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
-| `retain`               | yes      | If message should have the retain flag set. (default: false) |
-| `message_expiry_interval` | yes   | [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901048) in seconds for the published message. (default: not set) |
-
-{% note %}
-When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
-{% endnote %}
-
-```yaml
-topic: homeassistant/light/1/command
-payload: "ON"
-```
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-```yaml
-topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-Be aware that `payload` must be a string.
-If you want to send JSON using the YAML editor then you need to format/escape
-it properly. Like:
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
-```
-
-The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
-The `device_class` is set, so it is not needed to set the "name" option. The entity
-will inherit the name from the `device_class` set and also support translations.
-If you set "name" in the payload the entity name will start with the device name.
-
-```yaml
-action: mqtt.publish
-data:
-  topic: homeassistant/sensor/Acurite-986-1R-51778/config
-  payload: >-
-    {"device_class": "temperature",
-    "unit_of_measurement": "\u00b0C",
-    "value_template": "{{ value | float }}",
-    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
-    "unique_id": "Acurite-986-1R-51778-T",
-    "device": {
-    "identifiers": "Acurite-986-1R-51778",
-    "name": "Bathroom",
-    "model": "Acurite",
-    "model_id": "986",
-    "manufacturer": "rtl_433" }
-    }
-```
-
-Example of how to use `qos` and `retain`:
-
-```yaml
-topic: homeassistant/light/1/command
-payload: "ON"
-qos: 2
-retain: true
-```
-
-### Action: Dump
-
-The `mqtt.dump` action listens to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
-| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
-
-```yaml
-topic: zigbee2mqtt/#
-```
+{% include integrations/actions.md %}
 
 ## Logging
 
