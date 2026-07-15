@@ -28,7 +28,7 @@ To be able to use this integration, you need a Remember The Milk account and you
 # Example configuration.yaml entry
 
 remember_the_milk:
-  - name: your_rtm_account
+  - name: your_rtm_username
     api_key: YOUR_API_KEY
     shared_secret: YOUR_SHARED_SECRET
 
@@ -36,7 +36,7 @@ remember_the_milk:
 
 {% configuration %}
   name:
-    description: Name of the RTM account, as you can have several accounts in RTM. The name must be unique.
+    description: Your RTM username, as you can have several accounts in RTM. The name must be unique.
     required: true
     type: string
   api_key:
@@ -51,13 +51,24 @@ remember_the_milk:
 
 ### Step 2: Registering your account
 
-After saving the configuration, you need to (re-)start Home Assistant. On the first start you will notice a new "Configuration" panel appearing on the Home Assistant page. After opening the configuration page, follow the link "Remember The Milk login". This will take you to a login page where you have to log in with your normal Remember The Milk credentials. This will authorize Home Assistant to access your Remember The Milk account.
+After you save the configuration:
 
-After that click on the "login completed" button. This will tell Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
+1. Restart Home Assistant. When it starts again, you receive a "Configurator" notification in Home Assistant.
+2. Select **Configure**.
+3. On the dialog, select **Remember The Milk login** and log into Remember The Milk website.
+4. Select **OK, I'll allow it** to authorize Home Assistant to access your Remember The Milk account.
+5. Close the RTM browser tab, and back in Home Assistant, select **login completed**.
 
-If the registration was successful, the Configuration panel will disappear from your Home Assistant screen and a Remember The Milk panel should appear. This completes the setup process.
+This tells Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
 
-In the background Home Assistant downloaded a token from the Remember The Milk server, stored in the `remember_the_milk.conf` file locally.
+If the registration was successful, the Configurator notification disappears from your Home Assistant notifications.
+
+In the background, Home Assistant downloaded a token from the Remember The Milk server, stored in the `remember_the_milk.conf` file locally.
+
+### Verifying configuration
+
+To confirm that your configuration was successful, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Remember The Milk**.
+The integration should now show `1 entity` and if you select it, it should be named after your RTM username.
 
 {% include integrations/actions.md %}
 
@@ -71,7 +82,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
       entity_id: sensor.mysensor
       to: "on"
   actions:
-    - action: remember_the_milk.myaccount_create_task
+    - action: remember_the_milk.my_rtm_username_create_task
       data:
         name: "Please switch off {{ trigger.entity_id }}"
         id: "{{ trigger.entity_id }}"
@@ -80,7 +91,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
       entity_id: sensor.mysensor
       to: "off"
   actions:
-    - action: remember_the_milk.myaccount_complete_task
+    - action: remember_the_milk.my_rtm_username_complete_task
       data:
         id: "{{ trigger.entity_id }}"
 ```
