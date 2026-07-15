@@ -124,6 +124,5 @@ The integration creates sensor entities when the connected device exposes that i
 
 The integration creates the following button entities:
 
-- Restart
-- Shutdown
-  
+- **Restart**: Reboots the MikroTik device.
+- **Shutdown**: Powers off the MikroTik device. After a shutdown, the device is no longer reachable over the network and cannot be powered back on remotely from Home Assistant.
