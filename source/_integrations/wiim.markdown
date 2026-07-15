@@ -18,12 +18,12 @@ ha_quality_scale: gold
 
 The **WiiM** {% term integration %} allows you to control different [WiiM](https://www.wiimhome.com) devices from Home Assistant.
 
-{% include integrations/config_flow.md %}
+## Use cases
 
-{% configuration_basic %}
-Host:
-  description: The hostname or IP address of the WiiM device. You can find the device IP address in the WiiM app or your router.
-{% endconfiguration_basic %}
+- Include WiiM players in Home Assistant media dashboards.
+- Start a favorite preset from an automation.
+- Synchronize multiple WiiM players with the standard media player grouping actions.
+- Use playback, volume, mute, and source state in automations.
 
 ## Supported devices
 
@@ -49,6 +49,13 @@ Compatible Audio Pro devices using LinkPlay/WiiM firmware may also work when the
 - Home Assistant must have a valid internal URL configured so the device can send local UPnP event callbacks.
 - Local network discovery must allow mDNS/zeroconf traffic.
 
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the WiiM device. You can find the device IP address in the WiiM app or your router.
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 ### Media Player
@@ -60,12 +67,6 @@ The media player entity gives you complete control over your WiiM device from Ho
 - **Multiroom Audio**: Seamlessly group multiple WiiM devices to create synchronized multiroom playback. Use the standard Home Assistant services: `media_player.join` and `media_player.unjoin`.
 
 - **Media Browsing**: Browse presets, playlists, and the device’s current playback queue, enabling dynamic selection of media from the Home Assistant interface.
-
-## Data updates
-
-WiiM updates are received locally through UPnP event subscriptions. Home Assistant also performs lightweight availability polling every 60 seconds so the entity becomes unavailable if the device stops responding.
-
-Playback metadata, volume, mute state, source, grouping state, and transport capabilities are refreshed from the device and reflected on the media player entity.
 
 ## Examples
 
@@ -86,6 +87,7 @@ target:
 data:
   media_content_type: music
   media_content_id: "1"
+```
 
 ### Group two WiiM players
 
@@ -97,6 +99,12 @@ data:
   group_members:
     - media_player.kitchen_wiim
 ```
+
+## Data updates
+
+WiiM updates are received locally through UPnP event subscriptions. Home Assistant also performs lightweight availability polling every 60 seconds so the entity becomes unavailable if the device stops responding.
+
+Playback metadata, volume, mute state, source, grouping state, and transport capabilities are refreshed from the device and reflected on the media player entity.
 
 ## Known limitations
 
@@ -118,13 +126,6 @@ Confirm the device is powered on and reachable from Home Assistant. If the devic
 ### Playback controls are missing
 
 Available media player features depend on the active source and the capabilities reported by the device. Try changing source or starting playback from the WiiM app, then refresh Home Assistant.
-
-## Use cases
-
-- Include WiiM players in Home Assistant media dashboards.
-- Start a favorite preset from an automation.
-- Synchronize multiple WiiM players with the standard media player grouping actions.
-- Use playback, volume, mute, and source state in automations.
 
 ## Removing the integration
 
