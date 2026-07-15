@@ -24,7 +24,7 @@ For each county/city it creates warning slots that change to Unsafe when warning
 
 ## Use case
 
-The NINA integration lets your home react to official warnings, such as disabling your ventilation system to prevent smoke in your if a fire was reported or to close the skylights when a storm is coming.
+The NINA integration lets your home react to official warnings. For example, you can turn off your ventilation system to help prevent smoke from entering your home when a fire is reported, or close the skylights when a storm is expected.
 
 {% include integrations/config_flow.md %}
 
