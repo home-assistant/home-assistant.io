@@ -76,25 +76,27 @@ The integration should now show `1 entity` and if you select it, it should be na
 
 Here's an example for an automation that creates a new task whenever `sensor.mysensor` is `on` and completes it when the sensor reports `off`. This way it reminds you to switch it off. By using the `entity_id` as ID for the task, you can use the same rule also for multiple sensors.
 
-```yaml
-- triggers:
-    - trigger: state
-      entity_id: sensor.mysensor
-      to: "on"
-  actions:
-    - action: remember_the_milk.my_rtm_username_create_task
-      data:
-        name: "Please switch off {{ trigger.entity_id }}"
-        id: "{{ trigger.entity_id }}"
-- triggers:
-    - trigger: state
-      entity_id: sensor.mysensor
-      to: "off"
-  actions:
-    - action: remember_the_milk.my_rtm_username_complete_task
-      data:
-        id: "{{ trigger.entity_id }}"
-```
+{% example %}
+automation: |
+  alias: "Match fan to ceiling light"
+    - triggers:
+        - trigger: state
+          entity_id: sensor.mysensor
+          to: "on"
+      actions:
+        - action: remember_the_milk.my_rtm_username_create_task
+          data:
+            name: "Please switch off {{ trigger.entity_id }}"
+            id: "{{ trigger.entity_id }}"
+    - triggers:
+        - trigger: state
+          entity_id: sensor.mysensor
+          to: "off"
+      actions:
+        - action: remember_the_milk.my_rtm_username_complete_task
+          data:
+            id: "{{ trigger.entity_id }}"
+{% endexample %}
 
 ## Disclaimer
 
