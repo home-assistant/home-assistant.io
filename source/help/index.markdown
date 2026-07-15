@@ -11,7 +11,6 @@ Home Assistant has one of the largest and most active smart home communities on 
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on Bluesky, use [@home-assistant.io][bluesky]
 - Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
-- Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
@@ -91,7 +90,6 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
 [forum]: https://community.home-assistant.io/
 [mastodon]: https://fosstodon.org/@homeassistant
-[x-twitter]: https://x.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: /join-chat
