@@ -1,10 +1,10 @@
 ---
 title: "Complete task"
-action: remember_the_milk.myaccount_complete_task
+action: remember_the_milk.my_rtm_username_complete_task
 domain: remember_the_milk
 description: "Completes a Remember The Milk task that was created from Home Assistant."
 related_actions:
-  - remember_the_milk.myaccount_create_task
+  - remember_the_milk.my_rtm_username_create_task
 ---
 
 Use this action to complete a Remember The Milk task that was created from Home Assistant.
@@ -17,24 +17,18 @@ To complete a Remember The Milk task from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select **Remember The Milk: Complete task**.
-6. Enter the ID of the task to complete.
-7. Select **Save**.
-
-### Options in the UI
-
-{% options_ui %}
-ID:
-  description: The identifier of the task to complete.
-{% endoptions_ui %}
+5. Search for and select **Remember The Milk: `<your_rtm_username>_complete_task`**.
+6. In the top right, select **Menu** ({% icon "mdi:dots-vertical" %}) > **Edit in YAML**.
+7. Enter this action's YAML, following [Using this action in YAML](/integrations/remember_the_milk/#using-this-action-in-yaml).
+8. Select **Save**.
 
 {% include actions/yaml_header.md %}
 
-In YAML, this action uses your Remember The Milk account name in the action name. If your account name is `myaccount`, refer to this action as `remember_the_milk.myaccount_complete_task`:
+In YAML, this action uses your Remember The Milk username in the action name. If your username is `my_rtm_username`, refer to this action as `remember_the_milk.my_rtm_username_complete_task`:
 
 {% example %}
 action: |
-  action: remember_the_milk.myaccount_complete_task
+  action: remember_the_milk.my_rtm_username_complete_task
   data:
     id: water_plants
 {% endexample %}
@@ -54,7 +48,7 @@ This action does not support targets.
 
 ## Good to know
 
-- Replace `myaccount` in the YAML example with the account name you configured for Remember The Milk.
+- Replace `my_rtm_username` in the YAML example with the username you configured for Remember The Milk.
 - This action can only complete tasks that were created from Home Assistant with an ID.
 
 {% include actions/stuck.md %}

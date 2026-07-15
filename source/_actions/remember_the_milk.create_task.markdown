@@ -1,6 +1,6 @@
 ---
 title: "Create task"
-action: remember_the_milk.myaccount_create_task
+action: remember_the_milk.my_rtm_username_create_task
 domain: remember_the_milk
 description: "Creates or updates a task in Remember The Milk."
 ---
@@ -15,28 +15,18 @@ To create a Remember The Milk task from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select **Remember The Milk: Create task**.
-6. Enter the task name.
-7. Set an ID if you want to update or complete the same task later.
+5. Search for and select **Remember The Milk: `<your_rtm_username>_create_task`**.
+6. In the top right, select **Menu** ({% icon "mdi:dots-vertical" %}) > **Edit in YAML**.
+7. Enter this action's YAML, following [Using this action in YAML](/integrations/remember_the_milk/#using-this-action-in-yaml).
 8. Select **Save**.
-
-### Options in the UI
-
-{% options_ui %}
-Name:
-  description: The name of the task to create. You can use [Remember The Milk smart syntax](https://www.rememberthemilk.com/help/answer/basics-smartadd-howdoiuse) when creating a new task.
-ID:
-  description: An identifier for the task. If a task with this ID already exists, the action updates the task instead of creating a new one.
-  required: false
-{% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
-In YAML, this action uses your Remember The Milk account name in the action name. If your account name is `myaccount`, refer to this action as `remember_the_milk.myaccount_create_task`:
+In YAML, this action uses your Remember The Milk account name in the action name. If your username is `my_rtm_username`, refer to this action as `remember_the_milk.my_rtm_username_create_task`:
 
 {% example %}
 action: |
-  action: remember_the_milk.myaccount_create_task
+  action: remember_the_milk.my_rtm_username_create_task
   data:
     name: "Water the plants ^today #home"
     id: water_plants
@@ -61,7 +51,7 @@ This action does not support targets.
 
 ## Good to know
 
-- Replace `myaccount` in the YAML example with the account name you configured for Remember The Milk.
+- Replace `my_rtm_username` in the YAML example with the username you configured for Remember The Milk.
 - If you do not set an ID, each action run creates a new task.
 - Smart syntax is not supported when updating tasks. If the ID already exists, smart syntax commands are ignored and become normal text in the task name.
 - Use the same ID with [Complete task](/actions/remember_the_milk.complete_task/) to complete the task later.
