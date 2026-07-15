@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@willholdoway'
 ha_domain: hifiberry
-ha_zeroconf: true
 ha_platforms:
   - media_player
 ---
