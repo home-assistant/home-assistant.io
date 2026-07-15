@@ -102,7 +102,7 @@ data:
 
 ## Data updates
 
-WiiM updates are received locally through UPnP event subscriptions. Home Assistant also performs lightweight availability polling every 60 seconds so the entity becomes unavailable if the device stops responding.
+WiiM updates are received locally through UPnP event subscriptions. Home Assistant also performs lightweight availability {% term polling %} every 60 seconds so the entity becomes unavailable if the device stops responding.
 
 Playback metadata, volume, mute state, source, grouping state, and transport capabilities are refreshed from the device and reflected on the media player entity.
 
