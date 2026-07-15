@@ -18,10 +18,6 @@
   title: "Bluesky"
   icon: "simple-icons:bluesky"
 
-- url: "https://x.com/home_assistant"
-  title: "X (formerly Twitter)"
-  icon: "simple-icons:x"
-
 - url: "https://www.facebook.com/homeassistantio"
   title: "Facebook"
   icon: "simple-icons:facebook"
