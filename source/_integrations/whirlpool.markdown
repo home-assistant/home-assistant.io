@@ -106,6 +106,10 @@ The select platform provides the following entity for refrigerators:
 
 - **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
 
+The select platform provides the following entity for ovens:
+
+- **Cook mode**: Sets the cook mode of an oven cavity, keeping the current target temperature. Selecting `Standby` turns the oven off by stopping the current cook.
+
 ### Sensor
 
 The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining, and the "wash & go" tank fill status as sensors for each device.
