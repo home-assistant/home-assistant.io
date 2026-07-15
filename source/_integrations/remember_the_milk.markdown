@@ -57,7 +57,7 @@ After that click on the "login completed" button. This will tell Home Assistant 
 
 If the registration was successful, the Configuration panel will disappear from your Home Assistant screen and a Remember The Milk panel should appear. This completes the setup process.
 
-In the background Home Assistant downloaded a "token" from the Remember The Milk server which is stored in the `remember_the_milk.conf` file locally. So you only need to register once. After that the token is used to authenticate with the server.
+In the background Home Assistant downloaded a token from the Remember The Milk server, stored in the `remember_the_milk.conf` file locally.
 
 {% include integrations/actions.md %}
 
