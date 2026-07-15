@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
 ha_iot_class: Local Push
-ha_quality_scale: gold
+ha_quality_scale: bronze
 ---
 
 The **WiiM** {% term integration %} allows you to control different [WiiM](https://www.wiimhome.com) devices from Home Assistant.
