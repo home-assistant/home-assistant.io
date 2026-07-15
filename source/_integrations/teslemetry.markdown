@@ -62,10 +62,10 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 
 ### Setting up Bluetooth control
 
-Each vehicle has its own Bluetooth pairing, set up through its **Reconfigure** action.
+Each vehicle has its own Bluetooth pairing, set up through its **Reconfigure** button.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. Find the vehicle you want to pair, select the cogwheel {% icon "mdi:cog-outline" %}, and then select **Reconfigure**.
+2. Find the vehicle you want to pair and select its **Reconfigure** button {% icon "mdi:cog-outline" %}.
 3. Home Assistant scans for the vehicle over Bluetooth. Make sure the vehicle is awake and nearby, then continue.
 4. Approve Home Assistant's virtual key by tapping your key card against the center console card reader of the vehicle.
 
