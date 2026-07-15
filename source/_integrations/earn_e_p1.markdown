@@ -55,7 +55,7 @@ The EARN-E energy monitor must be:
 
 {% include integrations/config_flow.md %}
 
-The EARN-E energy monitor is automatically discovered on your network through DHCP. When it is detected, it appears on the **Settings** > **Devices & services** page, ready to be set up with a single confirmation.
+The EARN-E energy monitor is discovered automatically on your network using [DHCP discovery](/integrations/dhcp/). When it is detected, it appears in the **Discovered** section under **Settings** > **Devices & services**, ready to be set up with a single confirmation.
 
 When adding the integration manually, it will automatically listen for UDP broadcasts for approximately 10 seconds. If your EARN-E device is found, you will see a confirmation screen with its IP address.
 
