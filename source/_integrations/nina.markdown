@@ -22,6 +22,10 @@ The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-ni
 
 For each county/city it creates warning slots that change to Unsafe when warnings are present. The details of the warning are provided in separate entities.
 
+## Use case
+
+The NINA integration lets your home react to official warnings, such as disabling your ventilation system to prevent smoke in your if a fire was reported or to close the skylights when a storm is coming.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
