@@ -27,7 +27,7 @@ This integration currently supports the following models:
 
 {% include integrations/config_flow.md %}
 
-## Actions
+## List of actions
 
 ROMY provides a vacuum entity.
 To control it in automations or scripts, use the shared [vacuum actions](/integrations/vacuum/#list-of-actions) and select your ROMY vacuum as the target.
