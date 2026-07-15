@@ -66,7 +66,7 @@ Each Powerwall-capable energy site gets its own local control subentry, set up t
 To pair your Powerwall or Backup Gateway:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. On the energy site you want to pair, select the **Reconfigure** button (the cogwheel {% icon "mdi:cog-outline" %}).
+2. On the energy site you want to pair, select its **Reconfigure** button {% icon "mdi:cog-outline" %}.
 3. Home Assistant registers an access key with your Energy Site. If the key hasn't been approved yet, flick the On/Off switch on your primary Powerwall off and back on to approve it, then continue in Home Assistant. You only need to do this once.
 4. Home Assistant automatically discovers and fills in your Powerwall system's local network address. Confirm the address, or edit it if needed, and enter its Wi-Fi password. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
 
