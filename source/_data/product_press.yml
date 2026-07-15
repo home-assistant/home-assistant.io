@@ -8,7 +8,7 @@
 #   quote (bool), blue (bool), background_image, background_image_alt,
 #   video, video_poster
 zbt-2:
-  title: "A connection you can count on"
+  title: "Connection you can count on"
   lead: "Discover how reviewers and community members experience the ZBT-2"
   cards:
     - href: "https://smarthomescene.com/reviews/home-assistant-zbt-2-zigbee-and-thread-coordinator-review/"
@@ -191,8 +191,8 @@ zwa-2:
       video_poster: /images/frontpage/nc-card.webp
 
 voice-pe:
-  title: "Hear it from the community"
-  lead: "Find out what users and reviewers have to say about the Home Assistant Voice Preview Edition"
+  title: "Straight from the community"
+  lead: "Find out how users and reviewers rate the Home Assistant Voice Preview Edition"
   cards:
     - href: "https://arstechnica.com/gadgets/2024/12/home-assistants-voice-preview-edition-is-a-little-box-with-big-privacy-powers/"
       text: "Home Assistant's Voice Preview Edition is a little box with big privacy powers"
@@ -263,7 +263,7 @@ voice-pe:
 
 green:
   title: "An easy choice"
-  lead: "See what reviewers and community members have to say about the Home Assistant Green"
+  lead: "Check out what reviewers and community members are saying about the Home Assistant Green"
   cards:
     - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
       text: "The Home Assistant Green is here to make the most powerful smart home platform more accessible"
