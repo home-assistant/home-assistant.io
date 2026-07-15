@@ -1457,10 +1457,11 @@ color_temperature_state_address:
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type.\n
-    `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*.\n
-    `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*.\n
-    `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type.
+
+- `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*.
+- `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*.
+- `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute
