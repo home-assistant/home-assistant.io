@@ -60,14 +60,14 @@ zbt-2:
       text: '"If you''re a beginner and value a simple installation you cannot go wrong with ZBT-2"'
       author: "smattex"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: "/video/community-cards/if-youre-a-beginner-and-value-a-simple-installation-you-cannot-go-wrong-with-zbt-2.webm"
+      video_poster: "/images/community-cards/if-youre-a-beginner-and-value-a-simple-installation-you-cannot-go-wrong-with-zbt-2.webp"
     - href: "https://www.youtube.com/watch?v=31xtk7Z-Tuc"
       text: "The Home Assistant Connect ZBT-2. The easiest way to start with Zigbee or Thread is now even better!"
       author: "mostlychris"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/the-home-assistant-connect-zbt-2-the-easiest-way-to-start-with-zigbee-or-thread-is-now-even-better.webm
+      video_poster: /images/community-cards/the-home-assistant-connect-zbt-2-the-easiest-way-to-start-with-zigbee-or-thread-is-now-even-better.webp
     - href: "https://www.youtube.com/watch?v=zPEnMk_fT_g"
       text: "How to Setup a Thread Boarder Router using the Home Assistant ZBT-2"
       author: "Simon Says Home Assistant"
@@ -97,8 +97,8 @@ zbt-2:
       text: "Home Assistant Just Got a MASSIVE Upgrade: Meet the ZBT-2! Ultimate Zigbee and Thread Adapter"
       author: "Speak to the Geek"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/home-assistant-just-got-a-massive-upgrade-meet-the-zbt-2-ultimate-zigbee-and-thread-adapter.webm
+      video_poster: /images/community-cards/home-assistant-just-got-a-massive-upgrade-meet-the-zbt-2-ultimate-zigbee-and-thread-adapter.webp
 
 zwa-2:
   title: "Reach that goes the distance"
@@ -126,14 +126,14 @@ zwa-2:
       text: '"Seeing a signal go through concrete building and trees over 200 meters"'
       author: "Howmation"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/seeing-a-signal-go-through-concrete-building-and-trees-over-200-meters.webm
+      video_poster: /images/community-cards/seeing-a-signal-go-through-concrete-building-and-trees-over-200-meters.webp
     - href: "https://www.youtube.com/watch?v=bKQiIkV1MO4"
       text: "Checking out the Home Assistant Connect ZWA-2!"
       author: "Level1Techs"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/checking-out-the-home-assistant-connect-zwa-2.webm
+      video_poster: /images/community-cards/checking-out-the-home-assistant-connect-zwa-2.webp
     - href: "https://www.reddit.com/r/homeassistant/comments/1muye64/got_the_new_home_assistant_connect_zwa2/"
       text: '"Got the new Home Assistant Connect ZWA2"'
       author: "ekobres"
@@ -187,8 +187,8 @@ zwa-2:
       text: "My Smart Home Played me for a Fool"
       author: "Jeff Geerling"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/my-smart-home-played-me-for-a-fool.webm
+      video_poster: /images/community-cards/my-smart-home-played-me-for-a-fool.webp
 
 voice-pe:
   title: "Straight from the community"
@@ -210,8 +210,8 @@ voice-pe:
       text: '"Home Assistant made their own Alexa!!"'
       author: "NetworkChuck"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/home-assistant-made-their-own-alexa.webm
+      video_poster: /images/community-cards/home-assistant-made-their-own-alexa.webp
     - href: "https://www.youtube.com/watch?v=Jtxw6cWn2eg"
       text: "How to Set Up Home Assistant Voice (Preview Edition): A Step-by-Step Guide"
       author: "DIY Made Easy"
@@ -222,8 +222,8 @@ voice-pe:
       text: '"Local Smart Home Voice Control Is AMAZING"'
       author: "Everything Smart Home"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/local-smart-home-voice-control-is-amazing.webm
+      video_poster: /images/community-cards/local-smart-home-voice-control-is-amazing.webp
     - href: "https://www.theverge.com/2024/12/19/24325101/home-assistant-voice-preview-edition-smart-home-voice-assistant-hardware"
       text: "Home Assistant's new voice assistant answers to 'Hey Jarvis'"
       author: "The Verge"
@@ -234,8 +234,8 @@ voice-pe:
       text: "This new smart speaker will change everything!"
       author: "Smart Home Solver"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/this-new-smart-speaker-will-change-everything.webm
+      video_poster: /images/community-cards/this-new-smart-speaker-will-change-everything.webp
     - href: "https://www.juanmtech.com/home-assistant-voice-pe-first-look-and-setup/"
       text: "Home Assistant Voice PE First Look and Setup"
       author: "JuanMTech"
@@ -287,21 +287,27 @@ green:
     - href: "https://www.youtube.com/watch?v=UWPWIv2pKms"
       text: "Getting Started with Home Automation using Home Assistant Green"
       author: "Project Smart Home"
+      author_image: "/images/community-cards/project-smart-home.webp"
+      author_image_alt: "Project Smart Home logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=rAZ3Hpvqb3I"
+      text: 'Home Assistant setup: A step by step guide for beginners'
+      author: "Rebecca Keys"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
-    - href: "https://www.youtube.com/watch?v=3V3Jestsoq0&t=1s"
+      video: /video/community-cards/home-assistant-setup-a-step-by-step-guide-for-beginners.webm
+      video_poster: /images/community-cards/home-assistant-setup-a-step-by-step-guide-for-beginners.webp
+    - href: "https://www.youtube.com/watch?v=3V3Jestsoq0"
       text: '"There''s no going back to Apple Home or Google Home because the level of control you get is completely unmatched."'
       author: "6 Months Later"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/theres-no-going-back-to-apple-home-or-google-home-because-the-level-of-control-you-get-is-completely-unmatched.webm
+      video_poster: /images/community-cards/theres-no-going-back-to-apple-home-or-google-home-because-the-level-of-control-you-get-is-completely-unmatched.webp
     - href: "https://www.youtube.com/watch?v=FLWC0lEE_uE"
       text: "Super Easy Home Assistant Setup in 2026!"
       author: "Simon Says Home Assistant"
       link_icon: "/images/community-cards/play-icon.png"
-      video: /video/frontpage/nc-card.webm
-      video_poster: /images/frontpage/nc-card.webp
+      video: /video/community-cards/super-easy-home-assistant-setup-in-2026.webm
+      video_poster: /images/community-cards/super-easy-home-assistant-setup-in-2026.webp
     - href: "https://www.thesmarthome.blog/getting-started-with-home-assistant-green/"
       text: '"A year later, I still haven''t found any reason to upgrade my trusty Home Assistant Green."'
       author: "The Smart Home Blog"
