@@ -446,24 +446,15 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan
+#### Battery Circulator Fan/Circulator Fan/Standing Fan
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan]
-
-#### Standing Fan
-
-Features:
-- turn on
-- turn off
-- set speed, only applicable for [direct mode]
-- set mode
-- get battery
-- set night light
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan]
+- set night light, only applicable for [Standing Fan]
   - off
   - bright
   - dark
