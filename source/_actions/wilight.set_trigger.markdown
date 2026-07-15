@@ -39,7 +39,7 @@ action: |
   target:
     entity_id: switch.irrigation_watering
   data:
-    trigger_index: "1"
+    trigger_index: 1
     trigger: "12707001"
 {% endexample %}
 
@@ -51,7 +51,7 @@ This sets trigger slot 1 for `switch.irrigation_watering`.
 trigger_index:
   description: The trigger slot to set, from 1 through 4.
   required: true
-  type: string
+  type: integer
 trigger:
   description: The 8-character trigger rule string.
   required: true
