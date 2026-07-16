@@ -64,12 +64,14 @@ The energieleser integration primarily provides the following features based on 
 
 - **Total gas**: Total gas volume measured by the meter (m³)
 - **Gas flow rate**: Current gas flow rate (m³/h)
+- **Pulse count**: Total number of pulses detected by the meter (diagnostic)
 
 ### wasserleser
 
 - **Total water**: Total water volume measured by the meter (m³)
 - **Water flow rate**: Current water flow rate in liters per hour (L/h)
 - **Volume flow rate**: Current water flow rate in cubic meters per hour (m³/h)
+- **Water today**: Water volume consumed today (m³, diagnostic)
 
 ### wärmeleser
 
