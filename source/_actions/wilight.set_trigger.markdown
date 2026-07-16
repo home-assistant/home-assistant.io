@@ -25,8 +25,10 @@ To set a WiLight trigger from an automation or a script:
 {% options_ui %}
 Trigger index:
   description: The trigger slot to set, from 1 through 4.
+  required: true
 Trigger rules:
   description: The 8-character trigger rule string.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

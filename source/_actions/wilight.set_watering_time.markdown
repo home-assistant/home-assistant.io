@@ -25,6 +25,7 @@ To set the watering time from an automation or a script:
 {% options_ui %}
 Duration:
   description: The watering duration in seconds. The value must be from 1 through 1800.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

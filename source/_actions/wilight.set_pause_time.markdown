@@ -25,6 +25,7 @@ To set the pause time from an automation or a script:
 {% options_ui %}
 Duration:
   description: The pause duration in hours. The value must be from 1 through 24.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
