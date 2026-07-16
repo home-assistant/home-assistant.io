@@ -2,10 +2,6 @@
 title: LinknLink
 description: Instructions on how to integrate LinknLink eMotion Ultra devices with Home Assistant.
 ha_category:
-  - Binary sensor
-  - Event
-  - Number
-  - Select
   - Sensor
 ha_config_flow: true
 ha_release: 2026.8
@@ -14,10 +10,6 @@ ha_codeowners:
   - '@linknlink'
 ha_domain: linknlink
 ha_platforms:
-  - binary_sensor
-  - event
-  - number
-  - select
   - sensor
 ha_integration_type: device
 works_with:
@@ -25,7 +17,7 @@ works_with:
 ha_quality_scale: bronze
 ---
 
-The **LinknLink** {% term integration %} connects eMotion Ultra presence sensors directly to Home Assistant over the local network. It provides environmental, occupancy, target-position, and radar-configuration entities without requiring a cloud service or MQTT broker.
+The **LinknLink** {% term integration %} connects eMotion Ultra presence sensors directly to Home Assistant over the local network. It provides environmental, target-count, and nearest-target distance sensors without requiring a cloud service or MQTT broker.
 
 ## Supported devices
 
@@ -40,7 +32,7 @@ Before setting up the integration:
 3. Find the device IP address in your router.
 4. Ensure that UDP traffic from Home Assistant to port `80` on the device is allowed.
 5. Ensure that the network allows reply UDP traffic from the device to Home Assistant. The integration selects and maintains the local position-listener port automatically.
-6. Ensure that TCP traffic from Home Assistant to port `6053` on the device is allowed for environmental and occupancy states.
+6. Ensure that TCP traffic from Home Assistant to port `6053` on the device is allowed for environmental and count states.
 
 {% include integrations/config_flow.md %}
 
@@ -69,34 +61,11 @@ The distance entities use real-time local radar coordinates. They show an unknow
 
 Temperature and humidity require the optional sensor power cable. Their entities remain unavailable when the device does not detect that cable. After connecting the cable and restarting the device, the integration discovers the sensors automatically. When a detected sensor temporarily omits a measurement, its entity shows an unknown state.
 
-Other environmental and occupancy entities show an unknown state when the device omits an individual measurement. They become unavailable when their local data source is disconnected.
-
-### Binary sensors
-
-The integration provides an overall occupancy entity and Zone 1 through Zone 4 occupancy entities. Live target positions provide immediate overall occupancy updates, while the device-reported occupancy state preserves its configured absence delay.
-
-### Events
-
-The **Target position** event entity emits a `position_update` event for each local radar update. Event attributes include the number of targets, each target's `x`, `y`, and `z` coordinates in meters, and the nearest horizontal and three-dimensional distances in meters. Complete coordinate data is emitted as an event rather than stored in a high-frequency sensor state.
-
-### Configuration
-
-The integration provides the following configuration entities:
-
-- Radar sensitivity: low, medium, or high
-- Radar trigger speed: slow, medium, or fast
-- Radar installation mode: ceiling or wall
-- Radar cable direction: cable up or cable down
-- Radar installation height in centimeters
-- Minimum and maximum radar Z-axis detection limits in meters
-- Default absence delay in seconds
-- Zone 1 through Zone 4 absence delays in seconds
-
-The values are read directly from the radar peripheral. After every change, the integration performs a separate device status read and reports an error instead of assuming success when the read-back does not match. When one Z-axis limit is changed, the other device-read limit is preserved.
+Other environmental and count sensors show an unknown state when the device omits an individual measurement. They become unavailable when their local data source is disconnected.
 
 ## Data updates
 
-Target positions use a local UDP push subscription that is renewed every 40 seconds. Environmental, occupancy, zone, and Wi-Fi states are read every 30 seconds through the device's local API. The integration renews authentication and retries after device restarts or network interruptions. Position subscriptions and environmental states recover independently when the device becomes reachable again. Radar configuration is read when the integration starts and again after a recovered connection.
+Target positions use a local UDP push subscription that is renewed every 40 seconds. Environmental, target-count, zone-count, and Wi-Fi states are read every 30 seconds through the device's local API. The integration renews authentication and retries after device restarts or network interruptions. Position subscriptions and environmental states recover independently when the device becomes reachable again.
 
 ## Actions
 
@@ -108,7 +77,6 @@ This integration does not provide custom actions.
 - The device must be restarted after connecting or disconnecting the optional temperature and humidity sensor power cable.
 - The device stores one local UDP position destination. Other software that subscribes to the same position stream redirects updates away from Home Assistant.
 - Automatic network discovery is not provided in the initial release.
-- Changing radar configuration can alter presence detection behavior. Record the original value before making significant adjustments.
 - The device network address can be changed from the integration's **Reconfigure** action. Assigning a stable DHCP lease is still recommended.
 
 ## Troubleshooting
@@ -118,12 +86,12 @@ This integration does not provide custom actions.
 1. Confirm that the device is powered on and connected to Wi-Fi.
 2. Confirm that the entered IP address belongs to the eMotion Ultra device.
 3. Check that Home Assistant can reach the device network without client isolation or a firewall blocking UDP port `80`.
-4. Check that TCP port `6053` is reachable when environmental or occupancy entities are unavailable.
+4. Check that TCP port `6053` is reachable when environmental or count sensors are unavailable.
 5. Stop other local software controlling the device temporarily, then retry setup.
 
 ### Entities are unavailable
 
-Confirm that the device still uses the configured IP address. If only temperature, humidity, illuminance, occupancy, or zone entities are unavailable, verify TCP access to port `6053`. If only the position event and distance sensors are unavailable, verify UDP access to port `80` and return UDP traffic from the device to Home Assistant.
+Confirm that the device still uses the configured IP address. If only temperature, humidity, illuminance, or zone-count sensors are unavailable, verify TCP access to port `6053`. If only the distance sensors are unavailable, verify UDP access to port `80` and return UDP traffic from the device to Home Assistant.
 
 ## Removing the integration
 
