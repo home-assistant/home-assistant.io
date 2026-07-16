@@ -50,7 +50,7 @@ theme:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active, for all rows in the card. By default, the color is based on `state`, `domain`, and `device_class` of your entity. Set to `none` to disable the coloring. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
+  description: Set the icon color when the entity is active for all rows in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. Set to `none` to disable coloring. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
   type: string
   default: state
 header:
@@ -102,7 +102,7 @@ action_name:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active, overriding the card's `color` option for this row. It accepts `state`, `none`, [color token](/dashboards/tile/#available-colors) or hex color code.
+  description: Set the icon color when the entity is active, overriding the card's `color` option for this row. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
   type: string
 tap_action:
   required: false
