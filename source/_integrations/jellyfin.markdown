@@ -47,41 +47,6 @@ Audio Codec:
 
 This integration sets up every media session connected to the Jellyfin server as a [media player](/integrations/media_player/) in Home Assistant. These entities display media information, playback progress, and playback controls.
 
-To browse, search, or play Jellyfin media from an automation or a script, use the shared [media player actions](/integrations/media_player/#list-of-actions) with your Jellyfin media player entity.
-
-Jellyfin supports the `next` and `add` enqueue options for the `media_player.play_media` action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
-
-The following examples show how to play Jellyfin media from a script. Replace the `media_content_id` values with IDs from your own Jellyfin library. You can find these IDs by browsing or searching your Jellyfin library with the `media_player.browse_media` and `media_player.search_media` actions.
-
-Play a movie on a Jellyfin client that supports playback:
-
-{% example %}
-automation: |
-  alias: "Play Jellyfin movie"
-  sequence:
-    - action: media_player.play_media
-      target:
-        entity_id: media_player.living_room
-      data:
-        media_content_id: a982a31451450daeda02c89952e6d7cf
-        media_content_type: movie
-{% endexample %}
-
-Add a TV episode to play next on a Jellyfin client:
-
-{% example %}
-automation: |
-  alias: "Queue Jellyfin episode"
-  sequence:
-    - action: media_player.play_media
-      target:
-        entity_id: media_player.living_room
-      data:
-        media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
-        media_content_type: episode
-        enqueue: next
-{% endexample %}
-
 ### Remote entities
 
 This integration also creates a `remote` {% term entity %} for sending [Jellyfin remote commands](https://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Session/GeneralCommandType.cs) to each client, if supported. For example, the following script can be used to tell the client to navigate right twice, down once, and select the focused item:
@@ -103,6 +68,66 @@ script: |
 {% endexample %}
 
 {% include integrations/actions.md %}
+
+Jellyfin media player entities also support the shared [media player actions](/integrations/media_player/#list-of-actions). You can use these actions to browse, search, or play Jellyfin media from an automation or a script.
+
+Jellyfin supports the `next` and `add` enqueue options for the [Play media](/actions/media_player.play_media/) action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
+
+To find the `media_content_id` of the content you want to play, browse or search your library with the [Browse media](/actions/media_player.browse_media/) and [Search media](/actions/media_player.search_media/) actions.
+
+## Jellyfin automation examples
+
+The following examples show actions you can add to an automation or script to play Jellyfin media. Replace the `media_content_id` values with IDs from your own Jellyfin library.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Play a movie
+
+Play a movie on a Jellyfin client that supports playback.
+
+- **Action**: Play media
+  - **Target**: Living room (`media_player.living_room`)
+  - **Media content ID**: `a982a31451450daeda02c89952e6d7cf`
+  - **Media content type**: `movie`
+
+{% details "YAML example for playing a movie" %}
+
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.living_room
+  data:
+    media_content_id: a982a31451450daeda02c89952e6d7cf
+    media_content_type: movie
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Queue an episode
+
+Add a TV episode to play next on a Jellyfin client.
+
+- **Action**: Play media
+  - **Target**: Living room (`media_player.living_room`)
+  - **Media content ID**: `5ae55567cae75c26671a0a6b027bdd5b`
+  - **Media content type**: `episode`
+  - **Enqueue**: `next`
+
+{% details "YAML example for queueing an episode" %}
+
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.living_room
+  data:
+    media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
+    media_content_type: episode
+    enqueue: next
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
