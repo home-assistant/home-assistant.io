@@ -960,6 +960,7 @@ source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
 source/_integrations/sql.markdown @gjohansson-ST @dougiteixeira
 source/_integrations/squeezebox.markdown @rajlaud @pssc @peteS-UK
+source/_integrations/solyx_energy.markdown @MartinaeyNL
 source/_integrations/srp_energy.markdown @briglx
 source/_integrations/starline.markdown @anonym-tsk
 source/_integrations/statistics.markdown @ThomDietrich @gjohansson-ST
