@@ -57,7 +57,7 @@ Host:
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
 Verify SSL:
-    description: "Verify SSL/TLS certificate when connecting on HTTPS (port 443, Gen2+)."
+    description: "Verify SSL/TLS certificate when connecting on HTTPS (port 443, Gen2+). Enable this only if the device uses a certificate signed by a certificate authority your Home Assistant instance trusts."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
