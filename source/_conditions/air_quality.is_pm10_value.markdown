@@ -11,8 +11,6 @@ related_conditions:
 
 The **PM10 value** condition passes when a PM10 sensor's reading meets a specific level. PM10 covers coarse particulate matter smaller than 10 micrometers in diameter, which includes dust, pollen, and mold spores. If someone in your household has allergies, this condition is especially useful for closing the windows automatically during high-pollen hours and keeping them open when the reading is low, so you enjoy fresh air without the sneezing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

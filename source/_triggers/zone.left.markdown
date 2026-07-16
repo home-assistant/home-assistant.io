@@ -12,8 +12,6 @@ The **Zone left** trigger fires when a person or device tracker leaves a selecte
 
 When you target more than one person or device tracker, the **Trigger when** option controls whether the automation runs for each departure, only the first departure, or only after all selected targets have left the zone.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -2,6 +2,7 @@
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
 ha_category:
+  - Media source
   - Presence detection
   - Sensor
 ha_iot_class: Cloud Polling
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: icloud
 ha_platforms:
   - device_tracker
+  - media_source  
   - sensor
 ha_integration_type: hub
 ---
@@ -57,3 +59,7 @@ The iCloud integration will track available devices on your iCloud account.
 The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
 
 {% include integrations/actions.md %}
+
+## Media source
+
+iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.

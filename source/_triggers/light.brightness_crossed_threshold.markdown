@@ -12,8 +12,6 @@ The **Light brightness crossed threshold** trigger fires when a light {% term en
 
 Unlike [Light brightness changed](/triggers/light.brightness_changed/), which fires on any sizable change, this trigger only fires when the brightness moves across the exact threshold you pick. It fires once per crossing, in whichever direction.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -92,7 +90,7 @@ When you dim the ceiling light below 40% in the evening, turn on the accent ligh
 - **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Condition**: Ceiling light brightness is below 40%
-- **Action**: Light: Turn on (accent lights)
+- **Action**: Turn on light (accent lights)
 
 {% details "YAML example for mood lighting on dim" %}
 

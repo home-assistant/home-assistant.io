@@ -10,8 +10,6 @@ related_triggers:
 
 The **Zone occupancy cleared** trigger fires when a selected zone changes from occupied to empty. Use it when an automation should run after everyone has left a place, without listing each person or device tracker in the trigger.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

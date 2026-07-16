@@ -11,8 +11,6 @@ The **PM4 level crossed threshold** trigger fires when the PM4 (particulate matt
 
 Think of a nursery where clean air really matters. This trigger lets you boost the air filter to high speed the moment PM4 levels rise, or send a notification to your phone when spring pollen pushes particle counts past your comfort level. You stay one step ahead, keeping the air cleaner for young children and anyone with allergies.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

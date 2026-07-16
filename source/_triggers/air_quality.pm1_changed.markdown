@@ -11,8 +11,6 @@ The **PM1 level changed** trigger fires after the PM1 (particulate matter 1 micr
 
 Imagine your nursery air purifier ramping up the moment particle levels shift, keeping the air as clean as possible for little ones without you doing antything. Use this trigger to start an air purifier, adjust HVAC filtration, or log particle count changes when your PM1 sensor reports a significant shift.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -12,8 +12,6 @@ The **Media player turned off** trigger fires when a media player turns off. Use
 
 Use **Media player turned off** to switch off related lights, lock up a room after a projector is shut down, or end routines that only make sense while a media player is on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player turned off** in an automation:

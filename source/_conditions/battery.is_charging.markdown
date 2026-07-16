@@ -11,7 +11,7 @@ related_conditions:
 
 The **Battery is charging** condition passes when a battery-powered device is actively charging. A device is charging when it is connected to a power source, such as a charger, dock, or USB cable. Use **Battery is charging** to run an automation only while a device is plugged in, for example to delay noisy actions until a phone is on its charger, or to confirm a vacuum is docked and topping up before starting another routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
+For a visual overview of all battery statuses, open {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include conditions/ui_header.md %}
 

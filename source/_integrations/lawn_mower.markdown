@@ -39,8 +39,6 @@ A lawn mower entity can have the following states:
 You can use lawn mower triggers and conditions to react when mowing starts, pauses, or finishes.
 You can also combine them with weather, time, and notifications to keep your yard routine simple.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: Send a notification when mowing is done
@@ -58,7 +56,7 @@ When the mower returns to dock, send a message so you know the job is finished w
 automation: |
   alias: "Notify when the mower is done"
   triggers:
-    - trigger: lawn_mower.docked
+    - trigger: lawn_mower.returned_to_dock
       target:
         entity_id: lawn_mower.backyard
   actions:

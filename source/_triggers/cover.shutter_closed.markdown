@@ -11,8 +11,6 @@ The **Shutter closed** trigger fires when a targeted shutter changes to closed. 
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shutter closes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

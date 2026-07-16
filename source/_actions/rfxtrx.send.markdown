@@ -63,7 +63,7 @@ event:
 
 Send a raw event to switch on a device that Home Assistant does not control directly, for example an older remote-controlled outlet, when the sun goes down.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Action**: RFXCOM RFXtrx: Send
   - **Event**: `0b1111e003af16aa10000060`
 
@@ -73,8 +73,7 @@ Send a raw event to switch on a device that Home Assistant does not control dire
 automation: |
   - alias: "Switch on the porch light at sunset"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: rfxtrx.send
         data:
