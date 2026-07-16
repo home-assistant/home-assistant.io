@@ -4,6 +4,7 @@ description: Instructions on how to integrate Whirlpool appliances with Home Ass
 ha_category:
   - Climate
   - Hub
+  - Light
   - Number
   - Select
 ha_release: '2022.10'
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - light
   - number
   - select
   - sensor
@@ -70,11 +72,12 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 
 - [Binary Sensor](#binary_sensor)
 - [Climate](#climate)
+- [Light](#light)
 - [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 
-### Binary Sensor
+### Binary sensor
 
 The binary sensor platform provides the following functionality:
 
@@ -92,6 +95,14 @@ The following actions are also available:
 - [**fan mode**](/integrations/climate/#action-set-fan-mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate/#action-set-swing-mode) (`off`, `horizontal`)
 
+### Light
+
+The light platform provides the following functionality:
+
+- turn an oven cavity light on or off
+
+Ovens with two cavities have separate light entities for the upper and lower cavity.
+
 ### Number
 
 The number platform provides the following entity for ovens:
@@ -107,6 +118,10 @@ If the oven is idle, setting the target temperature starts a bake cycle at the s
 The select platform provides the following entity for refrigerators:
 
 - **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
+
+The select platform provides the following entity for ovens:
+
+- **Cook mode**: Sets the cook mode of an oven cavity, keeping the current target temperature. Selecting `Standby` turns the oven off by stopping the current cook.
 
 ### Sensor
 

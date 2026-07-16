@@ -93,9 +93,6 @@ The Ohme integration provides the following entities.
 - **Current**
   - **Description**: Current draw from the charger in amperes.
   - **Available for devices**: all
-- **Energy**
-  - **Description**: Energy consumption of the charger in kWh.
-  - **Available for devices**: all
 - **Voltage**
   - **Description**: Voltage supplied to the charger. This is only available when a vehicle is connected.
   - **Available for devices**: all
