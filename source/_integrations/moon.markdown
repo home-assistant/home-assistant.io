@@ -50,6 +50,8 @@ The more info dialog showing the current moon phase.
 
 {% include integrations/triggers.md %}
 
+{% include integrations/conditions.md %}
+
 ## Data updates
 
 The phase is calculated on your own system from the current date, so no data is fetched from the internet. Home Assistant recalculates it as the date advances, so the sensor changes at most once per day.
@@ -57,7 +59,7 @@ The phase is calculated on your own system from the current date, so no data is 
 ## Known limitations
 
 - The phase is based on the date only. The sensor does not report the exact percentage of illumination, moonrise and moonset times, or how the moon looks from your specific location or hemisphere.
-- The triggers are also based only on the phase. They do not react to moonrise, moonset, the moon's elevation, or the exact percentage of illumination.
+- The triggers and conditions are also based only on the phase. They do not react to moonrise, moonset, the moon's elevation, or the exact percentage of illumination.
 
 ## Removing the integration
 
