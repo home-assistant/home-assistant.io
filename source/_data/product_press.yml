@@ -250,6 +250,7 @@ voice-pe:
       link_icon: "/images/community-cards/document-icon.png"
     - href: "https://haade.fr/en/blog/home-assistant-unveils-home-assistant-voice-preview-edition"
       text: '"Here is a super product to control your home automation by voice and all locally"'
+      author: "Haade"
       author_image: "/images/community-cards/haade.webp"
       author_image_alt: "Haade logo"
       quote: true
