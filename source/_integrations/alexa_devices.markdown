@@ -124,6 +124,36 @@ In addition to sensors, you can use the following entities:
 - **Switch** - Do not disturb
 - **To-do list** - Shopping, to-do, and custom lists.
 
+## Communications
+
+The integration exposes configuration entities for communication settings on each Alexa device. You can toggle **Communications** and **Announcements**, and choose a **Drop In** mode using a select entity. These settings match what you see in the Alexa app.
+
+{% warning %}
+
+Amazon applies rate limits to these configuration changes. Rate limit warnings may appear in the logs, but the integration caches entity values to prevent them from appearing as unavailable.
+
+{% endwarning %}
+
+<img width="346" height="351" alt="configuration_controls" src="/images/integrations/alexa_devices/alexa_devices_configuration_controls.png" />
+
+## Media Players
+
+The integration includes media player support for echo devices and third-party devices that have built-in Alexa. Media player entities are added as typical Home Assistant media players with support for volume control, muting, play/pause, and media selection.
+
+Currently, Fire Stick, Fire Cube, and other FireTV devices do not include media player support, but support may be added in a future update.
+
+<img width="346" height="167" alt="media_player_entity" src="/images/integrations/alexa_devices/alexa_devices_media_player_entity.png" />
+
+## To-do
+
+To-do list support has been added to Alexa Devices. Users can add items to and remove items from their Alexa Shopping List, as well as the Alexa To-do List and any custom lists created by the user. Lists can be accessed from the To-do lists tab in the Home Assistant menu bar. Sensor entities are created for each list and appear under the user's account in the Alexa Devices integration page (the same page that includes the user's Alexa Routine buttons). These sensors will show a state of how many items are on the list. Supported features include Create todo item, Delete todo item, and Update todo item.
+
+## Voice Attributes
+
+The integration includes voice event entities for each Alexa device. The entity state displays a timestamp for when the device was last spoken to or activated. The entity attributes provide additional details about the last voice interaction, including the event type, intent, voice command, voice reply, and friendly name. You can use these attributes to create template helpers.
+
+<img width="580" height="473" alt="voice_event" src="/images/integrations/alexa_devices/alexa_devices_voice_event.png" />
+
 ## Examples
 
 ### Send announcement when you arrive home
@@ -172,6 +202,65 @@ target:
   entity_id: notify.study_dot_speak
 
 ```
+
+### Last Device Templates
+
+Many users would like to know which Alexa Device was last used, especially when spoken to, which can help in scripts, automations, and/or blueprints.
+
+```yaml
+{% set entity =
+  integration_entities('alexa_devices')
+  | select('match', 'event.')
+  | select('has_value')
+  | expand
+  | sort(attribute='state', reverse=true)
+  | first
+%}
+{{ entity.attributes.friendly_name | regex_replace(' ?Voice event$', '') }}
+
+```
+
+<img width="579" height="474" alt="last_called_device" src="/images/integrations/alexa_devices/alexa_devices_last_called_device.png" />
+
+This template can be modified to provide a user with any information they need from the Voice Attributes, such as including what was the exact voice command used during the event.
+
+```yaml
+{% set entity =
+  integration_entities('alexa_devices')
+  | select('match', 'event.')
+  | select('has_value')
+  | expand
+  | sort(attribute='state', reverse=true)
+  | first
+%}
+{{ entity.attributes.friendly_name | regex_replace(' ?Voice event$', '') }}
+{{ entity.attributes.voice_command }}
+
+```
+
+<img width="580" height="472" alt="last_called_event" src="/images/integrations/alexa_devices/alexa_devices_last_called_event.png" />
+
+You can also template the attributes for a specific entity_id, making it even more simple to use in scripts, automations, and/or blueprints 
+
+```yaml
+{{
+  integration_entities('alexa_devices')
+  | select('match', 'event.')
+  | select('has_value')
+  | expand
+  | sort(attribute='state', reverse=true)
+  | map(attribute='entity_id')
+  | first
+  | default(none)
+  | device_id
+  | device_entities
+  | select('match', 'notify.*_speak')
+  | list
+}}
+
+```
+
+<img width="581" height="475" alt="last_called_entity" src="/images/integrations/alexa_devices/alexa_devices_last_called_entity.png" />
 
 ## Data updates
 
