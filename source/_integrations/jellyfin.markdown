@@ -69,9 +69,21 @@ script: |
 
 {% include integrations/actions.md %}
 
-Jellyfin media player entities also support the shared [media player actions](/integrations/media_player/#list-of-actions). You can use these actions to browse, search, or play Jellyfin media from an automation or a script.
+Jellyfin media player entities also support the following shared [media player actions](/integrations/media_player/#list-of-actions), depending on the capabilities of the Jellyfin client:
 
-Jellyfin supports the `next` and `add` enqueue options for the [Play media](/actions/media_player.play_media/) action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
+- [Browse media](/actions/media_player.browse_media/)
+- [Search media](/actions/media_player.search_media/)
+- [Play specified media](/actions/media_player.play_media/)
+- [Play media](/actions/media_player.media_play/)
+- [Pause media](/actions/media_player.media_pause/)
+- [Play/Pause media](/actions/media_player.media_play_pause/)
+- [Stop media](/actions/media_player.media_stop/)
+- [Seek media](/actions/media_player.media_seek/)
+- [Set media player volume](/actions/media_player.volume_set/), if the client supports setting the volume
+- [Turn up media player volume](/actions/media_player.volume_up/) and [Turn down media player volume](/actions/media_player.volume_down/), if the client supports setting the volume
+- [Mute/unmute media player](/actions/media_player.volume_mute/), if the client supports muting and unmuting
+
+Jellyfin supports the `next` and `add` enqueue options for the [Play specified media](/actions/media_player.play_media/) action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
 
 To find the `media_content_id` of the content you want to play, browse or search your library with the [Browse media](/actions/media_player.browse_media/) and [Search media](/actions/media_player.search_media/) actions.
 
