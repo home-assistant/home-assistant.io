@@ -54,9 +54,7 @@ The available input sources depend on the receiver model you select during setup
 
 ### Selecting tuner presets and frequencies
 
-On the main zone, you can tune the receiver to a stored tuner preset or directly to
-an FM frequency. This works from the media browser, which lists the tuner presets, or
-by calling the `media_player.play_media` action with a `media_content_type` of `channel`.
+On the main zone, you can tune the receiver to a stored tuner preset or directly to an FM frequency. This works from the media browser, which lists the tuner presets, or by calling the `media_player.play_media` action with a `media_content_type` of `channel`.
 
 The `media_content_id` can be a preset name from `A1` through `G8`:
 ```yaml
