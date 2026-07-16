@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: rympro
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Read Your Meter Pro** {% term integration %} connects with a [Read Your Meter Pro](https://rym-pro.com/) account to get water meter reads into Home Assistant.

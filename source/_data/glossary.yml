@@ -99,8 +99,8 @@
 - term: Blueprint
   definition: >-
     A blueprint is a [script](/getting-started/concepts-terminology/#scripts), [automation](/getting-started/concepts-terminology/#automation), or [template](/integrations/template/) entity configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts,
-    automations or template entities based on the same blueprint, with each having its own
+    marked as configurable. This allows you to create multiple scripts,
+    automations, or template entities based on the same blueprint, with each having its own
     configuration-specific settings. Blueprints are shared by the community on
     the [blueprints
     exchange](https://community.home-assistant.io/c/53) in
@@ -115,6 +115,14 @@
   link: /integrations/button
   aliases:
     - buttons
+- term: Calendar entity
+  definition: >-
+    A calendar entity represents a schedule of events coming from a local or external calendar source.
+    It can be used to trigger automations based on the start or end of an event, react to offsets (like 15 minutes before), or retrieve event details through services.
+  link: /integrations/calendar
+  aliases:
+    - calendar
+    - calendars
 - term: Category
   definition: >-
     A category is an organization tool that allows [grouping](/docs/organizing/) items in a table.
@@ -133,6 +141,20 @@
   link: /integrations/climate
   aliases:
     - climates
+- term: Cloud-independent
+  definition: >-
+    Home Assistant is cloud-independent, meaning it does not need an internet
+    connection or a vendor cloud account to keep your smart home running.
+    Devices that talk over local protocols such as Zigbee, Z-Wave, Matter,
+    Thread, and ESPHome continue to work even when the internet is down or a
+    manufacturer shuts down its cloud service. Optional cloud features, such as
+    [Home Assistant Cloud](https://www.nabucasa.com), can be added on top, but
+    the core of your smart home stays on your own hardware.
+  excerpt: >-
+    Cloud-independent means Home Assistant does not need an internet
+    connection or a vendor cloud account to keep your smart home running.
+  aliases:
+    - cloud independent
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a
@@ -299,6 +321,14 @@
   link: /integrations/group/
   aliases:
     - groups
+- term: Helper
+  definition: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need. Some helpers include toggles, number sliders, dropdown lists, text fields, date/time pickers, counters, timers, and schedules. Other helpers derive their value from other entities. For example, computing a minimum or maximum, tracking a trend, measuring utility consumption, or applying a filter. Depending on the type, you can create a helper in **Settings** > **Devices & services** > **Helpers** or with a YAML configuration. Helpers appear as regular entities and can be used in automations, conditions, dashboards, and templates.
+  excerpt: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
+  aliases:
+    - helpers
+  link: /integrations/#helper
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
@@ -441,6 +471,19 @@
   link: /integrations/light
   aliases:
     - lights
+- term: Local control
+  definition: >-
+    Local control means Home Assistant talks to your devices directly over your
+    own network, without sending the commands through a vendor cloud first.
+    Local control makes your smart home faster, keeps your data on your own
+    hardware, and keeps things working when the internet is down. Many
+    integrations in Home Assistant use local control out of the box,
+    including those for Zigbee, Z-Wave, Matter, Thread, and ESPHome devices.
+  excerpt: >-
+    Local control means Home Assistant talks to your devices directly over your
+    own network, without going through a vendor cloud.
+  aliases:
+    - locally controlled
 - term: Matter
   definition: >-
     Matter is an open-source standard that defines how to control smart home
@@ -492,10 +535,9 @@
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
     perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. If you do not see the **Quick
-    reload** option in the menu, you need to enable **Advanced mode** in your
-    user settings. More granular reload options are available in *YAML
-    configuration reloading* section in **Settings** > **Developer tools** > **YAML**.
+    Assistant** (top right) > **Quick reload**. More granular reload options
+    are available in *YAML configuration reloading* section in **Settings** >
+    **Developer tools** > **YAML**.
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front
@@ -511,7 +553,7 @@
 
 - term: Script
   definition: >
-    Scripts are components that allow users to specify a sequence of actions to
+    Scripts are components that allow you to specify a sequence of actions to
     be executed by Home Assistant when turned on.
   link: /docs/scripts/
   aliases:
@@ -659,3 +701,49 @@
   definition: >-
     Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
   link: /blog/2021/08/04/release-20218/#long-term-statistics
+- term: boolean
+  definition: >-
+    A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.
+  aliases:
+    - bool
+- term: float
+  definition: >-
+    A number that can have decimal places, like 21.5 or 3.14. Used for temperatures, percentages, and other measurements that need precision.
+- term: integer
+  definition: >-
+    A whole number without decimal places, like 1, 42, or -5. Used for counts, indices, and whole values.
+  aliases:
+    - int
+- term: string
+  definition: >-
+    A piece of text, like a name, message, or entity ID. In templates, wrap strings in quotes, like "living_room" or "lights are on".
+- term: list
+  definition: >-
+    An ordered collection of values, like a list of entity IDs or a list of numbers. Written with square brackets in templates, for example [1, 2, 3].
+- term: iterable
+  definition: >-
+    A sequence of values produced by filters like map, select, or selectattr. You can loop through it once. To reuse it or work with it as a list, apply `| list` at the end of the chain.
+- term: datetime
+  definition: >-
+    A value representing a specific moment in time, including the date, time, and time zone. For example, 2026-04-05 14:30:00+00:00. Used for timestamps, scheduling, and time-based calculations.
+- term: any
+  definition: >-
+    A flexible type that can be a string, number, list, or any other type. Used when a function or filter works with multiple types, and the actual result depends on what you pass in.
+- term: "template function"
+  definition: >-
+    A template function is called by name with parentheses, like states("sensor.temperature") or now(). It takes input values as arguments and returns a result.
+  link: /template-functions/
+  aliases:
+    - function
+- term: "template filter"
+  definition: >-
+    A template filter transforms a value using the pipe (|) operator. It takes the value on the left and returns a modified result. For example, states("sensor.temperature") | float converts the state to a number.
+  link: /template-functions/
+  aliases:
+    - filter
+- term: "template test"
+  definition: >-
+    A template test checks a condition using the "is" keyword and returns true or false. For example, value is number checks if a value is a number.
+  link: /template-functions/
+  aliases:
+    - test

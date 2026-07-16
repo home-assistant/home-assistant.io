@@ -37,43 +37,114 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 
 This {% term integration %} will expose the following sensors:
 
-- Air density
-- Air pressure
-- Dew point
-- Feels like
-- Humidity
-- Illuminance
-- Irradiance
-- Lightning average distance
-- Lightning count
-- Precipitation (accumulated over the previous minute)
-- Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute)
-- Precipitation type
-- Temperature
-- UV index
-- Vapor pressure
-- Wet bulb temperature
-- Wind direction
-- Wind direction average
-- Wind gust
-- Wind lull
-- Wind speed
+### Atmospheric sensors
 
-## Event entity
+- **Air density**
+  - **Description**: The mass per unit volume of Earth’s atmosphere.
 
-The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
-This {% term integration %} will expose these {% term event %} {% term entities %}  and can be used for automations. The following entities will be exposed:
+- **Air pressure**
+  - **Description**: The atmospheric pressure at the station level.
 
-- Lightning strike
-- Precipitation start
+- **Dew point**
+  - **Description**: The temperature to which air must be cooled to become saturated with water vapor.
 
-## Diagnostic sensors
+- **Feels like**
+  - **Description**: An index that combines temperature and humidity to determine the apparent temperature.
+
+- **Humidity**
+  - **Description**: Percentage of moisture in the air relative to the maximum it can hold at the current temperature.
+
+- **Temperature**
+  - **Description**: The degree or intensity of heat present in the area.
+
+- **Vapor pressure**
+  - **Description**: Pressure exerted by water vapor in the air (absolute moisture content).
+
+- **Wet bulb temperature**
+  - **Description**: The lowest temperature that can be reached under current ambient conditions by the evaporation of water only.
+
+### Wind sensors
+
+- **Wind direction**
+  - **Description**: Wind direction relative to the station direction.
+
+- **Wind direction average**
+  - **Description**: Wind direction average.
+
+- **Wind gust**
+  - **Description**: Wind gusts over a maximum 3 second sample.
+
+- **Wind lull**
+  - **Description**: Wind lull over a minimum 3 second sample.
+
+- **Wind speed**
+  - **Description**: Wind speed at the station.
+
+### Precipitation sensors
+
+- **Precipitation**
+  - **Description**: Precipitation (accumulated over the previous minute).
+
+- **Precipitation intensity**
+  - **Description**: Precipitation intensity ([extrapolated](https://weatherflow.github.io/Tempest/api/derived-metric-formulas.html#rain-rate) from the accumulation over the previous minute).
+
+- **Precipitation type**
+  - **Description**: Precipitation type (`none`, `rain`, `hail`, `rain_hail`).
+
+### Lightning sensors
+
+- **Lightning average distance**
+  - **Description**: Average distance of recently detected lightning strikes.
+
+- **Lightning count**
+  - **Description**: Count of lightning strikes in the past minute.
+
+- **Lightning last distance**
+  - **Description**: Distance to the most recent detected lightning strike.
+
+- **Lightning last energy**
+  - **Description**: Energy estimate for the most recent detected lightning strike, as reported by the station.
+
+- **Lightning last strike**
+  - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
+
+### Solar and light sensors
+
+- **Illuminance**
+  - **Description**: Amount of visible light received, measured in lux.
+
+- **Irradiance**
+  - **Description**: Total solar radiation received, measured in W/m².
+
+- **UV index**
+  - **Description**: Intensity of ultraviolet radiation received.
+
+### Diagnostic sensors
 
 Additionally the following diagnostic sensors are available:
 
-- Battery voltage
-- Signal strength
-- Uptime
+- **Battery (percentage)**
+  - **Description**: Station battery (percentage).
+
+- **Battery voltage**
+  - **Description**: Battery voltage of station.
+
+- **Signal strength**
+  - **Description**: Signal strength between station and hub.
+
+- **Uptime**
+  - **Description**: Uptime of station.
+
+## Event entities
+
+The WeatherFlow Tempest station also sends event triggers when it starts raining and when there is a lightning strike nearby.
+This {% term integration %} will expose these {% term event %} {% term entities %} and can be used for automations. The following entities will be exposed:
+
+- **Lightning strike**
+  - **Description**: Fires when lightning strikes within range of station.
+    
+- **Precipitation start**
+  - **Description**: Fires when precipitation starts at the station.
 
 ## Networking notes
 

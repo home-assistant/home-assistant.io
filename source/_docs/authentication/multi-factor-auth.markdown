@@ -48,11 +48,11 @@ You will need an authenticator app on your phone. We recommend either [Google Au
     {% endcaution %}
 
 5. Your phone app will now start generating a different six-digit code every thirty seconds or so. Enter one of these into Home Assistant under the QR code where it asks for a **Code**.
-   - **Result**: Home Assistant and your phone app are now in sync and you can now use the code displayed in the app to log in.
+   - Result: Home Assistant and your phone app are now in sync and you can now use the code displayed in the app to log in.
 
 #### Using TOTP
 
-Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in. 
+Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in.
 
 {% note %}
 TOTP is _time based_ so it relies on your Home Assistant clock being accurate. If the verification keeps failing, make sure the clock on Home Assistant is correct.

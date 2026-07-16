@@ -20,7 +20,6 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - climate
-  - device_tracker
   - diagnostics
   - sensor
   - switch
@@ -49,11 +48,11 @@ It currently supports presenting the current temperature, the setting temperatur
 
 ## Connect with Tado
 
-As of **March 21st 2025**, Tado has changed the authentication method. This means a few extra steps need to be followed in order to log in:
+As of **March 21st 2025**, Tado has changed the authentication method. This means a few extra steps need to be followed to log in:
 
-1. When you set up this integration, the integration will setup a "Device Code" and provide a URL to Tado's authentication server.
+1. When you set up this integration, the integration will set up a "Device Code" and provide a URL to Tado's authentication server.
 2. Follow the URL and confirm the "Device Code" (normally it should be copied automatically).
-3. Follow the steps to login and authenticate your account.
+3. Follow the steps to log in and authenticate your account.
 4. Once the authentication is completed, go back to Home Assistant. Wait a few seconds for the loading screen to finish. You are now connected with Tado!
 
 {% important %}
@@ -144,7 +143,6 @@ script:
           time_period: "01:30:00"
 ```
 
-{% raw %}
 ```yaml
 # Example automation to set temperature offset based on another thermostat value
 automation:
@@ -175,7 +173,6 @@ automation:
           {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
           {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
 ```
-{% endraw %}
 
 ### Action: Add meter reading
 
@@ -188,7 +185,6 @@ The `tado.add_meter_reading` action adds your meter readings to Tado Energy IQ. 
 
 Examples:
 
-{% raw %}
 ```yaml
 # Example automation add meter readings on a daily basis.
 automation:
@@ -206,4 +202,3 @@ automation:
           config_entry: ef2e84b3dfc0aee85ed44ac8e8038ccf
           reading: "{{ states('sensor.gas_consumption')|int }}"
 ```
-{% endraw %}

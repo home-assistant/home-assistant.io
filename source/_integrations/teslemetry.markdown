@@ -4,6 +4,7 @@ description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Car
   - Climate
   - Cover
@@ -24,6 +25,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - climate
   - cover
   - device_tracker
@@ -36,6 +38,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: platinum
 ---
 
 The **Teslemetry** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
@@ -44,7 +47,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
+Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured to run certain commands.
 
 {% include integrations/config_flow.md %}
 
@@ -140,6 +143,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
+|Select|Seat cooler front left|Yes|
+|Select|Seat cooler front right|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
@@ -166,6 +171,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Current speed limit|No|
 |Sensor|DC charging energy in|No|
 |Sensor|DC charging power|No|
+|Sensor|Destination|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
@@ -255,6 +261,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Grid services enabled|Yes|
 |Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
+|Calendar|Buy tariff|Yes|
+|Calendar|Sell tariff|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|

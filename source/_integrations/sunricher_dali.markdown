@@ -14,10 +14,11 @@ ha_domain: sunricher_dali
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - scene
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 related:
   - url: https://www.sunricher.com/din-rail-ethernet-dali-gateway-sr-gw-eda.html
@@ -66,6 +67,10 @@ DALI scenes configured on the gateway are automatically imported into Home Assis
 DALI sensor devices connected to the gateway are represented as sensor entities:
 
 - **Illuminance sensor**: Reports ambient light level in lux
+
+Each DALI light device also provides:
+
+- **Energy sensor**: Tracks cumulative energy consumption in Wh. This sensor is compatible with the Energy Dashboard and updates when the device reports energy data.
 
 ### Binary sensors
 

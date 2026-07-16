@@ -23,14 +23,21 @@ Your API key can be found in Settings > General in the Radarr Web UI.
 
 ## Integration entities
 
-Each added configuration entry will create the following binary sensor:
+### Binary sensor
 
 - **Health**: Shows if the Radarr instance is healthy. This is determined to have a problem if Radarr cannot communicate with any enabled download clients or no indexers are available for RSS feeds or searches.
 
-A calendar entity will also be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
+### Calendar
 
-Each added configuration entry will create the following sensors:
+A {% term calendar %} entity will also be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
 
-- **Disk Space**: Shows the disk space available to Radarr.
+A calendar entity will be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
+
+### Sensors
+
+- **Disk space**: Shows the disk space available to Radarr in gigabytes. A separate sensor is created for each storage path configured in Radarr (for example: `sensor.radarr_disk_space_movies`).
 - **Movies**: Shows the number of movies in the Radarr database. (disabled by default)
-- **Start Time**: The time when Radarr was last restarted.
+- **Queue**: The number of movies in the download queue. (disabled by default)
+- **Start time**: The time when Radarr was last restarted. (disabled by default)
+
+{% include integrations/actions.md %}

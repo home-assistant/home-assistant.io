@@ -30,7 +30,7 @@ ha_platforms:
   - update
 ha_homekit: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
@@ -181,7 +181,7 @@ HVAC mode:
 
 **Proposed action use:**
 
-1. Go to {% my server_controls title="**Settings** > **Developer Tools** > **YAML**" %}.
+1. Go to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %}.
 2. Switch to the **Actions** page.
 3. Use the `sensibo.get_device_capabilities` action.
 4. Select the `climate` entity as the target.
@@ -257,7 +257,7 @@ AC integration and Geo integration needs to be pre-configured via the app before
 Target:
   description: Select the Sensibo climate entity.
 AC integration:
-  description: Integrate with a HVAC device.
+  description: Integrate with an HVAC device.
 Geo integration:
   description: Integrate with presence.
 Indoor air quality:
@@ -319,8 +319,6 @@ Use the [Get device mode capabilities](#get-device-mode-capabilities) action to 
 
 **Example full state:**
 
-{% raw %}
-
 ```yaml
 on: true
 fanLevel: "high"
@@ -332,15 +330,11 @@ horizontalSwing: "fixedLeft"
 light: "on"
 ```
 
-{% endraw %}
-
 ## Examples
 
 ### Template switch to turn HVAC device on or off
 
 A simple switch which has `heat` or `off` as mode.
-
-{% raw %}
 
 ```yaml
 switch:
@@ -363,11 +357,7 @@ switch:
             hvac_mode: "off"
 ```
 
-{% endraw %}
-
 ### Start the timer for 30 minutes when I get home
-
-{% raw %}
 
 ```yaml
 automation:
@@ -385,11 +375,7 @@ automation:
         entity_id: climate.hvac_device
 ```
 
-{% endraw %}
-
 ### Set a full state of the HVAC device at 6pm
-
-{% raw %}
 
 ```yaml
 automation:
@@ -410,14 +396,12 @@ automation:
         entity_id: climate.hvac_device
 ```
 
-{% endraw %}
-
 ## Data fetching and limitations
 
 Data is {% term polling polled %} from the **Sensibo** API once every minute for all devices.
 
 If {% term polling %} cannot happen because of no connectivity or a malfunctioning API, it will retry a few times before failing.
-The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
+The user can use the [`homeassistant.update_entity`](/integrations/homeassistant/#action-update-entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 

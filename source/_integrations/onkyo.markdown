@@ -12,6 +12,7 @@ ha_integration_type: device
 ha_iot_class: Local Push
 ha_platforms:
   - media_player
+  - switch
 ha_release: 0.17
 ha_ssdp: true
 ha_quality_scale: bronze
@@ -39,16 +40,22 @@ The above settings can also be adjusted later. To change **Host** or **Volume Re
 
 {% configuration_basic %}
 Max Volume:
-  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, i.e., if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
+  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, that is, if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
 Input sources:
   description: Mappings of input sources to their names.
 Listening modes:
   description: Mappings of listening modes to their names.
 {% endconfiguration_basic %}
 
-## Zones
+## Supported functionality
+
+### Zones
 
 If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
+
+### Channel muting switches
+
+If your receiver supports channel muting, the integration creates a switch for each speaker channel. Turning a switch on mutes that channel, and turning it off unmutes it. This lets you mute individual channels independently of the main volume.
 
 ## Actions
 

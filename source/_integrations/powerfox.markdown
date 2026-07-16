@@ -1,6 +1,6 @@
 ---
-title: Powerfox
-description: Instructions on how to integrate Powerfox within Home Assistant.
+title: Powerfox Cloud
+description: Instructions on how to integrate Powerfox Cloud within Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -18,11 +18,15 @@ ha_quality_scale: silver
 ha_zeroconf: true
 ---
 
-The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.
+The **Powerfox Cloud** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.
 
 [Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption.
 
 The Powerfox FLOW device delivers its measurements via a daily/hourly report endpoint, while other devices provide real-time data.
+
+{% note %}
+If you have a **PA 201901**, **PA 201902**, or **PB 202001** (poweropti+) and prefer to poll your device locally without relying on the cloud, see the [Powerfox Local](/integrations/powerfox_local) integration.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -62,8 +66,6 @@ This integration does not provide additional actions.
 Use this automation to keep an eye on sudden peaks in your electricity usage. When the Powerfox sensor reports more than 4 kW for two minutes, Home Assistant sends a notification so you can react quickly (for example by switching off large loads).
 
 {% details "Example YAML automation" %}
-{% raw %}
-
 ```yaml
 alias: "Powerfox high usage alert"
 description: "Notify me when the Powerfox meter reports sustained high power draw."
@@ -74,13 +76,13 @@ triggers:
     for:
       minutes: 2
 actions:
-  - action: notify.mobile_app_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "High consumption detected"
       message: "Powerfox currently reports {{ states('sensor.poweropti_power') }} W."
 ```
-
-{% endraw %}
 {% enddetails %}
 
 Replace the threshold value, and the `notify` target with the entities that exist in your installation.

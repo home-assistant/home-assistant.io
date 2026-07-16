@@ -4,7 +4,7 @@
 These below instructions are for an installation of {% term "Home Assistant Container" %} running in your own container environment, which you manage yourself. Any [OCI](https://opencontainers.org/) compatible runtime can be used, however this guide will focus on installing it with Docker.
 
 {% note %}
-This installation type **does not have access to apps**. If you want to use apps, you need to use another installation type. The recommended type is {% term "Home Assistant Operating System" %}. Checkout the [overview table of installation types](https://www.home-assistant.io/installation/#about-installation-types) to see the differences.
+This installation type **does not have access to apps**. If you want to use apps, you need to use another installation type. The recommended type is {% term "Home Assistant Operating System" %}. Checkout the [overview table of installation types](/installation/#about-installation-types) to see the differences.
 {% endnote %}
 
 {% important %}
@@ -12,7 +12,7 @@ This installation type **does not have access to apps**. If you want to use apps
 <b>Prerequisites</b>
 This guide assumes that you already have an operating system setup and a container runtime installed (like Docker).
 
-If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer. Docker _Desktop_ will not work, you must use Docker _Engine_.
+If you are using Docker, you need Docker Engine 23.0.0 or later. Docker _Desktop_ will not work; you must use Docker _Engine_.
 
 {% endimportant %}
 

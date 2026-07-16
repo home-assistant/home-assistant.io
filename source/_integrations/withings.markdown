@@ -15,7 +15,7 @@ ha_platforms:
   - calendar
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 
@@ -46,7 +46,7 @@ You must have a developer account to distribute the data.
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
-     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+     - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
    - **Change logo**: Optional
 6. **Save** your changes.
    - Once saved, the *ClientID* and *Secret* fields will be populated.
@@ -81,13 +81,33 @@ The binary sensor for sleep will only work if the {% term integration %} can est
 
 For webhooks to work, your Home Assistant instance must be reachable by the Withings cloud service. The following requirements must be met:
 
-- **Publicly accessible** - Your Home Assistant instance must be reachable from the internet
-- **HTTPS on port 443** - Withings requires HTTPS specifically on port 443. Using HTTPS on a non-standard port (such as 8443) will not work
-- **Valid SSL certificate** - The certificate must be signed by a globally recognized Certificate Authority (for example, Let's Encrypt). Self-signed certificates will not work
+- **Publicly accessible**: Your Home Assistant instance must be reachable from the internet.
+- **HTTPS on port 443**: Withings requires HTTPS specifically on port 443. Using HTTPS on a non-standard port (such as 8443) will not work.
+- **Valid SSL certificate**: The certificate must be signed by a globally recognized Certificate Authority, for example, Let's Encrypt. Self-signed certificates will not work.
 
 {% important %}
 If webhooks cannot be established, some sensors will not be available. In particular, the sleep binary sensor has no polling fallback and requires working webhooks to function.
 {% endimportant %}
+
+#### How the webhook URL is determined
+
+You do not enter the webhook URL anywhere in the integration. Home Assistant builds it automatically from the URLs configured under {% my network title="**Settings** > **System** > **Network**" %}, followed by an internal webhook path.
+
+Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
+
+If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
+
+#### Changing the webhook URL
+
+If you see a warning like `Webhook not registered - HTTPS is required` or `Webhook not registered - port 443 is required` in your logs, the URL that Home Assistant selected is not a valid public HTTPS URL. This often happens when the **Internet** URL is empty and the **Local Network** URL points to a local HTTP address.
+
+To resolve this:
+
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
+3. Select **Save**.
+
+You can keep the **Local Network** URL set to your internal HTTP address. Home Assistant uses the **Internet** URL for webhooks, while integrations that prefer local communication continue to use the **Local Network** URL.
 
 ## Available data
 
@@ -97,7 +117,7 @@ For example, measurement sensors like weight only work when data has been regist
 
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
-Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
+Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
 
 ## Removing the integration
 

@@ -23,7 +23,7 @@ mqtt:
       mode_command_topic: "basement/boiler/mode/set"
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -46,7 +46,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -55,7 +55,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -71,7 +71,7 @@ current_temperature_topic:
   required: false
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `water_heater.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `water_heater.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -128,7 +128,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -145,6 +145,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member water heater entities. Set this if the water heater entity represents a water heater group.
+  required: false
+  type: list
 initial:
   description: Set the initial target temperature. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   required: false
@@ -154,7 +158,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -165,6 +169,27 @@ max_temp:
   description: Maximum set point available. The default value depends on the temperature unit, and will be 60°C or 140°F.
   type: float
   required: false
+message_expiry_interval:
+  description: "Controls how long queued or retained messages sent from Home Assistant persist at the broker for offline subscribers. This option prevents the broker from retaining stale messages. The expected value for this option is a JSON mapping, for example, `{\"days\": 1, \"hours\": 2, \"minutes\": 20, \"seconds\": 30}` or `{\"seconds\": 3600}`."
+  required: false
+  type: map
+  keys:
+    days:
+      description: "Number of days published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    hours:
+      description: "Number of hours published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    minutes:
+      description: "Number of minutes published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
+    seconds:
+      description: "Number of seconds published messages are queued or retained for offline subscribers."
+      required: false
+      type: integer
 min_temp:
   description: Minimum set point available. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   type: float
@@ -275,6 +300,11 @@ value_template:
   description: Default template to render the payloads on *all* `*_state_topic`s with.
   type: template
   required: false
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Optimistic mode
@@ -286,8 +316,6 @@ If a property works in *optimistic mode* (when the corresponding state topic is 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topics can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 
 Say you receive the operation mode `"off"` via your `mode_state_topic`, but the mode is actually called just `off`, here's what you could do:
-
-{% raw %}
 
 ```yaml
 mqtt:
@@ -302,8 +330,6 @@ mqtt:
       mode_state_template: "{{ value_json }}"
 ```
 
-{% endraw %}
-
 This will parse the incoming `"off"` as JSON, resulting in `off`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
 Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics.
@@ -311,8 +337,6 @@ Similarly for `*_command_topic`s, a template can be specified to render the outg
 ## Example
 
 A full configuration example looks like the one below.
-
-{% raw %}
 
 ```yaml
 # Full example configuration.yaml entry
@@ -331,5 +355,3 @@ mqtt:
       current_temperature_topic: "basement/boiler/current_temperature"
       precision: 1.0
 ```
-
-{% endraw %}

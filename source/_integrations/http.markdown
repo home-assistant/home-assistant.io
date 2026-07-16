@@ -1,6 +1,6 @@
 ---
 title: HTTP
-description: Offers a web framework to serve files.
+description: Configure the HTTP server that serves the Home Assistant frontend and APIs.
 ha_category:
   - Other
 ha_release: pre 0.7
@@ -12,116 +12,75 @@ ha_domain: http
 ha_integration_type: system
 ---
 
-The **HTTP** {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The **HTTP** {% term integration %} serves the Home Assistant frontend and APIs. You can manage the HTTP server settings from the UI under {% my network title="**Settings** > **System** > **Network**" %}.
 
-There is currently support for the following device types within Home Assistant:
+The integration supports these entity types:
 
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-{% warning %}
-The option `server_host` should only be used on a Home Assistant Container installation!
-{% endwarning %}
+## HTTP server settings
 
-```yaml
-# Example configuration.yaml entry
-http:
-```
+To change how Home Assistant serves its web interface, go to {% my network title="**Settings** > **System** > **Network**" %}, then find the **HTTP server** section.
 
-{% configuration %}
-server_host:
-  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
-  required: false
-  type: [list, string]
-  default: "0.0.0.0, ::"
-server_port:
-  description: Allows you to specify which port Home Assistant should listen on.
-  required: false
-  type: integer
-  default: 8123
-ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If you are using the [Let's Encrypt app for Home Assistant](https://github.com/home-assistant/addons/tree/master/letsencrypt) (formerly known as Let's Encrypt add-on), this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX app for Home Assistant](https://github.com/home-assistant/addons/tree/master/nginx_proxy) (formerly known as NGINX add-on) instead of using this option.
-  required: false
-  type: string
-ssl_peer_certificate:
-  description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
-  required: false
-  type: string
-ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If you are using the [Let's Encrypt app](https://github.com/home-assistant/addons/tree/master/letsencrypt), this will be at `/ssl/privkey.pem`.
-  required: false
-  type: string
-cors_allowed_origins:
-  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e., `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
-  required: false
-  type: [string, list]
-use_x_forwarded_for:
-  description: "Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You **must** also whitelist trusted proxies using the `trusted_proxies` setting for this to work. Non-whitelisted requests with this header will be considered IP spoofing attacks, and the header will, therefore, be ignored."
-  required: false
-  type: boolean
-  default: false
-use_x_frame_options:
-  description: "Controls the `X-Frame-Options` header to help prevent [clickjacking](https://en.wikipedia.org/wiki/Clickjacking)."
-  required: false
-  type: boolean
-  default: true
-trusted_proxies:
-  description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care. If the immediate upstream proxy is not in the list, the request will be rejected. If any other intermediate proxy is not in the list, the first untrusted proxy will be considered the client."
-  required: false
-  type: [string, list]
-ip_ban_enabled:
-  description: Flag indicating whether additional IP filtering is enabled.
-  required: false
-  type: boolean
-  default: true
-login_attempts_threshold:
-  description: "Number of failed login attempts from a single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
-  required: false
-  type: integer
-  default: -1
-ssl_profile:
-  description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
-  required: false
-  type: string
-  default: modern
-{% endconfiguration %}
+### Options in the UI
 
-The sample below shows a configuration entry in the {% term "`configuration.yaml`" %} file with possible values:
+{% options_ui %}
+Server port:
+  description: The port Home Assistant listens on. The default is `8123`.
+  required: true
+Listen addresses:
+  description: The IP addresses Home Assistant binds to. Leave this empty to listen on all interfaces.
+  required: false
+SSL certificate path:
+  description: The absolute path to the TLS certificate, for example `/ssl/fullchain.pem`.
+  required: false
+SSL key path:
+  description: The absolute path to the TLS private key, for example `/ssl/privkey.pem`.
+  required: false
+SSL peer certificate path:
+  description: The absolute path to a client certificate Home Assistant should require for secure connections.
+  required: false
+SSL profile:
+  description: The Mozilla SSL profile to use. Use **Intermediate** only if integrations have SSL handshake issues.
+  required: false
+Trust X-Forwarded-For:
+  description: Trust the `X-Forwarded-For` header when Home Assistant is behind a reverse proxy.
+  required: false
+Trusted proxies:
+  description: Reverse proxy IP addresses or CIDR networks that are allowed to set `X-Forwarded-For`.
+  required: false
+Enable IP banning:
+  description: Automatically ban IP addresses after repeated failed logins.
+  required: false
+Login attempts before ban:
+  description: Failed login attempts before an IP address is banned. Set this to `-1` to disable automatic bans.
+  required: true
+CORS allowed origins:
+  description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
+  required: false
+Send X-Frame-Options:
+  description: Send the `X-Frame-Options` header to help prevent clickjacking.
+  required: false
+{% endoptions_ui %}
 
-```yaml
-# Example configuration.yaml entry
-http:
-  server_port: 12345
-  ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
-  cors_allowed_origins:
-    - https://google.com
-    - https://www.home-assistant.io
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 10.0.0.200
-    - 172.30.33.0/24
-  ip_ban_enabled: true
-  login_attempts_threshold: 5
-```
-
-The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
+Saving HTTP server settings restarts Home Assistant. After Home Assistant restarts, an administrator is asked to confirm the new settings. If the settings are not confirmed within 5 minutes, Home Assistant automatically returns to the previous settings.
 
 ## Reverse proxies
 
-When using a reverse proxy, you will need to enable the `use_x_forwarded_for` and `trusted_proxies` options. Requests from reverse proxies will be blocked if these options are not set.
-  
-```yaml
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 10.0.0.200      # Add the IP address of the proxy server
-    - 172.30.33.0/24  # You may also provide the subnet mask
-```
+<a id="use_x_forwarded_for"></a>
+
+When using a reverse proxy, turn on **Trust X-Forwarded-For** and add the proxy to **Trusted proxies**. Requests from reverse proxies are blocked if these options are not set.
 
 {% important %}
 When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
 {% endimportant %}
+
+{% note %}
+
+The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+
+{% endnote %}
 
 ## APIs
 
@@ -131,26 +90,32 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 ## HTTP sensors
 
-To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
+To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
 If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
 
-All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
+All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 
 ## IP filtering and banning
 
-If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+If you want to apply additional IP filtering and automatically ban brute force attempts, turn on **Enable IP banning** and set **Login attempts before ban** to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file is created in the root configuration folder. It contains the banned IP address and the time in UTC when it was added:
+
+{% note %}
+
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+
+{% endnote %}
 
 ```yaml
 127.0.0.1:
   banned_at: "2016-11-16T19:20:03"
 ```
 
-After a ban is added a Persistent Notification will appear in the Home Assistant frontend.
+After a ban is added, a persistent notification appears in the Home Assistant frontend.
 
 To clear an IP ban, you can either:
 
-- Remove the specific IP entry from `ip_bans.yaml`, or  
+- Remove the specific IP entry from `ip_bans.yaml`.
 - Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
 
 After making changes, restart Home Assistant to apply them.
@@ -268,7 +233,7 @@ http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
 {% endimportant %}
 
- The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
+The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 
 ```json
 {"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temperature"}}

@@ -151,7 +151,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
-  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` in order to distinguish which profile is in use on the machine.
+  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` to distinguish which profile is in use on the machine.
   - **Program phase**: Shows the current phase in the running program.
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
@@ -171,6 +171,10 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Finish**: Shows the estimated date and time when the program will finish. If you've set a delayed start, it shows when the appliance is expected to complete the cycle, including the delay time.
   - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
   - **TwinDos level**: Two sensors displaying the remaining level in the detergent containers in applicable washing machines. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Descaling, degreasing, milk pipework cleaning cycles counter**: A set of sensors displaying the total number of cycles that the appliance has run. These sensors are available only for devices that support these maintenance programs (such as coffee machines or ovens with steam addition).
+  - **PowerDisk level**: A sensor displaying the remaining level in the detergent container in applicable dishwashers. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Rinse aid level**: A sensor displaying the remaining level in the rinse aid container in dishwashers.
+  - **Salt level**: A sensor displaying the remaining level in the salt container in dishwashers.
 {% enddetails %}
 
 ### Switch
@@ -229,8 +233,6 @@ Get started with these automation examples
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Notify when program ends"
 triggers:
@@ -243,8 +245,6 @@ actions:
     data:
       message: "The appliance has finished the program."
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ### Set program and start washing machine
@@ -252,8 +252,6 @@ actions:
 Load your washing machine and manually activate mobile start or remote control mode on the machine.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Wash cottons early in the morning"
@@ -267,8 +265,6 @@ actions:
       device_id: <Your washing machine's device_id>
       program_id: 1
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates

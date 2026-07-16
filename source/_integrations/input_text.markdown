@@ -12,7 +12,7 @@ ha_domain: input_text
 ha_integration_type: helper
 ---
 
-The **Input text** {% term integration %} allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The **Input text** {% term integration %} allows you to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_text" title="Text" %}** option.
 
@@ -79,20 +79,13 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### Actions
+{% include integrations/actions.md %}
 
-This integration provides an action to modify the state of the `input_text` and an action to reload the `input_text` configuration without restarting Home Assistant itself.
+## Restore state
 
-| Action      | Data                      | Description                                       |
-| ----------- | ------------------------- | ------------------------------------------------- |
-| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities. |
-| `reload`    |                           | Reload `input_text` configuration                 |
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-### Restore state
-
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
-
-### Scenes
+## Scenes
 
 To set the state of the input_text in a [Scene](/integrations/scene/):
 
@@ -107,8 +100,6 @@ scene:
 ## Automation examples
 
 Here's an example using `input_text` in an action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_text' in an action in an automation
@@ -140,4 +131,6 @@ automation:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
 
-{% endraw %}
+{% include integrations/triggers.md domain="text" %}
+
+{% include integrations/conditions.md domain="text" %}

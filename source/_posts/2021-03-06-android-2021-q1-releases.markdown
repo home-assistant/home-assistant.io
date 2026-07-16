@@ -81,7 +81,7 @@ We have also spent time making improvements to all other areas too:
 - Power menu fixes and enhancements including support for vacuum entities
 - Haptic feedback support in the frontend
 - Overriding certain URL types to launch an application or an intent from the frontend
-- 3 finger swipe down gesture to trigger the [Quick Bar](https://www.home-assistant.io/docs/tools/quick-bar/)
+- 3 finger swipe down gesture to trigger the [Quick Bar](https://www.home-assistant.io/docs/tools/quick-search/)
 
 <p class='img'>
 <img src='/images/blog/2021-03-06-android-q1-releases/3_finger_swipe_gesture.gif' alt='3 finger swipe gesture to trigger Quick Bar' height='550'></a>

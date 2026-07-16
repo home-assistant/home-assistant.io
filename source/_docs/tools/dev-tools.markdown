@@ -34,7 +34,7 @@ It is almost the same as the option under **Settings** > three dots {% icon "mdi
 
 For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in {% term "`configuration.yaml`" %} without needing to restart Home Assistant.
 
-1. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-bar/) anywhere in the UI and search for "reload").
+1. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-search/) anywhere in the UI and search for "reload").
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
@@ -52,7 +52,7 @@ Note that this is the state representation of a device within Home Assistant. Th
 
 For example, changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden (the refresh icon can be used to retrieve the latest information that Home Assistant has). In other words, the changes that are made through the **States** section are temporary, and are recommended to use for testing purposes only.
 
-The table containing all entities can be filtered for each column. The used search is a wildcard search meaning that if you input "office" in the entity column filter, every entity whose ID matches "\*office\*" will be shown. You can also add your own wildcards in the search input (e.g., "office\*light").
+The table containing all entities can be filtered for each column. The used search is a wildcard search meaning that if you input "office" in the entity column filter, every entity whose ID matches "\*office\*" will be shown. You can also add your own wildcards in the search input (such as "office\*light").
 The attribute filter supports separate filters for attribute names and values, separated by a colon ":". So the filter "location:3" will result in the table showing all entities that have an attribute name that contains "location" and whose attribute value contains "3".
 
 ## Actions tab
@@ -85,7 +85,7 @@ The template editor provides a way to quickly test templates prior to placing th
 
 By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/configuration/templating).
+For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
 
 ## Events tab
 
@@ -155,7 +155,7 @@ icon. Use date & time to search for the incorrect data point and adjust the valu
 
 The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
 
 - Assist found a matching intent: *HassGetState*.
 - It found entities matching the domain: *lights*.

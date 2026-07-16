@@ -20,7 +20,7 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
@@ -83,7 +83,7 @@ The Rain Bird integration provides the following entities.
 #### Calendar
 
 - **Controller irrigation schedule**
-  - **Description**: The irrigation schedule [Calendar](https://www.home-assistant.io/integrations/calendar/) 
+  - **Description**: The irrigation schedule {% term calendar %}
     entity is created for each schedule configured in the Rain Bird app. You can view the program schedule
     in the Home Assistant calendar UI, or trigger other automations based on the irrigation start or end time.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
@@ -103,37 +103,7 @@ The Rain Bird integration provides the following entities.
     configured controllers. Turning on the switch will open the irrigation valve for that zone.
   - **Available for devices**: All
 
-## Actions
-
-The integration exposes actions to give additional control over a Rain Bird device.
-
-### `rainbird.start_irrigation`
-
-Start a Rain Bird zone for a set number of minutes. This action accepts a Rain Bird sprinkler
-zone switch entity and allows a custom duration unlike the switch.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
-
-
-```yaml
-# Example configuration.yaml automation entry
-automation:
-  - alias: "Turn irrigation on"
-    triggers:
-      - trigger: time
-        at: "5:30:00"
-    actions:
-      - action: rainbird.start_irrigation
-        data:
-          entity_id: switch.rain_bird_sprinkler_1
-          duration: 5
-```
-
-This lets you other triggers in Home Assistant to set a more complex schedule
-than what is possible using the built in schedule in the Rain Bird app.
+{% include integrations/actions.md %}
 
 ## Known Limitations
 

@@ -11,21 +11,28 @@ ha_codeowners:
 ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
+  - binary_sensor
   - diagnostics
-  - notify
   - sensor
 ha_integration_type: service
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
-The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
+The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates, get account statistics, and mute accounts.
 
-### Setup
+## Use cases
+
+- Posting your local weather station details to your Mastodon account.
+- Displaying a count of your followers on your Home Assistant dashboard.
+- Receiving a notification when an account you follow publishes a new status.
+- Muting accounts when you are busy or away to reduce your timeline.
+
+## Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 
-Check the following scopes **read:accounts**, **write:statuses** and **write:media**.
+Select at a minimum the following scopes: **read:accounts**, **write:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
 
 Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
@@ -64,43 +71,13 @@ Sensors are updated once an hour.
 - **Suspended**: Indicates whether the account has been suspended.
 - **Memorial**: Indicates whether the account is marked as a memorial.
 
-## Actions
+{% include integrations/actions.md %}
 
-The Mastodon integration has the following actions:
-
-- `mastodon.post`
-
-### Action: Post
-
-The `mastodon.post` action posts a status to your Mastodon account.
-
-| Data attribute              | Optional | Description                                                                                                                                                                                                                                                        |
-| --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `config_entry_id`           | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
-| `status`                    | No       | The status text to post.                                                                                                                                                                                                                                           |
-| `visibility`                | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
-| `idempotency_key`           | Yes      | A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string. |
-| `content_warning`           | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
-| `language`                  | Yes      | The language of the post. If not used, the language that is set in the Mastodon account is used. |
-| `media`                     | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
-| `media_description`         | Yes      | If an image or video is attached, will add a description for this media for people with visual impairments.                                                                                                                                                        |
-| `media_warning`             | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
-
-{% tip %}
-You can get your `config_entry_id` by using actions within [Developer tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
-{% endtip %}
-
-{% note %}
-Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant. 
-{% endnote %}
-
-### Examples
+## Examples
 
 {% details "Example status post action" %}
 
 Example post action that will post a status using your account's default visibility:
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -109,15 +86,11 @@ Example post action that will post a status using your account's default visibil
     status: "A toot from Home Assistant"
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example private post action" %}
 
 This will post a status to Mastodon, but visibility is marked as `private` so only followers will see it.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -127,15 +100,11 @@ This will post a status to Mastodon, but visibility is marked as `private` so on
     visibility: private
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example status post action avoiding recent duplication" %}
 
 Example post action that will post a status, but ensure that the same status is not posted more than once within one hour. This check is performed by your Mastodon instance.
-
-{% raw %}
 
 ```yaml
 actions:
@@ -148,15 +117,11 @@ actions:
       idempotency_key: {{ toot | md5 }}
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example media post action" %}
 
 This will post a status to Mastodon that includes an image.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -166,15 +131,11 @@ This will post a status to Mastodon that includes an image.
     media: /config/www/funny_meme.png
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 {% details "Example post with media and a content warning that will not be visible in the public timeline" %}
 
 This will post a status to Mastodon that includes an image, with a description, a content warning, and a visibility of `unlisted`, so it doesn't show in the public timeline.
-
-{% raw %}
 
 ```yaml
 - action: mastodon.post
@@ -187,7 +148,45 @@ This will post a status to Mastodon that includes an image, with a description, 
     content_warning: "This might not be funny enough"
 ```
 
-{% endraw %}
+{% enddetails %}
+
+{% details "Example of muting an account you follow while you are on holiday" %}
+
+This automation will look for an event in your calendar and mute the specified account while the event is active, and unmute at the end of the event.
+
+```yaml
+alias: Mastodon mute example
+description: "Mute a Mastodon account while a calendar event is active"
+triggers:
+  - trigger: calendar.event_started
+    target:
+      entity_id: calendar.YOUR_CALENDAR
+    id: start
+  - trigger: calendar.event_ended
+    target:
+      entity_id: calendar.YOUR_CALENDAR
+    id: end
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - start
+        sequence:
+          - action: mastodon.mute_account
+            data:
+              config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+              account_name: "@commute-news@mytown.online"
+      - conditions:
+          - condition: trigger
+            id:
+              - end
+        sequence:
+          - action: mastodon.unmute_account
+            data:
+              config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+              account_name: "@commute-news@mytown.online"
+```
 
 {% enddetails %}
 
@@ -195,7 +194,25 @@ For more on how to use notifications in your automations, please see the [gettin
 
 ## Known limitations
 
-The integration only allows reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+The integration does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+Mastodon account details only show the date of the last status you posted, not the time. If you use the `mastodon.get_account` action to monitor new posts, you should instead watch the `statuses_count` field in the action response for changes.
+
+## Troubleshooting
+
+### Unable to use actions
+
+#### Symptom: “Errors appear in the log when using an action”
+
+When using actions errors relating to permissions are shown in the logs.
+
+#### Description
+
+Actions require specific permissions within your Mastodon account to read or write data.
+
+#### Resolution
+
+Ensure that you have set these appropriately within your Mastodon account, please see the [setup instructions](#setup).
 
 ## Removing the integration
 

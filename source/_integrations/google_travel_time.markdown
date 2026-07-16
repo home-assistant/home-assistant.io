@@ -20,9 +20,9 @@ The **Google Maps Travel Time** {% term integration %} provides travel time from
 
 You need to register for an API key by following the instructions [here](https://developers.google.com/maps/documentation/routes/get-api-key-v2). You only need to turn on the Routes API.
 
-Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Routes API currently provides 10,000 free requests per month that take the current traffic into account. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 2 sensors may exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
+Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The integration consumes the Compute Routes Pro API providing 5,000 free requests per month. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor will exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
-A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 322 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
+A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 161 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
 
 {% include integrations/config_flow.md %}
 
@@ -30,9 +30,11 @@ Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 
+{% include integrations/actions.md %}
+
 ## Dynamic Configuration
 
-Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the Origin or Destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ### Examples
 

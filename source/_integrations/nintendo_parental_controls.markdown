@@ -92,24 +92,10 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 - **Bedtime alarm**
   - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
+- **Bedtime end time**
+  - **Description**: The time that bedtime should end. Set to 00:00 to disable. Accepts values between 05:00 and 09:00 for the bedtime end time.
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Add bonus time
-
-The `nintendo_parental_controls.add_bonus_time` action adds additional bonus screen time to a specified device, which is granted outside of the maximum allowed screentime.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry containing the device to grant bonus time.
-  - **Optional**: No
-- **Data attribute**: `device_id`
-  - **Description**: The ID of the device to grant bonus time.
-  - **Optional**: No
-- **Data attribute**: `bonus_time`
-  - **Description**: The amount of time in minutes to grant (minimum of 5, maximum of 30).
-  - **Optional**: No
+{% include integrations/actions.md %}
 
 ## Known limitations
 

@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Siren** {% term integration %} is built for the controlling and monitoring of siren/chime devices.
+The **Siren** {% term integration %} lets you control siren and chime devices and build automations around when they turn on or off.
 
 {% include integrations/building_block_integration.md %}
 
@@ -25,40 +25,76 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Actions
+{% include integrations/triggers.md %}
 
-### Siren actions
+{% include integrations/conditions.md %}
 
-Available {% term actions %}: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
+{% include integrations/actions.md %}
 
-### Action: Turn on
+## Siren automation examples
 
-The `siren.turn_on` action turns the siren on.
+You can use siren triggers and conditions in automations to stay informed, light a path, or silence a siren at the right time.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+{% include docs/paste_yaml_tip.md %}
 
-There are three optional input parameters that can be passed into the action depending on whether or not your device supports them. Check the device's integration documentation for more details.
+### Automation: get a phone alert when the siren starts
 
-| Parameter Name  | Input Type              | Notes                                                                               |
-|---------------- |-------------------------|-------------------------------------------------------------------------------------|
-| `tone`          | `string` or `integer`   | When the `available_tones` property is a map, either the key or value can be used.  |
-| `duration`      | `integer`               |                                                                                     |
-| `volume_level`  | `float` between 0 and 1 |                                                                                     |
+If a siren turns on while you are in another part of the building, you may want a notification right away. This automation sends a message to your phone as soon as the entry siren starts.
 
-### Action: Turn off
+- **Trigger**: Siren turned on
+  - **Target**: Entry siren
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-The `siren.turn_off` action turns the siren off.
+{% details "YAML example for a siren start notification" %}
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+{% example %}
+automation: |
+  alias: "Notify when the siren turns on"
+  triggers:
+    - trigger: siren.turned_on
+      target:
+        entity_id: siren.entry
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Siren started"
+        message: >
+          The entry siren just turned on.
+{% endexample %}
 
-### Action: Toggle
+{% enddetails %}
 
-The `siren.toggle` action toggles the siren on or off.
+### Automation: turn off a siren after it has been on for 5 minutes
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+If you want a siren to stop after a set time, you can check whether it is still on before turning it off. This automation checks every minute and turns off the patio siren after it has stayed on for 5 minutes.
+
+- **Trigger**: Time pattern: Every minute
+- **Condition**: Siren is on
+  - **Target**: Patio siren
+  - **For at least**: 00:05:00
+- **Action**: Turn off siren
+
+{% details "YAML example for turning off a siren after 5 minutes" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the patio siren after 5 minutes"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/1"
+  conditions:
+    - condition: siren.is_on
+      target:
+        entity_id: siren.patio
+      options:
+        for: "00:05:00"
+  actions:
+    - action: siren.turn_off
+      target:
+        entity_id: siren.patio
+{% endexample %}
+
+{% enddetails %}

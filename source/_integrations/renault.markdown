@@ -4,6 +4,7 @@ description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
   - Binary sensor
   - Car
+  - Number
   - Presence detection
   - Select
   - Sensor
@@ -18,6 +19,7 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -29,8 +31,9 @@ The **Renault** {% term integration %} offers integration with the **MyRenault**
 This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
+- Buttons - to start air conditioning, start/stop the charge, flash lights, and sound horn. Although available, these actions do not work on all vehicles.
 - Device tracker - to track location of your car.
-- Buttons - to start air conditioning or start/stop the charge. Please note that although available these actions do not work on all vehicles.
+- Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
@@ -50,6 +53,19 @@ Kamereon account id:
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
+
+## Battery charge limits
+
+For electric vehicles that support battery state of charge (<abbr title="State of charge">SoC</abbr>) control, the integration provides two number entities to configure charging limits:
+
+- **Minimum charge level**: Sets the minimum battery charge level (range: 15% to 45% in 5% increments). This ensures the battery maintains at least this charge level.
+- **Target charge level**: Sets the target battery charge level (range: 55% to 100% in 5% increments). Charging will stop when the battery reaches this level.
+
+These controls allow you to optimize battery health and charging costs by limiting how much the battery charges. For example, setting a target of 80% can help preserve long-term battery health, while setting a higher minimum level ensures you always have enough charge for daily use.
+
+{% note %}
+Battery charge limit controls are only available for electric vehicles that support setting battery charge limits remotely through the MyRenault service. This feature may require an active subscription to services such as *Pack EV Remote Control*.
+{% endnote %}
 
 ## Data updates
 
@@ -106,6 +122,16 @@ Notes:
   tuesday:
     readyAtTime: 'T12:00Z'
 ```
+
+### Action: Start charge
+
+The `renault.charge_start` action starts charging on a vehicle.
+
+  | Data attribute | Required | Description | Example |
+  | ---------------------- | -------- | ----------- | ------- |
+  | `vehicle`| yes | device_id of the vehicle | 
+  | `when` | no | Timestamp for charging to start, defaults to now | `2020-05-01T17:45:00` |
+
 
 ### Action: Set charge schedules
 

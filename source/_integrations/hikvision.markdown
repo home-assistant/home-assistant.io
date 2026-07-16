@@ -13,8 +13,7 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
   - camera
-ha_integration_type: integration
-ha_quality_scale: bronze
+ha_integration_type: device
 ha_config_flow: true
 ---
 
@@ -72,10 +71,11 @@ and has been confirmed to work with the following models:
 - ERI-K104-PR (NVR)
 - IPC-D140H(-M)
 
-This platform also was confirmed to work with the following Hikvison-based NVRS
+This platform has also been confirmed to work with the following Hikvision-based NVRs:
 
 - N46PCK (Annke H800 4K NVR)
 - N48PAW (Annke 4K NVR)
+- Luma NVRs
 
 {% include integrations/config_flow.md %}
 

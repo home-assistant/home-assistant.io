@@ -75,7 +75,7 @@ This is more efficient than traditional {% term polling %}, as it only sends dat
 ## Use cases
 
 1. Send anything in Home Assistant to EnergyID for long term storage/graphing and detailed analysis.
-2. Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
+2. Use EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
 3. Many more [advantages of EnergyID](https://help.energyid.eu/en/using-energyid/getting-started-with-energyid/) and a brief intro can be found.
 
 ## Troubleshooting

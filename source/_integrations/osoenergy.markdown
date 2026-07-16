@@ -152,7 +152,7 @@ You can use the `osoenergy.set_v40_min` action to set the minimum quantity of wa
 | Data attribute | Optional | Description                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example:  `water_heater.heater`        f entity e.g., `water_heater.heater`                            |
-| `v40_min`              | no       | Specify the minimum quantity of water at 40°C for a water heater.  For example, `240` |
+| `v40_min`              | no       | Specify the minimum quantity of water at 40°C for a water heater. For example, `240` |
 
 Examples:
 
