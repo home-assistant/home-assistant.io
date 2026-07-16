@@ -215,6 +215,17 @@ pyvizio --ip=0 get-apps-list
 
 {% include integrations/actions.md %}
 
+### Action vizio.send_text
+
+Types text into the on-screen field that currently has focus on the device — for example, an app's search box or a sign-in form.
+
+| Data attribute | Optional | Description                                             |
+| -------------- | -------- | ------------------------------------------------------- |
+| `entity_id`    | no       | The media player entity to type on.                     |
+| `text`         | no       | The text to type. Only ASCII characters are supported.  |
+
+This is also the most reliable way to enter digits (for example, PINs or channel numbers), because the remote's numeric key codes are not digit keys on SmartCast devices.
+
 ## Remote
 
 The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive. You can use either the native key name (for example, `vol_up`) or a human-friendly alias (for example, `volume_up`).
