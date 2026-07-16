@@ -196,7 +196,7 @@ This integration does not directly support the UPS systems connected to the NAS,
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-### "Transmition failed" error
+### "Transmission failed" error
 
 Unforeseen conditions may occur on the NAS, resulting in a "Transmission failed" error. In most cases, this error can be resolved by restarting the NAS.
 
