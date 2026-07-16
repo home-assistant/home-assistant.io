@@ -28,7 +28,7 @@ Before setting this up, we recommend looking for a vendor-specific integration t
 
 The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
-The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (rs-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
+The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (RS-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
 
 # Configuring modbus communication
 
