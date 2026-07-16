@@ -11,8 +11,6 @@ The **Awning closed** trigger fires when a targeted awning changes to closed. Us
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as an awning closes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

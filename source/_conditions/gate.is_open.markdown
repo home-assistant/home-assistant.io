@@ -11,8 +11,6 @@ The **Gate is open** condition passes when one or more targeted gates are curren
 
 This condition is useful for reminders, security checks, and routines that should warn you before you leave the property or settle in for the night.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -86,7 +84,7 @@ for:
 
 At sunset, this automation checks whether the driveway gate is still open. If it is, Home Assistant sends a reminder so you can secure the property before it gets dark.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Gate is open
   - **Target**: Driveway gate
   - **Condition passes if**: Any
@@ -99,8 +97,7 @@ At sunset, this automation checks whether the driveway gate is still open. If it
 automation: |
   alias: "Remind me if the driveway gate is open at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: gate.is_open
       target:

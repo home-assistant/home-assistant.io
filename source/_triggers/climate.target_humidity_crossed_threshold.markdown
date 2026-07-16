@@ -12,8 +12,6 @@ The **Thermostat target humidity crossed threshold** trigger fires after the tar
 
 Use this trigger when you want to react to the exact moment a humidity setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less humid target.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target humidity crossed threshold** in an automation:

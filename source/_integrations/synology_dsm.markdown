@@ -20,6 +20,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - select
   - sensor
   - switch
   - update
@@ -158,6 +159,14 @@ Reboot the NAS.
 ### Button `shutdown`
 
 Shutdown the NAS.
+
+## Selects
+
+### Fan speed mode
+
+- **Fan speed mode**
+  - **Description**: The mode of the system fan speed, if your NAS supports it.
+  - **Options**: Low-Power mode (_only supported on some devices_), Quiet mode, Cool mode, Full-speed mode.
 
 ## Media source
 

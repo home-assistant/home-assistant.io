@@ -13,8 +13,6 @@ The **Satellite is responding** condition passes when a targeted Assist satellit
 
 Use it when you want an automation to continue only if a satellite is currently speaking. For example, keep the volume of background music lowered as long as the satellite is responding, block a new announcement from overlapping with a response already in progress, or detect satellites that have been stuck in the responding state for too long, that can be a sign of a TTS or network issue that is preventing the pipeline from completing and returning to idle.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

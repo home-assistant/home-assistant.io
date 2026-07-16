@@ -3893,3 +3893,22 @@ article.page .card-flex h2 {
     padding-bottom: 0;
   }
 }
+
+#press.press-cards--green {
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: block;
+  box-sizing: border-box;
+}
+
+#press.press-cards--green .sub-title,
+#press.press-cards--green .sub-title+p {
+  margin: 0 !important;
+}
+
+#press.press-cards--green .masonry {
+  margin-top: 2rem !important;
+}

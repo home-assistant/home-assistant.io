@@ -9,8 +9,6 @@ The **Vacuum cleaner is returning** condition passes when one or more targeted v
 
 Use this when you only want an automation to run while the robot is on its way home, like turning on a light near the dock, delaying another routine, or waiting to start cleanup until the path is clear again.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

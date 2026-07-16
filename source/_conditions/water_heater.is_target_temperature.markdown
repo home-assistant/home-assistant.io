@@ -13,8 +13,6 @@ The **Water heater target temperature** condition passes when a water heater {% 
 
 When you target more than one water heater, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted water heater to meet the threshold, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Water heater target temperature** in an automation:

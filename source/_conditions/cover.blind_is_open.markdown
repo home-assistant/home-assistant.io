@@ -11,8 +11,6 @@ The **Blind is open** condition passes when one or more targeted blinds are curr
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a blind is open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -90,7 +88,7 @@ for:
 
 At sunset, this automation checks whether the blind is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Blind is open
   - **Target**: Office blind
 - **Action**: Close cover
@@ -101,8 +99,7 @@ At sunset, this automation checks whether the blind is still open. If it is, Hom
 automation: |
   alias: "Close the blind at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.blind_is_open
       target:

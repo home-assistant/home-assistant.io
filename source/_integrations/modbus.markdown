@@ -928,7 +928,6 @@ modbus:
         offset: 0
         precision: 1
         scale: 0.1
-        max_temp: 30
         structure: ">f"
         target_temp_register: 2782
         target_temp_write_registers: true
