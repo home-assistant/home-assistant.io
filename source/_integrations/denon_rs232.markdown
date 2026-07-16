@@ -66,7 +66,7 @@ data:
   media_content_id: "A1"
 ```
 
-It can also be tuned to an FM frequency between `8750` (87.50 MHz) and `10800` (108.0 MHz):
+It can also be tuned to an FM frequency between `8750` (87.50 MHz) and `10800` (108.00 MHz):
 ```yaml
 action: media_player.play_media
 target:
