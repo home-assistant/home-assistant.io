@@ -76,7 +76,8 @@ Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BT
 ## Shelly Enhanced Security
 
 Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices do not include a pre-installed HTTPS certificate, so you must upload your own certificate before using this feature. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate.
-The Shelly integration automatically detects whether Enhanced Security is enabled on the device and always communicates with that device over HTTPS using port 443.
+
+The Shelly integration automatically detects whether Enhanced Security is enabled on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
 
 ## Data updates
 
