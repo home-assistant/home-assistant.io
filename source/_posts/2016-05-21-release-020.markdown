@@ -65,8 +65,8 @@ device_tracker:
 [@shaftoe]: https://github.com/shaftoe
 [@wokar]: https://github.com/wokar
 [@xifle]: https://github.com/xifle
-[`!include_dir_merge_list`]: /topics/splitting_configuration/#advanced-usage
-[`!include_dir_merge_named`]: /topics/splitting_configuration/#advanced-usage
+[`!include_dir_merge_list`]: /topics/splitting_configuration/#including-whole-directories
+[`!include_dir_merge_named`]: /topics/splitting_configuration/#including-whole-directories
 [`relative_time`]: /topics/templating/#home-assistant-template-extensions
 [Asus WRT]: /integrations/asuswrt
 [Ecobee thermostats]: /integrations/ecobee

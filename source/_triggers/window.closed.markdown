@@ -2,14 +2,12 @@
 title: "Window closed"
 trigger: window.closed
 domain: window
-description: "Triggers after one or more windows close."
+description: "Triggers when one or more windows close."
 related_triggers:
   - window.opened
 ---
 
 The **Window closed** trigger fires when a targeted window closes. Use it to restore heating after airing out a room, confirm that windows are shut before bedtime, or start an automation only after a window has stayed closed for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

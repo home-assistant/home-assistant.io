@@ -116,7 +116,7 @@ Enable these settings based on the features you want to use:
 
 ## System Trouble Status
 
-The ElkM1 is able to report general system trouble statuses. This is
+The ElkM1 can report general system trouble statuses. This is
 reported using the `system_trouble_status` attribute of the
 panel sensor (often named `sensor.elkm1`) in Home Assistant.
 
@@ -178,11 +178,11 @@ host:
   required: true
   type: string
 username:
-  description: Username to login to Elk. Required if using a secure connection method.
+  description: Username to log in to Elk. Required if using a secure connection method.
   required: false
   type: string
 password:
-  description: Password to login to Elk. Required if using a secure connection method.
+  description: Password to log in to Elk. Required if using a secure connection method.
   required: false
   type: string
 prefix:
@@ -193,7 +193,7 @@ auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false
   type: boolean
-  default: False
+  default: false
 area:
   description: Elk areas to include in Home Assistant.
   required: false

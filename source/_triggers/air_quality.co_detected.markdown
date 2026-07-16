@@ -2,14 +2,12 @@
 title: "Carbon monoxide detected"
 trigger: air_quality.co_detected
 domain: air_quality
-description: "Triggers after one or more carbon monoxide sensors start detecting carbon monoxide."
+description: "Triggers when one or more carbon monoxide sensors start detecting carbon monoxide."
 related_triggers:
   - air_quality.co_cleared
 ---
 
 The **Carbon monoxide detected** trigger fires the moment a carbon monoxide sensor {% term entity %} starts detecting carbon monoxide. Carbon monoxide is colorless and odorless, which makes it one of the most dangerous household hazards because you simply cannot sense it on your own. This trigger gives Home Assistant the ability to warn you immediately, whether your family is sleeping, the kids are playing downstairs, or you are away at work. Pair it with a loud siren and an urgent phone notification for the strongest possible safety net.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

@@ -112,7 +112,7 @@ calendar:
 
 This will create two entities for the calendar name Agenda: "HomeOffice" and "WarmupFlat" with events matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
 
-Please note that if you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
+If you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
 
 {% configuration %}
 url:

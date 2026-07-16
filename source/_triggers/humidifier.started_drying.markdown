@@ -2,7 +2,7 @@
 title: "Humidifier started drying"
 trigger: humidifier.started_drying
 domain: humidifier
-description: "Triggers after one or more humidifiers start actively drying (dehumidifying)."
+description: "Triggers when one or more humidifiers start drying."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_humidifying
@@ -13,8 +13,6 @@ The **Humidifier started drying** trigger fires when a humidifier {% term entity
 Use this trigger to track dehumidification cycles, send alerts when the air becomes too humid, or coordinate other actions that should happen while the device is actively removing moisture.
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

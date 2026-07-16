@@ -2,7 +2,7 @@
 title: "Light brightness changed"
 trigger: light.brightness_changed
 domain: light
-description: "Triggers after the brightness of one or more lights changes."
+description: "Triggers when the brightness of one or more lights changes."
 related_triggers:
   - light.brightness_crossed_threshold
   - light.turned_on
@@ -11,8 +11,6 @@ related_triggers:
 The **Light brightness changed** trigger fires after the brightness of a light {% term entity %} changes by a meaningful amount. Use it to react to fine-grained dimming, like adjusting a fan speed as you brighten the room, or logging changes to a dashboard graph.
 
 The **threshold** field tells Home Assistant how big a change counts. The trigger only fires when the light's brightness moves by at least that much, which keeps it from firing on every tiny tick from a smooth fade.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

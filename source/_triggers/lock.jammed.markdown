@@ -2,14 +2,12 @@
 title: "Lock jammed"
 trigger: lock.jammed
 domain: lock
-description: "Triggers after one or more locks jam."
+description: "Triggers when one or more locks jam."
 related_triggers:
   - lock.locked
 ---
 
 The **Lock jammed** trigger helps you react when a lock cannot finish its movement. Use it when you want Home Assistant to warn you about a problem at the door, like a misaligned bolt or something blocking the lock.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

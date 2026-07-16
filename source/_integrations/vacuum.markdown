@@ -1,6 +1,6 @@
 ---
 title: Vacuum
-description: Instructions on how to setup and use vacuums in Home Assistant.
+description: Instructions on how to set up and use vacuums in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
@@ -78,7 +78,7 @@ Start from one small pain point, then decide which vacuum signal kicks things of
 When the vacuum starts a run during a scheduled meeting, pause it automatically so the call stays quiet, then send yourself a reminder to resume the job later.
 
 - **Trigger**: `vacuum.started_cleaning` for the office vacuum.
-- **Conditions**: A calendar or busy [sensor](/docs/core/entity/binary-sensor/) reports that a meeting is in progress, and `vacuum.is_cleaning` confirms the robot is still running.
+- **Conditions**: A calendar or busy [sensor](/integrations/binary_sensor/) reports that a meeting is in progress, and `vacuum.is_cleaning` confirms the robot is still running.
 - **Actions**: `vacuum.pause` to stop the run, followed by a mobile notification that explains why the vacuum paused.
 
 {% details "YAML example for pausing during meetings" %}
