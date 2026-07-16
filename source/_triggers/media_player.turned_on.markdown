@@ -12,8 +12,6 @@ The **Media player turned on** trigger fires when a media player powers on. Use 
 
 Use **Media player turned on** to prepare the room, set a source, or turn on supporting devices whenever a TV, speaker, or receiver powers up.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Media player turned on** in an automation:

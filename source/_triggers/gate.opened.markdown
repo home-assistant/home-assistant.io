@@ -11,8 +11,6 @@ The **Gate opened** trigger fires when a targeted gate changes to open. Use it w
 
 This trigger is useful for arrival lighting, security notifications, and routines that should begin the moment a gate gives access to your property.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -88,7 +86,7 @@ If you come home after sunset, this automation turns on the driveway lights as s
 
 - **Trigger**: Gate opened
    - **Target**: Driveway gate
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 
 {% details "YAML example for driveway lights when the gate opens" %}
 

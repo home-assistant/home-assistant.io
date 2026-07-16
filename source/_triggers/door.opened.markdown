@@ -11,8 +11,6 @@ The **Door opened** trigger fires when a targeted door changes to open. Use it w
 
 This trigger is useful for entry lighting, arrival notifications, security checks, and automations that should start as soon as access to a room or building changes.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -88,7 +86,7 @@ If someone comes home after sunset, this automation turns on the entry light as 
 
 - **Trigger**: Door opened
 - **Target**: Front door sensor
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for entry lighting on arrival" %}
 

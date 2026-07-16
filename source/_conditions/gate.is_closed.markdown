@@ -11,8 +11,6 @@ The **Gate is closed** condition passes when one or more targeted gates are curr
 
 This condition is useful for safety checks and routines that should run only when access is secured, like arming your home or starting irrigation.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

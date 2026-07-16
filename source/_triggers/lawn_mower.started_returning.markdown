@@ -8,8 +8,6 @@ description: "Triggers when one or more lawn mowers start returning to dock."
 The **Lawn mower started returning to dock** trigger fires when a mower stops mowing and starts returning to its dock.
 Use it when you want to react before the mower arrives, like turning on a path light, delaying another task, or sending a message that mowing is almost done.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -85,7 +83,7 @@ If the mower docks in a darker part of the yard, turn on a nearby light when it 
 
 - **Trigger**: Lawn mower started returning to dock
   - **Target**: Backyard mower
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the path to the dock" %}
@@ -98,8 +96,7 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

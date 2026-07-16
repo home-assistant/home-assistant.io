@@ -15,7 +15,6 @@ ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
   - '@L-I-Am'
-  - '@eifinger'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:

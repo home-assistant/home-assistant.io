@@ -19,7 +19,7 @@ ha_quality_scale: bronze
 ha_dhcp: true
 ---
 
-Integrates [Nobø Ecohub](https://www.glendimplex.no/produkter/varmestyring/11123610/noboe-hub/c-77/p-330)
+Integrates [Nobø Ecohub](https://en.nobo.no/product/nobo-hub)
 into Home Assistant. This integration is not officially supported or endorsed by Glen Dimplex Nordic AS,
 and the authors/maintainers are not official partners of Glen Dimplex Nordic AS.
 

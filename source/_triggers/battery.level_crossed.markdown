@@ -13,8 +13,6 @@ Use **Battery level crossed threshold** to automate alerts when critical devices
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery level crossed threshold** in an automation:

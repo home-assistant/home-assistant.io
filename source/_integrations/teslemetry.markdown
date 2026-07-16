@@ -169,6 +169,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Current speed limit|No|
 |Sensor|DC charging energy in|No|
 |Sensor|DC charging power|No|
+|Sensor|Destination|No|
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|

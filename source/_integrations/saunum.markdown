@@ -165,7 +165,7 @@ The **Saunum** integration provides the following entities.
 - **Fan duration**
   - **Description**: Configure how long the sauna air circulation fan runs before automatically turning off.
   - **Unit**: Minutes
-  - **Range**: 1-30 minutes
+  - **Range**: 1-15 minutes
   - **Default**: 15 minutes when not set
   - **Remarks**: Cannot be changed during an active sauna session.
 
@@ -233,7 +233,7 @@ Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a 
 
 {% include integrations/actions.md %}
 
-## Automations
+## Examples
 
 Examples of automations you can create using the Saunum integration.
 
@@ -256,21 +256,19 @@ description: >-
 mode: restart
 
 variables:
-  sauna_climate: climate.saunum_leil
   notification_title: "Sauna is Ready!"
   notification_message: "Your sauna has reached {target_temperature}°C. Enjoy!"
 
 triggers:
   - trigger: state
     entity_id: climate.saunum_leil
-    to: "heat"
+    to: heat
     from: "off"
-    id: session_start
 
 actions:
   - wait_template: >-
-      {% set current = state_attr(sauna_climate, 'current_temperature') | float(0) %}
-      {% set target = state_attr(sauna_climate, 'temperature') | float(0) %}
+      {% set current = state_attr('climate.saunum_leil', 'current_temperature') | float(0) %}
+      {% set target = state_attr('climate.saunum_leil', 'temperature') | float(0) %}
       {{ current >= target }}
     continue_on_timeout: false
   - action: light.turn_on
@@ -282,7 +280,7 @@ actions:
     data:
       title: "{{ notification_title }}"
       message: >-
-        {% set target_temperature = state_attr(sauna_climate, 'temperature') | int %}
+        {% set target_temperature = state_attr('climate.saunum_leil', 'temperature') | int %}
         {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
 
 ```

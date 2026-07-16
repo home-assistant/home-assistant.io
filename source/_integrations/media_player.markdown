@@ -43,8 +43,6 @@ A media player can have the following states:
 
 Here are a few examples of how you can use Media player triggers and conditions in automations.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: dim the room when a movie starts
@@ -112,15 +110,16 @@ automation: |
 
 {% include integrations/device_class_intro.md %}
 
-The screenshot shows different icons representing device classes of the media player entity:
+The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
 
-<p class='img'>
-<img src='/images/screenshots/device_class_media_player_icons.png' alt='Screenshot showing different icons representing device classes of the media player entity' />
-Example of different icons representing device classes of the media player entity.
-</p>
+- {% icon "mdi:cast" %} `None`
+- {% icon "mdi:television" %} `tv`
+- {% icon "mdi:speaker" %} `speaker`
+- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
+- {% icon "mdi:projector" %} `projector`
 
-The following device classes are supported for media players:
+Some device classes also support additional icons based on their state:
 
-- `tv`: Device is a television type device.
-- `speaker`: Device is a speaker or stereo type device.
-- `receiver`: Device is an audio/video receiver type device taking audio and outputting to speakers and video to displays.
+- Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
+- Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
+- Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}

@@ -62,8 +62,6 @@ If your alarm panel supports it, the **Changed by** (`changed_by`) attribute tel
 
 The real power of this integration is combining triggers and conditions into automations that protect your home without you having to think about it. Here are a few ideas to get you started.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: arm the alarm when everyone leaves

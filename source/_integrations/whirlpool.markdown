@@ -68,7 +68,7 @@ Brand:
 
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
-- [Binary Sensor](#binary_sensor)
+- [Binary Sensor](#binary-sensor)
 - [Button](#button)
 - [Climate](#climate)
 - [Select](#select)

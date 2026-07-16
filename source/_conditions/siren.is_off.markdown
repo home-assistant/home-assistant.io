@@ -9,8 +9,6 @@ related_conditions:
 
 The **Siren is off** condition is useful when an automation should continue only when a siren is quiet. You can use it to confirm a reset is complete, avoid starting a test during a real alarm, or make sure another action runs only after the siren has stopped.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
