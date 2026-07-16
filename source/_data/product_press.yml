@@ -5,7 +5,7 @@
 # Each top-level key is a product slug matching source/_data/products.yml.
 # `cards` entries use the same schema as community_cards.yml:
 #   href, text, author, author_image, author_image_alt, link_icon,
-#   quote (bool), blue (bool), background_image, background_image_alt,
+#   quote (bool), background_image, background_image_alt,
 #   video, video_poster
 zbt-2:
   title: "Connection you can count on"
