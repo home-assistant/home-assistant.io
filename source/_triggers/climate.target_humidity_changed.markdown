@@ -2,7 +2,7 @@
 title: "Thermostat target humidity changed"
 trigger: climate.target_humidity_changed
 domain: climate
-description: "Triggers after the humidity setpoint of one or more thermostats changes."
+description: "Triggers when the humidity setpoint of one or more thermostats changes."
 related_triggers:
   - climate.target_humidity_crossed_threshold
   - climate.target_temperature_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat target humidity changed** trigger fires after the target humidity (setpoint) of a thermostat {% term entity %} changes. The target humidity is what you want the thermostat to maintain, not the current room humidity. Some thermostats support humidity control and allow you to set a target humidity level in addition to temperature. Use this trigger when you want to react to adjustments in the desired humidity, whether they're made through the UI, an {% term automation %}, a voice command, or directly on the device.
 
 Use the threshold type to filter which changes matter to your automation. You can fire on any change, or only when the new setpoint is above, below, inside, or outside a specific range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

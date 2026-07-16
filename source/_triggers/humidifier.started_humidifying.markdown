@@ -2,7 +2,7 @@
 title: "Humidifier started humidifying"
 trigger: humidifier.started_humidifying
 domain: humidifier
-description: "Triggers after one or more humidifiers start actively humidifying."
+description: "Triggers when one or more humidifiers start humidifying."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_drying
@@ -11,8 +11,6 @@ related_triggers:
 The **Humidifier started humidifying** trigger fires when a humidifier {% term entity %} begins actively adding moisture to the air. A humidifier that is turned on does not necessarily humidify continuously. It pauses once the target humidity is reached and then resumes when the air dries out again. **Humidifier started humidifying** fires whenever it moved from idle back to active humidification.
 
 Use **Humidifier started humidifying** to track active humidification cycles, send notifications when the air is dry enough that the device kicks back in, or coordinate other devices that should run alongside it.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

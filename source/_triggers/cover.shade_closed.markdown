@@ -2,7 +2,7 @@
 title: "Shade closed"
 trigger: cover.shade_closed
 domain: cover
-description: "Triggers after one or more shades close."
+description: "Triggers when one or more shades close."
 related_triggers:
   - cover.shade_opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Shade closed** trigger fires when a targeted shade changes to closed. Use it when you want Home Assistant to react as soon as a shade closes.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shade closes.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

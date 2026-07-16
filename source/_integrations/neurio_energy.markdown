@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-Integrate your [Neurio](https://neur.io/) meter information into Home Assistant. To get an API key and secret, login to your [Neurio account](https://my.neur.io/#settings/applications/register) and register an application. Note the Homepage URL and Callback URL are optional.
+Integrate your [Neurio](https://neur.io/) meter information into Home Assistant. To get an API key and secret, log in to your [Neurio account](https://my.neur.io/#settings/applications/register) and register an application. Note the Homepage URL and Callback URL are optional.
 
 To enable this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

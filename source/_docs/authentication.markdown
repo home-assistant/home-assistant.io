@@ -1,6 +1,16 @@
 ---
 title: "Authentication"
 description: "Documentation on authentication in Home Assistant."
+
+related:
+  - docs: /docs/configuration/user-configuration/
+    title: People and user configuration
+  - docs: /docs/authentication/multi-factor-auth/
+    title: Multi-factor authentication
+  - docs: /docs/authentication/providers/
+    title: Authentication providers
+  - docs: /docs/locked_out/
+    title: I'm locked out!
 ---
 
 The authentication system secures access to Home Assistant.
@@ -11,55 +21,41 @@ You are greeted with a log in screen, asking you for username and password.
 
 <img src='/images/docs/authentication/login-outside-local-network.png' alt='Screenshot of the login screen, when logging in from within the local network' style='border: 0;box-shadow: none;'>
 
-## User accounts
+For information about user accounts, such as adding people, managing users, and changing display names or usernames, refer to [user configuration](/docs/configuration/user-configuration/).
 
-When you start Home Assistant for the first time, the _owner_ user account is created. This account has some special privileges and can:
+## Managing account access
 
-- Create and manage other user accounts.
-- Configure integrations and other settings (coming soon).
+Your password is the key to your home, so choose a strong, unique one. This matters even more once you access Home Assistant from outside your local network, where others could try to sign in, too. For extra protection, you can also turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
-{% warning %}
-For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
-{% endwarning %}
+You can manage how you sign in from your own account profile. To open it, go to {% my profile title="**User profile**" %} and open the **Security** tab. You can also open it by selecting your name at the very bottom of the sidebar. These settings only affect your own account.
 
-### Your account profile
+On the **Security** tab, you can:
 
-Once you're logged in, you can see the details of your account on the {% my profile title="**User profile**" %} page by selecting on the circular at the very bottom of the sidebar.
+- [Change your password](#changing-your-account-password).
+- Turn [multi-factor authentication](/docs/authentication/multi-factor-auth/) on or off for an extra level of security.
+- Manage your **Refresh tokens**. A refresh token is created each time you sign in from a device. Delete one to force that device to sign out.
+  - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) instead.
+- Create [long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts and apps can securely interact with Home Assistant.
 
-<img src='/images/docs/authentication/profile.png' alt='Screenshot of the profile page' style='border: 0;box-shadow: none;'>
+## Changing your account password
 
-You can:
+To change the password of your own account:
 
-- Change your password.
-- Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
-- Delete **Refresh tokens**. These are created when you log in from a device. Delete them if you want to force the device to log out.
-- Create [Long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts can securely interact with Home Assistant.
-- Define language and other locale settings.
-- Log out of Home Assistant.
-
-{% note %}
-Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
-{% endnote %}
-
-### Securing your login
-
-_Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house.
-
-As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
-
-## Adding a person to Home Assistant
-
-If you have administrator rights, you can [add a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant) and create them a user account.
-
-## Changing display or username
-
-To learn how to change a display or username, refer to [setting up basic information](/docs/configuration/basic/).
+1. Go to {% my profile title="**User profile**" %} and open the **Security** tab.
+2. In the **Change password** card, enter your **Current password**.
+3. Enter your **New password**, then enter it again under **Confirm new password**.
+4. Select **Submit**.
+5. Home Assistant asks whether you want to sign out of all other sessions. Select **Yes** to force every other device to sign in again with the new password, or **No** to keep them signed in.
 
 ## Other authentication techniques
 
 Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.
 
 ## Troubleshooting
+
+### Forgot username or password
+
+If you can no longer sign in, or you forgot your username or password, refer to [Help, I'm locked out!](/docs/locked_out/).
 
 ### Authentication failures from `127.0.0.1`
 

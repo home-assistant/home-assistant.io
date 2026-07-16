@@ -2,7 +2,7 @@
 title: "Thermostat target temperature crossed threshold"
 trigger: climate.target_temperature_crossed_threshold
 domain: climate
-description: "Triggers after the temperature setpoint of one or more thermostats crosses a threshold."
+description: "Triggers when the temperature setpoint of one or more thermostats crosses a threshold."
 related_triggers:
   - climate.target_temperature_changed
   - climate.target_humidity_crossed_threshold
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat target temperature crossed threshold** trigger fires after the target temperature (setpoint) of a thermostat {% term entity %} crosses a threshold value. Unlike [Thermostat target temperature changed](/triggers/climate.target_temperature_changed/), which fires whenever the target changes and lands at a particular value, this trigger fires only at the moment the setpoint crosses from one side of the threshold to the other.
 
 Use this trigger when you want to react to the exact moment a setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less aggressive temperature.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

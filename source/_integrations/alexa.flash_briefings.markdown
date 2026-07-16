@@ -15,11 +15,10 @@ As of version [0.31][zero-three-one] Home Assistant supports the new [Alexa Flas
 
 Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are OK because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. Using the [Let's Encrypt](/addons/lets_encrypt/) and [Duck DNS](/addons/duckdns/) apps is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/5230).
 
-Additionally, note that at the time of this writing, your Alexa skill endpoint *must* accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:
+Additionally, note that at the time of this writing, your Alexa skill endpoint _must_ accept requests over port 443. The default Home Assistant HTTP server port is 8123. There are two ways you can handle this:
 
-  1. In your router, forward external 443 to your Home Assistant serving port (defaults to 8123)
-  OR
-  2. Change your Home Assistant serving port to 443 this is done in the [`http`](/integrations/http/) section with the `server_port` entry in your {% term "`configuration.yaml`" %} file
+1. In your router, forward external port 443 to the Home Assistant HTTP server port.
+2. Change the Home Assistant HTTP server port to 443 under {% my network title="**Settings** > **System** > **Network**" %}, in the **HTTP server** section.
 
 [blog-lets-encrypt]: /blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
@@ -75,7 +74,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - Hit "Save" in the top right corner
   - Test
     - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
-- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
+- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary. Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com/alexa
 [flash-briefing-api]: https://developer.amazon.com/docs/flashbriefing/understand-the-flash-briefing-skill-api.html

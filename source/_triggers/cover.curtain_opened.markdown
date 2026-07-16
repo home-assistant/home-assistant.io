@@ -2,7 +2,7 @@
 title: "Curtain opened"
 trigger: cover.curtain_opened
 domain: cover
-description: "Triggers after one or more curtains open."
+description: "Triggers when one or more curtains open."
 related_triggers:
   - cover.curtain_closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Curtain opened** trigger fires when a targeted curtain changes to open. Use it when you want Home Assistant to react as soon as a curtain opens.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a curtain opens.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

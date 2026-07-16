@@ -1,6 +1,6 @@
 ---
 title: MQTT
-description: Instructions on how to setup MQTT within Home Assistant.
+description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
@@ -198,12 +198,12 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then check the collapse section `Other settings` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
 {% endimportant %}
 
-### Advanced broker configuration
+### Other broker configuration settings
 
-Advanced broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access the advanced options, open the MQTT broker settings, select **Advanced options**, and select **Next**. Advanced broker options are shown by default when the default advanced broker settings are changed.
+Additional broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access these settings, open the MQTT broker settings, and expand **Other settings**.
 
 #### Alternative client ID
 
@@ -1249,7 +1249,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
@@ -1455,7 +1455,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).

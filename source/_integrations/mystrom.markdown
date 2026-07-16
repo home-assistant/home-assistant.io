@@ -55,7 +55,7 @@ Two HA sensors are available for motion sensors:
 
 {%include integrations/config_flow.md %}
 
-Check if you are able to access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
+Check if you can access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
 
 ```bash
 $ curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]

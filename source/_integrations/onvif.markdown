@@ -52,7 +52,7 @@ By default, the integration will only enable the camera entity for the first H26
 
 ### Supported sensors
 
-This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant.  Below is a list of currently supported event topics along with the entities they create.
+This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant. Below is a list of currently supported event topics along with the entities they create.
 
 To help with development of this integration, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
 
@@ -69,7 +69,7 @@ To help with development of this integration, enable `info` level logging for `h
 | Image too blurry | Binary sensor | Problem | Device reports blurry image. |
 | Image too dark | Binary sensor | Problem | Device reports dark image. |
 | Image too bright | Binary sensor | Problem | Device reports bright image. |
-| Global scene change | Binary sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
+| Global scene change | Binary sensor | Problem | Device reports a large portion of the video content changing. The cause can be tamper actions like camera movement or coverage. |
 | Tamper detector | Binary sensor | Problem |  Detects any kind of tampering to the image sensor. |
 | Storage failure | Binary sensor | Problem | Storage failure on device. |
 | Recording job state | Binary sensor | None | Whether or not the device is actively recording. |

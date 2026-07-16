@@ -2,15 +2,13 @@
 title: "Alarm triggered"
 trigger: alarm_control_panel.triggered
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become triggered."
+description: "Triggers when one or more alarms become triggered."
 related_triggers:
   - alarm_control_panel.disarmed
   - alarm_control_panel.armed
 ---
 
 The **Alarm triggered** trigger fires the moment an alarm control panel {% term entity %} enters the triggered state. This is the state that means something set off the alarm, whether a door was opened, a window was broken, or motion was detected in a protected zone. Use this trigger to take immediate action: flash all the lights red, sound a siren, send an urgent notification to every household member, or start recording on your security cameras.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

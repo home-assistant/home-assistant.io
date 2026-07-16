@@ -2,7 +2,7 @@
 title: "Light turned off"
 trigger: light.turned_off
 domain: light
-description: "Triggers after one or more lights turn off."
+description: "Triggers when one or more lights turn off."
 related_triggers:
   - light.turned_on
   - light.brightness_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Light turned off** trigger fires after a light {% term entity %} turns off. Use it to start an automation the moment a light goes dark, whether someone flipped a physical switch, pressed a button in the UI, or called an action.
 
 When you target more than one light, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted light turns off, the last time the final targeted light turns off, or every single time any of them turn off.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

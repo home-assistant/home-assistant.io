@@ -2,7 +2,7 @@
 title: "Garage door opened"
 trigger: garage_door.opened
 domain: garage_door
-description: "Triggers after one or more garage doors open."
+description: "Triggers when one or more garage doors open."
 related_triggers:
   - garage_door.closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Garage door opened** trigger fires when a targeted garage door changes to open. Use it when you want Home Assistant to respond as soon as a garage door starts to open or is detected as open.
 
 This trigger is useful for turning on lights when you arrive, sending alerts if the garage opens while nobody is home, and starting routines that depend on access to the garage.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
