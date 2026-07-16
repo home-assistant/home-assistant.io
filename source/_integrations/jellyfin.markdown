@@ -23,7 +23,6 @@ ha_integration_type: service
 
 The **Jellyfin** {% term integration %} exposes a [Jellyfin](https://jellyfin.org/) server as a media source in Home Assistant. This integration has been tested with Jellyfin server version 10.6.4 and later.
 
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -46,9 +45,9 @@ Audio Codec:
 
 ### Media player entities
 
-This integration sets up every media session connected to the Jellyfin server as a media player in Home Assistant. These entities will display media information, playback progress, and playback controls. Browsing media inside Home Assistant in a player's context provides all supported library types.
+This integration sets up every media session connected to the Jellyfin server as a [media player](/integrations/media_player/) in Home Assistant. These entities display media information, playback progress, and playback controls.
 
-To browse, search, or play Jellyfin media from an automation or a script, use the [`media_player.browse_media`](/actions/media_player.browse_media/), [`media_player.search_media`](/actions/media_player.search_media/), and [`media_player.play_media`](/actions/media_player.play_media/) actions with your Jellyfin media player entity.
+To browse, search, or play Jellyfin media from an automation or a script, use the shared [media player actions](/integrations/media_player/#list-of-actions) with your Jellyfin media player entity.
 
 Jellyfin supports the `next` and `add` enqueue options for the `media_player.play_media` action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
 
@@ -56,8 +55,8 @@ The following examples show how to play Jellyfin media from a script. Replace th
 
 Play a movie on a Jellyfin client that supports playback:
 
-```yaml
-play_jellyfin_movie:
+{% example %}
+automation: |
   alias: "Play Jellyfin movie"
   sequence:
     - action: media_player.play_media
@@ -66,12 +65,12 @@ play_jellyfin_movie:
       data:
         media_content_id: a982a31451450daeda02c89952e6d7cf
         media_content_type: movie
-```
+{% endexample %}
 
 Add a TV episode to play next on a Jellyfin client:
 
-```yaml
-queue_jellyfin_episode:
+{% example %}
+automation: |
   alias: "Queue Jellyfin episode"
   sequence:
     - action: media_player.play_media
@@ -81,14 +80,14 @@ queue_jellyfin_episode:
         media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
         media_content_type: episode
         enqueue: next
-```
+{% endexample %}
 
 ### Remote entities
 
 This integration also creates a `remote` {% term entity %} for sending [Jellyfin remote commands](https://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Session/GeneralCommandType.cs) to each client, if supported. For example, the following script can be used to tell the client to navigate right twice, down once, and select the focused item:
 
-```yaml
-jellyfin_remote_script:
+{% example %}
+script: |
   alias: "Jellyfin Remote Script"
   sequence:
     - action: remote.send_command
@@ -101,14 +100,10 @@ jellyfin_remote_script:
           - MoveRight
           - MoveDown
           - Select
-```
+{% endexample %}
 
 {% include integrations/actions.md %}
 
-## Notes
-
-- Jellyfin support is currently limited to music, movie, and TV show libraries.
-
 ## Known limitations
 
-- Support is currently limited to music, movie and TV show libraries only. Other libraries will not appear in the media browser.
+- Support is currently limited to music, movie, and TV show libraries only. Other libraries do not appear in the media browser.
