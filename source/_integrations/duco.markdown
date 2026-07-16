@@ -4,6 +4,7 @@ description: Instructions on how to integrate Duco ventilation with Home Assista
 ha_release: 2026.5
 ha_category:
   - Fan
+  - Number
   - Select
   - Sensor
 ha_iot_class: Local Polling
@@ -14,6 +15,7 @@ ha_domain: duco
 ha_platforms:
   - diagnostics
   - fan
+  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -47,7 +49,11 @@ Other Duco systems that expose public API version 2.1 or newer can be set up, bu
 
 The following node types are supported:
 
+<<<<<<< HEAD
 - **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, air temperatures, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor.
+=======
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor. Models that expose bypass supply targets provide temperature controls for zones 1 through 4.
+>>>>>>> 23b74cfbfa (Document Duco bypass target temperatures)
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
@@ -107,6 +113,12 @@ The percentages 33%, 66%, and 100% are abstract speed levels used in the Home As
 The ventilation state select is available for the main ventilation box (BOX). It lets you choose the Duco ventilation state codes exposed by your system, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, `MAN3`, or `EMPT`.
 
 Home Assistant only shows the options advertised by your Duco system, so the available choices can vary by model or firmware. After you change the option, Home Assistant refreshes the state from the box and shows the state the box reports back.
+
+### Bypass supply target temperatures
+
+Some Duco systems expose bypass supply target temperatures for up to four zones. When available, Home Assistant creates a number entity for each zone. You can use these entities to view and set the target temperature in degrees Celsius. The available range and increment come from your Duco system.
+
+If your Duco system does not expose a target for a zone, Home Assistant does not create the related number entity.
 
 ### Sensors
 
