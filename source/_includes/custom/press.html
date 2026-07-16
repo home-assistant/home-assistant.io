@@ -25,7 +25,6 @@
             {% assign card_is_youtube = false %}
             {% if card.href contains "youtube.com" or card.href contains "youtu.be" %}{% assign card_is_youtube = true %}{% endif %}
             {% if card.quote %}{% assign card_classes = card_classes | append: ' community-card--quote' %}{% endif %}
-            {% if card.blue %}{% assign card_classes = card_classes | append: ' community-card--blue' %}{% endif %}
             {% if card.background_image %}{% assign card_classes = card_classes | append: ' community-card--image' %}{% endif %}
             {% if card.video %}
               {% assign card_classes = card_classes | append: ' community-card--video' %}
