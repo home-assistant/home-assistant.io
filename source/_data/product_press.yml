@@ -69,7 +69,7 @@ zbt-2:
       video: /video/community-cards/the-home-assistant-connect-zbt-2-the-easiest-way-to-start-with-zigbee-or-thread-is-now-even-better.webm
       video_poster: /images/community-cards/the-home-assistant-connect-zbt-2-the-easiest-way-to-start-with-zigbee-or-thread-is-now-even-better.webp
     - href: "https://www.youtube.com/watch?v=zPEnMk_fT_g"
-      text: "How to Setup a Thread Boarder Router using the Home Assistant ZBT-2"
+      text: "How to Setup a Thread Border Router using the Home Assistant ZBT-2"
       author: "Simon Says Home Assistant"
       author_image: "/images/community-cards/simon-says-home-assistant.webp"
       author_image_alt: "Simon Says Home Assistant logo"
