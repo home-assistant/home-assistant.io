@@ -65,7 +65,7 @@ Other environmental and count sensors show an unknown state when the device omit
 
 ## Data updates
 
-Target positions use a local UDP push subscription that is renewed every 40 seconds. Environmental, target-count, zone-count, and Wi-Fi states are read every 30 seconds through the device's local API. The integration renews authentication and retries after device restarts or network interruptions. Position subscriptions and environmental states recover independently when the device becomes reachable again.
+Target positions use a local UDP push subscription that is renewed every 40 seconds. Rapid position updates are coalesced so that sensor states are written at most once per second. Environmental, target-count, zone-count, and Wi-Fi states are read every 30 seconds through the device's local API. The integration renews authentication and retries after device restarts or network interruptions. Position subscriptions and environmental states recover independently when the device becomes reachable again.
 
 ## Actions
 
