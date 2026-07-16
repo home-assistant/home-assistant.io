@@ -27,18 +27,6 @@ related:
 
 The **Solyx Energy** {% term integration %} is used to integrate with Nymo devices from [Solyx Energy](https://www.solyxenergy.nl). The Nymo controls an electric boiler with exactly the amount of solar energy that would otherwise be fed back into the grid. It allows households to store their surplus solar power and minimize feed-in, without huge investments.
 
-## Supported devices
-
-The following devices are known to be supported by the integration:
-
-- Nymo + Sensorbox
-
-## Unsupported devices
-
-The following devices are not supported by the integration:
-
-- Older Nymo units
-
 ## Prerequisites
 
 1. Open the app store on your Android or iOS device, and install the **Solyx Energy** app.
