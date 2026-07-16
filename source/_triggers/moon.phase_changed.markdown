@@ -16,7 +16,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Moon: Moon phase changed**.
+4. From the search box, search for and select **Moon phase changed**.
 5. Under **Phase**, keep **Any** to trigger on every phase change, or select a single phase to trigger only when the moon enters that phase.
 6. Select **Save**.
 
@@ -54,7 +54,7 @@ trigger: |
 {% options_yaml %}
 phase:
   description: >
-    Limit the trigger to a single moon phase. Accepts `any` (every phase change) or one of `new_moon`, `waxing_crescent`, `first_quarter`, `waxing_gibbous`, `full_moon`, `waning_gibbous`, `last_quarter`, or `waning_crescent`.
+    Limits the trigger to a single moon phase. Accepts `any` (every phase change) or one of `new_moon`, `waxing_crescent`, `first_quarter`, `waxing_gibbous`, `full_moon`, `waning_gibbous`, `last_quarter`, or `waning_crescent`.
   required: false
   type: string
   default: any
