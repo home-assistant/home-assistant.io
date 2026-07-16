@@ -5969,7 +5969,7 @@ section#collaboration .collaboration-card .collaboration-card-inner p {
 @media (min-width: 768px) {
   .vpe-main #press {
     max-width: calc((var(--columns-outer) * (var(--grid-m) * 2)));
-    margin: 0 auto;
+    margin: 0 auto calc(var(--grid-m) * 0.25);
   }
 }
 
@@ -6015,7 +6015,7 @@ section#collaboration .collaboration-card .collaboration-card-inner p {
 @media (min-width: 1140px) {
   .vpe-main #press .masonry {
     flex-wrap: nowrap;
-    padding: 0 calc(var(--grid-m) * 0.25);
+    padding: calc(var(--grid-m) * 0.25);
   }
 }
 
@@ -6042,8 +6042,5 @@ section#collaboration .collaboration-card .collaboration-card-inner p {
 
 .vpe-main #press .masonry .masonry__col .community-card__content {
   height: 100%;
-}
-
-.vpe-main #press .masonry .masonry__col .community-card__meta {
-  margin-top: auto;
+  justify-content: flex-end;
 }

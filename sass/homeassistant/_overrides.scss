@@ -2252,8 +2252,18 @@ h6 {
     &--video{
       aspect-ratio: 16/11;
 
+      .community-card__content {
+        gap: 2px;
+      }
+
       .community-card__content p{
-        max-width: 90%;
+        max-width: 85%;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-wrap: balance;
       }
       
       .community-card__meta .meta-link{

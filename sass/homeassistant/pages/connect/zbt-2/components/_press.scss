@@ -4,5 +4,10 @@
 #landingpage {
     section#press {
         @include press-section;
+        padding-bottom: 0;
+
+        .content-intro .sub-title {
+            margin-top: 2rem !important;
+        }
     }
 }
