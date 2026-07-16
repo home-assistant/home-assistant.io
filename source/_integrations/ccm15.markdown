@@ -27,3 +27,9 @@ There is currently support for the following device types within Home Assistant:
 ## Climate
 
 Each data controller can support up to 64 `climate` devices.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -11,8 +11,6 @@ The **PM10 level changed** trigger fires after the PM10 (particulate matter 10 m
 
 Imagine your robot vacuum automatically heading out for a cleanup once the dust from a nearby construction site settles, without you having to remember. Use this trigger to start an air purifier, close windows, or send a reminder whenever PM10 readings shift noticeably.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

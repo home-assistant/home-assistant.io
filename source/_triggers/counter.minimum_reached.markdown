@@ -12,8 +12,6 @@ related_triggers:
 The **Counter reached minimum** trigger fires when a counter {% term helper %} reaches its configured minimum value.
 Use it when you want an automation to react when a count has run all the way down, like stopping a routine, turning something off, or sending a message that a user-created tally has reached its floor.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

@@ -15,8 +15,6 @@ Use **Illuminance crossed threshold** to automate shades when the sun gets too b
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Illuminance crossed threshold** in an automation:

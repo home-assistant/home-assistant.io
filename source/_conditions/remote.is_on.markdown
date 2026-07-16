@@ -11,8 +11,6 @@ The **Remote is on** condition passes when a remote {% term entity %} is current
 
 When you target more than one remote, the condition's **behavior** option controls how the check combines results. You can require any targeted remote to be on, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -88,7 +86,7 @@ When you press a button on a dashboard, only forward a media command if the livi
 - **Trigger**: State: Dashboard button pressed
 - **Condition**: Remote is on
   - **Target**: Living room remote
-- **Action**: Send a remote command
+- **Action**: Send remote command
 
 {% details "YAML example for a guarded media command" %}
 

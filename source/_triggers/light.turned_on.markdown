@@ -12,8 +12,6 @@ The **Light turned on** trigger fires after a light {% term entity %} turns on. 
 
 When you target more than one light, the trigger's **behavior** option controls when it fires. You can have it fire the first time any targeted light turns on, the last time the final targeted light turns on, or every single time any of them turn on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

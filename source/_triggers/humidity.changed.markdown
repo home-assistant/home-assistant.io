@@ -13,8 +13,6 @@ The threshold type controls where the new reading must land for the trigger to f
 
 Use **Relative humidity changed** to log humidity trends, trigger a fan when the air in a room becomes noticeably more humid, or alert you when a sensor reading shifts in a way that might signal a problem.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 {% include triggers/threshold_changed_steps.md

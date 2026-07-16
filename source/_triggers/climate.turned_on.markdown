@@ -12,8 +12,6 @@ The **Thermostat turned on** trigger fires after a climate {% term entity %} tur
 
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat turned on** in an automation:

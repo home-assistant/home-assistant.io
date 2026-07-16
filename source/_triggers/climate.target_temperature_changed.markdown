@@ -12,8 +12,6 @@ The **Thermostat target temperature changed** trigger fires after the target tem
 
 Use the threshold type to filter which changes matter to your automation. You can fire on any change, or only when the new setpoint is above, below, inside, or outside a specific range.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target temperature changed** in an automation:

@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is disarmed** condition passes when one or more alarm control panel {% term entities %} are currently disarmed. Use this to make sure the welcome-home routine only runs when the alarm has already been turned off, so lights and music stay quiet while the alarm is still active.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -88,7 +86,8 @@ When a person arrives home, turn on the entryway lights and start playing music,
 - **Condition**: Alarm is disarmed
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Light: Turn on, Media player: Play media
+- **Action**: Turn on light
+- **Action**: Media player: Play media
 
 {% details "YAML example for a welcome-home routine gated on disarmed alarm" %}
 

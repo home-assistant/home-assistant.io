@@ -11,8 +11,6 @@ The **Nitrous oxide level crossed threshold** trigger fires when the nitrous oxi
 
 If you manage a greenhouse or monitor environmental conditions, this trigger keeps you informed without constant manual checks. Get a notification on your phone the moment N2O crosses a concerning level, or have your ventilation system respond automatically to keep conditions within a healthy range.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

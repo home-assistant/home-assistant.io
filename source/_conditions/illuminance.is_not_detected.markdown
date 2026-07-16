@@ -10,8 +10,6 @@ related_conditions:
 
 The **Light level is not detected** condition passes when one or more light binary sensors are currently dark. Use it to gate an automation on a dark area, like only running a wake-up routine if the bedroom is still dark, or only turning on hallway lights when an outdoor sensor reports no daylight.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -11,8 +11,6 @@ The **Calendar event started** trigger fires when a calendar event starts. You c
 
 Use it to automate actions based on the start of a calendar event.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

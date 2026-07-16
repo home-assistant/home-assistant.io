@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ha_codeowners:
   - '@johanzander'
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
 The **Growatt** {% term integration %} enables you to retrieve data from Growatt inverters and control certain inverter settings.

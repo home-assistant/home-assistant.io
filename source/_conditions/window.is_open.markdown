@@ -9,8 +9,6 @@ related_conditions:
 
 The **Window is open** condition passes when a targeted window is currently open. Use it when you want an automation to continue only if fresh air is coming in, or when you want to warn someone before leaving the house with a window still open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
