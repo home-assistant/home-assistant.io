@@ -57,7 +57,7 @@ The phase is calculated on your own system from the current date, so no data is 
 ## Known limitations
 
 - The phase is based on the date only. The sensor does not report the exact percentage of illumination, moonrise and moonset times, or how the moon looks from your specific location or hemisphere.
-- The triggers are also based only on the phase and the waxing or waning direction. They do not react to moonrise, moonset, the moon's elevation, or the exact percentage of illumination.
+- The triggers are also based only on the phase. They do not react to moonrise, moonset, the moon's elevation, or the exact percentage of illumination.
 
 ## Removing the integration
 
