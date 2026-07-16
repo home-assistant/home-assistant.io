@@ -16,7 +16,7 @@ To extract and play media from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the media player.
-6. From the actions shown for that target, select **Play media**.
+6. From the actions shown for that target, select **Media Extractor: Play media**.
 7. Enter the media URL and content type.
 8. Select **Save**.
 
@@ -25,8 +25,10 @@ To extract and play media from an automation or a script:
 {% options_ui %}
 Media content ID:
   description: The URL of the media to extract and play.
+  required: true
 Media content type:
-  description: "The type of media, such as `music`, `tvshow`, `video`, `episode`, `channel`, or `playlist`."
+  description: "The type of media, such as **MUSIC**, **TVSHOW**, **VIDEO**, **EPISODE**, **CHANNEL**, or **PLAYLIST MUSIC**."
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
