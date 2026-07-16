@@ -26,7 +26,7 @@ To extract and play media from an automation or a script:
 Media content ID:
   description: The URL of the media to extract and play.
 Media content type:
-  description: The content type. Must be one of `CHANNEL`, `EPISODE`, `PLAYLIST MUSIC`, `MUSIC`, `TVSHOW`, or `VIDEO`.
+  description: "The type of media, such as `music`, `tvshow`, `video`, `episode`, `channel`, or `playlist`."
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -40,7 +40,7 @@ action: |
     entity_id: media_player.living_room
   data:
     media_content_id: "https://example.com/video"
-    media_content_type: VIDEO
+    media_content_type: video
 {% endexample %}
 
 This extracts the media URL and plays it on `media_player.living_room`.
@@ -53,7 +53,7 @@ media_content_id:
   required: true
   type: string
 media_content_type:
-  description: The content type. Must be one of `CHANNEL`, `EPISODE`, `PLAYLIST MUSIC`, `MUSIC`, `TVSHOW`, or `VIDEO`.
+  description: "The type of media, such as `music`, `tvshow`, `video`, `episode`, `channel`, or `playlist`."
   required: true
   type: string
 {% endoptions_yaml %}
