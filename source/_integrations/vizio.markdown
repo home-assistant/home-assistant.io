@@ -23,24 +23,24 @@ The **VIZIO SmartCast** {% term integration %} allows you to control [SmartCast]
 
 If `zeroconf` discovery is enabled, your device will get discovered automatically. To discover your device manually, read the subsections below.
 
-### Install `pyvizio` locally
+### Install `vizaio` locally
 
 {% note %}
 If the `pip3` command is not found, try `pip` instead
 {% endnote %}
 
-- To install, run `pip3 install pyvizio` in your terminal.
-- If `pyvizio` is already installed locally, make sure you are using the latest version by running `pip3 install --upgrade pyvizio` in your terminal.
+- To install, run `pip3 install 'vizaio[cli]'` in your terminal.
+- If `vizaio` is already installed locally, make sure you are using the latest version by running `pip3 install --upgrade 'vizaio[cli]'` in your terminal.
 
 ### Discover devices
 
 Find your device using the following command:
 
 ```bash
-pyvizio --ip=0 discover
+vizaio discover
 ```
 
-Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g., `pyvizio --ip=0 discover --timeout=10`).
+Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g., `vizaio discover --timeout 10`).
 
 ## Pairing
 
@@ -69,35 +69,15 @@ read -p "PAIRING_REQ_TOKEN:  " VIZIO_PAIRING_REQ_TOKEN
 curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID": "pyvizio","CHALLENGE_TYPE": 1,"RESPONSE_VALUE": "'"${VIZIO_PIN}"'","PAIRING_REQ_TOKEN": '"${VIZIO_PAIRING_REQ_TOKEN}"'}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/pair
 ```
 
-### Pair manually using `pyvizio`
+### Pair manually using `vizaio`
 
-To obtain an auth token manually, follow these steps:
-
-Make sure that your device is on before continuing.
-
-| Parameter     | Description                                                             |
-| :------------ | :---------------------------------------------------------------------- |
-| `ip`          | `IP Address:Port` (obtained from the previous section)                  |
-| `device_type` | The type of device you are connecting to. Options are `tv` or `speaker` |
-
-Enter the following command to initiate pairing:
+To obtain an auth token manually, make sure that your device is on, then run the interactive pairing command (replace `{ip:port}` with the address obtained in the previous section):
 
 ```bash
-pyvizio --ip={ip:port} --device_type={device_type} pair
+vizaio pair interactive {ip:port}
 ```
 
-Initiation will show you two different values:
-
-| Value           | Description                                                                                             |
-| :-------------- | :------------------------------------------------------------------------------------------------------ |
-| Challenge type  | Usually, it should be `"1"`.                                                                            |
-| Challenge token | Token required to finalize pairing in the next step                                                     |
-
-At this point, a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
-
-```bash
-pyvizio --ip={ip:port} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin} --ch_type={challenge_type}
-```
+A PIN code will be displayed at the top of your TV; type it in when prompted. For scripted use, `vizaio pair begin {ip:port}` starts pairing and prints the matching `vizaio pair complete` command with everything filled in except the PIN.
 
 You will need the authentication token returned by this command to configure Home Assistant.
 
@@ -207,11 +187,7 @@ If there is an app you want to be able to launch from Home Assistant that isn't 
 
 ### Obtaining a list of valid apps to include or exclude
 
-The list of apps that are provided by default is statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a VIZIO Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
-
-```bash
-pyvizio --ip=0 get-apps-list
-```
+The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, view the source list of a VIZIO Smart TV in the Home Assistant frontend.
 
 {% include integrations/actions.md %}
 
@@ -226,29 +202,26 @@ The VIZIO SmartCast integration automatically creates a remote entity for each c
 | Command | Additional aliases |
 | :------ | :------ |
 | `back` | |
-| `cc_toggle` | `closed_captions`, `cc` |
 | `ch_down` | `channel_down` |
 | `ch_prev` | `previous_channel` |
 | `ch_up` | `channel_up` |
 | `down` | |
 | `exit` | |
-| `home` | |
+| `guide` | |
 | `info` | |
 | `input_next` | `next_input` |
 | `left` | |
-| `left2` | |
 | `menu` | |
 | `mute_off` | |
 | `mute_on` | |
 | `mute_toggle` | `mute`, `toggle_mute` |
+| `num_0` … `num_9` | |
 | `ok` | `enter`, `select` |
 | `pause` | |
-| `pic_mode` | `picture_mode` |
-| `pic_size` | `picture_size` |
 | `play` | |
 | `pow_off` | `off`, `power_off` |
 | `pow_on` | `on`, `power_on` |
-| `pow_toggle` | `power_toggle`, `toggle_power`, `power` |
+| `pow_toggle` | `power`, `power_toggle`, `toggle_power` |
 | `right` | |
 | `seek_back` | `reverse`, `rewind` |
 | `seek_fwd` | `forward`, `fast_forward`, `ff` |
@@ -257,11 +230,13 @@ The VIZIO SmartCast integration automatically creates a remote entity for each c
 | `vol_down` | `volume_down` |
 | `vol_up` | `volume_up` |
 
+The `num_0` through `num_9` keys enter channel digits on tuner-equipped models; models without a tuner reject them.
+
 #### Speaker commands
 
 Speakers support a subset of the commands above:
 
-`mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
+`input_next`, `mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
 
 Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
 
