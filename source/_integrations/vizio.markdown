@@ -199,38 +199,36 @@ The VIZIO SmartCast integration automatically creates a remote entity for each c
 
 #### TV commands
 
-| Command | Additional aliases |
-| :------ | :------ |
-| `back` | |
-| `ch_down` | `channel_down` |
-| `ch_prev` | `previous_channel` |
-| `ch_up` | `channel_up` |
-| `down` | |
-| `exit` | |
-| `guide` | |
-| `info` | |
-| `input_next` | `next_input` |
-| `left` | |
-| `menu` | |
-| `mute_off` | |
-| `mute_on` | |
-| `mute_toggle` | `mute`, `toggle_mute` |
-| `num_0` … `num_9` | |
-| `ok` | `enter`, `select` |
-| `pause` | |
-| `play` | |
-| `pow_off` | `off`, `power_off` |
-| `pow_on` | `on`, `power_on` |
-| `pow_toggle` | `power`, `power_toggle`, `toggle_power` |
-| `right` | |
-| `seek_back` | `reverse`, `rewind` |
-| `seek_fwd` | `forward`, `fast_forward`, `ff` |
-| `smartcast` | |
-| `up` | |
-| `vol_down` | `volume_down` |
-| `vol_up` | `volume_up` |
-
-The `num_0` through `num_9` keys enter channel digits on tuner-equipped models; models without a tuner reject them.
+| Command | Additional aliases | Description |
+| :------ | :------ | :------ |
+| `back` | | Go back to the previous screen |
+| `ch_down` | `channel_down` | Channel down |
+| `ch_prev` | `previous_channel` | Jump to the previously watched channel |
+| `ch_up` | `channel_up` | Channel up |
+| `down` | | Navigate down |
+| `exit` | | Exit the current menu |
+| `guide` | | Open the channel guide |
+| `info` | | Show information about the current channel or input |
+| `input_next` | `next_input` | Cycle to the next input |
+| `left` | | Navigate left |
+| `menu` | | Open the on-screen menu |
+| `mute_off` | | Unmute the audio |
+| `mute_on` | | Mute the audio |
+| `mute_toggle` | `mute`, `toggle_mute` | Toggle mute |
+| `num_0` … `num_9` | | Enter a channel digit (models without a tuner reject these) |
+| `ok` | `enter`, `select` | Confirm the current selection |
+| `pause` | | Pause playback |
+| `play` | | Resume playback |
+| `pow_off` | `off`, `power_off` | Turn the device off |
+| `pow_on` | `on`, `power_on` | Turn the device on |
+| `pow_toggle` | `power`, `power_toggle`, `toggle_power` | Toggle the power state |
+| `right` | | Navigate right |
+| `seek_back` | `reverse`, `rewind` | Rewind playback |
+| `seek_fwd` | `forward`, `fast_forward`, `ff` | Fast-forward playback |
+| `smartcast` | | Open the SmartCast Home screen |
+| `up` | | Navigate up |
+| `vol_down` | `volume_down` | Volume down |
+| `vol_up` | `volume_up` | Volume up |
 
 #### Speaker commands
 
