@@ -91,7 +91,7 @@ On success, the integration reloads automatically.
 
 ## Data updates
 
-Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.
+Entities are updated only when new values are received from the device. Power and current entities are updated at most every 5 seconds; all other entities at most every 30 seconds.
 
 ## Supported functionality
 
@@ -174,7 +174,7 @@ Configurable time-of-day settings, such as:
 
 ## Known limitations
 
-- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
+- The integration receives updates through MQTT push, but limits entity updates: power and current values are updated at most once every 5 seconds, all other values at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
 
 ## Examples
 
