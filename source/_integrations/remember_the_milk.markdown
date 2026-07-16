@@ -68,7 +68,7 @@ In the background, Home Assistant downloaded a token from the Remember The Milk 
 ### Verifying configuration
 
 To confirm that your configuration was successful, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Remember The Milk**.
-The integration should now show `1 entity` and if you select it, it should be named after your RTM username.
+The integration should now show **1 entity** and if you select it, it should be named after your RTM username.
 
 {% include integrations/actions.md %}
 

@@ -17,7 +17,7 @@ To create a Remember The Milk task from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Search for and select **Remember The Milk: `<your_rtm_username>_create_task`**.
 6. In the top right, select **Menu** ({% icon "mdi:dots-vertical" %}) > **Edit in YAML**.
-7. Enter this action's YAML, following [Using this action in YAML](/integrations/remember_the_milk/#using-this-action-in-yaml).
+7. Enter this action's YAML, following [Using this action in YAML](/actions/remember_the_milk.create_task/#using-this-action-in-yaml).
 8. Select **Save**.
 
 {% include actions/yaml_header.md %}
