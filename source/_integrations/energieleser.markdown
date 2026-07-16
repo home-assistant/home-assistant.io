@@ -77,7 +77,7 @@ The energieleser integration primarily provides the following features based on 
 
 #### Diagnostic sensors
 
-- **Water today (m³)**: Cumulative water consumed today.
+- **Water today**: Cumulative water consumed today (m³)
 
 ### wärmeleser
 
@@ -90,7 +90,7 @@ The energieleser integration primarily provides the following features based on 
 
 ### Common diagnostic sensors
 
-- **Signal strength (dBm)**: Wi-Fi signal strength of the device. This entity is disabled by default.
+- **Signal strength**: Wi-Fi signal strength of the device (dBm, disabled by default)
 
 ## Data updates
 
