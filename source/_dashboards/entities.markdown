@@ -48,11 +48,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: false
+  description: Set the color when the entity is active, for all rows in the card. By default, the color is based on `state`, `domain`, and `device_class` of your entity. Set to `none` to disable the coloring. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
+  type: string
+  default: state
 header:
   required: false
   description: Header widget to render. See [header documentation](/dashboards/header-footer/).
@@ -100,11 +100,10 @@ action_name:
   required: false
   description: Button label (only applies to `script` and `scene` rows).
   type: string
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: false
+  description: Set the color when the entity is active, overriding the card's `color` option for this row. It accepts `state`, `none`, [color token](/dashboards/tile/#available-colors) or hex color code.
+  type: string
 tap_action:
   required: false
   description: Action taken on row tap. See [action documentation](/dashboards/actions/#tap-action).
