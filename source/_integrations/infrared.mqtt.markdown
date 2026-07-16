@@ -384,8 +384,8 @@ schema:
   required: true
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive a [JSON payload](#infrared-signal-schema) with `timings` and `modulation` as required attributes. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
-  required: false
+  description: "The MQTT topic subscribed to receive a [JSON payload](#infrared-signal-schema) with `timings` as required attribute and and `modulation` as optional attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
+  required: true
   type: string
 unique_id:
   description: An ID that uniquely identifies this infrared entity. If two infrared entities have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
@@ -416,7 +416,7 @@ An example message to receive:
 }
 ```
 
-The message should contain `timings` and `modulation` attributes, any other attributes in the JSON message will be ignored.
+The message should contain the `timings` attribute and optional the `modulation` attribute, any other attributes in the JSON message will be ignored.
 
 An example message that is sent when a command is issued:
 
