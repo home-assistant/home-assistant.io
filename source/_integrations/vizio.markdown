@@ -51,33 +51,15 @@ This {% term integration %} requires an access token to communicate with TVs (sp
  - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize Home Assistant, you will see a VIZIO SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While Home Assistant will store the access token for the life of your `vizio` {% term entity %}, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your Home Assistant instance.
 - **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, submit your initial configuration with an empty Access Token value.
 
-### Pair manually using the CLI
-
-The following script, written by [JeffLIrion](https://github.com/JeffLIrion) can be run to obtain an auth token. You will need to replace `<IP>` with your IP and `<PORT>` (which is typically 7345 or 9000).
-
-```bash
-#!/bin/bash
-
-VIZIO_IP="<IP>"
-VIZIO_PORT="<PORT>"
-
-curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID":"pyvizio","DEVICE_NAME":"Python Vizio"}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/start
-
-read -p "PIN:  " VIZIO_PIN
-read -p "PAIRING_REQ_TOKEN:  " VIZIO_PAIRING_REQ_TOKEN
-
-curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID": "pyvizio","CHALLENGE_TYPE": 1,"RESPONSE_VALUE": "'"${VIZIO_PIN}"'","PAIRING_REQ_TOKEN": '"${VIZIO_PAIRING_REQ_TOKEN}"'}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/pair
-```
-
 ### Pair manually using `vizaio`
 
-To obtain an auth token manually, make sure that your device is on, then run the interactive pairing command (replace `{ip:port}` with the address obtained in the previous section):
+To obtain an auth token manually, make sure that your device is on, then run the interactive pairing command (replace `DEVICE_IP:DEVICE_PORT` with the address obtained in the previous section):
 
 ```bash
-vizaio pair interactive {ip:port}
+vizaio pair interactive DEVICE_IP:DEVICE_PORT
 ```
 
-A PIN code will be displayed at the top of your TV; type it in when prompted. For scripted use, `vizaio pair begin {ip:port}` starts pairing and prints the matching `vizaio pair complete` command with everything filled in except the PIN.
+A PIN code will be displayed at the top of your TV; type it in when prompted. For scripted use, `vizaio pair begin DEVICE_IP:DEVICE_PORT` starts pairing and prints the matching `vizaio pair complete` command with everything filled in except the PIN.
 
 You will need the authentication token returned by this command to configure Home Assistant.
 
@@ -187,7 +169,7 @@ If there is an app you want to be able to launch from Home Assistant that isn't 
 
 ### Obtaining a list of valid apps to include or exclude
 
-The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, view the source list of a VIZIO Smart TV in the Home Assistant frontend.
+The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, check the `source_list` attribute of your TV's media player entity under {% my developer_states title="**Developer tools** > **States**" %}.
 
 {% include integrations/actions.md %}
 
@@ -215,7 +197,7 @@ The VIZIO SmartCast integration automatically creates a remote entity for each c
 | `mute_off` | | Unmute the audio |
 | `mute_on` | | Mute the audio |
 | `mute_toggle` | `mute`, `toggle_mute` | Toggle mute |
-| `num_0` … `num_9` | | Enter a channel digit (models without a tuner reject these) |
+| `num_0` through `num_9` | | Enter a channel digit (models without a tuner reject these) |
 | `ok` | `enter`, `select` | Confirm the current selection |
 | `pause` | | Pause playback |
 | `play` | | Resume playback |
