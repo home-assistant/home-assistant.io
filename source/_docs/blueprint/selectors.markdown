@@ -853,7 +853,7 @@ light.living_room
 
 ### Example entity selector <!-- omit from toc -->
 
-An example entity selector that, will only show entities that are:
+An example entity selector that shows only entities that are:
 
 - Provided by the [Hue](/integrations/hue) integration.
 - From the [Binary sensor](/integrations/binary_sensor) domain.
