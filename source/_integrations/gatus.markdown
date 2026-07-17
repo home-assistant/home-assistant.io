@@ -127,10 +127,22 @@ automation: |
 
 The integration {% term polling polls %} your Gatus instance every 30 seconds.
 
+## Reconfiguration
+
+If you need to update the connection details (URL) of your Gatus instance, you can reconfigure the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Gatus** integration card.
+3. Select the three dots menu and then select **Reconfigure**.
+4. Update the URL of your Gatus instance.
+5. Select **Submit**.
+
+Reconfiguring or reloading the integration will automatically discover and add any newly configured endpoints as new binary sensor entities.
+
 ## Known limitations
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
-- The integration requires manual reconfiguation when a new endpoint is added or removed.
+- The integration requires a manual reload or reconfiguration to discover when a new endpoint is added or removed.
 - The integration currently does not support authenticated instances
 
 ## Troubleshooting
