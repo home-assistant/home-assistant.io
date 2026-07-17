@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are returning to the dock."
 The **Lawn mower is returning** condition passes when one or more targeted mowers are on their way back to the dock.
 Use it when an automation should continue only during the return trip, like keeping a path light on or waiting to start another yard task.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

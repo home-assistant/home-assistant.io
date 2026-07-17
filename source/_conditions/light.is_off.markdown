@@ -12,8 +12,6 @@ The **Light is off** condition passes when a light {% term entity %} is currentl
 
 When you target more than one light, the condition's **behavior** option controls how the check combines results. You can require any targeted light to be off, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

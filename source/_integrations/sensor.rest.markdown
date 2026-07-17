@@ -154,7 +154,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -274,7 +274,7 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 ### Use GitHub to get the latest release of Home Assistant
 
-This sample is very similar to the [`updater`](/integrations/updater/) integration but the information is received from GitHub.
+This sample retrieves the latest Home Assistant release information from GitHub.
 
 ```yaml
 sensor:

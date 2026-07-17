@@ -2,7 +2,9 @@
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
 ha_category:
+  - Button
   - Camera
+  - Switch
 ha_iot_class: Cloud Polling
 ha_release: 2026.6
 ha_config_flow: true
@@ -11,15 +13,17 @@ ha_codeowners:
   - '@Imou-OpenPlatform'
 ha_platforms:
   - button
+  - camera
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically, and supported actions are exposed as button entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com/) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, and supported toggles are exposed as switch entities in Home Assistant.
 
 ## Supported devices
 
-The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ).
+The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button and switch entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ).
 
 Add or remove devices in the Imou Open Platform or Imou app; new devices are picked up on the next data refresh.
 
@@ -64,13 +68,36 @@ Imou Open Platform API usage limits apply to your App ID:
 
 ## Supported functionality
 
-The integration exposes button entities when the cloud API reports that the action is supported for a device:
+### Camera
+
+Each device channel with a camera feed exposes two camera entities:
+
+- **Live view SD**: Standard-definition cloud live stream.
+- **Live view HD**: High-definition cloud live stream.
+
+Both are enabled by default. You can view a still image or start a live stream when the device is online.
 
 ### Buttons
+
+The integration exposes button entities when the cloud API reports that the action is supported for a device:
+
 
 - **PTZ up**, **PTZ down**, **PTZ left**, **PTZ right**: Move the camera lens in the corresponding direction. Each press moves the lens for a short interval. The device must support PTZ.
 - **Mute**: Silence alarm audio on supported gateway devices.
 - **Restart**: Remotely restart the device (shown with the restart device class when supported).
+
+### Switches
+
+When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
+
+- **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
+- **Audio recording**: Toggle audio recording on supported cameras.
+- **Human detection**: Toggle human detection on supported cameras.
+- **Indicator light**: Toggle the device status indicator LED on supported models.
+- **Motion detection**: Toggle motion detection on supported cameras.
+- **Plug switch**: Control the main power relay on supported IoT socket devices.
+- **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
+- **White light**: Manually toggle the camera white LED illuminator on supported models.
 
 ## Data updates
 
@@ -94,8 +121,12 @@ The integration polls the platform regularly to discover devices and refresh onl
 
 Buttons are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
 
+### A switch is unavailable
+
+Switches are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}

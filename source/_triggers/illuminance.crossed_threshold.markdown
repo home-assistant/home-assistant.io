@@ -2,7 +2,7 @@
 title: "Illuminance crossed threshold"
 trigger: illuminance.crossed_threshold
 domain: illuminance
-description: "Triggers after one or more illuminance values cross a threshold."
+description: "Triggers when one or more illuminance values cross a threshold."
 related_triggers:
   - illuminance.changed
   - illuminance.detected
@@ -14,8 +14,6 @@ The **Illuminance crossed threshold** trigger fires when a light level reading c
 Use **Illuminance crossed threshold** to automate shades when the sun gets too bright, turn on lights when a room becomes too dark, or coordinate devices that respond to specific light levels.
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

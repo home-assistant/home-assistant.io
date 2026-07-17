@@ -2,7 +2,7 @@
 title: "Awning opened"
 trigger: cover.awning_opened
 domain: cover
-description: "Triggers after one or more awnings open."
+description: "Triggers when one or more awnings open."
 related_triggers:
   - cover.awning_closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Awning opened** trigger fires when a targeted awning changes to open. Use it when you want Home Assistant to react as soon as an awning opens.
 
 This trigger is useful for comfort, notifications, and routines that should run as soon as an awning opens.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

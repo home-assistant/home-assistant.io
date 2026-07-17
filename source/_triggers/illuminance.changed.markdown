@@ -2,7 +2,7 @@
 title: "Illuminance changed"
 trigger: illuminance.changed
 domain: illuminance
-description: "Triggers after one or more illuminance values change."
+description: "Triggers when one or more illuminance values change."
 related_triggers:
   - illuminance.crossed_threshold
   - illuminance.detected
@@ -14,8 +14,6 @@ The **Illuminance changed** trigger fires after a light level reading changes. T
 The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
 
 Use **Illuminance changed** to log light trends, react when a room becomes noticeably brighter or darker, or coordinate shades and lighting based on ambient conditions.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

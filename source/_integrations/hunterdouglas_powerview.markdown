@@ -1,6 +1,6 @@
 ---
 title: Hunter Douglas PowerView
-description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
+description: Instructions on how to set up Hunter Douglas PowerView scenes within Home Assistant.
 ha_category:
   - Button
   - Cover

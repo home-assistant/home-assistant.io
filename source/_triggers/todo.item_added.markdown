@@ -2,15 +2,13 @@
 title: "To-do item added"
 trigger: todo.item_added
 domain: todo
-description: "Triggers when a to-do item is added to a list."
+description: "Triggers when one or more to-do items are added to a list."
 related_triggers:
   - todo.item_completed
   - todo.item_removed
 ---
 
 The **To-do item added** trigger is useful when you want Home Assistant to react as soon as a new task appears on a list. You can use it to send a reminder, start a follow-up script, or highlight that a shared list has changed.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

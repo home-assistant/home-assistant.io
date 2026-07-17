@@ -12,7 +12,7 @@ related_conditions:
 
 The **Battery level** condition passes when a battery reading meets a threshold you define. You can check that a battery is above, below, or within a specific percentage range. Use it to run an automation only when a device still has enough charge, or only when its battery is getting low enough to need attention.
 
-{% include integrations/labs_entity_triggers_note.md %}
+For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include conditions/ui_header.md %}
 

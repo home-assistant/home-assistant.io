@@ -11,8 +11,6 @@ The **Door is open** condition passes when one or more targeted doors are curren
 
 This condition is useful for reminders, security checks, and routines that should stop or warn you when a front door, patio door, or garage door has not been closed yet.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

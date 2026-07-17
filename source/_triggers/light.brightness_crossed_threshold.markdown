@@ -2,7 +2,7 @@
 title: "Light brightness crossed threshold"
 trigger: light.brightness_crossed_threshold
 domain: light
-description: "Triggers after the brightness of one or more lights crosses a threshold."
+description: "Triggers when the brightness of one or more lights crosses a threshold."
 related_triggers:
   - light.brightness_changed
   - light.turned_on
@@ -11,8 +11,6 @@ related_triggers:
 The **Light brightness crossed threshold** trigger fires when a light {% term entity %} crosses a specific brightness level. Use it to react to a light passing a particular value in either direction, like starting an automation only once brightness passes 50%.
 
 Unlike [Light brightness changed](/triggers/light.brightness_changed/), which fires on any sizable change, this trigger only fires when the brightness moves across the exact threshold you pick. It fires once per crossing, in whichever direction.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

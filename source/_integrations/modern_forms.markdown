@@ -88,5 +88,5 @@ This action will set a sleep timer for the light. When the sleep timer is expire
 | `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day).|
 
 {% note %}
-Modern Forms Fans use NTP to pool.ntp.org in order to set its internal clock and check of sleep timers have expired. Sleep timers will only work if the Modern Forms Fans have internet NTP access. You can block off cloud access for the fan and only leave NTP (UDP port 123) outbound working for the sleep timers.
+Modern Forms Fans use NTP to pool.ntp.org to set its internal clock and check of sleep timers have expired. Sleep timers will only work if the Modern Forms Fans have internet NTP access. You can block off cloud access for the fan and only leave NTP (UDP port 123) outbound working for the sleep timers.
 {% endnote %}

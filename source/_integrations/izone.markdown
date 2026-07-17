@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The **iZone** {% term integration %} allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
+The **iZone** {% term integration %} lets you monitor and control local [iZone](https://izone.com.au/) ducted reverse-cycle climate control systems. These systems are largely available in Australia.
 
 ## Supported hardware
 
@@ -26,15 +26,22 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 
 {% include integrations/config_flow.md %}
 
-## Manual configuration
+## Multiple iZone systems
 
-Alternatively, the iZone integration can be configured manually via the
-{% term "`configuration.yaml`" %} file if there is more than one iZone system on the local
-network and one or more must be excluded use manual configuration.
+If you have more than one iZone system on your local network, the iZone integration discovers all available controllers and shows them during setup. You can then choose the controller you want to configure.
+
+Any other controllers found during the search will become available as discovered controllers.
+
+## Legacy YAML configuration
+
+YAML configuration is now deprecated, it will be removed in a future update. 
+
+For legacy setups, or if you need to exclude specific controllers from Home Assistant, you can configure the iZone integration via the {% term "`configuration.yaml`" %} file with the `exclude` option.
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
-# Full manual example configuration.yaml entry
+# Example configuration.yaml entry with excluded controllers
 izone:
   exclude:
     - "000013170"
@@ -42,7 +49,7 @@ izone:
 
 {% configuration %}
 exclude:
-  description: Exclude particular units from integration with Home Assistant.
+  description: Exclude specific units from Home Assistant. This option applies only to YAML-based configuration.
   required: false
   type: list
 {% endconfiguration %}
@@ -132,24 +139,6 @@ logger:
     pizone: debug
 ```
 
-This will help you to find network connection issues etc.
+This will help you to find network connection issues.
 
-## Actions
-
-### Action: Set minimum airflow
-
-The `izone.airflow_min` action sets the minimum airflow for a particular zone.
-
-| Data attribute | Optional | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`      | no       | Airflow percent in 5% increments               |
-
-### Action: Set maximum airflow
-
-The `izone.airflow_max` action sets the maximum airflow for a particular zone.
-
-| Data attribute | Optional | Description                                    |
-| -------------- | -------- | ---------------------------------------------- |
-| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`      | no       | Airflow percent in 5% increments               |
+{% include integrations/actions.md %}
