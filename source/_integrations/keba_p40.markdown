@@ -10,12 +10,7 @@ ha_codeowners:
   - '@lpostiglione'
 ha_domain: keba_p40
 ha_platforms:
-  - binary_sensor
-  - lock
-  - number
-  - select
   - sensor
-  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -78,38 +73,6 @@ Password:
 
 Several diagnostic sensors are **disabled by default**. They can be enabled from the entity settings in Home Assistant when needed.
 
-#### Binary sensors
-
-| Name | Device class | Notes |
-|---|---|---|
-| Vehicle plugged in | Plug | `on` when a vehicle is connected |
-| Charging session active | Running | `on` when the wallbox is actively charging |
-
-#### Switches
-
-| Name | Notes |
-|---|---|
-| Charging | Starts (`on`) or stops (`off`) the active charging session |
-| Available | Puts the wallbox in service (`on`) or out of service (`off`). This is a configuration-type entity |
-
-#### Select
-
-| Name | Options |
-|---|---|
-| Phase mode | `single`, `three phase` |
-
-#### Number
-
-| Name | Unit | Notes |
-|---|---|---|
-| Charging current limit | A | Sets the maximum current via an OCPP charge profile. The allowed range is determined by the wallbox's load-management configuration |
-
-#### Lock
-
-| Name | Notes |
-|---|---|
-| Socket lock | Permanently locks (`locked`) or unlocks (`unlocked`) the charging socket |
-
 ## Data updates
 
 The integration polls the wallbox's local REST API every **30 seconds**. All entity states are refreshed on each poll cycle. There is no push or event-based update mechanism; changes made externally (for example, via the KEBA app) will be reflected within the next polling interval.
@@ -117,7 +80,7 @@ The integration polls the wallbox's local REST API every **30 seconds**. All ent
 ## Known limitations
 
 - Each wallbox requires its own config entry. It is not possible to manage multiple wallboxes under a single entry.
-- The **charging current limit** entity sets the current via an OCPP charge profile. If the wallbox is managed by an external OCPP backend, the two configurations may conflict. Ensure only one source is controlling the charge profile at a time.
+- The integration currently provides monitoring only. Control features (starting/stopping charging, adjusting the charging current, and locking the socket) are planned as follow-up additions.
 
 ## Troubleshooting
 
