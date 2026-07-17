@@ -91,7 +91,7 @@ On success, the integration reloads automatically.
 
 ## Data updates
 
-Entities are updated only when new values are received from the device, but no more frequently than once per second.
+Entities are updated only when new values are received from the device. The integration uses an automatic update cadence chosen by metric type.
 
 ## Reduce Recorder storage
 
@@ -191,7 +191,7 @@ Configurable time-of-day settings, such as:
 
 ## Known limitations
 
-- The integration receives updates through MQTT push, but limits entity updates to at most once per second. This means rapidly changing values may appear with a short delay.
+- The integration receives updates through MQTT push, and applies an automatic debounce interval chosen by metric type. This means rapidly changing values may appear with a short delay.
 
 ## Examples
 
