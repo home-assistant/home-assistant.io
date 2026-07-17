@@ -68,7 +68,18 @@ The Xbox remote platform will create Remote entities for each console linked to 
 
 To send controller commands or text input to the Xbox console, use the **Send remote command** action and select your Xbox remote as the target.
 
-Supported controller commands include `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`, `GoHome`, `GoBack`, `ShowGuideTab`, and `ShowGuide`.
+Supported controller commands include:
+
+- `A`, `B`, `X`, `Y`
+- `Up`, `Down`, `Left`, `Right`
+- `Menu`
+- `View`
+- `Nexus`
+- `WakeUp`, `TurnOff`, `Reboot`
+- `Mute`, `Unmute`
+- `Play`, `Pause`, `Next`, `Previous`
+- `GoHome`, `GoBack`
+- `ShowGuideTab`, `ShowGuide`
 
 ## Xbox automation examples
 
