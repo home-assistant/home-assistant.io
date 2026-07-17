@@ -10,8 +10,6 @@ related_conditions:
 
 The **Sulphur dioxide value** condition passes when a sulphur dioxide (SO2) sensor's reading meets a specific level. SO2 is a sharp-smelling gas released by burning fossil fuels and volcanic activity. Elevated levels irritate the respiratory system and make outdoor air uncomfortable. This condition lets your automation respond to real readings, closing the windows and notifying you to stay indoors when SO2 is too high, and letting fresh air back in once the reading drops.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -24,7 +24,7 @@ This integration is for outgoing messages only. It cannot read incoming Discord 
 
 ### Creating a Discord Application
 
-In order to create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
+To create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
@@ -107,7 +107,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | ------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `title`       | yes      | Title of the embed.                                                                                  |
 | `description` | yes      | Description of the embed.                                                                            |
-| `color`       | yes      | Color code of the embed.  This value is an *int*.                                                    |
+| `color`       | yes      | Color code of the embed. This value is an *int*.                                                    |
 | `url`         | yes      | URL of the embed.                                                                                    |
 | `author`      | yes      | Sets the author for the embed content.                                                               |
 | `footer`      | yes      | Sets the footer for the embed content.                                                               |
@@ -136,10 +136,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
     data:
-      verify_ssl: False
-      urls: 
-      - "https://example.com/image.jpg"
-      - "https://example.com/video.mp4"
+      verify_ssl: false
+      urls:
+        - "https://example.com/image.jpg"
+        - "https://example.com/video.mp4"
 ```
 
 Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.

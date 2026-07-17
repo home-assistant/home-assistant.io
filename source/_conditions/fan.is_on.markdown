@@ -9,8 +9,6 @@ related_conditions:
 
 The **Fan is on** condition is useful when an automation should continue only if a fan is already running. Use it to avoid duplicate actions, wait for ventilation before doing something else, or branch your automation based on whether a room already has airflow.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

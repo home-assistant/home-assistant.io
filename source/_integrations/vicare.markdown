@@ -116,7 +116,7 @@ The following actions of the [water_heater integration](/integrations/water_heat
 
 ### Action: Set ViCare mode
 
-The `vicare.set_vicare_mode` action sets the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-climateset_hvac_mode) for a mapping to Home Assistant Climate modes). This allows more fine-grained control of the heating modes.
+The `vicare.set_vicare_mode` action sets the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-set-hvac-mode) for a mapping to Home Assistant Climate modes). This allows more fine-grained control of the heating modes.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -132,7 +132,7 @@ The `climate.set_temperature` action sets the target temperature to the given te
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
 | `temperature` | no | Desired target temperature. |
 
-Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e., Viessman program like eco or comfort).
+Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (that is, Viessman program like eco or comfort).
 
 ### Action: Set HVAC mode
 
@@ -174,7 +174,7 @@ The `water_heater.set_temperature` action sets the target temperature of domesti
 
 ### UTF-8 characters in passwords
 
-The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü`, `ø`, etc. in passwords.
+The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü` or `ø` in passwords.
 
 ### GATEWAY_OFFLINE
 

@@ -10,8 +10,6 @@ related_actions:
 
 The **Set fan direction** action is useful for fans that can reverse their rotation. Use it when you want one direction for cooling and the opposite direction for a gentler airflow pattern.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

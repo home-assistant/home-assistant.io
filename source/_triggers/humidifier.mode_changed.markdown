@@ -2,7 +2,7 @@
 title: "Humidifier mode changed"
 trigger: humidifier.mode_changed
 domain: humidifier
-description: "Triggers after the mode of one or more humidifiers changes."
+description: "Triggers when the mode of one or more humidifiers changes."
 related_triggers:
   - humidifier.turned_on
   - humidifier.turned_off
@@ -11,8 +11,6 @@ related_triggers:
 The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like **Normal**, **Eco**, **Sleep**, **Auto**, or **Baby**, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to **Eco** mode, keeping your whole home in sync with a single mode change.
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

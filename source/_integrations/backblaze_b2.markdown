@@ -1,6 +1,6 @@
 ---
 title: Backblaze B2
-description: Instructions on how to setup a Backblaze B2 bucket to be used as a backup location.
+description: Instructions on how to set up a Backblaze B2 bucket to be used as a backup location.
 ha_release: 2025.12
 ha_category:
   - Backup

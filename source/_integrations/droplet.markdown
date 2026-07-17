@@ -1,6 +1,6 @@
 ---
 title: Droplet
-description: Instructions on how to setup Droplet in Home Assistant.
+description: Instructions on how to set up Droplet in Home Assistant.
 ha_category:
   - Sensor
 ha_config_flow: true
@@ -41,16 +41,25 @@ Pairing code:
 
 ### Sensors
 
-The following sensors values are available:
-
 - Flow rate
 - Volume
 - Server connectivity
 - Signal quality
 
+### Binary Sensors
+
+- High flow
+- Unusual flow
+
 ## Data updates
 
-Once the integration connects, Droplet will push data points as soon as they are available. During periods of increased activity, this may be as often as every 5 seconds. During periods of inactivity, it may be as seldom as every 30 seconds.
+Once the integration connects, Droplet will push sensor data points as soon as they are available. During periods of increased activity, this may be as often as every 5 seconds. During periods of inactivity, it may be as seldom as every 30 seconds.
+
+High flow and unusual flow statuses will be reported at least every minute. It may take up to a minute for these values to change from unknown after initial setup.
+
+{% note %}
+In order to report high and unusual flows, Droplet must be connected to Hydrific servers.
+{% endnote %}
 
 ## Use cases
 
@@ -59,7 +68,7 @@ Once the integration connects, Droplet will push data points as soon as they are
 1. Open the edit menu of your energy dashboard.
 2. Select the water consumption tile.
 ![Screenshot of water consumption tile](/images/integrations/droplet/water_consumption.png)
-3. Select one of Droplet's volume sensors. Optionally, track your costs.
+3. Select Droplet's volume sensor. Optionally, track your costs.
 ![Screenshot of water consumption source picker](/images/integrations/droplet/configure_water_consumption.png)
 4. Water usage recorded by Droplet will now be incorporated into your energy dashboard.
 ![Screenshot of a water sensor on the energy dashboard](/images/integrations/droplet/energy_dashboard.png)
@@ -87,3 +96,7 @@ Here are some steps you can take if you're having trouble connecting your Drople
 ### Q: Why is Droplet's volume sensor value so small?
 
 **A**: The volume reported by Droplet over local API is point-to-point, meaning that each new value represents the difference in volume recorded since this data was last sent. This data can be aggregated to generate cumulative volumes over periods such as days, weeks, or months.
+
+### Q: Why are the high and unusual flow sensors not updating?
+
+**A**: It may take up to a minute for these sensors to update after initial setup. If they are still showing up as unknown, make sure your Droplet is connected to the server. High flow and unusual flow statuses require Hydrific server connectivity.

@@ -12,7 +12,7 @@ related:
     title: Reloading the YAML configuration from developer tools
   - docs: /common-tasks/os/#configuring-access-to-files
     title: Configuring file access on the Operating System
-  - docs: docs/configuration/troubleshooting/
+  - docs: /docs/configuration/troubleshooting/
     title: Troubleshooting the configuration
 ---
 

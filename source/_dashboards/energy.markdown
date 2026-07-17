@@ -104,7 +104,8 @@ type: energy-compare-card
 </p>
 
 The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came.
-It will also show the amount of energy your have returned to the grid.
+It will also show the amount of energy you have returned to the grid.
+The legend lets you show or hide individual components in the graph, like solar and battery, so you can focus on grid usage.
 
 ### YAML configuration
 
@@ -123,6 +124,11 @@ title:
   required: false
   description: When defined, shows a card header with the title string and total energy consumed chip.
   type: string
+show_legend:
+  required: false
+  description: Show or hide the legend. You can select items in the legend to show or hide components in the graph, like solar and battery, so you can focus on grid usage more clearly.
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Example

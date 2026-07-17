@@ -1,6 +1,6 @@
 ---
 title: Fish Audio
-description: Instructions on how to setup Fish Audio integration with Home Assistant.
+description: Instructions on how to set up Fish Audio integration with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 2026.1
@@ -70,7 +70,7 @@ Currently supported languages include:
 
 The `tts.speak` service allows you to use Fish Audio voices in your automations and scripts. Select the `tts.fish_audio` entity, choose a media player, and enter your message.
 
-Example of a `tts.speak` service call in YAML:
+Example of a `tts.speak` action in YAML:
 
 ```yaml
 actions:

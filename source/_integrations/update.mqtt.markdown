@@ -23,7 +23,7 @@ mqtt:
       latest_version_topic: topic-latest
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -67,7 +67,7 @@ command_topic:
   required: false
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `update.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `update.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -237,6 +237,11 @@ value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the `installed_version` state value or to render to a valid JSON payload on from the payload received on `state_topic`."
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -264,7 +269,7 @@ mqtt:
       payload_install: "update_fw"
 ```
 
-JSON can also be used as `state_topic` payload. Note that this feature also allows to process and show live progress information.
+JSON can also be used as `state_topic` payload. Note that this feature also allows you to process and show live progress information.
 
 {% raw %}
 

@@ -250,7 +250,7 @@ These adapters do not have a reset pin. When they stop responding, there is curr
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
-- Belkin F8T003 ver 2. - Fails to setup and add successfully
+- Belkin F8T003 ver 2. - Fails to set up and add successfully
 - Bluegiga BLED112 - No driver available yet for USB ID `2458:0001`
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
@@ -328,6 +328,11 @@ The following remote adapters are supported:
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly Gen2+ device
   - Bluetooth advertisement bundling: Shelly Gen2+ device
+  - Single active connection: not supported
+  - Multiple active connections: not supported
+- [SMLIGHT](/integrations/smlight/)
+  - Bluetooth advertisement listening: SMLIGHT SLZB-U device
+  - Bluetooth advertisement bundling: SMLIGHT SLZB-U device
   - Single active connection: not supported
   - Multiple active connections: not supported
 
