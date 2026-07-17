@@ -103,17 +103,18 @@ For most systems, the D-Bus socket is in `/run/dbus`. You need to make the socke
 **What happens without these capabilities:**
 
 If `NET_ADMIN` and `NET_RAW` capabilities are missing:
-- Your Bluetooth will operate in a degraded mode with limited functionality
-- Automatic adapter recovery is unavailable - your adapters cannot be reset when they stop responding
-- Connection parameters and management API commands will fail
-- Raw advertising data will be missing, causing unreliable updates for your devices
-- An error will appear in your logs: "Missing required permissions for Bluetooth management"
+
+- Your Bluetooth will operate in a degraded mode with limited functionality.
+- Automatic adapter recovery is unavailable, so your adapters cannot be reset when they stop responding.
+- Connection parameters and management API commands will fail.
+- Raw advertising data will be missing, causing unreliable updates for your devices.
+- An error will appear in your logs: "Missing required permissions for Bluetooth management".
 
 {% enddetails %}
 
 {% details "Bluetooth connections fail on hosts that use AppArmor" %}
 
-On host systems that use [AppArmor](https://apparmor.net/), such as Ubuntu and Debian, Bluetooth scanning can work while connecting to a device or sending commands to it fails. Even when your container has the correct capabilities and access to the D-Bus socket, the default AppArmor profile that Docker applies can block the container from sending certain D-Bus messages to BlueZ. This affects device connections and write operations, while scanning continues to work.
+On host systems that use [AppArmor](https://apparmor.net/), such as Ubuntu and Debian, Bluetooth can behave inconsistently: scanning keeps working, but connecting to a device or sending commands to it fails. Even when your container has the correct capabilities and access to the D-Bus socket, the default AppArmor profile that Docker applies can block the container from sending certain D-Bus messages to BlueZ. As a result, device connections and write operations fail while scanning continues to work.
 
 You might see the following symptoms:
 
