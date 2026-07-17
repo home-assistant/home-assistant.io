@@ -28,7 +28,11 @@ the key on the right of the settings dialog.
 
 {% include integrations/config_flow.md %}
   
-## Integration entities
+## Supported functionality
+
+The **Syncthing** integration provides the following entities.
+
+### Sensors
 
 The Syncthing integration adds a sensor for each configured device and each synced folder:
 
