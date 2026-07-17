@@ -58,75 +58,154 @@ Once added, a new device will appear with the same set of entities available for
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Launching apps in automations
-
 To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
 
 You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
-
-Example YAML to return to the Xbox dashboard:
-
-```yaml
-actions:
-  - action: media_player.play_media
-    target:
-      entity_id: media_player.xboxone
-    data:
-      media_content_id: "Home"
-      media_content_type: app
-```
-
-Example YAML to launch Netflix:
-
-```yaml
-actions:
-  - action: media_player.play_media
-    target:
-      entity_id: media_player.xboxone
-    data:
-      media_content_id: "9WZDNCRFJ3TJ"
-      media_content_type: app
-```
 
 ## Remote
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Sending commands in automations
-
-To send controller commands or text input to the Xbox console, use the [**Send remote command**](/actions/remote.send_command/) action and select your Xbox remote as the target.
+To send controller commands or text input to the Xbox console, use the **Send remote command** action and select your Xbox remote as the target.
 
 Supported controller commands include `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`, `GoHome`, `GoBack`, `ShowGuideTab`, and `ShowGuide`.
 
-Example YAML to send one button press:
+## Xbox automation examples
 
-```yaml
-actions:
-  - action: remote.send_command
-    target:
-      entity_id: remote.xboxone
-    data:
-      command: "A"
-```
+These examples show common ways to use your Xbox media player and remote entities in automations. In these examples, `media_player.xboxone` and `remote.xboxone` are example entity IDs. Replace them with the entity IDs for your Xbox media player and remote entities.
 
-Example YAML to send multiple button presses:
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-actions:
-  - action: remote.send_command
-    target:
-      entity_id: remote.xboxone
-    data:
-      command:
-        - Right
-        - Right
-        - "A"
-      delay_secs: 0.1
-```
+### Automation: Return to the Xbox dashboard at night
+
+This automation returns the Xbox to the dashboard every night at 11:00 PM.
+
+- **Trigger**: Time
+  - **At time**: `23:00:00`
+- **Action**: Play specified media
+  - **Target**: Xbox One (`media_player.xboxone`)
+  - **Media content ID**: `Home`
+  - **Media content type**: `app`
+
+{% details "YAML example for returning to the Xbox dashboard at night" %}
+
+{% example %}
+automation: |
+  alias: "Return to the Xbox dashboard at night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.xboxone
+      data:
+        media_content_id: "Home"
+        media_content_type: app
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Launch an app at a set time
+
+This automation launches Netflix on the Xbox every Friday evening. Replace the example product ID with the product ID for the app you want to launch.
+
+- **Trigger**: Time
+  - **At time**: `19:30:00`
+- **Condition**: Time
+  - **Weekday**: Friday
+- **Action**: Play specified media
+  - **Target**: Xbox One (`media_player.xboxone`)
+  - **Media content ID**: `9WZDNCRFJ3TJ`
+  - **Media content type**: `app`
+
+{% details "YAML example for launching an app at a set time" %}
+
+{% example %}
+automation: |
+  alias: "Launch Netflix on Friday evening"
+  triggers:
+    - trigger: time
+      at: "19:30:00"
+  conditions:
+    - condition: time
+      weekday:
+        - fri
+  actions:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.xboxone
+      data:
+        media_content_id: "9WZDNCRFJ3TJ"
+        media_content_type: app
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Send a controller button press
+
+This automation sends the **A** button command to the Xbox at a set time.
+
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+- **Action**: Send remote command
+  - **Target**: Xbox One (`remote.xboxone`)
+  - **Command**: `A`
+
+{% details "YAML example for sending a controller button press" %}
+
+{% example %}
+automation: |
+  alias: "Send the A button command to the Xbox"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: remote.send_command
+      target:
+        entity_id: remote.xboxone
+      data:
+        command: "A"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Send multiple controller button presses
+
+This automation sends a short sequence of controller commands to the Xbox. You can adjust the commands to match what you want the console to do.
+
+- **Trigger**: Time
+  - **At time**: `20:05:00`
+- **Action**: Send remote command
+  - **Target**: Xbox One (`remote.xboxone`)
+  - **Command**: `Right`, `Right`, `A`
+  - **Delay seconds**: `0.1`
+
+{% details "YAML example for sending multiple controller button presses" %}
+
+{% example %}
+automation: |
+  alias: "Send multiple controller commands to the Xbox"
+  triggers:
+    - trigger: time
+      at: "20:05:00"
+  actions:
+    - action: remote.send_command
+      target:
+        entity_id: remote.xboxone
+      data:
+        command:
+          - Right
+          - Right
+          - "A"
+        delay_secs: 0.1
+{% endexample %}
+
+{% enddetails %}
 
 ### Picture elements card
 
-Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It uses the [Send remote command](/actions/remote.send_command/) action. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities. Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It uses the **Send remote command** action. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities. Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
   <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
