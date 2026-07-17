@@ -151,7 +151,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 
 In addition to sensors, you can use the following entities:
 
-- **Button** - Execute Alexa routines
+- **Button** - Execute Alexa routines, restart the device
 - **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
 - **Select** - Select Drop In status
@@ -293,6 +293,7 @@ You see something similar to
 - `Error retrieving devices state: Too many requests for path ['listEndpoints']`
 - `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
 - `Failed to obtain notification data. Timers and alarms have not been updated`
+- `Failed to refresh communications settings for device XXXXXX, used cached values.`
 
 In logs.
 
