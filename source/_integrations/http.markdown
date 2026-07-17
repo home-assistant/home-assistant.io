@@ -30,7 +30,9 @@ Server port:
   description: |
     The port Home Assistant listens on. The default is `8123`.
 
-    Caution: If you use a [mobile app](https://companion.home-assistant.io/), after changing the Home Assistant port, you must also change it in your app's settings.
+    _Caution_: If you use the
+    [Home Assistant Companion app](https://companion.home-assistant.io/), update the Home Assistant URL
+    in the app after changing this port.
   required: true
 Listen addresses:
   description: The IP addresses Home Assistant binds to. Leave this empty to listen on all interfaces.
