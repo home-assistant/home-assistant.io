@@ -36,6 +36,9 @@ The **Syncthing** integration provides the following entities.
 
 The Syncthing integration adds a sensor for each configured device and each synced folder:
 
+- One sensor per synced folder. Its state reflects the folder's synchronization status reported by Syncthing. Details such as the number of files and the folder size are available as state attributes.
+- One sensor per configured device. Its state reflects the device's connection status: `online`, `connected`, `disconnected`, `paused`, or `unknown`. The entry representing your own Syncthing server always shows `online`. Details, such as the device ID and addresses, are available as state attributes.
+
 ![Syncthing Sensors](/images/integrations/syncthing/sensors.png)
 
 ![Syncthing Device](/images/integrations/syncthing/device.png)
