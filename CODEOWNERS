@@ -948,6 +948,7 @@ source/_integrations/solaredge_local.markdown @drobtravels @scheric
 source/_integrations/solarlog.markdown @Ernst79 @dontinelli
 source/_integrations/solarman.markdown @solarmanpv
 source/_integrations/solax.markdown @squishykid @Darsstar
+source/_integrations/solyx_energy.markdown @MartinaeyNL
 source/_integrations/soma.markdown @ratsept
 source/_integrations/somfy.markdown @imicknl
 source/_integrations/sonarr.markdown @ctalkington
@@ -960,7 +961,6 @@ source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
 source/_integrations/sql.markdown @gjohansson-ST @dougiteixeira
 source/_integrations/squeezebox.markdown @rajlaud @pssc @peteS-UK
-source/_integrations/solyx_energy.markdown @MartinaeyNL
 source/_integrations/srp_energy.markdown @briglx
 source/_integrations/starline.markdown @anonym-tsk
 source/_integrations/statistics.markdown @ThomDietrich @gjohansson-ST
