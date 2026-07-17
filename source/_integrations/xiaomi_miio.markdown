@@ -1145,7 +1145,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the Child Lock |
 | LED        | Turn on/off the LED        |
 
-### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9, dmaker.fan.p10, dmaker.fan.p11, dmaker.fan.p18, dmaker.fan.p33)
+### Tower Fan/Standing Fan 2/Standing Fan 2 Pro/Standing Fan Pro (dmaker.fan.p9, dmaker.fan.p10, dmaker.fan.p11, dmaker.fan.p18, dmaker.fan.p33)
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
