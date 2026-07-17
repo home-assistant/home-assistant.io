@@ -48,9 +48,11 @@ This passes while the moon is waning.
 
 Each evening, send a gentle wind-down reminder, but only while the moon is waning.
 
-- **Trigger**: Every evening at 21:00
+- **Trigger**: Time
+  - **At time**: 9:00:00 PM
 - **Condition**: Moon: Moon is waning
-- **Action**: Send a notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a waning moon reminder" %}
 
@@ -63,7 +65,9 @@ automation: |
   conditions:
     - condition: moon.is_waning
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The moon is waning."
 {% endexample %}

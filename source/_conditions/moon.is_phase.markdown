@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Moon: Moon phase**.
+4. From the search box, search for and select **Moon phase**.
 5. Under **Phase**, select the phase to test for.
 6. Select **Save**.
 
@@ -70,7 +70,8 @@ phase:
 When motion is detected in the garden after dark, turn on the garden lights, but only on the night of a full moon.
 
 - **Trigger**: Motion detected in the garden
-- **Condition**: Moon: Moon phase (Full moon)
+- **Condition**: Moon phase
+  - **Phase**: Full moon
 - **Action**: Turn on light
   - **Target**: Garden lights
 

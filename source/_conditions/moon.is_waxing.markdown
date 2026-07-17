@@ -48,9 +48,11 @@ This passes while the moon is waxing.
 
 Some gardeners sow by the moon. Each morning, send a reminder, but only while the moon is waxing.
 
-- **Trigger**: Every morning at 09:00
+- **Trigger**: Time
+  - **At time**: 9:00:00 AM
 - **Condition**: Moon: Moon is waxing
-- **Action**: Send a notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a waxing moon reminder" %}
 
@@ -63,7 +65,9 @@ automation: |
   conditions:
     - condition: moon.is_waxing
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The moon is waxing, a good time to sow."
 {% endexample %}
