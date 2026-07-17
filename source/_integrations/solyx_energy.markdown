@@ -87,7 +87,7 @@ The integration uses a cloud connection; therefore, full local control is not po
 
 #### Authentication error
 
-Verify that you have copy-pasted the correct credentials and ID from the Solyx Energy app. To change your credentials, use **Settings** > **Devices & services** > **Configure** > **Reauthenticate**.
+Verify that you have copied the correct credentials and device ID from the Solyx Energy app. To re-authenticate, go to {% my integration domain="solyx_energy" title="**Settings** > **Devices & services** > **Solyx Energy**" %} and select **Re-authenticate**.
 
 #### Couldn't retrieve device data due to a communication error
 
