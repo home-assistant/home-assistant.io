@@ -2,7 +2,6 @@
 title: Samsung Infrared
 description: Integration to control Samsung TVs and air conditioners using an infrared transmitter.
 ha_category:
-  - Infrared
   - Media player
   - Climate
 ha_release: 2026.6
