@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Moon: Moon is waxing**.
+4. From the search box, search for and select **Moon is waxing**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -50,7 +50,7 @@ Some gardeners sow by the moon. Each morning, send a reminder, but only while th
 
 - **Trigger**: Time
   - **At time**: 9:00:00 AM
-- **Condition**: Moon: Moon is waxing
+- **Condition**: Moon is waxing
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Moon: Moon is waning**.
+4. From the search box, search for and select **Moon is waning**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -50,7 +50,7 @@ Each evening, send a gentle wind-down reminder, but only while the moon is wanin
 
 - **Trigger**: Time
   - **At time**: 9:00:00 PM
-- **Condition**: Moon: Moon is waning
+- **Condition**: Moon is waning
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

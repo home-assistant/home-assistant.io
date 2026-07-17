@@ -69,7 +69,9 @@ phase:
 
 When motion is detected in the garden after dark, turn on the garden lights, but only on the night of a full moon.
 
-- **Trigger**: Motion detected in the garden
+- **Trigger**: State
+  - **Entity**: Garden motion binary sensor
+  - **To**: On
 - **Condition**: Moon phase
   - **Phase**: Full moon
 - **Action**: Turn on light
