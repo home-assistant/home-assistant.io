@@ -52,7 +52,7 @@ To open an app or channel from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target**, select the Bravia TV media player.
 6. From the actions shown for that target, select **Play specified media**.
-7. Enter the app or channel in **Media content ID** and set **Media content type** to `app` or `channel`.
+7. Enter the app or channel in **Media content ID** and set **Media content type** to **app** or **channel**.
 8. Select **Save**.
 
 The TV selects the best matching application or channel according to the media content ID. Matches can use a channel number, exact app or channel name, part of an app or channel name, or a URI string.
