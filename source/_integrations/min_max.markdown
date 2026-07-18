@@ -34,6 +34,8 @@ Type:
   description: The type of the sensor, this can be either "min", "max", "last", "mean", "median", "range" or "sum".
 Precision:
   description: Round the calculated mean, median or sum value to at most N decimal places.
+All statistics:
+  description: A flag that adds attributes for all statistics.
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -75,4 +77,8 @@ unique_id:
   description: Unique id to be able to configure the entity in the UI.
   required: false
   type: string
+all_statistics:
+  description: Extends the attributes of the sensor entity to include all statistics and related attributes regardless of the value of `type`: `min`, `min_entity_id`, `max`, `max_entity_id`, `last`, `last_entity_id`, `mean`, `median`, `range`, and `sum`.
+  type: boolean
+  default: false
 {% endconfiguration %}
