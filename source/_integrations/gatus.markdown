@@ -164,8 +164,15 @@ The setup form shows an error saying it cannot connect to your Gatus instance.
 
 If entities become unavailable after setup, Home Assistant could not reach your Gatus instance during the last data refresh. Check your network connection and confirm the Gatus instance is still running. Entities will recover automatically once the connection is restored.
 
+## Diagnostics
+
+The Gatus integration supports [diagnostic data collection](/docs/configuration/troubleshooting/#download-diagnostics) to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
+
+The diagnostic data contains the status of all Gatus endpoints monitored by the integration. It does not include the URL you entered to connect to Gatus.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
