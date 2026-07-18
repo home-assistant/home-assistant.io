@@ -78,6 +78,8 @@ The integration provides the following configuration option:
 {% configuration_basic %}
 Consider home:
   description: "The number of seconds to wait before marking a device as away after it was last seen in the ARP table of the router (default: 180)."
+Track new devices:
+  description: "Enable the entities of newly discovered devices automatically. Enabled for configurations imported from YAML, matching the previous `track_new_devices` behavior."
 {% endconfiguration_basic %}
 
 ## Migrating from YAML configuration
