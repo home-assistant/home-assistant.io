@@ -70,7 +70,6 @@ template:
 
 In this example, we use a device_tracker entity ID as the origin and the sensor created above as the destination.
 
-  - Name: "Me to some destination"
   - Origin: `device_tracker.myphone`
   - Destination: `sensor.dest_address`
   - Region: "US"
@@ -79,14 +78,12 @@ In this example, we use a device_tracker entity ID as the origin and the sensor 
 
 In this example we are using the entity ID of a zone as the origin and the friendly name of a zone as the destination.
 
-  - Name: "Home to Eddie's house"
   - Origin: `zone.home`
   - Destination: "Eddies House"
   - Region: "US"
 
 #### Tracking entity in imperial units
 
-  - Name: "Somewhere in New York"
   - Origin: `person.paulus`
   - Destination: "725 5th Ave, New York, NY 10022, USA"
   - Region: "US"
@@ -95,7 +92,6 @@ In this example we are using the entity ID of a zone as the origin and the frien
 
 #### Avoiding toll, subscription
 
-  - Name: "Westerscheldetunnel"
   - Origin: "51.330436, 3.802043"
   - Destination: "51.445677, 3.749929"
   - Region: "EU"
