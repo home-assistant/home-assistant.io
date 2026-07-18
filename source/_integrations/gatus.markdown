@@ -133,7 +133,7 @@ If you need to update the connection details (URL) of your Gatus instance, you c
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Gatus** integration card.
-3. Select the three dots menu and then select **Reconfigure**.
+3. Select the three dots menu {% icon "mdi:dots-vertical" %}, and then select **Reconfigure**.
 4. Update the URL of your Gatus instance.
 5. Select **Submit**.
 
@@ -143,7 +143,7 @@ Reconfiguring or reloading the integration will automatically discover and add a
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
 - The integration requires a manual reload or reconfiguration to discover when a new endpoint is added or removed.
-- The integration currently does not support authenticated instances
+- The integration currently does not support authenticated instances.
 
 ## Troubleshooting
 
