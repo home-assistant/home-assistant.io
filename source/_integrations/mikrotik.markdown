@@ -4,6 +4,7 @@ description: Instructions on how to integrate MikroTik/RouterOS based devices in
 ha_category:
   - Hub
   - Presence detection
+  - Sensor
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -12,6 +13,7 @@ ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+  - sensor
 ha_integration_type: device
 ---
 
@@ -39,7 +41,6 @@ Web Frontend:
 Go to **IP** > **Services** > **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
-
 
 {% include integrations/config_flow.md %}
 
@@ -101,3 +102,18 @@ You will be prompted to set a password for the newly created user. Depending on 
 ```bash
 /user set [find username=homeassistant] password=PASSWORD
 ```
+
+## Supported functionality
+
+The **MikroTik** {% term integration %} provides the following entities.
+
+### Sensors
+
+The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
+
+- Uptime
+- Memory usage
+- Disk usage
+- CPU usage
+- Device temperature
+- Device power voltage
