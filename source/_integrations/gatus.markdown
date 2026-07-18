@@ -166,9 +166,9 @@ If entities become unavailable after setup, Home Assistant could not reach your 
 
 ## Diagnostics
 
-The **Gatus** integration supports [diagnostic data collection](/docs/configuration/troubleshooting/#download-diagnostics) to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
+The Gatus integration supports [diagnostic data collection](/docs/configuration/troubleshooting/#download-diagnostics) to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
 
-The diagnostic data contains the status of all Gatus endpoints monitored by the integration, with the configuration URL excluded for privacy.
+The diagnostic data contains the status of all Gatus endpoints monitored by the integration. It does not include the URL you entered to connect to Gatus.
 
 ## Removing the integration
 
