@@ -52,7 +52,7 @@ The integration creates a single device with the following entities.
 - **Power**: power currently delivered to the vehicle.
 - **Current**: current currently delivered to the vehicle.
 - **Voltage**: measured line voltage.
-- **Pilot current**: current signalled to the vehicle over the control pilot.
+- **Pilot current**: current signaled to the vehicle over the control pilot.
 - **Session energy**: energy delivered during the current charging session.
 - **Total energy**: lifetime energy delivered by the Prism.
 - **Session time**: duration of the current charging session.
@@ -67,7 +67,7 @@ The integration creates a single device with the following entities.
 
 ## Data updates
 
-The Prism **pushes** an MQTT message whenever a value changes, so entities update in real time. Status topics are retained on the broker, so Home Assistant restores the current values immediately after a restart.
+The Prism pushes an MQTT message whenever a value changes, so entities update in real time. Status topics are retained on the broker, so Home Assistant restores the current values immediately after a restart.
 
 ## Known limitations
 
