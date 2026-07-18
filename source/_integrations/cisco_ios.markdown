@@ -96,6 +96,10 @@ You can use these entities to track the presence of people in your home. For mor
 
 Home Assistant {% term polling polls %} your router every 30 seconds to read the ARP table and update the connection status of the tracked devices.
 
+If the default polling interval does not fit your setup, for example to reduce the SSH load on the router, you can define a custom polling interval. This replaces the `interval_seconds` setting of the YAML configuration.
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Troubleshooting
 
 If the setup fails or the integration stops working, check the following:
