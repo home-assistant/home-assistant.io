@@ -144,7 +144,6 @@ Newly configured endpoints are automatically discovered and added as new binary 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
 - The integration currently does not support authenticated instances.
 
-
 ## Troubleshooting
 
 ### Can't set up the integration
