@@ -47,7 +47,7 @@ Other Duco systems that expose public API version 2.1 or newer can be set up, bu
 
 The following node types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor.
+- **BOX**: The main ventilation box; provides fan control, ventilation state, target flow level, state end time, air temperatures, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
 - **UCRH**: Wireless humidity sensor module; provides relative humidity and humidity air quality index.
@@ -111,6 +111,15 @@ Home Assistant only shows the options advertised by your Duco system, so the ava
 ### Sensors
 
 The following sensor entities are created per node, depending on the node type:
+
+#### Air temperatures
+
+Available for the main ventilation box (BOX) when the Duco system exposes the values. These sensors show the following temperatures in degrees Celsius:
+
+- **Outdoor air temperature**: Air entering the ventilation box from outdoors.
+- **Supply air temperature**: Air supplied from the ventilation box to your home.
+- **Extract air temperature**: Air extracted from your home into the ventilation box.
+- **Exhaust air temperature**: Air leaving the ventilation box to outdoors.
 
 #### Target flow level
 
