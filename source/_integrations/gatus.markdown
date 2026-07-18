@@ -137,13 +137,13 @@ If you need to update the connection details (URL) of your Gatus instance, you c
 4. Update the URL of your Gatus instance.
 5. Select **Submit**.
 
-Reconfiguring or reloading the integration will automatically discover and add any newly configured endpoints as new binary sensor entities.
+Newly configured endpoints are automatically discovered and added as new binary sensor entities during regular data updates, and any endpoints that have been removed from Gatus will be cleaned up automatically.
 
 ## Known limitations
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
-- The integration requires a manual reload or reconfiguration to discover when a new endpoint is added or removed.
 - The integration currently does not support authenticated instances.
+
 
 ## Troubleshooting
 
