@@ -26,7 +26,7 @@ To set up the integration, you need the following:
 
 - SSH enabled on the router.
 - The IP address of your router.
-- The username and password of a user with administrative privileges.
+- The username of a user with administrative privileges, and the password if one is set for that user.
 
 Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout.
 
@@ -71,15 +71,21 @@ Port:
   description: "The SSH port of your router (default: 22)."
 {% endconfiguration_basic %}
 
+## Configuration options
+
+The integration provides the following configuration option:
+
+{% configuration_basic %}
+Consider home:
+  description: "The number of seconds to wait before marking a device as away after it was last seen in the ARP table of the router (default: 180)."
+{% endconfiguration_basic %}
+
 ## Migrating from YAML configuration
 
-If you previously configured the integration through `configuration.yaml`:
+If you previously configured the integration through `configuration.yaml`, your configuration is imported automatically when Home Assistant starts, and a repair issue reminds you to clean up:
 
-1. Set up the integration through the UI to provide your credentials.
-2. Remove the `cisco_ios` entry under `device_tracker:` from your `configuration.yaml` file.
-3. Restart Home Assistant.
-
-A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} will guide you through the same steps.
+1. Remove the `cisco_ios` entry under `device_tracker:` from your `configuration.yaml` file.
+2. Restart Home Assistant.
 
 ## Supported functionality
 
