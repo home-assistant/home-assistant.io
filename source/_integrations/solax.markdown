@@ -18,13 +18,11 @@ ha_integration_type: device
 
 The **SolaX Power** {% term integration %} connects Home Assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
-### Manual inverter model selection
+### inverter model selection
 
-By default, this integration automatically detects your inverter model. If auto-detection is unreliable for your device, you can bypass it by manually selecting your inverter model from the dropdown during setup. Leave this field blank to keep using automatic detection.
+This integration automatically detects your inverter model. If auto-detection resulted in multiple potentially compatible inverter models,it lets you manually selecting your inverter model from the dropdown during setup.
 
 ### Optional template sensor
 
