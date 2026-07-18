@@ -84,7 +84,7 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.3)
     parallel (2.1.0)
-    parser (3.3.11.1)
+    parser (3.3.12.0)
       ast (~> 2.4.1)
       racc
     pathutil (0.16.2)

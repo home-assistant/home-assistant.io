@@ -170,8 +170,117 @@ data:
     </amazon:effect>
 target:
   entity_id: notify.study_dot_speak
-
 ```
+
+### Create a "Last Called" sensor
+
+The integration exposes an event entity for each Alexa device that records voice interactions. Each voice interaction updates the corresponding event entity. The following state-based template sensor tracks the Alexa device that most recently received a voice command and exposes related entities and attributes for use in automations.
+
+{% details "Template sensor" %}
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - sensor:
+    - name: Alexa Devices Last Called
+      unique_id: alexa_devices_last_called
+      state: >
+        {{
+          integration_entities('alexa_devices')
+            | select('match', '^event\.')
+            | select('has_value')
+            | map('states')
+            | sort
+            | last
+        }}
+      attributes:
+        event_entity: >
+          {{
+            integration_entities('alexa_devices')
+              | select('match', '^event\.')
+              | select('has_value')
+              | select('is_state', this.state)
+              | first
+              | default(none)
+          }}
+      
+        voice_command: >
+          {{ state_attr(this.attributes.event_entity, 'voice_command') }}
+      
+        voice_reply: >
+          {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+      
+        notify_announce: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^notify\..*_announce$')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        notify_speak: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^notify\..*_speak$')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        media_player: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^media_player\.')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        serial_number: >-
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {% set identifiers = device_attr(dev, 'identifiers') if dev else none %}
+          {{
+            (identifiers | default([], true) | list | first | default([]) | last)
+            | default(none)
+          }}
+      
+        device_id: >
+          {{ device_id(this.attributes.event_entity) if this.attributes.event_entity else none }}
+```
+{% enddetails %}
+
+This sensor automatically tracks all Alexa devices in the integration and does not require any changes when devices are added, removed, or renamed.
+
+#### Attributes
+
+The sensor exposes `media_player`, `notify_speak`, `notify_announce`, `voice_command`, `voice_reply`, and device metadata `device_id`, `serial_number`, and `event_entity` as attributes for use in automations.
+
+{% details "Example: Reply to the last Alexa device used" %}
+
+```yaml
+automation:
+  - alias: Notify using the last Alexa device
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: >
+            {{ state_attr('sensor.alexa_devices_last_called', 'notify_speak') }}
+        data:
+          message: Motion detected
+```
+{% enddetails %}
 
 ## Data updates
 
