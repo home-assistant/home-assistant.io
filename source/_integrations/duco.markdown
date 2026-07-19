@@ -110,7 +110,9 @@ The ventilation state select is available for the main ventilation box (BOX). It
 
 Home Assistant only shows the options advertised by your Duco system, so the available choices can vary by model or firmware. After you change the option, Home Assistant refreshes the state from the box and shows the state the box reports back.
 
-### Bypass supply target temperatures
+### Number
+
+#### Bypass supply target temperatures
 
 Some Duco systems expose bypass supply target temperatures for up to four zones. When available, Home Assistant creates a number entity for each zone. You can use these entities to view and set the target temperature in your configured temperature unit. The available range and increment come from your Duco system.
 
