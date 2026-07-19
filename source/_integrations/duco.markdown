@@ -112,7 +112,7 @@ Home Assistant only shows the options advertised by your Duco system, so the ava
 
 ### Bypass supply target temperatures
 
-Some Duco systems expose bypass supply target temperatures for up to four zones. When available, Home Assistant creates a number entity for each zone. You can use these entities to view and set the target temperature in degrees Celsius. The available range and increment come from your Duco system.
+Some Duco systems expose bypass supply target temperatures for up to four zones. When available, Home Assistant creates a number entity for each zone. You can use these entities to view and set the target temperature in your configured temperature unit. The available range and increment come from your Duco system.
 
 If your Duco system does not expose a target for a zone, Home Assistant does not create the related number entity.
 
