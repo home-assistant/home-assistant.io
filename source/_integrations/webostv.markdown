@@ -175,7 +175,7 @@ This integration uses the [SSDP](/integrations/ssdp) integration, which must be 
 ### [WakeOnLan](/integrations/wake_on_lan/) does not work
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to **Settings** > **General** > **Mobile TV On** > **Turn On Via WiFi** [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
-Other models have that setting under **Settings** > **Support** > **IP control settings** > **Wake on LAN**. 
+Other models have that setting under **Settings** > **Support** > **IP control settings** > **Wake on LAN**.
 
 ### Pairing fails when trying to add the TV
 
