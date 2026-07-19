@@ -13,7 +13,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@nmaggioni'
   - '@IsaccoBenedetti'
@@ -115,10 +115,6 @@ Only the `device_tracker` platform is automatically migrated. Sensors and switch
 ## Sensor
 
 The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
-
-{% warning %}
-While you can still use the old YAML configuration, it is now getting deprecated and will be automatically migrated to the UI. Once migrated, a repair message will appear in your Home Assistant settings prompting you to remove it.
-{% endwarning %}
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -289,10 +285,6 @@ The `value_template` option converts the original value to minutes.
 The `snmp` switch platform allows you to control SNMP-enabled equipment.
 
 Currently, only SNMP OIDs that accept integer values are supported. SNMP v1, v2c and v3 are supported.
-
-{% warning %}
-While you can still use the old YAML configuration, it is now getting deprecated and will be automatically migrated to the UI. Once migrated, a repair message will appear in your Home Assistant settings prompting you to remove it.
-{% endwarning %}
 
 To use an SNMP switch in your installation:
 
