@@ -63,7 +63,7 @@ Realm:
 
 ## Proxmox permissions
 
-To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication PMethod** during setup, choose the matching realm.
+To use Proxmox VE with Home Assistant, start by creating a dedicated user in Proxmox and granting it only the permissions Home Assistant needs. The paragraphs below will guide you through the Proxmox configuration. First, decide which authentication realm to use. If Home Assistant shows **Authentication Method** during setup, choose the matching realm.
 
 You can use any realm as long as you have valid credentials, like a username and password or an API token:
 
@@ -166,6 +166,8 @@ To create a token:
 
 ## Entities
 
+Some entities are not enabled by default, you can enable them via the device page.
+
 ### Sensor
 
 - **CPU**: Percentage of CPU usage.
@@ -175,8 +177,8 @@ To create a token:
 - **Max disk**: Maximum amount of available disk space.
 - **Memory** & **Memory percentage**: The amount of memory in use, and the percentage of memory in use, on the node/VM/LXC.
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
-- **Network input**: Amount of incoming network traffic since starting the node/VM/LXC.
-- **Network output**: Amount of outgoing network traffic since starting the node/VM/LXC.
+- **Network input**: Amount of incoming network traffic since starting the VM/LXC.
+- **Network output**: Amount of outgoing network traffic since starting the VM/LXC.
 - **Uptime**: Time since the node/VM/LXC started.
 
 ### Binary sensor
@@ -202,14 +204,47 @@ To create a token:
 **Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
 {% endnote %}
 
+## Data updates
+
+Data is {% term polling polled %} from devices every 60 seconds.
+
+## Examples
+
+### Alert for offline VM
+
+This example automation will alert you if a critical VM is  offline beyond a reasonable time.
+
+{% example %}
+automation: |
+  alias: "Proxmox Database VM Offline Alert"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.databaseserver_status
+      from: "on"
+      to: "off"
+      for:
+        minutes: 15
+  actions:
+    - action: notify.send_message
+      metadata: {}
+      data:
+        message: "The Database Server VM has been offline for over 15 minutes."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
+
+## Known limitations
+
+Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
+
 ## Troubleshooting
 
 ### Buttons not working
 
 If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
-- For actions related to power, such as start, stop or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerManagemt`, or role `PVEVMUser`.
+- For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
 - To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
-If monitoring works (e.g. sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
 
 ### Diagnostic data
 

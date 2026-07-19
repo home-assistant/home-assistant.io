@@ -40,31 +40,7 @@ In case you didn’t know, Works With Home Assistant differs from other certific
 
 Our team has worked extensively with frient to ensure that the following items work seamlessly with Home Assistant.
 
-- [frient Motion Sensor Pro](https://www.frient.com/products/motion-sensor-pro)
-
-- [frient IO Module](https://www.frient.com/products/io-module)
-
-- [frient Smart Plug Mini](https://www.frient.com/products/smart-plug-mini)
-
-- [frient Entry Sensor 2 Pro](https://www.frient.com/products/entry-sensor-2-pro)
-
-- [frient Smart Siren UK](https://www.frient.com/products/smart-siren)
-
-- [frient Smart Siren EU](https://www.frient.com/products/smart-siren)
-
-- [frient Intelligent Keypad](https://www.frient.com/products/intelligent-keypad)
-
-- [frient Water Leak Detector](https://www.frient.com/products/water-leak-detector)
-
-- [frient Smart Button](https://www.frient.com/products/smart-button)
-
-- [frient Intelligent Smoke Alarm](https://www.frient.com/products/intelligent-smoke-alarm)
-
-- [frient Air Quality Sensor](https://www.frient.com/products/air-quality-sensor)
-
-- [frient Smart Humidity Sensor](https://www.frient.com/products/smart-humidity-sensor)
-
-- [frient Electricity Meter Interface 2 LED](https://www.frient.com/products/electricity-meter-interface-2-led)
+{% include integrations/device_list.html brand="frient" %}
 
 This is a big portion of frient’s product line, and provides energy monitoring, device control, safety, and security sensors. The frient IO Module is the first certified Zigbee module that can be used to turn low-voltage dumb devices like electric blinds or garage doors into devices that can be controlled by Home Assistant.
 

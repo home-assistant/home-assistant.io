@@ -31,7 +31,7 @@ The **Renault** {% term integration %} offers integration with the **MyRenault**
 This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
-- Buttons - to start air conditioning, start/stop the charge, flash lights, and sound horn. Please note that although available, these actions do not work on all vehicles.
+- Buttons - to start air conditioning, start/stop the charge, flash lights, and sound horn. Although available, these actions do not work on all vehicles.
 - Device tracker - to track location of your car.
 - Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
@@ -122,6 +122,16 @@ Notes:
   tuesday:
     readyAtTime: 'T12:00Z'
 ```
+
+### Action: Start charge
+
+The `renault.charge_start` action starts charging on a vehicle.
+
+  | Data attribute | Required | Description | Example |
+  | ---------------------- | -------- | ----------- | ------- |
+  | `vehicle`| yes | device_id of the vehicle | 
+  | `when` | no | Timestamp for charging to start, defaults to now | `2020-05-01T17:45:00` |
+
 
 ### Action: Set charge schedules
 

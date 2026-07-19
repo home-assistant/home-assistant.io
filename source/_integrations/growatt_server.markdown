@@ -8,6 +8,7 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_domain: growatt_server
 ha_platforms:
+  - diagnostics
   - number
   - sensor
   - switch
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ha_codeowners:
   - '@johanzander'
+ha_quality_scale: silver
 ---
 
 The **Growatt** {% term integration %} enables you to retrieve data from Growatt inverters and control certain inverter settings.

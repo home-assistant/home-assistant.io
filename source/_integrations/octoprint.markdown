@@ -96,11 +96,7 @@ The OctoPrint integration lets you set target bed and tool temperature. These wr
 - Set Target Bed Temperature
 - Set Target Tool (Nozzle) Temperature
 
-## Actions
-
-The OctoPrint integration provides the following actions, which may be invoked from automation, scripts, or as a button interaction.
-
-- Connect to printer
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 

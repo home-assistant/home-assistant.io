@@ -79,16 +79,17 @@ Example of a configuration.yaml file, accessed using the File editor app on a Ho
 
 To install and use the File Editor in Home Assistant, follow these steps:
 
-1. To install the app, go to {% my supervisor_addon title="**Settings** > **Apps** > **File editor**" addon="core_configurator" %}.
+1. To install the app, go to {% my supervisor_addon title="**Settings** > **Apps**" addon="core_configurator" %} and select **Install app**.
+2. Search for **File editor**, select it and then select **Install**.
    - Once you have the app installed, you can edit files within your `/config` directory.
-2. If you want to be able to access directories outside the `/config` directory, you need to disable an option in the app configuration.
+3. If you want to be able to access directories outside the `/config` directory, you need to disable an option in the app configuration.
    - Go to the app under {% my supervisor_addon title="**Settings** > **Apps** > **File editor**" addon="core_configurator" %}.
    - Open the **Configuration** tab.
    - In the configuration settings, disable the **Enforce basepath** option.
    - Note: The **Enforce basepath** option is intended to protect you from inadvertently making changes to settings files.
-3. For information on other configuration settings, open the **Documentation** tab.
-4. To confirm your changes, select **Save**.
-5. To start browsing, on the **Info** tab, select **Open Web UI**.
+4. For information on other configuration settings, open the **Documentation** tab.
+5. To confirm your changes, select **Save**.
+6. To start browsing, on the **Info** tab, select **Open Web UI**.
 
 ---
 
@@ -107,11 +108,10 @@ The **Terminal & SSH** app provides the following functionalities:
 
 To get started with the **Terminal & SSH** app, follow these steps:
 
-1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is enabled.
-2. To install the app, go to the app store under [**Settings** > **Apps**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** app.
-3. To use the web terminal, **start** the app, then select **Open Web UI**.
+1. To install the app, go to the app store under [**Settings** > **Apps**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** app.
+2. To use the web terminal, **start** the app, then select **Open Web UI**.
    - You can now start typing your [commands](/common-tasks/os#home-assistant-via-the-command-line).
-4. If you want to access from an ssh client, you need to enter credentials:
+3. If you want to access from an ssh client, you need to enter credentials:
    - Open the **Configuration** page.
    - Enter a password or authorized Keys.
    - Then save and start the app.

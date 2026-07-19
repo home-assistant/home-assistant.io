@@ -11,7 +11,10 @@ ha_category:
   - Lock
   - Media Player
   - Number
+  - Select
   - Sensor
+  - Switch
+  - Text
   - Update
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -32,8 +35,10 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Tessie** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
@@ -51,6 +56,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Enable Sentry mode, valet mode, and defrost mode
 - Flash lights, honk horn, and trigger HomeLink
 - Track vehicle location and navigation destination
+- Send a navigation destination to the vehicle
 - Install software updates
 
 ### Energy product monitoring and control
@@ -274,6 +280,12 @@ The integration will create switch entities to control various aspects of your v
 - Steering wheel heater
 - Valet mode
 
+### Text
+
+The integration will create a text entity to send a navigation destination to the vehicle:
+
+- Navigation destination
+
 ### Update
 
 The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.
@@ -450,7 +462,6 @@ automation:
 
 This automation sends a notification when your vehicle has finished charging:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Notify when Tesla charging complete"
@@ -464,11 +475,12 @@ automation:
         entity_id: sensor.my_tesla_battery_level
         above: 79
     actions:
-      - action: notify.mobile_app
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
 ```
-{% endraw %}
 
 ## Troubleshooting
 
@@ -498,9 +510,9 @@ Command signing is compatible with:
 
 Tessie requires specific Tesla account permissions to function properly. If certain features aren't working, you may need to verify your account has granted the necessary scopes:
 
-- **Vehicle Information** - Required to retrieve vehicle data (battery level, climate status, etc.)
+- **Vehicle Information** - Required to retrieve vehicle data (such as battery level or climate status)
 - **Vehicle Location** - Required to track vehicle location
-- **Vehicle Commands** - Required to control the vehicle (lock/unlock, climate, etc.)
+- **Vehicle Commands** - Required to control the vehicle (such as lock/unlock or climate)
 - **Vehicle Charging Management** - Required to control charging
 - **Energy Product Information** - Required to retrieve energy product data
 - **Energy Product Commands** - Required to control energy products (Powerwall, Solar)

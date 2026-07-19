@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Instructions on how to setup the configuration panel for Home Assistant.
+description: Instructions on how to set up the configuration panel for Home Assistant.
 ha_category:
   - Front end
 ha_release: 0.39

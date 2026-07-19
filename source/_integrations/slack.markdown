@@ -130,7 +130,7 @@ sequence:
 
 Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
 
-Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
+Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on in #lights, etc).
 
 You can also send messages to multiple targets (channels and/or users) at once:
 
@@ -184,7 +184,7 @@ The following attributes can be placed inside the `data` key of the action for e
 | `icon`            | yes      | The icon of the Slack bot.                                                                                                                                                                                                                                                                                                                      |
 | `file`            | yes      | A file to include with the message; see below.                                                                                                                                                                                                                                                                                                  |
 | `blocks`          | yes      | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used. |
-| `blocks_template` | yes      | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).                                                                                                                                                                                                                             |
+| `blocks_template` | yes      | The same as `blocks`, but able to support [templates](/docs/templating/).                                                                                                                                                                                                                             |
 | `thread_ts`       | yes      | Sends the message as a reply to a specified parent message.                                                                                                                                                                                                                                                                                     |
 
 Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).

@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Device Tracker
   - Event
   - Fan
   - Helper
@@ -31,6 +32,7 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - device_tracker
   - event
   - fan
   - image
@@ -46,13 +48,21 @@ ha_platforms:
 ha_integration_type: helper
 ha_config_flow: true
 related:
+  - docs: /docs/templating/
+    title: About templating
+  - docs: /docs/templating/patterns/
+    title: Common template patterns
+  - docs: /docs/templating/debugging/
+    title: Debugging templates
+  - docs: /template-functions/
+    title: Template functions reference
   - docs: /docs/configuration/
     title: Configuration file
   - docs: /docs/blueprint/
     title: About blueprints
 ---
 
-The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
+The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/templating/) for properties of an entity, like the name or the state.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -60,6 +70,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Cover](#cover)
+- [Device Tracker](#device-tracker)
 - [Event](#event)
 - [Fan](#fan)
 - [Image](#image)
@@ -95,8 +106,6 @@ Template entities by default update as soon as any of the referenced data in the
 
 For example, you can have a template that takes the averages of two sensors. Home Assistant updates your template sensor as soon as either source sensor updates.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -108,8 +117,6 @@ template:
 
           {{ ((bedroom + kitchen) / 2) | round(1, default=0) }}
 ```
-
-{% endraw %}
 
 ### Trigger-based template entities
 
@@ -125,8 +132,6 @@ The state, including attributes, of trigger-based sensors and binary sensors is 
 Buttons do not support using `trigger` or `action` options.
 {% endnote %}
 
-{% raw %}
-
 ```yaml
 # Example configuration entry
 template:
@@ -141,8 +146,6 @@ template:
         state: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(default=0) }}'
         unit_of_measurement: "Days"
 ```
-
-{% endraw %}
 
 ### Configuration reference
 
@@ -179,8 +182,6 @@ variables:
 
 Each entity platform has its own set of configuration options, but there are some common options that can be used across all entity platforms.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 template:
@@ -198,8 +199,6 @@ template:
       device_class: problem
 ```
 
-{% endraw %}
-
 {% configuration device %}
   availability:
     description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity is `available`. If the template returns any other value, the entity is `unavailable`. If not configured, the entity is always `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
@@ -207,7 +206,7 @@ template:
     type: template
     default: true
   default_entity_id:
-    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available.  If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
     required: false
     type: string
   icon:
@@ -223,7 +222,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface. Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -243,8 +242,6 @@ template:
 The template alarm control panel platform allows you to create a alarm control panels with templates to define the state and scripts to define each actions.
 
 Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -276,8 +273,6 @@ template:
         disarm:
           action: script.disarm_panel
 ```
-
-{% endraw %}
 
 {% configuration alarm_control_panel %}
 alarm_control_panel:
@@ -325,7 +320,7 @@ alarm_control_panel:
       type: boolean
       default: false
     state:
-      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are used."
       required: false
       type: template
     trigger:
@@ -339,8 +334,6 @@ alarm_control_panel:
 The template binary sensor platform allows you to create binary sensors with templates to define the state and attributes.
 
 Binary sensor entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -362,8 +355,6 @@ template:
         state: >
           {{ is_state("sun.sun", "above_horizon") }}
 ```
-
-{% endraw %}
 
 {% configuration binary-sensor %}
 binary_sensor:
@@ -389,7 +380,7 @@ binary_sensor:
       required: false
       type: time
     delay_on:
-      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor switches to `on`. This can also be a template.
+      description: The amount of time (for example, `0:00:05`) the template state must be ***met*** before this sensor switches to `on`. This can also be a template.
       required: false
       type: time
     device_class:
@@ -398,7 +389,7 @@ binary_sensor:
       type: device_class
       default: None
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value renders it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable`, or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value renders it as `off`. The actual appearance in the frontend (such as `Open`/`Closed` or `Detected`/`Clear`) depends on the sensor's device_class value.
       required: true
       type: template
 
@@ -409,8 +400,6 @@ binary_sensor:
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy meter fluctuates wildly, hitting zero frequently even before the load is finished. By utilizing `delay_off`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 # Determine when the washing machine has a load running.
@@ -420,16 +409,12 @@ template:
         delay_off:
           minutes: 5
         state: >
-          {{ states('sensor.washing_machine_power')|float > 0 }}
+          {{ states('sensor.washing_machine_power') | float > 0 }}
 ```
-
-{% endraw %}
 
 ### State based binary sensor - Is Anyone Home
 
 This example is determining if anyone is home based on the combination of device tracking and motion sensors. It's extremely useful if you have kids/baby sitter/grand parents who might still be in your house that aren't represented by a trackable device in Home Assistant. This is providing a composite of Wi-Fi based device tracking and Z-Wave multisensor presence sensors.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -446,13 +431,9 @@ template:
              or is_state('binary_sensor.family_room_144', 'on') }}
 ```
 
-{% endraw %}
-
 ### State based binary sensor - device tracker sensor with latitude and longitude attributes
 
-This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
-
-{% raw %}
+This example shows how to combine a non-GPS (for example, NMAP) and GPS device tracker while still including latitude and longitude attributes
 
 ```yaml
 # Example configuration.yaml entry
@@ -477,13 +458,9 @@ template:
             {% endif %}
 ```
 
-{% endraw %}
-
 ### State based binary sensor - Change the icon when a state changes
 
 This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -500,15 +477,11 @@ template:
           {% endif %}
 ```
 
-{% endraw %}
-
 ### Trigger based binary sensor - Change state and icon when a custom event is received
 
 A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed.
 
 The binary sensor turns on and sets the matching icon when the appropriate event is received. After 5 seconds, the binary sensor turns off automatically. To ensure the icon gets updated, there must be a trigger for when the state changes to off.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -527,15 +500,11 @@ template:
         seconds: 5
 ```
 
-{% endraw %}
-
 ## Button
 
 The template button platform allows you to create button entities with scripts to define each action.
 
 Button entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -549,8 +518,6 @@ template:
           data:
             command: fast_forward
 ```
-
-{% endraw %}
 
 {% configuration button %}
 button:
@@ -568,14 +535,12 @@ button:
 
 The template cover platform allows you to create covers with templates to define the state and scripts to define each action.
 
-{% raw %}
-
 ```yaml
 # Example state-based configuration.yaml entry
 template:
   - cover:
       - name: Garage Door
-        state: "{{ states('sensor.garage_door')|float > 0 }}"
+        state: "{{ states('sensor.garage_door') | float > 0 }}"
         device_class: garage
         open_cover:
           action: script.open_garage_door
@@ -593,7 +558,7 @@ template:
         entity_id: sensor.garage_door
     cover:
       - name: Garage Door
-        state: "{{ trigger.to_state.state|float(0) > 0 }}"
+        state: "{{ trigger.to_state.state | float(0) > 0 }}"
         device_class: garage
         open_cover:
           action: script.open_garage_door
@@ -602,8 +567,6 @@ template:
         stop_cover:
           action: script.stop_garage_door
 ```
-
-{% endraw %}
 
 {% configuration cover %}
 cover:
@@ -681,8 +644,6 @@ If both a `state` and a `position` are specified, only `opening` and `closing` s
 
 This example converts a garage door with a controllable switch and position sensor into a cover. The condition check is optional, but suggested if you use the same switch to open and close the garage.
 
-{% raw %}
-
 ```yaml
 template:
   - cover:
@@ -708,20 +669,16 @@ template:
           target:
             entity_id: switch.garage_door
         icon: >-
-          {% if states('sensor.garage_door')|float > 0 %}
+          {% if states('sensor.garage_door') | float > 0 %}
             mdi:garage-open
           {% else %}
             mdi:garage
           {% endif %}
 ```
 
-{% endraw %}
-
 ### State based cover - Optimistic Garage Door with Momentary Switch
 
 This example converts a garage door with a momentary switch.
-
-{% raw %}
 
 ```yaml
 template:
@@ -742,13 +699,60 @@ template:
               entity_id: switch.garage_door
 ```
 
-{% endraw %}
+## Device tracker
+
+The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - device_tracker:
+      - name: Car Location
+        latitude: "{{ states('sensor.latitude') }}"
+        longitude: "{{ states('sensor.longitude') }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+    - trigger: webhook
+      webhook_id: my_car_location
+    device_tracker:
+      - name: Car Location
+        latitude: "{{ trigger.json.latitude }}"
+        longitude: "{{ trigger.json.longitude }}"
+        location_accuracy: "{{ trigger.json.resolution }}"
+```
+
+{% configuration device_tracker %}
+device_tracker:
+  description: List of device trackers
+  required: true
+  type: map
+  keys:
+    in_zones:
+      description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity IDs. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
+      required: false
+      type: template
+    latitude:
+      description: Defines a template for the device_trackers latitude. Legal values are numbers between `-90` and `90`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
+      type: template
+    location_accuracy:
+      description: Defines a template for the device_trackers location accuracy in meters.
+      required: false
+      type: template
+    longitude:
+      description: Defines a template for the device_trackers longitude. Legal values are numbers between `-180` and `180`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
+      type: template
+
+{% endconfiguration %}
 
 ## Event
 
 The template event platform allows you to create events with templates to define the state.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -773,8 +777,6 @@ template:
         event_type: "{{ trigger.event.data.event_label }}"
         event_types: "{{ ['Keypad lock operation', 'Keypad unlock operation'] }}"
 ```
-
-{% endraw %}
 
 {% configuration event %}
 event:
@@ -802,8 +804,6 @@ event:
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
 Fan entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -887,8 +887,6 @@ template:
           - 'whoosh'
 ```
 
-{% endraw %}
-
 {% configuration fan %}
 fan:
   description: List of fans
@@ -970,8 +968,6 @@ When converting a fan with 3 speeds from the old fan entity model, the following
 
 This example uses an input_boolean and an input_number to mimic a fan, and the example shows multiple actions for `set_percentage`.
 
-{% raw %}
-
 ```yaml
 template:
   - fan:
@@ -999,13 +995,9 @@ template:
               value: "{{ percentage }}"
 ```
 
-{% endraw %}
-
 ### State based fan - Fan with preset modes
 
-This example uses an existing fan with only a percentage. It extends the percentage value into useable preset modes without a helper entity.
-
-{% raw %}
+This example uses an existing fan with only a percentage. It extends the percentage value into usable preset modes without a helper entity.
 
 ```yaml
 template:
@@ -1063,15 +1055,11 @@ template:
                 {% endif %}
 ```
 
-{% endraw %}
-
 ## Image
 
 The template image platform allows you to create image entities with templates to define the image URL.
 
 Image entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1098,8 +1086,6 @@ template:
           {% endif %}
 ```
 
-{% endraw %}
-
 {% configuration image %}
 image:
   description: List of images
@@ -1123,15 +1109,13 @@ The template light platform allows you to create lights with templates to define
 
 Light entities can be created from the frontend in the Helpers section or via YAML.
 
-{% raw %}
-
 ```yaml
 # Example state-based configuration.yaml entry
 template:
   - light:
       - name: "Theater Lights"
-        level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
-        state: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
+        level: "{{ state_attr('sensor.theater_brightness', 'lux') | int }}"
+        state: "{{ state_attr('sensor.theater_brightness', 'lux') | int > 0 }}"
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
@@ -1146,7 +1130,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1187,8 +1171,8 @@ template:
         - light.led_strip
     light:
       - name: "Theater Lights"
-        level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
-        state: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
+        level: "{{ state_attr('sensor.theater_brightness', 'lux') | int }}"
+        state: "{{ state_attr('sensor.theater_brightness', 'lux') | int > 0 }}"
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
@@ -1203,7 +1187,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1231,15 +1215,11 @@ template:
         supports_transition: "{{ true }}"
 ```
 
-{% endraw %}
-
 ### Wrapping WLED presets as light effects
 
-This example creates a template light that wraps an RGBW WLED device and exposes its saved presets — predefined combinations of effects, colors, and brightness stored on the device — as selectable effects directly in the light entity. This is useful if you prefer to pick presets from the effects list in a light card on your dashboard, without having to use a separate select entity.
+This example creates a template light that wraps an RGBW WLED device and exposes its saved presets (predefined combinations of effects, colors, and brightness stored on the device) as selectable effects directly in the light entity. This is useful if you prefer to pick presets from the effects list in a light card on your dashboard, without having to use a separate select entity.
 
 The template light mirrors the state, brightness, and RGBW color of the underlying WLED light entity. Selecting an effect sends the matching preset name to the WLED preset select entity.
-
-{% raw %}
 
 ```yaml
 template:
@@ -1280,8 +1260,6 @@ template:
           data:
             option: "{{ effect }}"
 ```
-
-{% endraw %}
 
 {% configuration light %}
 light:
@@ -1340,31 +1318,35 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: inclusive
       type: action
     set_level:
-      description: Defines a set of actions (script) to run when the light is given a brightness command. The script executes only if the light is turned on with a `brightness`, `brightness_pct`, or `transition`. The `set_level` script receives the variables `brightness` and/or `transition`.
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), `brightness_pct` (a value between 0 and 100), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
       required: false
       type: action
     set_temperature:
-      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgb_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_xy:
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     state:
@@ -1378,7 +1360,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+      description: Defines a template to get the color temperature of the light in Kelvin. The template must return a value between 2000 and 6535.
       required: false
       type: template
       default: optimistic
@@ -1390,12 +1372,33 @@ light:
       description: Defines an action to run when the light is turned off. May receive the variable `transition`.
       required: true
       type: action
+    xy:
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      required: false
+      type: template
+      default: optimistic
 
 {% endconfiguration %}
 
-### Light Considerations
+### Light considerations
 
-Transition does not have its own script. It is instead passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts. Brightness is passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) is not called. If only brightness is passed to `light.turn_on` action, the `set_level` script is called.
+When `light.turn_on` is called, Home Assistant selects exactly one script to run based on the parameters included in the call. The first match in the following order wins:
+
+1. `color_temp_kelvin` (or `color_temp`) is provided and `set_temperature` is defined.
+2. `effect` is provided and `set_effect` is defined.
+3. `hs_color` is provided and `set_hs` is defined.
+4. `rgbww_color` is provided and `set_rgbww` is defined.
+5. `rgbw_color` is provided and `set_rgbw` is defined.
+6. `rgb_color` is provided and `set_rgb` is defined.
+7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+8. `rgb_color` is provided and `set_rgb` is defined.
+9. `xy_color` is provided and `set_xy` is defined.
+10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+11. None of the above match, and `turn_on` is called.
+
+Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
+
+There is no separate script for transitions. The `transition` value is passed as a variable to whichever script is selected, including `turn_off`.
 
 ### State based light - Theater Volume Control
 
@@ -1404,8 +1407,6 @@ integration gives you the flexibility to provide whatever you'd like to send as
 the payload to the consumer including any scale conversions you may need to
 make; the [media player integration](/integrations/media_player/) needs a floating
 point percentage value from `0.0` to `1.0`.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1439,22 +1440,18 @@ template:
           target:
             entity_id: media_player.receiver
           data:
-            volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
+            volume_level: "{{ (brightness / 255 * 100) | int / 100 }}"
         level: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {{ (state_attr('media_player.receiver', 'volume_level')|float * 255)|int }}
+            {{ (state_attr('media_player.receiver', 'volume_level') | float * 255) | int }}
           {% else %}
             0
           {% endif %}
 ```
 
-{% endraw %}
-
 ### State based light - Make a global light entity for a multi-segment WLED light
 
 This example shows how to group together 2 RGBW segments from the same WLED controller into a single usable light.
-
-{% raw %}
 
 ```yaml
 template:
@@ -1462,12 +1459,12 @@ template:
         unique_id: 28208f257b54c44e50deb2d618d44710
         name: Multi-segment Wled control
         state: "{{ states('light.wled_master') }}"
-        level: "{{ state_attr('light.wled_master', 'brightness')|d(0,true)|int }}"
+        level: "{{ state_attr('light.wled_master', 'brightness') | d(0,true) | int }}"
         rgbw: (
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0]|d(0))/2 }},
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1]|d(0))/2 }},
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2]|d(0))/2 }},
-          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[3]|d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[3]|d(0))/2 }}
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0] | d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1] | d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2] | d(0))/2 }},
+          {{ (state_attr('light.wled_segment_0', 'rgbw_color')[3] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[3] | d(0))/2 }}
           )
         effect_list: "{{ state_attr('light.wled_segment_0', 'effect_list') }}"
         effect: "{{ state_attr('light.wled_segment_0', 'effect') if state_attr('light.wled_segment_0', 'effect') == state_attr('light.wled_segment_1', 'effect') else none }}"
@@ -1501,15 +1498,11 @@ template:
             effect: "{{ effect }}"
 ```
 
-{% endraw %}
-
 ## Lock
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
 
 Lock entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1546,8 +1539,6 @@ template:
             entity_id: switch.door
 ```
 
-{% endraw %}
-
 {% configuration lock %}
 lock:
   description: List of locks
@@ -1555,7 +1546,7 @@ lock:
   type: map
   keys:
     code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
+      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is `unavailable`. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
       required: false
       type: template
       default: None
@@ -1587,8 +1578,6 @@ lock:
 
 This example shows a lock that copies data from a switch.
 
-{% raw %}
-
 ```yaml
 template:
   - lock:
@@ -1604,13 +1593,9 @@ template:
             entity_id: switch.source
 ```
 
-{% endraw %}
-
 ### State based lock - Optimistic mode
 
 This example shows a lock in optimistic mode. This lock immediately changes state after command and does not wait for state updates from the sensor.
-
-{% raw %}
 
 ```yaml
 template:
@@ -1628,13 +1613,9 @@ template:
             entity_id: switch.source
 ```
 
-{% endraw %}
-
 ### State based lock - Sensor and Two Switches
 
 This example shows a lock that takes its state from a sensor, and uses two momentary switches to control a device.
-
-{% raw %}
 
 ```yaml
 template:
@@ -1651,13 +1632,9 @@ template:
             entity_id: switch.skylight_close
 ```
 
-{% endraw %}
-
 ### State based lock - Secret code
 
 This example shows a lock that copies data from a switch. It needs a PIN code defined as a [secret](/docs/configuration/secrets) to unlock and no code to lock. Note that the actual validity check of the code is part of the `unlock` action and should always happen there or in scripts called from these actions. In this way, you can not only perform code checks against static values, but also dynamic ones (for instance, TOTPs).
-
-{% raw %}
 
 ```yaml
 template:
@@ -1672,31 +1649,23 @@ template:
         unlock:
           - variables:
               pin: !secret garage_door_pin
-          - condition: "{{ code|int == pin|int }}"
+          - condition: "{{ code | int == pin | int }}"
           - action: switch.turn_off
             target:
               entity_id: switch.source
 ```
 
-{% endraw %}
-
 In `secrets.yaml`:
-
-{% raw %}
 
 ```yaml
 garage_door_pin: "1234"
 ```
-
-{% endraw %}
 
 ## Number
 
 The template number platform allows you to create number entities with templates to define the state and scripts to define each action.
 
 Number entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1735,8 +1704,6 @@ template:
         icon: mdi:ruler
 ```
 
-{% endraw %}
-
 {% configuration number %}
 number:
   description: List of numbers
@@ -1763,7 +1730,7 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value. When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -1784,15 +1751,13 @@ number:
 
 This example demonstrates the usage of a template number with a unit of measurement set to change a unit-less value of another number entity.
 
-{% raw %}
-
 ```yaml
 template:
   - number:
       - name: "Cutting Height"
         unit_of_measurement: "cm"
         unique_id: automower_cutting_height
-        state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
+        state: "{{ states('number.automower_cutting_height_raw') | int(0) * 0.5 + 1.5 }}"
         set_value:
           - action: number.set_value
             target:
@@ -1805,15 +1770,11 @@ template:
         icon: mdi:ruler
 ```
 
-{% endraw %}
-
 ## Select
 
 The template select platform allows you to create select entities with templates to define the state and scripts to define each action.
 
 Select entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1845,8 +1806,6 @@ template:
               day_night_mode: "{{ option }}"
 ```
 
-{% endraw %}
-
 {% configuration select %}
 select:
   description: List of selects
@@ -1877,8 +1836,6 @@ select:
 
 This show how a state based template select can be used to perform an action.
 
-{% raw %}
-
 ```yaml
 template:
   select:
@@ -1894,15 +1851,11 @@ template:
             entity_id: camera.porch_camera_sd
 ```
 
-{% endraw %}
-
 ## Sensor
 
 The template sensor platform allows you to create sensors with templates to define the state and attributes.
 
 Sensor entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1912,7 +1865,7 @@ template:
         state: >
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif state_attr('switch.kettle', 'W')|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'W') | float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -1937,8 +1890,6 @@ template:
         state: "{{ (states('sensor.outside_temperature') | float - 32) * 5/9 }}"
 ```
 
-{% endraw %}
-
 {% configuration sensor %}
 sensor:
   description: List of sensors
@@ -1960,7 +1911,7 @@ sensor:
       type: template
       default: None
     state:
-      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, that is, it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
       required: true
       type: template
     state_class:
@@ -1980,23 +1931,17 @@ sensor:
 
 This example shows the sun angle in the frontend.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
       - name: Sun Angle
         unit_of_measurement: "°"
-        state: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
+        state: "{{ '%+.1f' | format(state_attr('sun.sun', 'elevation')) }}"
 ```
-
-{% endraw %}
 
 ### State based sensor - Modifying another sensor's output
 
 If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun integration](/integrations/sun/) as a simple example:
-
-{% raw %}
 
 ```yaml
 template:
@@ -2010,37 +1955,29 @@ template:
           {% endif %}
 ```
 
-{% endraw %}
-
 ### State based sensor - Changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 Because the sensors do math on the source sensor's state and need to render to a numeric value, an availability template is used
 to suppress rendering of the state template if the source sensor does not have a valid numeric state.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
       - name: "Transmission Down Speed"
         unit_of_measurement: "kB/s"
-        state: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
+        state: "{{ states('sensor.transmission_down_speed') | float * 1024 }}"
         availability: "{{ is_number(states('sensor.transmission_down_speed')) }}"
 
       - name: "Transmission Up Speed"
         unit_of_measurement: "kB/s"
-        state: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+        state: "{{ states('sensor.transmission_up_speed') | float * 1024 }}"
         availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
-
-{% endraw %}
 
 ### Trigger based sensor - Using conditions to control updates
 
 This example shows how to store the last valid value of a temperature sensor. It updates as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state remains unchanged.
-
-{% raw %}
 
 ```yaml
 template:
@@ -2055,15 +1992,11 @@ template:
         state: "{{ states('sensor.outside_temperature') }}"
 ```
 
-{% endraw %}
-
 ## Switch
 
 The template switch platform allows you to create switches with templates to define the state and scripts to define each action.
 
 Switch entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2100,8 +2033,6 @@ template:
             entity_id: switch.skylight_close
 ```
 
-{% endraw %}
-
 {% configuration switch %}
 switch:
   description: List of switches
@@ -2133,8 +2064,6 @@ switch:
 
 This example shows a switch that is the inverse of another switch.
 
-{% raw %}
-
 ```yaml
 template:
   - switch:
@@ -2150,13 +2079,9 @@ template:
             entity_id: switch.target
 ```
 
-{% endraw %}
-
 ### State based switch - Toggle Switch
 
 This example shows a switch that takes its state from a sensor and toggles a switch.
-
-{% raw %}
 
 ```yaml
 template:
@@ -2173,14 +2098,10 @@ template:
             entity_id: switch.blind_toggle
 ```
 
-{% endraw %}
-
 ### State based switch - Sensor and Two Switches
 
 This example shows a switch that takes its state from a sensor, and uses two
 momentary switches to control a device.
-
-{% raw %}
 
 ```yaml
 template:
@@ -2197,13 +2118,9 @@ template:
             entity_id: switch.skylight_close
 ```
 
-{% endraw %}
-
 ### State based switch - Optimistic Switch
 
 This example switch with an assumed state based on the actions performed. This switch immediately changes state after a `turn_on`/`turn_off` command.
-
-{% raw %}
 
 ```yaml
 template:
@@ -2219,15 +2136,11 @@ template:
             entity_id: switch.blind_toggle
 ```
 
-{% endraw %}
-
 ## Update
 
 The template update platform allows you to create update entities with templates to define the state and a script to define the install action.
 
 Update entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2254,9 +2167,7 @@ template:
           action: script.update_frigate
 ```
 
-{% endraw %}
-
-{% configuration vacuum %}
+{% configuration update %}
 update:
   description: List of update entities
   required: true
@@ -2281,11 +2192,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2317,8 +2228,6 @@ The template vacuum platform allows you to create vacuum entities with templates
 
 Vacuum entities can be created from the frontend in the Helpers section or via YAML.
 
-{% raw %}
-
 ```yaml
 # Example state-based configuration.yaml entry
 template:
@@ -2341,7 +2250,25 @@ template:
           action: script.vacuum_start
 ```
 
-{% endraw %}
+```yaml
+# Example state-based configuration.yaml entry with segment cleaning
+template:
+  - vacuum:
+      - name: Living Room Vacuum
+        clean_segments:
+          action: script.vacuum_start
+          data:
+            segment_ids: "{{ segment_ids }}"
+        segments: >-
+          {{ [
+            {'id': '1', 'name': 'Kitchen'},
+            {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
+          ] }}
+        start:
+          action: script.vacuum_start
+        unique_id: living_room_vacuum
+
+```
 
 {% configuration vacuum %}
 vacuum:
@@ -2362,6 +2289,10 @@ vacuum:
       description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
       required: false
       type: template
+    clean_segments:
+      description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments`.
+      required: inclusive
+      type: action
     clean_spot:
       description: Defines an action to run when the vacuum is given a clean spot command.
       required: false
@@ -2391,6 +2322,10 @@ vacuum:
       description: Defines an action to run when the vacuum is given a return to base command.
       required: false
       type: action
+    segments:
+      description: Defines a template to get the segments of the vacuum. Expects a list of dictionaries with keys `id`, `name`, and optional `group`. Requires `unique_id` and `clean_segments`.
+      required: inclusive
+      type: template
     set_fan_speed:
       description: Defines an action to run when the vacuum is given a command to set the fan speed.
       required: false
@@ -2446,15 +2381,13 @@ vacuum:
 
 This example shows how to add custom attributes.
 
-{% raw %}
-
 ```yaml
 vacuum:
   - platform: template
     vacuums:
       living_room_vacuum:
         value_template: "{{ states('sensor.vacuum_state') }}"
-        battery_level_template: "{{ states('sensor.vacuum_battery_level')|int }}"
+        battery_level_template: "{{ states('sensor.vacuum_battery_level') | int }}"
         fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
         attribute_templates:
           status: >-
@@ -2467,15 +2400,11 @@ vacuum:
             {% endif %}
 ```
 
-{% endraw %}
-
 ## Weather
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
 Weather entities can be created from the frontend in the Helpers section or via YAML.
-
-{% raw %}
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2506,8 +2435,6 @@ template:
         humidity: "{{ states('sensor.humidity') | float }}"
         forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
-
-{% endraw %}
 
 {% configuration weather %}
 weather:
@@ -2602,9 +2529,13 @@ weather:
 
 {% endconfiguration %}
 
+### Condition
+
+The `condition` *must* match one of the Home Assistant defined conditions. See the [weather condition mapping](/integrations/weather/#condition-mapping). If it does not, the state will be 'unknown' so will not be usable in a dashboard.
+
 ### Weather Forecast data
 
-The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
 
 #### Hourly Weather Forecast
 
@@ -2616,14 +2547,12 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 #### Twice Daily Weather Forecast
 
-The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 
 This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
 and use the response in a template.
-
-{% raw %}
 
 ```yaml
 template:
@@ -2645,11 +2574,9 @@ template:
           forecast: "{{ hourly['weather.home'].forecast }}"
 ```
 
-{% endraw %}
-
 #### Video tutorial
 
-This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+This video tutorial explains how to set up a trigger based template that uses an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
@@ -2681,8 +2608,6 @@ template:
 
 Template entities can be triggered using any automation trigger, including webhook triggers. Use a trigger-based template entity to store this information in template entities.
 
-{% raw %}
-
 ```yaml
 template:
   - triggers:
@@ -2702,8 +2627,6 @@ template:
         state: "{{ trigger.json.motion }}"
         device_class: motion
 ```
-
-{% endraw %}
 
 You can test this trigger entity with the following CURL command:
 
@@ -2726,8 +2649,6 @@ Self-referencing using `this` provides the state and attributes for the entity b
 
 This example demonstrates how the `this` variable can be used in templates for self-referencing.
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -2737,8 +2658,6 @@ template:
         attributes:
           test: "{{ now() }}"
 ```
-
-{% endraw %}
 
 ## Optimistic mode
 
@@ -2764,14 +2683,12 @@ When there are entities present in the template and no triggers are defined, the
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
 {% endtip %}
 
-When `states` is used in a template by itself to iterate all states on the system, the template is re-rendered each
+When [`states`](/template-functions/states/) is used in a template by itself to iterate all states on the system, the template is re-rendered each
 time any state changed event happens if any part of the state is accessed. When merely counting states, the template
 is only re-rendered when a state is added or removed from the system. On busy systems with many entities or hundreds of
 thousands state changed events per day, templates may re-render more than desirable.
 
 In the below example, re-renders are limited to once per minute because we iterate over all available entities:
-
-{% raw %}
 
 ```yaml
 template:
@@ -2780,11 +2697,7 @@ template:
         state: "{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}"
 ```
 
-{% endraw %}
-
 In the below example, re-renders are limited to once per second because we iterate over all entities in a single domain (sensor):
-
-{% raw %}
 
 ```yaml
 template:
@@ -2793,25 +2706,19 @@ template:
         state: "{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}"
 ```
 
-{% endraw %}
-
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
 
 ## Considerations
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the `states()` function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}.
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the [`states()`](/template-functions/states/) function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}.
 
-The same would apply to the `is_state()` function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
-
-{% raw %}
+The same would apply to the [`is_state()`](/template-functions/is_state/) function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
 
 ```yaml
 {{ is_state('switch.source', 'on') }}
 ```
-
-{% endraw %}
 
 ## Using blueprints
 
@@ -2822,7 +2729,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/
@@ -2858,359 +2765,3 @@ The blueprint can now be used for creating template entities.
 Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
-
-## Legacy template deprecation migration guide
-
-Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0. The deprecated template entities will produce a repair that guides you through the migration.
-
-### Migrating a legacy sensor into a new template section
-
-This example covers how to migrate a legacy template sensor into modern syntax.
-
-Take the example `configuration.yaml` file
-
-{% raw %}
-```yaml
-# configuration.yaml
-sensor:
-# SNMP Configuration
-- platform: snmp
-  host: 192.168.1.32
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-# Legacy template configuration
-- platform: template
-  sensors:
-    my_light_count:
-      friendly_name: Total lights on
-      unique_id: sa892hfa9sdf8
-      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-```
-
-{% endraw %}
-To get started with the migration:
-
-1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
-
-    Delete the following YAML from `configuration.yaml` file.
-
-{% raw %}
-    ```yaml
-    # Legacy template configuration
-    - platform: template
-      sensors:
-        my_light_count:
-          friendly_name: Total lights on
-          unique_id: sa892hfa9sdf8
-          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-      ```
-{% endraw %}
-
-      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
-
-    ```yaml
-    # configuration.yaml
-    sensor:
-    # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-    ```
-
-1. Add the modern syntax provided by the repair.
-
-    The repair would provide the following YAML.
-
-  {% raw %}
-    ```yaml
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-   {% endraw %}
-
-    This YAML should be added to the `template:` section inside `configuration.yaml`.
-
-{% raw %}
-    ```yaml
-    # configuration.yaml
-    sensor:
-      # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    # Copied example
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-    {% endraw %}
-
-    If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
-
-{% raw %}
-    ```yaml
-    # configuration.yaml
-    sensor:
-      # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    template:
-
-    # Migrated sensor
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-
-    # Migrated cover
-    - cover:
-      - default_entity_id: cover.garage
-        name: Garage Cover
-        state: '{{ is_state(''binary_sensor.relay'', ''on'') }}'
-
-    # Migrated light
-    - light:
-      - default_entity_id: light.skylight
-        name: Skylight
-        state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
-    ```
-{% endraw %}
-
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
-
-### Migrating a legacy sensor into an existing template section
-
-This example covers how to migrate a legacy template sensor into modern syntax.
-
-Take the example `configuration.yaml` file
-
-{% raw %}
-```yaml
-# configuration.yaml
-sensor:
-# SNMP Configuration
-- platform: snmp
-  host: 192.168.1.32
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-# Legacy template configuration
-- platform: template
-  sensors:
-    my_light_count:
-      friendly_name: Total lights on
-      unique_id: sa892hfa9sdf8
-      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-
-template:
-# Existing modern template
-- binary_sensor:
-  - name: Bright Outside
-    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-```
-{% endraw %}
-
-To get started with the migration:
-
-1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
-
-    Delete the following YAML from `configuration.yaml` file.
-
-{% raw %}
-    ```yaml
-    # Legacy template configuration
-    - platform: template
-      sensors:
-        my_light_count:
-          friendly_name: Total lights on
-          unique_id: sa892hfa9sdf8
-          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-      ```
-{% endraw %}
-
-      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
-
-{% raw %}
-    ```yaml
-    # configuration.yaml
-    sensor:
-    # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    template:
-    # Existing modern template
-    - binary_sensor:
-      - name: Bright Outside
-        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-    ```
-{% endraw %}
-
-1. Add the modern syntax provided by the repair.
-
-    The repair would provide the following YAML.
-
-  {% raw %}
-    ```yaml
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-{% endraw %}
-
-    This YAML should be added to the `template:` section inside `configuration.yaml`.
-
-{% raw %}
-    ```yaml
-    # configuration.yaml
-    sensor:
-      # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    template:
-    # Existing modern template
-    - binary_sensor:
-      - name: Bright Outside
-        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-
-    # Copied example
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-{% endraw %}
-
-    In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
-
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
-
-### Migrating a sensor from an included file to an included file
-
-This example covers how to migrate a legacy template sensor into modern syntax when the sensor exists in an included `sensors.yaml` file.
-
-Take the example configuration. It's a configuration that is split between 3 files, `configuration.yaml`, `sensors.yaml`, and `templates.yaml`.
-
-```yaml
-# configuration.yaml
-sensor: !include sensors.yaml
-template: !include templates.yaml
-```
-
-{% raw %}
-```yaml
-# sensors.yaml
-
-# SNMP Configuration
-- platform: snmp
-  host: 192.168.1.32
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-# Legacy template configuration
-- platform: template
-  sensors:
-    my_light_count:
-      friendly_name: Total lights on
-      unique_id: sa892hfa9sdf8
-      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-```
-
-{% endraw %}
-
-{% raw %}
-```yaml
-# templates.yaml
-
-# Existing modern template
-- binary_sensor:
-  - name: Bright Outside
-    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-```
-{% endraw %}
-
-To get started with the migration:
-
-1. Remove the `sensor` template definition from the `sensors.yaml` section.
-
-    Delete the following YAML from `sensors.yaml` file.
-
-{% raw %}
-    ```yaml
-    # Legacy template configuration
-    - platform: template
-      sensors:
-        my_light_count:
-          friendly_name: Total lights on
-          unique_id: sa892hfa9sdf8
-          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-      ```
-
-{% endraw %}
-      Make sure to keep all the other platforms in the sensor file. Your `sensors.yaml` file would look like this after the change:
-
-
-    ```yaml
-    # sensors.yaml
-
-    # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-    ```
-
-2. Add the modern syntax provided by the repair.
-
-    The repair would provide the following YAML.
-
-  {% raw %}
-    ```yaml
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-  {% endraw %}
-    This YAML should be added to the `templates.yaml` file.
-
-{% raw %}
-    ```yaml
-    # templates.yaml
-
-    # Existing modern template
-    - binary_sensor:
-      - name: Bright Outside
-        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-
-    # Copied example
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-{% endraw %}
-
-    In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
-
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.

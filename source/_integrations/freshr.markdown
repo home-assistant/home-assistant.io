@@ -8,10 +8,12 @@ ha_iot_class: Cloud Polling
 ha_domain: freshr
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_codeowners:
   - '@SierraNL'
+ha_quality_scale: platinum
 ---
 
 The **Fresh-r** {% term integration %} connects to the [fresh-r.me](https://www.fresh-r.me/) cloud dashboard, letting you monitor all Fresh-r ventilation devices linked to your account. It polls the Fresh-r cloud to keep your data up to date. Use it to keep an eye on your indoor air quality and ventilation performance, or to trigger automations when CO2 or humidity levels need attention.

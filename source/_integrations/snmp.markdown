@@ -58,7 +58,7 @@ The following OIDs refer to the current MAC Address table from various common ro
 | MikroTik | unknown RouterOS version/model   | `1.3.6.1.4.1.14988.1.1.1.2.1.1`                 |
 | MikroTik | RouterOS 6.x on RB2011           | `1.3.6.1.2.1.4.22.1.2`                          |
 | OpenWrt  | Chaos Calmer 15.05               | `1.3.6.1.2.1.4.22.1.2`                          |
-| OPNSense | 19.1                             | `1.3.6.1.2.1.4.22.1.2`                          |
+| OPNsense | 19.1                             | `1.3.6.1.2.1.4.22.1.2`                          |
 | pfSense  | 2.2.4                            | `1.3.6.1.2.1.4.22.1.2`                          |
 | Ruckus   | ZoneDirector 9.13.3              | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6`         |
 | TP-Link  | Archer VR1600v                   | `1.3.6.1.2.1.3.1.1.2.16.1`                      |
@@ -214,7 +214,7 @@ username:
   type: string
   default: ''
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
+  description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to parse the value."
   required: false
   type: template
 version:
@@ -268,8 +268,6 @@ According to the most common SNMP standard, the uptime of a device is accessible
 
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -281,8 +279,6 @@ sensor:
     unit_of_measurement: "minutes"
     value_template: "{{((value | int) / 6000) | int}}"
 ```
-
-{% endraw %}
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
 
@@ -314,7 +310,7 @@ baseoid:
   required: true
   type: string
 command_oid:
-  description: The SNMP OID which to set in order to turn the switch on and off, if different from `baseoid`.
+  description: The SNMP OID which to set to turn the switch on and off, if different from `baseoid`.
   required: false
   type: string
 host:
@@ -383,7 +379,7 @@ command_payload_off:
 vartype:
   description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
   required: false
-  type: string  
+  type: string
   default: 'none'
 {% endconfiguration %}
 
