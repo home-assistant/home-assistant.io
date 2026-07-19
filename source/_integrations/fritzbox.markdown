@@ -121,7 +121,7 @@ Self defined [templates](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590
 
 Thermostats like the FRITZ!Smart Thermo series or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
 
-Further there are additional {% term switch %}, {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
+Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
 - Battery
 - Battery low
@@ -135,9 +135,25 @@ Further there are additional {% term switch %}, {% term sensor %} and {% term bi
 - Next Scheduled Preset
 - Next Scheduled Temperature
 - Open window detected
-- Manual open window indication (in combination with distinct window sensors)
 - Summer mode
 - Temperature
+
+#### Thermostat Actions
+
+Thermostat devices also support {% term actions %} which can be useful for {% term automations %}:
+
+##### Action: fritzbox.set_window_open
+
+This action triggers the open window detecton. This will override the schedule for the specified duration. You might call this
+action from an automation based on a separate window sensor.
+
+| Data attribute | Required | Description |
+| --- | --- | --- |
+| `duration` | yes | Timeout (seconds) after which the termostat will revert to its normal schedule. Valid values: 1 to 86400. Default: 600. |
+
+##### Action: fritzbox.set_window_close
+
+This action cancels a previous fritzbox.set_window_open action (or the device's internal open window detection). The device will revert to its schedule-based operation.
 
 ### Other devices
 
