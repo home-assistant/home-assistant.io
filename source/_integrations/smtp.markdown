@@ -77,12 +77,11 @@ Example configuration for Google Mail.
 
 Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
 
-If any of the following conditions are met you will not be able to create an app password:
+To be able to create an app password:
 
-- You do not have 2-step verification enabled on your account.
-- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
-- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
-- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+- You must have 2-step verification enabled on your account with another authentication mechanism than security key.
+- Your Google account must not be enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account must not belong to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
 
 ## Supported functionality
 
@@ -212,7 +211,7 @@ burglar:
               </html>
 ```
 
-## SMTP automation example
+## SMTP automation examples
 
 You can use this integration to create automations that send a notification to your email address when something happens.
 
