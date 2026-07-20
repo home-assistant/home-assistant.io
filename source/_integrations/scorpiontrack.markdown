@@ -59,7 +59,7 @@ The **Speed** sensor initially uses the unit selected for the ScorpionTrack shar
 
 ## Data updates
 
-The **ScorpionTrack** integration {% term polling polls %} ScorpionTrack every 2 minutes for the latest shared vehicle position.
+The **ScorpionTrack** integration {% term polling polls %} ScorpionTrack every 2 minutes for the latest location and speed of each shared vehicle.
 
 ## Known limitations
 
