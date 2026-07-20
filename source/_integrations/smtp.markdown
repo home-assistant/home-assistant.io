@@ -184,8 +184,6 @@ burglar:
               </html>
 ```
 
-To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
-
 ## Specific email provider configuration
 
 Check below some configurations examples for specific email providers.
@@ -213,3 +211,40 @@ If any of the following conditions are met you will not be able to create an app
 - You have 2-step verification enabled but have only added a security key as an authentication mechanism.
 - Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
 - Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+
+## SMTP automation example
+
+You can use this integration to create automations that send a notification to your email address when something happens.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: send email message when door is open
+
+This automations sends a notification message to an email address when the front door opens.
+
+- **Trigger**: State
+  - **Entity**: Front door binary sensor
+  - **To**: On
+- **Action**: Send a notification message
+  - **Target**: My email address (`notify.my_email`)
+
+{% details "YAML example for email notification when door opens" %}
+
+{% example %}
+automation: |
+  alias: "Notify by email: front door opened"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_email
+      data:
+        title: "Alert: Front Door Opened"
+        message: >
+          The front door was opened at {{ now().strftime('%Y-%m-%d %H:%M:%S') }}.
+{% endexample %}
+
+{% enddetails %}
