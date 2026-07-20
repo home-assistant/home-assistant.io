@@ -2,9 +2,11 @@
 title: PTDevices
 description: Instructions on how to integrate your PTLevel into Home Assistant.
 ha_release: 2026.6
-ha_category:
+ha_category: 
+  - Binary sensor
   - Sensor
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
@@ -76,6 +78,16 @@ The PTDevices integration provides the following entities.
 Some sensors are disabled by default because they provide information that is only useful to advanced users. You can manually enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}> the sensor entity you want to enable > **Advanced settings** > **Enabled**.
 
 {% endnote %}
+
+### Binary sensors
+
+- **Battery status**:
+  - **Description**: Indicates whether the onboard battery is low.
+  - **Available for models**: All battery-powered models
+
+- **External power**:
+  - **Description**: Indicates whether external power is present.
+  - **Available for models**: All externally-powered models
 
 ### Sensors
 

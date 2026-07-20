@@ -5,6 +5,7 @@ ha_category:
   - Climate
   - Hub
   - Light
+  - Number
   - Select
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
@@ -18,6 +19,7 @@ ha_platforms:
   - climate
   - diagnostics
   - light
+  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -71,6 +73,7 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 - [Binary Sensor](#binary_sensor)
 - [Climate](#climate)
 - [Light](#light)
+- [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 
@@ -100,11 +103,25 @@ The light platform provides the following functionality:
 
 Ovens with two cavities have separate light entities for the upper and lower cavity.
 
+### Number
+
+The number platform provides the following entity for ovens:
+
+- **Target temperature**: Sets the target temperature for an oven cavity, keeping the current cooking mode.
+
+{% important %}
+If the oven is idle, setting the target temperature starts a bake cycle at the set temperature.
+{% endimportant %}
+
 ### Select
 
 The select platform provides the following entity for refrigerators:
 
 - **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
+
+The select platform provides the following entity for ovens:
+
+- **Cook mode**: Sets the cook mode of an oven cavity, keeping the current target temperature. Selecting `Standby` turns the oven off by stopping the current cook.
 
 ### Sensor
 
