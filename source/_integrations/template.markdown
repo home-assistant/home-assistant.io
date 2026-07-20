@@ -2409,7 +2409,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-State based templates of weather entities can be created from the frontend in the Helpers section or via YAML. Trigger based weather templates can only be created via YAML.
+State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
