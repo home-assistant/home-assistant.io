@@ -60,7 +60,7 @@ Repeat these steps to add more recipients. Every email address you add can be se
 
 ### Notifiers
 
-The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Notify: Send message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [notify actions](#notify-actions) instead. For further instructions on how to use email notifications in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Notify: Send message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [notify actions](#notify-actions) instead.
 
 {% example %}
 action: |
