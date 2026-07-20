@@ -2409,9 +2409,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can be created from the frontend in the Helpers section or via YAML.
-
-### State based weather template - YAML example
+State based templates of weather entities can be created from the frontend in the Helpers section or via YAML. Currently, it is not possible to create a trigger based weather template from the user interface only.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2424,28 +2422,6 @@ template:
         humidity: "{{ states('sensor.humidity') | float }}"
         forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
-
-### Trigger based weather template - YAML example
-
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id:
-        - weather.my_region
-        - sensor.temperature
-        - sensor.humidity
-    weather:
-      - name: "My Weather Station"
-        condition: "{{ states('weather.my_region') }}"
-        temperature: "{{ states('sensor.temperature') | float }}"
-        temperature_unit: "°C"
-        humidity: "{{ states('sensor.humidity') | float }}"
-        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
-```
-
-Note that, currently, it is not possible to create a trigger based weather template from the user interface only.
 
 {% configuration weather %}
 weather:
@@ -2559,6 +2535,26 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 #### Twice Daily Weather Forecast
 
 The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+
+### Trigger based weather - Update helper only when the state of a weather entity changes
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id:
+        - weather.my_region
+        - sensor.temperature
+        - sensor.humidity
+    weather:
+      - name: "My Weather Station"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
+        temperature_unit: "°C"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+```
 
 ### Trigger based weather - Weather Forecast from response data
 
