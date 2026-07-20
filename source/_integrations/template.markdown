@@ -2536,7 +2536,7 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
-### Trigger based weather - Update helper only when one of the source entities changes
+### Trigger based weather: Update helper only when one of the source entities changes
 
 ```yaml
 # Example trigger-based configuration.yaml entry
