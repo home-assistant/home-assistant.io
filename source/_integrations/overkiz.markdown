@@ -139,6 +139,8 @@ Verify SSL:
   description: "Verify the SSL certificate of your gateway. This option is available only when connecting via the hostname."
 {% endconfiguration_basic %}
 
+You can adjust these settings later, or switch between the cloud API and local API, via {% my integrations title="**Settings** > **Devices & services**" %}. On the **Overkiz** integration, select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
+
 {% include integrations/actions.md %}
 
 ## Data updates
@@ -189,6 +191,8 @@ cover:
 ### Troubleshooting connection issues with the local API
 
 If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
+
+To change the host without removing and re-adding the integration, go to {% my integrations title="**Settings** > **Devices & services**" %}. On the **Overkiz** integration, select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
 
 ### Overkiz API limits
 
