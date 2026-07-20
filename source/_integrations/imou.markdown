@@ -21,7 +21,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com?article_id=XsrQM4GMK7wP4t93) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, and supported measurements are exposed as sensor entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, and supported measurements are exposed as sensor entities in Home Assistant.
 
 ## Supported devices
 
@@ -33,7 +33,7 @@ Add or remove devices in the Imou Open Platform or Imou app; new devices are pic
 
 Before using the Imou integration, create an Imou Open Platform application:
 
-1. Visit [Imou Open Platform](https://open.imoulife.com?article_id=XsrQM4GMK7wP4t93).
+1. Visit [Imou Open Platform](https://open.imoulife.com).
 2. Register or log in to your Imou account, then open the **Control board**.
 3. Go to **App Information** to obtain an **App ID** and **App secret**.
 4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
@@ -112,7 +112,7 @@ When the cloud API reports that a measurement is supported for a device, the int
 - **Energy consumption**: Total energy used in kilowatt-hours on supported socket devices.
 - **Usage duration**: Total operating time in minutes on supported socket devices.
 - **Cycles today**: Number of switch cycles for the current day on supported socket devices.
-- **Storage used**: Storage utilization as a percentage. When the storage medium is unavailable or reports an abnormal condition, the entity state is `unknown`.
+- **Storage used**: Storage usage as a percentage. When the storage medium is unavailable or reports an abnormal condition, the entity state is `unknown`.
 - **Status**: Device connectivity state (`online`, `offline`, `sleep`, or `upgrading`). This sensor remains available when the device is offline so you can still see its last reported state.
 
 Battery, storage used, and status sensors are shown under **Diagnostic** on the device page. Other sensors appear under **Sensors**.
