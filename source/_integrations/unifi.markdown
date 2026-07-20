@@ -116,7 +116,7 @@ Time in seconds from last seen until considered away:
 Disable UniFi Network wired bug logic:
   description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
 Ignore Wi-Fi clients with private (randomized) MAC addresses:
-  description: "Skip Wi-Fi clients that connect with a private (randomized) MAC address, so no entities are created for them. Wired clients are not affected, and clients you select under **Create entities from network clients** are still included. Disabled by default."
+  description: "Skip Wi-Fi clients that connect with a locally administered MAC address (like private or randomized Wi-Fi addresses), so no entities are created for them. Wired clients are not affected, and clients you select under **Create entities from network clients** are still included. Disabled by default."
 Network access controlled clients:
   description: "Select clients whose network access you want to control via switches by adding their MAC addresses."
 Allow control of DPI restriction groups:
