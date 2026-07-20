@@ -218,7 +218,7 @@ You can use this integration to create automations that send a notification to y
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: send email message when door is open
+### Automation: send an email message when front door opens
 
 This automation sends a notification message to an email address when the front door opens.
 
