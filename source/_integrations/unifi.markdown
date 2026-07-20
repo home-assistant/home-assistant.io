@@ -115,6 +115,8 @@ Time in seconds from last seen until considered away:
   description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds."
 Disable UniFi Network wired bug logic:
   description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
+Ignore Wi-Fi clients with private (randomized) MAC addresses:
+  description: "Skip Wi-Fi clients that connect with a private (randomized) MAC address, so no entities are created for them. Wired clients are not affected, and clients you select under **Create entities from network clients** are still included. Disabled by default."
 Network access controlled clients:
   description: "Select clients whose network access you want to control via switches by adding their MAC addresses."
 Allow control of DPI restriction groups:
@@ -154,7 +156,7 @@ This platform allows you to detect presence by looking at devices connected to a
 
 If tracked devices continue to show "Home" when not connected/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming. When enabled, various UniFi Controller versions have been observed to fail to declare clients disconnected.
 
-Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
+Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network. If you would rather not track these devices at all, turn on **Ignore Wi-Fi clients with private (randomized) MAC addresses** in the integration options. Home Assistant then skips these clients instead of creating device trackers that never come back.
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
