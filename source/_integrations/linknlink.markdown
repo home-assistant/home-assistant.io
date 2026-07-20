@@ -30,9 +30,9 @@ Before setting up the integration:
 1. Complete Wi-Fi setup using a supported provisioning method for the device.
 2. Connect Home Assistant and the device to the same local network.
 3. Find the device IP address in your router.
-4. Ensure that UDP traffic from Home Assistant to port `80` on the device is allowed.
-5. Ensure that the network allows reply UDP traffic from the device to Home Assistant. The integration selects and maintains the local position-listener port automatically.
-6. Ensure that TCP traffic from Home Assistant to port `6053` on the device is allowed for environmental and count states.
+4. Allow Home Assistant to send UDP traffic to port `80` on the device.
+5. Allow the device to send UDP position updates to Home Assistant. The integration selects and maintains the destination port automatically.
+6. Allow Home Assistant to open TCP connections to port `6053` on the device. The integration's client library uses the device's ESPHome native API on this port to read environmental and count states.
 
 {% include integrations/config_flow.md %}
 
@@ -85,13 +85,13 @@ This integration does not provide custom actions.
 
 1. Confirm that the device is powered on and connected to Wi-Fi.
 2. Confirm that the entered IP address belongs to the eMotion Ultra device.
-3. Check that Home Assistant can reach the device network without client isolation or a firewall blocking UDP port `80`.
-4. Check that TCP port `6053` is reachable when environmental or count sensors are unavailable.
+3. Check that client isolation or a firewall does not block UDP traffic from Home Assistant to port `80` on the device.
+4. If environmental or count sensors are unavailable, check that Home Assistant can open a TCP connection to port `6053` on the device. The integration uses the device's ESPHome native API on this port.
 5. Stop other local software controlling the device temporarily, then retry setup.
 
 ### Entities are unavailable
 
-Confirm that the device still uses the configured IP address. If only temperature, humidity, illuminance, or zone-count sensors are unavailable, verify TCP access to port `6053`. If only the distance sensors are unavailable, verify UDP access to port `80` and return UDP traffic from the device to Home Assistant.
+Confirm that the device still uses the configured IP address. If only temperature, humidity, illuminance, or zone-count sensors are unavailable, confirm that Home Assistant can open a TCP connection to port `6053` on the device. If only the distance sensors are unavailable, confirm that Home Assistant can send UDP traffic to port `80` on the device and that the device can send UDP position updates to Home Assistant.
 
 ## Removing the integration
 
