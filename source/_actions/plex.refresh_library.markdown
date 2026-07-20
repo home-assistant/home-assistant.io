@@ -72,7 +72,7 @@ server_name:
 Keep your Plex library up to date by scanning it once a day, while everyone is asleep.
 
 - **Trigger**: Time, 03:00
-- **Action**: Plex: Refresh library
+- **Action**: Refresh library
   - **Library name**: TV Shows
 
 {% details "Show example YAML" %}

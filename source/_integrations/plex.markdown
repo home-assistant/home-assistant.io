@@ -69,35 +69,55 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 ## Sensor
 
-The activity sensor provides a count of users currently watching media from the Plex server. Clicking the sensor shows details for the active users and media streams.
+The activity sensor provides a count of users currently watching media from the Plex server. Selecting the sensor shows details for the active users and media streams.
 
 The library sensors show a count of items in each library. Depending on the library contents, the sensor will show extra detail in its attributes. For example, a library sensor for TV shows will represent the total number of episodes in the library and its attributes will also report the number of shows and seasons it contains. The last added media item (movie, album, or episode) and a timestamp showing when it was added to its respective library are also provided.
 
 In addition to the item count, the last added media item (movie, album, or episode) and a timestamp showing when it was added are also provided with each library sensor.
 
-Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
+### Automation: notify when new media is added
 
-```yaml
-alias: "Plex - New media added"
-triggers:
-  - trigger: state
-    entity_id: sensor.plex_library_movies
-    id: movie
-  - trigger: state
-    entity_id: sensor.plex_library_music
-    id: album
-  - trigger: state
-    entity_id: sensor.plex_library_tv_shows
-    id: episode
+You can use the `last_added_item` attribute on library sensors to notify you when new media has been added.
 
-actions:
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      title: "New {{ trigger.id }} added"
-      message: "{{ trigger.to_state.attributes.last_added_item }}"
-```
+To create this automation from the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select **Create automation** > **Create new automation**.
+3. Add three **State** triggers:
+   - **Entity**: Movies library sensor, for example `sensor.plex_library_movies`
+   - **Entity**: Music library sensor, for example `sensor.plex_library_music`
+   - **Entity**: TV shows library sensor, for example `sensor.plex_library_tv_shows`
+4. In the **Then do** section, select **Add action**.
+5. Select **Send a notification message**.
+   - **Target**: My Device (`notify.my_device`)
+6. Enter the notification title and message.
+7. Select **Save**.
+
+{% details "YAML example for a new media notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when Plex adds new media"
+  triggers:
+    - trigger: state
+      entity_id: sensor.plex_library_movies
+      id: movie
+    - trigger: state
+      entity_id: sensor.plex_library_music
+      id: album
+    - trigger: state
+      entity_id: sensor.plex_library_tv_shows
+      id: episode
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "New {{ trigger.id }} added"
+        message: "{{ trigger.to_state.attributes.last_added_item }}"
+{% endexample %}
+
+{% enddetails %}
 
 {% important %}
 The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
@@ -107,37 +127,57 @@ The library sensors are disabled by default, but can be enabled via the Plex int
 
 A `button.scan_clients` entity is available to discover new controllable Plex clients. This may be necessary in scripts or automations which control a Plex client app, but where the underlying device must be turned on first. This button is preferred over the legacy `plex.scan_for_clients` action.
 
-Example script:
+### Script: play Plex on a TV
 
-```yaml
-play_plex_on_tv:
-  sequence:
-    - action: media_player.select_source
-      target:
-        entity_id: media_player.smart_tv
-      data:
-        source: "Plex"
-    - wait_for_trigger:
-        - trigger: state
+You can use the scan clients button in a script that opens Plex on a TV, scans for the Plex client, and then starts playback.
+
+To create this script from the UI:
+
+1. Go to {% my scripts title="**Settings** > **Automations & scenes**" %}.
+2. Select **Create script**.
+3. Add a **Select source** action for your TV media player and select **Plex** as the source.
+4. Add a wait until the TV media player turns on.
+5. Add a **Press** action for the Plex scan clients button.
+   - **Target**: Scan clients Plex (`button.scan_clients_plex`)
+6. Add a wait template that checks whether the Plex media player is available.
+7. Add a **Play specified media** action for the Plex media player.
+   - **Target**: Plex Smart TV (`media_player.plex_smart_tv`)
+8. Select **Save**.
+
+{% details "YAML example for playing Plex on a TV" %}
+
+{% example %}
+script: |
+  play_plex_on_tv:
+    sequence:
+      - action: media_player.select_source
+        target:
           entity_id: media_player.smart_tv
-          to: "on"
-      timeout:
-        seconds: 10
-    - action: button.press
-      target:
-        entity_id: button.scan_clients_plex
-    - wait_template: >-
-        {{ not is_state('media_player.plex_smart_tv', 'unavailable') }}
-      timeout: "00:00:10"
-      continue_on_timeout: false
-    - action: media_player.play_media
-      target:
-        entity_id: media_player.plex_smart_tv
-      data:
-        media_content_id: >
-          {"library_name": "Movies", "title": "Zoolander"}
-        media_content_type: movie
-```
+        data:
+          source: "Plex"
+      - wait_for_trigger:
+          - trigger: state
+            entity_id: media_player.smart_tv
+            to: "on"
+        timeout:
+          seconds: 10
+      - action: button.press
+        target:
+          entity_id: button.scan_clients_plex
+      - wait_template: >-
+          {{ not is_state('media_player.plex_smart_tv', 'unavailable') }}
+        timeout: "00:00:10"
+        continue_on_timeout: false
+      - action: media_player.play_media
+        target:
+          entity_id: media_player.plex_smart_tv
+        data:
+          media_content_id: >
+            {"library_name": "Movies", "title": "Zoolander"}
+          media_content_type: movie
+{% endexample %}
+
+{% enddetails %}
 
 ## Update
 
@@ -194,51 +234,87 @@ More search parameters are available in the [`plexapi` library documentation](ht
 The integration must be configured with a token for playback commands to work. If you use the Plex server option **List of IP addresses and networks that are allowed without auth**, configure the integration while that option is temporarily disabled.
 {% endimportant %}
 
-This example plays a movie from a Plex library.
+#### Action: play a movie from a Plex library
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.plex_player
-data:
-  media_content_type: movie
-  media_content_id: >
-    {"library_name": "Movies", "title": "Blade"}
-```
+This example plays a movie from a Plex library on a Plex media player.
 
-This example plays a random TV episode from a Plex library.
+- **Action**: Play specified media
+  - **Target**: Plex Player (`media_player.plex_player`)
+  - **Media content type**: movie
+  - **Media content ID**: `{"library_name": "Movies", "title": "Blade"}`
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.plex_player
-data:
-  media_content_type: episode
-  media_content_id: >
-    {
-      "library_name": "Kids TV",
-      "show_name": "Sesame Street",
-      "shuffle": true
-    }
-```
+{% details "YAML example for playing a movie from a Plex library" %}
 
-This example plays the oldest unwatched movie from a Plex collection.
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.plex_player
+  data:
+    media_content_type: movie
+    media_content_id: >
+      {"library_name": "Movies", "title": "Blade"}
+{% endexample %}
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.plex_player
-data:
-  media_content_type: movie
-  media_content_id: >
-    {
-      "library_name": "Movies",
-      "collection": "Back to the Future",
-      "unwatched": true,
-      "sort": "year:asc",
-      "maxresults": 1
-    }
-```
+{% enddetails %}
+
+#### Action: play a random TV episode from a Plex library
+
+This example plays a random TV episode from a Plex library on a Plex media player.
+
+- **Action**: Play specified media
+  - **Target**: Plex Player (`media_player.plex_player`)
+  - **Media content type**: episode
+  - **Media content ID**: A JSON payload with `library_name`, `show_name`, and `shuffle`
+
+{% details "YAML example for playing a random TV episode" %}
+
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.plex_player
+  data:
+    media_content_type: episode
+    media_content_id: >
+      {
+        "library_name": "Kids TV",
+        "show_name": "Sesame Street",
+        "shuffle": true
+      }
+{% endexample %}
+
+{% enddetails %}
+
+#### Action: play the oldest unwatched movie from a Plex collection
+
+This example plays the oldest unwatched movie from a Plex collection on a Plex media player.
+
+- **Action**: Play specified media
+  - **Target**: Plex Player (`media_player.plex_player`)
+  - **Media content type**: movie
+  - **Media content ID**: A JSON payload with `library_name`, `collection`, `unwatched`, `sort`, and `maxresults`
+
+{% details "YAML example for playing the oldest unwatched movie" %}
+
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.plex_player
+  data:
+    media_content_type: movie
+    media_content_id: >
+      {
+        "library_name": "Movies",
+        "collection": "Back to the Future",
+        "unwatched": true,
+        "sort": "year:asc",
+        "maxresults": 1
+      }
+{% endexample %}
+
+{% enddetails %}
 
 ### Compatibility
 
@@ -257,39 +333,63 @@ data:
 To play Plex music directly to Sonos speakers, the following requirements must be met:
 
 1. Remote access enabled for your Plex server.
-2. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
+2. Sonos speakers linked to your Plex account. For setup instructions, refer to [Control Sonos playback with a Plex app](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
 3. [Sonos](/integrations/sonos/) integration configured.
 
 Call the [Play specified media](/actions/media_player.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both `music` and `playlist` `media_content_type` values are supported.
 
+### Action: play a Plex track on a Sonos speaker
+
 This example plays a track directly on a Sonos speaker.
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.sonos_speaker
-data:
-  media_content_type: plex://music
-  media_content_id: >
-    {
-      "library_name": "Music",
-      "artist_name": "Adele",
-      "album_name": "25",
-      "track_name": "Hello"
-    }
-```
+- **Action**: Play specified media
+  - **Target**: Sonos speaker (`media_player.sonos_speaker`)
+  - **Media content type**: `plex://music`
+  - **Media content ID**: A JSON payload with `library_name`, `artist_name`, `album_name`, and `track_name`
+
+{% details "YAML example for playing a Plex track on Sonos" %}
+
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.sonos_speaker
+  data:
+    media_content_type: plex://music
+    media_content_id: >
+      {
+        "library_name": "Music",
+        "artist_name": "Adele",
+        "album_name": "25",
+        "track_name": "Hello"
+      }
+{% endexample %}
+
+{% enddetails %}
+
+### Action: play a Plex playlist on a Sonos speaker
 
 This example plays a Plex playlist directly on a Sonos speaker.
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.sonos_speaker
-data:
-  media_content_type: plex://playlist
-  media_content_id: >
-    {"playlist_name": "Party Mix"}
-```
+- **Action**: Play specified media
+  - **Target**: Sonos speaker (`media_player.sonos_speaker`)
+  - **Media content type**: `plex://playlist`
+  - **Media content ID**: `{"playlist_name": "Party Mix"}`
+
+{% details "YAML example for playing a Plex playlist on Sonos" %}
+
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.sonos_speaker
+  data:
+    media_content_type: plex://playlist
+    media_content_id: >
+      {"playlist_name": "Party Mix"}
+{% endexample %}
+
+{% enddetails %}
 
 {% include integrations/actions.md %}
 
