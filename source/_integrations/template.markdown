@@ -2411,6 +2411,8 @@ The template weather platform allows you to create weather entities with templat
 
 Weather entities can be created from the frontend in the Helpers section or via YAML.
 
+### State based weather template - YAML example
+
 ```yaml
 # Example state-based configuration.yaml entry
 template:
@@ -2422,6 +2424,8 @@ template:
         humidity: "{{ states('sensor.humidity') | float }}"
         forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
+
+### Trigger based weather template - YAML example
 
 ```yaml
 # Example trigger-based configuration.yaml entry
@@ -2440,6 +2444,8 @@ template:
         humidity: "{{ states('sensor.humidity') | float }}"
         forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
+
+Note that, currently, it is not possible to create a trigger based weather template from the user interface only.
 
 {% configuration weather %}
 weather:
