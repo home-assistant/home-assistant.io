@@ -210,7 +210,9 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 **Execution queue is full on gateway**
 
-The Overkiz API only supports 10 requests in its execution queue. If you try to command more devices at the same time, for example with a group, this will fail with `EXEC_QUEUE_FULL`. To work around this, you can create a scenario in the corresponding application and call that scenario instead after syncing it in the integration.
+The gateway keeps a limited execution queue (around 10 requests). If you command many devices at the same time, for example with a group, you can hit this limit and see a `EXEC_QUEUE_FULL` error.
+
+To help avoid this, the integration automatically batches commands that are sent close together into a single request, so most everyday automations and groups stay within the limit. If you still run into the error, create a scenario in the corresponding application, sync it in the integration, and call that scenario instead.
 
 ### Device support via the local API
 
