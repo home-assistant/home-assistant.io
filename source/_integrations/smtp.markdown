@@ -56,6 +56,34 @@ You need to add at least one recipient email address. During the integration set
 
 Repeat these steps to add more recipients. Every email address you add can be selected as target for the corresponding integration.
 
+## Specific email provider configuration
+
+Check below some configurations examples for specific email providers.
+If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
+
+### Google Mail
+
+Example configuration for Google Mail.
+
+| **Parameter** | Value |
+| -------- | ------------- |
+| **Host** | smtp.gmail.com |
+| **Port** | 587 |
+| **Sender email** | example@gmail.com |
+| **Sender name** | SENDER_NAME |
+| **Connection security** | STARTTLS |
+| **Username** | example@gmail.com |
+| **Password** | YOUR_APP_PASSWORD |
+
+Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+
+If any of the following conditions are met you will not be able to create an app password:
+
+- You do not have 2-step verification enabled on your account.
+- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
+- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+
 ## Supported functionality
 
 ### Notifiers
@@ -184,34 +212,6 @@ burglar:
               </html>
 ```
 
-## Specific email provider configuration
-
-Check below some configurations examples for specific email providers.
-If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
-
-### Google Mail
-
-Example configuration for Google Mail.
-
-| **Parameter** | Value |
-| -------- | ------------- |
-| **Host** | smtp.gmail.com |
-| **Port** | 587 |
-| **Sender email** | example@gmail.com |
-| **Sender name** | SENDER_NAME |
-| **Connection security** | STARTTLS |
-| **Username** | example@gmail.com |
-| **Password** | YOUR_APP_PASSWORD |
-
-Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
-
-If any of the following conditions are met you will not be able to create an app password:
-
-- You do not have 2-step verification enabled on your account.
-- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
-- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
-- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
-
 ## SMTP automation example
 
 You can use this integration to create automations that send a notification to your email address when something happens.
@@ -220,7 +220,7 @@ You can use this integration to create automations that send a notification to y
 
 ### Automation: send email message when door is open
 
-This automations sends a notification message to an email address when the front door opens.
+This automation sends a notification message to an email address when the front door opens.
 
 - **Trigger**: State
   - **Entity**: Front door binary sensor
