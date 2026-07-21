@@ -37,7 +37,7 @@ If a Plex server has been claimed by a Plex account via the [claim interface](ht
 
 {% include integrations/config_flow.md %}
 
-During setup, you will need to log in as a server administrator. The integration will check all possible ways to connect to your Plex server(s) - i.e., local or public addresses, HTTP or HTTPS, by IP or using a subdomain of `plex.direct`, or by using a Plex relay if all other methods fail. The integration will prefer local over public and secure over insecure, in that order. The selected address is shown on the Plex card on the Integrations page.
+During setup, you will need to log in as a server administrator. The integration will check all possible ways to connect to your Plex server(s), that is, local or public addresses, HTTP or HTTPS, by IP or using a subdomain of `plex.direct`, or by using a Plex relay if all other methods fail. The integration will prefer local over public and secure over insecure, in that order. The selected address is shown on the Plex card on the Integrations page.
 
 If your router enforces DNS rebind protection, connections to the local `plex.direct` hostname may fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/#dnsrebinding)). To avoid this, configure your router to allow DNS rebinding for `plex.direct` by following the instructions in the documentation link.
 
@@ -55,7 +55,7 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 ### Manual configuration
 
-Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This option is only available to users in "Advanced Mode". This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
+Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
 
 **Host**: The IP address or hostname of your Plex server. Optional if 'Token' is provided.
 
@@ -91,7 +91,9 @@ triggers:
     id: episode
 
 actions:
-  - action: notify.mobile_app_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "New {{ trigger.id }} added"
       message: "{{ trigger.to_state.attributes.last_added_item }}"
@@ -299,7 +301,7 @@ More parameters and additional details can be found in the `plexapi` library [do
 
 Below are examples of advanced searches. All examples show what can be sent in the `media_content_id` parameter.
 
-Note that some searches may require `"maxresults": 1` to limit the result to a single item. However, an "item" may be a group of media, such as an album, season, artist, show, etc.
+Note that some searches may require `"maxresults": 1` to limit the result to a single item. However, an "item" may be a group of media, such as an album, season, artist, or show.
 
 The search will attempt to guess the type of media based on the search parameters by using the most specific media type provided. For example, a search using `artist.title` and `album.year` will search for albums for the artist that were released in a specific year. If you add `track.title` to the search, it will instead try to find the track. You may specify the type of media to search for with the `libtype` parameter which can be one of `movie`, `episode`, `season`, `show`, `track`, `album`, or `artist`. This could be useful if searching for an album where you only know the name of a specific track (see example below).
 
@@ -372,17 +374,7 @@ media_content_type: playlist
 media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 ```
 
-## Additional actions
-
-### Action: Refresh library
-
-The `plex.refresh_library` action refreshes a Plex library to scan for new and updated media.
-
-| Data attribute | Required | Description                                                | Example          |
-| ---------------------- | -------- | ---------------------------------------------------------- | ---------------- |
-| `server_name`          | No       | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
-| `library_name`         | Yes      | Name of Plex library to update.                            | "TV Shows"       |
-
+{% include integrations/actions.md %}
 
 ## Notes
 

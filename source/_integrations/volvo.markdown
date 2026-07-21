@@ -228,19 +228,7 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
-## Actions
-
-### Get image URL
-
-The action `get_image_url` retrieves the URL of your vehicle-specific images.
-Get all URLs at once, or select one or more angles.
-
-{% configuration_basic %}
-Entry:
-  description: "The entry ID to retrieve the vehicle images for."
-Images:
-  description: "The image angles to retrieve. Leave empty to get all images."
-{% endconfiguration_basic %}
+{% include integrations/actions.md %}
 
 ## Examples
 

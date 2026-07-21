@@ -2,14 +2,12 @@
 title: "Gas detected"
 trigger: air_quality.gas_detected
 domain: air_quality
-description: "Triggers after one or more gas sensors start detecting gas."
+description: "Triggers when one or more gas sensors start detecting gas."
 related_triggers:
   - air_quality.gas_cleared
 ---
 
 The **Gas detected** trigger fires the moment a gas sensor {% term entity %} starts detecting gas in your home, whether it is a natural gas leak near the stove or a combustible gas buildup in the basement. A gas leak is one of those situations where every second of early warning matters. With this trigger, Home Assistant alerts you instantly so you and your family have time to react, even in the middle of the night or while you are away from home.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -20,7 +18,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your gas sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Gas detected**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple sensors are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, set how long the sensor must stay in the detected state before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -28,11 +26,9 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor detects gas, **First** to fire only when the first sensor in a group detects gas, or **Last** to fire only after every targeted sensor detects gas.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects gas, **First** to fire only when the first sensor in a group detects gas, or **All** to fire only after every targeted sensor detects gas.
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -55,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -86,10 +82,11 @@ for:
 Imagine you are upstairs or out running errands and a burner valve is leaking in the kitchen. This automation sends an urgent notification straight to your phone the instant your kitchen gas sensor picks something up, giving you the earliest possible warning to take action.
 
 - **Trigger**: Gas detected
-- **Target**: Kitchen gas sensor
-- **Trigger when**: Any
-- **For at least**: 00:00:00
-- **Action**: Send a mobile notification
+  - **Target**: Kitchen gas sensor
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a gas detection notification" %}
 
@@ -101,10 +98,12 @@ automation: |
       target:
         entity_id: binary_sensor.kitchen_gas
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Gas detected in the kitchen!"
         title: "Gas alert"
@@ -118,7 +117,7 @@ When a gas leak happens while everyone is asleep or nobody is home, you want the
 
 - **Trigger**: Gas detected
 - **Target**: All gas sensors (by label)
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **For at least**: 00:00:30
 - **Action**: Valve: Close
 
@@ -132,7 +131,7 @@ automation: |
       target:
         label_id: gas_sensors
       options:
-        behavior: any
+        behavior: each
         for: "00:00:30"
   actions:
     - action: valve.close_valve

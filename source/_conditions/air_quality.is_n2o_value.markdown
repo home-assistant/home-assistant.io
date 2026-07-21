@@ -10,8 +10,6 @@ related_conditions:
 
 The **Nitrous oxide value** condition passes when a nitrous oxide (N2O) sensor's reading meets a specific level. N2O is a greenhouse gas that shows up in agricultural settings, greenhouses, and some industrial spaces. If you monitor a greenhouse or workshop, this condition lets your automation turn on ventilation only when N2O levels genuinely need attention, keeping fans off during normal readings so you save energy and reduce noise.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -30,10 +28,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The nitrous oxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

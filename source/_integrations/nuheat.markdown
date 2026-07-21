@@ -76,7 +76,7 @@ Returns the current temperature hold, if any.
 
 | Attribute type | Description |
 | ---------------| ----------- |
-| String | 'temperature', 'temporary_temperature', 'auto', etc.
+| String | such as 'temperature', 'temporary_temperature', or 'auto'
 
 ### Attribute `hvac_action`
 

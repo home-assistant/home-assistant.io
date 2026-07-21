@@ -2,7 +2,7 @@
 title: "PM2.5 level changed"
 trigger: air_quality.pm25_changed
 domain: air_quality
-description: "Triggers after one or more PM2.5 levels change."
+description: "Triggers when one or more PM2.5 levels change."
 related_triggers:
   - air_quality.pm25_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM2.5 level changed** trigger fires after the PM2.5 (particulate matter 2.5 micrometers or smaller) reading on one or more air quality sensors changes by a meaningful amount. PM2.5 is the most widely tracked particle size for indoor and outdoor air quality. Sources include cooking, candles, wildfires, traffic exhaust, and dust. These fine particles are small enough to reach deep into the lungs, making them especially relevant during wildfire season, allergy season, or anytime you want to keep tabs on what your family is breathing.
 
 Imagine your windows closing automatically the moment outdoor particle levels jump during a nearby wildfire, keeping smoke outside where it belongs. Use this trigger to turn on an air purifier, close windows, or send an alert whenever your PM2.5 sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,7 +28,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the PM2.5 level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
