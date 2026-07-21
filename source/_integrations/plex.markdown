@@ -67,8 +67,6 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 **Token**: A valid authorization token for your Plex server. If provided without 'Host', a connection URL will be retrieved from Plex.
 
-{% include integrations/actions.md %}
-
 ## Sensor
 
 The activity sensor provides a count of users currently watching media from the Plex server. Selecting the sensor shows details for the active users and media streams.
@@ -392,6 +390,8 @@ action: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include integrations/actions.md %}
 
 ## Notes
 
