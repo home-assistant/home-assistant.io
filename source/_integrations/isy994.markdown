@@ -90,7 +90,7 @@ Integer and State Variables from the ISY are imported as `number` entities. You 
 
 ### Button events
 
-Insteon switches and dimmers (such as SwitchLinc and KeypadLinc) and KeypadLinc secondary buttons are exposed as `event` entities with the device class `button`. Each entity represents a physical button and fires when the ISY reports a control event for that button. The supported event types are `on`, `off`, `fast_on`, `fast_off`, `fade_up`, `fade_down`, and `fade_stop`.
+Insteon switches and dimmers (such as SwitchLinc and KeypadLinc) and KeypadLinc secondary buttons are exposed as `event` entities with the device class `button`. Each entity represents a physical button and fires when the ISY reports a control event for that button. The supported event types are `press_end`, `multi_press_end`, `long_press_start`, and `long_press_end`. A `direction` attribute (`up` or `down`) tells you which side of the paddle triggered the event, and events for double-taps include a `multi_press_count` attribute.
 
 Primary load buttons are enabled by default. KeypadLinc secondary buttons are disabled by default to avoid creating unused entities. To use them, enable the entity from the device page.
 
