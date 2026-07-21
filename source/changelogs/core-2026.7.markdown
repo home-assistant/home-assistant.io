@@ -2589,3 +2589,77 @@ For a summary in a more readable format
 [@synesthesiam]: https://github.com/synesthesiam
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
+
+## Release 2026.7.3 - July 21
+
+- Fix Hitachi Yutaki second heating zone using zone 1 states in Overkiz ([@iMicknl] - [#176210])
+- Filter out grinders during CF in lamarzocco ([@zweckj] - [#176289])
+- Bump guntamatic to v1.9.1 ([@JensTimmerman] - [#176301])
+- Fix UniFi setup crash on cellular/5G WAN without monitors ([@mattsm] - [#176223])
+- Bump python-roborock to 5.26.0 ([@allenporter] - [#175734])
+- Bump python-roborock to 5.29.0 ([@Lash-L] - [#176311])
+- Fix duplicate Hikvision binary sensor unique IDs ([@gunjanjaswal] - [#176345])
+- Bump python-roborock to 5.30.0 ([@allenporter] - [#176373])
+- Refresh Lunatone sensor data before update ([@MoonDevLT] - [#176389])
+- Bump guntamatic to v1.9.2 ([@JensTimmerman] - [#176416])
+- Filter Roborock A01 query protocols by supported schema ([@allenporter] - [#176421])
+- Make NS device a service ([@joostlek] - [#176424])
+- Bump pyoverkiz to 2.1.0 ([@iMicknl] - [#176481])
+- Bump python-swisscom-internet-box to 0.2.0 ([@ghouscht] - [#176519])
+- Make repairs not persistent in FRITZ!Box Tools ([@mib1185] - [#176623])
+- Fix open/close for RTSGeneric covers in Overkiz ([@iMicknl] - [#176626])
+- Update vizio config entry host on zeroconf rediscovery ([@raman325] - [#176628])
+- Bump ZHA to 2.0.1 ([@TheJulianJES] - [#176643])
+- Refresh add-on update entities after store reload through Supervisor API proxy ([@balloob] - [#176648])
+- Update Roborock dynamic dock support ([@Lash-L] - [#176686])
+- Update frontend to 20260624.6 ([@bramkragten] - [#176711])
+- Fix roborock vacuum segment mapping repair issue ([@allenporter] - [#176778])
+- Fixes for Plugwise Select ([@bouwew] - [#176787])
+- Bump python-roborock to 5.31.1 ([@allenporter] - [#176850])
+- Bump gios to 7.1.1 ([@bieniu] - [#176904])
+- Exempt certain protocol integrations from entity limit ([@emontnemery] - [#176973])
+
+[#175734]: https://github.com/home-assistant/core/pull/175734
+[#176210]: https://github.com/home-assistant/core/pull/176210
+[#176223]: https://github.com/home-assistant/core/pull/176223
+[#176289]: https://github.com/home-assistant/core/pull/176289
+[#176301]: https://github.com/home-assistant/core/pull/176301
+[#176311]: https://github.com/home-assistant/core/pull/176311
+[#176345]: https://github.com/home-assistant/core/pull/176345
+[#176373]: https://github.com/home-assistant/core/pull/176373
+[#176389]: https://github.com/home-assistant/core/pull/176389
+[#176416]: https://github.com/home-assistant/core/pull/176416
+[#176421]: https://github.com/home-assistant/core/pull/176421
+[#176424]: https://github.com/home-assistant/core/pull/176424
+[#176481]: https://github.com/home-assistant/core/pull/176481
+[#176519]: https://github.com/home-assistant/core/pull/176519
+[#176623]: https://github.com/home-assistant/core/pull/176623
+[#176626]: https://github.com/home-assistant/core/pull/176626
+[#176628]: https://github.com/home-assistant/core/pull/176628
+[#176643]: https://github.com/home-assistant/core/pull/176643
+[#176648]: https://github.com/home-assistant/core/pull/176648
+[#176686]: https://github.com/home-assistant/core/pull/176686
+[#176711]: https://github.com/home-assistant/core/pull/176711
+[#176778]: https://github.com/home-assistant/core/pull/176778
+[#176787]: https://github.com/home-assistant/core/pull/176787
+[#176850]: https://github.com/home-assistant/core/pull/176850
+[#176904]: https://github.com/home-assistant/core/pull/176904
+[#176973]: https://github.com/home-assistant/core/pull/176973
+[@JensTimmerman]: https://github.com/JensTimmerman
+[@Lash-L]: https://github.com/Lash-L
+[@MoonDevLT]: https://github.com/MoonDevLT
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@ghouscht]: https://github.com/ghouscht
+[@gunjanjaswal]: https://github.com/gunjanjaswal
+[@iMicknl]: https://github.com/iMicknl
+[@joostlek]: https://github.com/joostlek
+[@mattsm]: https://github.com/mattsm
+[@mib1185]: https://github.com/mib1185
+[@raman325]: https://github.com/raman325
+[@zweckj]: https://github.com/zweckj
