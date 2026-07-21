@@ -2,7 +2,7 @@
 title: "Send message"
 action: smtp.send_message
 domain: smtp
-description:  "Send an email notification. Optionally use HTML formatting and include inline images or attach images and other files."
+description: "Send an email notification. Optionally use HTML formatting and include inline images or attach images and other files."
 since: "2026.8"
 related_actions:
   - notify.send_message
