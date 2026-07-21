@@ -2423,6 +2423,24 @@ template:
         forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
 
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id:
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
+    weather:
+      - name: "My Weather Station"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
+        temperature_unit: "°C"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+```
+
 {% configuration weather %}
 weather:
   description: List of weather entities
@@ -2535,26 +2553,6 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 #### Twice Daily Weather Forecast
 
 The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
-
-### Trigger based weather: Update helper only when one of the source entities changes
-
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id:
-          - weather.my_region
-          - sensor.temperature
-          - sensor.humidity
-    weather:
-      - name: "My Weather Station"
-        condition: "{{ states('weather.my_region') }}"
-        temperature: "{{ states('sensor.temperature') | float }}"
-        temperature_unit: "°C"
-        humidity: "{{ states('sensor.humidity') | float }}"
-        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
-```
 
 ### Trigger based weather - Weather Forecast from response data
 
