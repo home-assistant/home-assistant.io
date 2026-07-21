@@ -111,7 +111,7 @@ For devices where Home Assistant provides a native integration (with local API),
 
 It is recommended to run the Matter app (formerly known as Matter add-on) on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
-If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
+If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/matter-js/matterjs-server). The requirements and instructions for your host setup are described on that GitHub page.
 
 ## Adding a Matter device to Home Assistant
 
