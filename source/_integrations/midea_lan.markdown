@@ -3,7 +3,7 @@ title: Midea LAN
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
   - Climate
-ha_release: '2026.07'
+ha_release: 2026.8
 ha_domain: midea_lan
 ha_config_flow: true
 ha_codeowners:
