@@ -88,7 +88,7 @@ The **WATERCryst** integration provides the following entities.
 
 ## Data updates
 
-The **WATERCryst** integration {% term polling polls %} state data from the device every minute and measurement data every 30 seconds by default.
+The **WATERCryst** integration {% term polling polls %} state data from the device every 30 seconds and measurement data every minute by default.
 
 ## Removing the integration
 
