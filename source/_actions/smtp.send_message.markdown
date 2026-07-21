@@ -20,8 +20,8 @@ To send a notification from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **SMTP: Send message**.
 6. Under **Target**, select the notification device to send the message to (see [Targets](#targets)).
-7. Add a title for the message.
-8. _Optional_: add a message, icon, action buttons, or other settings.
+7. Add a message for the notification .
+8. _Optional_: add a title (subject), HTML content, or attach files.
 9. Select **Save**.
 
 ### Options in the UI
@@ -160,8 +160,8 @@ automation: |
       target:
         entity_id: notify.recipient
       data:
-        title: 🐦️ Bird feeder activity detected
-        message: Motion was detected at the bird feeder.
+        title: "🐦️ Bird feeder activity detected"
+        message: "Motion was detected at the bird feeder."
         html: |
             <html>
               <body>
