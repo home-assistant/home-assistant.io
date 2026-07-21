@@ -3,6 +3,7 @@ title: ScorpionTrack
 description: Instructions on how to integrate ScorpionTrack shared vehicle locations and speeds into Home Assistant.
 ha_category:
   - Device tracker
+  - Sensor
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack
