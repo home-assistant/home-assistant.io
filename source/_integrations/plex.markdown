@@ -338,7 +338,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 2. Sonos speakers linked to your Plex account. For setup instructions, refer to [Control Sonos playback with a Plex app](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
 3. [Sonos](/integrations/sonos/) integration configured.
 
-Call the [Play specified media](/actions/media_player.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both `music` and `playlist` `media_content_type` values are supported.
+Call the [Play specified media](/actions/media_player.play_media/) action with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Valid `media_content_type` values are `music` and `playlist`.
 
 ### Action: play a Plex track on a Sonos speaker
 
