@@ -140,7 +140,7 @@ When adding or re-authenticating the integration, you get this error in the brow
 {"error":"invalid_request", "error_description":"Invalid redirection URI."}
 ```
 
-Set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly `https://my.home-assistant.io/redirect/oauth`, save (it may take up to an hour to become active), and try again.
+Set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly `vicare://oauth-callback/everest`, save (it may take up to an hour to become active), and try again.
 
 ### Client not registered
 
