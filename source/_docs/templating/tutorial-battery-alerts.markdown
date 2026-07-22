@@ -42,7 +42,7 @@ You need:
 
 ## Step 1: See your battery sensors
 
-Before you write a single template, it helps to see what you are working with. Open {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and filter on `battery`.
+Before you write a single template, it helps to see what you are working with. Open {% my developer_states title="**Settings** > **Tools** > **States**" %} and filter on `battery`.
 
 <!-- screenshot placeholder: Developer tools > States filtered to battery sensors -->
 
@@ -52,7 +52,7 @@ If you do not see any, your devices might be using the old `binary_sensor` batte
 
 ## Step 2: List the low batteries
 
-Open {% my developer_template title="**Developer tools** > **Template**" %} and paste this in:
+Open {% my developer_template title="**Tools** > **Template**" %} and paste this in:
 
 {% example %}
 template: |

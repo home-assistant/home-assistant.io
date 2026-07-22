@@ -22,7 +22,7 @@ Every template author has stared at a template that refuses to work and wondered
 
 ## The template editor
 
-Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}.
+Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
 
 The editor is the fastest feedback loop you have. It:
 
@@ -183,7 +183,7 @@ The Home Assistant community is quick to help: join [Discord](https://discord.gg
 - The template you are using (copied from the editor, where you can see what it runs against).
 - What you expected the result to be.
 - What the actual result or error was.
-- The entity IDs involved (from {% my developer_states title="**Settings** > **Developer tools** > **States**" %}).
+- The entity IDs involved (from {% my developer_states title="**Settings** > **Tools** > **States**" %}).
 
 {% tip %}
 AI assistants like ChatGPT or Claude can also explain or fix templates when you describe what you want in plain language.

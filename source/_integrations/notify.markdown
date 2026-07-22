@@ -115,7 +115,7 @@ automation: |
 
 After you set up a [notifier](/integrations/#notifications), test its action from the developer tools.
 
-1. Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}.
+1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 2. From the **Action** dropdown menu, choose the action you want to test, such as **Send a notification message** or **Send a persistent notification**.
 3. If you are testing `notify.send_message`, select one or more targets using **Entity**, **Device**, **Area**, **Floor**, or **Label**.
 4. In **Message**, enter the notification text.

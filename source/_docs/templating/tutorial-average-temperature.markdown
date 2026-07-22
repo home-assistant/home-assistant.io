@@ -35,7 +35,7 @@ If you want your result in Fahrenheit, see the [Going further](#going-further) s
 
 ## Step 1: See your temperature sensors
 
-Open {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and filter on `temperature`.
+Open {% my developer_states title="**Settings** > **Tools** > **States**" %} and filter on `temperature`.
 
 <!-- screenshot placeholder: Developer tools > States filtered to temperature sensors -->
 
@@ -45,7 +45,7 @@ These are the sensors your new sensor will average. Make a mental note of how ma
 
 ## Step 2: Write the averaging template
 
-In {% my developer_template title="**Developer tools** > **Template**" %}, paste this:
+In {% my developer_template title="**Tools** > **Template**" %}, paste this:
 
 {% example %}
 template: |

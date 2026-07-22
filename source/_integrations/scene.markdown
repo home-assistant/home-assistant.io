@@ -91,7 +91,7 @@ entities:
 There are two ways to define the states of each `entity_id`:
 
 - Define the `state` directly with the entity. The `state` is required.
-- Define a complex state with its attributes. You can see all attributes available for a particular entity under **Developer tools** > **States**.
+- Define a complex state with its attributes. You can see all attributes available for a particular entity under **Tools** > **States**.
 
 Scenes can be activated using the `scene.turn_on` action (there is no `scene.turn_off` action).
 

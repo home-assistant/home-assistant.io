@@ -62,7 +62,7 @@ duration:
 
 ## Good to know
 
-- This action is mainly a debugging tool. You usually run it from {% my developer_services title="**Developer tools** > **Actions**" %} when you want to inspect what a device sends.
+- This action is mainly a debugging tool. You usually run it from {% my developer_services title="**Tools** > **Actions**" %} when you want to inspect what a device sends.
 - The collected messages are written to the `mqtt_dump.txt` file in your configuration folder. Each run overwrites the previous file.
 
 {% include actions/stuck.md %}

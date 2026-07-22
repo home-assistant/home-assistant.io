@@ -54,7 +54,7 @@ action: |
   response_variable: account_details
 {% endexample %}
 
-To find the `config_entry_id`, go to **Developer tools** > **Actions**, select this action, choose your Mastodon instance, and switch to YAML mode.
+To find the `config_entry_id`, go to **Tools** > **Actions**, select this action, choose your Mastodon instance, and switch to YAML mode.
 
 ### Options in YAML
 

@@ -42,7 +42,7 @@ This action has no options.
 
 ## Good to know
 
-- You usually run this action straight from {% my developer_services title="**Developer tools** > **Actions**" %} right after editing your MQTT entities, so you can see the result without a restart.
+- You usually run this action straight from {% my developer_services title="**Tools** > **Actions**" %} right after editing your MQTT entities, so you can see the result without a restart.
 - When the reload finishes, Home Assistant fires an `event_mqtt_reloaded` event. You can use this event as an automation trigger.
 - Only administrators can run this action.
 

@@ -24,7 +24,7 @@ This page explains how to get at that information inside a template.
 
 ## First, go look at your states
 
-Before you write a single line of template, spend five minutes at {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. This is where Home Assistant shows you every entity it knows about, its current state, and all of its attributes.
+Before you write a single line of template, spend five minutes at {% my developer_states title="**Settings** > **Tools** > **States**" %}. This is where Home Assistant shows you every entity it knows about, its current state, and all of its attributes.
 
 For example, you might see something like this for your outdoor thermometer:
 

@@ -703,7 +703,7 @@ Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. 
 
 Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
 
-When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
 
 ## Known issues and limitations
 

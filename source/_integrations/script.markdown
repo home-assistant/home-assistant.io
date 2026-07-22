@@ -46,7 +46,7 @@ icon:
   required: false
   type: string
 description:
-  description: A description of the script, displayed in the **Actions** tab under **Developer tools**.
+  description: A description of the script, displayed in the **Actions** tab under **Tools**.
   required: false
   default: ''
   type: string
@@ -84,7 +84,7 @@ fields:
           type: boolean
           default: false
         example:
-          description: An example value. This is only shown in the table of options available in the **Actions** tab of the **Developer tools**.
+          description: An example value. This is only shown in the table of options available in the **Actions** tab of the **Tools**.
           type: string
         default:
           description: The default value for this field, as shown in the UI.
