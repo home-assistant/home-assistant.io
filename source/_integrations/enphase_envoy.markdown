@@ -14,6 +14,7 @@ ha_codeowners:
   - '@catsmanac'
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - number
   - select
@@ -371,19 +372,52 @@ For each IQ Battery, an Encharge device is created, linked to the Envoy parent d
 
 #### AC-battery data
 
-No individual AC-battery data is available, only aggregated AC-battery data for all AC-batteries.
+Both aggregated AC-battery data (for all AC-batteries combined) and individual AC-battery data are available. An ACB aggregate device holds the combined values and the sleep/wake controls. Each AC-battery also has its own device, nested under the ACB aggregate device.
 
-##### AC-battery sensor entities
+##### Aggregated AC-battery sensor entities
 
-- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current AC-battery state of charge in %
-- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: AC-battery state: charging, idle, discharging
-- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current AC-battery power in W
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh
+The ACB aggregate device holds the combined values for all AC-batteries.
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current aggregated AC-battery state of charge in %
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: Aggregated AC-battery state: charging, idle, discharging, full
+- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current aggregated AC-battery power in W
+- **ACB <abbr title="Envoy serial number">SN</abbr> Sleep state**: Aggregated sleep state across all AC-batteries: awake, going to sleep, asleep, waking, or mixed when the batteries report different states
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh. This aggregate entity is on the Envoy device.
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery.png" alt="acb battery">
   <figcaption>Envoy AC-battery sensor entities.</figcaption>
 </figure>
+
+##### Individual AC-battery sensor entities
+
+For each AC-battery a device is created, nested under the ACB aggregate device. SN is the AC-battery serial number.
+
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> State of charge**: State of charge of the battery in %
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Power**: Power reported by the battery in W
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Charge status**: Battery charge status: charging, discharging, idle, unknown
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep state**: Battery sleep state: awake, going to sleep, asleep, waking
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Temperature**: Maximum cell temperature in degrees C or F, based on your localization. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Last reported**: Time when Envoy last received an update from the battery. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep SOC target**: State of charge band the battery is configured to sleep within. This is a diagnostics entity.
+
+##### Individual AC-battery binary sensor entities
+
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Communicating**: Communication status of the AC-battery, Connected / Disconnected. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Producing**: Producing status of the AC-battery.
+
+##### AC-battery sleep and wake controls
+
+The ACB aggregate device provides controls to put all AC-batteries to sleep or to wake them.
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery sleep SOC target**: The state of charge band, in 5% steps, applied when putting the AC-batteries to sleep. This selection is kept in memory and is not persisted across restarts.
+- **ACB <abbr title="Envoy serial number">SN</abbr> Sleep**: Put all AC-batteries to sleep using the selected sleep SOC target. Pressing the button, in the UI or in an [action](#action-buttonpress), sends the request to the Envoy.
+- **ACB <abbr title="Envoy serial number">SN</abbr> Wake**: Wake all AC-batteries.
+
+{% note %}
+It can take several minutes for the Envoy to reflect a sleep or wake request in the AC-battery states.
+{% endnote %}
 
 ##### Aggregated IQ and AC battery sensor entities
 
@@ -590,7 +624,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value) and [`select.select_option`](#action-selectselect_option).
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select_option`](#action-selectselect_option) and [`button.press`](#action-buttonpress).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -672,6 +706,24 @@ data:
 {% note %}
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
+
+### Action `button.press`
+
+This action presses the ACB [Sleep or Wake controls](#ac-battery-sleep-and-wake-controls), putting all AC-batteries to sleep (using the selected sleep SOC target) or waking them.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `entity_id` | no | Name(s) of entities. For example, `button.acb_1234_sleep`. |
+
+Example:
+
+```yaml
+action: button.press
+target:
+  entity_id:
+    - button.acb_1234_sleep
+data: {}
+```
 
 ## Envoy replacement
 
