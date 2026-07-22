@@ -57,6 +57,14 @@ The **WATERCryst** integration provides the following entities.
   - **Available for machines**: all
   - **Remarks**: This sensor holds the additional attributes `Event ID`, `Event Category`, `Event Title`, `Event Description` and `Event Timestamp`.
 
+- **Last Water Tap Duration**
+  - **Description**: Duration of the last water tapping in seconds [sec].
+  - **Available for machines**: Devices that have a flow rate sensor.
+
+- **Last Water Tap Volume**
+  - **Description**: Volume of the last water tapping in liters [L].
+  - **Available for machines**: Devices that have a flow rate sensor.
+
 - **Microleakage Measurement State**
   - **Description**: Designates the state of the current/last microleakage measurement.
   - **Available for machines**: Devices that support leakage protection.
@@ -66,24 +74,24 @@ The **WATERCryst** integration provides the following entities.
   - **Description**: UTC date time when the leakage protection will be active again.
   - **Available for machines**: Devices that support leakage protection.
 
+- **Today's Water Consumption**
+  - **Description**: The total water consumption for the current day in liters [L].
+  - **Available for machines**: Devices that have a flow rate sensor.
+  
+- **Total Water Consumption**
+  - **Description**: The total water consumption in liters [L].
+  - **Available for machines**: Devices that have a flow rate sensor.
+
 - **Water Flow Rate**
   - **Description**: The current flow rate in liters per minute [L/min].
-  - **Available for machines**: all
+  - **Available for machines**: Devices that have a flow rate sensor.
 
 - **Water Pressure**
   - **Description**: The current water pressure in [bar].
-  - **Available for machines**: all
+  - **Available for machines**: Devices that have a pressure sensor.
 
 - **Water Temperature**
   - **Description**: The current water temperature in [°C].
-  - **Available for machines**: all
-
-- **Last Water Tap Duration**
-  - **Description**: Duration of the last water tapping in seconds [sec].
-  - **Available for machines**: all
-
-- **Last Water Tap Volume**
-  - **Description**: Volume of the last water tapping in liters [L].
   - **Available for machines**: all
 
 ## Data updates
