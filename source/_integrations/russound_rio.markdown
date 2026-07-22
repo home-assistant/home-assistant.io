@@ -56,6 +56,14 @@ Baud Rate:
     description: The speed of the serial bus. The default for Russound RIO is `19200`. The available speeds are `19200`, `38400`, `57600`, `115200` and depends on your controller's configuration.
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Enable zone source exclusion:
+  description: Exclude sources that are disabled for a zone from that zone's available source list.
+{% endconfiguration_basic %}
+
+
 ## Data updates
 
 Russound RIO devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
@@ -125,3 +133,7 @@ The Russound RIO integration allows you to browse saved presets from your dashbo
 
 Some older Russound devices have a slight delay before posting a new status to Home Assistant.
 This can be resolved by updating the unit to the latest firmware.
+
+### Some sources are missing from a zone
+
+Russound devices have a system called zone source exclusion which will removed any disabled sources from the list for a specific zone. On some Russound units, this feature doesn't report information correctly resulting in a broken sources list. Disable the `Enable zone source exclusion` setting in the options flow to resolve the issue.
