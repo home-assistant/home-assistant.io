@@ -92,7 +92,7 @@ The **WATERCryst** integration provides the following entities.
 
 - **Water Temperature**
   - **Description**: The current water temperature in [°C].
-  - **Available for machines**: all
+  - **Available for machines**: Devices that have a temperature sensor.
 
 ## Data updates
 
