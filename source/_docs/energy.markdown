@@ -24,3 +24,31 @@ If you have a sensor that returns instantaneous power readings (W or kW), then t
 You can also configure power sensors alongside energy sensors in the Energy dashboard. Power inputs accept sensors with `state_class: measurement` and appropriate units (for example `W` or `kW`).
 
 <img src='/images/docs/energy/energy-overview.png' alt='Visual representation of how all different energy forms relate.' style='border: 0;box-shadow: none;'>
+
+## Customizing the Energy dashboard
+
+The Energy dashboard is generated from the energy sources and devices you configure. You can show or hide individual cards without changing your energy sources. This lets you keep the dashboard focused on the graphs and summaries you use most.
+
+Before you customize the dashboard, add at least one energy source or device. If no sources or devices are configured, the **Customize energy** dialog has no cards to show.
+
+To show or hide cards on the Energy dashboard:
+
+1. Go to {% my config_energy title="the energy settings page" %}.
+2. In the toolbar, select **Customize cards**.
+3. In the **Customize energy** dialog, expand a section, such as **Overview**, **Electricity**, **Gas**, **Water**, or **Now**.
+4. Turn the switch for each card on or off.
+5. Select **Save**.
+
+Your card selection applies to the Energy dashboard for the whole Home Assistant system, not only to your browser or user account. Cards that you keep visible continue to use the same energy data and date controls as before.
+
+### Cards that are not available
+
+Some cards in the **Customize energy** dialog might be unavailable. A card is unavailable when the energy source or device it needs is not configured. For example, a solar card needs a solar panel source.
+
+To make an unavailable card available, add the matching source or device on the energy settings page. The dialog only shows sections that have at least one card available for your current energy configuration.
+
+### Hidden dashboard tabs
+
+If you hide every card in an Energy dashboard tab, Home Assistant hides that tab. Home Assistant keeps at least one tab available, so the dashboard does not become empty.
+
+To show a hidden card or tab again, return to **Customize cards**, turn the card back on, and save your changes.
