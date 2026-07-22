@@ -63,8 +63,9 @@ automation: |
 If you open a bedroom window to air out the room, you can wait until it is closed again before turning the heating back on.
 
 - **Trigger**: Window closed
-- **Target**: Bedroom window sensor
-- **Action**: Climate: Set HVAC mode to heat
+  - **Target**: Bedroom window sensor
+- **Action**: Set thermostat HVAC mode
+  - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
 

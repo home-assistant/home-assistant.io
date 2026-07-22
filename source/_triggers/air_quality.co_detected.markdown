@@ -83,8 +83,6 @@ Imagine everyone in your home is fast asleep and carbon monoxide starts building
 
 - **Trigger**: Carbon monoxide detected
   - **Target**: All CO sensors (by label)
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
 - **Action**: Siren: Turn on
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -98,9 +96,6 @@ automation: |
     - trigger: air_quality.co_detected
       target:
         label_id: co_sensors
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: siren.turn_on
       target:
@@ -120,10 +115,9 @@ automation: |
 A car left idling or a gas-powered tool running in the garage produces carbon monoxide that builds up fast in an enclosed space. This automation turns on the exhaust fan after a confirmed one-minute reading, helping clear the air before the situation becomes dangerous. You could also combine this with a notification so you know to check on what caused the buildup.
 
 - **Trigger**: Carbon monoxide detected
-- **Target**: Garage CO sensor
-- **Trigger when**: Each
-- **For at least**: 00:01:00
-- **Action**: Fan: Turn on
+  - **Target**: Garage CO sensor
+  - **For at least**: 00:01:00
+- **Action**: Turn on fan
 
 {% details "YAML example for ventilation on CO detection" %}
 
@@ -135,7 +129,6 @@ automation: |
       target:
         entity_id: binary_sensor.garage_co
       options:
-        behavior: each
         for: "00:01:00"
   actions:
     - action: fan.turn_on

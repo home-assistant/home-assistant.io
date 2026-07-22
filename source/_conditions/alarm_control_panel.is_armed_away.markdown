@@ -82,11 +82,13 @@ for:
 
 When a water leak sensor detects a leak, turn the thermostat down to prevent further damage, but only if the alarm is armed in away mode. If someone is home, they should handle it themselves.
 
-- **Trigger**: State: Water leak sensor detects a leak
+- **Trigger**: State
+  - **Entity**: Water leak sensor
+  - **To**: On
 - **Condition**: Alarm is armed away
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Climate: Set temperature
+- **Action**: Set thermostat target temperature
 
 {% details "YAML example for lowering the thermostat on a leak when away" %}
 

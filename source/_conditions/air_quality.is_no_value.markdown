@@ -83,12 +83,12 @@ behavior:
 
 If you live near a busy road, rush-hour exhaust raises outdoor NO levels fast. This automation triggers at 7:30 AM and checks the outdoor NO reading. If the level is at or above 100 μg/m3, the garage ventilation closes so fumes stay outside. On mornings with light traffic, the ventilation stays open as usual.
 
-- **Trigger**: Time: 07:30
-- **Condition**: Air Quality: Nitrogen monoxide value
-- **Target**: Outdoor NO sensor
-- **Threshold type**: 100
-- **Condition passes if**: Any
-- **Action**: Cover: Close cover
+- **Trigger**: Time
+  - **At time**: `07:30:00` AM
+- **Condition**: Nitrogen monoxide value
+  - **Target**: Outdoor NO sensor
+  - **Threshold type**: 100
+- **Action**: Close cover
 
 {% details "YAML example for closing the garage during the morning commute" %}
 
@@ -104,7 +104,6 @@ automation: |
         entity_id: sensor.outdoor_no
       options:
         threshold: 100
-        behavior: any
   actions:
     - action: cover.close_cover
       target:

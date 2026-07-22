@@ -74,9 +74,11 @@ threshold:
 Ultrafine particles from cooking or traffic drift into every room, and tiny lungs are the most vulnerable. This automation increases your air purifier speed whenever PM1 levels in the nursery shift noticeably, keeping the air as clean as possible for little ones.
 
 - **Trigger**: PM1 level changed
-- **Target**: Nursery PM1 sensor
-- **Threshold type**: 5
-- **Action**: Fan: Set speed
+  - **Target**: Nursery PM1 sensor
+  - **Threshold type**: 5
+- **Action**: Set fan speed
+  - **Target**: Nursery air purifier
+  - **Percetage**: `30`%
 
 {% details "YAML example for PM1-driven air purifier boost" %}
 

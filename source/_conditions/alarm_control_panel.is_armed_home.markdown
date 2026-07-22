@@ -82,10 +82,11 @@ for:
 
 When an exterior motion sensor detects movement, turn on the porch and driveway lights, but only while the alarm is armed in home mode. During the day when the alarm is disarmed, you probably don't need those lights.
 
-- **Trigger**: State: Exterior motion sensor detects motion
+- **Trigger**: State
+  - **Entity**: Exterior motion sensor 
+  - **To**: On
 - **Condition**: Alarm is armed home
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
+  - **Target**: Hallway alarm panel
 - **Action**: Turn on light (porch, driveway)
 
 {% details "YAML example for exterior motion lights when armed home" %}
@@ -101,8 +102,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_home
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.turn_on
       target:

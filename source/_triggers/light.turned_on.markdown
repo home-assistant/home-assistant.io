@@ -116,7 +116,7 @@ When the first downstairs light turns on in the morning, start a gentle playlist
 - **Target**: Downstairs area
 - **Trigger when**: First
 - **Condition**: Time is between 06:00 and 10:00
-- **Action**: Media player: Play media
+- **Action**: Play media
 
 {% details "YAML example for a morning welcome playlist" %}
 

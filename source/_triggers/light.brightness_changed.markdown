@@ -77,7 +77,8 @@ When you dim the ceiling light down, slow the fan down too. A classic "scene moo
 - **Trigger**: Light brightness changed
 - **Target**: Living room ceiling light
 - **Threshold type**: 10
-- **Action**: Fan: Set speed
+- **Action**: Set fan speed
+  - **Target**: Living room fan
 
 {% details "YAML example for a ceiling-light-linked fan" %}
 
