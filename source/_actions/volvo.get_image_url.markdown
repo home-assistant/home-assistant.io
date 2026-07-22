@@ -9,6 +9,8 @@ The **Get image URL** action retrieves the URLs of images of your vehicle from a
 
 This action returns [response data](#response-data) and does not change anything on your vehicle.
 
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
+
 {% include actions/ui_header.md %}
 
 To get image URLs from an automation or a script:
@@ -85,6 +87,27 @@ images:
 ```
 
 {% include actions/try_it.md %}
+
+## Available image angles
+
+- `exterior_back`
+- `exterior_back_left`
+- `exterior_back_right`
+- `exterior_front`
+- `exterior_front_left`
+- `exterior_front_right`
+- `exterior_side_left`
+- `exterior_side_right`
+- `interior`
+
+## Response data
+
+The action response contains the requested image URLs.
+
+## Good to know
+
+If you leave `images` empty, the action retrieves all available image URLs for the selected vehicle.
+>>>>>>> current
 
 {% include actions/stuck.md %}
 

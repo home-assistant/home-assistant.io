@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: Sun is ascending**.
+4. From the search box, search for and select **Sun is ascending**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -49,7 +49,7 @@ This passes while the sun is rising toward solar noon.
 When the living room brightens past a threshold, raise the blinds, but only while the sun is still climbing, so an equally bright evening does not trigger it.
 
 - **Trigger**: Living room illuminance rises above a threshold
-- **Condition**: Sun: Sun is ascending
+- **Condition**: Sun is ascending
 - **Action**: Open cover
   - **Target**: Living room blinds
 

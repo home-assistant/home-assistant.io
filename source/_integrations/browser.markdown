@@ -13,7 +13,7 @@ related:
     title: Configuration file
 ---
 
-The **Browser** {% term integration %} provides a action to open URLs in the default browser on the host machine.
+The **Browser** {% term integration %} provides an action to open URLs in the default browser on the host machine.
 
 ## Configuration
 

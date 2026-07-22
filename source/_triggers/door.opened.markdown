@@ -86,7 +86,7 @@ If someone comes home after sunset, this automation turns on the entry light as 
 
 - **Trigger**: Door opened
 - **Target**: Front door sensor
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for entry lighting on arrival" %}
 

@@ -1,6 +1,6 @@
 ---
 title: Modbus
-description: Instructions on how to integrate modbus and platforms.
+description: Instructions on how to manually register Modbus entities and platforms.
 ha_category:
   - Hub
 ha_release: pre 0.7
@@ -22,9 +22,13 @@ related:
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
+The Modbus {% term integration %} lets you manually register Modbus entities by describing each register in your `configuration.yaml` file. It is meant for people who are comfortable working with Modbus, as it requires knowledge of the protocol and of the specific registers your device exposes.
+
+Before setting this up, we recommend looking for a vendor-specific integration that already supports your Modbus device. A dedicated integration handles the register details for you and is easier to set up and maintain.
+
 The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
-The modbus {% term integration %} supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
+The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (RS-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
 
 # Configuring modbus communication
 
@@ -928,7 +932,6 @@ modbus:
         offset: 0
         precision: 1
         scale: 0.1
-        max_temp: 30
         structure: ">f"
         target_temp_register: 2782
         target_temp_write_registers: true
@@ -1726,50 +1729,7 @@ Some parameters exclude other parameters, the following tables show what can be 
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# Actions
-
-The modbus integration provides two generic write actions in addition to the platform-specific actions.
-
-| Action                | Description                 |
-| --------------------- | --------------------------- |
-| modbus.write_register | Write register or registers |
-| modbus.write_coil     | Write coil or coils         |
-
-Description:
-
-| Attribute | Description                                                                                                                                                                                                                                                                                 |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
-| address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
-| value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
-| state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
-
-## Example: writing a float32 type register
-
-To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
-
-```yaml
-action: modbus.write_register
-data:
-  address: <target register address>
-  slave: <target slave address>
-  hub: <hub name>
-  value: [0x4120, 0x0000]
-```
-
-## Action `modbus.set-temperature`
-
-| Action          | Description                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
-
-## Action `modbus.set_hvac_mode`
-
-| Action        | Description                                                                                                                                                                                                                                                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
-
+{% include integrations/actions.md %}
 
 # Opening an issue
 

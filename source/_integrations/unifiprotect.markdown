@@ -10,7 +10,6 @@ ha_category:
   - Event
   - Hub
   - Light
-  - Lock
   - Media player
   - Media source
   - Number
@@ -30,7 +29,6 @@ ha_platforms:
   - diagnostics
   - event
   - light
-  - lock
   - media_player
   - number
   - select
@@ -165,6 +163,8 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
+On UniFi Protect versions newer than 7.1, UniFi Protect reports each sensor's capabilities, and entities are only created for the functions the device actually supports. This enables proper support for newer sensor models: for example, an entry sensor (USL Entry) gets contact and tamper entities, an environmental sensor (USL Environmental) gets temperature, humidity, light level, and leak entities, and a glass break sensor (USL GlassBreak) gets motion and tamper entities. On older versions, an entity is created for every function, matching the behavior of the original UniFi Protect Smart Sensor (UP Sense).
+
 - **Sensors** - A sensor is provided for each major function of the smart sensor device:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
   - **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
@@ -172,6 +172,7 @@ UniFi Protect smart sensors are a bit different than normal sensors. They are a 
   - **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   - **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or (on UniFi Protect versions newer than 7.1) if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
@@ -186,14 +187,6 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 
 - **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 - **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
-
-### UniFi Protect DoorLock
-
-Each UniFi Protect door lock will get a device in Home Assistant with the following:
-
-- **Lock** - A lock control will be added to lock and unlock your door lock device.
-- **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
-- **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
 ### UniFi Protect Smart Chime
 
