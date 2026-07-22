@@ -12,6 +12,10 @@ The energy dashboard works with electricity, gas, and water. For each one, your 
 
 Home Assistant is open and works with hardware from many different brands, so you are not locked into one ecosystem. Any energy monitor, smart plug, solar inverter, or utility meter that integrates with Home Assistant can feed data into the energy dashboard.
 
+## Setting up the Energy dashboard
+
+To add energy data to the dashboard, start with the type of source or device you want to track:
+
 - [Integrate your energy use from the electricity grid](/docs/energy/electricity-grid/)
 - [Integrate your solar panels](/docs/energy/solar-panels/)
 - [Integrate your home batteries](/docs/energy/battery/)
