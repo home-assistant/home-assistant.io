@@ -419,6 +419,14 @@ The ACB aggregate device provides controls to put all AC-batteries to sleep or t
 It can take several minutes for the Envoy to reflect a sleep or wake request in the AC-battery states.
 {% endnote %}
 
+##### Using sleep and wake to control the AC-battery
+
+The Envoy local API does not expose a storage mode or a direct charge/discharge control for AC-batteries, and the Enphase app offers no AC-battery controls (the Enlighten web interface only offers very limited ones). The sleep and wake controls can be used as a workaround to influence charge and discharge behavior:
+
+- **Charge or discharge to a target level, then hold**: while the AC-batteries are awake, set the **Battery sleep SOC target** to the desired band and press **Sleep**. The batteries charge or discharge toward that state of charge and then go to sleep, holding at that level. If the target is lower than the current state of charge, the batteries discharge at maximum power to reach it, regardless of whether that causes an energy export, unlike self-consumption, which only discharges to match house load.
+- **Return to normal (self-consumption) operation**: press **Wake**. The batteries resume normal operation and discharge only to cover house consumption, maximizing self-consumption. If a solar system is fitted and exporting, they also charge from the excess.
+- **Prevent unwanted discharge**: keeping the AC-batteries asleep until you want them to discharge stops them from discharging when you would rather they did not.
+
 ##### Aggregated IQ and AC battery sensor entities
 
 If both IQ and AC batteries are used, aggregated battery data for all installed IQ batteries and AC batteries is available.
