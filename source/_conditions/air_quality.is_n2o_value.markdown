@@ -88,7 +88,7 @@ Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, es
   - **Target**: Greenhouse N2O sensor
   - **Threshold type**: 500
 - **Action**: Turn on fan
-  - **Target**: Greenshouse ventilation
+  - **Target**: Greenhouse ventilation
 
 {% details "YAML example for morning greenhouse ventilation on high N2O" %}
 

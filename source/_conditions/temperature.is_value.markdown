@@ -125,6 +125,7 @@ This automation runs a fan only when the bedroom temperature is above 24°C, hel
   - **Target**: Bedroom temperature sensor
   - **Above**: `24`
 - **Action**: Turn on fan
+  - **Target**: Bedroom fan
 
 {% details "YAML example for cooling when warm" %}
 
@@ -157,7 +158,7 @@ automation: |
 
 This automation sends a notification only when the living room temperature is outside the comfort range of 20 to 22°C, helping you maintain consistent conditions.
 
-- **Trigger**: Time pattern 
+- **Trigger**: Time pattern
   - **Hours**: `/1`
 - **Condition**: Temperature value (outside 20-22°C range)
   - **Target**: Living room temperature sensor
@@ -203,7 +204,7 @@ automation: |
 
 When the bedroom temperature is already within your comfort range, this automation turns off the climate system to save energy. Use number helpers to define your preferred temperature range so you can easily adjust it without editing the automation.
 
-- **Trigger**: Time pattern 
+- **Trigger**: Time pattern
   - **Minutes**: `/30`
 - **Condition**: Temperature (in range, using number helpers)
   - **Target**: Bedroom temperature sensor

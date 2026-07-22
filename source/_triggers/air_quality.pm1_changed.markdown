@@ -78,7 +78,7 @@ Ultrafine particles from cooking or traffic drift into every room, and tiny lung
   - **Threshold type**: 5
 - **Action**: Set fan speed
   - **Target**: Nursery air purifier
-  - **Percetage**: `30`%
+  - **Percentage**: `80`%
 
 {% details "YAML example for PM1-driven air purifier boost" %}
 

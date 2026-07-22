@@ -89,6 +89,8 @@ When a water leak sensor detects a leak, turn the thermostat down to prevent fur
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
 - **Action**: Set thermostat target temperature
+  - **Target**: Thermostat
+  - **Temperature**: `15`
 
 {% details "YAML example for lowering the thermostat on a leak when away" %}
 

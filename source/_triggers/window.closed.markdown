@@ -88,6 +88,7 @@ After you air out a room, it can help to wait until the window is fully closed b
 - **Trigger when**: Each
 - **For at least**: 00:02:00
 - **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
   - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}

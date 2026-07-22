@@ -118,6 +118,7 @@ A car left idling or a gas-powered tool running in the garage produces carbon mo
   - **Target**: Garage CO sensor
   - **For at least**: 00:01:00
 - **Action**: Turn on fan
+  - **Target**: Garage exhaust fan
 
 {% details "YAML example for ventilation on CO detection" %}
 

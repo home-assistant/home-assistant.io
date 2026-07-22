@@ -128,6 +128,7 @@ When the dehumidifier starts drying, close any open motorized windows automatica
 - **Trigger**: Humidifier started drying
   - **Target**: Basement dehumidifier
 - **Action**: Close cover
+  - **Target**: Basement area
 
 {% details "YAML example for closing windows on dehumidification start" %}
 

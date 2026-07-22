@@ -83,7 +83,7 @@ for:
 When the hallway motion sensor detects movement, turn on the hallway light at 10% brightness, but only while the alarm is armed in night mode. During the day, you want full brightness instead.
 
 - **Trigger**: State
-  - **Entity**: Hallway motion sensor 
+  - **Entity**: Hallway motion sensor
   - **To**: On
 - **Condition**: Alarm is armed night
   - **Target**: Hallway alarm panel

@@ -89,6 +89,7 @@ If you live near a busy road, rush-hour exhaust raises outdoor NO levels fast. T
   - **Target**: Outdoor NO sensor
   - **Threshold type**: 100
 - **Action**: Close cover
+  - **Target**: Garage ventilation
 
 {% details "YAML example for closing the garage during the morning commute" %}
 

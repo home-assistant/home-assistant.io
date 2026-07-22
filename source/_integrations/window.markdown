@@ -65,6 +65,7 @@ If you open a bedroom window to air out the room, you can wait until it is close
 - **Trigger**: Window closed
   - **Target**: Bedroom window sensor
 - **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
   - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
