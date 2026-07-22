@@ -20,7 +20,7 @@ related:
 
 The **Switch** {% term integration %} manages the state of the switch entities and allows you to control them.
 
-- Maintains a state per switch and a combined state `all_switches`.
+- Maintains a state for each of your switches.
 - Registers actions `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
 
 {% include integrations/building_block_integration.md %}

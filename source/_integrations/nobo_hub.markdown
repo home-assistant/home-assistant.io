@@ -24,7 +24,7 @@ related:
     title: Automations
 ---
 
-The **Nobø Ecohub** {% term integration %} connects Home Assistant to your [Nobø Ecohub](https://www.glendimplex.no/produkter/varmestyring/11123610/noboe-hub/c-77/p-330), a Norwegian heating controller from Glen Dimplex Nordic AS. The hub manages electric panel heaters, floor heating, and on/off receivers grouped into zones, and lets you follow weekly heating schedules with eco, comfort, and away setpoints.
+The **Nobø Ecohub** {% term integration %} connects Home Assistant to your [Nobø Ecohub](https://en.nobo.no/product/nobo-hub), a Norwegian heating controller from Glen Dimplex Nordic AS. The hub manages electric panel heaters, floor heating, and on/off receivers grouped into zones, and lets you follow weekly heating schedules with eco, comfort, and away setpoints.
 
 With this integration, you can control your heating zones, switch between week profiles, and read temperatures from any connected Nobø Switch—all locally over your network, without depending on a cloud service.
 

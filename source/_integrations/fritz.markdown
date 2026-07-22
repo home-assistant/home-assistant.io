@@ -46,7 +46,7 @@ There is support for the following device families within Home Assistant:
 {% important %}
 Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to log in and read device info.
 
-To use the [dial](#action-dial) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
+To use the [dial](/actions/fritz.dial/) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
 
 ### Username
@@ -103,32 +103,7 @@ The FRITZ!Box Tools integration provides the following main features:
 
 This integration fetches the data every 30 seconds from the FRITZ!Box router.
 
-## Actions
-
-Available {% term actions %}:
-
-- `set_guest_wifi_password`
-- `dial`
-
-### Action: Set guest Wi-Fi password
-
-The `fritz.set_guest_wifi_password` action allows you to set a new password for the guest Wi-Fi. The password length must be between 8 and 63 characters long.
-
-| Data attribute | Required | Description |
-| --- | --- | --- |
-| `device_id` | yes | Only act on a specific router |
-| `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
-| `length` | no | Length of the auto-generated password. (_default 12_) |
-
-### Action: Dial
-
-The `fritz.dial` action allows you to make the FRITZ!Box dial a phone number.
-
-| Data attribute | Required | Description |
-| --- | --- | --- |
-| `device_id` | yes | Only act on a specific router |
-| `number` | yes | The phone number to dial |
-| `max_ring_seconds` | yes | The maximum number of seconds to ring after dialing. Note that the actual ring duration might be shorter depending on the receiver's phone settings. (_default 15 seconds_) |
+{% include integrations/actions.md %}
 
 ## Additional information
 

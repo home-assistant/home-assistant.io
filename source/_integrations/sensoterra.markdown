@@ -10,6 +10,8 @@ ha_domain: sensoterra
 ha_platforms:
   - sensor
 ha_codeowners:
+  - '@SanderBakkumCuriousInc'
+  - '@curious-florian'
   - '@markruys'
 ha_integration_type: hub
 ---
