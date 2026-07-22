@@ -2,6 +2,7 @@
 title: Honeywell Lyric
 description: How to integrate the Honeywell Lyric integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Select
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@timmo001'
 ha_domain: lyric
 ha_platforms:
+  - binary_sensor
   - climate
   - select
   - sensor
@@ -54,6 +56,21 @@ The integration setup will ask for the **Client ID** and **Client Secret**. Thes
 During setup, you will be redirected to Honeywell to sign in. Use your regular Resideo/Honeywell Home account here, not the developer account you created on the developer site. These are two separate accounts, even if they share the same email address.
 {% endimportant %}
 
+## Binary sensors
+
+This integration provides the following binary sensors:
+
+| Name                    | Description                                                |
+| ------------------------ | ----------------------------------------------------------- |
+| Vacation Hold           | Indicates whether the thermostat is currently in vacation hold. |
+| Device Pairing Enabled  | Indicates whether pairing mode is enabled on the thermostat. |
+
+Additional binary sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
+
+| Name        | Description                                                         |
+| ----------- | --------------------------------------------------------------------- |
+| Room Motion | Indicates whether motion has been detected by a room sensor accessory. |
+
 ## Selects
 
 - **Room priority**
@@ -65,18 +82,22 @@ During setup, you will be redirected to Honeywell to sign in. Use your regular R
 
 This integration provides the following sensors:
 
-| Name                | Description                                 |
-| ------------------- | ------------------------------------------- |
-| Indoor Temperature  | The reported temperature from the device    |
-| Indoor Humidity     | The reported humidity from the device       |
-| Outdoor Temperature | Lyric's outdoor temperature report          |
-| Outdoor Humidity    | Lyric's outdoor humidity                    |
-| Next Period Time    | The next time the thermostat will change    |
-| Setpoint Status     | A description of the setpoint of the device |
+| Name                | Description                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Indoor Temperature  | The reported temperature from the device                                                                          |
+| Indoor Humidity     | The reported humidity from the device                                                                              |
+| Outdoor Temperature | Lyric's outdoor temperature report                                                                                 |
+| Outdoor Humidity    | Lyric's outdoor humidity                                                                                           |
+| Next Period Time    | The next time the thermostat will change                                                                          |
+| Setpoint Status     | A description of the setpoint of the device                                                                       |
+| Schedule Status     | The thermostat's current schedule status (for example, "Resume")                                                  |
+| Priority Status     | The current room priority hold status (for example, "No Hold"). Available for T9 and T10 thermostats with at least one paired room sensor. |
 
 Additional sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
 
-| Name                 | Description                                                       |
-| -------------------- | ----------------------------------------------------------------- |
-| Room Temperature     | The temperature reported from a room sensor accessory             |
-| Room Humidity        | The humidity reported from a room accessory                       |
+| Name                     | Description                                                       |
+| ------------------------- | ------------------------------------------------------------------ |
+| Room Temperature         | The temperature reported from a room sensor accessory             |
+| Room Humidity            | The humidity reported from a room accessory                       |
+| Room Average Temperature | The average temperature reported for the room                     |
+| Accessory Status         | The reported status of the room sensor accessory (for example, "Ok") |
