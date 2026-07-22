@@ -56,11 +56,38 @@ You need to add at least one recipient email address. During the integration set
 
 Repeat these steps to add more recipients. Every email address you add can be selected as target for the corresponding integration.
 
+## Specific email provider configuration
+
+Check below some configurations examples for specific email providers.
+If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
+
+### Google Mail
+
+Example configuration for Google Mail.
+
+| **Parameter** | Value |
+| -------- | ------------- |
+| **Host** | smtp.gmail.com |
+| **Port** | 587 |
+| **Sender email** | example@gmail.com |
+| **Sender name** | SENDER_NAME |
+| **Connection security** | STARTTLS |
+| **Username** | example@gmail.com |
+| **Password** | YOUR_APP_PASSWORD |
+
+Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+
+To be able to create an app password:
+
+- You must have 2-step verification enabled on your account with another authentication mechanism than security key.
+- Your Google account must not be enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account must not belong to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+
 ## Supported functionality
 
 ### Notifiers
 
-The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Notify: Send message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [notify actions](#notify-actions) instead. For further instructions on how to use email notifications in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Send a notification message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [notify actions](#notify-actions) instead.
 
 {% example %}
 action: |
@@ -184,32 +211,39 @@ burglar:
               </html>
 ```
 
-To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
+## SMTP automation examples
 
-## Specific email provider configuration
+You can use this integration to create automations that send a notification to your email address when something happens.
 
-Check below some configurations examples for specific email providers.
-If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
+{% include docs/paste_yaml_tip.md %}
 
-### Google Mail
+### Automation: send an email message when front door opens
 
-Example configuration for Google Mail.
+This automation sends a notification message to an email address when the front door opens.
 
-| **Parameter** | Value |
-| -------- | ------------- |
-| **Host** | smtp.gmail.com |
-| **Port** | 587 |
-| **Sender email** | example@gmail.com |
-| **Sender name** | SENDER_NAME |
-| **Connection security** | STARTTLS |
-| **Username** | example@gmail.com |
-| **Password** | YOUR_APP_PASSWORD |
+- **Trigger**: State
+  - **Entity**: Front door binary sensor
+  - **To**: On
+- **Action**: Send a notification message
+  - **Target**: My email address (`notify.my_email`)
 
-Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+{% details "YAML example for email notification when door opens" %}
 
-If any of the following conditions are met you will not be able to create an app password:
+{% example %}
+automation: |
+  alias: "Notify by email: front door opened"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_email
+      data:
+        title: "Alert: Front Door Opened"
+        message: >
+          The front door was opened at {{ now().strftime('%Y-%m-%d %H:%M:%S') }}.
+{% endexample %}
 
-- You do not have 2-step verification enabled on your account.
-- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
-- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
-- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+{% enddetails %}

@@ -10,6 +10,7 @@ ha_supporting_domain: homewizard
 ha_supporting_integration: HomeWizard
 ha_codeowners:
   - '@DCSBL'
+  - '@lexpostma'
 ha_config_flow: true
 ha_platforms:
   - button
