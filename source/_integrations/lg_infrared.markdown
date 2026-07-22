@@ -43,11 +43,11 @@ The first step asks which type of LG device you want to set up: **TV** or **Air 
 
 {% configuration_basic %}
 Infrared emitter:
-  description: The infrared emitter entity to use for sending commands to your LG device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter. It is required for an air conditioner.
+  description: "The infrared emitter entity to use for sending commands to your LG device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter. It is required for an air conditioner."
 Infrared receiver:
-  description: The infrared receiver entity to use for receiving commands from your LG remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. For a TV, received commands are available as events you can use in automations. For an air conditioner, they keep the climate entity in sync with the physical remote.
+  description: "The infrared receiver entity to use for receiving commands from your LG remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. For a TV, received commands are available as events you can use in automations. For an air conditioner, they keep the climate entity in sync with the physical remote."
 Supported modes:
-  description: The operating modes your air conditioner supports: **Cool**, **Heat**, **Dry**, and **Fan only**. Select at least one. Check your remote or the manual of your unit to see which modes it has. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it. This option is shown for an air conditioner only.
+  description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, and **Fan only**. Check your remote or the manual of your unit to see which modes it has. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it. This option is shown for an air conditioner only."
 {% endconfiguration_basic %}
 
 For a TV, select at least one of **Infrared emitter** or **Infrared receiver**. Select both if you want to be able to send commands to your TV and react to commands from the remote.
