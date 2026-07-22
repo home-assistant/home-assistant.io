@@ -22,10 +22,10 @@ They provide various devices for lime scale and leakage protection.
 
 1. Open the [myBIOCAT Web App](https://app.watercryst.com).
 2. Navigate to the details page of your device.
-3. Open the **REST API** sub page.
-4. Click **Activate device API**, if it is not activated already.
-5. Click **Add** to add a new endpoint.
-6. Copy the API key for later usage.
+3. Open the **REST API** subpage.
+4. Select **Activate device API** if it is not already activated.
+5. Select **Add** to create a new endpoint.
+6. Copy the API key for later use.
 
 {% include integrations/config_flow.md %}
 
@@ -50,7 +50,7 @@ The **WATERCryst** integration provides the following entities.
 - **Event Category**
   - **Description**: The category of the event.
   - **Available for machines**: all
-  - **Remarks**: Events can be of category `error`, `warning` or `info`. This sensor holds the additional attributes `Event ID`, `Event Category`, `Event Title`, `Event Description` and `Event Timestamp`.
+  - **Remarks**: Events can have the categories `error`, `warning`, or `info`. This sensor holds the additional attributes `Event ID`, `Event Category`, `Event Title`, `Event Description`, and `Event Timestamp`.
 
 - **Event ID**
   - **Description**: The unique event identifier.
@@ -71,7 +71,7 @@ The **WATERCryst** integration provides the following entities.
   - **Remarks**: See the [API documentation](https://appapi.watercryst.com/#get-/state) for details.
 
 - **Pause Leakage Protection Until**
-  - **Description**: UTC date time when the leakage protection will be active again.
+  - **Description**: UTC date and time when the leakage protection will be active again.
   - **Available for machines**: Devices that support leakage protection.
 
 - **Today's Water Consumption**
