@@ -59,8 +59,8 @@ Baud Rate:
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
-Enable zone source exclusion:
-  description: Exclude sources that are disabled for a zone from that zone's available source list.
+Zone source exclusion:
+  description: When enabled, Home Assistant hides sources that are disabled for a zone from the source list for that zone.
 {% endconfiguration_basic %}
 
 
@@ -136,4 +136,4 @@ This can be resolved by updating the unit to the latest firmware.
 
 ### Some sources are missing from a zone
 
-Russound devices have a system called zone source exclusion which will removed any disabled sources from the list for a specific zone. On some Russound units, this feature doesn't report information correctly resulting in a broken sources list. Disable the `Enable zone source exclusion` setting in the options flow to resolve the issue.
+Russound devices support zone source exclusion, which removes disabled sources from the source list for a specific zone. On some Russound devices, this information is not reported correctly, which can result in sources missing in Home Assistant. To show all sources, turn off **Zone source exclusion** in the integration options.
