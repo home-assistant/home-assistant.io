@@ -31,9 +31,9 @@ They provide various devices for lime scale and leakage protection.
 
 {% configuration_basic %}
 BIOCAT serial number:
-    description: BIOCAT serial number. It can be found on the [myBIOCAT Web App](https://app.watercryst.com) details page and on the device itself.
+    description: The BIOCAT serial number. You can find it on the [myBIOCAT web app](https://app.watercryst.com) device details page and on the device itself.
 Api key:
-    description: myBIOCAT REST-API key. It can be found on the [myBIOCAT Web App](https://app.watercryst.com) details page in the **REST API** sub page.
+    description: The myBIOCAT REST API key. You can find it on the [myBIOCAT web app](https://app.watercryst.com) device details page under the **REST API** subpage.
 {% endconfiguration_basic %}
 
 ## Supported functionality
