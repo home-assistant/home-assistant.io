@@ -386,7 +386,7 @@ The ACB aggregate device holds the combined values for all AC-batteries.
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery.png" alt="acb battery">
-  <figcaption>Envoy AC-battery sensor entities.</figcaption>
+  <figcaption>Envoy aggregated AC-battery sensor entities.</figcaption>
 </figure>
 
 ##### Individual AC-battery sensor entities
@@ -418,6 +418,12 @@ The ACB aggregate device provides controls to put all AC-batteries to sleep or t
 {% note %}
 It can take several minutes for the Envoy to reflect a sleep or wake request in the AC-battery states.
 {% endnote %}
+
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery_individual.png" alt="acb battery">
+  <figcaption>Envoy individual AC-battery sensor entities.</figcaption>
+</figure>
 
 ##### Using sleep and wake to control the AC-battery
 
