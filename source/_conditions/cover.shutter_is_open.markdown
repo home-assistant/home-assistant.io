@@ -88,7 +88,7 @@ for:
 
 At sunset, this automation checks whether the shutter is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Shutter is open
   - **Target**: Kitchen shutter
 - **Action**: Close cover
@@ -99,8 +99,7 @@ At sunset, this automation checks whether the shutter is still open. If it is, H
 automation: |
   alias: "Close the shutter at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.shutter_is_open
       target:

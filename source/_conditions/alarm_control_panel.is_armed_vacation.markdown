@@ -88,7 +88,7 @@ Don't forget to pair it with an automation to turn the lamp off, or you'll come 
 - **Condition**: Alarm is armed vacation
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Light: Toggle
+- **Action**: Toggle light
 
 {% details "YAML example for an evening lamp toggle on vacation" %}
 
