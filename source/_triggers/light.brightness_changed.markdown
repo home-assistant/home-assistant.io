@@ -79,6 +79,7 @@ When you dim the ceiling light down, slow the fan down too. A classic "scene moo
 - **Threshold type**: 10
 - **Action**: Set fan speed
   - **Target**: Living room fan
+  - **Percentage**: `20`%
 
 {% details "YAML example for a ceiling-light-linked fan" %}
 
@@ -96,7 +97,7 @@ automation: |
       target:
         entity_id: fan.living_room
       data:
-        percentage: "{{ state_attr('light.living_room_ceiling', 'brightness_pct') | int }}"
+        percentage: 20
 {% endexample %}
 
 {% enddetails %}
