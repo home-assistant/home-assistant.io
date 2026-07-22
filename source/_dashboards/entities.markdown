@@ -389,8 +389,8 @@ entities:
     name: Alarm Panel
   - device_tracker.demo_paulus
   - switch.decorative_lights
-  - group.all_lights
-  - group.all_locks
+  - light.home_lights
+  - lock.home_locks
 ```
 
 #### Buttons row

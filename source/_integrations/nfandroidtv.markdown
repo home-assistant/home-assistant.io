@@ -20,127 +20,164 @@ The notifications are in the global scope of your Android TV device. They will b
 
 When setting this up be aware, that there are two apps: one for your smartphone to send notifications (not required for this platform) and one for your Android TV device to receive the notifications. The app available in the store of your Android TV device is the one that is needed to display notifications sent from Home Assistant. The In-App purchases only apply to the client for Android smartphones, so there isn't any limit when pushing notifications from Home Assistant.
 
+## Prerequisites
+
+Make sure the app on your TV has the following permissions enabled:
+
+- **Notification access**
+- **Display over other apps**
+
+On some TVs, opening the app and following its setup wizard will prompt you to grant these permissions. You might need to restart your TV after changing them.
+
 {% include integrations/config_flow.md %}
 
-## Notifiers
+## Sending notifications
 
-The **Notifications for Android TV / Fire TV** {% term integration %} will add a notify {% term entity %} for your configured TV. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on using the notifiers in automations, please see the [getting started with automation page](/getting-started/automation/).
+The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select your TV notify entity as the target.
+
+You can send a basic message, or add images and icons for camera snapshots, reminders, and status updates.
+
+To send a notification from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Search for and select **Send a notification message**.
+6. Under **Targets**, select the notify entity for your TV.
+7. Enter the **Message** and set any other options.
+8. Select **Save**.
 
 {% details "Example YAML configuration" %}
 
 ```yaml
 action: notify.send_message
+target:
+  entity_id: notify.my_tv
 data:
   title: "Just a reminder"
   message: "You are awesome!"
-  entity_id: notify.my_tv
 ```
 
 {% enddetails %}
 
-## Actions
+### Notification data options
 
-### Action: Notify
+The following options are available when using the legacy TV notify action `notify.my_android_tv`. These options are not supported by `notify.send_message`.
 
-The `notify.[name_of_your_tv]` action sends a notification to your Android TV. The following options can be specified inside the data field for the notify action:
+In YAML, add these options under the nested `data` field:
+
+```yaml
+action: notify.my_android_tv
+data:
+  message: "You are awesome!"
+  data:
+    duration: 10
+```
+
+<!-- textlint-disable terminology -->
 
 {% configuration %}
 duration:
-  description: The duration in seconds for which the notification will be displayed.
+  description: The duration in seconds for which the notification is displayed.
+  required: false
   default: 5
   type: integer
 fontsize:
-  description: "Has to be one of: `small`, `medium`, `large` or `max`."
+  description: "The font size, one of `small`, `medium`, `large`, or `max`."
+  required: false
   default: medium
   type: string
 position:
-  description: "Has to be one of: `bottom-right`, `bottom-left`, `top-right`, `top-left` or `center`."
+  description: "The notification position, one of `bottom-right`, `bottom-left`, `top-right`, `top-left`, or `center`."
+  required: false
   default: bottom-right
   type: string
 color:
-  description: "Has to be one of: `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber` or `pink`."
-  default: "`grey`"
+  description: "The notification color, one of `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber`, or `pink`."
+  required: false
+  default: grey
   type: string
 transparency:
-  description: "Has to be one of: `0%`, `25%`, `50%`, `75%` or `100%`."
+  description: "The notification transparency, one of `0%`, `25%`, `50%`, `75%`, or `100%`."
+  required: false
   default: 25%
   type: string
-timeout:
-  description: The timeout in seconds for trying to send the notification to the device.
-  default: 5
-  type: integer
 interrupt:
-  description: If set to true, 1, on etc., the notification is interactive and can be dismissed or selected to display more details. Depending on the running app (e.g., Netflix), this may stop playback.
+  description: Set to `true` to make the notification interactive so it can be dismissed or selected to display more details.
+  required: false
   default: false
   type: boolean
+image:
+  description: Image upload settings. Provide either `url` or `path`. If you set `username`, `password`, or `auth`, you must also set `url`.
+  required: false
+  type: map
+icon:
+  description: Icon upload settings. Provide either `url` or `path`. If you set `username`, `password`, or `auth`, you must also set `url`.
+  required: false
+  type: map
 {% endconfiguration %}
 
-This is a fully customized YAML you can use inside `data` to test how the final notification will look like (for using this inside an action look at the example at the end of this page):
+<!-- textlint-enable terminology -->
 
-```yaml
-fontsize: "large"
-position: "center"
-duration: 2
-transparency: "0%"
-color: "red"
-interrupt: 1
-```
+For `image` and `icon`, use these nested settings:
 
-## Action data for sending images and icons
+{% configuration %}
+path:
+  description: Local path of an image file.
+  required: false
+  type: string
+url:
+  description: URL of an image file.
+  required: false
+  type: string
+username:
+  description: Username if the URL requires authentication.
+  required: false
+  type: string
+password:
+  description: Password if the URL requires authentication.
+  required: false
+  type: string
+auth:
+  description: Set to `digest` to use HTTP Digest authentication. If omitted, basic authentication is used.
+  required: false
+  type: string
+{% endconfiguration %}
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided. |
-| `icon`                 |      yes | Groups the attributes for icon upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
-| `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon`, or both.
-| `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
-| `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
-| `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
-| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
+Local image and icon paths are validated against `allowlist_external_dirs` in {% term "configuration.yaml" %}.
 
-Example action data for both image and icons:
+## Automation examples
 
-```yaml
-# If your urls do not require extra authentication
-icon: "http://[url to image file]"
-image: "http://[url to image file]"
+These examples show how to use the TV notify entity in automations. Replace the example entity IDs with the ones from your Home Assistant instance.
 
-# Paths in most cases
-icon: "/you/path/location"
-image: "/you/path/location"
-# Or alternatively
-icon:
-  path: "/you/path/location"
-image:
-  path: "/you/path/location"
+### Automation: show a doorbell notification
 
-# If your urls require extra authentication
-image:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary" # Optional
-  password: "optional password, if necessary" # Optional 
-  auth: "digest" # Optional
-icon:
-  url: "http://[url to image file]"
-  username: "optional user, if necessary" # Optional
-  password: "optional password, if necessary" # Optional
-  auth: "digest" # Optional
-```
+Show a notification on the TV when the doorbell detects motion.
 
-Example of an automation with an action, full configuration:
+- **Trigger**: State, doorbell motion changes to detected
+- **Action**: Send a notification via `notify.living_room_tv`
+  - **Message**: Someone is at the front door.
+  - **Data**:
+    - **Duration**: 4
+    - **Position**: bottom-left
 
-```yaml
-action: notify.living_room_tv
-data:
-  title: "Thanks for the water!"
-  message: "Nigel is {{ states('sensor.nigel_moisture') }}% moisture"
-  data:
-    duration: 4
-    position: "bottom-left"
-    fontsize: "medium"
-    transparency: "75%"
-    color: "teal"
-    interrupt: 0
-```
+{% details "Show example YAML" %}
 
-`path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.
+{% example %}
+automation: |
+  alias: "Show doorbell notification on the TV"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.doorbell_motion
+      to: "on"
+  actions:
+    - action: notify.living_room_tv
+      data:
+        message: "Someone is at the front door."
+        data:
+          duration: 4
+          position: "bottom-left"
+{% endexample %}
+
+{% enddetails %}

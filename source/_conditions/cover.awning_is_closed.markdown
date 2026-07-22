@@ -88,7 +88,7 @@ for:
 
 At sunrise, this automation checks whether the awning is still closed. If it is, Home Assistant opens it to let in daylight.
 
-- **Trigger**: Sun: Sunrise
+- **Trigger**: Sunrise
 - **Condition**: Awning is closed
   - **Target**: Patio awning
 - **Action**: Open cover
@@ -99,8 +99,7 @@ At sunrise, this automation checks whether the awning is still closed. If it is,
 automation: |
   alias: "Open the awning at sunrise"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: cover.awning_is_closed
       target:

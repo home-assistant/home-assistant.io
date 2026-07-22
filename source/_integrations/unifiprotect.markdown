@@ -10,7 +10,6 @@ ha_category:
   - Event
   - Hub
   - Light
-  - Lock
   - Media player
   - Media source
   - Number
@@ -30,7 +29,6 @@ ha_platforms:
   - diagnostics
   - event
   - light
-  - lock
   - media_player
   - number
   - select
@@ -189,14 +187,6 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 
 - **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 - **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
-
-### UniFi Protect DoorLock
-
-Each UniFi Protect door lock will get a device in Home Assistant with the following:
-
-- **Lock** - A lock control will be added to lock and unlock your door lock device.
-- **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
-- **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
 ### UniFi Protect Smart Chime
 

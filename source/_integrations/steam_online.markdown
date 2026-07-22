@@ -2,6 +2,7 @@
 title: Steam
 description: Instructions on how to set up Steam sensors in Home Assistant.
 ha_category:
+  - Gaming
   - Social
 ha_config_flow: true
 ha_iot_class: Cloud Polling

@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Sun: Solar noon**.
+4. From the search box, search for and select **Solar noon**.
 5. Select **Save**.
 
 {% include triggers/yaml_header.md %}
