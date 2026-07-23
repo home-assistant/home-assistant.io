@@ -145,7 +145,7 @@ All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistates
 
 ## IP filtering and banning
 
-If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. Ban IP addresses are stored in the file `[your_config_dir]/.storage/http.ip_bans`.
 
 {% note %}
 
@@ -153,21 +153,12 @@ If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all c
 
 {% endnote %}
 
-```yaml
-127.0.0.1:
-  banned_at: "2016-11-16T19:20:03"
-```
-
 After a ban is added a Persistent Notification will appear in the Home Assistant frontend.
 
 To clear an IP ban, you can either:
 
-- Remove the specific IP entry from `ip_bans.yaml`, or  
-- Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
-
-After making changes, restart Home Assistant to apply them.
-
-You can also use the `http.unban` action to unban a banned IP address without restarting Home Assistant.
+- Use the `http.unban` action to immediately unban a banned IP address.
+- Delete the file `[your_config_dir]/.storage/http.ip_bans` and restart Home Assistant.
 
 ## Hosting files
 
