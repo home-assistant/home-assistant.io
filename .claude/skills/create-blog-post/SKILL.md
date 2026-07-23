@@ -286,7 +286,8 @@ date: YYYY-MM-DD 00:00:01
 date_formatted: "Month DD, YYYY"
 author: AuthorKey
 comments: false
-categories: Category
+categories:
+  - Category
 external_url: "https://example.com/full-article-url/"
 external_source: "Source name"
 # Optional: only add og_image to override the auto-generated social image.
