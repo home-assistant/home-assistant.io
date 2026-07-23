@@ -72,9 +72,9 @@ Configuration of Netatmo enabled homes and public weather stations is offered fr
 
 #### Home selection
 
-If your Netatmo account has access to more than one home, the dialog offers an "Enabled homes" selector listing all homes of the account. By default, all homes are enabled and homes added to your Netatmo account later are enabled automatically. Deselect the homes you do not want Home Assistant to manage — their devices and entities will not be created.
+If your Netatmo account has access to more than one home, the dialog offers an "Enabled homes" selector listing all homes of the account. By default, all homes are enabled and homes added to your Netatmo account later are enabled automatically. Deselect the homes you do not want Home Assistant to manage — their devices and entities will not be created. Submitting an empty selection re-enables all homes.
 
-When a home is deselected, entities that already exist for it become unavailable; they can be removed from the device page. Weather stations are linked to the account rather than to a home, so their entities remain available even if their home is not enabled.
+When a home is deselected, none of its devices are managed anymore — including its weather stations. Entities that already exist for it become unavailable; they can be removed from the device page. Public weather areas are not tied to a home and stay available.
 
 #### Public weather stations
 
