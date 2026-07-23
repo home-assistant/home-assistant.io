@@ -16,7 +16,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **DVLA** {% term integration %} retrieves vehicle information from the UK Driver and Vehicle Licensing Agency (DVLA) Vehicle Enquiry Service.
+The **DVLA** {% term integration %} retrieves vehicle information from the UK Driver and Vehicle Licensing Agency (DVLA) [Vehicle Enquiry Service](https://www.gov.uk/get-vehicle-information-from-dvla).
 
 You can use this integration to monitor UK vehicle details in Home Assistant, such as tax status, MOT status, tax due date, make, fuel type, color, engine capacity, CO2 emissions, and other fields returned by DVLA.
 
@@ -28,9 +28,12 @@ No DVLA account or individual API key is required.
 
 {% include integrations/config_flow.md %}
 
-During setup, enter the vehicle registration number.
+{% configuration_basic %}
+Vehicle registration number:
+    description: The UK vehicle registration number for the vehicle to add.
+{% endconfiguration_basic %}
 
-## Sensors
+## Supported functionality
 
 The integration creates sensors for supported DVLA vehicle fields. Some sensors may show as unknown if DVLA does not return that field for the configured vehicle.
 
