@@ -1,11 +1,16 @@
 ---
 name: create-blog-post
-description: Use this if the user wants to convert a blog post from Google Docs markdown to the format used in the Home Assistant website.
+description: Use this if the user wants to convert a blog post from Google Docs markdown to the format used in the Home Assistant website, or wants to publish an externally linked (crosspost) blog post that redirects to an article hosted on another site.
 ---
 
 # Create Blog Post
 
 Convert a draft markdown file into a properly formatted Home Assistant blog post.
+
+There are two kinds of blog posts this skill handles:
+
+- **Standard blog posts** — full content hosted on the Home Assistant website, converted from a Google Docs markdown draft. This is the default path, described in the sections below.
+- **Externally linked (crosspost) blog posts** — a short teaser that redirects readers to an article hosted on another site (for example, the Open Home Foundation blog). If the user asks to "publish a blog that is externally linked", "create a crosspost", "add an external blog post", or similar, follow the [Externally linked (crosspost) blog posts](#externally-linked-crosspost-blog-posts) section instead.
 
 ## Usage
 
@@ -233,6 +238,78 @@ This would create:
 
 - Only `www.home-assistant.io` and `home-assistant.io` stay as Markdown links
 - All other domains/subdomains → HTML `<a>` tags with `target="_blank" rel="noopener"`
+
+## Externally linked (crosspost) blog posts
+
+A crosspost is a short blog entry that does not host the full article. Instead, it shows a teaser and redirects the reader to an article hosted on another site (for example, the Open Home Foundation blog). Use this path when the user asks to publish an externally linked blog, add a crosspost, or link out to an article on another site.
+
+Unlike a standard blog post, a crosspost has no draft file and no local images to process:
+
+- The `crosspost` layout redirects visitors to the `external_url`.
+- The Open Graph image is fetched automatically from the external URL at build time by the `crosspost_og` plugin, so you do not need to add or convert any image. Only set `og_image` by hand if the user explicitly provides one.
+
+### 1. Collect the details with a wizard
+
+Before writing anything, gather the required details from the user with the ask-questions tool (`vscode_askQuestions`). Present these as a short wizard so the user can confirm each value. Ask for all of the following, pre-filling any values the user already provided in their request:
+
+- **Title** — the blog post title. Use sentence-style capitalization.
+- **Source URL** — the link to the source article. First ask the user whether they only have a preview URL so far (for example, a Netlify deploy-preview link such as `https://deploy-preview-87--open-home-foundation.netlify.app/blog/…`). A preview URL is useful for pulling the article details, but it must not be used as the final `external_url`. If they provide a preview URL, work out the final published URL (usually the same path on the live domain, such as `https://www.openhomefoundation.org/blog/…`) and confirm it with the user before continuing.
+- **External source** — the name of the site hosting the article (for example, "Open Home Foundation"). This is shown as the source label.
+- **Opening text** — the teaser paragraph shown before the reader is redirected. This ends with the `<!--more-->` tag. If the user does not have one ready, offer to draft a short teaser from the article for their review.
+- **Description** — the Social/OpenGraph description (roughly 120–158 characters). Often a condensed version of the opening text.
+- **Author** — must match a top-level key in `source/_data/people.yml`. Verify it exists; if not, tell the user it must be added before publishing.
+- **Publish date** — in `YYYY-MM-DD` format. Used for the filename, `date`, and `date_formatted` fields.
+- **Category** — the blog category (for example, `Technology`).
+
+If a source URL is available, fetch it to pre-fill as many of these details as possible (title, description, opening paragraph, author, date) so the user only has to confirm or correct them.
+
+Confirm the collected values back to the user before creating the file.
+
+### 2. Validate the details
+
+- Verify the **author** exists as a top-level key in `source/_data/people.yml`. If missing, stop and ask the user to add the author first.
+- Verify the **external URL** starts with `https://` (the OG image fetch only works over HTTPS).
+- Make sure the `external_url` is the final published URL, not a preview or deploy-preview link. If the user only supplied a preview URL, confirm the resolved live URL with them before using it.
+- Generate the URL slug from the title (lowercase, hyphens for spaces, remove special characters), unless the user provides one. If the source URL already has a clean slug in its path, prefer reusing that.
+
+### 3. Build the crosspost
+
+Create `source/_posts/YYYY-MM-DD-slug.markdown` with this front matter and body:
+
+```markdown
+---
+layout: crosspost
+title: "Your crosspost title"
+description: "Your Social/OpenGraph description."
+date: YYYY-MM-DD 00:00:01
+date_formatted: "Month DD, YYYY"
+author: AuthorKey
+comments: false
+categories: Category
+external_url: "https://example.com/full-article-url/"
+external_source: "Source name"
+---
+
+Your opening teaser paragraph goes here, ending with the summary break tag.<!--more-->
+```
+
+Notes:
+
+- Wrap `title`, `description`, `external_url`, and `external_source` values in double quotes.
+- `date_formatted` is the human-readable date, such as `"June 18, 2026"`.
+- `author` is the key from `people.yml`, not the display name.
+- The body is only the opening teaser paragraph followed immediately by `<!--more-->`. Do not add the full article text — the reader is redirected to the source.
+- Apply the same prose rules as standard posts (curly apostrophes and quotes in body text, sentence-style capitalization for the title).
+- Do not add an `og_image` field unless the user explicitly provides an image URL; the OG image is fetched from the external URL automatically.
+
+### 4. Crosspost summary
+
+After creating the file, summarize for the user:
+
+- The output file path
+- Title, external source, external URL, author (and whether verified in `people.yml`), date, and category
+- The opening text and description used
+- A reminder that the Open Graph image is fetched automatically from the external URL at build time
 
 ## Post-processing summary
 
