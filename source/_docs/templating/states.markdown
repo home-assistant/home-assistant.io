@@ -46,7 +46,7 @@ This one entity has:
 When you write `{{ states('sensor.outdoor_temperature') }}`, Home Assistant looks up that exact entity ID and gives you back its state. It is that direct.
 
 {% tip %}
-Keep the Developer Tools > States page open in a separate browser tab while you write templates. You can search for entities, see exactly what state and attributes they have, and make sure you are spelling entity IDs correctly. It is the single most useful debugging habit you can build.
+Keep the {% my developer_states title="**Settings** > **Tools** > **States**" %} page open in a separate browser tab while you write templates. You can search for entities, see exactly what state and attributes they have, and make sure you are spelling entity IDs correctly. It is the single most useful debugging habit you can build.
 {% endtip %}
 
 ## Reading a state
@@ -110,7 +110,7 @@ template: |
 output: "192"
 {% endexample %}
 
-You can find an entity's attribute names by looking at Developer Tools > States.
+You can find an entity's attribute names by looking at {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 ## Checking a state
 
@@ -214,7 +214,7 @@ automation: |
 output: "1 (the sensor increments its own value each time it updates)"
 {% endexample %}
 
-`this` only exists where Home Assistant knows which entity the template belongs to. That means template entities and some automation contexts, but not the Developer Tools template editor.
+`this` only exists where Home Assistant knows which entity the template belongs to. That means template entities and some automation contexts, but not the **Template editor** available in {% my developer_template title="Settings > Tools > Templates" %}.
 
 ## The `trigger` variable (in automations)
 

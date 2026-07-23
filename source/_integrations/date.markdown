@@ -22,8 +22,8 @@ If you are looking for a way to create a similar entity, please take a look at t
 The state of a date entity is the actual date value.
 
 <p class='img'>
-<img src='/images/integrations/date/state_date.png' alt='Screenshot showing the state of a date in the developer tools' />
-Screenshot showing the state of a date in the developer tools. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
+<img src='/images/integrations/date/state_date.png' alt='Screenshot showing the state of a date in Settings > Tools > States' />
+Screenshot showing the state of a date in {% my developer_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
 </p>
 
 In addition, the entity can have the following states:

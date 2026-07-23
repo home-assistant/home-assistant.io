@@ -1,13 +1,13 @@
 ---
-title: "Developer tools"
-description: "Description of the developer tools."
+title: "Tools"
+description: "Description of the Home Assistant tools."
 ---
 
 The dashboard contains a section called **Tools**.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
-Screenshot of Home Assistant's developer tools.
+Screenshot of Home Assistant's tools.
 </p>
 
 | Section    | Description                                                         |
@@ -20,9 +20,9 @@ Screenshot of Home Assistant's developer tools.
 | Statistics | Shows a list of long-term statistic entities                        |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
-## What can I do with Developer tools?
+## What can I do with Home Assistant´s Tools?
 
-The Developer tools is meant for **all** (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+The available tools are meant for _all_ (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
 
 ## YAML tab
 
@@ -145,7 +145,7 @@ The **Statistics** tab shows a list of long-term statistic entities. If the long
 
 ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
 
-Another use of the {% my developer_statistics title="statistics developer tool" %} is to correct any measurements. Select the
+Another use of the {% my developer_statistics title="statistics tool" %} is to correct any measurements. Select the
 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
 icon. Use date & time to search for the incorrect data point and adjust the value.
 
@@ -163,4 +163,4 @@ If no matching intent is found, then Assist is unable to interpret the sentence.
 - The lights are in the area *office*.
 - The targets are the narrowed-down entities in scope.
 
-![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
+![Example use of assist tools](/images/docs/developer-tools/Assist.png)

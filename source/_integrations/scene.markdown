@@ -23,8 +23,8 @@ The scene entity is stateless. Unlike a normal switch entity, it does not have a
 Every scene entity keeps track of the timestamp of when it was last called, either via the Home Assistant UI or via an action.
 
 <p class='img'>
-<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the developer tools' />
-Screenshot showing the state of a scene entity in the developer tools.
+<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in Settings > Tools > States %}' />
+Screenshot showing the state of a scene entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:

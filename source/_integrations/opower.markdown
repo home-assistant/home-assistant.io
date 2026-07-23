@@ -112,7 +112,7 @@ Depending on your utility, some or all of the usage and cost sensors may not be 
 
 The primary way this integration provides historical energy data to Home Assistant is through **statistics**. These statistics are not exposed as standard sensor entities.
 
-Use these statistics when configuring the Energy dashboard by selecting a **statistic**. You can also view the available statistics in **Developer tools > Statistics**.
+Use these statistics when configuring the Energy dashboard by selecting a **statistic**. You can also view the available statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%}.
 {% endnote %}
 
 The integration adds the following diagnostic sensors for each account:

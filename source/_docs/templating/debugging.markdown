@@ -137,7 +137,7 @@ A common source of confusion is "why isn't my template updating?", or the opposi
 
 If you write a template that does not read any state or use `now()`, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
 
-### Why does it work in Developer Tools but not in my automation?
+### Why does it work in Tools but not in my automation?
 
 The **Template editor** runs your template once, right when you open it, and shows the result. There is no ongoing re-evaluation. That makes it great for testing, but a working template in the editor does not guarantee it works in an automation.
 

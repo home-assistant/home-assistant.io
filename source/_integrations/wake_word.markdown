@@ -23,8 +23,8 @@ The wake-word-detection entities cannot be implemented manually, but can be prov
 The state of a wake word detection {% term entity %} is a timestamp showing the date and time when the wake word was last detected.
 
 <p class='img'>
-<img src='/images/integrations/wake_word/state_wake-word.png' alt='Screenshot showing the state of a wake word detection entity in the developer tools' />
-Screenshot showing the state of a wake word detection entity in the developer tools.
+<img src='/images/integrations/wake_word/state_wake-word.png' alt='Screenshot showing the state of a wake word detection entity in Settings > Tools > States' />
+Screenshot showing the state of a wake word detection entity in {% my developer_states title="Settings > Tools > States" %}.
 </p>
 
 In addition, the entity can have the following states:

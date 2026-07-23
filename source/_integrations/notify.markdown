@@ -22,8 +22,8 @@ If you want to send notifications to the Home Assistant web interface, you may u
 The state of a notify entity is the date and time when a message was last sent.
 
 <p class='img'>
-<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the developer tools' />
-Screenshot showing the state of a notify entity in the developer tools.
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
+Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}.
 </p>
 
 In addition, the entity can have the following states:
@@ -113,7 +113,7 @@ automation: |
 
 ## Testing a notification action
 
-After you set up a [notifier](/integrations/#notifications), test its action from the developer tools.
+After you set up a [notifier](/integrations/#notifications), test its action in **Tools**.
 
 1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 2. From the **Action** dropdown menu, choose the action you want to test, such as **Send a notification message** or **Send a persistent notification**.

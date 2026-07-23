@@ -61,7 +61,7 @@ attr_name:
 
 {% tip %}
 
-To see all available device attributes, go to {% my developer_states title="**Developer Tools** > **States**" %} and look at the device registry entries, or use the **Devices** page in {% my integrations title="**Settings** > **Devices & services**" %} to inspect a specific device.
+To see all available device attributes, go to {% my developer_states title="**Tools** > **States**" %} and look at the device registry entries, or use the **Devices** page in {% my integrations title="**Settings** > **Devices & services**" %} to inspect a specific device.
 
 {% endtip %}
 
