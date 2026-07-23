@@ -51,7 +51,7 @@ You can group cards without using horizontal or vertical stack cards.
   Editing the header
 </p>
 
-1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/configuration/templating/).
+1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/templating/).
 2. To add badges, select the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
 3. To change the title and badges disposition, select the edit {% icon "mdi:edit" %} button to access header settings.
 
@@ -81,12 +81,23 @@ The view comes with one section to which you can directly add a card.
 
 You can add a colored background to individual sections. This is a great way to visually group related cards or highlight important sections on your dashboard.
 
+The background is applied to the section itself, not to the cards inside it. The cards keep their own background.
+
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. Select the edit {% icon "mdi:edit" %} button on the section you want to customize.
 3. Enable the **Background** toggle.
 4. To change the background color and opacity, expand **Background options**.
-   - Pick a color from the predefined list, or enter a custom hex color code.
+   - Select **Default** to use the background color from your theme.
+   - Alternatively, pick a color from the predefined list, or enter a custom hex color code.
    - Use the **Opacity** slider to adjust the transparency of the background.
+
+If you have sections side by side on the same row, sections without a background automatically align with those that have one, keeping the row looking tidy.
+
+{% note %}
+If the cards in a section appear to take on the background color, your theme most likely uses a transparent card background. Set a card background color in your theme to keep the cards visually distinct.
+
+You can customize the default background color and the section corner rounding in a [custom theme](/integrations/frontend/#defining-themes) using the `ha-section-background-color` and `ha-section-border-radius` variables.
+{% endnote %}
 
 ## Deleting a section
 
@@ -112,6 +123,87 @@ In the sections view, you can rearrange sections and cards by dragging them to a
       <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
       Rearranging cards by dragging
     </p>
+
+## Setting a section theme
+
+You can apply different themes to individual sections within a view. This allows you to visually distinguish different areas of your dashboard, such as using warm colors for alerts or cool colors for general information.
+
+### Prerequisites
+
+Before setting a section theme, you must [create your custom themes in YAML configuration](/integrations/frontend/#defining-themes).
+
+### To set a section theme via the UI
+
+1. Open your dashboard in edit mode: in the top right of the screen, select the edit {% icon "mdi:edit" %} button.
+2. On the section you want to theme, select the edit {% icon "mdi:edit" %} button.
+3. Select **Edit Section**.
+4. Go to the **Settings** tab.
+5. Use the **Theme** dropdown to select a theme for this section.
+6. Select **Save**.
+
+### To set a section theme via YAML
+
+Add the `theme` property to a section configuration:
+
+```yaml
+views:
+  - title: Dashboard
+    # View theme
+    theme: default-theme  
+    type: sections
+    sections:
+      - type: grid
+        # Section overrides view theme
+        theme: custom-theme  
+        cards:
+          - type: weather-forecast
+            entity: weather.home
+      - type: grid
+        # No theme specified - inherits view theme
+        cards:
+          - type: sensor
+            entity: sensor.temperature
+```
+
+### YAML example
+
+```yaml
+views:
+  - title: Home Status
+    theme: main_view
+    type: sections
+    sections:
+      # System alerts section with orange theme
+      - type: grid
+        title: System Alerts
+        theme: alert_section
+        cards:
+          - type: tile
+            entity: update.home_assistant_core_update
+          - type: tile
+            entity: sensor.processor_use
+          - type: tile
+            entity: sensor.memory_use_percent
+      
+      # General info section inherits blue theme
+      - type: grid
+        title: Status & Info
+        cards:
+          - type: tile
+            entity: sun.sun
+          - type: tile
+            entity: weather.home
+```
+
+<p class='img'>
+    <img src="/images/dashboards/section-theme-light.png" alt="Dashboard with themed sections in light mode"/>
+    Dashboard with section themes in light mode
+</p>
+
+<p class='img'>
+    <img src="/images/dashboards/section-theme-dark.png" alt="Dashboard with themed sections in dark mode"/>
+    Dashboard with section themes in dark mode
+</p>
 
 ## Show or hide section conditionally
 
@@ -183,6 +275,10 @@ background:
       description: "The opacity of the background, from fully transparent to fully opaque."
       type: integer
       default: 50
+theme:
+  required: false
+  description: Theme to apply to this section. Overrides the view theme for this section only. See [themes](/integrations/frontend/#defining-themes).
+  type: string
 {% endconfiguration %}
 
 ### Examples

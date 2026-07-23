@@ -8,12 +8,12 @@ ha_zeroconf: true
 ha_integration_type: hub
 ha_release: 2026.4
 ha_codeowners:
-  - '@Linkplay'
+  - '@Linkplay2020'
 ha_config_flow: true
 ha_platforms:
   - media_player
-  - button
 ha_iot_class: Local Push
+ha_quality_scale: bronze
 ---
 
 The **WiiM** {% term integration %} allows you to control different [WiiM](https://www.wiimhome.com) devices from Home Assistant.
@@ -38,11 +38,6 @@ The button entities provide some additional WiiM features available on the devic
 
 - **Time Sync**: Synchronizes the device’s internal clock with the current time on your Home Assistant server, ensuring features like scheduled playback or time-based automations remain accurate.
 - **Restart Device**: Reboots the device remotely, providing a quick way to recover from connectivity issues or apply configuration changes without physical interaction.
-
-## Actions
-
-The WiiM integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
-
 
 ## Removing the integration
 

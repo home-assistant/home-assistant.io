@@ -1,0 +1,41 @@
+@use '../variables' as *;
+@use '../../inuitcss/generic/mixins' as *;
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+
+  @media only screen and (max-width: $palm-end) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 16px;
+    border-radius: 16px;
+    background: $white;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    text-decoration: none !important;
+    color: $grayDark;
+    font-weight: 600;
+    text-align: center;
+    height: 100%;
+    transition: box-shadow 0.5s;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    iconify-icon {
+      font-size: 3rem;
+    }
+  }
+}

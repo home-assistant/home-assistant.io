@@ -45,71 +45,21 @@ stream_path:
   description: This parameter allows you to override the stream path. The default is `live.sdp`.
 {% endconfiguration_basic %}
 
-### Actions
+## Using VIVOTEK cameras in automations
 
-Once loaded, the `camera` platform will expose actions that can be called to perform various actions.
+VIVOTEK provides a camera entity. To use a VIVOTEK camera in an automation or script, use one of the shared camera actions and select your VIVOTEK camera as the target.
 
-Available actions: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
+To use a camera action from an automation or a script:
 
-#### Action: Play stream
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your VIVOTEK camera.
+6. From the actions shown for that target, select the camera action you want to use.
+7. Set the required fields, if any.
+8. Select **Save**.
 
-The `play_stream` action plays a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
+Supported camera actions include [**Enable camera motion detection**](/actions/camera.enable_motion_detection/), [**Disable camera motion detection**](/actions/camera.disable_motion_detection/), [**Take camera snapshot**](/actions/camera.snapshot/), and [**Play camera stream**](/actions/camera.play_stream/).
 
-| Data attribute | Optional | Description                                                                                            |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | no       | Name of {% term entity %} to fetch stream from, e.g., `camera.front_door_camera`.                      |
-| `media_player`         | no       | Name of media player to play stream on, e.g., `media_player.living_room_tv`.                           |
-| `format`               | yes      | Stream format supported by `stream` {% term integration %} and selected `media_player`. Default: `hls` |
-
-For example, the following action in an automation would send an `hls` live stream to your chromecast.
-
-```yaml
-actions:
-  - action: camera.play_stream
-    target:
-      entity_id: camera.yourcamera
-    data:
-      media_player: media_player.chromecast
-```
-
-#### Action `enable_motion_detection`
-
-Enable motion detection in a camera. Currently, this will enable the first event configured on the camera.
-
-| Data attribute | Optional | Description                                                                       |
-| ---------------------- | -------- | --------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Name(s) of entities to enable motion detection, e.g., `camera.front_door_camera`. |
-
-#### Action `disable_motion_detection`
-
-Disable the motion detection in a camera. Currently, this will disable the first event configured on the camera.
-
-| Data attribute | Optional | Description                                                                        |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Name(s) of entities to disable motion detection, e.g., `camera.front_door_camera`. |
-
-#### Action `snapshot`
-
-Take a snapshot from a camera.
-
-| Data attribute | Optional | Description                                                                                                   |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name(s) of entities to create a snapshot from, e.g., `camera.front_door_camera`.                              |
-| `filename`             | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
-
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/#allowlist_external_dirs) section of your `configuration.yaml` file.
-
-For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
-
-{% raw %}
-
-```yaml
-actions:
-  - action: camera.snapshot
-    target:
-      entity_id: camera.front_door_camera
-    data:
-      filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
-```
-
-{% endraw %}
+For VIVOTEK cameras, the motion detection actions enable or disable the first event configured on the camera.

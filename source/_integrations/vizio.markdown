@@ -3,6 +3,7 @@ title: VIZIO SmartCast
 description: Instructions on how to integrate VIZIO SmartCast TVs and sound bars into Home Assistant.
 ha_category:
   - Media player
+  - Remote
 ha_release: 0.49
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: vizio
 ha_zeroconf: true
 ha_platforms:
   - media_player
+  - remote
 ha_integration_type: device
 ---
 
@@ -42,7 +44,7 @@ Write down its IP address and port number. If you have trouble finding a device 
 
 ## Pairing
 
-This {% term integration %} requires an access token in order to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
+This {% term integration %} requires an access token to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
 
 ### Pair using the Home Assistant frontend
 
@@ -211,16 +213,96 @@ The list of apps that are provided by default is statically defined [here](https
 pyvizio --ip=0 get-apps-list
 ```
 
-## Action `vizio.update_setting`
+{% include integrations/actions.md %}
 
-This action allows you to update a setting on a given VIZIO device. You will need to know the type of setting and the name of the setting to perform this action. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the lowercase version of the first menu item you'd select (e.g., display, audio, system), and the setting name is what you see in the app, but spaces are replaced with underscores and it is also all lowercase (e.g., AV delay would be called `av_delay`).
+## Remote
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | yes | The devices to update a setting for. | `media_player.vizio_smartcast`
-| `setting_type` | no | The type of setting. | `audio`
-| `setting_name` | no | The name of the setting. | `eq`
-| `new_value` | no | The new value to set the setting to. | `Music`
+The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive. You can use either the native key name (for example, `vol_up`) or a human-friendly alias (for example, `volume_up`).
+
+### Available commands
+
+#### TV commands
+
+| Command | Additional aliases |
+| :------ | :------ |
+| `back` | |
+| `cc_toggle` | `closed_captions`, `cc` |
+| `ch_down` | `channel_down` |
+| `ch_prev` | `previous_channel` |
+| `ch_up` | `channel_up` |
+| `down` | |
+| `exit` | |
+| `home` | |
+| `info` | |
+| `input_next` | `next_input` |
+| `left` | |
+| `left2` | |
+| `menu` | |
+| `mute_off` | |
+| `mute_on` | |
+| `mute_toggle` | `mute`, `toggle_mute` |
+| `ok` | `enter`, `select` |
+| `pause` | |
+| `pic_mode` | `picture_mode` |
+| `pic_size` | `picture_size` |
+| `play` | |
+| `pow_off` | `off`, `power_off` |
+| `pow_on` | `on`, `power_on` |
+| `pow_toggle` | `power_toggle`, `toggle_power`, `power` |
+| `right` | |
+| `seek_back` | `reverse`, `rewind` |
+| `seek_fwd` | `forward`, `fast_forward`, `ff` |
+| `smartcast` | |
+| `up` | |
+| `vol_down` | `volume_down` |
+| `vol_up` | `volume_up` |
+
+#### Speaker commands
+
+Speakers support a subset of the commands above:
+
+`mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
+
+Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
+
+### Examples
+
+Send a single command:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - enter
+```
+
+Send multiple commands:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - down
+    - down
+    - enter
+```
+
+Repeat a command with a delay between each repeat:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.vizio_smartcast
+data:
+  command:
+    - volume_up
+  num_repeats: 5
+  delay_secs: 0.4
+```
 
 ## Notes and limitations
 

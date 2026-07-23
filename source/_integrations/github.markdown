@@ -113,6 +113,17 @@ These entities are simpler diagnostic entities without any additional attributes
 - **Stars**: Shows the number of stars
 - **Watchers**: Shows the number of watchers
 
+### User entities
+
+In addition to the entities for each tracked repository, the integration provides a device that represents your authenticated GitHub user account. The device is named after your GitHub account. This device has the following sensors, which are disabled by default:
+
+- **Followers**: Shows the number of people following your account
+- **Following**: Shows the number of accounts you follow
+- **Public gists**: Shows the number of public gists on your account
+- **Public repositories**: Shows the number of public repositories on your account
+
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+
 ## Automation
 
 Here are some small examples on how you can automate using the provided entities from this integration.
@@ -125,8 +136,6 @@ you need to replace it with actions and entities that you have in your installat
 ### Notify new releases
 
 This example uses the [Latest release](#latest-release) entity provided by this integration, and a [notify](/integrations/notify) action,
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -142,13 +151,9 @@ actions:
 
 ```
 
-{% endraw %}
-
 ### Notify new stars
 
 This example uses the [Stars](#diagnostic-entities) diagnostic entity provided by this integration, and a [notify](/integrations/notify) action,
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -162,5 +167,3 @@ actions:
         github/repository was starred again!
         Total stars are now: {{ trigger.to_state.state }}
 ```
-
-{% endraw %}

@@ -1,6 +1,6 @@
 ---
 title: Subaru
-description: Instructions on how to setup your Subaru account with Home Assistant.
+description: Instructions on how to set up your Subaru account with Home Assistant.
 ha_category:
   - Car
   - Lock
@@ -13,6 +13,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - button
   - device_tracker
   - diagnostics
   - lock
@@ -53,17 +54,22 @@ If your account includes multiple vehicles, the same PIN will be used for all ve
 
 Available sensors will vary by model, year, and subscription type. The integration will add all supported sensors for your vehicle. Sensor data is usually only updated when the vehicle is turned off unless the [polling option](#options) is enabled.
 
-| Sensor                   | Gen 1   | Gen 2   | Gen 3   |
-|--------------------------|---------|---------|---------|
-| Average fuel consumption |         | &check; | &check; |
-| Distance to empty        |         | &check; | &check; |
-| EV battery level         |         | &check; | &check; |
-| EV range                 |         | &check; | &check; |
-| EV time to full charge   |         | &check; | &check; |
-| Odometer                 | &check;*| &check; | &check; |
-| Tire pressures           |         | &check; | &check; |
+| Sensor                            | Gen 1    | Gen 2   | Gen 3   |
+|-----------------------------------|----------|---------|---------|
+| Average fuel consumption          |          | &check; | &check; |
+| Distance to empty                 |          | &check; | &check; |
+| EV battery level                  |          | &check; | &check; |
+| EV range                          |          | &check; | &check; |
+| EV time to full charge            |          | &check; | &check; |
+| Odometer                          | &check;* | &check; | &check; |
+| Recommended tire pressure front   |          | &check; | &check; |
+| Recommended tire pressure rear    |          | &check; | &check; |
+| Tire pressures                    |          | &check; | &check; |
+| Vehicle state                     |          | &check; | &check; |
 
-\* Gen 1 odometer only updates every 500 miles <br>
+\* Gen 1 odometer only updates every 500 miles. <br>
+
+EV sensors (EV battery level, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors are disabled by default and may report `unknown` on older Gen 2 vehicles that do not advertise the underlying tire-pressure recommendation in `vehicle_health`. The vehicle state sensor reports one of `ignition_off`, `ignition_acc` (accessory power), `ignition_on`, or `engine_on_remote_start`; if your vehicle reports a value not in that list, please file a bug and attach the integration's diagnostics download.
 
 ## Lock
 
@@ -86,6 +92,14 @@ The action requires the `door` parameter which may be set to one of the followin
 
 Tracks the most recently reported location of the vehicle. The vehicle reports its location when it is turned off. If enabled, the [polling option](#options) will also update the vehicle location.
 
+## Remote start
+
+Remote start and stop is available on supported Gen 2/3 vehicles.
+
+### Climate preset selection
+
+Currently the Remote Start action will use the built-in "Auto" climate preset. Support for selecting a climate preset will be added in the future.
+
 ## Options
 
 Subaru integration options are set via:
@@ -103,12 +117,6 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 **Q:** How do I use the locator, and remote light/horn features in Home Assistant?
 
 **A:** Those features are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon.
-
----
-
-**Q:** Will remote start ever be supported?
-
-**A:** Yes, Gen 2/3 remote start and climate settings are supported by the underlying [subarulink](https://github.com/G-Two/subarulink) Python package, and will be integrated into Home Assistant soon.
 
 ---
 **Q:** Why do I need to enter my PIN during configuration?
@@ -131,4 +139,4 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 
 **Q:** Should I enable the vehicle polling option?
 
-**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress.  Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.
+**A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress. Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.

@@ -9,7 +9,7 @@ ha_codeowners:
 ha_domain: uhoo
 ha_integration_type: hub
 ha_category: []
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_platforms:
   - sensor
 ha_config_flow: true

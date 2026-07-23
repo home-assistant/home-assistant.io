@@ -6,88 +6,102 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: pre 0.7
 ha_domain: smtp
+ha_config_flow: true
 ha_platforms:
   - notify
-ha_integration_type: integration
-ha_quality_scale: legacy
+ha_integration_type: service
 ---
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    sender: "YOUR_SENDER"
-    recipient: "YOUR_RECIPIENT"
-```
+Check your email provider configuration or help pages to get the correct SMTP settings.
+{% configuration_basic %}
+Sender email:
+    description: "Email address that will appear in the From field."
+Sender name:
+    description: "Display name shown as the email sender."
+Host:
+    description: "Hostname or IP address of your SMTP server. For example, `smtp.example.com`."
+Port:
+    description: "Port number used by your SMTP server. Common values are `587` (STARTTLS) and `465` (TLS)."
+Connection security:
+    description: "Encryption method used for the SMTP connection. `starttls` upgrades a plain connection to encrypted (recommended). `tls` uses encryption from the start. `none` sends without encryption."
+Username:
+    description: "Username used to authenticate with the SMTP server."
+Password:
+    description: "Password or app-specific password for the SMTP account."
+Verify SSL certificate:
+    description: "Enable certificate verification for secure SSL/TLS connections."
+{% endconfiguration_basic %}
 
-Check your email provider configuration or help pages to get the correct SMTP settings. A restart of Home Assistant is required to pick up the configuration changes.
+## Configuration options
 
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
-  required: false
-  type: string
-  default: notify
-sender:
-  description: email address of the sender.
-  required: true
-  type: string
-recipient:
-  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the action). Any email address(es) specified in the action's `target` field will override this recipient content.
-  required: true
-  type: [list, string]
-server:
-  description: SMTP server which is used to send the notifications.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port that the SMTP server is using.
-  required: false
-  type: integer
-  default: 587
-timeout:
-  description: The timeout in seconds that the SMTP server is using.
-  required: false
-  type: integer
-  default: 5
-username:
-  description: Username for the SMTP account.
-  required: false
-  type: string
-password:
-  description: Password for the SMTP server that belongs to the given username. Make sure to wrap it in double quotes; e.g., `"MY_PASSWORD"`.
-  required: false
-  type: string
-encryption:
-  description: Set mode for encryption, `starttls`, `tls` or `none`.
-  required: false
-  type: string
-  default: starttls
-sender_name:
-  description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
-  required: false
-  type: string
-debug:
-  description: Enables Debug, e.g., `true` or `false`.
-  required: false
-  type: boolean
-  default: false
-verify_ssl:
-  description: If the SSL certificate of the server needs to be verified.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+The integration provides the following configuration options:
 
-### Usage
+{% configuration_basic %}
+Connection timeout:
+  description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 5 seconds. Must be between 1 and 1800 seconds (30 minutes)."
+{% endconfiguration_basic %}
 
-A notify integration will be created using the name without spaces. In the above example, it will be called `notify.NOTIFIER_NAME`. To use the SMTP notification, refer to it in an automation or script like in this example:
+## Adding recipients
+
+You need to add at least one recipient email address. During the integration setup, you will be asked to add your first recipient email address. Additional recipients can be added later. Recipients are managed separately and can be added, edited, or removed at any time.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **SMTP** integration.
+2. Select **Add recipient**.
+3. Enter the email address you want to send notifications to.
+4. Select **Submit**.
+
+Repeat these steps to add more recipients. Every email address you add can be selected as target for the corresponding integration.
+
+## Specific email provider configuration
+
+Check below some configurations examples for specific email providers.
+If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
+
+### Google Mail
+
+Example configuration for Google Mail.
+
+| **Parameter** | Value |
+| -------- | ------------- |
+| **Host** | smtp.gmail.com |
+| **Port** | 587 |
+| **Sender email** | example@gmail.com |
+| **Sender name** | SENDER_NAME |
+| **Connection security** | STARTTLS |
+| **Username** | example@gmail.com |
+| **Password** | YOUR_APP_PASSWORD |
+
+Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+
+To be able to create an app password:
+
+- You must have 2-step verification enabled on your account with another authentication mechanism than security key.
+- Your Google account must not be enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account must not belong to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+
+## Supported functionality
+
+### Notifiers
+
+The **SMTP** {% term integration %} will add a notify {% term entity %} for each configured recipient. To send a notification, you can use the **Send a notification message** (`notify.send_message`) {% term action %}. For more customizable notifications, use the [notify actions](#notify-actions) instead.
+
+{% example %}
+action: |
+  action: notify.send_message
+  data:
+    title: "Reminder Have you considered frogs?"
+    message: "Just checking in. Have you considered frogs today? If not, there's still time."
+  target:
+    entity_id: notify.my_email
+{% endexample %}
+
+### Notify actions
+
+A notify integration will be created using the entry name without spaces. To use the SMTP notification, refer to it in an automation or script like in this example:
 
 ```yaml
 - alias: "Send E-Mail Every Morning"
@@ -103,7 +117,7 @@ A notify integration will be created using the name without spaces. In the above
             - "morning@example.com"
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
+The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified as recipient subentries in integration. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
 
 Another example attaching images stored locally in a script:
 
@@ -197,40 +211,39 @@ burglar:
               </html>
 ```
 
-To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
+## SMTP automation examples
 
-## Specific email provider configuration
+You can use this integration to create automations that send a notification to your email address when something happens.
 
-Check below some configurations examples for specific email providers.
-If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
+{% include docs/paste_yaml_tip.md %}
 
-### Google Mail
+### Automation: send an email message when front door opens
 
-A sample configuration entry for Google Mail.
+This automation sends a notification message to an email address when the front door opens.
 
-```yaml
-# Example configuration.yaml entry for Google Mail.
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    server: "smtp.gmail.com"
-    port: 587
-    timeout: 15
-    sender: "YOUR_USERNAME@gmail.com"
-    encryption: starttls
-    username: "YOUR_USERNAME@gmail.com"
-    password: "YOUR_APP_PASSWORD"
-    recipient:
-      - "RECIPIENT_1@example.com"
-      - "RECIPIENT_N@example.com"
-    sender_name: "SENDER_NAME"
-```
+- **Trigger**: State
+  - **Entity**: Front door binary sensor
+  - **To**: On
+- **Action**: Send a notification message
+  - **Target**: My email address (`notify.my_email`)
 
-Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+{% details "YAML example for email notification when door opens" %}
 
-If any of the following conditions are met you will not be able to create an app password:
+{% example %}
+automation: |
+  alias: "Notify by email: front door opened"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_email
+      data:
+        title: "Alert: Front Door Opened"
+        message: >
+          The front door was opened at {{ now().strftime('%Y-%m-%d %H:%M:%S') }}.
+{% endexample %}
 
-- You do not have 2-step verification enabled on your account.
-- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
-- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
-- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.
+{% enddetails %}

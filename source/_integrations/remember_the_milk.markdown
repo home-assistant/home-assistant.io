@@ -28,7 +28,7 @@ To be able to use this integration, you need a Remember The Milk account and you
 # Example configuration.yaml entry
 
 remember_the_milk:
-  - name: your_rtm_account
+  - name: your_rtm_username
     api_key: YOUR_API_KEY
     shared_secret: YOUR_SHARED_SECRET
 
@@ -36,7 +36,7 @@ remember_the_milk:
 
 {% configuration %}
   name:
-    description: Name of the RTM account, as you can have several accounts in RTM. The name must be unique.
+    description: Your RTM username, as you can have several accounts in RTM. The name must be unique.
     required: true
     type: string
   api_key:
@@ -51,67 +51,52 @@ remember_the_milk:
 
 ### Step 2: Registering your account
 
-After saving the configuration, you need to (re-)start Home Assistant. On the first start you will notice a new "Configuration" panel appearing on the Home Assistant page. After opening the configuration page, follow the link "Remember The Milk login". This will take you to a login page where you have to log in with your normal Remember The Milk credentials. This will authorize Home Assistant to access your Remember The Milk account.
+After you save the configuration:
 
-After that click on the "login completed" button. This will tell Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
+1. Restart Home Assistant. When it starts again, you receive a "Configurator" notification in Home Assistant.
+2. Select **Configure**.
+3. On the dialog, select **Remember The Milk login** and log into Remember The Milk website.
+4. Select **OK, I'll allow it** to authorize Home Assistant to access your Remember The Milk account.
+5. Close the RTM browser tab, and back in Home Assistant, select **login completed**.
 
-If the registration was successful, the Configuration panel will disappear from your Home Assistant screen and a Remember The Milk panel should appear. This completes the setup process.
+This tells Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
 
-In the background Home Assistant downloaded a "token" from the Remember The Milk server which is stored in the `remember_the_milk.conf` file locally. So you only need to register once. After that the token is used to authenticate with the server.
+If the registration was successful, the Configurator notification disappears from your Home Assistant notifications.
 
-## Creating/updating tasks with service `create_task`
+In the background, Home Assistant downloaded a token from the Remember The Milk server, stored in the `remember_the_milk.conf` file locally.
 
-This integration offers a new service domain `remember_the_milk` with the services `<account>_create_task`. You can call this service with the argument `name` and the optional parameter `id` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
+### Verifying configuration
 
-If you set an `id` and a task with that id exists already, the existing task is updated, rather than creating a new task. This way you can change the name of the task. If you do not set an `id`, a new task is created with every call. If you're using this from an automation, you could use the name of your automation as id or the entity that triggered the task to be created. This way you can later on update or complete this task.
+To confirm that your configuration was successful, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Remember The Milk**.
+The integration should now show **1 entity** and if you select it, it should be named after your RTM username.
 
-The task creation supports the "smart syntax", so to create a task with the tag "from_hass" which is due today you can create a task with the name `test task created in Home Assistant ^today #from_hass`. More info about the smart syntax is available on the [Remember The Milk documentation](https://www.rememberthemilk.com/help/answer/basics-smartadd-howdoiuse).
-
-**Note:**
-At the moment, smart syntax is *not* supported when updating tasks. All smart syntax commands are ignored during the update and will end up as normal text in the name of the task.
-
-| Data attribute | Optional | Description                                                                                  | Example                     |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------- | --------------------------- |
-| name                   | no       | Name of the new task, you can use the smart syntax here.                                     | "do this ^today #from_hass" |
-| id                     | yes      | Identifier for the task you're creating, can be used to update or complete the task later on | "myid"                      |
-
-## Completing tasks with service `complete_task`
-
-Complete a tasks that was privously created from Home Assistant. You can not complete tasks that were created outside of Home Assistant.
-
-If you have created your task with an `id`, calling `<account>_complete_task` with the parameter `id` will then complete your task.
-
-| Data attribute | Optional | Description                                        | Example |
-| ---------------------- | -------- | -------------------------------------------------- | ------- |
-| id                     | no       | Identifier that was defined when creating the task | "myid"  |
+{% include integrations/actions.md %}
 
 ## Automation example
 
 Here's an example for an automation that creates a new task whenever `sensor.mysensor` is `on` and completes it when the sensor reports `off`. This way it reminds you to switch it off. By using the `entity_id` as ID for the task, you can use the same rule also for multiple sensors.
 
-{% raw %}
-
-```yaml
-- triggers:
-    - trigger: state
-      entity_id: sensor.mysensor
-      to: "on"
-  actions:
-    - action: remember_the_milk.myaccount_create_task
-      data:
-        name: "Please switch off {{trigger.entity_id}}"
-        id: "{{trigger.entity_id}}"
-- triggers:
-    - trigger: state
-      entity_id: sensor.mysensor
-      to: "off"
-  actions:
-    - action: remember_the_milk.myaccount_complete_task
-      data:
-        id: "{{trigger.entity_id}}"
-```
-
-{% endraw %}
+{% example %}
+automation: |
+  alias: "Match fan to ceiling light"
+    - triggers:
+        - trigger: state
+          entity_id: sensor.mysensor
+          to: "on"
+      actions:
+        - action: remember_the_milk.my_rtm_username_create_task
+          data:
+            name: "Please switch off {{ trigger.entity_id }}"
+            id: "{{ trigger.entity_id }}"
+    - triggers:
+        - trigger: state
+          entity_id: sensor.mysensor
+          to: "off"
+      actions:
+        - action: remember_the_milk.my_rtm_username_complete_task
+          data:
+            id: "{{ trigger.entity_id }}"
+{% endexample %}
 
 ## Disclaimer
 

@@ -1,6 +1,6 @@
 ---
 title: "Xiaomi Sensor"
-description: "Instructions on how to setup the Xiaomi sensor within Home Assistant."
+description: "Instructions on how to set up the Xiaomi sensor within Home Assistant."
 ha_category:
   - Sensor
 ha_release: "0.50"
