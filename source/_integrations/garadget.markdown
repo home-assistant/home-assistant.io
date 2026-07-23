@@ -123,7 +123,7 @@ logbook:
 
 As of firmware release 1.17 the garadget device has native support for MQTT. The options allow the end-user to configure the device in the following ways 'cloud only', 'cloud and MQTT' or 'MQTT only'.
 
-For configuration of the garadget as a MQTT cover:
+For configuration of the garadget as an MQTT cover:
 
 ```yaml
 mqtt:

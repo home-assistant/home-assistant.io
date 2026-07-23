@@ -144,7 +144,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Button
 
-A writable property which has only two states that can be toggled is represented as a binary sensor platform.
+A writable property that triggers an action, like starting or pausing a program, is represented as a button platform.
 
 | Device |Property |Action |
 | ------ |-------- | ------ |
@@ -300,7 +300,7 @@ A read-only property which has states is represented as a sensor platform.
 
 ### Notification, error event
 
-> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Guide: [Automating on event](/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
 

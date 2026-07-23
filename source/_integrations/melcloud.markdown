@@ -67,6 +67,13 @@ The following attributes are available for `sensor` platform entities:
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
 - Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
 
+### Switch
+
+The following switches can be used:
+
+- **Frost protection**: Enables or disables the configured frost protection.
+- **Overheat protection**: Enables or disables the configured overheat protection.
+
 ## Air-to-Water device
 
 An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary_sensor` platforms.

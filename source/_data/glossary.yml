@@ -49,19 +49,18 @@
   link: /getting-started/concepts-terminology/#apps
 - term: Area
   definition: >-
-    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room. Areas allow you to target actions at an entire group of devices.
-    For example, turning off all the lights in the living room. Locations within
-    your home such as living room, dance floor, etc. Areas can be assigned to
-    floors. Areas can also be used for automatically generated cards, such as
-    the [Area card](/dashboards/area/).
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage. Areas let you target a whole group of devices at
+    once, for example, turning off all the lights in the living room. They also
+    give voice assistants the context to understand commands
+    like "turn on the kitchen lights". Areas can be assigned to floors and used
+    in automations, scripts, and dashboard cards like the
+    [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room.
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage.
   aliases:
     - areas
   link: /docs/organizing/areas/
@@ -90,8 +89,7 @@
     - backups
 - term: Binary sensor
   definition: >-
-    A binary sensor returns information about things that only have two states -
-    such as on or off.
+    A binary sensor is an entity that reports one of two mutually exclusive states, on or off. The device class determines how those states are labeled in the UI. For example, open/closed for a door or detected/clear for motion.
   link: /integrations/binary_sensor
   aliases:
     - binary_sensor
@@ -110,8 +108,7 @@
     - blueprints
 - term: Button
   definition: >-
-    A button entity can fire an event, or trigger an action towards a device or
-    service. It can be compared to a physical push button. The button entity does not have a state like `on` or `off`, but keeps the timestamp of when it was last pressed in the Home Assistant UI or via an action.
+    A button entity works like a physical push button: you press it to make something happen, such as restarting a device or triggering an automation. A button has no `on` or `off` state, but it remembers when it was last pressed. This lets you see when it was last used and set time-based conditions, such as only running an automation if the button wasn't pressed in the last minute.
   link: /integrations/button
   aliases:
     - buttons
@@ -141,6 +138,20 @@
   link: /integrations/climate
   aliases:
     - climates
+- term: Cloud-independent
+  definition: >-
+    Home Assistant is cloud-independent, meaning it does not need an internet
+    connection or a vendor cloud account to keep your smart home running.
+    Devices that talk over local protocols such as Zigbee, Z-Wave, Matter,
+    Thread, and ESPHome continue to work even when the internet is down or a
+    manufacturer shuts down its cloud service. Optional cloud features, such as
+    [Home Assistant Cloud](https://www.nabucasa.com), can be added on top, but
+    the core of your smart home stays on your own hardware.
+  excerpt: >-
+    Cloud-independent means Home Assistant does not need an internet
+    connection or a vendor cloud account to keep your smart home running.
+  aliases:
+    - cloud independent
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a
@@ -246,15 +257,15 @@
     entities. An entity is usually part of a device or a service. Entities have
     states. **Example for entities as part of a device** A combined temperature
     and humidity sensor device provides two sensor entities. One for temperature
-    (e.g. `sensor.temperature` with state `21.0` and unit `°C`) and one for
-    humidity (e.g. `sensor.humidity` with state `65.4` and unit `%`). **Example
+    (such as `sensor.temperature` with state `21.0` and unit `°C`) and one for
+    humidity (such as `sensor.humidity` with state `65.4` and unit `%`). **Example
     for entities as part of a service** A weather service that provides 3
     entities: wind speed, air pressure, and ozon level. **Example of an entity
     used for control** A fan that is turned on when the temperature exceeds
     30&nbsp;°C. There are standardized types of entities for common integrations
     such as light, switch, camera, sensor, fan, or vacuum. Some entities are not
     part of a device or service. Examples of standalone entities are automation,
-    script, scene entities, and helper entities (e.g. input helpers). Most
+    script, scene entities, and helper entities (such as input helpers). Most
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
@@ -307,6 +318,14 @@
   link: /integrations/group/
   aliases:
     - groups
+- term: Helper
+  definition: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need. Some helpers include toggles, number sliders, dropdown lists, text fields, date/time pickers, counters, timers, and schedules. Other helpers derive their value from other entities. For example, computing a minimum or maximum, tracking a trend, measuring utility consumption, or applying a filter. Depending on the type, you can create a helper in **Settings** > **Devices & services** > **Helpers** or with a YAML configuration. Helpers appear as regular entities and can be used in automations, conditions, dashboards, and templates.
+  excerpt: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
+  aliases:
+    - helpers
+  link: /integrations/#helper
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
@@ -449,6 +468,19 @@
   link: /integrations/light
   aliases:
     - lights
+- term: Local control
+  definition: >-
+    Local control means Home Assistant talks to your devices directly over your
+    own network, without sending the commands through a vendor cloud first.
+    Local control makes your smart home faster, keeps your data on your own
+    hardware, and keeps things working when the internet is down. Many
+    integrations in Home Assistant use local control out of the box,
+    including those for Zigbee, Z-Wave, Matter, Thread, and ESPHome devices.
+  excerpt: >-
+    Local control means Home Assistant talks to your devices directly over your
+    own network, without going through a vendor cloud.
+  aliases:
+    - locally controlled
 - term: Matter
   definition: >-
     Matter is an open-source standard that defines how to control smart home
@@ -480,7 +512,7 @@
     Platforms are building blocks provided by some integrations to be used by
     other integrations. For example, the [Light](/integrations/light)
     integration provides the `light platform` that is utilized by all
-    integrations providing `light` entities such as e.g.
+    integrations providing `light` entities, such as
     [Hue](/integrations/hue).
   excerpt: >
     Platforms are building blocks provided by some integrations to be used by
@@ -500,10 +532,9 @@
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
     perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. If you do not see the **Quick
-    reload** option in the menu, you need to enable **Advanced mode** in your
-    user settings. More granular reload options are available in *YAML
-    configuration reloading* section in **Settings** > **Developer tools** > **YAML**.
+    Assistant** (top right) > **Quick reload**. More granular reload options
+    are available in *YAML configuration reloading* section in **Settings** >
+    **Developer tools** > **YAML**.
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front

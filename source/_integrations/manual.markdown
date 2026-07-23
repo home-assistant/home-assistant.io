@@ -109,7 +109,7 @@ The `manual_alarm_bad_code_attempt` event is fired when an attempt to change the
 
 - **entity_id** (string): The entity ID of the alarm control panel (for example, `alarm_control_panel.my_alarm`).
 - **target_state** (string): The attempted target state (for example, `disarmed`, `armed_away`, `armed_home`).
-- **user_id** (string): The user ID who initiated the service call (if available).
+- **user_id** (string): The user ID who initiated the action (if available).
 
 Example automation trigger:
 
@@ -139,7 +139,7 @@ When the alarm is armed, its state first goes to **arming** for a number
 of seconds equal to the destination state's **arming_time**, and then
 transitions to one of the "armed" states. Note that **code_template**
 never receives "arming" in the **to_state** variable; instead,
-**to_state** contains the state which the user has requested.  However,
+**to_state** contains the state which the user has requested. However,
 **from_state** *can* contain "arming".
 
 When the alarm is triggered, its state goes to **pending** for a number of
@@ -159,7 +159,7 @@ you some time to leave the building (for "armed" states).
 
 **delay_time** can be used to allow some time to disarm the alarm, with
 flexibility. For example, you could specify a delay time for the
-"armed away" state, in order to avoid triggering the alarm while the
+"armed away" state, to avoid triggering the alarm while the
 garage door opens, but not for the "armed home" state.
 
 **trigger_time** is useful to disable the alarm when disarmed, but it can also

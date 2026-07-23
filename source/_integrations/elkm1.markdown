@@ -116,7 +116,7 @@ Enable these settings based on the features you want to use:
 
 ## System Trouble Status
 
-The ElkM1 is able to report general system trouble statuses. This is
+The ElkM1 can report general system trouble statuses. This is
 reported using the `system_trouble_status` attribute of the
 panel sensor (often named `sensor.elkm1`) in Home Assistant.
 
@@ -178,11 +178,11 @@ host:
   required: true
   type: string
 username:
-  description: Username to login to Elk. Required if using a secure connection method.
+  description: Username to log in to Elk. Required if using a secure connection method.
   required: false
   type: string
 password:
-  description: Password to login to Elk. Required if using a secure connection method.
+  description: Password to log in to Elk. Required if using a secure connection method.
   required: false
   type: string
 prefix:
@@ -193,7 +193,7 @@ auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false
   type: boolean
-  default: False
+  default: false
 area:
   description: Elk areas to include in Home Assistant.
   required: false
@@ -448,104 +448,7 @@ The `event_data` contains the following:
 - `key_name`: The name of the key that was pressed.
 - `key`: The number of the key that was pressed.
 
-## Actions
-
-The ElkM1 integration provides additional actions beyond the standard Home Assistant actions for alarm control panels, climate, lights, scenes, sensors, and switches.
-
-### Alarm actions
-
-#### Arm modes
-
-- `elkm1.alarm_arm_home_instant` - Arms the area in "home instant" mode
-- `elkm1.alarm_arm_night_instant` - Arms the area in "night instant" mode
-- `elkm1.alarm_arm_vacation` - Arms the area in "vacation" mode
-
-| Data attribute | Optional | Description                                   |
-| -------------- | -------- | --------------------------------------------- |
-| `entity_id`    | yes      | ElkM1 area to arm                            |
-| `code`         | no       | Alarm code to arm the system (4 or 6 digits) |
-
-#### Zone management
-
-- `elkm1.alarm_bypass` - Bypasses all zones associated with the specified alarm panel
-- `elkm1.alarm_clear_bypass` - Clears bypass for all zones associated with the specified alarm panel
-
-| Data attribute | Optional | Description                                           |
-| -------------- | -------- | ----------------------------------------------------- |
-| `entity_id`    | yes      | ElkM1 area to bypass or clear bypass                 |
-| `code`         | no       | Alarm code to bypass the alarm panel (4 or 6 digits) |
-
-#### Display message
-
-- `elkm1.alarm_display_message` - Display text on an area's keypads
-
-| Data attribute | Optional | Description                                                                      |
-| -------------- | -------- | -------------------------------------------------------------------------------- |
-| `entity_id`    | yes      | ElkM1 area where to display the message                                         |
-| `clear`        | yes      | 0=clear message, 1=clear message with * key, 2=display until timeout; default 2 |
-| `beep`         | yes      | 0=no beep, 1=beep; default 0                                                    |
-| `timeout`      | yes      | Time to display message, 0=forever, max 65535, default 0                        |
-| `line1`        | yes      | Up to 16 characters of text (truncated if too long). Default blank              |
-| `line2`        | yes      | Up to 16 characters of text (truncated if too long). Default blank              |
-
-### Sensor actions
-
-#### Counter management
-
-- `elkm1.sensor_counter_refresh` - Refresh the value of a counter
-- `elkm1.sensor_counter_set` - Set counter to a specific value
-
-{% note %}
-The panel does not automatically send counter value updates under certain conditions. Use the refresh action to retrieve the current counter value.
-{% endnote %}
-
-| Data attribute | Required | Description                                 |
-| -------------- | -------- | ------------------------------------------- |
-| `entity_id`    | No       | ElkM1 counter to refresh or set             |
-| `value`        | Yes (for `sensor_counter_set`) | Value to set the counter to (0-65536) |
-
-#### Zone management
-
-- `elkm1.sensor_zone_bypass` - Bypass a zone
-- `elkm1.sensor_zone_trigger` - Trigger a zone virtually
-
-| Data attribute | Required | Description                             |
-| -------------- | -------- | --------------------------------------- |
-| `entity_id`    | No       | ElkM1 zone to bypass or trigger         |
-| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits) |
-
-{% note %}
-The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zones in a given alarm panel (area).
-{% endnote %}
-
-{% note %}
-The `sensor_zone_trigger` action creates a virtual momentary open condition on the zone as if the EOL hardwired loop had been physically opened.
-{% endnote %}
-
-### System actions
-
-#### Time synchronization
-
-- `elkm1.set_time` - Set the time on the panel to match Home Assistant's current time
-
-| Data attribute | Optional | Description                                               |
-| -------------- | -------- | --------------------------------------------------------- |
-| `prefix`       | yes      | Prefix to identify panel when multiple panels configured |
-
-#### Voice announcements
-
-- `elkm1.speak_phrase` - Speak a predefined phrase
-- `elkm1.speak_word` - Speak a predefined word
-
-{% note %}
-The list of available phrases and words is defined in the ElkM1 ASCII Protocol documentation.
-{% endnote %}
-
-| Data attribute | Optional | Description                                               |
-| -------------- | -------- | --------------------------------------------------------- |
-| `phrase`       | no*      | Phrase to speak. *Required for `speak_phrase` only       |
-| `word`         | no*      | Word to speak. *Required for `speak_word` only           |
-| `prefix`       | yes      | Prefix to identify panel when multiple panels configured |
+{% include integrations/actions.md %}
 
 ## Debugging
 

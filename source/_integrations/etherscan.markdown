@@ -45,7 +45,7 @@ name:
   type: string
   default: ETH Balance
 token:
-  description: The ERC20 token symbol. i.e., OMG.
+  description: The ERC20 token symbol. For example, OMG.
   required: false
   type: string
 token_address:

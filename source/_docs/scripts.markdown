@@ -1,12 +1,14 @@
 ---
-title: "Script Syntax"
-description: "Documentation for the Home Assistant Script Syntax."
+title: "Script syntax"
+description: "How to write Home Assistant scripts in YAML: the available actions, their structure, and how to use them inside automations."
 toc: true
 ---
 
-Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
+A script is a sequence of steps that Home Assistant runs from top to bottom whenever you call it. Think of it as a small recipe: "turn on the porch light, wait 30 seconds, then send me a notification". Once you have written a script, you can run it from a button on your dashboard, from Assist, from inside an {% term automation %}, or from anywhere else that calls actions.
 
-When the script is executed within an {% term automation %}, the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+Scripts and automations are very closely related. The only real difference is that an automation runs by itself when something triggers it, and a script runs when you call it.
+
+When the script runs as part of an {% term automation %}, the `trigger` variable is also available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
 ## Script syntax
 
@@ -40,7 +42,7 @@ Performing an action can be done in various ways. For all the different possibil
 - alias: "Bedroom lights on"
   action: light.turn_on
   target:
-    entity_id: group.bedroom
+    entity_id: light.bedroom
   data:
     brightness: 100
 ```
@@ -82,7 +84,9 @@ Variables can be templated.
   variables:
     blind_state_message: "The blind is {{ states('cover.blind') }}."
 - alias: "Notify about the state of the blind"
-  action: notify.mobile_app_iphone
+  action: notify.send_message
+  target:
+    entity_id: notify.my_device
   data:
     message: "{{ blind_state_message }}"
 ```
@@ -138,7 +142,7 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
-  conditions:
+  condition:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -218,12 +222,24 @@ This {% term action %} can use the same triggers that are available in an automa
   wait_for_trigger:
     - trigger: event
       event_type: MY_EVENT
+      id: my_trigger
     - trigger: state
       entity_id: light.LIGHT
       to: "on"
       for: 10
 ```
 
+You can assign an `id` to each trigger, just like you would do in an automation's `trigger` section, but you won't find it inside the `trigger` condition, which only lists the main automation triggers. You can however find it in a template as `wait.trigger.id`:
+
+```yaml
+- if:
+    - condition: template
+      value_template: "{{ wait.trigger.id == 'my_trigger' }}"
+  then:
+    - action: light.turn_on
+      target:
+        entity_id: light.living_room_table
+```
 
 ### Wait timeout
 
@@ -305,7 +321,7 @@ This can be used to take different actions based on whether or not the condition
 
 ## Fire an event
 
-This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
+This {% term action %} allows you to fire an event. In the GUI (Graphical User Interface) for actions it is found under "Fire Manual Event". Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"

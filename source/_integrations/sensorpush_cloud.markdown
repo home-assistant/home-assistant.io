@@ -19,7 +19,7 @@ Integrates [SensorPush Cloud](https://www.sensorpush.com/) devices into Home Ass
 
 ## Prerequisites
 
-A [G1 WiFi Gateway](https://www.sensorpush.com/products/p/g1-gateway) is required to make use of the Cloud API. To activate API access, log in to the [Gateway Cloud Dashboard](https://dashboard.sensorpush.com/) and agree to the terms of service.
+A [G1 WiFi Gateway](https://www.sensorpush.com/products/p/g1-gateway) is required to use the Cloud API. To activate API access, log in to the [Gateway Cloud Dashboard](https://dashboard.sensorpush.com/) and agree to the terms of service.
 
 Sensor entities (temperature, humidity, barometric pressure) will not be available to Home Assistant until you have activated the device with the SensorPush app on iOS or Android.
 

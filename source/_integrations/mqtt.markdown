@@ -1,6 +1,6 @@
 ---
 title: MQTT
-description: Instructions on how to setup MQTT within Home Assistant.
+description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
@@ -38,6 +38,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - tag
   - tag
   - text
   - time
@@ -135,6 +136,8 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Button](/integrations/button.mqtt/)
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Date](/integrations/date.mqtt/)
+- [Date/Time](/integrations/datetime.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
@@ -146,6 +149,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Time](/integrations/time.mqtt/)
 - [Valve](/integrations/valve.mqtt/)
 - [Water heater](/integrations/water_heater.mqtt/)
 
@@ -194,12 +198,12 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then check the collapse section `Other settings` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
 {% endimportant %}
 
-### Advanced broker configuration
+### Other broker configuration settings
 
-Advanced broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access the advanced options, open the MQTT broker settings, select **Advanced options**, and select **Next**. Advanced broker options are shown by default when the default advanced broker settings are changed.
+Additional broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access these settings, open the MQTT broker settings, and expand **Other settings**.
 
 #### Alternative client ID
 
@@ -339,8 +343,8 @@ group:
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
 
-MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Options sections](#configure-mqtt-options)
+MQTT discovery is enabled by default and the subscriptions to perform the discovery are done at Quality of Service level 0 by default. The default prefix for the discovery topic is `homeassistant`.
+To disable discovery, or change the discovery QoS or prefix, see the [MQTT Options sections](#configure-mqtt-options).
 
 {% note %}
 Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
@@ -834,6 +838,7 @@ support_url:
     'mode_stat_t':         'mode_state_topic',
     'mode_stat_tpl':       'mode_state_template',
     'modes':               'modes',
+    'msg_exp_int':         'message_expiry_interval',
     'name':                'name',
     'o':                   'origin',
     'off_dly':             'off_delay',
@@ -981,6 +986,7 @@ support_url:
     'url_t':               'url_topic',
     'url_tpl':             'url_template',
     'val_tpl':             'value_template',
+    'vis':                 'visible_by_default',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
     'xy_cmd_t':            'xy_command_topic',
@@ -1049,7 +1055,7 @@ After the configs have been published, the state topics will need an update.
 #### Using retained state messages
 
 State updates also need to be re-published after a config as been processed.
-This can also be done by publishing `retained` messages. As soon as a config is received (or replayed from a retained message),
+This can also be done by publishing "retained" messages. As soon as a config is received (or replayed from a retained message),
 the setup will subscribe any state topics. If a retained message is available at a state topic,
  this message will be replayed so that the state can be restored for this topic.
 
@@ -1060,6 +1066,10 @@ Retained messages can create ghost entities that keep coming back.
 <br><br>
 Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
 {% endwarning %}
+
+#### Using the Message Expiry Interval option
+
+To prevent "retained" messages being kept forever, the publisher can set the Message Expiry Interval option. This will tell the broker to keep messages for a limited time. Home Assistant can set the Message Expiry Interval for an MQTT device via the `message_expiry_interval` configuration option. This will set the Message Expiry Interval for command payloads published to control the device.
 
 ### Using Availability topics
 
@@ -1239,7 +1249,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
+The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
@@ -1445,7 +1455,7 @@ mqtt:
       ...
 ```
 
-If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+If you have many manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 {% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
@@ -1508,95 +1518,7 @@ script:
           retain: true
 ```
 
-## Publish & Dump actions
-
-The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
-
-### Action: Publish
-
-The `mqtt.publish` action publishes a message to an MQTT topic.
-
-| Data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
-| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
-| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
-| `retain`               | yes      | If message should have the retain flag set. (default: false) |
-
-{% note %}
-When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
-{% endnote %}
-
-```yaml
-topic: homeassistant/light/1/command
-payload: "ON"
-```
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-```yaml
-topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-Be aware that `payload` must be a string.
-If you want to send JSON using the YAML editor then you need to format/escape
-it properly. Like:
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
-```
-
-The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
-The `device_class` is set, so it is not needed to set the "name" option. The entity
-will inherit the name from the `device_class` set and also support translations.
-If you set "name" in the payload the entity name will start with the device name.
-
-```yaml
-action: mqtt.publish
-data:
-  topic: homeassistant/sensor/Acurite-986-1R-51778/config
-  payload: >-
-    {"device_class": "temperature",
-    "unit_of_measurement": "\u00b0C",
-    "value_template": "{{ value | float }}",
-    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
-    "unique_id": "Acurite-986-1R-51778-T",
-    "device": {
-    "identifiers": "Acurite-986-1R-51778",
-    "name": "Bathroom",
-    "model": "Acurite",
-    "model_id": "986",
-    "manufacturer": "rtl_433" }
-    }
-```
-
-Example of how to use `qos` and `retain`:
-
-```yaml
-topic: homeassistant/light/1/command
-payload: "ON"
-qos: 2
-retain: true
-```
-
-### Action: Dump
-
-The `mqtt.dump` action listens to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
-| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
-
-```yaml
-topic: zigbee2mqtt/#
-```
+{% include integrations/actions.md %}
 
 ## Logging
 

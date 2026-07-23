@@ -227,6 +227,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - PTZ continuous rotation*
 - Guard go to
 - Guard set current position
+- Pre-siren
 - Restart*
 
 **PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
@@ -234,14 +235,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 **Guard set current position** will set the current position as the new guard position.
 
-#### Action reolink.ptz_move
-
-Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
-
-| Data attribute | Optional | Description                                                                                                                         |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
-| `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the [PTZ move](/actions/reolink.ptz_move/) action works in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** button entities, which let you specify the speed. If those button entities are not shown when you choose a target for the action, that camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
 ### Select entities
 
@@ -282,14 +276,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 **Hub scene modes** can be set in the Reolink app/client. The scene names are loaded into Home Assistant at the start of the integration. After adding new custom scenes, restart the Reolink integration.
 
-#### Action reolink.play_chime
-
-To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
-
-| Data attribute | Optional | Description                                                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
-| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
+To play a ringtone on a Reolink Chime, use the [Play chime](/actions/reolink.play_chime/) action.
 
 ### Siren entities
 
@@ -305,6 +292,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Infrared lights in night mode
 - Record audio
 - Siren on event
+- Pre-siren on event
 - Auto tracking
 - Auto focus
 - Guard return
@@ -346,6 +334,8 @@ The **Manual record** switch will turn off automatically after 10 minutes. There
 
 Polling the status of the **Hardwired chime enabled** switch can make the hardwired chime rattle a bit depending on the model of the chime. Therefore the status of this switch is only polled one time (about 1 minute after the integration starts). The rattle at startup can only happen if you chose to enable this switch.
 
+The **Pre-siren on event** switch only takes effect when the **Siren on event** switch is ON.
+
 ### Light entities
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), light entities are added for:
@@ -384,6 +374,8 @@ If the camera supports recording to an SD card or NVR/Hub ([see specifications o
 In the sidebar, select "Media" > "Reolink" and select the **camera** of which you want to see recordings. Optionally, select if you want a high or low **resolution** stream and select the recording **date**. Here, all available video files of that day will be shown.
 Recordings up to 1 month old can be viewed in Home Assistant.
 
+{% include integrations/actions.md %}
+
 ## Tested models
 
 Models marked as bold in the lists below have been certified under the **Works with Home Assistant** program.
@@ -396,14 +388,13 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
-- [E1](https://reolink.com/product/e1/)
 - [E1 Pro](https://reolink.com/product/e1-pro/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
 - [E331](https://reolink.com/product/e331/)
-- [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/) (needs mains power, cannot be integrated when powered through USB)
+- **[Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/)** (needs mains power, cannot be integrated when powered through USB)
 - [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [Lumus Pro](https://reolink.com/product/lumus-pro/)
@@ -454,7 +445,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
-- [Reolink TrackMix Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/)
+- **[Reolink TrackMix Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/)**
 - Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [PoE White](https://reolink.com/product/reolink-video-doorbell/))
 - **Reolink Video Doorbell ([Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))**
 
@@ -504,6 +495,7 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - D500*
 - D800*
 - D1200*
+- E1
 
 *These models are only sold as a kit which includes a NVR.
 
@@ -536,7 +528,7 @@ When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
    1. First connect the camera to your network using a LAN cable.
    2. Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
-   3. Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
+   3. Follow the on-screen instructions to first set up the credentials (use the same credentials in Home Assistant).
    4. If it is a Wi-Fi camera:
       - Go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password.
         - If you have both a 2.4 GHz and 5 GHz network, check your camera's user guide to see which operating frequency is supported.
@@ -613,9 +605,9 @@ Prerequisites:
 
 - This [Reolink integration](#configuration)
 - [Android or iOS companion app](https://companion.home-assistant.io/docs/getting_started#setting-up)
-- [Remote access to Home Assistant](https://www.home-assistant.io/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
+- [Remote access to Home Assistant](/docs/configuration/remote/). Although you can receive text notifications without remote access, to see the camera image in the notification (rich notification), the phone needs to be able to reach Home Assistant. The rich notification will always work, even without remote access, when the phone is on the same network as Home Assistant.
 
-1. In order to receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+1. To receive such a rich notification, we are going to make an automation in Home Assistant. In Home Assistant go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
 
 ![Settings button](/images/integrations/reolink/rich_notification__settings.png)
 ![Automations & scenes button](/images/integrations/reolink/rich_notification__automations_and_scenes.png)
@@ -819,13 +811,13 @@ Prerequisites:
 ## Known limitations
 
 - 2-way audio or Text-to-speech is not available in the Reolink Home Assistant integration.
-- The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (Chrome/Firefox/Edge/Safari etc.) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
+- The 4K camera streams are H265 encoded, support for playing H265 encoding in browsers (such as Chrome, Firefox, Edge, or Safari) is still very limited, therefore the 4K clear stream may not play in all browsers or on all phones in the Home Assistant Companion app. By default only the lower resolution Fluent camera entity is enabled in Home Assistant. This Fluent stream is H264 encoded and will play on any browser or phone.
 
 ## Troubleshooting
 
-### Can’t setup the integration
+### Can’t set up the integration
 
-- Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
+- Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) before setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - If the integration and the browser can't connect to the camera even after you enable the HTTP/HTTPS ports, try to create a new user on the camera; that fixes the problem in some cases.
@@ -849,6 +841,11 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 - Some **Custom cards** that can be used to view the camera in a dashboard are known to keep a battery camera constantly awake, draining its battery.
 - Viewing a **dashboard** with a picture-entity card of a Reolink battery camera, will wake that camera to show the latest snapshot and/or stream. Therefore, it is recommended to place the picture-entity cards in a separate dashboard/tab, which is only accessed when actually wanting to view the battery camera streams.
 
+### Slow startup
+
+- If you are using an NVR or Home Hub, check whether a camera is currently offline or unreachable. For example, this can happen with a battery camera whose battery is completely drained, a PoE camera with an unplugged or damaged network cable, a Wi-Fi camera with outdated network credentials or power which is unplugged, or a camera whose IP address has changed. To speed up startup, bring the camera back online or remove it from the NVR or Home Hub in the Reolink app (or using a mouse and screen for a NVR).
+- If your Home Assistant device and Reolink device are separated by a VLAN or other network restrictions, follow the guidance in the earlier **Can’t set up the integration** section. The same network restrictions can also cause slow startup issues.
+
 ### Streams or recordings not playing
 
 - Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
@@ -859,11 +856,11 @@ TCP push and ONVIF push will result in slightly faster state changes of the bina
 Moreover, TCP push and ONVIF push are less demanding for the camera than ONVIF long polling or fast polling, resulting in potentially less connection issues.
 TCP push does not have any particular requirements. However, ONVIF push has some additional network configuration requirements:
 
-- Reolink products can not push ONVIF motion events to an HTTPS address (SSL).
+- Reolink products cannot push ONVIF motion events to an HTTPS address (SSL).
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
-- Since a HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
+- Since an HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
 Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 

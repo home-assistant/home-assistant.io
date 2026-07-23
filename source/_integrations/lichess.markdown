@@ -2,6 +2,7 @@
 title: Lichess
 description: Instructions on how to integrate Lichess with Home Assistant.
 ha_category:
+  - Gaming
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -39,7 +40,20 @@ The API token is used to authenticate requests to the Lichess API. To generate a
 
 ### Sensors
 
-The integration creates sensors for your rating in bullet, blitz, rapid, and classical, and also the number of games played in each of these formats.
+The integration creates sensors for your rating in Bullet, Blitz, Rapid, and Classical, and also the number of games played in each of these formats.
+
+Entities for your rating and the number of games played in the following formats are also available, but are disabled by default:
+- Puzzles
+- Ultra Bullet
+- Correspondence
+- Chess960
+- Crazyhouse
+- Antichess
+- Atomic
+- Horde
+- King of the Hill
+- Racing Kings
+- Three-check
 
 ## Data updates
 

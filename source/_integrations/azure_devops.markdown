@@ -28,7 +28,7 @@ This integration provides a sensor for Azure DevOps:
 - Latest build reason - The reason the build was triggered.
 - Latest build result - The build result.
 - Latest build source branch - The source git branch.
-- Latest build source version - This is the version i.e. the tag if set, or the commit.
+- Latest build source version - This is the version, that is, the tag if set, or the commit.
 - Latest build status - The build status.
 - Latest build queue time - How long the latest build was queued.
 - Latest build start time - The time when the latest build actually started.

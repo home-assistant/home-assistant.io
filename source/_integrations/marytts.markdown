@@ -1,6 +1,6 @@
 ---
 title: MaryTTS
-description: Instructions on how to setup MaryTTS with Home Assistant.
+description: Instructions on how to set up MaryTTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_iot_class: Local Push

@@ -17,6 +17,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -358,7 +359,7 @@ When the SPM sensor is connected to a Nano Color thermostat, it is displayed as 
 
 - **Ventilation gear**
   - **Description**: Current ventilation gear setting.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Alarm code**
   - **Description**: System alarm code.
@@ -412,9 +413,38 @@ The available sensors depend on your specific Compit device configuration. Not a
 
 Binary sensors provide status information about your Compit devices.
 
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force domestic hot water**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
+
 ### Climate
 
 The climate entity reflects the current heating or cooling state and the **active** target temperature. Use the climate entity when you want to change the target temperature temporarily or for the current session (for example, turning up the heat for the evening). The climate entity is where you set what temperature the device is aiming for right now.
+
+The following devices provide a climate entity:
+
+- **Nano Color** (Room thermostat)
+- **Nano Color 2** (Room thermostat)
+- **Nano One** (Room thermostat)
+- **R900** (Heat pump controller)
+
+The available features depend on the device:
+
+- **Nano Color**, **Nano Color 2**, and **Nano One** support target temperature, preset mode, fan mode, and HVAC mode.
+  - Presets: Home, Eco, None, Away
+  - Fan modes: Off, Auto, Low, Medium, High
+  - HVAC modes: Cool, Heat, Off
+- **R900** supports preset mode and HVAC mode.
+  - Presets: Home, Away
+  - HVAC modes: Heat, Off
 
 ### Fans
 
@@ -555,6 +585,18 @@ Number entities let you set **default** temperature setpoints and other configur
   - **Description**: Buffer tank operating mode.
   - **Options**: Schedule, Manual, Disabled
   - **Available for devices**: R480 (Heat pump controller)
+
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force domestic hot water**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
 
 ### Water heaters
 
