@@ -68,7 +68,15 @@ To receive instant updates through [webhook events](#webhook-events), your Home 
 
 ### Extra configuration of the integration
 
-Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the "CONFIGURE", then set "Area name" for new area.
+Configuration of Netatmo enabled homes and public weather stations is offered from the front end. Enter the Netatmo integration and press the "CONFIGURE", then set "Area name" for new area.
+
+#### Home selection
+
+If your Netatmo account has access to more than one home, the dialog offers an "Enabled homes" selector listing all homes of the account. By default, all homes are enabled and homes added to your Netatmo account later are enabled automatically. Deselect the homes you do not want Home Assistant to manage — their devices and entities will not be created.
+
+When a home is deselected, entities that already exist for it become unavailable; they can be removed from the device page. Weather stations are linked to the account rather than to a home, so their entities remain available even if their home is not enabled.
+
+#### Public weather stations
 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average, maximum or minimum values.
 
