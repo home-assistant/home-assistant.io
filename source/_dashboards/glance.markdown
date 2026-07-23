@@ -72,7 +72,7 @@ columns:
   type: integer
 color:
   required: false
-  description: Set the icon color when the entity is active for all entities in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. Set to `none` to disable coloring. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  description: Set the icon color when the entity is active for all entities in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. To disable coloring, set to `none`. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
   type: string
   default: state
 {% endconfiguration %}
