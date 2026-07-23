@@ -39,20 +39,20 @@ Location:
   description: The location to monitor. Warnings are provided for the Austrian municipality at this location. Defaults to your Home Assistant location.
 {% endconfiguration_basic %}
 
-To monitor multiple municipalities, add a separate config entry for each location.
+To monitor multiple municipalities, add a separate entry for each location. Each entry covers exactly one municipality. If you select a location in a municipality you already monitor, the entry is not added again.
 
 ## Supported functionality
 
+Each entry adds one service {% term device %} named after the monitored municipality, providing the following {% term entities %}. The device links to [warnungen.zamg.at](https://warnungen.zamg.at/), where you can look up the details of each warning.
+
 ### Sensors
 
-| Sensor | Description |
-| ------ | ----------- |
-| Warning level | The highest severity level of all currently active warnings: `No warning`, `Yellow`, `Orange`, or `Red`. |
-| Active warnings | The number of currently active warnings. |
-
-## Data updates
-
-The integration {% term polling polls %} the GeoSphere Austria warning service every 5 minutes. No authentication or API key is required.
+- **Warning level**
+  - **Description**: The highest severity level of all currently active warnings.
+  - **Possible states**: No warning, Yellow, Orange, Red.
+- **Active warnings**
+  - **Description**: The number of currently active warnings.
+  - **Unit**: warnings
 
 ## Automation examples
 
@@ -80,6 +80,10 @@ automation:
             active warning(s) for Innsbruck.
 ```
 
+## Data updates
+
+The integration {% term polling polls %} the GeoSphere Austria warning service every 5 minutes. Each poll first checks whether GeoSphere Austria published new warning data, and only downloads the full data when something changed. No authentication or API key is required.
+
 ## Known limitations
 
 - Warnings are only available for locations within Austria.
@@ -91,6 +95,8 @@ automation:
 ### No Austrian municipality was found
 
 The selected location is outside of Austria, or too far from any municipality boundary. Check the latitude and longitude, and select a location within Austria.
+
+If this message appears for an entry that already worked before, the configured location can no longer be resolved to a municipality. Delete the entry and add it again with a location within Austria.
 
 ### Entities are unavailable
 
