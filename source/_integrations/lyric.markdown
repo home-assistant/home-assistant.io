@@ -3,6 +3,7 @@ title: Honeywell Lyric
 description: How to integrate the Honeywell Lyric integration into Home Assistant.
 ha_category:
   - Climate
+  - Select
   - Sensor
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: lyric
 ha_platforms:
   - climate
+  - select
   - sensor
 ha_dhcp: true
 ha_integration_type: hub
@@ -27,7 +29,7 @@ To set up this integration, you first **must** set up a developer account with H
 2. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
    1. App Name: You can use any name here, but it must not contain special characters.
    2. Callback URL: `https://my.home-assistant.io/redirect/oauth`
-   3. The app will be approved automatically. To view the **Consumer Key** and **Consumer Secret** values, select the name of the app.  Copy the values, you will need them later.
+   3. The app will be approved automatically. To view the **Consumer Key** and **Consumer Secret** values, select the name of the app. Copy the values, you will need them later.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -51,6 +53,13 @@ The integration setup will ask for the **Client ID** and **Client Secret**. Thes
 {% important %}
 During setup, you will be redirected to Honeywell to sign in. Use your regular Resideo/Honeywell Home account here, not the developer account you created on the developer site. These are two separate accounts, even if they share the same email address.
 {% endimportant %}
+
+## Selects
+
+- **Room priority**
+  - **Description**: Controls which room sensor the thermostat uses for its temperature reading.
+  - **Options**: **Follow me**, and the name of each paired room sensor (such as "Bedroom" or "Office").
+  - **Available for**: T9 and T10 thermostats with at least one paired room sensor.
 
 ## Sensors
 

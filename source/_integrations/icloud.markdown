@@ -2,6 +2,7 @@
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
 ha_category:
+  - Media source
   - Presence detection
   - Sensor
 ha_iot_class: Cloud Polling
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: icloud
 ha_platforms:
   - device_tracker
+  - media_source  
   - sensor
 ha_integration_type: hub
 ---
@@ -56,27 +58,8 @@ The iCloud integration will track available devices on your iCloud account.
 
 The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
 
-## Actions
+{% include integrations/actions.md %}
 
-4 actions are available:
+## Media source
 
-### Action: Update
-
-The `icloud.update` action requests an update of a certain iDevice or all devices linked to an iCloud account. The request will result in a new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing the current iPhone location. It can be used in automations when a manual location update is needed, for example, to check if anyone is home when a door has been opened.
-
-### Action: Play sound
-
-The `icloud.play_sound` action plays the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
-
-| Data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `account`                 |       no | Email address of the iCloud account                    |
-| `device_name`             |       no | Human Friendly device name like Bob's iPhone            |
-
-### Action: Display message
-
-The `icloud.display_message` action displays a message on your iDevice. It can also ring your device.
-
-### Action: Lost device
-
-The `icloud.lost_device` action puts your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
+iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.

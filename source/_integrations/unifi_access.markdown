@@ -8,7 +8,7 @@ ha_category:
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@imhotep'
@@ -16,6 +16,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - event
   - image
   - select
@@ -45,13 +46,17 @@ This integration supports any door managed by a UniFi Access controller, includi
 Before setting up this integration, make sure you have the following:
 
 - A running UniFi Access controller (for example, on a UniFi Dream Machine Pro or Cloud Key Gen2 Plus with the Access application installed).
-- An API token generated from the UniFi Access controller settings:
-  1. Open the UniFi Access web interface.
-  2. Navigate to **Settings** > **Advanced**.
-  3. Under **API Token**, select **Create Token**.
-  4. Give the token a descriptive name (for example, _Home Assistant_) and save it.
-  5. Copy the generated token — you will need it during setup.
+- An API token generated in the UniFi Access controller's web interface:
+  1. Open your console's IP address in a browser and select **Access** at the top.
+  2. In the left menu, go to **Settings** > **General**, then under **API Token**, select **Create New**.
+  3. Give the token a descriptive name, for example _Home Assistant_, and copy it — you will need it during setup.
+
+  For full details, see Ubiquiti's [Getting Started with the Official UniFi API](https://help.ui.com/hc/en-us/articles/30076656117655-Getting-Started-with-the-Official-UniFi-API) and the [UniFi Access API reference (PDF)](https://assets.identity.ui.com/unifi-access/api_reference.pdf), section "1.1 Create API Token & Download API Documentation".
 - Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
+
+{% important %}
+Create the token in the **UniFi Access** controller's web interface, as shown above. Do not use the console's **Integrations** page (the UniFi OS Control Plane), where UniFi Protect API keys are created. A key made there belongs to the console, and UniFi Access rejects it with a message that the key is associated with UniFi Protect. On newer consoles, the two pages look similar, so it is easy to pick the wrong one.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -131,30 +136,7 @@ For controllers that support temporary lock rules, each door also exposes the fo
 
 - **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
 
-### Actions
-
-For controllers that support temporary lock rules, the integration also provides the `unifi_access.set_lock_rule` action.
-
-Use this action to apply a temporary lock rule to a specific door from an automation or script. It complements the existing **Door Lock Rule** select entity and adds support for setting the interval directly. In the automation editor, select the UniFi Access door device you want to target.
-
-| Data attribute | Optional | Description                                                                                                   |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       | The UniFi Access door device to update.                                                                       |
-| `rule`         | no       | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
-| `interval`     | yes      | How long the rule stays active, as a duration (for example, `"00:30:00"` for 30 minutes). Defaults to 10 minutes when omitted. |
-
-Example action:
-
-```yaml
-action: unifi_access.set_lock_rule
-data:
-  device_id: 0123456789abcdef0123456789abcdef
-  rule: keep_lock
-  interval:
-    hours: 0
-    minutes: 30
-    seconds: 0
-```
+{% include integrations/actions.md %}
 
 ## Data updates
 

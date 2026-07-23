@@ -48,11 +48,11 @@ It currently supports presenting the current temperature, the setting temperatur
 
 ## Connect with Tado
 
-As of **March 21st 2025**, Tado has changed the authentication method. This means a few extra steps need to be followed in order to log in:
+As of **March 21st 2025**, Tado has changed the authentication method. This means a few extra steps need to be followed to log in:
 
-1. When you set up this integration, the integration will setup a "Device Code" and provide a URL to Tado's authentication server.
+1. When you set up this integration, the integration will set up a "Device Code" and provide a URL to Tado's authentication server.
 2. Follow the URL and confirm the "Device Code" (normally it should be copied automatically).
-3. Follow the steps to login and authenticate your account.
+3. Follow the steps to log in and authenticate your account.
 4. Once the authentication is completed, go back to Home Assistant. Wait a few seconds for the loading screen to finish. You are now connected with Tado!
 
 {% important %}
@@ -90,115 +90,4 @@ The integration normally updates every five minutes. For more detailed steps on 
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Actions
-
-### Action: Set climate timer
-
-The `tado.set_climate_timer` action sets your Tado climate device, for example a radiator valve, to switch on for a set time period. 
-
-| Data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
-| `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
-| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
-| `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
-
-### Action: Set water heater timer
-
-The `tado.set_water_heater_timer` action sets your water heater to switch on for a set time period. 
-
-| Data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | yes      | String, Name of entity e.g., `water_heater.hot_water`                  |
-| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
-| `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
-
-### Action: Set climate temperature offset
-
-The `tado.set_climate_temperature_offset` action sets the temperature offset for Tado climate devices.
-
-| Data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
-| `offset`               | no       | Float, Offset you would like to set                                    |
-
-
-Examples:
-
-```yaml
-# Example script to set a timer for the water heater with no temperature specified
-script:
-  boost_heating:
-    sequence:
-      - action: tado.set_climate_timer
-        target:
-          entity_id: climate.heating
-        data:
-          time_period: "01:30:00"
-          temperature: 25
-      - action: tado.set_water_heater_timer
-        target:
-          entity_id: water_heater.hot_water
-        data:
-          time_period: "01:30:00"
-```
-
-```yaml
-# Example automation to set temperature offset based on another thermostat value
-automation:
-    # Trigger if the state of either thermostat changes
-    triggers:
-    - trigger: state
-      entity_id:
-        - sensor.temp_sensor_room
-        - sensor.tado_temperature
-    
-    # Check if the room temp is more than 0.5 away from the tado thermostat reading condition. The sensors default to room temperature (20) when the reading is in error:
-    conditions:
-    - condition: template
-      value_template: >
-        {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
-        {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
-        {{ (tado_temp - room_temp) | abs > 0.5 }}
-    
-    # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
-    actions:
-    - action: tado.set_climate_temperature_offset
-      target:
-        entity_id: climate.tado
-      data:
-        offset: >
-          {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
-          {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
-          {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
-          {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
-```
-
-### Action: Add meter reading
-
-The `tado.add_meter_reading` action adds your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
-
-| Data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `config_entry`         | no       | String, Config entry to add meter readings to.                         |
-| `reading`              | no       | Integer, Reading in m³ or kWh without decimals.                        |
-
-Examples:
-
-```yaml
-# Example automation add meter readings on a daily basis.
-automation:
-    # Trigger on specified time.
-    triggers:
-      - trigger: time
-        at: "00:00:00"
-
-    # Add meter readings from `sensor.gas_consumption` to Tado.
-    # Retrieve your `config_entry` id by setting this automation up in UI mode.
-    # Notice that you may have to convert the reading to integer.
-    actions:
-      - action: tado.add_meter_reading
-        data:
-          config_entry: ef2e84b3dfc0aee85ed44ac8e8038ccf
-          reading: "{{ states('sensor.gas_consumption')|int }}"
-```
+{% include integrations/actions.md %}

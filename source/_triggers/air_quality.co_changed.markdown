@@ -2,7 +2,7 @@
 title: "Carbon monoxide level changed"
 trigger: air_quality.co_changed
 domain: air_quality
-description: "Triggers after one or more carbon monoxide levels change."
+description: "Triggers when one or more carbon monoxide levels change."
 related_triggers:
   - air_quality.co_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Carbon monoxide level changed** trigger fires after the carbon monoxide (CO) reading on one or more air quality sensors changes by a meaningful amount. Carbon monoxide is a colorless, odorless gas produced by incomplete combustion of fuels like gas, oil, wood, and charcoal. A faulty furnace, a blocked chimney, or a car left running in an attached garage all release CO without any visible warning. Even small increases in CO levels indoors deserve your attention, because prolonged exposure is dangerous.
 
 Imagine getting an instant phone alert the moment your garage CO sensor picks up a shift, giving you time to ventilate before the situation becomes serious. Use this trigger to kick off a ventilation routine, send a safety notification, or log concentration changes whenever your CO sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -77,9 +75,10 @@ threshold:
 Maybe someone left the car idling or the workshop heater is acting up. This automation sends a notification to your phone whenever the carbon monoxide level in the garage shifts noticeably, so you know to open the garage door or investigate the source right away.
 
 - **Trigger**: Carbon monoxide level changed
-- **Target**: Garage CO sensor
-- **Threshold type**: 10
-- **Action**: Notify mobile app
+  - **Target**: Garage CO sensor
+  - **Threshold type**: 10
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a garage CO alert" %}
 
@@ -93,7 +92,9 @@ automation: |
       options:
         threshold: 10
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Carbon monoxide change"
         message: "CO level in the garage changed significantly. Check ventilation."

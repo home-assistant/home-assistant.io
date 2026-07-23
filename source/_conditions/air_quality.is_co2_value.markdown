@@ -9,8 +9,6 @@ related_conditions:
 
 The **Carbon dioxide value** condition passes when a carbon dioxide (CO2) sensor's reading meets a specific level. A stuffy meeting room, a crowded living room on movie night, or a bedroom with the door closed overnight all push CO2 levels higher than you would expect. This condition lets your automation act only when CO2 is genuinely elevated, so the ventilation fan starts when it is truly needed and stays off when the air is fine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -29,10 +27,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The carbon dioxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

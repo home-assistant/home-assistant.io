@@ -9,7 +9,7 @@ ha_codeowners:
 ha_domain: huum
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://huum.eu/
     title: Huum
@@ -75,7 +75,7 @@ The **Huum** integration provides the following entities.
 ### Numbers
 
 - **Humidity**
-  - **Description**: Controls the steamer duty cycle (0–10) to adjust the sauna humidity level.
+  - **Description**: Controls the steamer to adjust the sauna humidity level (0-40%).
   - **Remarks**: Only available if the sauna controller is configured with a steamer or a steamer and light combination. The humidity level can only be changed while the sauna is actively heating.
 
 ### Sensors
@@ -120,7 +120,9 @@ actions:
   - action: light.turn_on
     target:
       entity_id: light.huum_sauna_light
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "{{ notification_title }}"
       message: >-

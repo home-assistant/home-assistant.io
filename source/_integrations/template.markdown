@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Device Tracker
   - Event
   - Fan
   - Helper
@@ -31,6 +32,7 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - device_tracker
   - event
   - fan
   - image
@@ -68,6 +70,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Cover](#cover)
+- [Device Tracker](#device-tracker)
 - [Event](#event)
 - [Fan](#fan)
 - [Image](#image)
@@ -219,7 +222,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface. Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -317,7 +320,7 @@ alarm_control_panel:
       type: boolean
       default: false
     state:
-      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+      description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are used."
       required: false
       type: template
     trigger:
@@ -696,6 +699,57 @@ template:
               entity_id: switch.garage_door
 ```
 
+## Device tracker
+
+The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - device_tracker:
+      - name: Car Location
+        latitude: "{{ states('sensor.latitude') }}"
+        longitude: "{{ states('sensor.longitude') }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+    - trigger: webhook
+      webhook_id: my_car_location
+    device_tracker:
+      - name: Car Location
+        latitude: "{{ trigger.json.latitude }}"
+        longitude: "{{ trigger.json.longitude }}"
+        location_accuracy: "{{ trigger.json.resolution }}"
+```
+
+{% configuration device_tracker %}
+device_tracker:
+  description: List of device trackers
+  required: true
+  type: map
+  keys:
+    in_zones:
+      description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity IDs. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
+      required: false
+      type: template
+    latitude:
+      description: Defines a template for the device_trackers latitude. Legal values are numbers between `-90` and `90`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
+      type: template
+    location_accuracy:
+      description: Defines a template for the device_trackers location accuracy in meters.
+      required: false
+      type: template
+    longitude:
+      description: Defines a template for the device_trackers longitude. Legal values are numbers between `-180` and `180`. If the template produces a `None` value, the state is set to `unknown`. If `latitude` and `longitude` are omitted, `in_zones` is required.
+      required: false
+      type: template
+
+{% endconfiguration %}
+
 ## Event
 
 The template event platform allows you to create events with templates to define the state.
@@ -943,7 +997,7 @@ template:
 
 ### State based fan - Fan with preset modes
 
-This example uses an existing fan with only a percentage. It extends the percentage value into useable preset modes without a helper entity.
+This example uses an existing fan with only a percentage. It extends the percentage value into usable preset modes without a helper entity.
 
 ```yaml
 template:
@@ -1049,6 +1103,11 @@ image:
       default: true
 {% endconfiguration %}
 
+### Using locally hosted images
+
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
+
+
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
@@ -1076,7 +1135,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1133,7 +1192,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1264,31 +1323,35 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: inclusive
       type: action
     set_level:
-      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), `brightness_pct` (a value between 0 and 100), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
       required: false
       type: action
     set_temperature:
-      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgb_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_xy:
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
       required: false
       type: action
     state:
@@ -1302,7 +1365,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+      description: Defines a template to get the color temperature of the light in Kelvin. The template must return a value between 2000 and 6535.
       required: false
       type: template
       default: optimistic
@@ -1314,6 +1377,11 @@ light:
       description: Defines an action to run when the light is turned off. May receive the variable `transition`.
       required: true
       type: action
+    xy:
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      required: false
+      type: template
+      default: optimistic
 
 {% endconfiguration %}
 
@@ -1328,7 +1396,10 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
 7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. None of the above match, and `turn_on` is called.
+8. `rgb_color` is provided and `set_rgb` is defined.
+9. `xy_color` is provided and `set_xy` is defined.
+10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+11. None of the above match, and `turn_on` is called.
 
 Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
@@ -1480,7 +1551,7 @@ lock:
   type: map
   keys:
     code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
+      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is `unavailable`. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
       required: false
       type: template
       default: None
@@ -1664,7 +1735,7 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value. When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -2126,11 +2197,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2338,7 +2409,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can be created from the frontend in the Helpers section or via YAML.
+State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2358,9 +2429,9 @@ template:
   - triggers:
       - trigger: state
         entity_id:
-        - weather.my_region
-        - sensor.temperature
-        - sensor.humidity
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
     weather:
       - name: "My Weather Station"
         condition: "{{ states('weather.my_region') }}"
@@ -2465,11 +2536,11 @@ weather:
 
 ### Condition
 
-The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
+The `condition` *must* match one of the Home Assistant defined conditions. See the [weather condition mapping](/integrations/weather/#condition-mapping). If it does not, the state will be 'unknown' so will not be usable in a dashboard.
 
 ### Weather Forecast data
 
-The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
 
 #### Hourly Weather Forecast
 
@@ -2481,7 +2552,7 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 #### Twice Daily Weather Forecast
 
-The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 
@@ -2510,7 +2581,7 @@ template:
 
 #### Video tutorial
 
-This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+This video tutorial explains how to set up a trigger based template that uses an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
@@ -2663,7 +2734,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/
@@ -2699,325 +2770,3 @@ The blueprint can now be used for creating template entities.
 Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
-
-## Legacy template deprecation migration guide
-
-Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0. The deprecated template entities will produce a repair that guides you through the migration.
-
-### Migrating a legacy sensor into a new template section
-
-This example covers how to migrate a legacy template sensor into modern syntax.
-
-Take the example `configuration.yaml` file
-
-```yaml
-# configuration.yaml
-sensor:
-# SNMP Configuration
-- platform: snmp
-  host: 192.168.1.32
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-# Legacy template configuration
-- platform: template
-  sensors:
-    my_light_count:
-      friendly_name: Total lights on
-      unique_id: sa892hfa9sdf8
-      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-```
-To get started with the migration:
-
-1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
-
-    Delete the following YAML from `configuration.yaml` file.
-
-    ```yaml
-    # Legacy template configuration
-    - platform: template
-      sensors:
-        my_light_count:
-          friendly_name: Total lights on
-          unique_id: sa892hfa9sdf8
-          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-      ```
-
-      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
-
-    ```yaml
-    # configuration.yaml
-    sensor:
-    # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-    ```
-
-2. Add the modern syntax provided by the repair.
-
-    The repair would provide the following YAML.
-
-    ```yaml
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-    This YAML should be added to the `template:` section inside `configuration.yaml`.
-
-    ```yaml
-    # configuration.yaml
-    sensor:
-      # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    # Copied example
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-    If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
-
-    ```yaml
-    # configuration.yaml
-    sensor:
-      # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    template:
-
-    # Migrated sensor
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-
-    # Migrated cover
-    - cover:
-      - default_entity_id: cover.garage
-        name: Garage Cover
-        state: '{{ is_state(''binary_sensor.relay'', ''on'') }}'
-
-    # Migrated light
-    - light:
-      - default_entity_id: light.skylight
-        name: Skylight
-        state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
-    ```
-
-3. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
-
-### Migrating a legacy sensor into an existing template section
-
-This example covers how to migrate a legacy template sensor into modern syntax.
-
-Take the example `configuration.yaml` file
-
-```yaml
-# configuration.yaml
-sensor:
-# SNMP Configuration
-- platform: snmp
-  host: 192.168.1.32
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-# Legacy template configuration
-- platform: template
-  sensors:
-    my_light_count:
-      friendly_name: Total lights on
-      unique_id: sa892hfa9sdf8
-      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-
-template:
-# Existing modern template
-- binary_sensor:
-  - name: Bright Outside
-    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-```
-
-To get started with the migration:
-
-1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
-
-    Delete the following YAML from `configuration.yaml` file.
-
-    ```yaml
-    # Legacy template configuration
-    - platform: template
-      sensors:
-        my_light_count:
-          friendly_name: Total lights on
-          unique_id: sa892hfa9sdf8
-          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-      ```
-
-      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
-
-    ```yaml
-    # configuration.yaml
-    sensor:
-    # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    template:
-    # Existing modern template
-    - binary_sensor:
-      - name: Bright Outside
-        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-    ```
-
-2. Add the modern syntax provided by the repair.
-
-    The repair would provide the following YAML.
-
-    ```yaml
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-    This YAML should be added to the `template:` section inside `configuration.yaml`.
-
-    ```yaml
-    # configuration.yaml
-    sensor:
-      # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-    template:
-    # Existing modern template
-    - binary_sensor:
-      - name: Bright Outside
-        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-
-    # Copied example
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-    In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
-
-3. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
-
-### Migrating a sensor from an included file to an included file
-
-This example covers how to migrate a legacy template sensor into modern syntax when the sensor exists in an included `sensors.yaml` file.
-
-Take the example configuration. It's a configuration that is split between 3 files, `configuration.yaml`, `sensors.yaml`, and `templates.yaml`.
-
-```yaml
-# configuration.yaml
-sensor: !include sensors.yaml
-template: !include templates.yaml
-```
-
-```yaml
-# sensors.yaml
-
-# SNMP Configuration
-- platform: snmp
-  host: 192.168.1.32
-  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-
-# Legacy template configuration
-- platform: template
-  sensors:
-    my_light_count:
-      friendly_name: Total lights on
-      unique_id: sa892hfa9sdf8
-      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-```
-
-```yaml
-# templates.yaml
-
-# Existing modern template
-- binary_sensor:
-  - name: Bright Outside
-    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-```
-
-To get started with the migration:
-
-1. Remove the `sensor` template definition from the `sensors.yaml` section.
-
-    Delete the following YAML from `sensors.yaml` file.
-
-    ```yaml
-    # Legacy template configuration
-    - platform: template
-      sensors:
-        my_light_count:
-          friendly_name: Total lights on
-          unique_id: sa892hfa9sdf8
-          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
-      ```
-
-      Make sure to keep all the other platforms in the sensor file. Your `sensors.yaml` file would look like this after the change:
-
-    ```yaml
-    # sensors.yaml
-
-    # SNMP Configuration
-    - platform: snmp
-      host: 192.168.1.32
-      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
-    ```
-
-2. Add the modern syntax provided by the repair.
-
-    The repair would provide the following YAML.
-
-    ```yaml
-    template:
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-    This YAML should be added to the `templates.yaml` file.
-
-    ```yaml
-    # templates.yaml
-
-    # Existing modern template
-    - binary_sensor:
-      - name: Bright Outside
-        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-
-    # Copied example
-    - sensor:
-      - default_entity_id: sensor.my_light_count
-        name: Total lights on
-        unique_id: sa892hfa9sdf8
-        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
-    ```
-
-    In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
-
-3. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.

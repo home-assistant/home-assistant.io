@@ -77,7 +77,9 @@ automation:
         above: 100
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "High PM10 Level Alert"
           message: >

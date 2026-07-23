@@ -2,7 +2,7 @@
 title: "Light brightness changed"
 trigger: light.brightness_changed
 domain: light
-description: "Triggers after the brightness of one or more lights changes."
+description: "Triggers when the brightness of one or more lights changes."
 related_triggers:
   - light.brightness_crossed_threshold
   - light.turned_on
@@ -12,8 +12,6 @@ The **Light brightness changed** trigger fires after the brightness of a light {
 
 The **threshold** field tells Home Assistant how big a change counts. The trigger only fires when the light's brightness moves by at least that much, which keeps it from firing on every tiny tick from a smooth fade.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -21,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light brightness changed**.
+4. From the search box, search for and select **Light brightness changed**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set how much the brightness has to change before the trigger fires.
 7. Select **Save**.
@@ -31,7 +29,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the brightness has to change before the trigger fires, as a percentage of full brightness. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -57,7 +54,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 threshold:
   description: >
     The minimum amount (in percent) the brightness must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity with a percent unit.
-  required: true
+  required: false
   type: any
 {% endoptions_yaml %}
 

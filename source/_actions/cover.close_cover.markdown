@@ -1,0 +1,83 @@
+---
+title: "Close cover"
+action: cover.close_cover
+domain: cover
+description: "Closes a cover."
+related_actions:
+  - cover.open_cover
+  - cover.stop_cover
+  - cover.toggle
+  - cover.set_cover_position
+---
+
+Use this action to close a cover, such as a roller shutter, blind, awning, or garage door.
+
+{% include actions/ui_header.md %}
+
+To close a cover from an automation or a script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the cover you want to close.
+6. From the actions shown for that target, select **Close cover**.
+7. Select **Save**.
+
+### Options in the UI
+
+This action has no additional options beyond the target.
+
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `cover.close_cover`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: cover.close_cover
+  target:
+    entity_id: cover.living_room_blind
+{% endexample %}
+
+This closes `cover.living_room_blind`.
+
+### Options in YAML
+
+This action has no additional YAML options beyond the target.
+
+{% include actions/targets.md %}
+
+## Good to know
+
+- This action only works with cover entities that support closing.
+
+{% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: close a shutter at sunset
+
+Close a cover at sunset, for example to keep heat in for the night.
+
+- **Trigger**: Sunset
+- **Action**: Close cover
+  - **Target**: Bedroom shutter
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Close the bedroom shutter at sunset"
+    triggers:
+      - trigger: sun.sunset
+    actions:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.bedroom_shutter
+{% endexample %}
+
+{% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

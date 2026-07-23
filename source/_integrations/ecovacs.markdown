@@ -28,17 +28,21 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Ecovacs** {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
+The **Ecovacs** {% term integration %} integrates [Ecovacs](https://www.ecovacs.com) robotic vacuum cleaners and lawn mowers.
+
+This is for the "Deebot" series of robotic vacuum cleaners and the "GOAT" series of robotic lawn mowers from Ecovacs.
+
+Note that Ecovacs also has other types of cleaning robots that are not supported by this integration.
 
 ## Prerequisites
 
-You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account. Your username is your email address.
+You will need your Ecovacs account information (username and password) to discover and control vacuums and mowers in your account. Your username is the same as your email address.
 
-Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+Additional note: There are some issues with password encoding. Using some special characters, for example `-` and `?`, in your password may not work.
 
 {% include integrations/config_flow.md %}
 
-With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
+During setup, you can choose to use a self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
 
 ## Provided entities
 
@@ -49,7 +53,7 @@ Using the vacuum entity, you can monitor and control your Ecovacs Deebot vacuum.
 Additionally, **depending on your model**, the integration provides the following entities:
 
 - **Binary sensor**:
-  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot in order to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
+  - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
@@ -142,57 +146,12 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
-### Getting device and chargers coordinates
-
-The integration has a `raw_get_positions` action to retrieve device and chargers coordinates.
-
-Example:
-
-```yaml
-action: ecovacs.raw_get_positions
-target:
-  entity_id: vacuum.deebot_n8_plus
-```
-
-{% details "Action response example" %}
-The action returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
-
-```yaml
-vacuum.deebot_n8_plus:
-  ret: ok
-  resp:
-    header:
-      pri: 1
-      tzm: 480
-      ts: "1717748487712"
-      ver: 0.0.1
-      fwVer: 1.2.0
-      hwVer: 0.1.1
-    body:
-      code: 0
-      msg: ok
-      data:
-        deebotPos:
-          x: 1
-          y: 5
-          a: 85
-          invalid: 0
-        chargePos:
-          - x: 5
-            y: 9
-            a: 85
-            t: 1
-            invalid: 0
-        mid: "200465850"
-  id: 5o81
-  payloadType: j
-```
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+
 - `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
