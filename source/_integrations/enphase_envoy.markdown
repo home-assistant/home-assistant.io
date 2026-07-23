@@ -404,8 +404,8 @@ For each AC-battery a device is created, nested under the ACB aggregate device. 
 ##### Individual AC-battery binary sensor entities
 
 - **AC Battery <abbr title="AC-battery serial number">SN</abbr> Communicating**: Communication status of the AC-battery, Connected / Disconnected. This is a diagnostics entity.
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery. This is a diagnostics entity.
-- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Producing**: Producing status of the AC-battery.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery, On / Off. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Producing**: Producing status of the AC-battery, On / Off.
 
 ##### AC-battery sleep and wake controls
 
