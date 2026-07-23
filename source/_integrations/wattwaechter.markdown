@@ -71,6 +71,8 @@ The following sensors are created with the diagnostic entity category and are di
 
 - **Wi-Fi signal (dBm)**: The wireless signal strength of the device.
 - **Wi-Fi SSID**: The wireless network name the device is connected to.
+- **IP address**: The local IP address of the device on your network.
+- **mDNS name**: The device's mDNS hostname.
 
 ## Data updates
 
