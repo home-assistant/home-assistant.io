@@ -477,3 +477,4 @@ If you are a custom integration developer and want to learn about changes and ne
 ## All changes
 
 Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2026.8](/changelogs/core-2026.8).
+
