@@ -246,7 +246,7 @@ A crosspost is a short blog entry that does not host the full article. Instead, 
 Unlike a standard blog post, a crosspost has no draft file and no local images to process:
 
 - The `crosspost` layout redirects visitors to the `external_url`.
-- The Open Graph image is fetched automatically from the external URL at build time by the `crosspost_og` plugin, so you do not need to add or convert any image. Only set `og_image` by hand if the user explicitly provides one.
+- The Open Graph image is handled automatically. The `crosspost_og` plugin derives `og_image` from the `external_url` using the Open Home Foundation dynamic Open Graph endpoint (`https://assets.openhomefoundation.org/opengraph?url=<external_url>`). This shows the social image and the blog archive thumbnail immediately — even before the source article is live — and it auto-updates once the article publishes, without a rebuild. Do not set `og_image` by hand unless you need to override it with a specific image.
 
 ### 1. Collect the details with a wizard
 
@@ -260,6 +260,7 @@ Before writing anything, gather the required details from the user with the ask-
 - **Author** — must match a top-level key in `source/_data/people.yml`. Verify it exists; if not, tell the user it must be added before publishing.
 - **Publish date** — in `YYYY-MM-DD` format. Used for the filename, `date`, and `date_formatted` fields.
 - **Category** — the blog category (for example, `Technology`).
+- **Override image (optional)** — by default the social image is generated automatically from `external_url`, so leave this blank in most cases. Ask only whether the user wants to override it with a specific image URL. If they provide one, set it as `og_image` in the front matter and the plugin will leave it untouched.
 
 If a source URL is available, fetch it to pre-fill as many of these details as possible (title, description, opening paragraph, author, date) so the user only has to confirm or correct them.
 
@@ -269,7 +270,7 @@ Confirm the collected values back to the user before creating the file.
 
 - Verify the **author** exists as a top-level key in `source/_data/people.yml`. If missing, stop and ask the user to add the author first.
 - Verify the **external URL** starts with `https://` (the OG image fetch only works over HTTPS).
-- Make sure the `external_url` is the final published URL, not a preview or deploy-preview link. If the user only supplied a preview URL, confirm the resolved live URL with them before using it.
+- Make sure the `external_url` is the final published URL, not a preview or deploy-preview link. If the user only supplied a preview URL, confirm the resolved live URL with them before using it. The `og_image` is derived from `external_url` by the plugin, so a preview URL here would produce the wrong image.
 - Generate the URL slug from the title (lowercase, hyphens for spaces, remove special characters), unless the user provides one. If the source URL already has a clean slug in its path, prefer reusing that.
 
 ### 3. Build the crosspost
@@ -288,6 +289,8 @@ comments: false
 categories: Category
 external_url: "https://example.com/full-article-url/"
 external_source: "Source name"
+# Optional: only add og_image to override the auto-generated social image.
+# og_image: "https://example.com/custom-social-image.png"
 ---
 
 Your opening teaser paragraph goes here, ending with the summary break tag.<!--more-->
@@ -300,7 +303,7 @@ Notes:
 - `author` is the key from `people.yml`, not the display name.
 - The body is only the opening teaser paragraph followed immediately by `<!--more-->`. Do not add the full article text — the reader is redirected to the source.
 - Apply the same prose rules as standard posts (curly apostrophes and quotes in body text, sentence-style capitalization for the title).
-- Do not add an `og_image` field unless the user explicitly provides an image URL; the OG image is fetched from the external URL automatically.
+- Do not add an `og_image` field in the normal case. The `crosspost_og` plugin derives it from `external_url` automatically. Add `og_image` only when the user wants to override the generated image with a specific URL — an explicit value always wins over the generated one.
 
 ### 4. Crosspost summary
 
@@ -309,7 +312,7 @@ After creating the file, summarize for the user:
 - The output file path
 - Title, external source, external URL, author (and whether verified in `people.yml`), date, and category
 - The opening text and description used
-- A reminder that the Open Graph image is fetched automatically from the external URL at build time
+- A note that the Open Graph image is derived automatically from `external_url` by the `crosspost_og` plugin, renders immediately (including the blog archive thumbnail), and auto-updates once the source article is live, with no rebuild required
 
 ## Post-processing summary
 
