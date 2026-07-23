@@ -25,9 +25,14 @@ ha_quality_scale: bronze
 
 The **Beatbot** {% term integration %} connects supported Beatbot pool cleaning devices to Home Assistant by using the Beatbot cloud service. You can monitor the device, select a cleaning mode, and control supported cleaning actions.
 
+## Supported devices
+
+This integration supports Beatbot pool cleaners and cleaning base stations that you can add to the Beatbot app.
+
 ## Prerequisites
 
-Before setting up the integration, add your supported pool cleaner or cleaning base station to the Beatbot app. You need the Beatbot account that owns the device.
+1. Add your pool cleaner or cleaning base station to the Beatbot app.
+2. Make sure you can sign in to the Beatbot account that owns the device.
 
 The integration supports Beatbot accounts worldwide. Home Assistant automatically connects to the regional Beatbot cloud service for your account.
 
@@ -43,7 +48,7 @@ The entities available for a device depend on the capabilities reported by that 
 - **Binary sensor**: View the device connection and charging states.
 - **Sensor**: View the battery level, work status, and active error.
 - **Select**: Select a supported cleaning mode.
-- **Switch**: Control supported settings, such as child lock and voice do not disturb.
+- **Switch**: Control supported settings, such as child lock and voice do-not-disturb mode.
 
 The device firmware version is shown on the device page.
 
