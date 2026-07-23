@@ -4,7 +4,7 @@ description: Instructions on how to integrate official GeoSphere Austria weather
 ha_category:
   - Sensor
   - Weather
-ha_release: 2026.7
+ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: geosphere_austria_warnings
 ha_config_flow: true
