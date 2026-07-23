@@ -384,6 +384,10 @@ The ACB aggregate device holds the combined values for all AC-batteries.
 - **ACB <abbr title="Envoy serial number">SN</abbr> Sleep state**: Aggregated sleep state across all AC-batteries: awake, going to sleep, asleep, waking, or mixed when the batteries report different states
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh. This aggregate entity is on the Envoy device.
 
+{% note %}
+The **ACB <abbr title="Envoy serial number">SN</abbr> Power** value is not updated in real time and may lag behind the actual power flow in or out of the AC-batteries. If you convert this power into energy, for example with a Riemann sum integral helper, be aware that the result may not accurately reflect the actual energy going in or out of the batteries. For a more accurate view of the stored energy, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy** entity, which reports the current AC-battery energy content.
+{% endnote %}
+
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery.png" alt="acb battery">
   <figcaption>Envoy aggregated AC-battery sensor entities.</figcaption>
