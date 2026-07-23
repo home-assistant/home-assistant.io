@@ -29,7 +29,7 @@ The **Beatbot** {% term integration %} connects supported Beatbot pool cleaning 
 
 Before setting up the integration, add your supported pool cleaner or cleaning base station to the Beatbot app. You need the Beatbot account that owns the device.
 
-The integration supports Beatbot accounts in mainland China, Europe, and North America.
+The integration supports Beatbot accounts worldwide. Home Assistant automatically connects to the regional Beatbot cloud service for your account.
 
 {% include integrations/config_flow.md %}
 
@@ -56,10 +56,6 @@ The integration receives device state changes from the Beatbot cloud service. It
 ### The device is not shown
 
 Confirm that the device is available in the Beatbot app and belongs to the account used during authorization. Devices that do not report a supported product type are not added to Home Assistant.
-
-### Setup reports an unsupported region
-
-The Beatbot account must report mainland China, Europe, or North America as its region. Home Assistant does not select a different region because Beatbot account data is stored on regional cloud services.
 
 ## Removing the integration
 
