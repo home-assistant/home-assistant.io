@@ -4,7 +4,10 @@ title: "2026.8 Beta: A betta title"
 description: "Beta release notes"
 date: 2026-07-22 00:00:00
 date_formatted: "August 5, 2026"
-author: Franck Nijhof
+author:
+  - Franck Nijhof
+  - Ashley Abbott
+  - Bram Kragten
 author_twitter: frenck
 comments: true
 categories:
