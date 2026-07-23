@@ -12,7 +12,6 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
-  - switch
   - water_heater
 ha_integration_type: device
 ha_codeowners:

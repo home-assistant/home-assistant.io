@@ -142,3 +142,9 @@ logger:
 This will help you to find network connection issues.
 
 {% include integrations/actions.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

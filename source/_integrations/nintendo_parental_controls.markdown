@@ -13,7 +13,8 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_category: []
+ha_category:
+  - Gaming
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
@@ -97,13 +98,23 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 {% include integrations/actions.md %}
 
+### Action: Update pin code
+
+The `nintendo_parental_controls.update_pin_code` action allows you to change the parental controls override PIN of a specified device. When entering this PIN on the Switch, all parental control restrictions can be bypassed.
+
+- **Data attribute**: `device_id`
+  - **Description**: The ID of the device to change the PIN on.
+  - **Optional**: No
+- **Data attribute**: `pin`
+  - **Description**: The new PIN is to be set between 1000 and 99999999.
+  - **Optional**: No
+
 ## Known limitations
 
-The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
-
-Further, this integration relies on the cloud and cannot make a local connection to your Switch.
-
-The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
+- A cloud connection is required as it is not possible to make a local connection to your Switch.
+- The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- When changing the PIN, Nintendo will send you an email automatically. This cannot be disabled in the integration. The email does not contain the PIN itself.
 
 ## Troubleshooting
 
