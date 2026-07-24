@@ -3,7 +3,7 @@ title: Onida Infrared
 description: Integration to control Onida air conditioners using an infrared emitter and to receive commands from an Onida remote using an infrared receiver.
 ha_category:
   - Climate
-ha_release:
+ha_release: 2026.8
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
