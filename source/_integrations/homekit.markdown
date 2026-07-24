@@ -52,6 +52,7 @@ homekit:
         - binary_sensor.*_occupancy
       include_entities:
         - binary_sensor.living_room_motion
+        - valve.front_lawn
     entity_config:
       alarm_control_panel.home:
         code: 1234
@@ -73,6 +74,10 @@ homekit:
           - feature: toggle_mute
       switch.bedroom_outlet:
         type: outlet
+      valve.front_lawn:
+        type: sprinkler
+        linked_valve_duration: number.front_lawn_duration
+        linked_valve_end_time: sensor.front_lawn_end_time
       camera.back_porch:
         support_audio: true
       sensor.some_co_sensor:
@@ -195,11 +200,11 @@ homekit:
               required: false
               type: string
             linked_valve_duration:
-              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value, maximum value, and step size are set based on the linked `input_number` entity.
+              description: The `entity_id` of an `input_number` or `number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The state, minimum value, maximum value, and step size of the entity configured for `linked_valve_duration` must be expressed in seconds.
               required: false
               type: string
             linked_valve_end_time:
-              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the `input_number` of `linked_valve_duration`, or uses a default of 48 hours.
+              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the entity configured for `linked_valve_duration`, or uses a default of 48 hours.
               required: false
               type: string
             low_battery_threshold:
@@ -222,10 +227,10 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch`, `fan`, and `climate` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. For `climate` entities, the type is chosen automatically when you leave this unset.
+              description: Only for `switch`, `fan`, `climate`, and `valve` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. Valid types for `valve` entities are `faucet`, `shower`, `sprinkler`, and `valve`. For `climate` entities, the type is chosen automatically when you leave this unset.
               required: false
               type: string
-              default: "`switch` for `switch` entities, `fan` for `fan` entities, and chosen automatically for `climate` entities"
+              default: "`switch` for `switch` entities, `fan` for `fan` entities, chosen automatically for `climate` entities, and `valve` for `valve` entities"
             stream_count:
               description: Only for `camera` entities. The number of simultaneous streams the camera can support.
               required: false
@@ -479,7 +484,7 @@ The following integrations are currently supported:
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`. Valve switches (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| valve                                                         | Valve                  | All `valve` devices can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| valve                                                         | Valve                  | Represented as a generic valve by default but can be changed by using `type` within `entity_config`. Valve entities (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                             |
 
 # Device triggers
 
