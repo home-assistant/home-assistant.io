@@ -86,7 +86,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 
 If you use an ESPHome `remote_receiver` as your infrared receiver and the climate state does not update when you press buttons on the physical Onida remote, the receiver is probably splitting each command into two signals it cannot decode.
 
-The Onida protocol sends each command as two IR frames separated by a gap of about 10 ms. The ESPHome `remote_receiver` component defaults to an `idle` timeout of 10 ms, which treats that gap as the end of a transmission and breaks the command into two separate signals.
+The Onida protocol sends each command as two IR frames separated by a gap of about 20.1 ms. The ESPHome `remote_receiver` component defaults to an `idle` timeout of 10 ms, which treats that gap as the end of a transmission and breaks the command into two separate signals.
 
 To fix this, increase the `idle` timeout in your ESPHome `remote_receiver` configuration to about 25 ms so both frames are captured as a single signal:
 
