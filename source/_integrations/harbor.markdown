@@ -14,8 +14,6 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
-works_with:
-  - local
 ---
 
 The **Harbor Sleep** {% term integration %} lets you monitor a [Harbor Sleep](https://harbor.co/) baby monitor in Home Assistant.
@@ -34,12 +32,13 @@ Before setting up the integration, make sure you have:
 - The 10-digit serial number printed on the Harbor camera
 - The client certificate from the Harbor app
 - The private key that matches the client certificate
+- The local IP address of the Harbor device on your network
 
 ### Getting the client certificate and private key
 
 To get the client certificate and private key from the Harbor app:
 
-1. Open the app
+1. Open the app.
 2. Go to **Live**.
 3. Open **Camera Settings**.
 4. Scroll all the way down until you find **Advanced Settings**.
@@ -56,7 +55,7 @@ Client certificate:
 Private key:
   description: "The private key from the Harbor app. Paste the full PEM private key, including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines."
 IP address:
-  description: "Optional local IP address for the Harbor device. Leave this empty to let Home Assistant find the device automatically."
+  description: "The local IP address of the Harbor device."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -81,7 +80,7 @@ This integration does not provide additional actions.
 
 ## Known limitations
 
-The integration currently provides sensor entities only. To get the camera stream, you must setup a WHIP endpoint on `go2rtc`, `frigate`, or similar and then add a camera entity connecting to the server that is ingesting the WHIP endpoint. See [here](https://github.com/Harbor-Systems/harbor-python#whip-endpoint) for more information.
+The integration currently provides sensor entities only. To get the camera stream, you must set up a WHIP endpoint on `go2rtc`, `frigate`, or similar and then add a camera entity connecting to the server that is ingesting the WHIP endpoint. See [the Harbor Python README](https://github.com/Harbor-Systems/harbor-python#whip-endpoint) for more information.
 
 ## Troubleshooting
 
@@ -93,7 +92,7 @@ If Home Assistant cannot connect to the Harbor device during setup, try these st
 2. Make sure the Harbor device and Home Assistant are on the same local network.
 3. Make sure the serial number is exactly 10 digits.
 4. Make sure the client certificate and private key are copied completely.
-5. If automatic discovery does not work, enter the local IP address of the Harbor device.
+5. Make sure the local IP address you entered belongs to the Harbor device and is reachable from Home Assistant.
 
 ## Removing the integration
 
