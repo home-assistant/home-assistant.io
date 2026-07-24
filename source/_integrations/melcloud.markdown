@@ -82,13 +82,11 @@ An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary
 
 A `climate` platform entity is provided for each radiator zone in the air-to-water system. The following parameters can be controlled:
 
-- Target room temperature
+- Power (on/off). MELCloud exposes a single system-wide power state, so turning a zone off also stops the other zones and the hot water tank.
+- HVAC mode: `heat` or `off`, and `cool` on cooling-capable systems.
+- Target room temperature.
 
-The radiators need to be configured to run in room temperature control mode either through the local HMI or MELCloud. Flow temperature and curve modes are not supported.
-
-Some air-to-water devices allow cooling using the radiator zones. This feature has not been implemented due to the lack of sample devices.
-
-The system cannot be turned on/off through the `climate` entities.
+Zones are controlled by room temperature and must be set to room thermostat mode through the unit or the MELCloud app. Flow temperature and weather compensation curve modes are not controllable from Home Assistant.
 
 #### State attributes
 
