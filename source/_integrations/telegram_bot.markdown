@@ -202,9 +202,7 @@ notify:
 ## Event entity
 
 The **Telegram bot** integration provides an {% term event %} {% term entity %} which represents the state of the last message sent or received. It also provides several event attributes that can be used in automations.
-For received messages that are replies to another message, the optional
-`reply_to_message_id` attribute contains the `message_id` of the message being
-replied to. It is not present when the message is not a reply.
+For received messages that are replies to another message, the optional `reply_to_message_id` attribute contains the message ID (`id`) of the message being replied to. It is not present when the message is not a reply.
 
 ### Event: Attachment received
 
