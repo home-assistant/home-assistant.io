@@ -46,7 +46,7 @@ Integration time:
 Max sub-interval:
   description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
 Device class:
-  description: "Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible.  
+  description: Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible.
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -102,7 +102,7 @@ max_sub_interval:
   type: time
   default: 0
 device_class:
-  description: "Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible.
+  description: "Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible."
   required: false
   default: None
   type: string
