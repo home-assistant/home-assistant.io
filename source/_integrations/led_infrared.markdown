@@ -2,6 +2,8 @@
 title: LED Infrared
 description: Integration to control LED infrared lights with Home Assistant.
 ha_category:
+  - Event
+  - Infrared
   - Light
 ha_release: 2026.8
 ha_iot_class: Assumed State
@@ -10,11 +12,12 @@ ha_codeowners:
 ha_domain: led_infrared
 ha_config_flow: true
 ha_platforms:
+  - event
   - light
 ha_integration_type: device
 ---
 
-The **LED Infrared** {% term integration %} lets you control lights with any infrared emitter that has been previously configured in Home Assistant.
+The **LED Infrared** {% term integration %} lets you control lights with any infrared emitter that has been previously configured in Home Assistant. It can also receive commands from a remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the light, but there is no feedback channel to confirm the current state of the light. The integration therefore uses assumed states.
 
@@ -47,6 +50,8 @@ Device type:
   description: The type of remote control used for the LED light bulb, lamp, or controller.
 Infrared emitter:
   description: The infrared emitter entity to use for sending commands to your device. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter.
+Infrared receiver:
+  description: The infrared receiver entity to use for receiving commands from your remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -61,6 +66,15 @@ A light entity is created when an infrared emitter is configured.
   - **Description**: Represents the LED device and allows it to be controlled using infrared (IR) commands.
   - **Supported features**: Turn on, turn off, and select effects.
   - **Available effects**: Depend on the capabilities of the configured IR remote.
+
+### Events
+
+An event entity is created when an infrared receiver is configured. It fires an event each time a remote command is received, so you can use the remote to trigger automations in Home Assistant.
+
+- **Received command**
+  - **Description**: Fires when a command from the remote is decoded from the infrared receiver. The fired event type matches the button pressed on the remote.
+  - **Event types**: Depend on the capabilities of the configured IR remote.
+  - **Remarks**: Only commands supported by the configured remote are processed. Signals from other remotes are ignored.
 
 ## LED Infrared automation examples
 
