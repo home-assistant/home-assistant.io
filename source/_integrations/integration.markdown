@@ -138,17 +138,17 @@ The `right` method follows the [Right rule](https://en.wikipedia.org/wiki/Rieman
 
 An integration sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 
-If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
+If you have a sensor that provides you with power readings in Watts (uses `W` as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being consumed. Take the next manual YAML configuration as an example:
 
 ```yaml
 sensor:
   - platform: integration
     source: sensor.current_power
-    name: energy_spent
+    name: energy_consumed
     unit_prefix: k
     round: 2
     max_sub_interval:
       minutes: 5
 ```
 
-This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.
+This configuration will provide you with `sensor.energy_consumed` which will have your energy in `kWh`, as a `device_class` of `energy`.
