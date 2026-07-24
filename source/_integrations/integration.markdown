@@ -45,6 +45,8 @@ Integration time:
   description: SI unit of time to integrate over.
 Max sub-interval:
   description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
+Device class:
+  description: "Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible.  
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -99,9 +101,16 @@ max_sub_interval:
   required: false
   type: time
   default: 0
+device_class:
+  description: "Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible.
+  required: false
+  default: None
+  type: string
 {% endconfiguration %}
 
-The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
+The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation.
+
+For source sensors with specific device classes, the integral sensor can automatically determine its own device class. For example a source with the `Power` device class will automatically apply the `Energy` device class to the integral sensor. However there are many cases where this is not possible, for example the integral of a `Volume flow rate` sensor could be `Water` or `Gas`, so cannot be automatically determined. This can be solved by specifying a `device_class` hint for the integral sensor - if the unit and state class are compatible, the hint will be applied to the sensor.
 
 ## Data updates
 
