@@ -108,9 +108,9 @@ device_class:
   type: string
 {% endconfiguration %}
 
-The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation.
+The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product. For example, a source in `W` with prefix `k` and time `h` results in `kWh`. Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation.
 
-For source sensors with specific device classes, the integral sensor can automatically determine its own device class. For example a source with the `Power` device class will automatically apply the `Energy` device class to the integral sensor. However there are many cases where this is not possible, for example the integral of a `Volume flow rate` sensor could be `Water` or `Gas`, so cannot be automatically determined. This can be solved by specifying a `device_class` hint for the integral sensor - if the unit and state class are compatible, the hint will be applied to the sensor.
+For some device classes, the integral sensor can determine its own device class automatically. For example, a source with the `power` device class will automatically apply the `energy` device class to the integral sensor. However, there are many cases where this is not possible. For example, the integral of a `volume_flow_rate` sensor could be `water` or `gas`, so it cannot be determined automatically. To set the device class, specify a `device_class` hint for the integral sensor. If the unit and state class are compatible, Home Assistant applies the hint.
 
 ## Data updates
 
