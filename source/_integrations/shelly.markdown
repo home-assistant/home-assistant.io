@@ -443,6 +443,7 @@ The integration also creates two binary sensors:
 
 - Safety switch lock state. When locked, the device can't be controlled remotely.
 - Output state.
+
 ## Shelly Thermostatic Radiator Valve (TRV)
 
 Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.
