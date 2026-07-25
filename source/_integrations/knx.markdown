@@ -1047,6 +1047,7 @@ swing_horizontal_state_address:
 ### Cover
 
 The KNX cover platform is used as an interface to KNX covers.
+Intermediate positions of covers are calculated based on the configured `travelling_time_down` and `travelling_time_up` values once a second when moving. A received position from the KNX bus takes precedence over the calculated position.
 
 {% note %}
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
@@ -1056,7 +1057,7 @@ Home Assistant will, by default, `close` a cover by moving it in the `DOWN` dire
 
 Cover entities restore their last known position and tilt angle after Home Assistant is restarted. Covers that have a `position_state_address` or `angle_state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
-A restored position is reported as an assumed state until the cover receives a position from the KNX bus or is moved. Covers with a `position_state_address` leave the assumed state once the bus reports their position. Covers without one leave it the first time they are moved, as their position is only calculated from the configured `travelling_time_down` and `travelling_time_up` instead of read from the bus.
+A restored position is reported as an assumed state until the cover receives a position from the KNX bus or is moved.
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
