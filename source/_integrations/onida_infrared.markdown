@@ -3,7 +3,7 @@ title: Onida Infrared
 description: Integration to control Onida air conditioners using an infrared emitter and to receive commands from an Onida remote using an infrared receiver.
 ha_category:
   - Climate
-ha_release: 2026.8
+  - Infrared
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
@@ -88,18 +88,10 @@ If you use an ESPHome `remote_receiver` as your infrared receiver and the climat
 
 The Onida protocol sends each command as two IR frames separated by a gap of about 20.1 ms. The ESPHome `remote_receiver` component defaults to an `idle` timeout of 10 ms, which treats that gap as the end of a transmission and breaks the command into two separate signals.
 
-To fix this, increase the `idle` timeout in your ESPHome `remote_receiver` configuration to about 25 ms so both frames are captured as a single signal:
+To fix this, in your existing ESPHome `remote_receiver` configuration, set `idle` to about `25ms` so both frames are captured as a single signal:
 
-```yaml
-remote_receiver:
-  pin:
-    number: GPIO14
-    inverted: true
-    mode:
-      input: true
-      pullup: true
-  idle: 25ms
-```
+    remote_receiver:
+      idle: 25ms
 
 ## Removing the integration
 
