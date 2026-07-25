@@ -41,7 +41,6 @@ To find an account's 64-bit SteamID:
 3. Select **Account details**.
    - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
 
-
 ## Supported functionality
 
 The **Steam** integration provides the following entities.
@@ -98,22 +97,18 @@ Image entities provide artwork for the Steam account or the game the account is 
 - **Header capsule**
   - **Description**: The game's header artwork as displayed on its Steam store page.
   - **Image size**: 460 × 215 px.
-  - **Remarks**: Entity disabled by default.
 
 - **Library capsule**
   - **Description**: The game's vertical library artwork used in the Steam library.
   - **Image size**: 600 × 900 px.
-  - **Remarks**: Entity disabled by default.
 
 - **Library hero capsule**
   - **Description**: The game's wide hero artwork displayed at the top of the Steam library page.
   - **Image size**: 1920 × 620 px.
-  - **Remarks**: Entity disabled by default.
 
 - **Library logo**
   - **Description**: The transparent logo displayed on top of the library hero artwork.
   - **Image size**: Varies by game.
-  - **Remarks**: Entity disabled by default.
 
 - **Main capsule**
   - **Description**: The game's main capsule artwork used throughout the Steam store.
@@ -122,7 +117,6 @@ Image entities provide artwork for the Steam account or the game the account is 
 - **Page background**
   - **Description**: The background artwork used on the game's Steam store page.
   - **Image size**: 1438 × 810 px.
-  - **Remarks**: Entity disabled by default.
 
 - **Small capsule**
   - **Description**: The game's small capsule artwork used in lists and search results.
@@ -132,7 +126,6 @@ Image entities provide artwork for the Steam account or the game the account is 
 - **Vertical capsule**
   - **Description**: The game's vertical store capsule artwork.
   - **Image size**: 374 × 448 px or 748 × 896 px.
-  - **Remarks**: Entity disabled by default.
 
 ## Examples
 
