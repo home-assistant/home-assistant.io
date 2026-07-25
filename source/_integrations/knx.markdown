@@ -1054,6 +1054,10 @@ Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully o
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
 {% endnote %}
 
+Cover entities restore their last known position and tilt angle after Home Assistant is restarted. Covers that have a `position_state_address` or `angle_state_address` configured request their current state from the KNX bus according to their state updater configuration.
+
+When no `position_state_address` is configured, the position can't be read from the KNX bus. It is only calculated from the configured `travelling_time_down` and `travelling_time_up`, so the cover reports an assumed state.
+
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of KNX cover entities via YAML" %}
