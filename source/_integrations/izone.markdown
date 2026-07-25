@@ -26,6 +26,19 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Setup method:
+  description: Choose **Search for devices** to look for controllers on your local network, or **Enter host** to type the controller IP address or hostname.
+Controller IP address or hostname:
+  description: The address of your iZone bridge. Required when you select **Enter host**, or when you already have an iZone system set up and are adding another one.
+{% endconfiguration_basic %}
+
+If search does not find a controller, Home Assistant returns you to the setup form so you can enter the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the bridge.
+
+{% tip %}
+iZone bridges also advertise themselves for Apple HomeKit. Home Assistant may therefore show a separate [HomeKit Device](/integrations/homekit_controller/) discovery for the same bridge. Set up the **iZone** discovery (or add iZone manually) and ignore the HomeKit Device discovery. The HomeKit Device path does not provide working climate control for these bridges.
+{% endtip %}
+
 ## Multiple iZone systems
 
 If you have more than one iZone system on your local network, the iZone integration discovers all available controllers and shows them during setup. You can then choose the controller you want to configure.
@@ -56,9 +69,13 @@ exclude:
 
 ## Network settings
 
-The iZone system uses UDP broadcast discovery on the local network to find and communicate with iZone devices. For discovery to work reliably, Home Assistant must be able to receive this broadcast discovery traffic. In most cases, this means Home Assistant and the iZone bridge need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
+Day-to-day control talks to the iZone bridge over HTTP on TCP port `80`. Home Assistant must be able to reach the bridge at that address on your local network.
 
-For connectivity, Home Assistant must be able to send outbound UDP discovery packets to destination port `12107`, listen locally for inbound UDP iZone messages on port `7005`, and use TCP port `80` for HTTP communication with the bridge. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
+UDP broadcast discovery is used to find controllers on the LAN (for example **Search for devices**), to notice new bridges, and to pick up IP address changes. For discovery to work reliably, Home Assistant and the bridge usually need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
+
+Discovery uses outbound UDP packets to destination port `12107` and listens locally for inbound UDP iZone messages on port `7005`. The integration currently listens on `0.0.0.0` and sends discovery to local IPv4 broadcast addresses, which is not configurable.
+
+If UDP discovery traffic is blocked, you can still set up a controller by choosing **Enter host** and providing the bridge IP address or hostname, as long as HTTP on port `80` works. Without working UDP discovery, Home Assistant will not automatically find new controllers or follow IP address changes.
 
 ## Master controller
 
