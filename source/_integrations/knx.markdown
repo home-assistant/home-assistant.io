@@ -1056,7 +1056,7 @@ Home Assistant will, by default, `close` a cover by moving it in the `DOWN` dire
 
 Cover entities restore their last known position and tilt angle after Home Assistant is restarted. Covers that have a `position_state_address` or `angle_state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
-When no `position_state_address` is configured, the position can't be read from the KNX bus. It is only calculated from the configured `travelling_time_down` and `travelling_time_up`, so the cover reports an assumed state.
+A restored position is reported as an assumed state until the cover receives a position from the KNX bus or is moved. Covers without a `position_state_address` can't read their position from the bus, so their position is only calculated from the configured `travelling_time_down` and `travelling_time_up` and stays assumed.
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
