@@ -17,4 +17,4 @@ To add the automation:
    ![Update entity](/images/screenshots/custom_polling_02.png)
 4. Save your new automation to poll for data.
 
-Note that that `update_entity` has a 10-second debounce, which means that entities can not be updated more frequently than once every ten seconds through this method.
+Note that `homeassistant.update_entity` has a 10-second debounce, which means that entities cannot be updated more frequently than once every ten seconds through this method.
