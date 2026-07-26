@@ -68,9 +68,12 @@ automation:
 ## Binary sensor
 
 - Ethernet status
-- Force arm required
 
-The **Force arm required** sensor turns on when a device reports a problem, such as an open door or window, that would need to be bypassed to arm the alarm. Use it in an automation, for example to send a notification before you leave, or to decide whether an arm attempt needs a forced arm.
+## Sensor
+
+- Arm status
+
+The **Arm status** sensor reports whether arming the alarm currently requires bypassing a device, such as an open door or window. Use it in an automation, for example to send a notification before you leave, or to decide whether an arm attempt needs to use the bypass action.
 
 ## Lock
 
