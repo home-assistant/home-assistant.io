@@ -6,6 +6,7 @@ ha_category:
   - Hub
   - Presence detection
   - Sensor
+  - Switch
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -16,6 +17,7 @@ ha_platforms:
   - button
   - device_tracker
   - sensor
+  - switch
 ha_integration_type: device
 ---
 
@@ -126,3 +128,10 @@ The integration creates the following button entities:
 
 - **Restart**: Reboots the MikroTik device.
 - **Shutdown**: Powers off the MikroTik device. After a shutdown, the device is no longer reachable over the network and cannot be powered back on remotely from Home Assistant.
+
+### Switches
+
+The integration creates switch entities when the connected device exposes that information. Not every device supports every sensor.
+
+- Ethernet
+- Wifi
