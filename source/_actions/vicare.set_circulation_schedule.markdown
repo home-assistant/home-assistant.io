@@ -86,15 +86,22 @@ A day with no scheduled circulation must still be included in the schedule as an
 
 The current schedule is available as the `circulation_schedule` attribute of the water heater {% term entity %}. Not all devices support a circulation pump. If yours doesn't, this attribute is absent.
 
+A text {% term helper %} used to back up the schedule can hold at most 255 characters. A schedule with only a few time slots fits easily, but one with several slots on every day of the week may not. If the backup step runs into this limit, it fails and the schedule is left in place, so you won't lose your regular schedule, but the pump also won't turn off. To fit more, keep the helper's **Maximum length** at 255, the maximum a text helper supports.
+
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Automation: Turn off the circulation pump while you're away
+### Automation: Back up the schedule and turn off circulation when you leave
 
-This automation clears the circulation schedule when everyone leaves home, then you can pair it with a second automation that restores your regular schedule when someone returns.
+This automation saves your current circulation schedule to a text helper and then clears the schedule, so the pump stays off while nobody is home. Pair it with the automation in the next section, which restores the saved schedule once someone gets back.
+
+This requires a text {% term helper %} to hold the backup. If you don't have one yet, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper** > **Text**, and set **Maximum length** to `255`. This example assumes the helper is named `input_text.circulation_schedule_backup`.
 
 - Trigger: everyone leaves home
+- Action: set the value of the text helper
+  - Target: the text helper you created
+  - Value: the current circulation schedule
 - Action: set the circulation schedule
   - Target: the main water heater entity
   - Schedule: no time slots on any day
@@ -103,12 +110,19 @@ This automation clears the circulation schedule when everyone leaves home, then 
 
 {% example %}
 automation: |
-  alias: "Turn off circulation pump when away"
+  alias: "Back up and turn off circulation pump when away"
   triggers:
     - trigger: state
       entity_id: zone.home
       to: "0"
   actions:
+    - action: input_text.set_value
+      target:
+        entity_id: input_text.circulation_schedule_backup
+      data:
+        value: >-
+          {{ state_attr('water_heater.main_water_heater',
+             'circulation_schedule') | to_json }}
     - action: vicare.set_circulation_schedule
       target:
         entity_id: water_heater.main_water_heater
@@ -121,6 +135,36 @@ automation: |
           fri: []
           sat: []
           sun: []
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Restore the schedule when you get home
+
+This automation restores the schedule saved by the automation above once someone returns home.
+
+- Trigger: someone arrives home
+- Action: set the circulation schedule
+  - Target: the main water heater entity
+  - Schedule: the schedule stored in the text helper
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Restore circulation schedule when home"
+  triggers:
+    - trigger: state
+      entity_id: zone.home
+      from: "0"
+  actions:
+    - action: vicare.set_circulation_schedule
+      target:
+        entity_id: water_heater.main_water_heater
+      data:
+        schedule: >-
+          {{ states('input_text.circulation_schedule_backup')
+             | from_json }}
 {% endexample %}
 
 {% enddetails %}
