@@ -71,9 +71,9 @@ automation:
 
 ## Sensor
 
-- Arm status
-
-The **Arm status** sensor reports whether arming the alarm currently requires bypassing a device, such as an open door or window. Use it in an automation, for example to send a notification before you leave, or to decide whether an arm attempt needs to use the bypass action.
+- Arm status: Reports whether arming the alarm requires bypassing a device (for example, an open door or window).
+  The state is `ready` when you can arm without bypassing and `bypass_needed` when bypassing is required.
+  Use it in an automation to notify you before you leave or to prevent an arm attempt when bypassing would be required.
 
 ## Lock
 
