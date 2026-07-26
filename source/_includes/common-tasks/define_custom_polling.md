@@ -16,3 +16,5 @@ To add the automation:
    - Add the entities you want to poll to the **Entity** field. The `homeassistant.update_entity` action only supports targeting by entity. Selecting an area, device, or label is not supported.
    ![Update entity](/images/screenshots/custom_polling_02.png)
 4. Save your new automation to poll for data.
+
+Note that that `update_entity` has a 10-second debounce, which means that entities can not be updated more frequently than once every ten seconds through this method.
