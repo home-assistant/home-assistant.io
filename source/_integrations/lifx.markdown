@@ -175,9 +175,10 @@ When using the HomeKit Controller integration:
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
-When using the Matter integration:
-- Similiar to the HomeKit Controller, relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant
-- All buttons will have their own dedicated [Event](/integrations/event) regardless of how they are configured within the LIFX app
+When you use the Matter integration:
+
+- Similar to the HomeKit Controller integration, relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
+- Each button is exposed as an [event entity](/integrations/event) regardless of how it is configured in the LIFX app.
 
 ## Troubleshooting discovery
 
