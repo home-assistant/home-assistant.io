@@ -19,8 +19,8 @@ The **Ridder HortiMaX Pro** {% term integration %} reads measurements from
 [Ridder](https://www.ridder.com/) greenhouse process controllers through the
 HortOS Automation API.
 
-A HortiMaX Pro controller runs the climate, irrigation, screening and lighting
-of a greenhouse. This integration makes everything the controller measures —
+A HortiMaX Pro controller runs the climate, irrigation, screening, and
+lighting of a greenhouse. This integration makes everything the controller measures —
 air and pipe temperatures, humidity, vent and screen positions, irrigation
 volumes, weather station readings, gas and electricity use — available in Home
 Assistant as sensors.
@@ -31,7 +31,7 @@ HortiMaX Pro.
 
 {% important %}
 This is a community-built integration. It is not an official Ridder product,
-it is not certified by Ridder, and Ridder does not support it.
+is not certified by Ridder, and Ridder does not support it.
 
 Ridder's support covers the HortOS Automation API itself. Anything about this
 integration is a matter for the Home Assistant community.
@@ -48,9 +48,9 @@ using them is separate from installing this integration.
 
 {% configuration_basic %}
 API key:
-  description: "The API key for the HortOS Automation API, which gives access to every controller of your organisation."
+  description: "The API key for the HortOS Automation API, which gives access to every controller in your organization."
 API base URL:
-  description: "Leave this at the default to use the HortOS cloud API. Change it only if you run HortOS on-premise, in which case enter the address of that server."
+  description: "Leave this at the default to use the HortOS cloud API. Change it only if you run HortOS on premises, in which case enter the address of that server."
 {% endconfiguration_basic %}
 
 One config entry covers a whole organisation, so all controllers your API key
@@ -106,8 +106,9 @@ per key; if you use the same key elsewhere, the two can interfere.
 
 ### A sensor is missing
 
-Readouts that could not be classified are created disabled. Open the device
-page, select **+ x entities not shown**, and enable the sensor you need.
+Readouts that could not be classified are disabled by default. Open the device
+page, select the line that shows how many entities are hidden (for example,
+**+ 12 entities not shown**), and then enable the sensor you need.
 
 If a readout is missing entirely, the controller is not reporting it through
 the API. Check in HortiMaX Pro whether the source is enabled.
