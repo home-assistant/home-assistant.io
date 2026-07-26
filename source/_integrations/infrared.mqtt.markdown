@@ -434,6 +434,8 @@ An example message that is sent when a command is issued:
 
 ## Examples
 
+### Manual configuration example
+
 This is an example of a manual configured MQTT `infrared` receiver item.
 
 {% raw %}
@@ -465,3 +467,7 @@ mqtt:
 ```
 
 {% endraw %}
+
+### Discovery of Tuya based IR blaster
+
+Some Tuya based IR blasters will support MQTT discovery for an infrared emitter and receiver through Zigbee2MQTT. Note that the IR receiver will only when the device is in learning mode.
