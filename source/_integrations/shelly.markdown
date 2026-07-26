@@ -94,7 +94,9 @@ The list below will help you diagnose and fix the problem:
 
 ### Shelly device configuration (generation 2+)
 
-Generation 2+ devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2+ devices use the `RPC` protocol to communicate with Home Assistant. By default, no additional configuration is required.
+
+**Only battery-operated devices** (even if connected via USB) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL, or if the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** > **Connectivity** > **Outbound WebSocket**, and select **Enable Outbound WebSocket**. Under **Server**, enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
