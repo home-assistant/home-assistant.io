@@ -326,7 +326,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **VM Folder**: Select a location to store the virtual machine files.
        - **ISO Image**: Leave blank.
        - **OS**: Select **Linux**.
-       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, M3 or M4), make sure OS Version is set to **Oracle Linux (ARM 64-bit)**.
+       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, M3, or M4), set **OS Version** to **Oracle Linux (ARM 64-bit)**.
     3. Select **Next**.
     4. In the **Specify virtual hardware** step, specify the following settings:
        - **Base Memory**: Set to at least **2048 MB**, which is 2 GB.
