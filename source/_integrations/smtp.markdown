@@ -250,7 +250,7 @@ automation: |
 
 ## Known limitations
 
-- The **SMTP** integration does currently not support OAuth 2.0 authentication.
+- The **SMTP** integration does not currently support OAuth 2.0 authentication.
 
 ## Troubleshooting
 
