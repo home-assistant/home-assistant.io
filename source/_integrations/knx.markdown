@@ -1566,6 +1566,10 @@ knx:
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
+Notify entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX notify entities via YAML" %}
+
 ```yaml
 knx:
   notify:
@@ -1586,6 +1590,8 @@ type:
   default: "latin_1"
   type: string
 {% endconfiguration %}
+
+{% enddetails %}
 
 #### Example action
 
