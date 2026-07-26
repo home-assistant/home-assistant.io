@@ -101,7 +101,7 @@ features:
   type: list
 features_position:
   required: false
-  description: Position of the features on the tile card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`. `inline` is not compatible with the `vertical` option.
+  description: Position of the features on the tile card. Can be `bottom` or `inline`. When set to inline, the first feature is displayed next to the name and any remaining features are displayed below it. `inline` is not compatible with the `vertical` option.
   type: string
   default: bottom
 
