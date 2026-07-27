@@ -108,6 +108,7 @@ This trigger watches one or more entities:
 
 - If you do not set any of **From**, **To**, `not_from`, or `not_to`, this trigger fires on all state changes. It also fires when only an attribute changes.
 - If you set one of the options **From** (`from`), **To** (`to`), `not_from`, or `not_to`, attribute-only changes do not fire the trigger.
+- In the UI, **Any state (ignoring attribute changes)** for **From** or **To** matches any previous or new state value, but only when the entity state changes. In YAML, this is shown as `from: null` or `to: null`. This is useful for sensors that update attributes often, while their main state changes less often.
 - You cannot combine the options `from` with `not_from`, or `to` with `not_to`.
 - If you use the **For** (`for`) option, the timer resets if Home Assistant restarts or automations reload.
 
@@ -171,6 +172,37 @@ automation: |
         entity_id: notify.my_device
       data:
         message: "Sam has arrived home."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a notification when a sensor value stops changing
+
+If you want to know when a sensor value has not changed for a period, use **Any state (ignoring attribute changes)** for **To** and set **For** to the amount of time you want to wait.
+
+- **Trigger**: State
+  - **Entity**: Power sensor (`sensor.current_power`)
+  - **To**: Any state (ignoring attribute changes)
+  - **For**: 30 minutes
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a sensor value that stops changing" %}
+
+{% example %}
+automation: |
+  alias: "Notify me when power stops updating"
+  triggers:
+    - trigger: state
+      entity_id: sensor.current_power
+      to: null
+      for: "00:30:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The power sensor value has not changed for 30 minutes."
 {% endexample %}
 
 {% enddetails %}
