@@ -418,6 +418,8 @@ An example message to receive:
 
 The message should contain the `timings` attribute and optional the `modulation` attribute, any other attributes in the JSON message will be ignored.
 
+The message will silently be ignored if `null` or `None` is received instead.
+
 An example message that is sent when a command is issued:
 
 ```json
