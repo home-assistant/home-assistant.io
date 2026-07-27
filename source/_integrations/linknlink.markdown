@@ -59,6 +59,8 @@ The integration provides the following sensor entities:
 
 The distance entities use real-time local radar coordinates. They show an unknown state when no target is present or the most recent coordinate data is more than 30 seconds old. They become unavailable only when the local position subscription is disconnected.
 
+The horizontal distance is the nearest target's distance projected onto the radar's horizontal plane. The three-dimensional distance is the straight-line distance from the radar to the nearest target.
+
 Temperature and humidity require the optional sensor power cable. Their entities remain unavailable when the device does not detect that cable. After connecting the cable and restarting the device, the integration discovers the sensors automatically. When a detected sensor temporarily omits a measurement, its entity shows an unknown state.
 
 Other environmental and count sensors show an unknown state when the device omits an individual measurement. They become unavailable when their local data source is disconnected.
