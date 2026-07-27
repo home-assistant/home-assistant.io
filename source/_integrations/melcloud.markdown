@@ -97,7 +97,7 @@ Each zone's temperature control method (Room, Flow, or Curve) is chosen with the
 
 ### Select
 
-An operation mode `select` entity is provided for each radiator zone. It sets how the zone controls its temperature, matching the Room / Flow / Curve options in the MELCloud app:
+An operation mode `select` entity is provided for each radiator zone. It sets how the zone controls its temperature, matching the **Room** / **Flow** / **Curve** options in the MELCloud app:
 
 - **Room**: The zone targets the room temperature set on the `climate` entity.
 - **Flow**: The zone targets a flow temperature.
