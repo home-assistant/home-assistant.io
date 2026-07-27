@@ -1,6 +1,6 @@
 ---
 title: LED Infrared
-description: Integration to control LED infrared lights with Home Assistant.
+description: Integration to control LED infrared lights using an infrared emitter and to receive commands from a remote using an infrared receiver.
 ha_category:
   - Event
   - Infrared
