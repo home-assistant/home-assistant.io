@@ -56,7 +56,7 @@ In some situations, some of the features may require a subscription such as the 
 
 ## Charging schedule action
 
-For vehicles that report charge schedules, use the **Get charge schedules** action to retrieve the current charging schedules. The response includes the number of schedules, the number of active schedules, and the configured days with their start time and duration.
+For vehicles that report charge schedules, use the **Get charge schedules** action to retrieve the current charging schedules. The response includes the number of schedules, the number of active schedules, and the configured days with their local `HH:MM` start time and duration.
 
 ## Battery charge limits
 
