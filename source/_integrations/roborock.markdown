@@ -179,9 +179,6 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Mop attached**
   - **Description**: States if the mop is currently attached.
 
-- **Mop drying status**
-  - **Description**: Only available on docks with drying capabilites - States if the mop is currently being driven.
-
 - **Water box attached**
   - **Description**: States if the water box is currently attached.
 
@@ -197,6 +194,8 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Dirty water box**
   - **Description**: Only available on docks with dirty water tanks built-in. States if the dirty water tank is full, or if the dirty water box is not installed.
 
+- **Emptying dust bin**
+  - **Description**: Only available on docks that support automatic dust collection. States if the dock is currently emptying the vacuum's dust bin.
 
 #### Sensor
 
@@ -270,6 +269,12 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Do not disturb**
   - **Description**: This enables _Do not disturb_ during the time frame you have set in the app or on the time entity. When _Do not disturb_ is enabled, the vacuum does not run or speak.
 
+- **Mop wash**
+  - **Description**: Only available on docks with mop washing capabilities. States if the mop is currently being washed, and lets you start or stop washing.
+
+- **Mop drying**
+  - **Description**: Only available on docks with mop drying capabilities. States if the mop is currently being dried, and lets you start or stop drying.
+
 #### Number
 
 - **Volume**
@@ -290,6 +295,11 @@ There are currently four buttons that allow you to reset the various maintenance
 
 - **Reset air filter**
   - **Description**: The air filter is expected to be replaced every 150 hours.
+
+Some docks also expose an action button:
+
+- **Empty dust bin**
+  - **Description**: Only available on docks that support automatic dust collection. Empties the vacuum's dust bin into the dock.
 
 In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
 
