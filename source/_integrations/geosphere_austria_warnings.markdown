@@ -25,7 +25,7 @@ Warning data is provided by GeoSphere Austria under the [Creative Commons Attrib
 ## Use cases
 
 - Get notified when an official weather warning is issued for your home or another location in Austria.
-- Trigger automations when the warning level rises, for example closing covers or disabling irrigation.
+- Trigger automations when the warning level rises that close covers or disable irrigation, for example.
 - Show the current warning level on your dashboard.
 
 ## Prerequisites
