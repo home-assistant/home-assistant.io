@@ -470,4 +470,31 @@ mqtt:
 
 ### Discovery of Tuya based IR blaster
 
-Some Tuya based IR blasters will support MQTT discovery for an infrared emitter and receiver through Zigbee2MQTT. Note that the IR receiver will only when the device is in learning mode.
+Some Tuya based IR blasters will support MQTT discovery for an infrared emitter and receiver through Zigbee2MQTT. Note that the IR receiver will only when the device is in learning mode. Most times you can enable learning mode continuously by turning on learning mode every 15 seconds, of after an infrared signal was received.
+
+Example automation, to turn on learning mode for Tuya IR blasters via Zigbee2MQTT:
+
+{% raw %}
+
+```yaml
+alias: IR Learnmode
+description: ""
+triggers:
+  - trigger: time_pattern
+    seconds: /15
+  - trigger: mqtt
+    options:
+      topic: zigbee2mqtt/irhub
+      payload: true
+      value_template: "{{ iif(value_json.learned_ir_timings, true, false) }}"
+conditions: []
+actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.irhub_learn_ir_code
+    data: {}
+mode: single
+```
+
+{% endraw %}
