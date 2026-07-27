@@ -8,11 +8,11 @@ _Attention! Installing CT clamp sensor devices requires opening your electrical 
 
 _Disclaimer: Some links in this section are affiliate links._
 
-### Using a dedicated energy meter
+**Using a dedicated energy meter**
 
 A dedicated energy meter gives you the most accurate readings. Many energy meters also use a CT clamp, but because they measure the voltage and power factor in addition to the current, they can report the actual power and energy accurately. Many DIN-rail energy meters report cumulative energy (kWh) directly and can be integrated using [Modbus](/integrations/modbus/) or [ESPHome](https://esphome.io/).
 
-### Why a current-only CT clamp can be inaccurate
+**Why a current-only CT clamp can be inaccurate**
 
 A DIY CT clamp that measures only current has to assume the voltage and power factor to calculate the power. Power factor describes how much of the current actually does useful work. Inverters, battery systems, and other electronics can draw current that does little or no useful work, even when they are producing or using almost no power. A current-only clamp cannot tell the difference. It multiplies the current it measures by an assumed voltage, so it can report power that is not really flowing.
 
