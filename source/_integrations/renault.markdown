@@ -35,7 +35,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car.
 - Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
-- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, charging schedule details, and tyre pressure.
+- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
 {% include integrations/config_flow.md %}
 
@@ -54,13 +54,9 @@ All vehicles linked to the account should then get added as devices, with sensor
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
 
-## Charging schedule attributes
+## Charging schedule action
 
-For vehicles that report charge schedules, the **Charging mode** sensor includes extra attributes:
-
-- `schedule_count`: Number of charge schedules reported by the vehicle.
-- `active_schedule_count`: Number of active charge schedules.
-- `active_schedules`: Details of the active charge schedules, including configured days, `start_time`, and `duration`.
+For vehicles that report charge schedules, use the **Get charge schedules** action to retrieve the current charging schedules. The response includes the number of schedules, the number of active schedules, and the configured days with their start time and duration.
 
 ## Battery charge limits
 
