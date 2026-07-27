@@ -67,13 +67,13 @@ Example configuration for Google Mail.
 
 | **Parameter** | Value |
 | -------- | ------------- |
-| **Host** | smtp.gmail.com |
-| **Port** | 587 |
-| **Sender email** | example@gmail.com |
-| **Sender name** | SENDER_NAME |
-| **Connection security** | STARTTLS |
-| **Username** | example@gmail.com |
-| **Password** | YOUR_APP_PASSWORD |
+| **Host** | `smtp.gmail.com` |
+| **Port** | `587` |
+| **Sender email** | `example@gmail.com` |
+| **Sender name** | _sender name_ |
+| **Connection security** | `STARTTLS` |
+| **Username** | `example@gmail.com` |
+| **Password** | _your app password_ |
 
 Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
 
@@ -247,3 +247,19 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+## Known limitations
+
+- The **SMTP** integration does not currently support OAuth 2.0 authentication.
+
+## Troubleshooting
+
+ The **SMTP** integration requires network connectivity to the configured SMTP server. If you use a mail server on the internet, verify that your internet connection is stable. Your email service provider may also experience downtime, including scheduled maintenance.
+
+When reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Reload the integration. As soon as the issue reoccurs, stop debug logging again. The debug log file will be downloaded automatically.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
