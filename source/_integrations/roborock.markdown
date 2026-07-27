@@ -296,7 +296,7 @@ There are currently four buttons that allow you to reset the various maintenance
 - **Reset air filter**
   - **Description**: The air filter is expected to be replaced every 150 hours.
 
-Some docks also expose an action button:
+Some docks also expose an additional button entity:
 
 - **Empty dust bin**
   - **Description**: Only available on docks that support automatic dust collection. Empties the vacuum's dust bin into the dock.
