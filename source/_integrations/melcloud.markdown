@@ -11,6 +11,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
   - water_heater
 ha_integration_type: device
@@ -76,7 +77,7 @@ The following switches can be used:
 
 ## Air-to-Water device
 
-An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary_sensor` platforms.
+An Air-to-Water device provides `water_heater`, `climate`, `select`, `sensor`, and `binary_sensor` platforms.
 
 ### Climate
 
@@ -86,13 +87,23 @@ A `climate` platform entity is provided for each radiator zone in the air-to-wat
 - HVAC mode: `heat` or `off`, and `cool` on cooling-capable systems.
 - Target room temperature.
 
-Zones are controlled by room temperature and must be set to room thermostat mode through the unit or the MELCloud app. Flow temperature and weather compensation curve modes are not controllable from Home Assistant.
+Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity. See the [Select](#select) section below.
 
 #### State attributes
 
 |Attribute|Description|Example|
 |---------|-----------|-------|
 |`status` |Current operation status|`idle`|
+
+### Select
+
+An operation mode `select` entity is provided for each radiator zone. It sets how the zone controls its temperature, matching the **Room** / **Flow** / **Curve** options in the MELCloud app:
+
+- **Room**: The zone targets the room temperature set on the `climate` entity.
+- **Flow**: The zone targets a flow temperature.
+- **Curve**: The zone follows the weather compensation curve configured on the unit; the target is determined automatically. Heating only.
+
+The heating or cooling direction is set separately with the `climate` entity's HVAC mode, and the selected method is kept when the direction changes.
 
 ### Sensor
 
