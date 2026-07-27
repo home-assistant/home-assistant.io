@@ -59,11 +59,13 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 
 ### Switch
 
-The switch platform allows you to control your outlets and light switches. Switches are added for each of the following devices:
+The switch platform allows you to control your outlets, light switches, and select camera functions. Switches are added for each of the following devices:
 
 - Light Switch
 - Smart Plug
 - Smart Plug Compact
+- Camera Eyes
+- Camera 360
 
 ## Client registration
 
@@ -129,7 +131,7 @@ If the connection to the controller drops, for example because of a network hicc
 ## Known limitations
 
 - The integration only works on your local network. Controlling your Bosch Smart Home devices from outside your home requires a VPN or a similar way to reach your home network.
-- Devices you pair with the controller after setting up the integration don't appear automatically. {% my integrations title="**Settings** > **Devices & services**" %}, select the Bosch SHC integration, and reload it to pick up new devices.
+- Devices you pair with the controller after setting up the integration don't appear automatically. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Bosch SHC**, and select **Reload** to pick up new devices.
 - If your controller's client certificate expires or its network details change, remove the integration and set it up again to generate a new certificate.
 
 ## Troubleshooting
