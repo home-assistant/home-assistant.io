@@ -4,7 +4,6 @@ action: renault.charge_start
 domain: renault
 description: "Starts charging a Renault vehicle."
 related_actions:
-  - renault.charge_set_immediate
   - renault.charge_set_schedules
 ---
 
