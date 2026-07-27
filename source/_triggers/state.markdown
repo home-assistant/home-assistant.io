@@ -71,11 +71,11 @@ entity_id:
   required: true
   type: [string, list]
 from:
-  description: The starting state or starting attribute value to match. You can use one state or a list of states.
+  description: The starting state or starting attribute value to match. You can use one state, a list of states, or `null` to match any starting state while ignoring attribute-only changes.
   required: false
   type: [string, list]
 to:
-  description: The new state or new attribute value to match. You can use one state or a list of states.
+  description: The new state or new attribute value to match. You can use one state, a list of states, or `null` to match any new state while ignoring attribute-only changes.
   required: false
   type: [string, list]
 not_from:
