@@ -32,7 +32,7 @@ The **Monzo** {% term integration %} allows you to connect your Monzo bank accou
 4. Once submitted, you can proceed with adding the integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}, and add the **Monzo** integration.
    - Fill in the OAuth details for the client you've created in the Monzo developer portal.
-   - After you authorize Home Assistant access by email, approve the request in the Monzo app. Home Assistant waits for this second approval and completes setup automatically.
+   - After you authorize Home Assistant access, approve the request in the Monzo app. Home Assistant waits for this second approval and completes setup automatically. If you see **Approval timed out** or **Connection error**, follow the on-screen instructions to try again.
 
 {% include integrations/config_flow.md %}
 
