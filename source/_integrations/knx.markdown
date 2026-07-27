@@ -594,12 +594,31 @@ name:
     You can change the name in the Home Assistant UI.
   required: false
   type: string
+default_entity_id:
+  description: Sets a preferred initial entity ID instead of having it derived from name.
+    For example, `sensor.my_awesome_sensor`.
+    If the entity ID already exists, the entity ID is created with a number at the end.
+    The `default_entity_id` is only used when the entity is added for the first time.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the entity ID in the Home Assistant UI.
+  required: false
+  type: string
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
   default: None
 {% endconfiguration %}
+
+```yaml
+# Example configuration.yaml entry fragment for common entity configuration options
+knx:
+  sensor:
+    - name: My awesome sensor
+      default_entity_id: "sensor.awesome_entity_id"
+      entity_category: diagnostic
+      ...
+```
 
 ### Binary sensor
 
