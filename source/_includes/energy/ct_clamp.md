@@ -7,3 +7,7 @@ Current transformer (CT) clamp sensors measure your energy usage by looking at t
 _Attention! Installing CT clamp sensor devices requires opening your electrical cabinet. This work should be done by someone familiar with electrical wiring and may require a licensed professional in some regions. Your qualified installer will know how to do this._
 
 _Disclaimer: Some links in this section are affiliate links._
+
+### Using a dedicated energy meter
+
+A current transformer (CT) clamp that only measures current has to assume a voltage and power factor to estimate power, which can make its readings inaccurate. A dedicated energy meter installed on the connection you want to monitor measures the actual power, taking voltage and power factor into account, so it reports energy more accurately. Many DIN-rail energy meters report cumulative energy (kWh) directly and can be integrated using [Modbus](/integrations/modbus/) or [ESPHome](https://esphome.io/).

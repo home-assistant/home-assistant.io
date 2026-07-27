@@ -19,10 +19,6 @@ Some battery vendors have an API to integrate the data into your Home Assistant 
 
 {% include energy/ct_clamp.md %}
 
-### Using a dedicated energy meter
-
-A current transformer (CT) clamp that only measures current has to assume a voltage and power factor to estimate power, which can make its readings inaccurate. A dedicated energy meter installed on your battery's connection measures the actual power, taking voltage and power factor into account, so it reports energy more accurately. Many DIN-rail energy meters report cumulative energy (kWh) directly and can be integrated using [Modbus](/integrations/modbus/) or [ESPHome](https://esphome.io/).
-
 ## Adding your battery to the energy dashboard
 
 To track your battery, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and, under **Home battery storage**, select **Add battery system**.
