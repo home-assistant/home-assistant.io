@@ -256,10 +256,10 @@ automation: |
 
  The **SMTP** integration requires network connectivity to the configured SMTP server. If you use a mail server on the internet, verify that your internet connection is stable. Your email service provider may also experience downtime, including scheduled maintenance.
 
-When reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Reload the integration. As soon as the issue reoccurs, stop debug logging again. The debug log file will download automatically.
+When reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Reload the integration. As soon as the issue reoccurs, stop debug logging again. The debug log file will be downloaded automatically.
 
 ## Removing the integration
 
-To remove this integration, follow these steps:
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
