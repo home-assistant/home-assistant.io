@@ -56,29 +56,51 @@ Each entry adds one service {% term device %} named after the monitored municipa
 
 ## Automation examples
 
+The real power of this integration is to allow the creation of automations based on official weather warnings.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: sending a weather warning notification
+
+Get a notification when a weather warning becomes active.
+
 Entities are named after the monitored municipality, for example `sensor.innsbruck_warning_level`.
 
-Get a notification when a weather warning becomes active:
+- **Trigger**: State
+  - **Entity**: Innsbruck warning level (`sensor.innsbruck_warning_level`)
+  - **To**: Yellow
+  - **To**: Orange
+  - **To**: Red
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `Warning level {{ states('sensor.innsbruck_warning_level') }} with {{ states('sensor.innsbruck_active_warnings') }} active warning(s) for Innsbruck.`
+  - **Title**: `Weather warning`
 
-```yaml
-automation:
-  - alias: "Notify on weather warning"
-    triggers:
-      - trigger: state
-        entity_id: sensor.innsbruck_warning_level
-        to:
-          - yellow
-          - orange
-          - red
-    actions:
-      - action: notify.mobile_app_your_phone
-        data:
-          title: "Weather warning"
-          message: >-
-            Warning level {{ states('sensor.innsbruck_warning_level') }}
-            with {{ states('sensor.innsbruck_active_warnings') }}
-            active warning(s) for Innsbruck.
-```
+{% details "YAML example for notifying on weather warning" %}
+
+{% example %}
+automation: |
+  alias: "Notify on weather warning"
+  triggers:
+    - trigger: state
+      entity_id: sensor.innsbruck_warning_level
+      to:
+        - yellow
+        - orange
+        - red
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Weather warning"
+        message: >-
+          Warning level {{ states('sensor.innsbruck_warning_level') }}
+          with {{ states('sensor.innsbruck_active_warnings') }}
+          active warning(s) for Innsbruck.
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
