@@ -87,7 +87,7 @@ A `climate` platform entity is provided for each radiator zone in the air-to-wat
 - HVAC mode: `heat` or `off`, and `cool` on cooling-capable systems.
 - Target room temperature.
 
-Each zone's temperature control method (Room, Flow, or Curve) is chosen with the operation mode `select` entity. See the [Select](#select) section below.
+Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity. See the [Select](#select) section below.
 
 #### State attributes
 
