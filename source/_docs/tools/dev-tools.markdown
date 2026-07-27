@@ -20,9 +20,9 @@ Screenshot of Home Assistant's tools.
 | Statistics | Shows a list of long-term statistic entities                        |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
-## What can I do with Home Assistant´s Tools?
+## What can I do with Home Assistant's Tools?
 
-The available tools are meant for _all_ (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+The available tools are meant for _all_ (not just for the developers) to quickly try out things, such as performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
 
 ## YAML tab
 
