@@ -2,6 +2,7 @@
 title: LED Infrared
 description: Integration to control LED infrared lights using an infrared emitter and to receive commands from a remote using an infrared receiver.
 ha_category:
+  - Button
   - Event
   - Infrared
   - Light
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: led_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - event
   - light
 ha_integration_type: device
@@ -78,6 +80,20 @@ A light entity is created when an infrared emitter is configured.
   - **Description**: Represents the LED device and allows it to be controlled using infrared (IR) commands.
   - **Supported features**: Turn on, turn off, and select effects.
   - **Available effects**: Depend on the capabilities of the configured IR remote.
+
+### Buttons
+
+- **Brightness up**
+  - **Description**: Increases the brightness of the light by one step.
+  - **Available for**: 13-key remote, 24-key remote
+
+- **Brightness down**
+  - **Description**: Decreases the brightness of the light by one step.
+  - **Available for**: 13-key remote, 24-key remote
+
+- **Timer**
+  - **Description**: Enables the timer, turning the light on for 6 hours and off for 18 hours in a repeating 24-hour cycle.
+  - **Available for**: 13-key remote
 
 ### Events
 
