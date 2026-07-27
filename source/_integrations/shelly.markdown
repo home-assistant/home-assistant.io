@@ -435,6 +435,15 @@ Trigger reboot of device.
 
 {% include integrations/actions.md %}
 
+## Shelly Circuit Breaker
+
+The Shelly Circuit Breaker creates a `switch` entity that lets you control the breaker. This entity shows as `unavailable` when the device's safety switch is locked.
+
+The integration also creates two binary sensors:
+
+- Safety switch lock state. When locked, the device can't be controlled remotely.
+- Output state.
+
 ## Shelly Thermostatic Radiator Valve (TRV)
 
 Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.

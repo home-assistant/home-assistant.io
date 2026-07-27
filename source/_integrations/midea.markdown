@@ -1,10 +1,10 @@
 ---
-title: Midea LAN
+title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
   - Climate
 ha_release: 2026.8
-ha_domain: midea_lan
+ha_domain: midea
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
@@ -17,7 +17,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Midea LAN** {% term integration %} lets you control devices with Midea protocol connected to various clouds.
+The **Midea** {% term integration %} lets you control devices with Midea protocol connected to various clouds.
 
 The integration provides information on connected devices and enables control of the main features.
 
@@ -101,7 +101,7 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 
 ## Supported functionality
 
-The **Midea LAN** {% term integration %} provides the following entities:
+The **Midea** {% term integration %} provides the following entities:
 
 - Climate
 
