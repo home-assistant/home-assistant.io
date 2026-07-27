@@ -77,11 +77,14 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Lorem ipsum](#lorem-ipsum)
-- [Home Assistant Cloud panel revamped](#home-assistant-cloud-panel-revamped)
-- [Home Assistant web server is now configurable via the UI port 80?](#home-assistant-web-server-is-now-configurable-via-the-ui-port-80)
-- [Continuing the work on automations](#continuing-the-work-on-automations)
+- [Making Home Assistant more approachable](#making-home-assistant-more-approachable)
+- [Default port is now 80](#default-port-is-now-80)
 - [Less "advanced"](#less-advanced)
+  - [Advanced and Expert terminology](#advanced-and-expert-terminology)
+  - [Developer tools panel rename](#developer-tools-panel-rename)
+- [A redesigned Home Assistant Cloud page](#a-redesigned-home-assistant-cloud-page)
+- [Rename and reorder your entity IDs](#rename-and-reorder-your-entity-ids)
+- [New triggers and conditions](#new-triggers-and-conditions)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -90,6 +93,7 @@ Enjoy the (beta) release!
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Revamping the template tools](#revamping-the-template-tools)
+- [Patch releases](#patch-releases)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -99,33 +103,79 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 [@frenck]: https://github.com/frenck
 
-## Lorem ipsum
+## Making Home Assistant more approachable
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+**TODO (write LAST):** Thematic intro on approachability — Home Assistant is getting easier to live with, not less capable. Link back to the mission/roadmap goals. Plain words, short sentences, why-before-what, pain-first framing (name the friction, ideally as a question, then the fix). Write it as a message, not a preview of the sections below. See plan notes.
 
-## Home Assistant Cloud panel revamped
+## Default port is now 80
 
-- Redesign cloud page (#53025) @klejejs (frontend)
-- Add cloud page onbording prefs ([@klejejs] - [#175762]) ([cloud docs])
+Ever wondered why the address for your own home has a random number stuck on the end? So did we. For years, reaching Home Assistant meant remembering to add `:8123` to the address, a little piece of technical trivia that everyone simply had to learn. This release starts to put that right.
 
-## Home Assistant web server is now configurable via the UI port 80?
+New installations of {% term "Home Assistant Operating System" "Home Assistant OS" %} now use a normal web address by default, with no number to add on the end. You reach your home the same way you reach any website. Nothing extra to remember, nothing extra to type.
 
-- Implement auto-revert for pending HTTP config after a delay and update WebSocket API to include revert deadline ([@edenhaus] - [#174428]) ([http docs])
-- Merge Port 8123 feature branch to dev ([@edenhaus] - [#174270]) ([conversation docs]) ([http docs])
+### Your current setup keeps working
 
-## Continuing the work on automations
+If you are already running Home Assistant, nothing changes and there is nothing you need to do. This only affects new installations of Home Assistant OS. Your existing installation is completely unchanged, keeps the exact port it has always used, and keeps working just as before. If everything works today, the simplest thing is to leave it exactly as it is.
 
-- Add vibration conditions ([@nielsrowinbik] - [#176598]) ([vibration docs])
-- Add moon triggers ([@nielsrowinbik] - [#176411]) ([moon docs])
+### Changing the port
+
+You do not have to change anything, but if you would like the cleaner address, or need to change the port for another reason, you can now do it yourself from the interface. The same screen also holds a few more options, like choosing which network connection Home Assistant listens on and setting trusted proxies, for the setups that need them.
+
+<!-- SCREENSHOT: web server settings in the UI -->
+
+Changing something as fundamental as the port your home lives on can feel nerve-wracking, so we made it hard to get stuck. When you change the web server settings, Home Assistant applies the new configuration and then waits for you to confirm everything still works. If you do not confirm within five minutes, it assumes something went wrong, puts your previous settings back, and restarts. And if the new settings cannot be applied at all, it falls back right away. So if you ever lock yourself out with the wrong setting, you do not have to do anything: wait a few minutes, and Home Assistant returns you to where you were.
+
+{% note %}
+One thing to keep in mind: anything that reaches Home Assistant using the old address may need updating to match the new port, such as your bookmarks or other services and tools you have connected. If your setup works today, that is a good reason to leave it as it is.
+{% endnote %}
+
+### What this means for YAML
+
+If you currently set up the web server in {% term YAML %}, you do not need to change anything. The first time you start Home Assistant after updating, your settings move into the interface for you, and you manage them there from then on.
 
 ## Less "advanced"
 
-A term around Home Assistant a lot is advanced. But what is it actually? Who decides what is advanced and what is not? We are working on making Home Assistant more accessible to everyone, and that means we need to make it less "advanced". Lorem ipsum.
+A word comes up around Home Assistant a lot: advanced. But what does it actually mean, and who gets to decide what counts as advanced and what does not? Too often it is a label that quietly tells people a feature is not for them. We want Home Assistant to be approachable for everyone, so this release removes some of that language.
 
-- Removal of advanced terminology everywhere
-- Developer Tools -> Tools
-- Developer Tools -> Tools: Frontend panels (#52927) @timmo001 (frontend)
+### Advanced and Expert terminology
 
+The clearest place to start is the words themselves. Labels like _advanced_ and _expert_ were dotted around Home Assistant. Words like these can be discouraging: they suggest a feature is not for you and steer you away from trying it, even when it is perfectly approachable. This release removes that wording in around 43 places, across the app, its documentation, and the companion apps. None of these features changed. Instead of rating your skill, the wording now simply describes what each one does.
+
+A big thank you to everyone who helped comb through and clean this up! 👏
+
+### Developer tools panel rename
+
+In the same spirit, **Developer Tools** is now simply **Tools**. It has always been a useful spot for everyone, whether you are checking the state of your devices, testing a {% term template %}, or reloading part of your setup, and you never needed to be a developer to use it. The shorter name matches how people actually use it, and feels a little friendlier to open.
+
+## A redesigned Home Assistant Cloud page
+
+[Home Assistant Cloud](/integrations/cloud/) by [Nabu Casa](https://www.nabucasa.com/) is how many people add remote access, fast and private voice, encrypted {% term backups %}, and more to their home, all while supporting the project at the same time. Until now, everything it offers lived on a single long page of switches and settings. This release gives that page a proper redesign.
+
+The main page is now a clean overview. Each feature - remote access, backups, voice assistants, the companion app, and more - has its own space, so you can see what you have turned on at a glance. The settings for each one move onto their own page, which keeps the overview tidy and makes every feature easier to understand on its own.
+
+The bigger change is for anyone just getting started. There is now a guided setup that walks you through Home Assistant Cloud step by step, instead of leaving you to find your way around a wall of options. If it is not a good moment, you can put it off and pick it up again later.
+
+<img src='/images/blog/2026-08/cloud-page.png' alt='Screenshot of the redesigned Home Assistant Cloud page, showing an overview with each cloud feature in its own space.' class='no-shadow' />
+
+A big thank you to [@klejejs](https://github.com/klejejs) for this redesign!
+
+## Rename and reorder your entity IDs
+
+Behind every device and sensor sits an entity ID, a short name such as `light.kitchen_ceiling` that your {% term automations %}, {% term scripts %}, and dashboards use to refer to it. Most of the time they look after themselves. But when you do want them neat and consistent, you should be the one deciding how they read.
+
+Some earlier work looked at building entity IDs automatically from the {% term area %} a device belongs to. Your feedback told us this suited some people but not everyone. So this release takes a more flexible route and puts you in charge: you can rename an entity ID yourself, and control how it is ordered, so your {% term entities %} follow whatever naming pattern makes sense to you.
+
+Thanks to [@arturpragacz](https://github.com/arturpragacz) and [@piitaya](https://github.com/piitaya) for this work.
+
+## New triggers and conditions
+
+Last release, purpose-specific [triggers](/triggers/) and [conditions](/conditions/) became the friendlier way to build {% term automations %}: you describe the moment you care about, like _when the front door opens_, instead of piecing it together from the technical parts underneath. This release adds two more of them.
+
+**Vibration** now has conditions to match its triggers. On top of reacting the moment vibration starts or stops, you can check whether something is vibrating (or not) as part of a bigger automation, for example, only sending a "laundry is done" message once the washing machine has actually stopped shaking.
+
+**Moon** gains a trigger for when it moves into a new phase. Point an automation at the full moon, the new moon, or any change of phase, and let your home take it from there, whether that is mood lighting, a reminder, or just a bit of fun. 🌙
+
+Thanks, [@nielsrowinbik](https://github.com/nielsrowinbik)!
 
 ## Integrations
 
@@ -326,10 +376,6 @@ Time for a little cleaning, and no, we did not wait for spring. The following {%
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
-- Vibration sensors joined the purpose-specific {% term "trigger" "triggers" %} and {% term "condition" "conditions" %} family. You can now automate directly on vibration being detected or cleared, without wiring up the underlying sensor states yourself. Thanks, [@nielsrowinbik]!
-
-[@nielsrowinbik]: https://github.com/nielsrowinbik
-
 
 Candidates from core this section:
 
@@ -375,6 +421,11 @@ If it makes it?
 https://github.com/home-assistant/frontend/pull/53021
 
 
+## Patch releases
+
+**TODO (fill in after release):** One dated block per patch release, each a list of PRs with author and number. Copy the format from the previous release.
+
+
 ## Need help? Join the community
 
 Home Assistant has a great community of users who are all more than willing to help each other out. So, join us!
@@ -392,6 +443,8 @@ We do our best to avoid making changes to existing functionality that might unex
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
 **TODO: REMOVE BEFORE FINAL RELEASE**: Backward-incompatibles changes processed up until PR #174664
+
+**TODO (HIGHLIGHT — most important breaking change this cycle):** Custom integrations and the device registry. Same underlying work as the "Rename and reorder your entity IDs" feature above, different audience and message. Fundamental design changes to the device registry; several custom integrations will break. Be direct without being alarming — custom integration authors need to act, most regular users do not. Include the blog post link on custom integration breakage. Mention that issues are being raised against the most significantly affected integrations, so authors know to check. Review for technical accuracy: Erik Montnémery and Artur Pragacz. **Needs:** PR numbers and the review pass.
 
 {% details "Ohme" %}
 
