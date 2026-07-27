@@ -12,6 +12,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tschamm'
+  - '@mosandlt'
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor

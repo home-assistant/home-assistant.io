@@ -62,6 +62,13 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-06-25: iOS Companion App ignores internal SSID allowlist – possible leak of access token and sensor data**  
+Severity: _High (CVSS: 7.5)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-cm5v-547m-qh5h)_  
+Assigned CVE: _[CVE-2026-55844](https://nvd.nist.gov/vuln/detail/CVE-2026-55844)_  
+Discovered by: _[kaueraal](https://github.com/kaueraal)_  
+Fixed in: _Home Assistant for iOS 2025.5.0_
+
 **2026-06-18: Konnected alarm-panel switch state and zone topology disclosed to unauthenticated actors on the LAN**  
 Severity: _High (CVSS: 7.6)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-x84v-g949-293w)_  

@@ -731,8 +731,8 @@ will contain the entity ID, or list of entity IDs, based on if `multiple` is
 set to `true`.
 
 An entity selector can filter the list of entities, based on things like the
-class of the device, the domain of the entity or the domain that provided the
-entity.
+manufacturer, model, or model ID of the device the entity belongs to, the
+device class, the domain of the entity, or the domain that provided the entity.
 
 ![Screenshot of an entity selector](/images/blueprints/selector-entity.png)
 
@@ -763,9 +763,45 @@ filter:
       description: >
         Can be set to an integration domain. Limits the list of entities to entities
         provided by the set integration domain, for example,
-        [`zha`](/integrations/zha).
+        [`matter`](/integrations/matter). An entity and the device it belongs to can be
+        provided by different integrations, so this option only filters by the
+        entity's integration. To filter by the device's integration, use the
+        `integration` option under `device` instead.
       type: string
       required: false
+    device:
+      description: >
+        Filters the entities by properties of the device they belong to.
+      type: map
+      required: false
+      keys:
+        integration:
+          description: >
+            Can be set to an integration domain. Limits the list of entities to
+            entities that belong to devices provided by the set integration
+            domain, for example, [`hue`](/integrations/hue). This filters by the
+            integration that provides the device, which can differ from the
+            integration that provides the entity itself.
+          type: string
+          required: false
+        manufacturer:
+          description: >
+            When set, it limits the list of entities to entities that belong to
+            devices provided by the set manufacturer name.
+          type: string
+          required: false
+        model:
+          description: >
+            When set, it limits the list of entities to entities that belong to
+            devices that have the set model.
+          type: string
+          required: false
+        model_id:
+          description: >
+            When set, the list of entities is limited to entities that belong to
+            devices that have the set model ID.
+          type: string
+          required: false
     domain:
       description: >
         Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
@@ -817,9 +853,9 @@ light.living_room
 
 ### Example entity selector <!-- omit from toc -->
 
-An example entity selector that, will only show entities that are:
+An example entity selector that shows only entities that are:
 
-- Provided by the [ZHA](/integrations/zha) integration.
+- Provided by the [Hue](/integrations/hue) integration.
 - From the [Binary sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 - Allows selecting one or more entities.
@@ -830,9 +866,27 @@ And this is what it looks like in YAML:
 entity:
   multiple: true
   filter:
-    - integration: zha
+    - integration: hue
       domain: binary_sensor
       device_class: motion
+```
+
+{% tip %}
+Integration filters aren't reliable for devices that can connect through
+multiple integrations, such as Matter or Zigbee.
+To reliably target specific hardware, combine the filter with
+`device.manufacturer`, `device.model`, or `device.model_id`.
+{% endtip %}
+
+Filter for a specific device using the device filter:
+
+```yaml
+entity:
+  multiple: true
+  filter:
+    - device:
+        manufacturer: IKEA of Sweden
+        model: BILRESA dual button
 ```
 
 ## Floor selector
