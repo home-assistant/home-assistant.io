@@ -39,10 +39,9 @@ The integration creates sensors for supported DVLA vehicle fields. Some sensors 
 
 Common sensor entities include:
 
-- Registration number
-- Make
 - Tax status
 - Tax due date
+- Additional rate of tax end date
 - MOT status
 - MOT expiry date
 - Year of manufacture
@@ -56,7 +55,7 @@ Common sensor entities include:
 - Real driving emissions
 - Date of last V5C issued
 - Month of first registration
-- Month of first DVLA registration
+- Type approval
 
 ## Data updates
 
