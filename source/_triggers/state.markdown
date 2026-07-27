@@ -108,7 +108,7 @@ This trigger watches one or more entities:
 
 - If you do not set any of **From**, **To**, `not_from`, or `not_to`, this trigger fires on all state changes. It also fires when only an attribute changes.
 - If you set one of the options **From** (`from`), **To** (`to`), `not_from`, or `not_to`, attribute-only changes do not fire the trigger.
-- In the UI, **Any state (ignoring attribute changes)** for **From** or **To** matches any previous or new state value, but only when the entity state changes. In YAML, this is shown as `from: null` or `to: null`. This is useful for sensors that update attributes often, while their main state changes less often.
+- In the UI, **Any state (ignoring attribute changes)** for **From** or **To** means “match any state, but only when the state changes.” In YAML, this appears as `from: null` or `to: null` (the key is present, but the value is empty), which prevents attribute-only changes from firing. This is useful for sensors that update attributes often while their main state changes less often.
 - You cannot combine the options `from` with `not_from`, or `to` with `not_to`.
 - If you use the **For** (`for`) option, the timer resets if Home Assistant restarts or automations reload.
 
