@@ -20,8 +20,8 @@ To send a notification from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **SMTP: Send message**.
 6. Under **Target**, select the notification device to send the message to (see [Targets](#targets)).
-7. Add a message for the notification .
-8. _Optional_: add a title (subject), HTML content, or attach files.
+7. In **Message**, enter a message for the notification.
+8. _Optional_: enter the message subject in **Title**, add HTML content in **HTML message**, or attach files in **Attachments**.
 9. Select **Save**.
 
 ### Options in the UI
@@ -146,7 +146,7 @@ When motion is detected at the bird feeder, send an email notification with the 
 
 - **Trigger**: Motion detected (`motion.detected`)
 - **Action**: SMTP: Send message (`smtp.send_message`)
-- **Target**: Recipient (`notify.recipient`)
+  - **Target**: Recipient (`notify.recipient`)
 
 {% example %}
 automation: |
