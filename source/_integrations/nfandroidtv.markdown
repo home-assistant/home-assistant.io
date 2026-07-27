@@ -31,9 +31,11 @@ On some TVs, opening the app and following its setup wizard will prompt you to g
 
 {% include integrations/config_flow.md %}
 
-## Sending notifications
+## Supported functionality
 
-The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select your TV notify entity as the target.
+### Sending notifications
+
+The **Notifications for Android TV / Fire TV** {% term integration %} adds a notify {% term entity %} for each configured TV, such as `notify.my_android_tv`. To show a notification on your TV, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select your TV notify entity as the target.  For more customizable notifications, use the [**Notifications for Android TV / Fire TV: Send a notification message**](/actions/nfandroidtv.send_message/) (`nfandroidtv.send_message`) instead.
 
 You can send a basic message, or add images and icons for camera snapshots, reminders, and status updates.
 
@@ -50,104 +52,19 @@ To send a notification from an automation or a script:
 
 {% details "Example YAML configuration" %}
 
-```yaml
-action: notify.send_message
-target:
-  entity_id: notify.my_tv
-data:
-  title: "Just a reminder"
-  message: "You are awesome!"
-```
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.my_tv
+  data:
+    title: "Just a reminder"
+    message: "You are awesome!"
+{% endexample %}
 
 {% enddetails %}
 
 {% include integrations/actions.md %}
-
-### Action: Notify
-
-The following options are available when using the legacy TV notify action `notify.my_android_tv`. These options are not supported by `notify.send_message`.
-
-In YAML, add these options under the nested `data` field:
-
-```yaml
-action: notify.my_android_tv
-data:
-  message: "You are awesome!"
-  data:
-    duration: 10
-```
-
-<!-- textlint-disable terminology -->
-
-{% configuration %}
-duration:
-  description: The duration in seconds for which the notification is displayed.
-  required: false
-  default: 5
-  type: integer
-fontsize:
-  description: "The font size, one of `small`, `medium`, `large`, or `max`."
-  required: false
-  default: medium
-  type: string
-position:
-  description: "The notification position, one of `bottom-right`, `bottom-left`, `top-right`, `top-left`, or `center`."
-  required: false
-  default: bottom-right
-  type: string
-color:
-  description: "The notification color, one of `grey`, `black`, `indigo`, `green`, `red`, `cyan`, `teal`, `amber`, or `pink`."
-  required: false
-  default: grey
-  type: string
-transparency:
-  description: "The notification transparency, one of `0%`, `25%`, `50%`, `75%`, or `100%`."
-  required: false
-  default: 25%
-  type: string
-interrupt:
-  description: Set to `true` to make the notification interactive so it can be dismissed or selected to display more details.
-  required: false
-  default: false
-  type: boolean
-image:
-  description: Image upload settings. Provide either `url` or `path`. If you set `username`, `password`, or `auth`, you must also set `url`.
-  required: false
-  type: map
-icon:
-  description: Icon upload settings. Provide either `url` or `path`. If you set `username`, `password`, or `auth`, you must also set `url`.
-  required: false
-  type: map
-{% endconfiguration %}
-
-<!-- textlint-enable terminology -->
-
-For `image` and `icon`, use these nested settings:
-
-{% configuration %}
-path:
-  description: Local path of an image file.
-  required: false
-  type: string
-url:
-  description: URL of an image file.
-  required: false
-  type: string
-username:
-  description: Username if the URL requires authentication.
-  required: false
-  type: string
-password:
-  description: Password if the URL requires authentication.
-  required: false
-  type: string
-auth:
-  description: Set to `digest` to use HTTP Digest authentication. If omitted, basic authentication is used.
-  required: false
-  type: string
-{% endconfiguration %}
-
-Local image and icon paths are validated against `allowlist_external_dirs` in {% term "configuration.yaml" %}.
 
 ## Automation examples
 
@@ -158,11 +75,11 @@ These examples show how to use the TV notify entity in automations. Replace the 
 Show a notification on the TV when the doorbell detects motion.
 
 - **Trigger**: State, doorbell motion changes to detected
-- **Action**: Send a notification via `notify.living_room_tv`
+- **Action**: Send a notification via `nfandroidtv.send_message`
+  - **Target**: Living room TV (`notify.living_room_tv`)
   - **Message**: Someone is at the front door.
-  - **Data**:
-    - **Duration**: 4
-    - **Position**: bottom-left
+  - **Duration**: 4 seconds
+  - **Position**: Bottom left
 
 {% details "Show example YAML" %}
 
@@ -174,12 +91,14 @@ automation: |
       entity_id: binary_sensor.doorbell_motion
       to: "on"
   actions:
-    - action: notify.living_room_tv
+    - action: nfandroidtv.send_message
+      target:
+        entity_id: notify.living_room_tv
       data:
         message: "Someone is at the front door."
-        data:
-          duration: 4
-          position: "bottom-left"
+        duration:
+          seconds: 4
+        position: "bottom-left"
 {% endexample %}
 
 {% enddetails %}
