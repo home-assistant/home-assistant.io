@@ -214,7 +214,7 @@ automation: |
 output: "1 (the sensor increments its own value each time it updates)"
 {% endexample %}
 
-`this` only exists where Home Assistant knows which entity the template belongs to. That means template entities and some automation contexts, but not the **Template editor** available in {% my developer_template title="Settings > Tools > Templates" %}.
+`this` only exists where Home Assistant knows which entity the template belongs to. That means template entities and some automation contexts, but not the **Template editor** available in {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
 
 ## The `trigger` variable (in automations)
 
