@@ -2,6 +2,7 @@
 title: LED Infrared
 description: Integration to control LED infrared lights using an infrared emitter and to receive commands from a remote using an infrared receiver.
 ha_category:
+  - Button
   - Event
   - Infrared
   - Light
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: led_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - event
   - light
 ha_integration_type: device
