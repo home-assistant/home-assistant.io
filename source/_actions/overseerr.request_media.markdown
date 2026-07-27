@@ -31,10 +31,10 @@ Seerr instance:
   description: The Seerr instance to create the request on.
   required: true
 Media type:
-  description: "The type of media to request. One of movie or tv."
+  description: "The type of media to request. One of **Movie** or **TV**."
   required: true
 Media ID:
-  description: "The TMDB ID or TVDB ID of the media to request. You can find it with the Search media action."
+  description: "The TMDB ID or TVDB ID of the media to request. You can find it with the [Search media](/actions/overseerr.search_media/) action."
   required: true
 Seasons:
   description: "For TV requests: the seasons to request, for example `[1, 2, 4]`. If omitted, all seasons are requested."
@@ -67,11 +67,11 @@ config_entry_id:
   required: true
   type: string
 media_type:
-  description: "The type of media to request. One of movie or tv."
+  description: "The type of media to request. One of `movie` or `tv`."
   required: true
   type: string
 media_id:
-  description: "The TMDB ID or TVDB ID of the media to request. You can find it with the Search media action."
+  description: "The TMDB ID or TVDB ID of the media to request. You can find it with the [Search media](/actions/overseerr.search_media/) action."
   required: true
   type: integer
 seasons:
