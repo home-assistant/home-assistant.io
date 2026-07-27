@@ -21,4 +21,10 @@ Home Assistant will need to know the amount of energy that is being produced. Th
 
 Some solar inverters have APIs that can be read by Home Assistant.
 
+If you add a power sensor for your solar production, use the **Type of power measurement** setting to tell Home Assistant how your sensor represents the direction of flow. For details, see [Power measurement sign conventions](/docs/energy/faq/#power-measurement-sign-conventions).
+
+### Creating an energy sensor from a power sensor
+
+The energy dashboard tracks energy (kWh). If you only have a sensor that reports instantaneous power (W or kW), use the [Riemann sum integral integration](/integrations/integration/#energy) to turn it into an energy sensor you can add to the dashboard.
+
 [Energy integrations](/integrations/#energy)

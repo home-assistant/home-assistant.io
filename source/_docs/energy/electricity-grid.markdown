@@ -73,9 +73,17 @@ In countries like Germany, SML (Smart Message Language) is used typically. ESPHo
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
 
+### Creating an energy sensor from a power sensor
+
+The energy dashboard tracks energy (kWh). If you only have a sensor that reports instantaneous power (W or kW), use the [Riemann sum integral integration](/integrations/integration/#energy) to turn it into an energy sensor you can add to the dashboard.
+
 ### Manual integration
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [Template](/integrations/template) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
+
+### Power measurement
+
+If you add a power sensor to your grid connection, use the **Type of power measurement** setting to tell Home Assistant how your sensor represents import and export. For details, see [Power measurement sign conventions](/docs/energy/faq/#power-measurement-sign-conventions).
 
 ### Troubleshooting
 
