@@ -63,9 +63,9 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
 **2026-07-26: Home Assistant Companion (Android) `homeassistant://invite` Deep Link Credential Phishing**  
-Severity: _Moderate (CVSS:4.3)_  
+Severity: _Moderate (CVSS: 4.3)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-68f4-97mf-f68w)_  
-Assigned CVE: _[CVE-CVE-2026-59717](https://nvd.nist.gov/vuln/detail/CVE-2026-59717)_  
+Assigned CVE: _[CVE-2026-59717](https://nvd.nist.gov/vuln/detail/CVE-2026-59717)_  
 Discovered by: _[Akokonunes](https://github.com/Akokonunes)_  
 Fixed in: _Home Assistant for Android 2026.6.1_
 
