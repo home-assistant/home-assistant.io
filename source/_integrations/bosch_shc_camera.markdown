@@ -42,7 +42,7 @@ If your Bosch Cloud token expires and can't be refreshed automatically, Home Ass
 
 ### Camera
 
-Each camera is exposed as a {% term camera %} entity showing the latest motion-triggered snapshot from the Bosch cloud, refreshed periodically and on demand. This is a still-image camera: it does not provide a live video stream.
+Each camera is exposed as a {% term camera %} entity showing the latest motion-triggered snapshot, refreshed periodically and on demand. This is a still-image camera: it does not provide a live video stream. Snapshots are fetched primarily via the Bosch cloud API; for camera models whose cloud snapshot endpoint intermittently rejects requests, the integration automatically falls back to fetching the snapshot directly from the camera over the local network, using Digest credentials the cloud API itself issues (not a separate undocumented local API).
 
 ## Options
 
@@ -50,7 +50,7 @@ The integration's options (**Settings** > **Devices & services** > **Bosch Smart
 
 ## Known limitations
 
-- This integration only supports Bosch's cloud API; Bosch does not currently offer a documented local-only API for these cameras.
+- This integration relies primarily on Bosch's cloud API; Bosch does not currently offer a documented local-only API for these cameras (the automatic LAN snapshot fallback still authenticates through cloud-issued credentials).
 - No live video stream — snapshot images only.
 - A camera newly added to your Bosch account after the integration is set up is not picked up automatically; reload the config entry (or restart Home Assistant) to detect it.
 
