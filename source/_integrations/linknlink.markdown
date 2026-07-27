@@ -77,7 +77,7 @@ This integration does not provide custom actions.
 - The device must be restarted after connecting or disconnecting the optional temperature and humidity sensor power cable.
 - The device stores one local UDP position destination. Other software that subscribes to the same position stream redirects updates away from Home Assistant.
 - Automatic network discovery is not provided in the initial release.
-- The device network address can be changed from the integration's **Reconfigure** action. Assigning a stable DHCP lease is still recommended.
+- Assigning a stable DHCP lease to the device is recommended. If its address changes, start the LinknLink setup flow again and enter the new address to update the existing device entry.
 
 ## Troubleshooting
 
