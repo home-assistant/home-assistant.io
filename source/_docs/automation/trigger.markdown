@@ -10,6 +10,14 @@ A trigger is what wakes an automation up. Until something triggers it, an automa
 
 Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
 
+## Choosing a trigger
+
+When you add a trigger in the automation editor, Home Assistant shows triggers that match what you selected. For many devices and measurements, the best choice is the trigger named after the thing you want to happen. For example, select **Door opened** for a door sensor, **Temperature crossed threshold** for a temperature reading, or **Power crossed threshold** for a power reading.
+
+These specific triggers handle Home Assistant details for you. Measurement triggers, such as temperature and power triggers, compare compatible units automatically. For example, a temperature sensor can report in Fahrenheit while the trigger threshold is set in Celsius.
+
+General triggers, such as **State** and **Numeric state**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
+
 ## Trigger ID
 
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (such as several triggers of different types that should all turn some entity on).
