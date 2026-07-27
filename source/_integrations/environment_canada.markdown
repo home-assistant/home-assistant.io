@@ -99,6 +99,7 @@ The following settings are available:
 - **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
 - **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
 - **Map radius**: Radius of the radar map in kilometers, from 10 to 2,000 km (default: 200 km).
+- **Color scale**: Number of colors in the **Rain** and **Snow** radar images, either **8 colors** or **14 colors** (default: 14 colors). This setting doesn't apply to the **Precipitation type** radar type, which always uses its own color scale.
 
 ### Configuring radar camera display
 
