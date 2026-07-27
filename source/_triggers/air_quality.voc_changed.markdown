@@ -2,7 +2,7 @@
 title: "Volatile organic compounds level changed"
 trigger: air_quality.voc_changed
 domain: air_quality
-description: "Triggers after one or more volatile organic compound levels change."
+description: "Triggers when one or more volatile organic compound levels change."
 related_triggers:
   - air_quality.voc_crossed_threshold
 ---

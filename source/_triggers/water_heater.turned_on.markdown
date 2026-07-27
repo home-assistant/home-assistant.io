@@ -2,7 +2,7 @@
 title: "Water heater turned on"
 trigger: water_heater.turned_on
 domain: water_heater
-description: "Triggers after one or more water heaters turn on, regardless of the operation mode."
+description: "Triggers when one or more water heaters turn on, regardless of the operation mode."
 related_triggers:
   - water_heater.turned_off
   - water_heater.operation_mode_changed

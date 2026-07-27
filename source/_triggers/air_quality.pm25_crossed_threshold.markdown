@@ -2,7 +2,7 @@
 title: "PM2.5 level crossed threshold"
 trigger: air_quality.pm25_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM2.5 levels cross a threshold."
+description: "Triggers when one or more PM2.5 levels cross a threshold."
 related_triggers:
   - air_quality.pm25_changed
 ---

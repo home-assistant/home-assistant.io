@@ -2,7 +2,7 @@
 title: "Door opened"
 trigger: door.opened
 domain: door
-description: "Triggers after one or more doors open."
+description: "Triggers when one or more doors open."
 related_triggers:
   - door.closed
 ---
@@ -86,7 +86,7 @@ If someone comes home after sunset, this automation turns on the entry light as 
 
 - **Trigger**: Door opened
 - **Target**: Front door sensor
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for entry lighting on arrival" %}
 

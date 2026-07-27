@@ -2,7 +2,7 @@
 title: "Media player started playing"
 trigger: media_player.started_playing
 domain: media_player
-description: "Triggers after one or more media players start playing."
+description: "Triggers when one or more media players start playing."
 related_triggers:
   - media_player.paused_playing
   - media_player.stopped_playing

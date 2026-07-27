@@ -2,7 +2,7 @@
 title: "Lawn mower started returning to dock"
 trigger: lawn_mower.started_returning
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start returning to dock."
+description: "Triggers when one or more lawn mowers start returning to dock."
 ---
 
 The **Lawn mower started returning to dock** trigger fires when a mower stops mowing and starts returning to its dock.
@@ -83,7 +83,7 @@ If the mower docks in a darker part of the yard, turn on a nearby light when it 
 
 - **Trigger**: Lawn mower started returning to dock
   - **Target**: Backyard mower
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the path to the dock" %}
@@ -96,8 +96,7 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

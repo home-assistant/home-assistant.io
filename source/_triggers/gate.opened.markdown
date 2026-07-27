@@ -2,7 +2,7 @@
 title: "Gate opened"
 trigger: gate.opened
 domain: gate
-description: "Triggers after one or more gates open."
+description: "Triggers when one or more gates open."
 related_triggers:
   - gate.closed
 ---
@@ -86,7 +86,7 @@ If you come home after sunset, this automation turns on the driveway lights as s
 
 - **Trigger**: Gate opened
    - **Target**: Driveway gate
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 
 {% details "YAML example for driveway lights when the gate opens" %}
 

@@ -1103,6 +1103,11 @@ image:
       default: true
 {% endconfiguration %}
 
+### Using locally hosted images
+
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
+
+
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
@@ -1130,7 +1135,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1187,7 +1192,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp }}"
+            value: "{{ color_temp_kelvin }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1360,7 +1365,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+      description: Defines a template to get the color temperature of the light in Kelvin. The template must return a value between 2000 and 6535.
       required: false
       type: template
       default: optimistic
@@ -2404,7 +2409,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can be created from the frontend in the Helpers section or via YAML.
+State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2424,9 +2429,9 @@ template:
   - triggers:
       - trigger: state
         entity_id:
-        - weather.my_region
-        - sensor.temperature
-        - sensor.humidity
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
     weather:
       - name: "My Weather Station"
         condition: "{{ states('weather.my_region') }}"
@@ -2729,7 +2734,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/

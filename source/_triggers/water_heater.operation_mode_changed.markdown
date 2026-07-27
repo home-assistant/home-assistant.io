@@ -2,7 +2,7 @@
 title: "Water heater operation mode changed"
 trigger: water_heater.operation_mode_changed
 domain: water_heater
-description: "Triggers after the operation mode of one or more water heaters changes to a specific mode."
+description: "Triggers when the operation mode of one or more water heaters changes to a specific mode."
 related_triggers:
   - water_heater.turned_on
   - water_heater.turned_off

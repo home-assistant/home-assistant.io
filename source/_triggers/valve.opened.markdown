@@ -2,7 +2,7 @@
 title: "Valve opened"
 trigger: valve.opened
 domain: valve
-description: "Triggers after one or more valves open."
+description: "Triggers when one or more valves open."
 related_triggers:
   - valve.closed
 ---

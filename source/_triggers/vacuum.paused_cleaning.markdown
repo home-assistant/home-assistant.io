@@ -1,8 +1,8 @@
 ---
-title: "Vacuum paused cleaning"
+title: "Vacuum cleaner paused cleaning"
 trigger: vacuum.paused_cleaning
 domain: vacuum
-description: "Triggers when a vacuum cleaner pauses cleaning."
+description: "Triggers when one or more vacuum cleaners pause cleaning."
 related_triggers:
   - vacuum.started_cleaning
   - vacuum.started_returning
@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner paused cleaning**.
+4. From the search box, search for and select **Vacuum cleaner paused cleaning**.
 5. Under **Targets**, pick the vacuums, area, or group you want.
 6. Under **Trigger when**, pick **Each**, **First**, or **All**.
 7. Under **For at least**, enter how long the vacuum must stay paused before the trigger fires.
@@ -88,7 +88,7 @@ for:
 
 If the vacuum pauses unexpectedly, it may be stuck under furniture, wrapped in a cable, or waiting for you to empty the bin. This automation sends a phone alert so you can check on it.
 
-- **Trigger**: Vacuum paused cleaning
+- **Trigger**: Vacuum cleaner paused cleaning
   - **Target**: Hallway vacuum
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

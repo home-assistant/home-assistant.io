@@ -2,7 +2,7 @@
 title: "Alarm disarmed"
 trigger: alarm_control_panel.disarmed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become disarmed."
+description: "Triggers when one or more alarms become disarmed."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.triggered

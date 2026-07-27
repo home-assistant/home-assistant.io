@@ -2,7 +2,7 @@
 title: "Thermostat turned off"
 trigger: climate.turned_off
 domain: climate
-description: "Triggers after one or more climate devices turn off."
+description: "Triggers when one or more thermostats turn off."
 related_triggers:
   - climate.turned_on
   - climate.hvac_mode_changed

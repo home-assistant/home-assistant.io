@@ -2,7 +2,7 @@
 title: "Door closed"
 trigger: door.closed
 domain: door
-description: "Triggers after one or more doors close."
+description: "Triggers when one or more doors close."
 related_triggers:
   - door.opened
 ---
@@ -115,7 +115,7 @@ If you turn on a nearby hallway light while bringing things in from the car, the
 - **Trigger**: Door closed
 - **Target**: Garage door
 - **For at least**: 00:01:00
-- **Action**: Light: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the hallway light" %}
 

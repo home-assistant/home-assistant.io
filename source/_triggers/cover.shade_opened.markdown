@@ -2,7 +2,7 @@
 title: "Shade opened"
 trigger: cover.shade_opened
 domain: cover
-description: "Triggers after one or more shades open."
+description: "Triggers when one or more shades open."
 related_triggers:
   - cover.shade_closed
 ---

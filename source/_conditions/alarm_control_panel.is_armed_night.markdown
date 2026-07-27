@@ -86,7 +86,7 @@ When the hallway motion sensor detects movement, turn on the hallway light at 10
 - **Condition**: Alarm is armed night
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Light: Turn on at 10% brightness
+- **Action**: Turn on light (at 10% brightness)
 
 {% details "YAML example for a dim hallway nightlight when armed night" %}
 

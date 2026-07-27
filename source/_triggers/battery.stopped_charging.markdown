@@ -2,7 +2,7 @@
 title: "Battery stopped charging"
 trigger: battery.stopped_charging
 domain: battery
-description: "Triggers after one or more battery-powered devices stop charging."
+description: "Triggers when one or more battery-powered devices stop charging."
 related_triggers:
   - battery.started_charging
   - battery.level_changed

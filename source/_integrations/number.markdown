@@ -77,6 +77,7 @@ The following device classes are supported for numbers:
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
+- **radon**: Concentration of radon in Bq/m³ or pCi/L
 - **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm

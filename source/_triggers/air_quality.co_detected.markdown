@@ -2,7 +2,7 @@
 title: "Carbon monoxide detected"
 trigger: air_quality.co_detected
 domain: air_quality
-description: "Triggers after one or more carbon monoxide sensors start detecting carbon monoxide."
+description: "Triggers when one or more carbon monoxide sensors start detecting carbon monoxide."
 related_triggers:
   - air_quality.co_cleared
 ---

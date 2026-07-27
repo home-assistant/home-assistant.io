@@ -86,7 +86,7 @@ notification to your phone right away.
 automation: |
   alias: "Send a notification when an update becomes available"
   triggers:
-    - trigger: update.update_became_available
+    - trigger: update.became_available
       target:
         entity_id: update.office_router_firmware
   actions:

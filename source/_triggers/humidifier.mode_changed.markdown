@@ -2,7 +2,7 @@
 title: "Humidifier mode changed"
 trigger: humidifier.mode_changed
 domain: humidifier
-description: "Triggers after the mode of one or more humidifiers changes."
+description: "Triggers when the mode of one or more humidifiers changes."
 related_triggers:
   - humidifier.turned_on
   - humidifier.turned_off
@@ -117,7 +117,7 @@ When the bedroom humidifier switches to sleep mode, dim the lights and activate 
   - **Target**: Bedroom humidifier
   - **Mode**: sleep
   - **Trigger when**: Each
-- **Action**: Light: Turn on (night scene)
+- **Action**: Turn on light (night scene)
 
 {% details "YAML example for a sleep-mode scene" %}
 
