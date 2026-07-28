@@ -142,6 +142,8 @@ When adding or re-authenticating the integration, you get this error in the brow
 
 Set the **Redirect URIs** on your API client in the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) to exactly `https://my.home-assistant.io/redirect/oauth`, save (it may take up to an hour to become active), and try again.
 
+This error can also happen if you use a **Client ID** from older guides, like the one used by the ViCare app. That client only allows the redirect URI `vicare://oauth-callback/everest`, which Home Assistant cannot use. Instead of trying to change the redirect URI, create your own API client (see [prerequisites](#prerequisites)) and use its **Client ID**.
+
 ### Client not registered
 
 When adding the integration, you get this error in the browser:
