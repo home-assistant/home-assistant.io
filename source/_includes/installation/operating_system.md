@@ -273,7 +273,7 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
-If port `80` is already in use, for example if you use a reverse proxy, Home Assistant can use port `8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant can use port `8123`.
 {% endnote %}
 
 {% else %}
@@ -504,7 +504,8 @@ If you are running an older Windows version or have a stricter network configura
 If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your virtual machine's IP address).
 {% endif %}
 
-If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`. Home Assistant can use port `8123` if port `80` is already in use, for example by a reverse proxy.
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant can use port `8123`.
 {% endnote %}
 
 {% endif %}
