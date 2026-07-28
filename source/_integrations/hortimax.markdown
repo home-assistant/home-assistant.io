@@ -49,8 +49,6 @@ using them is separate from installing this integration.
 {% configuration_basic %}
 API key:
   description: "The API key for the HortOS Automation API, which gives access to every controller in your organization."
-API base URL:
-  description: "Leave this at the default to use the HortOS cloud API. Change it only if you run HortOS on premises, in which case enter the address of that server."
 {% endconfiguration_basic %}
 
 One config entry covers a whole organization, so all controllers your API key
@@ -97,6 +95,9 @@ value does not change keeps its previous timestamp for up to five minutes.
 - Sensor names are derived from the readout identifiers the controller
   reports, and are in English regardless of the language of your Home
   Assistant instance.
+- The integration talks to the HortOS cloud API. An on-premises HortOS server
+  cannot be addressed directly yet, which only matters if your organization has
+  no cloud endpoint.
 
 ## Troubleshooting
 
