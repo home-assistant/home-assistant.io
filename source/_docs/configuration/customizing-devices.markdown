@@ -29,8 +29,7 @@ To change entity attributes, follow these steps:
          1. If you changed the name of the entity, the entity name will be used.
          2. The entity ID suggested by the integration (just a few integrations do this).
          3. The default name in the user language, if using Latin script.
-            - If something other than Latin script is used, the entity ID is based on the English default name.
-            - This is because entity IDs must use lowercase letters, numbers, and underscores.
+            - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
    - Enter or edit the entity name.
      - In this example, this would change "Opening".
