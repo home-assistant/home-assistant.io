@@ -36,7 +36,7 @@ The state of a to-do list entity is a number, which represents the number of
 incomplete items in the list.
 
 <p class='img'>
-<img src='/images/integrations/todo/state_todo.png' alt='Screenshot showing the state of a to-do list entity in Settings > Tools > States' />
+<img src='/images/integrations/todo/state_todo.png' alt='Screenshot showing the state of a to-do list entity in the States tab of Tools.' />
 Screenshot showing the state of a to-do list entity in {% my developer_states title="Settings > Tools > States" %}.
 </p>
 

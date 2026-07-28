@@ -24,7 +24,8 @@ Every scene entity keeps track of the timestamp of when it was last called, eith
 
 <p class='img'>
 <img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in Settings > Tools > States.' />
-Screenshot showing the state of a scene entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the States tab of Tools.' />
+Screenshot showing the state of a scene entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:

@@ -23,7 +23,8 @@ The state of a notify entity is the date and time when a message was last sent.
 
 <p class='img'>
 <img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
-Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}.
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the States tab of Tools.' />
+Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:

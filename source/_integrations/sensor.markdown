@@ -25,7 +25,7 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The state of a sensor entity is its currently detected value, which can be either text or a number.
 
 <p class='img'>
-<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in Settings > Tools > States' />
+<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the States tab of Tools.' />
 Screenshot showing the state of a sensor entity in {% my developer_states title="Settings > Tools > States"%}
 </p>
 

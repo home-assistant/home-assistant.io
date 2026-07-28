@@ -22,7 +22,7 @@ a limited set of selectable options for the entity.
 The state of a select entity is the value of the currently selected option.
 
 <p class='img'>
-<img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in Settings > Tools > States' />
+<img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in the States tab of Tools.' />
 Screenshot showing the state of a select entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 

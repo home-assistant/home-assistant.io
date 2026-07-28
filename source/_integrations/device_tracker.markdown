@@ -59,5 +59,6 @@ Some integrations provide an older device tracker model which do not have the `t
 
 <p class='img'>
 <img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in Settings > Tools > States' />
-Screenshot showing the state of a device tracker entity in {% my developer_states title="Settings > Tools > States" %}.
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the States tab of Tools.' />
+Screenshot showing the state of a device tracker entity in {% my developer_states title="Settings > Tools > States" %}
 </p>

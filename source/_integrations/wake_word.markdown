@@ -24,7 +24,8 @@ The state of a wake word detection {% term entity %} is a timestamp showing the 
 
 <p class='img'>
 <img src='/images/integrations/wake_word/state_wake-word.png' alt='Screenshot showing the state of a wake word detection entity in Settings > Tools > States' />
-Screenshot showing the state of a wake word detection entity in {% my developer_states title="Settings > Tools > States" %}.
+<img src='/images/integrations/wake_word/state_wake-word.png' alt='Screenshot showing the state of a wake word detection entity in the States tab of Tools.' />
+Screenshot showing the state of a wake word detection entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
