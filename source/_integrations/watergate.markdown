@@ -80,8 +80,8 @@ The Watergate integration provides the following entities.
 #### Switches
 
 - **Auto shut-off**
-  - **Description**: Turns the automatic leak shut-off on or off. When on, Sonic closes the valve automatically if it detects a potential leak.
-  - **Remarks**: This is a configuration switch. Turning it off disables automatic leak protection.
+  - **Description**: Turns automatic leak shut-off on or off. When enabled, Sonic automatically closes the valve if it detects a potential leak.
+  - **Remarks**: This is a configuration switch. When disabled, Sonic no longer closes the valve automatically on a detected leak. Leak detection and monitoring are not affected.
 
 #### Events
 
