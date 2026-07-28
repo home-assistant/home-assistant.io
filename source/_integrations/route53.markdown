@@ -81,9 +81,6 @@ You will be asked for the following information during setup:
 
 ## Migrating from YAML configuration
 
-{% warning %}
-YAML configuration for AWS Route53 is deprecated and will be removed in a future release.
-{% endwarning %}
 
 If you previously configured AWS Route53 using YAML in your `configuration.yaml` file, your configuration is automatically imported into the UI. To complete the migration:
 
@@ -100,6 +97,6 @@ The integration only manages IPv4 `A` records. The public address is looked up o
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows the standard integration removal process. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
