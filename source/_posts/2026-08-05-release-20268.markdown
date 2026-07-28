@@ -4,10 +4,7 @@ title: "2026.8 Beta: A betta title"
 description: "Beta release notes"
 date: 2026-07-22 00:00:00
 date_formatted: "August 5, 2026"
-author:
-  - Franck Nijhof
-  - Ashley Abbott
-  - Bram Kragten
+author: Ashley Abbott
 author_twitter: Home_Assistant
 comments: true
 categories:
@@ -71,9 +68,9 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Home Assistant 2026.8! 🎉
 
-I'm [Ashley](https://github.com/abb848), and with [Frenck](https://github.com/frenck) taking a well-deserved break, I'm teaming up with [Bram](https://github.com/bramkragten) to handle the release this time around.
+Hi, I'm [Ashley](https://github.com/abb848), and with [Frenck](https://github.com/frenck) taking a well-deserved break, [Bram](https://github.com/bramkragten) and I are teaming up to handle things this time around.
 
-The team and I have been working on a lot over the past few weeks, and I'm very excited to share some of what we have done for this release!
+We have been working on a lot over the past few weeks, and I'm excited to share some of what we have done for this release!
 
 If there's one thread tying this release together, it's a direction we care about: making Home Assistant something you don't need to be technical to use. This release is another step along that path.
 
@@ -90,6 +87,7 @@ Enjoy the (beta) release!
   - [Just Tools, no developer required](#just-tools-no-developer-required)
 - [Home Assistant Cloud, now easier to explore](#home-assistant-cloud-now-easier-to-explore)
 - [Your entity IDs, your choice](#your-entity-ids-your-choice)
+- [A cleaner way to handle your devices](#a-cleaner-way-to-handle-your-devices)
 - [We can't stop adding triggers and conditions](#we-cant-stop-adding-triggers-and-conditions)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -139,15 +137,15 @@ You do not have to change anything, but if you would like the cleaner address, o
 
 Changing something as fundamental as the port your home lives on can feel nerve-wracking, so we made it hard to get stuck. When you change the web server settings, Home Assistant applies the new configuration and then waits for you to confirm everything still works. If you do not confirm within five minutes, it assumes something went wrong, puts your previous settings back, and restarts. And if the new settings cannot be applied at all, it falls back right away. So if you ever lock yourself out with the wrong setting, you do not have to do anything: wait a few minutes, and Home Assistant returns you to where you were.
 
-<img src='/images/blog/2026-08/web-server-revert.png' alt='Screenshot of the confirmation prompt shown after changing the web server settings, asking you to confirm everything still works before the new settings are kept.' class='no-shadow' />
-
 {% note %}
-One thing to keep in mind: anything that reaches Home Assistant using the old address may need updating to match the new port, such as your bookmarks or other services and tools you have connected. If your setup works today, that is a good reason to leave it as it is.
+One thing to keep in mind: anything that reaches Home Assistant using the old address may need updating to match the new port, such as your bookmarks or other services and tools you have connected, including the mobile app. If your setup works today, that is a good reason to leave it as it is.
 {% endnote %}
+
+<img src='/images/blog/2026-08/web-server-revert.png' alt='Screenshot of the confirmation prompt shown after changing the web server settings, asking you to confirm everything still works before the new settings are kept.' class='no-shadow' />
 
 ### What this means for YAML
 
-If you currently set up the web server in {% term YAML %}, you do not need to change anything. The first time you start Home Assistant after updating, your settings move into the interface for you, and you manage them there from then on.
+If you currently set up the web server in {% term YAML %}, you do not need to change anything. The first time you start Home Assistant after updating, your settings move into the interface for you, and you manage them there from then on. You might also see a [repair](/integrations/repairs/) appear, just to let you know your settings were imported; it can point you to tidying up the old YAML if you like, but nothing breaks either way.
 
 ## Less "advanced", more approachable
 
@@ -184,6 +182,20 @@ Some earlier work looked at building entity IDs automatically from the {% term a
 <img src='/images/blog/2026-08/entity-id-rename.gif' alt='Screen recording showing how to rename an entity ID and change how it is ordered in the Home Assistant interface.' class='no-shadow' />
 
 Thanks to [@arturpragacz](https://github.com/arturpragacz) and [@piitaya](https://github.com/piitaya) for this work.
+
+## A cleaner way to handle your devices
+
+Home Assistant is changing how it keeps track of your devices behind the scenes. Until now, if one physical {% term device %} was set up through two different {% term integrations %}, Home Assistant merged them into a single device. Details that can only hold one value, such as the model or serial number, could then clash. From this release, each integration keeps its own device entry, so nothing gets collapsed together.
+
+When you update, any devices that were merged this way are separated automatically, and their {% term entities %} move to the right device for you. Most people will not notice a thing. In the rarer cases where a device was set up through more than one integration, you might see it appear twice, once per integration, and Home Assistant may raise a [repair](/integrations/repairs/) to let you know.
+
+There is nothing you need to do. Your {% term automations %} and {% term scripts %} keep working, because Home Assistant still sends actions to the right devices after the split. The only things that might need a second look are automations that point to a device by its ID directly, or the occasional unusual setup. If a repair appears, just follow it.
+
+This is groundwork for more flexible device handling we are building toward over the coming months, so think of it as a step along the way rather than the finished picture.
+
+If you build a {% term "custom integration" %}, most need no changes at all. If yours works with device details directly, the [developer blog](https://developers.home-assistant.io/blog/2026/07/21/device-registry-single-config-entry) walks through what changed. There is no rush: the previous approach keeps working for now, so you have plenty of time.
+
+Thanks to [@emontnemery](https://github.com/emontnemery) for this work.
 
 ## We can't stop adding triggers and conditions
 
@@ -277,9 +289,11 @@ VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outsi
 [NeoPool]: /integrations/neopool
 [ScorpionTrack]: /integrations/scorpiontrack
 
+<!-- UNCOMMENT before final if any land: no new virtual integrations yet this release.
 This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
 
-- None at this point; this section is a placeholder for future virtual integrations and can be removed prior to the final release if still empty.
+- [Name], provided by [Parent integration]
+-->
 
 ### Noteworthy improvements to existing integrations
 
@@ -343,7 +357,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [Victron BLE]: /integrations/victron_ble
 [OMIE]: /integrations/omie
 [Ecowitt]: /integrations/ecowitt
-[Steam]: /integrations/steam
+[Steam]: /integrations/steam_online
 [LG Infrared]: /integrations/lg_infrared
 [@abmantis]: https://github.com/abmantis
 [@bdlcalvin]: https://github.com/bdlcalvin
@@ -560,11 +574,11 @@ There is even more packed into this release. Here are some of the other changes 
 [@Skaronator]: https://github.com/Skaronator
 [@timmo001]: https://github.com/timmo001
 
-<!-- REMOVE before final: covered elsewhere, so intentionally left out above — Onboarding survey (#53236, #53221, @maartenla) is under "Tell us how setup went"; Redesign cloud page (#53025, @klejejs) is under the Home Assistant Cloud section. -->
-
 ## Patch releases
 
-**TODO (fill in after release):** One dated block per patch release, each a list of PRs with author and number. Copy the format from the previous release.
+We will also release patch releases for Home Assistant 2026.8 in August. These patch releases only contain bug fixes. Our goal is to release a patch release once a week, aiming for Friday.
+
+<!-- TODO after release: append one dated block per patch release (for example, "### 2026.8.1 - August 8"), each a list of PRs with author and number. Copy the format from the previous release. -->
 
 
 ## Need help? Join the community
@@ -583,25 +597,8 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-**TODO: REMOVE BEFORE FINAL RELEASE**: Backward-incompatible changes processed up until PR #177187
-
-<!-- Sweep resolved: Device registry (#175785), Gardena Bluetooth (#177187), Paperless-ngx (#176889), and Volvo On Call (#175677) are all written below. Steam #176146 is NOT a breaking change (new feature: it adds sensors), so it moved to the noteworthy improvements list. Developer-facing only and intentionally excluded from this user list: #175606, #175608, #175611 (all @gjohansson-ST). -->
-
-{% details "Device registry" %}
-
-Home Assistant is changing how it keeps track of your devices behind the scenes. Until now, if one physical device was set up through two different integrations, Home Assistant merged them into a single device. Details that can only hold one value, such as the model or serial number, could then clash. From this release, each integration keeps its own device entry, so nothing gets collapsed together.
-
-When you update, any devices that were merged this way are separated automatically, and their entities move to the right device for you. Most people will not notice a thing. In the rarer cases where a device was set up through more than one integration, you might see it appear twice, once per integration, and Home Assistant may raise a [repair](/integrations/repairs/) to let you know.
-
-There is nothing you need to do. Your automations and scripts keep working, because Home Assistant still sends actions to the right devices after the split. The only things that might need a second look are automations that reference a device by its internal ID directly, or the occasional unusual setup. If a repair appears, just follow it.
-
-This is groundwork for more flexible device handling we are building toward over the coming months, so think of it as a step along the way rather than the finished picture.
-
-If you develop a {% term "custom integration" %}, most do not work with the device registry directly and need no changes. If yours does, the [developer blog](https://developers.home-assistant.io/blog/2026/07/21/device-registry-single-config-entry) covers what changed. The previous methods keep working for a twelve-month period, and this release ships without deprecation warnings on purpose, so there is nothing to rush.
-
-([@emontnemery](https://github.com/emontnemery) - [#175785](https://github.com/home-assistant/core/pull/175785))
-
-{% enddetails %}
+<!-- TODO REMOVE BEFORE FINAL. Backward-incompatible changes processed up until PR #177187.
+Sweep resolved: Gardena Bluetooth (#177187), Paperless-ngx (#176889), and Volvo On Call (#175677) are written below. Device registry (#175785) moved to its own section in the main body (too important to bury in this list). Steam #176146 is NOT a breaking change (new feature: it adds sensors), so it moved to the noteworthy improvements list. Developer-facing only and intentionally excluded from this user list: #175606, #175608, #175611 (all @gjohansson-ST). -->
 
 {% details "Gardena Bluetooth" %}
 
