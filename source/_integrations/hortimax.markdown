@@ -98,6 +98,9 @@ value does not change keeps its previous timestamp for up to five minutes.
 - The integration talks to the HortOS cloud API. An on-premises HortOS server
   cannot be addressed directly yet, which only matters if your organization has
   no cloud endpoint.
+- If your API key reaches several controllers and one of them becomes
+  unreachable, the entities of all of them go unavailable until the next
+  successful update, not just those of the failing controller.
 
 ## Troubleshooting
 
