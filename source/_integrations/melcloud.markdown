@@ -108,7 +108,7 @@ The heating or cooling direction is set separately with the `climate` entity's H
 
 ### Number
 
-A flow temperature `number` entity is provided for each radiator zone to set its target flow temperature. It follows the zone's current heating or cooling direction and is only available while the zone is controlled by flow temperature; the setting does not apply in the other control methods.
+A flow temperature `number` entity is provided for each radiator zone to set its target flow temperature. It follows the zone's current heating or cooling direction and is only available while the zone is controlled by flow temperature. The setting does not apply in the other control methods.
 
 ### Sensor
 
