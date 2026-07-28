@@ -8,7 +8,7 @@ After Home Assistant has been [installed](/installation/) on your device, there 
 
 1. Open the address shown in your installation guide in your browser.
    - For Home Assistant Operating System, this is usually [http://homeassistant.local/](http://homeassistant.local/).
-   - For Home Assistant Container, this is usually `http://<host>:8123`.
+   - For Home Assistant Container: usually `http://<host>:8123`, where `<host>` is the host name or IP address of the computer running Home Assistant Container.
    - Result: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
      - Home Assistant downloads the latest version of Home Assistant (about 700&nbsp;MB).
    - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
