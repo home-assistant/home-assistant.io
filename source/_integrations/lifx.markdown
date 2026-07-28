@@ -171,8 +171,7 @@ documentation to obtain a HomeKit code before integrating the Switch with Home A
 - [v4.100 and higher](https://support.lifx.com/hc/en-us/articles/34857864915095-Matter-Firmware-Updates-for-LIFX-Devices) makes use of [HomeKit Controller](/integrations/homekit_controller) or [Matter](/integrations/matter)
 
 When using the HomeKit Controller integration:
-- Each button on the LIFX Switch is discovered as a
-[stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant
+- Each button on the LIFX Switch is discovered as a [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
 When you use the Matter integration:
