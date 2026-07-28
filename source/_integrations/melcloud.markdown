@@ -11,6 +11,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
   - select
   - sensor
   - water_heater
@@ -77,7 +78,7 @@ The following switches can be used:
 
 ## Air-to-Water device
 
-An Air-to-Water device provides `water_heater`, `climate`, `select`, `sensor`, and `binary_sensor` platforms.
+An Air-to-Water device provides `water_heater`, `climate`, `select`, `number`, `sensor`, and `binary_sensor` platforms.
 
 ### Climate
 
@@ -87,7 +88,7 @@ A `climate` platform entity is provided for each radiator zone in the air-to-wat
 - HVAC mode: `heat` or `off`, and `cool` on cooling-capable systems.
 - Target room temperature.
 
-Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity. See the [Select](#select) section below.
+Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity, and the target flow temperature is set with the flow temperature `number` entity while in flow temperature mode. See the [Select](#select) and [Number](#number) sections below.
 
 #### State attributes
 
@@ -104,6 +105,10 @@ An operation mode `select` entity is provided for each radiator zone. It sets ho
 - **Curve**: The zone follows the weather compensation curve configured on the unit; the target is determined automatically. Heating only.
 
 The heating or cooling direction is set separately with the `climate` entity's HVAC mode, and the selected method is kept when the direction changes.
+
+### Number
+
+A flow temperature `number` entity is provided for each radiator zone to set its target flow temperature. It follows the zone's current heating or cooling direction and is only available while the zone is controlled by flow temperature. The setting does not apply in the other control methods.
 
 ### Sensor
 
