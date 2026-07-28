@@ -12,7 +12,7 @@ Triggers can be almost anything that happens in your home or in Home Assistant i
 
 ## Choosing a trigger
 
-When you add a trigger in the automation editor, Home Assistant shows triggers that match what you selected. For many devices and measurements, the best choice is the trigger named after the thing you want to happen. For example, select **Door opened** for a door sensor, **Temperature crossed threshold** for a temperature reading, or **Power crossed threshold** for a power reading.
+After you select **Add trigger** in the automation editor, Home Assistant shows triggers that match the target or type that you selected. For many devices and measurements, the best choice is the trigger named after the thing you want to happen. For example, select **Door opened** for a door sensor, **Temperature crossed threshold** for a temperature reading, or **Power crossed threshold** for a power reading.
 
 These specific triggers handle Home Assistant details for you. Measurement triggers, such as temperature and power triggers, compare compatible units automatically. For example, a temperature sensor can report in Fahrenheit while the trigger threshold is set in Celsius.
 
