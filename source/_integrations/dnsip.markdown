@@ -30,6 +30,8 @@ Port:
   description: "Override the default DNS port (`53`). Useful to bypass local DNS filtering or redirection."
 {% endconfiguration_basic %}
 
+Resolver and port may be adjusted after the integration has been setup by adjusting it's options:
+
 {% include integrations/option_flow.md %}
 
 ## Data fetching and limitations
