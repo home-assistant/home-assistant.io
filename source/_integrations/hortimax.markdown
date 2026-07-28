@@ -53,7 +53,7 @@ API base URL:
   description: "Leave this at the default to use the HortOS cloud API. Change it only if you run HortOS on premises, in which case enter the address of that server."
 {% endconfiguration_basic %}
 
-One config entry covers a whole organisation, so all controllers your API key
+One config entry covers a whole organization, so all controllers your API key
 can reach are added at once.
 
 ## Devices and entities
@@ -66,8 +66,9 @@ The integration mirrors the two levels of the HortOS data model:
   its controller.
 - Each **readout** of a source becomes a sensor.
 
-A single controller commonly reports several hundred readouts. Readouts whose
-meaning is understood get a device class, a unit and a sensible display
+A controller reports a few dozen distinct readouts per source, which
+multiplies into several hundred sensors once every source is counted. Readouts
+whose meaning is understood get a device class, a unit and a sensible display
 precision. Readouts that are internal status or override codes are created
 **disabled**, so a controller does not flood your instance with entities that
 mean nothing outside HortiMaX Pro. You can enable any of them from the device
@@ -79,9 +80,9 @@ device.
 
 ## Data updates
 
-The integration polls the HortOS API once a minute per controller. HortOS
-itself refreshes an unchanged readout at most every five minutes, so a value
-that is not moving may keep the same timestamp for a while.
+The integration polls the HortOS API once a minute per controller, which
+matches how often a controller publishes changed readouts. A readout whose
+value does not change keeps its previous timestamp for up to five minutes.
 
 ## Known limitations
 
@@ -93,8 +94,9 @@ that is not moving may keep the same timestamp for a while.
 - Some readouts are encoded as numbers that index a lookup table the API does
   not expose, for example a weather status code. Wind direction is decoded
   into a bearing; the remaining coded readouts are shown as the raw number.
-- Readout names come from the controller and are in English, regardless of
-  the language of your Home Assistant instance.
+- Sensor names are derived from the readout identifiers the controller
+  reports, and are in English regardless of the language of your Home
+  Assistant instance.
 
 ## Troubleshooting
 
