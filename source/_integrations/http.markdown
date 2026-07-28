@@ -31,7 +31,7 @@ To change how Home Assistant serves its web interface, go to {% my network title
 {% options_ui %}
 Server port:
   description: |
-    The port Home Assistant listens on. Starting with Home Assistant 2026.8, the default is `80` for installations managed by Supervisor, including Home Assistant Operating System and Home Assistant Supervised. For Home Assistant Core and Home Assistant Container, the default remains `8123`.
+    The port Home Assistant listens on. Starting with Home Assistant 2026.8, the default is `80` for installations managed by Supervisor, including Home Assistant Operating System and Home Assistant Supervised. For Home Assistant Core and Home Assistant Container, the default remains `8123`. Examples on this page use `8123`; replace it with your configured server port if your installation uses a different port.
 
     If your installation method lets you set environment variables for Home Assistant, `SETUP_PORT` overrides these defaults at startup.
 
@@ -295,7 +295,7 @@ For more examples please visit the [HTTP binary sensor](#examples) page.
 
 ### The HTTP server fails to start
 
-If a saved setting prevents the HTTP server from starting, for example if an SSL certificate file is missing or the configured port is already in use, Home Assistant falls back to the last known-good configuration so you can regain access. If no working configuration is available, Home Assistant starts with the default HTTP settings (port `8123`, without SSL).
+If a saved setting prevents the HTTP server from starting, for example if an SSL certificate file is missing or the configured port is already in use, Home Assistant falls back to the last known-good configuration so you can regain access. If no working configuration is available, Home Assistant starts with the default HTTP settings for your installation method, without SSL.
 
 To fix this, check the logs for the underlying error. Then, open the **HTTP server** section under {% my network title="**Settings** > **System** > **Network**" %}, correct the values, and save.
 
