@@ -38,6 +38,42 @@ By default, this integration will use the Home Assistant Cloud Account Linking s
 
 After the integration is set up, Dropbox will appear as a backup location in Home Assistant's Backup feature. Backups will be stored in a folder named "Home Assistant" within the Apps folder of your Dropbox. You can rename or move this folder anywhere you want and backups will still be stored there.
 
+## Known limitations
+
+- The integration can only access the folder it creates. It cannot access or modify any other files in your Dropbox account.
+- Backups are only detected directly in that folder. If you move a backup into a subfolder, Home Assistant no longer lists it.
+- Each Dropbox account can only be added once. To store backups in a second account, add a separate configuration entry for that account.
+
+## Troubleshooting
+
+### Backups fail to upload
+
+Uploads fail once your Dropbox account runs out of storage. Backup files are large, and Home Assistant keeps several of them depending on your backup settings.
+
+To resolve this issue, try the following steps:
+
+1. Check the available storage in your Dropbox account.
+2. Delete old backups you no longer need, either from the Home Assistant backup list or from the Dropbox folder directly.
+3. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %} and under **Automatic backups**, select **Configure automatic backups** to reduce the number of backups Home Assistant retains.
+
+### A backup stored in Dropbox is not listed in Home Assistant
+
+Every backup consists of two files: the backup itself, ending in `.tar`, and a metadata file with the same name, ending in `.metadata.json`. Home Assistant only lists a backup when both files are present and the metadata file is valid. If one of the files was renamed, moved, or deleted, the backup is ignored.
+
+To resolve this issue, make sure both files are still in the folder and that their names match, apart from the file extension. If the metadata file is missing, the backup cannot be restored through the integration. You can still download the `.tar` file from Dropbox and upload it to Home Assistant manually.
+
+### Reauthentication fails with "Wrong account"
+
+A configuration entry stays tied to the Dropbox account it was set up with. If you sign in with a different account while reauthenticating, the flow stops with the message **Wrong account: Please authenticate with the correct account.**
+
+To resolve this issue, sign out of Dropbox in your browser, then start the reauthentication again and sign in with the account you originally used. If you want to switch to a different Dropbox account, delete the configuration entry and set the integration up again.
+
+### Setting up the integration fails when using custom application credentials
+
+If you cannot complete the setup with your own Dropbox app, the stored application credentials may be incorrect. Delete them in the [Application credentials](/integrations/application_credentials/) interface, then add them again and make sure the app key and app secret match the ones shown in the Dropbox App Console.
+
+When reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Reload the integration. As soon as the issue reoccurs, stop debug logging again. The debug log file will be downloaded automatically.
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
