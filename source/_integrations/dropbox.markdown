@@ -40,7 +40,7 @@ After the integration is set up, Dropbox will appear as a backup location in Hom
 
 ## Known limitations
 
-- The integration can only access the folder it creates. It cannot access or modify any other files in your Dropbox account.
+- The integration can only access the files in the folder it creates. It cannot access or modify any other files outside that folder in your Dropbox account.
 - Backups are only detected directly in that folder. If you move a backup into a subfolder, Home Assistant no longer lists it.
 - Each Dropbox account can only be added once. To store backups in a second account, add a separate configuration entry for that account.
 
