@@ -13,7 +13,7 @@ og_image: /images/blog/2026-07-fireavert/art.webp
 
 <img src="/images/blog/2026-07-fireavert/art.webp" alt="FireAvert joins Works with Home Assistant" style="border: 0;box-shadow: none;">
 
-Sound the alarm, because Works with Home Assistant just welcomed our newest partner to the program: <a href="https://fireavert.com/" target="_blank" rel="noopener">FireAvert!</a> 🎉 Specialists in fire safety, FireAvert are on a mission to keep you and your home out of harm’s way. They bring the very first gas and electric appliance shutoff devices to the program, and with them, a whole lot of peace of mind.<!--more-->
+Sound the alarm, because Works with Home Assistant just welcomed our newest partner to the program: <a href="https://fireavert.com/" target="_blank" rel="noopener">FireAvert</a>! 🎉 Specialists in fire safety, FireAvert are on a mission to keep you and your home out of harm’s way. They bring the very first gas and electric appliance shutoff devices to the program, and with them, a whole lot of peace of mind.<!--more-->
 
 ## Where there’s smoke, there’s FireAvert
 
