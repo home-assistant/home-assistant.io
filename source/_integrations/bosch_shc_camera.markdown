@@ -44,6 +44,8 @@ If your Bosch Cloud token expires and can't be refreshed automatically, Home Ass
 
 Each camera is exposed as a {% term camera %} entity showing the latest motion-triggered snapshot, refreshed periodically and on demand. This is a still-image camera: it does not provide a live video stream. Snapshots are fetched primarily via the Bosch cloud API; for camera models whose cloud snapshot endpoint intermittently rejects requests, the integration automatically falls back to fetching the snapshot directly from the camera over the local network, using Digest credentials the cloud API itself issues (not a separate undocumented local API).
 
+The camera entity also supports the standard `camera.enable_motion_detection` and `camera.disable_motion_detection` {% term actions %}, which toggle Bosch cloud-side motion detection for that camera.
+
 ## Options
 
 The integration's options (**Settings** > **Devices & services** > **Bosch Smart Home Camera** > **Configure**) let you toggle whether the camera entity is created, and migrate to the newer OSS OAuth client if your installation still uses the legacy one.
