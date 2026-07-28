@@ -51,8 +51,6 @@ The integration supports the following appliance types:
 - **Hob**
 - **Hood**
 - **Oven**
-- **Fridge**
-- **Hood**
 
 ## Prerequisites
 
@@ -152,12 +150,6 @@ This entity is used to control the appliance with the following actions:
 - **Target Temperature**
   - **Description**: Set or report the target temperature.
   - **Available for appliance types**: Oven, Fridge.
-- **Light Intensity**
-  - **Description**: Adjust or report the light brightness.
-  - **Available for appliance types**: Hood.
-- **Light Color Temperature**
-  - **Description**: Adjust or report the light color temperature.
-  - **Available for appliance types**: Hood.
 
 {% enddetails %}
 
