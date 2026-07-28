@@ -21,6 +21,15 @@ The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The hostname for which you want to get their accociated IP address(es).
+Resolver:
+  description: "You may override the default IPV4 and IPV6 nameservers that are being used by setting any nameserver IP address you like, for example `1.1.1.1` (IPV4) or `2606:4700:4700::1111` (IPV6)."
+Port:
+  description: "You may override the default DNS port of `53`. This may be useful to bypass DNS filtering or redirection."
+{% endconfiguration_basic %}
+
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
@@ -29,3 +38,21 @@ Resolver:
 Port:
   description: "You may override the default DNS port of `53`. This may be useful to bypass DNS filtering or redirection."
 {% endconfiguration_basic %}
+
+## Data fetching and limitations
+
+Resolving the IP address(es) happens every second minute.
+
+If resolving the IP address(es) is not possible due to connectivity issues or other errors, it retries 3 times before going unavailable.
+
+## Troubleshooting
+
+This service is reliant on an internet connection and that the chosen **resolver** is available.
+
+- Check the logs and provide the relevant section from the log if raising an issue for the integration
+- Manually test to resolve the hostname using any command line tools or websites available.
+- Manually reload the integration
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}
