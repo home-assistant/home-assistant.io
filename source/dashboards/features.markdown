@@ -985,7 +985,7 @@ options:
 
 ## Target humidity
 
-Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
+Widget that displays a slider or buttons to select the target humidity for a [humidifier](/integrations/humidifier).
 
 <p class='img'>
   <img src='/images/dashboards/features/target_humidity.png' alt='Screenshot of the tile card with the target humidity feature'>
@@ -995,6 +995,7 @@ Widget that displays a slider to select the target humidity for a [humidifier](/
 ```yaml
 features:
   - type: "target-humidity"
+    style: "slider"
 ```
 
 {% configuration features %}
@@ -1002,11 +1003,16 @@ type:
   required: true
   description: "`target-humidity`"
   type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`."
+  type: string
+  default: slider
 {% endconfiguration %}
 
 ## Target temperature
 
-Widget that displays buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
+Widget that displays a slider or buttons to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater).
 
 <p class='img'>
   <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of the tile card with the target temperature feature'>
@@ -1016,6 +1022,7 @@ Widget that displays buttons to select the target temperature for a [climate](/i
 ```yaml
 features:
   - type: "target-temperature"
+    style: "buttons"
 ```
 
 {% configuration features %}
@@ -1023,6 +1030,11 @@ type:
   required: true
   description: "`target-temperature`"
   type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `slider`."
+  type: string
+  default: slider
 {% endconfiguration %}
 
 ## Toggle
