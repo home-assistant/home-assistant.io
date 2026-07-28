@@ -68,7 +68,9 @@ Zone entity type:
     Choose whether irrigation zones are exposed as **Switch** entities or **Valve** entities.
     The default is **Switch**, which preserves existing behavior.
     Changing this option and saving will reload the integration, removing the old entities and
-    creating new ones of the selected type.
+    creating new ones of the selected type. Because the entity platform changes (for example,
+    from `switch.zone_1` to `valve.zone_1`), any dashboards, automations, or scripts that
+    reference the old entity IDs will need to be updated.
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -108,7 +110,7 @@ The Rain Bird integration provides the following entities.
 #### Switch
 
 - **Irrigation Zone**
-  - **Description**: Switches are automatically added for all available zones of
+  - **Description**: Switch entities are added for all available zones of
     configured controllers when the **Zone entity type** configuration option is set to **Switch** (default).
     Turning on the switch will open the irrigation valve for that zone.
   - **Available for devices**: All
