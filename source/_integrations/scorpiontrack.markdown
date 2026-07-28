@@ -17,7 +17,7 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location and speed of vehicles that have been shared through a public ScorpionTrack location-share link.
+The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location and speed of vehicles that have been shared through a public ScorpionTrack shared-location link.
 
 This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates location and speed entities from that data. The vehicle location appears on the Home Assistant map.
 
@@ -51,8 +51,8 @@ Share URL or token:
 
 The **ScorpionTrack** integration creates one device for each vehicle included in the share. Each device provides:
 
-- A {% term "device tracker" %} entity that represents the vehicle on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share
-- A **Speed** sensor entity that shows the latest vehicle speed reported through the share
+- A {% term "device tracker" %} entity that represents the vehicle on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share.
+- A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
 
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
