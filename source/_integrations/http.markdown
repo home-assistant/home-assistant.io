@@ -33,7 +33,7 @@ Server port:
   description: |
     The port Home Assistant listens on. Starting with Home Assistant 2026.8, the default is `80` on Home Assistant Operating System. For Home Assistant Container, the default remains `8123`.
 
-    If `SETUP_PORT` is set, it overrides these defaults for all installation types.
+    If your installation method lets you set environment variables for Home Assistant, `SETUP_PORT` overrides these defaults at startup.
 
     _Caution_: If you use the
     [Home Assistant Companion app](https://companion.home-assistant.io/), update the Home Assistant URL
