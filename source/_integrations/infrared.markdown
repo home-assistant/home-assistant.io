@@ -34,9 +34,9 @@ An infrared {% term entity %} represents either an [infrared emitter](#infrared-
 
 {% include integrations/building_block_integration.md %}
 
-## Controlling infrared-controlled devices from Home Assistant
+## Setting up infrared control in Home Assistant
 
-You can use an infrared remote adapter (proxy) to control devices directly from Home Assistant.
+You can set up an infrared remote adapter (proxy) to control devices directly from Home Assistant.
 
 ### Prerequisites
 
@@ -48,9 +48,9 @@ The **Infrared** {% term integration %} is a building block that other integrati
   - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
 
-### To control infrared-controlled devices from Home Assistant
+### To set up infrared control in Home Assistant
 
-1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects.
+1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects. For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
 2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
    - To add the integration, follow the steps in the integration documentation.
 3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
@@ -58,6 +58,31 @@ The **Infrared** {% term integration %} is a building block that other integrati
    - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
 4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
    - During setup of the infrared-controlled device, select the remote adapter closest to that device.
+
+## Viewing your infrared remote adapters
+
+You can see all your infrared remote adapters in one place from the **Infrared** configuration panel.
+
+1. Go to {% my config_infrared title="**Settings** > **Infrared**" %}.
+   - At the top, a status summary shows how many of your infrared remote adapters are currently online.
+2. Select **Devices** to open the list of infrared remote adapters. For each one, you can see:
+   - The name of the adapter.
+   - The type: emitter, receiver, or both.
+   - When it was last used.
+3. To view more details, select an infrared remote adapter to open its device page.
+
+## About device placement and coverage
+
+Infrared is a line-of-sight technology. Unlike radio-based technologies, infrared signals do not pass through walls, furniture, or other objects. The placement of your infrared remote adapter has a direct effect on how reliably your devices respond.
+
+For the best results, keep the following in mind:
+
+- Place each infrared remote adapter so it has a clear, unobstructed line-of-sight to the devices it controls.
+- Keep the adapter within the range supported by your adapter’s emitter strength and the device’s infrared receiver sensitivity.
+- Point the emitter towards the device's infrared receiver window. A physical remote works best when aimed at the device, and an infrared remote adapter is no different.
+- Avoid placing the adapter where strong sunlight, direct light from fluorescent lamps, or other infrared sources shine onto the device's receiver, as these can interfere with the signal.
+
+To cover devices in more than one room, use a separate infrared remote adapter in each room. Infrared signals do not travel between rooms, so a single adapter cannot control devices behind a wall or in another space. During setup of each infrared-controlled device, select the remote adapter that is closest to it and has a clear line-of-sight.
 
 ## About infrared terminology
 
@@ -102,3 +127,61 @@ In addition, the entity can have the following states:
 - **Unknown**: The state is not yet known.
 
 Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the IR event.
+
+## Troubleshooting
+
+### The device does not respond to commands
+
+#### Symptom: "The command is sent, but nothing happens"
+
+You send a command from Home Assistant, the infrared emitter's {% term state %} updates to show it was used, but the infrared-controlled device does not react.
+
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Make sure nothing blocks the path between the emitter and the device:
+   - Infrared signals do not pass through walls, furniture, or cabinet doors.
+   - Remove any objects between the emitter and the device.
+2. Check the distance between the emitter and the device:
+   - Move the infrared remote adapter closer to the device.
+   - The usable range depends on your adapter's emitter strength and the device's receiver sensitivity.
+3. Point the emitter towards the device's infrared receiver window:
+   - Aim the emitter the same way you would aim a handheld remote.
+4. Reduce infrared interference:
+   - Avoid strong sunlight, direct light from fluorescent lamps, or other infrared sources shining onto the device's receiver.
+
+For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
+
+### The wrong device responds, or a device in another room does not respond
+
+#### Symptom: "Commands reach the wrong device"
+
+A command controls a device in the wrong room, or a device does not respond even though another one does.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Check which emitter is selected for the infrared-controlled device:
+   - Open the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
+   - Confirm the selected emitter belongs to the infrared remote adapter in the same room as the device.
+2. If needed, select the emitter from the adapter closest to the device.
+3. If you have devices in more than one room, use a separate infrared remote adapter in each room:
+   - Infrared signals do not travel between rooms.
+
+### An infrared receiver does not pick up signals
+
+#### Symptom: "The receiver's state never updates"
+
+You send a signal from a handheld remote, but the infrared receiver's {% term state %} does not update to show a recent timestamp.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Aim the handheld remote directly at the infrared receiver.
+2. Move closer to the receiver and make sure nothing blocks the path.
+3. Replace the batteries in the handheld remote if signals are weak or intermittent.
+4. Reduce infrared interference from strong sunlight or other infrared sources near the receiver.

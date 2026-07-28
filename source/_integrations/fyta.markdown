@@ -24,11 +24,11 @@ The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta
 
 ## Supported devices
 
-The integration should work with any [FYTA Beam](https://fyta.de/collections/all/products/single-beam).
+The integration should work with any [FYTA Sensor](https://fyta.de/en/pages/fyta-system).
 
 ## Prerequisites
 
-For the integration to work you need a [FYTA Beam](https://fyta.de/collections/all/products/single-beam) and a FYTA account.
+For the integration to work, you need a [FYTA Sensor](https://fyta.de/en/pages/fyta-system) and a FYTA account.
 
 {% include integrations/config_flow.md %}
 

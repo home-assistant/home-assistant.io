@@ -335,34 +335,7 @@ automation:
           entity_id: scene.welcomescene
 ```
 
-## Actions
-
-- `rfxtrx.send`: Send a custom event using the RFXtrx device.
-
-### Action: Send
-
-The `rfxtrx.send` action sends a custom event using the RFXtrx device.
-
-Simulate a button being pressed:
-
-```yaml
-...
-actions:
-  - action: rfxtrx.send
-    data:
-      event: 0b1111e003af16aa10000060
-```
-
-Alternatively:
-
-- Go to: {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
-
-```yaml
-action: rfxtrx.send
-data:
-  event: "0b1111e003af16aa10000060"
-```
+{% include integrations/actions.md %}
 
 ## Generate codes
 
