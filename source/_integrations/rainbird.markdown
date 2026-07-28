@@ -7,6 +7,7 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
+  - Valve
 ha_config_flow: true
 ha_release: 0.61
 ha_iot_class: Local Polling
@@ -20,6 +21,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - valve
 ha_integration_type: hub
 ---
 
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Calendar](#calendar)
 - [Number](#number)
 - [Switch](#switch)
+- [Valve](#valve)
 
 Home Assistant allows you to control the irrigation values, log details about
 the device including optional rain sensor, and allow you to view any upcoming
@@ -59,7 +62,13 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Default irrigation time:
-  description: The number of minutes that the irrigation will run when turning on a zone switch. The default is 6 minutes. This can be overridden with an action (see below).
+  description: The number of minutes that the irrigation will run when turning on a zone switch or opening a zone valve. The default is 6 minutes. This can be overridden with an action (see below).
+Zone entity type:
+  description: >
+    Choose whether irrigation zones are exposed as **Switch** entities or **Valve** entities.
+    The default is **Switch**, which preserves existing behavior.
+    Changing this option and saving will reload the integration, removing the old entities and
+    creating new ones of the selected type.
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -100,7 +109,16 @@ The Rain Bird integration provides the following entities.
 
 - **Irrigation Zone**
   - **Description**: Switches are automatically added for all available zones of
-    configured controllers. Turning on the switch will open the irrigation valve for that zone.
+    configured controllers when the **Zone entity type** configuration option is set to **Switch** (default).
+    Turning on the switch will open the irrigation valve for that zone.
+  - **Available for devices**: All
+
+#### Valve
+
+- **Irrigation Zone**
+  - **Description**: Valve entities are added for all available zones of configured controllers
+    when the **Zone entity type** configuration option is set to **Valve**.
+    Opening the valve will start irrigation for that zone.
   - **Available for devices**: All
 
 {% include integrations/actions.md %}
