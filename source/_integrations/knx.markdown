@@ -490,6 +490,8 @@ type:
 
 Expose Home Assistant entities to share their state or attributes with the KNX bus. Home Assistant automatically sends the current value whenever it changes and responds to read requests on the KNX bus. This can be configured from the frontend in the KNX panel or via YAML.
 
+You can also enable **Write-back** to let an incoming `GroupValueWrite` telegram on the exposed address update the Home Assistant entity, optionally restricted to a list of trusted KNX source addresses.
+
 {% details "Configuration of entity exposures via YAML" %}
 
 ```yaml
@@ -533,6 +535,14 @@ knx:
       entity_id: media_player.kitchen
       attribute: volume_level
       value_template: "{{ value * 100 }}"  # convert from 0..1 to percent
+
+    # write-back: let whitelisted KNX devices change the entity
+    - type: binary
+      entity_id: input_boolean.sleep_mode
+      address: "0/6/6"
+      write_back: true
+      source_whitelist:
+        - "1.1.5"
 ```
 
 {% configuration %}
@@ -577,6 +587,16 @@ respond_to_read:
   required: false
   type: boolean
   default: true
+write_back:
+  description: Update the exposed entity from incoming `GroupValueWrite` telegrams on the configured `address`. Supported for `binary` exposures (turns the entity on or off) and for numeric or string exposures targeting a settable entity such as `input_boolean`, `number`, `input_number`, `text`, or `input_text`. Cannot be combined with `attribute`.
+  required: false
+  type: boolean
+  default: false
+source_whitelist:
+  description: List of KNX individual addresses (for example, `1.1.5`) that are allowed to change the entity through `write_back`. Leave empty to accept writes from any address.
+  required: false
+  type: list
+  default: []
 {% endconfiguration %}
 
 {% enddetails %}
