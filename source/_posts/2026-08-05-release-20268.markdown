@@ -108,10 +108,11 @@ Enjoy the (beta) release!
 - [All changes](#all-changes)
 
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@bramkragten]: https://github.com/bramkragten
 [@frenck]: https://github.com/frenck
+[@piitaya]: https://github.com/piitaya
 
 ## Making Home Assistant more approachable
 
@@ -169,7 +170,10 @@ The main page is now a clean overview. Each feature (remote access, backups, voi
 
 The bigger change is for anyone just getting started. There is now a guided setup that walks you through Home Assistant Cloud step by step, instead of leaving you to find your way around a wall of options. If it is not a good moment, you can put it off and pick it up again later.
 
-<img src='/images/blog/2026-08/cloud-page.png' alt='Screenshot of the redesigned Home Assistant Cloud page, showing an overview with each cloud feature in its own space.' class='no-shadow' />
+<div>
+  <img src='/images/blog/2026-08/cloud_page_top.png' alt='Screenshot of the top of the redesigned Home Assistant Cloud page, showing the overview with each cloud feature in its own space.' class='no-shadow' style='display: block; margin: 0;' />
+  <img src='/images/blog/2026-08/cloud_page_bottom.png' alt='Screenshot of the lower part of the redesigned Home Assistant Cloud page, showing more cloud features and their settings.' class='no-shadow' style='display: block; margin: 0;' />
+</div>
 
 A big thank you to [@klejejs](https://github.com/klejejs) for this redesign!
 
@@ -720,4 +724,3 @@ If you are a custom integration developer and want to learn about changes and ne
 ## All changes
 
 Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2026.8](/changelogs/core-2026.8).
-
