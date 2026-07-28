@@ -41,7 +41,7 @@ Port:
 
 ## Data fetching and limitations
 
-Resolving the IP address(es) happens every second minute.
+Resolving the IP address(es) happens every two minutes.
 
 If resolving the IP address(es) is not possible due to connectivity issues or other errors, it retries 3 times before going unavailable.
 
