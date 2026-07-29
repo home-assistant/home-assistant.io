@@ -34,7 +34,7 @@ Check the [country list](https://github.com/vacanza/holidays#available-countries
 
 {% include integrations/config_flow.md %}
 
-% configuration_basic %}
+{% configuration_basic %}
 Country:
   description: Choose a country, can also be left empty to start with an empty set of holidays.
 Subdivision of country:
