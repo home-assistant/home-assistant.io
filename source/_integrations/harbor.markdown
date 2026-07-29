@@ -78,7 +78,6 @@ The Harbor Sleep integration provides sensors and switches for the connected Har
 - **Flip image**: Rotates the camera image by 180 degrees, or restores it upright.
 - **Clock overlay**: Shows or hides the clock overlay that is burned into the video.
 
-
 ## Data updates
 
 The Harbor Sleep integration uses local push. Home Assistant keeps a local connection to the Harbor device and updates entities when the device sends new data.
