@@ -3,7 +3,7 @@ title: "Tools"
 description: "Description of the Home Assistant tools."
 ---
 
-The dashboard contains a section called **Tools**.
+Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
 
 <p class='img'>
 <img src='/images/screenshots/developer-tools.png' />
@@ -34,7 +34,7 @@ It is almost the same as the option under **Settings** > three dots {% icon "mdi
 
 For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in {% term "`configuration.yaml`" %} without needing to restart Home Assistant.
 
-1. Go to {% my server_controls title="**Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-search/) anywhere in the UI and search for "reload").
+1. Go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-search/) anywhere in the UI and search for "reload").
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)

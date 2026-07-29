@@ -45,7 +45,7 @@ This action has no options.
 
 - Only administrators can run this action.
 - This action is only available when you run {% term "Home Assistant Operating System" %} or the Supervised installation method. It is not available on {% term "Home Assistant Container" %} or {% term "Home Assistant Core" %}.
-- You usually run this action manually from {% my developer_services title="**Tools** > **Actions**" %} when you need a clean restart of the whole machine.
+- You usually run this action manually from {% my developer_services title="**Settings** > **Tools** > **Actions**" %} when you need a clean restart of the whole machine.
 
 {% include actions/stuck.md %}
 

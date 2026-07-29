@@ -50,7 +50,7 @@ In the automation editor UI, each {% term action %} can be tested individually. 
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or action calls that return data to use in subsequent blocks, cannot be tested this way.
 
-If you are writing automations in YAML, it is also useful to go to {% my server_controls title="**Tools** > **YAML**" %} and in the Configuration validation section, select the **Check configuration** button. This is to make sure there are no syntax errors before restarting Home Assistant.
+If you are writing automations in YAML, it is also useful to go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and in the Configuration validation section, select the **Check configuration** button. This is to make sure there are no syntax errors before restarting Home Assistant.
 
 ## Traces
 

@@ -41,7 +41,7 @@ This action has no options.
 
 ## Good to know
 
-- You usually run this action straight from {% my developer_services title="**Tools** > **Actions**" %} right after editing your themes, so you can see the result without a restart.
+- You usually run this action straight from {% my developer_services title="**Settings** > **Tools** > **Actions**" %} right after editing your themes, so you can see the result without a restart.
 - Only administrators can run this action.
 
 {% include actions/stuck.md %}

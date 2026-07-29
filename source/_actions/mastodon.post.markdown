@@ -81,7 +81,7 @@ action: |
     status: "A toot from Home Assistant"
 {% endexample %}
 
-To find the `config_entry_id`, go to **Tools** > **Actions**, select this action, choose your Mastodon account, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon account, and switch to YAML mode.
 
 ### Options in YAML
 

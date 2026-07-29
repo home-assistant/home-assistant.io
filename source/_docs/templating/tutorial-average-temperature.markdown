@@ -45,7 +45,7 @@ These are the sensors your new sensor will average. Make a mental note of how ma
 
 ## Step 2: Write the averaging template
 
-In {% my developer_template title="**Tools** > **Template**" %}, paste this:
+In {% my developer_template title="**Settings** > **Tools** > **Template**" %}, paste this:
 
 {% example %}
 template: |
