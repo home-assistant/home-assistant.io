@@ -20,6 +20,7 @@ related:
     title: Sentence trigger
 ha_platforms:
   - conversation
+  - sensor
 ---
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
@@ -54,6 +55,25 @@ Keep alive:
 Think before responding:
   description: If the AI should think about its response before responding. This will cause the AI to take longer to respond, but may result in better responses. Default value is `false`. Thinking is not supported by all models and displaying thinking content is not supported by frontend clients yet.
 {% endconfiguration_basic %}
+
+## Supported functionality
+
+The Ollama integration provides the following diagnostic sensor entities.
+
+### Sensors
+
+- **Installed models**
+  - **Description**: Number of models installed on the server.
+  - **Remarks**: The model names are available in the `names` attribute.
+- **Loaded models**
+  - **Description**: Number of models currently loaded into memory.
+  - **Remarks**: The model names are available in the `names` attribute.
+- **Loaded model size**
+  - **Description**: Total size of all models currently loaded into memory.
+  - **Remarks**: This entity is disabled by default. To use it, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the Ollama device page.
+- **Loaded model GPU memory**
+  - **Description**: Amount of GPU memory used by all loaded models.
+  - **Remarks**: This entity is disabled by default. To use it, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the Ollama device page.
 
 ## Controlling Home Assistant
 
