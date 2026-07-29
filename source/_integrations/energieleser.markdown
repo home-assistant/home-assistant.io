@@ -90,7 +90,7 @@ The energieleser integration primarily provides the following features based on 
 
 ### Common diagnostic sensors
 
-- **Signal strength**: Wi-Fi signal strength of the device (dBm, disabled by default)
+- **Signal strength**: Wi-Fi signal strength of the device (dBm). Disabled by default.
 
 ## Data updates
 
