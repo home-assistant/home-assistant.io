@@ -88,7 +88,7 @@ This integration does not provide additional actions.
 
 ## Known limitations
 
-The integration currently provides sensor entities only. To get the camera stream, you must set up a WHIP endpoint on `go2rtc`, `frigate`, or similar and then add a camera entity connecting to the server that is ingesting the WHIP endpoint. See [the Harbor Python README](https://github.com/Harbor-Systems/harbor-python#whip-endpoint) for more information.
+The integration currently provides sensor and select entities only. To get the camera stream, you must set up a WHIP endpoint on `go2rtc`, `frigate`, or similar and then add a camera entity connecting to the server that is ingesting the WHIP endpoint. See [the Harbor Python README](https://github.com/Harbor-Systems/harbor-python#whip-endpoint) for more information.
 
 ## Troubleshooting
 
