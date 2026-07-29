@@ -3,6 +3,7 @@ title: Harbor Sleep
 description: Instructions on how to set up Harbor Sleep baby monitors in Home Assistant.
 ha_category:
   - Sensor
+  - Switch
 ha_config_flow: true
 ha_release: 2026.8
 ha_iot_class: Local Push
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: harbor
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -60,7 +62,7 @@ IP address:
 
 ## Supported functionality
 
-The Harbor Sleep integration provides sensors for the connected Harbor device.
+The Harbor Sleep integration provides sensors and switches for the connected Harbor device.
 
 ### Sensors
 
@@ -69,6 +71,13 @@ The Harbor Sleep integration provides sensors for the connected Harbor device.
 - **Bitrate**: The current stream bitrate.
 - **Wi-Fi strength**: The Wi-Fi signal strength reported by the Harbor device.
 - **Stream quality**: The current stream quality. Possible values are **Excellent**, **Good**, **Fair**, **Poor**, and **Unknown**.
+
+### Switches
+
+- **Camera**: Turns the camera stream on or off.
+- **Flip image**: Rotates the camera image by 180 degrees, or restores it upright.
+- **Clock overlay**: Shows or hides the clock overlay that is burned into the video.
+
 
 ## Data updates
 
