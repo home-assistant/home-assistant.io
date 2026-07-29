@@ -128,7 +128,20 @@ The last doorbell ring and last motion still images are also available as [image
 
 ## Image
 
-The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device. Unlike the equivalent camera entities, these use push-based updates driven by the device's events. Each image refreshes the moment a doorbell ring or motion event fires, rather than on a polling interval.
+## Camera
+
+The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
+
+The last doorbell ring and last motion still images are also available as [image](#image) entities.
+
+{% note %}
+The camera entities are kept for backwards compatibility and are planned to be deprecated in a future release, so prefer the image entities going forward.
+{% endnote %}
+
+## Image
+
+The `doorbird` image platform provides an entity for the last doorbell ring image and an entity for the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device.
+These entities use push-based updates driven by the device's events. Each image refreshes the moment a doorbell ring or motion event fires, rather than on a polling interval.
 
 ## Button
 
