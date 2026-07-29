@@ -311,7 +311,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Reolink]** gained pre-siren entities and a motion device class on its AI-detection binary sensors. Thanks, [@starkillerOG] and [@abmantis]!
 - **[Overkiz]** added window and tilt binary sensors for contact sensors, boost and drying-duration numbers for the Atlantic electrical towel dryer, and support for the Somfy Thermostat PRO. Thanks, [@iMicknl]!
 - **[SwitchBot]** added support for the Candle Warmer Lamp and the RGBIC Neon Rope Light, plus fan and select controls for the Standing Fan. Thanks, [@Onero-testdev]!
-- **[SwitchBot Cloud]** can now trigger the AI Art Frame by webhook. Thanks, [@XiaoLing-git]!
 - **[Roborock]** got plenty of love for the Q10, with a do-not-disturb switch, switch entities, a map image, and a volume control. Thanks, [@lboue] and [@tubededentifrice]!
 - **[Whirlpool]** added an oven light, an oven cook-mode select, and an oven target-temperature number. Thanks, [@matthewdias] and [@bdlcalvin]!
 - **[MQTT]** gained an infrared platform, so you can send infrared commands over MQTT. Thanks, [@jbouwh]!
@@ -574,7 +573,6 @@ There is even more packed into this release. Here are some of the other changes 
 - **Search finds more of what is connected.** When you search or open a device or entity, Home Assistant now digs deeper into what is related, so scenes, scripts, groups, the people behind a person entity, and anything sharing a label or area all show up where you would expect them. It is a small change that makes it much easier to see how your setup fits together. Thanks, [@frenck]!
 - **A reboot heads-up on Home Assistant OS.** The system {% term update %} entity now lets you know when an update needs a reboot to finish. Thanks, [@mdegat01]!
 - **A new radon device class.** Sensors and numbers can now be classified as radon, so radon measurements get the right units and display. Thanks, [@abmantis]!
-- **Matter doorbells are recognized.** {% term Matter %} doorbells now show up as doorbell {% term "event entity" "event entities" %}, ready to start an {% term automation %} when someone is at the door. Thanks, [@lboue]!
 - **Z-Wave locks with coupled credentials.** Home Assistant now supports Z-Wave locks that require paired users and credentials. Thanks, [@AlCalzone]!
 - **Filter entities by manufacturer and model.** The entity filter can now narrow entities by manufacturer, model, and model ID. Thanks, [@Skaronator]!
 - **Ask Assist from quick search.** You can now start an Assist command straight from quick search. Thanks, [@timmo001]!
