@@ -120,12 +120,13 @@ automation: |
 
 If a motorized roof window has been open for a while, turning off the heater can help avoid wasting energy.
 
-- **Trigger**: Time pattern: Every 10 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/10`
 - **Condition**: Window is open
-- **Target**: Bedroom roof window cover
-- **Condition passes if**: Any
-- **For at least**: 00:10:00
-- **Action**: Climate: Turn off
+  - **Target**: Bedroom roof window cover
+  - **For at least**: 00:10:00
+- **Action**: Turn off thermostat
+  - **Target**: Bedroom thermostat
 
 {% details "YAML example for turning off heating when a roof window stays open" %}
 
@@ -140,7 +141,6 @@ automation: |
       target:
         entity_id: cover.bedroom_roof_window
       options:
-        behavior: any
         for: "00:10:00"
   actions:
     - action: climate.turn_off

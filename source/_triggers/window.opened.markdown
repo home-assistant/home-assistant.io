@@ -125,7 +125,8 @@ When a motorized skylight opens, there is little point in keeping the air condit
 - **Target**: Hallway skylight cover
 - **Trigger when**: Each
 - **For at least**: 00:02:00
-- **Action**: Climate: Turn off
+- **Action**: Turn off thermostat
+  - **Target**: Upstairs thermostat
 
 {% details "YAML example for pausing cooling when a skylight opens" %}
 
