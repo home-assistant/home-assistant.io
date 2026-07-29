@@ -31,7 +31,7 @@ The EPA AirNow API is often flaky and will occasionally not return any results f
 If the integration continues to report "No results found for that location" and cannot be added to Home Assistant, do the following before submitting a bug report:
 
 1. Navigate to the [AirNow web services](https://docs.airnowapi.org/webservices) page and open the **By Zip Code or Lat/Long** current observations tool, which is the service the integration uses.
-2. Enter the same latitude/longitude and select **application/json** as the output format.
+2. Enter the same latitude/longitude and select `application/json` as the output format.
 3. Select **Build**, then **Run**.
 
 If the query returns a result other than `[]`, open a bug report and include the query result (you may sanitize the data to remove your latitude and longitude, but please do not remove any fields). This information will help a lot to figure out the source of the issue.
