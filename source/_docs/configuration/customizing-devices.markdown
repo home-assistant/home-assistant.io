@@ -52,6 +52,10 @@ Home Assistant generates entity IDs for new entities based on parts of your setu
 
 You can change which parts are used and in which order. This format is only used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs, and you can still rename them afterwards in the entity settings.
 
+{% note %}
+Some integrations suggest their own entity ID for new entities. In that case, this format is not used.
+{% endnote %}
+
 To change the format:
 
 1. Go to **Settings** > **System** > **Entity ID format**.
