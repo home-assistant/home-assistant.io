@@ -79,8 +79,10 @@ pin:
 
 This automation changes the PIN when a user-created toggle {% term helper %} turns on. Create this helper separately before using the example.
 
-- **Trigger**: A toggle helper turns on
-- **Action**: Update PIN Code
+- **Trigger**: State
+  - **Target**: Change switch pin (input boolean)
+  - **To**: On
+- **Action**: Nintendo Switch parental controls: Update PIN code
   - **Device**: The Nintendo Switch to update
   - **PIN**: `5678`
 
@@ -106,8 +108,9 @@ automation: |
 
 This automation restores the usual PIN at 9:00 PM each day.
 
-- **Trigger**: Time is 9:00 PM
-- **Action**: Update PIN Code
+- **Trigger**: Time
+  - **At time**: `9:00:00` PM
+- **Action**: Nintendo Switch parental controls: Update PIN code
   - **Device**: The Nintendo Switch to update
   - **PIN**: `1234`
 
