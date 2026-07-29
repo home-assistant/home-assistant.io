@@ -326,7 +326,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        - **VM Folder**: Select a location to store the virtual machine files.
        - **ISO Image**: Leave blank.
        - **OS**: Select **Linux**.
-       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, or M3), select **ARM 64-bit** instead.
+       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, M3, or M4), also set **OS Version** to **Oracle Linux (ARM 64-bit)**.
     3. Select **Next**.
     4. In the **Specify virtual hardware** step, specify the following settings:
        - **Base Memory**: Set to at least **2048 MB**, which is 2 GB.
@@ -341,8 +341,8 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
     1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
     2. Go to the **Storage** section.
-    3. In the **Storage Devices** list, under **Controller: SATA**, right-click the empty placeholder disk and select **Remove attachment**.
-    4. Next to **Controller: SATA**, select the **Add hard disk** icon (the blue disk with a plus sign).
+    3. In the **Storage Devices** list, under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click the empty placeholder disk and select **Remove attachment**.
+    4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
     5. In the dialog that appears, select the **Add** button.
     6. Find and select the downloaded `.vdi` file.
     7. Select **Choose** to confirm the file.
@@ -361,6 +361,8 @@ To create the virtual machine, follow the instructions for the hypervisor you us
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+
+    Note: For Mac with Apple silicon, replace **SATA** with **VirtioSCSI**.
 
     For more information about the command, see [VBoxManage storageattach command](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
