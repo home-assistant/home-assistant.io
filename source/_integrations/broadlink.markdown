@@ -76,7 +76,7 @@ The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
 
-The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information.
+The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) for more information.
 The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
 
 ## Radio frequency
@@ -207,10 +207,12 @@ The files in the `.storage` folder _should never be edited manually_.
 
 1. Go to {% my supervisor_addon title="**Settings** > **Apps** > **File editor**" addon="core_configurator" %}.
 2. Select **Configuration**.
-3. From ignore patterns, delete **.storage**.
-4. Restart Home Assistant.
-5. Open the File Editor app.
-6. Navigate to `/config/.storage/broadlink_remote_MACADDRESS_codes`, where `MACADDRESS` is your remote's MAC ADDDRESS, for example `112233ab44cd`.
+3. From ignore patterns, remove `.storage`.
+4. Select **Save**.
+5. Restart Home Assistant.
+6. Open the File Editor app.
+7. In the upper-left corner, select **Browse Filesystem**.
+8. Open `.storage/broadlink_remote_MACADDRESS_codes`, where `MACADDRESS` is your remote's MAC ADDRESS, for example `112233ab44cd`.
 
 ### Sending commands
 
