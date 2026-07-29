@@ -248,7 +248,7 @@ script:
     icon: "mdi:party-popper"
     description: "Turns on the bedroom lights and then the living room lights after a delay"
     variables:
-      turn_on_entity: group.living_room
+      turn_on_entity: light.living_room
     fields:
       minutes:
         name: Minutes
@@ -273,7 +273,7 @@ script:
       - alias: "Bedroom lights on"
         action: light.turn_on
         target:
-          entity_id: group.bedroom
+          entity_id: light.bedroom
         data:
           brightness: 100
       - delay:

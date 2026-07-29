@@ -454,130 +454,7 @@ Every telegram that matches an address pattern with its destination field will b
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
 - `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
-## Actions
-
-To directly interact with the KNX bus, you can use the following actions:
-
-### Send
-
-```txt
-Domain: knx
-Action: send
-Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
-```
-
-{% configuration %}
-address:
-  description: KNX group address.
-  type: string
-payload:
-  description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
-  type: [integer, list]
-type:
-  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
-  type: [string, integer, float]
-response:
-  description: If set to `true`, the telegram will be sent as a `GroupValueResponse` instead of a `GroupValueWrite`.
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-```yaml
-# Example script to send a fixed value and the state of an entity
-alias: "My Script"
-sequence:
-  - action: knx.send
-    data:
-      address: 1/1/1
-      type: percent
-      payload: 50
-      response: false
-  - action: knx.send
-    data:
-      address: 1/1/1
-      payload: [128]  # 50 % as 1-byte raw value
-      response: false
-  - action: knx.send
-    data:
-      address: 3/3/3
-      type: temperature
-      payload: "{{ states('sensor.dew_point') }}"
-      response: false
-```
-
-### Read
-
-You can use the `homeassistant.update_entity` action call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests, use the `knx.read` action. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
-
-```txt
-Domain: knx
-Action: read
-Data: {"address": "1/0/15"}
-```
-
-{% configuration %}
-address:
-  description: Group address(es) to send read request to. Lists will read multiple group addresses.
-  type: [string, list]
-{% endconfiguration %}
-
-```yaml
-# Example automation to update a cover position after 10 seconds of movement initiation
-automation:
-  - triggers:
-      - trigger: knx.telegram
-        # Cover move trigger
-        destination: "0/4/20"
-    actions:
-      - delay: 0:0:10
-      - action: knx.read
-        data:
-          # Cover position address
-          address: "0/4/21"
-
-  - triggers:
-      - trigger: homeassistant
-        event: start
-    actions:
-      # Register the group address to trigger a knx_event
-      - action: knx.event_register
-        data:
-          # Cover move trigger
-          address: "0/4/20"
-```
-
-### Register event
-
-The `knx.event_register` action can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in {% term "`configuration.yaml`" %} cannot be unregistered. See [knx_event](#events)
-
-{% configuration %}
-address:
-  description: Group address that shall be added or removed.
-  required: true
-  type: [string, list]
-remove:
-  description: If `true` the group address will be removed.
-  required: false
-  type: boolean
-  default: false
-type:
-  description: If set, the payload will be decoded as given DPT in the event data `value` key. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "1byte_signed").
-  type: [string, integer]
-  required: false
-{% endconfiguration %}
-
-### Register exposure
-
-The `knx.exposure_register` action can be used to register (or unregister) exposures to the KNX bus. Exposures defined in {% term "`configuration.yaml`" %} cannot be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
-
-{% configuration %}
-remove:
-  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `true` can be used to remove exposures. Only `address` is required for removal.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/actions.md %}
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
@@ -717,6 +594,15 @@ name:
     You can change the name in the Home Assistant UI.
   required: false
   type: string
+default_entity_id:
+  description: Sets a preferred initial entity ID instead of having it derived from name.
+    For example, `sensor.my_awesome_sensor`.
+    If the entity ID already exists, the entity ID is created with a number at the end.
+    The `default_entity_id` is only used when the entity is added for the first time.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the entity ID in the Home Assistant UI.
+  required: false
+  type: string
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -724,13 +610,23 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+```yaml
+# Example configuration.yaml entry fragment for common entity configuration options
+knx:
+  sensor:
+    - name: My awesome sensor
+      default_entity_id: "sensor.awesome_entity_id"
+      entity_category: diagnostic
+      ...
+```
+
 ### Binary sensor
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, or alarms.
 
 {% note %}
 
-Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](#send).
+Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX Switch entity](#switch) or use the [`knx.send` action](/actions/knx.send/).
 
 {% endnote %}
 
@@ -1170,12 +1066,17 @@ swing_horizontal_state_address:
 ### Cover
 
 The KNX cover platform is used as an interface to KNX covers.
+Intermediate positions of covers are calculated based on the configured `travelling_time_down` and `travelling_time_up` values once a second when moving. A received position from the KNX bus takes precedence over the calculated position.
 
 {% note %}
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
 {% endnote %}
+
+Cover entities restore their last known position and tilt angle after Home Assistant is restarted. Covers that have a `position_state_address` or `angle_state_address` configured request their current state from the KNX bus according to their state updater configuration.
+
+A restored position is reported as an assumed state until the cover receives a position from the KNX bus or is moved.
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -1572,7 +1473,12 @@ color_temperature_state_address:
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type. `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*. `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: |
+    Color temperature group address data type:
+    
+    - `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*.
+    - `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*.
+    - `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute
@@ -1684,6 +1590,10 @@ knx:
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
+Notify entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX notify entities via YAML" %}
+
 ```yaml
 knx:
   notify:
@@ -1704,6 +1614,8 @@ type:
   default: "latin_1"
   type: string
 {% endconfiguration %}
+
+{% enddetails %}
 
 #### Example action
 
@@ -1922,7 +1834,7 @@ The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensor
 
 {% note %}
 
-Sensors are read-only entities. To write to the KNX bus, configure a [KNX Number entity](#number) or use the [`knx.send` action](#send).
+Sensors are read-only entities. To write to the KNX bus, configure a [KNX Number entity](#number) or use the [`knx.send` action](/actions/knx.send/).
 
 {% endnote %}
 

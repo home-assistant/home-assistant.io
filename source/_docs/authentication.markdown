@@ -27,7 +27,9 @@ For information about user accounts, such as adding people, managing users, and 
 
 Your password is the key to your home, so choose a strong, unique one. This matters even more once you access Home Assistant from outside your local network, where others could try to sign in, too. For extra protection, you can also turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
-You can manage how you sign in from your own account profile. To open it, go to {% my profile title="**User profile**" %} and open the **Security** tab. You can also open it by selecting your name at the very bottom of the sidebar. These settings only affect your own account.
+You can manage how you sign in from your own account profile.
+
+To open it, go to {% my profile_security title="**User profile** > **Security** tab " %}. These settings only affect your own account.
 
 On the **Security** tab, you can:
 

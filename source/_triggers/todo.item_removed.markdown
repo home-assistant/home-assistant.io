@@ -48,7 +48,7 @@ This trigger has no additional YAML options beyond the target.
 
 - This trigger fires after Home Assistant removes one or more items from the targeted to-do list.
 - Changes to `unavailable` or `unknown` do not count as items being removed.
-- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can be useful in a more advanced automation.
+- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can be useful for tailoring an automation to your needs.
 
 {% include triggers/try_it.md %}
 

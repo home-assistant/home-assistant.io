@@ -186,6 +186,12 @@ cover:
               entity_id: cover.rts_test_shutter # change to your device id
 ```
 
+### Scenes and automations that set both position and tilt
+
+If a scene or automation sets both the position and the tilt of a cover, Home Assistant sends these as two separate actions: [Set cover position](/actions/cover.set_cover_position/) followed by [Set cover tilt position](/actions/cover.set_cover_tilt_position/). On Somfy venetian blinds and similar IO motors, the second command interrupts the first while it's still moving, so the cover only makes a short stuttering move instead of reaching the target position and tilt.
+
+To move a cover to a target position and tilt in one smooth motion, use the [Set cover position and tilt](/actions/overkiz.set_cover_position_and_tilt/) action instead.
+
 ### Troubleshooting connection issues with the local API
 
 If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
