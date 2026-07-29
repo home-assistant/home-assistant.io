@@ -474,7 +474,13 @@ The following actuator types are supported:
 | ------- | ------------------------------------------------ |
 | S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS] |
 
-All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
+### MySensors version 2.4 and higher
+
+| S_TYPE  | V_TYPE                                                      |
+| ------- | ----------------------------------------------------------- |
+| S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS], [V_TILT] |
+
+For MySensors version 2.4 and higher, `V_UP`, `V_DOWN`, `V_STOP`, and either `V_PERCENTAGE` or `V_STATUS` are required. `V_TILT` is optional for covers that support tilt position. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent. Use V_STATUS (or V_LIGHT) if you don't.
 
 ### Cover example sketch
 
