@@ -10,7 +10,6 @@ ha_category:
   - Event
   - Hub
   - Light
-  - Lock
   - Media player
   - Media source
   - Number
@@ -30,7 +29,6 @@ ha_platforms:
   - diagnostics
   - event
   - light
-  - lock
   - media_player
   - number
   - select
@@ -190,14 +188,6 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 - **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 - **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
 
-### UniFi Protect DoorLock
-
-Each UniFi Protect door lock will get a device in Home Assistant with the following:
-
-- **Lock** - A lock control will be added to lock and unlock your door lock device.
-- **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
-- **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
-
 ### UniFi Protect Smart Chime
 
 Each UniFi Protect smart chime will get a device in Home Assistant with the following:
@@ -293,7 +283,7 @@ Four URLs for proxy API endpoints:
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (for example, an entity ID of a detected object sensor).
 
-The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and find the event when the sensor started detecting motion.
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
 ### Example notification automation with thumbnail
 
@@ -586,6 +576,64 @@ Vehicle detection events are fired even if no license plate is detected. The `li
 {% warning %}
 License Plate Recognition can be triggered by various sources, including images or printed materials showing license plates. Always use caution when creating automations based on license plate detection, especially for security-sensitive actions like opening garage doors or unlocking gates. Consider implementing additional verification methods or time-based restrictions to prevent unwanted triggering. Use at your own risk.
 {% endwarning %}
+
+### Motion Detection Event
+
+- **Event Name**: Motion detection
+- **Event Attributes**:
+  - **event_type**: `motion`
+  - **event_id**: A unique ID that identifies the motion event.
+- **Description**: This event fires each time a camera starts detecting motion. It complements the camera's **Motion** sensor by giving you a point-in-time event to trigger automations on, and provides an `event_id` you can use to fetch related media.
+
+### Smart Detection Event
+
+- **Event Name**: Smart detection
+- **Event Attributes**:
+  - **event_type**: The detected object type, such as `person`, `vehicle`, `animal`, `package`, `license_plate`, `face`, `car`, or `pet`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of object types detected during the event.
+- **Description**: This event fires for each object type a Smart Detection camera detects, including types that do not have their own sensor. Each detected type fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
+
+{% note %}
+The Smart detection event reports _which_ type was detected, not the richer recognized metadata behind it. The UniFi Protect public API does not currently expose details such as the recognized license plate text, vehicle color and type, or detection confidence on this event. For the recognized license plate and vehicle attributes, use the dedicated [Vehicle Detection Event](#vehicle-detection-event), which still sources that data from the private API.
+{% endnote %}
+
+#### Example Smart Detection Automation
+
+{% example %}
+automation: |
+  alias: "Person detected notification"
+  description: "Automation that triggers when a person is detected"
+  triggers:
+    - trigger: event
+      event_type: state_changed
+      event_data:
+        entity_id: event.driveway_camera_smart_detection # Replace with your camera entity
+  conditions:
+    - condition: template
+      value_template: >
+        {{
+          trigger.event.data.old_state is not none and
+          not trigger.event.data.old_state.attributes.get('restored', false) and
+          trigger.event.data.old_state.state != 'unavailable' and
+          trigger.event.data.new_state is not none and
+          trigger.event.data.new_state.attributes.event_type == 'person'
+        }}
+  actions:
+    - action: notify.mobile_app_your_device # Replace with your notification target
+      data:
+        message: "A person was detected."
+        title: "Smart detection"
+{% endexample %}
+
+### Sound Detection Event
+
+- **Event Name**: Sound detection
+- **Event Attributes**:
+  - **event_type**: The detected sound type, such as `smoke`, `co`, `siren`, `baby_cry`, `speaking`, `bark`, `car_alarm`, `car_horn`, or `glass_break`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of sound types detected during the event.
+- **Description**: This event fires for each sound a camera with audio detection detects. As with smart detection, each type fires once across the lifecycle of an event, so an audio alarm that UniFi Protect reports partway through an event surfaces reliably.
 
 ## Troubleshooting
 

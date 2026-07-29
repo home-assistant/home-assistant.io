@@ -126,6 +126,24 @@ refresh_interval: 0
 type: history-graph
 ```
 
+## Diagnostics
+
+The iZone {% term integration %} provides diagnostics to help with troubleshooting. The download includes:
+
+- Redacted config entry data
+- A snapshot of the discovery service (when it is running)
+- A snapshot of the controller state
+
+Hosts and IP addresses are redacted in the file.
+
+To download diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **iZone** integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Download diagnostics**.
+
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+
 ## Debugging
 
 If you're trying to track down issues with the integration, set up logging for it:
@@ -142,3 +160,9 @@ logger:
 This will help you to find network connection issues.
 
 {% include integrations/actions.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

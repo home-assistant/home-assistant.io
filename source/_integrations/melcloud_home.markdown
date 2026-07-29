@@ -3,8 +3,8 @@ title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
 ha_category:
   - Climate
+  - Number
   - Sensor
-  - Number 
 ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -12,9 +12,12 @@ ha_codeowners:
 ha_domain: melcloud_home
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - climate
+  - diagnostics
+  - number
   - sensor
-  - number  
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
