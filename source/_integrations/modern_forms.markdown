@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Fan
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 2021.7
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - fan
   - light
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -36,6 +38,8 @@ If the Modern Forms fan does not have a light unit installed, then the Light ent
 
 The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer actions for the fan.
 
+Fan models with breeze hardware also support a **Breeze** preset, which fluctuates the fan speed for a more natural airflow. Select **Normal** to return to a steady fan speed. Turning the fan off does not clear the breeze preset, so it resumes the next time the fan turns on if it was active. This preset is not available on fan models without breeze hardware.
+
 ## Lights
 
 The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer actions for the light.
@@ -46,6 +50,14 @@ The Modern Forms integration provides binary sensors for the following informati
 
 - Fan sleep timer active status
 - Light sleep timer active status
+
+## Numbers
+
+On fan models with breeze hardware, the Modern Forms integration provides a number entity to configure the following setting:
+
+- Breeze intensity - how much the fan speed fluctuates while the breeze preset is active. Range: 1-3.
+
+This entity is not available on fan models without breeze hardware.
 
 ## Sensors
 
