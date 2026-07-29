@@ -102,6 +102,8 @@ The following settings are available:
 - **Loop duration**: How far back the radar animation goes, in minutes, from 0 to 180 (default: 0, which uses the full history available from Environment Canada).
 - **Loop frame rate**: Frame rate of the radar animation, from 1 to 30 frames per second (FPS) (default: 5 FPS).
 - **Color scale**: Number of colors in the **Rain** and **Snow** radar images, either **8 colors** or **14 colors** (default: **14 colors**). This setting does not apply to the **Precipitation type** radar type, which always uses its own color scale.
+- **Smooth radar image**: Whether to smooth the radar image instead of leaving it pixelated. Turning this on uses more bandwidth (default: off).
+- **Use WebP images**: Whether to request radar images as WebP instead of PNG. Turning this on reduces bandwidth, at the cost of higher latency (default: off).
 
 ### Configuring radar camera display
 
