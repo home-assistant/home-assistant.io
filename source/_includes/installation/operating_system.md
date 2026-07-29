@@ -273,7 +273,7 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
-If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant can use port `8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
 {% endnote %}
 
 {% else %}
@@ -318,7 +318,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 
 - title: VirtualBox
   content: |
-    
+
     #### Create the virtual machine
 
     The following steps use VirtualBox Basic Mode, which provides a simplified wizard for creating and configuring a virtual machine.
@@ -339,7 +339,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
     6. In the **Summary** step, review the settings and select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
-  
+
     Configure the virtual machine to use the Home Assistant disk (VDI) that you downloaded and extracted earlier.
 
     1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
@@ -415,8 +415,8 @@ To create the virtual machine, follow the instructions for the hypervisor you us
        Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
        Bus 003 Device 004: ID 30c9:0052 Luxvisions Innotech Limited Integrated RGB Camera
        Bus 003 Device 003: ID 1a86:55d4 QinHeng Electronics SONOFF Zigbee 3.0 USB Dongle Plus V2
-       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc. 
-       Bus 003 Device 005: ID 8087:0033 Intel Corp. 
+       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc.
+       Bus 003 Device 005: ID 8087:0033 Intel Corp.
        Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
        Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
        Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -505,7 +505,7 @@ If you have a stricter network configuration, you might need to access Home Assi
 {% endif %}
 
 If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
-If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant can use port `8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
 {% endnote %}
 
 {% endif %}
