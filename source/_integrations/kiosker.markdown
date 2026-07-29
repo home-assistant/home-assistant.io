@@ -2,10 +2,10 @@
 title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
 ha_category:
-  - Sensor
   - Binary sensor
-  - Switch
   - Button
+  - Sensor
+  - Switch
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -17,7 +17,7 @@ ha_platforms:
   - button
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ha_quality_scale: bronze
 ---
@@ -69,6 +69,24 @@ The **Kiosker** integration provides the following entities.
   - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
+- **Blackout text** (disabled by default)
+  - Shows the text currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
+- **Blackout icon** (disabled by default)
+  - Shows the SF Symbol icon name currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
+- **Blackout background color** (disabled by default)
+  - Shows the background color of the blackout screen as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
+- **Blackout foreground color** (disabled by default)
+  - Shows the text/icon color of the blackout screen as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
+- **Blackout expiry** (disabled by default)
+  - Shows the remaining time in seconds before the blackout expires. Defaults to unknown if no visible blackout.
+- **Blackout button background color** (disabled by default)
+  - Shows the background color of the dismiss button as a hex color string (e.g. #FFFFFF). Defaults to unknown if no visible blackout.
+- **Blackout button foreground color** (disabled by default)
+  - Shows the text color of the dismiss button as a hex color string (e.g. #000000). Defaults to unknown if no visible blackout.
+- **Blackout button text** (disabled by default)
+  - Shows the label on the dismiss button. Defaults to unknown if no visible blackout.
+- **Blackout sound** (disabled by default)
+  - Shows the SystemSoundID of the sound played when the blackout was displayed. Defaults to unknown if no visible blackout.
 
 ### Binary sensors
 
@@ -77,7 +95,9 @@ The **Kiosker** integration provides the following entities.
 - **Screensaver state**
   - Shows whether the screensaver is currently active.
 - **Blackout state**
-  - Shows whether the screen is currently blacked out. Has extra attributes with the blackout data when active.
+  - Shows whether the screen is currently blacked out.
+- **Blackout dismissible** (disabled by default)
+  - Shows whether the current blackout is dismissible by the user. Shows as unknown when no blackout is active.
 
 ### Switches
 
@@ -105,6 +125,10 @@ The **Kiosker** integration provides the following entities.
   - Clears all cookies on the device.
 - **Dismiss screensaver**
   - Dismisses the currently active screensaver.
+- **Clear blackout**
+  - Clears the currently active blackout.
+
+{% include integrations/actions.md %}
 
 ## Data updates
 
@@ -151,6 +175,10 @@ This means that Home Assistant can't connect to the Kiosker App.
 5. If you have enabled IP-filtering, make sure that your host IP is in the whitelist.
 6. If you have enabled TLS, make sure that you have installed a valid certificate in the Kiosker App, typically a self-signed certificate.
 7. If you have enabled `Verify certificate`, make sure that the certificate is valid and that the root certificate is marked as trusted on the host.
+
+### Home Assistant asks you to reauthenticate
+
+If the API token in the Kiosker App is regenerated or changed, Home Assistant detects the failed authentication and starts a reauthentication flow. Select **Reconfigure** on the integration's notification and enter the new token. The integration reconnects without losing your existing entities or automations.
 
 ## Removing the integration
 

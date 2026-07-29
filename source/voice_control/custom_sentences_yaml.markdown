@@ -48,7 +48,7 @@ Besides a text response, `intent_script` can trigger any `action` available in H
 
 ## Setting up sentences in the config directory
 
-More advanced customization can be done in Home Assistant's `config` directory. YAML files in `config/custom_sentences/en`, for example, will be loaded when English sentences (language code `en`) are requested.
+More customization can be done in Home Assistant's `config` directory. YAML files in `config/custom_sentences/en`, for example, will be loaded when English sentences (language code `en`) are requested.
 
 The following example creates a new `SetVolume` intent that changes the volume on one of two media players:
 

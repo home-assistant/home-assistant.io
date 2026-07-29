@@ -54,39 +54,7 @@ For example, you would go to your kitchen light and turn it on. Now you sign in 
 
 The initial process can be a bit time consuming and tedious, but it only has to be done once. Once you are done configuring, it is better to set `autodiscover` to `false`, since there are many "fake" channels and areas that the system uses for internal communication and you do not want to have visible.
 
-## Actions
-
-### Action: Request area preset
-
-The `dynalite.request_area_preset` action allows you to send a command on the Dynalite network asking an area to report its currently selected preset. Normally, channel 1 (default) is used, but in some implementation, specific areas will need other channels.
-
-{% note %}
-
-This does not return the area preset. It sends a network command asking the area to report its preset. Once it reports, that will be caught and handled by the system.
-
-{% endnote %}
-
-| Data attribute | Optional | Description                                                                               |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
-| `host`                 | yes      | Which gateway to send the command to. If not specified, sends to all configured gateways. |
-| `area`                 | no       | Area for the requested channel.                                                           |
-| `channel`              | no       | Which channel to request.                                                                 |
-
-### Action: Request channel level
-
-The `dynalite.request_channel_level` action allows you to send a command on the Dynalite network asking a specific channel in an area to report its current level.
-
-{% note %}
-
-This does not return the channel level. It sends a network command asking the channel to report its level. Once it reports, that will be caught and handled by the system.
-
-{% endnote %}
-
-| Data attribute | Optional | Description                                                                               |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
-| `host`                 | yes      | Which gateway to send the command to. If not specified, sends to all configured gateways. |
-| `area`                 | no       | Which area to request the preset for.                                                     |
-| `channel`              | yes      | Which channel to use. If not specified, uses the area configuration or system default.    |
+{% include integrations/actions.md %}
 
 ## Events
 

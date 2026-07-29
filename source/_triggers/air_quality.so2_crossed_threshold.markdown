@@ -2,7 +2,7 @@
 title: "Sulphur dioxide level crossed threshold"
 trigger: air_quality.so2_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more sulphur dioxide levels cross a threshold."
+description: "Triggers when one or more sulphur dioxide levels cross a threshold."
 related_triggers:
   - air_quality.so2_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Sulphur dioxide level crossed threshold** trigger fires when the sulphur dioxide (SO2) reading on one or more air quality sensors crosses a specific level. Sulphur dioxide is a sharp-smelling gas produced by burning fossil fuels that contain sulphur, volcanic activity, and some industrial processes. The WHO recommends keeping 24-hour SO2 exposure below 40 micrograms per cubic meter, because elevated levels irritate the respiratory system and worsen conditions like asthma.
 
 If you live near industrial areas or in a region with volcanic activity, this trigger is especially valuable. Have your smart windows close automatically the moment outdoor SO2 crosses your safety limit, or get an alert on your phone so you know to stay indoors until the air clears. Your home reacts to changing conditions in real time, keeping irritating fumes outside where they belong.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -49,7 +47,7 @@ trigger: |
     entity_id: sensor.outdoor_so2
   options:
     threshold: 40
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the outdoor SO2 sensor crosses 40 in either direction.
@@ -66,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -114,7 +112,7 @@ automation: |
         entity_id: sensor.outdoor_so2
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   conditions:
     - condition: numeric_state
       entity_id: sensor.outdoor_so2

@@ -2,7 +2,7 @@
 title: "Humidifier mode changed"
 trigger: humidifier.mode_changed
 domain: humidifier
-description: "Triggers after the mode of one or more humidifiers changes."
+description: "Triggers when the mode of one or more humidifiers changes."
 related_triggers:
   - humidifier.turned_on
   - humidifier.turned_off
@@ -11,8 +11,6 @@ related_triggers:
 The **Humidifier mode changed** trigger fires after the operating mode of a humidifier {% term entity %} changes. Modes are device-specific and typically include options like **Normal**, **Eco**, **Sleep**, **Auto**, or **Baby**, though the exact modes available depend on your device. Use **Humidifier mode changed** to react when the mode changes, for example to automatically lower the target humidity on all your humidifiers when one of them switches to **Eco** mode, keeping your whole home in sync with a single mode change.
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,9 +35,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted humidifier changes mode.
-    - **First** (`first` in YAML): fire only on the first mode change.
-    - **All** (`last` in YAML): fire only after every targeted humidifier changes mode
+    - **Each** (default): fires every time any targeted humidifier changes mode.
+    - **First**: fires only on the first mode change.
+    - **All**: fires only after every targeted humidifier changes mode.
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -83,12 +81,12 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted humidifier changes mode.
-    - `first` (**First** in the UI): fire only on the first mode change.
-    - `last` (**All** in the UI): fire only after every targeted humidifier changes mode.
+    - `each` (default): fires every time any targeted humidifier changes mode.
+    - `first`: fires only on the first mode change.
+    - `all`: fires only after every targeted humidifier changes mode.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup.
@@ -119,7 +117,7 @@ When the bedroom humidifier switches to sleep mode, dim the lights and activate 
   - **Target**: Bedroom humidifier
   - **Mode**: sleep
   - **Trigger when**: Each
-- **Action**: Light: Turn on (night scene)
+- **Action**: Turn on light (night scene)
 
 {% details "YAML example for a sleep-mode scene" %}
 
@@ -132,7 +130,7 @@ automation: |
         entity_id: humidifier.bedroom
       options:
         mode: "sleep"
-        behavior: any
+        behavior: each
   actions:
     - action: scene.turn_on
       target:
@@ -163,7 +161,7 @@ automation: |
         label_id: all_humidifiers
       options:
         mode: "eco"
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

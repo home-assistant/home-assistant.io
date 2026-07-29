@@ -2,14 +2,12 @@
 title: "Gas cleared"
 trigger: air_quality.gas_cleared
 domain: air_quality
-description: "Triggers after one or more gas sensors stop detecting gas."
+description: "Triggers when one or more gas sensors stop detecting gas."
 related_triggers:
   - air_quality.gas_detected
 ---
 
 The **Gas cleared** trigger fires after a gas sensor {% term entity %} stops detecting gas, letting you know the danger has passed and the air is safe again. After the stress of a gas alert, there is real comfort in getting a clear, automatic confirmation that everything is back to normal. Use this trigger to send an all-clear notification, re-open a gas valve that was shut off during the alarm, or restore your home to its everyday state.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -100,7 +98,7 @@ automation: |
       target:
         label_id: gas_sensors
       options:
-        behavior: last
+        behavior: all
         for: "00:10:00"
   actions:
     - action: notify.send_message

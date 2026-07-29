@@ -1,6 +1,6 @@
 ---
 title: Vacuum
-description: Instructions on how to setup and use vacuums in Home Assistant.
+description: Instructions on how to set up and use vacuums in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
@@ -58,7 +58,7 @@ Once you have the areas mapped, you can send your vacuum to clean specific areas
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create automation**.
 3. Set up your trigger. For example, you can use a time trigger to have the vacuum clean every day at 2 PM.
-4. In the **Then do** section, select **Add action**, and from the list, select the **Vacuum: Clean area with vacuum cleaner** action.
+4. In the **Then do** section, select **Add action**, and from the list, select the **Clean area with vacuum cleaner** action.
 5. Under **Targets**, select your vacuum entity.
 6. Under **Areas**, select the area to clean. You can select multiple areas.
 7. Give your automation a name and select **Save**.
@@ -78,7 +78,7 @@ Start from one small pain point, then decide which vacuum signal kicks things of
 When the vacuum starts a run during a scheduled meeting, pause it automatically so the call stays quiet, then send yourself a reminder to resume the job later.
 
 - **Trigger**: `vacuum.started_cleaning` for the office vacuum.
-- **Conditions**: A calendar or busy [sensor](/docs/core/entity/binary-sensor/) reports that a meeting is in progress, and `vacuum.is_cleaning` confirms the robot is still running.
+- **Conditions**: A calendar or busy [sensor](/integrations/binary_sensor/) reports that a meeting is in progress, and `vacuum.is_cleaning` confirms the robot is still running.
 - **Actions**: `vacuum.pause` to stop the run, followed by a mobile notification that explains why the vacuum paused.
 
 {% details "YAML example for pausing during meetings" %}

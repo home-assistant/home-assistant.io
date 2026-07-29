@@ -2,7 +2,7 @@
 title: "Thermostat started cooling"
 trigger: climate.started_cooling
 domain: climate
-description: "Triggers after one or more thermostats start cooling."
+description: "Triggers when one or more thermostats start cooling."
 related_triggers:
   - climate.started_heating
   - climate.started_drying
@@ -14,8 +14,6 @@ The **Thermostat started cooling** trigger fires after a thermostat {% term enti
 Use this trigger to react to the start of active cooling, for example to turn on a fan to distribute cool air or to close window coverings to block out heat.
 
 When you target more than one thermostat, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted thermostat starts cooling, only after all targeted thermostats have started cooling, or every single time any of them start cooling.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,9 +35,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat starts cooling.
-    - **First** (`first` in YAML): fires only when the first of a group starts cooling.
-    - **All** (`last` in YAML): fires only after every targeted thermostat is cooling.
+    - **Each** (default): fires every time any targeted thermostat starts cooling.
+    - **First**: fires only when the first of a group starts cooling.
+    - **All**: fires only after every targeted thermostat is cooling.
 For at least:
   description: How long the thermostat must stay in the cooling state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -66,12 +64,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat starts cooling.
-    - `first` (**First** in the UI): fires only when the first thermostat starts cooling.
-    - `last` (**All** in the UI): fires only after every targeted thermostat is cooling.
+    - `each` (default): fires every time any targeted thermostat starts cooling.
+    - `first`: fires only when the first thermostat starts cooling.
+    - `all`: fires only after every targeted thermostat is cooling.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must stay in the cooling state before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has been cooling for 10 seconds, which helps avoid false triggers from brief cooling cycles.
@@ -143,7 +141,7 @@ automation: |
       target:
         label_id: main_thermostats
       options:
-        behavior: last
+        behavior: all
   actions:
     - action: fan.turn_on
       target:

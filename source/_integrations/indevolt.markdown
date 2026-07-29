@@ -20,7 +20,7 @@ ha_domain: indevolt
 ha_integration_type: device
 ha_dhcp: true
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_config_flow: true
 ---
 
@@ -121,6 +121,7 @@ The following button entity allows triggering device actions directly from Home 
 - Grid frequency (Hz)
 - Equivalent full cycles
 - Transformer temperature (°C)
+- Remaining charging / discharging time (min)
 - Main battery serial number
 - Main battery cycle count
 - Main battery SOC (%)
@@ -150,55 +151,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
 
-## Actions
-
-### Action: Charge the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `device_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `power`
-  - **Description**: The maximum charging power (0 - 2400W)
-  - **Optional**: No
-- **Data attribute**: `target_soc`
-  - **Description**: The target SOC (%): charging will stop when reached
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.charge
-data:
-  device_id: YOUR_DEVICE_ID
-  power: 1000
-  target_soc: 100
-```
-
-### Action: Discharge the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` action configure the battery to start discharging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `device_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `power`
-  - **Description**: The maximum charging power (0 - 2400W), keeping network limitations in mind
-  - **Optional**: No
-- **Data attribute**: `target_soc`
-  - **Description**: The target SOC (%): discharging will stop when reached
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.discharge
-data:
-  device_id: YOUR_DEVICE_ID
-  power: 800
-  target_soc: 10
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -217,9 +170,10 @@ The Indevolt integration automatically retrieves data from your devices by polli
 ## Known limitations
 
 - Real-time configuration changes may appear with a small delay in Home Assistant and the Indevolt app.
-- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode (BK1600 / BK1600 Ultra).
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
+- The inverter temperature only shows when the inverter is active (BK1600 / BK1600 Ultra).
 - The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting

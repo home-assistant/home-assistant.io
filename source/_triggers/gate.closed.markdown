@@ -2,7 +2,7 @@
 title: "Gate closed"
 trigger: gate.closed
 domain: gate
-description: "Triggers after one or more gates close."
+description: "Triggers when one or more gates close."
 related_triggers:
   - gate.opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Gate closed** trigger fires when a targeted gate changes to closed. Use it when you want an automation to wait until access is secured again before it runs.
 
 This trigger is useful for turning lights back off, confirming that a gate finished closing, or starting routines that should happen only after the gate is shut.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -55,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple gates are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple gates are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the gate must stay closed before the trigger fires.
@@ -89,7 +87,7 @@ If your driveway lights turn on when the gate opens, this automation turns them 
 - **Trigger**: Gate closed
    - **Target**: Driveway gate
    - **For at least**: 00:02:00
-- **Action**: Light: Turn off light
+- **Action**: Turn off light
 
 {% details "YAML example for turning off driveway lights after the gate closes" %}
 

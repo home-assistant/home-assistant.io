@@ -15,7 +15,7 @@
         <li>{% active_link /docs/automation/services/ Automation actions %}</li>
         <li>{% active_link /docs/automation/templating/ Templates %}</li>
         <li>{% active_link /docs/automation/yaml/ YAML %}</li>
-        <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automation %}</li>
+        <li>{% active_link /docs/automation/troubleshooting/ Testing and troubleshooting automations %}</li>
       </ul>
       {% endif %}
     </li>
@@ -90,11 +90,11 @@
     </li>
   
     <li>
-      {% icon "mdi:cog" %} Advanced
+      {% icon "mdi:cog" %} Dashboard configuration
       <ul>
-        <li>{% active_link /dashboards/features/ Features %}</li>
-        <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
-        <li>{% active_link /dashboards/actions/ Actions %}</li>
+        <li>{% active_link /dashboards/features/ Card features %}</li>
+        <li>{% active_link /dashboards/header-footer/ Card headers & footers %}</li>
+        <li>{% active_link /dashboards/actions/ Dashboard actions %}</li>
         <li><a
             class="external-link" 
             href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
@@ -122,6 +122,7 @@
         <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to Assist %}</li>
         <li>{% active_link /voice_control/assign_areas_floors/ Assigning areas to floors and an area to a device %}</li>
         <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li> 
+        <li>{% active_link /voice_control/exposing_scripts_to_llms/ Exposing scripts to LLMs %}</li>
         <li>{% active_link /voice_control/builtin_sentences/ Talking to Assist - Sentences starter pack %}</li>
       </ul>
     </li>
@@ -224,18 +225,20 @@
 </li>
 
 <li>
-  {% icon "mdi:cogs" %} {% active_link /docs/configuration/ Advanced configuration %}
+  {% icon "mdi:cogs" %} {% active_link /docs/configuration/basic Configuration %}
   {% if doc == 'configuration' or include.docs_index %}
   <ul>
-    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
-    <li>{% active_link /docs/configuration/basic/ Basic information %}</li>
+    <li>{% active_link /docs/configuration/basic/ Home information %}</li>
+    <li>{% active_link /docs/configuration/user-configuration/ People and user configuration %}</li>
     <li>{% active_link /docs/configuration/customizing-devices/ Customizing entities %}</li>
+    <li>{% active_link /docs/configuration/remote/ Remote access to Home Assistant %}</li>
+    <li>{% active_link /docs/configuration/securing/ Securing your Home Assistant %}</li>
+    <li>{% active_link /docs/configuration/secrets/ Storing secrets in YAML %}</li>
+    <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
+    <li>{% active_link /docs/configuration/ The configuration.yaml file %}</li>
     <li>{% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}</li>
-    <li>{% active_link /docs/configuration/securing/ Security check points %}</li>
-    <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
     <li>{% active_link /docs/configuration/splitting_configuration/ Splitting up the configuration %}</li>
     <li>{% active_link /docs/configuration/packages/ Packages %}</li>
-    <li>{% active_link /docs/configuration/secrets/ Storing secrets %}</li>
     <li>{% active_link /docs/configuration/events/ Events %}</li>
     <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
     <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>

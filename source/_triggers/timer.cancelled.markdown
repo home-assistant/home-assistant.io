@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer cancelled** trigger fires when a timer is cancelled before it reaches zero. Use it when you want to react differently to a manual cancel than to a finished countdown.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 {% options_yaml %}
 behavior:
-  description: When multiple timers are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+  description: When multiple timers are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long ago the timer must have been cancelled before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false

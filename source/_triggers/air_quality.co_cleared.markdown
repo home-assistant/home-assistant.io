@@ -2,14 +2,12 @@
 title: "Carbon monoxide cleared"
 trigger: air_quality.co_cleared
 domain: air_quality
-description: "Triggers after one or more carbon monoxide sensors stop detecting carbon monoxide."
+description: "Triggers when one or more carbon monoxide sensors stop detecting carbon monoxide."
 related_triggers:
   - air_quality.co_detected
 ---
 
 The **Carbon monoxide cleared** trigger fires after a carbon monoxide sensor {% term entity %} stops detecting carbon monoxide, confirming that the air in your home is safe again. After the urgency of a CO alarm, knowing exactly when the danger has passed brings real peace of mind. Use this trigger to silence a siren, send an all-clear notification to everyone in the household, or restore your home to its normal state so you and your family feel safe resuming everyday life.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -101,7 +99,7 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: last
+        behavior: all
         for: "00:15:00"
   actions:
     - action: siren.turn_off

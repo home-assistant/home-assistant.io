@@ -13,7 +13,8 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_category: []
+ha_category:
+  - Gaming
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
@@ -95,31 +96,25 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 - **Bedtime end time**
   - **Description**: The time that bedtime should end. Set to 00:00 to disable. Accepts values between 05:00 and 09:00 for the bedtime end time.
 
-## Actions
+{% include integrations/actions.md %}
 
-The integration provides the following actions.
+### Action: Update pin code
 
-### Action: Add bonus time
+The `nintendo_parental_controls.update_pin_code` action allows you to change the parental controls override PIN of a specified device. When entering this PIN on the Switch, all parental control restrictions can be bypassed.
 
-The `nintendo_parental_controls.add_bonus_time` action adds additional bonus screen time to a specified device, which is granted outside of the maximum allowed screentime.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry containing the device to grant bonus time.
-  - **Optional**: No
 - **Data attribute**: `device_id`
-  - **Description**: The ID of the device to grant bonus time.
+  - **Description**: The ID of the device to change the PIN on.
   - **Optional**: No
-- **Data attribute**: `bonus_time`
-  - **Description**: The amount of time in minutes to grant (minimum of 5, maximum of 30).
+- **Data attribute**: `pin`
+  - **Description**: The new PIN is to be set between 1000 and 99999999.
   - **Optional**: No
 
 ## Known limitations
 
-The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
-
-Further, this integration relies on the cloud and cannot make a local connection to your Switch.
-
-The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
+- A cloud connection is required as it is not possible to make a local connection to your Switch.
+- The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- When changing the PIN, Nintendo will send you an email automatically. This cannot be disabled in the integration. The email does not contain the PIN itself.
 
 ## Troubleshooting
 

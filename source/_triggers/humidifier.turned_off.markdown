@@ -2,7 +2,7 @@
 title: "Humidifier turned off"
 trigger: humidifier.turned_off
 domain: humidifier
-description: "Triggers after one or more humidifiers turn off."
+description: "Triggers when one or more humidifiers turn off."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_humidifying
@@ -12,8 +12,6 @@ related_triggers:
 The **Humidifier turned off** trigger fires after a humidifier {% term entity %} turns off. Use it to react the moment the device shuts down, whether it was switched off manually, by a schedule, or because the target humidity was met and the device powered down automatically.
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns off, only after all targeted humidifiers have turned off, or every single time any of them turn off.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -35,9 +33,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted humidifier turns off.
-    - **First** (`first` in YAML): fire only when the first of a group turns off.
-    - **All** (`last` in YAML): fire only after every targeted humidifier is off.
+    - **Each** (default): fires every time any targeted humidifier turns off.
+    - **First**: fires only when the first of a group turns off.
+    - **All**: fires only after every targeted humidifier is off.
 For at least:
   description: How long the humidifier must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -64,12 +62,12 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted humidifier turns off.
-    - `first` (**First** in the UI): fire only when the first of a group turns off.
-    - `last` (**All** in the UI): fire only after every targeted humidifier is off.
+    - `each` (default): fires every time any targeted humidifier turns off.
+    - `first`: fires only when the first of a group turns off.
+    - `all`: fires only after every targeted humidifier is off.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the humidifier must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has stayed off for 5 minutes.
@@ -86,7 +84,7 @@ for:
 
 - The trigger only fires when a humidifier transitions from a known, valid state. Transitions from the **Unavailable** or **Unknown** state to off do not count.
 - To react to the opposite transition, use [Humidifier turned on](/triggers/humidifier.turned_on/).
-- Pair **Humidifier turned off** with the `last` behavior to do something only after every humidifier in an area has stopped. For example, send a single notification when all humidifiers in the house are off.
+- Pair **Humidifier turned off** with the `all` behavior to do something only after every humidifier in an area has stopped. For example, send a single notification when all humidifiers in the house are off.
 
 {% include triggers/try_it.md %}
 
@@ -114,7 +112,7 @@ automation: |
       target:
         entity_id: humidifier.bedroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: time
@@ -150,7 +148,7 @@ automation: |
       target:
         label_id: all_humidifiers
       options:
-        behavior: last
+        behavior: all
         for: "00:00:00"
   actions:
     - action: fan.turn_off

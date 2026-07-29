@@ -2,7 +2,7 @@
 title: "Thermostat target temperature crossed threshold"
 trigger: climate.target_temperature_crossed_threshold
 domain: climate
-description: "Triggers after the temperature setpoint of one or more thermostats crosses a threshold."
+description: "Triggers when the temperature setpoint of one or more thermostats crosses a threshold."
 related_triggers:
   - climate.target_temperature_changed
   - climate.target_humidity_crossed_threshold
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat target temperature crossed threshold** trigger fires after the target temperature (setpoint) of a thermostat {% term entity %} crosses a threshold value. Unlike [Thermostat target temperature changed](/triggers/climate.target_temperature_changed/), which fires whenever the target changes and lands at a particular value, this trigger fires only at the moment the setpoint crosses from one side of the threshold to the other.
 
 Use this trigger when you want to react to the exact moment a setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less aggressive temperature.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -54,9 +52,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted thermostat crosses the threshold.
-    - **First** (`first` in YAML): fire only on the first threshold crossing.
-    - **All** (`last` in YAML): fire only after every targeted thermostat crosses the threshold.
+    - **Each** (default): fires every time any targeted thermostat crosses the threshold.
+    - **First**: fires only on the first threshold crossing.
+    - **All**: fires only after every targeted thermostat crosses the threshold.
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -133,12 +131,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat crosses the threshold.
-    - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `last` (**All** in the UI): fires only after every targeted thermostat crosses the threshold.
+    - `each` (default): fires every time any targeted thermostat crosses the threshold.
+    - `first`: fires only on the first threshold crossing.
+    - `all`: fires only after every targeted thermostat crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments.
@@ -189,7 +187,7 @@ automation: |
           value:
             number: 20
             unit_of_measurement: "°C"
-        behavior: last
+        behavior: all
   actions:
     - action: climate.set_preset_mode
       target:

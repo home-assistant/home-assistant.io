@@ -1,19 +1,17 @@
 ---
-title: "Vacuum encountered an error"
+title: "Vacuum cleaner encountered an error"
 trigger: vacuum.errored
 domain: vacuum
-description: "Triggers when a vacuum cleaner reports an error."
+description: "Triggers when one or more vacuum cleaners encounter an error."
 related_triggers:
   - vacuum.paused_cleaning
-  - vacuum.docked
+  - vacuum.returned_to_dock
 ---
 
-The **Vacuum encountered an error** trigger fires as soon as your vacuum reports an error state.
+The **Vacuum cleaner encountered an error** trigger fires as soon as your vacuum reports an error state.
 You can use it to create alerts, notifications, or proactive automations when something interrupts a cleaning session.
 
 This is useful when you want to know right away that the robot is tangled, blocked, out of water, or needs another kind of manual help before it can continue.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -22,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Vacuum: Vacuum encountered an error**.
+4. From the search box, search for and select **Vacuum cleaner encountered an error**.
 5. Under **Targets**, pick the vacuum entities (or an area/floor) you want to monitor.
 6. Under **Trigger when**, pick **Each**, **First**, or **All** to control group behavior.
 7. Under **For at least**, enter how long the vacuum must remain in the error state before the trigger fires.
@@ -63,10 +61,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple vacuums are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     The time the vacuum must remain in the error state before the trigger fires.
@@ -92,7 +90,7 @@ for:
 
 When the vacuum enters an error state, send a notification right away so you can clear the problem before the cleaning run is abandoned for the rest of the day.
 
-- **Trigger**: Vacuum encountered an error
+- **Trigger**: Vacuum cleaner encountered an error
   - **Target**: Upstairs vacuum
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

@@ -2,7 +2,7 @@
 title: "Gate opened"
 trigger: gate.opened
 domain: gate
-description: "Triggers after one or more gates open."
+description: "Triggers when one or more gates open."
 related_triggers:
   - gate.closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Gate opened** trigger fires when a targeted gate changes to open. Use it when you want Home Assistant to react as soon as a driveway, courtyard, or community gate opens.
 
 This trigger is useful for arrival lighting, security notifications, and routines that should begin the moment a gate gives access to your property.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -55,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple gates are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple gates are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the gate must stay open before the trigger fires.
@@ -88,7 +86,7 @@ If you come home after sunset, this automation turns on the driveway lights as s
 
 - **Trigger**: Gate opened
    - **Target**: Driveway gate
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 
 {% details "YAML example for driveway lights when the gate opens" %}
 

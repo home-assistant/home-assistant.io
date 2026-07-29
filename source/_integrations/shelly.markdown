@@ -56,6 +56,8 @@ Host:
     description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+Verify SSL:
+    description: "Verify SSL/TLS certificate when connecting on HTTPS (port 443, Gen2+). Enable this only if the device uses a certificate signed by a certificate authority your Home Assistant instance trusts."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -70,6 +72,12 @@ Bluetooth scanner mode:
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
 Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+
+## Shelly Enhanced Security
+
+Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must upload your own certificate before using this feature. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate.
+
+The Shelly integration automatically detects whether Enhanced Security is enabled on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
 
 ## Data updates
 
@@ -297,7 +305,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:
@@ -425,57 +433,16 @@ Trigger reboot of device.
 - Reboot
   - triggers the reboot
 
-## Actions
+{% include integrations/actions.md %}
 
-The integration provides the following actions for non-sleeping Gen2+ devices:
+## Shelly Circuit Breaker
 
-### Action: Get KVS value
+The Shelly Circuit Breaker creates a `switch` entity that lets you control the breaker. This entity shows as `unavailable` when the device's safety switch is locked.
 
-The `shelly.get_kvs_value` action is used to get a value from the device's Key-Value Storage. The retrieved value can be text, a number, a boolean, a null value, a dictionary, or a list.
+The integration also creates two binary sensors:
 
-- **Data attribute**: `device_id`
-  - **Description**: The ID of the Shelly device to get the KVS value from.
-  - **Optional**: No
-- **Data attribute**: `key`
-  - **Description**: The name of the key for which the KVS value will be retrieved.
-  - **Optional**: No
-
-### Action: Set KVS value
-
-The `shelly.set_kvs_value` action is used to set a value in the device's Key-Value Storage.
-
-- **Data attribute**: `device_id`
-  - **Description**: The ID of the Shelly device to set the KVS value.
-  - **Optional**: No
-- **Data attribute**: `key`
-  - **Description**: The name of the key under which the KVS value will be stored.
-  - **Optional**: No
-- **Data attribute**: `value`
-  - **Description**: Value to set. The value can be text, a number, a boolean, a null value, a dictionary, or a list.
-  - **Optional**: No
-
-### Example: Creating a sensor for the KVS value
-
-The following example creates a temperature sensor that will retrieve a temperature value from the KVS for the key `my_temperature_value` every 10 minutes.
-
-```yaml
-# Example configuration.yaml entry
-template:
-  - trigger:
-      - platform: time_pattern
-        minutes: /10
-    action:
-      - action: shelly.get_kvs_value
-        data:
-          device_id: e4c0e031f68a8fbe08c50eda5e189a70
-          key: my_temperature_value
-        response_variable: temperature_variable
-    sensor:
-      - name: My temperature
-        state: "{{ temperature_variable.value }}"
-        unit_of_measurement: °C
-        device_class: temperature
-```
+- Safety switch lock state. When locked, the device can't be controlled remotely.
+- Output state.
 
 ## Shelly Thermostatic Radiator Valve (TRV)
 
@@ -494,7 +461,7 @@ If you have the Valve add-on connected to Shelly Gas, the integration will creat
 
 In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
-In order to change it, add the following key to your {% term "`configuration.yaml`" %}:
+To change it, add the following key to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -530,9 +497,9 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Troubleshooting
 
-1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 2. Take necessary steps/actions to replicate the issue.
-3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
+3. [Disable debug logging and download logs](/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 

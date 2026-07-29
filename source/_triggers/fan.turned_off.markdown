@@ -2,14 +2,12 @@
 title: "Fan turned off"
 trigger: fan.turned_off
 domain: fan
-description: "Triggers after one or more fans turn off."
+description: "Triggers when one or more fans turn off."
 related_triggers:
   - fan.turned_on
 ---
 
 The **Fan turned off** trigger is useful when you want to react after a fan stops. Use it to end a related routine, restore another device to its normal state, or send a reminder if a fan shuts down when you did not expect it to.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -45,7 +43,7 @@ trigger: |
   target:
     entity_id: fan.kitchen
   options:
-    behavior: any
+    behavior: each
     for: "00:10:00"
 {% endexample %}
 
@@ -55,10 +53,10 @@ This fires when `fan.kitchen` has been off for 10 minutes.
 
 {% options_yaml %}
 behavior:
-  description: When multiple fans are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
+  description: When multiple fans are targeted, controls whether the trigger fires for `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the fan must stay off before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
   required: false
@@ -100,7 +98,7 @@ automation: |
       target:
         entity_id: fan.bathroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_on
@@ -133,7 +131,7 @@ automation: |
       target:
         entity_id: fan.nursery
       options:
-        behavior: any
+        behavior: each
         for: "00:05:00"
   actions:
     - action: notify.send_message

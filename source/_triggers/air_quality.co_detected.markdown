@@ -2,14 +2,12 @@
 title: "Carbon monoxide detected"
 trigger: air_quality.co_detected
 domain: air_quality
-description: "Triggers after one or more carbon monoxide sensors start detecting carbon monoxide."
+description: "Triggers when one or more carbon monoxide sensors start detecting carbon monoxide."
 related_triggers:
   - air_quality.co_cleared
 ---
 
 The **Carbon monoxide detected** trigger fires the moment a carbon monoxide sensor {% term entity %} starts detecting carbon monoxide. Carbon monoxide is colorless and odorless, which makes it one of the most dangerous household hazards because you simply cannot sense it on your own. This trigger gives Home Assistant the ability to warn you immediately, whether your family is sleeping, the kids are playing downstairs, or you are away at work. Pair it with a loud siren and an urgent phone notification for the strongest possible safety net.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -101,7 +99,7 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: siren.turn_on
@@ -137,7 +135,7 @@ automation: |
       target:
         entity_id: binary_sensor.garage_co
       options:
-        behavior: any
+        behavior: each
         for: "00:01:00"
   actions:
     - action: fan.turn_on

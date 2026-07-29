@@ -2,14 +2,12 @@
 title: "Smoke detected"
 trigger: air_quality.smoke_detected
 domain: air_quality
-description: "Triggers after one or more smoke sensors start detecting smoke."
+description: "Triggers when one or more smoke sensors start detecting smoke."
 related_triggers:
   - air_quality.smoke_cleared
 ---
 
 The **Smoke detected** trigger fires the moment a smoke sensor {% term entity %} starts detecting smoke, giving you the earliest possible warning of a potential fire. Whether you are deep asleep at 3 AM, away on vacation, or simply in another part of the house, this trigger makes sure Home Assistant reacts on your behalf. Flash the lights to wake sleeping children, unlock doors to speed up evacuation, or send an urgent alert to your phone so you always know what is happening at home.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -87,7 +85,7 @@ Picture this: it is the middle of the night and a smoke sensor activates in the 
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Light: Turn on light (flash)
+- **Action**: Turn on light (flash)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -101,7 +99,7 @@ automation: |
       target:
         label_id: smoke_sensors
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_on
@@ -139,7 +137,7 @@ automation: |
       target:
         label_id: smoke_sensors
       options:
-        behavior: any
+        behavior: each
         for: "00:00:30"
   actions:
     - action: lock.unlock

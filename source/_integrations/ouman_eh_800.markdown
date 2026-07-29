@@ -28,7 +28,7 @@ related:
     title: Ouman EH-800 user manual
 ---
 
-The **Ouman EH-800** {% term integration %} integrates the [Ouman EH-800](https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/) heating controller with Home Assistant. It allows you to monitor your EH-800 device directly from Home Assistant over your local network.
+The **Ouman EH-800** {% term integration %} integrates the [Ouman EH-800](https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/) heating controller with Home Assistant. It allows you to monitor and control your EH-800 device directly from Home Assistant over your local network.
 
 The Ouman EH-800 is a heating controller used for water-based central heating systems. It supports up to two heating circuits (H1 and H2) with control curves based on the outside temperature.
 

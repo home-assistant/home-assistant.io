@@ -2,14 +2,12 @@
 title: "Siren turned off"
 trigger: siren.turned_off
 domain: siren
-description: "Triggers after one or more sirens turn off."
+description: "Triggers when one or more sirens turn off."
 related_triggers:
   - siren.turned_on
 ---
 
 The **Siren turned off** trigger is useful when you want Home Assistant to react when a siren stops sounding. You can use it to send an all-clear message, turn off temporary lighting, or reset other parts of an alarm flow after the noise ends.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -54,10 +52,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple sirens are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the siren must stay off before the trigger fires.

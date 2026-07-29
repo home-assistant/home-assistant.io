@@ -2,7 +2,7 @@
 title: "Thermostat turned off"
 trigger: climate.turned_off
 domain: climate
-description: "Triggers after one or more climate devices turn off."
+description: "Triggers when one or more thermostats turn off."
 related_triggers:
   - climate.turned_on
   - climate.hvac_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat turned off** trigger fires after a climate {% term entity %} turns off. Climate entities include thermostats, air conditioners, heat pumps, and evaporative coolers. Use it to react the moment the device is shut down, whether it was switched off manually, by a schedule, through a {% term automation %}, or by a voice command.
 
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,9 +32,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat turns off.
-    - **First** (`first` in YAML): fires only when the first of a group turns off.
-    - **All** (`last` in YAML): fires only after every targeted thermostat is off.
+    - **Each** (default): fires every time any targeted thermostat turns off.
+    - **First**: fires only when the first of a group turns off.
+    - **All**: fires only after every targeted thermostat is off.
 For at least:
   description: How long the thermostat must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,12 +61,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted thermostat turns off.
-    - `first` (**First** in the UI): fires only when the first thermostat turns off.
-    - `last` (**All** in the UI): fires only after every targeted thermostat is off.
+    - `each` (default): fires every time any targeted thermostat turns off.
+    - `first`: fires only when the first thermostat turns off.
+    - `all`: fires only after every targeted thermostat is off.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed off for 10 seconds, which helps ignore accidental toggles or brief power losses.
@@ -111,7 +109,7 @@ automation: |
       target:
         area_id: living_room
       options:
-        behavior: last
+        behavior: all
         for: "00:05:00"
   actions:
     - action: fan.turn_off
