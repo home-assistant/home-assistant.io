@@ -199,7 +199,7 @@ Light effects are currently not supported on Kasa bulbs.
 
 Due to limitations of the devices, the energy monitoring state of Kasa power strip child plugs is only updated every 60 seconds.
 
-If required, you can manually trigger an update via **Developer tools** > **Actions** > **Home Assistant Core Integration: Update entity** passing a list of the child entities.
+If required, you can manually trigger an update via **Settings** > **Tools** > **Actions** > **Home Assistant Core Integration: Update entity** passing a list of the child entities.
 
 ## Troubleshooting
 
