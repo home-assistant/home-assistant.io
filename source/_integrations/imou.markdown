@@ -23,7 +23,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com?article_id=XsrQM4GMK7wP4t93) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, supported selects are exposed as select entities, and supported measurements are exposed as sensor entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com?article_id=XsrQM4GMK7wP4t93) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, supported options are exposed as select entities, and supported measurements are exposed as sensor entities in Home Assistant.
 
 ## Supported devices
 
