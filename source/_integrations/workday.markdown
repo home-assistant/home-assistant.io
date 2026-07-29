@@ -55,10 +55,9 @@ Language for named holidays:
   description: For use with "Remove holidays"; select which language to find named holidays.
 {% endconfiguration_basic %}
 
-The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
-
 {% important %}
-Take note of the "Holidays" keyword. Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
+The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
+Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
 {% endimportant %}
 
 {% include integrations/actions.md %}
