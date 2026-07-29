@@ -85,15 +85,79 @@ A light entity is created when an infrared emitter is configured.
 
 - **Brightness up**
   - **Description**: Increases the brightness of the light by one step.
-  - **Available for**: 13-key remote, 24-key remote
+  - **Available for**: 13-key remote, 24-key remote, 40-key remote, 44-key remote
 
 - **Brightness down**
   - **Description**: Decreases the brightness of the light by one step.
-  - **Available for**: 13-key remote, 24-key remote
+  - **Available for**: 13-key remote, 24-key remote, 40-key remote, 44-key remote
 
 - **Timer**
   - **Description**: Enables the timer, turning the light on for 6 hours and off for 18 hours in a repeating 24-hour cycle.
   - **Available for**: 13-key remote
+
+- **Quick**
+  - **Description**: Increases the speed of the currently selected dynamic effect.
+  - **Available for**: 40-key remote, 44-key remote
+
+- **Slow**
+  - **Description**: Decreases the speed of the currently selected dynamic effect.
+  - **Available for**: 40-key remote, 44-key remote
+
+- **White brightness up**
+  - **Description**: Increases the brightness of the dedicated white LEDs by one step.
+  - **Available for**: 40-key remote
+
+- **White brightness down**
+  - **Description**: Decreases the brightness of the dedicated white LEDs by one step.
+  - **Available for**: 40-key remote
+
+- **White on**
+  - **Description**: Turns on the dedicated white LEDs without affecting the RGB LEDs.
+  - **Available for**: 40-key remote
+
+- **White off**
+  - **Description**: Turns off the dedicated white LEDs without affecting the RGB LEDs.
+  - **Available for**: 40-key remote
+
+- **White brightness 25%**
+  - **Description**: Sets the dedicated white LEDs to 25% brightness.
+  - **Available for**: 40-key remote
+
+- **White brightness 50%**
+  - **Description**: Sets the dedicated white LEDs to 50% brightness.
+  - **Available for**: 40-key remote
+
+- **White brightness 75%**
+  - **Description**: Sets the dedicated white LEDs to 75% brightness.
+  - **Available for**: 40-key remote
+
+- **White brightness 100%**
+  - **Description**: Sets the dedicated white LEDs to 100% brightness.
+  - **Available for**: 40-key remote
+
+- **Red up**
+  - **Description**: Increases the intensity of the red color channel by one step.
+  - **Available for**: 44-key remote
+
+- **Red down**
+  - **Description**: Decreases the intensity of the red color channel by one step.
+  - **Available for**: 44-key remote
+
+- **Green up**
+  - **Description**: Increases the intensity of the green color channel by one step.
+  - **Available for**: 44-key remote
+
+- **Green down**
+  - **Description**: Decreases the intensity of the green color channel by one step.
+  - **Available for**: 44-key remote
+
+- **Blue up**
+  - **Description**: Increases the intensity of the blue color channel by one step.
+  - **Available for**: 44-key remote
+
+- **Blue down**
+  - **Description**: Decreases the intensity of the blue color channel by one step.
+  - **Available for**: 44-key remote
 
 ### Events
 

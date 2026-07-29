@@ -65,11 +65,19 @@ The energieleser integration primarily provides the following features based on 
 - **Total gas**: Total gas volume measured by the meter (m³)
 - **Gas flow rate**: Current gas flow rate (m³/h)
 
+#### Diagnostic sensors
+
+- **Pulse count**: Total number of pulses detected by the meter.
+
 ### wasserleser
 
 - **Total water**: Total water volume measured by the meter (m³)
 - **Water flow rate**: Current water flow rate in liters per hour (L/h)
 - **Volume flow rate**: Current water flow rate in cubic meters per hour (m³/h)
+
+#### Diagnostic sensors
+
+- **Water today**: Cumulative water consumed today (m³)
 
 ### wärmeleser
 
@@ -80,9 +88,9 @@ The energieleser integration primarily provides the following features based on 
 - **Temperatures**: Flow temperature and return temperature (°C)
 - **Temperature difference**: Difference between flow and return temperature (K)
 
-### Common sensors
+### Common diagnostic sensors
 
-- **Signal strength**: Wi-Fi signal strength of the device (dBm)
+- **Signal strength**: Wi-Fi signal strength of the device (dBm). Disabled by default.
 
 ## Data updates
 
