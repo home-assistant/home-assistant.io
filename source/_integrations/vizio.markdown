@@ -40,7 +40,7 @@ Find your device using the following command:
 vizaio discover
 ```
 
-Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g., `vizaio discover --timeout 10`).
+Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (for example `vizaio discover --timeout 10`).
 
 ## Pairing
 
@@ -59,7 +59,7 @@ To obtain an auth token manually, make sure that your device is on, then run the
 vizaio pair interactive DEVICE_IP:DEVICE_PORT
 ```
 
-A PIN code will be displayed at the top of your TV; type it in when prompted. For scripted use, `vizaio pair begin DEVICE_IP:DEVICE_PORT` starts pairing and prints the matching `vizaio pair complete` command with everything filled in except the PIN.
+A PIN code will be displayed at the top of your TV. Enter it when prompted. For scripted use, `vizaio pair begin DEVICE_IP:DEVICE_PORT` starts pairing and prints the matching `vizaio pair complete` command with everything filled in except the PIN.
 
 You will need the authentication token returned by this command to configure Home Assistant.
 
@@ -169,7 +169,7 @@ If there is an app you want to be able to launch from Home Assistant that isn't 
 
 ### Obtaining a list of valid apps to include or exclude
 
-The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, check the `source_list` attribute of your TV's media player entity under {% my developer_states title="**Developer tools** > **States**" %}.
+The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, check the `source_list` attribute of your TV's media player entity under {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 {% include integrations/actions.md %}
 
