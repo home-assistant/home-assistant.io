@@ -35,7 +35,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 Mealie instance:
   description: The Mealie instance to plan the meal on.
 Mealplan ID:
-  description: The exiting meal plan ID to update.
+  description: The existing meal plan ID to update.
   required: true  
 Date:
   description: The date to plan the meal on.
