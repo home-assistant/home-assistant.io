@@ -19,7 +19,7 @@ The **Beatbot** {% term integration %} connects supported Beatbot pool cleaning 
 
 ## Supported devices
 
-This integration supports verified Beatbot pool cleaner models. Support is limited to models whose product identifier is included in the integration's built-in allowlist. A device being available in the Beatbot app does not necessarily mean that its model is supported by Home Assistant.
+This integration supports Beatbot pool cleaner devices linked to your Beatbot account. The initial Home Assistant integration does not expose cleaning base stations or other device categories.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The integration receives device state changes from the Beatbot cloud service. It
 
 ### The device is not shown
 
-Confirm that the device is available in the Beatbot app and belongs to the account used during authorization. Home Assistant does not add devices whose product category or product identifier is not on the verified support list.
+Confirm that the device is available in the Beatbot app, belongs to the account used during authorization, and is reported as a pool cleaner.
 
 ## Removing the integration
 
