@@ -68,7 +68,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Home Assistant 2026.8! 🎉
 
-Hi, I'm [Ashley](https://github.com/abb848), and with [Frenck](https://github.com/frenck) taking a well-deserved break, [Bram](https://github.com/bramkragten) and I are teaming up to handle things this time around.
+Hi, I'm [Ashley](https://github.com/abb848), the Technical Program Manager at the Open Home Foundation. With [Frenck](https://github.com/frenck) taking a well-deserved break, [Bram](https://github.com/bramkragten) and I are teaming up to handle things this time around.
 
 We have been working on a lot over the past few weeks, and I'm excited to share some of what we have done for this release!
 
