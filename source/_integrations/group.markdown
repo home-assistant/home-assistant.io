@@ -366,7 +366,7 @@ state_class:
 
 ## Notify action groups
 
-Notify action groups are used to combine multiple notification actions into a single one. This allows you to send notifications to multiple devices by performing a single action.
+Notify action groups are used to combine multiple notification actions into a single one. This allows you to send a notification to multiple devices by performing a single action.
 
 Groups of notify actions are not to be confused with [groups of notify entities](/integrations/group/#notify-entity-groups). Notify entity groups can be created through the UI using a **Notify group** {% term helper %}, while notify action groups are currently only available through YAML configuration.
 
