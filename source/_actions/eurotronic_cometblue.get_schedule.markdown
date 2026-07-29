@@ -12,7 +12,7 @@ The **Get schedule** action retrieves the current schedule from a Eurotronic Com
 
 During the times when the schedule is active, the device will automatically try to reach the **Comfort** preset. When inactive, the **Eco** preset is used.
 
-You can use this action in automations and scripts, or use it in {% my developer_services title="**Developer tools** > **Actions**" %} to inspect the current schedule.
+You can use this action in automations and scripts, or use it in {% my developer_services title="**Settings** > **Tools** > **Actions**" %} to inspect the current schedule.
 
 {% include actions/ui_header.md %}
 
