@@ -19,11 +19,11 @@ The **Beatbot** {% term integration %} connects supported Beatbot pool cleaning 
 
 ## Supported devices
 
-This integration supports verified Beatbot pool cleaner and cleaning base station models. Support is limited to models whose product identifier is included in the integration's built-in allowlist. A device being available in the Beatbot app does not necessarily mean that its model is supported by Home Assistant.
+This integration supports verified Beatbot pool cleaner models. Support is limited to models whose product identifier is included in the integration's built-in allowlist. A device being available in the Beatbot app does not necessarily mean that its model is supported by Home Assistant.
 
 ## Prerequisites
 
-1. Add your pool cleaner or cleaning base station to the Beatbot app.
+1. Add your pool cleaner to the Beatbot app.
 2. Make sure you can sign in to the Beatbot account that owns the device.
 
 The integration supports Beatbot accounts worldwide. Home Assistant automatically connects to the regional Beatbot cloud service for your account.
