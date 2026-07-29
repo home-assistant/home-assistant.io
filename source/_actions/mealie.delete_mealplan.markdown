@@ -39,7 +39,7 @@ Mealplan ID:
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `mealie.set_mealplan`. A basic example looks like this:
+In YAML, refer to this action as `mealie.delete_mealplan`. A basic example looks like this:
 
 {% example %}
 action: |

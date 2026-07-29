@@ -7,8 +7,8 @@ related_actions:
   - mealie.set_mealplan
   - mealie.set_random_mealplan
   - mealie.get_mealplan
-  - mealie.delete_mealplan  
-  - mealie.get_recipes  
+  - mealie.delete_mealplan
+  - mealie.get_recipes
 ---
 
 Use this action to update an existing meal plan in Mealie. You can plan either a recipe or a meal note.
@@ -17,7 +17,7 @@ This action can optionally return the updated meal plan in a response variable, 
 
 {% include actions/ui_header.md %}
 
-To set a meal plan from an automation or a script:
+To update a meal plan from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
