@@ -82,6 +82,9 @@ Enjoy the (beta) release!
 
 - [Making Home Assistant more approachable](#making-home-assistant-more-approachable)
 - [The same Home Assistant, minus the magic number](#the-same-home-assistant-minus-the-magic-number)
+  - [Your current setup keeps working](#your-current-setup-keeps-working)
+  - [Want to change the port? We've got you covered](#want-to-change-the-port-weve-got-you-covered)
+  - [What this means for YAML](#what-this-means-for-yaml)
 - [Less "advanced", more approachable](#less-advanced-more-approachable)
   - [Describing the feature, not the user](#describing-the-feature-not-the-user)
   - [Just Tools, no developer required](#just-tools-no-developer-required)
@@ -101,6 +104,7 @@ Enjoy the (beta) release!
   - [Taps that land where you mean them](#taps-that-land-where-you-mean-them)
   - [A combined battery level you can trust](#a-combined-battery-level-you-can-trust)
   - [Search your media](#search-your-media)
+  - [Find your favorite cards faster](#find-your-favorite-cards-faster)
   - [And a few more](#and-a-few-more)
 - [Patch releases](#patch-releases)
 - [Need help? Join the community](#need-help-join-the-community)
@@ -554,6 +558,12 @@ Thanks, [@zweckj], [@mib1185], and [@felixschndr]!
 [@felixschndr]: https://github.com/felixschndr
 [@mib1185]: https://github.com/mib1185
 [@zweckj]: https://github.com/zweckj
+
+### Find your favorite cards faster
+
+Your most-used cards are now easier to find. In the card picker's "By Card" tab, you can now mark the cards you use most as favorites using the icon in the corner of each card. Favorited cards float to the top of the section, so if you reach for the same card again and again while building similar dashboards, it's always right there waiting for you. Tap the icon again to remove a card from your favorites.
+
+Thanks [@piitaya], [@laupalombi] and everyone that suggested this at a Release Party!
 
 ### And a few more
 
