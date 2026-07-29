@@ -122,16 +122,6 @@ You can also create automation actions based on the DoorBird RFID scanner being 
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
-{% note %}
-The last doorbell ring and last motion still images are also available as [image](#image) entities. These update the moment the device fires an event, instead of on a polling interval. The matching camera entities are kept for backwards compatibility and are planned to be deprecated in a future release, so prefer the image entities going forward.
-{% endnote %}
-
-## Image
-
-## Camera
-
-The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
-
 The last doorbell ring and last motion still images are also available as [image](#image) entities.
 
 {% note %}
