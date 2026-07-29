@@ -31,7 +31,7 @@ To change how Home Assistant serves its web interface, go to {% my network title
 {% options_ui %}
 Server port:
   description: |
-    The port Home Assistant listens on. Starting with Home Assistant 2026.8, the default is `80` for installations managed by Supervisor, including Home Assistant Operating System and Home Assistant Supervised. For Home Assistant Core and Home Assistant Container, the default remains `8123`. Examples on this page use `8123`; replace it with your configured server port if your installation uses a different port.
+    The port Home Assistant listens on. Starting with Home Assistant 2026.8, the default is `80` for Home Assistant Operating System. For Home Assistant Container, the default remains `8123`. Examples on this page use `8123`; replace it with your configured server port if your installation uses a different port.
 
     If your installation method lets you set environment variables for Home Assistant, `SETUP_PORT` overrides these defaults at startup.
 
