@@ -11,7 +11,7 @@ feedback: false
 
 <div id='post-comments'></div>
 
-{% if page.comments == true and site.netlify.branch == "current" %}
+{% if page.comments == true and site.netlify.branch == "current" and page.external_url == nil %}
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -23,5 +23,11 @@ feedback: false
     d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
+</script>
+{% endif %}
+
+{% if page.external_url %}
+<script type="text/javascript">
+  window.location.replace({{ page.external_url | jsonify }});
 </script>
 {% endif %}
