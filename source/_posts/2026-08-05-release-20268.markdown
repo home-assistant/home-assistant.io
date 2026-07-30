@@ -337,8 +337,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Ecowitt]** added soil conductivity sensor support. Thanks, [@GSzabados]!
 - **[Steam]** added an image platform, plus new Last online, Level, and Now playing sensors. Thanks, [@tr4nt0r]!
 - **[LG Infrared]** added support for LG air conditioners. Thanks, [@Dr-Blank]!
-- **[UniFi Protect]** now supports the USL smart sensors — USL Entry, USL Environmental, and USL GlassBreak — on UniFi Protect 7.2 and newer. The UP Air Quality sensor is not supported yet. Thanks, [@RaHehl]!
-- **[UniFi Protect]** cameras gained **Motion detection**, **Smart detection**, and **Sound detection** event entities. Each one fires per detection and carries the recognized type, so an automation can react to a person, a package, or barking without watching a binary sensor for changes. Thanks, [@RaHehl]!
+- **[UniFi Protect]** now supports the USL smart sensors (USL Entry, USL Environmental, and USL GlassBreak) on UniFi Protect 7.2 and newer, and cameras gained **Motion detection**, **Smart detection**, and **Sound detection** event entities that fire for any detection the camera reports, such as a person, a package, or barking, with the detected type as an attribute. The UP Air Quality sensor is not supported yet. Thanks, [@RaHehl]!
 
 [Shelly]: /integrations/shelly
 [Reolink]: /integrations/reolink
@@ -542,7 +541,7 @@ Thanks, [@maartenla](https://github.com/maartenla)!
 
 ### Taps that land where you mean them
 
-On the picture elements card, some elements could be impossible to tap at all. An icon's clickable area was a fixed box that did not line up with what you see, and on a busy floorplan a neighbour's box could cover an icon completely, so every tap went to the neighbour — or into a dead gap where nothing happened.
+On the picture elements card, some elements could be impossible to tap at all. An icon's clickable area was a fixed box that did not line up with what you see, and on a busy floorplan a neighbour's box could cover an icon completely, so every tap went to the neighbour, or into a dead gap where nothing happened.
 
 Before, every icon claimed a fixed square of its own, overlapping its neighbours and leaving space in between that did nothing:
 
