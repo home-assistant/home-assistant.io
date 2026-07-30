@@ -63,7 +63,6 @@ Zone source exclusion:
   description: When enabled, Home Assistant hides sources that are disabled for a zone from the source list for that zone.
 {% endconfiguration_basic %}
 
-
 ## Data updates
 
 Russound RIO devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
