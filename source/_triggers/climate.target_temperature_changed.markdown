@@ -12,6 +12,10 @@ The **Thermostat target temperature changed** trigger fires after the target tem
 
 Use the threshold type to filter which changes matter to your automation. You can fire on any change, or only when the new setpoint is above, below, inside, or outside a specific range.
 
+## Prerequisites
+
+- Use a climate entity that exposes a target temperature attribute.
+
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target temperature changed** in an automation:
@@ -127,7 +131,6 @@ threshold:
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target temperature first crosses a specific level, use [Thermostat target temperature crossed threshold](/triggers/climate.target_temperature_crossed_threshold/) instead.
-- The trigger works with [climate](/integrations/climate/) entities that expose a target temperature attribute.
 - All temperature values are automatically converted to the unit you specify. For example, if your thermostat reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}

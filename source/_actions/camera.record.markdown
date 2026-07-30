@@ -12,7 +12,13 @@ related_actions:
   - camera.disable_motion_detection
 ---
 
-Use this action to record a live camera feed to an `.mp4` file, for example to keep a short clip when motion is detected. This action needs the [stream](/integrations/stream/) integration to be set up.
+Use this action to record a live camera feed to an `.mp4` file, for example to keep a short clip when motion is detected.
+
+## Prerequisites
+
+- The target must be a camera entity.
+- The [stream](/integrations/stream/) integration must be set up.
+- The path in `filename` must be inside a directory that Home Assistant is allowed to write to.
 
 {% include actions/ui_header.md %}
 
@@ -79,9 +85,8 @@ lookback:
 
 ## Good to know
 
-- This action only works with camera entities, and needs the [stream](/integrations/stream/) integration to be set up.
 - The `duration` and `lookback` values are suggestions. The actual length can vary, but it stays consistent per camera, so adjust them to fit your needs.
-- The path in `filename` must be inside a directory that Home Assistant is allowed to write to. By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/recording.mp4` or `/media/recording.mp4` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
+- By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/recording.mp4` or `/media/recording.mp4` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
 {% include actions/try_it.md %}
 

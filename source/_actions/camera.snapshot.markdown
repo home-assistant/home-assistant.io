@@ -14,6 +14,11 @@ related_actions:
 
 Use this action to take a still image from a camera and save it to a file, for example to capture who is at the front door when motion is detected.
 
+## Prerequisites
+
+- The target must be a camera entity.
+- The path in `filename` must be inside a directory that Home Assistant is allowed to write to.
+
 {% include actions/ui_header.md %}
 
 To take a snapshot from an automation or a script:
@@ -63,8 +68,7 @@ filename:
 
 ## Good to know
 
-- This action only works with camera entities.
-- The path in `filename` must be inside a directory that Home Assistant is allowed to write to. By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/snapshot.jpg` or `/media/snapshot.jpg` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
+- By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/snapshot.jpg` or `/media/snapshot.jpg` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
 {% include actions/try_it.md %}
 

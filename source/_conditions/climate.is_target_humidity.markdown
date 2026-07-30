@@ -14,6 +14,10 @@ related_conditions:
 
 The **Thermostat target humidity** condition passes when a thermostat {% term entity %}'s target humidity setting meets a threshold you define. The target humidity is the setpoint you configure on the device, not the actual current humidity reading. For example, you can use this condition in an automation to turn on a dehumidifier only if the thermostat's humidity setpoint is above 60%.
 
+## Prerequisites
+
+- The target thermostat must support target humidity and expose a target humidity attribute to Home Assistant.
+
 {% include conditions/ui_header.md %}
 
 To use **Thermostat target humidity** in an automation:
@@ -107,7 +111,6 @@ for:
 - This condition checks the thermostat's _target humidity_ setpoint, not the actual measured humidity in the room. To react to the measured humidity, use the [Relative humidity](/conditions/humidity.is_value/) condition instead.
 - Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - Target humidity is expressed as a percentage. The valid range depends on the device, but is typically between 30% and 70%.
-- Not all thermostats support target humidity control. Only thermostats that expose a target humidity attribute will be evaluated by this condition.
 
 {% include conditions/try_it.md %}
 

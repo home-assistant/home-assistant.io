@@ -12,6 +12,10 @@ related_conditions:
 
 The **Thermostat is drying** condition passes when a thermostat {% term entity %} is actively in dry mode, removing excess humidity from the air. This is common in air conditioning systems with dehumidification capabilities. A thermostat set to dry mode does not run continuously. It cycles to maintain comfortable humidity levels. Use **Thermostat is drying** to confirm the system is in an active drying cycle, rather than just set to dry mode and idle.
 
+## Prerequisites
+
+- The target climate system must support dry mode.
+
 {% include conditions/ui_header.md %}
 
 To use **Thermostat is drying** in an automation:
@@ -73,7 +77,7 @@ for:
 - A thermostat can be set to dry mode but not actively drying if it has already reached comfortable humidity levels and is idling. Use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
 - Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively drying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
 - This condition checks the current action of the thermostat, not its mode. To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
-- Dry mode is typically found in air conditioning systems with dehumidification features. Not all climate systems support this mode.
+- Dry mode is typically found in air conditioning systems with dehumidification features.
 
 {% include conditions/try_it.md %}
 

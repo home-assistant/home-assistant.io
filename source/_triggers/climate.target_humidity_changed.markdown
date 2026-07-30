@@ -12,6 +12,10 @@ The **Thermostat target humidity changed** trigger fires after the target humidi
 
 Use the threshold type to filter which changes matter to your automation. You can fire on any change, or only when the new setpoint is above, below, inside, or outside a specific range.
 
+## Prerequisites
+
+- Use a climate entity that exposes a target humidity attribute.
+
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target humidity changed** in an automation:
@@ -118,7 +122,6 @@ threshold:
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target humidity first crosses a specific level, use [Thermostat target humidity crossed threshold](/triggers/climate.target_humidity_crossed_threshold/) instead.
-- The trigger only works with [climate](/integrations/climate/) entities that expose a target humidity attribute. Not all thermostats support humidity control.
 - Humidity values are expressed as percentages (0-100%).
 
 {% include triggers/try_it.md %}

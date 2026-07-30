@@ -14,6 +14,10 @@ Note: The UI labels this trigger as "Thermostat," but it works with all climate 
 
 You can optionally filter the trigger to fire only when the thermostat switches to one or more specific modes. Leave the mode option empty to fire on any mode change.
 
+## Prerequisites
+
+- The target climate entity must support the HVAC mode you want to use.
+
 {% include triggers/ui_header.md %}
 
 To use **Thermostat mode changed** in an automation:
