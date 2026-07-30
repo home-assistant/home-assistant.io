@@ -11,6 +11,10 @@ The **Curtain opened** trigger fires when a targeted curtain changes to open. Us
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a curtain opens.
 
+## Prerequisites
+
+- Use a cover entity with the `curtain` device class.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -75,7 +79,6 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `curtain` device class.
 - If a curtain comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
 - The `for` option fires the automation only if the curtain stays open for the entire time you set.
 

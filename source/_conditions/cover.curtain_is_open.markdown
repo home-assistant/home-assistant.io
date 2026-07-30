@@ -11,6 +11,10 @@ The **Curtain is open** condition passes when one or more targeted curtains are 
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a curtain is open.
 
+## Prerequisites
+
+- The target must be a `cover` entity with the `curtain` device class.
+
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -75,7 +79,6 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `curtain` device class.
 - Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted curtain is open.
 - With **All**, the condition passes only if every available targeted curtain is open. If every targeted curtain is `unavailable` or `unknown`, **All** passes and **Any** fails.

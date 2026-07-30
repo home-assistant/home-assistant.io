@@ -80,7 +80,6 @@ Provide either `color_extract_url` or `color_extract_path`. The two options are 
 
 ## Good to know
 
-- Make sure any external URL is added to [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) and any local file path is added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs). Otherwise, the action cannot access the image and returns an error.
 - You can pass any [`light.turn_on`](/actions/light.turn_on/) options along with this action, such as `brightness_pct` or `transition`. The RGB color is always set from the extracted color.
 
 {% include actions/try_it.md %}

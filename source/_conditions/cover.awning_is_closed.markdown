@@ -11,6 +11,10 @@ The **Awning is closed** condition passes when one or more targeted awnings are 
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether an awning is closed.
 
+## Prerequisites
+
+- The target must be a `cover` entity with the `awning` device class.
+
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -75,7 +79,6 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `awning` device class.
 - Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted awning is closed.
 - With **All**, the condition passes only if every available targeted awning is closed. If every targeted awning is `unavailable` or `unknown`, **All** passes and **Any** fails.

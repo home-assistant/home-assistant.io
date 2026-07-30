@@ -11,6 +11,10 @@ The **Awning closed** trigger fires when a targeted awning changes to closed. Us
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as an awning closes.
 
+## Prerequisites
+
+- Use a cover entity with the `awning` device class.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -75,7 +79,6 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `awning` device class.
 - If an awning comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
 - The `for` option fires the automation only if the awning stays closed for the entire time you set.
 

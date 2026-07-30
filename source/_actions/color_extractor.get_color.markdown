@@ -78,10 +78,6 @@ Provide either `color_extract_url` or `color_extract_path`. The two options are 
 
 The response data is a mapping with a single `color` field. It holds the predominant color as a list of three RGB values, each from 0 to 255, such as `[255, 128, 0]`.
 
-## Good to know
-
-- Make sure any external URL is added to [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) and any local file path is added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs). Otherwise, the action cannot access the image and returns an error.
-
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}

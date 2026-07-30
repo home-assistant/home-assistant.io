@@ -11,6 +11,10 @@ The **Door opened** trigger fires when a targeted door changes to open. Use it w
 
 This trigger is useful for entry lighting, arrival notifications, security checks, and automations that should start as soon as access to a room or building changes.
 
+## Prerequisites
+
+- Use a door contact sensor or door cover that uses the `door` device class.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -72,7 +76,6 @@ for:
 
 ## Good to know
 
-- This trigger works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
 - If an entity comes back from `unavailable` or `unknown`, that recovery does not count as opening the door.
 - The `for` option only fires the automation if the door stays open for the entire time you set.
 

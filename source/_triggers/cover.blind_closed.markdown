@@ -11,6 +11,10 @@ The **Blind closed** trigger fires when a targeted blind changes to closed. Use 
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a blind closes.
 
+## Prerequisites
+
+- Use a cover entity with the `blind` device class.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -75,7 +79,6 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `blind` device class.
 - If a blind comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
 - The `for` option fires the automation only if the blind stays closed for the entire time you set.
 
