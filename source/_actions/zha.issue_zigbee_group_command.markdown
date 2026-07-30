@@ -13,7 +13,7 @@ Use this action to send a command to a Zigbee cluster on a whole Zigbee group at
 ## Prerequisites
 
 - Only users with administrator rights can run this action.
-- The group must already exist. You can create Zigbee groups on the ZHA configuration page.
+- The group must already exist. Create Zigbee groups on the **Zigbee Home Automation** (ZHA) integration page in {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% include actions/ui_header.md %}
 
