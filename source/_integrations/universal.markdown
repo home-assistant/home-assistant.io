@@ -2,6 +2,7 @@
 title: Universal media player
 description: Instructions on how to create a universal media player in Home Assistant.
 ha_category:
+  - Helper
   - Media player
 ha_iot_class: Calculated
 ha_release: 0.11
@@ -9,7 +10,8 @@ ha_quality_scale: internal
 ha_domain: universal
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -18,6 +20,85 @@ related:
 A universal media player can combine multiple existing entities in Home Assistant into a single media player {% term entity %}. This is used to create a single media player {% term entity %} that can control an entire media center.
 
 Multiple media player entities may be controlled from a universal media player. Additionally, the universal media player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
+
+{% include integrations/config_flow.md %}
+
+{% note %}
+If you already have a universal media player configured in YAML with a `unique_id`, it is automatically migrated to a UI-managed entry the next time Home Assistant starts. Once migrated, remove the corresponding entry from `configuration.yaml`.
+{% endnote %}
+
+{% configuration_basic %}
+Name:
+  description: The name to assign to the player.
+Child media players:
+  description: Media player entities whose state and playback commands this player will aggregate.
+Turn on:
+  description: Action to run when the player is turned on (e.g. power on an AV receiver or run a script). Leave empty to delegate the command to the active child player.
+Turn off:
+  description: Action to run when the player is turned off. Leave empty to delegate the command to the active child player.
+Volume up:
+  description: Action to run when volume up is pressed (e.g. route to a dedicated amplifier). Leave empty to delegate the command to the active child player.
+Volume down:
+  description: Action to run when volume down is pressed. Leave empty to delegate the command to the active child player.
+Volume mute:
+  description: Action to run when muting or unmuting. Receives variable `media_player_volume_muted` (boolean). Leave empty to delegate the command to the active child player.
+Volume set:
+  description: Action to run when the volume is set to a specific level. Receives variable `volume_level`. Leave empty to delegate the command to the active child player.
+Select source:
+  description: Action to run when a source is selected. Receives variable `source`. Leave empty to delegate the command to the active child player.
+Select sound mode:
+  description: Action to run when a sound mode is selected. Receives variable `sound_mode`. Leave empty to delegate the command to the active child player.
+Play:
+  description: Action to run when playback is started. Leave empty to delegate the command to the active child player.
+Pause:
+  description: Action to run when playback is paused. Leave empty to delegate the command to the active child player.
+Stop:
+  description: Action to run when playback is stopped. Leave empty to delegate the command to the active child player.
+Next track:
+  description: Action to run when skipping to the next track. Leave empty to delegate the command to the active child player.
+Previous track:
+  description: Action to run when skipping to the previous track. Leave empty to delegate the command to the active child player.
+State:
+  description: Entity used to override the reported state, taking precedence over the active child's state.
+Muted:
+  description: Entity used to override whether the player is reported as muted.
+Volume level:
+  description: Entity used to override the reported volume level.
+Source:
+  description: Entity used to override the currently selected source.
+Source list:
+  description: Entity used to override the list of available sources.
+Sound mode:
+  description: Entity used to override the currently selected sound mode.
+Sound mode list:
+  description: Entity used to override the list of available sound modes.
+Device class:
+  description: The type of device this entity represents.
+Browse media entity:
+  description: Media player entity to use when browsing media, if different from the active child.
+Active child template:
+  description: "A [template](/docs/templating/) that returns the entity ID of the child to treat as active, or `None` to use the default behavior."
+State template:
+  description: "A [template](/docs/templating/) used to render the state of this player. Useful when the state should depend on entities that are not themselves media players, like switches or input booleans."
+{% endconfiguration_basic %}
+
+The universal media player will primarily imitate one of its children. The universal media player will control the first child on the list that is active (not idle/off). The universal media player will also inherit its state from the first active child if a state template is not provided. Children must be media players, but the state template can contain any {% term entity %}.
+
+Using the active child template will allow you to specify an active {% term entity %} if the default behavior is unsuitable for your task. The template must return the `entity_id` of the child that will be selected as active or `None` to return the default behavior.
+
+It is recommended that the "Turn on" action, the "Turn off" action, and the "State" attribute all be provided together. The "State" attribute indicates if the media player is on or off. If it indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and the state is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on this state.
+
+It is also recommended that the "Volume up" action, the "Volume down" action, the "Volume mute" action, and the "Muted" attribute all be provided together. The "Muted" attribute should return either True or the on state when the volume is muted. The "Volume mute" action should toggle the mute setting.
+
+When providing "Select source" as an action, it is recommended to also provide the "Source" and "Source list" attributes. The "Source" attribute is the currently selected source, while the "Source list" attribute is a list of all available sources.
+
+When using the state template, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/template-functions/now/) section in the template documentation.
+
+The browse media entity setting allows you to specify which media player will be used in the media browser.
+
+## YAML configuration
+
+Alternatively, this integration can be set up manually via YAML. YAML configuration is also needed for options not exposed in the UI, such as a fixed `unique_id`, overriding attributes or commands beyond those listed above, or overriding attributes using a specific state attribute (rather than an entity's state) with the `entity_id|attribute` syntax.
 
 To use a universal media player add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -57,7 +138,7 @@ media_player:
         data: SERVICE_DATA
       media_next_track:
         action: SERVICE
-        data: SERVICE_DATA 
+        data: SERVICE_DATA
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
@@ -96,28 +177,14 @@ browse_media_entity:
   required: false
   type: string
 device_class:
-  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
+  description: The device class that this entity represents. Can be `tv`, `speaker`, `receiver`, or `projector`.
   required: false
   type: string
 unique_id:
-  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
+  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform. If set, this entry is automatically migrated to a UI-managed entry on startup, preserving this ID.
   required: false
   type: string
 {% endconfiguration %}
-
-The universal media player will primarily imitate one of its `children`. The universal media player will control the first child on the list that is active (not idle/off). The universal media player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any {% term entity %}.
-
-Using `active_child_template` will allow you to specify an active {% term entity %} if the default behavior is unsuitable for your task. The template must return the `entity_id` of the child that will be selected as active or `None` to return the default behavior.
-
-It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
-
-It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` {% term action %} should toggle the mute setting.
-
-When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
-
-When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/template-functions/now/) section in the template documentation.
-
-The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
 
 ## Usage examples
 
@@ -323,7 +390,7 @@ media_player:
 
 ### Denon AVR & HEOS
 
-This media player combines the media players provided by the [Denon AVR](/integrations/denonavr/) and [HEOS](/integrations/heos/) integrations. 
+This media player combines the media players provided by the [Denon AVR](/integrations/denonavr/) and [HEOS](/integrations/heos/) integrations.
 
 Features:
 - Volume control via Denon entity (might be more fine-granular than HEOS volume control)
