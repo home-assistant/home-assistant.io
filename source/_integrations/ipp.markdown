@@ -24,7 +24,7 @@ It provides information about the printer's state and remaining ink levels.
 
 ## Data updates
 
-The integration {% term polling polls %} the printer every 60 seconds to update the printer state and the supply levels.
+The integration {% term polling polls %} the printer every 60 seconds to update the printer state and the remaining ink or toner levels.
 
 ## Removing the integration
 
