@@ -2,7 +2,7 @@
 title: Place
 description: Instructions on how to set up your Place devices with Home Assistant.
 ha_category:
-  - Sensor
+  - Binary sensor
 ha_release: 2026.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
