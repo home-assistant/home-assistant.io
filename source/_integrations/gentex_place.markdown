@@ -11,8 +11,8 @@ ha_codeowners:
   - '@andrewtran-gentex'
 ha_domain: gentex_place
 ha_platforms:
-  - sensor
-ha_integration_type: integration
+  - binary_sensor
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
