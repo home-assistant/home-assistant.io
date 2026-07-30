@@ -6,7 +6,7 @@ description: "Description of the Home Assistant tools."
 Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
 
 <p class='img'>
-<img src='/images/screenshots/tools.png' />
+<img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
 Screenshot of Home Assistant's tools.
 </p>
 
