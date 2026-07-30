@@ -1842,6 +1842,13 @@ section#collaboration .card .card-inner p {
   overflow: hidden;
 }
 
+.currency-symbol {
+  bottom: 0;
+  align-self: flex-end;
+  line-height: 1;
+  font-size: 70%;
+}
+
 .heading-wrapper-min {
   max-width: 50em;
   padding: 0 12px;
