@@ -15,6 +15,10 @@ The threshold type controls where the new reading must land for the trigger to f
 
 Use **Illuminance changed** to log light trends, react when a room becomes noticeably brighter or darker, or coordinate shades and lighting based on ambient conditions.
 
+## Prerequisites
+
+- Use a sensor with the illuminance device class.
+
 {% include triggers/ui_header.md %}
 
 To use **Illuminance changed** in an automation:
@@ -126,7 +130,6 @@ threshold:
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when an illuminance reading first crosses a specific level, use [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
-- The trigger works with sensors that have the illuminance device class, and with number entities that use lux as the unit of measurement.
 
 {% include triggers/try_it.md %}
 

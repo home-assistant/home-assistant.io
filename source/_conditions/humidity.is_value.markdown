@@ -9,6 +9,10 @@ The **Relative humidity** condition passes when a humidity reading meets a thres
 
 When you target more than one entity, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted entity to meet the threshold, or demand that all of them do.
 
+## Prerequisites
+
+- The target must be a humidity sensor, or a climate, humidifier, or weather entity that provides a current humidity reading.
+
 {% include conditions/ui_header.md %}
 
 {% include conditions/threshold_value_steps.md
@@ -126,7 +130,6 @@ This passes when the bedroom humidity sensor reads above the number helper´s va
 
 ## Good to know
 
-- The condition works with humidity sensors, climate entities (using the current humidity reading), humidifier entities (using the current humidity reading), and weather entities.
 - Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - Humidity is expressed as a percentage. Indoor comfort is generally between 40% and 60%. Below 30% often feels dry and can irritate airways. Above 65% can encourage mold and dust mites.
 - This condition checks the entity's _current_ humidity reading, not its target setpoint. To check a humidifier's target setpoint instead, use the [Humidifier target humidity](/conditions/humidifier.is_target_humidity/) condition.

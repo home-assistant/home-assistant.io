@@ -13,6 +13,10 @@ The **Light level cleared** trigger fires when one or more light sensors stop de
 
 Use it to automate actions when an area becomes dark, like turning on hallway lights at dusk when an outdoor sensor reports no more daylight, or sending a notification when a room sensor stops detecting light.
 
+## Prerequisites
+
+- Use a binary sensor with the `light` device class.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -87,7 +91,7 @@ for:
 
 ## Good to know
 
-- This trigger works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light cleared" is set on the device itself.
+- The sensor's threshold for what counts as "light cleared" is set on the device itself.
 - For numeric illuminance readings (in lux), use [Illuminance changed](/triggers/illuminance.changed/) or [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 - Add a small **For at least** delay to avoid firing when a cloud briefly passes over an outdoor sensor.
 

@@ -15,6 +15,10 @@ Use **Illuminance crossed threshold** to automate shades when the sun gets too b
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
+## Prerequisites
+
+- Use a sensor with the illuminance device class.
+
 {% include triggers/ui_header.md %}
 
 To use **Illuminance crossed threshold** in an automation:
@@ -167,7 +171,6 @@ for:
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - Pair this trigger with [Illuminance changed](/triggers/illuminance.changed/) if you also want to react to smaller fluctuations between crossings.
 - Use **For at least** to ignore brief light fluctuations, such as clouds passing or a person briefly shading an outdoor sensor.
-- The trigger works with sensors that have the illuminance device class, and with number entities that use lux as the unit of measurement.
 
 {% include triggers/try_it.md %}
 

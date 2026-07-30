@@ -13,6 +13,11 @@ Use **Relative humidity crossed threshold** to automate ventilation when the air
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
+## Prerequisites
+
+- Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
+- Climate, humidifier, and weather entities must expose a current humidity attribute.
+
 {% include triggers/ui_header.md %}
 
 {% include triggers/threshold_crossed_steps.md
@@ -103,7 +108,6 @@ YAML sometimes provides additional options for more complex use cases that are n
 - A comfortable indoor humidity range is typically 40% to 60%. Use **Outside range** with those bounds to fire the moment conditions drift out of that comfort zone.
 - Pair this trigger with [Relative humidity changed](/triggers/humidity.changed/) if you also want to react to smaller fluctuations between crossings.
 - Pair this trigger with [Relative humidity](/conditions/humidity.is_value/) in follow-up conditions to double-check the final state.
-- The trigger works with climate entities, humidifier entities, weather entities, and sensors with the humidity device class.
 
 {% include triggers/try_it.md %}
 

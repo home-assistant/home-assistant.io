@@ -10,6 +10,10 @@ related_conditions:
 
 The **Light level is detected** condition passes when one or more light binary sensors are currently detecting light. Use it to gate an automation on a lit area, like only running a routine while a closet light is still on, or only sending a reminder if a room is currently bright.
 
+## Prerequisites
+
+- The target must be a binary sensor with the `light` device class.
+
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -70,7 +74,7 @@ for:
 
 ## Good to know
 
-- This condition works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light detected" is set on the device itself.
+- The sensor's threshold for what counts as "light detected" is set on the device itself.
 - Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
 - To check the opposite state, use [Light level is not detected](/conditions/illuminance.is_not_detected/).
