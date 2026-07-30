@@ -9,6 +9,10 @@ related_actions:
 
 Use this action to enable and configure Pure Boost on a Sensibo Pure air purifier. Pure Boost automatically manages the purifier based on the integrations you turn on, such as presence or air quality.
 
+## Prerequisites
+
+- The AC integration and Geo integration need to be set up in the Sensibo app before you use them for the first time.
+
 {% include actions/ui_header.md %}
 
 To enable Pure Boost from an automation or a script:
@@ -84,10 +88,6 @@ sensitivity:
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="climate" %}
-
-## Good to know
-
-- The AC integration and Geo integration need to be set up in the Sensibo app before you use them for the first time.
 
 {% include actions/try_it.md %}
 

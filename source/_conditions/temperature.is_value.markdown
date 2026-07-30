@@ -9,6 +9,12 @@ The **Temperature value** condition passes when a temperature reading meets a th
 
 When you target more than one entity, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted entity to meet the threshold, or demand that all of them do.
 
+## Prerequisites
+
+- The target must provide a current temperature reading.
+- Supported target types are temperature sensors, climate entities, water heater entities, and weather entities.
+- Climate, water heater, and weather entities must expose a current temperature attribute.
+
 {% include conditions/ui_header.md %}
 
 {% include conditions/threshold_value_steps.md
@@ -103,8 +109,6 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 
 ## Good to know
 
-- The condition works with temperature sensors, [climate](/integrations/climate/) entities (using the current temperature reading), [water heater](/integrations/water_heater/) entities (using the current temperature reading), and [weather](/integrations/weather/) entities.
-- Climate, water heater, and weather entities that don't report a current temperature attribute are automatically excluded from evaluation. Only entities with a valid temperature value are considered.
 - Entities that have an `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
 - This condition checks the entity's current temperature reading, not its target setpoint. To check a climate device's target setpoint instead, use the climate target temperature condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
