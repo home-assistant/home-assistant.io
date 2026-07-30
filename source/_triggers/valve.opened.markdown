@@ -11,6 +11,10 @@ The **Valve opened** trigger fires after a valve {% term entity %} transitions t
 
 Use it to react the moment a valve is opened, whether it was opened manually, by a schedule, through an {% term automation %}, or by a voice command. Use this trigger in an automation to log irrigation activity, send a notification when the main water valve opens unexpectedly, or start a timer to auto-close a valve after a set duration.
 
+## Prerequisites
+
+- Use a valve entity in Home Assistant.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -49,7 +53,7 @@ trigger: |
     entity_id: valve.garden_irrigation
 {% endexample %}
 
-This fires every time `valve.garden_irrigation` transitions to the **Open** state.
+This fires every time `valve.garden_irrigation` transitions to the `open` state.
 
 ### Options in YAML
 
@@ -80,10 +84,9 @@ for:
 
 ## Good to know
 
-- The trigger fires when the valve reaches the **Open** state. It does not fire during the transitional **Opening** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- The trigger fires when the valve reaches the `open` state. It does not fire during the transitional `opening` state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves that report position (0 to 100%) are considered open as soon as their position is above 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental openings, such as a momentary network glitch that causes a valve to re-report its state.
-- This trigger works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
 - You can conserve water by pairing this trigger with a timer. Create an automation that, when an irrigation or garden valve opens, starts a countdown and automatically closes it after the intended duration. This prevents over-watering caused by a valve left open, which is one of the most common sources of household water waste.
 - Combine this trigger with a water leak sensor condition to detect unexpected openings that may indicate a burst pipe or a faulty valve. Catching these events immediately can prevent significant water loss and structural damage.
 - Pair this trigger with a weather integration in an automation to water plants smarter, not harder. If rain is forecast or soil moisture sensors report sufficient levels, a condition can block the opening entirely, so your garden only gets watered when it actually needs it.

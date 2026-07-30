@@ -12,6 +12,10 @@ there is a new update ready for a device or service.
 This trigger is useful for sending a notification, starting a reminder, or
 waiting a little while before taking action on an available update.
 
+## Prerequisites
+
+- Use an update entity in Home Assistant.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

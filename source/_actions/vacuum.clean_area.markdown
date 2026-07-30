@@ -9,6 +9,11 @@ The **Clean area with vacuum cleaner** action sends your vacuum to clean one or 
 
 Use it when only part of the home needs attention, like the kitchen after dinner or the hallway after muddy shoes, without sending the robot through every room.
 
+## Prerequisites
+
+- You must first map vacuum segments to Home Assistant areas in the entity settings.
+- Your vacuum must support area mapping. If mapping or area selection does not appear, your vacuum does not support this feature.
+
 {% include actions/ui_header.md %}
 
 To use this action from an automation or script:
@@ -50,11 +55,6 @@ cleaning_area_id:
 {% endoptions_yaml %}
 
 {% include actions/targets.md %}
-
-## Good to know
-
-- You must first map vacuum segments to Home Assistant areas in the entity settings.
-- If mapping or area selection does not appear, your vacuum does not support this feature.
 
 {% include actions/try_it.md %}
 

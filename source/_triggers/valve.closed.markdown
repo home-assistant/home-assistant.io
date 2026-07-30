@@ -11,6 +11,10 @@ The **Valve closed** trigger fires after a valve {% term entity %} transitions t
 
 Use it to react the moment a valve is closed, whether it was closed manually, by a schedule, through an {% term automation %}, or by a voice command. For example, you can create an automation to log when irrigation ends, confirm that a gas valve has been shut off, or chain follow-up actions after a valve closes.
 
+## Prerequisites
+
+- Use a valve entity in Home Assistant.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -49,7 +53,7 @@ trigger: |
     entity_id: valve.garden_irrigation
 {% endexample %}
 
-This fires every time `valve.garden_irrigation` transitions to the **Closed** state.
+This fires every time `valve.garden_irrigation` transitions to the `closed` state.
 
 ### Options in YAML
 
@@ -80,10 +84,9 @@ for:
 
 ## Good to know
 
-- The trigger fires when the valve reaches the **Closed** state. It does not fire during the transitional **Closing** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- The trigger fires when the valve reaches the `closed` state. It does not fire during the transitional `closing` state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves that report position (0 to 100%) are considered closed only when their position reaches exactly 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental closures, such as a momentary sensor glitch that causes a valve to flicker to closed and back.
-- This trigger works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
 - You can use this trigger to track your water consumption. Create an automation that records the elapsed time since it opened (using a helper or template sensor) and build a daily watering log when a valve closes. Awareness of actual usage is the first step towards reducing it.
 - Use this trigger to confirm gas valves are safely shut off. Create an automation that sends a confirmation notification when a gas valve closes, giving you peace of mind and a clear audit trail that no gas is flowing when the system is idle.
 

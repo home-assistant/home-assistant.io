@@ -11,6 +11,10 @@ The **Valve is closed** condition passes when a targeted valve {% term entity %}
 
 Use it when you want an automation to continue only if no fluid is flowing through a valve. For example, create an automation to confirm that the main water shutoff is closed before performing maintenance, gate a leak-response action on whether the supply valve has been shut off, or prevent a heating system from firing while a gas valve is closed.
 
+## Prerequisites
+
+- The target valve entity must be available in Home Assistant.
+
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -75,10 +79,9 @@ for:
 
 ## Good to know
 
-- Valves in the transitional **Closing** state do not satisfy this condition. The condition only passes once the valve is fully **Closed**. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- Valves in the transitional `closing` state do not satisfy this condition. The condition only passes once the valve is fully `closed`. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves reporting position (0 to 100%) are considered closed only when their position is exactly 0. A valve at position 1% is considered open.
-- Valves that have an **Unavailable** or **Unknown** state do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted valves.
-- This condition works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
+- Valves that have an `unavailable` or `unknown` state do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted valves.
 - Use the **For at least** option when you need confidence that a valve is stably closed. For example, set up an automation that waits 10 seconds before sending an "all clear" notification, to avoid false positives from a brief closure during valve movement.
 
 {% include conditions/try_it.md %}
