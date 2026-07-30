@@ -41,7 +41,7 @@ Volume up:
 Volume down:
   description: Action to run when volume down is pressed. Leave empty to delegate the command to the active child player.
 Volume mute:
-  description: Action to run when muting or unmuting. Receives variable `media_player_volume_muted` (boolean). Leave empty to delegate the command to the active child player.
+  description: Action to run when muting or unmuting. Receives variable `is_volume_muted` (boolean). Leave empty to delegate the command to the active child player.
 Volume set:
   description: Action to run when the volume is set to a specific level. Receives variable `volume_level`. Leave empty to delegate the command to the active child player.
 Select source:
