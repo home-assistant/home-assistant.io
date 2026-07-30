@@ -9,6 +9,11 @@ The **Power value** condition passes when a power reading meets the threshold yo
 
 Use **Power value** when you want an automation to continue only if the current load is suitable, such as waiting until an appliance is idle or avoiding another high-load action while household power use is already high.
 
+## Prerequisites
+
+- The target must be a sensor with the power device class.
+- Threshold entities must be sensors with the power device class, number entities with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
+
 {% include conditions/ui_header.md %}
 
 To use **Power value** in an automation:
@@ -145,11 +150,9 @@ for:
 ## Good to know
 
 - Use **Power value** to check the current load at the moment the condition runs. If you want to react when a reading changes or crosses a threshold, use [Power changed](/triggers/power.changed/) or [Power crossed threshold](/triggers/power.crossed_threshold/).
-- Supported thresholds can use fixed values, a sensor with the power device class, a number entity with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
 - Supported power units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.
 - Entities that are `unavailable` or `unknown` are skipped when the condition is evaluated. With **Any**, at least one remaining valid entity must match. With **All**, every remaining valid entity must match.
 - When you use a sensor or helper as a dynamic threshold, its current value is read when the condition runs.
-- This condition works with sensors that have the power device class.
 
 {% include conditions/try_it.md %}
 

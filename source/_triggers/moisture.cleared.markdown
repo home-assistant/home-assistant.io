@@ -11,6 +11,10 @@ related_triggers:
 
 The **Moisture cleared** trigger fires when one or more moisture binary sensors stop detecting water. Use it to know when a leak has dried up, when a freshly mopped floor is dry again, or to reset a warning after a wet area returns to normal.
 
+## Prerequisites
+
+- Use a binary sensor with the `moisture` device class, such as a water leak sensor.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -81,7 +85,6 @@ for:
 
 ## Good to know
 
-- This trigger works with binary sensors that have the **moisture** device class, such as water leak sensors.
 - A sensor in the `unknown` or `unavailable` state does not count as dry.
 - Using **For at least** with a few minutes helps avoid reacting on a momentary recovery while the area is still wet.
 - To react when moisture is first detected, use [Moisture detected](/triggers/moisture.detected/).

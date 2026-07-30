@@ -9,6 +9,10 @@ related_actions:
 
 Use this action to manually register the Netatmo webhook with the Netatmo backend. The webhook lets Netatmo push instant events to Home Assistant. Home Assistant normally registers it for you, so you only need this action to recover from a connection issue.
 
+## Prerequisites
+
+- The webhook needs your Home Assistant instance to be reachable from the internet. For more details, see the [Netatmo integration documentation](/integrations/netatmo/).
+
 {% include actions/ui_header.md %}
 
 To register the webhook from an automation or a script:
@@ -40,7 +44,6 @@ This registers the webhook with the Netatmo backend.
 ## Good to know
 
 - Home Assistant registers the webhook automatically. Use this action only to recover after a connection problem, such as when events stop arriving.
-- The webhook needs your Home Assistant instance to be reachable from the internet. For more details, see the [Netatmo integration documentation](/integrations/netatmo/).
 
 {% include actions/try_it.md %}
 
