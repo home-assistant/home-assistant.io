@@ -1,7 +1,7 @@
 ---
 title: ADAM Audio
 description: Integrate ADAM Audio A-Series studio monitors into Home Assistant.
-ha_release: 2026.3
+ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_domain: adam_audio
 ha_codeowners:
@@ -13,9 +13,6 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_zeroconf: true
-related:
-  - url: https://github.com/Perhan35/ha-adam-audio
-    title: GitHub Repository
 ---
 
 The **ADAM Audio** integration allows you to control [ADAM Audio A-Series studio monitors](https://www.adam-audio.com/en/a-series/), such as the A4V or A7V, from Home Assistant using the AES70/OCA protocol over UDP.
@@ -110,12 +107,9 @@ automation:
 
 Due to the connection type with the speakers, state is tracked optimistically. This means the integration records what it has set and assumes the speaker accepted it. If you change settings using the physical knob or the ADAM Audio A Control app, Home Assistant does not reflect those changes until the integration entry is reloaded.
 
-A keepalive packet is sent every 25 seconds to maintain the OCA session.
-
 ## Known limitations
 
 - Opening the official **ADAM Audio A Control** app while this integration is running causes the speaker to accept commands from the app, which overrides any state set by Home Assistant. Close the app to regain control.
-- State is optimistic, meaning physical knob changes are not polled back.
 
 ## Removing the integration
 
