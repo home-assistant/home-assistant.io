@@ -11,6 +11,10 @@ The **Push weather data** action sends weather measurements from Home Assistant 
 
 This is useful when you have a personal weather station in Home Assistant and want RainMachine to use its readings instead of, or in addition to, online forecasts.
 
+## Prerequisites
+
+- Enable the local weather push service in RainMachine under **Settings** > **Weather** > **Developer** so the controller uses the values you send.
+
 {% include actions/ui_header.md %}
 
 To push weather data from an automation or a script:
@@ -171,7 +175,6 @@ dewpoint:
 
 ## Good to know
 
-- Enable the local weather push service in RainMachine under **Settings** > **Weather** > **Developer** so the controller uses the values you send.
 - Send all values in metric units. The integration does not convert units for you.
 - For the weather condition code (WNUM) options, see the [RainMachine weather data reference](https://github.com/sprinkler/rainmachine-developer-resources/blob/d47e1ad59dee59e34094ad41636ae289275eb973/sdk-parsers/RMDataFramework/rmWeatherData.py#L13).
 

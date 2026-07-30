@@ -5,9 +5,13 @@ domain: select
 description: "Triggers when the selected option of one or more dropdowns changes."
 ---
 
-The **Dropdown selection changed** trigger fires when the selected option of a dropdown {% term entity %} changes. It works with both **Select** entities provided by integrations and the **Dropdown helper** ("input_select") you create yourself. Use it to react when someone switches modes, scenes, presets, or any other choice you have set up as a dropdown.
+The **Dropdown selection changed** trigger fires when the selected option of a dropdown {% term entity %} changes. It works with both `select` entities provided by integrations and `input_select` Dropdown helpers you create yourself. Use it to react when someone switches modes, scenes, presets, or any other choice you have set up as a dropdown.
 
 This trigger fires when the selected option changes from one valid option to another. To run only when the dropdown is set to a specific option, combine it with the [Dropdown option is selected](/conditions/select.is_option_selected/) condition.
+
+## Prerequisites
+
+- Use a `select` entity provided by an integration or an `input_select` Dropdown helper you created yourself.
 
 {% include triggers/ui_header.md %}
 
@@ -37,7 +41,6 @@ This fires every time the selected option of the washing machine program dropdow
 
 ## Good to know
 
-- This trigger works with both **Select** entities provided by integrations (domain `select`) and **Dropdown helpers** you create yourself (domain `input_select`).
 - The trigger does not filter by which option was selected. To run only on a specific option, add a [Dropdown option is selected](/conditions/select.is_option_selected/) condition, or use a [State trigger](/docs/automation/trigger/#state-trigger) with the `to` option.
 - The trigger only fires when switching between two valid options. It does not fire when the dropdown becomes `unknown` or `unavailable`, or when it changes from `unknown` or `unavailable` to a valid option. To react to those cases, use a [State trigger](/docs/automation/trigger/#state-trigger).
 

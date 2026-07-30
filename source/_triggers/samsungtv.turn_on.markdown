@@ -68,8 +68,8 @@ entity_id:
 
 - This trigger fires when `media_player.turn_on` is called targeting the TV entity, not when the TV turns on by itself (for example, after a power cut). It represents a request from Home Assistant, not a state change on the TV.
 - If the TV supports Wake-on-LAN (WoL) and it is enabled in the integration, Home Assistant will attempt WoL automatically without needing this trigger. Use this trigger only when you need to override or supplement that built-in behavior.
+- Set up the [Wake-on-LAN integration](/integrations/wake_on_lan/) before using this trigger to send a Wake-on-LAN packet manually.
 - The trigger does not include a **For at least** option or a **Trigger when** option, which means that it fires immediately on every turn-on request and targets a single device, not a group.
-- If you use this trigger to send a Wake-on-LAN packet manually, make sure the [Wake-on-LAN integration](/integrations/wake_on_lan/) is set up.
 - This trigger is the recommended way to handle Samsung TVs connected to a smart power strip, where the TV cannot be woken by WoL alone and the strip must be switched on first.
 
 {% include triggers/try_it.md %}
