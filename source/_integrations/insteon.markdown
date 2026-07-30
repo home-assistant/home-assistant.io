@@ -121,9 +121,9 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 
-## Monitor Mode (USB PowerLinc Modems)
+## Monitor Mode (PowerLinc Modems)
 
-If you use a serial **USB PowerLinc Modem (PLM)**—such as the 2413U or 2413S—rather than an Insteon Hub, Home Assistant may not update a device's state or fire the `insteon.button_on` and `insteon.button_off` [events](#events-and-mini-remotes) when the device is operated **at the wall** or by an **RF** control such as a remote, motion, leak, or open/close sensor. Controlling the device *from* Home Assistant still works, and this can happen even when the device is correctly linked to the modem.
+If you use a **PowerLinc Modem (PLM)**—such as the USB 2413U or the serial (RS-232) 2413S—rather than an Insteon Hub, Home Assistant may not update a device's state or fire the `insteon.button_on` and `insteon.button_off` [events](#events-and-mini-remotes) when the device is operated **at the wall** or by an **RF** control such as a remote, motion, leak, or open/close sensor. Controlling the device *from* Home Assistant still works, and this can happen even when the device is correctly linked to the modem.
 
 This is caused by the modem's **Monitor Mode** being disabled. With Monitor Mode off, a PLM only reports messages addressed directly to it, so it does not forward the all-link broadcast and cleanup messages that devices send when they are operated locally. Enabling Monitor Mode allows the modem to report this traffic, and Home Assistant then updates state and fires events as expected.
 
@@ -133,7 +133,7 @@ To enable Monitor Mode:
 2. Select the **Properties** tab. If `monitor_mode` is not listed, enable **Advanced Mode** in your Home Assistant user profile and reopen the panel.
 3. Set `monitor_mode` to on and use **Write to device** to save it to the modem. See [Device properties](#device-properties) for details on changing and writing properties.
 
-The setting is stored in the modem's own memory and persists across restarts and Home Assistant upgrades. It applies only to serial PLMs; the Insteon **Hub** does not use this setting.
+The setting is stored in the modem's own memory and persists across restarts and Home Assistant upgrades. It applies only to PLMs; the Insteon **Hub** does not use this setting.
 
 {% note %}
 With Monitor Mode enabled, the modem reports **all** Insteon traffic it overhears, not just traffic for your linked devices. On very large or busy networks, this slightly increases processing load. This is expected and is required for physical and RF events to reach Home Assistant.
