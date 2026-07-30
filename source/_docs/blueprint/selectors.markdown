@@ -1233,7 +1233,8 @@ translation_key:
 
 The output of this selector is a number, for example: `42`
 
-### Example number selectors <!-- omit in toc -->
+<!-- omit in toc -->
+### Example number selectors
 
 An example number selector that allows a user a percentage, directly in a
 regular number input box.
