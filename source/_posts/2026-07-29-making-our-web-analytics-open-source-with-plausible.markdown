@@ -10,6 +10,7 @@ categories:
   - Announcements
 external_url: "https://www.openhomefoundation.org/blog/making-our-web-analytics-open-source-with-plausible/"
 external_source: "Open Home Foundation"
+og_image: "https://www.openhomefoundation.org/assets/images/blog/making-our-web-analytics-open-source-with-plausible/card.webp"
 ---
 
 The Open Home Foundation fights for privacy, choice, and sustainability. These principles are at the heart of everything we do, including how we handle website analytics. Our position is clear: we reject tools that track individuals across the web to monetize their data. Instead, we want aggregated, anonymized analytics that show how our websites are performing overall — without identifying who our visitors are, or compromising their privacy.<!--more-->
