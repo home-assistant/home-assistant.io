@@ -25,9 +25,3 @@ feedback: false
   })();
 </script>
 {% endif %}
-
-{% if page.external_url %}
-<script type="text/javascript">
-  window.location.replace({{ page.external_url | jsonify }});
-</script>
-{% endif %}

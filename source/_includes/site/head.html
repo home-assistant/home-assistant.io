@@ -5,6 +5,10 @@
   <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
+    {% if page.external_url %}
+    <script type="text/javascript">window.location.replace({{ page.external_url | jsonify | replace: '</', '<\/' }});</script>
+    <meta http-equiv="refresh" content="0; url={{ page.external_url | escape_once }}">
+    {% endif %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="author" content="{% if page.author %}{% if page.author.first %}{{ page.author | join: ", " }}{% else %}{{ page.author }}{% endif %}{% else %}{{ site.author }}{% endif %}">
