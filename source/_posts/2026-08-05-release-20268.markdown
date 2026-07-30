@@ -611,6 +611,8 @@ Are you more into email? [Sign up for the Open Home Foundation Newsletter](/news
 
 If you would like to wear your support: the Open Home Foundation store just added new T-shirts featuring ESPHome, Music Assistant, and a fresh Home Assistant design, all in classic black (or Dark Mode, if you prefer!). They are versatile, built to last, and best of all, every purchase helps fund the foundation's work. [Grab yours from the store](https://store.openhomefoundation.org/shop/t-shirts).
 
+<a href='https://store.openhomefoundation.org/shop/t-shirts'><img src='/images/blog/2026-08/Black-shirts-newsletter.png' alt='Three black T-shirts from the Open Home Foundation store, featuring the ESPHome, Music Assistant, and Home Assistant designs.' class='no-shadow' /></a>
+
 ## Backward-incompatible changes
 
 We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
