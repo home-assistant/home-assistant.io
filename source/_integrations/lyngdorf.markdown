@@ -57,10 +57,10 @@ Host:
 
 ### Media players
 
-The integration creates two media player {% term entities %}:
+The integration creates the following media player {% term entities %}:
 
 - **Main zone**: Controls your Lyngdorf device, including power, volume, mute, source selection, and sound mode.
-- **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection.
+- **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection. Only created for models with a Zone B output (the TDAI-series does not have one).
 
 ## Data updates
 
