@@ -11,6 +11,10 @@ The **Garage door opened** trigger fires when a targeted garage door changes to 
 
 This trigger is useful for turning on lights when you arrive, sending alerts if the garage opens while nobody is home, and starting routines that depend on access to the garage.
 
+## Prerequisites
+
+- Use a garage door contact sensor with the `garage_door` device class or a garage door cover with the `garage` device class.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -72,7 +76,6 @@ for:
 
 ## Good to know
 
-- This trigger works with garage door contact sensors that use the `garage_door` device class and garage door covers that use the `garage` device class.
 - If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the garage door opening.
 - The `for` option only fires the automation if the garage door stays open for the entire time you set.
 
