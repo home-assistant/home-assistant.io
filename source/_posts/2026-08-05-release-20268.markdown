@@ -66,6 +66,12 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 {% endtip %}
 
+{% tip %}
+
+There's more to look forward to next week: the **ESPHome Starter Kit** is launching, and you're invited to the official launch party! 🚀 Join the ESPHome team and their partners at Apollo Automation on the [ESPHome YouTube channel](https://youtube.com/live/aK2HMY9-Tzo) on August 12 at 21:00 CEST. Familiar faces are dropping by to celebrate lift-off, too: [Reed](https://www.youtube.com/c/SmartHomeSolver) from Smart Home Solver, [Simon](https://www.youtube.com/@simonsayshomeassistant) from Simon Says Home Assistant, and [Gavin](https://www.hometech.fm/) from HomeTech.fm.
+
+{% endtip %}
+
 Home Assistant 2026.8! 🎉
 
 Hi, I'm [Ashley](https://github.com/abb848), the Technical Program Manager at the Open Home Foundation. With [Frenck](https://github.com/frenck) taking a well-deserved break, [Bram](https://github.com/bramkragten) and I are teaming up to handle things this time around.
@@ -293,7 +299,7 @@ VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outsi
 [LiteLLM]: /integrations/litellm
 [llama.cpp]: /integrations/llama_cpp
 [Lyngdorf]: /integrations/lyngdorf
-[Midea LAN]: /integrations/midea_lan
+[Midea LAN]: /integrations/midea
 [NeoPool]: /integrations/neopool
 [ScorpionTrack]: /integrations/scorpiontrack
 
@@ -602,6 +608,8 @@ Our very active [Discord chat server](/join-chat) is an excellent place to be, a
 Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues) to get it fixed! Or check [our help page](/help) for guidance on more places you can go.
 
 Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter) to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+If you would like to wear your support: the Open Home Foundation store just added new T-shirts featuring ESPHome, Music Assistant, and a fresh Home Assistant design, all in classic black (or Dark Mode, if you prefer!). They are versatile, built to last, and best of all, every purchase helps fund the foundation's work. [Grab yours from the store](https://store.openhomefoundation.org/shop/t-shirts).
 
 ## Backward-incompatible changes
 
