@@ -21,3 +21,13 @@ The **Internet Printing Protocol (IPP)** {% term integration %} allows you to re
 It provides information about the printer's state and remaining ink levels.
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the printer every 60 seconds to update the printer state and the supply levels.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
