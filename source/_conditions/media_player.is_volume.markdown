@@ -12,6 +12,11 @@ The **Media player volume** condition passes when a media player's volume matche
 
 Use **Media player volume** to protect quiet hours, to allow a routine only when the room is already loud enough, or to branch based on the current listening level.
 
+## Prerequisites
+
+- The target media player must expose a volume level.
+- Threshold entity values must use `%` as the unit.
+
 {% include conditions/ui_header.md %}
 
 To use **Media player volume** in an automation:
@@ -111,7 +116,6 @@ for:
 
 ## Good to know
 
-- Threshold helper entities must use `%` as the unit. If you want to adjust the limit from the UI, create a {% term helper %} separately first.
 - Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - If you want to react to the moment volume crosses a limit, use [Media player volume crossed threshold](/triggers/media_player.volume_crossed_threshold/).
 

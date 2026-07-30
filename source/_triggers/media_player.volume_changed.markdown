@@ -12,6 +12,10 @@ The **Media player volume changed** trigger fires when a media player's volume c
 
 Use **Media player volume changed** to adjust lights when volume gets high, send a notification when volume drops too low, or react to any change for logging and other routines.
 
+## Prerequisites
+
+- Use a media player that exposes a volume level.
+
 {% include triggers/ui_header.md %}
 
 To use **Media player volume changed** in an automation:
@@ -98,7 +102,7 @@ threshold:
 ## Good to know
 
 - This trigger fires when the new volume matches the threshold rule. If you only want to react when volume crosses a level, use [Media player volume crossed threshold](/triggers/media_player.volume_crossed_threshold/).
-- Threshold helper entities must use `%` as the unit. If you want to adjust the limit from the UI, create a {% term helper %} separately first.
+- Threshold entity values must use `%` as the unit.
 - Media players that are `unavailable` or `unknown` do not provide usable volume values until they report a supported state again.
 
 {% include triggers/try_it.md %}
