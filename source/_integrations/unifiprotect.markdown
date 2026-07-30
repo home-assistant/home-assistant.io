@@ -54,7 +54,7 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 ### Software support
 
-The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
+The minimum supported software version for UniFi Protect is `v7.1.0`. If you have an older version, you will get errors trying to set up the integration.
 
 ### Public API features
 
