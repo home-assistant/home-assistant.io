@@ -16,14 +16,14 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] and [Steinway & Lyngdorf] audio processors and amplifiers from Home Assistant. Lyngdorf Audio is known for their RoomPerfect room correction technology. This integration lets you control power, volume, source selection, sound modes, and audio processing parameters.
+The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] and [Steinway & Lyngdorf] audio processors and amplifiers from Home Assistant. Lyngdorf Audio is known for its RoomPerfect room correction technology. This integration lets you control power, volume, source selection, sound modes, and audio processing parameters.
 
 [Lyngdorf]: https://lyngdorf.steinwaylyngdorf.com/electronics/
 [Steinway & Lyngdorf]: https://steinwaylyngdorf.com/
 
 ## Supported devices
 
-Lyngdorf:
+### Lyngdorf
 
 - [MP-40](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-40/)
 - MP-50
@@ -32,7 +32,7 @@ Lyngdorf:
 - TDAI-2170
 - [TDAI-3400](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-3400/)
 
-Steinway & Lyngdorf:
+### Steinway & Lyngdorf
 
 - P100
 - P200
