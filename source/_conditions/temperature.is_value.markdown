@@ -13,7 +13,7 @@ When you target more than one entity, the condition's **Condition passes if** op
 
 - The target must provide a current temperature reading.
 - Supported target types are temperature sensors, climate entities, water heater entities, and weather entities.
-- Climate, water heater, and weather entities must expose a current temperature attribute.
+- Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically from evaluation.
 
 {% include conditions/ui_header.md %}
 

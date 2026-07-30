@@ -15,7 +15,7 @@ When you target more than one entity, the trigger's **Trigger when** option cont
 
 ## Prerequisites
 
-- Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute.
+- Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically.
 - You can also use a sensor with the temperature device class.
 
 {% include triggers/ui_header.md %}
