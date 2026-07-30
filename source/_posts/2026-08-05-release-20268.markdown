@@ -268,7 +268,7 @@ VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outsi
 - **[Lyngdorf]**, added by [@fishloa], launching at 🥈 silver quality  
   Control [Lyngdorf](https://lyngdorf.steinwaylyngdorf.com/) audio processors and amplifiers from Home Assistant, including power, volume, source selection, and sound modes. The integration keeps in sync with the device over your local network.
 
-- **[Midea LAN]**, added by [@chemelli74]  
+- **[Midea]**, added by [@chemelli74]  
   Bring devices that use the Midea protocol, such as air conditioners and air purifiers, into Home Assistant. The integration provides information on the connected devices and lets you control their main features.
 
 - **[NeoPool]**, added by [@svasek], launching at 🥈 silver quality  
@@ -299,7 +299,7 @@ VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outsi
 [LiteLLM]: /integrations/litellm
 [llama.cpp]: /integrations/llama_cpp
 [Lyngdorf]: /integrations/lyngdorf
-[Midea LAN]: /integrations/midea
+[Midea]: /integrations/midea
 [NeoPool]: /integrations/neopool
 [ScorpionTrack]: /integrations/scorpiontrack
 
