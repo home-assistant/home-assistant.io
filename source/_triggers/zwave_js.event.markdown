@@ -16,11 +16,9 @@ This trigger is useful when:
 - You want to react to a node event that is not exposed as an entity state.
 - You need to match a specific event by name and, optionally, by event data.
 
-{% note %}
-This trigger is configured in YAML only. It cannot be added from the automation editor in the UI.
-{% endnote %}
+## Prerequisites
 
-There is strict validation in place based on all known event types. If you come across an event type that is not supported, open a GitHub issue in the [`home-assistant/core`](https://github.com/home-assistant/core/issues) repository.
+- Configure this trigger in YAML mode. It is not available in the automation editor.
 
 {% include triggers/yaml_header.md %}
 
@@ -80,7 +78,7 @@ partial_dict_match:
 
 - Event names and the structure of event data come from Z-Wave JS. The set of available fields depends on the event.
 - When an event includes nested fields (for example, an `args` mapping inside `event_data`), use `partial_dict_match: true` if you only want to match a subset of those fields.
-- This trigger does not appear in the automation editor in the UI. You can add it by editing the automation in YAML mode.
+- There is strict validation in place based on all known event types. If you come across an event type that is not supported, open a GitHub issue in the [`home-assistant/core`](https://github.com/home-assistant/core/issues) repository.
 
 ### Available trigger data
 
