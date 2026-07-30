@@ -5,7 +5,7 @@ domain: samsungtv
 description: "Triggers when a Samsung TV device is requested to turn on."
 ---
 
-The **Device is requested to turn on** trigger fires when Home Assistant requests a Samsung TV to turn on. This happens when a turn_on action is called by an automation, a script or from the UI, targeting a Samsung TV entity.
+The **Device is requested to turn on** trigger fires when Home Assistant requests a Samsung TV to turn on. This happens when a turn-on action is called by an automation, a script, or from the UI, targeting a Samsung TV entity.
 
 Use it when the built-in Wake-on-LAN (WoL) support in the Samsung TV integration is not sufficient for your setup. For example, when the TV is connected to a smart strip, when WoL is not supported on the TV model, or when you want to run additional actions alongside the turn-on sequence, such as switching on a connected AV receiver or adjusting the room lighting.
 
