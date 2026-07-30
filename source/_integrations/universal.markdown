@@ -24,7 +24,9 @@ Multiple media player entities may be controlled from a universal media player. 
 {% include integrations/config_flow.md %}
 
 {% note %}
-If you already have a universal media player configured in YAML with a `unique_id`, it is automatically migrated to a UI-managed entry the next time Home Assistant starts. Once migrated, remove the corresponding entry from `configuration.yaml`.
+The UI covers the most common setups: combining children, routing the commands and attributes listed below, and the advanced options (device class, browse media entity, and templates). Use [YAML configuration](#yaml-configuration) instead if you need a fixed `unique_id`, want to override a command or attribute that isn't listed below, or need to point an attribute at a specific state attribute (rather than an entity's own state) using the `entity_id|attribute` syntax.
+
+A player set up through the UI and one set up through YAML are independent of each other; there's no automatic conversion between the two. If you switch a player from YAML to the UI (or the other way around), remove the old one first, then set up the new one.
 {% endnote %}
 
 {% configuration_basic %}
@@ -181,7 +183,7 @@ device_class:
   required: false
   type: string
 unique_id:
-  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform. If set, this entry is automatically migrated to a UI-managed entry on startup, preserving this ID.
+  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
   required: false
   type: string
 {% endconfiguration %}
