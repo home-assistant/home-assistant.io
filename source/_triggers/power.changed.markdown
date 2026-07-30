@@ -13,7 +13,7 @@ Use **Power changed** when you want to react to the latest power reading right a
 
 ## Prerequisites
 
-- Use a sensor with the power device class.
+- Use a sensor with the `power` device class.
 
 {% include triggers/ui_header.md %}
 

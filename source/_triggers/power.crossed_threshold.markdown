@@ -15,7 +15,7 @@ When you target more than one entity, the trigger's **Trigger when** option cont
 
 ## Prerequisites
 
-- Use a sensor with the power device class.
+- Use a sensor with the `power` device class.
 
 {% include triggers/ui_header.md %}
 
