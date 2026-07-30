@@ -223,7 +223,7 @@ living_room
 - kitchen
 ```
 
-### Example area selectors <!-- omit from toc -->
+### Example area selectors <!-- omit in toc -->
 
 An example area selector only shows areas that provide one or more lights or
 switches provided by the [ZHA](/integrations/zha) integration.
@@ -344,7 +344,7 @@ choices:
 
 The output of a choose selector is an object with one key called 'active_choice' representing which selector was chosen, and one key per selector choice representing the value entered for that choice.
 
-### Example choose selector <!-- omit from toc -->
+### Example choose selector <!-- omit in toc -->
 
 An example choose selector that allows user to either select an icon from a dropdown, or enter an arbitrary template.
 
@@ -657,7 +657,7 @@ faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
 
-### Example device selector <!-- omit from toc -->
+### Example device selector <!-- omit in toc -->
 
 An example entity selector that, will only show devices that are:
 
@@ -815,7 +815,7 @@ light.living_room
 - light.kitchen
 ```
 
-### Example entity selector <!-- omit from toc -->
+### Example entity selector <!-- omit in toc -->
 
 An example entity selector that, will only show entities that are:
 
@@ -949,7 +949,7 @@ first_floor
 - second_floor
 ```
 
-### Example floor selectors <!-- omit from toc -->
+### Example floor selectors <!-- omit in toc -->
 
 An example floor selector only shows floors that have one or more lights or
 switches provided by the [ZHA](/integrations/zha) integration.
@@ -1233,7 +1233,7 @@ translation_key:
 
 The output of this selector is a number, for example: `42`
 
-### Example number selectors <!-- omit from toc -->
+### Example number selectors <!-- omit in toc -->
 
 An example number selector that allows a user a percentage, directly in a
 regular number input box.
@@ -1613,7 +1613,7 @@ actions:
 
 {% endimportant %}
 
-### Example target selectors <!-- omit from toc -->
+### Example target selectors <!-- omit in toc -->
 
 An example target selector that only shows targets that at least provide one
 or more lights, provided by the [ZHA](/integrations/zha) integration.
