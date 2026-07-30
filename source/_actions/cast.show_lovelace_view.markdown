@@ -12,7 +12,7 @@ You pick the Cast device, the view to show, and optionally which dashboard the v
 ## Prerequisites
 
 - Only administrators can run this action.
-- Home Assistant Cast requires your Home Assistant installation to be reachable over `https://`. If you use Home Assistant Cloud, this is already taken care of. Otherwise, set your [`external_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
+- Home Assistant Cast requires your Home Assistant installation to be reachable over `https://`. If you use Home Assistant Cloud, this is already taken care of. Otherwise, configure your [`external_url`](/integrations/homeassistant/#external_url).
 - Each dashboard view needs a `path` defined for the **View path** to work. See the [views documentation](/dashboards/views/#path).
 
 {% include actions/ui_header.md %}

@@ -20,7 +20,7 @@ When you target more than one thermostat, the condition's **Condition passes if*
 
 - The target thermostat must support target temperature in the mode being checked.
 - The target thermostat must expose a target temperature attribute to Home Assistant.
-- For heat-cool mode with dual setpoints, the target thermostat must expose a single target temperature attribute.
+- In **Heat/Cool** mode with dual setpoints, the target thermostat must expose a single target temperature attribute.
 
 {% include conditions/ui_header.md %}
 
