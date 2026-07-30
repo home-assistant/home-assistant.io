@@ -12,6 +12,10 @@ The **Water heater target temperature crossed threshold** trigger fires when a w
 
 Use it when you want to react to the crossing itself, like turning on a recirculation pump once the target temperature is raised past a certain point.
 
+## Prerequisites
+
+- The target water heater entity must expose a target temperature attribute.
+
 {% include triggers/ui_header.md %}
 
 To use **Water heater target temperature crossed threshold** in an automation:

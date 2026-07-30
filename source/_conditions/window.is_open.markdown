@@ -9,6 +9,10 @@ related_conditions:
 
 The **Window is open** condition passes when a targeted window is currently open. Use it when you want an automation to continue only if fresh air is coming in, or when you want to warn someone before leaving the house with a window still open.
 
+## Prerequisites
+
+- The target must be a binary sensor or cover with the `window` device class.
+
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -72,7 +76,6 @@ for:
 ## Good to know
 
 - Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as open. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
 - To check the opposite state, use [Window is closed](/conditions/window.is_closed/).
 
 {% include conditions/try_it.md %}

@@ -9,6 +9,10 @@ related_conditions:
 
 The **Window is closed** condition passes when a targeted window is currently closed. Use it when you want to make sure the house is shut before you lock a door, arm an alarm, turn heating back on, or continue only if a window has stayed closed for a while.
 
+## Prerequisites
+
+- The target must be a binary sensor or cover with the `window` device class.
+
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -72,7 +76,6 @@ for:
 ## Good to know
 
 - Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
 - To check the opposite state, use [Window is open](/conditions/window.is_open/).
 
 {% include conditions/try_it.md %}

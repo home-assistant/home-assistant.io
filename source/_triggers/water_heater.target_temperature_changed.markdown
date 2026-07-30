@@ -12,6 +12,10 @@ The **Water heater target temperature changed** trigger fires when the target te
 
 Use the threshold type to decide which changes matter. You can fire on any change, only when the new setpoint is above or below a value, or only when it lands inside or outside a range.
 
+## Prerequisites
+
+- The target water heater entity must expose a target temperature attribute.
+
 {% include triggers/ui_header.md %}
 
 To use **Water heater target temperature changed** in an automation:
@@ -110,8 +114,8 @@ threshold:
 
 - This trigger watches the target temperature setpoint, not the current measured water temperature.
 - To react only when the setpoint crosses a threshold boundary, use [Water heater target temperature crossed threshold](/triggers/water_heater.target_temperature_crossed_threshold/).
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
 - When you use an entity as the threshold, Home Assistant uses that entity's current value when the setpoint changes.
-- The threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
 
 {% include triggers/try_it.md %}
 

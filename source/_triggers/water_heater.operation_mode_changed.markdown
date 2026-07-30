@@ -12,6 +12,10 @@ The **Water heater operation mode changed** trigger fires when a water heater {%
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each matching change, only for the first one, or only after all targeted water heaters reach the selected mode.
 
+## Prerequisites
+
+- The target water heater entity must support the operation mode you want to use.
+
 {% include triggers/ui_header.md %}
 
 To use **Water heater operation mode changed** in an automation:
@@ -106,7 +110,6 @@ for:
 
 ## Good to know
 
-- The available operation modes depend on the water heater. Home Assistant only shows modes that the targeted entity supports.
 - This trigger fires when the mode changes _to_ one of the selected modes. It does not fire when the water heater leaves that mode.
 - `unavailable` and `unknown` are not offered as selectable modes.
 - To react when the water heater simply turns on or off, use [Water heater turned on](/triggers/water_heater.turned_on/) or [Water heater turned off](/triggers/water_heater.turned_off/).
