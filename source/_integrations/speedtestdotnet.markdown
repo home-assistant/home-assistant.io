@@ -32,7 +32,7 @@ After setup, you can choose which server the speed test runs against. Go to {% m
 
 {% configuration_basic %}
 Select test server:
-  description: "The Speedtest.net server to use for tests. Select auto detect to automatically choose a server. Defaults to `*Auto Detect`."
+  description: "The Speedtest.net server to use for tests. Select `*Auto Detect` to automatically choose a server. Defaults to `*Auto Detect`."
 {% endconfiguration_basic %}
 
 ## Integration sensors
