@@ -12,10 +12,6 @@ The **Thermostat target humidity crossed threshold** trigger fires after the tar
 
 Use this trigger when you want to react to the exact moment a humidity setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less humid target.
 
-## Prerequisites
-
-- Use a climate entity that exposes a target humidity attribute.
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target humidity crossed threshold** in an automation:
@@ -146,6 +142,7 @@ for:
 
 ## Good to know
 
+- Use a climate entity that exposes a target humidity attribute.
 - This trigger monitors the target humidity setpoint (what you want the thermostat to maintain), not the current room humidity (the actual measured humidity). To react to changes in measured room humidity, use [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) instead.
 - The threshold type controls the direction of the crossing. **Above** and **Below** fire when crossing in one direction through a single value, while **In range** and **Outside range** fire when crossing the boundary of a range.
 - The trigger fires only at the moment of crossing, not while the setpoint stays beyond the threshold.

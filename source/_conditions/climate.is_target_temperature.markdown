@@ -16,12 +16,6 @@ The **Thermostat target temperature** condition passes when a thermostat {% term
 
 When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to meet the threshold, or demand that all of them do.
 
-## Prerequisites
-
-- The target thermostat must support target temperature in the mode being checked.
-- The target thermostat must expose a target temperature attribute to Home Assistant.
-- In **Heat/Cool** mode with dual setpoints, the target thermostat must expose a single target temperature attribute.
-
 {% include conditions/ui_header.md %}
 
 To use **Thermostat target temperature** in an automation:
@@ -160,6 +154,9 @@ for:
 
 ## Good to know
 
+- The target thermostat must support target temperature in the mode being checked.
+- The target thermostat must expose a target temperature attribute to Home Assistant.
+- In **Heat/Cool** mode with dual setpoints, the target thermostat must expose a single target temperature attribute.
 - This condition checks the thermostat's _target temperature_ setpoint, not the actual measured temperature in the room. To react to the measured temperature, use the [Temperature value](/conditions/temperature.is_value/) condition instead.
 - Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - For thermostats in heat-cool mode that support dual setpoints, this condition checks the single target temperature attribute.

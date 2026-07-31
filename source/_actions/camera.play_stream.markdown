@@ -14,11 +14,6 @@ related_actions:
 
 Use this action to send a live camera stream to a media player, for example to show the front door camera on a TV when someone rings the doorbell.
 
-## Prerequisites
-
-- The target must be a camera entity.
-- The [stream](/integrations/stream/) integration must be set up.
-
 {% include actions/ui_header.md %}
 
 To play a camera stream from an automation or a script:
@@ -75,6 +70,11 @@ format:
 {% include actions/targets.md %}
 
 {% include actions/try_it.md %}
+
+## Good to know
+
+- The target must be a camera entity.
+- The [stream](/integrations/stream/) integration must be set up.
 
 {% include actions/more_examples.md %}
 

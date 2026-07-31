@@ -12,10 +12,6 @@ The **Thermostat target temperature crossed threshold** trigger fires after the 
 
 Use this trigger when you want to react to the exact moment a setpoint enters or exits a range, such as when a thermostat is adjusted to a more or less aggressive temperature.
 
-## Prerequisites
-
-- Use a climate entity that exposes a target temperature attribute.
-
 {% include triggers/ui_header.md %}
 
 To use **Thermostat target temperature crossed threshold** in an automation:
@@ -155,6 +151,7 @@ for:
 
 ## Good to know
 
+- Use a climate entity that exposes a target temperature attribute.
 - This trigger monitors the target temperature setpoint (what you want the thermostat to maintain), not the current room temperature (the actual measured temperature). To react to changes in measured room temperature, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
 - The threshold type controls the direction of the crossing. **Above** and **Below** fire when crossing in one direction through a single value, while **In range** and **Outside range** fire when crossing the boundary of a range.
 - The trigger fires only at the moment of crossing, not while the setpoint stays beyond the threshold.
