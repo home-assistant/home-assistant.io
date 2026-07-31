@@ -15,7 +15,7 @@ Use it to automate actions when a dark area becomes lit, like sending a notifica
 
 ## Prerequisites
 
-- Use a binary sensor with the `light` device class.
+- Use a binary sensor with the light device class.
 
 {% include triggers/ui_header.md %}
 

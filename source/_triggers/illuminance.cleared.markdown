@@ -15,7 +15,7 @@ Use it to automate actions when an area becomes dark, like turning on hallway li
 
 ## Prerequisites
 
-- Use a binary sensor with the `light` device class.
+- Use a binary sensor with the light device class.
 
 {% include triggers/ui_header.md %}
 

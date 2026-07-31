@@ -12,7 +12,7 @@ The **Light level is detected** condition passes when one or more light binary s
 
 ## Prerequisites
 
-- The target must be a binary sensor with the `light` device class.
+- The target must be a binary sensor with the light device class.
 
 {% include conditions/ui_header.md %}
 
