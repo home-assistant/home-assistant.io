@@ -13,11 +13,6 @@ Use **Temperature crossed threshold** to automate heating or cooling when the te
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-## Prerequisites
-
-- Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically.
-- You can also use a sensor with the temperature device class.
-
 {% include triggers/ui_header.md %}
 
 {% include triggers/threshold_crossed_steps.md
@@ -97,6 +92,8 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 ## Good to know
 
+- Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically.
+- You can also use a sensor with the temperature device class.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - A comfortable indoor temperature range is typically 20 to 22°C (68 to 72°F). Use **Outside range** with those bounds to fire the moment conditions drift out of that comfort zone.

@@ -12,10 +12,6 @@ The **Restore** action returns one or more Snapcast speakers to the playback sta
 
 This pair is handy when you want to interrupt playback for a doorbell or a notification sound and then pick up right where you left off.
 
-## Prerequisites
-
-- A [Snapshot](/actions/snapcast.snapshot/) must already be taken for the same speaker. See the snapshot page for a full doorbell example.
-
 {% include actions/ui_header.md %}
 
 To restore a snapshot from an automation or a script:
@@ -54,5 +50,9 @@ This action has no additional options in YAML.
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
+
+## Good to know
+
+- A [Snapshot](/actions/snapcast.snapshot/) must already be taken for the same speaker. See the snapshot page for a full doorbell example.
 
 {% include actions/related.md %}
