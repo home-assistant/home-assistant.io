@@ -485,7 +485,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
   - pm2.5
   - pm10
 
-### CO2Sensor
+### co2Sensor
 
 This integration adds the Blebox device as 2 sensor entities to Home Assistant.
 
