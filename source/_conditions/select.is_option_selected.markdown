@@ -9,10 +9,6 @@ The **Dropdown option is selected** condition passes when a dropdown {% term ent
 
 When you target more than one dropdown, the **Condition passes if** option controls how the check combines results. You can require any targeted dropdown to be on the selected option, or demand that all of them are.
 
-## Prerequisites
-
-- The target must be a select entity or an input select dropdown helper.
-
 {% include conditions/ui_header.md %}
 
 To use **Dropdown option is selected** in an automation:
@@ -94,6 +90,7 @@ for:
 
 ## Good to know
 
+- The target must be a select entity or an input select dropdown helper.
 - The option string must match the dropdown's option exactly, including capitalization. The UI lets you pick from the available options to avoid typos.
 - A dropdown in the `unknown` or `unavailable` state never matches.
 

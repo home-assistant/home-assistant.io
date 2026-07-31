@@ -9,10 +9,6 @@ The **Dropdown selection changed** trigger fires when the selected option of a d
 
 This trigger fires when the selected option changes from one valid option to another. To run only when the dropdown is set to a specific option, combine it with the [Dropdown option is selected](/conditions/select.is_option_selected/) condition.
 
-## Prerequisites
-
-- Have at least one dropdown entity to monitor, either a select entity provided by an integration or a dropdown helper (`input_select`).
-
 {% include triggers/ui_header.md %}
 
 To use **Dropdown selection changed** in an automation:
@@ -41,6 +37,7 @@ This fires every time the selected option of the washing machine program dropdow
 
 ## Good to know
 
+- Have at least one dropdown entity to monitor, either a select entity provided by an integration or a dropdown helper (`input_select`).
 - The trigger does not filter by which option was selected. To run only on a specific option, add a [Dropdown option is selected](/conditions/select.is_option_selected/) condition, or use a [State trigger](/docs/automation/trigger/#state-trigger) with the `to` option.
 - The trigger only fires when switching between two valid options. It does not fire when the dropdown becomes `unknown` or `unavailable`, or when it changes from `unknown` or `unavailable` to a valid option. To react to those cases, use a [State trigger](/docs/automation/trigger/#state-trigger).
 

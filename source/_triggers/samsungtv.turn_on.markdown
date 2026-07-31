@@ -9,10 +9,6 @@ The **Device is requested to turn on** trigger fires when Home Assistant request
 
 Use it when the built-in Wake-on-LAN (WoL) support in the Samsung TV integration is not sufficient for your setup. For example, when the TV is connected to a smart strip, when WoL is not supported on the TV model, or when you want to run additional actions alongside the turn-on sequence, such as switching on a connected AV receiver or adjusting the room lighting.
 
-## Prerequisites
-
-- To turn on the TV from this trigger, add an action that can power on the TV, such as Wake-on-LAN, HDMI-CEC, or turning on a connected smart plug.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -70,6 +66,7 @@ entity_id:
 
 ## Good to know
 
+- To turn on the TV from this trigger, add an action that can power on the TV, such as Wake-on-LAN, HDMI-CEC, or turning on a connected smart plug.
 - This trigger fires when the [Turn on media player](/actions/media_player.turn_on/) action is called targeting the TV entity, not when the TV turns on by itself (for example, after a power cut). It represents a request from Home Assistant, not a state change on the TV.
 - If the TV supports Wake-on-LAN (WoL) and it is enabled in the integration, Home Assistant will attempt WoL automatically without needing this trigger. Use this trigger only when you need to override or supplement that built-in behavior.
 - Set up the [Wake-on-LAN integration](/integrations/wake_on_lan/) before using this trigger to send a Wake-on-LAN packet manually.
