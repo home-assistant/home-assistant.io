@@ -16,7 +16,7 @@ When you target more than one water heater, the condition's **Condition passes i
 ## Prerequisites
 
 - The target water heater entity must expose a target temperature attribute.
-- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 
 {% include conditions/ui_header.md %}
 
