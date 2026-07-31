@@ -11,7 +11,7 @@ The **Window is open** condition passes when a targeted window is currently open
 
 ## Prerequisites
 
-- The target must be a binary sensor or cover with the `window` device class.
+- The target must be a binary sensor or cover with the window device class.
 
 {% include conditions/ui_header.md %}
 

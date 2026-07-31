@@ -11,7 +11,7 @@ The **Window opened** trigger fires when a targeted window opens. Use it when yo
 
 ## Prerequisites
 
-- Use a binary sensor or cover that uses the `window` device class.
+- Use a binary sensor or cover that uses the window device class.
 
 {% include triggers/ui_header.md %}
 

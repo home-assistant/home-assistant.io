@@ -11,7 +11,7 @@ The **Window closed** trigger fires when a targeted window closes. Use it to res
 
 ## Prerequisites
 
-- Use a binary sensor or cover that uses the `window` device class.
+- Use a binary sensor or cover that uses the window device class.
 
 {% include triggers/ui_header.md %}
 
