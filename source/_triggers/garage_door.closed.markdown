@@ -13,7 +13,7 @@ This trigger is useful for turning lights off after you park, resuming a securit
 
 ## Prerequisites
 
-- Use a garage door contact sensor with the `garage_door` device class or a garage door cover with the `garage` device class.
+- Use a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
 
 {% include triggers/ui_header.md %}
 

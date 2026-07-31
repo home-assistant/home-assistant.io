@@ -13,7 +13,7 @@ This condition is useful for reminders, security checks, and routines that shoul
 
 ## Prerequisites
 
-- The target must be a garage door contact sensor with the `garage_door` device class or a garage door cover with the `garage` device class.
+- The target must be a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
 
 {% include conditions/ui_header.md %}
 
