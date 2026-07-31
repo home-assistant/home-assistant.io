@@ -69,7 +69,7 @@ entity_id:
 - When the TV is off, it can appear as unavailable until it powers on again.
 - This trigger fires when Home Assistant *requests* the TV to turn on, not when the TV reports that it turned on.
 - For Wake-on-LAN, enable **LG Connect Apps** in the TV's **Network** settings, or **Mobile App** in **General** settings on older models.
-- For webOS 3.0 and higher, Wake-on-LAN works best when the TV is connected by Ethernet.
+- Wake-on-LAN works best when the TV is connected by Ethernet.
 - If you want to react when the TV actually reports that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
 
 {% include triggers/try_it.md %}
