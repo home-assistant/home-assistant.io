@@ -33,7 +33,7 @@ To use **Illuminance changed** in an automation:
    - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
    - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
    - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-- For each option, you can enter a fixed value in lux, pick a sensor entity, pick a number entity, or pick a [number helper](/integrations/input_number/) entity as the threshold.
+   - For each option, you can enter a fixed value in lux, pick a sensor entity, pick a number entity, or pick a [number helper](/integrations/input_number/) entity as the threshold.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Select **Save**.
 
@@ -49,7 +49,7 @@ Threshold type:
     - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
     - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
 
-For each mode you can enter a fixed value in lux or reference a sensor entity, number entity, or [number helper](/integrations/input_number/) entity.
+    For each mode you can enter a fixed value in lux or reference a sensor entity, number entity, or [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -114,10 +114,10 @@ threshold:
     A mapping that defines which kind of change fires the trigger:
 
     - `type: any`: Fires on any illuminance change (no additional keys needed).
-- `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal value in lux) or an `entity` key (for an input number entity, number entity, or sensor entity).
-- `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal value in lux) or an `entity` key (for an input number entity, number entity, or sensor entity).
-- `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal value in lux) or an `entity` key (for an input number entity, number entity, or sensor entity).
-- `type: outside` (inclusive): Defines an outside-range. Fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal value in lux) or an `entity` key (for an input number entity, number entity, or sensor entity).
+    - `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal value in lux) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal value in lux) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal value in lux) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal value in lux) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
   required: true
   type: map
 {% endoptions_yaml %}
