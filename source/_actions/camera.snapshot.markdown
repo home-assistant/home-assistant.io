@@ -64,7 +64,7 @@ filename:
 ## Good to know
 
 - The target must be a camera entity.
-- The path in `filename` must be inside a directory that Home Assistant is allowed to write to.
+- The path in **Filename** must be inside a directory that Home Assistant is allowed to write to.
 - By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/snapshot.jpg` or `/media/snapshot.jpg` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
 {% include actions/try_it.md %}
