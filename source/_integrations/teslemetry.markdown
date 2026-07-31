@@ -189,6 +189,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
 |Sensor|Left temperature request|No|
+|Sensor|Lifetime energy gained regen|No|
+|Sensor|Miles since reset|No|
 |Sensor|Odometer|No|
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
@@ -223,6 +225,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Scheduled charging start time|No|
 |Sensor|Scheduled departure time|No|
 |Sensor|Secondary drive unit torque command|No|
+|Sensor|Self-driving miles since reset|No|
 |Sensor|Sentry mode|Yes|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
