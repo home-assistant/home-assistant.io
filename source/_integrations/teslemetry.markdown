@@ -100,6 +100,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Pin to drive enabled|No|
 |Binary sensor|Preconditioning enabled|No|
 |Binary sensor|Preconditioning|No|
+|Binary sensor|Rear defroster|No|
 |Binary sensor|Rear display HVAC|No|
 |Binary sensor|Rear driver door|Yes|
 |Binary sensor|Rear driver window|Yes|
