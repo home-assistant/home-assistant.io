@@ -96,7 +96,6 @@ When the basement dehumidifier starts running again, it means the air has become
 
 - **Trigger**: Humidifier started drying
   - **Target**: Basement dehumidifier
-  - **Trigger when**: Each
   - **For at least**: 00:05:00
 - **Action**: Send a notification message
   - **Target**: My device (`notify.my_device`)
@@ -111,7 +110,6 @@ automation: |
       target:
         entity_id: humidifier.basement_dehumidifier
       options:
-        behavior: each
         for: "00:05:00"
   actions:
     - action: notify.send_message
@@ -129,9 +127,8 @@ When the dehumidifier starts drying, close any open motorized windows automatica
 
 - **Trigger**: Humidifier started drying
   - **Target**: Basement dehumidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Cover: Close cover
+- **Action**: Close cover
+  - **Target**: Basement area
 
 {% details "YAML example for closing windows on dehumidification start" %}
 
@@ -142,9 +139,6 @@ automation: |
     - trigger: humidifier.started_drying
       target:
         entity_id: humidifier.basement_dehumidifier
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: cover.close_cover
       target:

@@ -86,8 +86,8 @@ If pets go in and out through the patio door, you may not want the robot vacuum 
 
 - **Trigger**: Time
 - **Condition**: Door is closed
-- **Target**: Patio door
-- **For at least**: 00:10:00
+  - **Target**: Patio door
+  - **For at least**: 00:10:00
 - **Action**: Start vacuum cleaner
 
 {% details "YAML example for delaying vacuum cleaning until the patio door is shut" %}
