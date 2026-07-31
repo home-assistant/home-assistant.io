@@ -11,10 +11,6 @@ The **Valve opened** trigger fires after a valve {% term entity %} transitions t
 
 Use it to react the moment a valve is opened, whether it was opened manually, by a schedule, through an {% term automation %}, or by a voice command. Use this trigger in an automation to log irrigation activity, send a notification when the main water valve opens unexpectedly, or start a timer to auto-close a valve after a set duration.
 
-## Prerequisites
-
-- The target must be a valve entity that reports open and closed state changes to Home Assistant.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -84,6 +80,7 @@ for:
 
 ## Good to know
 
+- The target must be a valve entity that reports open and closed state changes to Home Assistant.
 - The trigger fires when the valve reaches the **Open** state. It does not fire during the transitional **Opening** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves that report position (0 to 100%) are considered open as soon as their position is above 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental openings, such as a momentary network glitch that causes a valve to re-report its state.

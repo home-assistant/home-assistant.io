@@ -12,10 +12,6 @@ there is a new update ready for a device or service.
 This trigger is useful for sending a notification, starting a reminder, or
 waiting a little while before taking action on an available update.
 
-## Prerequisites
-
-- The target must be an update entity that reports available updates to Home Assistant.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -85,6 +81,7 @@ for:
 
 ## Good to know
 
+- The target must be an update entity that reports available updates to Home Assistant.
 - This trigger watches update entities whose state changes to `on`, which means
   an update is available.
 - If an entity returns from `unavailable` or `unknown` to `on`, that recovery

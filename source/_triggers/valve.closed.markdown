@@ -11,10 +11,6 @@ The **Valve closed** trigger fires after a valve {% term entity %} transitions t
 
 Use it to react the moment a valve is closed, whether it was closed manually, by a schedule, through an {% term automation %}, or by a voice command. For example, you can create an automation to log when irrigation ends, confirm that a gas valve has been shut off, or chain follow-up actions after a valve closes.
 
-## Prerequisites
-
-- The target must be a valve entity that reports open and closed state changes to Home Assistant.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -84,6 +80,7 @@ for:
 
 ## Good to know
 
+- The target must be a valve entity that reports open and closed state changes to Home Assistant.
 - The trigger fires when the valve reaches the **Closed** state. It does not fire during the transitional **Closing** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves that report position (0 to 100%) are considered closed only when their position reaches exactly 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental closures, such as a momentary sensor glitch that causes a valve to flicker to closed and back.

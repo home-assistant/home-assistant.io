@@ -11,10 +11,6 @@ The **Valve is open** condition passes when a targeted valve {% term entity %} i
 
 Use it when you want an automation to continue only if a valve is actively letting water, gas, or air through. For example, create an automation to avoid sending a "start irrigation" action when the main water valve is already open, or gate a water-conservation alert on whether an irrigation valve is still running.
 
-## Prerequisites
-
-- The target must be a valve entity that reports whether the valve is open or closed to Home Assistant.
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -79,6 +75,7 @@ for:
 
 ## Good to know
 
+- The target must be a valve entity that reports whether the valve is open or closed to Home Assistant.
 - Valves that are in the transitional **Opening** state do not satisfy this condition. The condition only passes once the valve is fully **Open**. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves reporting position (0 to 100%) are considered open as soon as their position is above 0. If you need to check for a fully open valve, combine this condition with a numeric state condition on the `current_position` attribute.
 - Valves that have an **Unavailable** or **Unknown** state are skipped from the condition evaluation.
