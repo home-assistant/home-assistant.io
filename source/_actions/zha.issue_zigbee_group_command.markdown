@@ -10,11 +10,6 @@ related_actions:
 
 Use this action to send a command to a Zigbee cluster on a whole Zigbee group at once. This is a low-level tool that lets you control all members of a group with a single command, instead of addressing each device individually. You need to know the group's address, the cluster, and the command you want to send.
 
-## Prerequisites
-
-- Only users with administrator rights can run this action.
-- The group must already exist. Create Zigbee groups on the **Zigbee Home Automation** (ZHA) integration page in {% my integrations title="**Settings** > **Devices & services**" %}.
-
 {% include actions/ui_header.md %}
 
 To issue a group command from an automation or a script:
@@ -93,6 +88,8 @@ manufacturer:
 
 ## Good to know
 
+- Only users with administrator rights can run this action.
+- The group must already exist. Create Zigbee groups on the **Zigbee Home Automation** (ZHA) integration page in {% my integrations title="**Settings** > **Devices & services**" %}.
 - Cluster and command IDs are specific to the device type behind the group.
 
 {% include actions/stuck.md %}

@@ -12,11 +12,6 @@ Use this action to add or update a credential, such as a PIN code or password, f
 
 If you omit the credential slot, the integration assigns the first available slot for the credential type. The action returns the assigned credential slot and user index in a response variable.
 
-## Prerequisites
-
-- The user must already exist. Create one with the [Set user](/actions/zwave_js.set_user/) action first.
-- The credential type must be `pin_code` or `password`.
-
 {% include actions/ui_header.md %}
 
 To set a credential from an automation or a script:
@@ -99,6 +94,8 @@ lock.front_door:
 
 ## Good to know
 
+- The user must already exist. Create one with the [Set user](/actions/zwave_js.set_user/) action first.
+- The credential type must be `pin_code` or `password`.
 - The accepted credential length range is reported by the [Get credential capabilities](/actions/zwave_js.get_credential_capabilities/) action.
 - Other credential types, such as RFID, NFC, or biometric, may appear in the response of the [Get users](/actions/zwave_js.get_users/) and [Get credential capabilities](/actions/zwave_js.get_credential_capabilities/) actions, but must be enrolled directly on the device.
 

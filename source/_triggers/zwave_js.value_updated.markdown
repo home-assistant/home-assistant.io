@@ -16,10 +16,6 @@ This trigger is useful when:
 - A device sends value updates without changing entity state, for example, when the device does not follow the Z-Wave specification.
 - You need to filter on a specific Command Class, property, property key, or endpoint.
 
-## Prerequisites
-
-- Configure this trigger in YAML mode. It is not available in the automation editor.
-
 {% include triggers/yaml_header.md %}
 
 In YAML, refer to this trigger as `zwave_js.value_updated`. A basic example looks like this:
@@ -80,6 +76,7 @@ to:
 
 ## Good to know
 
+- Configure this trigger in YAML mode. It is not available in the automation editor.
 - Property names, property keys, and Command Class IDs come from Z-Wave JS. Refer to the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/valueid) for the available values.
 - When `from` or `to` is a list, the trigger fires if the value matches any item in the list.
 

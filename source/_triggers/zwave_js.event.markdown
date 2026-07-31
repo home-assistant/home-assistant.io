@@ -16,10 +16,6 @@ This trigger is useful when:
 - You want to react to a node event that is not exposed as an entity state.
 - You need to match a specific event by name and, optionally, by event data.
 
-## Prerequisites
-
-- Configure this trigger in YAML mode. It is not available in the automation editor.
-
 {% include triggers/yaml_header.md %}
 
 In YAML, refer to this trigger as `zwave_js.event`. A basic example looks like this:
@@ -76,6 +72,7 @@ partial_dict_match:
 
 ## Good to know
 
+- Configure this trigger in YAML mode. It is not available in the automation editor.
 - Event names and the structure of event data come from Z-Wave JS. The set of available fields depends on the event.
 - When an event includes nested fields (for example, an `args` mapping inside `event_data`), use `partial_dict_match: true` if you only want to match a subset of those fields.
 - There is strict validation in place based on all known event types. If you come across an event type that is not supported, open a GitHub issue in the [`home-assistant/core`](https://github.com/home-assistant/core/issues) repository.

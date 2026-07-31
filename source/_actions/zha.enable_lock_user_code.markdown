@@ -11,10 +11,6 @@ related_actions:
 
 Use this action to enable a user code that is stored in a slot on a Zigbee lock. This lets you turn a code back on after it was disabled, for example to re-activate a guest code for a returning visitor without setting it again.
 
-## Prerequisites
-
-- The slot must already hold a code. To store a new code, use the [Set a lock user code](/actions/zha.set_lock_user_code/) action.
-
 {% include actions/ui_header.md %}
 
 To enable a lock user code from an automation or a script:
@@ -60,5 +56,9 @@ code_slot:
 {% include actions/targets.md domain="lock" %}
 
 {% include actions/stuck.md %}
+
+## Good to know
+
+- The slot must already hold a code. To store a new code, use the [Set a lock user code](/actions/zha.set_lock_user_code/) action.
 
 {% include actions/related.md %}
