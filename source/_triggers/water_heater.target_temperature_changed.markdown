@@ -103,7 +103,7 @@ threshold:
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
 
-    The `entity` value can reference an `input_number`, `sensor`, or `number` entity. When you use a helper, create the {% term helper %} separately before using it here.
+    The `entity` value can reference an input number, sensor, or number entity. When you use a helper, create the {% term helper %} separately before using it here.
   required: true
   type: map
 {% endoptions_yaml %}
