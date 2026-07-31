@@ -11,6 +11,8 @@ related:
 
 After adding a new device, you might find the automatically assigned entity ID too technical and the entity lacking a friendly name. You can personalize these elements to better fit your naming conventions or modify other attributes like the icon.
 
+## Changing the attributes of an entity
+
 To change entity attributes, follow these steps:
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity from the list.
@@ -48,8 +50,8 @@ To change entity attributes, follow these steps:
 If you want to have a straightforward and organized Home Assistant setup, it is important that you create a name for each entity, as well as for each related floor, area and device, that is as simple as possible and then configure everything properly. Name every element for what it is and Home Assistant will add the context around it based on what you have configured. Here are a few recommendations and examples:
 
 - Create a short and standalone name for each element that simply identifies it, leaving the location and the element it belongs to out of the name. For example, a good name  for an area would be "Living room", not "Ground floor living room", and a good name for a device would be "Multi sensor", not "Office multi sensor".
-- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant will use that information in pickers, dialogs, and tables so you don't need to identify the location of floors, entities, and devices in their names.
-- Customize the presentation of floors, areas, devices, and entities by editing the cards and views of dashboards. Adjust the displayed name of a dashboard card or remove it if the name is longer than you would like, for example.
+- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant will use that information in pickers, dialogs, and tables so you don't need to identify the location of areas, entities, and devices in their names.
+- Customize the presentation of floors, areas, devices, and entities by editing the cards and views of dashboards. For example, you can adjust the displayed name of a dashboard entity card or remove it if it is longer than you would like, instead of changing the entity name.
 
 ## Changing the entity ID format for new entities
 
