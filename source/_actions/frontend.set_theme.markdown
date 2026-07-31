@@ -11,11 +11,6 @@ Use this action to set the theme Home Assistant uses by default, for light mode 
 
 The theme you set here is saved and restored when Home Assistant restarts. If someone picks a theme manually on their [user profile](/integrations/frontend/#applying-themes), that choice overrides this action for that person.
 
-## Prerequisites
-
-- The theme has to be installed and enabled before you can set it. See [defining themes](/integrations/frontend/#defining-themes).
-- Only administrators can run this action.
-
 {% include actions/ui_header.md %}
 
 To set the theme from an automation or a script:
@@ -71,6 +66,8 @@ You must set at least one of `name` or `name_dark`. Any option you leave out kee
 
 ## Good to know
 
+- The theme has to be installed and enabled before you can set it. See [defining themes](/integrations/frontend/#defining-themes).
+- Only administrators can run this action.
 - A theme someone selects on their own [user profile](/integrations/frontend/#applying-themes) overrides this action for that person, across their devices.
 
 {% include actions/try_it.md %}

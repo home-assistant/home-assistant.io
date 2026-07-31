@@ -11,10 +11,6 @@ The **Garage door is closed** condition passes when one or more targeted garage 
 
 This condition is useful for security checks and routines that depend on a closed garage door, like arming an alarm or turning on climate control only after the opening is sealed.
 
-## Prerequisites
-
-- The target must be a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -75,6 +71,7 @@ for:
 
 ## Good to know
 
+- The target must be a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
 - Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted garage door is closed.
 - With **All**, the condition passes only if every available targeted garage door is closed. If every targeted garage door is `unavailable` or `unknown`, **All** passes and **Any** fails.
