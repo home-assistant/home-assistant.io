@@ -14,7 +14,7 @@ waiting a little while before taking action on an available update.
 
 ## Prerequisites
 
-- Use an update entity in Home Assistant.
+- The target must be an update entity that reports available updates to Home Assistant.
 
 {% include triggers/ui_header.md %}
 

@@ -13,7 +13,7 @@ Use it when you want an automation to continue only if no fluid is flowing throu
 
 ## Prerequisites
 
-- The target valve entity must exist in Home Assistant.
+- The target must be a valve entity that reports whether the valve is open or closed to Home Assistant.
 
 {% include conditions/ui_header.md %}
 

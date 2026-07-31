@@ -13,7 +13,7 @@ Use it to react the moment a valve is closed, whether it was closed manually, by
 
 ## Prerequisites
 
-- Use a valve entity in Home Assistant.
+- The target must be a valve entity that reports open and closed state changes to Home Assistant.
 
 {% include triggers/ui_header.md %}
 
