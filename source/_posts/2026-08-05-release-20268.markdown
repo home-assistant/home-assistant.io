@@ -337,6 +337,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Ecowitt]** added soil conductivity sensor support. Thanks, [@GSzabados]!
 - **[Steam]** added an image platform, plus new Last online, Level, and Now playing sensors. Thanks, [@tr4nt0r]!
 - **[LG Infrared]** added support for LG air conditioners. Thanks, [@Dr-Blank]!
+- **[UniFi Protect]** now supports the USL smart sensors (USL Entry, USL Environmental, and USL GlassBreak) on UniFi Protect 7.2 and newer, and cameras gained **Motion detection**, **Smart detection**, and **Sound detection** event entities that fire for any detection the camera reports, such as a person, a package, or barking, with the detected type as an attribute. Thanks, [@RaHehl]!
 
 [Shelly]: /integrations/shelly
 [Reolink]: /integrations/reolink
@@ -367,6 +368,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [Ecowitt]: /integrations/ecowitt
 [Steam]: /integrations/steam_online
 [LG Infrared]: /integrations/lg_infrared
+[UniFi Protect]: /integrations/unifiprotect
 [@abmantis]: https://github.com/abmantis
 [@bdlcalvin]: https://github.com/bdlcalvin
 [@bieniu]: https://github.com/bieniu
@@ -539,7 +541,7 @@ Thanks, [@maartenla](https://github.com/maartenla)!
 
 ### Taps that land where you mean them
 
-Dashboards built with the picture elements card are more forgiving to tap now. Instead of a tap landing in the dead space between overlapping elements, it goes to the nearest icon or label. On a busy floorplan, that is the difference between hitting the light you meant and hitting nothing at all. Thanks, [@RaHehl](https://github.com/RaHehl)!
+On the picture elements card, a tap could trigger the element next to the one you meant, or hit nothing at all, and some elements could not be tapped. Taps now go to the nearest icon or label, so every element can be reached, and tapping a label's text always triggers that label. Thanks, [@RaHehl](https://github.com/RaHehl)!
 
 ### A combined battery level you can trust
 
@@ -706,8 +708,18 @@ Support for UniFi Protect AI Port devices has been removed. These devices only e
 
 ([@RaHehl] - [#174378]) ([UniFi Protect documentation])
 
+Detection scores are no longer available. The detection binary sensors (motion, person, vehicle, animal, and the smart-audio alarm sensors) now take their state from the UniFi Protect public API, which carries no per-event score, so their `event_score` attribute is gone and automations that filter on it need another condition. The event id and the detected types moved to the new **Motion detection**, **Smart detection**, and **Sound detection** event entities.
+
+([@RaHehl] - [#174948]) ([UniFi Protect documentation])
+
+UniFi Protect 7.1 or newer is now required. On an older console the integration reports that the version is too old instead of setting up. Update UniFi Protect to 7.1 or newer to keep using it.
+
+([@RaHehl] - [#177620]) ([UniFi Protect documentation])
+
 [@RaHehl]: https://github.com/RaHehl
 [#174378]: https://github.com/home-assistant/core/pull/174378
+[#174948]: https://github.com/home-assistant/core/pull/174948
+[#177620]: https://github.com/home-assistant/core/pull/177620
 [UniFi Protect documentation]: /integrations/unifiprotect/
 
 {% enddetails %}
