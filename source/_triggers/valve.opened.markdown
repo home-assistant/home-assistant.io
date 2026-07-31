@@ -53,7 +53,7 @@ trigger: |
     entity_id: valve.garden_irrigation
 {% endexample %}
 
-This fires every time `valve.garden_irrigation` transitions to the `open` state.
+This fires every time `valve.garden_irrigation` transitions to the **Open** state.
 
 ### Options in YAML
 
@@ -84,7 +84,7 @@ for:
 
 ## Good to know
 
-- The trigger fires when the valve reaches the `open` state. It does not fire during the transitional `opening` state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- The trigger fires when the valve reaches the **Open** state. It does not fire during the transitional **Opening** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves that report position (0 to 100%) are considered open as soon as their position is above 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental openings, such as a momentary network glitch that causes a valve to re-report its state.
 - You can conserve water by pairing this trigger with a timer. Create an automation that, when an irrigation or garden valve opens, starts a countdown and automatically closes it after the intended duration. This prevents over-watering caused by a valve left open, which is one of the most common sources of household water waste.

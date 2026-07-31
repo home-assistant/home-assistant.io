@@ -79,9 +79,9 @@ for:
 
 ## Good to know
 
-- Valves that are in the transitional `opening` state do not satisfy this condition. The condition only passes once the valve is fully `open`. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- Valves that are in the transitional **Opening** state do not satisfy this condition. The condition only passes once the valve is fully **Open**. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves reporting position (0 to 100%) are considered open as soon as their position is above 0. If you need to check for a fully open valve, combine this condition with a numeric state condition on the `current_position` attribute.
-- Valves that have an `unavailable` or `unknown` state are skipped from the condition evaluation.
+- Valves that have an **Unavailable** or **Unknown** state are skipped from the condition evaluation.
 - Use the **For at least** option to make your automation more robust against brief, incidental openings, such as a valve that flickered open during a restart.
 
 {% include conditions/try_it.md %}

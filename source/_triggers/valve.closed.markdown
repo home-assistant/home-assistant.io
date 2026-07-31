@@ -53,7 +53,7 @@ trigger: |
     entity_id: valve.garden_irrigation
 {% endexample %}
 
-This fires every time `valve.garden_irrigation` transitions to the `closed` state.
+This fires every time `valve.garden_irrigation` transitions to the **Closed** state.
 
 ### Options in YAML
 
@@ -84,7 +84,7 @@ for:
 
 ## Good to know
 
-- The trigger fires when the valve reaches the `closed` state. It does not fire during the transitional `closing` state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- The trigger fires when the valve reaches the **Closed** state. It does not fire during the transitional **Closing** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
 - Valves that report position (0 to 100%) are considered closed only when their position reaches exactly 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental closures, such as a momentary sensor glitch that causes a valve to flicker to closed and back.
 - You can use this trigger to track your water consumption. Create an automation that records the elapsed time since it opened (using a helper or template sensor) and build a daily watering log when a valve closes. Awareness of actual usage is the first step towards reducing it.
