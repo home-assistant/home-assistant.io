@@ -15,7 +15,7 @@ After adding a new device, you might find the automatically assigned entity ID t
 
 If you want to have a straightforward and organized Home Assistant setup, create a name for each entity, as well as for each related floor, area and device, that is as simple as possible and then configure everything properly. Name every element for what it is and Home Assistant will add the context around it based on what you have configured. Here are a few recommendations and examples:
 
-- Create a short and standalone name for each element that simply identifies it, leaving the location and the element it belongs to out of the name. For example, a good name for an area would be "Living room" instead of "Ground floor living room", and a good name for a device would be "Multi sensor" instead of "Office multi sensor".
+- Create a short, standalone name for each item. Leave out its location and what it belongs to. For example, a good name for an area is `Living room` instead of `Ground floor living room`, and a good name for a device is `Multi sensor` instead of `Office multi sensor`.
 - [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant will use that information in pickers, dialogs, and tables so you don't need to add the location of areas, entities, and devices in their names.
 - Customize the presentation of floors, areas, devices, and entities by editing the cards and views of dashboards. For example, you can adjust the displayed name of a dashboard entity card or remove it if it is longer than you would like, instead of changing the entity name.
 
