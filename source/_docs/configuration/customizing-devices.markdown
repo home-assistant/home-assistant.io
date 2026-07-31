@@ -55,7 +55,7 @@ To change entity attributes, follow these steps:
 
 ## Changing the entity ID format for new entities
 
-Home Assistant generates entity IDs for new entities based on parts of your setup, like the floor or area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the name `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, device, and entity name, in that order.
+Home Assistant generates entity IDs for new entities based on parts of your setup, like the floor or area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, device, and entity name, in that order.
 
 However, you can change the default format of entity IDs by defining which parts will be used and its order. The new format that you set will only be used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs. You can still rename the entity IDs afterwards in the entity settings.
 
