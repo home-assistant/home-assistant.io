@@ -144,6 +144,48 @@ homekit:
           description: Entities to be excluded.
           required: false
           type: list
+        include_targets:
+          description: Areas, devices, floors, or labels whose entities are included. ([Filter by area, device, floor, or label](#filter-by-area-device-floor-or-label))
+          required: false
+          type: map
+          keys:
+            area_id:
+              description: Areas to be included. Matches the entities assigned to the area, as well as the entities of the devices in that area.
+              required: false
+              type: list
+            device_id:
+              description: Devices to be included. Matches the entities of those devices.
+              required: false
+              type: list
+            floor_id:
+              description: Floors to be included. Matches the entities in every area on that floor.
+              required: false
+              type: list
+            label_id:
+              description: Labels to be included. Matches the entities with that label, as well as the entities of the devices and areas with that label.
+              required: false
+              type: list
+        exclude_targets:
+          description: Areas, devices, floors, or labels whose entities are excluded. Accepts the same keys as `include_targets`. ([Filter by area, device, floor, or label](#filter-by-area-device-floor-or-label))
+          required: false
+          type: map
+          keys:
+            area_id:
+              description: Areas to be excluded.
+              required: false
+              type: list
+            device_id:
+              description: Devices to be excluded.
+              required: false
+              type: list
+            floor_id:
+              description: Floors to be excluded.
+              required: false
+              type: list
+            label_id:
+              description: Labels to be excluded.
+              required: false
+              type: list
     entity_config:
       description: Configuration for specific entities. All subordinate keys are the corresponding entity ids of the domains, e.g., `alarm_control_panel.alarm`.
       required: false
@@ -421,6 +463,45 @@ homekit:
 {% include common-tasks/filters.md %}
 
 Hidden entities and categorized entities (config, diagnostic, and system entities) are not included unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
+
+### Filter by area, device, floor, or label
+
+Instead of listing entities one by one, you can filter by where an entity is or by how it is labeled.
+
+To filter by area in the UI:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Configure** on the bridge you want to change.
+2. On the **Select the entities to be included** or **Select the entities to be excluded** step, use **Included areas** or **Excluded areas** to select the areas you want.
+3. Complete the options flow.
+
+In YAML, use the `include_targets` and `exclude_targets` keys. Both accept `area_id`, `device_id`, `floor_id`, and `label_id`, each holding a list of IDs. Since the options flow currently offers area pickers only, use YAML if you want to filter by device, floor, or label.
+
+```yaml
+# Example filter to include the living room lights, except labeled entities
+homekit:
+  - filter:
+      include_domains:
+        - light
+      include_targets:
+        area_id:
+          - living_room
+      exclude_targets:
+        label_id:
+          - hidden_from_homekit
+```
+
+Targets are applied on top of the rules above:
+
+- Entities and entity globs that you list explicitly are absolute. They are included or excluded regardless of the targets you use.
+- `exclude_targets` subtracts. Any remaining entity that matches an excluded target is not exposed to HomeKit.
+- `include_targets` narrows the include. When you combine included domains with included targets, only the entities that match both are exposed to HomeKit. In the example above, this is the lights in the living room, not every light in your home.
+- `include_targets` on its own acts as the include list. If you do not include any domains, every entity that matches an included target is exposed to HomeKit.
+- Excluded domains stay excluded, even if an entity matches an included target.
+- A filter without targets behaves exactly as before, so your existing configuration keeps working unchanged.
+
+Targets never match hidden entities, categorized entities, or disabled entities. To expose one of those, list it in `include_entities`.
+
+Target membership is dynamic. If you move an entity to another area, or add or remove a label, the bridge reloads a moment later so that it reflects the change.
 
 ## Docker Network Isolation
 
