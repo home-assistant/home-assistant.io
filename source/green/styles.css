@@ -1090,6 +1090,13 @@ h4.heading-small {
   font-weight: 400;
 }
 
+.disclaimer-copy {
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
 .overflow-wrapper {
   margin-top: 16px;
   position: relative;
