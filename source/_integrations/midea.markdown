@@ -104,6 +104,7 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 The **Midea** {% term integration %} provides the following entities:
 
 - Climate
+- Sensor: Various diagnostics sensors.
 
 ## Known limitations
 
