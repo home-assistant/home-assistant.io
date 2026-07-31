@@ -11,7 +11,7 @@ When you target more than one dropdown, the **Condition passes if** option contr
 
 ## Prerequisites
 
-- The target must be a `select` entity or an `input_select` Dropdown helper.
+- The target must be a select entity or an input select dropdown helper.
 
 {% include conditions/ui_header.md %}
 
