@@ -71,8 +71,8 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger works with binary sensors and covers that use the `window` device class.
 - To react when a window closes instead, use [Window closed](/triggers/window.closed/).
 
 {% include triggers/try_it.md %}

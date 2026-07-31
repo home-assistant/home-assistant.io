@@ -71,8 +71,8 @@ for:
 
 ## Good to know
 
+- The target must be a binary sensor or cover with the window device class.
 - Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as open. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
 - To check the opposite state, use [Window is closed](/conditions/window.is_closed/).
 
 {% include conditions/try_it.md %}
