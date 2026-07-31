@@ -53,9 +53,9 @@ If you want to have a straightforward and organized Home Assistant setup, it is 
 
 ## Changing the entity ID format for new entities
 
-Home Assistant generates entity IDs for new entities based on parts of your setup, like the floor, area, device, and entity name. For example, a temperature sensor on a thermostat in the living room might become `sensor.living_room_thermostat_temperature`.
+Home Assistant generates entity IDs for new entities based on parts of your setup, like the floor or area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the name `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, device, and entity name, in that order.
 
-You can change which parts are used and in which order. This format is only used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs, and you can still rename them afterwards in the entity settings.
+However, you can change the default format of entity IDs by defining which parts will be used and its order. The new format that you set will only be used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs. You can still rename the entity IDs afterwards in the entity settings.
 
 {% note %}
 Some integrations suggest their own entity ID for new entities. In that case, this format is not used.
@@ -67,9 +67,9 @@ To change the format:
 2. Add, remove, or reorder the **Floor**, **Area**, **Device**, and **Entity** parts to build the format you want. The **Preview** shows an example of the result.
 3. Select **Save**.
 
-The default format uses the area, device, and entity name, in that order. To go back to it, select **Reset to default**.
+If you want to go back to the default format, select **Reset to default**.
 
-When you recreate the entity IDs for a device, Home Assistant uses this format to generate them.
+When you recreate the entity IDs for a device, Home Assistant will use the new format to generate them.
 
 ## Customizing an entity in YAML
 
