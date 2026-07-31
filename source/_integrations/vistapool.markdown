@@ -226,8 +226,6 @@ Each of the three timer slots described above runs between a start time and an e
 - **Filtration interval 2 start**, **Filtration interval 2 end**: same, for the second slot.
 - **Filtration interval 3 start**, **Filtration interval 3 end**: same, for the third slot.
 
-The controller stores these times with minute precision, so any seconds you enter are ignored.
-
 ## Data updates
 
 Vistapool uses real-time **cloud push**. Home Assistant subscribes to the Vistapool cloud once and the controller streams every change as it happens, so dashboards and automations react within a second or two of the physical event, with no fixed polling interval.
