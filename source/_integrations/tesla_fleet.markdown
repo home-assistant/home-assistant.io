@@ -104,14 +104,18 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 3. Redirect to Home Assistant:
    - Confirm you want to **Link account to Home Assistant**
 
-4. Enter domain
+4. Select region
+   - Home Assistant detects the region for your Tesla account and selects it for you, so most people can just select **Submit**.
+   - If your vehicles or energy sites are registered in a different region, select the correct region from the list before continuing.
+
+5. Enter domain
    - Enter the domain name you intend to host your public key on
    - This domain should be the same or a subdomain of your origin domain, and must use a valid SSL certificate.
 
-5. Register public key
-   - Upload the public key shown to the domain you entered in step 4 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
+6. Register public key
+   - Upload the public key shown to the domain you entered in step 5 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
 
-6. Install Virtual Key
+7. Install Virtual Key
    - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
    - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
 
