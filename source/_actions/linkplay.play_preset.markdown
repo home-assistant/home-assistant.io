@@ -56,12 +56,12 @@ preset_number:
 
 {% include actions/targets.md domain="media_player" %}
 
-{% include actions/try_it.md %}
-
-{% include actions/stuck.md %}
-
 ## Good to know
 
 - Presets are stored on the device itself. Use a companion app, such as 4stream, to save presets before you can play them with this action.
+
+{% include actions/try_it.md %}
+
+{% include actions/stuck.md %}
 
 {% include actions/related.md %}
