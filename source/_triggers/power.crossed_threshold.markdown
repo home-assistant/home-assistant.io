@@ -13,10 +13,6 @@ Use **Power crossed threshold** when the crossing moment matters, such as when a
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-## Prerequisites
-
-- Use a sensor with the power device class.
-
 {% include triggers/ui_header.md %}
 
 To use **Power crossed threshold** in an automation:
@@ -158,6 +154,7 @@ for:
 
 ## Good to know
 
+- Use a sensor with the power device class.
 - Use **Power crossed threshold** when you care about the moment a reading crosses a level or range boundary. If you want to react to every matching reading change instead, use [Power changed](/triggers/power.changed/).
 - Thresholds can use fixed values, a sensor with the power device class, a number entity with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
 - Supported power units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.

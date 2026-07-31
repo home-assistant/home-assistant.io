@@ -11,10 +11,6 @@ The **Power changed** trigger fires when a power reading changes and the new val
 
 Use **Power changed** when you want to react to the latest power reading right away, such as noticing when an appliance starts drawing noticeable power or when a circuit moves outside its normal operating range.
 
-## Prerequisites
-
-- Use a sensor with the power device class.
-
 {% include triggers/ui_header.md %}
 
 To use **Power changed** in an automation:
@@ -126,6 +122,7 @@ threshold:
 
 ## Good to know
 
+- Use a sensor with the power device class.
 - Use **Power changed** when you want to react to the latest reading after it changes. If you need to react only when a reading crosses into or out of a threshold zone, use [Power crossed threshold](/triggers/power.crossed_threshold/) instead.
 - Thresholds can use fixed values, a sensor with the power device class, a number entity with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
 - Supported power units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.

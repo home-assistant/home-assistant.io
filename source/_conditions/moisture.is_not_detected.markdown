@@ -10,10 +10,6 @@ related_conditions:
 
 The **Moisture is not detected** condition passes when one or more moisture binary sensors are dry. Use it to gate an automation on dry conditions, like only running the dishwasher when the surrounding leak sensor is dry, or only resetting an alert once the area has cleared.
 
-## Prerequisites
-
-- The target must be a binary sensor with the moisture device class.
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -74,6 +70,7 @@ for:
 
 ## Good to know
 
+- The target must be a binary sensor with the moisture device class.
 - This condition is useful for water leak sensors.
 - Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - To check for the opposite state, use [Moisture is detected](/conditions/moisture.is_detected/).

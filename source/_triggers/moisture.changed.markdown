@@ -13,10 +13,6 @@ The **Moisture content changed** trigger fires after a moisture reading changes.
 
 Use **Moisture content changed** to log soil moisture trends, trigger plant watering when the soil becomes too dry, or alert you when a reading shifts in a way that might signal a problem.
 
-## Prerequisites
-
-- Use a sensor with the moisture device class, such as a soil moisture probe.
-
 {% include triggers/ui_header.md %}
 
 To use **Moisture content changed** in an automation:
@@ -120,6 +116,7 @@ threshold:
 
 ## Good to know
 
+- Use a sensor with the moisture device class, such as a soil moisture probe.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - For wet/dry leak sensors, use [Moisture detected](/triggers/moisture.detected/) or [Moisture cleared](/triggers/moisture.cleared/) instead.

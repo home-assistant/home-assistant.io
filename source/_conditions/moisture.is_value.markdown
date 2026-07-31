@@ -10,10 +10,6 @@ related_conditions:
 
 The **Moisture level** condition passes when a moisture reading meets a threshold you define. You can check that the moisture content is above, below, within, or outside a specific range. Use it to run an automation only when a plant's soil is dry enough to need water, or only when material is wet enough to need drying.
 
-## Prerequisites
-
-- The target must be a sensor with the moisture device class.
-
 {% include conditions/ui_header.md %}
 
 To use **Moisture level** in an automation:
@@ -139,6 +135,7 @@ for:
 
 ## Good to know
 
+- The target must be a sensor with the moisture device class.
 - For wet/dry leak sensors, use [Moisture is detected](/conditions/moisture.is_detected/) or [Moisture is not detected](/conditions/moisture.is_not_detected/) instead.
 - Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.

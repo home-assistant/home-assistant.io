@@ -13,10 +13,6 @@ The **Moisture content crossed threshold** trigger fires when a moisture reading
 
 Use **Moisture content crossed threshold** to automate watering, alert you when a plant or material drifts out of its target range, or coordinate devices that respond to specific moisture levels.
 
-## Prerequisites
-
-- Use a sensor with the moisture device class, such as a soil moisture probe.
-
 {% include triggers/ui_header.md %}
 
 To use **Moisture content crossed threshold** in an automation:
@@ -153,6 +149,7 @@ for:
 
 ## Good to know
 
+- Use a sensor with the moisture device class, such as a soil moisture probe.
 - A crossing only fires once per direction. The reading must leave the zone and come back before it can fire again.
 - For wet/dry leak sensors, use [Moisture detected](/triggers/moisture.detected/) or [Moisture cleared](/triggers/moisture.cleared/) instead.
 - To react on every change instead of only on crossings, use [Moisture content changed](/triggers/moisture.changed/).

@@ -11,10 +11,6 @@ related_triggers:
 
 The **Moisture detected** trigger fires when one or more moisture binary sensors start detecting water. Use it with leak sensors under a sink, behind a dishwasher, next to a washing machine, or in a basement to react the moment water is present.
 
-## Prerequisites
-
-- Use a binary sensor with the moisture device class, such as a water leak sensor.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -83,6 +79,7 @@ for:
 
 ## Good to know
 
+- Use a binary sensor with the moisture device class, such as a water leak sensor.
 - A sensor in the `unknown` or `unavailable` state does not count as detecting moisture.
 - To react when a leak clears instead, use [Moisture cleared](/triggers/moisture.cleared/).
 - For percentage-based moisture sensors (such as soil moisture probes), use [Moisture content changed](/triggers/moisture.changed/) or [Moisture content crossed threshold](/triggers/moisture.crossed_threshold/).
