@@ -9,10 +9,6 @@ related_triggers:
 
 The **Window opened** trigger fires when a targeted window opens. Use it when you want Home Assistant to react right away, like sending an alert when a window opens after dark or pausing heating when fresh air starts coming in.
 
-## Prerequisites
-
-- Use a binary sensor or cover that uses the window device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -75,6 +71,7 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
 - To react when a window closes instead, use [Window closed](/triggers/window.closed/).
 

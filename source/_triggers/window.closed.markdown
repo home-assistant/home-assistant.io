@@ -9,10 +9,6 @@ related_triggers:
 
 The **Window closed** trigger fires when a targeted window closes. Use it to restore heating after airing out a room, confirm that windows are shut before bedtime, or start an automation only after a window has stayed closed for a while.
 
-## Prerequisites
-
-- Use a binary sensor or cover that uses the window device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -75,6 +71,7 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
 - To react when a window opens instead, use [Window opened](/triggers/window.opened/).
 
