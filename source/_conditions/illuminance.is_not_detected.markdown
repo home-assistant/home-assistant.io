@@ -10,10 +10,6 @@ related_conditions:
 
 The **Light level is not detected** condition passes when one or more light binary sensors are currently dark. Use it to gate an automation on a dark area, like only running a wake-up routine if the bedroom is still dark, or only turning on hallway lights when an outdoor sensor reports no daylight.
 
-## Prerequisites
-
-- The target must be a binary sensor with the light device class.
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -74,6 +70,7 @@ for:
 
 ## Good to know
 
+- The target must be a binary sensor with the light device class.
 - The sensor's threshold for what counts as "no light detected" is set on the device itself.
 - Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.

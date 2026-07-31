@@ -15,10 +15,6 @@ The threshold type controls where the new reading must land for the trigger to f
 
 Use **Illuminance changed** to log light trends, react when a room becomes noticeably brighter or darker, or coordinate shades and lighting based on ambient conditions.
 
-## Prerequisites
-
-- Use a sensor with the illuminance device class.
-
 {% include triggers/ui_header.md %}
 
 To use **Illuminance changed** in an automation:
@@ -126,6 +122,7 @@ threshold:
 
 ## Good to know
 
+- Use a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.

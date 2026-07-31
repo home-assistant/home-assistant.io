@@ -10,10 +10,6 @@ related_conditions:
 
 The **Illuminance** condition passes when a light level reading meets a threshold you define. You can check that the illuminance is above, below, within, or outside a specific range. The target being checked must be a sensor with the illuminance device class. You can use a number entity with the illuminance device class as the threshold value. Use it to only dim a lamp when the room is already bright, only close the blinds when the patio is in direct sun, or only run an evening routine once a room has actually gotten dark.
 
-## Prerequisites
-
-- The target must be a sensor with the illuminance device class.
-
 {% include conditions/ui_header.md %}
 
 To use **Illuminance** in an automation:
@@ -139,6 +135,7 @@ for:
 
 ## Good to know
 
+- The target must be a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - For binary light/dark sensors, use [Light level is detected](/conditions/illuminance.is_detected/) or [Light level is not detected](/conditions/illuminance.is_not_detected/) instead.

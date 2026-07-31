@@ -14,10 +14,6 @@ Use this trigger to track dehumidification cycles, send alerts when the air beco
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires.
 
-## Prerequisites
-
-- Use a humidifier entity that represents a dehumidifier or a multi-mode device that can report drying.
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier started drying** in an automation:
@@ -87,6 +83,7 @@ for:
 
 ## Good to know
 
+- Use a humidifier entity that represents a dehumidifier or a multi-mode device that can report drying.
 - **Humidifier started drying** fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A dehumidifier can be on but idle (the air is already dry enough), and **Humidifier started drying** fires only when active drying begins.
 
 {% include triggers/try_it.md %}

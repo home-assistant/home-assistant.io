@@ -15,10 +15,6 @@ Use **Illuminance crossed threshold** to automate shades when the sun gets too b
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-## Prerequisites
-
-- Use a sensor with the illuminance device class.
-
 {% include triggers/ui_header.md %}
 
 To use **Illuminance crossed threshold** in an automation:
@@ -166,6 +162,7 @@ for:
 
 ## Good to know
 
+- Use a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.

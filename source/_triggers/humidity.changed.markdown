@@ -13,11 +13,6 @@ The threshold type controls where the new reading must land for the trigger to f
 
 Use **Relative humidity changed** to log humidity trends, trigger a fan when the air in a room becomes noticeably more humid, or alert you when a sensor reading shifts in a way that might signal a problem.
 
-## Prerequisites
-
-- Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
-- Climate, humidifier, and weather entities must expose a current humidity attribute.
-
 {% include triggers/ui_header.md %}
 
 {% include triggers/threshold_changed_steps.md
@@ -128,6 +123,8 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 ## Good to know
 
+- Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
+- Climate, humidifier, and weather entities must expose a current humidity attribute.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when humidity first crosses a specific level, use [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) instead.

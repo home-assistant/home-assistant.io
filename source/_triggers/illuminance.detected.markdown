@@ -13,10 +13,6 @@ The **Light level detected** trigger fires when one or more light sensors start 
 
 Use it to automate actions when a dark area becomes lit, like sending a notification when a closet light is accidentally left on, or turning off a night light at dawn when an outdoor sensor first picks up daylight.
 
-## Prerequisites
-
-- Use a binary sensor with the light device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -91,6 +87,7 @@ for:
 
 ## Good to know
 
+- Use a binary sensor with the light device class.
 - The sensor's threshold for what counts as "light detected" is set on the device itself.
 - For numeric illuminance readings (in lux), use [Illuminance changed](/triggers/illuminance.changed/) or [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 - Combine **For at least** with a small duration to avoid false triggers from brief light flickers, such as headlights passing a window.

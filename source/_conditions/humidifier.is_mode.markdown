@@ -13,10 +13,6 @@ The **Humidifier is in mode** condition passes when a humidifier {% term entity 
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to be in the selected mode, or demand that all of them are.
 
-## Prerequisites
-
-- The target humidifier must support modes.
-
 {% include conditions/ui_header.md %}
 
 To use **Humidifier is in mode** in an automation:
@@ -98,6 +94,7 @@ for:
 
 ## Good to know
 
+- The target humidifier must support modes.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the entity's attributes in Home Assistant to see which modes are supported.
 - This condition checks the mode the humidifier is _currently set to_, not whether it is actively running in that mode.
 - To check general on/off state instead, use [Humidifier is on](/conditions/humidifier.is_on/).

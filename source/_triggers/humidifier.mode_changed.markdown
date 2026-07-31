@@ -12,10 +12,6 @@ The **Humidifier mode changed** trigger fires after the operating mode of a humi
 
 You can optionally filter the trigger to fire only when the humidifier switches to a specific mode. Leave the mode option empty to fire on any mode change.
 
-## Prerequisites
-
-- The target humidifier entity must support the mode you want to use.
-
 {% include triggers/ui_header.md %}
 
 To use **Humidifier mode changed** in an automation, follow these steps:
@@ -105,6 +101,7 @@ for:
 
 ## Good to know
 
+- The target humidifier entity must support the mode you want to use.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the Home Assistant entity's attributes to see which modes are supported.
 - If you filter by mode, the trigger only fires when the humidifier _enters_ that mode, not when it leaves it.
 - To check whether the humidifier is currently in a specific mode during a condition step, use the **Humidifier is in mode** condition.
