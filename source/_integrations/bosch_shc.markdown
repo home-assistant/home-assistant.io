@@ -79,6 +79,14 @@ To start the client registration, press and hold the button on the controller un
 
 Get a reminder if a shutter contact stays open for too long, so an open window doesn't go unnoticed.
 
+- **Trigger**: State
+  - **Entity**: Front door (binary sensor)
+  - **To**: On
+  - **For**: `00:10:00`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `The front door has been open for 10 minutes.`
+
 {% details "YAML example for an open-door reminder" %}
 
 {% example %}
@@ -103,6 +111,10 @@ automation: |
 ### Automation: Close covers automatically at sunset
 
 Combine the cover platform with a sun trigger to close your shutters as it gets dark.
+
+- **Trigger**: Sunset
+- **Action**: Close cover
+  - **Target**: Living room shutter
 
 {% details "YAML example for closing covers at sunset" %}
 
