@@ -1103,6 +1103,11 @@ image:
       default: true
 {% endconfiguration %}
 
+### Using locally hosted images
+
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
+
+
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
@@ -2404,7 +2409,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can be created from the frontend in the Helpers section or via YAML.
+State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2424,9 +2429,9 @@ template:
   - triggers:
       - trigger: state
         entity_id:
-        - weather.my_region
-        - sensor.temperature
-        - sensor.humidity
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
     weather:
       - name: "My Weather Station"
         condition: "{{ states('weather.my_region') }}"

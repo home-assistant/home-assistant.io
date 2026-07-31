@@ -105,7 +105,9 @@ action: |
 
 If everyone has been away from home for a full day, upgrade the alarm from away mode to vacation mode automatically. This gives you extended protection without having to remember to switch modes before a trip.
 
-- **Trigger**: Person: Paulus has been away for 24 hours
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+  - **For at least**: 24:00:00
 - **Action**: Alarm control panel: Arm alarm vacation
 - **Target**: Home alarm
 
@@ -115,10 +117,10 @@ If everyone has been away from home for a full day, upgrade the alarm from away 
 automation: |
   alias: "Arm vacation after 24 hours away"
   triggers:
-    - trigger: state
-      entity_id: group.family
-      to: not_home
-      for: "24:00:00"
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
+        for: "24:00:00"
   actions:
     - action: alarm_control_panel.alarm_arm_vacation
       target:

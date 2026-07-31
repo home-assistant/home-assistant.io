@@ -2,9 +2,11 @@
 title: Mikrotik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
+  - Button
   - Hub
   - Presence detection
   - Sensor
+  - Update
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -12,8 +14,10 @@ ha_config_flow: true
 ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
+  - button
   - device_tracker
   - sensor
+  - update
 ha_integration_type: device
 ---
 
@@ -117,3 +121,17 @@ The integration creates sensor entities when the connected device exposes that i
 - CPU usage
 - Device temperature
 - Device power voltage
+
+### Buttons
+
+The integration creates the following button entities:
+
+- **Restart**: Reboots the MikroTik device.
+- **Shutdown**: Powers off the MikroTik device. After a shutdown, the device is no longer reachable over the network and cannot be powered back on remotely from Home Assistant.
+
+### Update
+
+The integration creates the following update entities:
+
+- **RouterOS**: Updates OS firmware.
+- **RouterBOARD**: Updates BOARD firmware.
