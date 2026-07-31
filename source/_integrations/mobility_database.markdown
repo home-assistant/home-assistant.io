@@ -66,10 +66,14 @@ The integration creates a device per configured stop, with the following entitie
 
 - **Next departure**
   - **Description**: The next upcoming departure at the stop that matches the stop's filters. When the provider publishes realtime predictions, the timestamp is the predicted departure; otherwise it is the scheduled one.
-- **Following departure**
+- **Second departure**
   - **Description**: The departure after the next one, useful for "just missed it" decisions.
+  - **Remarks**: Disabled by default.
+- **Third departure**
+  - **Description**: The departure after that.
+  - **Remarks**: Disabled by default.
 
-Both sensors expose attributes with the route, destination (headsign), scheduled and predicted times, delay in seconds, whether the value is realtime, and the trip identifier.
+All sensors expose attributes with the route, destination (headsign), scheduled and predicted times, delay in seconds, whether the value is realtime, and the trip identifier.
 
 ## Data updates
 
