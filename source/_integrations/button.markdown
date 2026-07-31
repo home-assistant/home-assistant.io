@@ -40,6 +40,14 @@ In addition, the entity can have the following states:
 
 You can use button entities in automations to react when a button is pressed, or to simulate pressing the button from Home Assistant, like pressing a physical button on the device itself.
 
+## Triggers for physical buttons
+
+The button triggers also work with the {% term entity entities %} of the [Event](/integrations/event/) integration that use the **button** device class, such as a wall switch, a remote control button, or a scene controller. This lets you react to a press, a double press, or a hold on real hardware without having to know the event type names your device uses.
+
+The **Button pressed** trigger works with both button entities and these event entities. **Button double pressed**, **Button hold started**, and **Button hold ended** only apply to event entities, because a button entity cannot report those interactions.
+
+Which of these interactions you can use depends on your hardware. A device that only reports single presses does not fire the double press or hold triggers.
+
 {% include integrations/triggers.md %}
 
 {% include integrations/actions.md %}

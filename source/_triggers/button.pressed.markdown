@@ -3,9 +3,14 @@ title: "Button pressed"
 trigger: button.pressed
 domain: button
 description: "Triggers when one or more buttons are pressed."
+related_triggers:
+  - button.double_pressed
+  - button.hold_started
+  - button.hold_ended
+  - event.received
 ---
 
-Use this trigger when you want an automation to run every time a button entity is pressed. This is useful when a button starts a task on a device and you also want Home Assistant to take a follow-up action.
+Use this trigger when you want an automation to run every time a button is pressed. It works with button entities, such as a reset or maintenance button that a device exposes, and with the event entities that represent physical buttons, like a wall switch or a remote control button.
 
 {% include triggers/ui_header.md %}
 
@@ -41,9 +46,12 @@ This trigger has no additional YAML options beyond the target.
 
 {% include triggers/targets.md %}
 
+Besides button entities, this trigger also watches event entities that use the **button** device class. If a target contains both kinds, Home Assistant watches all of them.
+
 ## Good to know
 
-- This trigger fires when Home Assistant detects a button press from the button entity.
+- This trigger fires when Home Assistant detects a button press from the entity.
+- For event entities, it fires on a completed short press. Holds and double presses are reported as separate event types, so use [**Button hold started**](/triggers/button.hold_started/), [**Button hold ended**](/triggers/button.hold_ended/), or [**Button double pressed**](/triggers/button.double_pressed/) for those.
 - Changes to `unavailable` or `unknown` do not count as button presses.
 - If you only need to press a button from an automation, use the related [**Press button**](/actions/button.press/) action instead.
 

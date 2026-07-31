@@ -76,6 +76,17 @@ This video tutorial explains how events work in Home Assistant and how you can s
 
 {% include integrations/triggers.md %}
 
+## Triggers for button events
+
+Event entities that use the **button** device class also work with the triggers of the [Button](/integrations/button/) integration. Use them when you want to react to a press, a double press, or a hold without picking event types yourself:
+
+- [Button pressed](/triggers/button.pressed/)
+- [Button double pressed](/triggers/button.double_pressed/)
+- [Button hold started](/triggers/button.hold_started/)
+- [Button hold ended](/triggers/button.hold_ended/)
+
+Which of these you can use depends on your hardware. A button that only reports single presses does not fire the double press or hold triggers. For anything these triggers do not cover, use the [Event received](/triggers/event.received/) trigger and select the event types your device reports.
+
 ## Event automation examples
 
 ### Automation: send a notification when the doorbell rings
