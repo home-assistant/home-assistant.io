@@ -73,8 +73,8 @@ for:
 ## Good to know
 
 - Use a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the garage door closing.
-- The `for` option only fires the automation if the garage door stays closed for the entire time you set.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the garage door closing.
+- The **For at least** option only fires the automation if the garage door stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 
