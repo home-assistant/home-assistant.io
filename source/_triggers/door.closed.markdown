@@ -11,10 +11,6 @@ The **Door closed** trigger fires when a targeted door changes to closed. Use it
 
 This trigger is especially useful for routines that should wait for a clear end state, such as a garage door finishing its close cycle or a back door being fully shut before you lock it.
 
-## Prerequisites
-
-- Use a door contact sensor or door cover that uses the `door` device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -76,6 +72,7 @@ for:
 
 ## Good to know
 
+- Use a door contact sensor or door cover that uses the `door` device class.
 - If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the door closing.
 - The `for` option only fires the automation if the door stays closed for the entire time you set.
 

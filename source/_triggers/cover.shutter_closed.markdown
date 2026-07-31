@@ -11,10 +11,6 @@ The **Shutter closed** trigger fires when a targeted shutter changes to closed. 
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shutter closes.
 
-## Prerequisites
-
-- Use a cover entity with the `shutter` device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -79,6 +75,7 @@ for:
 
 ## Good to know
 
+- Use a cover entity with the `shutter` device class.
 - If a shutter comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
 - The `for` option fires the automation only if the shutter stays closed for the entire time you set.
 

@@ -11,10 +11,6 @@ The **Awning opened** trigger fires when a targeted awning changes to open. Use 
 
 This trigger is useful for comfort, notifications, and routines that should run as soon as an awning opens.
 
-## Prerequisites
-
-- Use a cover entity with the `awning` device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -79,6 +75,7 @@ for:
 
 ## Good to know
 
+- Use a cover entity with the `awning` device class.
 - If an awning comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
 - The `for` option fires the automation only if the awning stays open for the entire time you set.
 

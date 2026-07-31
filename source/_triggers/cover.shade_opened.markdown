@@ -11,10 +11,6 @@ The **Shade opened** trigger fires when a targeted shade changes to open. Use it
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as a shade opens.
 
-## Prerequisites
-
-- Use a cover entity with the `shade` device class.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -79,6 +75,7 @@ for:
 
 ## Good to know
 
+- Use a cover entity with the `shade` device class.
 - If a shade comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
 - The `for` option fires the automation only if the shade stays open for the entire time you set.
 

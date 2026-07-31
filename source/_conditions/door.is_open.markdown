@@ -11,10 +11,6 @@ The **Door is open** condition passes when one or more targeted doors are curren
 
 This condition is useful for reminders, security checks, and routines that should stop or warn you when a front door, patio door, or garage door has not been closed yet.
 
-## Prerequisites
-
-- The target must be a contact sensor or cover with the `door` device class.
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -75,6 +71,7 @@ for:
 
 ## Good to know
 
+- The target must be a contact sensor or cover with the `door` device class.
 - Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted door is open.
 - With **All**, the condition passes only if every available targeted door is open. If every targeted door is `unavailable` or `unknown`, **All** passes and **Any** fails.

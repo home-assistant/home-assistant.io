@@ -11,10 +11,6 @@ The **Blind is closed** condition passes when one or more targeted blinds are cu
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a blind is closed.
 
-## Prerequisites
-
-- The target must be a `cover` entity with the `blind` device class.
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -79,6 +75,7 @@ for:
 
 ## Good to know
 
+- The target must be a `cover` entity with the `blind` device class.
 - Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted blind is closed.
 - With **All**, the condition passes only if every available targeted blind is closed. If every targeted blind is `unavailable` or `unknown`, **All** passes and **Any** fails.
