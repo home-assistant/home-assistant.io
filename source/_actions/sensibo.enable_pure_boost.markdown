@@ -85,6 +85,10 @@ sensitivity:
 
 {% include actions/targets.md domain="climate" %}
 
+## Good to know
+
+- The AC integration and Geo integration need to be set up in the Sensibo app before you use them for the first time.
+
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
