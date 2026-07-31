@@ -72,9 +72,9 @@ for:
 
 ## Good to know
 
-- Use a door contact sensor or door cover that uses the `door` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as opening the door.
-- The `for` option only fires the automation if the door stays open for the entire time you set.
+- Use a door contact sensor or door cover that uses the door device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as opening the door.
+- The **For at least** option only fires the automation if the door stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 

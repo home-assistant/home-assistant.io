@@ -75,9 +75,9 @@ for:
 
 ## Good to know
 
-- Use a cover entity with the `awning` device class.
-- If an awning comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
-- The `for` option fires the automation only if the awning stays closed for the entire time you set.
+- Use a cover entity with the awning device class.
+- If an awning comes back from **Unavailable** or **Unknown**, that recovery does not count as the closing.
+- The **For at least** option fires the automation only if the awning stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

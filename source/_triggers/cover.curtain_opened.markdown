@@ -75,9 +75,9 @@ for:
 
 ## Good to know
 
-- Use a cover entity with the `curtain` device class.
-- If a curtain comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
-- The `for` option fires the automation only if the curtain stays open for the entire time you set.
+- Use a cover entity with the curtain device class.
+- If a curtain comes back from **Unavailable** or **Unknown**, that recovery does not count as the opening.
+- The **For at least** option fires the automation only if the curtain stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 
