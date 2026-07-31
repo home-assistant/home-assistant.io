@@ -12,7 +12,7 @@ The **Moisture is detected** condition passes when one or more moisture binary s
 
 ## Prerequisites
 
-- The target must be a binary sensor with the `moisture` device class.
+- The target must be a binary sensor with the moisture device class.
 
 {% include conditions/ui_header.md %}
 

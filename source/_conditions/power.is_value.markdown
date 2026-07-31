@@ -11,8 +11,8 @@ Use **Power value** when you want an automation to continue only if the current 
 
 ## Prerequisites
 
-- The target must be a sensor with the `power` device class.
-- Threshold entities must be sensors with the `power` device class, number entities with the `power` device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
+- The target must be a sensor with the power device class.
+- Threshold entities must be sensors with the power device class, number entities with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
 
 {% include conditions/ui_header.md %}
 

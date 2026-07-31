@@ -13,7 +13,7 @@ The **Moisture detected** trigger fires when one or more moisture binary sensors
 
 ## Prerequisites
 
-- Use a binary sensor with the `moisture` device class, such as a water leak sensor.
+- Use a binary sensor with the moisture device class, such as a water leak sensor.
 
 {% include triggers/ui_header.md %}
 

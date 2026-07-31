@@ -12,7 +12,7 @@ The **Moisture level** condition passes when a moisture reading meets a threshol
 
 ## Prerequisites
 
-- The target must be a sensor with the `moisture` device class.
+- The target must be a sensor with the moisture device class.
 
 {% include conditions/ui_header.md %}
 

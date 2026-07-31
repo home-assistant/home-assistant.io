@@ -15,7 +15,7 @@ Use **Moisture content crossed threshold** to automate watering, alert you when 
 
 ## Prerequisites
 
-- Use a sensor with the `moisture` device class, such as a soil moisture probe.
+- Use a sensor with the moisture device class, such as a soil moisture probe.
 
 {% include triggers/ui_header.md %}
 
