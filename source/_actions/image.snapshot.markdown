@@ -10,7 +10,7 @@ Use this action to save the current picture from an image entity to a file, for 
 ## Prerequisites
 
 - The target must be an image entity.
-- The path in `filename` must be inside a directory that Home Assistant is allowed to write to.
+- The path in **Filename** must be inside a directory that Home Assistant is allowed to write to.
 
 {% include actions/ui_header.md %}
 
