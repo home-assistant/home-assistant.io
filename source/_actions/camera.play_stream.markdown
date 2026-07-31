@@ -69,12 +69,12 @@ format:
 
 {% include actions/targets.md %}
 
-{% include actions/try_it.md %}
-
 ## Good to know
 
 - The target must be a camera entity.
 - The [stream](/integrations/stream/) integration must be set up.
+
+{% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
