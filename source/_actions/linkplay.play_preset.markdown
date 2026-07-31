@@ -9,10 +9,6 @@ Use this action to play one of the presets stored on your LinkPlay media player.
 
 This is handy in automations, for example to start your favorite radio station on a speaker when your morning alarm goes off.
 
-## Prerequisites
-
-- Presets are stored on the device itself. Use a companion app, such as 4stream, to save presets before you can play them with this action.
-
 {% include actions/ui_header.md %}
 
 To play a preset from an automation or a script:
@@ -63,5 +59,9 @@ preset_number:
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
+
+## Good to know
+
+- Presets are stored on the device itself. Use a companion app, such as 4stream, to save presets before you can play them with this action.
 
 {% include actions/related.md %}

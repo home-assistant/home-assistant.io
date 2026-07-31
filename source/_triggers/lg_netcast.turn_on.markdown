@@ -11,10 +11,6 @@ The **Device is requested to turn on** trigger fires when Home Assistant request
 
 LG Netcast TVs cannot be turned on by Home Assistant directly. Instead, Home Assistant fires this trigger when something (an automation, a script, or the UI) calls the turn-on action for the device. You can then use an automation to carry out whichever method your TV supports, such as Wake-on-LAN.
 
-## Prerequisites
-
-- To turn on the TV from this trigger, add an action that can power on the TV, such as Wake-on-LAN or HDMI-CEC.
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -66,6 +62,7 @@ entity_id:
 
 ## Good to know
 
+- To turn on the TV from this trigger, add an action that can power on the TV, such as Wake-on-LAN or HDMI-CEC.
 - This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on.
 - Both media player and remote entities for the same LG Netcast device share the same turn-on trigger.
 - If you want to react when the TV actually reports that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
