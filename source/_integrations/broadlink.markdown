@@ -74,10 +74,21 @@ The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 ## Infrared
 
-The `infrared` {% term entities %} allow other integrations to transmit IR commands through your Broadlink universal remote. They are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
+The `infrared` {% term entities %} allow other integrations to transmit and receive IR commands through your Broadlink universal remote. An IR emitter entity and an IR receiver entity are created automatically when you configure devices with IR capabilities (`RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, and `RM4 TV mate`).
 
-The `infrared` entity is complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information. 
+The `infrared` entities are complementary to the `remote` entity. Both are created for IR-capable devices. Refer to the [Infrared integration](/integrations/infrared/) integration for more information.
 The existing `remote.learn_command` and `remote.send_command` actions described below are unaffected and remain available for working with learned IR codes.
+
+### IR receiver
+
+The IR receiver {% term entity %} reports the codes your Broadlink device picks up, so that integrations such as [LED Infrared](/integrations/led_infrared/) can act on the buttons you press on a handheld remote.
+
+Broadlink devices cannot listen for IR signals continuously. To pick up a code, the device is placed in learning mode and then asked for the result, which gives the receiver a few characteristics that a dedicated IR receiver does not have:
+
+- The device is only placed in learning mode while another integration is listening to the receiver. If nothing is listening, the device is left alone.
+- While the device is listening, its LED stays lit, and the `remote.learn_command` action cannot use the device at the same time. The two take turns, so learning a code can take slightly longer.
+- Codes are collected about once per second. A code that arrives while the previous one is still being collected is missed, and holding a button down is reported as a single code.
+- The device does not report the carrier frequency of the codes it picks up, and it rounds the durations it reports to roughly 33 microseconds. This is well within the tolerance of common remote control protocols.
 
 ## Radio frequency
 
