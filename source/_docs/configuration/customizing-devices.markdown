@@ -43,6 +43,14 @@ To change entity attributes, follow these steps:
    - Changing only the entity name does not affect your automations or scripts because they refer to the entity ID.
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %}, open the respective tab, and find your automation or script.
 
+## Recommendations on entity naming and related elements
+
+If you want to have a straightforward and organized Home Assistant setup, it is important that you create a name for each entity, as well as for each related floor, area and device, that is as simple as possible and then configure everything properly. Name every element for what it is and Home Assistant will add the context around it based on what you have configured. Here are a few recommendations and examples:
+
+- Create a short and standalone name for each element that simply identifies it, leaving the location and the element it belongs to out of the name. For example, a good name  for an area would be "Living room", not "Ground floor living room", and a good name for a device would be "Multi sensor", not "Office multi sensor".
+- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant will use that information in pickers, dialogs, and tables so you don't need to identify the location of floors, entities, and devices in their names.
+- Customize the presentation of floors, areas, devices, and entities by editing the cards and views of dashboards. Adjust the displayed name of a dashboard card or remove it if the name is longer than you would like, for example.
+
 ## Changing the entity ID format for new entities
 
 Home Assistant generates entity IDs for new entities based on parts of your setup, like the floor, area, device, and entity name. For example, a temperature sensor on a thermostat in the living room might become `sensor.living_room_thermostat_temperature`.
