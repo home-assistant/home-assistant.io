@@ -12,10 +12,6 @@ The **Media player is muted** condition passes when the selected media player is
 
 Use **Media player is muted** to avoid sending spoken announcements over a muted speaker, to change lighting only during quiet listening, or to branch into a different action when a TV is muted.
 
-## Prerequisites
-
-- The target media player must expose a mute state or volume level.
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is muted** in an automation:
@@ -92,6 +88,7 @@ for:
 
 ## Good to know
 
+- The target media player must expose a mute state or volume level.
 - Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - If you want the opposite test, use [Media player is not muted](/conditions/media_player.is_unmuted/).
 

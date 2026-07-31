@@ -7,10 +7,6 @@ description: "Changes the image file that a local file camera displays."
 
 Use this action to change which image file a local file camera shows. This is useful when another process saves a new image, for example a snapshot from another camera or a graph you render periodically, and you want the camera to start displaying that file.
 
-## Prerequisites
-
-- The new file path must be added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs). Without this, Home Assistant cannot read the file and the action returns an error.
-
 {% include actions/ui_header.md %}
 
 To change the displayed file from an automation or a script:
@@ -63,5 +59,9 @@ file_path:
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
+
+## Good to know
+
+- The new file path must be added to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs). Without this, Home Assistant cannot read the file and the action returns an error.
 
 {% include actions/related.md %}

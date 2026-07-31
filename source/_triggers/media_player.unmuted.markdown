@@ -12,10 +12,6 @@ The **Media player unmuted** trigger fires when a media player stops being muted
 
 Use **Media player unmuted** to restore lighting, resume a routine that depends on audio, or send a notification when a shared media player is ready to play sound again.
 
-## Prerequisites
-
-- Use a media player that exposes a mute state or volume level.
-
 {% include triggers/ui_header.md %}
 
 To use **Media player unmuted** in an automation:
@@ -94,6 +90,7 @@ for:
 
 ## Good to know
 
+- Use a media player that exposes a mute state or volume level.
 - This trigger works when the media player reports that it is no longer muted.
 - Media players that are `unavailable` or `unknown` do not count as unmuted until they report a supported state again.
 - If you want to react when sound is silenced, use [Media player muted](/triggers/media_player.muted/).
