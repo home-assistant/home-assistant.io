@@ -477,7 +477,7 @@ To filter by area in the UI:
 In YAML, use the `include_targets` and `exclude_targets` keys. Both accept `area_id`, `device_id`, `floor_id`, and `label_id`, each holding a list of IDs. Since the options flow currently offers area pickers only, use YAML if you want to filter by device, floor, or label.
 
 ```yaml
-# Example filter to include the living room lights, except labeled entities
+# Example filter to include the living room lights, except the ones labeled hidden_from_homekit
 homekit:
   - filter:
       include_domains:
@@ -499,7 +499,7 @@ Targets are applied on top of the rules above:
 - Excluded domains stay excluded, even if an entity matches an included target.
 - A filter without targets behaves exactly as before, so your existing configuration keeps working unchanged.
 
-Targets never match hidden entities, categorized entities, or disabled entities. To expose one of those, list it in `include_entities`.
+Targets never match hidden entities, categorized entities, or disabled entities. To expose a hidden or categorized entity, match it with `include_entities` or `include_entity_globs`. Disabled entities have no state, so they cannot be exposed to HomeKit at all.
 
 Target membership is dynamic. If you move an entity to another area, or add or remove a label, the bridge reloads a moment later so that it reflects the change.
 
