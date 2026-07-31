@@ -337,7 +337,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Ecowitt]** added soil conductivity sensor support. Thanks, [@GSzabados]!
 - **[Steam]** added an image platform, plus new Last online, Level, and Now playing sensors. Thanks, [@tr4nt0r]!
 - **[LG Infrared]** added support for LG air conditioners. Thanks, [@Dr-Blank]!
-- **[UniFi Protect]** now supports the USL smart sensors (USL Entry, USL Environmental, and USL GlassBreak) on UniFi Protect 7.2 and newer, and cameras gained **Motion detection**, **Smart detection**, and **Sound detection** event entities that fire for any detection the camera reports, such as a person, a package, or barking, with the detected type as an attribute. The UP Air Quality sensor is not supported yet. Thanks, [@RaHehl]!
+- **[UniFi Protect]** now supports the USL smart sensors (USL Entry, USL Environmental, and USL GlassBreak) on UniFi Protect 7.2 and newer, and cameras gained **Motion detection**, **Smart detection**, and **Sound detection** event entities that fire for any detection the camera reports, such as a person, a package, or barking, with the detected type as an attribute. Thanks, [@RaHehl]!
 
 [Shelly]: /integrations/shelly
 [Reolink]: /integrations/reolink
@@ -541,17 +541,7 @@ Thanks, [@maartenla](https://github.com/maartenla)!
 
 ### Taps that land where you mean them
 
-On the picture elements card, some elements could be impossible to tap at all. An icon's clickable area was a fixed box that did not line up with what you see, and on a busy floorplan a neighbour's box could cover an icon completely, so every tap went to the neighbour, or into a dead gap where nothing happened.
-
-Before, every icon claimed a fixed square of its own, overlapping its neighbours and leaving space in between that did nothing:
-
-<img src='/images/blog/2026-08/picture-elements-taps-before.png' alt='Diagram of a picture elements card where each icon claims a fixed square as its tappable area. The squares overlap so that two icons are covered by a neighbour, and the space around them is not tappable at all.' class='no-shadow' />
-
-Now the space around each icon belongs to whichever icon is closest, so every element can be reached, and a tap on a label's text always triggers that label:
-
-<img src='/images/blog/2026-08/picture-elements-taps-after.png' alt='The same diagram with the tappable areas following the icons. Each icon owns the space nearest to it, neighbouring areas meet halfway between the two icons, and no icon is covered.' class='no-shadow' />
-
-Thanks, [@RaHehl](https://github.com/RaHehl)!
+On the picture elements card, a tap could trigger the element next to the one you meant, or hit nothing at all, and some elements could not be tapped. Taps now go to the nearest icon or label, so every element can be reached, and tapping a label's text always triggers that label. Thanks, [@RaHehl](https://github.com/RaHehl)!
 
 ### A combined battery level you can trust
 
