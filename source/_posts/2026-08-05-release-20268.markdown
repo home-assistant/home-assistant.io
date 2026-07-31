@@ -118,11 +118,12 @@ Enjoy the (beta) release!
 - [All changes](#all-changes)
 
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@RaHehl], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@bramkragten]: https://github.com/bramkragten
 [@frenck]: https://github.com/frenck
 [@piitaya]: https://github.com/piitaya
+[@RaHehl]: https://github.com/RaHehl
 
 ## Making Home Assistant more approachable
 
@@ -230,12 +231,10 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 We welcome the following new integrations in this release:
 
 <!-- VALIDATE (PR sweep) — new integrations:
-ADDED to the list: Google Health (#175417), llama.cpp (#175580).
-STILL TO ADD once their docs land in this repo (no /integrations page yet, so links would break):
+ADDED to the list: Google Health (#175417), llama.cpp (#175580), GeoSphere Austria Warnings (#173563).
+STILL TO ADD (docs pages now exist in this repo — confirm the brand is merged, then add):
 - Flic Button — native Bluetooth for Flic 2 / Duo / Twist; press + rotation events. @alhia https://github.com/home-assistant/core/pull/165260
 - Dyson infrared — control Dyson fans via an IR transmitter. @elax46 https://github.com/home-assistant/core/pull/173666
-- GeoSphere Austria Warnings — official Austrian weather warnings. @tklecka https://github.com/home-assistant/core/pull/173563
-VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outside the date window?). @Lash-L
 -->
 
 - **[Fuelprices.dk]**, added by [@MTrab]  
@@ -243,6 +242,9 @@ VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outsi
 
 - **[Gatus]**, added by [@TN-1], launching at 🥈 silver quality  
   Bring the health of your services into Home Assistant from your [Gatus](https://gatus.io) monitoring instance. Each monitored endpoint shows up as a {% term "binary sensor" %}, so you can put service status on a dashboard or trigger automations when something goes down or comes back up.
+
+- **[GeoSphere Austria Warnings]**, added by [@tklecka]  
+  Bring official weather warnings for Austria into Home Assistant from [GeoSphere Austria](https://www.geosphere.at) (formerly ZAMG), the national weather service. Warnings are issued per municipality and cover events like storms, heavy rain, snow, black ice, thunderstorms, heat, and cold, so you can get notified or trigger automations when the warning level rises.
 
 - **[Google Health]**, added by [@allenporter]  
   Bring your health and fitness data into Home Assistant from Google Health and the Fitbit Web API. After you connect your Google account, you get sensors such as steps, distance, weight, and resting heart rate, and it can run alongside the existing Fitbit integration.
@@ -287,10 +289,12 @@ VERIFY: Harbor Sleep is in our list but the sweep didn't return it (merged outsi
 [@sbesh91]: https://github.com/sbesh91
 [@sli-cka]: https://github.com/sli-cka
 [@svasek]: https://github.com/svasek
+[@tklecka]: https://github.com/tklecka
 [@TN-1]: https://github.com/TN-1
 [@tr4nt0r]: https://github.com/tr4nt0r
 [Fuelprices.dk]: /integrations/fuelprices_dk
 [Gatus]: /integrations/gatus
+[GeoSphere Austria Warnings]: /integrations/geosphere_austria_warnings
 [Google Health]: /integrations/google_health
 [Harbor Sleep]: /integrations/harbor
 [Harman Luxury Audio]: /integrations/harman_luxury
