@@ -1,6 +1,6 @@
 items:
   - question: Why is Connect ZWA-2 so big?
-    answer: 'The Connect ZWA-2 was designed from the ground up to be perfectly tuned to the wavelength used by the Z-Wave standard. Many other Z-Wave adapters use the smaller USB “stick” form factor. These use tiny postage-stamp-sized antennas that can limit their ability to connect over distance. Getting the most out of Z-Wave requires a big antenna and base, and this allows Connect ZWA-2 to be one of the best-performing Z-Wave adapters on the market.'
+    answer: 'Connect ZWA-2 was designed from the ground up to be perfectly tuned to the wavelength used by the Z-Wave standard. Many other Z-Wave adapters use the smaller USB “stick” form factor. These use tiny postage-stamp-sized antennas that can limit their ability to connect over distance. Getting the most out of Z-Wave requires a big antenna and base, and this allows Connect ZWA-2 to be one of the best-performing Z-Wave adapters on the market.'
   - question: Why is it called Connect ZWA-2?
     answer: 'Connect ZWA-2 was built on our second-generation platform, which prioritizes high performance and openness in its design. It is a big leap from our first-generation Connect ZBT-1, and all Connect line products going forward will use this new platform. There is no ZWA-1, as we jumped directly to 2 to represent the generation of technology inside this adapter.'
   - question: Can I use Z-Wave and Z-Wave Long Range simultaneously?
