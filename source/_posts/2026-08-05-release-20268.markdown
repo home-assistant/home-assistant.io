@@ -565,7 +565,9 @@ Thanks, [@zweckj], [@mib1185], and [@felixschndr]!
 
 Your most-used cards are now easier to find. In the card picker's "By Card" tab, you can now mark the cards you use most as favorites using the icon in the corner of each card. Favorited cards float to the top of the section, so if you reach for the same card again and again while building similar dashboards, it's always right there waiting for you. Tap the icon again to remove a card from your favorites.
 
-Thanks [@piitaya], [@laupalombi] and everyone that suggested this at a Release Party!
+<img src='/images/blog/2026-08/favorite-cards.png' alt='Screenshot of the card picker&apos;s By Card tab, with the Tile, Area, and Entities cards marked as favorites with a star icon.' class='no-shadow' />
+
+Thanks, [@piitaya], [@laupalombi](https://github.com/laupalombi), and everyone who suggested this at a Release Party!
 
 ### And a few more
 
