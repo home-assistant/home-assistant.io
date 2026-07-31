@@ -83,8 +83,8 @@ for:
 
 ## Good to know
 
+- Use a humidifier entity that represents a dehumidifier or a multi-mode device that can report drying.
 - **Humidifier started drying** fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A dehumidifier can be on but idle (the air is already dry enough), and **Humidifier started drying** fires only when active drying begins.
-- **Humidifier started drying** is most useful with devices that have the dehumidifier device class, but it also applies to multi-mode devices that can switch between humidifying and drying.
 
 {% include triggers/try_it.md %}
 
