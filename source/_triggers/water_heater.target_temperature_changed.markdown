@@ -114,7 +114,7 @@ threshold:
 
 - This trigger watches the target temperature setpoint, not the current measured water temperature.
 - To react only when the setpoint crosses a threshold boundary, use [Water heater target temperature crossed threshold](/triggers/water_heater.target_temperature_crossed_threshold/).
-- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 - When you use an entity as the threshold, Home Assistant uses that entity's current value when the setpoint changes.
 
 {% include triggers/try_it.md %}
