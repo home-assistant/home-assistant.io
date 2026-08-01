@@ -79,7 +79,19 @@ Binary sensors are added for Gen 2 and newer vehicles. Most are derived from dat
 
 ### Openings
 
-Each door and window reports open/closed: door front left, door front right, door rear left, door rear right, hood, tailgate, window front left, window front right, window rear left, window rear right, and sunroof.
+Each door and window reports open or closed:
+
+- Door front left
+- Door front right
+- Door rear left
+- Door rear right
+- Hood
+- Tailgate
+- Window front left
+- Window front right
+- Window rear left
+- Window rear right
+- Sunroof
 
 ### Per-door lock status
 
@@ -89,12 +101,12 @@ Read-only lock state for each door (front left/right, rear left/right, tailgate)
 
 PHEV vehicles get two additional binary sensors:
 
-- **EV plug**: on when the charging cable is connected.
-- **Charging** *(disabled by default)*: on only while the vehicle is actively drawing charge, distinct from simply being plugged in.
+- EV plug: on when the charging cable is connected.
+- Charging (disabled by default): on only while the vehicle is actively drawing charge, distinct from simply being plugged in.
 
 ### Vehicle health
 
-The vehicle's warning indicators (Malfunction Indicator Lamps, or MILs) are exposed as diagnostic binary sensors. **Vehicle health** is enabled by default and reflects the overall rollup; the individual indicators below are **disabled by default** — enable the ones you want to track. Only indicators your vehicle actually reports are created.
+The vehicle's warning indicators (Malfunction Indicator Lamps, or MILs) are exposed as diagnostic binary sensors. Vehicle health is enabled by default and reflects the overall rollup. The individual indicators below are disabled by default; enable the ones you want to track. Only indicators your vehicle actually reports are created.
 
 - Airbag
 - AWD
@@ -102,7 +114,7 @@ The vehicle's warning indicators (Malfunction Indicator Lamps, or MILs) are expo
 - Transmission temperature
 - Blind spot / rear cross traffic
 - Check engine
-- Electronic brakeforce distribution
+- Electronic brake force distribution
 - Electric parking brake
 - Engine oil level
 - EyeSight
