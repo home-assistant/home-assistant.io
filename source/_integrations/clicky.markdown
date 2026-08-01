@@ -23,7 +23,7 @@ To set up the Clicky integration, you need your site's Site ID and Site key. You
 
 This means you must have at least one website set up in Clicky.
 
-Free accounts are welcome to use this integration!
+You can use this integration with Clicky's free plan.
 
 {% include integrations/config_flow.md %}
 
