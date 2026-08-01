@@ -15,51 +15,6 @@ og_image: /images/blog/2026-08/beta-social.png
 
 <lite-youtube videoid="Pu7JLCxZmaI" videotitle="Home Assistant 2026.8 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.8** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/146)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/825)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/153)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
 {% tip %}
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Pu7JLCxZmaI) on August 5, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
@@ -80,7 +35,7 @@ We have been working on a lot over the past few weeks, and I'm excited to share 
 
 If there's one thread tying this release together, it's a direction we care about: making Home Assistant something you don't need to be technical to use. This release is another step along that path.
 
-Enjoy the (beta) release!
+Enjoy the release!
 
 \- Ashley
 
