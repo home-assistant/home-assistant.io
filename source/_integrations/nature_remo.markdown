@@ -1,7 +1,7 @@
 ---
 title: Nature Remo
 description: Instructions on how to integrate Nature Remo smart remote controllers with Home Assistant.
-ha_release: 2026.8
+ha_release: 2026.9
 ha_category:
   - Energy
   - Sensor
