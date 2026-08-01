@@ -105,7 +105,9 @@ automation:
 
 ## Data updates
 
-Due to the connection type with the speakers, state is tracked optimistically. This means the integration records what it has set and assumes the speaker accepted it. If you change settings using the physical knob or the ADAM Audio A Control app, Home Assistant does not reflect those changes until the integration entry is reloaded.
+Home Assistant checks each speaker every 15 seconds. If you turn the volume knob on the speaker or change a setting in the ADAM Audio A Control app, Home Assistant catches up within a few seconds. You do not need to reload anything.
+
+Changes you make from Home Assistant apply straight away, and the integration confirms with the speaker that they took effect. If a speaker misses a command, the integration retries it, and tells you if it still does not get through.
 
 ## Known limitations
 
