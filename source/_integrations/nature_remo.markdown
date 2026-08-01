@@ -46,7 +46,7 @@ sensor entities.
 
 1. Set up your Remo devices in the **Nature Home** app first; the
    integration only sees what the Nature cloud knows about.
-2. Sign in at [home.nature.global](https://home.nature.global/) with your
+2. Sign in to [home.nature.global](https://home.nature.global/) with your
    Nature account and generate an **access token**. Store it somewhere
    safe — the token is shown only once.
 
