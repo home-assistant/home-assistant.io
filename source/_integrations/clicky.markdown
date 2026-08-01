@@ -19,9 +19,9 @@ The **Clicky** {% term integration %} allows you to get website visitor informat
 
 ## Prerequisites
 
-When you add the Clicky integration to Home Assistant, you will need to provide your website's site ID and site key details. This means that you must have at least one website using Clicky.
+To set up the Clicky integration, you need your site's Site ID and Site key. You can find these in Clicky under **Dashboard** > (your site) > **Prefs**.
 
-This information is located in the preferences section for each website in your account accessed via Dashboard > \[Website\] > Prefs.
+This means you must have at least one website set up in Clicky.
 
 Free accounts are welcome to use this integration!
 
