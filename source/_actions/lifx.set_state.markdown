@@ -75,7 +75,6 @@ power:
   description: Set to true to turn the lights on, or false to turn them off. Leave this out to keep the power state as it is.
   required: false
   type: boolean
-  default: true
 transition:
   description: How long, in seconds, it takes to reach the final state, from 0 to 3600.
   required: false
