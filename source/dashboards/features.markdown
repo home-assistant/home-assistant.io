@@ -1044,6 +1044,16 @@ type:
   required: true
   description: "`toggle`"
   type: string
+confirm_turn_on:
+  required: false
+  description: Show a confirmation dialog before turning on the entity.
+  type: boolean
+  default: false
+confirm_turn_off:
+  required: false
+  description: Show a confirmation dialog before turning off the entity.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Trend graph
