@@ -1037,6 +1037,8 @@ Widget that displays a button to toggle a [switch](/integrations/switch) or [inp
 ```yaml
 features:
   - type: "toggle"
+    confirm_turn_on: true
+    confirm_turn_off: true
 ```
 
 {% configuration features %}
