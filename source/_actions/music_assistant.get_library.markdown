@@ -49,7 +49,7 @@ Album type filter (albums library only):
 Enable album artists filter (only for artist library):
   description: When the media type is artist, only return album artists.
 Username:
-  description: Get results of the library of this Music Assistant user.
+  description: Retrieve items from the library of this Music Assistant user.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -109,7 +109,7 @@ album_artists_only:
   type: boolean
   default: false
 username:
-  description: Get results of the library of this Music Assistant user.
+  description: Retrieve items from the library of this Music Assistant user.
   required: false
   type: string
 {% endoptions_yaml %}
