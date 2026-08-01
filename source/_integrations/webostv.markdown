@@ -57,8 +57,9 @@ The **LG webOS TV** integration provides the following entities.
 
 ### Media players
 
-- **LG webOS TV**
+- **TV media player**
   - **Description**: Controls your TV. Use it to turn the TV off, change the volume, switch the source or channel, and control playback.
+  - **Remarks**: This entity takes the name of your TV.
 
 ### Switches
 
