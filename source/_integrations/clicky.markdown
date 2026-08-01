@@ -38,7 +38,7 @@ Site key:
 
 ## Sensors
 
-The integration adds the following sensors for each website that you setup:
+The integration adds the following sensors for each website that you set up:
 
 - Number of visitors online
 - Total time spent
