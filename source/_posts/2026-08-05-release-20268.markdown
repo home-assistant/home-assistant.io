@@ -184,12 +184,6 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 
 We welcome the following new integrations in this release:
 
-<!-- VALIDATE (PR sweep) — new integrations:
-ADDED to the list: Google Health (#175417), llama.cpp (#175580), GeoSphere Austria Warnings (#173563), Dyson Infrared (#173666).
-HELD (not in 2026.8):
-- Flic Button (#165260, @alhia) — merged to the `flic2` feature branch, not dev; docs PR #44011 still open, so no /integrations/flic_button page. Revisit when it lands in dev with merged docs.
--->
-
 - **[Dyson Infrared]**, added by [@elax46]  
   Control your Dyson fans through any infrared transmitter you already have set up in Home Assistant. Because the connection only goes one way, Home Assistant shows the last command you sent rather than the fan's live state.
 
@@ -264,12 +258,6 @@ HELD (not in 2026.8):
 [Midea]: /integrations/midea
 [NeoPool]: /integrations/neopool
 [ScorpionTrack]: /integrations/scorpiontrack
-
-<!-- UNCOMMENT before final if any land: no new virtual integrations yet this release.
-This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
-
-- [Name], provided by [Parent integration]
--->
 
 ### Noteworthy improvements to existing integrations
 
@@ -363,63 +351,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@tubededentifrice]: https://github.com/tubededentifrice
 [@Onero-testdev]: https://github.com/Onero-testdev
 
-<!-- REMOVE before final: raw candidate list below is SUPERSEDED by the curated list above. Kept only so you can cross-check in the second draft.
-Excluded on purpose: Google Health / ScorpionTrack / LED Infrared platform PRs (these are NEW integrations, covered above); dev-only breaking changes; and Other-noteworthy items (HA OS, radon, media source search, Matter, Z-Wave, template restore/perf, search) which live under Other noteworthy changes.
-Trimmed for length (single minor addition each; restore any if wanted): Freebox #175081, Picnic #176295, Cielo Home #173043, NINA #166125, Liebherr #175921, Sonarr #174506, Gree #169169, V2C #169777.
-Still needs slug/verify: PTDevices #169862, xthings cloud #172831, Hypontech #174404, Indevolt #174600, Tessie/V2C/Gree slugs.
-
-Processed up until: Core PR #176928 / Frontend PR #52709
-
-Potential backend candidate:
-- Add charge/discharge remaining time to Indevolt ([@Xirt] - [#174600]) ([indevolt docs])
-- Add Orion XS and Inverter support to Victron BLE ([@rajlaud] - [#169834]) ([victron_ble docs])
-- Roborock Q10 DND switch ([@lboue] - [#174851]) ([roborock docs])
-- Add fan speed sensor to Freebox integration ([@DocEmmetBrown] - [#175081]) ([freebox docs])
-- Add Bluetooth proxy support for SMLIGHT ([@tl-sl] - [#174710]) ([smlight docs])
-- Add Candle Warmer Lamp support to switchbot ([@Onero-testdev] - [#173585]) ([switchbot docs])
-- Add SwitchBot Standing Fan select platform ([@Onero-testdev] - [#173580]) ([switchbot docs])
-- Add Hypontech plant status binary sensor ([@jcisio] - [#174404]) ([hypontech docs]) (new-platform)
-- Add calendar platform to Sonarr ([@seanpasino] - [#174506]) ([sonarr docs]) (new-platform)
-- Add soil conductivity sensor support to ecowitt ([@GSzabados] - [#164620]) ([ecowitt docs])
-- Add RGBIC Neon Rope Light support to switchbot ([@Onero-testdev] - [#173586]) ([switchbot docs])
-- Adds the switch platform for the Imou integration ([@Imou-OpenPlatform] - [#174880]) ([imou docs]) (new-platform)
-- Add SwitchBot Standing Fan fan platform ([@Onero-testdev] - [#173578]) ([switchbot docs])
-- Add seat coolers to Teslemetry ([@Bre77] - [#175422]) ([teslemetry docs])
-- Add temperature and humidity sensors to Cielo Home integration ([@btajuddin] - [#173043]) ([cielo_home docs]) (new-platform)
-- Support KNX button entity configuration from UI ([@farmio] - [#174426]) ([knx docs]) (noteworthy)
-- Add Roborock Q10 switch entities ([@tubededentifrice] - [#175731]) ([roborock docs])
-- Add WiiM multi-room grouping support and metadata synchronization ([@Linkplay2020] - [#172537]) ([wiim docs])
-- Add command aliases to Vizio remote platform ([@raman325] - [#166839]) ([vizio docs]) (new-platform)
-- Add infrared receiver for SMLIGHT Ultima devices ([@tl-sl] - [#175188]) ([smlight docs])
-- Switchbot Cloud: Enable Webhook for AI Art Frame ([@XiaoLing-git] - [#175823]) ([switchbot_cloud docs])
-- Add get_prices_for_date service action to OMIE ([@abmantis] - [#175820]) ([omie docs])
-- Add Roborock Q10 map image entity ([@tubededentifrice] - [#173883]) ([roborock docs])
-- Add Roborock Q10 volume number entity ([@tubededentifrice] - [#175732]) ([roborock docs])
-- MELCloud Home add energy consumption ([@erwindouna] - [#173948]) ([melcloud_home docs])
-- Add update platform to Portainer ([@erwindouna] - [#163685]) ([portainer docs]) (new-platform)
-- Add window and tilt binary sensors for Overkiz ContactSensor devices ([@iMicknl] - [#174409]) ([overkiz docs])
-- Add cover platform to Liebherr ([@mettolen] - [#175921]) ([liebherr docs]) (new-platform)
-- MELCloud Home add number platform ([@erwindouna] - [#174552]) ([melcloud_home docs]) (new-platform)
-- Add Reolink pre-siren entities ([@starkillerOG] - [#176186]) ([reolink docs])
-- Add vehicle current and Wi-Fi RSSI sensors for Tesla Wall Connector ([@sarabveer] - [#176243]) ([tesla_wall_connector docs])
-- Add estimated arrival sensor to Picnic ([@ronlimon] - [#176295]) ([picnic docs])
-- Add boost and drying duration numbers for Atlantic Electrical Towel Dryer in Overkiz ([@iMicknl] - [#176291]) ([overkiz docs])
-- Add sensor platform to Mikrotik ([@chemelli74] - [#175214]) ([mikrotik docs]) (new-platform)
-- Add oven light to Whirlpool ([@matthewdias] - [#176364]) ([whirlpool docs]) (new-platform)
-- OpenAI GPT-5.6 support ([@Shulyaka] - [#176450]) ([openai_conversation docs])
-- Add support for Somfy Thermostat PRO climate entity in Overkiz ([@iMicknl] - [#176283]) ([overkiz docs])
-- Add oven cook mode select to Whirlpool ([@bdlcalvin] - [#173412]) ([whirlpool docs])
-- Add Google Health calories, floors, and body fat sensors ([@allenporter] - [#176533]) ([google_health docs])
-- Add oven target temperature number to Whirlpool ([@bdlcalvin] - [#173411]) ([whirlpool docs]) (new-platform)
-- Add Duco ventilation temperature sensors ([@ronaldvdmeer] - [#176621]) ([duco docs])
-- Support Shelly Enhanced Security (HTTPS only mode) ([@bieniu] - [#176547]) ([shelly docs]) (noteworthy)
-- Add tank pressure and water temperature sensors to Gardena Bluetooth ([@icereed] - [#176798]) ([gardena_bluetooth docs])
-- Add sensor platform to Imou integration ([@Imou-OpenPlatform] - [#176069]) ([imou docs]) (new-platform)
-- Add health state to containers in Portainer ([@erwindouna] - [#176697]) ([portainer docs])
-- Add sleep coordinator and sensors to Google Health ([@allenporter] - [#176781]) ([google_health docs])
-- Add motion device class to reolink AI detection binary sensors ([@abmantis] - [#176802]) ([reolink docs])
-- Add button platform to Mikrotik ([@chemelli74] - [#175599]) ([mikrotik docs]) (new-platform)-->
-
 ### Integration quality scale achievements
 
 One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
@@ -498,8 +429,6 @@ There are many more improvements in this release; here are some of the other not
 If you have set up Home Assistant recently, you might notice a short, optional survey asking how your first experience went. It is entirely up to you, and every response helps us make getting started smoother for the next person. Thank you to everyone who shares their thoughts! 💛
 
 ### A roomier template editor
-
-<!-- REMOVE if frontend#53021 does not merge for 2026.8: https://github.com/home-assistant/frontend/pull/53021 -->
 
 The template tool in **Tools** is where you try out {% term "template" "templates" %} and watch the result update as you type. This release gives it a more comfortable layout: the editor and the result now sit in a split view you can drag to resize, and you can switch between side by side and stacked, whichever suits what you are working on. Your choice is remembered for next time.
 
@@ -584,9 +513,7 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-<!-- TODO REMOVE BEFORE FINAL. Backward-incompatible changes processed up until PR #177187 (sweep 1); sweep 2 (2026-07-31) added AirNow (#176740) and Edifier Infrared (#177472).
-Sweep resolved: Gardena Bluetooth (#177187), Paperless-ngx (#176889), and Volvo On Call (#175677) are written below. Device registry (#175785) moved to its own section in the main body (too important to bury in this list). Steam #176146 is NOT a breaking change (new feature: it adds sensors), so it moved to the noteworthy improvements list. Developer-facing only and intentionally excluded from this user list: #175606, #175608, #175611 (all @gjohansson-ST).
-AirNow #176740 confirmed 2026.8 (appears in the 2026.8.0b0 release tag). -->
+<!-- Breaking-changes sweep checkpoint: swept through release 2026.8.0b3. -->
 
 {% details "AirNow" %}
 
