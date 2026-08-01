@@ -123,7 +123,6 @@ _A huge thank you to all the contributors who made this release possible! And a 
 [@bramkragten]: https://github.com/bramkragten
 [@frenck]: https://github.com/frenck
 [@piitaya]: https://github.com/piitaya
-[@RaHehl]: https://github.com/RaHehl
 
 ## Making Home Assistant more approachable
 
@@ -231,11 +230,13 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 We welcome the following new integrations in this release:
 
 <!-- VALIDATE (PR sweep) — new integrations:
-ADDED to the list: Google Health (#175417), llama.cpp (#175580), GeoSphere Austria Warnings (#173563).
-STILL TO ADD (docs pages now exist in this repo — confirm the brand is merged, then add):
-- Flic Button — native Bluetooth for Flic 2 / Duo / Twist; press + rotation events. @alhia https://github.com/home-assistant/core/pull/165260
-- Dyson infrared — control Dyson fans via an IR transmitter. @elax46 https://github.com/home-assistant/core/pull/173666
+ADDED to the list: Google Health (#175417), llama.cpp (#175580), GeoSphere Austria Warnings (#173563), Dyson Infrared (#173666).
+HELD (not in 2026.8):
+- Flic Button (#165260, @alhia) — merged to the `flic2` feature branch, not dev; docs PR #44011 still open, so no /integrations/flic_button page. Revisit when it lands in dev with merged docs.
 -->
+
+- **[Dyson Infrared]**, added by [@elax46]  
+  Control your Dyson fans through any infrared transmitter you already have set up in Home Assistant. Because the connection only goes one way, Home Assistant shows the last command you sent rather than the fan's live state.
 
 - **[Fuelprices.dk]**, added by [@MTrab]  
   Track current fuel prices from Danish fuel companies in Home Assistant. The integration pulls prices from the [Fuelprices.dk](https://fuelprices.dk) service and creates a sensor for each product you select at a station, so you can watch prices and build automations around them.
@@ -281,6 +282,7 @@ STILL TO ADD (docs pages now exist in this repo — confirm the brand is merged,
 
 [@allenporter]: https://github.com/allenporter
 [@chemelli74]: https://github.com/chemelli74
+[@elax46]: https://github.com/elax46
 [@fishloa]: https://github.com/fishloa
 [@Herbertmt978]: https://github.com/Herbertmt978
 [@Lash-L]: https://github.com/Lash-L
@@ -292,6 +294,7 @@ STILL TO ADD (docs pages now exist in this repo — confirm the brand is merged,
 [@tklecka]: https://github.com/tklecka
 [@TN-1]: https://github.com/TN-1
 [@tr4nt0r]: https://github.com/tr4nt0r
+[Dyson Infrared]: /integrations/dyson_infrared
 [Fuelprices.dk]: /integrations/fuelprices_dk
 [Gatus]: /integrations/gatus
 [GeoSphere Austria Warnings]: /integrations/geosphere_austria_warnings
@@ -623,8 +626,21 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-<!-- TODO REMOVE BEFORE FINAL. Backward-incompatible changes processed up until PR #177187.
-Sweep resolved: Gardena Bluetooth (#177187), Paperless-ngx (#176889), and Volvo On Call (#175677) are written below. Device registry (#175785) moved to its own section in the main body (too important to bury in this list). Steam #176146 is NOT a breaking change (new feature: it adds sensors), so it moved to the noteworthy improvements list. Developer-facing only and intentionally excluded from this user list: #175606, #175608, #175611 (all @gjohansson-ST). -->
+<!-- TODO REMOVE BEFORE FINAL. Backward-incompatible changes processed up until PR #177187 (sweep 1); sweep 2 (2026-07-31) added AirNow (#176740) and Edifier Infrared (#177472).
+Sweep resolved: Gardena Bluetooth (#177187), Paperless-ngx (#176889), and Volvo On Call (#175677) are written below. Device registry (#175785) moved to its own section in the main body (too important to bury in this list). Steam #176146 is NOT a breaking change (new feature: it adds sensors), so it moved to the noteworthy improvements list. Developer-facing only and intentionally excluded from this user list: #175606, #175608, #175611 (all @gjohansson-ST).
+AirNow #176740 confirmed 2026.8 (appears in the 2026.8.0b0 release tag). -->
+
+{% details "AirNow" %}
+
+The station radius option has been removed. The 2026 AirNow API no longer uses a distance parameter, so the radius had no effect on which reporting station was used. Existing entries are updated automatically, and any radius you had set is discarded. No action is needed.
+
+([@derekcentrico] - [#176740]) ([AirNow documentation])
+
+[@derekcentrico]: https://github.com/derekcentrico
+[#176740]: https://github.com/home-assistant/core/pull/176740
+[AirNow documentation]: /integrations/airnow/
+
+{% enddetails %}
 
 {% details "Gardena Bluetooth" %}
 
@@ -634,6 +650,17 @@ The valve's `activation_reason` sensor now reports a fixed set of values instead
 
 [@elupus]: https://github.com/elupus
 [#177187]: https://github.com/home-assistant/core/pull/177187
+
+{% enddetails %}
+
+{% details "Edifier Infrared" %}
+
+If you set up the Edifier Infrared integration for the R2000DB or R2730DB speakers, some buttons were mapped to the wrong infrared codes (on the R2730DB, power and mute were swapped). The mappings are now corrected and migrated automatically. If you built {% term automations %} or {% term scripts %} around the old, incorrect buttons, update them to match.
+
+([@abmantis] - [#177472]) ([Edifier Infrared documentation])
+
+[#177472]: https://github.com/home-assistant/core/pull/177472
+[Edifier Infrared documentation]: /integrations/edifier_infrared/
 
 {% enddetails %}
 
