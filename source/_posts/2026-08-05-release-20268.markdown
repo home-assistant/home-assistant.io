@@ -406,7 +406,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@starkillerOG]: https://github.com/starkillerOG
 [@thecode]: https://github.com/thecode
 [@tubededentifrice]: https://github.com/tubededentifrice
-[@XiaoLing-git]: https://github.com/XiaoLing-git
 [@Onero-testdev]: https://github.com/Onero-testdev
 
 <!-- REMOVE before final: raw candidate list below is SUPERSEDED by the curated list above. Kept only so you can cross-check in the second draft.
