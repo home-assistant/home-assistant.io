@@ -13,15 +13,15 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Hot Spring** {% term integration %} allows you to monitor and control your [Hot Spring](https://www.hotspring.com/) spa equipped with the **Connected Spa Kit 2** (Part #79994) module directly from Home Assistant.
+The **Hot Spring** {% term integration %} allows you to monitor and control your [Hot Spring](https://www.hotspring.com/) spa equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) module directly from Home Assistant.
 
-## Supported hardware
+## Supported devices
 
-- Hot Spring Spas equipped with the **HotSpring Connected Spa Kit 2** (Part #79994) local network module.
+- Hot Spring Spas equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) local network module.
 
 ## Prerequisites
 
-1. Install and set up the **HotSpring Connected Spa Kit 2** on your hot tub following the manufacturer's quick start guide.
+1. Install and set up the **HotSpring Connected Spa Kit 2** on your spa following the manufacturer's quick start guide.
 2. Use the official **HotSpring Connected Spa** app to connect the spa module to your home Wi-Fi or local network.
 3. Verify that your Home Assistant instance and the Hot Spring spa module are on the same local network subnet.
 
@@ -38,7 +38,7 @@ When setting up or reconfiguring the integration, ensure you enter the IP addres
 
 ### Reconfiguration
 
-If the IP address of your Hot Spring spa changes, you can reconfigure the integration by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Hot Spring** integration, clicking {% icon "mdi:dots-vertical" %} and choosing **Reconfigure**.
+If the IP address of your Hot Spring spa changes, you can reconfigure the integration by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Hot Spring** integration, selecting {% icon "mdi:dots-vertical" %}, and then choosing **Reconfigure**.
 
 ## Supported functionality
 
@@ -64,7 +64,7 @@ If Home Assistant cannot establish a connection to your Hot Spring spa:
 1. Make sure your Hot Spring spa module is powered on and connected to your local network.
 2. Verify that you are using the IP address of the **HNA (Home Network Adapter)** and not the **SNA (Spa Network Adapter)**.
 3. Verify that you can locate the device on your local network router client list.
-4. Double check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
+4. Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
 5. Try restarting the Hot Spring spa module and reloading the integration in Home Assistant.
 
 ## Removing the integration
