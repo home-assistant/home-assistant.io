@@ -40,10 +40,7 @@ The **Green Planet Energy** integration provides the following sensor entities.
 - **Lowest price night (18:00–06:00)**: The lowest electricity price during nighttime hours in EUR/kWh.
 - **Lowest price night time (18:00–06:00)**: The timestamp when the lowest nighttime price occurs.
 
-## List of actions
-
-- [Get prices](/actions/green_planet_energy.get_prices/) (`green_planet_energy.get_prices`) Fetch upcoming 15-minute electricity price slots.
-- [Get cheapest duration](/actions/green_planet_energy.get_cheapest_duration/) (`green_planet_energy.get_cheapest_duration`) Find the cheapest time window for a specified duration.
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -80,7 +77,7 @@ template:
 
 - Price slots beyond today and tomorrow are not available and are omitted from the `get_prices` response.
 
-{% include integrations/actions.md %}
+
 
 ## Examples
 
