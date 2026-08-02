@@ -1,4 +1,9 @@
-### Action: Get prices
+---
+title: "Get prices"
+action: green_planet_energy.get_prices
+domain: green_planet_energy
+description: "Fetches upcoming 15-minute electricity price slots from Green Planet Energy."
+---
 
 Use the `green_planet_energy.get_prices` action to fetch upcoming 15-minute electricity price slots.
 
@@ -17,8 +22,17 @@ response_variable: result
 
 Slots beyond the API data horizon (today and tomorrow) are omitted from the response.
 
-#### Response data
+## Response data
 
+The response is a mapping with the number of hours requested and a list of price slots. Slots beyond the available data horizon (today and tomorrow) are omitted.
+
+- `hours_requested`: The number of hours requested.
+- `prices`: A list of the returned 15-minute price slots. Each slot includes:
+  - `start`: The slot start timestamp in ISO 8601 format.
+  - `end`: The slot end timestamp in ISO 8601 format.
+  - `price`: The electricity price in EUR/kWh.
+
+A shortened example of the response looks like this:
 ```yaml
 hours_requested: 2.0
 prices:
@@ -29,9 +43,3 @@ prices:
     end: "2026-03-24T10:30:00+01:00"
     price: 0.28125
 ```
-
-- `hours_requested` (`float`): Number of hours requested.
-- `prices` (`list`): List of returned 15-minute price slots.
-- `prices[].start` (`string`): Slot start timestamp in ISO 8601 format.
-- `prices[].end` (`string`): Slot end timestamp in ISO 8601 format.
-- `prices[].price` (`float`): Electricity price in EUR/kWh.
