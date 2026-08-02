@@ -56,12 +56,15 @@ Password:
 
 ### Schedule Management
 
-1. **Initial Setup**: First, activate a schedule using the Plugwise App or browser.
-2. **Control via Home Assistant**:
+1. **Initial Setup**: First, via the Plugwise App or webbrowser, create a schedule and then active it for one or more thermostats.
+2. **Changing Schedules**: Use the Thermostat schedule [select](#change-climate-schedule) entity:
+    - The select shows the available schedule names and an extra "off" option
+    - The schedule that is active for a thermostat can be deactivated by selecting this "off" option
+    - When no schedule has been created yet, only the single "off" option is shown
+3. **Control via Home Assistant**:
    - Use the climate card to activate/deactivate schedules.
    - 'Auto' mode indicates the schedule is active.
    - 'Heat', 'Cool' or 'Heat_cool' modes signify the schedule is inactive.
-3. **Changing Schedules**: Use the thermostat [select](#change-climate-schedule) entity.
 
 {% note %}
 Only schedules with two or more schedule points will appear as options.
