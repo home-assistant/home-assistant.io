@@ -26,7 +26,7 @@ The integration is vendor-independent and uses the standard Redfish service root
 The integration supports management controllers that implement the following standard Redfish resources:
 
 - The Redfish service root at `/redfish/v1/`
-- The ComputerSystem collection advertised by the service root
+- The `Systems` collection advertised by the service root
 - The `ComputerSystem.Reset` action for power control
 
 Support depends on how completely the management controller implements these standard resources.
