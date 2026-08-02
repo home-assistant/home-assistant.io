@@ -43,6 +43,7 @@ The **Green Planet Energy** integration provides the following sensor entities.
 ## List of actions
 
 - [Get prices](/actions/green_planet_energy.get_prices/) (`green_planet_energy.get_prices`) Fetch upcoming 15-minute electricity price slots.
+- [Get cheapest duration](/actions/green_planet_energy.get_cheapest_duration/) (`green_planet_energy.get_cheapest_duration`) Find the cheapest time window for a specified duration.
 
 ## Examples
 
