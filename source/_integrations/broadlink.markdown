@@ -2,6 +2,7 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Infrared
   - Light
@@ -18,6 +19,7 @@ ha_codeowners:
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
+  - button
   - climate
   - infrared
   - light
@@ -58,6 +60,7 @@ The {% term entities %} have the same name as the device by default. To change t
 
 The {% term entities %} are divided into the following subdomains:
 
+- [Button](#button)
 - [Climate](#climate)
 - [Infrared](#infrared)
 - [Radio frequency](#radio-frequency)
@@ -67,6 +70,10 @@ The {% term entities %} are divided into the following subdomains:
 - [Switch](#switch)
 - [Light](#light)
 - [Time](#time)
+
+## Button
+
+The **Capture IR code** {% term entity %} starts a capture session on the [IR receiver](#ir-receiver) of devices with IR capabilities. Select it when you are ready to point a remote at your Broadlink device.
 
 ## Climate
 
@@ -81,13 +88,21 @@ The existing `remote.learn_command` and `remote.send_command` actions described 
 
 ### IR receiver
 
-The IR receiver {% term entity %} reports the codes your Broadlink device picks up, so that integrations such as [LED Infrared](/integrations/led_infrared/) can act on the buttons you press on a handheld remote.
+The IR receiver {% term entity %} reports the codes your Broadlink device picks up, so that other integrations can record the buttons of a handheld remote.
 
-Broadlink devices cannot listen for IR signals continuously. To pick up a code, the device is placed in learning mode and then asked for the result, which gives the receiver a few characteristics that a dedicated IR receiver does not have:
+Broadlink devices cannot listen for IR signals continuously. To pick up a code, the device has to be placed in learning mode, which lights its LED and stops it from doing anything else. The receiver therefore works in capture sessions rather than listening all the time:
 
-- The device is only placed in learning mode while another integration is listening to the receiver. If nothing is listening, the device is left alone.
-- While the device is listening, its LED stays lit, and the `remote.learn_command` action cannot use the device at the same time. The two take turns, so learning a code can take slightly longer.
+- Select the **Capture IR code** button on the device to start a session. The receiver becomes available and the device starts listening.
+- Point your remote at the device and press the buttons you want to record. Each code you send keeps the session going.
+- When you stop pressing buttons, the session ends after 30 seconds and the receiver becomes unavailable again. A session always ends after 5 minutes, even if codes keep arriving.
+
+Because a session only runs when you ask for one, a Broadlink device cannot be used to react to a remote at any time. It is a way to record codes, not a permanent IR sensor. If you need one of those, use an always-on receiver such as an [ESPHome](/integrations/esphome/) device with an IR receiver.
+
+A few more things worth knowing:
+
+- The `remote.learn_command` action cannot use the device during a capture session. The two take turns, so learning a code can take slightly longer.
 - Codes are collected about once per second. A code that arrives while the previous one is still being collected is missed, and holding a button down is reported as a single code.
+- The LED can stay lit for up to 30 seconds after a session ends, because the device leaves learning mode on its own.
 - The device does not report the carrier frequency of the codes it picks up, and it rounds the durations it reports to roughly 33 microseconds. This is well within the tolerance of common remote control protocols.
 
 ## Radio frequency
