@@ -34,7 +34,7 @@ To set up the integration, you need the following:
 
 {% configuration_basic %}
 Host:
-  description: The IP address of your router, e.g., `192.168.1.1`.
+  description: The host name or IP address of your router, for example, `192.168.1.1`. By default, this is `myfiosgateway.com`.
 Password:
   description: The password for the `admin` user. The default password may be printed on the gateway itself.
 SSL:
