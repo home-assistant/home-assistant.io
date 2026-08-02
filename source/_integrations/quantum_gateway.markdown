@@ -53,7 +53,7 @@ A repair issue in {% my integrations title="**Settings** > **Devices & services*
 
 ## Supported functionality
 
-The integration creates a {% term "device tracker" %} entity for each device known to your Gateway device.
+The integration creates a {% term "device tracker" %} entity for each device known to your Quantum Gateway.
 You can use these entities to track the presence of people in your home. For more information on how to assign tracked devices to people, see the [device tracker integration page](/integrations/device_tracker/).
 
 ## Data updates
