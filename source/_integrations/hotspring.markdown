@@ -9,7 +9,6 @@ ha_codeowners:
   - '@Moustachauve'
 ha_domain: hotspring
 ha_platforms:
-  - diagnostics
   - water_heater
 ha_integration_type: device
 ---
@@ -51,10 +50,6 @@ The **Hot Spring** integration provides the following entities:
   - **Description**: Displays the current water temperature and allows setting the target water temperature.
   - **Temperature Range**: 80.0 °F to 104.0 °F
   - **Remarks**: Turning the water heater on or off is not supported by the integration.
-
-### Diagnostics
-
-- Provides diagnostic data collection for troubleshooting. Sensitive unique IDs and MAC addresses are automatically redacted.
 
 ## Data updates
 
