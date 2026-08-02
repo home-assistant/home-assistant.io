@@ -64,7 +64,7 @@ The integration setup will next give you instructions to enter the [Application 
     - **Profile** (required): Allows Home Assistant to verify your account identity.
     - **Activity and fitness** (optional): Granting this scope creates sensors for steps, distance, active calories, total calories, and floors.
     - **Health metrics and measurements** (optional): Granting this scope creates sensors for weight, resting heart rate, and body fat.
-    - **Sleep data** (optional): Granting this scope creates sensors for time asleep, time awake, time in bed, time to fall asleep, and time after wakeup.
+    - **Sleep data** (optional): Granting this scope creates sensors for time asleep, time awake, time in bed, time to fall asleep, and time after wake-up.
     - **Nutrition and hydration** (optional): Granting this scope creates sensors for hydration and calories consumed.
     - **Paired devices** (optional): Granting this scope creates diagnostic sensors for battery level and last sync time for your paired wearables or devices.
 3. You may get a message telling you that the app has not been verified. Acknowledge this to proceed.
@@ -106,14 +106,14 @@ The **Google Health** integration provides the following entities:
 - **Time awake**: Duration spent awake during the sleep period.
 - **Time in bed**: Total duration spent in bed during the sleep period.
 - **Time to fall asleep**: Duration taken to fall asleep.
-- **Time after wakeup**: Duration spent in bed after waking up.
+- **Time after wake-up**: Duration spent in bed after waking up.
 
 **Nutrition sensors**
 
 *Available for accounts that grant the Nutrition and hydration scope.*
 
 - **Calories consumed**: Daily energy consumed.
-- **Hydration**: Daily volume of water/liquids consumed.
+- **Hydration**: Daily volume of liquids consumed.
 
 **Paired device sensors**
 
@@ -195,7 +195,7 @@ automation: |
 The integration updates sensors on different intervals based on the data type:
 
 - Activity sensors (Steps, Distance, Active calories, Total calories, Floors) are updated every 15 minutes.
-- Sleep sensors (Time asleep, Time awake, Time in bed, Time to fall asleep, Time after wakeup) are updated every 15 minutes.
+- Sleep sensors (Time asleep, Time awake, Time in bed, Time to fall asleep, Time after wake-up) are updated every 15 minutes.
 - Nutrition sensors (Hydration, Calories consumed) are updated every 15 minutes.
 - Body sensors (Weight, Resting heart rate, Body fat) are updated every hour.
 - Paired device sensors (Battery level, Last sync time) are updated every hour.
