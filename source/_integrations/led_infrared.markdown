@@ -51,6 +51,12 @@ This integration supports many branded and unbranded LED bulbs, lamps, and LED s
 
 {% enddetails %}
 
+{% details "10-key LED candle remote" %}
+
+![10-key LED candle remote](/images/integrations/led_infrared/10-key.png)
+
+{% enddetails %}
+
 ## Prerequisites
 
 Before setting up the LED Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your lights.
@@ -85,15 +91,31 @@ A light entity is created when an infrared emitter is configured.
 
 - **Brightness up**
   - **Description**: Increases the brightness of the light by one step.
-  - **Available for**: 13-key remote, 24-key remote, 40-key remote, 44-key remote
+  - **Available for**: 10-key remote, 13-key remote, 24-key remote, 40-key remote, 44-key remote
 
 - **Brightness down**
   - **Description**: Decreases the brightness of the light by one step.
-  - **Available for**: 13-key remote, 24-key remote, 40-key remote, 44-key remote
+  - **Available for**: 10-key remote, 13-key remote, 24-key remote, 40-key remote, 44-key remote
 
 - **Timer**
   - **Description**: Enables the timer, turning the light on for 6 hours and off for 18 hours in a repeating 24-hour cycle.
   - **Available for**: 13-key remote
+
+- **Timer 2h**
+  - **Description**: Enables the timer, turning the light on for 2 hours and off for 22 hours in a repeating 24-hour cycle.
+  - **Available for**: 10-key remote
+
+- **Timer 4h**
+  - **Description**: Enables the timer, turning the light on for 4 hours and off for 20 hours in a repeating 24-hour cycle.
+  - **Available for**: 10-key remote
+
+- **Timer 6h**
+  - **Description**: Enables the timer, turning the light on for 6 hours and off for 18 hours in a repeating 24-hour cycle.
+  - **Available for**: 10-key remote
+
+- **Timer 8h**
+  - **Description**: Enables the timer, turning the light on for 8 hours and off for 16 hours in a repeating 24-hour cycle.
+  - **Available for**: 10-key remote
 
 - **Quick**
   - **Description**: Increases the speed of the currently selected dynamic effect.
