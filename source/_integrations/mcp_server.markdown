@@ -53,7 +53,7 @@ The Home Assistant Model Context Protocol Server integration implements the
 [Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
 allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can 
+and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
@@ -66,6 +66,23 @@ will likely continue to evolve.
 
 The Home Assistant MCP server is exposed as `/api/mcp` and requires the
 client to provide an authentication token.
+
+### Exposing a specific LLM API
+
+The `/api/mcp` endpoint serves the LLM API you select when you set up the
+integration. If you have more than one LLM API available, you can also connect a
+client to a specific one by adding its ID to the URL:
+
+`/api/mcp/<api_id>`
+
+For example, the built-in Assist API is always available at `/api/mcp/assist`.
+Point your MCP client at this URL in the same way you would use the base
+`/api/mcp` endpoint. If you request an API ID that does not exist, Home Assistant
+responds with a 404 Not Found error.
+
+Connecting to any API other than Assist requires the authenticated user to be an
+administrator. The Assist API stays available to non-administrator users, just
+like the base `/api/mcp` endpoint.
 
 ### Access control
 
@@ -87,13 +104,11 @@ an OAuth Client ID. Instead, the Client ID is the base URL of the client applica
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
-1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
-
-2. Create a **Long-lived access token**
-
+1. Go to {% my profile_security title="**User profile** > **Security** tab " %}.
+2. Under **Long-lived access tokens**, select **Create token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
-For more information about Authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/#your-account-profile).
+For more information about authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/).
 
 ### Example: Claude for Desktop
 

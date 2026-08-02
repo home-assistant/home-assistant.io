@@ -2,6 +2,7 @@
 title: Marantz Infrared
 description: Integration to control Marantz amplifiers using an infrared transmitter.
 ha_category:
+  - Infrared
   - Media player
 ha_release: 2026.6
 ha_iot_class: Assumed State

@@ -407,7 +407,6 @@ layout: null
 /docs/installation/virtualenv /installation
 /hassio /getting-started
 /hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
-/hassio/enable_i2c /common-tasks/os#enable-i2c
 /hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
 /hassio/haos_common_tasks /common-tasks/os
 /hassio/hassos_faq /faq
@@ -538,12 +537,14 @@ layout: null
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
+/integrations/aten_pe /more-info/removed-integration 301
 /_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/avion /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/beewi_smartclim /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
+/integrations/blinksticklight /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
 /integrations/bloomsky /more-info/removed-integration 301
 /integrations/bluetooth_tracker /more-info/removed-integration 301
@@ -554,6 +555,7 @@ layout: null
 /integrations/bom /more-info/removed-integration 301
 /integrations/circuit /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
+/integrations/clementine /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/coronavirus /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
@@ -568,6 +570,7 @@ layout: null
 /integrations/dlib_face_detect /more-info/removed-integration 301
 /integrations/dlib_face_identify /more-info/removed-integration 301
 /integrations/dominos /more-info/removed-integration 301
+/integrations/dovado /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
@@ -594,6 +597,7 @@ layout: null
 /integrations/goalfeed /more-info/removed-integration 301
 /integrations/google_domains /more-info/removed-integration 301
 /integrations/gpmdp /more-info/removed-integration 301
+/integrations/greenwave /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
 /integrations/gstreamer /more-info/removed-integration 301
 /integrations/hangouts /more-info/removed-integration 301
@@ -615,6 +619,7 @@ layout: null
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
 /integrations/lockitron /more-info/removed-integration 301
+/integrations/logentries /more-info/removed-integration 301
 /integrations/logi_circle /more-info/removed-integration 301
 /integrations/loop_energy /more-info/removed-integration 301
 /integrations/loopenergy /more-info/removed-integration 301
@@ -625,12 +630,17 @@ layout: null
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mercury_nz /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/microsoft_face /more-info/removed-integration 301
+/integrations/microsoft_face_detect /more-info/removed-integration 301
+/integrations/microsoft_face_identify /more-info/removed-integration 301
+/integrations/mycroft /more-info/removed-integration 301
 /integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
 /integrations/mini_connected /more-info/removed-integration 301
 /integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
+/integrations/msteams /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
 /integrations/n26 /more-info/removed-integration 301
 /integrations/national_grid_us /more-info/removed-integration 301
@@ -650,6 +660,7 @@ layout: null
 /integrations/plum_lightpad /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
+/integrations/permobil /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
@@ -685,6 +696,7 @@ layout: null
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tfiac /more-info/removed-integration 301
+/integrations/thermoworks_smoke /more-info/removed-integration 301
 /integrations/tikteck /more-info/removed-integration 301
 /integrations/tof /more-info/removed-integration 301
 /integrations/tplink_lte /more-info/removed-integration 301
@@ -692,10 +704,12 @@ layout: null
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
 /integrations/ue_smart_radio /more-info/removed-integration 301
+/integrations/unifiled /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/vlc /more-info/removed-integration 301
 /integrations/voice_assistant /integrations/assist_pipeline/ 301
 /integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
@@ -704,6 +718,7 @@ layout: null
 /integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
+/integrations/watson_tts /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/xbee /more-info/removed-integration 301
 /integrations/xbox_live /more-info/removed-integration 301

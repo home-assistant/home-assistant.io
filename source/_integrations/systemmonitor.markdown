@@ -44,12 +44,12 @@ One sensor per discovered network interface will be created
 
 - **IPv4 address**: The IPv4 address assigned to the network interface
 - **IPv6 address**: The IPv6 address assigned to the network interface
-- **Network in**: Total bytes received on the network interface
-- **Network out**: Total bytes sent from the network interface
+- **Network in**: Total data received on the network interface (MiB)
+- **Network out**: Total data sent from the network interface (MiB)
 - **Packets in**: Number of packets received on the network interface
 - **Packets out**: Number of packets sent from the network interface
-- **Network throughput in**: Current inbound network speed (bytes per second)
-- **Network throughput out**: Current outbound network speed (bytes per second)
+- **Network throughput in**: Current inbound network speed (MB/s)
+- **Network throughput out**: Current outbound network speed (MB/s)
 
 ### Pressure Stall Information (PSI)
 

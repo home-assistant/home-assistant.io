@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Car
+  - Device tracker
   - Lock
   - Sensor
 ha_platforms:
@@ -228,19 +230,7 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
-## Actions
-
-### Get image URL
-
-The action `get_image_url` retrieves the URL of your vehicle-specific images.
-Get all URLs at once, or select one or more angles.
-
-{% configuration_basic %}
-Entry:
-  description: "The entry ID to retrieve the vehicle images for."
-Images:
-  description: "The image angles to retrieve. Leave empty to get all images."
-{% endconfiguration_basic %}
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -250,7 +240,6 @@ Send a notification to your mobile phone if at least one door is open for 5 minu
 
 ```yaml
 alias: Notify me if doors are left open for 5 minutes
-description: ""
 triggers:
   - trigger: state
     entity_id:
@@ -261,18 +250,14 @@ triggers:
       - binary_sensor.volvo_YOUR_MODEL_tailgate
     to: "on"
     for:
-      hours: 0
       minutes: 5
-      seconds: 0
-conditions: []
 actions:
-  - data:
+  - action: notify.mobile_app_phone_john_doe
+    data:
       data:
         url: /lovelace/volvo
       title: 🚘 Volvo
-      message: You've left some doors open. Don't give thiefs a chance!
-    action: notify.mobile_app_phone_john_doe
-mode: single
+      message: "You've left some doors open."
 ```
 
 ### Estimated charging finish time
@@ -282,7 +267,8 @@ The Volvo API only provides an estimated charging time (in minutes). To calculat
 {% raw %}
 
 ```jinja2
-{% set charging_time = states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
+{% set charging_time =
+  states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
 {% if charging_time > 0 -%}
   {% set new_time = now() + timedelta(minutes=charging_time) %}
   {{ new_time }}

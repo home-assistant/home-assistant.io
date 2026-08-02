@@ -2,16 +2,20 @@
 title: "Add device"
 action: xiaomi_aqara.add_device
 domain: xiaomi_aqara
-description: "Enables pairing mode on a Xiaomi Aqara Gateway to add a new device."
+description: "Opens the Xiaomi Aqara Gateway for pairing a new device."
 related_actions:
   - xiaomi_aqara.remove_device
+  - xiaomi_aqara.play_ringtone
+  - xiaomi_aqara.stop_ringtone
 ---
 
-The **Add device** action enables the join permission of a Xiaomi Aqara Gateway for 30 seconds. While join permission is enabled, you can add a new device by pressing its pairing button once.
+The **Add device** action enables the join permission of a Xiaomi Aqara Gateway for 30 seconds. During that time, you can add a new device by pressing its pairing button once.
+
+This is useful for pairing a new sensor or switch without opening the Mi Home app.
 
 {% include actions/ui_header.md %}
 
-To add a device from an automation or a script:
+To open the gateway for pairing from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
@@ -21,13 +25,13 @@ To add a device from an automation or a script:
 6. Enter the **Gateway MAC**.
 7. Select **Save**.
 
-This action does not support targets. In the UI, use the **Gateway MAC** field to choose which gateway enters pairing mode.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
 ### Options in the UI
 
 {% options_ui %}
 Gateway MAC:
-  description: The MAC address of the Xiaomi Aqara Gateway.
+  description: The MAC address of the gateway. When you have a single gateway, it is selected automatically.
   required: true
 {% endoptions_ui %}
 
@@ -39,16 +43,14 @@ In YAML, refer to this action as `xiaomi_aqara.add_device`. A basic example look
 action: |
   action: xiaomi_aqara.add_device
   data:
-    gw_mac: xxxxxxxxxxxx
+    gw_mac: aa:bb:cc:dd:ee:ff
 {% endexample %}
-
-This enables pairing mode on the gateway for 30 seconds.
 
 ### Options in YAML
 
 {% options_yaml %}
 gw_mac:
-  description: The MAC address of the Xiaomi Aqara Gateway.
+  description: The MAC address of the gateway. When you have a single gateway, it is used automatically.
   required: true
   type: string
 {% endoptions_yaml %}

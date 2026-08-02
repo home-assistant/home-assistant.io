@@ -18,6 +18,8 @@ You can add these cards using the visual card editor or by editing the YAML dire
 
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
+To show or hide cards on the built-in Energy dashboard, see [customizing the Energy dashboard](/docs/energy/#customizing-the-energy-dashboard).
+
 ## Energy date picker
 
 <p class='img'>
