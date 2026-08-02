@@ -5,6 +5,7 @@ ha_release: 2026.8
 ha_category:
   - Water heater
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@Moustachauve'
 ha_domain: hotspring
