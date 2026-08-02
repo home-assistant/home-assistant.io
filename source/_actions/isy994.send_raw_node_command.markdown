@@ -31,7 +31,7 @@ Command:
 Value:
   description: The integer value to send with the command, if the command requires one.
 Parameters:
-  description: A mapping of parameters to send in the query string, for example to control colored bulbs or advanced parameters.
+  description: A mapping of parameters to send in the query string, for example to control colored bulbs or additional parameters not exposed through the standard entity controls of Home Assistant.
 Unit of measurement:
   description: The ISY unit of measurement to send with the command, if the command requires one.
 {% endoptions_ui %}
@@ -63,7 +63,7 @@ value:
   required: false
   type: integer
 parameters:
-  description: A mapping of parameters to send in the query string, for example to control colored bulbs or advanced parameters.
+  description: A mapping of parameters to send in the query string, for example to control colored bulbs or additional parameters not exposed through the standard entity controls of Home Assistant.
   required: false
   type: map
 unit_of_measurement:

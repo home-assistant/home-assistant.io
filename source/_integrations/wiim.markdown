@@ -39,11 +39,6 @@ The button entities provide some additional WiiM features available on the devic
 - **Time Sync**: Synchronizes the device’s internal clock with the current time on your Home Assistant server, ensuring features like scheduled playback or time-based automations remain accurate.
 - **Restart Device**: Reboots the device remotely, providing a quick way to recover from connectivity issues or apply configuration changes without physical interaction.
 
-## Actions
-
-The WiiM integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
-
-
 ## Removing the integration
 
 This integration follows the standard integration removal process; no extra steps are required.

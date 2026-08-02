@@ -88,7 +88,7 @@ for:
 
 At sunset, this automation checks whether the shade is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Shade is open
   - **Target**: Bedroom shade
 - **Action**: Close cover
@@ -99,8 +99,7 @@ At sunset, this automation checks whether the shade is still open. If it is, Hom
 automation: |
   alias: "Close the shade at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.shade_is_open
       target:

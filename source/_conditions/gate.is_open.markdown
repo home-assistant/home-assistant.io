@@ -84,7 +84,7 @@ for:
 
 At sunset, this automation checks whether the driveway gate is still open. If it is, Home Assistant sends a reminder so you can secure the property before it gets dark.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Gate is open
   - **Target**: Driveway gate
   - **Condition passes if**: Any
@@ -97,8 +97,7 @@ At sunset, this automation checks whether the driveway gate is still open. If it
 automation: |
   alias: "Remind me if the driveway gate is open at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: gate.is_open
       target:
