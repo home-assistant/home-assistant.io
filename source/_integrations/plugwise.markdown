@@ -56,7 +56,7 @@ Password:
 
 ### Schedule Management
 
-1. **Initial Setup**: First, via the Plugwise App or webbrowser, create a schedule and then active it for one or more thermostats.
+1. **Initial Setup**: First, use the Plugwise app or the local web interface to create a schedule, and then activate it for one or more thermostats.
 2. **Changing Schedules**: Use the Thermostat schedule [select](#change-climate-schedule) entity:
     - The select shows the available schedule names and an extra "off" option
     - The schedule that is active for a thermostat can be deactivated by selecting this "off" option
