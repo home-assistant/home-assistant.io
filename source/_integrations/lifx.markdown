@@ -165,13 +165,19 @@ Discoveries from control protocols that are not desired can be ignored in the UI
 
 ## LIFX switch
 
-The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
-[LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
-documentation to obtain a HomeKit code before integrating the Switch with Home Assistant as it will be needed during the process.
+The LIFX integration does not support the LIFX Switch. However, depending on the firmware version of the switch one of two integrations can be used:
+- [v3.9.0 and higher](https://support.lifx.com/hc/en-us/articles/14509330704663-Switch-3-90-Update) makes use of the [HomeKit Controller](/integrations/homekit_controller) integration. Follow the LIFX
+documentation to obtain a HomeKit code before integrating the Switch with Home Assistant as it will be needed during the process
+- [v4.100 and higher](https://support.lifx.com/hc/en-us/articles/34857864915095-Matter-Firmware-Updates-for-LIFX-Devices) makes use of [HomeKit Controller](/integrations/homekit_controller) or [Matter](/integrations/matter)
 
-When using the [HomeKit Controller](/integrations/homekit_controller) integration, each button on the LIFX Switch is discovered as a
-[stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
+When using the HomeKit Controller integration:
+- Each button on the LIFX Switch is discovered as a [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
+
+When you use the Matter integration:
+
+- Similar to the HomeKit Controller integration, relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
+- Each button is exposed as an [event entity](/integrations/event) regardless of how it is configured in the LIFX app.
 
 ## Troubleshooting discovery
 

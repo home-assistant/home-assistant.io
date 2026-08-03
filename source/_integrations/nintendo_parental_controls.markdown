@@ -86,8 +86,9 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Device class**: `duration`
 
 #### Switch
+
 - **Suspend software**
-  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
+  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits.
 
 #### Time
 
@@ -100,11 +101,10 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 ## Known limitations
 
-The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
-
-Further, this integration relies on the cloud and cannot make a local connection to your Switch.
-
-The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
+- A cloud connection is required as it is not possible to make a local connection to your Switch.
+- The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- When changing the PIN, Nintendo will send you an email automatically. This cannot be disabled in the integration. The email does not contain the PIN itself.
 
 ## Troubleshooting
 
