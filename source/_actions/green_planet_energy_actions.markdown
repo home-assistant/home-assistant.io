@@ -5,22 +5,7 @@ domain: green_planet_energy
 description: "Fetches upcoming 15-minute electricity price slots from Green Planet Energy."
 ---
 
-Use the `green_planet_energy.get_prices` action to fetch upcoming 15-minute electricity price slots.
-
-The action accepts the following data field:
-
-- `hours` (required): Number of hours to return, starting from the current 15-minute slot. Minimum `0.25`, maximum `24`.
-
-This example fetches the next 6 hours and stores the response in `result`.
-
-```yaml
-action: green_planet_energy.get_prices
-data:
-  hours: 6
-response_variable: result
-```
-
-Slots beyond the API data horizon (today and tomorrow) are omitted from the response.
+Use the **Green Planet Energy: Get energy prices** action to fetch upcoming 15-minute electricity price slots.
 
 {% include actions/ui_header.md %}
 
@@ -79,7 +64,8 @@ The response is a mapping with the number of hours requested and a list of price
   - `end`: The slot end timestamp in ISO 8601 format.
   - `price`: The electricity price in EUR/kWh.
 
-A shortened example of the response looks like this:
+Example shortened response:
+
 ```yaml
 hours_requested: 2.0
 prices:

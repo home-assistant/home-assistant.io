@@ -50,28 +50,6 @@ You can use the `get_prices` action together with a [template sensor](/integrati
 
 Add the following to your {% term "`configuration.yaml`" %} file. After you save your changes, restart Home Assistant or reload your template configuration to apply them.
 
-{% raw %}
-
-```yaml
-template:
-  - triggers:
-      - trigger: time_pattern
-        minutes: "/15"
-    actions:
-      - action: green_planet_energy.get_prices
-        data:
-          hours: 6
-        response_variable: result
-    sensor:
-      - name: "Green Planet Energy next 6 hours"
-        state: "{{ result.prices | length }}"
-        unit_of_measurement: "slots"
-        attributes:
-          prices: "{{ result.prices }}"
-          hours_requested: "{{ result.hours_requested }}"
-```
-
-{% endraw %}
 
 ## Known limitations
 
