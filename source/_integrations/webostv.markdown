@@ -65,7 +65,7 @@ The **LG webOS TV** integration provides the following entities.
 
 - **Screen**
   - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again.
-  - **Remarks**: This entity is unavailable while the TV is off, even if you use a [Device is requested to turn on](/triggers/webostv.turn_on/) automation to keep the media player available.
+  - **Remarks**: This entity is unavailable when the TV is off, even if the TV media player remains available (for example, because you use the [**Device is requested to turn on**](/triggers/webostv.turn_on/) trigger).
 
 {% include integrations/triggers.md %}
 
