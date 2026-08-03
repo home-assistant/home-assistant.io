@@ -29,15 +29,16 @@ To resolve this issue, try the following steps:
        - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. Make sure the system on which you opened the browser to access Home Assistant is connected to the same network as Home Assistant.
-   - For example, if the system your Browser runs on is using Wi-Fi, make sure it is using the same Wi-Fi Home Assistant is connected to.
+   - For example, if the system your browser runs on is using Wi-Fi, make sure it is using the same Wi-Fi Home Assistant is connected to.
 4. Make sure you typed the address correctly.
-   - Especially if the message includes the error code “ERR_CONNECTION_REFUSED”, it is likely that there was a typo in the port part of the URL (`:8123`).
-   - Typically, the URL is [http://homeassistant.local:8123](http://homeassistant.local:8123).
-   - If you are running an older Windows version or have a stricter network configuration, try [http://homeassistant:8123](http://homeassistant:8123) instead.
+   - For Home Assistant Operating System, the typical URL is [http://homeassistant.local/](http://homeassistant.local/).
+   - If Home Assistant does not open at that address, try [http://homeassistant.local:8123/](http://homeassistant.local:8123/). This can happen if another service, such as a reverse proxy, is already using port `80`.
+   - If you are running an older Windows version or have a stricter network configuration, try [http://homeassistant/](http://homeassistant/) or [http://homeassistant:8123/](http://homeassistant:8123/) instead.
+   - For Home Assistant Container, use the address shown in the installation guide, typically `http://<host>:8123`.
 5. The system might still be starting up. Wait for a couple of minutes and refresh the page.
    - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon, or press CTRL+R or CTRL+SHIFT+R.
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
-   - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
+   - Enter this IP address directly into your browser. For Home Assistant Operating System, try `http://x.x.x.x` first, then `http://x.x.x.x:8123` if needed. For Home Assistant Container, use `http://x.x.x.x:8123`.
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/articles/25153288092829).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://support.nabucasa.com/hc/articles/25454894609693), or [to access the console from Linux or macOS](https://support.nabucasa.com/hc/articles/25454972435357).
