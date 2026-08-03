@@ -2,7 +2,7 @@
 layout: post
 title: "2026.8 Beta: A betta title"
 description: "A more approachable Home Assistant: less technical jargon, easier web server settings, a redesigned Home Assistant Cloud page, simpler entity ID renaming, cleaner device management, more triggers and conditions, and new integrations!"
-date: 2026-08-05 00:00:00
+date: 2026-07-22 00:00:00
 date_formatted: "August 5, 2026"
 author: Ashley Abbott
 author_twitter: Home_Assistant
