@@ -176,7 +176,7 @@ recorder:
 
 {% include common-tasks/filters.md %}
 
-If you only want to hide events from your **Activity** panel, take a look at the [Activity integration](/integrations/logbook/). To prevent events from being stored in the database, use the `exclude`/`include` options of the `recorder` integration. This can reduce storage and keep the database small by excluding certain often-logged events, such as `sensor.last_boot`.
+If you only want to hide events from your **Activity** panel, take a look at the [Activity integration](/integrations/logbook/). But if you have privacy concerns about certain events or want to prevent them from being stored in the database, use the `exclude`/`include` options of the `recorder` integration. This can reduce storage and keep the database small by excluding certain often-logged events, such as `sensor.last_boot`.
 
 ##### Examples
 
