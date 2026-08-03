@@ -537,7 +537,7 @@ When you add the replacement, Home Assistant offers two options:
 The host, port, and credentials of the migrated configuration are taken from the new device. If the old device used a password and the new one does not, the stored credentials are dropped.
 
 {% note %}
-If another device in Home Assistant is already registered for the MAC address of the replacement, the migration is refused and nothing is changed. Add the Shelly as a new device instead.
+If the Shelly integration already has a device registered for the MAC address of the replacement, the migration is refused and nothing is changed. Add the Shelly as a new device instead.
 {% endnote %}
 
 ## Removing the integration
