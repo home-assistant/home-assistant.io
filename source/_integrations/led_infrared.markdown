@@ -51,9 +51,9 @@ This integration supports many branded and unbranded LED bulbs, lamps, and LED s
 
 {% enddetails %}
 
-{% details "10-key LED candle remote" %}
+{% details "10-key remote" %}
 
-![10-key LED candle remote](/images/integrations/led_infrared/10-key.png)
+![10-key remote](/images/integrations/led_infrared/10-key.png)
 
 {% enddetails %}
 
