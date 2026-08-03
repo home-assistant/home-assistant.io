@@ -84,7 +84,9 @@ Beware that the Tado (v2) API does not provide GPS location of devices, only a b
 
 ## Data updates
 
-The integration normally updates every five minutes. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+How often the integration polls depends on your tado° API budget and on whether anything is currently heating. It polls at most every five minutes while a zone is active, backs off to every 30 minutes when nothing is, and stretches the interval further if the daily call budget is running low. The budget is read from the rate limit headers tado° returns, and resets around midday Central European Time.
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
 
 ### Defining a custom polling interval
 
