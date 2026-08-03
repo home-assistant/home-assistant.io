@@ -113,7 +113,7 @@ recorder:
       default: 5
       type: integer
     exclude:
-      description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
+      description: Configure which integrations and events should be excluded from recordings. ([Configure filters](#configure-filters))
       required: false
       type: map
       keys:
@@ -133,8 +133,12 @@ recorder:
           description: The list of event types to be excluded from recordings.
           required: false
           type: list
+        event_data:
+          description: A list of event-data filter rules to be excluded from recordings. Each rule contains an `event_type` and a `match` map.
+          required: false
+          type: list
     include:
-      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded. ([Configure Filter](#configure-filter))
+      description: Configure which integrations and events should be included in recordings. If set, all other entities will not be recorded. ([Configure filters](#configure-filters))
       required: false
       type: map
       keys:
@@ -148,6 +152,10 @@ recorder:
           type: list
         entities:
           description: The list of entity ids to be included in the recordings.
+          required: false
+          type: list
+        event_data:
+          description: A list of event-data filter rules to be included in recordings. Each rule contains an `event_type` and a `match` map.
           required: false
           type: list
 {% endconfiguration %}
