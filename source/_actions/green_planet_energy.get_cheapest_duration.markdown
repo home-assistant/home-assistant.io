@@ -7,43 +7,6 @@ description: "Find the cheapest time window for a given duration in the selected
 
 The **Get cheapest duration** action calculates the cheapest consecutive time window for a duration between 0.5 and 24 hours.
 
-{% include actions/ui_header.md %}
-
-To use this action in an automation or script:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation or script, or select **Create**.
-3. In **Then do**, select **Add action**.
-4. Search for and select **Green Planet Energy: Get cheapest duration**.
-5. Enter the Green Planet Energy price sensor in **Entity ID**.
-6. Set the duration in hours.
-7. Optional: Set **Time range** to limit the search window.
-8. Select **Save**.
-
-## Options in the UI
-
-{% options_ui %}
-Entity ID:
-  description: Green Planet Energy sensor entity used to identify the integration instance.
-Duration:
-  description: Duration, in hours, for which to find the cheapest time window. Allowed range is 0.5 to 24.
-Time range:
-  description: Optional time range to search within. Choose from `full_day`, `day`, or `night`.
-{% endoptions_ui %}
-
-{% include actions/yaml_header.md %}
-
-In YAML, refer to this action as `green_planet_energy.get_cheapest_duration`:
-
-{% example %}
-action: |
-  action: green_planet_energy.get_cheapest_duration
-  data:
-    entity_id: sensor.green_planet_energy_current_price
-    duration: 3.5
-    time_range: night
-{% endexample %}
-
 ## Options in YAML
 
 {% options_yaml %}
