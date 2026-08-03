@@ -242,7 +242,7 @@ recorder:
 
 #### Event data filters
 
-You can filter individual events by their event type and exact event data values.
+You can filter individual events by their event type and exact event data values. The `event_types` option excludes every event of a type. Use event-data filters when that would be too broad, such as when you want to keep useful `zha_event` events while excluding only noisy vibration-strength reports from one device.
 
 Each event-data filter rule has an `event_type` and a `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Missing event data fields do not match.
 
