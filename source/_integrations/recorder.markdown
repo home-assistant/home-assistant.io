@@ -152,9 +152,13 @@ recorder:
           type: list
 {% endconfiguration %}
 
-### Configure filter
+### Configure filters
 
-By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
+Recorder filters affect only what Recorder stores in the database. They do not prevent events from being fired or state changes from occurring, and automations and other event listeners continue to receive them.
+
+#### Entity filters
+
+By default, no entity will be excluded. To limit which entities are exposed to `recorder`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -172,36 +176,9 @@ recorder:
 
 {% include common-tasks/filters.md %}
 
-### Configure event data filters
-
-You can filter individual events by their event type and exact event data values. Event data filters affect only what Recorder stores in the database. They do not prevent the event from being fired, and automations and other event listeners continue to receive it.
-
-Each filter has an `event_type` and a `match` map. All fields in `match` must be present and exactly match for the filter to apply. Multiple filters are combined with OR semantics. Values can be strings, booleans, integers, or floats. Missing event data fields do not match.
-
-Use `exclude` to omit matching events. For example, to keep ZHA events except for vibration-strength reports:
-
-```yaml
-recorder:
-  exclude:
-    event_data:
-      - event_type: zha_event
-        match:
-          command: vibration_strength
-```
-
-You can use `include` to limit recording for a particular event type to matching event data. Event types without an `include.event_data` filter retain their normal Recorder behavior. When a rule matches both `include` and `exclude`, `exclude` takes precedence.
-
-```yaml
-recorder:
-  include:
-    event_data:
-      - event_type: zha_event
-        match:
-          command: tilt
-```
 If you only want to hide events from your **Activity** panel, take a look at the [Activity integration](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history nor activity, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
-#### Common filtering examples
+##### Examples
 
 Defining domains and entities to `exclude` (that is, blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
@@ -253,6 +230,34 @@ recorder:
       - sensor.date
     entity_globs:
       - sensor.weather_*
+```
+
+#### Event data filters
+
+You can filter individual events by their event type and exact event data values.
+
+Each event-data filter rule has an `event_type` and a `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Missing event data fields do not match.
+
+Use `exclude` to omit matching events. For example, to keep ZHA events except for vibration-strength reports:
+
+```yaml
+recorder:
+  exclude:
+    event_data:
+      - event_type: zha_event
+        match:
+          command: vibration_strength
+```
+
+You can use `include` to limit recording for a particular event type to matching event data. Event types without an `include.event_data` filter retain their normal Recorder behavior. When a rule matches both `include` and `exclude`, `exclude` takes precedence.
+
+```yaml
+recorder:
+  include:
+    event_data:
+      - event_type: zha_event
+        match:
+          command: tilt
 ```
 
 {% include integrations/actions.md %}
