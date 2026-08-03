@@ -452,6 +452,23 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 Additional devices in the [Compatible hardware](#compatible-hardware) section may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
+## Using ZHA events
+
+Some Zigbee remotes and other devices emit `zha_event` events when they are used. You can use these events as automation triggers. Devices that expose a device trigger or an `event` entity can also be automated using those options.
+
+To identify the device in the event data, use its `device_ieee` value. This is the Zigbee device's fixed IEEE address. Do not use Home Assistant's internal device ID, which can change if the device or integration is re-created. An entity's unique ID identifies a specific endpoint or entity, not the physical device.
+
+To view the event data from your device, go to **Developer tools** > **Events**, listen for `zha_event`, and use your device. Add the relevant event data to the event trigger in your automation. For example:
+
+```yaml
+triggers:
+  - trigger: event
+    event_type: zha_event
+    event_data:
+      device_ieee: "00:12:4b:00:1c:d6:0f:66"
+      command: toggle
+```
+
 {% include integrations/actions.md %}
 
 ## Zigbee groups and binding devices
