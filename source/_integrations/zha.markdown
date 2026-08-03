@@ -458,7 +458,7 @@ Some Zigbee remotes and other devices emit `zha_event` events when they are used
 
 To identify the device in the event data, use its `device_ieee` value. This is the Zigbee device's fixed IEEE address. Do not use Home Assistant's internal device ID, which can change if the device or integration is re-created. An entity's unique ID identifies a specific endpoint or entity, not the physical device.
 
-To view the event data from your device, go to **Developer tools** > **Events**, listen for `zha_event`, and use your device. Add the relevant event data to the event trigger in your automation. For example:
+To view the event data from your device, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. Under **Listen to events**, enter `zha_event`, select **Start listening**, and then use your device. Add the relevant event data to the event trigger in your automation. For example:
 
 ```yaml
 triggers:
