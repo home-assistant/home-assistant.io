@@ -50,12 +50,10 @@ The **WATERCryst** integration provides the following entities.
 - **Event Category**
   - **Description**: The category of the event.
   - **Available for machines**: all
-  - **Remarks**: Events can have the categories `error`, `warning`, or `info`. This sensor holds the additional attributes `Event ID`, `Event Category`, `Event Title`, `Event Description`, and `Event Timestamp`.
 
 - **Event ID**
   - **Description**: The unique event identifier.
   - **Available for machines**: all
-  - **Remarks**: This sensor holds the additional attributes `Event ID`, `Event Category`, `Event Title`, `Event Description` and `Event Timestamp`.
 
 - **Last Water Tap Duration**
   - **Description**: Duration of the last water tapping in seconds [sec].
