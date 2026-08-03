@@ -17,7 +17,6 @@ ha_platforms:
   - button
   - diagnostics
   - light
-  - number
   - select
   - sensor
 ha_integration_type: device
@@ -102,23 +101,17 @@ The **LIFX** integration provides the following entities.
   - **Description**: Restarts the light in the same way as a physical power cycle. This is a good way to make the light request a new DHCP lease.
   - **Available for**: all LIFX lights
 
-### Numbers
+### Selects
 
 - **Infrared brightness**
   - **Description**: Sets how bright the infrared LEDs run when the visible brightness is low.
-  - **Range**: 0 to 100%
+  - **Options**: `Disabled`, `25%`, `50%` or `100%`
   - **Available for**: LIFX Nightvision lights
-
-### Selects
 
 - **Theme**
   - **Description**: Paints one of the built-in themes across the light.
   - **Options**: any of the [available themes](#themes)
   - **Available for**: multizone and matrix lights
-
-{% note %}
-Infrared brightness used to be a select entity offering the same four percentage levels as the LIFX app. The light accepts any level in between, so it is now a number entity, and the select entity is deprecated. A light that already has the select entity keeps it until you disable it, and a repair issue offers to remove it once no automation or script uses it.
-{% endnote %}
 
 ### Sensors
 
