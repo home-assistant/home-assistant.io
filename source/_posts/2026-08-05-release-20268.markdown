@@ -23,6 +23,8 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 {% tip %}
 
+<a href='https://youtube.com/live/aK2HMY9-Tzo'><img src='/images/blog/2026-08/ESPH-2607-starterkit-livestream-thumbnail.png' alt='ESPHome Starter Kit launch party livestream on August 12' class='no-shadow' style='width: 100%; margin-bottom: 12px;' /></a>
+
 There's more to look forward to next week: the **ESPHome Starter Kit** is launching, and you're invited to the official launch party! 🚀 Join the ESPHome team and their partners at Apollo Automation on the [ESPHome YouTube channel](https://youtube.com/live/aK2HMY9-Tzo) on August 12 at 21:00 CEST. Familiar faces are dropping by to celebrate lift-off, too: [Reed](https://www.youtube.com/c/SmartHomeSolver) from Smart Home Solver, [Simon](https://www.youtube.com/@simonsayshomeassistant) from Simon Says Home Assistant, and [Gavin](https://www.hometech.fm/) from HomeTech.fm.
 
 {% endtip %}
