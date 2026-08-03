@@ -22,7 +22,41 @@ The **Meater** {% term integration %} allows for communicating with the [Meater 
 
 Once configuration is complete, probes will be added as soon as they're seen by Home Assistant. They will be marked unavailable when the probes are disconnected from Meater Cloud.
 
-Currently, both the internal and external temperature of each probe will be displayed.
+## Supported functionality
+
+The **Meater** integration provides the following entities for each probe.
+
+### Sensors
+
+- **Ambient temperature**
+  - **Description**: Ambient temperature reported by the probe.
+
+- **Internal temperature**
+  - **Description**: Temperature measured at the probe tip.
+
+- **Cooking**
+  - **Description**: Name of the selected meat, or the custom name set in the Meater app.
+  - **Remarks**: Unavailable while no cook is in progress.
+
+- **Cook state**
+  - **Description**: State of the current cook, such as **Not started**, **Started**, **Resting**, or **Finished**.
+  - **Remarks**: Unavailable while no cook is in progress.
+
+- **Target temperature**
+  - **Description**: Target temperature of the current cook.
+  - **Remarks**: Unavailable while no cook is in progress.
+
+- **Peak temperature**
+  - **Description**: Peak temperature of the current cook.
+  - **Remarks**: Unavailable while no cook is in progress.
+
+- **Time remaining**
+  - **Description**: Timestamp at which the current cook is expected to finish.
+  - **Remarks**: Unavailable while no cook is in progress.
+
+- **Time elapsed**
+  - **Description**: Timestamp at which the current cook started.
+  - **Remarks**: Unavailable while no cook is in progress.
 
 ## Troubleshooting
 
