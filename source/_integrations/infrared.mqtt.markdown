@@ -401,7 +401,7 @@ value_template:
 
 The signal data schema is derived from the commands that are provided via the [infrared protocols](https://github.com/home-assistant-libs/infrared-protocols) library.
 
-By default, an infrared receiver entity expects a JSON payload that has a required `timings` and optional `modulation` attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz.
+By default, an infrared receiver entity expects a JSON payload that includes required `timings` and optional `modulation` attributes. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz.
 
 An example message to receive:
 
