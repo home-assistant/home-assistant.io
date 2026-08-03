@@ -238,7 +238,7 @@ You can filter individual events by their event type and exact event data values
 
 Each event-data filter rule has an `event_type` and a `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Missing event data fields do not match.
 
-Use `exclude` to omit matching events. For example, to keep ZHA events except for vibration-strength reports:
+Use `exclude` to omit matching events. For example, to keep ZHA events except for vibration-strength reports from a specific device:
 
 ```yaml
 recorder:
@@ -247,6 +247,7 @@ recorder:
       - event_type: zha_event
         match:
           command: vibration_strength
+          device_ieee: "aa:bb:cc:dd:ee:ff:00:11"
 ```
 
 You can use `include` to limit recording for a particular event type to matching event data. Event types without an `include.event_data` filter retain their normal Recorder behavior. When a rule matches both `include` and `exclude`, `exclude` takes precedence.
