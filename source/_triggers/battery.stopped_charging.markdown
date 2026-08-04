@@ -46,10 +46,10 @@ In YAML, **Battery stopped charging** is referred to as `battery.stopped_chargin
 trigger: |
   trigger: battery.stopped_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This fires every time `sensor.phone_battery` stops charging.
+This fires every time `binary_sensor.phone_battery_charging` stops charging.
 
 ### Options in YAML
 
@@ -80,6 +80,7 @@ for:
 
 ## Good to know
 
+- Use a binary sensor with the battery charging device class.
 - **Battery stopped charging** fires both when a device is unplugged and when it finishes charging naturally. If you only want to react when the battery is full, combine this trigger with a condition that checks the battery level.
 - To react when a device starts charging, use [Battery started charging](/triggers/battery.started_charging/).
 - To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
@@ -107,7 +108,7 @@ automation: |
   triggers:
     - trigger: battery.stopped_charging
       target:
-        entity_id: sensor.tablet_battery
+        entity_id: binary_sensor.tablet_battery_charging
   conditions:
     - condition: numeric_state
       entity_id: sensor.tablet_battery

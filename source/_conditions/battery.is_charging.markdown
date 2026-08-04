@@ -43,10 +43,10 @@ In YAML, **Battery is charging** is referred to as `battery.is_charging`. A basi
 condition: |
   condition: battery.is_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This passes when `sensor.phone_battery` is charging.
+This passes when `binary_sensor.phone_battery_charging` is charging.
 
 ### Options in YAML
 
@@ -101,7 +101,7 @@ automation: |
   conditions:
     - condition: battery.is_charging
       target:
-        entity_id: sensor.laptop_battery
+        entity_id: binary_sensor.laptop_battery_charging
   actions:
     - action: script.run_nightly_backup
 {% endexample %}
