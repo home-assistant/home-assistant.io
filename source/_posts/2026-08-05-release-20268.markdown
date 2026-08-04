@@ -67,6 +67,7 @@ Enjoy the release!
   - [A combined battery level you can trust](#a-combined-battery-level-you-can-trust)
   - [Search your media](#search-your-media)
   - [Find your favorite cards faster](#find-your-favorite-cards-faster)
+  - [Z-Wave lock credentials, properly managed](#z-wave-lock-credentials-properly-managed)
   - [And a few more](#and-a-few-more)
 - [Patch releases](#patch-releases)
 - [Need help? Join the community](#need-help-join-the-community)
@@ -465,6 +466,19 @@ Your most-used cards are now easier to find. In the card picker's "By Card" tab,
 
 Thanks, [@piitaya], [@laupalombi](https://github.com/laupalombi), and everyone who suggested this at a Release Party!
 
+### Z-Wave lock credentials, properly managed
+
+Managing who can unlock your Z-Wave lock just got a lot more capable. Powered by Z-Wave JS's new Access Control API, Z-Wave JS UI 1.6.0 brings a heavily revised interface: every supported lock now gets a dedicated **Access Control** tab. For now, this lives in Z-Wave JS UI rather than in the Z-Wave panel in Home Assistant.
+
+<p class='img'>
+  <img class='no-shadow' src='/images/blog/2026-08/zwave-access-control.png' alt='The new Access Control tab in Z-Wave JS UI, showing users and their credentials'>
+  Users, their credentials, and a full audit trail, all in one place.
+</p>
+
+Depending on what your lock supports, you can now give each user several credentials of more than one type, so the same person can have a PIN and a fingerprint, or multiple of both. New credentials can be learned on the lock itself: start the enrollment from the interface, then present the finger or type the PIN. There is also an audit log of every change, admin code management for locks that use one, and the ability to move credentials between users or delete them in bulk.
+
+Update Z-Wave JS UI to 1.6.0 or later, then open it to find the new tab. Thanks, [@AlCalzone]!
+
 ### And a few more
 
 There is even more packed into this release. Here are some of the other changes worth a mention:
@@ -474,7 +488,6 @@ There is even more packed into this release. Here are some of the other changes 
 - **Search finds more of what is connected.** When you search or open a device or entity, Home Assistant now digs deeper into what is related, so scenes, scripts, groups, the people behind a person entity, and anything sharing a label or area all show up where you would expect them. It is a small change that makes it much easier to see how your setup fits together. Thanks, [@frenck]!
 - **A reboot heads-up on Home Assistant OS.** The system {% term update %} entity now lets you know when an update needs a reboot to finish. Thanks, [@mdegat01]!
 - **A new radon device class.** Sensors and numbers can now be classified as radon, so radon measurements get the right units and display. Thanks, [@abmantis]!
-- **Z-Wave locks with coupled credentials.** Home Assistant now supports Z-Wave locks that require paired users and credentials. Thanks, [@AlCalzone]!
 - **Filter entities by manufacturer and model.** The entity filter can now narrow entities by manufacturer, model, and model ID. Thanks, [@Skaronator]!
 - **Ask Assist from quick search.** You can now start an Assist command straight from quick search. Thanks, [@timmo001]!
 - **A date on the clock card.** The clock card can now show the date alongside the time. Thanks, [@timmo001]!
