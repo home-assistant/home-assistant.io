@@ -7,6 +7,19 @@ description: "Find the cheapest time window for a given duration in the selected
 
 The **Get cheapest duration** action calculates the cheapest consecutive time window for a duration between 0.5 and 24 hours.
 
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `green_planet_energy.get_cheapest_duration`:
+
+{% example %}
+action: |
+  action: green_planet_energy.get_cheapest_duration
+  data:
+    entity_id: sensor.green_planet_energy_current_price
+    duration: 3.5
+    time_range: night
+{% endexample %}
+
 ## Options in YAML
 
 {% options_yaml %}
