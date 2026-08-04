@@ -1,7 +1,7 @@
 ---
 title: Poolside
 description: Instructions on how to integrate your Poolside Tech Attendant pool and spa controller with Home Assistant.
-ha_release: 2026.8
+ha_release: 2026.9
 ha_category:
   - Climate
   - Fan
