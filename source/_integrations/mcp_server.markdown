@@ -188,6 +188,33 @@ Claude Code supports remote MCP servers, making it easy to connect to your Home 
 4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
 5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
+### Example: Codex
+
+Codex can connect to Home Assistant as a remote MCP server by using OAuth:
+
+1. Install [Codex](https://developers.openai.com/codex/cli/) and sign in.
+2. Add the following configuration to `.codex/config.toml` in your project. To make the server available in every project, add it to `~/.codex/config.toml` instead. Codex loads project-local configuration only from projects you trust.
+
+   ```toml
+   mcp_oauth_callback_port = 12345
+
+   [mcp_servers.homeassistant]
+   url = "https://YOUR_HOME_ASSISTANT_URL/api/mcp"
+   auth = "oauth"
+   oauth = { client_id = "http://127.0.0.1:12345" }
+   ```
+
+   Replace `YOUR_HOME_ASSISTANT_URL` with the hostname and port, if required, of your Home Assistant server. The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by Codex; do not replace it with your Home Assistant URL.
+
+3. If you used project-local configuration, open a shell in that project. Run the following command:
+
+   ```bash
+   codex mcp login homeassistant
+   ```
+
+4. Complete the authentication in your web browser and authorize Codex to access Home Assistant.
+5. Restart Codex or start a new task to load the Home Assistant MCP server.
+
 ### Example: Cursor
 
 1. Download and install [Cursor](https://www.cursor.com).
