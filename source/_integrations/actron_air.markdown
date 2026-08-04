@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: actron_air
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
   - switch
 ha_integration_type: hub
@@ -51,7 +52,7 @@ The integration will add the following sensors to Home Assistant for your air co
 - Compressor mode
 - Compressor power
 - Compressor speed
-- Fan RPM
+- Fan speed
 - Outdoor temperature
 
 The integration will add the following sensors for each peripheral connected to your air conditioner:
