@@ -94,7 +94,7 @@ Broadlink devices cannot listen for IR signals continuously. To pick up a code, 
 
 - Select the **Capture IR code** button on the device to start a session. The receiver becomes available and the device starts listening.
 - Point your remote at the device and press the buttons you want to record. Each code you send keeps the session going.
-- When you stop pressing buttons, the session ends after 30 seconds and the receiver becomes unavailable again. A session always ends after 5 minutes, even if codes keep arriving.
+- When you stop pressing buttons, the session ends after 15 seconds and the receiver becomes unavailable again. A session always ends after a minute, even if codes keep arriving.
 
 Because a session only runs when you ask for one, a Broadlink device cannot be used to react to a remote at any time. It is a way to record codes, not a permanent IR sensor. If you need one of those, use an always-on receiver such as an [ESPHome](/integrations/esphome/) device with an IR receiver.
 
