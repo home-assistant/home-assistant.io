@@ -59,8 +59,8 @@ The **IntelliClima** integration provides the following entities for each discov
 - **Filter Cleaning Required**
   - **Description**: Indicates whether the device's filter needs cleaning.
   - **Device class**: Problem
-  - **Category**: Diagnostic
-  - **Good to know**: This entity is unavailable if filter tracking is turned off in the IntelliClima+ app.
+  - **Entity category**: Diagnostic
+  - **Remarks**: This entity is unavailable if filter tracking is turned off in the IntelliClima+ app.
   - **Available for devices**: Ecocomfort 2.0
 
 ### Fan
