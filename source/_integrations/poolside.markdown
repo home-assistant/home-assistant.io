@@ -34,8 +34,8 @@ The connection is local and encrypted. The controller pushes updates to Home Ass
 
 The following devices are supported by this integration:
 
-+ Poolside Tech Attendant
-+ Poolside Tech Attendant Mini
+- Poolside Tech Attendant
+- Poolside Tech Attendant Mini
 
 Your controller must be running software version 2.7.0 or later to be compatible with this integration. 
 
