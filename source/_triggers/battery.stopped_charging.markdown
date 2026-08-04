@@ -84,7 +84,6 @@ for:
 - **Battery stopped charging** fires both when a device is unplugged and when it finishes charging naturally. If you only want to react when the battery is full, combine this trigger with a condition that checks the battery level.
 - To react when a device starts charging, use [Battery started charging](/triggers/battery.started_charging/).
 - To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
-- The trigger works with sensors that report a charging state, such as devices that expose a battery charging attribute.
 
 {% include triggers/try_it.md %}
 

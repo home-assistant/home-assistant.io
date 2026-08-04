@@ -84,7 +84,6 @@ for:
 - **Battery started charging** fires only when a device transitions from not charging to actively charging. If a device is already charging when Home Assistant starts, the trigger does not fire.
 - To react when a device stops charging, use [Battery stopped charging](/triggers/battery.stopped_charging/).
 - To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
-- The trigger works with sensors that report a charging state, such as devices that expose a battery charging attribute.
 
 {% include triggers/try_it.md %}
 
