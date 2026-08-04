@@ -75,7 +75,7 @@ Enjoy the release!
 - [All changes](#all-changes)
 
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@RaHehl], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya] and [@RaHehl] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@bramkragten]: https://github.com/bramkragten
 [@frenck]: https://github.com/frenck
@@ -526,7 +526,7 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-<!-- Breaking-changes sweep checkpoint: swept through release 2026.8.0b3. -->
+<!-- Breaking-changes sweep checkpoint: swept through release 2026.8.0b5. -->
 
 {% details "AirNow" %}
 
