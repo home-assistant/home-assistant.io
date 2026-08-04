@@ -73,3 +73,7 @@ For most use cases, "Color", "Movie" and "Playlist" modes are the most relevant.
 {% include integrations/config_flow.md %}
 
 _If configured using an IP address, on your router / DHCP, you should assign a static IP to your Twinkly device._
+
+## Compatibility mode
+
+Some devices might require `Compatibility mode` to allow them be added to Home Assistant.  This must be enabled in the Twinkly application for each device.
