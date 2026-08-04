@@ -94,7 +94,7 @@ default_zoom:
   default: 14 (or whatever zoom level is required to fit all visible markers)
 scale_ruler:
   required: false
-  description: 'Shows a ruler that indicates the current scale of the map in one of three positions, `scale_ruler: top_right`, `scale_ruler: bottom_left`, or `scale_ruler: bottom_right`. Default (`scale_ruler: none`) disables the ruler.'
+  description: 'Shows a ruler that indicates the current scale of the map. It can be in one of three positions, the top right (`scale_ruler: top_right`), bottom left (`scale_ruler: bottom_left`), or bottom right corner (`scale_ruler: bottom_right`). By default the ruler is disabled (`scale_ruler: none`).'
   type: string
   default: none
 theme_mode:
