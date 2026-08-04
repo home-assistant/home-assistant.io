@@ -50,14 +50,7 @@ You can use the `get_prices` action together with a [template sensor](/integrati
 
 Add the following to your {% term "`configuration.yaml`" %} file. After you save your changes, restart Home Assistant or reload your template configuration to apply them.
 
-
-## Known limitations
-
-- Price slots beyond today and tomorrow are not available and are omitted from the `get_prices` response.
-
-
-
-## Examples
+Price slots beyond today and tomorrow are not available and are omitted from the `get_prices` response.
 
 ### Find the cheapest time for your dishwasher
 
