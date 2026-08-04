@@ -86,7 +86,7 @@ When an exterior motion sensor detects movement, turn on the porch and driveway 
 - **Condition**: Alarm is armed home
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Light: Turn on (porch, driveway)
+- **Action**: Turn on light (porch, driveway)
 
 {% details "YAML example for exterior motion lights when armed home" %}
 

@@ -58,6 +58,7 @@ Device trackers that track whether a device is connected to a fixed device have 
 Some integrations provide an older device tracker model which do not have the `tracking_type` or `in_zones` state attributes. These device trackers are scheduled for removal in the first half of 2027.
 
 <p class='img'>
-<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the developer tools' />
-Screenshot showing the state of a device tracker entity in the developer tools.
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in Settings > Tools > States' />
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the States tab of Tools.' />
+Screenshot showing the state of a device tracker entity in {% my developer_states title="Settings > Tools > States" %}
 </p>

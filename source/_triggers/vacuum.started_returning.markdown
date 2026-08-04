@@ -1,5 +1,5 @@
 ---
-title: "Vacuum started returning to dock"
+title: "Vacuum cleaner started returning to dock"
 trigger: vacuum.started_returning
 domain: vacuum
 description: "Triggers when one or more vacuum cleaners start returning to dock."
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
 3. In the **When** section, select **Add trigger**.
-4. Search for **Vacuum: Vacuum cleaner started returning to dock**.
+4. Search for **Vacuum cleaner started returning to dock**.
 5. Select targets (individual/group, area, or floor).
 6. Choose **Trigger when**: **Each**, **First**, or **All** as needed.
 7. Under **For at least**, enter how long the vacuum must keep returning before the trigger fires.
@@ -87,7 +87,7 @@ for:
 
 If your vacuum docks in a darker part of the house, you can turn on a nearby light when it starts heading back so it can finish its route with a clear path.
 
-- **Trigger**: Vacuum started returning to dock
+- **Trigger**: Vacuum cleaner started returning to dock
 - **Target**: Downstairs vacuum
 - **Condition**: Sun is below horizon
 - **Action**: Turn on hallway light
