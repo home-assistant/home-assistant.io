@@ -26,7 +26,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Poolside** {% term integration %} connects your Poolside Tech Attendant pool and spa controller to Home Assistant over your local network. This integration exposes the full set of capabilities for managing "controls" just like the native Poolside app. The intagration real time synchronizes your Attendant configuration and exposes all options and parameters. You may optionially use this integration to monitor the states and telemetry of pool equipment connected to the Attendant such as pumps, heaters, salt chlorinators, valve actuators and many more.
+The **Poolside** {% term integration %} connects your Poolside Tech Attendant pool and spa controller to Home Assistant over your local network. It exposes the full set of capabilities for managing controls, just like the native Poolside app. The integration synchronizes your Attendant configuration in real time, making every option and parameter available in Home Assistant. You can also use it to monitor the state and telemetry of pool equipment connected to the Attendant, such as pumps, heaters, salt chlorinators, valve actuators, and more.
 
 The connection is local and encrypted. The controller pushes updates to Home Assistant as they happen, so no cloud account is needed and changes show up immediately.
 
@@ -34,8 +34,8 @@ The connection is local and encrypted. The controller pushes updates to Home Ass
 
 The following devices are supported by this integration:
 
-Poolside Tech Attendant
-Poolside Tech Attendant Mini
++ Poolside Tech Attendant
++ Poolside Tech Attendant Mini
 
 Your controller must be running software version 2.7.0 or later to be compatible with this integration. 
 
@@ -44,7 +44,7 @@ All pool equipment that is set up on your controller, such as heaters, chillers,
 ## Prerequisites
 
 - Your Poolside controller must be connected to the same local network as Home Assistant.
-- You need access to the controller you're integrating with via the Poolside app to approve the pairing request during setup. You must have Administrator level permissions to the controller to perform pairing.
+- You need access to the controller you're integrating with via the Poolside app to approve the pairing request during setup. You must have administrator permissions to the controller to perform pairing.
 - If your controller is not discovered automatically, you need its hostname or IP address.
 
 {% include integrations/config_flow.md %}
