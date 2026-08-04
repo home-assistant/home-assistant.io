@@ -193,27 +193,33 @@ Claude Code supports remote MCP servers, making it easy to connect to your Home 
 Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 
 1. Install [Codex](https://developers.openai.com/codex/cli/) and sign in.
-2. Add the following configuration to `.codex/config.toml` in your project. To make the server available in every project, add it to `~/.codex/config.toml` instead. Codex loads project-local configuration only from projects you trust.
+2. Open `.codex/config.toml` in your project. To make the server available in every project, open `~/.codex/config.toml` instead.
+3. Add the following root-level setting before the first TOML table header in the file:
 
    ```toml
    mcp_oauth_callback_port = 12345
+   ```
 
+4. Add the Home Assistant MCP server configuration. You can add this table at the end of the file:
+
+   ```toml
    [mcp_servers.homeassistant]
-   url = "https://YOUR_HOME_ASSISTANT_URL/api/mcp"
+   url = "<your_home_assistant_url>/api/mcp"
    auth = "oauth"
    oauth = { client_id = "http://127.0.0.1:12345" }
    ```
 
-   Replace `YOUR_HOME_ASSISTANT_URL` with the hostname and port, if required, of your Home Assistant server. The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by Codex; do not replace it with your Home Assistant URL.
+   Replace `<your_home_assistant_url>` with the complete URL of your Home Assistant server, including `http://` or `https://` and the port, if required. For example, use `http://homeassistant.local:8123` for a typical local connection. The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by Codex; do not replace it with your Home Assistant URL.
 
-3. If you used project-local configuration, open a shell in that project. Run the following command:
+5. If you used project-local configuration, start Codex from the project and confirm the trust prompt. After the project opens, exit Codex and return to a shell in the same project. If you do not want to trust the project, use global configuration instead.
+6. Run the following command:
 
    ```bash
    codex mcp login homeassistant
    ```
 
-4. Complete the authentication in your web browser and authorize Codex to access Home Assistant.
-5. Restart Codex or start a new task to load the Home Assistant MCP server.
+7. Complete the authentication in your web browser and authorize Codex to access Home Assistant.
+8. Restart Codex or start a new task to load the Home Assistant MCP server.
 
 ### Example: Cursor
 
