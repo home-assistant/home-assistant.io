@@ -468,7 +468,7 @@ Thanks, [@piitaya], [@laupalombi](https://github.com/laupalombi), and everyone w
 
 ### Z-Wave lock credentials, properly managed
 
-Managing who can unlock your Z-Wave lock just got a lot more capable. Powered by Z-Wave JS's new Access Control API, Z-Wave JS UI 1.6.0 brings a heavily revised interface: every supported lock now gets a dedicated **Access Control** tab. For now, this lives in Z-Wave JS UI rather than in the Z-Wave panel in Home Assistant.
+Managing who can unlock your Z-Wave lock just got a lot more capable. Powered by Z-Wave JS's new Access Control API, the Z-Wave JS add-on 1.6.0 brings a heavily revised interface: every supported lock now gets a dedicated **Access Control** tab. For now, this lives in Z-Wave JS UI rather than in the Z-Wave panel in Home Assistant.
 
 <p class='img'>
   <img class='no-shadow' src='/images/blog/2026-08/zwave-access-control.png' alt='The new Access Control tab in Z-Wave JS UI, showing users and their credentials'>
@@ -477,7 +477,7 @@ Managing who can unlock your Z-Wave lock just got a lot more capable. Powered by
 
 Depending on what your lock supports, you can now give each user several credentials of more than one type, so the same person can have a PIN and a fingerprint, or multiple of both. New credentials can be learned on the lock itself: start the enrollment from the interface, then present the finger or type the PIN. There is also an audit log of every change, admin code management for locks that use one, and the ability to move credentials between users or delete them in bulk.
 
-Update Z-Wave JS UI to 1.6.0 or later, then open it to find the new tab. Thanks, [@AlCalzone]!
+Update the Z-Wave JS add-on to 1.6.0 or later, then open Z-Wave JS UI to find the new tab. Thanks, [@AlCalzone]!
 
 ### And a few more
 
@@ -505,7 +505,6 @@ There is even more packed into this release. Here are some of the other changes 
 We will also release patch releases for Home Assistant 2026.8 in August. These patch releases only contain bug fixes. Our goal is to release a patch release once a week, aiming for Friday.
 
 <!-- TODO after release: append one dated block per patch release (for example, "### 2026.8.1 - August 8"), each a list of PRs with author and number. Copy the format from the previous release. -->
-
 
 ## Need help? Join the community
 
