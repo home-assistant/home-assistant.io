@@ -18,7 +18,6 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
-  - infrared
   - light
   - sensor
   - switch
@@ -32,7 +31,16 @@ ha_quality_scale: silver
 
 The [SMLIGHT](https://smlight.tech) SLZB Ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
 
-The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your SLZB devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device. These features can also be incorporated into your automations for central control.
+The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your SLZB devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device.
+
+## Use cases
+
+Here are some examples of how you can use the SMLIGHT integration in your smart home:
+
+- Automated off-peak upgrades: Set up an automation to automatically install SMLIGHT core or Zigbee firmware updates during off-peak hours (for example, at 3:00 AM on a Tuesday) to ensure your coordinators are always up to date with zero manual intervention or network disruption.
+- Status LED sleep scheduling: Use an automation to turn off status LEDs overnight when the room is occupied or when your house enters "Sleep" mode by toggling the **Disable LEDs** switch.
+- Hardware health alerts: Create an automation to send an alert if the **Core temperature** or **Zigbee temperature** exceeds a threshold (for example, 65°C), which is particularly useful if the device is installed in a hot attic, server cabinet, or electrical closet.
+- Infrared (IR) control: Connect the IR Emitter entity of an SLZB-Ultima device to a media player or climate platform via an infrared integration to automate legacy televisions or air conditioners when room occupancy is detected.
 
 ## Prerequisites
 
@@ -133,7 +141,32 @@ SLZB-Ultima devices support additional peripherals not found on other SLZB adapt
 
 #### Infrared
 
-- **IR Emitter**: This entity can be used by other integrations as an [Infrared](/integrations/infrared/) proxy to send IR commands through the SLZB-Ultima device. For example, you can use the [LG Infrared](/integrations/lg_infrared/) integration with this entity type to control your TV.
+- **Infrared emitter** - Allows other integrations to send infrared commands.
+- **Infrared receiver** - Allows other integrations to receive infrared signals.
+
+For more details, see the [Infrared integration](/integrations/infrared/).
+
+## Bluetooth remote adapter (proxy)
+
+SMLIGHT SLZB U-series devices running SLZB-OS can act as a Bluetooth remote adapter (proxy). They scan for and forward Bluetooth advertisement data to Home Assistant.
+
+To use the Bluetooth remote adapter, select a [scanning mode](/integrations/bluetooth/#scanning-modes) in the integration options:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Configure** on the **SMLIGHT SLZB** card.
+3. Select a **Bluetooth scanning mode**.
+
+Setting a mode other than **Disabled** automatically enables the Bluetooth remote adapter on the SMLIGHT device.
+
+{% tip %}
+SMLIGHT devices do _not_ support proxying active (GATT) connections.
+{% endtip %}
+
+For more details, see [Remote adapters (Bluetooth proxies)](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
+
+## Actions
+
+{% include integrations/actions.md %}
 
 ## Removing the integration
 

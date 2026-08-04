@@ -1,6 +1,6 @@
 ---
-title: "Splitting up the configuration"
-description: "Splitting the configuration.yaml into several files."
+title: "Splitting the configuration file"
+description: "Keep your configuration.yaml manageable by splitting it into smaller, focused files using the !include directive."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -8,7 +8,11 @@ related:
     title: Using packages to organize configuration files
 ---
 
-So you've been using Home Assistant for a while now and your {% term "`configuration.yaml`" %} file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the {% term "`configuration.yaml`" %} into more manageable (read: human-readable) pieces.
+If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" %} file can grow large over time. You can split it into smaller, focused files using the `!include` directive.
+
+{% note %}
+Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
+{% endnote %}
 
 ## Example configuration files for inspiration
 
@@ -16,37 +20,33 @@ First off, several community members have sanitized (read: without API keys/pass
 
 As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
 
-## Analyzing the configuration files
+## How splitting works
 
-In this section, we are going use some example configuration files and look at their structure and format in more detail.
+The `configuration.yaml` file stays in place when you split it. You move parts of its content into separate files and reference them with `!include`.
 
-Now you might think that the {% term "`configuration.yaml`" %} will be replaced during the splitting process. However, it will in fact remain, albeit in a much less cluttered form.
-
-### The core configuration file
-
-In this lighter version, we will still need what could be called the core snippet:
+A fresh `configuration.yaml` includes several entries that should not be removed:
 
 ```yaml
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: "My Home Assistant Instance"
-  # Location required to calculate the time the sun rises and sets
-  latitude: 37
-  longitude: -121
-  # 'metric' for Metric, 'us_customary' for US Customary
-  unit_system: us_customary
-  # Pick yours from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: "America/Los_Angeles"
-  customize: !include customize.yaml
+# Loads a standard set of integrations. Keep this entry.
+default_config:
+
+# These files store automations, scripts, and scenes created in the UI.
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
 ```
 
-### Indentation, includes, comments, and modularization
+If you have added customizations or packages, there may also be a `homeassistant:` key. Any `!include` statements under it, such as for `customize:` or `packages:`, should stay nested inside it.
 
-Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
+The included file must contain valid YAML for the location where it is included. You do not repeat the parent key inside the included file.
 
-`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be YAML data that is valid at the location it is included. This is how we are going to break a monolithic and hard-to-read file (when it gets big) into more manageable chunks.
+For example, if `configuration.yaml` contains:
 
-For example, `customize.yaml` could contain the following:
+```yaml
+customize: !include customize.yaml
+```
+
+Then `customize.yaml` contains only the entries that belong under `customize:`:
 
 ```yaml
 light.living_room:
@@ -57,94 +57,76 @@ switch.patio:
   friendly_name: "Patio Switch"
 ```
 
-Notice that `customize:` is not written again inside `customize.yaml`. The key in `configuration.yaml` already defines the context — the included file only contains the entries that belong under it.
-
-Now before we start splitting out the different components, let's look at the other integrations (in our example) that will stay in the base file:
+You can apply the same pattern to any integration:
 
 ```yaml
-history:
-frontend:
-logbook:
-http:
-  api_password: "ImNotTelling!"
-
-ifttt:
-  key: ["nope"]
-
-mqtt:
-  sensor:
-    - name: "test sensor 1"
-      state_topic: "test/some_topic1"
-    - name: "test sensor 2"
-      state_topic: "test/some_topic2"
-```
-
-As with the core snippet, indentation makes a difference:
-
-- The integration headers (`mqtt:`) should be fully left aligned (aka no indent).
-- The key (`sensor:`) should be indented two (2) spaces.
-- The list `-` under the key `sensor` should be indented another two (2) spaces followed by a single space.
-- The `mqtt` sensor list contains two (2) configurations, with two (2) keys each.
-
-#### Comments
-
-The # symbol (hash/pound) represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored by the software. It is for humans only. Comments allow breaking up files for readability, as well as turning off features while leaving the entry intact.
-
-#### Modularization and granularity
-
-While some of these integrations could technically be moved to a separate file, they are so small or "one off's" where splitting them off is superfluous.
-
-Now, lets assume that a blank file has been created in the Home Assistant configuration directory for each of the following:
-
-```text
-automation.yaml
-zone.yaml
-sensor.yaml
-switch.yaml
-device_tracker.yaml
-customize.yaml
-```
-
-`automation.yaml` will hold all the automation integration details. `zone.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
-
-Inside the base configuration file, add the following entries:
-
-```yaml
-automation: !include automation.yaml
-zone: !include zone.yaml
-sensor: !include sensor.yaml
 switch: !include switch.yaml
-device_tracker: !include device_tracker.yaml
+sensor: !include sensor.yaml
 ```
 
-#### Include statements and packages to split files
+Give files names that match their purpose, so they are easier to find and maintain.
 
-Nesting `!include` statements (having an `!include` within a file that is itself `!include`d) will also work.
+Nesting `!include` statements also works. A file that is itself included can use `!include` to pull in further files.
 
-Some integrations support multiple top-level `!include` statements. This includes integrations defining an IoT domain. For example, `light`, `switch`, or `sensor`; as well as the `automation`, `script`, and `template` integrations, if you give a different label to each one.
+### Indentation
 
-Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
+Home Assistant configuration files use YAML, where indentation is significant. Always use 2 spaces per level.
 
-#### Top level keys
+As a general rule:
 
-Example of multiple top-level keys for the `light` platform.
+- Top-level keys (like `homeassistant:`, `mqtt:`, or `sensor:`) are fully left-aligned with no indent.
+- Keys nested under a parent are indented 2 spaces.
+- List items (`-`) are indented to the correct level, followed by a single space before the value.
+
+```yaml
+# Top-level key: no indent
+sensor:
+  # Nested key: 2 spaces
+  - platform: template
+    sensors:
+      living_room_temp:
+        friendly_name: "Living room temperature"
+```
+
+Incorrect indentation is one of the most common reasons a configuration file fails to load.
+
+### Comments
+
+A `#` symbol marks a comment. Anything after it on that line is ignored by Home Assistant. Comments are useful for adding context or temporarily disabling a line without deleting it.
+
+```yaml
+# Automations for public transport notifications
+automation public transport: !include public-transport-automation.yaml
+```
+
+### Multiple top-level keys
+
+Some integrations support multiple top-level keys, letting you split their configuration across several files. Each key must have a different label. This applies to IoT domain integrations such as `light`, `switch`, and `sensor`, as well as `automation`, `script`, and `template`.
+
+If an integration does not support multiple top-level keys, use [Packages](/docs/configuration/packages) instead.
+
+#### Example of multiple top-level keys
+
+Here is an example using `light`. The first key keeps some entries inline, and the other keys use `!include` to pull in separate files:
+
+`configuration.yaml`
 
 ```yaml
 light:
-- platform: group
-  name: "Bedside Lights"
-  entities:
-    - light.left_bedside_light
-    - light.right_bedside_light
+  - platform: group
+    name: "Bedside Lights"
+    entities:
+      - light.left_bedside_light
+      - light.right_bedside_light
 
-# define more light groups in a separate file
+# More light groups in a separate file
 light groups: !include light-groups.yaml
 
-# define some light switch mappings in a different file
+# Light switch mappings in a different file
 light switches: !include light-switches.yaml
 ```
 
-where `light-groups.yaml` might look like:
+`light-groups.yaml`
 
 ```yaml
 - platform: group
@@ -152,87 +134,33 @@ where `light-groups.yaml` might look like:
   entities:
     - light.porch_lights
     - light.patio_lights
- ```
+```
 
-with `light-switches.yaml` containing:
+`light-switches.yaml`
 
 ```yaml
 - platform: switch
   name: "Patio Lights"
   entity_id: switch.patio_lights
-  
+
 - platform: switch
   name: "Floor Lamp"
   entity_id: switch.floor_lamp_plug
 ```
 
-Alright, so we've got the single integrations and the include statements in the base file, what goes in those extra files?
-
-Let's look at the `device_tracker.yaml` file from our example:
+The same pattern works for `automation`:
 
 ```yaml
-- platform: owntracks
-- platform: nmap_tracker
-  home_interval: 3
-  hosts: 192.168.2.0/24
+# Automations managed in the UI
+automation ui: !include automations.yaml
 
-  track_new_devices: true
-  interval_seconds: 40
-  consider_home: 120
+# Automations written by hand
+automation manual: !include automations_manual.yaml
 ```
 
-This small example illustrates how the "split" files work. In this case, we start with two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces.
+### Using packages
 
-This (large) sensor configuration gives us another example:
-
-
-```yaml
-### sensor.yaml
-### METEOBRIDGE #############################################
-- platform: tcp
-  name: "Outdoor Temp (Meteobridge)"
-  host: 192.168.2.82
-  timeout: 6
-  payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[2]}}"
-  unit: C
-- platform: tcp
-  name: "Outdoor Humidity (Meteobridge)"
-  host: 192.168.2.82
-  port: 5556
-  timeout: 6
-  payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{{value.split (' ')[3]}}"
-  unit: Percent
-
-#### STEAM FRIENDS ##################################
-- platform: steam_online
-  api_key: ["not telling"]
-  accounts:
-    - 76561198012067051
-
-#### TIME/DATE ##################################
-- platform: time_date
-  display_options:
-    - "time"
-    - "date"
-- platform: worldclock
-  time_zone: Etc/UTC
-  name: "UTC"
-- platform: worldclock
-  time_zone: America/New_York
-  name: "Ann Arbor"
-```
-
-
-You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
-
-All of the above can be applied when splitting up files using packages. To
-learn more about packages, see the [Packages](/docs/configuration/packages) page.
-
-That about wraps it up.
-
-If you have issues, check the file indentations and check [the Home Assistant logs](/integrations/logger/#viewing-logs). If all else fails, head over to our [Discord chat server][discord] and ask away.
+Configuration can also be organized using [Packages](/docs/configuration/packages), which let you group all the configuration for a specific feature or room into a single file.
 
 ## Debugging configuration files
 
@@ -241,18 +169,19 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
 
-## Advanced usage
+<a id="advanced-usage"></a>
+## Including entire directories
 
-We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+You can also include entire directories at once using four directory-level include options. The directory-level options only scan for files with the `.yaml` extension. Files with the `.yml` extension are ignored.
 
-This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
+You can still use `!include` to load `.yml` files directly from within your `.yaml` files.
 
-- `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
-- `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
-- `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
-- `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+- `!include_dir_list` returns the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
+- `!include_dir_named` returns the content of a directory as a dictionary that maps filenames to file contents.
+- `!include_dir_merge_list` returns the content of a directory as a list by merging all files (which should contain a list) into a single list.
+- `!include_dir_merge_named` returns the content of a directory as a dictionary by loading each file and merging it into a single dictionary.
 
-These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
+These work recursively. For example, `!include_dir_list automation` includes all 6 files shown below:
 
 ```bash
 .
@@ -331,7 +260,7 @@ actions:
       entity_id: light.entryway
 ```
 
-It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
+Each file must contain only **one** entry when using `!include_dir_list`.
 
 ### Example: `!include_dir_named`
 
@@ -464,7 +393,7 @@ automation: !include_dir_merge_list automation/
         entity_id: light.entryway
 ```
 
-It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
+When using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen (`-`)). Each file may contain one or more entries.
 
 ### Example: `!include_dir_merge_named`
 
@@ -509,7 +438,7 @@ bedroom:
     - light.bedroom_lamp
     - light.bedroom_overhead
 hallway:
-  name: Hallway
+  name: "Hallway"
   entities:
     - light.hallway
     - thermostat.home
@@ -530,8 +459,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to go the advanced route and split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
-In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
+Do you want to split your automations, while still being able to create them in {% my automations title="**Settings** > **Automations & scenes**" %}? Here is how you can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
 
@@ -545,5 +473,9 @@ automation manual: !include_dir_merge_list automations/
 # Automations I create in the UI
 automation ui: !include automations.yaml
 ```
+
+## Example configuration files for inspiration
+
+Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 [discord]: https://discord.gg/home-assistant

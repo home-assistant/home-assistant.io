@@ -11,8 +11,6 @@ related_conditions:
 
 The **PM1 value** condition passes when a PM1 sensor's reading meets a specific level. PM1 refers to ultra-fine particulate matter smaller than 1 micrometer in diameter, particles so tiny they travel deep into the lungs. Cooking on a gas stove or burning a candle sends PM1 readings up quickly. This condition lets you start an air purifier only when ultra-fine particles are genuinely elevated, saving energy on quiet days and protecting your family when it matters.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -31,10 +29,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The PM1 level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}

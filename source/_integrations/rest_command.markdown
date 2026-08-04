@@ -154,12 +154,16 @@ automation:
               got_errors: "{{ router_errors|length > 0 }}"
           - if: "{{ got_errors }}"
             then:
-              - action: notify.mobile_app_iphone
+              - action: notify.send_message
+                target:
+                  entity_id: notify.my_device
                 data:
                   title: "Traefik errors"
                   message: "{{ router_errors }}"
         else:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "Could not reach Traefik"
               message: "HTTP code: {{ traefik_response['returncode'] }}"
@@ -193,7 +197,7 @@ rest_command:
 
 ### How to test your new REST command
 
-Call the new action from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
+Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
 ```json
 {

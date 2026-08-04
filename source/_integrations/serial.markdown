@@ -23,7 +23,7 @@ sudo minicom -D /dev/ttyACM0
 
 ## Configuration
 
-To setup a serial sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To set up a serial sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -65,17 +65,17 @@ stopbits:
 xonxoff:
   description: Enable software flow control.
   required: false
-  default: False
+  default: false
   type: boolean
 rtscts:
   description: Enable hardware (RTS/CTS) flow control.
   required: false
-  default: False
+  default: false
   type: boolean
 dsrdtr:
   description: Enable hardware (DSR/DTR) flow control.
   required: false
-  default: False
+  default: false
   type: boolean
 value_template:
   description: "Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the serial line."
@@ -119,7 +119,7 @@ void loop() {
 
 ### Devices returning multiple sensors as a text string
 
-For devices that return multiple sensors as a concatenated string of values with a delimiter, (i.e., the returned string is not JSON formatted) you can make several template sensors, all using the same serial response. For example, a stream from the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800) includes temperature, humidity and barometric pressure within it returned text string. Sample returned data:
+For devices that return multiple sensors as a concatenated string of values with a delimiter (that is, the returned string is not JSON formatted) you can make several template sensors, all using the same serial response. For example, a stream from the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800) includes temperature, humidity and barometric pressure within it returned text string. Sample returned data:
 
 ```c
 $,24.1,50,12.9,1029.83,0.0,0.00,*

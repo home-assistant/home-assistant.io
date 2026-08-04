@@ -10,8 +10,6 @@ related_conditions:
 
 The **Sulphur dioxide value** condition passes when a sulphur dioxide (SO2) sensor's reading meets a specific level. SO2 is a sharp-smelling gas released by burning fossil fuels and volcanic activity. Elevated levels irritate the respiratory system and make outdoor air uncomfortable. This condition lets your automation respond to real readings, closing the windows and notifying you to stay indoors when SO2 is too high, and letting fresh air back in once the reading drops.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -30,10 +28,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The sulphur dioxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -89,10 +85,11 @@ If you live near an industrial area, SO2 readings sometimes spike overnight. Thi
 
 - **Trigger**: Time: 07:00
 - **Condition**: Air Quality: Sulphur dioxide value
-- **Target**: Outdoor SO2 sensor
-- **Threshold type**: 40
-- **Condition passes if**: Any
-- **Action**: Notify: Send notification
+  - **Target**: Outdoor SO2 sensor
+  - **Threshold type**: 40
+  - **Condition passes if**: Any
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a morning SO2 warning" %}
 
@@ -110,7 +107,9 @@ automation: |
         threshold: 40
         behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "SO2 is high outside"
         message: >

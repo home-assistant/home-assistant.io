@@ -97,7 +97,7 @@ The following extra keys are available to modify the announcement
 
 | Data attribute     | Optional | Description                                                                                                                                                              |
 | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `announce_volume`  | yes      | Specifies the volume at which the announcement should play. The value must be between 0 and 1, where 0.1 represents 10% of the player's volume, 0.2 represents 20%, etc. |
+| `announce_volume`  | yes      | Specifies the volume at which the announcement should play. The value must be between 0 and 1, where 0.1 represents 10% of the player's volume, 0.2 represents 20%, and so on |
 | `announce_timeout` | yes      | Specify the maximum length of the announcement in seconds after which the original media will be resumed.                                                                |
 
 These extra keys are optional. If announce_volume is unspecified, the announcement will play at the current volume of the player. If announce_timeout is unspecified, the announcement will play until completion.
@@ -243,94 +243,9 @@ The integration provides the following functionality:
 This integration will notify you when updates are available on the LMS for the LMS version or for plugins installed on the LMS
 
   - **Lyrion Music Server**: Update of the server software is available.
-  - **Updated plugins**: Plugin updates are available.  The list of updates can be viewed by selecting the "Read release announcement" link.  On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
+  - **Updated plugins**: Plugin updates are available. The list of updates can be viewed by selecting the "Read release announcement" link. On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
 
-### Actions
-
-The integration provides the following actions.
-
-#### Action: Call method
-
-The `squeezebox.call_method` action calls a custom Squeezebox JSON-RPC API.
-
-See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
-
-| Data attribute | Optional | Description                                                                                           |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
-| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
-| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
-| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
-
-This action can be used to integrate any Squeezebox action to an automation.
-
-It can also be used to target a Squeezebox from IFTTT (or Dialogflow, Alexa...).
-
-For example, to play an album from your collection, create an IFTTT applet like this:
-
-- Trigger: Google Assistant, with sentence: `I want to listen to album $`
-- Action: JSON post query with such JSON body:
-  `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
-
-This can work with title search and basically any thing. The same wouldn't have worked by calling directly Squeezebox server as IFTTT cannot escape the text field.
-
-When specifying additional parameters in the Visual Editor, each parameter must be preceded by a hyphen and a space to correctly populate the array:
-
-For example, to create an automation to mute playback, use the command `mixer` and the parameter `muting`:
-
-| Row | Parameter | Description            |
-| --- | --------- | ---------------------- |
-| 1   | - muting  | Toggle muting on / off |
-
-resulting in the YAML:
-
-```yaml
-# Toggle the muting state of the specified player
-action: squeezebox.call_method
-metadata: {}
-data:
-  command: mixer
-  parameters:
-    - muting
-```
-
-Where a parameter is an increment or decrement, it is necessary to place the value in double quotes.
-
-For example, to increase the playback volume, use the command `mixer` and the parameters `volume` and the amount to increment:
-
-| Row | Parameter | Description                   |
-| --- | --------- | ----------------------------- |
-| 1   | - volume  | Parameter to change           |
-| 2   | - "+5"    | Increment volume by 5 percent |
-
-resulting in the YAML:
-
-```yaml
-# Increment the playback volume of the specified player by five percent
-action: squeezebox.call_method
-metadata: {}
-data:
-  command: mixer
-  parameters:
-    - volume
-    - '+5'
-```
-
-#### Action `call_query`
-
-Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
-
-See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
-
-| Data attribute | Optional | Description                                                                                           |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
-| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
-| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
-| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
-
-This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
-`hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
-To work with the results:
-`result = hass.states.get("media_player.kitchen").attributes['query_result']`
+{% include integrations/actions.md %}
 
 ## Data updates
 
@@ -338,7 +253,7 @@ The integration uses {% term polling %} to receive updates from the Lyrion Music
 
 ## Known limitations
 
-The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played.  This could potentially lead to the start of an announcement being missed as it fades in.  You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you make use of announcements.
+The LMS API, which is used by this integration, does not currently provide the ability to override or control fade-in & crossfade settings. This means that if you have enabled **Play or Resume fade-in duration** within the player's audio settings, this fade-in will be applied to any announcement played. This could potentially lead to the start of an announcement being missed as it fades in. You should, therefore, consider a short **Play or Resume fade-in duration** or preferably disabling this feature if you use announcements.
 
 ## Removing the integration
 

@@ -1,6 +1,6 @@
 ---
 title: Lock
-description: Instructions on how to setup your locks with Home Assistant.
+description: Instructions on how to set up your locks with Home Assistant.
 ha_category:
   - Lock
 ha_release: 0.9
@@ -11,91 +11,100 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Keeps track which locks are in your environment, their state and allows you to control them.
+Keeps track of the locks in your environment, their state, and lets you control them.
 
-- Maintains a state per lock and a combined state `all_locks`.
-- Registers actions `lock.lock`, `lock.unlock`, and `lock.open` (unlatch) to control locks.
+- Maintains a state for each of your locks.
+- Lets you use lock states in automations with built-in triggers, conditions, and actions.
 
 {% include integrations/building_block_integration.md %}
 
 ## The state of a lock entity
 
-A lock entity can have the following states:
+A lock entity can have the following states. The three main states line up with the actions you can run on a lock.
 
-- **Jammed**: The lock is currently jammed.
-- **Open**: Indication of whether the lock is currently open.
-- **Opening**: Indication of whether the lock is currently opening.
-- **Locked**: The lock is currently locked.
+- **Locked**: The lock is secured. This is the state a lock reaches after the [Lock](/actions/lock.lock/) action.
 - **Locking**: The lock is in the process of being locked.
-- **Unlocked**: The lock is currently unlocked.
+- **Unlocked**: The lock is no longer secured, the result of the [Unlock](/actions/lock.unlock/) action. On a lock with a separate latch, the door can still be held shut until you turn the handle.
 - **Unlocking**: The lock is in the process of being unlocked.
+- **Open**: The lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action, which is only available on locks that support it.
+- **Opening**: The lock is in the process of releasing its latch.
+- **Jammed**: The lock tried to move but got stuck before it finished, for example because the bolt is misaligned or something is blocking it.
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Actions
+{% include integrations/triggers_conditions_actions.md %}
 
-A lock integration provides the following actions:
+## Lock automation examples
 
-### Action: Lock
+The real power of the **Lock** integration is using your locks in automations.
+Here are a few ideas to get you started.
 
-The `lock.lock` action locks your door.
+{% include docs/paste_yaml_tip.md %}
 
-| Data attribute | Optional | Description                  |
-| -------------- | -------- | ---------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock. |
-| `code`         | yes      | Code used to lock the lock.  |
+### Automation: turn on the hallway light when the front door unlocks
 
-#### Example
+If you often arrive home with your hands full, it helps when the light is already on. This automation turns on the hallway light when the front door unlocks.
 
-```yaml
-actions:
-  - action: lock.lock
-    target:
-      entity_id: lock.my_place
-    data:
-      code: "1234"
-```
+- **Trigger**: Lock unlocked
+- **Target**: Front door lock
+- **Trigger when**: Each
+- **For at least**: 00:00:00
+- **Action**: Turn on
 
-### Action: Unlock
+{% details "YAML example for turning on the hallway light" %}
 
-The `lock.unlock` action unlocks your door.
+{% example %}
+automation: |
+  alias: "Turn on the hallway light when the front door unlocks"
+  triggers:
+    - trigger: lock.unlocked
+      target:
+        entity_id: lock.front_door
+      options:
+        behavior: each
+        for: "00:00:00"
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.hallway
+{% endexample %}
 
-| Data attribute | Optional | Description                   |
-| -------------- | -------- | ----------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock.  |
-| `code`         | yes      | Code used to unlock the lock. |
+{% enddetails %}
 
-#### Example
+### Automation: send a bedtime reminder if the front door is still unlocked
 
-```yaml
-actions:
-  - action: lock.unlock
-    target:
-      entity_id: lock.my_place
-    data:
-      code: "1234"
-```
+If you sometimes forget to lock the door before bed, a gentle reminder can help. This automation runs at night and sends a phone notification if the front door has stayed unlocked for 10 minutes.
 
-### Action: Open
+- **Trigger**: Time: 22:00
+- **Condition**: Lock is unlocked
+  - **Target**: Front door lock
+  - **Condition passes if**: Any
+  - **For at least**: 00:10:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-The `lock.open` action opens (unlatches) a lock.
+{% details "YAML example for a bedtime lock reminder" %}
 
-| Data attribute | Optional | Description                   |
-| -------------- | -------- | ----------------------------- |
-| `entity_id`    | no       | Entity of the relevant lock.  |
-| `code`         | yes      | Code used to open the lock. |
+{% example %}
+automation: |
+  alias: "Remind me if the front door is unlocked at night"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  conditions:
+    - condition: lock.is_unlocked
+      target:
+        entity_id: lock.front_door
+      options:
+        behavior: any
+        for: "00:10:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Front door still unlocked"
+        message: "The front door has stayed unlocked for 10 minutes."
+{% endexample %}
 
-#### Example
-
-```yaml
-actions:
-  - action: lock.open
-    target:
-      entity_id: lock.my_place
-    data:
-      code: "1234"
-```
-
-## Use the actions
-
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock`, or `lock.open` from the list of available actions. Fill in the required data and select **Perform action**.
+{% enddetails %}

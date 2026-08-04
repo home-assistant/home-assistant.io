@@ -1,46 +1,51 @@
 ---
 title: openSenseMap
-description: Instructions on how to setup openSenseMap sensors in Home Assistant.
+description: Instructions on how to set up openSenseMap sensors in Home Assistant.
 ha_category:
   - Health
+  - Sensor
 ha_release: 0.85
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_domain: opensensemap
 ha_platforms:
   - air_quality
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
-ha_quality_scale: legacy
+  - sensor
+ha_integration_type: service
+ha_quality_scale: bronze
+ha_codeowners:
+  - '@AlCalzone'
 ---
 
-The **openSenseMap** {% term integration %} will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
+The **openSenseMap** {% term integration %} queries the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor the measurements published by a sensor station.
 
 ## Setup
 
-To get the ID of a station you need to select it on the [openSense map](https://opensensemap.org/) and find it in the addressbar of your browser. It's the last part of the URL, e.g., `5b450e565dc1ec001bf7cd1d` [https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d](https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d).
+To find the ID of a station, open it on [openSenseMap](https://opensensemap.org/) and copy the last segment of the URL — for example, `5b450e565dc1ec001bf7cd1d` in [https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d](https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d).
 
-## Manual configuration
+{% include integrations/config_flow.md %}
 
-To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+Station ID:
+  description: The ID of the openSenseMap station to monitor.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-air_quality:
-  - platform: opensensemap
-    station_id: STATION_ID
-```
+## Sensors
 
-{% configuration %}
-station_id:
-  description: The ID of the station to monitor.
-  required: true
-  type: string
-name:
-  description: Name of the sensor to use in the frontend.
-  required: false
-  default: Station name
-  type: string
-{% endconfiguration %}
+A sensor entity is created for each of the following measurements that the station reports:
+
+- **PM1**: particulate matter under 1 µm (µg/m³)
+- **PM2.5**: particulate matter under 2.5 µm (µg/m³)
+- **PM10**: particulate matter under 10 µm (µg/m³)
+- **Temperature**
+- **Humidity** (%)
+- **Atmospheric pressure**
+- **Illuminance** (lx)
+- **Wind speed**
+- **Wind direction** (°)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

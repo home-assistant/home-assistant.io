@@ -23,8 +23,9 @@ The scene entity is stateless. Unlike a normal switch entity, it does not have a
 Every scene entity keeps track of the timestamp of when it was last called, either via the Home Assistant UI or via an action.
 
 <p class='img'>
-<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the developer tools' />
-Screenshot showing the state of a scene entity in the developer tools.
+<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in Settings > Tools > States.' />
+<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the States tab of Tools.' />
+Screenshot showing the state of a scene entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -91,7 +92,7 @@ entities:
 There are two ways to define the states of each `entity_id`:
 
 - Define the `state` directly with the entity. The `state` is required.
-- Define a complex state with its attributes. You can see all attributes available for a particular entity under **Developer tools** > **States**.
+- Define a complex state with its attributes. You can see all attributes available for a particular entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 Scenes can be activated using the `scene.turn_on` action (there is no `scene.turn_off` action).
 
@@ -253,3 +254,5 @@ The following example turns off some entities as soon as a window opens. The sta
     target:
       entity_id: scene.before
 ```
+
+{% include integrations/triggers.md %}

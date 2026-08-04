@@ -107,19 +107,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS4103-UC (Sprinkler Timer)
 - YS7914-UC (Leak Sensor)
 
-## Actions
-
-### `Play on SpeakerHub`
-
-With this action, you can convert text to speech for playback on SpeakerHub.
-
-| Data attribute  | Optional | Description                                                       |
-| --------------- | -------- | ----------------------------------------------------------------- |
-| `target_device` | no       | SpeakerHub device ID for audio playback.                          |
-| `message`       | no       | Text for speech conversion.                                       |
-| `tone`          | yes      | Tone before playing audio.                                        |
-| `volume`        | yes      | Override the speaker volume during playback of this message only. |
-| `repeat`        | yes      | The number of times the text will be repeated.                    |
+{% include integrations/actions.md %}
 
 ## Community notes
 

@@ -10,7 +10,8 @@ ha_domain: teleinfo
 ha_platforms:
   - sensor
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
+ha_category: []
 ---
 
 The **Teleinfo** {% term integration %} reads data from the French electricity metering system known as Télé-Information Client (TIC). This protocol is used by Linky smart meters and older electronic meters deployed by [Enedis](https://www.enedis.fr/), the French electricity distribution network operator.
@@ -37,7 +38,7 @@ You can also manually configure any serial adapter connected to the meter's TIC 
 
 Before setting up this integration, make sure you have the following:
 
-1. A Linky meter (or compatible electronic meter) with the TIC output enabled.
+1. A Linky meter (or compatible electronic meter) with the TIC output enabled and set to historique mode. The newer standard mode is not supported. If your meter is in standard mode, you can ask Enedis to switch it back to historique mode.
 2. A Teleinfo USB adapter connected to the meter's TIC terminals (I1 and I2).
 3. The USB adapter plugged into your Home Assistant host.
 
@@ -147,7 +148,9 @@ You can add the energy index sensors to the energy dashboard to track your elect
       entity_id: sensor.teleinfo_XXXXXXXXXXXX_apparent_power
       above: 6000
   actions:
-    - action: notify.mobile_app_<device_name>
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "High power usage"
         message: "Apparent power is above 6000 VA"
@@ -155,7 +158,6 @@ You can add the energy index sensors to the energy dashboard to track your elect
 
 ### Automation: tomorrow's Tempo color
 
-{% raw %}
 ```yaml
 - alias: "Notify tomorrow's Tempo color"
   triggers:
@@ -168,7 +170,9 @@ You can add the energy index sensors to the energy dashboard to track your elect
           entity_id: sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color
           state: "unknown"
   actions:
-    - action: notify.mobile_app_<device_name>
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Tempo color tomorrow"
         message: >-
@@ -177,7 +181,6 @@ You can add the energy index sensors to the energy dashboard to track your elect
             'sensor.teleinfo_XXXXXXXXXXXX_tomorrow_color'
           ) }} day
 ```
-{% endraw %}
 
 ## Data updates
 

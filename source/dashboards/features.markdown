@@ -1,6 +1,6 @@
 ---
-title: "Features for dashboard cards"
-description: "Decorate your dashboard cards with quick controls."
+title: "Card features"
+description: "Add quick controls to your dashboard cards, such as a brightness slider for a light, a fan speed selector, or a temperature setpoint."
 related:
   - docs: /dashboards/humidifier/
     title: Humidifier card
@@ -70,8 +70,8 @@ type:
   description: "`alarm-modes`"
   type: string
 modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
+  required: false
+  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`. If not set, all modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -172,8 +172,8 @@ style:
   type: string
   default: dropdown
 fan_modes:
-  required: true
-  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode.
+  required: false
+  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode. If not set, all fan modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -210,8 +210,8 @@ style:
   type: string
   default: icons
 hvac_modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
+  required: false
+  description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`. If not set, all HVAC modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -244,8 +244,76 @@ style:
   type: string
   default: dropdown
 preset_modes:
+  required: false
+  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode. If not set, all preset modes supported by the entity are shown.
+  type: list
+{% endconfiguration %}
+
+## Climate swing modes
+
+Widget that displays a dropdown or icons to control the swing mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_swing_modes.png' alt='Screenshot of the tile card with the climate swing modes feature'>
+  Screenshot of the tile card with the climate swing modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-swing-modes"
+    style: "icons"
+    swing_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
   required: true
-  description: List of preset modes to show on the card. The list can contain `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, and `activity` or any other custom preset mode.
+  description: "`climate-swing-modes`"
+  type: string
+style:
+  required: false
+  description: "How the swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_modes:
+  required: false
+  description: List of swing modes to show on the card. The list can contain `on`, `off`, or any other custom swing mode supported by your climate device. If not set, all swing modes supported by the entity are shown.
+  type: list
+{% endconfiguration %}
+
+## Climate swing horizontal modes
+
+Widget that displays a dropdown or icons to control the horizontal swing mode for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_swing_horizontal_modes.png' alt='Screenshot of the tile card with the climate swing horizontal modes feature'>
+  Screenshot of the tile card with the climate swing horizontal modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-swing-horizontal-modes"
+    style: "dropdown"
+    swing_horizontal_modes:
+      - "on"
+      - "off"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-swing-horizontal-modes`"
+  type: string
+style:
+  required: false
+  description: "How the horizontal swing modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+swing_horizontal_modes:
+  required: false
+  description: List of horizontal swing modes to show on the card. The list can contain `on`, `off`, or any other custom horizontal swing mode supported by your climate device. If not set, all horizontal swing modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -273,8 +341,8 @@ type:
   description: "`counter-actions`"
   type: string
 actions:
-  required: true
-  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`.
+  required: false
+  description: List of actions to show on the card. The list can contain `increment`, `decrement`, and `reset`. If not set, all actions supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -502,8 +570,8 @@ style:
   type: string
   default: dropdown
 preset_modes:
-  required: true
-  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  required: false
+  description: List of preset modes to show on the card. The list can contain any supported preset modes. If not set, all preset modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -557,8 +625,8 @@ style:
   type: string
   default: dropdown
 modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode.
+  required: false
+  description: List of modes to show on the card. The list can contain `normal`, `eco`, `away`, `boost`, `comfort`, `home`, `sleep`, `auto`, and `baby` or any other custom mode. If not set, all modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -582,129 +650,6 @@ type:
   description: "`humidifier-toggle`"
   type: string
 {% endconfiguration %}
-
-## Daily forecast
-
-Widget that displays a bar chart of daily forecast temperature ranges for a weather entity. Each bar shows the low-to-high temperature range for the day, colored by the forecasted weather condition. A thin horizontal line marks the current temperature across the bars.
-
-You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry periods are marked with a small dot so the cadence of days stays visible.
-
-<p class='img'>
-  <img src='/images/dashboards/features/daily_forecast.png' alt='Screenshot of the tile card with the daily forecast feature'>
-  Screenshot of the tile card with the daily forecast feature
-</p>
-
-<p class='img'>
-  <img src='/images/dashboards/features/daily_forecast_precipitation.png' alt='Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden'>
-  Screenshot of the daily forecast feature showing precipitation bars with the temperature hidden
-</p>
-
-```yaml
-features:
-  - type: "daily-forecast"
-    days_to_show: 5
-    show_temperature: false
-    show_precipitation: true
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`daily-forecast`"
-  type: string
-forecast_type:
-  required: false
-  description: "Which forecast feed to use. One of `daily` or `twice_daily`. Only types supported by the weather entity are selectable. Defaults to `daily` when available, otherwise `twice_daily`."
-  type: string
-days_to_show:
-  required: false
-  description: Number of days of forecast data to show. Minimum is 1 day (showing the forecast for the current day). The available data depends on how far ahead your weather integration provides daily forecasts.
-  type: integer
-  default: 7
-show_temperature:
-  required: false
-  description: Whether to show the temperature range bars and the current-temperature line.
-  type: boolean
-  default: true
-show_current_temperature:
-  required: false
-  description: Whether to show a thin horizontal line marking the current temperature across the bars.
-  type: boolean
-  default: true
-show_precipitation:
-  required: false
-  description: Whether to overlay precipitation forecast as translucent bars.
-  type: boolean
-  default: false
-precipitation_type:
-  required: false
-  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the period's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
-  type: string
-  default: amount
-color:
-  required: false
-  description: "Color of the temperature bars and the current temperature line. When set to `state` or omitted, each bar is colored by its forecasted weather condition. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
-  type: string
-  default: state
-{% endconfiguration %}
-
-{% note %}
-This feature requires a weather integration that supports daily or twice-daily forecasts. If your weather entity provides neither, this feature will not be available.
-{% endnote %}
-
-## Hourly forecast
-
-Widget that displays a graph of hourly forecast temperatures for a [weather](/integrations/weather) entity. The graph line starts from the current temperature and shows forecast data points for the upcoming hours.
-
-You can also overlay a precipitation forecast as translucent bars rising from the bottom, either as the forecasted amount or as the probability of precipitation. When you hide the temperature, dry hours are marked with a small dot so the cadence stays visible.
-
-<p class='img'>
-  <img src='/images/dashboards/features/hourly_forecast.png' alt='Screenshot of the tile card with the hourly forecast feature'>
-  Screenshot of the tile card with the hourly forecast feature
-</p>
-
-```yaml
-features:
-  - type: "hourly-forecast"
-    hours_to_show: 24
-    show_precipitation: true
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`hourly-forecast`"
-  type: string
-hours_to_show:
-  required: false
-  description: Number of hours of forecast data to show. Minimum is 1 hour. The available data depends on how far ahead your weather integration provides hourly forecasts.
-  type: integer
-  default: 24
-show_temperature:
-  required: false
-  description: Whether to show the temperature graph.
-  type: boolean
-  default: true
-show_precipitation:
-  required: false
-  description: Whether to overlay precipitation forecast as translucent bars.
-  type: boolean
-  default: false
-precipitation_type:
-  required: false
-  description: "Which precipitation value to plot when `show_precipitation` is enabled. One of `amount` (forecasted volume, scaled relative to the visible window's maximum) or `probability` (chance of precipitation on a fixed 0–100% scale). Pick `probability` when your weather integration provides a chance of precipitation but no volume forecast."
-  type: string
-  default: amount
-color:
-  required: false
-  description: "Color of the temperature line. When set to `state` or omitted, the line uses the tile's feature color. Set to a named color (like `blue` or `red`) or a hex value to use a single static color instead."
-  type: string
-  default: state
-{% endconfiguration %}
-
-{% note %}
-This feature requires a weather integration that supports hourly forecasts. If your weather entity does not provide hourly forecast data, this feature will not be available.
-{% endnote %}
 
 ## Lawn mower commands
 
@@ -853,6 +798,11 @@ Widget that displays playback controls for a [media player](/integrations/media_
 ```yaml
 features:
   - type: "media-player-playback"
+    controls:
+      - media_play_pause
+      - media_previous_track
+      - media_next_track
+      - volume_mute
 ```
 
 {% configuration features %}
@@ -860,6 +810,10 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+controls:
+  required: false
+  description: "List of controls to show on the card. The list can contain `turn_on`, `turn_off`, `media_play`, `media_pause`, `media_play_pause`, `media_stop`, `media_previous_track`, `media_next_track`, `volume_down`, `volume_up`, `volume_mute`, `shuffle`, and `repeat`. When not specified, the controls are determined automatically based on the capabilities of the media player entity."
+  type: list
 {% endconfiguration %}
 
 ## Media player sound mode
@@ -874,6 +828,10 @@ Widget that displays a dropdown to select the sound mode for a [media player](/i
 ```yaml
 features:
   - type: "media-player-sound-mode"
+    sound_modes:
+      - "movie"
+      - "music"
+      - "game"
 ```
 
 {% configuration features %}
@@ -881,6 +839,10 @@ type:
   required: true
   description: "`media-player-sound-mode`"
   type: string
+sound_modes:
+  required: false
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player source
@@ -895,6 +857,10 @@ Widget that displays a dropdown to select the source for a [media player](/integ
 ```yaml
 features:
   - type: "media-player-source"
+    sources:
+      - "AirPlay"
+      - "SHIELD"
+      - "NET RADIO"
 ```
 
 {% configuration features %}
@@ -902,6 +868,10 @@ type:
   required: true
   description: "`media-player-source`"
   type: string
+sources:
+  required: false
+  description: "List of sources to show in the dropdown. Use this to filter or reorder the available sources. The source names depend on your device. When not specified, all available sources are shown."
+  type: list
 {% endconfiguration %}
 
 ## Media player volume buttons
@@ -928,6 +898,11 @@ step:
   description: "The step size of the volume. The default is 5%."
   type: integer
   default: 5
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Media player volume slider
@@ -949,6 +924,11 @@ type:
   required: true
   description: "`media-player-volume-slider`"
   type: string
+show_mute_button:
+  required: false
+  description: "Show a button to mute or unmute the volume."
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Numeric input
@@ -976,6 +956,31 @@ style:
   description: "Which style of control to display. It can be either `buttons` or `slider`."
   type: string
   default: slider
+{% endconfiguration %}
+
+## Select options
+
+Widget that displays a dropdown to select an option for a [select](/integrations/select) or [input select](/integrations/input_select).
+
+<p class='img'>
+  <img src='/images/dashboards/features/select_options.png' alt='Screenshot of the tile card with the select options feature'>
+  Screenshot of the tile card with the select options feature
+</p>
+
+```yaml
+features:
+  - type: "select-options"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`select-options`"
+  type: string
+options:
+  required: false
+  description: List of options to show on the card. If not specified, all available options from the entity are displayed.
+  type: list
 {% endconfiguration %}
 
 ## Target humidity
@@ -1229,8 +1234,8 @@ type:
   description: "`water-heater-operation-modes`"
   type: string
 operation_modes:
-  required: true
-  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
+  required: false
+  description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`. If not set, all operation modes supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
@@ -1259,7 +1264,105 @@ type:
   description: "`area-controls`"
   type: string
 controls:
-  required: true
-  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
+  required: false
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above. If not set, the default set of controls supported in the area is shown.
   type: list
+{% endconfiguration %}
+
+## Temperature forecast
+
+Widget that displays a bar chart of the upcoming high and low temperatures for a [weather](/integrations/weather) entity. When the forecast type is set to hourly, a filled curve is shown instead. By default, the bars use a temperature-aware gradient with cool blues for the lowest values and warm reds for the highest values.
+
+<p class='img'>
+  <img src='/images/dashboards/features/temperature_forecast.png' alt='Screenshot of the tile card with the temperature forecast feature'>
+  Screenshot of the tile card with the temperature forecast feature
+</p>
+
+```yaml
+features:
+  - type: "temperature-forecast"
+    forecast_type: daily
+    days_to_show: 7
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`temperature-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+color:
+  required: false
+  description: "Color to use for the bars or curve. Accepts any Home Assistant color token or CSS color value. When not specified, a temperature-aware gradient is used."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+## Precipitation forecast
+
+Widget that displays a bar chart of the upcoming precipitation for a [weather](/integrations/weather) entity. You can choose between showing the precipitation amount or the precipitation probability. Empty slots are shown as a small dot to keep the timeline easy to read.
+
+<p class='img'>
+  <img src='/images/dashboards/features/precipitation_forecast.png' alt='Screenshot of the tile card with the precipitation forecast feature'>
+  Screenshot of the tile card with the precipitation forecast feature
+</p>
+
+```yaml
+features:
+  - type: "precipitation-forecast"
+    forecast_type: daily
+    days_to_show: 7
+    precipitation_type: amount
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`precipitation-forecast`"
+  type: string
+forecast_type:
+  required: false
+  description: "The forecast resolution to display. The value can be `daily`, `twice_daily`, or `hourly`. When not specified, the best resolution supported by the entity is used, in this order: `daily`, `twice_daily`, `hourly`."
+  type: string
+days_to_show:
+  required: false
+  description: "Number of days to show in the chart. Used when `forecast_type` is `daily` or `twice_daily`."
+  type: integer
+  default: 7
+hours_to_show:
+  required: false
+  description: "Number of hours to show in the chart. Used when `forecast_type` is `hourly`."
+  type: integer
+  default: 24
+precipitation_type:
+  required: false
+  description: "What to display on the chart. The value can be `amount` to show the precipitation amount, or `probability` to show the chance of precipitation."
+  type: string
+  default: amount
+color:
+  required: false
+  description: "Color to use for the bars. Accepts any Home Assistant color token or CSS color value. Defaults to the rainy weather state color."
+  type: string
+show_labels:
+  required: false
+  description: "Show day or hour labels under the chart."
+  type: boolean
+  default: true
 {% endconfiguration %}
