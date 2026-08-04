@@ -66,7 +66,7 @@ command_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to trigger the button.
+  description: The MQTT topic to which commands are published when the button is pressed or when the `press` action for the button is invoked.
   required: true
   type: string
 default_entity_id:
