@@ -76,4 +76,4 @@ _If configured using an IP address, on your router / DHCP, you should assign a s
 
 ## Compatibility mode
 
-Some devices might require `Compatibility mode` to allow them be added to Home Assistant.  This must be enabled in the Twinkly application for each device.
+Some devices require **Compatibility mode** to be enabled before you can add them to Home Assistant. Enable it in the Twinkly app for each device.
