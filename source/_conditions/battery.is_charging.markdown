@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- The condition works with sensors and devices that report a charging state, such as devices that expose a battery charging attribute.
+- The target must be a binary sensor with the battery charging device class.
 - Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - To check the opposite state, use [Battery is not charging](/conditions/battery.is_not_charging/).
 - To check the battery percentage instead, use [Battery level](/conditions/battery.is_level/).
