@@ -57,18 +57,21 @@ Every input button entity does keep track of the timestamp of when the last time
 the input button entity has been pressed in the Home Assistant UI or pressed via
 an action.
 
-Because the state of a input button entity in Home Assistant is a timestamp, it
-means we can use it in our automations. For example:
+To run an automation when you press a button helper, use the
+[Button pressed](/triggers/button.pressed/) trigger. For example:
 
 ```yaml
 triggers:
-  - trigger: state
-    entity_id: input_button.my_button
+  - trigger: button.pressed
+    target:
+      entity_id: input_button.my_button
 actions:
   - action: notify.frenck
     data:
       message: "My button has been pressed!"
 ```
+
+{% include integrations/triggers.md domain="button" %}
 
 {% include integrations/actions.md %}
 
