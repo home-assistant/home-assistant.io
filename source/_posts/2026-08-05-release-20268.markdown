@@ -675,6 +675,7 @@ If you are a custom integration developer and want to learn about changes and ne
 - [Introducing the Open Home Foundation AI Policy](https://developers.home-assistant.io/blog/2026/07/20/ai-policy)
 - [Media sources can now be searched](https://developers.home-assistant.io/blog/2026/07/03/media-source-search)
 - [Modernizing Modbus in Home Assistant](https://developers.home-assistant.io/blog/2026/07/05/modernizing-modbus)
+- [Standard event types for button event entities](https://developers.home-assistant.io/blog/2026/07/22/button-standard-event-types)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
