@@ -80,25 +80,27 @@ Use the following Blueprint to play a selected WiiM preset every day at a config
 
 Use the `media_player.play_media` action with a numeric preset ID:
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.living_room_wiim
-data:
-  media_content_type: music
-  media_content_id: "1"
-```
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.living_room_wiim
+  data:
+    media_content_type: music
+    media_content_id: "1"
+{% endexample %}
 
 ### Group two WiiM players
 
-```yaml
-action: media_player.join
-target:
-  entity_id: media_player.living_room_wiim
-data:
-  group_members:
-    - media_player.kitchen_wiim
-```
+{% example %}
+action: |
+  action: media_player.join
+  target:
+    entity_id: media_player.living_room_wiim
+  data:
+    group_members:
+      - media_player.kitchen_wiim
+{% endexample %}
 
 ## Data updates
 
