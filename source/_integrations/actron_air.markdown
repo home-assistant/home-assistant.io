@@ -3,6 +3,8 @@ title: Actron Air
 description: Instructions on how to integrate the Actron Air A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Sensor
+  - Switch
 ha_release: 2025.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +15,7 @@ ha_domain: actron_air
 ha_platforms:
   - climate
   - diagnostics
+  - sensor
   - switch
 ha_integration_type: hub
 ha_quality_scale: silver
@@ -38,6 +41,25 @@ This integration supports the Actron Air Neo and Que controllers.
 The integration will create a climate entity for the main air conditioning system found and for each zone. The main air conditioner unit will be reflected based on the name in the Actron Air app. You can set the temperature, operation mode, and fan speed through this entity.
 
 Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
+
+### Sensor
+
+The integration will add the following sensors to Home Assistant for your air conditioner:
+
+- Compressor capacity
+- Compressor chasing temperature
+- Compressor live temperature
+- Compressor mode
+- Compressor power
+- Compressor speed
+- Fan speed
+- Outdoor temperature
+
+The integration will add the following sensors for each peripheral connected to your air conditioner:
+
+- Battery level
+- Humidity
+- Temperature
 
 ### Switch
 
