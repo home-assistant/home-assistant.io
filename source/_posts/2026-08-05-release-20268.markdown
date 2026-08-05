@@ -272,7 +272,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Roborock]** got plenty of love for the Q10, with a do-not-disturb switch, switch entities, a map image, and a volume control. Thanks, [@lboue] and [@tubededentifrice]!
 - **[Whirlpool]** added an oven light, an oven cook-mode select, and an oven target-temperature number. Thanks, [@matthewdias] and [@bdlcalvin]!
 - **[MQTT]** gained an infrared platform, so you can send infrared commands over MQTT. Thanks, [@jbouwh]!
-- **[KNX]** button entities can now be configured from the interface. Thanks, [@farmio]!
+- **[KNX]** got a whole set of improvements. Button and notify entities can now be configured from the interface, the KNX panel gained a **Send telegram** dialog (keyboard shortcut <kbd>s</kbd>), plus a datapoint type (DPT) reference and a device view for your project data. On top of that, all KNX entities now restore their state after a reload or restart. Thanks, [@farmio]!
 - **[Enphase Envoy]** added ACB battery sensors, along with sleep and wake controls. Thanks, [@genestealer]!
 - **[MELCloud]** gained on/off control, an operation-mode select, and a flow-temperature number for air-to-water heat pump zones. Thanks, [@imilchev]!
 - **[MELCloud Home]** added energy-consumption reporting and a number platform. Thanks, [@erwindouna]!
