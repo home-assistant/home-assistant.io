@@ -3,7 +3,7 @@ title: Vacmaster Cardio54
 description: Instructions on how to integrate Vacmaster Cardio54 fitness fans into Home Assistant.
 ha_category:
   - Fan
-ha_release: 2026.6
+ha_release: 2026.9
 ha_iot_class: Assumed State
 ha_config_flow: true
 ha_codeowners:
@@ -12,7 +12,7 @@ ha_domain: vacmaster_cardio54
 ha_platforms:
   - fan
 ha_integration_type: device
-ha_quality_scale: gold
+ha_quality_scale: silver
 ---
 
 The **Vacmaster Cardio54** {% term integration %} lets you control a Vacmaster Cardio54 fitness fan over 433.92&nbsp;MHz radio, through a compatible RF transmitter. You can turn the fan on at a fixed speed when your workout starts (for example as soon as a treadmill smart plug reports power draw), step it up automatically when the room gets warmer, and switch it off by voice through Assist.
