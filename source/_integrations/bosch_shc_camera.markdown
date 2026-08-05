@@ -42,7 +42,9 @@ If your Bosch Cloud token expires and can't be refreshed automatically, Home Ass
 
 ### Camera
 
-Each camera is exposed as a {% term camera %} entity showing the latest motion-triggered snapshot, refreshed periodically and on demand. This is a still-image camera: it does not provide a live video stream. Snapshots are fetched primarily via the Bosch cloud API; for camera models whose cloud snapshot endpoint intermittently rejects requests, the integration automatically falls back to fetching the snapshot directly from the camera over the local network, using Digest credentials the cloud API itself issues (not a separate undocumented local API).
+Each camera is exposed as a {% term camera %} entity showing the latest motion-triggered snapshot, refreshed periodically and on demand. Snapshots are fetched primarily via the Bosch cloud API; for camera models whose cloud snapshot endpoint intermittently rejects requests, the integration automatically falls back to fetching the snapshot directly from the camera over the local network, using Digest credentials the cloud API itself issues (not a separate undocumented local API).
+
+If the camera is reachable on your local network, the entity also provides a live video stream over RTSP, proxied locally to work around the camera's self-signed certificate. This requires a working LOCAL connection to the camera; there is no cloud-relayed (remote) streaming fallback in this integration.
 
 The camera entity also supports the standard `camera.enable_motion_detection` and `camera.disable_motion_detection` {% term actions %}, which toggle Bosch cloud-side motion detection for that camera.
 
@@ -53,7 +55,7 @@ The integration's options (**Settings** > **Devices & services** > **Bosch Smart
 ## Known limitations
 
 - This integration relies primarily on Bosch's cloud API; Bosch does not currently offer a documented local-only API for these cameras (the automatic LAN snapshot fallback still authenticates through cloud-issued credentials).
-- No live video stream — snapshot images only.
+- Live video streaming only works while the camera is reachable on your local network (LOCAL connection); there is no remote/cloud-relayed streaming fallback.
 - A camera newly added to your Bosch account after the integration is set up is not picked up automatically; reload the config entry (or restart Home Assistant) to detect it.
 
 ## Troubleshooting
