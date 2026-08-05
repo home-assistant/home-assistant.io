@@ -2,6 +2,7 @@
 title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
 ha_release: 2026.8
 ha_domain: midea
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@wuwentao'
 ha_iot_class: Local Push
 ha_platforms:
+  - binary_sensor
   - climate
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -103,6 +105,7 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 
 The **Midea** {% term integration %} provides the following entities:
 
+- Binary sensor: Door, Motion, Full dust, Salt, Tank full, etc.
 - Climate
 
 ## Known limitations
