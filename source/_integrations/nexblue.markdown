@@ -53,15 +53,15 @@ The integration provides the following charger information:
 - **Charging state**: The current charger status, such as ready to charge, charging, charging complete, or waiting for available power.
 - **Charging power**: The current charging power in kilowatts (kW).
 - **Session energy**: The energy used during the current charging session in kilowatt-hours (kWh).
-- **Lifetime energy**: The total energy delivered by the charger in kilowatt-hours (kWh). This sensor can be used in the Home Assistant energy dashboard.
+- **Lifetime energy**: The total energy delivered by the charger in kilowatt-hours (kWh). This sensor can be used in the [Home Assistant energy dashboard](/home-energy-management/).
 - **Current and voltage**: Measurements for L1, L2, and L3 when reported by the charger.
 - **Current limit**: The configured charging current limit.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
 - **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
 
-## NexBlue automation examples
+## NexBlue and automations
 
-NexBlue does not provide integration-specific triggers, conditions, or actions in this initial version. You can use its sensor entities with standard Home Assistant automations.
+NexBlue does not provide integration-specific triggers, conditions, or actions in this initial version. You can still use its sensor entities with standard Home Assistant automations, such as sending a notification when charging completes.
 
 ## Data updates
 
