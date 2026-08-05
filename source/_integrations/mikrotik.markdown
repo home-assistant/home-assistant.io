@@ -143,9 +143,9 @@ The integration creates the following button entities:
 
 ### Select
 
-The integration creates select entities when the connected device exposes that information. Not every device supports every sensor.
+The integration creates select entities when the connected device exposes that information. Not every device supports every select entity.
 
-- **Poe (out)**: Set PoE out behavior for specific interface: off, auto-on, forced-on
+- **Poe (out)**: Set PoE out behavior for specific interface: `off`, `auto-on`, `forced-on`
 
 ### Switches
 
