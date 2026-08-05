@@ -61,7 +61,7 @@ The Xbox media player platform will create media player entities for each consol
 
 To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
 
-You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
+You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
 ## Remote
 

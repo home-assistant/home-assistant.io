@@ -1135,7 +1135,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp_kelvin }}"
+            value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1192,7 +1192,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp_kelvin }}"
+            value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1365,7 +1365,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light in Kelvin. The template must return a value between 2000 and 6535.
+      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
       required: false
       type: template
       default: optimistic
