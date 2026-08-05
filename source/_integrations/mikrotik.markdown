@@ -2,11 +2,14 @@
 title: Mikrotik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Button
   - Hub
   - Presence detection
   - Select
   - Sensor
+  - Switch
+  - Update
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -14,10 +17,13 @@ ha_config_flow: true
 ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
+  - binary_sensor
   - button
   - device_tracker
   - select
   - sensor
+  - switch
+  - update
 ha_integration_type: device
 ---
 
@@ -111,6 +117,12 @@ You will be prompted to set a password for the newly created user. Depending on 
 
 The **MikroTik** {% term integration %} provides the following entities.
 
+### Binary Sensor
+
+The integration creates binary sensor entities when the connected device exposes that information. Not every device supports every sensor.
+
+- **Interface**: Ethernet, Wifi, Bridge connectivity
+
 ### Sensors
 
 The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
@@ -134,3 +146,17 @@ The integration creates the following button entities:
 The integration creates select entities when the connected device exposes that information. Not every device supports every sensor.
 
 - **Poe (out)**: Set PoE out behavior for specific interface: off, auto-on, forced-on
+
+### Switches
+
+The integration creates switch entities when the connected device exposes that information. Not every device supports every sensor.
+
+- Ethernet
+- Wifi
+
+### Update
+
+The integration creates the following update entities:
+
+- **RouterOS**: Updates OS firmware.
+- **RouterBOARD**: Updates BOARD firmware.
