@@ -2,6 +2,7 @@
 title: Podcast Player
 description: Instructions on how to add podcast feeds to Home Assistant.
 ha_category:
+  - Event
   - Media source
   - Multimedia
 ha_release: 2026.9
@@ -33,7 +34,9 @@ Podcast feed URL:
 
 ## Supported functionality
 
-Podcast Player does not add any {% term entities %}. It adds the following functionality to Home Assistant's media browser:
+### Media source
+
+Podcast Player adds the following functionality to Home Assistant's media browser:
 
 - Multiple podcast feeds, configured as separate integration entries.
 - Podcast and episode titles, artwork, and audio types read from the feed.
@@ -46,15 +49,61 @@ To play an episode:
 2. Select a configured podcast and an episode.
 3. Select the media player that should play the episode.
 
+### Latest episode event
+
+Each configured podcast provides an {% term "Event entity" %}. The entity records a `new_episode` event when the integration discovers a new latest episode. Its state is the time when that episode was discovered.
+
+The event provides these state attributes:
+
+| Attribute | Description |
+| --- | --- |
+| `event_type` | The event type. This is `new_episode`. |
+| `title` | The episode title. |
+| `published` | The episode publication date and time, when provided by the publisher. |
+| `duration_seconds` | The episode duration in seconds, when provided by the publisher. |
+| `episode_id` | A stable identifier generated for the episode. |
+| `media_content_id` | The media source identifier for playing the episode. |
+
 ## Examples
+
+### Play a selected episode
 
 You can use a podcast episode in an automation or script. In the automation editor, add the **Play media** action, select the target media player, and use the media picker to browse **Podcasts** and select an episode. The editor stores the episode's media source identifier for you.
 
 For example, this can start a selected news podcast episode on a kitchen speaker as part of a morning automation.
 
+### Play newly discovered episodes
+
+The following automation plays a new episode when the integration discovers it. Replace the event and media player entity IDs with entities from your Home Assistant instance.
+
+```yaml
+alias: Play a new podcast episode
+triggers:
+  - trigger: state
+    entity_id: event.example_podcast
+    not_from:
+      - unknown
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.example_podcast
+    attribute: event_type
+    state: new_episode
+actions:
+  - action: media_player.play_media
+    target:
+      entity_id: media_player.kitchen
+    data:
+      media_content_id: "{{ trigger.to_state.attributes.media_content_id }}"
+      media_content_type: music
+mode: single
+```
+
 ## Data updates
 
-The integration fetches a feed when Home Assistant sets up its config entry and whenever you open that podcast in the media browser. It does not poll feeds in the background.
+The integration fetches a feed when Home Assistant sets up its config entry, once per hour, and whenever you open that podcast in the media browser. A feed update only records an event when the latest episode changes. Home Assistant restores the latest episode identifier after a restart so the same episode is not recorded again.
+
+If a scheduled feed update fails, the event entity becomes unavailable. It becomes available again after a successful update.
 
 ## Known limitations
 
