@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2026.8 Beta: A betta title"
-description: "Beta release notes"
+title: "2026.8: Approachable by design"
+description: "A more approachable Home Assistant: less technical jargon, easier web server settings, a redesigned Home Assistant Cloud page, simpler entity ID renaming, cleaner device management, more triggers and conditions, and new integrations!"
 date: 2026-07-22 00:00:00
 date_formatted: "August 5, 2026"
 author: Ashley Abbott
@@ -10,55 +10,10 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-08/beta-social.png
+og_image: /images/blog/2026-08/social.png
 ---
 
 <lite-youtube videoid="Pu7JLCxZmaI" videotitle="Home Assistant 2026.8 Release Party"></lite-youtube>
-
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.8** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/146)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/825)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/153)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
 
 {% tip %}
 
@@ -68,6 +23,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 {% tip %}
 
+<a href='https://youtube.com/live/aK2HMY9-Tzo'><img src='/images/blog/2026-08/ESPH-2607-starterkit-livestream-thumbnail.png' alt='ESPHome Starter Kit launch party livestream on August 12' class='no-shadow' style='float: right; width: 40%; max-width: 340px; margin: 0 0 8px 16px;' /></a>
 There's more to look forward to next week: the **ESPHome Starter Kit** is launching, and you're invited to the official launch party! 🚀 Join the ESPHome team and their partners at Apollo Automation on the [ESPHome YouTube channel](https://youtube.com/live/aK2HMY9-Tzo) on August 12 at 21:00 CEST. Familiar faces are dropping by to celebrate lift-off, too: [Reed](https://www.youtube.com/c/SmartHomeSolver) from Smart Home Solver, [Simon](https://www.youtube.com/@simonsayshomeassistant) from Simon Says Home Assistant, and [Gavin](https://www.hometech.fm/) from HomeTech.fm.
 
 {% endtip %}
@@ -80,7 +36,7 @@ We have been working on a lot over the past few weeks, and I'm excited to share 
 
 If there's one thread tying this release together, it's a direction we care about: making Home Assistant something you don't need to be technical to use. This release is another step along that path.
 
-Enjoy the (beta) release!
+Enjoy the release!
 
 \- Ashley
 
@@ -111,6 +67,7 @@ Enjoy the (beta) release!
   - [A combined battery level you can trust](#a-combined-battery-level-you-can-trust)
   - [Search your media](#search-your-media)
   - [Find your favorite cards faster](#find-your-favorite-cards-faster)
+  - [Z-Wave lock credentials, properly managed](#z-wave-lock-credentials-properly-managed)
   - [And a few more](#and-a-few-more)
 - [Patch releases](#patch-releases)
 - [Need help? Join the community](#need-help-join-the-community)
@@ -118,7 +75,7 @@ Enjoy the (beta) release!
 - [All changes](#all-changes)
 
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@RaHehl], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@RaHehl], and [@farmio] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@bramkragten]: https://github.com/bramkragten
 [@frenck]: https://github.com/frenck
@@ -229,12 +186,6 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 
 We welcome the following new integrations in this release:
 
-<!-- VALIDATE (PR sweep) — new integrations:
-ADDED to the list: Google Health (#175417), llama.cpp (#175580), GeoSphere Austria Warnings (#173563), Dyson Infrared (#173666).
-HELD (not in 2026.8):
-- Flic Button (#165260, @alhia) — merged to the `flic2` feature branch, not dev; docs PR #44011 still open, so no /integrations/flic_button page. Revisit when it lands in dev with merged docs.
--->
-
 - **[Dyson Infrared]**, added by [@elax46]  
   Control your Dyson fans through any infrared transmitter you already have set up in Home Assistant. Because the connection only goes one way, Home Assistant shows the last command you sent rather than the fan's live state.
 
@@ -309,12 +260,6 @@ HELD (not in 2026.8):
 [Midea]: /integrations/midea
 [NeoPool]: /integrations/neopool
 [ScorpionTrack]: /integrations/scorpiontrack
-
-<!-- UNCOMMENT before final if any land: no new virtual integrations yet this release.
-This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
-
-- [Name], provided by [Parent integration]
--->
 
 ### Noteworthy improvements to existing integrations
 
@@ -408,63 +353,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@tubededentifrice]: https://github.com/tubededentifrice
 [@Onero-testdev]: https://github.com/Onero-testdev
 
-<!-- REMOVE before final: raw candidate list below is SUPERSEDED by the curated list above. Kept only so you can cross-check in the second draft.
-Excluded on purpose: Google Health / ScorpionTrack / LED Infrared platform PRs (these are NEW integrations, covered above); dev-only breaking changes; and Other-noteworthy items (HA OS, radon, media source search, Matter, Z-Wave, template restore/perf, search) which live under Other noteworthy changes.
-Trimmed for length (single minor addition each; restore any if wanted): Freebox #175081, Picnic #176295, Cielo Home #173043, NINA #166125, Liebherr #175921, Sonarr #174506, Gree #169169, V2C #169777.
-Still needs slug/verify: PTDevices #169862, xthings cloud #172831, Hypontech #174404, Indevolt #174600, Tessie/V2C/Gree slugs.
-
-Processed up until: Core PR #176928 / Frontend PR #52709
-
-Potential backend candidate:
-- Add charge/discharge remaining time to Indevolt ([@Xirt] - [#174600]) ([indevolt docs])
-- Add Orion XS and Inverter support to Victron BLE ([@rajlaud] - [#169834]) ([victron_ble docs])
-- Roborock Q10 DND switch ([@lboue] - [#174851]) ([roborock docs])
-- Add fan speed sensor to Freebox integration ([@DocEmmetBrown] - [#175081]) ([freebox docs])
-- Add Bluetooth proxy support for SMLIGHT ([@tl-sl] - [#174710]) ([smlight docs])
-- Add Candle Warmer Lamp support to switchbot ([@Onero-testdev] - [#173585]) ([switchbot docs])
-- Add SwitchBot Standing Fan select platform ([@Onero-testdev] - [#173580]) ([switchbot docs])
-- Add Hypontech plant status binary sensor ([@jcisio] - [#174404]) ([hypontech docs]) (new-platform)
-- Add calendar platform to Sonarr ([@seanpasino] - [#174506]) ([sonarr docs]) (new-platform)
-- Add soil conductivity sensor support to ecowitt ([@GSzabados] - [#164620]) ([ecowitt docs])
-- Add RGBIC Neon Rope Light support to switchbot ([@Onero-testdev] - [#173586]) ([switchbot docs])
-- Adds the switch platform for the Imou integration ([@Imou-OpenPlatform] - [#174880]) ([imou docs]) (new-platform)
-- Add SwitchBot Standing Fan fan platform ([@Onero-testdev] - [#173578]) ([switchbot docs])
-- Add seat coolers to Teslemetry ([@Bre77] - [#175422]) ([teslemetry docs])
-- Add temperature and humidity sensors to Cielo Home integration ([@btajuddin] - [#173043]) ([cielo_home docs]) (new-platform)
-- Support KNX button entity configuration from UI ([@farmio] - [#174426]) ([knx docs]) (noteworthy)
-- Add Roborock Q10 switch entities ([@tubededentifrice] - [#175731]) ([roborock docs])
-- Add WiiM multi-room grouping support and metadata synchronization ([@Linkplay2020] - [#172537]) ([wiim docs])
-- Add command aliases to Vizio remote platform ([@raman325] - [#166839]) ([vizio docs]) (new-platform)
-- Add infrared receiver for SMLIGHT Ultima devices ([@tl-sl] - [#175188]) ([smlight docs])
-- Switchbot Cloud: Enable Webhook for AI Art Frame ([@XiaoLing-git] - [#175823]) ([switchbot_cloud docs])
-- Add get_prices_for_date service action to OMIE ([@abmantis] - [#175820]) ([omie docs])
-- Add Roborock Q10 map image entity ([@tubededentifrice] - [#173883]) ([roborock docs])
-- Add Roborock Q10 volume number entity ([@tubededentifrice] - [#175732]) ([roborock docs])
-- MELCloud Home add energy consumption ([@erwindouna] - [#173948]) ([melcloud_home docs])
-- Add update platform to Portainer ([@erwindouna] - [#163685]) ([portainer docs]) (new-platform)
-- Add window and tilt binary sensors for Overkiz ContactSensor devices ([@iMicknl] - [#174409]) ([overkiz docs])
-- Add cover platform to Liebherr ([@mettolen] - [#175921]) ([liebherr docs]) (new-platform)
-- MELCloud Home add number platform ([@erwindouna] - [#174552]) ([melcloud_home docs]) (new-platform)
-- Add Reolink pre-siren entities ([@starkillerOG] - [#176186]) ([reolink docs])
-- Add vehicle current and Wi-Fi RSSI sensors for Tesla Wall Connector ([@sarabveer] - [#176243]) ([tesla_wall_connector docs])
-- Add estimated arrival sensor to Picnic ([@ronlimon] - [#176295]) ([picnic docs])
-- Add boost and drying duration numbers for Atlantic Electrical Towel Dryer in Overkiz ([@iMicknl] - [#176291]) ([overkiz docs])
-- Add sensor platform to Mikrotik ([@chemelli74] - [#175214]) ([mikrotik docs]) (new-platform)
-- Add oven light to Whirlpool ([@matthewdias] - [#176364]) ([whirlpool docs]) (new-platform)
-- OpenAI GPT-5.6 support ([@Shulyaka] - [#176450]) ([openai_conversation docs])
-- Add support for Somfy Thermostat PRO climate entity in Overkiz ([@iMicknl] - [#176283]) ([overkiz docs])
-- Add oven cook mode select to Whirlpool ([@bdlcalvin] - [#173412]) ([whirlpool docs])
-- Add Google Health calories, floors, and body fat sensors ([@allenporter] - [#176533]) ([google_health docs])
-- Add oven target temperature number to Whirlpool ([@bdlcalvin] - [#173411]) ([whirlpool docs]) (new-platform)
-- Add Duco ventilation temperature sensors ([@ronaldvdmeer] - [#176621]) ([duco docs])
-- Support Shelly Enhanced Security (HTTPS only mode) ([@bieniu] - [#176547]) ([shelly docs]) (noteworthy)
-- Add tank pressure and water temperature sensors to Gardena Bluetooth ([@icereed] - [#176798]) ([gardena_bluetooth docs])
-- Add sensor platform to Imou integration ([@Imou-OpenPlatform] - [#176069]) ([imou docs]) (new-platform)
-- Add health state to containers in Portainer ([@erwindouna] - [#176697]) ([portainer docs])
-- Add sleep coordinator and sensors to Google Health ([@allenporter] - [#176781]) ([google_health docs])
-- Add motion device class to reolink AI detection binary sensors ([@abmantis] - [#176802]) ([reolink docs])
-- Add button platform to Mikrotik ([@chemelli74] - [#175599]) ([mikrotik docs]) (new-platform)-->
-
 ### Integration quality scale achievements
 
 One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
@@ -544,8 +432,6 @@ If you have set up Home Assistant recently, you might notice a short, optional s
 
 ### A roomier template editor
 
-<!-- REMOVE if frontend#53021 does not merge for 2026.8: https://github.com/home-assistant/frontend/pull/53021 -->
-
 The template tool in **Tools** is where you try out {% term "template" "templates" %} and watch the result update as you type. This release gives it a more comfortable layout: the editor and the result now sit in a split view you can drag to resize, and you can switch between side by side and stacked, whichever suits what you are working on. Your choice is remembered for next time.
 
 Thanks, [@maartenla](https://github.com/maartenla)!
@@ -580,6 +466,19 @@ Your most-used cards are now easier to find. In the card picker's "By Card" tab,
 
 Thanks, [@piitaya], [@laupalombi](https://github.com/laupalombi), and everyone who suggested this at a Release Party!
 
+### Z-Wave lock credentials, properly managed
+
+Managing who can unlock your Z-Wave lock just got a lot more capable. Powered by Z-Wave JS's new Access Control API, the Z-Wave JS app 1.6.0 brings a heavily revised interface: every supported lock now gets a dedicated **Access Control** tab. For now, this lives in Z-Wave JS UI rather than in the Z-Wave panel in Home Assistant.
+
+<p class='img'>
+  <img class='no-shadow' src='/images/blog/2026-08/zwave-access-control.png' alt='The new Access Control tab in Z-Wave JS UI, showing users and their credentials'>
+  Users, their credentials, and a full audit trail, all in one place.
+</p>
+
+Depending on what your lock supports, you can now give each user several credentials of more than one type, so the same person can have a PIN and a fingerprint, or multiple of both. New credentials can be learned on the lock itself: start the enrollment from the interface, then present the finger or type the PIN. There is also an audit log of every change, admin code management for locks that use one, and the ability to move credentials between users or delete them in bulk.
+
+Update the Z-Wave JS app to 1.6.0 or later, then open Z-Wave JS UI to find the new tab. Thanks, [@AlCalzone]!
+
 ### And a few more
 
 There is even more packed into this release. Here are some of the other changes worth a mention:
@@ -589,7 +488,6 @@ There is even more packed into this release. Here are some of the other changes 
 - **Search finds more of what is connected.** When you search or open a device or entity, Home Assistant now digs deeper into what is related, so scenes, scripts, groups, the people behind a person entity, and anything sharing a label or area all show up where you would expect them. It is a small change that makes it much easier to see how your setup fits together. Thanks, [@frenck]!
 - **A reboot heads-up on Home Assistant OS.** The system {% term update %} entity now lets you know when an update needs a reboot to finish. Thanks, [@mdegat01]!
 - **A new radon device class.** Sensors and numbers can now be classified as radon, so radon measurements get the right units and display. Thanks, [@abmantis]!
-- **Z-Wave locks with coupled credentials.** Home Assistant now supports Z-Wave locks that require paired users and credentials. Thanks, [@AlCalzone]!
 - **Filter entities by manufacturer and model.** The entity filter can now narrow entities by manufacturer, model, and model ID. Thanks, [@Skaronator]!
 - **Ask Assist from quick search.** You can now start an Assist command straight from quick search. Thanks, [@timmo001]!
 - **A date on the clock card.** The clock card can now show the date alongside the time. Thanks, [@timmo001]!
@@ -607,7 +505,6 @@ There is even more packed into this release. Here are some of the other changes 
 We will also release patch releases for Home Assistant 2026.8 in August. These patch releases only contain bug fixes. Our goal is to release a patch release once a week, aiming for Friday.
 
 <!-- TODO after release: append one dated block per patch release (for example, "### 2026.8.1 - August 8"), each a list of PRs with author and number. Copy the format from the previous release. -->
-
 
 ## Need help? Join the community
 
@@ -629,9 +526,7 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
-<!-- TODO REMOVE BEFORE FINAL. Backward-incompatible changes processed up until PR #177187 (sweep 1); sweep 2 (2026-07-31) added AirNow (#176740) and Edifier Infrared (#177472).
-Sweep resolved: Gardena Bluetooth (#177187), Paperless-ngx (#176889), and Volvo On Call (#175677) are written below. Device registry (#175785) moved to its own section in the main body (too important to bury in this list). Steam #176146 is NOT a breaking change (new feature: it adds sensors), so it moved to the noteworthy improvements list. Developer-facing only and intentionally excluded from this user list: #175606, #175608, #175611 (all @gjohansson-ST).
-AirNow #176740 confirmed 2026.8 (appears in the 2026.8.0b0 release tag). -->
+<!-- Breaking-changes sweep checkpoint: swept through release 2026.8.0b5. -->
 
 {% details "AirNow" %}
 
