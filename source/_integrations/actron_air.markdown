@@ -33,9 +33,9 @@ This integration supports the Actron Air Neo and Que controllers.
 
 ## Supported functionality
 
-### Binary Sensor
+### Binary sensor
 
-The integration will add a **Clean Filter**, and **Defrost Mode** binary sensors to your Actron Air air conditioner.
+The integration adds the **Clean Filter** and **Defrost Mode** binary sensors to your Actron Air air conditioner.
 
 ### Climate
 
