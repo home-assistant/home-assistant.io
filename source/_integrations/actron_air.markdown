@@ -13,6 +13,7 @@ ha_codeowners:
   - '@JagadishDhanamjayam'
 ha_domain: actron_air
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - sensor
@@ -35,6 +36,10 @@ This integration supports the Actron Air Neo and Que controllers.
 {% include integrations/config_flow.md %}
 
 ## Supported functionality
+
+### Binary sensor
+
+The integration adds the **Clean Filter** and **Defrost Mode** binary sensors to your Actron Air air conditioner.
 
 ### Climate
 
