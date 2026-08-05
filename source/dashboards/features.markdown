@@ -985,7 +985,7 @@ options:
 
 ## Target humidity
 
-Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
+Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier) or a [climate](/integrations/climate) entity.
 
 <p class='img'>
   <img src='/images/dashboards/features/target_humidity.png' alt='Screenshot of the tile card with the target humidity feature'>
