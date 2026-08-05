@@ -52,6 +52,8 @@ The **Hot Spring** integration provides the following entities:
   - **Temperature Range**: 80.0 °F to 104.0 °F
   - **Remarks**: Turning the water heater on or off is not supported by the integration.
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 The **Hot Spring** integration uses local {% term polling %} to fetch status updates directly from the spa module on your local network.
