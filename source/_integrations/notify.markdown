@@ -42,7 +42,7 @@ With any of these integrations, the **Message** field in the automation editor i
 
 Be aware that the `notify.notify` action is shorthand for the first notify action the system can find. It might not work as intended. Choose a specific action to make sure your message goes to the right place.
 
-Notifications can also be sent using [Notify groups](/integrations/group/#notify-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
+Notifications can also be sent using [notify action groups](/integrations/group/#notify-action-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
 ## Notifications automation examples
 
