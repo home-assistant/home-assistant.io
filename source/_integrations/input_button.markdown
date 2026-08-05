@@ -71,7 +71,7 @@ actions:
       message: "My button has been pressed!"
 ```
 
-{% include integrations/triggers.md domain="button" %}
+For more details and examples, see the [Button pressed](/triggers/button.pressed/) trigger.
 
 {% include integrations/actions.md %}
 
