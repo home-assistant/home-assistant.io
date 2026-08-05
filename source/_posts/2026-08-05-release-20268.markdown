@@ -285,7 +285,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[WiiM]** added multi-room grouping and metadata synchronization. Thanks, [@Linkplay2020]!
 - **[SMLIGHT]** added Bluetooth proxy support and an infrared receiver for SMLIGHT Ultima devices. Thanks, [@tl-sl]!
 - **[Vizio]** added command aliases for its remote. Thanks, [@raman325]!
-- **[Tesla Wall Connector]** added vehicle current and Wi-Fi signal sensors. Thanks, [@sarabveer]!
+- **[Tesla Wall Connector]** added an option to switch total power calculation between single-phase / split-phase and three-phase electrical service, along with vehicle current and Wi-Fi signal sensors. Thanks, [@sarabveer]!
 - **[Teslemetry]** added control for seat coolers. Thanks, [@Bre77]!
 - **[Tessie]** added a navigation-destination text entity. Thanks, [@Mattheinrichs]!
 - **[Gardena Bluetooth]** added tank pressure and water temperature sensors. Thanks, [@icereed]!
