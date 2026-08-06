@@ -633,7 +633,7 @@ knx:
       entity_category: diagnostic
       device:
         id: my_awesome_device
-        name: My awesome device
+        name: My awesome device 🌸
       ...
 ```
 
