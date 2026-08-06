@@ -345,7 +345,6 @@ The integration is designed to not wake the vehicle to poll for data. Updates fo
 -   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
 -   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
 -   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
--   **Tonneau cover:** The tonneau cover entity is only created for Cybertruck vehicles. Opening, closing, and stopping the cover require the `vehicle command` scope on your Teslemetry token. Without it, the entity only reports the current position.
 
 ## Troubleshooting
 
