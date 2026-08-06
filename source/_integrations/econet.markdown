@@ -65,6 +65,7 @@ The EcoNet water heater platform lets you control your EcoNet water heater. Wate
 
 Adding the integration fails with "Unknown error occurred". Home Assistant logs show:
 
+
 Run these commands on your host (replace `<ha-config-dir>` with the host path
 mounted at `/config`):
 
