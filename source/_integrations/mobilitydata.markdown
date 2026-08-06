@@ -12,7 +12,7 @@ ha_domain: mobilitydata
 ha_platforms:
   - sensor
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **MobilityData** {% term integration %} provides upcoming public transit departures for stops you choose, using any of the thousands of GTFS schedule feeds cataloged by the [Mobility Database](https://mobilitydatabase.org) — buses, trains, trams, and ferries from transit providers worldwide. Where a provider publishes GTFS-RT realtime data, departure times include live predictions and delays; otherwise the published schedule is used.
