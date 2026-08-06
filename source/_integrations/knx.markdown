@@ -659,7 +659,7 @@ A device you created in the UI has two different values. Do not confuse them:
 To find the KNX device identifier:
 
 1. Go to **Settings** > **Devices & services** > **Devices** and open the device. The Home Assistant device ID is the last part of the page URL.
-2. Go to **Developer tools** > **Template** and render the following, replacing `HA_DEVICE_ID` with that ID:
+2. Go to **Tools** > **Template** and render the following, replacing `HA_DEVICE_ID` with that ID:
 
    ```text
    {{ device_attr('HA_DEVICE_ID', 'identifiers') }}
