@@ -63,7 +63,7 @@ The EcoNet water heater platform lets you control your EcoNet water heater. Wate
 
 **Symptom:** Adding the integration fails with **Unknown error occurred**. Home Assistant logs show:
 
-```
+```text
 SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify
 failed: unable to get local issuer certificate
 ```
