@@ -66,7 +66,7 @@ For connectivity, Home Assistant must be able to send outbound UDP discovery pac
 
 Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the 'iSave' system, which vents in external air into the house, this is available as 'eco' mode.
 
-The entity exposes a `supply_temperature` attribute, however the **Supply temperature** sensor entity (below) is preferred.
+The entity exposes a `supply_temperature` attribute. Use the **Supply temperature** sensor entity (below) instead.
 
 ## Zones
 
@@ -76,7 +76,7 @@ Zones have three modes available, closed, open, and auto. These are mapped to Ho
 
 The integration creates the following {% term sensor %} entities for each controller:
 
-- **Supply temperature**: (diagnostic) The temperature of the air leaving the indoor unit into the duct work.
+- **Supply temperature**: (diagnostic) The temperature of the air leaving the indoor unit into the ductwork.
 - **Return temperature**: (diagnostic) The temperature of the air returning to the indoor unit.
 
 ## Control zone (climate control mode)
