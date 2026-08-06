@@ -608,6 +608,20 @@ entity_category:
   required: false
   type: string
   default: None
+device:
+  description: Assign this entity to a device. Entities that share the same `id` are grouped into a single device.
+  required: false
+  type: map
+  keys:
+    id:
+      description: Identifier of the device. Use the same value for every entity you want grouped into one device. To add the entity to a device you created in the UI, use that device's identifier instead.
+      required: true
+      type: string
+    name:
+      description: Name shown for the device. Leave it out to keep the name of a device you referenced by its identifier.
+      required: false
+      type: string
+      default: None
 {% endconfiguration %}
 
 ```yaml
@@ -617,8 +631,31 @@ knx:
     - name: My awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
       entity_category: diagnostic
+      device:
+        id: my_awesome_device
+        name: My awesome device
       ...
 ```
+
+To add a YAML entity to a device you created in the UI, set `id` to that device's identifier, such as `knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5`, and leave out `name`:
+
+```yaml
+# Example configuration.yaml entry fragment adding a YAML entity to a UI-created device
+knx:
+  switch:
+    - name: Ceiling light
+      address: "1/1/1"
+      device:
+        id: knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5
+```
+
+To find a device's identifier, go to **Developer tools** > **Template** and render the following, replacing the device ID with the one from the device's page URL under **Settings** > **Devices & services** > **Devices**:
+
+```text
+{{ device_attr('DEVICE_ID', 'identifiers') }}
+```
+
+The KNX identifier is the value that starts with `knx_vdev_`.
 
 ### Binary sensor
 
