@@ -47,18 +47,20 @@ Access token:
 
 ### Finding your device's address
 
-If your device is not automatically discovered, you can find its address using the [`vizaio`](https://github.com/raman325/vizaio) command line tool on any machine on the same network (if the `pip3` command is not found, try `pip` instead):
+If your device is not automatically discovered, you can find its address using the [`vizaio`](https://github.com/raman325/vizaio) command line tool on any machine on the same network:
 
 ```bash
 pip3 install 'vizaio[cli]'
 vizaio discover
 ```
 
+If the `pip3` command is not found, replace it with `pip`.
+
 Write down the IP address and port number of the device you want to add. If you have trouble finding a device you were expecting to see, you can try increasing the discovery timeout period by adding the `--timeout` option (for example, `vizaio discover --timeout 10`).
 
 ### Pairing manually using `vizaio`
 
-Pairing through the Home Assistant frontend is recommended, but you can also obtain an access token manually. Make sure that your TV is on, then run the interactive pairing command (replace `DEVICE_IP:DEVICE_PORT` with the address obtained in the previous section):
+Pairing through the Home Assistant frontend is recommended, but you can also obtain an access token manually. Make sure that your TV is on, then run the interactive pairing command by replacing `DEVICE_IP:DEVICE_PORT` with the address obtained in the previous section:
 
 ```bash
 vizaio pair interactive DEVICE_IP:DEVICE_PORT
@@ -144,15 +146,7 @@ Speakers support a subset of the commands above:
 
 Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
 
-{% include integrations/actions.md %}
-
-## Data updates
-
-This integration uses local {% term polling %}: the device is polled every 30 seconds for power state, volume, current input, and the running app.
-
-The SmartCast app catalog, used to build the source list for TVs, is fetched from VIZIO's servers once a day. If the catalog cannot be fetched, a copy bundled with the [vizaio](https://github.com/raman325/vizaio) library is used as a fallback.
-
-## Examples
+#### Remote command examples
 
 Send a single command:
 
@@ -191,25 +185,60 @@ data:
   delay_secs: 0.4
 ```
 
-Automation that turns on the TV and launches an app for movie night:
+{% include integrations/actions.md %}
 
-```yaml
-automation:
-  - alias: "Movie night"
-    triggers:
-      - trigger: state
-        entity_id: input_boolean.movie_night
-        to: "on"
-    actions:
-      - action: media_player.turn_on
-        target:
-          entity_id: media_player.vizio_smartcast
-      - action: media_player.select_source
-        target:
-          entity_id: media_player.vizio_smartcast
-        data:
-          source: Netflix
-```
+## VIZIO SmartCast automation examples
+
+Here is an idea to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: start movie night
+
+This automation turns the TV on and launches an app when you start movie night. It is triggered by a toggle {% term helper %} named **Movie night**, which you need to create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+
+- **Trigger**: State
+  - **Entity**: Movie night (`input_boolean.movie_night`)
+  - **To**: On
+- **Action**: Turn on media player
+  - **Target**: VIZIO SmartCast (`media_player.vizio_smartcast`)
+- **Action**: Select source
+  - **Target**: VIZIO SmartCast (`media_player.vizio_smartcast`)
+  - **Source**: Netflix
+
+{% details "YAML example for starting movie night" %}
+
+{% example %}
+automation: |
+  alias: "Movie night"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.movie_night
+      to: "on"
+  actions:
+    - action: media_player.turn_on
+      target:
+        entity_id: media_player.vizio_smartcast
+    - action: media_player.select_source
+      target:
+        entity_id: media_player.vizio_smartcast
+      data:
+        source: Netflix
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+This integration uses local {% term polling %}: the device is polled every 30 seconds for power state, volume, current input, and the running app.
+
+The SmartCast app catalog, used to build the source list for TVs, is fetched from VIZIO's servers once a day. If the catalog cannot be fetched, a copy bundled with the [vizaio](https://github.com/raman325/vizaio) library is used as a fallback.
+
+## Known limitations
+
+### Changing tracks
+
+Changing tracks works like switching channels. If the current input is anything other than regular TV, this command might not do anything.
 
 ## Troubleshooting
 
@@ -231,12 +260,6 @@ If Zeroconf discovery is enabled, the integration updates the device's address a
 
 - Ensure the PIN is entered exactly as displayed on the TV, and that the TV stays powered on during the pairing process.
 - If the PIN screen never appears, power cycle the TV and restart the setup.
-
-## Notes and limitations
-
-### Changing tracks
-
-Changing tracks works like switching channels. If the current input is anything other than regular TV, this command might not do anything.
 
 ## Removing the integration
 
