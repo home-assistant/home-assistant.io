@@ -53,6 +53,55 @@ Each entry adds one service {% term device %} named after the monitored municipa
 - **Active warnings**
   - **Description**: The number of currently active warnings.
   - **Unit**: warnings
+- **Current warning level**
+  - **Description**: The highest numeric severity level of all currently active
+    warnings. This sensor provides warning details as attributes and is intended
+    for compatibility with automations using the DWD Weather Warnings sensor
+    format.
+  - **Possible states**: `0` when no warning is active, otherwise the numeric
+    warning level reported by GeoSphere Austria.
+- **Advance warning level**
+  - **Description**: The highest numeric severity level of all advance warnings.
+    This sensor provides warning details as attributes and is intended for
+    compatibility with automations using the DWD Weather Warnings sensor format.
+  - **Possible states**: `0` when no advance warning is active, otherwise the
+    numeric warning level reported by GeoSphere Austria.
+
+### Warning attributes
+
+The **Current warning level** and **Advance warning level** sensors expose the
+following attributes:
+
+- **Municipality**
+  - **Attribute**: `municipality`
+  - **Description**: Name of the monitored Austrian municipality.
+- **Warning count**
+  - **Attribute**: `warning_count`
+  - **Description**: Number of warnings represented by the sensor.
+- **Warning details**
+  - **Attribute format**: `warning_<x>_<field>`
+  - **Description**: Details of warning number `x`, starting with `1`.
+    Warnings are ordered by severity, with the highest severity first.
+  - **Fields**:
+    - **Level** (`warning_<x>_level`): Numeric warning severity level.
+    - **Color** (`warning_<x>_color`): Severity color name, such as `yellow`,
+      `orange`, or `red`.
+    - **Type** (`warning_<x>_type`): GeoSphere warning type identifier.
+    - **Name** (`warning_<x>_name`): Lowercase GeoSphere warning type name.
+    - **Start** (`warning_<x>_start`): Warning start time in ISO 8601 format.
+    - **End** (`warning_<x>_end`): Warning end time in ISO 8601 format.
+    - **Description** (`warning_<x>_description`): Warning text.
+    - **Impacts** (`warning_<x>_impacts`): Expected impacts.
+    - **Instruction** (`warning_<x>_instruction`): Recommended actions.
+    - **Meteorological text** (`warning_<x>_meteo_text`): Additional
+      meteorological information.
+    - **Update reason** (`warning_<x>_update_reason`): Reason for the warning
+      update, if provided.
+    - **Warning ID** (`warning_<x>_warning_id`): GeoSphere warning identifier.
+    - **Change ID** (`warning_<x>_change_id`): GeoSphere warning change
+      identifier.
+    - **Course ID** (`warning_<x>_course_id`): GeoSphere warning course
+      identifier.
 
 ## Automation examples
 
