@@ -649,13 +649,21 @@ knx:
         id: knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5
 ```
 
-To find a device's identifier, go to **Developer tools** > **Template** and render the following, replacing the device ID with the one from the device's page URL under **Settings** > **Devices & services** > **Devices**:
+A device you created in the UI has two different values. Do not confuse them:
 
-```text
-{{ device_attr('DEVICE_ID', 'identifiers') }}
-```
+- The **Home Assistant device ID**: an internal ID, such as `1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d`. You only need it to look up the KNX identifier.
+- The **KNX device identifier**: the value that starts with `knx_vdev_`. This is what you set as `id` under `device`.
 
-The KNX identifier is the value that starts with `knx_vdev_`.
+To find the KNX device identifier:
+
+1. Go to **Settings** > **Devices & services** > **Devices** and open the device. The Home Assistant device ID is the last part of the page URL.
+2. Go to **Developer tools** > **Template** and render the following, replacing `HA_DEVICE_ID` with that ID:
+
+   ```text
+   {{ device_attr('HA_DEVICE_ID', 'identifiers') }}
+   ```
+
+   The KNX device identifier is the returned value that starts with `knx_vdev_`.
 
 ### Binary sensor
 
