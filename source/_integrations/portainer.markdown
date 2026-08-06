@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Sensor
   - Switch
+  - Update
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -90,6 +90,8 @@ Store requests and responses in OpenAI:
   description: If enabled, OpenAI stores requests and responses and you can view them in your OpenAI dashboard logs. Disabled by default.
 Service tier:
   description: The available service tiers are Auto, Standard, Flex, and Priority. Flex tier offers lower costs in exchange for slower response times, which can be useful for background automations. [Priority processing](https://openai.com/api-priority-processing/) delivers significantly lower and more consistent latency than the Standard tier at a higher price. Auto is the default value, which uses the [project settings](https://platform.openai.com/settings/organization/projects). See the [Pricing](https://developers.openai.com/api/docs/pricing) for details on the supported models. When the selected tier is unavailable due to capacity or ramp rate limits, the request is processed at the Standard tier, and you are charged the Standard tier price.
+Pro mode:
+  description: Perform more model work to improve reliability on difficult tasks and return a single final answer. Enable it when quality matters more than latency and token usage. Pro mode aggregates the model work performed to produce the final answer and bills those tokens at the selected model’s standard token rates. Pro mode performs more model work than standard mode, increasing token usage and cost. This parameter is only applicable to GPT-5.6 and above; existing Pro model IDs keep their current behavior and pricing.
 Enable web search:
   description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
 Search context size:

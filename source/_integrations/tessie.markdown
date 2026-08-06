@@ -11,7 +11,10 @@ ha_category:
   - Lock
   - Media Player
   - Number
+  - Select
   - Sensor
+  - Switch
+  - Text
   - Update
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -32,6 +35,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - update
 ha_integration_type: hub
 ha_quality_scale: silver
@@ -52,6 +56,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Enable Sentry mode, valet mode, and defrost mode
 - Flash lights, honk horn, and trigger HomeLink
 - Track vehicle location and navigation destination
+- Send a navigation destination to the vehicle
 - Install software updates
 
 ### Energy product monitoring and control
@@ -274,6 +279,12 @@ The integration will create switch entities to control various aspects of your v
 - Sentry mode
 - Steering wheel heater
 - Valet mode
+
+### Text
+
+The integration will create a text entity to send a navigation destination to the vehicle:
+
+- Navigation destination
 
 ### Update
 

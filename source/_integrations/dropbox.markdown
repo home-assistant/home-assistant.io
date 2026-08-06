@@ -10,7 +10,7 @@ ha_codeowners:
   - '@bdr99'
 ha_domain: dropbox
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 This {% term integration %} allows you to connect your [Dropbox](https://dropbox.com) account with Home Assistant Backups.

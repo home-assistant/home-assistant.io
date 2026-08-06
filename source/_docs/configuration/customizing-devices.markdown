@@ -43,6 +43,26 @@ To change entity attributes, follow these steps:
    - Changing only the entity name does not affect your automations or scripts because they refer to the entity ID.
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %}, open the respective tab, and find your automation or script.
 
-### Customizing an entity in YAML
+## Changing the entity ID format for new entities
+
+Home Assistant generates entity IDs for new entities based on parts of your setup, like the floor, area, device, and entity name. For example, a temperature sensor on a thermostat in the living room might become `sensor.living_room_thermostat_temperature`.
+
+You can change which parts are used and in which order. This format is only used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs, and you can still rename them afterwards in the entity settings.
+
+{% note %}
+Some integrations suggest their own entity ID for new entities. In that case, this format is not used.
+{% endnote %}
+
+To change the format:
+
+1. Go to **Settings** > **System** > **Entity ID format**.
+2. Add, remove, or reorder the **Floor**, **Area**, **Device**, and **Entity** parts to build the format you want. The **Preview** shows an example of the result.
+3. Select **Save**.
+
+The default format uses the area, device, and entity name, in that order. To go back to it, select **Reset to default**.
+
+When you recreate the entity IDs for a device, Home Assistant uses this format to generate them.
+
+## Customizing an entity in YAML
 
 If your entity is not supported, or you could not customize what you need via the user interface, you need to edit the settings in your {% term "`configuration.yaml`" %} file. For a detailed description of the entity configuration variables and [device class](/integrations/homeassistant/#device-class) information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).

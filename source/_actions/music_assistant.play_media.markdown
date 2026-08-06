@@ -39,7 +39,7 @@ Enqueue:
 Enable radio mode:
   description: Turns on radio mode to auto-generate a playlist based on the selection.
 Username:
-  description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook.
+  description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook. When left empty, it defaults to the Home Assistant user that made the request, if their username matches a Music Assistant user. When you call this action from an automation or script, set the username explicitly so the request is attributed to the right user.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -84,7 +84,7 @@ radio_mode:
   type: boolean
   default: false
 username:
-  description: Use this Music Assistant user to adjust the playlog entry. If provider filtering is used, the media item will be selected accordingly.
+  description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook. When left empty, it defaults to the Home Assistant user that made the request, if their username matches a Music Assistant user. When you call this action from an automation or script, set the username explicitly so the request is attributed to the right user.
   required: false
   type: string
 {% endoptions_yaml %}

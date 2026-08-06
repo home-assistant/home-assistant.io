@@ -67,6 +67,23 @@ will likely continue to evolve.
 The Home Assistant MCP server is exposed as `/api/mcp` and requires the
 client to provide an authentication token.
 
+### Exposing a specific LLM API
+
+The `/api/mcp` endpoint serves the LLM API you select when you set up the
+integration. If you have more than one LLM API available, you can also connect a
+client to a specific one by adding its ID to the URL:
+
+`/api/mcp/<api_id>`
+
+For example, the built-in Assist API is always available at `/api/mcp/assist`.
+Point your MCP client at this URL in the same way you would use the base
+`/api/mcp` endpoint. If you request an API ID that does not exist, Home Assistant
+responds with a 404 Not Found error.
+
+Connecting to any API other than Assist requires the authenticated user to be an
+administrator. The Assist API stays available to non-administrator users, just
+like the base `/api/mcp` endpoint.
+
 ### Access control
 
 #### OAuth
