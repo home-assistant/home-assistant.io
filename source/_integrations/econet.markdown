@@ -61,21 +61,10 @@ The EcoNet water heater platform lets you control your EcoNet water heater. Wate
 
 ### SSL certificate verification failed (Home Assistant Container installs)
 
-**Symptom:** Adding the integration fails with **Unknown error occurred**. Home Assistant logs show:
+#### Symptom: Adding the integration fails with "Unknown error occurred"
 
-```text
-SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify
-failed: unable to get local issuer certificate
-```
+Adding the integration fails with "Unknown error occurred". Home Assistant logs show:
 
-**Cause:** DigiCert Global Root CA (G1) was removed from Mozilla/Linux
-`ca-certificates` bundles on 2026-04-15. `rheem.clearblade.com` still chains
-to this root. Updated Home Assistant Container images ship the post-removal
-bundle, so OpenSSL cannot verify the chain. This is a server-side issue
-pending resolution by ClearBlade/Rheem
-([tracking issue](https://github.com/home-assistant/core/issues/172228)).
-
-**Workaround:** Add the G1 root to the Home Assistant container's trust store.
 Run these commands on your host (replace `<ha-config-dir>` with the host path
 mounted at `/config`):
 
@@ -118,7 +107,9 @@ environment:
 docker compose up -d homeassistant
 ```
 
-**Rollback:** Remove the `SSL_CERT_FILE` line and the `/config/ssl/` files
+#### Rollback
+
+Remove the `SSL_CERT_FILE` line and the `/config/ssl/` files
 once ClearBlade reissues their certificate under the G2/G3 hierarchy. After
 major Home Assistant upgrades, regenerate the bundle (step 3) to keep it in
 sync with the container's updated roots.
