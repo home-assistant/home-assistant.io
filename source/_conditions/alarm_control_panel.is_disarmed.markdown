@@ -82,11 +82,14 @@ for:
 
 When a person arrives home, turn on the entryway lights and start playing music, but only if the alarm is already disarmed. If the alarm is still armed, the person probably hasn't entered yet.
 
-- **Trigger**: Person: Someone arrives home
+- **Trigger**: State
+  - **Entity**: Jane
+  - **To**: Home
 - **Condition**: Alarm is disarmed
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Light: Turn on, Media player: Play media
+- **Action**: Turn on light
+- **Action**: Play media
 
 {% details "YAML example for a welcome-home routine gated on disarmed alarm" %}
 

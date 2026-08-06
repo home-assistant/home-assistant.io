@@ -7,7 +7,7 @@ description: "Refreshes notifications on a Z-Wave node that supports the Notific
 
 Use this action to refresh the notifications of a given type on a Z-Wave device that supports the Notification Command Class. This is handy when you want to make sure Home Assistant has the device's latest notification state.
 
-Correctly using this action requires advanced knowledge of Z-Wave, including the notification type and event numbers from the Z-Wave specification.
+Correctly using this action requires specific knowledge of Z-Wave, such as the notification type and event numbers from the Z-Wave specification.
 
 You can target the action at one or more entities, devices, or areas. At least one of those must be provided.
 

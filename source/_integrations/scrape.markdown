@@ -49,11 +49,11 @@ scrape:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint that contains the value. One of `resource` and `resource_template` must be used.
   required: true
   type: string
 resource_template:
-  description: The resource or endpoint that contains the value with template support.
+  description: The resource or endpoint that contains the value with template support. One of `resource` and `resource_template` must be used.
   required: true
   type: template
 method:
@@ -84,11 +84,11 @@ authentication:
   required: false
   type: string
 username:
-  description: The username for accessing the REST endpoint.
+  description: The username for accessing the resource.
   required: false
   type: string
 password:
-  description: The password for accessing the REST endpoint.
+  description: The password for accessing the resource.
   required: false
   type: string
 headers:
@@ -100,7 +100,7 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: Define the frequency to call the resource in seconds.
   required: false
   type: integer
   default: 600
@@ -110,7 +110,7 @@ encoding:
   type: string
   default: UTF-8
 sensor:
-  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of sensors to create from the shared data.
   required: true
   type: map
   keys:
