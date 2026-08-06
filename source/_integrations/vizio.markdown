@@ -202,7 +202,7 @@ This automation turns the TV on and launches an app when you start movie night. 
   - **To**: On
 - **Action**: Turn on media player
   - **Target**: VIZIO SmartCast (`media_player.vizio_smartcast`)
-- **Action**: Select source
+- **Action**: Select media player source
   - **Target**: VIZIO SmartCast (`media_player.vizio_smartcast`)
   - **Source**: Netflix
 
