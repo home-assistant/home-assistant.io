@@ -637,6 +637,8 @@ knx:
       ...
 ```
 
+Assigning a device only groups entities on the device page. It does not change their names. The `name` you configure for a YAML entity is always shown as-is, unlike entities you create in the UI, where the device name is added in front. For example, an entity named `Kitchen light` on a device named `Kitchen` is shown as `Kitchen light`, not `Kitchen Kitchen light`.
+
 To add a YAML entity to a device you created in the UI, set `id` to that device's identifier, such as `knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5`, and leave out `name`:
 
 ```yaml
