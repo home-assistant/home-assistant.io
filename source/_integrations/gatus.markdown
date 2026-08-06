@@ -46,13 +46,13 @@ The **Gatus** {% term integration %} provides the following entities.
 
 ### Binary sensors
 
-For each endpoint configured in Gatus, the integration creates one binary sensor.
+For each endpoint configured in Gatus, the integration creates the following binary sensor:
 
 - **Connectivity**: Reports `on` (connected) when the most recent check for that endpoint succeeded, and `off` (disconnected) when it failed.
 
 ### Sensors
 
-For each endpoint configured in Gatus, the integration creates the following sensors:
+For each endpoint configured in Gatus, the integration creates the following sensor:
 
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 
