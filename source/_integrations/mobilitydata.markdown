@@ -1,5 +1,5 @@
 ---
-title: Mobility Database
+title: MobilityData
 description: Instructions on how to track public transit departures from any GTFS feed in the Mobility Database within Home Assistant.
 ha_category:
   - Transport
@@ -8,14 +8,14 @@ ha_release: 2026.9
 ha_config_flow: true
 ha_codeowners:
   - "@raman325"
-ha_domain: mobility_database
+ha_domain: mobilitydata
 ha_platforms:
   - sensor
 ha_integration_type: service
 ha_quality_scale: silver
 ---
 
-The **Mobility Database** {% term integration %} provides upcoming public transit departures for stops you choose, using any of the thousands of GTFS schedule feeds cataloged by the [Mobility Database](https://mobilitydatabase.org) — buses, trains, trams, and ferries from transit providers worldwide. Where a provider publishes GTFS-RT realtime data, departure times include live predictions and delays; otherwise the published schedule is used.
+The **MobilityData** {% term integration %} provides upcoming public transit departures for stops you choose, using any of the thousands of GTFS schedule feeds cataloged by the [Mobility Database](https://mobilitydatabase.org) — buses, trains, trams, and ferries from transit providers worldwide. Where a provider publishes GTFS-RT realtime data, departure times include live predictions and delays; otherwise the published schedule is used.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ After you pick a feed, the integration downloads the provider's schedule and bui
 
 Departure sensors are created per stop. To add a stop:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Mobility Database** integration.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **MobilityData** integration.
 2. Select **Add transit stop**.
 3. Choose a search area: pick one of your [zones](/integrations/zone/), or draw a circle on the map. The map starts centered on the feed's coverage area.
 4. Select a stop from those found inside the area.
