@@ -133,6 +133,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Sunroof|No|
+|Cover|Tonneau|Yes|
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
