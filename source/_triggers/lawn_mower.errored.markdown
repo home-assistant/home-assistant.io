@@ -115,7 +115,7 @@ If the mower reports an error after dark, turn on the porch light so you can see
 - **Trigger**: Lawn mower encountered an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:15
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the yard on error" %}
@@ -130,8 +130,7 @@ automation: |
       options:
         for: "00:00:15"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

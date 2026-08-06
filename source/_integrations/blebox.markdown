@@ -23,12 +23,14 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
   - switch
   - update
 ha_integration_type: device
 ha_zeroconf: true
+ha_dhcp: true
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
@@ -170,7 +172,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### shutterBoxDC
 
@@ -194,7 +196,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### switchBox
 
@@ -483,7 +485,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
   - pm2.5
   - pm10
 
-### CO2Sensor
+### co2Sensor
 
 This integration adds the Blebox device as 2 sensor entities to Home Assistant.
 
@@ -653,7 +655,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 24 GO SWITCHSHUTT
 
@@ -769,7 +771,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 54 GO SWITCHSHUTT
 
@@ -885,7 +887,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
