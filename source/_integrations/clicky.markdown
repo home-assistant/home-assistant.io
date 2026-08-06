@@ -28,8 +28,6 @@ You can use this integration with Clicky's free plan.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Website Name:
-  description: "How you want your website's name to appear in Home Assistant."
 Site ID:
   description: "Your website's ID within Clicky."
 Site key:
