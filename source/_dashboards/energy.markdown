@@ -131,6 +131,11 @@ show_legend:
   description: Show or hide the legend. You can select items in the legend to show or hide components in the graph, like solar and battery, so you can focus on grid usage more clearly.
   type: boolean
   default: true
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -486,6 +491,11 @@ hide_compound_stats:
   description: Hide upstream energy devices like breakers. These are devices that are set as `included_in_stat` of another device.
   type: boolean
   default: false
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. This applies to the pie chart, where a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -510,7 +520,33 @@ max_devices: 5
 
 The **Detail devices energy graph** card is similar to the **Devices energy graph** card, but shows the individual usage on a time scale.
 
-By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-devices-detail-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+max_devices:
+  required: false
+  description: By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+  type: integer
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items, which can hide entries such as untracked consumption.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Examples
 
@@ -666,6 +702,11 @@ show_legend:
   description: Show or hide the legend
   type: boolean
   default: true
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
