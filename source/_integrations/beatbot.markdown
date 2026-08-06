@@ -2,7 +2,7 @@
 title: Beatbot
 description: Instructions on how to integrate Beatbot pool cleaning devices with Home Assistant.
 ha_category:
-  - Vacuum
+  - Sensor
 ha_iot_class: Cloud Push
 ha_release: 2026.8
 ha_config_flow: true
@@ -10,12 +10,12 @@ ha_codeowners:
   - '@dddddl'
 ha_domain: beatbot
 ha_platforms:
-  - vacuum
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Beatbot** {% term integration %} connects supported Beatbot pool cleaning devices to Home Assistant by using the Beatbot cloud service. You can view the cleaning state and control supported cleaning actions.
+The **Beatbot** {% term integration %} connects supported Beatbot pool cleaning devices to Home Assistant by using the Beatbot cloud service. You can view the cleaning status, battery level, and active error.
 
 ## Supported devices
 
@@ -34,9 +34,13 @@ During setup, Home Assistant opens the Beatbot authorization page. Sign in with 
 
 ## Supported functionality
 
-The features available for a device depend on the capabilities reported by that device.
+The integration provides these diagnostic sensors for each supported pool cleaner:
 
-- **Vacuum**: Start or pause cleaning and return the cleaner to its base.
+- **Status**: The cleaner's current operating state.
+- **Battery**: The cleaner's current battery level.
+- **Error**: The cleaner's current error, or none when there is no active error.
+
+Cleaning controls are not exposed in the initial integration because supported capabilities vary by model.
 
 The device firmware version is shown on the device page.
 
