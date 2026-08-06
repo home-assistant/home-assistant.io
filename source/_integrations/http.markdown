@@ -82,10 +82,10 @@ Before Home Assistant 2026.8, the HTTP integration was configured in {% term "`c
 
 To complete the migration:
 
-1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-2. In the **HTTP server** section, check that your imported values are correct. If Home Assistant asks you to confirm the settings, confirm them.
-3. Remove the `http:` block from {% term "`configuration.yaml`" %}.
-4. Restart Home Assistant.
+1. Remove the `http:` block from {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+4. In the **HTTP server** section, check that your imported values are correct. If Home Assistant asks you to confirm the settings, confirm them.
 
 The repair issue clears once the `http:` block is gone. For the repair issues that can appear during or after migration, see [Troubleshooting](#troubleshooting).
 
