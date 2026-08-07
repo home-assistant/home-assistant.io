@@ -90,9 +90,11 @@ automation: |
 
 {% enddetails %}
 
-### Automation: turn on a power strip before waking any TV in the living room
+### Automation: turn on a power strip before waking the living room TV
 
-When any LG webOS TV in the living room is requested to turn on, first switch on the smart power strip the TV is connected to, then send a Wake-on-LAN packet. This keeps the strip switched off while nothing is in use, and still gives the TV power before it is woken. The short wait gives the TV time to receive power before the packet arrives.
+When the LG webOS TV in the living room is requested to turn on, first switch on the smart power strip it is connected to, then send a Wake-on-LAN packet. This keeps the strip switched off while nothing is in use, and still gives the TV power before it is woken. The short wait gives the TV time to receive power before the packet arrives.
+
+The trigger targets the living room area, so the automation keeps working if you replace the TV. It assumes that area has one LG webOS TV, because the magic packet goes to a single MAC address. If you have more, target each TV in its own automation.
 
 - **Trigger**: TV is requested to turn on
   - **Target**: Living room area
