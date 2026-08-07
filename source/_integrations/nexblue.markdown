@@ -12,6 +12,7 @@ ha_codeowners:
   - '@nexblue-maintainer'
 ha_domain: nexblue
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -63,7 +64,7 @@ The integration provides the following charger information:
 
 The integration provides the following binary sensors:
 
-- **Availability**: Whether the charger is currently available.
+- **Availability**: Whether charging is enabled in the charger settings.
 - **Cable lock state**: Whether the charging cable is locked.
 
 ## NexBlue and automations
@@ -78,7 +79,7 @@ The NexBlue integration uses cloud {% term polling %} and updates charger data e
 
 - The integration requires an internet connection between Home Assistant and the NexBlue cloud service.
 - This initial version is read-only. Starting or stopping charging is not currently available through Home Assistant.
-- A charger that is offline remains visible, but its entities are unavailable until the charger can be reached again.
+- A charger that is offline remains visible, but its entities show an unknown state until the charger can be reached again.
 
 ## Troubleshooting
 
