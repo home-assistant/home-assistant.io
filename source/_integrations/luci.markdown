@@ -76,7 +76,7 @@ Some OpenWrt installations are affected by [a small bug](https://github.com/open
 
 ## Troubleshooting
 
-### Some device trackers are missing or no longer update
+### Some device trackers are missing or no longer updating
 
 #### Symptom: "Remove leftover known devices for OpenWrt (luci)"
 
