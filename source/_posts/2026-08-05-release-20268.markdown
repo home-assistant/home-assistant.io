@@ -70,7 +70,7 @@ Enjoy the release!
   - [Z-Wave lock credentials, properly managed](#z-wave-lock-credentials-properly-managed)
   - [And a few more](#and-a-few-more)
 - [Patch releases](#patch-releases)
-  - [2026.8.1 - May 8](#202681---august-7)
+  - [2026.8.1 - August 7](#202681---august-7)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -527,7 +527,6 @@ We will also release patch releases for Home Assistant 2026.8 in August. These p
 
 [#177201]: https://github.com/home-assistant/core/pull/177201
 [#177540]: https://github.com/home-assistant/core/pull/177540
-[#177559]: https://github.com/home-assistant/core/pull/177559
 [#178001]: https://github.com/home-assistant/core/pull/178001
 [#178229]: https://github.com/home-assistant/core/pull/178229
 [#178234]: https://github.com/home-assistant/core/pull/178234

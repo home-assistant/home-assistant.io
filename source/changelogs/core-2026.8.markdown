@@ -4043,7 +4043,6 @@ For a summary in a more readable format
 
 ## Release 2026.8.1 - August 7
 
-- 2026.8.0 ([@bramkragten] - [#177559])
 - Fixes #173399 Seerr webhook registration ([@shtefko] - [#177201]) ([overseerr docs])
 - Debounce Matter cover state writes to coalesce split attribute updates ([@agners] - [#177540]) ([matter docs])
 - Bump pydaikin to 2.18.4 ([@fredrike] - [#178001]) ([daikin docs])
@@ -4063,7 +4062,6 @@ For a summary in a more readable format
 
 [#177201]: https://github.com/home-assistant/core/pull/177201
 [#177540]: https://github.com/home-assistant/core/pull/177540
-[#177559]: https://github.com/home-assistant/core/pull/177559
 [#178001]: https://github.com/home-assistant/core/pull/178001
 [#178229]: https://github.com/home-assistant/core/pull/178229
 [#178234]: https://github.com/home-assistant/core/pull/178234
