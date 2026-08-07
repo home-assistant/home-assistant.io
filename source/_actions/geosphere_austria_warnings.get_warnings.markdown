@@ -42,7 +42,7 @@ In YAML, refer to this action as `geosphere_austria_warnings.get_warnings`. Stor
 action: |
   action: geosphere_austria_warnings.get_warnings
   data:
-    config_entry: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+    config_entry: YOUR_CONFIG_ENTRY_ID
   response_variable: warnings
 {% endexample %}
 
