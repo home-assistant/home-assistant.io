@@ -134,11 +134,11 @@ recorder:
           required: false
           type: list
         event_data:
-          description: A list of event-data filter rules to be excluded from recordings. Each rule contains an `event_type` and a `match` map.
+          description: A list of event data filter rules that exclude matching events from recordings. Each rule contains an `event_type` and a `match` map.
           required: false
           type: list
     include:
-      description: Configure which integrations and events should be included in recordings. If set, all other entities will not be recorded. ([Configure filters](#configure-filters))
+      description: Configure which integrations and event data are included in recordings. If entity filters are configured, all other entities will not be recorded. Events are limited only when you configure `event_data`. ([Configure filters](#configure-filters))
       required: false
       type: map
       keys:
@@ -155,14 +155,16 @@ recorder:
           required: false
           type: list
         event_data:
-          description: A list of event-data filter rules to be included in recordings. Each rule contains an `event_type` and a `match` map.
+          description: A list of event data filter rules that include matching events in recordings. Each rule contains an `event_type` and a `match` map.
           required: false
           type: list
 {% endconfiguration %}
 
+<a id="configure-filter"></a>
+
 ### Configure filters
 
-Recorder filters affect only what Recorder stores in the database. They do not prevent events from being fired or state changes from occurring, and automations and other event listeners continue to receive them. An Activity view that is already open can temporarily show an excluded event as a live entry. Because Recorder does not store the event, the entry disappears after you refresh Activity.
+Recorder filters affect only what Recorder stores in the database. They do not prevent events from being fired or state changes from occurring, and automations and other event listeners continue to receive them. An **Activity** view that is already open can temporarily show an excluded event as a live entry. Because Recorder does not store the event, the entry disappears after you refresh **Activity**.
 
 #### Entity filters
 
@@ -242,9 +244,9 @@ recorder:
 
 #### Event data filters
 
-You can filter individual events by their event type and exact event data values. The `event_types` option excludes every event of a type. Use event-data filters when that would be too broad, such as when you want to keep useful `zha_event` events while excluding only noisy vibration-strength reports from one device.
+You can filter individual events by their event type and exact event data values. The `event_types` option excludes every event of a type. Use event data filters when that would be too broad, such as when you want to keep useful `zha_event` events while excluding only noisy vibration-strength reports from one device.
 
-Each event-data filter rule has an `event_type` and a non-empty `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Matching is type-sensitive, so `true` and `1` are different values. Missing event data fields do not match. You cannot use `state_changed` as an event type.
+Each event data filter rule has an `event_type` and a non-empty `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Matching is type-sensitive, so `true` and `1` are different values. Missing event data fields do not match. You cannot use `state_changed` as an event type.
 
 Use `exclude` to omit matching events. For example, to keep ZHA events except for vibration-strength reports from a specific device:
 
