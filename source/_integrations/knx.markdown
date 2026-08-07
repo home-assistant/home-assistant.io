@@ -614,7 +614,7 @@ device:
   type: map
   keys:
     id:
-      description: Identifier of the device. Use the same value for every entity you want grouped into one device. To add the entity to a device you created in the UI, use that device's identifier instead.
+      description: Identifier of the device. Use the same value for every entity you want grouped into one device. Values are normalized, so `Living room` and `living room` resolve to the same device. To add the entity to a device you created in the UI, use that device's identifier instead. It is kept exactly as given.
       required: true
       type: string
     name:
@@ -628,7 +628,7 @@ device:
 # Example configuration.yaml entry fragment for common entity configuration options
 knx:
   sensor:
-    - name: My awesome sensor
+    - name: Awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
       entity_category: diagnostic
       device:
@@ -637,7 +637,7 @@ knx:
       ...
 ```
 
-Assigning a device only groups entities on the device page. It does not change their names. The `name` you configure for a YAML entity is always shown as-is, unlike entities you create in the UI, where the device name is added in front. For example, an entity named `Kitchen light` on a device named `Kitchen` is shown as `Kitchen light`, not `Kitchen Kitchen light`.
+Assigning a device groups the entity on the device page, and names it the same way entities you create in the UI are named: the device name is shown in front of the entity name. Give the entity a name relative to its device. For example, name the entity `Ceiling light` rather than `Kitchen ceiling light` on a device named `Kitchen`, so it's shown as `Kitchen Ceiling light` instead of `Kitchen Kitchen ceiling light`. If you leave out the entity's `name`, it's shown as just the device's name, which is useful for a device's main entity.
 
 To add a YAML entity to a device you created in the UI, set `id` to that device's identifier, such as `knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5`, and leave out `name`:
 
