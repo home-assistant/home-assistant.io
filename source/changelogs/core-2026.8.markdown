@@ -4040,3 +4040,70 @@ For a summary in a more readable format
 [zone docs]: /integrations/zone/
 [zwave_js docs]: /integrations/zwave_js/
 [zwave_me docs]: /integrations/zwave_me/
+
+## Release 2026.8.1 - August 7
+
+- 2026.8.0 ([@bramkragten] - [#177559])
+- Fixes #173399 Seerr webhook registration ([@shtefko] - [#177201]) ([overseerr docs])
+- Debounce Matter cover state writes to coalesce split attribute updates ([@agners] - [#177540]) ([matter docs])
+- Bump pydaikin to 2.18.4 ([@fredrike] - [#178001]) ([daikin docs])
+- Adapt vicare to set via_device_id in DeviceInfo ([@emontnemery] - [#178229]) ([vicare docs])
+- Adapt mqtt to set via_device_id in DeviceInfo ([@emontnemery] - [#178234]) ([mqtt docs])
+- bump pyenphase to 3.2.1 ([@catsmanac] - [#178273]) ([enphase_envoy docs])
+- Bump lyngdorf to 1.4.3 ([@fishloa] - [#178323]) ([lyngdorf docs])
+- Track shielded service call task in REST API ([@arturpragacz] - [#178377]) ([api docs])
+- Bump aiowebostv to v0.9.1 ([@thecode] - [#178384]) ([webostv docs])
+- chore: update python-picnic-api2 to v2.0.1 ([@codesalatdev] - [#178395]) ([picnic docs])
+- Bump lyngdorf to 1.4.4 ([@fishloa] - [#178401]) ([lyngdorf docs])
+- Use SmartThings cooling setpoint range for air conditioners ([@StellarSea] - [#178430]) ([smartthings docs])
+- Bump solaredge-web to 0.3.1 ([@tronikos] - [#178437]) ([solaredge docs])
+- Bump pytrydan to 1.0.5 ([@dgomes] - [#178447]) ([v2c docs])
+- mikrotik: Don't reuse a string from Vodafone Station ([@reedy] - [#178455]) ([mikrotik docs])
+- Update frontend to 20260729.6 ([@bramkragten] - [#178470]) ([frontend docs])
+
+[#177201]: https://github.com/home-assistant/core/pull/177201
+[#177540]: https://github.com/home-assistant/core/pull/177540
+[#177559]: https://github.com/home-assistant/core/pull/177559
+[#178001]: https://github.com/home-assistant/core/pull/178001
+[#178229]: https://github.com/home-assistant/core/pull/178229
+[#178234]: https://github.com/home-assistant/core/pull/178234
+[#178273]: https://github.com/home-assistant/core/pull/178273
+[#178323]: https://github.com/home-assistant/core/pull/178323
+[#178377]: https://github.com/home-assistant/core/pull/178377
+[#178384]: https://github.com/home-assistant/core/pull/178384
+[#178395]: https://github.com/home-assistant/core/pull/178395
+[#178401]: https://github.com/home-assistant/core/pull/178401
+[#178430]: https://github.com/home-assistant/core/pull/178430
+[#178437]: https://github.com/home-assistant/core/pull/178437
+[#178447]: https://github.com/home-assistant/core/pull/178447
+[#178455]: https://github.com/home-assistant/core/pull/178455
+[#178470]: https://github.com/home-assistant/core/pull/178470
+[@StellarSea]: https://github.com/StellarSea
+[@agners]: https://github.com/agners
+[@arturpragacz]: https://github.com/arturpragacz
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@codesalatdev]: https://github.com/codesalatdev
+[@dgomes]: https://github.com/dgomes
+[@emontnemery]: https://github.com/emontnemery
+[@fishloa]: https://github.com/fishloa
+[@fredrike]: https://github.com/fredrike
+[@reedy]: https://github.com/reedy
+[@shtefko]: https://github.com/shtefko
+[@thecode]: https://github.com/thecode
+[@tronikos]: https://github.com/tronikos
+[api docs]: /integrations/api/
+[daikin docs]: /integrations/daikin/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[frontend docs]: /integrations/frontend/
+[lyngdorf docs]: /integrations/lyngdorf/
+[matter docs]: /integrations/matter/
+[mikrotik docs]: /integrations/mikrotik/
+[mqtt docs]: /integrations/mqtt/
+[overseerr docs]: /integrations/overseerr/
+[picnic docs]: /integrations/picnic/
+[smartthings docs]: /integrations/smartthings/
+[solaredge docs]: /integrations/solaredge/
+[v2c docs]: /integrations/v2c/
+[vicare docs]: /integrations/vicare/
+[webostv docs]: /integrations/webostv/
