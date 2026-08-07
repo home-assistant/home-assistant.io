@@ -84,6 +84,7 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 - [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
 - [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
+- Permanent Outdoor Lights
 
 ### Locks
 
@@ -383,6 +384,14 @@ Features:
 Features:
 - turn on or off
 - change brightness
+
+#### Permanent Outdoor Lights
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
 
 ### Locks
 
