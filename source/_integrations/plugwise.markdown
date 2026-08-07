@@ -9,6 +9,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Water heater
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -26,6 +27,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -96,9 +98,9 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 Modifying specific number-based settings allows you to fine-tune your setup.
 
 - **Maximum boiler temperature setpoint**
-  - **Description**: Adjust the maximum temperature for secondary heater.
+  - **Description**: Adjust the temperature setpoint for space heating function.
 - **Domestic hot water setpoint**
-  - **Description**: Adjust the temperature for your domestic hot water.
+  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 - **Temperature offset**
   - **Description**: Fine-tune the perceived temperature.
 
@@ -117,9 +119,17 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 #### Selects
 
+- **DHW mode**
+  - **Description**: Select from available DHW modes.
+- **Gateway mode**
+  - **Description**: Select from available Adam gateway modes.
+- **Regulation mode**
+  - **Description**: Select from Adam regulation modes.
 - **Thermostat schedule**
-  - **Description**: Select between available schedules, generic (Anna) or for the current zone (Adam).
+  - **Description**: Select from available schedules, generic (Anna) or for the current zone (Adam).
   - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
+- **Zone profile**
+  - **Description**: Select for the available Adam zone profiles.
 
 #### Switches
 
@@ -127,6 +137,13 @@ A generous number of sensors is provided for your climate setup. Examples includ
   - **Description**: Toggle if cooling should be enabled.
 - **DHW Comfort Mode**
   - **Description**: Toggle comfort mode for domestic hot water.
+
+#### Water heaters
+
+- **Boiler**
+  - **Description**: Adjust the temperature setpoint for space heating function.
+- **Domestic hot water**
+  - **Description**: Adjust the temperature setpoint for the domestic hot water function. Set the DHW mode.
 
 ### Power and gas entities
 
