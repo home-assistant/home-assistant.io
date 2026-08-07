@@ -269,7 +269,7 @@ recorder:
           command: tilt
 ```
 
-Event-data filters apply to new events after you restart Home Assistant. To apply the configured filters to events that are already stored in the database, run the [`recorder.purge`](#action-purge) action with `apply_filter: true`.
+Event-data filters apply to new events after you restart Home Assistant. To apply the configured filters to events that are already stored in the database, run the [`recorder.purge`](/actions/recorder.purge/) action with `apply_filter: true`.
 
 {% include integrations/actions.md %}
 
