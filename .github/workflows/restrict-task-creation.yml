@@ -55,8 +55,6 @@ jobs:
                 }
               }
 
-              // Compare complete handles, so a username that is only a prefix of an
-              // owner does not pass. GitHub usernames are case-insensitive.
               if (owners.has(issueAuthor.toLowerCase())) {
                 console.log(`✅ ${issueAuthor} is an integration code owner`);
                 return; // Authorized
