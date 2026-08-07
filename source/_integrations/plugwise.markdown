@@ -194,6 +194,10 @@ Additional actions available for Adam: `climate.turn_on`, `climate.turn_off`, an
 The additional actions will change Adam's **regulation mode** (the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
 {% endnote %}
 
+### Water heater control actions
+
+For information on how to use the available actions, please refer to the [water_heater](/integrations/water_heater#water-heater-control-actions) integration.
+
 ### Schedule select action
 
 Available action: `select.select_option`
