@@ -88,7 +88,7 @@ Earlier versions of this integration stored the devices it tracked in the `known
 
 #### Resolution
 
-1. Open the `known_devices.yaml` file. It is in the same folder as your {% term "configuration.yaml" %} file.
+1. Open the `known_devices.yaml` file in your Home Assistant configuration directory (the same place as your {% term "`configuration.yaml`" %} file).
 2. Remove the entries listed in the repair issue.
 3. Restart Home Assistant.
 
