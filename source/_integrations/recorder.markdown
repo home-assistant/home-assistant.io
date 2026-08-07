@@ -244,7 +244,7 @@ recorder:
 
 You can filter individual events by their event type and exact event data values. The `event_types` option excludes every event of a type. Use event-data filters when that would be too broad, such as when you want to keep useful `zha_event` events while excluding only noisy vibration-strength reports from one device.
 
-Each event-data filter rule has an `event_type` and a `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Missing event data fields do not match.
+Each event-data filter rule has an `event_type` and a non-empty `match` map. All fields in `match` must be present and exactly match for the rule to apply. Multiple rules for the same event type use OR semantics. Values can be strings, booleans, integers, or floats. Matching is type-sensitive, so `true` and `1` are different values. Missing event data fields do not match. You cannot use `state_changed` as an event type.
 
 Use `exclude` to omit matching events. For example, to keep ZHA events except for vibration-strength reports from a specific device:
 
@@ -268,6 +268,8 @@ recorder:
         match:
           command: tilt
 ```
+
+Event-data filters apply to new events after you restart Home Assistant. To apply the configured filters to events that are already stored in the database, run the [`recorder.purge`](#action-purge) action with `apply_filter: true`.
 
 {% include integrations/actions.md %}
 
