@@ -435,7 +435,7 @@ Features:
 
 ### Sensors
 
-Sensor entities are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button and climate panel.
+Sensor entities are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button, and climate panel.
 
 #### Meter
 

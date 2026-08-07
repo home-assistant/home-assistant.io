@@ -848,7 +848,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 ### Streams or recordings not playing
 
-- Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you access Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
+- Most Reolink cameras use h265 encoding for the high-resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you access Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find either `"encoding main": "h265"` or `"encoding main": "h264"` in the text file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
 
 ### Reducing latency of motion events
 
