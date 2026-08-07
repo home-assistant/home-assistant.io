@@ -36,12 +36,12 @@ To add `Flume` to your installation, go to {% my integrations title="**Settings*
 
 Flume notifications are fetched every 5 minutes and are available via the `flume.list_notifications` action. Some notifications are available via the following binary sensors:
 
-- Bridge disconnected
 - High flow
 - Leak detected
-- Low battery
 
 To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question.
+
+The **Battery** and **Connectivity** sensors do not use notifications. They report what your Flume device reports directly and are checked once an hour, so after you replace the batteries, the battery status updates on its own.
 
 Example of an automation that sends a Home Assistant notification of the most recent usage alert:
 
