@@ -41,7 +41,7 @@ Flume notifications are fetched every 5 minutes and are available via the `flume
 
 To clear these notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question. The **High flow** and **Leak detected** sensors stay on until you do.
 
-The **Battery** and **Connectivity** sensors do not use notifications. They report what your Flume device reports directly and are checked once an hour. After you replace the batteries, the battery status updates on its own, and there is no notification to clear.
+The **Battery** and **Connectivity** sensors do not use notifications. They report what your Flume device reports directly and are checked once an hour. After you replace the batteries, the battery status updates on its own, without you clearing anything. The low battery notification itself stays in your Flume app, and in the `flume.list_notifications` response, until you clear it.
 
 Example of an automation that sends a Home Assistant notification of the most recent usage alert:
 
