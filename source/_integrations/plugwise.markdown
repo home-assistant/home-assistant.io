@@ -184,7 +184,7 @@ The interval at which the integration fetches data from the gateway depends on t
 
 ### Climate control actions
 
-For information on how to use the available actions, please refer to the [climate](/integrations/climate#climate-control-actions) integration.
+For information on how to use the available actions, please refer to the [climate](/integrations/climate#list-of-actions) integration.
 
 Available actions to all climate gateways: `climate.set_temperature`, `climate.set_hvac_mode`, and `climate.set_preset_mode`.
 
@@ -196,7 +196,7 @@ The additional actions will change Adam's **regulation mode** (the HVAC system m
 
 ### Water heater control actions
 
-For information on how to use the available actions, please refer to the [water_heater](/integrations/water_heater#water-heater-control-actions) integration.
+For information on how to use the available actions, please refer to the [water_heater](/integrations/water_heater#list-of-actions) integration. The action `water_heater.set_away_mode` is not supported.
 
 ### Schedule select action
 
