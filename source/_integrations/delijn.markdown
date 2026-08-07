@@ -70,3 +70,10 @@ integration, so existing dashboard cards keep working.
 The integration polls the De Lijn API once per minute. If the API is
 unreachable, the sensors become unavailable until the connection is
 restored; if the API key is no longer valid, you are asked to reauthenticate.
+
+## Removing the integration
+
+This integration follows standard integration removal; each stop is removed
+individually. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
