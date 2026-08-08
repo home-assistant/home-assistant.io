@@ -95,6 +95,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
+During setup, you will also be asked whether you want to enable the `Images` scope. Enabling this scope allows Home Assistant to retrieve images from appliances that have cameras.
+To use this feature, the scope must first be enabled in the Home Connect application.
+![Table of granted scopes for a Home Connect application](/images/integrations/home_connect/granted_scopes_w_image_scope.png)
+_The `Images` scope is enabled because it has a checkmark in the **Images** column._
+
 ## Supported functionality
 
 {% note %}
