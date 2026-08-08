@@ -90,7 +90,9 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show one or more pieces of additional info. May be a single string or list of strings. Valid values: `entity-id`, `last_changed`, `last_updated`, `area_name`, `floor_name`, `device_name`, `state`, or the name of any entity attribute.
+  description: >
+    Show one or more pieces of additional info. Can be either a string with a single item, or a list of strings.
+    Valid values: `entity-id`, `last_changed`, `last_updated`, `area_name`, `floor_name`, `device_name`, `state`, or any attribute of the entity.
   type: [string, list]
 time_format:
   required: false
