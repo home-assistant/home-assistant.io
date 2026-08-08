@@ -476,6 +476,17 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 - title: VMware ESXi/vSphere
   content: |
     Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
+
+    If networking stops working and the virtual machine console repeatedly shows `e1000: Detected Tx Unit Hang`, the emulated `E1000` adapter has stalled. Restart the virtual machine to restore connectivity.
+
+    If you change the network adapter type after installation, reset the network configuration afterwards. The hypervisor assigns the new adapter a different PCI slot, which changes the network interface name inside the virtual machine. The stored network profile no longer matches, and the machine starts up without network access. To reset it, open the virtual machine console, enter `login` at the `ha >` prompt, and run:
+
+    ```bash
+    rm -r /mnt/overlay/etc/NetworkManager/system-connections
+    reboot
+    ```
+
+    Home Assistant OS creates a new default DHCP profile for the new interface during boot. The MAC address stays the same, so an existing DHCP reservation keeps working.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
