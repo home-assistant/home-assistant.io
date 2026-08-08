@@ -37,7 +37,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-[Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
+[Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, power plugs, and shutters, including those connected through a BTicino MyHome Server 1.
 
 The **Netatmo** {% term integration %} connects these devices to Home Assistant, so you can monitor and control your Netatmo products alongside the rest of your smart home. It communicates with Netatmo's cloud service, so an active internet connection and a Netatmo account are required.
 
@@ -94,11 +94,11 @@ The doorbell is currently not supported with the Home Assistant Cloud link mode 
 
 ## Climate
 
-The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat), [Smart Modulating Thermostat](https://www.netatmo.com/smart-modulating-thermostat) and [Netatmo Smart Radiator Valve](https://www.netatmo.com/additional-smart-radiator-valve). This integration allows you to view the current temperature and control the setpoint.
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat), [Smart Modulating Thermostat](https://www.netatmo.com/smart-modulating-thermostat), [Netatmo Smart Radiator Valve](https://www.netatmo.com/additional-smart-radiator-valve), and BTicino thermostats connected through a MyHome Server 1. This integration allows you to view the current temperature and control the setpoint.
 
 ## Cover
 
-The `netatmo` cover platform provides support for Bubendorff shutters. 
+The `netatmo` cover platform provides support for Bubendorff shutters and BTicino shutters connected through a MyHome Server 1. Support for setting an exact position for a MyHome Server 1 shutter depends on the specific actor: some, such as the F411, only support opening, closing, and stopping, while others support setting an exact position. Home Assistant detects this automatically. For actors without exact position support, the reported state may continue to show opening or closing for a while after the shutter has physically finished moving, until the actor's configured movement duration has elapsed.
 
 ## Fan
 
@@ -107,7 +107,7 @@ The `netatmo` fan plaform provides support for Legrand centralized ventilation c
 ## Light
 
 The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/smart-outdoor-camera) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
-It further provides support for Legrand/BTicino dimmers.
+It further provides support for Legrand/BTicino dimmers, including those connected through a BTicino MyHome Server 1.
 
 ## Sensor
 
@@ -116,7 +116,7 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 ## Switch
 
-The `netatmo` switch platform provides support for Legrand/BTicino switches and power plugs.
+The `netatmo` switch platform provides support for Legrand/BTicino switches and power plugs, including those connected through a BTicino MyHome Server 1.
 
 {% include integrations/actions.md %}
 
