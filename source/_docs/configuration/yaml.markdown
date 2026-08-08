@@ -126,7 +126,7 @@ This means that you've mistakenly entered a tab character, instead of spaces.
 
 Home Assistant is case-sensitive. State values can use any case, so `'on'` is not the same as `'On'` or `'ON'`. Entity IDs, on the other hand, are always lowercase, so a reference like `binary_sensor.Front_Door` will not match the actual entity `binary_sensor.front_door`.
 
-If you're unsure what case a state uses, check how Home Assistant reports it under **Developer tools** > **States**.
+If you're unsure what case a state uses, check how Home Assistant reports it in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 ### Booleans
 

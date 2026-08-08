@@ -8,6 +8,7 @@ ha_codeowners:
   - "@svasek"
 ha_domain: neopool
 ha_platforms:
+  - light
   - sensor
 ha_integration_type: hub
 ha_quality_scale: silver
@@ -33,6 +34,7 @@ The NeoPool integration brings your pool controller into Home Assistant, providi
 - **Monitor filtration**: read the current mode, variable-speed percentage, and Intelligent-mode scheduling data.
 - **Track backwash cycles**: read the remaining time when a Besgo automatic filter valve is running a cycle.
 - **Surface pool-controller problems**: expose alarm states as sensor readings, and raise a repair issue if the controller's GPIO configuration register becomes corrupted.
+- **Control the pool light**: turn the pool light relay on and off when the relay timer is in a manual mode. Opt-in through the integration options.
 
 ## Supported devices
 
@@ -83,9 +85,20 @@ Modbus framer:
   description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP.
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Enable pool light relay:
+  description: Turn on if your pool controller has a pool light wired to the lighting relay. When enabled, a **Pool light** entity is added so you can switch the light from Home Assistant. Off by default because the controller cannot detect whether a physical light is wired to the relay.
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor entities. **Only entities backed by a detected hardware module or an enabled controller option are registered**; the rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that sensor.
+The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay. **Only entities backed by a detected hardware module or an enabled controller option are registered**. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
+
+### Light
+
+- **Pool light**: switches the pool light relay on and off. Added when the pool light relay is enabled in the integration options, and the controller has a lighting relay configured. The entity state reflects the relay's actual state, regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to manual mode. If the timer is in automatic mode, Home Assistant shows an error and does not change the relay, so it does not override the schedule. Change the timer mode to manual on the controller itself to control the light directly.
 
 ### Sensors
 
@@ -120,6 +133,8 @@ If a poll cycle fails (for example, because the Modbus gateway becomes unreachab
 - **Authentication is not used.** Modbus TCP itself has no authentication mechanism; the integration relies on network isolation between Home Assistant and the gateway. The gateway should not be exposed to untrusted networks.
 - **The DISPLAY connector is reserved.** The NeoPool controller exposes the same protocol on its `DISPLAY` connector as on `WIFI` / `EXTERNAL`, but the built-in LCD usually occupies it. Connecting to `DISPLAY` while the LCD is attached will result in collisions.
 - **Variable-speed pump support depends on the controller firmware.** The Filtration speed entity is registered only when the controller reports a variable-speed pump.
+- **The pool light entity is opt-in.** The controller does not report whether a physical light is wired to its lighting relay, so the entity is only registered after you enable it in the integration options.
+- **The pool light cannot be controlled while its timer is in an automatic mode.** Set the light timer to a manual mode first to turn the light on or off from Home Assistant.
 
 ## Troubleshooting
 

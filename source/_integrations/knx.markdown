@@ -594,12 +594,78 @@ name:
     You can change the name in the Home Assistant UI.
   required: false
   type: string
+default_entity_id:
+  description: Sets a preferred initial entity ID instead of having it derived from name.
+    For example, `sensor.my_awesome_sensor`.
+    If the entity ID already exists, the entity ID is created with a number at the end.
+    The `default_entity_id` is only used when the entity is added for the first time.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the entity ID in the Home Assistant UI.
+  required: false
+  type: string
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
   default: None
+device:
+  description: Assign this entity to a device. Entities that share the same `id` are grouped into a single device.
+  required: false
+  type: map
+  keys:
+    id:
+      description: Identifier of the device. Use the same value for every entity you want grouped into one device. Values are normalized, so `Living room` and `living room` resolve to the same device. To add the entity to a device you created in the UI, use that device's identifier instead. It is kept exactly as given.
+      required: true
+      type: string
+    name:
+      description: Name shown for the device. Leave it out to keep the name of a device you referenced by its identifier.
+      required: false
+      type: string
+      default: None
 {% endconfiguration %}
+
+```yaml
+# Example configuration.yaml entry fragment for common entity configuration options
+knx:
+  sensor:
+    - name: Awesome sensor
+      default_entity_id: "sensor.awesome_entity_id"
+      entity_category: diagnostic
+      device:
+        id: my_awesome_device
+        name: My awesome device 🌸
+      ...
+```
+
+Assigning a device groups the entity on the device page, and names it the same way entities you create in the UI are named: the device name is shown in front of the entity name. Give the entity a name relative to its device. For example, name the entity `Ceiling light` rather than `Kitchen ceiling light` on a device named `Kitchen`, so it's shown as `Kitchen Ceiling light` instead of `Kitchen Kitchen ceiling light`. If you leave out the entity's `name`, it's shown as just the device's name, which is useful for a device's main entity.
+
+To add a YAML entity to a device you created in the UI, set `id` to that device's identifier, such as `knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5`, and leave out `name`:
+
+```yaml
+# Example configuration.yaml entry fragment adding a YAML entity to a UI-created device
+knx:
+  switch:
+    - name: Ceiling light
+      address: "1/1/1"
+      device:
+        id: knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5
+```
+
+A device you created in the UI has two different values. Do not confuse them:
+
+- The **Home Assistant device ID**: an internal ID, such as `1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d`. You only need it to look up the KNX identifier.
+- The **KNX device identifier**: the value that starts with `knx_vdev_`. This is what you set as `id` under `device`.
+
+To find the KNX device identifier:
+
+1. Go to **Settings** > **Devices & services** > **Devices** and open the device. The Home Assistant device ID is the last part of the page URL.
+2. Go to **Tools** > **Template** and render the following, replacing `HA_DEVICE_ID` with that ID:
+
+   ```text
+   {{ device_attr('HA_DEVICE_ID', 'identifiers') }}
+   ```
+
+   The KNX device identifier is the returned value that starts with `knx_vdev_`.
 
 ### Binary sensor
 
@@ -1047,12 +1113,17 @@ swing_horizontal_state_address:
 ### Cover
 
 The KNX cover platform is used as an interface to KNX covers.
+Intermediate positions of covers are calculated based on the configured `travelling_time_down` and `travelling_time_up` values once a second when moving. A received position from the KNX bus takes precedence over the calculated position.
 
 {% note %}
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
 {% endnote %}
+
+Cover entities restore their last known position and tilt angle after Home Assistant is restarted. Covers that have a `position_state_address` or `angle_state_address` configured request their current state from the KNX bus according to their state updater configuration.
+
+A restored position is reported as an assumed state until the cover receives a position from the KNX bus or is moved.
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -1566,6 +1637,10 @@ knx:
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
+Notify entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX notify entities via YAML" %}
+
 ```yaml
 knx:
   notify:
@@ -1586,6 +1661,8 @@ type:
   default: "latin_1"
   type: string
 {% endconfiguration %}
+
+{% enddetails %}
 
 #### Example action
 
