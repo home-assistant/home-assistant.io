@@ -196,7 +196,8 @@ The additional actions will change Adam's **regulation mode** (the HVAC system m
 
 ### Water heater control actions
 
-For information on how to use the available actions, please refer to the [water_heater](/integrations/water_heater#list-of-actions) integration. The action `water_heater.set_away_mode` is not supported.
+For information on how to use the available actions, please refer to the [water_heater](/integrations/water_heater#list-of-actions) integration.
+The actions `water_heater.turn_off` and `water_heater.turn_on` are only supported for the Anna-Loria combination. The action `water_heater.set_away_mode` is not supported.
 
 ### Schedule select action
 
