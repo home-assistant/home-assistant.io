@@ -16,11 +16,14 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] audio processors and amplifiers from Home Assistant. Lyngdorf Audio is known for their RoomPerfect room correction technology. This integration lets you control power, volume, source selection, sound modes, and audio processing parameters.
+The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] and [Steinway & Lyngdorf] audio processors and amplifiers from Home Assistant. Lyngdorf Audio is known for its RoomPerfect room correction technology. This integration lets you control power, volume, source selection, sound modes, and audio processing parameters.
 
 [Lyngdorf]: https://lyngdorf.steinwaylyngdorf.com/electronics/
+[Steinway & Lyngdorf]: https://steinwaylyngdorf.com/
 
 ## Supported devices
+
+### Lyngdorf
 
 - [MP-40](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-40/)
 - MP-50
@@ -28,6 +31,12 @@ The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] audio p
 - [TDAI-1120](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-1120/)
 - TDAI-2170
 - [TDAI-3400](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-3400/)
+
+### Steinway & Lyngdorf
+
+- P100
+- P200
+- P300
 
 {% note %}
 The MP-60 is the only model that has been tested in the wild so far. Other models should work but may not support all features. If you have a different model, please report any issues on [GitHub](https://github.com/home-assistant/core/issues).
@@ -48,10 +57,10 @@ Host:
 
 ### Media players
 
-The integration creates two media player {% term entities %}:
+The integration creates the following media player {% term entities %}:
 
 - **Main zone**: Controls your Lyngdorf device, including power, volume, mute, source selection, and sound mode.
-- **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection.
+- **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection. Only created for models with a Zone B output (the TDAI-series does not have one).
 
 ## Data updates
 
