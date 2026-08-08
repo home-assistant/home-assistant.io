@@ -1,6 +1,6 @@
 ---
 title: ZhongHong
-description: Instructions on how to integrate ZhongHong Support thermostats within Home Assistant.
+description: Instructions on how to integrate the air conditioners behind a ZhongHong HVAC gateway into Home Assistant.
 ha_category:
   - Climate
 ha_release: 0.72
@@ -17,12 +17,12 @@ ha_quality_scale: legacy
 
 The **ZhongHong** {% term integration %} lets you control the air conditioners behind a ZhongHong HVAC gateway from Home Assistant.
 
-The gateway sits on the bus of a central or <abbr title="variable refrigerant flow">VRF</abbr> air conditioning system and exposes the indoor units over your local network. Home Assistant talks to it directly over TCP, so no cloud account or internet connection is involved, and the gateway reports changes as they happen, including those made from the wall panel or the remote control.
+The gateway sits on the bus of a central or <abbr title="variable refrigerant flow">VRF</abbr> air conditioning system and puts the indoor units on your local network. Home Assistant talks to it directly over TCP, so no cloud account or internet connection is involved, and the gateway reports changes as they happen, including those made from a wall panel or a remote control.
 
 ## Prerequisites
 
-- A ZhongHong HVAC gateway controller reachable on your network. Note down the IP address it is configured with.
-- The gateway address the controller is set to, found in its own settings. It is `1` out of the box.
+- A ZhongHong HVAC gateway reachable on your network. Note down the IP address it is set to.
+- The gateway address. Each gateway answers to an address of its own, which is `1` from the factory and only differs if it was changed when the system was installed.
 
 {% include integrations/config_flow.md %}
 
@@ -30,40 +30,47 @@ The gateway sits on the bus of a central or <abbr title="variable refrigerant fl
 Host:
   description: The hostname or IP address of the gateway on your network.
 Port:
-  description: The TCP port the gateway listens on. Leave the default unless you changed it on the gateway.
+  description: The port the gateway accepts connections on. This is `9999` unless it was changed on the gateway.
 Gateway address:
-  description: The address the gateway is set to answer on, found in the controller's own settings. Enter the address your controller is set to; the default matches a controller that has not been changed.
+  description: The address the gateway itself answers to, which is `1` from the factory. Change this only if the gateway was set to another address.
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-Setting up the gateway discovers every indoor unit behind it and creates a climate entity for each one, named after the address it answers on. Rename them to something you recognize, such as the room each unit is in.
+Setting the gateway up finds every indoor unit behind it and creates a climate entity for each one, named after the address it answers on. Rename them to something you recognize, such as the room each unit is in.
 
-Each entity reports the temperature the unit measures and lets you:
+Each entity reports the temperature its indoor unit measures, and lets you:
 
 - Switch the unit on and off.
-- Set the target temperature.
+- Set a target temperature between 16 and 30 °C, in steps of 1 °C.
 - Choose between the **Cool**, **Heat**, **Dry**, and **Fan only** modes.
-- Set the fan speed.
+- Set the fan speed to **low**, **medium low**, **middle**, **medium high**, or **high**.
+
+## Data updates
+
+The gateway pushes state changes to Home Assistant as they happen, so switching an air conditioner on at its wall panel is reflected within seconds without Home Assistant asking.
+
+Home Assistant also asks the gateway for the state of every unit once a minute, to pick up anything that was missed while the connection was down, and once again a few seconds after it sends a command, in case the unit's own report of the change does not arrive.
 
 ## Known limitations
 
-- The gateway refuses additional TCP connections while one is open. Only one program can talk to it at a time, so Home Assistant and, for example, a phone app cannot both be connected.
-- The protocol addresses five fan speeds, but it offers no way to ask an indoor unit which of them it implements. All five are offered on every entity; a unit that only has three ignores the other two and keeps running at the speed it was on.
+- Only one program can talk to the gateway at a time. While Home Assistant is connected, the gateway refuses everything else, so Home Assistant and a phone app cannot both be connected to it.
+- The indoor units are found once, when the integration is set up. An indoor unit added to the system afterwards does not appear on its own; reload the integration from {% my integrations title="**Settings** > **Devices & services**" %} to pick it up.
+- All five fan speeds are offered on every entity. Many air conditioners only have three, and there is no way to ask one which it has, so a unit ignores a speed it does not have and stays on the one it was running at.
 
 ## Troubleshooting
 
 ### The gateway cannot be reached during setup
 
-Check that the address is right and that Home Assistant can reach it, then make sure nothing else is talking to the gateway. Because it only accepts one connection at a time, a phone app or another Home Assistant instance left connected to it will keep the setup from succeeding.
+Check that the address and port are right and that Home Assistant can reach the gateway, then make sure nothing else is talking to it. Because only one program can be connected at a time, a phone app or another Home Assistant left connected to the gateway stops the setup from succeeding.
 
 ### No air conditioners were found
 
-The gateway answered but reported no indoor units. This usually means the gateway address is not the one the controller is set to, or the gateway has not yet been commissioned against the units on the bus.
+The gateway answered but reported no indoor units. Either the gateway address does not match the one the gateway is set to, or the gateway is not ready yet, which is what it reports before it has finished finding the indoor units on the system.
 
 ### An entity is unavailable
 
-The entities go unavailable when the connection to the gateway drops. Home Assistant reconnects on its own, so this clears once the gateway is reachable again. If it persists, power-cycle the gateway and check that nothing else has taken the connection.
+Entities go unavailable when the connection to the gateway drops. Home Assistant reconnects on its own, so this clears once the gateway can be reached again. If it does not, turn the gateway off and on again, and check that nothing else has taken the connection.
 
 ## Removing the integration
 
