@@ -41,7 +41,7 @@ _If you have factory reset your device, please see the instructions [Recovering 
 
 ## Prerequisites
 
-- **PLM (2413U, 2412U, or serial 2413S/2412S)**: the modem must be plugged into the Home Assistant host. Note the serial port path (for example `/dev/ttyUSB0` on Linux; check **Settings** > **System** > **Hardware** > **All hardware**).
+- **PLM (2413U, 2412U, or serial 2413S/2412S)**: the modem must be plugged into the Home Assistant host. Note the serial port path (for example `/dev/ttyUSB0` on Linux; check {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**).
 - **Hub version 1 (2242, pre-2014) or Hub version 2 (2245)**: the Hub must be reachable on your network. Reserve a fixed IP address for it on your router. Hub version 1 uses port 9761; Hub version 2 uses port 25105.
 - **Hub version 2 credentials**: the username and password are printed on the label on the bottom of the Hub.
 - Insteon devices must be linked to the modem before they show up in Home Assistant, either from a previous controller setup or by linking them after setup with the **Add device** function in the Insteon panel.
@@ -177,7 +177,7 @@ automation:
     conditions:
       - condition: state
         entity_id: light.some_light
-        state: "off"
+        state: "on"
     actions:
       - action: light.turn_off
         target:
