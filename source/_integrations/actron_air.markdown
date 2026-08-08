@@ -15,6 +15,7 @@ ha_domain: actron_air
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - diagnostics
   - sensor
   - switch
@@ -46,6 +47,10 @@ The integration adds the **Clean Filter** and **Defrost Mode** binary sensors to
 The integration will create a climate entity for the main air conditioning system found and for each zone. The main air conditioner unit will be reflected based on the name in the Actron Air app. You can set the temperature, operation mode, and fan speed through this entity.
 
 Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
+
+### Cover
+
+The integration will create a cover entity for each zone connected to your air conditioner.
 
 ### Sensor
 
