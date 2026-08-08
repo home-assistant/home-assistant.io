@@ -65,13 +65,13 @@ The **LG webOS TV** integration provides the following entities.
 
 - **Screen**
   - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again.
-  - **Remarks**: This entity is unavailable when the TV is off, even if the TV media player remains available (for example, because you use the [**TV is requested to turn on**](/triggers/webostv.turn_on/) trigger).
+  - **Remarks**: This entity is unavailable when the TV is off, even if the TV media player remains available (for example, because you use the [**TV is requested to turn on**](/triggers/webostv.turn_on_requested/) trigger).
 
 {% include integrations/triggers.md %}
 
 ### Turning on the TV from Home Assistant
 
-To turn on your TV from Home Assistant, you need to create an automation using the [TV is requested to turn on](/triggers/webostv.turn_on/) trigger. Without this automation, the TV appears as unavailable when it is off.
+To turn on your TV from Home Assistant, you need to create an automation using the [TV is requested to turn on](/triggers/webostv.turn_on_requested/) trigger. Without this automation, the TV appears as unavailable when it is off.
 
 If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as [HDMI-CEC](/integrations/hdmi_cec/) or [Wake-on-LAN](/integrations/wake_on_lan/). They provide an action that can power on the TV.
 

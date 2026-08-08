@@ -1,6 +1,6 @@
 ---
 title: "TV is requested to turn on"
-trigger: webostv.turn_on
+trigger: webostv.turn_on_requested
 domain: webostv
 description: "Triggers when one or more LG webOS TVs are requested to turn on."
 related_triggers:
@@ -28,11 +28,11 @@ This trigger has no additional options beyond the target.
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `webostv.turn_on`. A basic example looks like this:
+In YAML, refer to this trigger as `webostv.turn_on_requested`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: webostv.turn_on
+  trigger: webostv.turn_on_requested
   target:
     entity_id: media_player.lg_webos_tv
 {% endexample %}
@@ -44,12 +44,6 @@ This fires every time Home Assistant requests `media_player.lg_webos_tv` to turn
 This trigger has no additional YAML options beyond the target.
 
 {% include triggers/targets.md domain="media_player" %}
-
-{% important %}
-Earlier versions of this trigger used top-level `entity_id` and `device_id` options instead of a target. Those options still work, but support for them will be removed in a future release. If your configuration still uses them, Home Assistant creates a repair to point them out.
-
-To update an automation or script, open it in the editor, select your TV under **By target**, and save it again. If you edit your configuration files directly, move the `entity_id` or `device_id` option into a `target` block.
-{% endimportant %}
 
 ## Good to know
 
@@ -79,7 +73,7 @@ When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic pac
 automation: |
   alias: "Turn on LG webOS TV with Wake-on-LAN"
   triggers:
-    - trigger: webostv.turn_on
+    - trigger: webostv.turn_on_requested
       target:
         entity_id: media_player.lg_webos_tv
   actions:
@@ -111,7 +105,7 @@ The trigger targets the living room area, so the automation keeps working if you
 automation: |
   alias: "Power the TV strip before waking the TV"
   triggers:
-    - trigger: webostv.turn_on
+    - trigger: webostv.turn_on_requested
       target:
         area_id: living_room
   actions:
