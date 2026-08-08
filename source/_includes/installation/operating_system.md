@@ -460,7 +460,7 @@ To create the virtual machine, follow the instructions for the hypervisor you us
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
-      14. Locate the "Advanced" settings under the "Options" tab and change the firmware type to UEFI.
+      14. Locate the **Advanced** settings under the **Options** tab and change the **Firmware type** to **UEFI**.
       15. Now continue with the next step to start your VM.
          - If you see a message about side channel mitigations, select **OK**.
          - If you see a message stating that the `.vmdk` file could not be found, in step 13, you likely pasted the folder, not the file. Repeat step 13.
