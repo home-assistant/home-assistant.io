@@ -50,8 +50,13 @@ Each zone will be reflected as a separate climate entity. You can set the temper
 
 ### Cover
 
-The integration will create a cover entity for each zone connected to your air conditioner.
+The integration creates a cover entity for each zone to report the damper position (open percentage).
 
+{% note %}
+
+These entities are read-only. The Actron Air API does not support manually controlling the damper opening.
+
+{% endnote %}
 ### Sensor
 
 The integration will add the following sensors to Home Assistant for your air conditioner:
