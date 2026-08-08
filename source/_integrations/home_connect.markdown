@@ -100,6 +100,10 @@ To use this feature, the scope must first be enabled in the Home Connect applica
 ![Table of granted scopes for a Home Connect application](/images/integrations/home_connect/granted_scopes_w_image_scope.png)
 _The `Images` scope is enabled because it has a checkmark in the **Images** column._
 
+{% note %}
+It might require contacting Home Connect support to enable the Images scope for your application
+{% endnote %}
+
 ## Supported functionality
 
 {% note %}
@@ -1177,6 +1181,19 @@ To solve the above issue, follow these steps:
     ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
+
+#### Symptom: Account linking rejected at my.home-assistant.io / Given scope doesn't match requested scope
+
+##### Description
+
+The Home Connect integration was initially configured with the Images scope, but that scope is not enabled in the Home Connect developer portal for the application credentials used by the integration.
+
+##### Solution
+
+You can resolve this in one of two ways:
+
+1. Enable the Images scope in the Home Connect developer portal for the application used by the integration (It might require contacting Home Connect support to enable the Images scope for your application).
+2. Restart the Home Connect integration setup and make sure you do not enable the Images scope during configuration.
 
 ### Missing options at the "active program" and "selected program" entities
 
