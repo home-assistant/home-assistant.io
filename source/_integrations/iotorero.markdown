@@ -1,7 +1,7 @@
 ---
 title: IoTorero
 description: Connect and control your IoTorero devices using the ESPHome integration
-ha_release: 0.85
+ha_release: '2026.7'
 ha_category:
   - Alarm
   - DIY

@@ -47,37 +47,32 @@ The following HVAC modes are supported. The STIEBEL ELTRON modes are mapped and 
 
 The following preset modes are supported. The STIEBEL ELTRON modes are mapped and configurable as follows:
 
-- Eco mode (PRESET_ECO)
-- Day mode (PRESET_DAY)
-- Setback mode (PRESET_SETBACK)
+- Standby mode (PRESET_READY)
+- Setback mode (PRESET_ECO)
+- Day mode (PRESET_COMFORT)
+- Water heating mode (PRESET_WATER_HEATING)
+- Automatic mode (PRESET_AUTO)
+- Manual mode (PRESET_MANUAL)
 - Emergency mode (PRESET_EMERGENCY)
 
-## Configuration
+## Installation
 
-To enable this integration, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-stiebel_eltron:
-  name: LWZ504e
-  host: IP_ADDRESS
-  port: 502
-```
-
-{% configuration %}
-name:
-  description: Displayed name of the unit.
-  required: false
-  default: Unnamed Device
-  type: string
-host:
-  description: The hostname or IP of the stiebel eltron ISG.
+{% configuration_basic %}
+Host:
+  description: "The IP address of the ISG. You can find it in your router."
   required: true
   type: string
-port:
-  description: The port of the stiebel eltron ISG.
+Port:
+  description: The TCP port for Modbus.
   required: false
   default: 502
   type: integer
-{% endconfiguration %}
+{% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

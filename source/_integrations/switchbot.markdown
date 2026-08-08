@@ -155,6 +155,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
@@ -434,7 +435,7 @@ Features:
 
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button and climate panel.
+Sensor entities are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button, and climate panel.
 
 #### Meter
 
@@ -660,6 +661,15 @@ Features:
 - change color temperature
 - change color
 - set effect
+
+#### Candle Warmer Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
 
 ### Locks
 

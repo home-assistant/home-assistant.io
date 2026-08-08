@@ -594,12 +594,31 @@ name:
     You can change the name in the Home Assistant UI.
   required: false
   type: string
+default_entity_id:
+  description: Sets a preferred initial entity ID instead of having it derived from name.
+    For example, `sensor.my_awesome_sensor`.
+    If the entity ID already exists, the entity ID is created with a number at the end.
+    The `default_entity_id` is only used when the entity is added for the first time.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the entity ID in the Home Assistant UI.
+  required: false
+  type: string
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
   default: None
 {% endconfiguration %}
+
+```yaml
+# Example configuration.yaml entry fragment for common entity configuration options
+knx:
+  sensor:
+    - name: My awesome sensor
+      default_entity_id: "sensor.awesome_entity_id"
+      entity_category: diagnostic
+      ...
+```
 
 ### Binary sensor
 
@@ -1047,12 +1066,17 @@ swing_horizontal_state_address:
 ### Cover
 
 The KNX cover platform is used as an interface to KNX covers.
+Intermediate positions of covers are calculated based on the configured `travelling_time_down` and `travelling_time_up` values once a second when moving. A received position from the KNX bus takes precedence over the calculated position.
 
 {% note %}
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
 {% endnote %}
+
+Cover entities restore their last known position and tilt angle after Home Assistant is restarted. Covers that have a `position_state_address` or `angle_state_address` configured request their current state from the KNX bus according to their state updater configuration.
+
+A restored position is reported as an assumed state until the cover receives a position from the KNX bus or is moved.
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -1150,11 +1174,7 @@ device_class:
 
 The KNX date platform allows you to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-
-Dates that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
+Date entities restore their last known state after Home Assistant is restarted. Dates that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 {% note %}
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
@@ -1215,11 +1235,7 @@ sync_state:
 
 The KNX datetime platform allows you to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-
-DateTimes that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
+DateTime entities restore their last known state after Home Assistant is restarted. DateTimes that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 {% note %}
 System timezone is used as DPT 19.001 doesn't provide timezone information.
@@ -1457,7 +1473,12 @@ color_temperature_state_address:
   required: false
   type: [string, list]
 color_temperature_mode:
-  description: Color temperature group address data type. `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*. `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: |
+    Color temperature group address data type:
+    
+    - `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*.
+    - `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*.
+    - `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute
@@ -1569,6 +1590,10 @@ knx:
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
+Notify entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX notify entities via YAML" %}
+
 ```yaml
 knx:
   notify:
@@ -1590,6 +1615,8 @@ type:
   type: string
 {% endconfiguration %}
 
+{% enddetails %}
+
 #### Example action
 
 ```yaml
@@ -1603,11 +1630,7 @@ data:
 
 The KNX number platform allows you to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-
-Numbers that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
+Number entities restore their last known state after Home Assistant is restarted. Numbers that have a `state_address` configured request their current state from the KNX bus.
 
 Number entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -1719,11 +1742,7 @@ scene_number:
 
 The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-
-Selects that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
+Select entities restore their last known state after Home Assistant is restarted. Selects that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 ```yaml
 # Example configuration.yaml entry
@@ -1917,8 +1936,7 @@ The KNX switch platform is used as an interface to switching actuators.
 
 Switch entities can be created from the frontend in the KNX panel or via YAML.
 
-Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches that have a `state_address` configured request their current state from the KNX bus.
+Switches restore their last known state after Home Assistant is restarted. Switches that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration. Until the bus responds or the state is restored, the state is unknown if no previous state exists.
 
 {% details "Configuration of KNX switch entities via YAML" %}
 
@@ -1964,11 +1982,7 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 The KNX text platform allows you to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-
-Texts that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
+Text entities restore their last known state after Home Assistant is restarted. Texts that have a `state_address` configured request their current state from the KNX bus.
 
 Text entities can be created from the frontend in the KNX panel or via YAML.
 
@@ -2023,11 +2037,7 @@ mode:
 
 The KNX time platform allows you to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-{% note %}
-Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-
-Times that have a `state_address` configured request their current state from the KNX bus.
-{% endnote %}
+Time entities restore their last known state after Home Assistant is restarted. Times that have a `state_address` configured request their current state from the KNX bus according to their state updater configuration.
 
 {% note %}
 The `day` field of the time telegram will always be set to 0 (`no day`).

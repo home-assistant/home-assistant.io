@@ -3,6 +3,7 @@ title: Fronius
 description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
 ha_release: 0.96
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_config_flow: true
 ha_domain: fronius
 ha_iot_class: Local Polling
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_dhcp: true
@@ -82,7 +84,9 @@ Each device adds a set of sensors to Home Assistant.
     - Energy produced on the current day, year and total produced energy
     - Power fed to the grid (if positive) or consumed from the grid (if negative)
     - Power load as a generator (if positive) or consumer (if negative)
-    - Battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode
+    - Battery charging power (if positive) or discharging power (if negative)
+    - Whether the battery is in standby, on Gen24 devices with a battery
+    - Whether the system is currently supplying backup power during a grid outage, on Gen24, Tauro, and Verto devices with backup power configured
     - Photovoltaic production
     - Current relative self-consumption of produced energy
     - Current relative autonomy

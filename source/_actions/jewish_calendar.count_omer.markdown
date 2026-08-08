@@ -5,7 +5,11 @@ domain: jewish_calendar
 description: "Returns the phrase for counting the Omer on a given date."
 ---
 
-Use this action to get the phrase for counting the Omer on a given date.
+The **Count the Omer** action returns the phrase for counting the Omer on a given date.
+
+This is useful when you want an automation or script to announce or display the daily Omer count, for example as part of an evening routine during the Omer period.
+
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Instead, you provide the date and tradition to count for.
 
 {% include actions/ui_header.md %}
 
@@ -15,32 +19,30 @@ To count the Omer from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select **Jewish Calendar: Count the Omer**.
-6. Set the nusach and other options.
+5. From the search box, search for and select **Jewish Calendar: Count the Omer**.
+6. Select the **Nusach**, and optionally set the **Date**, **After sunset**, and **Language**.
 7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Date:
-  description: The date for which to get the Omer count. If unset, the action uses today.
+  description: The date to count the Omer for. Defaults to today.
   required: false
 After sunset:
-  description: If enabled and a date is provided, the action calculates the Omer count based on the Hebrew date, which starts after sunset. Ignored if no date is specified.
+  description: Uses the next Hebrew day, which starts at sunset, for the given date. This option is ignored if the date is empty. Defaults to on.
   required: false
-  default: true
 Nusach:
-  description: The nusach, or tradition, of the Omer blessing.
-  default: sfarad
+  description: The nusach (tradition) to count the Omer in. One of Sfarad, Ashkenaz, Adot Mizrah, or Italian.
+  required: true
 Language:
-  description: The language to return. Supported languages are English, Hebrew, and French.
+  description: The language to count the Omer in. Supported languages are English, Hebrew, and French. Defaults to Hebrew.
   required: false
-  default: he
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `jewish_calendar.count_omer`. Store the result in a response variable so you can use it in later steps:
+In YAML, refer to this action as `jewish_calendar.count_omer`. Because this action returns data, use `response_variable` to capture the result. A basic example looks like this:
 
 {% example %}
 action: |
@@ -49,62 +51,88 @@ action: |
     nusach: sfarad
     date: "2025-05-20"
     language: en
-  response_variable: omer_count
+  response_variable: omer
 {% endexample %}
 
-This returns the Omer count for May 20, 2025, in English.
+This counts the Omer for the given date and stores the result in the `omer` variable.
 
 ### Options in YAML
 
 {% options_yaml %}
 date:
-  description: The date for which to get the Omer count. If unset, the action uses today.
+  description: >
+    The date to count the Omer for. Defaults to today.
   required: false
-  type: string
+  type: date
 after_sunset:
-  description: If true and a date is provided, the action calculates the Omer count based on the Hebrew date, which starts after sunset. Ignored if no date is specified.
+  description: >
+    Uses the next Hebrew day, which starts at sunset, for the given date.
+    This option is ignored if the date is empty.
   required: false
   type: boolean
   default: true
 nusach:
-  description: The nusach, or tradition, of the Omer blessing. Supported values are `sfarad`, `ashkenaz`, `adot_mizrah`, and `italian`.
+  description: >
+    The nusach (tradition) to count the Omer in. One of `sfarad`,
+    `ashkenaz`, `adot_mizrah`, or `italian`.
   required: true
   type: string
   default: sfarad
 language:
-  description: The language to return. Supported values are `en`, `he`, and `fr`.
+  description: >
+    The language to count the Omer in. Supported values are `en`, `he`,
+    and `fr`. Defaults to Hebrew.
   required: false
   type: string
   default: he
 {% endoptions_yaml %}
 
-This action does not support targets.
-
 ## Response data
 
-The action response includes the following fields:
+The action returns the following data:
 
-- `message`: The phrase for counting the Omer. If there is no Omer count on the given day, this value is empty.
-- `weeks`: The number of complete weeks.
-- `days`: The number of days after the complete weeks.
-- `total_days`: The total number of Omer days.
+- `message`: The phrase for counting the Omer. Empty when there is no Omer count on the given day.
+- `weeks`: The number of complete weeks counted.
+- `days`: The number of days counted beyond the complete weeks.
+- `total_days`: The total number of days counted.
 
-## Good to know
+For the example above, the response looks similar to this:
 
-- If there is no Omer count on the given day, the message is empty.
-- The Hebrew date starts after sunset.
+{% example %}
+output: |
+  message: >-
+    Today is the thirty-seventh day, which are five weeks and two days of the
+    Omer
+  weeks: 5
+  days: 2
+  total_days: 37
+{% endexample %}
 
 {% include actions/more_examples.md %}
 
-### Minimal count in Hebrew
+### Count today's Omer in Hebrew
+
+For a minimal call, provide only the required nusach. With no date, the action counts the current Hebrew day, taking the current time relative to sunset into account, and returns the text in Hebrew by default.
 
 {% example %}
 action: |
   action: jewish_calendar.count_omer
   data:
     nusach: sfarad
-  response_variable: omer_count
+  response_variable: omer
 {% endexample %}
+
+This returns a response similar to:
+
+{% example %}
+output: |
+  message: היום ארבעה עשר יום שהם שני שבועות לעומר
+  weeks: 2
+  days: 0
+  total_days: 14
+{% endexample %}
+
+{% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
 
