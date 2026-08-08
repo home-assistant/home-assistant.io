@@ -22,7 +22,7 @@ The gateway sits on the bus of a central or <abbr title="variable refrigerant fl
 ## Prerequisites
 
 - A ZhongHong HVAC gateway controller reachable on your network. Note down the IP address it is configured with.
-- The gateway address set on the controller itself. This is `1` unless you changed it, and only matters if you run more than one gateway.
+- The gateway address the controller is set to, found in its own settings. It is `1` out of the box.
 
 {% include integrations/config_flow.md %}
 
@@ -32,7 +32,7 @@ Host:
 Port:
   description: The TCP port the gateway listens on. Leave the default unless you changed it on the gateway.
 Gateway address:
-  description: The address the gateway answers on, set in the controller's own settings. Leave the default unless you run more than one gateway on the same network.
+  description: The address the gateway is set to answer on, found in the controller's own settings. Enter the address your controller is set to; the default matches a controller that has not been changed.
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -48,9 +48,8 @@ Each entity reports the temperature the unit measures and lets you:
 
 ## Known limitations
 
-- The gateway accepts one TCP connection at a time. While Home Assistant is connected, any other software pointed at the same gateway is refused, and Home Assistant cannot connect while something else holds the connection.
+- The gateway refuses additional TCP connections while one is open. Only one program can talk to it at a time, so Home Assistant and, for example, a phone app cannot both be connected.
 - The protocol addresses five fan speeds, but it offers no way to ask an indoor unit which of them it implements. All five are offered on every entity; a unit that only has three ignores the other two and keeps running at the speed it was on.
-- Configuring ZhongHong through YAML is deprecated. Existing YAML configuration is imported automatically the first time Home Assistant starts after the upgrade, and YAML support is removed in a future Home Assistant release. After the import, remove the `zhong_hong` platform from the `climate:` block in your {% term "`configuration.yaml`" %} file.
 
 ## Troubleshooting
 
