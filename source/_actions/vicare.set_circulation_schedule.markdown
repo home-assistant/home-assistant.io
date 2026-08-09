@@ -19,23 +19,38 @@ To set the circulation schedule from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater entity you want to control.
 6. From the actions shown for that target, select **Viessmann ViCare: Set circulation schedule**.
-7. Enter the **Schedule**.
+7. For every day of the week, add the time slots you want. Days with no circulation still need to be included, just leave them empty.
 8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-Schedule:
-  description: >
-    A dictionary with one key per weekday (`mon` through `sun`). Each value
-    is a list of time slots for that day, with a maximum of 4 slots per
-    day. See [Good to know](#good-to-know) for the fields each slot needs.
+Monday:
+  description: The circulation slots for Monday. See [Good to know](#good-to-know) for the fields each slot needs.
+  required: true
+Tuesday:
+  description: The circulation slots for Tuesday.
+  required: true
+Wednesday:
+  description: The circulation slots for Wednesday.
+  required: true
+Thursday:
+  description: The circulation slots for Thursday.
+  required: true
+Friday:
+  description: The circulation slots for Friday.
+  required: true
+Saturday:
+  description: The circulation slots for Saturday.
+  required: true
+Sunday:
+  description: The circulation slots for Sunday.
   required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `vicare.set_circulation_schedule`. A basic example looks like this:
+In YAML, refer to this action as `vicare.set_circulation_schedule`. Each weekday field is a list of time slots for that day. A basic example looks like this:
 
 {% example %}
 action: |
@@ -43,18 +58,17 @@ action: |
   target:
     entity_id: water_heater.main_water_heater
   data:
-    schedule:
-      mon:
-        - start: "06:00"
-          end: "22:00"
-          mode: "on"
-          position: 0
-      tue: []
-      wed: []
-      thu: []
-      fri: []
-      sat: []
-      sun: []
+    monday:
+      - start_time: "06:00"
+        end_time: "22:00"
+        mode: "on"
+        position: 0
+    tuesday: []
+    wednesday: []
+    thursday: []
+    friday: []
+    saturday: []
+    sunday: []
 {% endexample %}
 
 This runs the circulation pump on Monday from 6:00 AM to 10:00 PM and turns it off for the rest of the week.
@@ -62,91 +76,97 @@ This runs the circulation pump on Monday from 6:00 AM to 10:00 PM and turns it o
 ### Options in YAML
 
 {% options_yaml %}
-schedule:
+monday:
   description: >
-    A dictionary with one key per weekday (`mon` through `sun`). Each value
-    is a list of time slots for that day, with a maximum of 4 slots per
-    day. See [Good to know](#good-to-know) for the fields each slot needs.
+    The circulation slots for Monday. See [Good to know](#good-to-know)
+    for the fields each slot needs.
   required: true
-  type: map
+  type: list
+tuesday:
+  description: >
+    The circulation slots for Tuesday.
+  required: true
+  type: list
+wednesday:
+  description: >
+    The circulation slots for Wednesday.
+  required: true
+  type: list
+thursday:
+  description: >
+    The circulation slots for Thursday.
+  required: true
+  type: list
+friday:
+  description: >
+    The circulation slots for Friday.
+  required: true
+  type: list
+saturday:
+  description: >
+    The circulation slots for Saturday.
+  required: true
+  type: list
+sunday:
+  description: >
+    The circulation slots for Sunday.
+  required: true
+  type: list
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="water_heater" %}
 
 ## Good to know
 
-Each time slot in the schedule is a mapping with the following keys:
+Each time slot in a day's list is a mapping with the following keys:
 
-- `start`: Required. The time the pump turns on, as `HH:MM`, on a 10-minute resolution, such as `06:00` or `06:10`.
-- `end`: Required. The time the pump turns off, as `HH:MM`, on a 10-minute resolution. Use `24:00` for midnight.
-- `mode`: Required. Always `on`.
+- `start_time`: Required. The time the pump turns on, as `HH:MM`, on a 10-minute resolution, such as `06:00` or `06:10`.
+- `end_time`: Required. The time the pump turns off, as `HH:MM`, on a 10-minute resolution. Use `24:00` for midnight.
+- `mode`: Required. The circulation mode for this slot. Which modes your device supports varies by model, for example `on`, `5/25-cycles`, or `5/10-cycles`. If you use a mode your device doesn't support, the action fails and the error message lists the modes it does support.
 - `position`: Required. The slot's position among the day's slots, starting at `0`.
 
-A day with no scheduled circulation must still be included in the schedule as an empty list, for example `tue: []`.
+All seven weekday fields are required on every call, even for days with no scheduled circulation. Use an empty list, for example `sunday: []`, for those days.
 
-The current schedule is available as the `circulation_schedule` attribute of the water heater {% term entity %}. Not all devices support a circulation pump. If yours doesn't, this attribute is absent.
+The maximum number of slots per day depends on your device. If you exceed it, the action fails and the error message includes your device's actual limit.
 
-A text {% term helper %} used to back up the schedule can hold at most 255 characters. A schedule with only a few time slots fits easily, but one with several slots on every day of the week may not. If the backup step runs into this limit, it fails and the schedule is left in place, so you won't lose your regular schedule, but the pump also won't turn off. To fit more, keep the helper's **Maximum length** at 255, the maximum a text helper supports.
+The current schedule is available as the `circulation_schedule` attribute of the water heater {% term entity %}. Not all devices support a circulation pump. If yours doesn't, this attribute is absent. Its field names (`mon` through `sun`, with `start`/`end` per slot) don't match this action's fields (`monday` through `sunday`, with `start_time`/`end_time`), so you can't pass its value straight back into this action — remap the keys first if you want to restore a saved schedule.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Automation: Back up the schedule and turn off circulation when you leave
+### Automation: Turn off circulation when you leave
 
-This automation saves your current circulation schedule to a text helper and then clears the schedule, so the pump stays off while nobody is home. Pair it with the automation in the next section, which restores the saved schedule once someone gets back.
-
-This requires a text {% term helper %} to hold the backup. If you don't have one yet, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper** > **Text**, and set **Maximum length** to `255`. This example assumes the helper is named `input_text.circulation_schedule_backup`.
-
-- Trigger: everyone leaves home
-- Action: set the value of the text helper
-  - Target: the text helper you created
-  - Value: the current circulation schedule
-- Action: set the circulation schedule
-  - Target: the main water heater entity
-  - Schedule: no time slots on any day
+This automation stops the circulation pump as soon as everyone leaves home, so it doesn't run while nobody's there to use it.
 
 {% details "Show example YAML" %}
 
 {% example %}
 automation: |
-  alias: "Back up and turn off circulation pump when away"
+  alias: "Turn off circulation pump when away"
   triggers:
     - trigger: state
       entity_id: zone.home
       to: "0"
   actions:
-    - action: input_text.set_value
-      target:
-        entity_id: input_text.circulation_schedule_backup
-      data:
-        value: >-
-          {{ state_attr('water_heater.main_water_heater',
-             'circulation_schedule') | to_json }}
     - action: vicare.set_circulation_schedule
       target:
         entity_id: water_heater.main_water_heater
       data:
-        schedule:
-          mon: []
-          tue: []
-          wed: []
-          thu: []
-          fri: []
-          sat: []
-          sun: []
+        monday: []
+        tuesday: []
+        wednesday: []
+        thursday: []
+        friday: []
+        saturday: []
+        sunday: []
 {% endexample %}
 
 {% enddetails %}
 
 ### Automation: Restore the schedule when you get home
 
-This automation restores the schedule saved by the automation above once someone returns home.
-
-- Trigger: someone arrives home
-- Action: set the circulation schedule
-  - Target: the main water heater entity
-  - Schedule: the schedule stored in the text helper
+This automation puts a fixed weekly schedule back once someone returns. Adjust the times to match the hours you actually want the pump to run.
 
 {% details "Show example YAML" %}
 
@@ -162,9 +182,41 @@ automation: |
       target:
         entity_id: water_heater.main_water_heater
       data:
-        schedule: >-
-          {{ states('input_text.circulation_schedule_backup')
-             | from_json }}
+        monday:
+          - start_time: "06:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
+        tuesday:
+          - start_time: "06:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
+        wednesday:
+          - start_time: "06:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
+        thursday:
+          - start_time: "06:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
+        friday:
+          - start_time: "06:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
+        saturday:
+          - start_time: "08:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
+        sunday:
+          - start_time: "08:00"
+            end_time: "22:00"
+            mode: "on"
+            position: 0
 {% endexample %}
 
 {% enddetails %}

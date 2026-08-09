@@ -88,7 +88,7 @@ Ventilation units are displayed as fans and enable the change of speed and use o
 
 Represents the domestic hot water controls of your device.
 
-On devices that support it, you can turn domestic hot water on or off directly from this {% term entity %}. Turning it off does not affect space heating on devices that also heat your home.
+On devices that support it, you can set the domestic hot water operation mode directly from this {% term entity %}. Both the entity's state and its available modes mirror your device's own operating modes, such as `dhw`, `heating`, `dhw_and_heating`, or `standby`, rather than a simple on/off. Modes that include domestic hot water (for example `dhw` or `dhw_and_heating`) don't disable space heating on devices that also heat your home.
 
 If your device has a circulation pump, its weekly schedule is available as the `circulation_schedule` attribute of this {% term entity %}. Use the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action to change it.
 
@@ -132,7 +132,7 @@ The `climate.set_preset_mode` action supports the *eco* and *comfort* preset mod
 
 ### Setting the water heater operation mode
 
-On devices that support it, the `water_heater.set_operation_mode` action turns domestic hot water `on` or `off`. If your device also heats your home, turning domestic hot water off keeps space heating running instead of disabling it entirely.
+On devices that support it, the `water_heater.set_operation_mode` action sets the mode to one of the values listed in the entity's `operation_list`, which mirrors your device's own operating modes (for example `dhw`, `heating`, `dhw_and_heating`, or `standby`) rather than a simple on/off. Which modes are available depends on your device's circuit; on a device that also heats your home, use a mode like `dhw_and_heating` to keep both running, or `heating` to run space heating without domestic hot water.
 
 ## Troubleshooting
 
