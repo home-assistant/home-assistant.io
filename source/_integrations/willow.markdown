@@ -4,14 +4,14 @@ title: Willow
 description: Integrate Willow plant monitoring sensors into Home Assistant.
 ha_category:
   - Sensor
-ha_release: "2026.8.1"
+ha_release: "2026.8"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: willow
 ha_codeowners:
   - "@PlantWithWillow"
 ha_platforms:
-  - light
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 
@@ -25,9 +25,9 @@ Willow sensors periodically collect environmental and soil measurements and uplo
 
 Before setting up the integration, you will need:
 
-* A Willow account
-* At least one Willow sensor paired with your account
-* An active internet connection
+- A Willow account
+- At least one Willow sensor paired with your account
+- An active internet connection
 
 ## Supported devices
 
