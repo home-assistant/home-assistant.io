@@ -4,12 +4,16 @@ title: Willow
 description: Integrate Willow plant monitoring sensors into Home Assistant.
 ha_category:
   - Sensor
-ha_release: "2026.XX"
+ha_release: "2026.8.1"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: willow
 ha_codeowners:
   - "@PlantWithWillow"
+ha_platforms:
+  - light
+ha_integration_type:
+  - hub
 
 ---
 
@@ -27,7 +31,7 @@ Before setting up the integration, you will need:
 
 ## Supported devices
 
-The integration supports the following device:
+The integration supports the following devices:
 
 * Willow Sensor
 
@@ -48,7 +52,7 @@ Each Willow sensor creates the following entities in Home Assistant:
 
 To add the Willow integration to your Home Assistant instance:
 
-1. Go to **Settings** > **Devices & Services**.
+1. Go to **Settings** > **Devices & services**.
 2. Select **Add Integration**.
 3. Search for **Willow**.
 4. Follow the OAuth authentication flow and sign in to your Willow account.
