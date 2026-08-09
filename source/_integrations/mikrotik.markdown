@@ -1,5 +1,5 @@
 ---
-title: Mikrotik
+title: MikroTik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
   - Button
