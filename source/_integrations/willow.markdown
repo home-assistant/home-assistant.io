@@ -12,8 +12,8 @@ ha_codeowners:
   - "@PlantWithWillow"
 ha_platforms:
   - light
-ha_integration_type:
-  - hub
+ha_integration_type: hub
+ha_quality_scale: bronze
 
 ---
 
