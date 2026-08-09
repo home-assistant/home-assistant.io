@@ -54,7 +54,7 @@ For each endpoint configured in Gatus, the integration creates one binary sensor
 
 For each endpoint configured in Gatus, the integration creates the following sensor:
 
-- **Status code**: Reports the numeric HTTP status code (for HTTP endpoints) or command exit code (for SSH endpoints) of the most recent health check.
+- **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 
 ## Gatus automation examples
 
