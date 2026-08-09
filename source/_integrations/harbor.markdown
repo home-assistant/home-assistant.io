@@ -64,7 +64,7 @@ IP address:
 
 ## Supported functionality
 
-The Harbor Sleep integration provides selects, sensors, and switches for the connected Harbor device.
+The Harbor Sleep integration provides select, sensor, and switch entities for the connected Harbor device.
 
 ### Selects
 
