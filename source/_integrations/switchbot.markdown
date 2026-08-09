@@ -572,7 +572,7 @@ Features:
 
 This device supports the following actions:
 
-- [Add password](/actions/switchbot.add_password/) adds a PIN with 6 to 12 digits.
+- [Add password](/actions/switchbot.add_password/) adds a password with 6 to 12 digits.
 - [Get keypad information](/actions/switchbot.get_keypad_info/) retrieves device settings and credential counts. The action returns [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) in two groups:
   - `basic_info` includes the battery and charging state, firmware and hardware versions, fingerprint support, lock button state, tamper alarm state, backlight state and level, and prompt tone state.
   - `credential_counts` includes the number of PINs, NFC cards, fingerprints, duress PINs, and duress fingerprints. For Keypad Vision Pro, it also includes the number of faces and palm vein profiles.
