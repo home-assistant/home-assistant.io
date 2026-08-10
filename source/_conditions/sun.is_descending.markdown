@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: Sun is descending**.
+4. From the search box, search for and select **Sun is descending**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -49,7 +49,7 @@ This passes while the sun is sinking toward solar midnight.
 When the patio gets hot, lower the awning, but only while the sun is descending, so it reacts to the afternoon sun rather than a warm morning.
 
 - **Trigger**: Patio temperature rises above a threshold
-- **Condition**: Sun: Sun is descending
+- **Condition**: Sun is descending
 - **Action**: Close cover
   - **Target**: Patio awning
 

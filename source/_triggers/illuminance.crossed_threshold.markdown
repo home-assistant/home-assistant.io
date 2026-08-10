@@ -11,7 +11,7 @@ related_triggers:
 
 The **Illuminance crossed threshold** trigger fires when a light level reading crosses into a zone you define. A patio sensor crossing above 30,000 lx when the sun comes out, a desk sensor dipping below 200 lx as it gets dark in the office, or a reading escaping that range are all supported.
 
-Use **Illuminance crossed threshold** to automate shades when the sun gets too bright, turn on lights when a room becomes too dark, or coordinate devices that respond to specific light levels.
+Use **Illuminance crossed threshold** to automate shades when the sun gets too bright, turn on lights when a room becomes too dark, or coordinate devices that respond to specific light levels. The entity that crosses the threshold must be an illuminance sensor. You can use a number entity with the illuminance device class as the threshold value.
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
@@ -28,7 +28,7 @@ To use **Illuminance crossed threshold** in an automation:
    - Select **Above** or **Below** and enter a value to fire when the reading crosses that level.
    - Select **In range** and enter a lower and upper bound to fire when the reading enters the range from outside.
    - Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
-   For each option, you can enter a fixed value in lux, pick a sensor entity, or pick a [number helper](/integrations/input_number/) entity as the threshold. If you don't have a number helper, you can create one by selecting **Create a new number helper**.
+   - For each option, you can enter a fixed value in lux, pick a sensor entity, pick a number entity, or pick a [number helper](/integrations/input_number/) entity as the threshold. If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple entities are targeted.
 8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
 9. Select **Save**.
@@ -45,7 +45,7 @@ Threshold type:
     - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
     - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
 
-    For each mode you can enter a fixed value in lux or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
+    For each mode you can enter a fixed value in lux or reference a sensor entity, number entity, or [number helper](/integrations/input_number/) entity.
 Trigger when:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
@@ -162,12 +162,13 @@ for:
 
 ## Good to know
 
+- Use a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
+- Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - Pair this trigger with [Illuminance changed](/triggers/illuminance.changed/) if you also want to react to smaller fluctuations between crossings.
 - Use **For at least** to ignore brief light fluctuations, such as clouds passing or a person briefly shading an outdoor sensor.
-- The trigger works with sensors that have the illuminance device class, and with number entities that use lux as the unit of measurement.
 
 {% include triggers/try_it.md %}
 

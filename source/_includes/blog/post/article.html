@@ -33,7 +33,7 @@
 
   {% if index %}
   <h1>
-    <a href="{{ post.external_url | default: post.url }}"{% if post.external_url %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ post.title }}</a>
+    <a href="{{ post.url }}">{{ post.title }}</a>
   </h1>
   {% else %}
   <h1>{{ page.title }}</h1>
