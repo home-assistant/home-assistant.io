@@ -30,6 +30,10 @@ Currently, only Ethernet devices in WEB mode are supported:
 
 All supported Papouch devices feature DHCP discovery. Once the integration is active in your Home Assistant instance, devices sending DHCP requests will automatically appear in the **Discovered** section on the Integrations page. Clicking **Configure** will guide you through the setup process.
 
+{% note %}
+This will be active if DHCP is enabled in the device.
+{% endnote %}
+
 Active discovery is also triggered automatically when you manually add the integration via the user interface. It will scan your local network using UDP broadcasts and present a list of available, unregistered devices along with their names, locations, and IP addresses.
 
 {% note %}
@@ -40,7 +44,7 @@ If your Home Assistant instance is running in an isolated network environment (s
 
 If your device was not discovered automatically, you can complete the setup manually:
 
-1. The setup flow will always begin with an active network scan. 
+1. The setup flow will always begin with an active network scan.
 2. If the list of discovered devices is empty, or if you prefer not to select any of the automatically discovered devices, choose the option to enter the IP address manually.
 3. Enter the device's IP address and your preferred polling interval.
 4. In the final step, you can assign the device to an area and customize its name.
@@ -57,73 +61,104 @@ If you need to change your selection during the manual configuration, simply clo
 
 ## Using the device
 
-This section describes usage of the devices, their nuances and limitations.
+While the device's built-in web interface remains the primary place for core configuration, this integration exposes certain settings directly within Home Assistant for your convenience.
 
-Remember that the integration doesn't (and shouldn't) provide the settings of the device, for that there is a web page. But some of the settings will be leaked here for better user experience.
+{% important %}
+If you change settings directly via the device's web interface, the integration will not automatically detect all of these changes. We highly recommend **reloading** the integration (Settings > Devices & Services > three dots > **Reload**) after making external changes to keep the states synchronized.
+{% endimportant %}
 
-{% note %}
-We suggest you to always reset the integration after manipulating with the device from web page, it will bring the integration to real state. You can do so by clicking three dots and *refresh*.
-{% endnote %}
+### Known limitations and nuances
 
-### Nuances
+This section describes various limitations and nuances that can/will happen during using the devices.
 
-Here are nuances that are applicable to all of the devices:
+#### Number entities
 
-#### Number
+When adjusting a `number` entity using the up/down arrows in the Home Assistant UI, every single step immediately sends a command to the device. To jump to a specific value without sending intermediate commands, type the exact number directly into the input field and press Enter.
 
-There are UI problems with number entities in manual operation, when you are typing the proper number in the field and typing enter, it will automatically send the proper command to the device, but if you are using arrows to increase or decrease the number it will automatically send the number, even if it is not the right number you want.
+#### Select entities
 
-#### Select
+Select entities (such as counter modes or sensor types) are not continuously polled. If you change them directly on the device's web interface, Home Assistant will be unaware of the change until the integration is reloaded.
 
-Select entities (e.g. modes of the counters or sensor types) are not polled every scan interval, that means if you are changing it from the web page of the device, Home Assistant can't know that you did it, and it may break the integration.
+{% warning %}
+Changing the operating mode via a `select` entity causes the physical device to restart. For this reason, it is strongly advised **not** to use these select entities in automations.
+{% endwarning %}
 
-#### Units
+#### Units of measurement
 
-Beware that changing the units in web page shouldn't automatically be present in the integration. Moreover if you change the unit Home Assistant can ask you to recalculate the data for long term statistics.
+Changing the physical unit of measurement on the device's web interface will not automatically update the unit in Home Assistant. Doing so may also disrupt your long-term statistics and require you to fix the historical data manually.
 
-#### Entities
+#### Dynamic entities
 
-Some devices (e.g. TH2E) support various types of sensors, that means 1 sensor can create 1 sensor entity while other can create 3, and if you are changing the types, there can be phantom entities. Feel free to delete them, because you can create them back by changing the sensor type and then refreshing the device. The data of the deleted entities will stay intact.
+Some devices (e.g., TH2E) expose a variable number of entities depending on the configured sensor type. If you change the sensor type, some previously active entities may become unavailable. You can safely delete these orphaned entities from Home Assistant; their historical data will remain intact, and they will be recreated if you ever switch the sensor type back. But this doesn't mean that entities will be created, use a restart button for that.
 
 ### Quido
 
-The integration provides these entities:
+The integration provides the following entities for Quido devices:
 
-- **Buttons** For massive connecting and disconnecting the coils and resetting the counters
-- **Sensors** For counting the pulses and temperature
-- **Binary sensor** For watching the state of the inputs.
+- **Binary sensor**: Watches the state of digital inputs.
+- **Button**: Allows bulk connecting/disconnecting of all outputs and resetting counters.
 - **Number**:
-  - Decreasing counters by some value (note that value of the counter must be bigger or the same), uses natural numbers, the maximum is 2<sup>32</sup> - 1
-  - Connecting (disconnecting) outputs for some time, min: 0.5 s, max: 127.5 s, step: 0.5 s
-- **Switch** For changing the state of the output
-- **Select** For changing the mode of the counter
+  - Decreasing counters by a specific value (up to 2<sup>32</sup> - 1).
+  - Setting the output connection/disconnection duration (from 0.5 s to 127.5 s with 0.5s step).
+- **Select**: Changes the operation mode of the input counters.
+- **Sensor**: Reads temperature and pulse counts.
+- **Switch**: Changes the state of individual outputs.
 
-[Documentation of the device](https://papouch.com/quido-eth-4-4-4-vstupy-4-vystupy-teplomer-ethernet-p4646/?cid=145&vid=1797) below in download tab.
+The official manual can be found in the downloads section of the [Quido product page](https://papouch.com/quido-eth-4-4-4-vstupy-4-vystupy-teplomer-ethernet-p4646/?cid=145&vid=1797).
 
 ### TH2E
 
-The integration provides these entities:
+The integration provides the following entities for TH2E devices:
 
-- **Sensors** Various sensors depending on the type of the sensor.
-- **Buttons** Automatic type configuration of the sensor
-- **Select** Manual type configuration of the sensor
+- **Button**: Triggers automatic configuration of the connected sensor type. Does restart.
+- **Select**: Allows manual selection and configuration of the connected sensor type.
+- **Sensor**: Provides environmental readings depending on the configured sensor type.
 
-[Documentation of the device](https://papouch.com/th2e-ethernetovy-teplomer-s-vlhkomerem-p4825/?vid=2374) below in download tab.
+For more details, see the official manual available in the downloads section of the [TH2E product page](https://papouch.com/th2e-ethernetovy-teplomer-s-vlhkomerem-p4825/?vid=2374).
 
 ### TME / TME Multi / TME Radio
 
-The integration provides these entities:
+The integration provides the following entities for TME devices:
 
-- **Sensors** Various sensors depending on the type of the sensor.
+- **Sensor**: Provides environmental readings depending on the connected sensor type.
 
-Documentation of the [TME](https://papouch.com/tme-ethernetovy-teplomer-p4602/?sti=635677&vid=1879) and [TME Multi/Radio](https://papouch.com/tme-radio-bezdratovy-meric-teploty-a-vlhkosti-p4603/?sti=635678&vid=2965) below in download tab.
+For more details, see the official manuals available in the downloads section of the [TME](https://papouch.com/tme-ethernetovy-teplomer-p4602/?sti=635677&vid=1879) and [TME Multi/Radio](https://papouch.com/tme-radio-bezdratovy-meric-teploty-a-vlhkosti-p4603/?sti=635678&vid=2965) product pages.
 
 ### Papago
 
+Papago is a name for a whole family of devices.
+
 #### METEO
 
+The integration provides these entities:
+
+- **Buttons** Automatic type configuration of the sensor.
+  - Only for sensors A and B, since sensor C can have only 1 possible type of a sensor.
+  - Note that this doesn't lead to the restart.
+- **Sensors** Various sensors depending on the type of the sensor.
+
+The official manual can be found in the downloads section of the [Quido product page](https://papouch.com/quido-eth-4-4-4-vstupy-4-vystupy-teplomer-ethernet-p4646/?cid=145&vid=1797).
+
 #### 5HDI DO
+
+The integration provides the following entities for Quido devices:
+
+- **Binary sensor**: Watches the state of digital inputs.
+- **Button**: Allows bulk connecting/disconnecting of all outputs and resetting counters.
+- **Number**:
+  - Decreasing counters by a specific value (up to 2<sup>32</sup> - 1).
+  - Setting the output connection/disconnection duration (from 0.5 s to 127.5 s with 0.5s step).
+- **Select**: Changes the operation mode of the input counters.
+- **Sensor**: Reads temperature and pulse counts.
+- **Switch**: Changes the state of individual outputs.
+
+The official manual can be found in the downloads section of the [Quido product page](https://papouch.com/quido-eth-4-4-4-vstupy-4-vystupy-teplomer-ethernet-p4646/?cid=145&vid=1797).
+
 
 #### 2TH
 
 #### TH 2DI DO
+
+## Notes
+
+As we all know the local network can be unstable and because of that Home Assistant can get scared and show that the device is broken or something like that. Don't worry you can just wait or delete the device and configure it again, we suggest you to do reconfigurations whenever something is broken. 
