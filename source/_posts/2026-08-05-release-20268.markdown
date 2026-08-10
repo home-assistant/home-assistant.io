@@ -1,0 +1,682 @@
+---
+layout: post
+title: "2026.8: Approachable by design"
+description: "A more approachable Home Assistant: less technical jargon, easier web server settings, a redesigned Home Assistant Cloud page, simpler entity ID renaming, cleaner device management, more triggers and conditions, and new integrations!"
+date: 2026-08-05 00:00:00
+date_formatted: "August 5, 2026"
+author: Ashley Abbott
+author_twitter: Home_Assistant
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2026-08/social.png
+---
+
+<lite-youtube videoid="Pu7JLCxZmaI" videotitle="Home Assistant 2026.8 Release Party"></lite-youtube>
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Pu7JLCxZmaI) on August 5, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
+
+{% endtip %}
+
+{% tip %}
+
+<a href='https://youtube.com/live/aK2HMY9-Tzo'><img src='/images/blog/2026-08/ESPH-2607-starterkit-livestream-thumbnail.png' alt='ESPHome Starter Kit launch party livestream on August 12' class='no-shadow' style='float: right; width: 40%; max-width: 340px; margin: 0 0 8px 16px;' /></a>
+There's more to look forward to next week: the **ESPHome Starter Kit** is launching, and you're invited to the official launch party! 🚀 Join the ESPHome team and their partners at Apollo Automation on the [ESPHome YouTube channel](https://youtube.com/live/aK2HMY9-Tzo) on August 12 at 21:00 CEST. Familiar faces are dropping by to celebrate lift-off, too: [Reed](https://www.youtube.com/c/SmartHomeSolver) from Smart Home Solver, [Simon](https://www.youtube.com/@simonsayshomeassistant) from Simon Says Home Assistant, and [Gavin](https://www.hometech.fm/) from HomeTech.fm.
+
+{% endtip %}
+
+Home Assistant 2026.8! 🎉
+
+Hi, I'm [Ashley](https://github.com/abb848), the Technical Program Manager at the Open Home Foundation. With [Frenck](https://github.com/frenck) taking a well-deserved break, [Bram](https://github.com/bramkragten) and I are teaming up to handle things this time around.
+
+We have been working on a lot over the past few weeks, and I'm excited to share some of what we have done for this release!
+
+If there's one thread tying this release together, it's a direction we care about: making Home Assistant something you don't need to be technical to use. This release is another step along that path.
+
+Enjoy the release!
+
+\- Ashley
+
+<!--more-->
+
+- [Making Home Assistant more approachable](#making-home-assistant-more-approachable)
+- [The same Home Assistant, minus the magic number](#the-same-home-assistant-minus-the-magic-number)
+  - [Your current setup keeps working](#your-current-setup-keeps-working)
+  - [Want to change the port? We've got you covered](#want-to-change-the-port-weve-got-you-covered)
+  - [What this means for YAML](#what-this-means-for-yaml)
+- [Less "advanced", more approachable](#less-advanced-more-approachable)
+  - [Describing the feature, not the user](#describing-the-feature-not-the-user)
+  - [Just Tools, no developer required](#just-tools-no-developer-required)
+- [Home Assistant Cloud, now easier to explore](#home-assistant-cloud-now-easier-to-explore)
+- [Your entity IDs, your choice](#your-entity-ids-your-choice)
+- [A cleaner way to handle your devices](#a-cleaner-way-to-handle-your-devices)
+- [We can't stop adding triggers and conditions](#we-cant-stop-adding-triggers-and-conditions)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Tell us how setup went](#tell-us-how-setup-went)
+  - [A roomier template editor](#a-roomier-template-editor)
+  - [Taps that land where you mean them](#taps-that-land-where-you-mean-them)
+  - [A combined battery level you can trust](#a-combined-battery-level-you-can-trust)
+  - [Search your media](#search-your-media)
+  - [Find your favorite cards faster](#find-your-favorite-cards-faster)
+  - [Z-Wave lock credentials, properly managed](#z-wave-lock-credentials-properly-managed)
+  - [And a few more](#and-a-few-more)
+- [Patch releases](#patch-releases)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@bramkragten] who helped write the release notes this release. Also, [@piitaya], [@RaHehl], and [@farmio] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@piitaya]: https://github.com/piitaya
+
+## Making Home Assistant more approachable
+
+One of the directions we care about most for Home Assistant is making it simpler to pick up and use, without compromising on capability. It's something we have been working toward for a long time, and it runs through our [roadmap](https://github.com/OpenHomeFoundation/roadmap) and [goals](https://github.com/OpenHomeFoundation/goals) for this year. We cannot do it overnight though, so we keep listening to your feedback to make sure we are fixing the things that actually get in your way. If there is something you would like to see, we would love for you to weigh in. Every comment helps shape what comes next.
+
+This release brings together some of that work. It may never be truly finished, and that is fine, but it is something we hold close: the more people who can use Home Assistant, whatever their technical ability, the better.
+
+## The same Home Assistant, minus the magic number
+
+Ever wondered why the address for your own home has a random number stuck on the end? So did we. For years, reaching Home Assistant meant remembering to add `:8123` to the address, a little piece of technical trivia that everyone simply had to learn. This release starts to put that right.
+
+New installations of {% term "Home Assistant Operating System" "Home Assistant OS" %} now use a normal web address by default, with no number to add on the end. You reach your home the same way you reach any website. Nothing extra to remember, nothing extra to type.
+
+### Your current setup keeps working
+
+If you are already running Home Assistant, nothing changes and there is nothing you need to do. This only affects new installations of Home Assistant OS. Your existing installation is completely unchanged, keeps the exact port it has always used, and keeps working just as before. If everything works today, the simplest thing is to leave it exactly as it is.
+
+### Want to change the port? We've got you covered
+
+You do not have to change anything, but if you would like the cleaner address, or need to change the port for another reason, you can now do it yourself from the interface. The same screen also holds a few more options, like choosing which network connection Home Assistant listens on and setting trusted proxies, for the setups that need them.
+
+<img src='/images/blog/2026-08/web-server-settings.png' alt='Screenshot of the web server settings in the Home Assistant interface, showing options for the port, the network connection to listen on, and trusted proxies.' class='no-shadow' />
+
+Changing something as fundamental as the port your home lives on can feel nerve-wracking, so we made it hard to get stuck. When you change the web server settings, Home Assistant applies the new configuration and then waits for you to confirm everything still works. If you do not confirm within five minutes, it assumes something went wrong, puts your previous settings back, and restarts. And if the new settings cannot be applied at all, it falls back right away. So if you ever lock yourself out with the wrong setting, you do not have to do anything: wait a few minutes, and Home Assistant returns you to where you were.
+
+{% note %}
+One thing to keep in mind: anything that reaches Home Assistant using the old address may need updating to match the new port, such as your bookmarks or other services and tools you have connected, including the mobile app. If your setup works today, that is a good reason to leave it as it is.
+{% endnote %}
+
+<img src='/images/blog/2026-08/web-server-revert.png' alt='Screenshot of the confirmation prompt shown after changing the web server settings, asking you to confirm everything still works before the new settings are kept.' class='no-shadow' />
+
+### What this means for YAML
+
+If you currently set up the web server in {% term YAML %}, you do not need to change anything. The first time you start Home Assistant after updating, your settings move into the interface for you, and you manage them there from then on. You might also see a [repair](/integrations/repairs/) appear, just to let you know your settings were imported; it can point you to tidying up the old YAML if you like, but nothing breaks either way.
+
+## Less "advanced", more approachable
+
+A word comes up around Home Assistant a lot: advanced. But what does it actually mean, and who gets to decide what counts as advanced and what does not? Too often it is a label that quietly tells people a feature is not for them. We want Home Assistant to be approachable for everyone, so this release removes some of that language.
+
+### Describing the feature, not the user
+
+The clearest place to start is the words themselves. Labels like _advanced_ and _expert_ were dotted around Home Assistant. Words like these can be discouraging: they suggest a feature is not for you and steer you away from trying it, even when it is perfectly approachable. This release removes that wording in around 43 places, across the app, its documentation, and the companion apps. None of these features changed. Instead of rating your skill, the wording now simply describes what each one does.
+
+A big thank you to everyone who helped comb through and clean this up! 👏
+
+### Just Tools, no developer required
+
+In the same spirit, **Developer Tools** is now simply **Tools**. It has always been a useful spot for everyone, whether you are checking the {% term state %} of your {% term "device" "devices" %}, testing a {% term template %}, or reloading part of your setup, and you never needed to be a developer to use it. The shorter name matches how people actually use it, and feels a little friendlier to open.
+
+## Home Assistant Cloud, now easier to explore
+
+[Home Assistant Cloud](/integrations/cloud/) by [Nabu Casa](https://www.nabucasa.com/) is how many people add remote access, fast and private voice, encrypted {% term backups %}, and more to their home, all while supporting the project at the same time. Until now, everything it offers lived on a single long page of switches and settings. This release gives that page a proper redesign.
+
+The main page is now a clean overview. Each feature (remote access, backups, voice assistants, the companion app, and more) has its own space, so you can see what you have turned on at a glance. The settings for each one move onto their own page, which keeps the overview tidy and makes every feature easier to understand on its own.
+
+The bigger change is for anyone just getting started. There is now a guided setup that walks you through Home Assistant Cloud step by step, instead of leaving you to find your way around a wall of options. If it is not a good moment, you can put it off and pick it up again later.
+
+<div>
+  <img src='/images/blog/2026-08/cloud_page_top.png' alt='Screenshot of the top of the redesigned Home Assistant Cloud page, showing the overview with each cloud feature in its own space.' class='no-shadow' style='display: block; margin: 0;' />
+  <img src='/images/blog/2026-08/cloud_page_bottom.png' alt='Screenshot of the lower part of the redesigned Home Assistant Cloud page, showing more cloud features and their settings.' class='no-shadow' style='display: block; margin: 0;' />
+</div>
+
+A big thank you to [@klejejs](https://github.com/klejejs) for this redesign!
+
+## Your entity IDs, your choice
+
+Behind every {% term device %} and {% term sensor %} sits an entity ID, a short name such as `light.kitchen_ceiling` that your {% term automations %}, {% term scripts %}, and dashboards use to refer to it. Most of the time they look after themselves. But when you do want them neat and consistent, you should be the one deciding how they read.
+
+Some earlier work looked at building entity IDs automatically from the {% term area %} a device belongs to. Your feedback told us this suited some people but not everyone. So this release takes a more flexible route and puts you in charge: you can rename an entity ID yourself, and control how it is ordered, so your {% term entities %} follow whatever naming pattern makes sense to you.
+
+<img src='/images/blog/2026-08/entity-id-rename.gif' alt='Screen recording showing how to rename an entity ID and change how it is ordered in the Home Assistant interface.' class='no-shadow' />
+
+Thanks to [@arturpragacz](https://github.com/arturpragacz) and [@piitaya](https://github.com/piitaya) for this work.
+
+## A cleaner way to handle your devices
+
+Home Assistant is changing how it keeps track of your devices behind the scenes. Until now, if one physical {% term device %} was set up through two different {% term integrations %}, Home Assistant merged them into a single device. Details that can only hold one value, such as the model or serial number, could then clash. From this release, each integration keeps its own device entry, so nothing gets collapsed together.
+
+When you update, any devices that were merged this way are separated automatically, and their {% term entities %} move to the right device for you. Most people will not notice a thing. In the rarer cases where a device was set up through more than one integration, you might see it appear twice, once per integration, and Home Assistant may raise a [repair](/integrations/repairs/) to let you know.
+
+There is nothing you need to do. Your {% term automations %} and {% term scripts %} keep working, because Home Assistant still sends actions to the right devices after the split. The only things that might need a second look are automations that point to a device by its ID directly, or the occasional unusual setup. If a repair appears, just follow it.
+
+This is groundwork for more flexible device handling we are building toward over the coming months, so think of it as a step along the way rather than the finished picture.
+
+If you build a {% term "custom integration" %}, most need no changes at all. If yours works with device details directly, the [developer blog](https://developers.home-assistant.io/blog/2026/07/21/device-registry-single-config-entry) walks through what changed. There is no rush: the previous approach keeps working for now, so you have plenty of time.
+
+Thanks to [@emontnemery](https://github.com/emontnemery) for this work.
+
+## We can't stop adding triggers and conditions
+
+Last release, purpose-specific [triggers](/triggers/) and [conditions](/conditions/) became the friendlier way to build {% term automations %}: you describe the moment you care about, like _when the front door opens_, instead of piecing it together from the technical parts underneath. This release adds two more of them.
+
+**Vibration** now has conditions to match its triggers. On top of reacting the moment vibration starts or stops, you can check whether something is vibrating (or not) as part of a bigger automation, for example, only sending a "laundry is done" message once the washing machine has actually stopped shaking.
+
+**Moon** gains a trigger and matching conditions. You can start an automation the moment the moon enters a new phase, or check the current phase as part of a bigger automation. Point it at the full moon, the new moon, or any change of phase, and let your home take it from there, whether that is mood lighting, a reminder, or just a bit of fun. 🌙
+
+Thanks, [@nielsrowinbik](https://github.com/nielsrowinbik)!
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %} and improvements to existing ones! You're all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Dyson Infrared]**, added by [@elax46]  
+  Control your Dyson fans through any infrared transmitter you already have set up in Home Assistant. Because the connection only goes one way, Home Assistant shows the last command you sent rather than the fan's live state.
+
+- **[Fuelprices.dk]**, added by [@MTrab]  
+  Track current fuel prices from Danish fuel companies in Home Assistant. The integration pulls prices from the [Fuelprices.dk](https://fuelprices.dk) service and creates a sensor for each product you select at a station, so you can watch prices and build automations around them.
+
+- **[Gatus]**, added by [@TN-1], launching at 🥈 silver quality  
+  Bring the health of your services into Home Assistant from your [Gatus](https://gatus.io) monitoring instance. Each monitored endpoint shows up as a {% term "binary sensor" %}, so you can put service status on a dashboard or trigger automations when something goes down or comes back up.
+
+- **[GeoSphere Austria Warnings]**, added by [@tklecka]  
+  Bring official weather warnings for Austria into Home Assistant from [GeoSphere Austria](https://www.geosphere.at) (formerly ZAMG), the national weather service. Warnings are issued per municipality and cover events like storms, heavy rain, snow, black ice, thunderstorms, heat, and cold, so you can get notified or trigger automations when the warning level rises.
+
+- **[Google Health]**, added by [@allenporter]  
+  Bring your health and fitness data into Home Assistant from Google Health and the Fitbit Web API. After you connect your Google account, you get sensors such as steps, distance, weight, and resting heart rate, and it can run alongside the existing Fitbit integration.
+
+- **[Harbor Sleep]**, added by [@Lash-L]  
+  Keep an eye on your [Harbor Sleep](https://harbor.co/) baby monitor from Home Assistant. The integration connects to the device on your local network and exposes sensors like temperature, Wi-Fi strength, and stream quality.
+
+- **[Harman Luxury Audio]**, added by [@sbesh91]  
+  Control network streamers built on the Harman Luxury Audio platform, such as the Arcam Radia ST5 and ST60, and equivalent JBL and Mark Levinson streamers. The integration talks to the device directly on your local network, so no cloud account is required.
+
+- **[Karakeep]**, added by [@sli-cka]  
+  Connect your self-hosted [Karakeep](https://karakeep.app/) bookmarking service to Home Assistant and keep track of your bookmark statistics. Karakeep helps you save, organize, and tag links, notes, and images, and this integration surfaces those numbers as sensors.
+
+- **[LED Infrared]**, added by [@tr4nt0r]  
+  Control LED lights through any infrared emitter you already have set up in Home Assistant. It supports many branded and unbranded bulbs and strip controllers that use generic infrared remotes. Communication is one-way, so the integration uses assumed states.
+
+- **[LiteLLM]**, added by [@luismalves]  
+  Use a [LiteLLM](https://www.litellm.ai/) proxy as a conversation agent in Home Assistant. LiteLLM puts a single OpenAI-compatible API in front of many model providers, so you can reach almost any model through one endpoint, hosted or self-hosted. Home Assistant creates a conversation agent for each model you configure.
+
+- **[llama.cpp]**, added by [@allenporter]  
+  Use a local [llama.cpp](https://github.com/ggml-org/llama.cpp) server, or any OpenAI-compatible endpoint, as a conversation agent in Home Assistant. You can set up several agents, each with its own model and instructions, and keep everything running on your own hardware.
+
+- **[Lyngdorf]**, added by [@fishloa], launching at 🥈 silver quality  
+  Control [Lyngdorf](https://lyngdorf.steinwaylyngdorf.com/) audio processors and amplifiers from Home Assistant, including power, volume, source selection, and sound modes. The integration keeps in sync with the device over your local network.
+
+- **[Midea]**, added by [@chemelli74]  
+  Bring devices that use the Midea protocol, such as air conditioners and air purifiers, into Home Assistant. The integration provides information on the connected devices and lets you control their main features.
+
+- **[NeoPool]**, added by [@svasek], launching at 🥈 silver quality  
+  Monitor and manage pool controllers built on the NeoPool system, originally from Sugar Valley and sold under many brands like Hidrolife, Aquarite, and Oxilife. It talks to your controller locally over Modbus TCP, exposing water chemistry, filtration, and hydrolysis data with no cloud needed.
+
+- **[ScorpionTrack]**, added by [@Herbertmt978], launching at 🥈 silver quality  
+  Follow vehicles shared through a public ScorpionTrack location-share link on your Home Assistant map. The integration reads the shared vehicle feed and creates a {% term "device tracker" %} for each vehicle, without needing your private account credentials.
+
+[@allenporter]: https://github.com/allenporter
+[@chemelli74]: https://github.com/chemelli74
+[@elax46]: https://github.com/elax46
+[@fishloa]: https://github.com/fishloa
+[@Herbertmt978]: https://github.com/Herbertmt978
+[@Lash-L]: https://github.com/Lash-L
+[@luismalves]: https://github.com/luismalves
+[@MTrab]: https://github.com/MTrab
+[@sbesh91]: https://github.com/sbesh91
+[@sli-cka]: https://github.com/sli-cka
+[@svasek]: https://github.com/svasek
+[@tklecka]: https://github.com/tklecka
+[@TN-1]: https://github.com/TN-1
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Dyson Infrared]: /integrations/dyson_infrared
+[Fuelprices.dk]: /integrations/fuelprices_dk
+[Gatus]: /integrations/gatus
+[GeoSphere Austria Warnings]: /integrations/geosphere_austria_warnings
+[Google Health]: /integrations/google_health
+[Harbor Sleep]: /integrations/harbor
+[Harman Luxury Audio]: /integrations/harman_luxury
+[Karakeep]: /integrations/karakeep
+[LED Infrared]: /integrations/led_infrared
+[LiteLLM]: /integrations/litellm
+[llama.cpp]: /integrations/llama_cpp
+[Lyngdorf]: /integrations/lyngdorf
+[Midea]: /integrations/midea
+[NeoPool]: /integrations/neopool
+[ScorpionTrack]: /integrations/scorpiontrack
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing ones keep getting better too. Here are some of the noteworthy improvements this release:
+
+- **[Shelly]** now supports Enhanced Security, the HTTPS-only mode on firmware 2.0 for gen2 and newer devices, and added support for Shelly circuit breakers, with on/off control plus output-state and safety-switch sensors. Thanks, [@bieniu] and [@thecode]!
+- **[Reolink]** gained pre-siren entities and a motion device class on its AI-detection binary sensors. Thanks, [@starkillerOG] and [@abmantis]!
+- **[Overkiz]** added window and tilt binary sensors for contact sensors, boost and drying-duration numbers for the Atlantic electrical towel dryer, and support for the Somfy Thermostat PRO. Thanks, [@iMicknl]!
+- **[SwitchBot]** added support for the Candle Warmer Lamp and the RGBIC Neon Rope Light, plus fan and select controls for the Standing Fan. Thanks, [@Onero-testdev]!
+- **[Roborock]** got plenty of love for the Q10, with a do-not-disturb switch, switch entities, a map image, and a volume control. Thanks, [@lboue] and [@tubededentifrice]!
+- **[Whirlpool]** added an oven light, an oven cook-mode select, and an oven target-temperature number. Thanks, [@matthewdias] and [@bdlcalvin]!
+- **[MQTT]** gained an infrared platform, so you can send infrared commands over MQTT. Thanks, [@jbouwh]!
+- **[KNX]** got a whole set of improvements. Button and notify entities can now be configured from the interface, the KNX panel gained a **Send telegram** dialog (keyboard shortcut <kbd>s</kbd>), plus a datapoint type (DPT) reference and a device view for your project data. On top of that, all KNX entities now restore their state after a reload or restart. Thanks, [@farmio]!
+- **[Enphase Envoy]** added ACB battery sensors, along with sleep and wake controls. Thanks, [@genestealer]!
+- **[MELCloud]** gained on/off control, an operation-mode select, and a flow-temperature number for air-to-water heat pump zones. Thanks, [@imilchev]!
+- **[MELCloud Home]** added energy-consumption reporting and a number platform. Thanks, [@erwindouna]!
+- **[Portainer]** added an update platform and container health status. Thanks, [@erwindouna]!
+- **[Mikrotik]** gained sensor, button, and update platforms. Thanks, [@chemelli74]!
+- **[Imou]** added switch and sensor platforms. Thanks, [@Imou-OpenPlatform]!
+- **[Fronius]** added a binary sensor for backup mode. Thanks, [@farmio]!
+- **[OpenAI Conversation]** now supports GPT-5.6. Thanks, [@Shulyaka]!
+- **[WiiM]** added multi-room grouping and metadata synchronization. Thanks, [@Linkplay2020]!
+- **[SMLIGHT]** added Bluetooth proxy support and an infrared receiver for SMLIGHT Ultima devices. Thanks, [@tl-sl]!
+- **[Vizio]** added command aliases for its remote. Thanks, [@raman325]!
+- **[Tesla Wall Connector]** added vehicle current and Wi-Fi signal sensors. Thanks, [@sarabveer]!
+- **[Teslemetry]** added control for seat coolers. Thanks, [@Bre77]!
+- **[Tessie]** added a navigation-destination text entity. Thanks, [@Mattheinrichs]!
+- **[Gardena Bluetooth]** added tank pressure and water temperature sensors. Thanks, [@icereed]!
+- **[Duco]** added ventilation temperature sensors. Thanks, [@ronaldvdmeer]!
+- **[Victron BLE]** added support for Orion XS and inverter devices. Thanks, [@rajlaud]!
+- **[OMIE]** added an action to get prices for a specific date. Thanks, [@abmantis]!
+- **[Ecowitt]** added soil conductivity sensor support. Thanks, [@GSzabados]!
+- **[Steam]** added an image platform, plus new Last online, Level, and Now playing sensors. Thanks, [@tr4nt0r]!
+- **[LG Infrared]** added support for LG air conditioners. Thanks, [@Dr-Blank]!
+- **[UniFi Protect]** now supports the USL smart sensors (USL Entry, USL Environmental, and USL GlassBreak) on UniFi Protect 7.2 and newer, and cameras gained **Motion detection**, **Smart detection**, and **Sound detection** event entities that fire for any detection the camera reports, such as a person, a package, or barking, with the detected type as an attribute. Thanks, [@RaHehl]!
+
+[Shelly]: /integrations/shelly
+[Reolink]: /integrations/reolink
+[Overkiz]: /integrations/overkiz
+[SwitchBot]: /integrations/switchbot
+[Roborock]: /integrations/roborock
+[Whirlpool]: /integrations/whirlpool
+[MQTT]: /integrations/mqtt
+[KNX]: /integrations/knx
+[Enphase Envoy]: /integrations/enphase_envoy
+[MELCloud]: /integrations/melcloud
+[MELCloud Home]: /integrations/melcloud_home
+[Portainer]: /integrations/portainer
+[Mikrotik]: /integrations/mikrotik
+[Imou]: /integrations/imou
+[Fronius]: /integrations/fronius
+[OpenAI Conversation]: /integrations/openai_conversation
+[WiiM]: /integrations/wiim
+[SMLIGHT]: /integrations/smlight
+[Vizio]: /integrations/vizio
+[Tesla Wall Connector]: /integrations/tesla_wall_connector
+[Teslemetry]: /integrations/teslemetry
+[Tessie]: /integrations/tessie
+[Gardena Bluetooth]: /integrations/gardena_bluetooth
+[Duco]: /integrations/duco
+[Victron BLE]: /integrations/victron_ble
+[OMIE]: /integrations/omie
+[Ecowitt]: /integrations/ecowitt
+[Steam]: /integrations/steam_online
+[LG Infrared]: /integrations/lg_infrared
+[UniFi Protect]: /integrations/unifiprotect
+[@abmantis]: https://github.com/abmantis
+[@bdlcalvin]: https://github.com/bdlcalvin
+[@bieniu]: https://github.com/bieniu
+[@farmio]: https://github.com/farmio
+[@iMicknl]: https://github.com/iMicknl
+[@Bre77]: https://github.com/Bre77
+[@Dr-Blank]: https://github.com/Dr-Blank
+[@erwindouna]: https://github.com/erwindouna
+[@genestealer]: https://github.com/genestealer
+[@GSzabados]: https://github.com/GSzabados
+[@icereed]: https://github.com/icereed
+[@Imou-OpenPlatform]: https://github.com/Imou-OpenPlatform
+[@imilchev]: https://github.com/imilchev
+[@jbouwh]: https://github.com/jbouwh
+[@lboue]: https://github.com/lboue
+[@Linkplay2020]: https://github.com/Linkplay2020
+[@Mattheinrichs]: https://github.com/Mattheinrichs
+[@matthewdias]: https://github.com/matthewdias
+[@raman325]: https://github.com/raman325
+[@rajlaud]: https://github.com/rajlaud
+[@ronaldvdmeer]: https://github.com/ronaldvdmeer
+[@sarabveer]: https://github.com/sarabveer
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@tubededentifrice]: https://github.com/tubededentifrice
+[@Onero-testdev]: https://github.com/Onero-testdev
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
+
+This release, we celebrate several {% term integrations %} that have improved their quality scale:
+
+- **2 integrations reached platinum** 🏆
+  - [Anthropic], thanks to [@Shulyaka]
+  - [SMLIGHT SLZB], thanks to [@tl-sl]
+
+- **1 integration reached gold** 🥇
+  - [Nobø Ecohub], thanks to [@oyvindwe]
+
+- **5 integrations reached silver** 🥈
+  - [Dropbox], thanks to [@bdr99]
+  - [Kiosker], thanks to [@Claeysson]
+  - [OpenWrt (luci)], thanks to [@kristbaum]
+  - [STIEBEL ELTRON], thanks to [@ThyMYthOS]
+  - [WattWächter Plus], thanks to [@smartcircuits]
+
+- **2 integrations reached bronze** 🥉
+  - [Midea ccm15 AC Controller], thanks to [@ocalvo]
+  - [Netatmo], thanks to [@cgtobi]
+
+This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: /docs/quality_scale/
+[@bdr99]: https://github.com/bdr99
+[@cgtobi]: https://github.com/cgtobi
+[@Claeysson]: https://github.com/Claeysson
+[@ocalvo]: https://github.com/ocalvo
+[@oyvindwe]: https://github.com/oyvindwe
+[@Shulyaka]: https://github.com/Shulyaka
+[@smartcircuits]: https://github.com/smartcircuits
+[@ThyMYthOS]: https://github.com/ThyMYthOS
+[@tl-sl]: https://github.com/tl-sl
+[Anthropic]: /integrations/anthropic
+[Dropbox]: /integrations/dropbox
+[Kiosker]: /integrations/kiosker
+[Midea ccm15 AC Controller]: /integrations/ccm15
+[Netatmo]: /integrations/netatmo
+[Nobø Ecohub]: /integrations/nobo_hub
+[SMLIGHT SLZB]: /integrations/smlight
+[STIEBEL ELTRON]: /integrations/stiebel_eltron
+[WattWächter Plus]: /integrations/wattwaechter
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant user interface, some were only available using YAML configuration. We keep moving more integrations to the UI, making them more accessible for everyone to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[AquaLogic]**, done by [@j-mutter]
+- **[OpenWrt (luci)]**, done by [@kristbaum]
+
+[@j-mutter]: https://github.com/j-mutter
+[@kristbaum]: https://github.com/kristbaum
+[AquaLogic]: /integrations/aqualogic
+[OpenWrt (luci)]: /integrations/luci
+
+### Farewell to the following
+
+Time for a little cleaning, and no, we did not wait for spring! The following {% term "integration" "integrations" %} are no longer available as of this release:
+
+- **Permobil** has been removed. Permobil deprecated the API it relied on, so the integration could no longer retrieve any data, and there is no replacement available.
+- **Volvo On Call** has been removed. If you have a supported Volvo, set up the newer [Volvo](/integrations/volvo/) integration instead.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+### Tell us how setup went
+
+If you have set up Home Assistant recently, you might notice a short, optional survey asking how your first experience went. It is entirely up to you, and every response helps us make getting started smoother for the next person. Thank you to everyone who shares their thoughts! 💛
+
+### A roomier template editor
+
+The template tool in **Tools** is where you try out {% term "template" "templates" %} and watch the result update as you type. This release gives it a more comfortable layout: the editor and the result now sit in a split view you can drag to resize, and you can switch between side by side and stacked, whichever suits what you are working on. Your choice is remembered for next time.
+
+Thanks, [@maartenla](https://github.com/maartenla)!
+
+### Taps that land where you mean them
+
+On the picture elements card, a tap could trigger the element next to the one you meant, or hit nothing at all, and some elements could not be tapped. Taps now go to the nearest icon or label, so every element can be reached, and tapping a label's text always triggers that label. Thanks, [@RaHehl](https://github.com/RaHehl)!
+
+### A combined battery level you can trust
+
+If you track more than one battery in the energy dashboard, you can now give each one a capacity. The combined state of charge is then weighted by size, so a small full battery and a large empty one no longer average out to a misleading number. Batteries without a capacity set keep using the plain average, so nothing changes unless you want it to. Thanks, [@MindFreeze](https://github.com/MindFreeze)!
+
+### Search your media
+
+Browsing for the right song, photo, or film used to mean clicking through folder after folder. Now, {% term integrations %} that provide media can offer search right in the media browser, so you type what you are looking for and jump straight to it.
+
+What you can search depends on the media source. [Immich], for example, gained a smart search that finds photos by what is actually in them rather than by their filename, and [Overseerr] lets you search for and request movies and shows without leaving Home Assistant.
+
+Thanks, [@zweckj], [@mib1185], and [@felixschndr]!
+
+[Immich]: /integrations/immich
+[Overseerr]: /integrations/overseerr
+[@felixschndr]: https://github.com/felixschndr
+[@mib1185]: https://github.com/mib1185
+[@zweckj]: https://github.com/zweckj
+
+### Find your favorite cards faster
+
+Your most-used cards are now easier to find. In the card picker's "By Card" tab, you can now mark the cards you use most as favorites using the icon in the corner of each card. Favorited cards float to the top of the section, so if you reach for the same card again and again while building similar dashboards, it's always right there waiting for you. Tap the icon again to remove a card from your favorites.
+
+<img src='/images/blog/2026-08/favorite-cards.png' alt='Screenshot of the card picker&apos;s By Card tab, with the Tile, Area, and Entities cards marked as favorites with a star icon.' class='no-shadow' />
+
+Thanks, [@piitaya], [@laupalombi](https://github.com/laupalombi), and everyone who suggested this at a Release Party!
+
+### Z-Wave lock credentials, properly managed
+
+Managing who can unlock your Z-Wave lock just got a lot more capable. Powered by Z-Wave JS's new Access Control API, the Z-Wave JS app 1.6.0 brings a heavily revised interface: every supported lock now gets a dedicated **Access Control** tab. For now, this lives in Z-Wave JS UI rather than in the Z-Wave panel in Home Assistant.
+
+<p class='img'>
+  <img class='no-shadow' src='/images/blog/2026-08/zwave-access-control.png' alt='The new Access Control tab in Z-Wave JS UI, showing users and their credentials'>
+  Users, their credentials, and a full audit trail, all in one place.
+</p>
+
+Depending on what your lock supports, you can now give each user several credentials of more than one type, so the same person can have a PIN and a fingerprint, or multiple of both. New credentials can be learned on the lock itself: start the enrollment from the interface, then present the finger or type the PIN. There is also an audit log of every change, admin code management for locks that use one, and the ability to move credentials between users or delete them in bulk.
+
+Update the Z-Wave JS app to 1.6.0 or later, then open Z-Wave JS UI to find the new tab. Thanks, [@AlCalzone]!
+
+### And a few more
+
+There is even more packed into this release. Here are some of the other changes worth a mention:
+
+- **Templates keep getting faster.** Another round of {% term "template" "templates" %} performance work landed: templates with a numeric result are up to 40% faster, and templates used on dashboards can now be cached. Thanks, [@frenck]!
+- **Template entities remember their state.** Fan, {% term cover %}, and {% term "device tracker" %} template entities now restore their previous state after a restart, so they pick up right where they left off. Thanks, [@Petro31]!
+- **Search finds more of what is connected.** When you search or open a device or entity, Home Assistant now digs deeper into what is related, so scenes, scripts, groups, the people behind a person entity, and anything sharing a label or area all show up where you would expect them. It is a small change that makes it much easier to see how your setup fits together. Thanks, [@frenck]!
+- **A reboot heads-up on Home Assistant OS.** The system {% term update %} entity now lets you know when an update needs a reboot to finish. Thanks, [@mdegat01]!
+- **A new radon device class.** Sensors and numbers can now be classified as radon, so radon measurements get the right units and display. Thanks, [@abmantis]!
+- **Filter entities by manufacturer and model.** The entity filter can now narrow entities by manufacturer, model, and model ID. Thanks, [@Skaronator]!
+- **Ask Assist from quick search.** You can now start an Assist command straight from quick search. Thanks, [@timmo001]!
+- **A date on the clock card.** The clock card can now show the date alongside the time. Thanks, [@timmo001]!
+- **More from the Activity panel.** The Activity panel gained a CSV download and a clear-and-reset action. Thanks, [@karwosts] and [@timmo001]!
+
+[@AlCalzone]: https://github.com/AlCalzone
+[@karwosts]: https://github.com/karwosts
+[@mdegat01]: https://github.com/mdegat01
+[@Petro31]: https://github.com/Petro31
+[@Skaronator]: https://github.com/Skaronator
+[@timmo001]: https://github.com/timmo001
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2026.8 in August. These patch releases only contain bug fixes. Our goal is to release a patch release once a week, aiming for Friday.
+
+<!-- TODO after release: append one dated block per patch release (for example, "### 2026.8.1 - August 8"), each a list of PRs with author and number. Copy the format from the previous release. -->
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues) to get it fixed! Or check [our help page](/help) for guidance on more places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter) to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+If you would like to wear your support: the Open Home Foundation store just added new T-shirts featuring ESPHome, Music Assistant, and a fresh Home Assistant design, all in classic black (or Dark Mode, if you prefer!). They are versatile, built to last, and best of all, every purchase helps fund the foundation's work. [Grab yours from the store](https://store.openhomefoundation.org/shop/t-shirts).
+
+<a href='https://store.openhomefoundation.org/shop/t-shirts'><img src='/images/blog/2026-08/Black-shirts-newsletter.png' alt='Three black T-shirts from the Open Home Foundation store, featuring the ESPHome, Music Assistant, and Home Assistant designs.' class='no-shadow' /></a>
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
+
+{% details "AirNow" %}
+
+The station radius option has been removed. The 2026 AirNow API no longer uses a distance parameter, so the radius had no effect on which reporting station was used. Existing entries are updated automatically, and any radius you had set is discarded. No action is needed.
+
+([@derekcentrico] - [#176740]) ([AirNow documentation])
+
+[@derekcentrico]: https://github.com/derekcentrico
+[#176740]: https://github.com/home-assistant/core/pull/176740
+[AirNow documentation]: /integrations/airnow/
+
+{% enddetails %}
+
+{% details "Gardena Bluetooth" %}
+
+The valve's `activation_reason` sensor now reports a fixed set of values instead of free-form text. If you have {% term automations %}, {% term scripts %}, or {% term "template" "templates" %} that match on the old text values, update them to match the new ones.
+
+([@elupus] - [#177187])
+
+[@elupus]: https://github.com/elupus
+[#177187]: https://github.com/home-assistant/core/pull/177187
+
+{% enddetails %}
+
+{% details "Edifier Infrared" %}
+
+If you set up the Edifier Infrared integration for the R2000DB or R2730DB speakers, some buttons were mapped to the wrong infrared codes (on the R2730DB, power and mute were swapped). The mappings are now corrected and migrated automatically. If you built {% term automations %} or {% term scripts %} around the old, incorrect buttons, update them to match.
+
+([@abmantis] - [#177472]) ([Edifier Infrared documentation])
+
+[#177472]: https://github.com/home-assistant/core/pull/177472
+[Edifier Infrared documentation]: /integrations/edifier_infrared/
+
+{% enddetails %}
+
+{% details "Ohme" %}
+
+The Ohme energy sensor has been removed. It reported an estimate of the energy stored in the car's battery rather than the energy delivered by the charger, which caused confusing jumps in the energy dashboard, and the vendor's API no longer provides a useful value.
+
+If you tracked this sensor, use an [Integration - Riemann sum](/integrations/integration/) {% term helper %} on a power sensor to estimate the energy instead.
+
+([@dan-r] - [#174664]) ([Ohme documentation])
+
+[@dan-r]: https://github.com/dan-r
+[#174664]: https://github.com/home-assistant/core/pull/174664
+[Ohme documentation]: /integrations/ohme/
+
+{% enddetails %}
+
+{% details "Paperless-ngx" %}
+
+Paperless-ngx now requires a newer version of your Paperless-ngx server. The minimum supported server version is raised to 2.19, which also restores compatibility with Paperless-ngx 3.0. If your Paperless-ngx server is on version 2.18 or older, update it before you update Home Assistant.
+
+([@IngmarStein] - [#176889]) ([Paperless-ngx documentation])
+
+[@IngmarStein]: https://github.com/IngmarStein
+[#176889]: https://github.com/home-assistant/core/pull/176889
+[Paperless-ngx documentation]: /integrations/paperless_ngx/
+
+{% enddetails %}
+
+{% details "Robot vacuums" %}
+
+The deprecated `battery_level` property has been removed from the vacuum {% term entities %} of several integrations. If you use a robot vacuum's battery level in an {% term automation %}, {% term script %}, or on a dashboard, use the vacuum's battery sensor instead.
+
+This affects the following integrations:
+
+- [LG ThinQ]
+- [Neato]
+- [Romy]
+- [Shark IQ]
+- [SwitchBot Cloud]
+- [Template]
+- [TP-Link]
+- [Xiaomi Miio]
+
+([@gjohansson-ST] - [#175681], [#175684], [#175685], [#175686], [#175687], [#175688], [#175691], [#175764])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#175681]: https://github.com/home-assistant/core/pull/175681
+[#175684]: https://github.com/home-assistant/core/pull/175684
+[#175685]: https://github.com/home-assistant/core/pull/175685
+[#175686]: https://github.com/home-assistant/core/pull/175686
+[#175687]: https://github.com/home-assistant/core/pull/175687
+[#175688]: https://github.com/home-assistant/core/pull/175688
+[#175691]: https://github.com/home-assistant/core/pull/175691
+[#175764]: https://github.com/home-assistant/core/pull/175764
+[LG ThinQ]: /integrations/lg_thinq/
+[Neato]: /integrations/neato/
+[Romy]: /integrations/romy/
+[Shark IQ]: /integrations/sharkiq/
+[SwitchBot Cloud]: /integrations/switchbot_cloud/
+[Template]: /integrations/template/
+[TP-Link]: /integrations/tplink/
+[Xiaomi Miio]: /integrations/xiaomi_miio/
+
+{% enddetails %}
+
+{% details "ScreenLogic" %}
+
+The option to configure the {% term polling %} interval has been removed from ScreenLogic. Home Assistant now polls the integration at a fixed interval. If you need a different update frequency, you can [set your own polling interval](/common-tasks/general/#defining-a-custom-polling-interval) or trigger an update with the `homeassistant.update_entity` action.
+
+([@Pinball3D] - [#175576]) ([ScreenLogic documentation])
+
+[@Pinball3D]: https://github.com/Pinball3D
+[#175576]: https://github.com/home-assistant/core/pull/175576
+[ScreenLogic documentation]: /integrations/screenlogic/
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+Support for UniFi Protect AI Port devices has been removed. These devices only ever exposed diagnostic sensors, all disabled by default, and are not part of the UniFi Protect public API the integration is moving to. The AI Port device and its sensors are removed automatically when you update. You can still configure the AI Port directly in UniFi Protect.
+
+([@RaHehl] - [#174378]) ([UniFi Protect documentation])
+
+Detection scores are no longer available. The detection binary sensors (motion, person, vehicle, animal, and the smart-audio alarm sensors) now take their state from the UniFi Protect public API, which carries no per-event score, so their `event_score` attribute is gone and automations that filter on it need another condition. The event id and the detected types moved to the new **Motion detection**, **Smart detection**, and **Sound detection** event entities.
+
+([@RaHehl] - [#174948]) ([UniFi Protect documentation])
+
+UniFi Protect 7.1 or newer is now required. On an older console the integration reports that the version is too old instead of setting up. Update UniFi Protect to 7.1 or newer to keep using it.
+
+([@RaHehl] - [#177620]) ([UniFi Protect documentation])
+
+[@RaHehl]: https://github.com/RaHehl
+[#174378]: https://github.com/home-assistant/core/pull/174378
+[#174948]: https://github.com/home-assistant/core/pull/174948
+[#177620]: https://github.com/home-assistant/core/pull/177620
+[UniFi Protect documentation]: /integrations/unifiprotect/
+
+{% enddetails %}
+
+{% details "Volvo On Call" %}
+
+The Volvo On Call integration has been removed. If you have a supported Volvo, set up the newer [Volvo](/integrations/volvo/) integration instead.
+
+([@gjohansson-ST] - [#175677])
+
+[#175677]: https://github.com/home-assistant/core/pull/175677
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
+
+- [Devices are restricted to a single config entry and at most one subentry](https://developers.home-assistant.io/blog/2026/07/21/device-registry-single-config-entry)
+- [Introducing the Open Home Foundation AI Policy](https://developers.home-assistant.io/blog/2026/07/20/ai-policy)
+- [Media sources can now be searched](https://developers.home-assistant.io/blog/2026/07/03/media-source-search)
+- [Modernizing Modbus in Home Assistant](https://developers.home-assistant.io/blog/2026/07/05/modernizing-modbus)
+- [Standard event types for button event entities](https://developers.home-assistant.io/blog/2026/07/22/button-standard-event-types)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2026.8](/changelogs/core-2026.8).

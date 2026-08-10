@@ -3,6 +3,7 @@ title: Gatus
 description: Instructions on how to integrate Gatus with Home Assistant.
 ha_category:
   - Binary sensor
+  - Sensor
 ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: gatus
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_quality_scale: silver
 ---
 
@@ -44,9 +46,16 @@ The **Gatus** {% term integration %} provides the following entities.
 
 ### Binary sensors
 
-For each endpoint configured in Gatus, the integration creates one binary sensor.
+For each endpoint configured in Gatus, the integration creates the following binary sensor:
 
 - **Connectivity**: Reports `on` (connected) when the most recent check for that endpoint succeeded, and `off` (disconnected) when it failed.
+
+### Sensors
+
+For each endpoint configured in Gatus, the integration creates the following sensors:
+
+- **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
+- **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 
 ## Gatus automation examples
 
@@ -137,7 +146,7 @@ If you need to update the connection details (URL) of your Gatus instance, you c
 4. Update the URL of your Gatus instance.
 5. Select **Submit**.
 
-Reconfiguring or reloading the integration will automatically discover and add any newly configured endpoints as new binary sensor entities.
+Reconfiguring or reloading the integration will automatically discover and add any newly configured endpoints as new binary sensor and sensor entities.
 
 ## Known limitations
 

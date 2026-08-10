@@ -112,7 +112,8 @@ When every light in the living room is off, stop whatever is playing on the livi
 - **Trigger**: Light turned off
 - **Target**: Living room area
 - **Trigger when**: All
-- **Action**: Media player: Turn off
+- **Action**: Turn off media player
+  - **Target**: Living room speaker
 
 {% details "YAML example for auto-pausing media when the room goes dark" %}
 
