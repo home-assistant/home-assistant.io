@@ -8,6 +8,7 @@ ha_codeowners:
   - "@svasek"
 ha_domain: neopool
 ha_platforms:
+  - button
   - light
   - sensor
   - switch
@@ -100,11 +101,17 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay and switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags.
+The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
 {% endnote %}
+
+### Buttons
+
+- **Synchronize device time**: Writes the current Home Assistant time to the controller's clock.
+- **Clear error messages**: Clears the controller's active error and alarm messages.
+- **Reset cell runtime counter**: Resets the partial cell-runtime counter used to track electrolytic cell wear. Added when the hydrolysis module is present. Diagnostic and disabled by default, because it clears a wear counter you may want to keep.
 
 ### Light
 
