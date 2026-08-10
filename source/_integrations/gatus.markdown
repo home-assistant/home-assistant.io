@@ -39,7 +39,7 @@ Username:
 Password:
   description: "Optional password for HTTP Basic Authentication."
 API token:
-  description: "Optional Bearer / API token for authentication."
+  description: "Optional API token (Bearer token) for authentication."
 {% endconfiguration_basic %}
 
 ### Supported versions
