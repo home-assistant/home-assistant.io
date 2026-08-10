@@ -109,9 +109,9 @@ Only entities backed by a detected hardware module or an enabled controller opti
 
 ### Buttons
 
-- **Synchronize device time**: Writes the current Home Assistant time to the controller's clock.
+- **Synchronize device time**: Writes Home Assistant's current time to the controller's clock.
 - **Clear error messages**: Clears the controller's active error and alarm messages.
-- **Reset cell runtime counter**: Resets the partial cell-runtime counter used to track electrolytic cell wear. Added when the hydrolysis module is present. Diagnostic and disabled by default, because it clears a wear counter you may want to keep.
+- **Reset cell runtime counter**: Resets the partial cell-runtime counter used to track electrolytic cell wear. Added when the hydrolysis module is present. This button is a configuration entity and is disabled by default, because it clears a wear counter you may want to keep.
 
 ### Light
 
