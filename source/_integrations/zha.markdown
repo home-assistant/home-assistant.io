@@ -473,6 +473,9 @@ triggers:
     event_data:
       device_ieee: "00:12:4b:00:1c:d6:0f:66"
       command: toggle
+```
+
+{% enddetails %}
 {% include integrations/actions.md %}
 
 ## Zigbee groups and binding devices
