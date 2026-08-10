@@ -608,17 +608,64 @@ entity_category:
   required: false
   type: string
   default: None
+device:
+  description: Assign this entity to a device. Entities that share the same `id` are grouped into a single device.
+  required: false
+  type: map
+  keys:
+    id:
+      description: Identifier of the device. Use the same value for every entity you want grouped into one device. Values are normalized, so `Living room` and `living room` resolve to the same device. To add the entity to a device you created in the UI, use that device's identifier instead. It is kept exactly as given.
+      required: true
+      type: string
+    name:
+      description: Name shown for the device. Leave it out to keep the name of a device you referenced by its identifier.
+      required: false
+      type: string
+      default: None
 {% endconfiguration %}
 
 ```yaml
 # Example configuration.yaml entry fragment for common entity configuration options
 knx:
   sensor:
-    - name: My awesome sensor
+    - name: Awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
       entity_category: diagnostic
+      device:
+        id: my_awesome_device
+        name: My awesome device 🌸
       ...
 ```
+
+Assigning a device groups the entity on the device page, and names it the same way entities you create in the UI are named: the device name is shown in front of the entity name. Give the entity a name relative to its device. For example, name the entity `Ceiling light` rather than `Kitchen ceiling light` on a device named `Kitchen`, so it's shown as `Kitchen Ceiling light` instead of `Kitchen Kitchen ceiling light`. If you leave out the entity's `name`, it's shown as just the device's name, which is useful for a device's main entity.
+
+To add a YAML entity to a device you created in the UI, set `id` to that device's identifier, such as `knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5`, and leave out `name`:
+
+```yaml
+# Example configuration.yaml entry fragment adding a YAML entity to a UI-created device
+knx:
+  switch:
+    - name: Ceiling light
+      address: "1/1/1"
+      device:
+        id: knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5
+```
+
+A device you created in the UI has two different values. Do not confuse them:
+
+- The **Home Assistant device ID**: an internal ID, such as `1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d`. You only need it to look up the KNX identifier.
+- The **KNX device identifier**: the value that starts with `knx_vdev_`. This is what you set as `id` under `device`.
+
+To find the KNX device identifier:
+
+1. Go to **Settings** > **Devices & services** > **Devices** and open the device. The Home Assistant device ID is the last part of the page URL.
+2. Go to **Tools** > **Template** and render the following, replacing `HA_DEVICE_ID` with that ID:
+
+   ```text
+   {{ device_attr('HA_DEVICE_ID', 'identifiers') }}
+   ```
+
+   The KNX device identifier is the returned value that starts with `knx_vdev_`.
 
 ### Binary sensor
 
