@@ -54,6 +54,7 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
+- **Domain expiration**: Reports the remaining WHOIS domain validity in days of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 
