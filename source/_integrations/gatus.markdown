@@ -54,6 +54,7 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
+- **DNS response code**: Reports the DNS response code (for example, `NOERROR`, `NXDOMAIN`, or `SERVFAIL`) of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 
