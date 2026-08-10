@@ -1119,7 +1119,7 @@ sync_state:
 
     - `init` to just initialize the state on startup
 
-    `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
 
   required: false
   type: [boolean, string, integer]
@@ -1244,7 +1244,7 @@ sync_state:
 
     - `init` to just initialize the state on startup
 
-    `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
 
   required: false
   type: [boolean, string, integer]
@@ -1606,7 +1606,7 @@ sync_state:
 
     - `init` to just initialize the state on startup
 
-    `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
 
   required: false
   type: [boolean, string, integer]
@@ -1834,7 +1834,7 @@ sync_state:
 
     - `init` to just initialize the state on startup
 
-    `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
 
   required: false
   type: [boolean, string, integer]
@@ -2122,7 +2122,7 @@ sync_state:
 
     - `init` to just initialize the state on startup
 
-    `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
 
   required: false
   type: [boolean, string, integer]
@@ -2197,7 +2197,7 @@ sync_state:
 
     - `init` to just initialize the state on startup
 
-    `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
 
   required: false
   type: [boolean, string, integer]
