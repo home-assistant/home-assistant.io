@@ -1141,6 +1141,31 @@ commands:
   type: list
 {% endconfiguration %}
 
+## Vacuum fan speed
+
+Widget that displays a dropdown to select the fan speed for a [vacuum](/integrations/vacuum).
+
+<p class='img'>
+  <img src='/images/dashboards/features/vacuum_fan_speed.png' alt='Screenshot of the tile card with the vacuum fan speed feature'>
+  Screenshot of the tile card with the vacuum fan speed feature
+</p>
+
+```yaml
+features:
+  - type: "vacuum-fan-speed"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`vacuum-fan-speed`"
+  type: string
+fan_speeds:
+  required: false
+  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
+  type: list
+{% endconfiguration %}
+
 ## Valve open/close
 
 Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
