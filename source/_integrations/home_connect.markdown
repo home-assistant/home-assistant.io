@@ -380,7 +380,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Glass shine**: `dishcare_dishwasher_program_glass_shine`
 - **Night wash**: `dishcare_dishwasher_program_night_wash`
 - **Quick 65ºC**: `dishcare_dishwasher_program_quick_65`
-- **Quick d**: `dishcare_dishwasher_program_quick_d`
+- **Quick D**: `dishcare_dishwasher_program_quick_d`
 - **Normal 45ºC**: `dishcare_dishwasher_program_normal_45`
 - **Intensive 45ºC**: `dishcare_dishwasher_program_intensiv_45`
 - **Auto half load**: `dishcare_dishwasher_program_auto_half_load`
@@ -434,7 +434,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Business shirts - Easy iron**: `laundry_care_dryer_program_business_shirts_easy_iron`
 - **Cold refresh**: `laundry_care_dryer_program_cold_refresh_cold_refresh_cold_refresh`
 - **Cold refresh - 1 piece**: `laundry_care_dryer_program_cold_refresh_1_piece`
-- **Cold refresh - 5 piece**: `laundry_care_dryer_program_cold_refresh_5_piece`
+- **Cold refresh - 5 pieces**: `laundry_care_dryer_program_cold_refresh_5_piece`
 - **Cold refresh - Business**: `laundry_care_dryer_program_cold_refresh_business`
 - **Connected dry**: `laundry_care_dryer_program_connected_dry`
 - **Cotton eco**: `laundry_care_dryer_program_cotton_cotton_eco`
@@ -476,7 +476,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Special Heat-Up for frozen products**: `cooking_oven_program_heating_mode_frozen_heatup_special`
 - **Desiccation**: `cooking_oven_program_heating_mode_desiccation`
 - **Defrost**: `cooking_oven_program_heating_mode_defrost`
-- **Dough proving**: `cooking_oven_program_heating_mode_dough_proving`
+- **Dough proving** (heating mode): `cooking_oven_program_heating_mode_dough_proving`
 - **Proof**: `cooking_oven_program_heating_mode_proof`
 - **Hot air + 30 RH**: `cooking_oven_program_heating_mode_hot_air_30_steam`
 - **Hot air + 60 RH**: `cooking_oven_program_heating_mode_hot_air_60_steam`
@@ -492,7 +492,7 @@ Both entities can use these options, but the availability of these will depend o
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
 - **Max**: `cooking_oven_program_microwave_max`
 - **Steam mode**: `cooking_oven_program_steam_modes_steam`
-- **Dough proving**: `cooking_oven_program_steam_modes_dough_proving`
+- **Dough proving** (steam mode): `cooking_oven_program_steam_modes_dough_proving`
 - **Reheat**: `cooking_oven_program_steam_modes_reheat`
 - **Warming drawer**: `cooking_oven_program_heating_mode_warming_drawer`
 - **Draining**: `cooking_oven_program_cleaning_draining`
