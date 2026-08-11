@@ -79,7 +79,7 @@ The integration creates the following {% term sensor %} entities for each contro
 - **Supply temperature**: (diagnostic) The temperature of the air leaving the indoor unit into the ductwork.
 - **Return temperature**: (diagnostic) The temperature of the air returning to the indoor unit.
 - **Control zone**: (diagnostic) The climate entity ID that currently owns the unit target temperature. This is the controller climate entity when the controller sets the target, or a zone climate entity such as `climate.living_room` when a zone is driving the unit.
-- **Control zone setpoint**: (diagnostic) The target temperature of that climate entity. Unknown when the controlling zone is not climate-controlled.
+- **Control zone setpoint**: (diagnostic) The target temperature of that climate entity. The sensor state is `unknown` when the controlling zone is not climate-controlled.
 
 ## Control zone (climate control mode)
 
