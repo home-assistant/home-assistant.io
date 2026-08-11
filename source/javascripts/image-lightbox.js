@@ -62,6 +62,7 @@
     const src = getImageSource(image).toLowerCase();
     const path = getImagePath(image);
     const alt = (image.getAttribute("alt") || "").toLowerCase();
+    const isScreenshot = alt.includes("screenshot");
 
     return Boolean(
       image.matches(brandLogoSelector) ||
@@ -69,9 +70,11 @@
       src.includes("brands.home-assistant.io") ||
       path.includes("/images/supported_brands/") ||
       path.includes("/logos/") ||
-      /(?:^|[-_/])(logo|logos|brand|brands|wordmark)(?:[-_.\/]|$)/i.test(path) ||
-      ((/\blogo(s)?\b|\bwordmark\b/.test(alt)) &&
-        !alt.includes("screenshot"))
+      (/(?:^|[-_/])(logo|logos|brand|brands|wordmark)(?:[-_.\/]|$)/i.test(
+        path
+      ) &&
+        !isScreenshot) ||
+      ((/\blogo(s)?\b|\bwordmark\b/.test(alt)) && !isScreenshot)
     );
   }
 
