@@ -59,16 +59,3 @@ Additionally, an account will also have:
 ## Actions
 
 {% include integrations/actions.md %}
-
-The Monzo integration provides the following administrator-only actions:
-
-- **Deposit into pot** (`monzo.deposit_into_pot`): Moves money from an account into a pot.
-- **Withdraw from pot** (`monzo.withdraw_from_pot`): Moves money from a pot into an account.
-
-Both actions use the following fields:
-
-- **Account**: The Monzo account to move money from or into.
-- **Pot**: The Monzo pot to move money into or from.
-- **Amount**: The amount of money to move. The amount must be positive and have no more than two decimal places.
-
-The selected pot must belong to the selected account. After a successful transfer, the integration refreshes the account and pot balances.
