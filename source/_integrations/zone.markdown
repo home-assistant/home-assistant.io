@@ -47,7 +47,7 @@ During the [onboarding process](/getting-started/onboarding/), Home Assistant as
 ## Adding a new zone or editing zones
 
 {% note %}
-If you have configured the zone or some of the general settings in YAML, as described in [editing zones in YAML](/integrations/zone/#editing-zones-in-yaml) and in [editing the general settings in YAML](/integrations/homeassistant/#editing-the-general-settings-in-YAML), you cannot edit them using the UI.
+If you have configured the zone or some of the general settings in YAML, as described in [editing zones in YAML](/integrations/zone/#editing-zones-in-yaml) and in [editing the general settings in YAML](/integrations/homeassistant/#editing-the-general-settings-in-yaml), you cannot edit them using the UI.
 {% endnote %}
 
 1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %} and select the **Zones** tab.
