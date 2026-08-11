@@ -173,7 +173,7 @@
             window.matchMedia &&
             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-          return new PhotoSwipeLightbox({
+          const lightbox = new PhotoSwipeLightbox({
             pswpModule: importPhotoSwipe,
             bgOpacity: 0.88,
             closeTitle: "Close image viewer",
@@ -199,6 +199,12 @@
             tapAction: "toggle-controls",
             doubleTapAction: "zoom",
           });
+
+          lightbox.on("uiRegister", () => {
+            lightbox.pswp.element.setAttribute("aria-label", "Image viewer");
+          });
+
+          return lightbox;
         })
         .catch(resetLightboxPromise);
     }
