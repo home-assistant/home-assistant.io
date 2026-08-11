@@ -23,7 +23,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com?article_id=XsrQM4GMK7wP4t93) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, supported options are exposed as select entities, and supported measurements are exposed as sensor entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, supported options are exposed as select entities, and supported measurements are exposed as sensor entities in Home Assistant.
 
 ## Supported devices
 
@@ -35,7 +35,7 @@ Add or remove devices in the Imou Open Platform or Imou app; new devices are pic
 
 Before using the Imou integration, create an Imou Open Platform application:
 
-1. Visit [Imou Open Platform](https://open.imoulife.com?article_id=XsrQM4GMK7wP4t93).
+1. Visit [Imou Open Platform](https://open.imoulife.com).
 2. Register or log in to your Imou account, then open the **Control board**.
 3. Go to **App Information** to obtain an **App ID** and **App secret**.
 4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
