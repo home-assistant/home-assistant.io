@@ -23,20 +23,20 @@ This tutorial assumes the following:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create Automation**.
 
-    ![The automation editor.](/images/getting-started/automation-editor.png)
+    [![The automation editor.](/images/getting-started/automation-editor.png)](/images/getting-started/automation-editor.png)
 
    - Then, select **Create new automation**. This brings up an empty automation page.
 
-     ![The start of a new automation.](/images/getting-started/new-automation.png)
+     [![The start of a new automation.](/images/getting-started/new-automation.png)](/images/getting-started/new-automation.png)
 
 2. The first step is defining what should {% term trigger %} the automation to run.
    - In this case, we want to use the event of the sun setting to trigger our automation.
    - Select **Add trigger**, type `Sun` and select it.
-   ![Use the sun as trigger.](/images/getting-started/sun-trigger.png)
+   [![Use the sun as trigger.](/images/getting-started/sun-trigger.png)](/images/getting-started/sun-trigger.png)
 3. Select **Sunset**.
    - We want the automation to be triggered a little before that, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before sunset. Neat!
 
-    ![A new automation with a sun trigger filled in.](/images/getting-started/new-trigger.png)
+    [![A new automation with a sun trigger filled in.](/images/getting-started/new-trigger.png)](/images/getting-started/new-trigger.png)
 
 4. Once we have defined our trigger, we need to define what should happen.
    - Select **Add action**.
@@ -45,7 +45,7 @@ This tutorial assumes the following:
    - This only works if your lights are assigned to an {% term area %}.
    - To learn more about grouping devices in areas, refer to the [area documentation](/docs/organizing/areas/).
 
-   ![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)
+   [![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)](/images/getting-started/action.png)
 
 6. To save the automation, select **Save**. Give the automation a name, add a **Description**, and **Save** again.
    - When choosing a name, be specific, so that you can find it even when you have many automations. For example, `Turn on living room table light at sunset`.
@@ -69,17 +69,17 @@ This tutorial assumes the following:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation**.
 
-    ![The automation editor.](/images/getting-started/automation-editor.png)
+    [![The automation editor.](/images/getting-started/automation-editor.png)](/images/getting-started/automation-editor.png)
 
    - Then, select **Create new automation**. This brings up an empty automation page.
 
-     ![The start of a new automation.](/images/getting-started/new-automation.png)
+     [![The start of a new automation.](/images/getting-started/new-automation.png)](/images/getting-started/new-automation.png)
 
 2. We want the light to start dimming at 21:45. This means we want an automation that is triggered by time.
    - Select **Add trigger** > **Time and location** > **Time**.
    - Select **Fixed time** and enter the time.
 
-    ![A new automation with a fixed time trigger filled in.](/images/getting-started/automation_trigger_fixed_time.png)
+    [![A new automation with a fixed time trigger filled in.](/images/getting-started/automation_trigger_fixed_time.png)](/images/getting-started/automation_trigger_fixed_time.png)
 
 3. We want to do this only if tomorrow is a workday.
    - Select **Add condition** > **Entity** > **State**.
@@ -91,14 +91,14 @@ This tutorial assumes the following:
    - Under **If**, select **Add condition** > **Entity** > **State**.
    - Under **State**, select **On**.
 
-    ![Screenshot showing the if section of an if-then action](/images/getting-started/automation_if-then-action_if.png)
+    [![Screenshot showing the if section of an if-then action](/images/getting-started/automation_if-then-action_if.png)](/images/getting-started/automation_if-then-action_if.png)
 
 5. Now we want to define the action that is performed when the condition is true (when the light was on).
    - Under **Then**, select **Add action** > **Light turn on**.
    - Under  **Entity**, select your light.
    - Define the light settings, such as brightness, temperature, or color. The available settings depend on your light.
 
-    ![Screenshot showing the then section of an if-then action](/images/getting-started/automation_if-then-action_then.png)
+    [![Screenshot showing the then section of an if-then action](/images/getting-started/automation_if-then-action_then.png)](/images/getting-started/automation_if-then-action_then.png)
 
 6. To save the automation, select **Save**. Give the automation a name (for example, `dim living room table light night before workday`), add a **Description**, and **Save** again.
 7. [Test your automation](/docs/automation/troubleshooting/#testing-your-automation).
