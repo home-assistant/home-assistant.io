@@ -3,14 +3,14 @@ title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
 ha_release: 2026.8
 ha_category:
-  - Water heater
+  - Number
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Moustachauve'
 ha_domain: hotspring
 ha_platforms:
-  - water_heater
+  - number
 ha_integration_type: device
 ---
 
@@ -45,12 +45,11 @@ If the IP address of your Hot Spring spa changes, you can reconfigure the integr
 
 The **Hot Spring** integration provides the following entities:
 
-### Water heater
+### Number
 
-- **Water heater**
-  - **Description**: Displays the current water temperature and allows setting the target water temperature.
-  - **Temperature Range**: 80.0 °F to 104.0 °F
-  - **Remarks**: Turning the water heater on or off is not supported by the integration.
+- **Target temperature**
+  - **Description**: Allows setting the target water temperature for the spa.
+  - **Range**: 80.0 °F to 104.0 °F
 
 {% include integrations/actions.md %}
 
