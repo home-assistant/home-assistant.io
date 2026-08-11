@@ -154,28 +154,44 @@
 
   function getLightbox() {
     if (!lightboxPromise) {
-      lightboxPromise = import(lightboxUiPath).then((module) => {
-        const PhotoSwipeLightbox = module.default;
+      lightboxPromise = import(lightboxUiPath)
+        .then((module) => {
+          const PhotoSwipeLightbox = module.default;
+          const prefersReducedMotion =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        return new PhotoSwipeLightbox({
-          pswpModule: () => import(lightboxImagePath),
-          bgOpacity: 0.88,
-          closeTitle: "Close image viewer",
-          zoomTitle: "Zoom image",
-          arrowPrevTitle: "Previous image",
-          arrowNextTitle: "Next image",
-          errorMsg: "The image could not be loaded.",
-          trapFocus: true,
-          returnFocus: true,
-          secondaryZoomLevel: (zoomLevelObject) =>
-            getZoomLevel(zoomLevelObject, secondaryZoomScale),
-          maxZoomLevel: (zoomLevelObject) =>
-            getZoomLevel(zoomLevelObject, maxZoomScale),
-          imageClickAction: "zoom",
-          tapAction: "toggle-controls",
-          doubleTapAction: "zoom",
+          return new PhotoSwipeLightbox({
+            pswpModule: () => import(lightboxImagePath),
+            bgOpacity: 0.88,
+            closeTitle: "Close image viewer",
+            zoomTitle: "Zoom image",
+            arrowPrevTitle: "Previous image",
+            arrowNextTitle: "Next image",
+            errorMsg: "The image could not be loaded.",
+            trapFocus: true,
+            returnFocus: true,
+            ...(prefersReducedMotion
+              ? {
+                  showHideAnimationType: "none",
+                  showAnimationDuration: 0,
+                  hideAnimationDuration: 0,
+                  zoomAnimationDuration: 0,
+                }
+              : {}),
+            secondaryZoomLevel: (zoomLevelObject) =>
+              getZoomLevel(zoomLevelObject, secondaryZoomScale),
+            maxZoomLevel: (zoomLevelObject) =>
+              getZoomLevel(zoomLevelObject, maxZoomScale),
+            imageClickAction: "zoom",
+            tapAction: "toggle-controls",
+            doubleTapAction: "zoom",
+          });
+        })
+        .catch((error) => {
+          lightboxPromise = undefined;
+          throw error;
         });
-      });
     }
 
     return lightboxPromise;
