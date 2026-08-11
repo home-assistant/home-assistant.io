@@ -152,6 +152,15 @@
     return Math.max(zoomLevelObject.fit, cappedScale);
   }
 
+  function resetLightboxPromise(error) {
+    lightboxPromise = undefined;
+    throw error;
+  }
+
+  function importPhotoSwipe() {
+    return import(lightboxImagePath).catch(resetLightboxPromise);
+  }
+
   function getLightbox() {
     if (!lightboxPromise) {
       lightboxPromise = import(lightboxUiPath)
@@ -162,7 +171,7 @@
             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
           return new PhotoSwipeLightbox({
-            pswpModule: () => import(lightboxImagePath),
+            pswpModule: importPhotoSwipe,
             bgOpacity: 0.88,
             closeTitle: "Close image viewer",
             zoomTitle: "Zoom image",
@@ -188,10 +197,7 @@
             doubleTapAction: "zoom",
           });
         })
-        .catch((error) => {
-          lightboxPromise = undefined;
-          throw error;
-        });
+        .catch(resetLightboxPromise);
     }
 
     return lightboxPromise;
