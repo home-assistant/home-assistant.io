@@ -1023,7 +1023,7 @@ All the event sensors will have the following possible values:
   - **Description**: Event triggered when the drying process is finished.
   - **Availability**: Dryer
 - **Machine care and filter cleaning reminder**:
-  - **Description**: Event triggered when the appliance needs running a Machine Clean program without dishes and clening the filter and spray arm.
+  - **Description**: Event triggered when the appliance needs to run a Machine Clean program without dishes and clean the filter and spray arm.
   - **Availability**: Dishwasher
 - **Machine care and low maintenance filter cleaning reminder**:
   - **Description**: Event triggered when the appliance needs running a Machine Clean program without dishes is recommended and cleaning the filter and spray arm is optional.
