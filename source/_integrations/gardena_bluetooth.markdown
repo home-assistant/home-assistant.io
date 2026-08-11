@@ -92,7 +92,7 @@ In addition to the pump controls, pressure tank units provide sensors for the cu
 - Aqua Precise Overground ([16000-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-irrigation-system/970746801.html))
 - Aqua Precise Underground ([16001-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-pipeline-irrigation-system/970746901.html))
 
-For these types of devices the integration provide diagnostic sensors for flows as well as the ability to configure positions and names. The watering contour are exposed as image entities.
+For these devices, the integration provides diagnostic sensors for flow and lets you configure positions and names. Watering contours are exposed as image entities.
 
 ### Limitations
 
