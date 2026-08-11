@@ -205,10 +205,6 @@ template:
     required: false
     type: template
     default: true
-  conditions:
-    description: Define conditions that have to be met before template entity updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
-    required: false
-    type: list
   default_entity_id:
     description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
     required: false
