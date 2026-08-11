@@ -10,9 +10,11 @@ ha_integration_type: hub
 ha_config_flow: true
 ha_category:
   - Binary sensor
+  - Button
   - Sensor
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
 ha_quality_scale: bronze
 related:
@@ -37,6 +39,13 @@ Note that feature availability may vary depending on the appliance model.
 
 The integration supports the following appliance types:
 
+- **Dishwasher**
+- **Washer Dryer**
+- **Washing Machine**
+- **Dryer**
+- **Refrigerator**
+- **Hob**
+- **Hood**
 - **Oven**
 
 ## Prerequisites
@@ -93,6 +102,27 @@ Entity availability depends on the appliance type and model. Some entities may n
 - **UI lock mode**
   - **Description**: Reports if the user interface is locked.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hob.
+
+{% enddetails %}
+
+### Button
+
+{% details "List of button entities" %}
+
+This entity is used to control the appliance with the following actions:
+
+- **Start**
+  - **Description**: Begin operation.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+- **Pause**
+  - **Description**: Temporarily pause operation.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
+- **Resume**
+  - **Description**: Continue a paused operation.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
+- **Stop**
+  - **Description**: Stop the appliance.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
 
 {% enddetails %}
 
