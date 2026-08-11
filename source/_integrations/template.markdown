@@ -535,7 +535,7 @@ button:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
       required: false
       type: map
       keys:
@@ -759,7 +759,7 @@ device_tracker:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`,  and `gps_accuracy`.
+      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
       required: false
       type: map
       keys:
@@ -1614,7 +1614,7 @@ lock:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by`, and `code_format`.
+      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
       required: false
       type: map
       keys:
@@ -2085,29 +2085,6 @@ template:
     sensor:
       - name: Outside Temperature last known value
         state: "{{ states('sensor.outside_temperature') }}"
-```
-
-This example shows how to filter negative and positive values from an existing sensor. The same trigger will conditionally update a sensor that contains the positive values and a sensor that contains the negative values.
-
-```yaml
-template:
-  - triggers:
-      trigger: state
-      entity_id: sensor.source_value
-    sensor:
-      - name: Positive values
-        conditions:
-          condition: numeric_state
-          entity_id: sensor.source_value
-          above: 0
-        state: "{{ states('sensor.source_value') }}"
-
-      - name: Negative values
-        conditions:
-          condition: numeric_state
-          entity_id: sensor.source_value
-          below: 0
-        state: "{{ states('sensor.source_value') | float | abs }}"
 ```
 
 ## Switch
