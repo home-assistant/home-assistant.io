@@ -744,6 +744,31 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light effect
+
+Widget that displays a dropdown to select an effect for a [light](/integrations/light).
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_effect.png' alt='Screenshot of the tile card with the light effect feature'>
+  Screenshot of the tile card with the light effect feature
+</p>
+
+```yaml
+features:
+  - type: "light-effect"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-effect`"
+  type: string
+effects:
+  required: false
+  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
+  type: list
+{% endconfiguration %}
+
 ## Lock commands
 
 Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
