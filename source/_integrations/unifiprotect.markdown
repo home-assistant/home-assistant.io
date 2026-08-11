@@ -50,6 +50,16 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect.
 
+{% important %}
+Only UniFi Protect running on a UniFi OS Console is supported.
+
+Ubiquiti does not offer UniFi Protect for self-hosting. Unofficial ports that run the UniFi Protect application in a container or on third-party hardware are outside the scope of this {% term integration %} and are not supported.
+
+These setups can report information that Home Assistant cannot use. For example, UniFi Protect reports the address it is bound to, so an instance running in a container hands out a container-internal address in its camera stream URLs, which Home Assistant cannot reach.
+
+We recommend against running UniFi Protect this way. Unless Ubiquiti starts offering UniFi Protect for self-hosting, do not open issues for these setups.
+{% endimportant %}
+
 ### Software support
 
 The minimum supported software version for UniFi Protect is `v7.1.0`. If you have an older version, you will get errors trying to set up the integration.
