@@ -17,7 +17,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **De Lijn** {% term integration %} shows realtime departure information
+The **De Lijn** {% term integration %} shows real-time departure information
 for stops of [De Lijn](https://www.delijn.be/), the public transport company
 of Flanders (Belgium).
 
@@ -61,8 +61,8 @@ Number of departures:
 
 Each stop provides a **Next departure** timestamp sensor. Its attributes
 contain the details of the upcoming departures, including the line number,
-destination, transport type, realtime status, cancellation status, and the
-line's display colours — in the same format as earlier versions of this
+destination, transport type, real-time status, cancellation status, and the
+line's display colors — in the same format as earlier versions of this
 integration, so existing dashboard cards keep working.
 
 ## Data updates
