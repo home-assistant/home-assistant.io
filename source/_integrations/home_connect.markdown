@@ -1182,7 +1182,7 @@ To solve the above issue, follow these steps:
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
 
-#### Symptom: Account linking rejected at my.home-assistant.io / Given scope doesn't match requested scope
+#### Symptom: Account linking rejected: invalid_scope
 
 ##### Description
 
