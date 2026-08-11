@@ -64,4 +64,4 @@ The integration creates a **Transaction** {% term event %} {% term entity %} for
 
 The complete transaction data provided by Monzo is available in the event's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
 
-Transaction events require either Home Assistant Cloud or an external Home Assistant URL that uses HTTPS on port 443.
+Transaction events require either Home Assistant Cloud or an external Home Assistant URL that is accessible from the web.
