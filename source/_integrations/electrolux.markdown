@@ -10,9 +10,11 @@ ha_integration_type: hub
 ha_config_flow: true
 ha_category:
   - Binary sensor
+  - Button
   - Sensor
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
 ha_quality_scale: bronze
 related:
