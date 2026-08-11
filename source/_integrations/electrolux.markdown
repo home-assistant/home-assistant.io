@@ -11,10 +11,12 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Light
   - Sensor
 ha_platforms:
   - binary_sensor
   - button
+  - light
   - sensor
 ha_quality_scale: bronze
 related:
@@ -123,6 +125,19 @@ This entity is used to control the appliance with the following actions:
 - **Stop**
   - **Description**: Stop the appliance.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+
+{% enddetails %}
+
+### Light
+
+{% details "List of light entities" %}
+
+- **Cavity light**
+  - **Description**: Turn the cavity light on or off.
+  - **Available for appliance types**: Oven.
+- **Hood light**
+  - **Description**: Turn the overhead light on or off, and change the light's color and intensity.
+  - **Available for appliance types**: Hood.
 
 {% enddetails %}
 
