@@ -188,7 +188,7 @@ cover:
 
 ### Scenes and automations that set both position and tilt
 
-If a scene or automation sets both the position and the tilt of a cover, Home Assistant sends these as two separate actions: [Set cover position](/actions/cover.set_cover_position/) followed by [Set cover tilt position](/actions/cover.set_cover_tilt_position/). On Somfy venetian blinds and similar IO motors, the second command interrupts the first while it's still moving, so the cover only makes a short stuttering move instead of reaching the target position and tilt.
+If a scene or automation sets both the position and the tilt of a cover, Home Assistant sends these as two separate actions: [Set cover position](/actions/cover.set_cover_position/) followed by [Set cover tilt position](/actions/cover.set_cover_tilt_position/). On Somfy venetian blinds and similar io-homecontrol motors, the second command interrupts the first while it's still moving, so the cover only makes a short stuttering move instead of reaching the target position and tilt.
 
 To move a cover to a target position and tilt in one smooth motion, use the [Set cover position and tilt](/actions/overkiz.set_cover_position_and_tilt/) action instead.
 
@@ -210,7 +210,7 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 **Execution queue is full on gateway**
 
-The gateway keeps a limited execution queue (around 10 requests). If you command many devices at the same time, for example with a group, you can hit this limit and see a `EXEC_QUEUE_FULL` error.
+The gateway keeps a limited execution queue (around 10 requests). If you command many devices at the same time, for example with a group, you can hit this limit and see an `EXEC_QUEUE_FULL` error.
 
 To help avoid this, the integration automatically batches commands that are sent close together into a single request, so most everyday automations and groups stay within the limit. If you still run into the error, create a scenario in the corresponding application, sync it in the integration, and call that scenario instead.
 
