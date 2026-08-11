@@ -62,6 +62,6 @@ Additionally, an account will also have:
 
 The integration creates a **Transaction** {% term event %} {% term entity %} for each Monzo account. When Monzo reports a new transaction, the entity fires a `transaction_created` event and the integration refreshes the account and pot balances.
 
-The complete transaction data provided by Monzo is available in the event's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
+The complete transaction data provided by Monzo is available in the event entity's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
 
-Transaction events require either Home Assistant Cloud or an external Home Assistant URL that is accessible from the web.
+Transaction events require either [Home Assistant Cloud](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
