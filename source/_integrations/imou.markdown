@@ -105,9 +105,8 @@ When the cloud API reports that the toggle is supported for a device, the integr
 
 ### Selects
 
-When the cloud API reports that the option is supported for a device, the integration exposes the following select entities:
+When the cloud API reports that the option is supported for a device, the integration exposes the following select entities (device settings, configuration category):
 
-- **Mode**: Choose home, away, or disarm on supported security devices.
 - **Night vision mode**: Choose the night vision mode on supported cameras.
 - **Volume**: Choose mute, low, medium, or high volume on supported devices.
 
