@@ -7,7 +7,7 @@ article.post {
 
     &:focus-visible {
       outline: 3px solid $blueDark;
-      outline-offset: 4px;
+      outline-offset: -6px;
     }
   }
 }
