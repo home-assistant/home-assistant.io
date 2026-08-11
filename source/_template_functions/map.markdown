@@ -22,7 +22,7 @@ This is one of the most heavily used filters in Home Assistant templates. You wi
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
-filter: '{{ expand("group.temperature_sensors") | map(attribute="state") | list }}'
+filter: '{{ expand("sensor.temperature_sensors") | map(attribute="state") | list }}'
 type: list
 output: '["21.5", "19.8", "22.3"]'
 {% endtemplate_function_usage %}
@@ -72,7 +72,7 @@ Use `attribute=` to pull a specific property from each item in the list.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | map(attribute="entity_id")
     | list
   }}
@@ -104,7 +104,7 @@ Use dotted notation to access nested attributes.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="attributes.brightness")
     | list
@@ -131,7 +131,7 @@ Extract state values, convert to floats, and compute the average.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | map("float")
     | average
@@ -145,7 +145,7 @@ output: "21.2"
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | map(attribute="name")
     | list
   }}
@@ -160,7 +160,7 @@ Apply multiple transformations by chaining `map` calls.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | map("float")
     | map("round", 1)
@@ -192,7 +192,7 @@ Use `default=` to handle items that may not have the requested attribute.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | map(attribute="attributes.brightness", default=0)
     | list
   }}

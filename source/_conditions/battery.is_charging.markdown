@@ -13,8 +13,6 @@ The **Battery is charging** condition passes when a battery-powered device is ac
 
 For a visual overview of all battery statuses, open {% my maintenance title="**Maintenance** dashboard" %}.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Battery is charging** in an automation:

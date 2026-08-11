@@ -90,7 +90,7 @@ Two camera entities are provided: `live_view` and `last_recording`.
 `last_recording` is disabled by default.
 
 {% important %}
-Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
+Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
 ### Event

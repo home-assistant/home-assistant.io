@@ -11,7 +11,10 @@ ha_category:
   - Lock
   - Media Player
   - Number
+  - Select
   - Sensor
+  - Switch
+  - Text
   - Update
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
@@ -32,6 +35,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - update
 ha_integration_type: hub
 ha_quality_scale: silver
@@ -52,6 +56,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Enable Sentry mode, valet mode, and defrost mode
 - Flash lights, honk horn, and trigger HomeLink
 - Track vehicle location and navigation destination
+- Send a navigation destination to the vehicle
 - Install software updates
 
 ### Energy product monitoring and control
@@ -274,6 +279,12 @@ The integration will create switch entities to control various aspects of your v
 - Sentry mode
 - Steering wheel heater
 - Valet mode
+
+### Text
+
+The integration will create a text entity to send a navigation destination to the vehicle:
+
+- Navigation destination
 
 ### Update
 
@@ -499,9 +510,9 @@ Command signing is compatible with:
 
 Tessie requires specific Tesla account permissions to function properly. If certain features aren't working, you may need to verify your account has granted the necessary scopes:
 
-- **Vehicle Information** - Required to retrieve vehicle data (battery level, climate status, etc.)
+- **Vehicle Information** - Required to retrieve vehicle data (such as battery level or climate status)
 - **Vehicle Location** - Required to track vehicle location
-- **Vehicle Commands** - Required to control the vehicle (lock/unlock, climate, etc.)
+- **Vehicle Commands** - Required to control the vehicle (such as lock/unlock or climate)
 - **Vehicle Charging Management** - Required to control charging
 - **Energy Product Information** - Required to retrieve energy product data
 - **Energy Product Commands** - Required to control energy products (Powerwall, Solar)

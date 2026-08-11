@@ -38,35 +38,9 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Actions
+{% include integrations/actions.md %}
 
-### Action: Pair sensor
-
-The `guardian.pair_sensor` action adds a new paired sensor to the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### Action: Unpair sensor
-
-The `guardian.unpair_sensor` action removes a paired sensor from the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### Action: Upgrade firmware
-
-The `guardian.upgrade_firmware` action upgrades the device firmware.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `url`                    | yes      | The URL of the server hosting the firmware file. |
-| `port`                   | yes      | The port on which the firmware file is served.   |
-| `filename`               | yes      | The firmware filename.                           |
-
-{% note %} 
+{% note %}
 Not all actions are available on all Guardian valve controller firmwares.
 Please ensure you upgrade your valve controller to the latest firmware before opening
 bugs related to non-working actions.

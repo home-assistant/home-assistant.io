@@ -2,15 +2,13 @@
 title: "Alarm disarmed"
 trigger: alarm_control_panel.disarmed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become disarmed."
+description: "Triggers when one or more alarms become disarmed."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.triggered
 ---
 
 The **Alarm disarmed** trigger fires after an alarm control panel {% term entity %} switches to the disarmed state. Use it to start welcome-home routines the moment the alarm is turned off: turn on the entryway lights, set the thermostat to a comfortable temperature, unlock the front door, or play your favorite playlist. Whether you disarm from a keypad, the app, or an automation, this trigger responds instantly.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

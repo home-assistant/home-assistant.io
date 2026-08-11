@@ -226,7 +226,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface. Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -1001,7 +1001,7 @@ template:
 
 ### State based fan - Fan with preset modes
 
-This example uses an existing fan with only a percentage. It extends the percentage value into useable preset modes without a helper entity.
+This example uses an existing fan with only a percentage. It extends the percentage value into usable preset modes without a helper entity.
 
 ```yaml
 template:
@@ -1106,6 +1106,11 @@ image:
       type: boolean
       default: true
 {% endconfiguration %}
+
+### Using locally hosted images
+
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
+
 
 ## Light
 
@@ -1734,7 +1739,7 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value. When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -2219,11 +2224,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2431,7 +2436,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can be created from the frontend in the Helpers section or via YAML.
+State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2451,9 +2456,9 @@ template:
   - triggers:
       - trigger: state
         entity_id:
-        - weather.my_region
-        - sensor.temperature
-        - sensor.humidity
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
     weather:
       - name: "My Weather Station"
         condition: "{{ states('weather.my_region') }}"
@@ -2558,11 +2563,11 @@ weather:
 
 ### Condition
 
-The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
+The `condition` *must* match one of the Home Assistant defined conditions. See the [weather condition mapping](/integrations/weather/#condition-mapping). If it does not, the state will be 'unknown' so will not be usable in a dashboard.
 
 ### Weather Forecast data
 
-The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
 
 #### Hourly Weather Forecast
 
@@ -2574,7 +2579,7 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 #### Twice Daily Weather Forecast
 
-The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 
@@ -2603,7 +2608,7 @@ template:
 
 #### Video tutorial
 
-This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+This video tutorial explains how to set up a trigger based template that uses an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
@@ -2756,7 +2761,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/

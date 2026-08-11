@@ -1,6 +1,6 @@
 ---
 title: Python Scripts
-description: Instructions on how to setup Python scripts within Home Assistant.
+description: Instructions on how to set up Python scripts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.47
@@ -37,7 +37,7 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 This is a simplified example that does no real work.
 It is created as a first step, to help with:
 
-- Demonstrating how to setup the script
+- Demonstrating how to set up the script
 - How to process the input data
 - How to log the script activity
 - How to troubleshoot / manually call the script.
@@ -89,9 +89,9 @@ There is no need to reload the configuration or restart Home Assistant.
 hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
 ```
 
-This script doesn't output anything. However, you can view the events being fired in the Developer tools.
+This script doesn't output anything. However, you can view the events being fired in **Tools**.
 
-From a separate browser window or tab, go to `Developer tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
+From a separate browser window or tab, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. Under **Listen to events** enter `hello_world_event`, and then select **Start listening**. You should see something like this:
 
 ```yaml
 event_type: hello_world_event
@@ -177,16 +177,4 @@ turn_on_light:
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/26) in our forum.
 
-## Actions
-
-Available actions: `reload`.
-
-### Action: Reload
-
-The `python_script.reload` action reloads all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
-
-Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
-
-You don't have to call this service when you change an existing Python script.
-
-This service takes no data attributes.
+{% include integrations/actions.md %}

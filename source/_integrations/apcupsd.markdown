@@ -67,7 +67,7 @@ The APC UPS Daemon integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > **Advanced settings** > **Enabled**.
+Some sensors are disabled by default, since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
 
 {% endnote %}
 
@@ -89,10 +89,6 @@ Some sensors are disabled by default, since they provide information that is onl
 
 - **Total Time on Battery**
   - **Description**: Total (cumulative) time on batteries in seconds since apcupsd startup.
-  - **Available for machines**: all
-
-- **Date and Time**
-  - **Description**: The time and date that the STATUS record was written.
   - **Available for machines**: all
 
 - **Transfer High**
@@ -157,7 +153,7 @@ Some sensors are disabled by default, since they provide information that is onl
   - **Available for machines**: all
 
 - **Status**
-  - **Description**: The current status of the UPS (ONLINE, CHARGING, ONBATT, etc.)
+  - **Description**: The current status of the UPS (such as ONLINE, CHARGING, or ONBATT)
   - **Available for machines**: all
 
 - **Time Left**
@@ -273,95 +269,55 @@ Some sensors are disabled by default, since they provide information that is onl
   - **Description**: The ambient temperature as measured by the UPS.
   - **Available for machines**: Smart-UPS with optional accessories (e.g., temperature/humidity sensors or SNMP network cards).
 
-- **Status Data**
-  - **Description**: Header record indicating the STATUS format revision level, the number of records that follow the APC statement, and the number of bytes that follow the record.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Model**
-  - **Description**: The old APC model identification code.
-  - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default for advanced uses.
-
 - **Cable Type**
   - **Description**: The cable as specified in the configuration file (UPSCABLE).
   - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Status Date**
-  - **Description**: The date and time that the information was last obtained from the UPS.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Driver**
   - **Description**: The driver used to communicate with the UPS.
   - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Firmware Version**
-  - **Description**: The firmware revision number as reported by the UPS.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Hostname**
   - **Description**: The name of the machine that collected the UPS data.
   - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Last Transfer**
   - **Description**: The reason for the last transfer to batteries.
   - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Manufacture Date**
   - **Description**: The date the UPS was manufactured.
   - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Model**
-  - **Description**: The UPS model as derived from information from the UPS.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Register 1 Fault**
   - **Description**: The value from the UPS fault register 1.
   - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Register 2 Fault**
   - **Description**: The value from the UPS fault register 2.
   - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Register 3 Fault**
   - **Description**: The value from the UPS fault register 3.
   - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Sensitivity**
   - **Description**: The sensitivity level of the UPS to line voltage fluctuations.
   - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Serial Number**
-  - **Description**: The UPS serial number.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 - **Status Flag**
   - **Description**: Status flag. English version is given by STATUS.
   - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Name**
-  - **Description**: The name of the UPS as stored in the EEPROM or in the UPSNAME directive in the configuration file.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
-
-- **Daemon Info**
-  - **Description**: The apcupsd release number, build date, and platform.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default for advanced uses.
+  - **Remarks**: Disabled by default.
 
 ## Examples
 

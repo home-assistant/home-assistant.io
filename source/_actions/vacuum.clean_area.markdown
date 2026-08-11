@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Clean area with vacuum cleaner**.
+3. Add an action and search for **Clean area with vacuum cleaner**.
 4. Select your vacuum entity.
 5. In **Areas**, choose one or more mapped Home Assistant areas.
 6. Save the automation.

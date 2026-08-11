@@ -58,6 +58,7 @@ Password:
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
 | Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
+| Sleep mode (per day)          | `switch`        | Enable or disable each day of the week's sleep schedule, only for Litter-Robot 5.                           |
 | Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
 | Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4 and 5.                                                   |
 | Next filter replacement       | `sensor`        | Displays the next filter replacement date, only for Litter-Robot 5.                                         |
@@ -65,7 +66,7 @@ Password:
 | Scoops saved                  | `sensor`        | Displays the total number of scoops of litter saved, only for Litter-Robot 5.                               |
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
-| Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Status code                   | `sensor`        | Displays the status code (such as Clean Cycle in Progress, Ready, or Drawer Full).                               |
 | Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
 | Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
 | Bonnet removed                | `binary_sensor` | Indicates whether the bonnet is removed, only for Litter-Robot 5.                                           |
@@ -80,10 +81,16 @@ Password:
 | Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4 and 5.                    |
 | Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4 and 5.                                     |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4 and 5.                                        |
+| Sleep mode start (per day)    | `time`          | Set each day of the week's sleep mode start time, only for Litter-Robot 5.                                  |
+| Sleep mode end (per day)      | `time`          | Set each day of the week's sleep mode end time, only for Litter-Robot 5.                                    |
 | Change filter                 | `button`        | Button to indicate the filter was changed and reset the replacement date, only for Litter-Robot 5.          |
 | Reset                         | `button`        | Button to reset the robot, clearing errors and potentially cycling, only for Litter-Robot 4 and 5.          |
 | Reset waste drawer            | `button`        | Button to reset the waste drawer level to 0%, only for Litter-Robot 3 and 5.                                |
 | Firmware                      | `update`        | View and update to the latest firmware, only for Litter-Robot 4.                                            |
+
+{% note %}
+The per-day sleep schedule entities (**Sleep mode (per day)**, **Sleep mode start (per day)**, and **Sleep mode end (per day)**) are disabled by default. Enable the days you want to control in the entity settings.
+{% endnote %}
 
 ### Feeder-Robot
 
@@ -106,30 +113,7 @@ Password:
 | Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
 | Weight       | `sensor` | Pet's weight.                                     |
 
-## Actions
-
-Actions are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
-
-### set_sleep_mode
-
-Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot. Currently, this is limited to only the Litter-Robot 3. To make changes to the sleep schedule on your Litter-Robot 4, please continue to use the Whisker app.
-
-| Parameter  | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                              |
-| ---------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enabled    | bool   | yes      | Set to true to enable and false to disable.                                                                                                                                                                                                                                                                                                              |
-| start_time | string | no       | Time at which the unit will enter sleep mode and prevent an automatic clean cycle for 8 hours. This param uses the 24-hour format string `%H:%M:%S`, with seconds being optional, and is based on the timezone configured for your Home Assistant installation. As such, `10:30:00` would indicate 10:30 AM, whereas `22:30:00` would indicate 10:30 PM. |
-
-Example of setting the sleep mode to begin at 10:30 PM.
-
-```yaml
-action: litterrobot.set_sleep_mode
-target:
-  entity_id: vacuum.litter_robot_litter_box
-data:
-  enabled: true
-  start_time: "22:30:00"
-
-```
+{% include integrations/actions.md %}
 
 ## Data updates
 
