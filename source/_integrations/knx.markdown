@@ -2145,6 +2145,10 @@ sync_state:
 
 The KNX weather platform is used as an interface to KNX weather stations.
 
+Weather entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX weather entities via YAML" %}
+
 To use your KNX weather station in your installation, add the following lines to your top-level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
 
 ```yaml
@@ -2241,6 +2245,8 @@ sync_state:
   type: [boolean, string, integer]
   default: true
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Value types
 
