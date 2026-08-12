@@ -301,7 +301,8 @@ alarm_control_panel:
       required: false
       type: action
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `code_format`, `changed_by`, and `code_arm_required`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `code_format`, `changed_by`, and `code_arm_required`.
       required: false
       type: map
       keys:
@@ -592,7 +593,8 @@ cover:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
       required: false
       type: map
       keys:
@@ -759,7 +761,8 @@ device_tracker:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
       required: false
       type: map
       keys:
@@ -930,7 +933,8 @@ fan:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
       required: false
       type: map
       keys:
@@ -1327,7 +1331,8 @@ light:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
       required: false
       type: map
       keys:
@@ -1614,7 +1619,8 @@ lock:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
       required: false
       type: map
       keys:
@@ -1788,7 +1794,8 @@ number:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
       required: false
       type: map
       keys:
@@ -2278,7 +2285,8 @@ update:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `auto_update`, `display_precision`, `installed_version`, `in_progress`, `latest_version`, `release_summary`, `release_url`, `skipped_version`, `title`, `update_percentage`, and `device_class`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `auto_update`, `display_precision`, `installed_version`, `in_progress`, `latest_version`, `release_summary`, `release_url`, `skipped_version`, `title`, `update_percentage`, and `device_class`.
       required: false
       type: map
       keys:
@@ -2560,7 +2568,8 @@ weather:
       required: false
       type: template
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `temperature`, `apparent_temperature`, `dew_point`, `temperature_unit`, `humidity`, `ozone`, `cloud_coverage`, `uv_index`, `pressure`, `pressure_unit`,`wind_bearing`, `wind_gust_speed`, `wind_speed`, `wind_speed_unit`, `visibility`, `visibility_unit`, and `precipitation_unit`.
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `temperature`, `apparent_temperature`, `dew_point`, `temperature_unit`, `humidity`, `ozone`, `cloud_coverage`, `uv_index`, `pressure`, `pressure_unit`, `wind_bearing`, `wind_gust_speed`, `wind_speed`, `wind_speed_unit`, `visibility`, `visibility_unit`, and `precipitation_unit`.
       required: false
       type: map
       keys:
