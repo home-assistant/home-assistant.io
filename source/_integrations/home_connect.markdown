@@ -1047,7 +1047,7 @@ All the event sensors will have the following possible values:
   - **Description**: Event triggered when the rinse aid supply is running low.
   - **Availability**: Dishwasher
 - **Smart filter cleaning reminder**:
-  - **Description**: Event triggered when the filter system may be blocked so it, is recommended to clean filters.
+  - **Description**: Event triggered when the filter system may be blocked, so it is recommended to clean filters.
   - **Availability**: Dishwasher
 - **Bean container empty**:
   - **Description**: Event triggered when the bean container is empty.
