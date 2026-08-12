@@ -41,7 +41,7 @@ With this setup, the dashboard correctly attributes solar production exported vi
 
 ## Why is my Energy dashboard showing inflated totals?
 
-If you add up several periodically resetting sensors, for example with a template sensor or a **Group** helper that sums two `utility_meter` sensors, and use that combined sensor as an Energy dashboard source, your totals can become permanently inflated. The individual sensors are unlikely to reset to zero at the exact same moment, so in the brief gap where one has reset and the other hasn't, the combined sensor reports a false, temporary value. Home Assistant records that value in long-term statistics, and there is no reliable way to detect or correct it afterward.
+If you add up several sensors that reset on a schedule, for example with a template sensor or a **Group** helper that sums two `utility_meter` sensors, and use that combined sensor as an Energy dashboard source, your totals can become inflated. The individual sensors are unlikely to reset to zero at the exact same moment, so in the brief gap where one has reset and the other hasn't, the combined sensor reports a false, temporary value. Home Assistant records that value in long-term statistics, where it's easy to miss and requires manual correction.
 
 To avoid this, add each cumulative sensor to the Energy dashboard as its own separate source, instead of combining them into one summed sensor first.
 
