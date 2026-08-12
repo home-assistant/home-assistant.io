@@ -30,10 +30,10 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 Setup method:
   description: Choose **Search for devices** to look for controllers on your local network, or **Enter host** to type the controller IP address or hostname.
 Controller IP address or hostname:
-  description: The address of your iZone bridge. Shown when you choose **Enter host**, or when Search does not find a controller.
+  description: The address of your iZone bridge. Shown when you choose **Enter host**, or when **Search for devices** does not find a controller.
 {% endconfiguration_basic %}
 
-If Search does not find a controller, Home Assistant opens the **Enter host** form so you can type the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the bridge.
+If **Search for devices** does not find a controller, Home Assistant opens the **Enter host** form so you can type the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the bridge.
 
 {% tip %}
 iZone bridges also advertise themselves for Apple HomeKit. Home Assistant may therefore show a separate [HomeKit Device](/integrations/homekit_controller/) discovery for the same bridge. Set up the **iZone** discovery (or add iZone manually) and ignore the HomeKit Device discovery. The HomeKit Device path does not provide working climate control for these bridges.
@@ -69,7 +69,7 @@ exclude:
 
 ## Network settings
 
-Day-to-day control talks to the iZone bridge over HTTP on TCP port `80`. Home Assistant must be able to reach the bridge at that address on your local network.
+Once set up, Home Assistant controls the iZone bridge over HTTP on TCP port `80`. Your Home Assistant host must be able to reach the bridge by IP address or hostname on your local network.
 
 UDP broadcast discovery is used to find controllers on the LAN (for example **Search for devices**), to notice new bridges, and to pick up IP address changes. For discovery to work reliably, Home Assistant and the bridge usually need to be on the same local network segment, like the same VLAN. If they are on different segments, standard routing is usually not enough. Your network must support a UDP broadcast relay, directed broadcast, or a similar feature to forward this traffic between segments.
 
