@@ -61,16 +61,17 @@ By default, Teslemetry sends energy site commands through the cloud. If your ene
 
 ### Setting up local control
 
-Each Powerwall-capable energy site gets its own local control subentry, set up through its **Reconfigure** button. Sites with only a wall connector or solar panels don't get this subentry, because local control only applies to Powerwall systems.
+Local control is optional and you add it per energy site. Only sites with a Powerwall can be added, so sites with only a wall connector or solar panels aren't offered.
 
 To pair your Powerwall or Backup Gateway:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. On the energy site you want to pair, select its **Reconfigure** button {% icon "mdi:cog-outline" %}.
-3. Home Assistant registers an access key with your energy site. If the key hasn't been approved yet, toggle the On/Off switch on your primary Powerwall off and back on to approve it. Then return to Home Assistant to continue. You only need to do this once.
-4. Home Assistant automatically discovers and fills in your Powerwall system's local network address. Confirm the address, or edit it if needed, and enter its Wi-Fi password. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
+2. Select **Add local energy site**.
+3. Under **Energy site**, choose the site whose Powerwall you want to control over your local network, then continue.
+4. On the **Approve the local access key** step, flick the On/Off switch on your primary Powerwall off and back on to approve Home Assistant's access, then continue. You only need to do this once.
+5. On the **Connect to your Powerwall system** step, confirm the local network address that Home Assistant discovered, or edit it if needed, and enter your Powerwall's Wi-Fi password in the **Password** field. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
 
-Once paired, Home Assistant stores your Powerwall's address and password on the subentry and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
+Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
 
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
