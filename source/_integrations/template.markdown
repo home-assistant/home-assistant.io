@@ -930,7 +930,7 @@ fan:
   type: map
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`,  and `percentage_step`.
+      description: Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
       required: false
       type: map
       keys:
