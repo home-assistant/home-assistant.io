@@ -696,7 +696,8 @@ state_address:
   required: true
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -1100,7 +1101,8 @@ swing_horizontal_state_address:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `every <minutes>` to update it regularly every \<minutes\>
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
@@ -1218,7 +1220,8 @@ device_class:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `every <minutes>` to update it regularly every \<minutes\>
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
@@ -1272,7 +1275,8 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -1327,7 +1331,8 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -1399,7 +1404,8 @@ max_step:
   required: false
   type: integer
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -1552,7 +1558,8 @@ max_kelvin:
   type: integer
   default: 6000
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `every <minutes>` to update it regularly every \<minutes\>
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
@@ -1773,7 +1780,8 @@ unit_of_measurement:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `every <minutes>` to update it regularly every \<minutes\>
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
@@ -1890,7 +1898,8 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -1949,7 +1958,8 @@ type:
   required: true
   type: [string, integer]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -2040,7 +2050,8 @@ device_class:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `every <minutes>` to update it regularly every \<minutes\>
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
@@ -2108,7 +2119,8 @@ mode:
   type: string
   default: text
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `every <minutes>` to update it regularly every \<minutes\>
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
@@ -2162,7 +2174,8 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
@@ -2258,7 +2271,8 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
     - `false` no GroupValueRead telegrams will be sent to the bus
     - `every <minutes>` to update it regularly every \<minutes\>
