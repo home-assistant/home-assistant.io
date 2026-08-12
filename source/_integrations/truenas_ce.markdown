@@ -7,7 +7,7 @@ ha_category:
   - Binary sensor
   - Button
   - Update
-ha_release: TBD
+ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_domain: truenas_ce
 ha_codeowners:
