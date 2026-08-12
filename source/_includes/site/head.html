@@ -6,6 +6,7 @@
   <head>
     <meta charset="utf-8">
     {% if page.external_url %}
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <script type="text/javascript">window.location.replace({{ page.external_url | jsonify | replace: '</', '<\/' }});</script>
     <meta http-equiv="refresh" content="0; url={{ page.external_url | escape_once }}">
     {% endif %}
