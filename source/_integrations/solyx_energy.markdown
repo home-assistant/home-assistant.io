@@ -44,34 +44,41 @@ Client ID:
 Client Secret:
     description: "The Client Secret of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
 Nymo device ID:
-    description: "The device ID of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
+    description: "The internal device ID of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
 The **Solyx Energy** integration provides the following entities.
 
-### Numbers
-
-- **Control value**
-  - **Description**: Sets the percentage of power that will be consumed by the boiler.
-
 ### Sensors
 
-- **Energy to boiler**
-  - **Description**: The amount of energy in Wh that is consumed by the boiler.
+- **Boiler current**
+  - **Description**: Measures the electrical current drawn by the boiler in amperes (A).
+
+- **Boiler power**
+  - **Description**: Measures the boiler's electrical power consumption in watts (W).
+
+- **Boiler voltage**
+  - **Description**: Measures the electrical voltage supplied to the boiler in volts (V).
+
+- **Days since maximum temperature**
+  - **Description**: Shows how many days have passed since the boiler last reached its maximum temperature.
 
 - **Grid power**
-  - **Description**: The amount of power in W that is consumed by the household, coming from the grid.
+  - **Description**: Measures the power exchanged with the electrical grid in watts (W). This can be a positive or negative value.
 
-- **Power boiler**
-  - **Description**: The amount of power in W that is consumed by the boiler.
+- **Legionella days**
+  - **Description**: Shows the number of days associated with the boiler's legionella protection cycle.
 
-### Selects
+- **Saved today**
+  - **Description**: Shows the amount of energy saved during the current day, in watt-hours (Wh).
 
-- **Operating mode**
-  - **Description**: Determines the mode the device is operating in.
-  - **Options**: Direct, Muted
+- **Saved this week**
+  - **Description**: Shows the amount of energy saved during the current week, in kilowatt-hours (kWh).
+
+- **Saved this month**
+  - **Description**: Shows the amount of energy saved during the current month, in kilowatt-hours (kWh).
 
 ## Data updates
 
