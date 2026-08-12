@@ -63,7 +63,7 @@ Cync smart plug/outlet devices are exposed as switch entities with the **outlet*
   - Light shows
   - Music shows
   - LED strip segment control
-- Plug (outlet) devices report unknown state on startup; state is updated after the first on/off command is issued.
+- Plug (outlet) devices report an unknown state on startup. The state updates after Cync reports the device's current status.
 - Cync servers only allow one instance of your account to connect at a time. If you open the Cync app while Home Assistant is running, the integration will briefly lose its connection. It will automatically reconnect after a 10 second waiting period.
 
 ## Removing the integration
