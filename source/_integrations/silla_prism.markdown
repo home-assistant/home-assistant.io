@@ -52,7 +52,7 @@ The integration creates a single device with the following entities.
 - **Session energy**: energy delivered during the current charging session.
 - **Total energy**: lifetime energy delivered by the Prism.
 - **Session time**: duration of the current charging session.
-- **Error code**: the port error code (`0` means no error).
+- **Error**: the fault reported by the port. The Prism MQTT protocol only documents the "no error" condition, so any other code is reported as unknown.
 - **Temperature**: internal temperature of the Prism.
 - **Grid power**: power drawn from the grid; positive values are imports, negative values are exports.
 
