@@ -208,9 +208,7 @@ mode: single
 
 ## Data updates
 
-The **Liebherr** integration receives appliance control updates from the SmartDevice HomeAPI cloud service in real time.
-
-The appliance list is refreshed every 5 minutes to discover added or removed appliances. Changes to appliance controls, such as temperatures and operating modes, arrive independently through real-time updates.
+The **Liebherr** integration refreshes the appliance list every 5 minutes to discover added or removed appliances. Appliance state updates, such as temperatures and operating modes, arrive independently in real time from the SmartDevice HomeAPI cloud service.
 
 ## Known limitations
 
