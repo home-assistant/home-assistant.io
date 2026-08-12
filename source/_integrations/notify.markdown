@@ -22,8 +22,9 @@ If you want to send notifications to the Home Assistant web interface, you may u
 The state of a notify entity is the date and time when a message was last sent.
 
 <p class='img'>
-<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the developer tools' />
-Screenshot showing the state of a notify entity in the developer tools.
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the States tab of Tools.' />
+Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -41,7 +42,7 @@ With any of these integrations, the **Message** field in the automation editor i
 
 Be aware that the `notify.notify` action is shorthand for the first notify action the system can find. It might not work as intended. Choose a specific action to make sure your message goes to the right place.
 
-Notifications can also be sent using [Notify groups](/integrations/group/#notify-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
+Notifications can also be sent using [notify action groups](/integrations/group/#notify-action-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
 ## Notifications automation examples
 
@@ -113,9 +114,9 @@ automation: |
 
 ## Testing a notification action
 
-After you set up a [notifier](/integrations/#notifications), test its action from the developer tools.
+After you set up a [notifier](/integrations/#notifications), test its action in **Tools**.
 
-1. Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}.
+1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 2. From the **Action** dropdown menu, choose the action you want to test, such as **Send a notification message** or **Send a persistent notification**.
 3. If you are testing `notify.send_message`, select one or more targets using **Entity**, **Device**, **Area**, **Floor**, or **Label**.
 4. In **Message**, enter the notification text.

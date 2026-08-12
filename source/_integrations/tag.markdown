@@ -91,7 +91,7 @@ automation:
     - delay: 2 # timeout before we allow processing next scan
 ```
 
-To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
+To find your scanner's device ID, open {% my developer_events title="**Settings** > **Tools** > **Events**" %}, select **Listen to events** and subscribe to `tag_scanned`.
 Then scan a tag on the reader and note down the `device_id` from the `data` section.
 
 ## Printing tags
