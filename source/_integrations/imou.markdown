@@ -4,6 +4,7 @@ description: Integrate Imou smart devices into Home Assistant.
 ha_category:
   - Button
   - Camera
+  - Select
   - Sensor
   - Switch
 ha_iot_class: Cloud Polling
@@ -15,17 +16,18 @@ ha_codeowners:
 ha_platforms:
   - button
   - camera
+  - select
   - sensor
   - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, and supported measurements are exposed as sensor entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, supported options are exposed as select entities, and supported measurements are exposed as sensor entities in Home Assistant.
 
 ## Supported devices
 
-The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button, switch, and sensor entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ, and battery sensors only appear on devices that report battery level).
+The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button, switch, select, and sensor entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ, and battery sensors only appear on devices that report battery level).
 
 Add or remove devices in the Imou Open Platform or Imou app; new devices are picked up on the next data refresh.
 
@@ -101,6 +103,13 @@ When the cloud API reports that the toggle is supported for a device, the integr
 - **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **White light**: Manually toggle the camera white LED illuminator on supported models.
 
+### Selects
+
+When the cloud API reports that the option is supported for a device, the integration exposes the following select entities (device settings, configuration category):
+
+- **Night vision mode**: Choose the night vision mode on supported cameras.
+- **Volume**: Choose mute, low, medium, or high volume on supported devices.
+
 ### Sensors
 
 When the cloud API reports that a measurement is supported for a device, the integration exposes sensor entities. Only supported sensor types are created for each device.
@@ -142,6 +151,10 @@ Buttons are unavailable when a device is offline or no longer on your account. E
 ### A switch is unavailable
 
 Switches are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+### A select is unavailable
+
+Selects are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
 
 ### A sensor is unavailable
 
