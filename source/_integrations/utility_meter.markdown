@@ -296,3 +296,7 @@ template:
           None
         {% endif %}
 ```
+
+{% caution %}
+Don't add a sensor like `Daily Energy Total` above to the Energy dashboard. Because the two underlying tariff sensors may not reset at the exact same moment, summing them can briefly record a false value that permanently inflates your energy statistics. Add each tariff's cumulative sensor to the dashboard separately instead. See the [Energy dashboard FAQ](/docs/energy/faq/#why-is-my-energy-dashboard-showing-inflated-totals) for details.
+{% endcaution %}
