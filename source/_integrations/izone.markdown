@@ -30,10 +30,10 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 Setup method:
   description: Choose **Search for devices** to look for controllers on your local network, or **Enter host** to type the controller IP address or hostname.
 Controller IP address or hostname:
-  description: The address of your iZone bridge. Required when you select **Enter host**, or when you already have an iZone system set up and are adding another one.
+  description: The address of your iZone bridge. Shown when you choose **Enter host**, or when Search does not find a controller.
 {% endconfiguration_basic %}
 
-If search does not find a controller, Home Assistant returns you to the setup form so you can enter the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the bridge.
+If Search does not find a controller, Home Assistant opens the **Enter host** form so you can type the address instead. Use **Enter host** when UDP discovery traffic is blocked between Home Assistant and the bridge.
 
 {% tip %}
 iZone bridges also advertise themselves for Apple HomeKit. Home Assistant may therefore show a separate [HomeKit Device](/integrations/homekit_controller/) discovery for the same bridge. Set up the **iZone** discovery (or add iZone manually) and ignore the HomeKit Device discovery. The HomeKit Device path does not provide working climate control for these bridges.
