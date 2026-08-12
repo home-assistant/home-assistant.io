@@ -34,7 +34,7 @@ To account:
   description: The Monzo account to move money into.
   required: true
 Amount:
-  description: The amount of money to move. The amount must be positive and have no more than two decimal places.
+  description: The amount of money to move, in the selected account's currency. The amount must be positive and have no more than two decimal places.
   required: true
 {% endoptions_ui %}
 
@@ -63,7 +63,7 @@ account:
   required: true
   type: string
 amount:
-  description: The amount of money to move. The amount must be positive and have no more than two decimal places.
+  description: The amount of money to move, in the selected account's currency. The amount must be positive and have no more than two decimal places.
   required: true
   type: float
 {% endoptions_yaml %}
