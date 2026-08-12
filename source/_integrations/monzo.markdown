@@ -2,6 +2,7 @@
 title: Monzo
 description: Instructions on how to integrate Monzo integration into Home Assistant.
 ha_category:
+  - Event
   - Finance
   - Sensor
 ha_release: 2024.6
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: monzo
 ha_platforms:
+  - event
   - sensor
 ha_integration_type: service
 ---
@@ -53,3 +55,11 @@ The integration will create a device for each of your accounts and pots. For an 
 Additionally, an account will also have:
 
 - Total Balance: The current balance of that account plus all of its pots.
+
+## Event
+
+The integration creates a **Transaction** {% term event %} {% term entity %} for each Monzo account. When Monzo reports a new transaction, the entity fires a `transaction_created` event and the integration refreshes the account and pot balances.
+
+The complete transaction data provided by Monzo is available in the event entity's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
+
+Transaction events require either [Home Assistant Cloud](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
