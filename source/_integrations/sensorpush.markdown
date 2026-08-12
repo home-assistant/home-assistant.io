@@ -36,7 +36,7 @@ The HT.w and HTP.xw also report their battery, as two diagnostic entities: a **B
 Unlike temperature, humidity, and barometric pressure, the battery is not part of the Bluetooth advertisement. Home Assistant has to connect to the sensor to read it, which has two consequences:
 
 - A Bluetooth adapter or [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) able to make connections must be in range of the sensor. If only a passive proxy can see it, the other entities still work, but no battery entities are created.
-- Each sensor is polled at most once every 24 hours, because connecting to it spends some of the battery being measured.
+- Once a reading has succeeded, each sensor is polled at most once every 24 hours, because connecting to it spends some of the battery being measured. Until then it tries more often, so the entities appear shortly after you add the device rather than the next day.
 
 The HT1 does not expose battery information and does not get these entities.
 
