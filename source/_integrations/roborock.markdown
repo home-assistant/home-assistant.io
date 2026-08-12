@@ -179,6 +179,9 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Mop attached**
   - **Description**: States if the mop is currently attached.
 
+- **Mop drying status**
+  - **Description**: Only available on docks with drying capabilites - States if the mop is currently being driven.
+
 - **Water box attached**
   - **Description**: States if the water box is currently attached.
 
