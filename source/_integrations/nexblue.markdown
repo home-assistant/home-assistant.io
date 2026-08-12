@@ -12,7 +12,6 @@ ha_codeowners:
   - '@nexblue-maintainer'
 ha_domain: nexblue
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -45,7 +44,7 @@ Password:
 
 ## Supported functionality
 
-The NexBlue integration currently provides read-only entities for each charger in your account.
+The NexBlue integration currently provides read-only sensor entities for each charger in your account.
 
 ### Sensors
 
@@ -59,13 +58,6 @@ The integration provides the following charger information:
 - **Current limit**: The configured charging current limit.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
 - **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
-
-### Binary sensors
-
-The integration provides the following binary sensors:
-
-- **Availability**: Whether charging is enabled in the charger settings.
-- **Cable lock state**: Whether the charging cable is locked.
 
 ## NexBlue and automations
 
