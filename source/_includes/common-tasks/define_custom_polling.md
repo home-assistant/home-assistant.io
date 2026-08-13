@@ -12,7 +12,7 @@ To add the automation:
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
    - Define any trigger and condition you like.
    - Select **Add action**, then select **Other actions**.
-   - Select **Perform action**, and from the list, select the [`homeassistant.update_entity` action](/integrations/homeassistant/#action-homeassistantupdate_entity).
+   - Select **Perform action**, and from the list, select the [`homeassistant.update_entity` action](/actions/homeassistant.update_entity/).
    - Add the entities you want to poll to the **Entity** field. The `homeassistant.update_entity` action only supports targeting by entity. Selecting an area, device, or label is not supported.
    ![Update entity](/images/screenshots/custom_polling_02.png)
 4. Save your new automation to poll for data.
