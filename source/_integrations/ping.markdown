@@ -66,7 +66,7 @@ The integration exposes the different round trip times milliseconds as entities:
 
 ## Presence detection
 
-Use ping presence detection to check whether a device can be reached on your network and use that as a "is home" or "isn't home" signal. This can help when you want presence detection for a phone, tablet, or other device connected to your home network.
+Use ping presence detection to check whether a device can be reached on your network and use that as a presence signal (for example, `home` or `not_home`). This can help when you want presence detection for a phone, tablet, or other device connected to your home network.
 
 When you add a device or address to the integration, Home Assistant creates different entities for different uses:
 
