@@ -42,9 +42,14 @@ module Jekyll
       KINDS.each do |collection_name, kind|
         domain_data = site.data["#{kind}_domains"]
         domain_data = [] unless domain_data.is_a?(Array)
-        data_by_key = domain_data
-                      .select { |entry| entry.is_a?(Hash) && entry['key'] }
-                      .to_h { |entry| [entry['key'], entry] }
+        # Keep the first entry per key, matching how the previous Liquid
+        # lookup (`| where: 'key', ... | first`) resolved duplicates.
+        data_by_key = {}
+        domain_data.each do |entry|
+          next unless entry.is_a?(Hash) && entry['key']
+
+          data_by_key[entry['key']] ||= entry
+        end
 
         lookup = {}
         site.collections[collection_name]&.docs&.each do |doc|
