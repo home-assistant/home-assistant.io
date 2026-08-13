@@ -137,6 +137,8 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- Battery Circulator Fan
+- Battery Circulator Fan 2 Pro
 - [Standing Fan](https://www.switch-bot.com/products/switchbot-standing-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
@@ -446,14 +448,15 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan/Standing Fan
+#### Battery Circulator Fan/Circulator Fan/Standing Fan/Battery Circulator Fan 2 Pro
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan / Standing Fan]
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
+- set night light only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
 
 
 #### Air Purifier
