@@ -1,6 +1,6 @@
 ---
 title: Ping (ICMP)
-description: Instructions on how to integrate Ping (ICMP)-based into Home Assistant.
+description: Instructions on how to use ICMP ping checks in Home Assistant.
 ha_category:
   - Binary sensor
   - Network
@@ -27,6 +27,22 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+The setup dialog asks for the following information:
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the device you want Home Assistant to ping.
+{% endconfiguration_basic %}
+
+## Adding a device to the integration
+
+Before you add a device, give it a stable network address. Use a static IP address or a DHCP reservation in your router for the device you want to ping. If the address changes, Home Assistant keeps checking the old address.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Add integration**.
+2. Search for and select **Ping**.
+3. In **Host**, enter the hostname or IP address of the device.
+4. Select **Submit**.
+
 ## Polling interval
 
 By default, the integration will ping the device every 30 seconds.
@@ -38,13 +54,18 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Integration options
+## Configuration options
 
-It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Ping** integration, then select **Configure**.
+The integration provides the following configuration options:
 
-- **Ping count**: Number of echo requests to send to the target. The default is 5.
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the device you want Home Assistant to ping.
+Ping count:
+  description: The number of echo requests to send to the target. The default is 5.
+Consider home:
+  description: The number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+{% endconfiguration_basic %}
 
 ## Binary sensor
 
