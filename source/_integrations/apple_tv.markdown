@@ -194,45 +194,14 @@ triggers:
     from: "off"
     to: "on"
 actions:
-  - action: apple_tv.clear_search_text
-    target:
-      entity_id: remote.my_apple_tv_remote
+  - action: apple_tv.clear_keyboard_text
+    data:
+      config_entry_id: YOUR_CONFIG_ENTRY_ID
 ```
 
-Three actions are available for sending text to the focused input field. These
-require that the keyboard is currently focused on the device.
+Three actions are available for sending text to the focused input field: [Set keyboard text](/actions/apple_tv.set_keyboard_text/), [Append keyboard text](/actions/apple_tv.append_keyboard_text/), and [Clear keyboard text](/actions/apple_tv.clear_keyboard_text/). They require that the keyboard is currently focused on the device.
 
-### Action `apple_tv.set_keyboard_text`
-
-Sets the text in the currently focused text input field, replacing any existing text.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry ID of the Apple TV.
-  - **Optional**: No
-- **Data attribute**: `text`
-  - **Description**: The text to set.
-  - **Optional**: No
-
-### Action `apple_tv.append_keyboard_text`
-
-Appends text to the currently focused text input field without clearing existing text.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry ID of the Apple TV.
-  - **Optional**: No
-- **Data attribute**: `text`
-  - **Description**: The text to append.
-  - **Optional**: No
-
-### Action `apple_tv.clear_keyboard_text`
-
-Clears the text in the currently focused text input field.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry ID of the Apple TV.
-  - **Optional**: No
-
-The `config_entry_id` can be found under {% my integrations title="**Settings** > **Devices & services**" %} > **Apple TV** > your device — it is the last part of the URL when viewing the device page.
+The `config_entry_id` can be found under {% my integrations title="**Settings** > **Devices & services**" %} > **Apple TV** > your device. It is the last part of the URL when viewing the device page.
 
 ### Examples
 
@@ -254,6 +223,8 @@ actions:
       text: "Severance"
 ```
 
+{% include integrations/actions.md %}
+
 ## FAQ
 
 ### My Apple TV does not turn on/off when I press on/off in the frontend
@@ -268,9 +239,9 @@ No
 
 ### When adding a new device, a PIN code is requested, but none is shown on the screen
 
-This can happen when pairing the AirPlay protocol in case the access settings are wrong. On your
-Apple TV, navigate to Settings, find the AirPlay menu and make sure that the access setting
-is set to "Everyone on the same network" and try again.
+This can happen when pairing the AirPlay protocol if the access settings are too restrictive. On your Apple TV, go to **Settings** > **AirPlay and HomeKit** and make sure the access setting is set to **Everyone on the Same Network**, then try again.
+
+If that does not resolve the issue, open the **Home** app on your iPhone or iPad, go to **Home Settings** > **Speakers & TV**, and set the access to **Everyone**. In some network configurations, the **Everyone on the Same Network** setting is not sufficient for the Apple TV to display the PIN prompt or for pairing to complete.
 
 ### The buttons (play, pause, etc.) do not work
 
@@ -296,6 +267,10 @@ TV or soundbar directly.
 
 The Apple TV is quite picky when it comes to which formats it plays. The best bet is MP4. If it doesn't
 work, it's likely because of the media format.
+
+### "No devices found on the network" error during setup even when connecting by IP
+
+Ensure AirPlay is enabled and configured properly. See [this FAQ entry](#when-adding-a-new-device-a-pin-code-is-requested-but-none-is-shown-on-the-screen).
 
 ## Debugging
 

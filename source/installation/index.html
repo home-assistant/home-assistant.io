@@ -8,19 +8,23 @@ toc: true
 
 <div class="intro">
   <p class="lead">
-    The first step to getting started with Home Assistant is to install it on a
-    device. There are many ways to run it for all kinds of scenarios and all
-    kinds of skill levels.
+    Home Assistant runs on your own hardware, so your smart home keeps
+    working even when the internet is down and your data stays at home with
+    you. The quickest way to start is with
+    <a href="/green/">Home Assistant Green</a>, which comes with Home
+    Assistant already installed. Just add power and your network. You
+    can also build your own hub with Home Assistant Yellow, install on a
+    Raspberry Pi or a computer you already own, or run Home Assistant in a
+    container or virtual machine. Pick the option below that fits you best.
   </p>
 </div>
 
 <div class="installations">
-  <span class="label easiest">Easiest</span>
+  <span class="label">Ready to use out of the box</span>
 
-  <h2>Plug and play with Home Assistant Green</h2>
+  <h2>Start right away with Home Assistant Green</h2>
   <p>
-    The affordable Home Assistant Green is the easiest way to start using
-    Home Assistant. It's plug-and-play and comes with <a href="/installation/#about-installation-types">Home Assistant Operating System</a> already installed.
+    The affordable Home Assistant Green comes with <a href="/installation/#about-installation-types">Home Assistant Operating System</a> already installed. Connect power and your network, and you're up and running. No assembly or flashing required.
   </p>
 
   <div class="installations-card">
@@ -37,6 +41,7 @@ toc: true
               <b>SKILLS REQUIRED</b>
               <ul>
                 <li>Interest in setting up a smart home</li>
+                <li>Setting up a system without a monitor or keyboard</li>
               </ul>
             </div>
             <div>
@@ -62,33 +67,90 @@ toc: true
       </div>
     </div>
   </div>
+</div>
 
-  <span class="label easy">Easy</span>
+<div class="installations second">
+  <span class="label">Build your own official hub</span>
 
-  <h2>DIY with Raspberry Pi</h2>
+  <h2>Build a hub with Home Assistant Yellow</h2>
   <p>
-    Raspberry Pi, a mini low-cost computer, is one of the most popular platforms
-    for running Home Assistant. If you want to learn how to DIY, this is a good
-    way to start and gain experience.
+    Home Assistant Yellow is official, extensible hardware that you assemble
+    before first use. You bring your own Raspberry Pi Compute Module, install
+    it along with the heatsink, and flash the device. Once built, it gives you
+    a robust, tinker-friendly home for Home Assistant.
   </p>
 
   <div class="installations-card">
     <div class="material-card text">
       <div class="content-container">
         <div class="image">
-          <img
-            src="/images/installation/rpi.jpg"
-          />
+          <img src="/images/installation/yellow.jpg" alt="Home Assistant Yellow" />
+        </div>
+        <div class="content">
+          <h3>Home Assistant Yellow</h3>
+          <p>A capable hub you assemble with your own Compute Module</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Assembling the device (compute module and heatsink)</li>
+                <li>Flashing the device</li>
+                <li>Setting up a system without a monitor or keyboard</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Raspberry Pi Compute Module 4</li>
+                <li>Ethernet connection</li>
+                <li>USB storage drive</li>
+                <li>Screwdriver</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/yellow" class="button accent"
+              >Get Home Assistant Yellow {% include assets/chevron_right.html
+              %}</a
+            >
+            <a
+              href="https://support.nabucasa.com/hc/categories/24734575925149"
+              class="button"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="installations second">
+  <span class="label">Install on hardware you already have</span>
+
+  <h2>Bring your own hardware</h2>
+  <p>
+    Flash <a href="/installation/#about-installation-types">Home Assistant Operating System</a> onto hardware you already own, such as a Raspberry Pi, an Odroid, or an x86-64 machine. This is the recommended installation type for most people who bring their own hardware.
+  </p>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img src="/images/installation/rpi.jpg" alt="Raspberry Pi" />
         </div>
         <div class="content">
           <h3>Install Home Assistant on Raspberry Pi</h3>
-          <p>A low-cost DIY solution to get started with Home Assistant</p>
+          <p>A great option if you already have a Raspberry Pi or want to put one to use.</p>
           <div class="columns">
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
                 <li>Assembling a Raspberry Pi setup</li>
                 <li>Flashing a Raspberry Pi</li>
+                <li>Setting up a system without a monitor or keyboard</li>
               </ul>
             </div>
             <div>
@@ -105,6 +167,275 @@ toc: true
               >Get Raspberry Pi {% include assets/chevron_right.html %}</a
             >
             <a href="/installation/raspberrypi" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img src="/images/installation/odroid.jpg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on Odroid devices</h3>
+          <p>A more powerful alternative to Raspberry Pi</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Writing a boot image to an SD card or eMMC</li>
+                <li>Installing an SD card or eMMC</li>
+                <li>Setting up a system without a monitor or keyboard</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>An Odroid device</li>
+                <li>microSD memory card or eMMC</li>
+                <li>Ethernet connection</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/odroid" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img src="/images/installation/x86.jpg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on x86-64 machines</h3>
+          <p>Repurpose workstation hardware to run Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Writing a boot image to a USB stick</li>
+                <li>Configuring the BIOS</li>
+                <li>Setting up a system without a monitor or keyboard</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>An x86-64 machine</li>
+                <li>Storage hard drive</li>
+                <li>USB stick</li>
+                <li>Ethernet connection</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/generic-x86-64" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="installations second">
+  <span class="label">Run in a container or virtual machine</span>
+
+  <h2>Use a container or virtual machine</h2>
+  <p>
+    Run Home Assistant on a system you manage yourself, using Docker or a
+    virtual machine. These options suit people who are comfortable with the
+    command line, containers, or virtualization. Container installations use
+    <a href="/installation/#about-installation-types">Home Assistant Container</a>, which doesn't include {% term "apps" %}.
+  </p>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img
+            src="/images/installation/rpi.jpg"
+          />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant Container on Raspberry Pi</h3>
+          <p>A low-cost DIY solution to get started with Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Assembling a Raspberry Pi setup</li>
+                <li>Flashing a Raspberry Pi</li>
+                <li>Working with a headless system</li>
+                <li>Using Docker</li>
+                <li>Using Linux command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Raspberry Pi 3, 4, or 5 with power supply</li>
+                <li>microSD memory card</li>
+                <li>Ethernet connection</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="https://www.amazon.com/dp/B0CRSPKPNG" class="button accent"
+              >Get Raspberry Pi {% include assets/chevron_right.html %}</a
+            >
+            <a href="/installation/raspberrypi-other" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+          <img src="/images/installation/linux.svg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on Linux</h3>
+          <p>Use Home Assistant OS, Container</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Using Linux</li>
+                <li>Using Linux command line</li>
+                <li>Using Docker Compose (for HA Container)</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with Linux installed</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/linux" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+            <img src="/images/installation/macos.svg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on macOS</h3>
+          <p>Use Home Assistant OS on a VM</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Setting up a virtual machine</li>
+                <li>Using the macOS command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with macOS installed</li>
+                <li>Virtualization software (for VM)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/macos" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+            <img src="/images/installation/windows.svg" />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on Windows</h3>
+          <p>Use Home Assistant OS on a VM</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Setting up a virtual machine</li>
+                <li>Using the Windows command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Machine with Windows installed</li>
+                <li>Virtualization software (for VM)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/windows" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="icon">
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant on other systems</h3>
+          <p>Use Home Assistant on virtual machines, NAS, and more</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Setting up a virtual machine or NAS app</li>
+                <li>Finding a device's IP address on your router</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>A system that can run virtual machines or containers</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="/installation/alternative" class="button"
               >View tutorial {% include assets/chevron_right.html %}</a
             >
           </div>
@@ -193,328 +524,3 @@ toc: true
       <li style="margin-top: 15px">Home Assistant Container</li>
     </ul></sub
   >
-
-<div class="installations second">
-  <span class="label intermediate">Intermediate</span>
-
-  <h2>Extend with Home Assistant Yellow</h2>
-  <p>
-    The extensible Home Assistant Yellow comes with all the ingredients you need
-    to help you build a robust smart home. All you need to do is to bring your
-    own Raspberry Pi Compute Module.
-  </p>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="image">
-          <img src="/images/installation/yellow.jpg" />
-        </div>
-        <div class="content">
-          <h3>Home Assistant Yellow</h3>
-          <p>The powerful way to run Home Assistant</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>You're comfortable following instructions on:</li>
-                <li>Installing a compute module and a heat sink</li>
-                <li>Flashing a Raspberry Pi</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Raspberry Pi Compute Module 4</li>
-                <li>Ethernet connection</li>
-                <li>USB storage drive</li>
-                <li>Screwdriver</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/yellow" class="button accent"
-              >Get Home Assistant Yellow {% include assets/chevron_right.html
-              %}</a
-            >
-            <a
-              href="https://support.nabucasa.com/hc/categories/24734575925149"
-              class="button"
-              target="_blank"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <span class="label hard">Hard</span>
-
-  <h2>Install on other hardware</h2>
-  <p>
-    Home Assistant can be repurposed and installed on various hardware, such
-    as an Odroid or a generic x86-64 machine. The Home Assistant Operating System
-    allows you to install Home Assistant on these devices even if you have
-    little to no Linux experience.
-  </p>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="image">
-          <img src="/images/installation/odroid.jpg" />
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant on Odroid devices</h3>
-          <p>A more powerful alternative to Raspberry Pi</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>You're comfortable following instructions on:</li>
-                <li>Writing boot images</li>
-                <li>Installing an SD card or eMMC</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>An Odroid device</li>
-                <li>microSD memory card or eMMC</li>
-                <li>Ethernet connection</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/installation/odroid" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="image">
-          <img src="/images/installation/x86.jpg" />
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant on x86-64 machines</h3>
-          <p>Repurpose workstation hardware to run Home Assistant</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>You can use a command line and install a boot medium on your hardware</li>
-                <li>You're comfortable configuring the BIOS based on instructions.</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>An x86-64 machine</li>
-                <li>Storage hard drive</li>
-                <li>USB stick</li>
-                <li>Ethernet connection</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/installation/generic-x86-64" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <span class="label expert">Expert</span>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="image">
-          <img
-            src="/images/installation/rpi.jpg"
-          />
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant variants on Raspberry Pi</h3>
-          <p>A low-cost DIY solution to get started with Home Assistant</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>Assembling a Raspberry Pi setup</li>
-                <li>Flashing a Raspberry Pi</li>
-                <li>Advanced knowledge of Linux</li>
-                <li>Using Linux command line</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Raspberry Pi 3, 4 or 5 with power supply</li>
-                <li>microSD memory card</li>
-                <li>Ethernet connection</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="https://www.amazon.com/dp/B0CRSPKPNG" class="button accent"
-              >Get Raspberry Pi {% include assets/chevron_right.html %}</a
-            >
-            <a href="/installation/raspberrypi-other" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="icon">
-          <img src="/images/installation/linux.svg" />
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant on Linux</h3>
-          <p>Use Home Assistant OS, Container</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>Advanced knowledge of Linux</li>
-                <li>Using Linux command line</li>
-                <li>Using Docker Compose (for HA Container)</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Machine with Linux installed</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/installation/linux" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="icon">
-            <img src="/images/installation/macos.svg" />
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant on macOS</h3>
-          <p>Use Home Assistant OS on a VM</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>Advanced knowledge of macOS</li>
-                <li>Using macOS command line</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Machine with macOS installed</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/installation/macos" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="icon">
-            <img src="/images/installation/windows.svg" />
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant on Windows</h3>
-          <p>Use Home Assistant OS on a VM</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                 <li>Know how to find an IP address on your router</li>
-                <li>Advanced knowledge of Windows</li>
-                <li>Using Linux command line</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Machine with Windows installed</li>
-                <li>VirtualBox (for VM)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/installation/windows" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="icon">
-        </div>
-        <div class="content">
-          <h3>Install Home Assistant on other systems</h3>
-          <p>Use Home Assistant on virtual machines, NAS, and more</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>Know how to find an IP address on your router</li>
-                <li>Advanced knowledge of Windows</li>
-                <li>Using Linux command line</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Machine with Windows installed</li>
-                <li>VirtualBox (for VM)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/installation/alternative" class="button"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

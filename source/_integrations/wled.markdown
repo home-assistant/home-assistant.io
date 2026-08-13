@@ -130,7 +130,7 @@ for the following information from WLED:
 
 ### Switches
 
-The {% term integration %} will also create a number of
+The {% term integration %} will also create several
 [switch entities](/integrations/switch).
 
 #### Nightlight
@@ -151,6 +151,10 @@ Can be configured on the WLED itself under
 #### Reverse
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
+
+#### Freeze
+
+Freezes the LED effect on a segment. One switch is created per segment.
 
 ### Buttons
 
@@ -188,8 +192,6 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
 
-- [Custom palettes](https://kno.wled.ge/features/palettes/#custom-palettes) uploaded to the WLED device (JSON files named `palette0.json` through `palette9.json`) are not supported by the integration. Only the built-in palettes are available in the color palette select entity.
-
 - Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
 
 - The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
@@ -216,8 +218,6 @@ Home Assistant can only manage one color model at a time.
 
 You can automate changing the effect using an action like this:
 
-{% raw %}
-
 ```yaml
 action: light.turn_on
 target:
@@ -226,13 +226,9 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
-{% endraw %}
-
 It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
 
 Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
-
-{% raw %}
 
 ```yaml
 action: light.turn_on
@@ -242,15 +238,11 @@ data:
   effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
 ```
 
-{% endraw %}
-
 ### Activating random palette
 
 Activating a random palette is very similar to the above random effect,
 and can be done by selecting a random one from the available palette select
 {% term entity %}.
-
-{% raw %}
 
 ```yaml
 action: select.select_option
@@ -259,8 +251,6 @@ target:
 data:
   option: "{{ state_attr('select.wled_color_palette', 'options') | random }}"
 ```
-
-{% endraw %}
 
 ### Activating a preset
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apollo joins the Works With Home Assistant Program"
+title: "Apollo joins the Works with Home Assistant Program"
 description: "Adding three devices, including their community favorite presence and air quality multisensors."
 date: 2025-02-27 00:00:01
 date_formatted: "February 27, 2025"
@@ -23,7 +23,7 @@ Notably, these are the first [ESPHome](https://esphome.io/index.html)-based devi
 Apollo Automation is a growing family-run business rooted in the Home Assistant and ESPHome communities. And yes, they're named after their German Shepherd, Apollo 🐕.
 
 <div class="alert">
-    <p>Apollo Automation is built by and for the Home Assistant community. We believe in open smart home technology that gives users control, privacy, and flexibility. Joining the Works With Home Assistant program is a natural step for us, ensuring our devices integrate seamlessly while supporting the ecosystem we love. Home Assistant allows users to create powerful smart homes, and we are excited to contribute by making high-quality, reliable hardware that enhances the experience for everyone.</p>
+    <p>Apollo Automation is built by and for the Home Assistant community. We believe in open smart home technology that gives users control, privacy, and flexibility. Joining the Works with Home Assistant program is a natural step for us, ensuring our devices integrate seamlessly while supporting the ecosystem we love. Home Assistant allows users to create powerful smart homes, and we are excited to contribute by making high-quality, reliable hardware that enhances the experience for everyone.</p>
     <em style="text-align: right; display: block;">- Justin Bunton, Co-Founder, Apollo Automation</em>
 </div>
 

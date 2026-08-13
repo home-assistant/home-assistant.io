@@ -19,7 +19,7 @@ _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the
 If the endpoint returns one of the values of these pairs: `0`/`1`,
 `"0"`/`"1"`, `FALSE`/`TRUE`, `false`/`true`, `off`/`on` or `closed`/`open`
 it can be used as-is. If the return value differs, use a
-[template](/docs/configuration/templating/#processing-incoming-data).
+[template](/docs/templating/where-to-use/#processing-incoming-data).
 If the endpoint returns XML with the `text/xml`, `application/xml`, or 
 `application/xhtml+xml` content type, it will automatically be converted 
 to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html).
@@ -58,7 +58,6 @@ binary_sensor:
 
 or a template based request:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +66,6 @@ binary_sensor:
     resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
 ```
 
-{% endraw %}
 
 {% configuration %}
 resource:
@@ -107,7 +105,7 @@ device_class:
   type: string
 value_template:
   description: >
-    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    Defines a [template](/docs/templating/where-to-use/#processing-incoming-data)
     to extract the value.
   required: false
   type: template
@@ -163,7 +161,6 @@ Instead of using an [aREST](/integrations/arest#binary-sensor) binary sensor,
 you could retrieve the value of a device supporting
 aREST directly with a REST binary sensor.
 
-{% raw %}
 
 ```yaml
 binary_sensor:
@@ -175,13 +172,11 @@ binary_sensor:
     value_template: '{{ value_json.return_value }}'
 ```
 
-{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and template-enabled customized headers.
 
-{% raw %}
 
 ```yaml
 binary_sensor:
@@ -195,8 +190,6 @@ binary_sensor:
       Content-Type: application/json
       X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
-
-{% endraw %}
 
 
 The headers will contain all relevant details. This will also give

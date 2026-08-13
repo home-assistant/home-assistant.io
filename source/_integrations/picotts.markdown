@@ -1,6 +1,6 @@
 ---
 title: Pico TTS
-description: Instructions on how to setup Pico text-to-speech with Home Assistant.
+description: Instructions on how to set up Pico text-to-speech with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_iot_class: Local Push
@@ -8,11 +8,13 @@ ha_release: 0.36
 ha_domain: picotts
 ha_platforms:
   - tts
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_codeowners:
+  - '@rooggiieerr'
+ha_config_flow: true
 ---
 
 The **Pico TTS** {% term integration %} uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.

@@ -1,16 +1,14 @@
 ---
-title: "Automation Templates"
-description: "List all trigger variables available to templates."
+title: "Automation templates"
+description: "Use templates inside an automation to access trigger data, build dynamic messages, and pass calculated values to actions."
 ---
 
-Automations support the advanced features of [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available for automations.
+Automations support [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 
-{% raw %}
 - `{{ this.name }}` is the name of the automation executing from this trigger
 - `{{ trigger.platform }}` is the type of trigger object, like `calendar`
-{% endraw %}
 
 ## Available state data
 
@@ -133,7 +131,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | `trigger.platform` | Hardcoded: `conversation`
 | `trigger.sentence` | Text of the sentence that was matched.
 | `trigger.slots`    | Object with matched slot values.
-| `trigger.details`  | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>.
+| `trigger.details`  | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>.
 | `trigger.device_id` | The device ID that captured the command, if any.
 | `trigger.satellite_id` | The entity ID of the satellite that captured the command, if any.
 
@@ -240,7 +238,6 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 
 ## Examples
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entries
@@ -309,6 +306,5 @@ automation 4:
           - light.living_room
 ```
 
-{% endraw %}
 
 [state object]: /docs/configuration/state_object/

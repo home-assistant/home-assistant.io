@@ -18,7 +18,7 @@ The [Pushover action](https://pushover.net/) is a platform for the notify integr
 
 ## Configuration
 
-In order to get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
+To get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 {% include integrations/config_flow.md %}
 
@@ -101,8 +101,6 @@ To use notifications, please see the [getting started with automation page](/get
 
 Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entries
 alexa:
@@ -119,5 +117,3 @@ alexa:
             url: "https://www.home-assistant.io/"
             attachment: "/tmp/image.png"
 ```
-
-{% endraw %}

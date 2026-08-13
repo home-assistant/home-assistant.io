@@ -134,7 +134,7 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
 
 {% configuration_basic %}
 host:
-  description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
+  description: IP address of the device, for example, `192.168.1.32`. If not set, auto-discovery is used.
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
 zone2:
@@ -153,44 +153,8 @@ A few notes:
 - The `denonavr` platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
-- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
+- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
-#### Action `denonavr.get_command`
-
-Denon AVR receivers support a simple text-based network interface for sending commands to the receiver over the network. You can access this interface via the `denonavr.get_command` action. In addition, IR remote codes can also be sent to this interface.
-
-A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf).
-
-To use these commands, call the `denonavr.get_command` action and append the specific command to the path `/goform/formiPhoneAppDirect.xml?`:
-
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
-| `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
-
-So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it). Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
-
-{% tip %}
-
-The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the `media_player.turn_on` action is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/media_player/) for more details.
-
-{% endtip %}
-
-#### Action `denonavr.set_dynamic_eq`
-
-Enable or disable DynamicEQ setting.
-
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |      yes | Name of entity to send command to. For example `media_player.marantz`|
-| `dynamic_eq`           |       no | True/false for enable/disable.|
-
-#### Action `denonavr.update_audyssey`
-
-Update Audyssey settings. This can take up to 10 Seconds for some receivers.
-
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |      yes | Name of entity to send command to. For example `media_player.marantz`|
+{% include integrations/actions.md %}
 
 [Denon]: /integrations/denon

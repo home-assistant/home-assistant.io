@@ -25,13 +25,13 @@ The Community API key is valid for 12 months after which it will expire. You mus
 
 {% note %}
 
-The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
+The "Community" API key is limited to 10,000 calls per month. To accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
 
 For example:
 
 - One instance of the integration: API calls every 5 minutes
 - Two instances of the integration: API calls every 10 minutes
-- etc.
+- And so on.
 
 {% endnote %}
 

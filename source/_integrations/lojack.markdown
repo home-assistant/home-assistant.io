@@ -101,7 +101,9 @@ automation:
         entity_id: device_tracker.lojack_camry
         to: "home"
     actions:
-      - action: notify.mobile_app_phone
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Your vehicle has arrived home."
 ```

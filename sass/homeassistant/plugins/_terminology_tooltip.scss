@@ -10,8 +10,6 @@
   }
 
   .terminology-tooltip {
-    --horizontal-move: 0px;
-
     visibility: hidden;
     width: 250px;
     background-color: $primary-color;
@@ -23,47 +21,29 @@
     opacity: 0;
     transition: opacity 0.5s;
 
-    position: absolute;
-    z-index: 1;
-  
-    bottom: 100%;
-    left: calc(50% + var(--horizontal-move));
-    margin-left: -125px;
+    position: fixed;
+    z-index: 1000;
 
     a {
       color: #fff;
       font-weight: 500;
     }
 
-    @mixin arrow {
+    &:after {
       content: " ";
       position: absolute;
-      left: calc(50% - var(--horizontal-move));
+      left: 50%;
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
-    }
-
-    &:after {
-      @include arrow;
-
       top: 100%;
       border-color: $primary-color transparent transparent transparent;
     }
 
     &.below {
-      bottom: auto;
-      top: 1lh;
-
-      &:before {
-        @include arrow;
-
+      &:after {
         top: -10px;
         border-color: transparent transparent $primary-color transparent;
-      }
-
-      &:after {
-        display: none;
       }
     }
   }

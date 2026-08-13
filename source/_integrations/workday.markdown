@@ -54,32 +54,7 @@ The offset can be used to see if future days are workdays. For example, put `1` 
 
 Additional categories can be added through the configuration to include optional holidays according to the lists provided in the [python-holidays library](https://github.com/vacanza/python-holidays?tab=readme-ov-file#available-countries)
 
-## Action `workday.check_date`
-
-
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-providing feedback if the date is a workday or not.
-
-| Data attribute | Required | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `check_date` | yes | Date to test if workday or not. | 2022-03-10
-
-{% raw %}
-```yaml
-action: workday.check_date
-target:
-  entity_id: binary_sensor.workday
-data:
-  check_date: "2023-12-25"
-response_variable: check_date
-```
-{% endraw %}
-
-The response data field `check_date` is providing:
-
-| Response data | Description | Example |
-| ---------------------- | ----------- | -------- |
-| `workday` | Is date a workday. | True
+{% include integrations/actions.md %}
 
 ## Automation example
 
