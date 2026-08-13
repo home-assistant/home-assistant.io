@@ -140,6 +140,24 @@ If you have a home battery system:
 - Charge your EV when the battery is above certain capacity
 - Pause EV charging when the battery needs replenishing
 
+### Tracking energy consumption
+
+The Ohme API does not provide an energy reading. To track cumulative energy usage (kWh) and enable adding your charger to the Home Assistant Energy dashboard, you can use the [Integral](https://www.home-assistant.io/integrations/integration/) helper to derive it from the **Power** sensor.
+
+To set this up:
+
+1. Go to **Settings** > **Devices & Services** > **Helpers**.
+2. Select **+ Create Helper** and choose **Integration - Riemann sum integral sensor**.
+3. Configure the helper:
+   - **Name**: e.g. `Ohme Energy`
+   - **Input sensor**: your Ohme `Power` sensor, e.g. `sensor.ohme_home_pro_power`
+   - **Metric prefix**: `none` — the Power sensor already reports in kW, so no additional scaling is needed
+   - **Time unit**: `Hours` — combined with the kW input, this produces a result in kWh
+   - **Integration method**: `Left Riemann sum`
+4. Select **Submit**.
+
+This creates a new sensor, e.g. `sensor.ohme_energy`, reporting cumulative energy in kWh.
+
 ## Examples
 
 ### Send a notification on status change
@@ -172,7 +190,7 @@ This integration fetches data every 30 seconds with the exception of device sett
 
 ## Known limitations
 
-The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
+The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app. It also does not provide an energy sensor directly - see [Tracking energy consumption](#tracking-energy-consumption) for a way to derive one using the Power sensor.
 
 ## Removing the integration
 
