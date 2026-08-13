@@ -55,6 +55,7 @@ The integration will create a device for each of your accounts and pots. For an 
 Additionally, an account will also have:
 
 - Total Balance: The current balance of that account plus all of its pots.
+- Spent today: The amount spent from the account since approximately 4 AM, shown as a positive value. Money received does not reduce this amount.
 
 ## Event
 
