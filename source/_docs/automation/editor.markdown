@@ -50,11 +50,11 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
     - Result: Automations created or edited via the user interface are activated immediately after saving the automation.
     - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
-## Editing an automation from the UI or in YAML
+## Editing an automation
 
 You can create or edit an automation in the automation editor using the visual editor (default) or the YAML editor.
 
-To edit an automation from the UI:
+### From the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
@@ -65,7 +65,7 @@ To edit an automation from the UI:
         - Result: The code is automatically converted and the corresponding automation elements added in the visual editor.
 4. Select **Save**.
 
-To edit an automation in YAML:
+### In YAML
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
