@@ -15,6 +15,7 @@ ha_domain: actron_air
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - diagnostics
   - sensor
   - switch
@@ -47,6 +48,15 @@ The integration will create a climate entity for the main air conditioning syste
 
 Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
 
+### Cover
+
+The integration creates a cover entity for each zone to report the damper position (open percentage).
+
+{% note %}
+
+These entities are read-only. The Actron Air API does not support manually controlling the damper opening.
+
+{% endnote %}
 ### Sensor
 
 The integration will add the following sensors to Home Assistant for your air conditioner:

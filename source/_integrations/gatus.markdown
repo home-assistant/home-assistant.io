@@ -56,6 +56,7 @@ For each endpoint configured in Gatus, the integration creates the following sen
 
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
+- **Last event**: Reports the most recent status event from Gatus (`healthy`, `unhealthy`, `start`, or `resolved`).
 
 ## Gatus automation examples
 
