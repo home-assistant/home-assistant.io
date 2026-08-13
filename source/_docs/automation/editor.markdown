@@ -52,7 +52,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 ## Editing an automation from the UI or in YAML
 
-You can create or change an automation from the User Interface using the visual editor, which is the default in the automation editor, or using YAML.
+You can create or edit an automation in the automation editor using the visual editor (default) or the YAML editor.
 
 To edit an automation from the UI:
 
