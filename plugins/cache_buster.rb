@@ -13,7 +13,7 @@ module Jekyll
 
       cached = DIGEST_CACHE[file_name]
       unless cached && cached[0] == mtime
-        cached = [mtime, Digest::MD5.hexdigest(File.read(path))]
+        cached = [mtime, Digest::MD5.file(path).hexdigest]
         DIGEST_CACHE[file_name] = cached
       end
 
