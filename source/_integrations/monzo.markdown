@@ -23,13 +23,13 @@ ha_integration_type: service
 2. Go to **Clients** > **New OAuth Client** to create an OAuth client for Home Assistant.
 3. Enter the following values. Use the redirect URL exactly as shown; do not replace it with the URL of your Home Assistant instance:
    - **Name**: `Home Assistant`
-   - **Logo URL**: Leave this field blank.
+   - **Logo URL**: Leave this field blank
    - **Redirect URLs**: `https://my.home-assistant.io/redirect/oauth`
    - **Description**: For example, `Used by the Monzo Home Assistant integration`
    - **Confidentiality**: **Confidential**
 
 4. Once submitted, you can proceed with adding the integration.
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, and add the **Monzo** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and add the **Monzo** integration.
    - Enter the client ID and client secret for the OAuth client you created in the Monzo developer portal.
    - After you authorize Home Assistant access, approve the request in the Monzo app. Home Assistant waits for this second approval and completes setup automatically. If you see **Approval timed out** or **Connection error**, follow the on-screen instructions to try again.
 
@@ -55,6 +55,6 @@ Each account device also has the following sensor:
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows the standard integration removal process. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
