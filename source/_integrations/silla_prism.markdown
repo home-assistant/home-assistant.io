@@ -51,14 +51,14 @@ The integration creates a single device with the following entities.
 - **Pilot current**: current signaled to the vehicle over the control pilot.
 - **Session energy**: energy delivered during the current charging session.
 - **Total energy**: lifetime energy delivered by the Prism.
-- **Session time**: time elapsed since the vehicle was connected. It keeps counting while charging is paused, holds the final duration for a couple of minutes after the cable is unplugged, then resets to zero.
+- **Session start**: when the vehicle was connected. The Prism only reports the elapsed session time, once a minute, so Home Assistant derives the start time from it; the frontend then shows a duration that stays accurate between updates. It is unknown while no vehicle is connected, and the clock keeps running while charging is paused.
 - **Error**: the fault reported by the port. The Prism MQTT protocol only documents the "no error" condition, so any other code is reported as unknown.
 - **Temperature**: internal temperature of the Prism.
 - **Grid power**: power drawn from the grid; positive values are imports, negative values are exports.
 
 ## Data updates
 
-The Prism pushes an MQTT message whenever a value changes, so entities update in real time. Status topics are retained on the broker, so Home Assistant restores the current values immediately after a restart. The session time is the exception: the Prism publishes it without the retain flag, about once a minute, so that sensor stays unknown for up to a couple of minutes after a restart.
+The Prism pushes an MQTT message whenever a value changes, so entities update in real time. Status topics are retained on the broker, so Home Assistant restores the current values immediately after a restart. The session time is the exception: the Prism publishes it without the retain flag, about once a minute, so the session start sensor stays unknown for up to a couple of minutes after a restart.
 
 ## Known limitations
 
