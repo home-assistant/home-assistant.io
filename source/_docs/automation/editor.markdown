@@ -54,16 +54,19 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 You can create or edit an automation from the user interface using the visual editor (default) or in YAML using the YAML editor.
 
+{% tip %}
+If you want to edit your automation using an example where only the YAML code is available, you can copy and paste it in the visual or YAML editor. The example can be a full automation, a single trigger, a condition, or an action.
+
+1. Hover over the example and, in the upper-right corner, select **Copy**. Check the YAML example for notifying when Home Assistant starts in the [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
+2. In the selected editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code. If you are using the visual editor, the code is automatically converted to the corresponding format.
+{% endtip %}
+
 ### From the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
     - Result: The visual editor opens and you can edit the automation.
-3. If you want to edit your automation using an example where only the YAML code is available, you can copy and paste it directly to the visual editor. The example can be a full automation, a single trigger, a condition, or an action.
-    1. Hover over the example and, in the upper-right corner, select **Copy**. Check the YAML example for notifying when Home Assistant starts in the [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
-    2. In the visual editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code.
-        - Result: The code is automatically converted and the corresponding automation elements added in the visual editor.
-4. Select **Save**.
+3. Select **Save**.
 
 ### In YAML
 
@@ -72,13 +75,9 @@ You can create or edit an automation from the user interface using the visual ed
 3. In the upper-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Edit in YAML**.
     - Result: The YAML editor opens and you can change the YAML code.
     - If you just want to edit the YAML of a trigger, a condition or an action of the automation, select the three dots {% icon "mdi:dots-vertical" %} menu in the right corner of the respective element, and select **Edit in YAML**.
-4. Instead of manually editing the code, you can copy it from an example, whether it's a full automation, a single trigger, a condition, or an action, and paste it the YAML editor. To copy and paste the YAML code:
+4. Select **Save**.
 
-    1. Hover over the example and, in the upper-right corner, select **Copy**. Check the YAML example for notifying when Home Assistant starts in the [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
-    2. In the YAML editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code.
-5. Select **Save**.
-
-If you are in the YAML editor and want to go back to the visual editor, select the three dots {% icon "mdi:dots-vertical" %} menu again, and then select **Edit in visual editor**.
+If you want to go back to the visual editor, select the three dots {% icon "mdi:dots-vertical" %} menu again, and then select **Edit in visual editor**.
 
 ## Checking the targeted entities of an automation
 
