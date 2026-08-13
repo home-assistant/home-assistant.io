@@ -2,7 +2,7 @@
 title: "Relative humidity crossed threshold"
 trigger: humidity.crossed_threshold
 domain: humidity
-description: "Triggers after one or more relative humidity readings cross a threshold."
+description: "Triggers when one or more relative humidity values cross a threshold."
 related_triggers:
   - humidity.changed
 ---
@@ -12,8 +12,6 @@ The **Relative humidity crossed threshold** trigger fires when a humidity readin
 Use **Relative humidity crossed threshold** to automate ventilation when the air becomes too humid, alert you when conditions in a sensitive room drift out of range, or coordinate devices that respond to specific humidity levels.
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -100,12 +98,13 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 ## Good to know
 
+- Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
+- Climate, humidifier, and weather entities must expose a current humidity attribute.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - A comfortable indoor humidity range is typically 40% to 60%. Use **Outside range** with those bounds to fire the moment conditions drift out of that comfort zone.
 - Pair this trigger with [Relative humidity changed](/triggers/humidity.changed/) if you also want to react to smaller fluctuations between crossings.
 - Pair this trigger with [Relative humidity](/conditions/humidity.is_value/) in follow-up conditions to double-check the final state.
-- The trigger works with climate entities, humidifier entities, weather entities, and sensors with the humidity device class.
 
 {% include triggers/try_it.md %}
 

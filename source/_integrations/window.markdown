@@ -21,8 +21,6 @@ The **Window** {% term integration %} provides dedicated triggers and conditions
 
 You can use these triggers and conditions to protect your home, avoid wasting energy, and get timely reminders.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: send a reminder if a window opens after sunset
@@ -65,8 +63,10 @@ automation: |
 If you open a bedroom window to air out the room, you can wait until it is closed again before turning the heating back on.
 
 - **Trigger**: Window closed
-- **Target**: Bedroom window sensor
-- **Action**: Climate: Set HVAC mode to heat
+  - **Target**: Bedroom window sensor
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
+  - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
 

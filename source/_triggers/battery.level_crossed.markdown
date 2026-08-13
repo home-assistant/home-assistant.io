@@ -13,8 +13,6 @@ Use **Battery level crossed threshold** to automate alerts when critical devices
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery level crossed threshold** in an automation:
@@ -160,11 +158,11 @@ for:
 
 ## Good to know
 
+- Use a sensor with the battery device class.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - Pair this trigger with the [Battery level changed](/triggers/battery.level_changed/) trigger if you also want to react to smaller fluctuations between crossings.
 - Pair this trigger with the Battery level condition to double-check the final state.
-- The trigger works with sensors that have the battery device class.
 
 {% include triggers/try_it.md %}
 

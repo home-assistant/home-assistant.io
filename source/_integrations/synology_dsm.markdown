@@ -20,6 +20,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - select
   - sensor
   - switch
   - update
@@ -159,6 +160,14 @@ Reboot the NAS.
 
 Shutdown the NAS.
 
+## Selects
+
+### Fan speed mode
+
+- **Fan speed mode**
+  - **Description**: The mode of the system fan speed, if your NAS supports it.
+  - **Options**: Low-Power mode (_only supported on some devices_), Quiet mode, Cool mode, Full-speed mode.
+
 ## Media source
 
 A media source is provided for your [Synology Photos](https://www.synology.com/en-global/dsm/feature/photos).
@@ -186,6 +195,10 @@ This integration does not directly support the UPS systems connected to the NAS,
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+
+### "Transmission failed" error
+
+Unforeseen conditions may occur on the NAS, resulting in a "Transmission failed" error. In most cases, this error can be resolved by restarting the NAS.
 
 ## Remove the integration
 

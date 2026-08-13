@@ -59,7 +59,7 @@ This action has no additional YAML options beyond the target.
 
 Close a cover at sunset, for example to keep heat in for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Action**: Close cover
   - **Target**: Bedroom shutter
 
@@ -69,8 +69,7 @@ Close a cover at sunset, for example to keep heat in for the night.
 automation: |
   - alias: "Close the bedroom shutter at sunset"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: cover.close_cover
         target:

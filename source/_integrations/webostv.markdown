@@ -103,7 +103,7 @@ It leverages `select_source` action from the [Media player](/integrations/media_
 
 To find available sources for your TV
 
-1. Go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
+1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 2. Find your TV's media_player entity.
 3. Look for the `source_list` attribute which contains all available sources.
 
@@ -174,7 +174,8 @@ This integration uses the [SSDP](/integrations/ssdp) integration, which must be 
 
 ### [WakeOnLan](/integrations/wake_on_lan/) does not work
 
-On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to **Settings** > **General** > **Mobile TV On** > **Turn On Via WiFi** [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
+On newer models (2025+), WakeOnLan may need to be enabled in the TV settings by going to **Settings** > **Support** > **IP control settings** > **Wake on LAN**.
+For other models (2017+) the same settings is under **Settings** > **General** > **Mobile TV On** > **Turn On Via WiFi**, see [these instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
 ### Pairing fails when trying to add the TV
 

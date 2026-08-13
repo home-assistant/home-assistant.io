@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed** condition passes when one or more alarm control panel {% term entities %} are currently armed, regardless of the arming mode. Use it to ensure automations only run when the alarm is actually set, so your motion-triggered lights stay quiet when nobody is home to see them.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

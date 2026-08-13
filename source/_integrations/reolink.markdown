@@ -227,6 +227,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - PTZ continuous rotation*
 - Guard go to
 - Guard set current position
+- Pre-siren
 - Restart*
 
 **PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
@@ -291,6 +292,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Infrared lights in night mode
 - Record audio
 - Siren on event
+- Pre-siren on event
 - Auto tracking
 - Auto focus
 - Guard return
@@ -331,6 +333,8 @@ The **PTZ patrol** positions first need to be configured using the Reolink [app]
 The **Manual record** switch will turn off automatically after 10 minutes. Therefore the recording will end as soon as the manual record switch is turned off, or 10 minutes have passed.
 
 Polling the status of the **Hardwired chime enabled** switch can make the hardwired chime rattle a bit depending on the model of the chime. Therefore the status of this switch is only polled one time (about 1 minute after the integration starts). The rattle at startup can only happen if you chose to enable this switch.
+
+The **Pre-siren on event** switch only takes effect when the **Siren on event** switch is ON.
 
 ### Light entities
 
@@ -384,7 +388,6 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
-- [E1](https://reolink.com/product/e1/)
 - [E1 Pro](https://reolink.com/product/e1-pro/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
@@ -492,6 +495,7 @@ However, these cameras can work with this integration through an NVR or Home Hub
 - D500*
 - D800*
 - D1200*
+- E1
 
 *These models are only sold as a kit which includes a NVR.
 
@@ -725,7 +729,7 @@ Prerequisites:
 1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
    - Decide how many time delay choices you want. 
    - Add them all to the dropdown like below. 
-   - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+   - Your first entry needs to be "Notifications active" (or similar phrasing) for when the notifications are turned on. 
    - You can define as many time options as you want. And you can define any time interval you like, for example, 22 minutes, 2 hours.
 
     ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
@@ -844,7 +848,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 ### Streams or recordings not playing
 
-- Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
+- Most Reolink cameras use h265 encoding for the high-resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you access Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find either `"encoding main": "h265"` or `"encoding main": "h264"` in the text file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
 
 ### Reducing latency of motion events
 

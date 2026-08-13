@@ -113,6 +113,17 @@ These entities are simpler diagnostic entities without any additional attributes
 - **Stars**: Shows the number of stars
 - **Watchers**: Shows the number of watchers
 
+### User entities
+
+In addition to the entities for each tracked repository, the integration provides a device that represents your authenticated GitHub user account. The device is named after your GitHub account. This device has the following sensors, which are disabled by default:
+
+- **Followers**: Shows the number of people following your account
+- **Following**: Shows the number of accounts you follow
+- **Public gists**: Shows the number of public gists on your account
+- **Public repositories**: Shows the number of public repositories on your account
+
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+
 ## Automation
 
 Here are some small examples on how you can automate using the provided entities from this integration.

@@ -9,8 +9,6 @@ The **Temperature value** condition passes when a temperature reading meets a th
 
 When you target more than one entity, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted entity to meet the threshold, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 {% include conditions/threshold_value_steps.md
@@ -105,8 +103,9 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 
 ## Good to know
 
-- The condition works with temperature sensors, [climate](/integrations/climate/) entities (using the current temperature reading), [water heater](/integrations/water_heater/) entities (using the current temperature reading), and [weather](/integrations/weather/) entities.
-- Climate, water heater, and weather entities that don't report a current temperature attribute are automatically excluded from evaluation. Only entities with a valid temperature value are considered.
+- The target must provide a current temperature reading.
+- Supported target types are temperature sensors, climate entities, water heater entities, and weather entities.
+- Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically from evaluation.
 - Entities that have an `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
 - This condition checks the entity's current temperature reading, not its target setpoint. To check a climate device's target setpoint instead, use the climate target temperature condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
@@ -120,11 +119,14 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 
 This automation runs a fan only when the bedroom temperature is above 24°C, helping you save energy by avoiding unnecessary cooling.
 
-- **Trigger**: State: Fan is off
-- **Condition**: Temperature (above 24°C)
+- **Trigger**: State
+  - **Entity**: Bedroom fan
+  - **To**: Off
+- **Condition**: Temperature value
   - **Target**: Bedroom temperature sensor
-  - **Condition passes if**: Any
-- **Action**: Fan: Turn on
+  - **Above**: `24`
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
 
 {% details "YAML example for cooling when warm" %}
 
@@ -145,7 +147,6 @@ automation: |
           value:
             number: 24
             unit_of_measurement: "°C"
-        behavior: any
   actions:
     - action: fan.turn_on
       target:
@@ -158,7 +159,8 @@ automation: |
 
 This automation sends a notification only when the living room temperature is outside the comfort range of 20 to 22°C, helping you maintain consistent conditions.
 
-- **Trigger**: Time pattern (every hour)
+- **Trigger**: Time pattern
+  - **Hours**: `/1`
 - **Condition**: Temperature value (outside 20-22°C range)
   - **Target**: Living room temperature sensor
   - **Condition passes if**: Any
@@ -203,7 +205,8 @@ automation: |
 
 When the bedroom temperature is already within your comfort range, this automation turns off the climate system to save energy. Use number helpers to define your preferred temperature range so you can easily adjust it without editing the automation.
 
-- **Trigger**: Time pattern (every 30 minutes)
+- **Trigger**: Time pattern
+  - **Minutes**: `/30`
 - **Condition**: Temperature (in range, using number helpers)
   - **Target**: Bedroom temperature sensor
   - **Condition passes if**: Any

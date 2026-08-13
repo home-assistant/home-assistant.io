@@ -285,6 +285,11 @@ value_template:
   description: Defines a [template](/docs/templating/where-to-use/#mqtt) to extract a state value from the payload.
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -315,7 +320,6 @@ mqtt:
       state_locking: "LOCKING"
       state_unlocking: "UNLOCKING"
       state_jammed: "MOTOR_JAMMED"
-      state_ok: "MOTOR_OK"
       optimistic: false
       qos: 1
       retain: true

@@ -11,8 +11,6 @@ The **Blind is open** condition passes when one or more targeted blinds are curr
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a blind is open.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -77,10 +75,10 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `blind` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+- The target must be a cover entity with the blind device class.
+- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted blind is open.
-- With **All**, the condition passes only if every available targeted blind is open. If every targeted blind is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- With **All**, the condition passes only if every available targeted blind is open. If every targeted blind is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
 
 {% include conditions/try_it.md %}
 
@@ -90,7 +88,7 @@ for:
 
 At sunset, this automation checks whether the blind is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Blind is open
   - **Target**: Office blind
 - **Action**: Close cover
@@ -101,8 +99,7 @@ At sunset, this automation checks whether the blind is still open. If it is, Hom
 automation: |
   alias: "Close the blind at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.blind_is_open
       target:

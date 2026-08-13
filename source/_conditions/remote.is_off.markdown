@@ -11,8 +11,6 @@ The **Remote is off** condition passes when a remote {% term entity %} is curren
 
 When you target more than one remote, the condition's **behavior** option controls how the check combines results. You can require any targeted remote to be off, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -122,7 +120,7 @@ When your morning routine runs, this avoids sending another power-on command if 
 - **Condition**: Remote is off
   - **Target**: Living room remote
   - **For at least**: 00:01:00
-- **Action**: Turn on remote
+- **Action**: Turn on via remote
   - **Target**: Living room remote
 
 {% details "YAML example for a guarded morning power-on" %}

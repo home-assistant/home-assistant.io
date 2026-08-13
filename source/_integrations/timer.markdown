@@ -97,8 +97,6 @@ Use a timer when you want a countdown that can be started, paused, changed, canc
 
 ## Timer automation examples
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: turn off the bathroom fan when the timer finishes
@@ -143,7 +141,7 @@ Get a reminder shortly before a timer finishes, like when laundry or cooking tim
 automation: |
   alias: "Notify when five minutes remain on the laundry timer"
   triggers:
-    - trigger: timer.time_remaining
+    - trigger: timer.remaining_time_reached
       target:
         entity_id: timer.laundry
       options:

@@ -1,9 +1,12 @@
 ---
-title: Mikrotik
+title: MikroTik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
+  - Button
   - Hub
   - Presence detection
+  - Sensor
+  - Update
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -11,7 +14,10 @@ ha_config_flow: true
 ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
+  - button
   - device_tracker
+  - sensor
+  - update
 ha_integration_type: device
 ---
 
@@ -39,7 +45,6 @@ Web Frontend:
 Go to **IP** > **Services** > **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
-
 
 {% include integrations/config_flow.md %}
 
@@ -101,3 +106,38 @@ You will be prompted to set a password for the newly created user. Depending on 
 ```bash
 /user set [find username=homeassistant] password=PASSWORD
 ```
+
+## Supported functionality
+
+The **MikroTik** {% term integration %} provides the following entities.
+
+### Sensors
+
+The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
+
+- Uptime
+- Memory usage
+- Disk usage
+- CPU usage
+- Device temperature
+- Device power voltage
+
+### Buttons
+
+The integration creates the following button entities:
+
+- **Restart**: Reboots the MikroTik device.
+- **Shutdown**: Powers off the MikroTik device. After a shutdown, the device is no longer reachable over the network and cannot be powered back on remotely from Home Assistant.
+
+### Update
+
+The integration creates the following update entities:
+
+- **RouterOS**: Updates OS firmware.
+- **RouterBOARD**: Updates BOARD firmware.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -120,7 +120,7 @@ There are also other companies that provide devices with border router capabilit
 
 ## Turning Home Assistant into a Thread border router
 
-Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio.
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect/zbt-2/), or another compatible radio.
 
 Find out if you already have Thread networks:
 

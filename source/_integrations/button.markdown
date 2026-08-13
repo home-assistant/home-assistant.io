@@ -16,9 +16,9 @@ related:
     title: Dashboard
 ---
 
-A button {% term entity %} is an entity that can fire an {% term event %} or trigger an {% term action %} toward a {% term device %} or {% term service %}, but remains stateless from the Home Assistant perspective.
+A button {% term entity %} works like a physical push button: you press it to make something happen, such as restarting a router or identifying a device. It can be compared to a momentary switch, push button, or other form of stateless switch.
 
-It can be compared to a momentary switch, push-button, or other form of stateless switch.
+Unlike a switch, a button has no `on` or `off` state. Instead, it remembers when it was last pressed, so you can see when it was last used and react to each press in an {% term automation %}.
 
 {% include integrations/building_block_integration.md %}
 
@@ -29,8 +29,8 @@ The button {% term entity %} is stateless. Unlike a normal switch entity, it doe
 The state of a button is a timestamp showing when the button was last pressed via the Home Assistant UI or an action.
 
 <p class='img'>
-<img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the developer tools' />
-Screenshot showing the state of a button entity in the developer tools.
+<img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the States tab of Tools.' />
+Screenshot showing the state of a button entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -65,8 +65,6 @@ The following device classes are supported for buttons:
 ## Button automation examples
 
 The following examples show how you can use button entities in automations.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 

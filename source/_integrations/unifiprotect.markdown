@@ -10,7 +10,6 @@ ha_category:
   - Event
   - Hub
   - Light
-  - Lock
   - Media player
   - Media source
   - Number
@@ -30,7 +29,6 @@ ha_platforms:
   - diagnostics
   - event
   - light
-  - lock
   - media_player
   - number
   - select
@@ -52,9 +50,19 @@ The **UniFi Protect** {% term integration %} adds support for retrieving camera 
 
 This {% term integration %} supports all UniFi OS Consoles that can run UniFi Protect.
 
+{% important %}
+Only UniFi Protect running on a UniFi OS Console is supported.
+
+Ubiquiti does not offer UniFi Protect for self-hosting. Unofficial ports that run the UniFi Protect application in a container or on third-party hardware are outside the scope of this {% term integration %} and are not supported.
+
+These setups can report information that Home Assistant cannot use. For example, UniFi Protect reports the address it is bound to, so an instance running in a container hands out a container-internal address in its camera stream URLs, which Home Assistant cannot reach.
+
+We recommend against running UniFi Protect this way. Unless Ubiquiti starts offering UniFi Protect for self-hosting, do not open issues for these setups.
+{% endimportant %}
+
 ### Software support
 
-The minimum supported software version for UniFi Protect is `v6.0.0`. If you have an older version, you will get errors trying to set up the integration.
+The minimum supported software version for UniFi Protect is `v7.1.0`. If you have an older version, you will get errors trying to set up the integration.
 
 ### Public API features
 
@@ -102,15 +110,9 @@ Currently, creating an API key requires you to be logged in as an administrator.
 
 ### Camera streams
 
-The integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
-you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
-check that this is done. To check and enable the feature:
+Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSPS</abbr> streams provided by the UniFi Protect public API. Home Assistant reads the streams that are active on each camera and uses the highest-quality one as the default live feed.
 
-1. Open UniFi Protect and click on _Devices_.
-2. Select the camera you want to ensure can stream in UniFi Protect.
-3. Click the _Settings_ tab in the top right.
-4. Expand the _Share_ _Livestream_ section near the bottom.
-5. Enable a minimum of one stream out of those available. The Stream with the Highest resolution is the default enabled one.
+If a camera does not have a stream available yet, Home Assistant creates a repair that can enable one for you in a single step. Until a stream is available, the live feed falls back to repeatedly refreshing camera snapshots, which can put extra load on your UniFi Protect console.
 
 {% include integrations/config_flow.md %}
 
@@ -138,12 +140,13 @@ G3 Series cameras do _not_ have Smart detections.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-- **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera {% term entity %} will be enabled by default.
-  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} will be added for the Package Camera. The Package Camera {% term entity %} will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
+- **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
+  - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
 - **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
+  - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
+- **Events** - Cameras with Smart Detections expose event {% term entity %} entities for momentary detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
@@ -170,6 +173,8 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
+On UniFi Protect versions newer than 7.1, UniFi Protect reports each sensor's capabilities, and entities are only created for the functions the device actually supports. This enables proper support for newer sensor models: for example, an entry sensor (USL Entry) gets contact and tamper entities, an environmental sensor (USL Environmental) gets temperature, humidity, light level, and leak entities, and a glass break sensor (USL GlassBreak) gets motion and tamper entities. On older versions, an entity is created for every function, matching the behavior of the original UniFi Protect Smart Sensor (UP Sense).
+
 - **Sensors** - A sensor is provided for each major function of the smart sensor device:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
   - **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
@@ -177,6 +182,7 @@ UniFi Protect smart sensors are a bit different than normal sensors. They are a 
   - **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   - **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or (on UniFi Protect versions newer than 7.1) if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
@@ -191,14 +197,6 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 
 - **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
 - **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
-
-### UniFi Protect DoorLock
-
-Each UniFi Protect door lock will get a device in Home Assistant with the following:
-
-- **Lock** - A lock control will be added to lock and unlock your door lock device.
-- **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
-- **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
 ### UniFi Protect Smart Chime
 
@@ -295,7 +293,7 @@ Four URLs for proxy API endpoints:
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (for example, an entity ID of a detected object sensor).
 
-The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and find the event when the sensor started detecting motion.
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
 ### Example notification automation with thumbnail
 
@@ -588,6 +586,64 @@ Vehicle detection events are fired even if no license plate is detected. The `li
 {% warning %}
 License Plate Recognition can be triggered by various sources, including images or printed materials showing license plates. Always use caution when creating automations based on license plate detection, especially for security-sensitive actions like opening garage doors or unlocking gates. Consider implementing additional verification methods or time-based restrictions to prevent unwanted triggering. Use at your own risk.
 {% endwarning %}
+
+### Motion Detection Event
+
+- **Event Name**: Motion detection
+- **Event Attributes**:
+  - **event_type**: `motion`
+  - **event_id**: A unique ID that identifies the motion event.
+- **Description**: This event fires each time a camera starts detecting motion. It complements the camera's **Motion** sensor by giving you a point-in-time event to trigger automations on, and provides an `event_id` you can use to fetch related media.
+
+### Smart Detection Event
+
+- **Event Name**: Smart detection
+- **Event Attributes**:
+  - **event_type**: The detected object type, such as `person`, `vehicle`, `animal`, `package`, `license_plate`, `face`, `car`, or `pet`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of object types detected during the event.
+- **Description**: This event fires for each object type a Smart Detection camera detects, including types that do not have their own sensor. Each detected type fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
+
+{% note %}
+The Smart detection event reports _which_ type was detected, not the richer recognized metadata behind it. The UniFi Protect public API does not currently expose details such as the recognized license plate text, vehicle color and type, or detection confidence on this event. For the recognized license plate and vehicle attributes, use the dedicated [Vehicle Detection Event](#vehicle-detection-event), which still sources that data from the private API.
+{% endnote %}
+
+#### Example Smart Detection Automation
+
+{% example %}
+automation: |
+  alias: "Person detected notification"
+  description: "Automation that triggers when a person is detected"
+  triggers:
+    - trigger: event
+      event_type: state_changed
+      event_data:
+        entity_id: event.driveway_camera_smart_detection # Replace with your camera entity
+  conditions:
+    - condition: template
+      value_template: >
+        {{
+          trigger.event.data.old_state is not none and
+          not trigger.event.data.old_state.attributes.get('restored', false) and
+          trigger.event.data.old_state.state != 'unavailable' and
+          trigger.event.data.new_state is not none and
+          trigger.event.data.new_state.attributes.event_type == 'person'
+        }}
+  actions:
+    - action: notify.mobile_app_your_device # Replace with your notification target
+      data:
+        message: "A person was detected."
+        title: "Smart detection"
+{% endexample %}
+
+### Sound Detection Event
+
+- **Event Name**: Sound detection
+- **Event Attributes**:
+  - **event_type**: The detected sound type, such as `smoke`, `co`, `siren`, `baby_cry`, `speaking`, `bark`, `car_alarm`, `car_horn`, or `glass_break`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of sound types detected during the event.
+- **Description**: This event fires for each sound a camera with audio detection detects. As with smart detection, each type fires once across the lifecycle of an event, so an audio alarm that UniFi Protect reports partway through an event surfaces reliably.
 
 ## Troubleshooting
 

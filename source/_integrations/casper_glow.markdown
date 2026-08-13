@@ -95,20 +95,22 @@ Start a dimming sequence at a set time each night. This blueprint lets you pick 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_bedtime_routine.yaml" %}
 
 {% details "Example YAML" %}
-```yaml
-triggers:
-  - trigger: time
-    at: "22:00:00"
-actions:
-  - action: select.select_option
-    target:
-      entity_id: select.jar_dimming_time
-    data:
-      option: "30"
-  - action: light.turn_on
-    target:
-      entity_id: light.jar
-```
+
+{% example %}
+automation: |
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: select.select_option
+      target:
+        entity_id: select.jar_dimming_time
+      data:
+        option: "30"
+    - action: light.turn_on
+      target:
+        entity_id: light.jar
+{% endexample %}
 
 {% enddetails %}
 
@@ -119,20 +121,22 @@ Keep the light from dimming while you're still up. This blueprint pauses the dim
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_pause_on_motion.yaml" %}
 
 {% details "Example YAML" %}
-```yaml
-triggers:
-  - trigger: state
-    entity_id: binary_sensor.bedroom_motion
-    to: "on"
-conditions:
-  - condition: state
-    entity_id: light.jar
-    state: "on"
-actions:
-  - action: button.press
-    target:
-      entity_id: button.jar_pause_dimming
-```
+
+{% example %}
+automation: |
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.bedroom_motion
+      to: "on"
+  conditions:
+    - condition: state
+      entity_id: light.jar
+      state: "on"
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.jar_pause_dimming
+{% endexample %}
 
 {% enddetails %}
 
@@ -147,35 +151,37 @@ The `sensor.jar_dimming_end_time` sensor is disabled by default. You must enable
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_turn_on_pause_nightlight.yaml" %}
 
 {% details "Example YAML" %}
-```yaml
-triggers:
-  - trigger: time
-    at: "22:00:00"
-actions:
-  - action: select.select_option
-    target:
-      entity_id: select.jar_dimming_time
-    data:
-      option: "30"
-  - action: light.turn_on
-    target:
-      entity_id: light.jar
-  - wait_for_trigger:
-      - trigger: template
-        value_template: >-
-          {% set end = states('sensor.jar_dimming_end_time') | as_datetime %}
-          {% if end is not none %}
-            {{ ((end - now()).total_seconds() / 60) | round(0) <= 10 }}
-          {% else %}
-            false
-          {% endif %}
-    timeout:
-      minutes: 30
-    continue_on_timeout: false
-  - action: button.press
-    target:
-      entity_id: button.jar_pause_dimming
-```
+
+{% example %}
+automation: |
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: select.select_option
+      target:
+        entity_id: select.jar_dimming_time
+      data:
+        option: "30"
+    - action: light.turn_on
+      target:
+        entity_id: light.jar
+    - wait_for_trigger:
+        - trigger: template
+          value_template: >-
+            {% set end = states('sensor.jar_dimming_end_time') | as_datetime %}
+            {% if end is not none %}
+              {{ ((end - now()).total_seconds() / 60) | round(0) <= 10 }}
+            {% else %}
+              false
+            {% endif %}
+      timeout:
+        minutes: 30
+      continue_on_timeout: false
+    - action: button.press
+      target:
+        entity_id: button.jar_pause_dimming
+{% endexample %}
 
 {% enddetails %}
 

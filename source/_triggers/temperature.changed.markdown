@@ -2,7 +2,7 @@
 title: "Temperature changed"
 trigger: temperature.changed
 domain: temperature
-description: "Triggers after one or more temperature readings change."
+description: "Triggers when one or more temperature readings change."
 related_triggers:
   - temperature.crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Temperature changed** trigger fires after a temperature reading changes. Temperature shifts gradually as heating or cooling systems cycle, rises when the sun heats a room in the afternoon, or drops overnight. Use the threshold type to filter which changes matter to your automation.
 
 Use **Temperature changed** to log temperature trends, trigger heating or cooling when the temperature in a room changes noticeably, or alert you when a sensor reading shifts in a way that might signal a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -105,11 +103,11 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 ## Good to know
 
+- Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically.
+- You can also use a sensor with the temperature device class.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when temperature first crosses a specific level, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
-- The trigger works with [climate](/integrations/climate/) entities, [water heater](/integrations/water_heater/) entities, [weather](/integrations/weather/) entities, and sensors with the temperature device class.
-- Climate, water heater, and weather entities that don't report a current temperature attribute are automatically excluded from the trigger. Only entities with a valid temperature value can fire the trigger.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}

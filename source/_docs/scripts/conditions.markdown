@@ -495,6 +495,23 @@ conditions:
     state: "auto"
 ```
 
+Just like the main state, the `state` option accepts a list of possible values
+when matching an attribute, and the condition passes if the attribute matches
+any value in the list. If the attribute value is itself a list, wrap it in
+another list so the whole list is treated as a single value to match. The
+following condition passes only when the `fan_modes` attribute equals exactly
+`["auto", "low"]`.
+
+```yaml
+conditions:
+  - condition: state
+    entity_id: climate.living_room_thermostat
+    attribute: fan_modes
+    state:
+      - - "auto"
+        - "low"
+```
+
 Finally, the `state` option accepts helper entities (also known as `input_*`
 entities). The condition will pass if the state of the entity matches the state
 of the given helper entity.
@@ -505,6 +522,12 @@ conditions:
     entity_id: alarm_control_panel.home
     state: input_select.guest_mode
 ```
+
+{% note %}
+The `for` option only works with a single, fixed state on the entity's main
+state. You cannot combine `for` with an `attribute`, a list of states, or a
+state that references a helper entity.
+{% endnote %}
 
 You can also use templates in the `for` option.
 
@@ -795,7 +818,7 @@ For information about adding vacuum conditions in an automation and examples, re
 
 ### Zone condition
 
-Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates.
+Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
 
 ```yaml
 conditions:
