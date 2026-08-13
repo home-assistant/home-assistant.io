@@ -11,11 +11,11 @@ ha_config_flow: true
 ha_quality_scale: legacy
 ---
 
-The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task you should not forget, for example, water the plants. The integration supports connecting several RTM accounts.
+The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk](https://www.rememberthemilk.com) (<abbr title="Remember The Milk">RTM</abbr>) from Home Assistant. You can use this if you want Home Assistant to send you a task you should not forget, for example, to water the plants. The integration supports connecting several Remember The Milk accounts.
 
 ## Prerequisites
 
-You need a Remember The Milk account and your own API key and shared secret.
+You need a Remember The Milk account, an API key, and a shared secret.
 
 1. Sign in to your [Remember The Milk account](https://www.rememberthemilk.com).
 2. Apply for an [API key](https://www.rememberthemilk.com/services/api/keys.rtm). You also receive a shared secret when the key is approved.
@@ -29,7 +29,7 @@ Shared secret:
   description: The shared secret of your Remember The Milk API application.
 {% endconfiguration_basic %}
 
-After you enter your credentials, Home Assistant shows an **Authorize** link. Select the link to allow Home Assistant to access your Remember The Milk account on the Remember The Milk website. When you have completed the authorization, return to Home Assistant and select **Submit** to finish the setup.
+After you enter your API key and shared secret, Home Assistant shows an **Authorize** link. Select the link to allow Home Assistant to access your Remember The Milk account on the Remember The Milk website. When you have completed the authorization, return to Home Assistant and select **Submit** to finish the setup.
 
 To connect more than one account, add the integration again for each Remember The Milk account.
 
