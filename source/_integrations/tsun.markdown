@@ -9,7 +9,7 @@ ha_integration_type: device
 ha_iot_class: Local Polling
 ha_platforms:
   - sensor
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_codeowners:
   - '@jptstar'
 ---
