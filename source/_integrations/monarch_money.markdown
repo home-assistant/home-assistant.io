@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-[Monarch Money](https://www.monarchmoney.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
+[Monarch Money](https://monarch.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
 
 ## Prerequisites
 
