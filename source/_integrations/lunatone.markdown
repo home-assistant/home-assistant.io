@@ -55,6 +55,12 @@ URL:
 
 The Lunatone integration provides the following entities.
 
+#### Binary Sensors
+
+- **DALI scan**
+  - **Description**: Shows if a DALI scan is running or not
+  - **Available for devices**: All
+
 #### Lights
 
 - **Brightness**
