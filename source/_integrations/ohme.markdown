@@ -140,7 +140,7 @@ If you have a home battery system:
 - Charge your EV when the battery is above certain capacity
 - Pause EV charging when the battery needs replenishing
 
-### Tracking energy consumption
+## Tracking energy consumption
 
 The Ohme API does not provide an energy reading. To track cumulative energy usage (kWh) and enable adding your charger to the Home Assistant Energy dashboard, you can use the [Integral](https://www.home-assistant.io/integrations/integration/) helper to derive it from the **Power** sensor.
 
