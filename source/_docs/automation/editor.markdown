@@ -78,7 +78,7 @@ To edit an automation in YAML:
     2. In the YAML editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code.
 5. Select **Save**.
 
-To go back to the visual editor, select the three dots {% icon "mdi:dots-vertical" %} menu again, and then select **Edit in visual editor**.
+If you are in the YAML editor and want to go back to the visual editor, select the three dots {% icon "mdi:dots-vertical" %} menu again, and then select **Edit in visual editor**.
 
 ## Checking the targeted entities of an automation
 
