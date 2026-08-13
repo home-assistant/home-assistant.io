@@ -1023,13 +1023,13 @@ All the event sensors will have the following possible values:
   - **Description**: Event triggered when the drying process is finished.
   - **Availability**: Dryer
 - **Machine care and filter cleaning reminder**:
-  - **Description**: Event triggered when the appliance needs to run a Machine Clean program without dishes and clean the filter and spray arm.
+  - **Description**: Event triggered when the appliance needs to run a Machine Clean program and clean the filter and the spray arm.
   - **Availability**: Dishwasher
 - **Machine care and low maintenance filter cleaning reminder**:
-  - **Description**: Event triggered when the appliance needs running a Machine Clean program without dishes is recommended and cleaning the filter and spray arm is optional.
+  - **Description**: Event triggered when Machine Clean program is recommended and cleaning the filter and the spray arm is optional.
   - **Availability**: Dishwasher
 - **Machine care**:
-  - **Description**: Event triggered when Machine Clean program without dishes is needed to be run.
+  - **Description**: Event triggered when the Machine Clean program is required.
   - **Availability**: Dishwasher
 - **Program blocked - salt lack**:
   - **Description**: Event triggered when the appliance reports a program blockage due to lack of salt supply.
@@ -1047,7 +1047,7 @@ All the event sensors will have the following possible values:
   - **Description**: Event triggered when the rinse aid supply is running low.
   - **Availability**: Dishwasher
 - **Smart filter cleaning reminder**:
-  - **Description**: Event triggered when the filter system may be blocked, so it is recommended to clean filters.
+  - **Description**: Event triggered when the filter system may be blocked, so it is recommended to clean the filters.
   - **Availability**: Dishwasher
 - **Bean container empty**:
   - **Description**: Event triggered when the bean container is empty.
