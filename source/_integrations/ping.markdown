@@ -48,7 +48,7 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 
 ## Binary sensor
 
-The binary sensor sends ICMP echo requests. This way you can check if a device or address is online and determine the round trip times from your Home Assistant instance to that system.
+The binary sensor sends ICMP echo requests so you can check whether a device (or host at a specific IP address) is reachable and determine the round trip times from your Home Assistant instance to that host.
 This sensor is enabled by default. The default polling interval is 30 seconds.
 
 ## Sensors
