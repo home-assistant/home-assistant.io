@@ -18,7 +18,7 @@ The **Hot Spring** {% term integration %} allows you to monitor and control your
 
 ## Supported devices
 
-- Hot Spring Spas equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) local network module.
+- Hot Spring spas equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) local network module.
 
 ## Prerequisites
 
@@ -34,12 +34,16 @@ Host:
 {% endconfiguration_basic %}
 
 {% note %}
-When setting up or reconfiguring the integration, ensure you enter the IP address of the **HNA (Home Network Adapter)** and **not** the IP address of the **SNA (Spa Network Adapter)**.
+When setting up or reconfiguring the integration, ensure you enter the IP address of the **HNA** (Home Network Adapter) and _not_ the IP address of the **SNA** (Spa Network Adapter).
 {% endnote %}
 
 ### Reconfiguration
 
-If the IP address of your Hot Spring spa changes, you can reconfigure the integration by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Hot Spring** integration, selecting {% icon "mdi:dots-vertical" %}, and then choosing **Reconfigure**.
+If the IP address of your Hot Spring spa changes, reconfigure the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Hot Spring** integration.
+3. Select **Menu** {% icon "mdi:dots-vertical" %} > **Reconfigure**.
 
 ## Supported functionality
 
@@ -49,9 +53,7 @@ The **Hot Spring** integration provides the following entities:
 
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
-  - **Range**: 80.0 °F to 104.0 °F
-
-{% include integrations/actions.md %}
+  - **Range**: 80 °F to 104 °F
 
 ## Data updates
 
@@ -63,11 +65,11 @@ The **Hot Spring** integration uses local {% term polling %} to fetch status upd
 
 If Home Assistant cannot establish a connection to your Hot Spring spa:
 
-1. Make sure your Hot Spring spa module is powered on and connected to your local network.
-2. Verify that you are using the IP address of the **HNA (Home Network Adapter)** and not the **SNA (Spa Network Adapter)**.
-3. Verify that you can locate the device on your local network router client list.
-4. Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
-5. Try restarting the Hot Spring spa module and reloading the integration in Home Assistant.
+- Make sure your Hot Spring spa module is powered on and connected to your local network.
+- Verify that you are using the IP address of the **HNA (Home Network Adapter)** and not the **SNA (Spa Network Adapter)**.
+- Verify that you can locate the device on your local network router client list.
+- Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
+- Restart the Hot Spring spa module and reload the integration in Home Assistant.
 
 ## Removing the integration
 
