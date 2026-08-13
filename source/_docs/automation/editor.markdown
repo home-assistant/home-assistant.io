@@ -50,6 +50,31 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
     - Result: Automations created or edited via the user interface are activated immediately after saving the automation.
     - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
+## Editing an automation from the UI or in YAML
+
+You can create or change an automation from the User Interface using the visual editor, which is the default in the automation editor, or using YAML.
+
+To edit an automation from the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+    - Result: The visual editor opens and you can edit the automation.
+
+To edit an automation in YAML:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the upper-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Edit in YAML**.
+    - Result: The YAML editor opens and you can change the YAML code.
+    - If you just want to edit the YAML of a trigger, a condition or an action of the automation, select the three dots {% icon "mdi:dots-vertical" %} menu in the right corner of the respective element, and select **Edit in YAML**.
+4. Instead of manually editing the code, you can copy it from an example, whether it's a full automation, a single trigger, a condition, or an action, and paste it the YAML editor. To copy and paste the YAML code:
+
+    1. Hover over the example and, in the upper-right corner, select **Copy**. Check the YAML example for notifying when Home Assistant starts in the [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
+    2. In the YAML editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code.
+5. Select **Save**.
+
+To go back to the visual editor, select the three dots {% icon "mdi:dots-vertical" %} menu again, and then select **Edit in visual editor**.
+
 ## Checking the targeted entities of an automation
 
 After creating an automation and adding a trigger, condition, or action that targets a floor, area, device, or label, you can see how many entities are included, as well as their name, state, and other details.
@@ -89,6 +114,7 @@ To add a note to a trigger, condition, or action:
 ## Editing notes in an automation
 
 If you want to change a note on a trigger, condition, or action:
+
 1. Select the trigger, condition, or action row where your note is.
 2. In the **Note** section of the trigger, condition, or action dialog, select **Edit**.
 3. Enter the new text or change the existing one and select **Submit**.
