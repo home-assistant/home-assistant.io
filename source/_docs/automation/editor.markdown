@@ -52,7 +52,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 ## Editing an automation
 
-You can create or edit an automation in the automation editor using the visual editor (default) or the YAML editor.
+You can create or edit an automation from the user interface using the visual editor (default) or in YAML using the YAML editor.
 
 ### From the user interface
 
