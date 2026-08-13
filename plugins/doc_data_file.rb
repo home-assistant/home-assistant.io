@@ -4,12 +4,6 @@ require 'digest/md5'
 # lookup data to a single static JavaScript file instead of inlining it
 # into every page.
 #
-# The four JSON blobs together are roughly 500 KB. Inlined through
-# scripts.html they were repeated in every generated page, which added
-# gigabytes to the build output and made every visitor download the data
-# again on each page view. As a static file it is generated once and
-# cached by the browser.
-#
 # The file name carries a content hash, so browsers can cache it forever
 # and still pick up new data immediately after a deploy. scripts.html
 # reads the URL from site.data['doc_data_js_path'].
