@@ -51,7 +51,6 @@ The integration supports the following appliance types:
 - **Hob**
 - **Hood**
 - **Oven**
-- **Dehumidifier**
 - **Air Purifier**
 
 ## Prerequisites
@@ -136,9 +135,6 @@ This entity is used to control the appliance with the following actions:
 
 {% details "List of fan entities" %}
 
-- **Dehumidifier fan**
-  - **Description**: Allows turning on and off the dehumidifier, and setting the fan speed.
-  - **Available for appliance types**: Dehumidifier.
 - **Air Purifier fan**
   - **Description**: Allows turning on and off the air purifier, setting the fan speed, and setting the work mode of the air purifier.
   - **Available for appliance types**: Air Purifier.
