@@ -59,6 +59,11 @@ To edit an automation from the UI:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
     - Result: The visual editor opens and you can edit the automation.
+3. If you want to edit your automation using an example where only the YAML code is available, you can copy and paste it directly to the visual editor. The example can be a full automation, a single trigger, a condition, or an action.
+    1. Hover over the example and, in the upper-right corner, select **Copy**. Check the YAML example for notifying when Home Assistant starts in the [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
+    2. In the visual editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code.
+        - Result: The code is automatically converted and the corresponding automation elements added in the visual editor.
+4. Select **Save**.
 
 To edit an automation in YAML:
 
