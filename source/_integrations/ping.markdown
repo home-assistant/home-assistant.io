@@ -40,8 +40,11 @@ Before you add a device, give it a stable network address. Use a static IP addre
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Add integration**.
 2. Search for and select **Ping**.
-3. In **Host**, enter the hostname or IP address of the device.
-4. Select **Submit**.
+3. Select **Add service**.
+4. In **Host**, enter the hostname or IP address of the device.
+5. Select **Submit**.
+6. If you want to change the default device name or add the device to an area, edit **Device name** or **Area**.
+7. Select **Finish**.
 
 ## Polling interval
 
