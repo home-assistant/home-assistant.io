@@ -2,6 +2,7 @@
 title: Harbor Sleep
 description: Instructions on how to set up Harbor Sleep baby monitors in Home Assistant.
 ha_category:
+  - Select
   - Sensor
   - Switch
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@afgarcia86'
 ha_domain: harbor
 ha_platforms:
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -62,7 +64,11 @@ IP address:
 
 ## Supported functionality
 
-The Harbor Sleep integration provides sensors and switches for the connected Harbor device.
+The Harbor Sleep integration provides select, sensor, and switch entities for the connected Harbor device.
+
+### Selects
+
+- **Night mode**: Sets the camera's night mode to **Auto**, **On**, or **Off**.
 
 ### Sensors
 
@@ -88,7 +94,7 @@ This integration does not provide additional actions.
 
 ## Known limitations
 
-The integration currently provides sensor and switch entities only. To get the camera stream, you must set up a WHIP endpoint on `go2rtc`, `frigate`, or similar and then add a camera entity connecting to the server that is ingesting the WHIP endpoint. See [the Harbor Python README](https://github.com/Harbor-Systems/harbor-python#whip-endpoint) for more information.
+The integration does not provide a camera entity. To get the camera stream, you must set up a WHIP endpoint on `go2rtc`, `frigate`, or similar and then add a camera entity connecting to the server that is ingesting the WHIP endpoint. See [the Harbor Python README](https://github.com/Harbor-Systems/harbor-python#whip-endpoint) for more information.
 
 ## Troubleshooting
 

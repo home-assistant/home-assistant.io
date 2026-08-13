@@ -229,6 +229,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Guard set current position
 - Pre-siren
 - Restart*
+- Synchronize time*
 
 **PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
 **PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
@@ -252,6 +253,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - HDR* (Off, On, Auto)
 - Binning mode* (Off, On, Auto)
 - Image exposure mode* (Auto, Low noise, Anti-smearing, Manual)
+- Anti-flicker* (Off, Other, 50 Hz, 60 Hz)
 - Clear frame rate*
 - Fluent frame rate*
 - Clear bit rate*
