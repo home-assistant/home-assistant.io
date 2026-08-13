@@ -61,6 +61,15 @@ If you have administrator rights, you can add other persons to Home Assistant an
 6. If you have already set up devices for [presence detection](/getting-started/presence-detection/), select the devices that belong to this person.
 7. To save the person, select **Add**.
 
+### Adding a device tracker to an existing person
+
+If you set up a new presence detection integration after creating a person, add the new device tracker to that person.
+
+1. Go to {% my people title="**Settings** > **People**" %} and select the person.
+2. Under **Select the devices that belong to this person**, select **Add entity**.
+3. Select the device tracker entity you want to add.
+4. Select **Save**.
+
 ### Customizing the picture for a person
 
 To upload a picture in the frontend, open a person's page, select an image file or drag and drop one into the input field, and then crop it.
