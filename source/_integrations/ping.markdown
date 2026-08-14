@@ -72,7 +72,7 @@ Consider home:
 
 ## Binary sensor
 
-The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
+The binary sensor sends ICMP echo requests so you can check whether a device (or host at a specific IP address) is reachable and determine the round trip times from your Home Assistant instance to that host.
 This sensor is enabled by default. The default polling interval is 30 seconds.
 
 ## Sensors
@@ -90,12 +90,33 @@ The integration exposes the different round trip times milliseconds as entities:
 
 ## Presence detection
 
-The `ping` device tracker platform offers presence detection by using `ping` to send ICMP echo requests. This can be useful when devices are running a firewall and are blocking UDP or TCP packets but responding to ICMP requests (like Android phones). This tracker doesn't need to know the MAC address since the host can be on a different subnet. This makes this an option to detect hosts on a different subnet when `nmap` or other solutions don't work since `arp` doesn't work.
+Use ping presence detection to check whether a device can be reached on your network and use that as a presence signal (for example, `home` or `not_home`). This can help when you want presence detection for a phone, tablet, or other device connected to your home network.
 
-The device tracker is disabled by default and can be enabled in the UI.
+When you add a device or address to the integration, Home Assistant creates different entities for different uses:
+
+- The binary sensor is enabled by default and shows whether the device or address is reachable.
+- The device tracker is disabled by default and provides the presence state, such as `home` or `not_home`.
+
+To use ping for presence detection, enable the device tracker entity:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Ping** integration.
+2. Select the device or address you want to track.
+3. To see all entities, under **Diagnostic** select **N disabled entities**.
+4. Select the entity with the person icon {% icon "mdi:account" %}, select the cogwheel {% icon "mdi:cog-outline" %}, then turn on **Enable**.
+5. Select **Update**.
+
+The device trackers are [connection trackers](/integrations/device_tracker/#connection-trackers). They have the `tracking_type` state attribute set to `connection` and report whether a device is connected to the associated zone, which is the home zone by default. They do not provide latitude or longitude attributes. For a simple home presence check in an automation, use a state condition that checks whether the tracker is `home`.
 
 {% note %}
-Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
+Phones may turn off Wi-Fi when they are idle. A single ping tracker may not be reliable on its own.
 {% endnote %}
 
-See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.
+For person-based presence detection, add the ping device tracker to a [person](/integrations/person/) entity. You can combine it with other trackers for the same person, such as a tracker from the Home Assistant Companion app or a router integration. This lets Home Assistant use more than one signal to decide whether the person is home.
+
+If you only need one on/off presence signal from multiple ping devices or addresses and do not use person entities, create a [binary sensor group](/integrations/group/#binary-sensor-light-and-switch-groups) {% term helper %} from the ping binary sensor entities. By default, the group is `on` when at least one grouped device is reachable.
+
+### How ping presence detection works
+
+The integration checks presence by sending ICMP echo requests to the configured hostname or IP address. It can work for devices that block UDP or TCP packets but still answer ICMP requests, such as some Android phones.
+
+Because ping uses the configured address, it does not need the device MAC address. This can help with devices on another subnet, where methods that depend on ARP, such as some network scans, do not work.
