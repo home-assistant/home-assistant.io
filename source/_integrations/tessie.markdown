@@ -144,8 +144,8 @@ The integration will create binary sensor entities for a variety of metrics rela
 
 The integration will create button entities to control various aspects of the vehicle:
 
-- Disable keep accessory power
-- Enable keep accessory power
+- Disable keep accessory power mode
+- Enable keep accessory power mode
 - Flash lights
 - HomeLink
 - Honk horn
