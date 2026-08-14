@@ -59,9 +59,9 @@ Using Early Access Release Candidate versions of UniFi Network or UniFi OS can b
 You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users will **not** work. Using an administrator or a user with full read/write access is recommended to get the most out of the integration, but it is not required. The entities that are created automatically adjust based on the permissions of the user you use.
 
 1. Sign in to your UniFi OS device.
-2. Go to **Admins & Users** from the left-hand side menu.
+2. Go to **People** from the left-hand side menu.
 3. Select **Create New**.
-4. Check **Admin**, then check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+4. Add **Name** and check **Admin**, then set a username and password. Check **Restrict to local access only** and untick "Use a pre-defined role" and select for first set (Network) **Full Management** and for the second set (OS Settings) **None**.
 5. In the bottom right, select **Create**.
 
 There is currently support for the following device types within Home Assistant:
