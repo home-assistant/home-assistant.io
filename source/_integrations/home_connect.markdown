@@ -1011,6 +1011,12 @@ All the event sensors will have the following possible values:
 - **Alarm clock elapsed**:
   - **Description**: Event triggered when the alarm clock has elapsed.
   - **Availability**: Cooktop, Oven
+- **Favorite short press**:
+  - **Description**: Event triggered when the user presses the **Favorite** button for a short time.
+  - **Availability**: Cooktop, Hood
+- **Favorite long press**:
+  - **Description**: Event triggered when the user presses the **Favorite** button for a long time.
+  - **Availability**: Cooktop, Hood
 - **Pre-heat finished**:
   - **Description**: Event triggered when **Fast pre-heat** program option is active and the preheating phase is finished.
   - **Availability**: Cooktop, Oven
@@ -1020,11 +1026,32 @@ All the event sensors will have the following possible values:
 - **Drying process finished**:
   - **Description**: Event triggered when the drying process is finished.
   - **Availability**: Dryer
+- **Machine care and filter cleaning reminder**:
+  - **Description**: Event triggered when the appliance needs to run a Machine Clean program and clean the filter and the spray arm.
+  - **Availability**: Dishwasher
+- **Machine care and low maintenance filter cleaning reminder**:
+  - **Description**: Event triggered when Machine Clean program is recommended and cleaning the filter and the spray arm is optional.
+  - **Availability**: Dishwasher
+- **Machine care**:
+  - **Description**: Event triggered when the Machine Clean program is required.
+  - **Availability**: Dishwasher
+- **Program blocked - salt lack**:
+  - **Description**: Event triggered when the appliance reports a program blockage due to lack of salt supply.
+  - **Availability**: Dishwasher
+- **Salt lack**:
+  - **Description**: Event triggered when the salt supply is empty.
+  - **Availability**: Dishwasher
 - **Salt nearly empty**:
   - **Description**: Event triggered when the salt supply is running low.
   - **Availability**: Dishwasher
+- **Rinse aid lack**:
+  - **Description**: Event triggered when the rinse aid supply is empty.
+  - **Availability**: Dishwasher
 - **Rinse aid nearly empty**:
   - **Description**: Event triggered when the rinse aid supply is running low.
+  - **Availability**: Dishwasher
+- **Smart filter cleaning reminder**:
+  - **Description**: Event triggered when the filter system may be blocked, so it is recommended to clean the filters.
   - **Availability**: Dishwasher
 - **Bean container empty**:
   - **Description**: Event triggered when the bean container is empty.
