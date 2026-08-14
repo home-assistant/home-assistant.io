@@ -43,7 +43,10 @@ Beyond basic monitoring, the Indevolt integration enables advanced energy manage
 The integration supports the following devices:
 
 - BK1600 / BK1600 Ultra
-- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 1200
+- SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 3000 / PowerFlex 3000
+- SolidFlex 3600 / PowerFlex 3600
 
 ## Prerequisites
 
