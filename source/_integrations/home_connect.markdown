@@ -186,6 +186,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
   - **Description**: Controls the air conditioner appliance.
   - **Availability**: Air conditioner
   - **Controls**:
+    - Target temperature
     - Active program: HVAC modes + preset modes
     - Fan speed mode: fan speed
  
@@ -284,9 +285,12 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Fill quantity**:
   - **Description**: Describes the amount of water (in ml) used in a coffee machine program.
   - **Availability**: Coffee maker
-- **Setpoint temperature**:
+- **Setpoint temperature** (Oven):
   - **Description**: Defines the target cavity temperature, which will be held by the oven.
   - **Availability**: Oven
+- **Setpoint temperature** (Air conditioner):
+  - **Description**: Defines the target temperature, which will be held by the air conditioner.
+  - **Availability**: Air conditioner
 
 {% enddetails %}
 
