@@ -71,6 +71,7 @@ Enjoy the release!
   - [And a few more](#and-a-few-more)
 - [Patch releases](#patch-releases)
   - [2026.8.1 - August 7](#202681---august-7)
+  - [2026.8.2 - August 14](#202682---august-14)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -570,6 +571,140 @@ We will also release patch releases for Home Assistant 2026.8 in August. These p
 [v2c docs]: /integrations/v2c/
 [vicare docs]: /integrations/vicare/
 [webostv docs]: /integrations/webostv/
+
+### 2026.8.2 - August 14
+
+- Teslemetry: convert streamed tyre pressure and isolation resistance to their declared units ([@Bre77] - [#177541]) ([teslemetry docs])
+- Handle inconsistence api response in Husqvarna Automower ([@Thomas55555] - [#178200]) ([husqvarna_automower docs])
+- Scope hassfest Docker manifest.json discovery to documented locations ([@jabone] - [#178265])
+- Fix/tplink omada switch port refresh ([@rubempoli] - [#178270]) ([tplink_omada docs])
+- Unload legacy notify actions in SMTP integration ([@tr4nt0r] - [#176747]) ([smtp docs])
+- Fix potential race condition in SMTP integration ([@tr4nt0r] - [#178416]) ([smtp docs])
+- Fix adaptive update interval Tado ([@erwindouna] - [#178515]) ([tado docs])
+- Bump midea-local to 7.0.0 ([@chemelli74] - [#178535]) ([midea docs])
+- Bump python-bsblan to 6.1.8 ([@liudger] - [#178561]) ([bsblan docs])
+- Victron GX: Fix regression in SSDP rediscovery with missing host ([@tomer-w] - [#178585]) ([victron_gx docs])
+- Bump evohome-async to v2.1.0 ([@zxdavb] - [#178588]) ([evohome docs])
+- Fix Reolink time import ([@starkillerOG] - [#178597]) ([reolink docs])
+- Add `handle_safe_area` opt-out to `panel_custom` and fix KNX panel ([@farmio] - [#178598]) ([knx docs]) ([panel_custom docs])
+- Use common logger in Mikrotik ([@chemelli74] - [#178602]) ([mikrotik docs])
+- Fix sensors for Mikrotik ([@chemelli74] - [#178604]) ([mikrotik docs])
+- Bump ical to 14.1.0 ([@allenporter] - [#178626]) ([google docs]) ([local_calendar docs]) ([local_todo docs]) ([remote_calendar docs])
+- Update xknx to 3.19.0 ([@farmio] - [#178652]) ([knx docs])
+- Bump aiolyric to 2.1.2 ([@timmo001] - [#178670]) ([lyric docs])
+- Create hassio config entry during setup instead of deferring to started ([@agners] - [#178677]) ([hassio docs])
+- Handle Wyoming error events ([@synesthesiam] - [#178696]) ([wyoming docs])
+- Bump homematicip to 2.14.1 ([@lackas] - [#178701]) ([homematicip_cloud docs])
+- Report a refused alarm activation in homematicip_cloud ([@lackas] - [#179139]) ([homematicip_cloud docs])
+- Fix missing optional `gameserverip` field in Steam Online dataclass ([@tr4nt0r] - [#178751]) ([steam_online docs])
+- Fix delayed trains being dropped from Israel Rail departures ([@mikomgk] - [#178773]) ([israel_rail docs])
+- Bump lyngdorf to 1.4.9 ([@fishloa] - [#178784]) ([lyngdorf docs])
+- Bump aiopvapi to 3.4.1 for hunterdouglas_powerview ([@kingy444] - [#178792]) ([hunterdouglas_powerview docs])
+- Make tedee unknown during calibration and updates ([@zweckj] - [#179048]) ([tedee docs])
+- Bump blebox-uniapi to v2.5.7 ([@bkobus-bbx] - [#179050]) ([blebox docs])
+- Fix composed devices behind Matter bridge losing "via device" ([@TheJulianJES] - [#179118]) ([matter docs])
+- Electric Kiwi: bugfix connections empty not checked ([@mikey0000] - [#179119]) ([electric_kiwi docs])
+- Separate energy endpoint MELCloud Home ([@erwindouna] - [#179124]) ([melcloud_home docs])
+- Update frontend to 20260729.7 ([@bramkragten] - [#179131]) ([frontend docs])
+- Bump incomfort-client to v0.7.1 ([@jbouwh] - [#179134]) ([incomfort docs])
+- Bump py-nymta to 0.4.1 ([@OnFreund] - [#179136]) ([mta docs])
+- Bump homematicip to 2.15.0 ([@lackas] - [#179153]) ([homematicip_cloud docs])
+
+[#176747]: https://github.com/home-assistant/core/pull/176747
+[#177541]: https://github.com/home-assistant/core/pull/177541
+[#178200]: https://github.com/home-assistant/core/pull/178200
+[#178265]: https://github.com/home-assistant/core/pull/178265
+[#178270]: https://github.com/home-assistant/core/pull/178270
+[#178416]: https://github.com/home-assistant/core/pull/178416
+[#178515]: https://github.com/home-assistant/core/pull/178515
+[#178535]: https://github.com/home-assistant/core/pull/178535
+[#178561]: https://github.com/home-assistant/core/pull/178561
+[#178585]: https://github.com/home-assistant/core/pull/178585
+[#178588]: https://github.com/home-assistant/core/pull/178588
+[#178597]: https://github.com/home-assistant/core/pull/178597
+[#178598]: https://github.com/home-assistant/core/pull/178598
+[#178602]: https://github.com/home-assistant/core/pull/178602
+[#178604]: https://github.com/home-assistant/core/pull/178604
+[#178626]: https://github.com/home-assistant/core/pull/178626
+[#178652]: https://github.com/home-assistant/core/pull/178652
+[#178670]: https://github.com/home-assistant/core/pull/178670
+[#178677]: https://github.com/home-assistant/core/pull/178677
+[#178696]: https://github.com/home-assistant/core/pull/178696
+[#178701]: https://github.com/home-assistant/core/pull/178701
+[#178751]: https://github.com/home-assistant/core/pull/178751
+[#178773]: https://github.com/home-assistant/core/pull/178773
+[#178784]: https://github.com/home-assistant/core/pull/178784
+[#178792]: https://github.com/home-assistant/core/pull/178792
+[#179048]: https://github.com/home-assistant/core/pull/179048
+[#179050]: https://github.com/home-assistant/core/pull/179050
+[#179118]: https://github.com/home-assistant/core/pull/179118
+[#179119]: https://github.com/home-assistant/core/pull/179119
+[#179124]: https://github.com/home-assistant/core/pull/179124
+[#179131]: https://github.com/home-assistant/core/pull/179131
+[#179134]: https://github.com/home-assistant/core/pull/179134
+[#179136]: https://github.com/home-assistant/core/pull/179136
+[#179139]: https://github.com/home-assistant/core/pull/179139
+[#179153]: https://github.com/home-assistant/core/pull/179153
+[@Bre77]: https://github.com/Bre77
+[@OnFreund]: https://github.com/OnFreund
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Thomas55555]: https://github.com/Thomas55555
+[@agners]: https://github.com/agners
+[@allenporter]: https://github.com/allenporter
+[@bkobus-bbx]: https://github.com/bkobus-bbx
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@erwindouna]: https://github.com/erwindouna
+[@farmio]: https://github.com/farmio
+[@fishloa]: https://github.com/fishloa
+[@jabone]: https://github.com/jabone
+[@jbouwh]: https://github.com/jbouwh
+[@kingy444]: https://github.com/kingy444
+[@lackas]: https://github.com/lackas
+[@liudger]: https://github.com/liudger
+[@mikey0000]: https://github.com/mikey0000
+[@mikomgk]: https://github.com/mikomgk
+[@rubempoli]: https://github.com/rubempoli
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
+[@timmo001]: https://github.com/timmo001
+[@tomer-w]: https://github.com/tomer-w
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+[@zxdavb]: https://github.com/zxdavb
+[blebox docs]: /integrations/blebox/
+[bsblan docs]: /integrations/bsblan/
+[electric_kiwi docs]: /integrations/electric_kiwi/
+[evohome docs]: /integrations/evohome/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[hassio docs]: /integrations/hassio/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[husqvarna_automower docs]: /integrations/husqvarna_automower/
+[incomfort docs]: /integrations/incomfort/
+[israel_rail docs]: /integrations/israel_rail/
+[knx docs]: /integrations/knx/
+[local_calendar docs]: /integrations/local_calendar/
+[local_todo docs]: /integrations/local_todo/
+[lyngdorf docs]: /integrations/lyngdorf/
+[lyric docs]: /integrations/lyric/
+[matter docs]: /integrations/matter/
+[melcloud_home docs]: /integrations/melcloud_home/
+[midea docs]: /integrations/midea/
+[mikrotik docs]: /integrations/mikrotik/
+[mta docs]: /integrations/mta/
+[panel_custom docs]: /integrations/panel_custom/
+[remote_calendar docs]: /integrations/remote_calendar/
+[reolink docs]: /integrations/reolink/
+[smtp docs]: /integrations/smtp/
+[steam_online docs]: /integrations/steam_online/
+[tado docs]: /integrations/tado/
+[tedee docs]: /integrations/tedee/
+[teslemetry docs]: /integrations/teslemetry/
+[tplink_omada docs]: /integrations/tplink_omada/
+[victron_gx docs]: /integrations/victron_gx/
+[wyoming docs]: /integrations/wyoming/
 
 <!-- TODO after release: append one dated block per patch release (for example, "### 2026.8.1 - August 8"), each a list of PRs with author and number. Copy the format from the previous release. -->
 
