@@ -153,9 +153,9 @@ Additionally the Daikin Streamer (air purifier) function can be toggled on suppo
 
 ## Binary sensor
 
-When the unit supports demand control, the integration creates a **Demand control** binary sensor that is **On** while demand control is enabled. Its attributes expose the current demand control settings as reported by the unit:
+ When the unit supports demand control, the integration creates a **Demand control** binary sensor. The sensor is **On** when the unit reports `en_demand` as enabled. Its attributes expose the raw demand control settings reported by the unit:
 
-- `en_demand`: whether demand control is enabled
+- `en_demand`: whether demand control is enabled; this value determines the binary sensor state
 - `mode`: the demand control mode (`0` manual, `1` scheduled, `2` auto)
 - `max_pow`: the maximum power limit as a percentage of the unit's
   nominal power
