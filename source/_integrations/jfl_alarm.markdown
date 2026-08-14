@@ -83,7 +83,7 @@ The panel only reports its status when asked, so the integration {% term polling
 
 ### No panel has connected
 
-#### Symptom: the "No JFL panel has connected" repair issue appears
+#### Symptom: the **No JFL panel has connected** repair issue appears
 
 #### Description
 
@@ -97,7 +97,7 @@ Nothing has reported to the configured address and port within a few minutes of 
 
 ### Panel rejected a password
 
-If a "Panel rejected a password" repair issue appears, the panel is treating one of this integration's commands as authenticated when it should not be. This integration is not designed to send any command that carries a password, so this points to a bug — please report it along with a diagnostics download.
+If a **Panel rejected a password** repair issue appears, the panel is treating one of this integration's commands as authenticated when it should not be. This integration is not designed to send any command that carries a password, so this points to a bug — please report it along with a diagnostics download.
 
 ## Removing the integration
 
