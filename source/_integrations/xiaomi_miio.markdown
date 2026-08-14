@@ -1438,7 +1438,7 @@ In addition to all of the actions provided by the [vacuum](/integrations/vacuum/
 
 {% configuration_basic %}
 Battery:
-  description: The current battery charge in percent
+  description: The current battery charge in percent.
 DnD Start*:
   description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
