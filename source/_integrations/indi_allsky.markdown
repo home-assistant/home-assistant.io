@@ -50,9 +50,6 @@ The camera entity exposes real-time exposure information as extra state attribut
 - `exposure`: Exposure duration in seconds.
 - `filename`: Filename of the captured image.
 - `gain`: Camera sensor gain setting.
-- `night`: Boolean flag indicating whether the image was captured during night or day mode.
-- `sqm`: Sky Quality Meter reading in mag/arcsec².
-- `stars`: Number of stars detected in the exposure.
 - `temperature`: Sensor temperature reading in °C.
 
 ## Data updates
