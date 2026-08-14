@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: daikin
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - sensor
@@ -150,6 +151,17 @@ A switch is created for each device that will toggle the unit on/off. This will 
 
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
 
+## Binary sensor
+
+When the unit supports demand control, the integration creates a **Demand control** binary sensor that is **On** while demand control is enabled. Its attributes expose the current demand control settings as reported by the unit:
+
+- `en_demand`: whether demand control is enabled
+- `mode`: the demand control mode (`0` manual, `1` scheduled, `2` auto)
+- `max_pow`: the maximum power limit as a percentage of the unit's
+  nominal power
+- schedule data (`scdl_per_day`, per-day counts and per-event entries)
+  when a schedule is set
+
 ## Region changing
 
 The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that cannot download the app for the controllers region.)
@@ -165,3 +177,5 @@ Currently known region codes:
 - TH
 
 If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).
+
+{% include integrations/actions.md %}
