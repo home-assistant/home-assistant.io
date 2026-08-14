@@ -14,7 +14,7 @@ ha_codeowners:
 ha_iot_class: Local Push
 ha_platforms:
   - climate
-  - Fan
+  - fan
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
