@@ -100,28 +100,28 @@ mode:
 automation: |
   - alias: "Limit maximum AC power during high-rate periods"
     triggers:
-      - trigger: state
+    - trigger: state
         entity_id: binary_sensor.electricity_high_rate
         to:
-          - "on"
-          - "off"
+        - "on"
+        - "off"
     actions:
-      - if:
+    - if:
         - condition: state
-            entity_id: binary_sensor.electricity_high_rate
-            state:
-            - 'on'
+        entity_id: binary_sensor.electricity_high_rate
+        state:
+        - 'on'
         then:
-          - action: daikin.set_demand_control
+        - action: daikin.set_demand_control
             data:
-              device_id: "17159993ce512ff1794b6c1abc6f3df3"
-              en_demand: true
-              max_pow: 40
+            device_id: "17159993ce512ff1794b6c1abc6f3df3"
+            en_demand: true
+            max_pow: 40
         else:
-          - action: daikin.set_demand_control
+        - action: daikin.set_demand_control
             data:
-              device_id: "17159993ce512ff1794b6c1abc6f3df3"
-              en_demand: false
+            device_id: "17159993ce512ff1794b6c1abc6f3df3"
+            en_demand: false
 {% endexample %}
 
 {% enddetails %}
