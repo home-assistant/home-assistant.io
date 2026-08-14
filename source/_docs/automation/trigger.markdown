@@ -103,8 +103,6 @@ additional event data available for use by an automation.
 
 ### Device tracker triggers
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 Fires when a tracked device arrives home or leaves home, or when the first device arrives or the last device leaves. See [Device tracker integration](/integrations/device_tracker/#triggers).
 
 In YAML, use: `trigger: device_tracker`.
