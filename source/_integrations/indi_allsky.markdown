@@ -54,7 +54,7 @@ The camera entity exposes real-time exposure information as extra state attribut
 
 ## Data updates
 
-The integration {% term polling polls %} the INDI Allsky web server every 30 seconds for image snapshot data, and maintains a WebSocket connection to receive instant notification pushes whenever a new exposure completes.
+The integration maintains a WebSocket connection to the INDI Allsky web server to receive real-time exposure completion pushes. Live camera images are fetched on-demand when requested by Home Assistant.
 
 ## Removing the integration
 
