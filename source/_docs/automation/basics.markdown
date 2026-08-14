@@ -33,18 +33,12 @@ The last part of an automation has the [action](/docs/automation/action/). The a
 
 Now that you've got a sneak peek of what is possible, it's time to get your feet wet and create your first automation.
 
-By default, to create automations, use the [automation editor](/docs/automation/editor/).
-
-### Creating automations with the new Labs features
-
-{% include integrations/labs_entity_triggers_note.md %}
-
-After enabling the automation preview features in Labs, you can create an automation in the visual editor of the UI by following the steps below.
+By default, to create automations, use the [automation editor](/docs/automation/editor/). You can create an automation in the visual editor of the UI by following the steps below.
 
 1. Go to **Settings** > **Automations & scenes**.
 2. In the lower right corner, select **Create automation** > **Create new automation**.
 
-#### Adding a trigger
+### Adding a trigger
 
 1. In the **When** section, select **Add trigger**.
 2. Now you can do one of the following:
@@ -75,7 +69,7 @@ After enabling the automation preview features in Labs, you can create an automa
      - **Any**: the automation fires whenever a trigger of a monitored target is verified.
 4. Select **Save**.
 
-#### Adding a condition
+### Adding a condition
 
 Note that you don´t need to add a condition to create an automation.
 
@@ -108,7 +102,7 @@ Note that you don´t need to add a condition to create an automation.
    2. You can add another target by selecting **Add target** again.
 5. Select **Save**.
 
-#### Adding an action
+### Adding an action
 
 1. In the **Then do** section, select **Add action**.
 2. Under **Blocks**, you have many options that allow you, for example, to:
