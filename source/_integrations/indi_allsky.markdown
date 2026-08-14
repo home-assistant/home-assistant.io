@@ -4,7 +4,7 @@ description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
   - Camera
 ha_release: 2026.9
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@TN-1'
@@ -46,7 +46,7 @@ The **INDI Allsky** {% term integration %} provides the following entity.
 
 The camera entity exposes real-time exposure information as extra state attributes when an exposure completes:
 
-- `binmode`: The sensor binning mode (e.g., 1x1, 2x2).
+- `binmode`: The sensor binning mode (for example, `1x1` or `2x2`).
 - `exposure`: Exposure duration in seconds.
 - `filename`: Filename of the captured image.
 - `gain`: Camera sensor gain setting.
