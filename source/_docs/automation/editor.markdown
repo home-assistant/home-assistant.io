@@ -55,10 +55,11 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 You can create or edit an automation from the user interface using the visual editor (default) or in YAML using the YAML editor.
 
 {% tip %}
-If you want to edit your automation using an example where only the YAML code is available, you can copy and paste it in the visual or YAML editor. The example can be a full automation, a single trigger, a condition, or an action.
+To edit your automation using an example where only the YAML code is available, you can copy and paste it in the visual or YAML editor.
+In the editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac).
 
-1. Hover over the example and, in the upper-right corner, select **Copy**. Check the YAML example for notifying when Home Assistant starts in the [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
-2. In the selected editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac) to paste the YAML code. If you are using the visual editor, the code is automatically converted to the corresponding format.
+The example can be a full automation, a single trigger, a condition, or an action.
+Try it out with the YAML example in [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
 {% endtip %}
 
 ### From the user interface
