@@ -5,7 +5,7 @@ ha_category:
   - Health
   - Sensor
 ha_config_flow: true
-ha_release: 2026.8
+ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@krhtzoa'
