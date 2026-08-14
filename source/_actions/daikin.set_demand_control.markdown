@@ -31,8 +31,8 @@ Enable:
   description: Whether demand control should be enabled.
   required: true
 Maximum power:
-  description: Maximum power as a percentage of the unit's nominal power (40-100). Not required when disabling the demand control.
-  required: true
+  description: Maximum power as a percentage of the unit's nominal power (40-100). Required when enabling the demand control with mode `Manual`.
+  required: false
 Mode:
   description: "Demand control mode: `Manual`, `Scheduled`, `Auto`. Defaults to `Manual`."
   required: false
@@ -65,9 +65,9 @@ en_demand:
   required: true
   type: boolean
 max_pow:
-  description: Maximum power as a percentage of the unit's nominal power (40-100). Not required when disabling the demand control.
+  description: Maximum power as a percentage of the unit's nominal power (40-100). Required when enabling the demand control with mode `manual`.
   type: integer
-  required: true
+  required: false
 mode:
   description: "Demand control mode: `manual`, `scheduled`, `auto`. Defaults to `manual`."
   type: string
