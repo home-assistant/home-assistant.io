@@ -28,6 +28,7 @@ ha_platforms:
   - fan
   - humidifier
   - image
+  - infrared
   - lawn_mower
   - light
   - lock
@@ -73,6 +74,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
+- [Infrared](/integrations/infrared.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -109,6 +111,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
+- [Infrared](/integrations/infrared.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)

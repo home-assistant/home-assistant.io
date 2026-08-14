@@ -93,7 +93,7 @@ The `remote` {% term entities %} allow you to learn and send codes with universa
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. A convenient interface to learn, send, and delete codes can be found in web interface under  `/developer-tools/service`.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. You can learn, send, and delete command codes at {% my developer_services title="**Tools** > **Actions**" %}.
 
 | Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |

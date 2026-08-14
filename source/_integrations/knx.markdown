@@ -191,11 +191,11 @@ knx:
       address: "1/1/1" # this is the address that will be sent to
       state_address: "8/8/8"  # this is the address GroupValueRead requests are sent to
     - name: "Switch with passive addresses"
-      address: 
+      address:
         - "1/1/1" # this is the address that will be sent to
         - "1/1/2" # this and following are passive addresses
         - "1/1/3"
-      state_address: 
+      state_address:
         - "8/8/8" # this is the address GroupValueRead requests are sent to
         - "8/8/2" # this and following are passive addresses
         - "8/8/3"
@@ -608,17 +608,64 @@ entity_category:
   required: false
   type: string
   default: None
+device:
+  description: Assign this entity to a device. Entities that share the same `id` are grouped into a single device.
+  required: false
+  type: map
+  keys:
+    id:
+      description: Identifier of the device. Use the same value for every entity you want grouped into one device. Values are normalized, so `Living room` and `living room` resolve to the same device. To add the entity to a device you created in the UI, use that device's identifier instead. It is kept exactly as given.
+      required: true
+      type: string
+    name:
+      description: Name shown for the device. Leave it out to keep the name of a device you referenced by its identifier.
+      required: false
+      type: string
+      default: None
 {% endconfiguration %}
 
 ```yaml
 # Example configuration.yaml entry fragment for common entity configuration options
 knx:
   sensor:
-    - name: My awesome sensor
+    - name: Awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
       entity_category: diagnostic
+      device:
+        id: my_awesome_device
+        name: My awesome device 🌸
       ...
 ```
+
+Assigning a device groups the entity on the device page, and names it the same way entities you create in the UI are named: the device name is shown in front of the entity name. Give the entity a name relative to its device. For example, name the entity `Ceiling light` rather than `Kitchen ceiling light` on a device named `Kitchen`, so it's shown as `Kitchen Ceiling light` instead of `Kitchen Kitchen ceiling light`. If you leave out the entity's `name`, it's shown as just the device's name, which is useful for a device's main entity.
+
+To add a YAML entity to a device you created in the UI, set `id` to that device's identifier, such as `knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5`, and leave out `name`:
+
+```yaml
+# Example configuration.yaml entry fragment adding a YAML entity to a UI-created device
+knx:
+  switch:
+    - name: Ceiling light
+      address: "1/1/1"
+      device:
+        id: knx_vdev_01KDXKXV66XBVCY8KVYSDAV1H5
+```
+
+A device you created in the UI has two different values. Do not confuse them:
+
+- The **Home Assistant device ID**: an internal ID, such as `1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d`. You only need it to look up the KNX identifier.
+- The **KNX device identifier**: the value that starts with `knx_vdev_`. This is what you set as `id` under `device`.
+
+To find the KNX device identifier:
+
+1. Go to **Settings** > **Devices & services** > **Devices** and open the device. The Home Assistant device ID is the last part of the page URL.
+2. Go to **Tools** > **Template** and render the following, replacing `HA_DEVICE_ID` with that ID:
+
+   ```text
+   {{ device_attr('HA_DEVICE_ID', 'identifiers') }}
+   ```
+
+   The KNX device identifier is the returned value that starts with `knx_vdev_`.
 
 ### Binary sensor
 
@@ -649,20 +696,14 @@ state_address:
   required: true
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
@@ -718,7 +759,7 @@ automation:
     actions:
       - action: light.toggle
         target:
-          entity_id: 
+          entity_id:
             - light.livingroom_floor_lamp
 ```
 
@@ -1059,6 +1100,18 @@ swing_horizontal_state_address:
   description: KNX address for gathering the current state (on/off) of the horizontal swing. *DPT 1*
   required: false
   type: [string, list]
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 {% enddetails %}
@@ -1166,6 +1219,18 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 {% enddetails %}
@@ -1210,20 +1275,14 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1272,20 +1331,14 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1350,6 +1403,18 @@ max_step:
   description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
   required: false
   type: integer
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `false` no GroupValueRead telegrams will be sent to the bus
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 {% enddetails %}
@@ -1475,7 +1540,7 @@ color_temperature_state_address:
 color_temperature_mode:
   description: |
     Color temperature group address data type:
-    
+
     - `absolute` for color temperature in Kelvin (2 byte unsigned integer). *color_temperature_address -> DPT 7.600*.
     - `absolute_float` for color temperature represented in 2 byte float. *color_temperature_address -> DPT 9*.
     - `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
@@ -1492,6 +1557,18 @@ max_kelvin:
   required: false
   type: integer
   default: 6000
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
@@ -1590,6 +1667,10 @@ knx:
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
+Notify entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX notify entities via YAML" %}
+
 ```yaml
 knx:
   notify:
@@ -1610,6 +1691,8 @@ type:
   default: "latin_1"
   type: string
 {% endconfiguration %}
+
+{% enddetails %}
 
 #### Example action
 
@@ -1696,6 +1779,18 @@ unit_of_measurement:
   description: Overrides the DPT's default native unit of measurement. The unit must be valid for the selected device class.
   required: false
   type: string
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 {% enddetails %}
@@ -1803,20 +1898,14 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1869,20 +1958,14 @@ type:
   required: true
   type: [string, integer]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
@@ -1966,6 +2049,18 @@ device_class:
   description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
@@ -2023,6 +2118,18 @@ mode:
   required: false
   type: string
   default: text
+sync_state:
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
+    - `true` equivalent to "expire 60" (default)
+    - `every <minutes>` to update it regularly every \<minutes\>
+    - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
+    - `<minutes>` equivalent to "expire \<minutes\>"
+    - `init` to just initialize the state on startup
+    - `false` is not supported for this platform. Don't configure state addresses if you don't want values to be read from the bus.
+  required: false
+  type: [boolean, string, integer]
+  default: true
 {% endconfiguration %}
 
 {% enddetails %}
@@ -2067,20 +2174,14 @@ respond_to_read:
   type: boolean
   default: false
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
@@ -2091,6 +2192,10 @@ sync_state:
 ### Weather
 
 The KNX weather platform is used as an interface to KNX weather stations.
+
+Weather entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX weather entities via YAML" %}
 
 To use your KNX weather station in your installation, add the following lines to your top-level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
 
@@ -2170,24 +2275,20 @@ address_humidity:
   required: false
   type: [string, list]
 sync_state:
-  description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
-
+  description: >
+    Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid:
     - `true` equivalent to "expire 60" (default)
-
     - `false` no GroupValueRead telegrams will be sent to the bus
-
     - `every <minutes>` to update it regularly every \<minutes\>
-
     - `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\>
-
     - `<minutes>` equivalent to "expire \<minutes\>"
-
     - `init` to just initialize the state on startup
-
   required: false
   type: [boolean, string, integer]
   default: true
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Value types
 
