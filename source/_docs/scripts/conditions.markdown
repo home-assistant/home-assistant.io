@@ -168,8 +168,6 @@ A condition of an automation has a type that depends on the target of the condit
 
 ### Alarm control panel conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: alarm_control_panel`.
 
 The available conditions are:
@@ -184,8 +182,6 @@ The available conditions are:
 
 ### Assist satellite conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: assist_satellite`.
 
 The available conditions are:
@@ -196,8 +192,6 @@ The available conditions are:
 - Satellite is responding (`is_responding`).
 
 ### Climate conditions
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 In YAML, use `condition: climate`.
 
@@ -222,8 +216,6 @@ conditions:
 
 ### Device tracker conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: device_tracker`.
 
 The available conditions are:
@@ -235,8 +227,6 @@ For more details, refer to [Device tracker conditions](/integrations/device_trac
 
 ### Fan conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: fan`.
 
 The available conditions are:
@@ -247,8 +237,6 @@ The available conditions are:
 For more details, refer to [Fan conditions](/integrations/fan/#conditions).
 
 ### Humidifier conditions
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 In YAML, use `condition: humidifier`.
 
@@ -263,8 +251,6 @@ For more details, refer to [Humidifier conditions](/integrations/humidifier/#con
 
 ### Lawn mower conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: lawn_mower`.
 
 The available conditions are:
@@ -276,8 +262,6 @@ The available conditions are:
 - Lawn mower is encountering an error (`is_encountering_an_error`).
 
 ### Light conditions
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 In YAML, use (`condition: light`).
 
@@ -299,8 +283,6 @@ conditions:
 
 ### Lock conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: lock`.
 
 The available conditions are:
@@ -313,8 +295,6 @@ The available conditions are:
 For more details, refer to [Lock conditions](/integrations/lock/#conditions).
 
 ### Media player conditions
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 In YAML, use `condition: media_player`.
 
@@ -392,8 +372,6 @@ conditions:
 
 ### Person conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: person`.
 
 The available conditions are:
@@ -404,8 +382,6 @@ The available conditions are:
 For more details, refer to [Person conditions](/integrations/person/#conditions).
 
 ### Siren conditions
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 In YAML, use `condition: siren`.
 
@@ -633,8 +609,6 @@ A visual timeline is provided below, showing an example of when these conditions
 
 ### Switch conditions
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 In YAML, use `condition: switch`.
 
 The available conditions are:
@@ -801,8 +775,6 @@ conditions:
 ```
 
 ### Vacuum conditions
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 In YAML, use `condition: vacuum`.
 
