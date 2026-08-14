@@ -227,7 +227,9 @@ Depending on the supported features of the camera ([see specifications of the ca
 - PTZ continuous rotation*
 - Guard go to
 - Guard set current position
+- Pre-siren
 - Restart*
+- Synchronize time*
 
 **PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
 **PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
@@ -251,6 +253,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - HDR* (Off, On, Auto)
 - Binning mode* (Off, On, Auto)
 - Image exposure mode* (Auto, Low noise, Anti-smearing, Manual)
+- Anti-flicker* (Off, Other, 50 Hz, 60 Hz)
 - Clear frame rate*
 - Fluent frame rate*
 - Clear bit rate*
@@ -291,6 +294,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Infrared lights in night mode
 - Record audio
 - Siren on event
+- Pre-siren on event
 - Auto tracking
 - Auto focus
 - Guard return
@@ -332,6 +336,8 @@ The **Manual record** switch will turn off automatically after 10 minutes. There
 
 Polling the status of the **Hardwired chime enabled** switch can make the hardwired chime rattle a bit depending on the model of the chime. Therefore the status of this switch is only polled one time (about 1 minute after the integration starts). The rattle at startup can only happen if you chose to enable this switch.
 
+The **Pre-siren on event** switch only takes effect when the **Siren on event** switch is ON.
+
 ### Light entities
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), light entities are added for:
@@ -357,6 +363,15 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Battery percentage+
 - Battery temperature*+
 - Battery state*+ (discharging, charging, charge complete)
+
+### Time entities
+
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following time entities are added:
+
+- Floodlight schedule start*+
+- Floodlight schedule end*+
+
+**Floodlight schedule start** and **Floodlight schedule end** set the time window during which the floodlight turns on while the **Floodlight mode** select entity is set to **Schedule**. Because the camera only stores the schedule in this mode, setting either time also switches the floodlight to **Schedule** mode. If the configured window covers the current time, the floodlight turns on immediately. The times are entered as 24-hour `HH:MM` and are evaluated using the camera's own clock and time zone (Home Assistant does not convert them). Windows that span midnight are supported, for example a start of `22:00` and an end of `06:00`.
 
 ### Update entity
 

@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - Button (Reboot button on the gateway device to reboot the KLF 200 gateway)
 - Cover
 - Light
-- Number (controls the power level of exterior heating devices connected to the gateway, from 0% to 100%)
+- Number
 - Scene
 - Switch
 
@@ -64,6 +64,10 @@ Password:
 {% endconfiguration_basic %}
 
 Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
+
+## Known limitations
+
+The number entities for the window opening limitation and the rain sensor binary sensor use the same data from the gateway. If you set the opening limitation to 11% or less, the rain sensor can show as wet even when no rain is detected.
 
 ## Removing the integration
 

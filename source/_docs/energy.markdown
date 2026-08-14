@@ -37,7 +37,7 @@ Before you customize the dashboard, add at least one energy source or device. If
 
 To show or hide cards on the Energy dashboard:
 
-1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy** > **Edit dashboard**" %}.
 2. In the toolbar, select **Customize cards**.
 3. In the **Customize energy** dialog, expand a section, such as **Overview**, **Electricity**, **Gas**, **Water**, or **Now**.
 4. Turn the switch for each card on or off.

@@ -166,6 +166,8 @@ To create a token:
 
 ## Entities
 
+Some entities are not enabled by default, you can enable them via the device page.
+
 ### Sensor
 
 - **CPU**: Percentage of CPU usage.
