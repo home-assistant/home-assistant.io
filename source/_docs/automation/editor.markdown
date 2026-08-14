@@ -72,9 +72,9 @@ If you want to edit your automation using an example where only the YAML code is
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the upper-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Edit in YAML**.
+3. In the upper-right corner, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Edit in YAML**.
     - Result: The YAML editor opens and you can change the YAML code.
-    - If you just want to edit the YAML of a trigger, a condition or an action of the automation, select the three dots {% icon "mdi:dots-vertical" %} menu in the right corner of the respective element, and select **Edit in YAML**.
+    - If you just want to edit the YAML of a trigger, a condition or an action of the automation, select **Menu** {% icon "mdi:dots-vertical" %} in the right corner of the respective element, and select **Edit in YAML**.
 4. Select **Save**.
 
 If you want to go back to the visual editor, select **Menu** {% icon "mdi:dots-vertical" %} again, and then select **Edit in visual editor**.
@@ -111,7 +111,7 @@ To add a note to a trigger, condition, or action:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. Add a trigger, condition, or action to your automation.
-4. On the right side of the trigger, condition, or action row, select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Add note**.
+4. On the right side of the trigger, condition, or action row, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Add note**.
 5. In the **Add note** dialog, enter the text of your note and select **Submit**.
    - Result: You can read your note by hovering over or selecting the {% icon "mdi:comment-text-outline" %} button.
 
