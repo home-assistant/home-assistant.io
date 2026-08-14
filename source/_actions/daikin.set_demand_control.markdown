@@ -3,7 +3,7 @@ title: "Set Daikin Unit demand control"
 action: daikin.set_demand_control
 domain: daikin
 since: "2026.9.0"
-description: "Sets the parameters of daikin demand control mode"
+description: "Sets the parameters of Daikin demand control mode"
 ---
 
 Use this action to limit the maximum power of the unit to a percentage of its nominal power, for example to reduce power consumption during peak electricity price periods. It is only available on units that support demand control.
