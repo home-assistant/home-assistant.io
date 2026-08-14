@@ -77,7 +77,7 @@ If you want to edit your automation using an example where only the YAML code is
     - If you just want to edit the YAML of a trigger, a condition or an action of the automation, select the three dots {% icon "mdi:dots-vertical" %} menu in the right corner of the respective element, and select **Edit in YAML**.
 4. Select **Save**.
 
-If you want to go back to the visual editor, select the three dots {% icon "mdi:dots-vertical" %} menu again, and then select **Edit in visual editor**.
+If you want to go back to the visual editor, select **Menu** {% icon "mdi:dots-vertical" %} again, and then select **Edit in visual editor**.
 
 ## Checking the targeted entities of an automation
 
