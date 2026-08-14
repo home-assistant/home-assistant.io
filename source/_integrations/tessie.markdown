@@ -54,6 +54,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Lock/unlock doors and control windows, trunk, frunk, and charge port
 - Start/stop charging and set charge limits
 - Enable Sentry mode, valet mode, and defrost mode
+- Keep accessory power on for the USB ports and 12V outlets
 - Flash lights, honk horn, and trigger HomeLink
 - Track vehicle location and navigation destination
 - Send a navigation destination to the vehicle
@@ -143,12 +144,16 @@ The integration will create binary sensor entities for a variety of metrics rela
 
 The integration will create button entities to control various aspects of the vehicle:
 
+- Disable keep accessory power
+- Enable keep accessory power
 - Flash lights
 - HomeLink
 - Honk horn
 - Keyless driving
 - Play fart
 - Wake
+
+Keep accessory power mode continues powering the USB ports and 12V outlets while the vehicle is parked and nobody is inside. It requires vehicle firmware 2025.38 or later, and it increases energy usage even when nothing is plugged in.
 
 ### Climate
 
@@ -537,6 +542,7 @@ Energy product data should update regularly without restrictions.
 - **Field update frequency**: Some vehicle data fields may not update frequently depending on your Tessie subscription tier and field configuration settings.
 - **No reconfiguration**: The integration cannot be reconfigured through the UI. To change your API token or settings, you must remove and re-add the integration.
 - **Software updates**: Vehicle software updates can only be installed from Home Assistant after they have finished downloading to the vehicle.
+- **Keep accessory power state**: Tessie does not report whether keep accessory power mode is currently active, so it is exposed as separate enable and disable buttons rather than a switch. Automations can turn it on or off, but cannot check its current state.
 
 ## Diagnostics
 
