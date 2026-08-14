@@ -48,7 +48,7 @@ action: |
   data:
     device_id: 17159993ce512ff1794b6c1abc6f3df3
     en_demand: true
-    max_mow: 40
+    max_pow: 40
 {% endexample %}
 
 This sets the {% term device %} `17159993ce512ff1794b6c1abc6f3df3` demand control to 40% of the nominal power.
