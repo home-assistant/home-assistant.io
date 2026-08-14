@@ -105,6 +105,34 @@ To do this, navigate to **Access Control** in the Homematic IP app and enable th
 
 Currently, you can only use the HmIP-DLD in Home Assistant without a PIN. Make sure no PIN is set for the device in the Homematic IP app.
 
+## Arm the alarm system while a sensor reports a problem
+
+Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Arming is a two-step decision, mirroring what the Homematic IP app does:
+
+1. Arm normally. If a sensor blocks it, the alarm control panel stays disarmed and Home Assistant reports an error naming the devices that blocked it. Those devices also appear in the panel's `blocking_devices` attribute, so a dashboard or automation can show them.
+2. If you still want to arm, use the `homematicip_cloud.arm_anyway` action with its `mode` field set to `home` or `away`. The blocking devices are then left unmonitored until you arm the system again.
+
+The access point fills `blocking_devices` in response to an arming request, so it is empty until you try to arm. While the system is armed anyway, it lists the entry points that are currently unmonitored.
+
+```yaml
+actions:
+  - action: homematicip_cloud.arm_anyway
+    target:
+      entity_id: alarm_control_panel.hmip_alarm_control_panel
+    data:
+      mode: away
+```
+
+To show what is blocking before deciding, read the attribute in a template:
+
+{% raw %}
+
+```jinja2
+{{ state_attr('alarm_control_panel.hmip_alarm_control_panel', 'blocking_devices') }}
+```
+
+{% endraw %}
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
