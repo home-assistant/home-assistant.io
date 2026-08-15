@@ -29,6 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Binary Sensor](#binary-sensor)
 
 ## Supported hardware
 
