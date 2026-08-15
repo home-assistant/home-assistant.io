@@ -4,7 +4,7 @@ description: Instructions on how to integrate Flow-it ventilation systems into H
 ha_category:
   - Fan
 ha_iot_class: Local Push
-ha_release: 2026.7
+ha_release: 2026.9
 ha_config_flow: true
 ha_domain: flow_it
 ha_zeroconf: true
