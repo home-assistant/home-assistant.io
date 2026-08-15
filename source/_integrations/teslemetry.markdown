@@ -339,7 +339,9 @@ Pre-2021 Model S and Model X vehicles cannot stream. For these vehicles, Tesleme
 
 Credits are only spent on an on-demand fresh full-vehicle-data fetch, which costs 2 credits, or 0.1 credit for a discounted vehicle.
 
-On a streaming vehicle, **Polling** entities read from Teslemetry's cached vehicle data instead of the live stream. Their values are not streamed and do not refresh on their own, which is why many of them are disabled by default. Enabling one is not a switch for Teslemetry's free automatic polling. These reads use the cache by default, so they are usually free, but if the vehicle is online and its cached data is 20 minutes old or older, a read becomes a charged fresh fetch at the cost above. Streaming updates do not reset this 20-minute window, and Home Assistant never bypasses the cache or forces a refresh on its own.
+On a streaming vehicle, **Polling** entities read from Teslemetry's cached vehicle data instead of the live stream. Their values are not streamed and do not refresh on their own, which is why many of them are disabled by default. Enabling one is not a switch for Teslemetry's free automatic polling, and Home Assistant never bypasses the cache or forces a refresh on its own.
+
+If your vehicle is unpaired and streams through the safety screen, an enabled polling entity reads the cached vehicle data every 60 seconds while the vehicle is online. Most of those reads are free cache hits. Each time the cached data passes 20 minutes old, the next read becomes a charged fresh fetch at that cost, so it recurs for as long as the vehicle stays online. Streaming updates do not reset this 20-minute window.
 
 The integration does not wake a sleeping vehicle to fetch data. Updates pause until the vehicle wakes up on its own or you interact with it.
 
