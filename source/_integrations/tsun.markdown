@@ -34,6 +34,9 @@ The following devices have been tested on physical hardware:
 - TSOL-MP3000, with six PV inputs
 - TSOL-MX500, with one PV input
 
+The currently supported native TSUN protocol variants are 02B0 and 1511.
+Support for the 1097 variant is planned for a future update.
+
 ## Prerequisites
 
 - The micro-inverter logger must be powered on. A solar-powered logger may be
