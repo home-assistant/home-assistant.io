@@ -22,14 +22,17 @@ is read-only.
 
 ## Supported devices
 
+The integration is protocol-based rather than model-based. Compatibility is
+determined by the local communication protocol exposed by the logger, not by a
+fixed list of models. TSUN micro-inverters using a supported protocol can
+therefore work even when their model has not yet been tested individually. The
+integration validates the protocol response during setup and creates only the
+measurements provided by the detected device.
+
 The following devices have been tested on physical hardware:
 
 - TSOL-MP3000, with six PV inputs
 - TSOL-MX500, with one PV input
-
-Other TSUN micro-inverters that use compatible local communication may also
-work. The integration validates the device response during setup and creates
-only the measurements provided by the detected device.
 
 ## Prerequisites
 
