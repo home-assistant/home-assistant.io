@@ -47,7 +47,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured to run certain commands.
+The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's public key, installed in your vehicle through the Tesla app. It is required for fleet telemetry (live streaming) and signed vehicle commands. Since nearly all vehicles support both, nearly all customers need it: if your vehicle supports the virtual key, install it as a standard setup step. Vehicles without virtual-key support are the exception. They still work with Teslemetry at reduced capability—data by polling instead of streaming, and commands unsigned where Tesla permits.
 
 {% include integrations/config_flow.md %}
 
@@ -353,7 +353,7 @@ Energy sites are cloud-polled: live status and site information every 30 seconds
 
 -   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
 -   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
--   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
+-   **Virtual Key:** See [Prerequisites](#prerequisites) for when a virtual key is needed. To set one up, follow the instructions on the [Teslemetry Console](https://teslemetry.com/console).
 
 ## Troubleshooting
 
