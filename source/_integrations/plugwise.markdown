@@ -140,10 +140,8 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 #### Water heaters
 
-- **Boiler**
-  - **Description**: Adjust the temperature setpoint for space heating function.
 - **Domestic hot water**
-  - **Description**: Adjust the temperature setpoint for the domestic hot water function. Set the DHW mode.
+  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 
 ### Power and gas entities
 
@@ -193,11 +191,6 @@ Additional actions available for Adam: `climate.turn_on`, `climate.turn_off`, an
 {% note %}
 The additional actions will change Adam's **regulation mode** (the HVAC system mode) to either on or off, affecting the operation of **all** connected thermostats. Turning on activates the previously selected heating or cooling mode.
 {% endnote %}
-
-### Water heater control actions
-
-For information on how to use the available actions, please refer to the [water_heater](/integrations/water_heater#list-of-actions) integration.
-The actions `water_heater.turn_off` and `water_heater.turn_on` are only supported for the Anna-Loria combination. The action `water_heater.set_away_mode` is not supported.
 
 ### Schedule select action
 
