@@ -67,6 +67,10 @@ The integration polls data every 60 seconds.
 
 A [media source](/integrations/media_source/) is provided for your [Immich](https://immich.app/) albums. It shows only the assets you own or that are shared with you. If you have multiple Immich integrations in Home Assistant (_one integration for each Immich user_), only the assets for that specific user are shown. The assets are grouped by albums, people, and tags.
 
+### Search
+
+The search is not a simple filename search. It is contextual and requires the [Smart Search](https://docs.immich.app/features/searching) feature to be enabled on your Immich server. Because it is context-aware, the results depend on where you start your search. For example, starting from the albums overview will return only assets in albums, while searching from a specific person's overview will return only assets related to that person.
+
 ## Sensors
 
 The following {% term sensors %} are created. For some of those the API key needs to have admin rights.

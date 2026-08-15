@@ -65,6 +65,7 @@ Enjoy the release!
   - [2026.7.1 - July 3](#202671---july-3)
   - [2026.7.2 - July 10](#202672---july-10)
   - [2026.7.3 - July 21](#202673---july-21)
+  - [2026.7.4 - July 24](#202674---july-24)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -801,6 +802,30 @@ Apologies for shipping off schedule. This patch release should have shipped last
 [@mattsm]: https://github.com/mattsm
 [@mib1185]: https://github.com/mib1185
 [@raman325]: https://github.com/raman325
+[@zweckj]: https://github.com/zweckj
+
+### 2026.7.4 - July 24
+
+- Fix for ProxmoxVE compoenent failing authentication with realms containg upper case letters. ([@crmason2] - [#176742])
+- Bump yoto-api to 4.3.2 ([@piitaya] - [#176987])
+- Fix Envoy diagnostics fixture download on non-UTF-8 responses ([@genestealer] - [#177008])
+- Bump pybravia to 0.5.1 ([@Drafteed] - [#177076])
+- Bump yarl to 1.24.5 ([@bdraco] - [#177097])
+- Bump aiohttp to 3.14.3 ([@bdraco] - [#177105])
+- Bump pylamarzocco to 2.4.3 ([@zweckj] - [#177151])
+
+[#176742]: https://github.com/home-assistant/core/pull/176742
+[#176987]: https://github.com/home-assistant/core/pull/176987
+[#177008]: https://github.com/home-assistant/core/pull/177008
+[#177076]: https://github.com/home-assistant/core/pull/177076
+[#177097]: https://github.com/home-assistant/core/pull/177097
+[#177105]: https://github.com/home-assistant/core/pull/177105
+[#177151]: https://github.com/home-assistant/core/pull/177151
+[@Drafteed]: https://github.com/Drafteed
+[@bdraco]: https://github.com/bdraco
+[@crmason2]: https://github.com/crmason2
+[@genestealer]: https://github.com/genestealer
+[@piitaya]: https://github.com/piitaya
 [@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community

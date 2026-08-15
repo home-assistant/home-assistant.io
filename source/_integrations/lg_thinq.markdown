@@ -162,7 +162,7 @@ The properties for controlling both the temperature and wind strength of the app
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device in **Settings** > **Tools**.
 
 | Device | Property | Notification codes |
 | ------ | -------- | ---------- |
