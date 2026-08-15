@@ -109,10 +109,10 @@ Currently, you can only use the HmIP-DLD in Home Assistant without a PIN. Make s
 
 Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Arming is a two-step decision, mirroring what the Homematic IP app does:
 
-1. Arm normally. If a sensor blocks it, the alarm control panel stays disarmed and Home Assistant reports an error naming the devices that blocked it. Those devices also appear in the panel's `blocking_devices` attribute, so a dashboard or automation can show them.
+1. Arm normally. If a sensor blocks it, the alarm control panel stays disarmed and Home Assistant reports an error naming the devices that blocked it. The *Arming blocked* binary sensor turns on and lists the same devices in its `blocking_devices` attribute.
 2. If you still want to arm, use the `homematicip_cloud.arm_anyway` action with its `mode` field set to `home` or `away`. The blocking devices are then left unmonitored until you arm the system again.
 
-The access point fills `blocking_devices` in response to an arming request, so it is empty until you try to arm. While the system is armed anyway, it lists the entry points that are currently unmonitored.
+The action checks again before it arms and refuses when something else has started blocking in the meantime.
 
 ```yaml
 actions:
@@ -123,12 +123,53 @@ actions:
       mode: away
 ```
 
-To show what is blocking before deciding, read the attribute in a template:
+The card below shows the blocking devices and the buttons only while arming is blocked.
 
 {% raw %}
 
-```jinja2
-{{ state_attr('alarm_control_panel.hmip_alarm_control_panel', 'blocking_devices') }}
+```yaml
+type: vertical-stack
+cards:
+  - type: alarm-panel
+    entity: alarm_control_panel.hmip_alarm_control_panel
+    states:
+      - arm_home
+      - arm_away
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.hmip_access_point_arming_blocked
+        state: "on"
+    card:
+      type: vertical-stack
+      cards:
+        - type: markdown
+          content: >-
+            Arming was refused by: **{{
+            state_attr('binary_sensor.hmip_access_point_arming_blocked',
+            'blocking_devices') | join(', ') }}**
+        - type: horizontal-stack
+          cards:
+            - type: button
+              name: Arm home anyway
+              icon: mdi:shield-home
+              tap_action:
+                action: perform-action
+                perform_action: homematicip_cloud.arm_anyway
+                target:
+                  entity_id: alarm_control_panel.hmip_alarm_control_panel
+                data:
+                  mode: home
+            - type: button
+              name: Arm away anyway
+              icon: mdi:shield-lock
+              tap_action:
+                action: perform-action
+                perform_action: homematicip_cloud.arm_anyway
+                target:
+                  entity_id: alarm_control_panel.hmip_alarm_control_panel
+                data:
+                  mode: away
 ```
 
 {% endraw %}
@@ -144,6 +185,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 ### Binary sensors
 
 - Access point cloud connection (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Arming blocked, set when the alarm system refuses to arm (`HmIP-HAP`, `HmIP-HAP-B1`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
