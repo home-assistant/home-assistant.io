@@ -333,7 +333,7 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 
 ### Vehicle data
 
-Most vehicles stream their data to Home Assistant in real time over Server-Sent Events (SSE), with no per-update cost. Streaming needs some configuration on the vehicle, which you can manage in the [Teslemetry Console](https://teslemetry.com/console).
+Most vehicles stream their data to Home Assistant in real time over Server-Sent Events (SSE), with no per-update cost. The integration sets up and manages this streaming configuration for you.
 
 Pre-2021 Model S and Model X vehicles cannot stream. For these vehicles, Teslemetry automatically refreshes their data on its own servers at no cost to you. A non-streaming vehicle is refreshed roughly every 15 minutes, and a vehicle that Tesla marks as discounted is refreshed much more often, roughly every 90 seconds. Both are free.
 
