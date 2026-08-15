@@ -27,6 +27,8 @@ The **HAVEN IAQ** {% term integration %} connects supported HAVEN IAQ air qualit
 - Install firmware that supports the HAVEN local API:
   - Room Air Monitor: firmware 19 or later.
   - Central Air Monitor: firmware 2.4.2 or later.
+- In the HAVEN app, enable Home Assistant for each device. This enables the
+  device's local HTTP API, which is disabled by default.
 
 Home Assistant discovers compatible devices automatically. If a device is not discovered, you can add it manually by entering its hostname or IP address.
 
@@ -86,14 +88,16 @@ This integration uses local {% term polling %}. Home Assistant requests updated 
 ### The device is not discovered
 
 1. Confirm that Home Assistant and the HAVEN IAQ device are connected to the same local network.
-2. Confirm that the device runs a supported firmware version.
-3. Add the integration manually and enter the device's hostname or IP address.
+2. Confirm that Home Assistant is enabled for the device in the HAVEN app.
+3. Confirm that the device runs a supported firmware version.
+4. Add the integration manually and enter the device's hostname or IP address.
 
 ### Entities are unavailable
 
 1. Confirm that the HAVEN IAQ device is powered on and connected to Wi-Fi.
-2. Confirm that Home Assistant can still reach the device at its configured hostname or IP address.
-3. If a manually entered IP address changed and the device is not rediscovered automatically, remove and add the integration again using the new address.
+2. Confirm that Home Assistant remains enabled for the device in the HAVEN app.
+3. Confirm that Home Assistant can still reach the device at its configured hostname or IP address.
+4. If a manually entered IP address changed and the device is not rediscovered automatically, remove and add the integration again using the new address.
 
 ## Removing the integration
 
