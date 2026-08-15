@@ -20,9 +20,11 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The **Indoor Air Quality** {% term integration %} is a helper that combines readings from your existing environmental sensors into one indoor air quality score. You can use it to summarize the air quality in a room, compare different rooms, or trigger automations from one overall result instead of watching many separate entities.
+The **Indoor Air Quality** {% term integration %} is a helper that combines readings from your existing environmental sensors into one indoor air quality score. You can use it to summarize the air quality in a room or trigger automations from one overall result instead of watching many separate entities.
 
 Use case: If your monitor reports temperature, humidity, carbon dioxide, and particulate matter as separate sensors, this helper can turn them into one numeric index and one easy-to-read air quality level.
+
+The calculation uses the [IAQUK Indoor Air Quality Rating Index from 2015](https://web.archive.org/web/20161014083724id_/http://iaquk.org.uk/ESW/Files/IAQ_Rating_Index.pdf). IAQUK is an indoor rating methodology. It is not the UK government's outdoor Daily Air Quality Index (DAQI), and the result is not a regulatory or medical measurement.
 
 ## Supported devices
 
@@ -35,7 +37,7 @@ The integration can use these source types:
 - Carbon dioxide
 - Total volatile organic compounds (tVOC)
 - Volatile organic compound index (VOC index)
-- Particulate matter, like PM1, PM2.5, and PM10 (particle sizes of 1, 2.5, and 10 micrometers)
+- PM2.5 particulate matter
 - Nitrogen dioxide
 - Carbon monoxide
 - Formaldehyde
@@ -57,13 +59,13 @@ When you set up the integration, select the device that provides your air qualit
 
 ## Configuration options
 
-After setup, you can open the integration options to change the selected sources or the rating standard.
+After setup, select **Configure** on the integration entry to change the selected sources or the rating methodology.
 
 {% configuration_basic %}
 Device:
   description: The device that provides your air quality readings. Home Assistant uses it to automatically detect supported sensors.
 Rating standard:
-  description: The air quality rating standard used to calculate the score. At the moment, the integration supports the United Kingdom standard.
+  description: The rating methodology used to calculate the score. The integration currently supports the IAQUK 2015 indoor rating methodology.
 Choose additional sensors:
   description: Enable this if you want to review the detected sensors, add more sources, or create the helper without selecting a device first.
 Name:
@@ -78,8 +80,8 @@ tVOC sensor:
   description: Optional total volatile organic compounds source used for the air quality calculation. Select either a tVOC sensor or a VOC index sensor.
 VOC index sensor:
   description: Optional VOC index source used for the air quality calculation. Select either a VOC index sensor or a tVOC sensor.
-Particulate matter sensors:
-  description: Optional particulate matter sources used for the air quality calculation. You can select one or more particulate matter sensors.
+PM2.5 sensor:
+  description: Optional PM2.5 source used for the air quality calculation.
 Nitrogen dioxide sensor:
   description: Optional NO2 source used for the air quality calculation.
 Carbon monoxide sensor:
@@ -97,8 +99,8 @@ The integration creates the following sensor entities for each Indoor Air Qualit
 ### Sensors
 
 - **Index**
-  - **Description**: A numeric indoor air quality score from 0 to 65. Lower values mean better air quality.
-  - **Remarks**: Includes diagnostic attributes such as the number of configured sources, the number of sources currently used, and per-source index values when available.
+  - **Description**: A numeric indoor air quality score from 13 to 65. Higher values mean better air quality.
+  - **Remarks**: Home Assistant scores each configured source with the IAQUK component bands, averages the component scores, and normalizes the result to the 13–65 range. Attributes show the limiting source, the number of configured and usable sources, and each component score.
 
 - **Level**
   - **Description**: A text summary of the current indoor air quality.
@@ -111,8 +113,8 @@ If you create the helper from a device, the sensors are linked to that device in
 
 You can use this integration in a few different ways:
 
-- Create one Indoor Air Quality helper for each room so you can compare rooms at a glance
-- Start with automatic device detection, then adjust the selected sensors later from the integration options
+- Create one Indoor Air Quality helper for each room using the same source types so you can compare rooms at a glance
+- Start with automatic device detection, then adjust the selected sensors later by selecting **Configure** on the integration entry
 - Combine sensors from different devices when one monitor does not provide every air quality measurement you want to include
 
 ## Data updates
@@ -121,10 +123,12 @@ This integration does not poll. Home Assistant recalculates the indoor air quali
 
 ## Known limitations
 
-- Only the United Kingdom rating standard is currently available
+- Only the IAQUK 2015 indoor rating methodology is currently available
 - You can configure either a tVOC sensor or a VOC index sensor for one helper, not both
-- If a configured sensor is unavailable or reports an unsupported unit, that source is skipped during recalculation
-- If all configured sources are unavailable, the helper keeps its last calculated result until a valid source updates again
+- Home Assistant normalizes the configured subset of IAQUK components. Scores calculated from different source sets are not directly comparable.
+- A tVOC source must report a supported mass concentration. Home Assistant does not convert arbitrary tVOC ppm or ppb readings because those units depend on the sensor's reference compound.
+- If any configured sensor is unavailable, nonnumeric, outside its physical range, or reports an unsupported unit, the helper entities become unavailable until all configured sources are usable again.
+- The overall level follows the normalized IAQUK calculation. Check the **Limiting source** attribute before using the result for health-related notifications because averaging can make a poor component less prominent in the overall result.
 
 ## Troubleshooting
 
