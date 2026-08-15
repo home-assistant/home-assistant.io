@@ -324,19 +324,26 @@ which then can be used within the energy dashboard.
 
 ## Data updates
 
-Teslemetry delivers data by streaming or polling, depending on the product. The **Data** column in the entity tables above shows how each entity is updated.
+Teslemetry delivers data by streaming or polling, depending on the product. The **Data** column in the entity tables above shows how each entity is updated:
 
-### Vehicles
+- **Streaming**: the value arrives over the live stream in real time.
+- **Polling**: the value comes from Teslemetry's cached vehicle data.
+- **Both**: the value can arrive by streaming or polling, depending on the vehicle and its configuration.
+- **—** (em dash): the entity does not report data. Buttons send commands, so they have no data source.
+
+### Vehicle data
 
 Most vehicles stream their data to Home Assistant in real time over Server-Sent Events (SSE), with no per-update cost. Streaming needs some configuration on the vehicle, which you can manage in the [Teslemetry Console](https://teslemetry.com/console).
 
-Pre-2021 Model S and Model X vehicles cannot stream. Teslemetry refreshes their data on its own servers at most every 15 minutes on standard devices, or every 90 seconds on discounted devices. Each fresh refresh costs about 0.1 credit from your account balance, so a non-streaming vehicle has a small, continuous cost while the integration is loaded. This cost is per vehicle, not per entity: enabling or disabling entities does not change it.
+Pre-2021 Model S and Model X vehicles cannot stream. For these vehicles, Teslemetry automatically refreshes their data on its own servers at no cost to you. A non-streaming vehicle is refreshed roughly every 15 minutes, and a vehicle that Tesla marks as discounted is refreshed much more often, roughly every 90 seconds. Both are free.
 
-On a streaming vehicle, the values of **Polling** entities are not streamed and will not refresh on their own, which is why many of them are disabled by default. Enabling one does not trigger a poll or add any cost.
+Credits are only spent on an on-demand fresh full-vehicle-data fetch, which costs 2 credits, or 0.1 credit for a discounted vehicle.
+
+On a streaming vehicle, **Polling** entities read from Teslemetry's cached vehicle data instead of the live stream. Their values are not streamed and do not refresh on their own, which is why many of them are disabled by default. Enabling one is not a switch for Teslemetry's free automatic polling. These reads use the cache by default, so they are usually free, but if the vehicle is online and its cached data is 20 minutes old or older, a read becomes a charged fresh fetch at the cost above. Streaming updates do not reset this 20-minute window, and Home Assistant never bypasses the cache or forces a refresh on its own.
 
 The integration does not wake a sleeping vehicle to fetch data. Updates pause until the vehicle wakes up on its own or you interact with it.
 
-### Energy sites
+### Energy site data
 
 Energy sites are cloud-polled: live status and site information every 30 seconds, and energy history every 60 seconds.
 
