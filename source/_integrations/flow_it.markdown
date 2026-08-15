@@ -3,41 +3,70 @@ title: Flow-it
 description: Instructions on how to integrate Flow-it ventilation systems into Home Assistant.
 ha_category:
   - Fan
-ha_iot_class: Local Push
 ha_release: 2026.9
+ha_iot_class: Local Push
 ha_config_flow: true
+ha_codeowners:
+  - '@albertogeniola'
 ha_domain: flow_it
+ha_platforms:
+  - fan
+ha_integration_type: device
+ha_quality_scale: bronze
 ha_zeroconf: true
+related:
+  - url: https://www.flow-it.it/en
+    title: Flow-it
 ---
 
 The **Flow-it** {% term integration %} lets you monitor and control your Flow-it ventilation system in Home Assistant.
 
-Home Assistant connects to your Flow-it device over your local network and exposes it as a fan entity.
+Use case: You can control the fan speed, activate preset modes such as Auto or Boost, and automate your Flow-it ventilation system alongside other smart home devices.
 
-The integration receives updates locally and refreshes periodically to keep the state in sync.
+## Supported devices
+
+The integration supports the following devices:
+
+- Flow-it <abbr title="Controlled Mechanical Ventilation">VMC</abbr> ventilation systems equipped with Wi-Fi connectivity.
 
 ## Prerequisites
 
-Before setting up the integration, ensure that you have your Flow-it device connected to your local network.
+Before setting up the integration:
 
-While you can locate the device's IP address on its LCD display via the dedicated menu to set up the integration manually, doing so will require you to set up a static DHCP lease for the VMC in your router. Failure to bind the IP address statically will result in the device becoming unreachable as soon as the DHCP lease expires and the IP changes.
+1. Connect your Flow-it device to your local network.
+2. Locate the password and IP address (if setting up manually) on the physical LCD screen by navigating to **Settings** > **Wi-Fi**.
 
-For this reason, using Home Assistant's automatic discovery ([Zeroconf](/integrations/zeroconf/)) is recommended.
+{% tip %}
+Automatic discovery via [Zeroconf](/integrations/zeroconf/) is recommended. When discovered automatically, Home Assistant configures the integration using the device hostname instead of its IP address, avoiding the need to set up a static DHCP lease in your router.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
-## Discovery
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Flow-it device on your local network. For example, `192.168.1.100` or `vmc.local`. You can find the IP address on the physical LCD screen under **Settings** > **Wi-Fi**."
+Username:
+  description: "The username used to authenticate with the device API. The default username is `api`."
+Password:
+  description: "The password displayed on the physical LCD screen of your device under **Settings** > **Wi-Fi**."
+{% endconfiguration_basic %}
 
-If your Flow-it device supports Zeroconf, Home Assistant will automatically discover it on your network.
+## Supported functionality
 
-By using automatic discovery, Home Assistant configures the integration using the device's **hostname** instead of its IP address. This completely avoids the need for advanced DHCP lease configurations on your router, as the device will remain reachable even if its IP address changes over time.
+The **Flow-it** integration provides the following entities:
 
-You can set it up from the discovered card on the **Settings** > **Devices & services** page by entering your credentials (the default username is usually `api`).
+### Fans
+
+- **Fan**
+  - **Description**: Controls the fan state, speed (levels 1 through 5), and preset modes.
+  - **Presets**: `Auto`, `Boost`.
+
+## Data updates
+
+The Flow-it integration uses local push updates over a WebSocket connection to receive real-time status changes from the device, with periodic local polling every 60 seconds as a fallback.
 
 ## Removing the integration
 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
