@@ -116,7 +116,6 @@ This section is collapsed by default.
 
 - **Smooth radar image**: Whether to smooth the radar image instead of leaving it pixelated. Turning this on uses more bandwidth (default: off).
 - **Loop frame rate**: Frame rate of the radar animation, from 1 to 30 frames per second (FPS) (default: 5 FPS).
-- **Use WebP images**: Whether to request radar images as WebP instead of PNG. Turning this on reduces bandwidth, at the cost of higher latency (default: off).
 
 ### Configuring radar camera display
 
