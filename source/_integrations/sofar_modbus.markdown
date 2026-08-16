@@ -39,7 +39,7 @@ If the inverter answers but its serial number isn't recognized, setup fails and 
 Host:
   description: "The hostname or IP address of the inverter, or of the Modbus TCP bridge it's connected through."
 Port:
-  description: "The Modbus TCP port to connect on. The default is `502`."
+  description: "The Modbus TCP port to connect to. The default is `502`."
 Modbus unit ID:
   description: "The inverter's Modbus unit/slave ID. The default is `1`."
 Poll EPS / backup registers:
