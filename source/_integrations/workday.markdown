@@ -36,28 +36,28 @@ Check the [country list](https://github.com/vacanza/holidays#available-countries
 
 {% configuration_basic %}
 Country:
-  description: Choose a country, can also be left empty to start with an empty set of holidays.
-Subdivision of country:
-  description: Optionally select a specific subdivision of the chosen country.
-Workdays:
-  description: Which days are workdays
+  description: he country whose public holidays you want to use. Leave it empty to start with an empty set of holidays.
+Days to include::
+  description: The weekdays that are workdays.
 Days to exclude:
-  description: Which days should not be workdays (note below the important information regarding the "Holiday" keyword)
+  description: The days that are not workdays. Note below the important information regarding the **Holidays** keyword.
+Offset:
+  description: Days offset from current day. It can be used to see if future days are workdays. For example, enter `1` to see today if tomorrow is a workday.
 Add holidays:
   description: Provide dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` to add them as holidays.
 Remove holidays:
   description: Provide dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, (for example, `christmas` will find `Christmas Day`) to remove them from the list of holidays.
-Offset:
-  description: The offset can be used to see if future days are workdays. For example, put `1` to see today if tomorrow is a workday.
-Additional category:
-  description: Optional categories that can be used to select them as holidays
 Language for named holidays:
-  description: For use with "Remove holidays"; select which language to find named holidays.
+  description: The language that will be used in the configuration of the holidays exclusion.
+Subdivision of country:
+  description: The subdivision of the chosen country, if any or wanted.
+  required: false
+Additional category:
+  description: Additional holiday categories to include. Check the supported categories for each country in the [holidays library webpage](https://pypi.org/project/holidays/).
 {% endconfiguration_basic %}
 
 {% important %}
-The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
-Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
+The **Holidays** keyword represents the list of holidays imported from the holidays library and the holidays added in the **Add holidays** configuration option. When you select **Holidays** in the configuration option **Days to exclude**, the days that are in the holidays list are excluded from the workdays list. This means that if a holiday falls on a weekday defined as workday, that day does not count as workday (the workday sensor will have the **Off** state).
 {% endimportant %}
 
 {% include integrations/actions.md %}
@@ -90,9 +90,11 @@ Newly created holidays or other configuration options are completely based on th
 
 ## Troubleshooting
 
-The integration completely rely on the information provided by the [holidays library](https://pypi.org/project/holidays/).
+The integration completely relies on the information provided by the [holidays library](https://pypi.org/project/holidays/).
 
-Check the [holidays repository](https://github.com/vacanza/python-holidays) if you are missing a certain holiday and/or it may require a special category to be used. Any issues on such, should be raised directly at that repository.
+Check the [holidays repository](https://github.com/vacanza/python-holidays) if you are missing a certain holiday.
+Some holidays in your country may not be actual official holidays and are therefore set in a special category that needs to be selected.
+Missing holidays or incorrect days needs to be raised directly in the [holidays repository](https://github.com/vacanza/python-holidays).
 
 ## Remove the integration
 
