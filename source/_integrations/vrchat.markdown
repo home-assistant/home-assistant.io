@@ -15,11 +15,15 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **VRChat** {% term integration %} connects your VRChat account to Home Assistant. It provides sensors for your account and your VRChat friends, so you can see their availability, status, and location.
+The [**VRChat**](/integrations/vrchat/) {% term integration %} connects your VRChat account to Home Assistant. It provides sensors for your account and your VRChat friends, so you can see their availability, status, and location.
+
+## Supported accounts
+
+The integration supports VRChat accounts that use a username or email address and password. Signing in through a third-party OAuth provider is not supported. Accounts that only use a gaming platform sign-in, such as Steam, Meta, Pico, or Viveport, are also not supported. To use a platform account, [link or upgrade it to a VRChat account](https://help.vrchat.com/hc/en-us/articles/360062659053-I-want-to-turn-my-platform-account-through-Steam-Meta-Pico-or-Viveport-into-a-VRChat-account).
 
 ## Prerequisites
 
-You need a VRChat account with a username or email address and password. Signing in through a third-party OAuth provider is not supported. Accounts that only use a gaming platform sign-in, such as Steam, Meta, Pico, or Viveport, are also not supported. To use a platform account, [link or upgrade it to a VRChat account](https://help.vrchat.com/hc/en-us/articles/360062659053-I-want-to-turn-my-platform-account-through-Steam-Meta-Pico-or-Viveport-into-a-VRChat-account).
+Have a VRChat account. See [Supported accounts](#supported-accounts) for account requirements.
 
 {% include integrations/config_flow.md %}
 
@@ -40,7 +44,7 @@ The integration retrieves your account and friend information when it starts, th
 
 ## Known limitations
 
-- The integration uses VRChat account credentials. It does not support third-party OAuth sign-in or platform-only accounts.
+- See [Supported accounts](#supported-accounts) for account requirements.
 - Sensor availability and location details depend on the information VRChat makes available for each account or friend.
 
 ## Removing the integration
