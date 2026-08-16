@@ -25,7 +25,7 @@ JFL panels **dial out** to a monitoring destination rather than being polled or 
 
 - Active 32 Duo (verified against real hardware)
 
-Other Active-series panels described in JFL's own protocol documentation are implemented but have not been verified against real hardware. If a panel connects and something does not work as expected, the integration raises a repair issue asking for a diagnostics download, which is the fastest way to get it fixed.
+Other Active-series panels described in JFL's own protocol documentation are implemented but have not been verified against real hardware. If such a panel connects and something does not work as expected, please open an issue naming the model.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ After the listener is set up, panels that report to it appear automatically. Eac
 
 {% configuration_basic %}
 Panel serial number:
-    description: "The ten-character serial the panel itself reports. If the panel has already connected, pick it from the list instead of typing it."
+    description: "The ten-character serial the panel itself reports. Panels that have already connected are added on their own, so this is only needed for one that is not powered up yet."
 Code to arm and disarm (optional):
     description: "A code Home Assistant asks for before arming or disarming. This is a Home Assistant-side code, not a panel user code — it is never sent to the panel, because the command path this integration uses carries no password at all. Leave it empty for no code."
 Also ask for the code when arming:
@@ -81,23 +81,32 @@ The panel only reports its status when asked, so the integration {% term polling
 
 ## Troubleshooting
 
-### No panel has connected
+### No panel appears after setup
 
-#### Symptom: the **No JFL panel has connected** repair issue appears
+#### Symptom: the integration is set up, but no device or entity is created
 
 #### Description
 
-Nothing has reported to the configured address and port within a few minutes of setup.
+Because the panel dials out rather than being connected to, nothing at all happens until it reports in. A panel that was never programmed to report to Home Assistant produces no error and no device — the integration simply waits.
 
 #### Resolution
 
 1. Double-check the panel's own programming: the reporting destination IP and port must exactly match what this integration is listening on.
 2. If the panel already reports to a monitoring company, make sure dual reporting is enabled so both destinations are active — the new one should not replace the existing one.
 3. If the panel is on a different network or behind a firewall, make sure the port is reachable from it.
+4. Enable debug logging for the integration. Every frame the panel sends is logged there, so a panel that is connecting but not being understood looks different from one that never connects at all.
 
-### Panel rejected a password
+### Arming or disarming does nothing
 
-If a **Panel rejected a password** repair issue appears, the panel is treating one of this integration's commands as authenticated when it should not be. This integration is not designed to send any command that carries a password, so this points to a bug — please report it along with a diagnostics download.
+#### Symptom: the alarm entity reports an error when armed or disarmed
+
+#### Description
+
+A panel is added in read-only mode, so that a new installation observes before it controls anything.
+
+#### Resolution
+
+Open the panel's own settings from the integration page and turn **Read-only mode** off.
 
 ## Removing the integration
 
