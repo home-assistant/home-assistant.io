@@ -185,6 +185,7 @@ Make sure to enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 - If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.
 - Most newer TV firmware does not allow passing the `icon` parameter to the `notify` command, the TV will ignore the icon and only display the message.
+- On some TV firmware versions, passing the `icon` parameter to the `notify` command can prevent the notification from being shown.
 
 ## Removing the integration
 
