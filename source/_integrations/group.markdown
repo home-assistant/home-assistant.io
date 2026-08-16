@@ -2,6 +2,7 @@
 title: Group
 description: Instructions on how to set up groups within Home Assistant.
 ha_category:
+  - Automation
   - Binary sensor
   - Button
   - Cover
@@ -24,6 +25,7 @@ ha_codeowners:
 ha_domain: group
 ha_config_flow: true
 ha_platforms:
+  - automation
   - binary_sensor
   - button
   - cover
@@ -45,6 +47,7 @@ This can be useful, for example, in cases where you want to control multiple bul
 
 The following entities can be grouped:
 
+- [automation (automations)](/integrations/automation/)
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
 - [cover (covers)](/integrations/cover/)
@@ -63,13 +66,13 @@ The following entities can be grouped:
 {% include integrations/config_flow.md %}
 
 {% note %}
-Notification entities can only be grouped via the UI.
+Automation and notification entities can only be grouped via the UI.
 The older notification actions can only be grouped via YAML configuration.
 {% endnote %}
 
 ## Group behavior
 
-### Binary sensor, light, and switch groups
+### Automation, binary sensor, light, and switch groups
 
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
@@ -78,7 +81,7 @@ In short, when any group member entity is `on`, the group will also be `on`. A c
 - Otherwise, the group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
-Binary sensor, light, and switch groups allow you set the "All entities" option. When enabled, the group behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
+Automation, binary sensor, light, and switch groups allow you to set the "All entities" option. When enabled, the group behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
@@ -337,7 +340,7 @@ unique_id:
   required: false
   type: string
 all:
-  description: Only available for `binary_sensor`, `light` and `switch` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  description: Only available for `automation`, `binary_sensor`, `light`, and `switch` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
   required: false
   type: boolean
   default: false
