@@ -64,7 +64,7 @@ Host:
 
 {% endconfiguration_basic %}
 
-By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the update_entity action to define your own update frequency.
+By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the homeassistant.update_entity action to define your own update frequency.
 
 {% include common-tasks/define_custom_polling.md %}
 
@@ -172,7 +172,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ## Data updates
 
-The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
+The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds, unless custom polling has been enabled (see the configuration section). If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 
