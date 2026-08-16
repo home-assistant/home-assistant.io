@@ -61,7 +61,14 @@ You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users
 1. Sign in to your UniFi OS device.
 2. Go to **People** from the left-hand side menu.
 3. Select **Create New**.
-4. Add **Name** and check **Admin**, then set a username and password. Check **Restrict to local access only** and untick "Use a pre-defined role" and select for first set (Network) **Full Management** and for the second set (OS Settings) **None**.
+4. Fill in the user details:
+    - Add **Name**.
+    - Check **Admin**.
+    - Set a username and password.
+    - Check **Restrict to local access only**.
+    - Uncheck **Use a pre-defined role**.
+    - Set the first privilege level (**Network**) to **Full Management**.
+    - Set the second privilege level (**OS Settings**) to **None**.
 5. In the bottom right, select **Create**.
 
 There is currently support for the following device types within Home Assistant:
