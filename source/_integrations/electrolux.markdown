@@ -11,12 +11,14 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Fan
   - Light
   - Number
   - Sensor
 ha_platforms:
   - binary_sensor
   - button
+  - fan
   - light
   - Number
   - sensor
@@ -51,6 +53,7 @@ The integration supports the following appliance types:
 - **Hob**
 - **Hood**
 - **Oven**
+- **Air Purifier**
 
 ## Prerequisites
 
@@ -127,6 +130,16 @@ This entity is used to control the appliance with the following actions:
 - **Stop**
   - **Description**: Stop the appliance.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+
+{% enddetails %}
+
+### Fan
+
+{% details "List of fan entities" %}
+
+- **Air Purifier fan**
+  - **Description**: Allows turning on and off the air purifier, setting the fan speed, and setting the work mode of the air purifier.
+  - **Available for appliance types**: Air Purifier.
 
 {% enddetails %}
 
