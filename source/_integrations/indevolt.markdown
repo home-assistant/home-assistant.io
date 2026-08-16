@@ -64,6 +64,10 @@ Host:
 
 {% endconfiguration_basic %}
 
+By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the update_entity action to define your own update frequency.
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Supported functionality
 
 The Indevolt integration provides sensors for monitoring your device (read only).
