@@ -95,7 +95,6 @@ The integration adds entities for setting remaining time in minutes for:
 The integration adds the following switches:
 
 - _Electric heater_ that controls the heating element in the unit.
-- _Fireplace mode_ that enables or disables the Fireplace mode.
 
 ### A note about shutting down the device
  
