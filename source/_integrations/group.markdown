@@ -66,13 +66,15 @@ The following entities can be grouped:
 {% include integrations/config_flow.md %}
 
 {% note %}
-Automation and notification entities can only be grouped via the UI.
-The older notification actions can only be grouped via YAML configuration.
+Automation groups and notify entity groups can only be created through the UI.
+The older notify action groups can only be configured through YAML.
 {% endnote %}
 
 ## Group behavior
 
 ### Automation, binary sensor, light, and switch groups
+
+For automation entities, `on` and `off` refer to whether the automation is enabled or disabled, not whether it is currently running.
 
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
@@ -340,7 +342,7 @@ unique_id:
   required: false
   type: string
 all:
-  description: Only available for `automation`, `binary_sensor`, `light`, and `switch` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  description: Only available for `binary_sensor`, `light`, and `switch` groups. Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
   required: false
   type: boolean
   default: false
