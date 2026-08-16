@@ -92,7 +92,7 @@ The integration adds entities for setting remaining time in minutes for:
 
 ### Switch
 
-The integration adds the following switches:
+The integration adds the following switch:
 
 - _Electric heater_ that controls the heating element in the unit.
 
