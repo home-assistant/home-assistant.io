@@ -36,7 +36,7 @@ Check the [country list](https://github.com/vacanza/holidays#available-countries
 
 {% configuration_basic %}
 Country:
-  description: he country whose public holidays you want to use. Leave it empty to start with an empty set of holidays.
+  description: The country whose public holidays you want to use. Leave it empty to start with an empty set of holidays.
 Days to include::
   description: The weekdays that are workdays.
 Days to exclude:
@@ -94,7 +94,7 @@ The integration completely relies on the information provided by the [holidays l
 
 Check the [holidays repository](https://github.com/vacanza/python-holidays) if you are missing a certain holiday.
 Some holidays in your country may not be actual official holidays and are therefore set in a special category that needs to be selected.
-Missing holidays or incorrect days needs to be raised directly in the [holidays repository](https://github.com/vacanza/python-holidays).
+Missing holidays or incorrect days need to be raised directly in the [holidays repository](https://github.com/vacanza/python-holidays).
 
 ## Remove the integration
 
