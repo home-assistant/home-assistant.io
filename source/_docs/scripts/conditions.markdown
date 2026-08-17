@@ -211,21 +211,10 @@ For more details, refer to [Climate conditions](/integrations/climate/#list-of-c
 
 ```yaml
 conditions:
-  - condition: climate
-    type: is_heating
-    entity_id: climate.living_room
+  - condition: climate.is_heating
+    target:
+      entity_id: climate.living_room
 ```
-
-### Device tracker conditions
-
-In YAML, use `condition: device_tracker`.
-
-The available conditions are:
-
-- Device tracker is not home (`is_not_home`).
-- Device tracker is home (`is_home`).
-
-For more details, refer to [Device tracker conditions](/integrations/device_tracker/#list-of-conditions).
 
 ### Fan conditions
 
@@ -279,9 +268,9 @@ For more details, refer to [Light conditions](/integrations/light/#list-of-condi
 
 ```yaml
 conditions:
-  - condition: light
-    type: is_on
-    entity_id: light.living_room
+  - condition: light.is_on
+    target:
+      entity_id: light.living_room
 ```
 
 ### Lock conditions
@@ -372,17 +361,6 @@ conditions:
     above: input_number.temperature_threshold_low
     below: input_number.temperature_threshold_high
 ```
-
-### Person conditions
-
-In YAML, use `condition: person`.
-
-The available conditions are:
-
-- Person is home (`is_home`).
-- Person is not home (`is_not_home`).
-
-For more details, refer to [Person conditions](/integrations/person/#list-of-conditions).
 
 ### Siren conditions
 
@@ -522,7 +500,7 @@ conditions:
 
 The `for` template(s) will be evaluated when the condition is tested.
 
-### Sun condition
+### Sun conditions
 
 #### Sun state condition
 
@@ -531,17 +509,13 @@ The sun state can be used to test if the sun has set or risen.
 ```yaml
 conditions:
   - alias: "Sun up"
-    condition: state  # 'day' condition: from sunrise until sunset
-    entity_id: sun.sun
-    state: "above_horizon"
+    condition: sun.is_up
 ```
 
 ```yaml
 conditions:
   - alias: "Sun down"
-    condition: state  # from sunset until sunrise
-    entity_id: sun.sun
-    state: "below_horizon"
+    condition: sun.is_set
 ```
 
 #### Sun elevation condition
@@ -743,9 +717,9 @@ a referenced sensor or helper entity contains a timestamp with a date, the
 date part is fully ignored.
 {% endnote %}
 
-### Trigger condition
+### Triggered by condition
 
-The trigger condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
+The triggered by condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
 
 ```yaml
 conditions:
@@ -791,16 +765,18 @@ The available conditions are:
 
 For information about adding vacuum conditions in an automation and examples, refer to [Vacuum conditions](/integrations/vacuum/#list-of-conditions).
 
-### Zone condition
+### Zone conditions
 
 Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
 
 ```yaml
 conditions:
   - alias: "Paulus at home"
-    condition: zone
-    entity_id: device_tracker.paulus
-    zone: zone.home
+    condition: zone.in_zone
+    target:
+      entity_id: device_tracker.paulus
+    options:
+      zone: zone.home
 ```
 
 It is also possible to test the condition against multiple entities at once.
@@ -808,23 +784,30 @@ The condition will pass if all entities are in the specified zone.
 
 ```yaml
 conditions:
-  - condition: zone
-    entity_id:
-      - device_tracker.frenck
-      - device_tracker.daphne
-    zone: zone.home
+  - condition: zone.in_zone
+    target:
+      entity_id:
+        - device_tracker.frenck
+        - device_tracker.daphne
+    options:
+      zone: zone.home
 ```
 
-Testing if an entity is matching a set of possible zones;
-The condition will pass if the entity is in one of the zones.
+To test if an entity is matching a set of possible zones, you need to add two zone conditions in an **Or** condition block.
 
 ```yaml
+condition: or
 conditions:
-  - condition: zone
-    entity_id: device_tracker.paulus
-    state:
-      - zone.home
-      - zone.work
+  - condition: zone.in_zone
+    target:
+      entity_id: device_tracker.paulus
+    options:
+      zone: zone.home
+  - condition: zone.in_zone
+    target:
+      entity_id: device_tracker.paulus
+    options:
+      zone: zone.work
 ```
 
 Or, combine multiple entities with multiple zones. In the following example,
@@ -832,14 +815,20 @@ both entities need to be either in the home or the work zone for the condition
 to pass.
 
 ```yaml
+condition: or
 conditions:
-  condition: zone
-  entity_id:
-    - device_tracker.frenck
-    - device_tracker.daphne
-  state:
-    - zone.home
-    - zone.work
+  - condition: zone.in_zone
+    target:
+      entity_id: device_tracker.frenck
+      entity_id: device_tracker.daphne
+    options:
+      zone: zone.home
+  - condition: zone.in_zone
+    target:
+      entity_id: device_tracker.frenck
+      entity_id: device_tracker.daphne
+    options:
+      zone: zone.work
 ```
 
 ## Examples
