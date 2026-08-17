@@ -164,9 +164,13 @@ conditions:
 
 ## Types of conditions
 
-A condition of an automation has a type that depends on the target of the condition, usually corresponding to the domain of the target. The following types are available. 
+A condition of an automation has a type that depends on the target of the condition, usually corresponding to the domain of the target. The following types are available.
 
 For an overview of every condition across all integrations, refer to the [list of available conditions](/conditions/).
+
+### Air quality conditions
+
+For the full list of available conditions and its details, refer to the **Air quality** [list of conditions](/integrations/air_quality/#list-of-conditions).
 
 ### Alarm control panel conditions
 
@@ -182,6 +186,8 @@ The available conditions are:
 - Alarm is disarmed (`alarm_control_panel.is_disarmed`).
 - Alarm is triggered (`alarm_control_panel.is_triggered`).
 
+For information about each condition, refer to the **Alarm control panel** [list of conditions](/integrations/alarm_control_panel/#list-of-conditions).
+
 ### Assist satellite conditions
 
 In YAML, use `condition: assist_satellite`.
@@ -192,6 +198,16 @@ The available conditions are:
 - Satellite is listening (`assist_satellite.is_listening`).
 - Satellite is processing (`assist_satellite.is_processing`).
 - Satellite is responding (`assist_satellite.is_responding`).
+
+For information about each condition, refer to the **Assist satellite** [list of conditions](/integrations/alarm_control_panel/#list-of-conditions).
+
+### Battery conditions
+
+For the full list of available conditions and its details, refer to the **Battery** [list of conditions](/integrations/battery/#list-of-conditions).
+
+### Calendar conditions
+
+For the full list of available conditions and its details, refer to the **Calendar** [list of conditions](/integrations/calendar/#list-of-conditions).
 
 ### Climate conditions
 
@@ -205,7 +221,7 @@ Some of the available conditions are:
 - Thermostat is cooling (`climate.is_cooling`).
 - Thermostat is drying (`climate.is_drying`).
 
-For more details, refer to [Climate conditions](/integrations/climate/#list-of-conditions).
+For the full list of available conditions and its details, refer to [Climate conditions](/integrations/climate/#list-of-conditions).
 
 #### Example: Continue only if the climate is heating
 
@@ -216,6 +232,16 @@ conditions:
       entity_id: climate.living_room
 ```
 
+### Counter conditions
+
+For the full list of available conditions and its details, refer to the **Counter** [list of conditions](/integrations/counter/#list-of-conditions).
+
+### Cover conditions
+
+For the full list of available conditions and its details, refer to the **Cover** [list of conditions](/integrations/cover/#list-of-conditions).
+
+### Device condition
+
 ### Fan conditions
 
 In YAML, use `condition: fan`.
@@ -225,7 +251,11 @@ The available conditions are:
 - Fan is on (`fan.is_on`).
 - Fan is off (`fan.is_off`).
 
-For more details, refer to [Fan conditions](/integrations/fan/#list-of-conditions).
+For information about each condition, refer to [Fan conditions](/integrations/fan/#list-of-conditions).
+
+### Garage door conditions
+
+For the full list of available conditions and its details, refer to the **Garage door** [list of conditions](/integrations/garage-door/#list-of-conditions).
 
 ### Humidifier conditions
 
@@ -238,7 +268,11 @@ Some of the available conditions are:
 - Humidifier is humidifying (`humidifier.is_humidifying`).
 - Humidifier is drying (`humidifier.is_drying`).
 
-For more details, refer to [Humidifier conditions](/integrations/humidifier/#list-of-conditions).
+For the full list of available conditions and its details, refer to [Humidifier conditions](/integrations/humidifier/#list-of-conditions).
+
+### Humidity conditions
+
+For the full list of available conditions and its details, refer to the **Humidity** [list of conditions](/integrations/humidity/#list-of-conditions).
 
 ### Lawn mower conditions
 
@@ -252,6 +286,8 @@ The available conditions are:
 - Lawn mower is returning (`lawn_mower.is_returning`).
 - Lawn mower is encountering an error (`lawn_mower.is_encountering_an_error`).
 
+For information about each condition, refer to the **Lawn mower** [list of conditions](/integrations/lawn_mower/#list-of-conditions).
+
 ### Light conditions
 
 In YAML, use (`condition: light`).
@@ -262,7 +298,7 @@ The available conditions are:
 - Light is off (`light.is_off`).
 - Light is off (`light.is_brightness`).
 
-For more details, refer to [Light conditions](/integrations/light/#list-of-conditions).
+For information about each condition, refer to the **Light** [list of conditions](/integrations/light/#list-of-conditions).
 
 #### Example: Continue only if the living room light is on
 
@@ -284,7 +320,7 @@ The available conditions are:
 - Lock is open (`lock.is_open`).
 - Lock is jammed (`lock.is_jammed`).
 
-For more details, refer to [Lock conditions](/integrations/lock/#list-of-conditions).
+For information about each condition, refer to the **Lock** [list of conditions](/integrations/lock/#list-of-conditions).
 
 ### Media player conditions
 
@@ -297,6 +333,16 @@ Some of the available conditions are:
 - Media player is playing (`media_player.is_playing`).
 - Media player is paused (`media_player.is_paused`).
 - Media player is not playing (`media_player.is_not_playing`).
+
+For information about each condition, refer to the **Media player** [list of conditions](/integrations/media_player/#list-of-conditions).
+
+### Moisture conditions
+
+For the full list of available conditions and its details, refer to the **Moisture** [list of conditions](/integrations/moisture/#list-of-conditions).
+
+### Motion conditions
+
+For the full list of available conditions and its details, refer to the **Motion** [list of conditions](/integrations/motion/#list-of-conditions).
 
 ### Numeric state condition
 
@@ -362,6 +408,26 @@ conditions:
     below: input_number.temperature_threshold_high
 ```
 
+### Power condition
+
+The available condition is: Power value (`power.is_value`).
+
+For details, refer to the [Power value](/conditions/power.is_value) condition page.
+
+### Remote conditions
+
+For the full list of available conditions and its details, refer to the **Remote** [list of conditions](/integrations/remote/#list-of-conditions).
+
+### Schedule conditions
+
+For the full list of available conditions and its details, refer to the **Schedule** [list of conditions](/integrations/schedule/#list-of-conditions).
+
+### Select condition
+
+The available condition is: Dropdown option is selected (`select.is_option_selected`).
+
+For details, refer to the [Dropdown option is selected](/conditions/select.is_option_selected) condition page.
+
 ### Siren conditions
 
 In YAML, use `condition: siren`.
@@ -371,7 +437,7 @@ The available conditions are:
 - Siren is on (`siren.is_on`).
 - Siren is off (`siren.is_off`).
 
-For more details, refer to [Siren conditions](/integrations/siren/#list-of-conditions).
+For information about each condition, refer to [Siren conditions](/integrations/siren/#list-of-conditions).
 
 ### State condition
 
@@ -502,6 +568,8 @@ The `for` template(s) will be evaluated when the condition is tested.
 
 ### Sun conditions
 
+For the full list of available conditions and its details, refer to the **Sun** [list of conditions](/integrations/sun/#list-of-conditions).
+
 #### Sun state condition
 
 The sun state can be used to test if the sun has set or risen.
@@ -593,6 +661,14 @@ The available conditions are:
 - Switch is on (`switch.is_on`).
 - Switch is off (`switch.is_off`).
 
+For information about each condition, refer to the **Switch** [list of conditions](/integrations/switch/#list-of-conditions).
+
+### Temperature condition
+
+The available condition is: Temperature value (`temperature.is_value`).
+
+For details, refer to the [Temperature value](/conditions/temperature.is_value) condition page.
+
 ### Template condition
 
 The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render `True`.
@@ -666,6 +742,12 @@ It's also supported in script or automation `condition` actions:
 [template]: /docs/templating/
 [automation-templating]: /getting-started/automation-templating/
 
+### Text condition
+
+The available condition is: (`text.is_equal_to`).
+
+For details, refer to the [Text is equal to](/conditions/text.is_equal_to) condition page.
+
 ### Time condition
 
 The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
@@ -717,6 +799,14 @@ a referenced sensor or helper entity contains a timestamp with a date, the
 date part is fully ignored.
 {% endnote %}
 
+### Timer conditions
+
+For the full list of available conditions and its details, refer to the **Timer** [list of conditions](/integrations/timer/#list-of-conditions).
+
+### To-do lists conditions
+
+For the full list of available conditions and its details, refer to the **To-do list** [list of conditions](/integrations/todo/#list-of-conditions).
+
 ### Triggered by condition
 
 The triggered by condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
@@ -751,11 +841,13 @@ conditions:
       - event_2_trigger
 ```
 
+### Update conditions
+
+For the full list of available conditions and its details, refer to the **Update** [list of conditions](/integrations/update/#list-of-conditions).
+
 ### Vacuum conditions
 
-In YAML, use `condition: vacuum`.
-
-The available conditions are:
+The available **Vacuum** conditions are:
 
 - Vacuum is cleaning (`vacuum.is_cleaning`).
 - Vacuum is docked (`vacuum.is_docked`).
@@ -765,9 +857,21 @@ The available conditions are:
 
 For information about adding vacuum conditions in an automation and examples, refer to [Vacuum conditions](/integrations/vacuum/#list-of-conditions).
 
+### Valve conditions
+
+For the full list of available conditions and its details, refer to the **Valve** [list of conditions](/integrations/valve/#list-of-conditions).
+
+### Water heater conditions
+
+For the full list of available conditions and its details, refer to the **Water heater** [list of conditions](/integrations/water-heater/#list-of-conditions).
+
 ### Zone conditions
 
 Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
+
+For the full list of available conditions and its details, refer to the **Zone** [list of conditions](/integrations/zone/#list-of-conditions).
+
+#### YAML examples
 
 ```yaml
 conditions:
