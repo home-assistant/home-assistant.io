@@ -105,7 +105,7 @@ Diagnostic sensors report what the device is receiving and playing:
 Switch voicing and RoomPerfect position when playback starts on the main zone:
 
 ```yaml
-{% raw %}automation:
+automation:
   - alias: "Cinema mode"
     triggers:
       - trigger: state
@@ -121,13 +121,13 @@ Switch voicing and RoomPerfect position when playback starts on the main zone:
         target:
           entity_id: select.lyngdorf_roomperfect_position
         data:
-          option: "Focus 1"{% endraw %}
+          option: "Focus 1"
 ```
 
 Correct lip sync for a source that needs it:
 
 ```yaml
-{% raw %}automation:
+automation:
   - alias: "Fix lip sync on the streaming box"
     triggers:
       - trigger: state
@@ -139,7 +139,7 @@ Correct lip sync for a source that needs it:
         target:
           entity_id: number.lyngdorf_lip_sync
         data:
-          value: 80{% endraw %}
+          value: 80
 ```
 
 ## Data updates
