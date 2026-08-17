@@ -17,253 +17,136 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **VIZIO SmartCast** {% term integration %} allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models).
+The **VIZIO SmartCast** {% term integration %} allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models) locally from Home Assistant.
 
-## Find your device
+## Use cases
 
-If `zeroconf` discovery is enabled, your device will get discovered automatically. To discover your device manually, read the subsections below.
+- Control your TV or sound bar (power, volume, inputs, and apps) from dashboards and automations.
+- Turn on the TV and launch a specific app when a movie night scene is activated.
+- Automatically lower the volume at night or when a doorbell rings.
+- Send remote control key presses (navigation, playback, channel control) from automations or scripts.
 
-### Install `pyvizio` locally
+## Prerequisites
 
-{% note %}
-If the `pip3` command is not found, try `pip` instead
-{% endnote %}
+Your device must be connected to the same network as Home Assistant. If [Zeroconf](/integrations/zeroconf/) discovery is enabled, your device is discovered automatically and setup can be started from the discovered card.
 
-- To install, run `pip3 install pyvizio` in your terminal.
-- If `pyvizio` is already installed locally, make sure you are using the latest version by running `pip3 install --upgrade pyvizio` in your terminal.
+TVs require an access token to communicate with Home Assistant. You do not need one up front: leave the access token field empty during setup, and the integration will guide you through a pairing process in which a PIN is displayed on the TV screen. Sound bars do not require an access token.
 
-### Discover devices
+{% include integrations/config_flow.md %}
 
-Find your device using the following command:
+{% configuration_basic %}
+Name:
+  description: "The name used for the device and its entities in Home Assistant."
+Host:
+  description: "`IP address:port` of your device (for example, `192.168.1.10:7345`). See [finding your device's address](#finding-your-devices-address) if you don't know it."
+Device type:
+  description: "Whether the device is a `tv` or a `speaker` (sound bar)."
+Access token:
+  description: "The access token used to authenticate with your TV. Leave empty to start a pairing process that will provide one. Not needed for speakers."
+{% endconfiguration_basic %}
 
-```bash
-pyvizio --ip=0 discover
-```
+### Finding your device's address
 
-Write down its IP address and port number. If you have trouble finding a device you were expecting to, you can try increasing the discovery timeout period by adding the `--timeout` option (e.g., `pyvizio --ip=0 discover --timeout=10`).
-
-## Pairing
-
-This {% term integration %} requires an access token to communicate with TVs (speakers do not need an access token). An access token can be obtained by going through a pairing process, either manually, or through the Home Assistant frontend.
-
-### Pair using the Home Assistant frontend
-
- - **Using `configuration.yaml`:** If you have a `vizio` entry in `configuration.yaml` but don't provide an access token value in your configuration, after you initialize Home Assistant, you will see a VIZIO SmartCast device ready to be configured. When you open the configuration window, you will be guided through the pairing process. While Home Assistant will store the access token for the life of your `vizio` {% term entity %}, it is a good idea to note the access token value displayed in the window and add it to your `configuration.yaml`. This will ensure that you will not have to go through the pairing process again in the future if you decide to rebuild your Home Assistant instance.
-- **Using discovery or manual setup through the Integrations menu:** To initiate the pairing process, submit your initial configuration with an empty Access Token value.
-
-### Pair manually using the CLI
-
-The following script, written by [JeffLIrion](https://github.com/JeffLIrion) can be run to obtain an auth token. You will need to replace `<IP>` with your IP and `<PORT>` (which is typically 7345 or 9000).
+If your device is not automatically discovered, you can find its address using the [`vizaio`](https://github.com/raman325/vizaio) command line tool on any machine on the same network:
 
 ```bash
-#!/bin/bash
-
-VIZIO_IP="<IP>"
-VIZIO_PORT="<PORT>"
-
-curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID":"pyvizio","DEVICE_NAME":"Python Vizio"}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/start
-
-read -p "PIN:  " VIZIO_PIN
-read -p "PAIRING_REQ_TOKEN:  " VIZIO_PAIRING_REQ_TOKEN
-
-curl -k -H "Content-Type: application/json" -X PUT -d '{"DEVICE_ID": "pyvizio","CHALLENGE_TYPE": 1,"RESPONSE_VALUE": "'"${VIZIO_PIN}"'","PAIRING_REQ_TOKEN": '"${VIZIO_PAIRING_REQ_TOKEN}"'}' https://${VIZIO_IP}:${VIZIO_PORT}/pairing/pair
+pip3 install 'vizaio[cli]'
+vizaio discover
 ```
 
-### Pair manually using `pyvizio`
+If the `pip3` command is not found, replace it with `pip`.
 
-To obtain an auth token manually, follow these steps:
+Write down the IP address and port number of the device you want to add. If you have trouble finding a device you were expecting to see, you can try increasing the discovery timeout period by adding the `--timeout` option (for example, `vizaio discover --timeout 10`).
 
-Make sure that your device is on before continuing.
+### Pairing manually using `vizaio`
 
-| Parameter     | Description                                                             |
-| :------------ | :---------------------------------------------------------------------- |
-| `ip`          | `IP Address:Port` (obtained from the previous section)                  |
-| `device_type` | The type of device you are connecting to. Options are `tv` or `speaker` |
-
-Enter the following command to initiate pairing:
+Pairing through the Home Assistant frontend is recommended, but you can also obtain an access token manually. Make sure that your TV is on, then run the interactive pairing command by replacing `DEVICE_IP:DEVICE_PORT` with the address obtained in the previous section:
 
 ```bash
-pyvizio --ip={ip:port} --device_type={device_type} pair
+vizaio pair interactive DEVICE_IP:DEVICE_PORT
 ```
 
-Initiation will show you two different values:
+A PIN code will be displayed at the top of your TV. Enter it when prompted. For scripted use, `vizaio pair begin DEVICE_IP:DEVICE_PORT` starts pairing and prints the matching `vizaio pair complete` command with everything filled in except the PIN. Provide the returned authentication token in the access token field during setup.
 
-| Value           | Description                                                                                             |
-| :-------------- | :------------------------------------------------------------------------------------------------------ |
-| Challenge type  | Usually, it should be `"1"`.                                                                            |
-| Challenge token | Token required to finalize pairing in the next step                                                     |
+{% include integrations/option_flow.md %}
 
-At this point, a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
-
-```bash
-pyvizio --ip={ip:port} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin} --ch_type={challenge_type}
-```
-
-You will need the authentication token returned by this command to configure Home Assistant.
-
-## Configuration
-
-To add your VIZIO TV to your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-# Example configuration.yaml entry
-vizio:
-  - host: "DEVICE_IP:DEVICE_PORT"
-    access_token: AUTH_TOKEN
-```
-
-{% configuration %}
-host:
-  description: "`IP Address:Port` for your device (port is optional but recommended)."
-  required: true
-  type: string
-name:
-  description: Nickname for your device that will be used to generate the device's entity ID. If multiple VIZIO devices are configured, the value must be unique for each entry.
-  required: false
-  type: string
-  default: VIZIO SmartCast
-access_token:
-  description: Authentication token you received in the last step of the pairing process. This token is only needed if your device is a TV, and you can opt not to provide it in your configuration and instead go through the pairing process via the Home Assistant frontend.
-  required: false
-  type: string
-device_class:
-  description: The class of your device. Valid options are `tv` or `speaker`.
-  required: false
-  type: string
-  default: "`tv`"
-volume_step:
-  description: The number of steps that the volume will be increased or decreased by at a time.
-  required: false
-  type: integer
-  default: 1
-apps:
-  description: Use this section to define app specific settings (only applicable for VIZIO Smart TVs).
-  required: false
-  type: map
-  keys:
-    include:
-      description: List of apps to include in the source list. Cannot be used in combination with `exclude`.
-      required: exclusive
-      type: list
-    exclude:
-      description: List of apps to exclude from the source list. Cannot be used in combination with `include`.
-      required: exclusive
-      type: list
-    additional_configs:
-      description: List of manually configured apps that aren't available in the default app list provided by the integration.
-      required: false
-      type: map
-      keys:
-        name:
-          description: The name of the app that will be used in the source list and used to launch the app.
-          required: true
-          type: string
-        config:
-          description: The app configuration that will be used to detect and launch the app.
-          required: true
-          type: map
-          keys:
-            APP_ID:
-              description: See [Obtaining an app configuration](#obtaining-an-app-configuration) section below.
-              required: true
-              type: string
-            NAME_SPACE:
-              description: See [Obtaining an app configuration](#obtaining-an-app-configuration) section below.
-              required: true
-              type: integer
-            MESSAGE:
-              description: See [Obtaining an app configuration](#obtaining-an-app-configuration) section below.
-              required: false
-              type: string
-              default: null
-{% endconfiguration %}
-
-```yaml
-# Complete configuration.yaml entry
-vizio:
-  - host: "DEVICE_IP:DEVICE_PORT"
-    access_token: AUTH_TOKEN
-    name: MY_VIZIO_DEVICE
-    device_class: tv
-    volume_step: 1
-    apps:
-      include:
-        - APP_1
-        - APP_2
-      exclude:
-        - APP_1
-        - APP_2
-      additional_configs:
-        - name: MY_CUSTOM_APP
-          config:
-            APP_ID: 9
-            NAME_SPACE: 9
-            MESSAGE: MY_MESSAGE
-```
-
-### Obtaining an app configuration
-
-If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in {% term "`configuration.yaml`" %}. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
+{% configuration_basic %}
+Volume step size:
+  description: "The number of volume levels the volume changes by with each volume up or volume down command. Defaults to 1."
+Include or exclude apps?:
+  description: "For TVs, whether the selected apps should be included in or excluded from the source list."
+Apps to include or exclude:
+  description: "The apps that should be included in or excluded from the source list."
+{% endconfiguration_basic %}
 
 ### Obtaining a list of valid apps to include or exclude
 
-The list of apps that are provided by default is statically defined [here](https://github.com/vkorn/pyvizio/blob/master/pyvizio/const.py#L23). If you'd prefer a more concise list, you can either view the source list of a VIZIO Smart TV in the Home Assistant frontend, or run the following command (requires `pyvizio` to be installed locally):
+The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, check the `source_list` attribute of your TV's media player entity under {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
-```bash
-pyvizio --ip=0 get-apps-list
-```
+## Supported functionality
 
-{% include integrations/actions.md %}
+### Media player
 
-## Remote
+The integration creates a media player entity for each configured device. Depending on the device type, it supports:
 
-The VIZIO SmartCast integration automatically creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive.
+- Power on/off and power state.
+- Volume up/down by the configured volume step, setting an absolute volume level, and muting.
+- Source selection: for TVs, the source list combines the device's physical inputs with the available SmartCast apps, and selecting an app launches it. For speakers, the source list contains the physical inputs.
+- Sound mode selection (when the device reports equalizer sound modes).
+- Play/pause and next/previous track (next/previous change the channel on TVs).
 
-### Available commands
+When an app is running on a TV, the media player shows the app name.
+
+#### Obtaining an app configuration
+
+If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you can read the app's configuration from the `app_id` attribute of the media player entity while the (unknown) app is running on your device.
+
+### Remote
+
+The integration creates a remote entity for each configured device (TVs and speakers). You can use it to send remote control commands via the `remote.send_command` action. Commands are case-insensitive. You can use either the native key name (for example, `vol_up`) or a human-friendly alias (for example, `volume_up`).
 
 #### TV commands
 
-| Command |
-| :------ |
-| `back` |
-| `cc_toggle` |
-| `ch_down` |
-| `ch_prev` |
-| `ch_up` |
-| `down` |
-| `exit` |
-| `home` |
-| `info` |
-| `input_next` |
-| `left` |
-| `left2` |
-| `menu` |
-| `mute_off` |
-| `mute_on` |
-| `mute_toggle` |
-| `ok` |
-| `pause` |
-| `pic_mode` |
-| `pic_size` |
-| `play` |
-| `pow_off` |
-| `pow_on` |
-| `pow_toggle` |
-| `right` |
-| `seek_back` |
-| `seek_fwd` |
-| `smartcast` |
-| `up` |
-| `vol_down` |
-| `vol_up` |
+| Command | Additional aliases | Description |
+| :------ | :------ | :------ |
+| `back` | | Go back to the previous screen |
+| `ch_down` | `channel_down` | Channel down |
+| `ch_prev` | `previous_channel` | Jump to the previously watched channel |
+| `ch_up` | `channel_up` | Channel up |
+| `down` | | Navigate down |
+| `exit` | | Exit the current menu |
+| `guide` | | Open the channel guide |
+| `info` | | Show information about the current channel or input |
+| `input_next` | `next_input` | Cycle to the next input |
+| `left` | | Navigate left |
+| `menu` | | Open the on-screen menu |
+| `mute_off` | | Unmute the audio |
+| `mute_on` | | Mute the audio |
+| `mute_toggle` | `mute`, `toggle_mute` | Toggle mute |
+| `num_0` through `num_9` | | Enter a channel digit (models without a tuner reject these) |
+| `ok` | `enter`, `select` | Confirm the current selection |
+| `pause` | | Pause playback |
+| `play` | | Resume playback |
+| `pow_off` | `off`, `power_off` | Turn the device off |
+| `pow_on` | `on`, `power_on` | Turn the device on |
+| `pow_toggle` | `power`, `power_toggle`, `toggle_power` | Toggle the power state |
+| `right` | | Navigate right |
+| `seek_back` | `reverse`, `rewind` | Rewind playback |
+| `seek_fwd` | `forward`, `fast_forward`, `ff` | Fast-forward playback |
+| `smartcast` | | Open the SmartCast Home screen |
+| `up` | | Navigate up |
+| `vol_down` | `volume_down` | Volume down |
+| `vol_up` | `volume_up` | Volume up |
 
 #### Speaker commands
 
 Speakers support a subset of the commands above:
 
-`mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
+`input_next`, `mute_off`, `mute_on`, `mute_toggle`, `pause`, `play`, `pow_off`, `pow_on`, `pow_toggle`, `vol_down`, `vol_up`
 
-### Examples
+Aliases that map to these commands (for example, `mute`, `volume_up`, `on`, `off`) also work on speakers.
+
+#### Remote command examples
 
 Send a single command:
 
@@ -297,17 +180,89 @@ target:
   entity_id: remote.vizio_smartcast
 data:
   command:
-    - vol_up
+    - volume_up
   num_repeats: 5
   delay_secs: 0.4
 ```
 
-## Notes and limitations
+{% include integrations/actions.md %}
 
-### Turning device on
+## VIZIO SmartCast automation examples
 
-If the `Power Mode` of your device is set to `Eco Mode`, turning the device on won't work.
+Here is an idea to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: start movie night
+
+This automation turns the TV on and launches an app when you start movie night. It is triggered by a toggle {% term helper %} named **Movie night**, which you need to create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+
+- **Trigger**: State
+  - **Entity**: Movie night (`input_boolean.movie_night`)
+  - **To**: On
+- **Action**: Turn on media player
+  - **Target**: VIZIO SmartCast (`media_player.vizio_smartcast`)
+- **Action**: Select media player source
+  - **Target**: VIZIO SmartCast (`media_player.vizio_smartcast`)
+  - **Source**: Netflix
+
+{% details "YAML example for starting movie night" %}
+
+{% example %}
+automation: |
+  alias: "Movie night"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.movie_night
+      to: "on"
+  actions:
+    - action: media_player.turn_on
+      target:
+        entity_id: media_player.vizio_smartcast
+    - action: media_player.select_source
+      target:
+        entity_id: media_player.vizio_smartcast
+      data:
+        source: Netflix
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+This integration uses local {% term polling %}: the device is polled every 30 seconds for power state, volume, current input, and the running app.
+
+The SmartCast app catalog, used to build the source list for TVs, is fetched from VIZIO's servers once a day. If the catalog cannot be fetched, a copy bundled with the [vizaio](https://github.com/raman325/vizaio) library is used as a fallback.
+
+## Known limitations
 
 ### Changing tracks
 
 Changing tracks works like switching channels. If the current input is anything other than regular TV, this command might not do anything.
+
+## Troubleshooting
+
+### The device cannot be reached during setup
+
+- Make sure the device is powered on and connected to the same network as Home Assistant.
+- Verify the address and port. Running `vizaio discover` shows the correct address and port for each device on your network.
+- Some devices only respond over the network while they are on. Turn the device on before setting it up.
+
+### Turning on the device doesn't work
+
+If the `Power Mode` of your device is set to `Eco Mode`, the device does not listen for network traffic while off, and turning it on from Home Assistant won't work. Set the power mode to `Quick Start` to be able to turn the device on.
+
+### The device became unavailable after its IP address changed
+
+If Zeroconf discovery is enabled, the integration updates the device's address automatically when it is rediscovered. Otherwise, assigning the device a static IP address (via a DHCP reservation in your router) prevents the address from changing.
+
+### Pairing fails
+
+- Ensure the PIN is entered exactly as displayed on the TV, and that the TV stays powered on during the pairing process.
+- If the PIN screen never appears, power cycle the TV and restart the setup.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

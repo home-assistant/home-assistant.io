@@ -66,6 +66,9 @@ filename:
   description: >
     One or more paths to the files you want to upload. The path must be in
     the `allowlist_external_dirs` of your `homeassistant:` configuration.
+    Wildcards (glob patterns) are supported, so you can upload several files
+    at once. When you use a wildcard, the folder part before the first
+    wildcard must be in `allowlist_external_dirs`.
   required: true
   type: [string, list]
 destination_folder:
@@ -99,6 +102,32 @@ action: |
     filename:
       - /media/image_1.jpg
       - /media/image_2.jpg
+    destination_folder: Snapshots/2025
+{% endexample %}
+
+{% enddetails %}
+
+### Upload files using wildcards
+
+The `filename` option supports wildcards (glob patterns), so you can upload several files without listing each one:
+
+- `*` matches any number of characters within a single folder level. For example, `/media/snapshots/*.jpg` uploads every JPG file in the `snapshots` folder.
+- `**` matches folders recursively. For example, `/media/snapshots/**/*.jpg` uploads every JPG file in the `snapshots` folder and all of its subfolders.
+- `?` matches a single character.
+- `[` starts a character range, such as `[0-9]`.
+
+When a wildcard matches files in subfolders, those subfolders are recreated inside the `destination_folder` on OneDrive, preserving the original structure.
+
+If a wildcard pattern does not match any files, the action fails with an error listing the patterns that had no matches. The characters `*`, `?`, and `[` are always treated as wildcards.
+
+{% details "Upload files using a wildcard" %}
+
+{% example %}
+action: |
+  action: onedrive.upload
+  data:
+    config_entry_id: a1bee602deade2b09bc522749bbce48e
+    filename: /media/snapshots/**/*.jpg
     destination_folder: Snapshots/2025
 {% endexample %}
 

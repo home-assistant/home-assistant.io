@@ -9,7 +9,7 @@ related:
   - docs: /common-tasks/general/#backups
     title: Creating and restoring backups
   - docs: /docs/tools/dev-tools/#reloading-the-yaml-configuration
-    title: Reloading the YAML configuration from developer tools
+    title: Reloading the YAML configuration from tools
   - docs: /common-tasks/os/#configuring-access-to-files
     title: Configuring file access on the Operating System
   - docs: /docs/configuration/troubleshooting/

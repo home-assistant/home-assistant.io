@@ -103,9 +103,10 @@ for:
 
 ## Good to know
 
+- The target climate entity must support the HVAC mode you want to use.
 - The available modes depend entirely on the device. Check your climate entity's documentation or the entity's attributes to see which modes are supported.
 - If you filter by mode, the trigger only fires when the device _enters_ that mode, not when it leaves it.
-- The HVAC mode is different from the `hvac_action`. The mode is what you set the device to do, while the action is what the device is currently doing (heating, cooling, or idle).
+- The HVAC mode is different from the current HVAC action. The mode is what you set the device to do, while the action is what the device is currently doing, such as heating, cooling, or idle.
 
 {% include triggers/try_it.md %}
 
