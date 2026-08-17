@@ -164,7 +164,9 @@ conditions:
 
 ## Types of conditions
 
-A condition of an automation has a type that depends on the target of the condition, usually corresponding to the domain of the target. The following types are available.
+A condition of an automation has a type that depends on the target of the condition, usually corresponding to the domain of the target. The following types are available. 
+
+For an overview of every condition across all integrations, refer to the [list of available conditions](/conditions/).
 
 ### Alarm control panel conditions
 
@@ -172,13 +174,13 @@ In YAML, use `condition: alarm_control_panel`.
 
 The available conditions are:
 
-- Alarm is disarmed (`is_armed`).
-- Alarm is armed home (`is_armed_home`).
-- Alarm is armed away (`is_armed_away`).
-- Alarm is armed night (`is_armed_night`).
-- Alarm is armed vacation (`is_armed_vacation`).
-- Alarm is disarmed (`is_disarmed`).
-- Alarm is triggered (`is_triggered`).
+- Alarm is disarmed (`alarm_control_panel.is_armed`).
+- Alarm is armed home (`alarm_control_panel.is_armed_home`).
+- Alarm is armed away (`alarm_control_panel.is_armed_away`).
+- Alarm is armed night (`alarm_control_panel.is_armed_night`).
+- Alarm is armed vacation (`alarm_control_panel.is_armed_vacation`).
+- Alarm is disarmed (`alarm_control_panel.is_disarmed`).
+- Alarm is triggered (`alarm_control_panel.is_triggered`).
 
 ### Assist satellite conditions
 
@@ -186,10 +188,10 @@ In YAML, use `condition: assist_satellite`.
 
 The available conditions are:
 
-- Satellite is idle (`is_idle`).
-- Satellite is listening (`is_listening`).
-- Satellite is processing (`is_processing`).
-- Satellite is responding (`is_responding`).
+- Satellite is idle (`assist_satellite.is_idle`).
+- Satellite is listening (`assist_satellite.is_listening`).
+- Satellite is processing (`assist_satellite.is_processing`).
+- Satellite is responding (`assist_satellite.is_responding`).
 
 ### Climate conditions
 
@@ -197,13 +199,13 @@ In YAML, use `condition: climate`.
 
 Some of the available conditions are:
 
-- Climate-control device is on (`is_on`).
-- Climate-control device is off (`is_off`).
-- Climate-control device is heating (`is_heating`).
-- Climate-control device is cooling (`is_cooling`).
-- Climate-control device is drying (`is_drying`).
+- Thermostat is on (`climate.is_on`).
+- Thermostat is off (`climate.is_off`).
+- Thermostat is heating (`climate.is_heating`).
+- Thermostat is cooling (`climate.is_cooling`).
+- Thermostat is drying (`climate.is_drying`).
 
-For more details, refer to [Climate conditions](/integrations/climate/#conditions).
+For more details, refer to [Climate conditions](/integrations/climate/#list-of-conditions).
 
 #### Example: Continue only if the climate is heating
 
@@ -223,7 +225,7 @@ The available conditions are:
 - Device tracker is not home (`is_not_home`).
 - Device tracker is home (`is_home`).
 
-For more details, refer to [Device tracker conditions](/integrations/device_tracker/#conditions).
+For more details, refer to [Device tracker conditions](/integrations/device_tracker/#list-of-conditions).
 
 ### Fan conditions
 
@@ -231,10 +233,10 @@ In YAML, use `condition: fan`.
 
 The available conditions are:
 
-- Fan is on (`is_on`).
-- Fan is off (`is_off`).
+- Fan is on (`fan.is_on`).
+- Fan is off (`fan.is_off`).
 
-For more details, refer to [Fan conditions](/integrations/fan/#conditions).
+For more details, refer to [Fan conditions](/integrations/fan/#list-of-conditions).
 
 ### Humidifier conditions
 
@@ -242,12 +244,12 @@ In YAML, use `condition: humidifier`.
 
 Some of the available conditions are:
 
-- Humidifier is on (`is_on`).
-- Humidifier is off (`is_off`).
-- Humidifier is humidifying (`is_humidifying`).
-- Humidifier is drying (`is_drying`).
+- Humidifier is on (`humidifier.is_on`).
+- Humidifier is off (`humidifier.is_off`).
+- Humidifier is humidifying (`humidifier.is_humidifying`).
+- Humidifier is drying (`humidifier.is_drying`).
 
-For more details, refer to [Humidifier conditions](/integrations/humidifier/#conditions).
+For more details, refer to [Humidifier conditions](/integrations/humidifier/#list-of-conditions).
 
 ### Lawn mower conditions
 
@@ -255,22 +257,23 @@ In YAML, use `condition: lawn_mower`.
 
 The available conditions are:
 
-- Lawn mower is mowing (`is_mowing`).
-- Lawn mower is docked (`is_docked`).
-- Lawn mower is paused (`is_paused`).
-- Lawn mower is returning (`is_returning`).
-- Lawn mower is encountering an error (`is_encountering_an_error`).
+- Lawn mower is mowing (`lawn_mower.is_mowing`).
+- Lawn mower is docked (`lawn_mower.is_docked`).
+- Lawn mower is paused (`lawn_mower.is_paused`).
+- Lawn mower is returning (`lawn_mower.is_returning`).
+- Lawn mower is encountering an error (`lawn_mower.is_encountering_an_error`).
 
 ### Light conditions
 
 In YAML, use (`condition: light`).
 
-Some of the available conditions are:
+The available conditions are:
 
-- Light is on (`is_on`).
-- Light is off (`is_off`).
+- Light is on (`light.is_on`).
+- Light is off (`light.is_off`).
+- Light is off (`light.is_brightness`).
 
-For more details, refer to [Light conditions](/integrations/light/#conditions).
+For more details, refer to [Light conditions](/integrations/light/#list-of-conditions).
 
 #### Example: Continue only if the living room light is on
 
@@ -287,24 +290,24 @@ In YAML, use `condition: lock`.
 
 The available conditions are:
 
-- Lock is locked (`is_locked`).
-- Lock is unlocked (`is_unlocked`).
-- Lock is open (`is_open`).
-- Lock is jammed (`is_jammed`).
+- Lock is locked (`lock.is_locked`).
+- Lock is unlocked (`lock.is_unlocked`).
+- Lock is open (`lock.is_open`).
+- Lock is jammed (`lock.is_jammed`).
 
-For more details, refer to [Lock conditions](/integrations/lock/#conditions).
+For more details, refer to [Lock conditions](/integrations/lock/#list-of-conditions).
 
 ### Media player conditions
 
 In YAML, use `condition: media_player`.
 
-The available conditions are:
+Some of the available conditions are:
 
-- Media player is on (`is_on`).
-- Media player is off (`is_off`).
-- Media player is playing (`is_playing`).
-- Media player is paused (`is_paused`).
-- Media player is not playing (`is_not_playing`).
+- Media player is on (`media_player.is_on`).
+- Media player is off (`media_player.is_off`).
+- Media player is playing (`media_player.is_playing`).
+- Media player is paused (`media_player.is_paused`).
+- Media player is not playing (`media_player.is_not_playing`).
 
 ### Numeric state condition
 
@@ -379,7 +382,7 @@ The available conditions are:
 - Person is home (`is_home`).
 - Person is not home (`is_not_home`).
 
-For more details, refer to [Person conditions](/integrations/person/#conditions).
+For more details, refer to [Person conditions](/integrations/person/#list-of-conditions).
 
 ### Siren conditions
 
@@ -387,10 +390,10 @@ In YAML, use `condition: siren`.
 
 The available conditions are:
 
-- Siren is on (`is_on`).
-- Siren is off (`is_off`).
+- Siren is on (`siren.is_on`).
+- Siren is off (`siren.is_off`).
 
-For more details, refer to [Siren conditions](/integrations/siren/#conditions).
+For more details, refer to [Siren conditions](/integrations/siren/#list-of-conditions).
 
 ### State condition
 
@@ -613,8 +616,8 @@ In YAML, use `condition: switch`.
 
 The available conditions are:
 
-- Switch is on (`is_on`).
-- Switch is off (`is_off`).
+- Switch is on (`switch.is_on`).
+- Switch is off (`switch.is_off`).
 
 ### Template condition
 
@@ -780,13 +783,13 @@ In YAML, use `condition: vacuum`.
 
 The available conditions are:
 
-- Vacuum is cleaning (`is_cleaning`).
-- Vacuum is docked (`is_docked`).
-- Vacuum is paused (`is_paused`).
-- Vacuum is returning (`is_returning`).
-- Vacuum is encountering an error (`is_encountering_an_error`).
+- Vacuum is cleaning (`vacuum.is_cleaning`).
+- Vacuum is docked (`vacuum.is_docked`).
+- Vacuum is paused (`vacuum.is_paused`).
+- Vacuum is returning (`vacuum.is_returning`).
+- Vacuum is encountering an error (`vacuum.is_encountering_an_error`).
 
-For information about adding vacuum conditions in an automation and examples, refer to [Vacuum conditions](/integrations/vacuum/#conditions).
+For information about adding vacuum conditions in an automation and examples, refer to [Vacuum conditions](/integrations/vacuum/#list-of-conditions).
 
 ### Zone condition
 
