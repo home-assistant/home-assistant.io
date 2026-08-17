@@ -108,6 +108,10 @@ Number entities are available to adjust values like the predefined temperature f
 
 Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
 
+### Switch
+
+Ventilation devices expose their quickmodes as switches, such as **Comfort**, **Eco**, **Boost**, and **Silent**. Only the quickmodes reported by the device are created.
+
 {% include integrations/actions.md %}
 
 ## Climate and water heater control
