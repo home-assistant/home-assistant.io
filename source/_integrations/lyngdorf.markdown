@@ -3,6 +3,9 @@ title: Lyngdorf
 description: Instructions on how to integrate Lyngdorf audio processors into Home Assistant.
 ha_category:
   - Media player
+  - Number
+  - Select
+  - Sensor
 ha_release: 2026.8
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,9 +14,13 @@ ha_codeowners:
 ha_domain: lyngdorf
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
+  - number
+  - select
+  - sensor
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
 The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] and [Steinway & Lyngdorf] audio processors and amplifiers from Home Assistant. Lyngdorf Audio is known for its RoomPerfect room correction technology. This integration lets you control power, volume, source selection, sound modes, and audio processing parameters.
@@ -62,6 +69,79 @@ The integration creates the following media player {% term entities %}:
 - **Main zone**: Controls your Lyngdorf device, including power, volume, mute, source selection, and sound mode.
 - **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection. Only created for models with a Zone B output (the TDAI-series does not have one).
 
+On models with a streaming module, the main zone also shows what is playing: track title, artist, album, artwork, and playback position. Transport controls (play, pause, next, previous, seek, shuffle, and repeat) appear when the streaming source offers them, which varies by source. Spotify Connect offers seek and shuffle, for example, while AirPlay does not.
+
+### Numbers
+
+Numbers adjust the audio calibration, and are only created for the controls a model has:
+
+- **Lip sync**: The audio delay, in milliseconds. The device reports its own permitted range.
+- **Trim bass** and **Trim treble**: Tone trims, in decibels.
+- **Trim centre**, **Trim height**, **Trim LFE**, and **Trim surround**: Channel trims, in decibels. Only created on surround models.
+
+### Selects
+
+- **RoomPerfect position**: The RoomPerfect focus position, including the global position.
+- **Voicing**: The RoomPerfect voicing.
+
+### Sensors
+
+Diagnostic sensors report what the device is receiving and playing:
+
+- **Audio input** and **Video input**: The active inputs.
+- **Audio information** and **Video information**: The incoming signal formats.
+- **Streaming source**: The active streaming service.
+- **Zone B audio input** and **Zone B streaming source**: The same for Zone B, where present.
+
+## Use cases
+
+- Switch to a movie voicing and a surround sound mode when a film starts, and back to a music voicing afterwards.
+- Select the RoomPerfect focus position for wherever people are actually sitting, rather than the global position.
+- Raise the lip sync delay for a source whose picture and sound drift apart, and reset it when you switch away.
+- Use the audio information sensor to detect a surround format and dim the lights only for those.
+
+## Examples
+
+Switch voicing and RoomPerfect position when playback starts on the main zone:
+
+```yaml
+{% raw %}automation:
+  - alias: "Cinema mode"
+    triggers:
+      - trigger: state
+        entity_id: media_player.lyngdorf_main_zone
+        to: "playing"
+    actions:
+      - action: select.select_option
+        target:
+          entity_id: select.lyngdorf_voicing
+        data:
+          option: "Movie"
+      - action: select.select_option
+        target:
+          entity_id: select.lyngdorf_roomperfect_position
+        data:
+          option: "Focus 1"{% endraw %}
+```
+
+Correct lip sync for a source that needs it:
+
+```yaml
+{% raw %}automation:
+  - alias: "Fix lip sync on the streaming box"
+    triggers:
+      - trigger: state
+        entity_id: media_player.lyngdorf_main_zone
+        attribute: source
+        to: "HDMI 2"
+    actions:
+      - action: number.set_value
+        target:
+          entity_id: number.lyngdorf_lip_sync
+        data:
+          value: 80{% endraw %}
+```
+
 ## Data updates
 
 The **Lyngdorf** integration uses local push to receive real-time updates from the device over a TCP connection. State changes on the device are pushed to Home Assistant immediately.
@@ -70,6 +150,9 @@ The **Lyngdorf** integration uses local push to receive real-time updates from t
 
 - Only the MP-60 has been tested. Other models may not support all features.
 - Only local network control is supported.
+- Pausing a source that is controlled by another app, such as AirPlay, ends the session rather than pausing it. The device cannot resume it; only the controlling app can start it again. This is how those protocols work, and is not specific to Home Assistant.
+- Now playing information, playback position, and transport controls require a model with a streaming module. The TDAI-2170 and the P-series do not have one.
+- The trims and lip sync apply to the main zone only.
 
 ## Troubleshooting
 
