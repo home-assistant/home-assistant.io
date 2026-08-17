@@ -33,6 +33,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
+- {% term TTS %} announce pause/resume [with skip to next track](https://www.home-assistant.io/integrations/heos/#known-limitations)
 
 ## Prerequisites
 
@@ -250,7 +251,7 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 ## Known limitations
 
 - AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
-- {% term TTS %} is not supported.
+- Due to HEOS protocol limitations, exact position resumption within a track is not supported when using {% term TTS %} announce. Instead the integration skips to the next track rather than restarting the current track from the beginning.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
 ## Logging and diagnostics
