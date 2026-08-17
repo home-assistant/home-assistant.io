@@ -20,9 +20,9 @@ The **SolaX Power** {% term integration %} connects Home Assistant to Solax sola
 
 {% include integrations/config_flow.md %}
 
-### inverter model selection
+### Inverter model selection
 
-This integration automatically detects your inverter model. If auto-detection resulted in multiple potentially compatible inverter models,it lets you manually selecting your inverter model from the dropdown during setup.
+This integration automatically detects your inverter model. If auto-detection results in multiple compatible inverter models, you can manually select your inverter model from the dropdown list during setup.
 
 ### Optional template sensor
 
