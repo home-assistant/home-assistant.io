@@ -74,9 +74,9 @@ If you need to change your selection during the manual configuration, simply clo
 
 If your device's IP address or access password changes, you can update the integration settings without removing and re-adding the device:
 
-1. Navigate to **Settings** > **Devices & Services**.
-2. Click the three dots next to your Papouch integration and select **Reconfigure**.
-3. Update the IP address and/or password as needed.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Papouch integration.
+2. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Update the IP address or password as needed.
 
 {% note %}
 The reconfiguration flow updates the connection credentials and IP address used by Home Assistant to communicate with the device. It does not modify the physical device's internal configuration (such as changing its IP address or password on the device itself).
