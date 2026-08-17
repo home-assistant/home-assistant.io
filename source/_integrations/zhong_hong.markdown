@@ -50,7 +50,7 @@ Each entity reports the temperature its indoor unit measures, and lets you:
 
 The gateway pushes state changes to Home Assistant as they happen, so switching an air conditioner on at its wall panel is reflected within seconds without Home Assistant asking.
 
-Home Assistant also asks the gateway for the state of every unit once a minute, to pick up anything that was missed while the connection was down, and once again a few seconds after it sends a command, in case the unit's own report of the change does not arrive.
+Home Assistant asks the gateway for the state of every unit once, when the integration is set up. After that it only listens.
 
 ## Known limitations
 
@@ -68,9 +68,9 @@ Check that the address and port are right and that Home Assistant can reach the 
 
 The gateway answered but reported no indoor units. Either the gateway address does not match the one the gateway is set to, or the gateway is not ready yet, which is what it reports before it has finished finding the indoor units on the system.
 
-### An entity is unavailable
+### An entity stopped following its air conditioner
 
-Entities go unavailable when the connection to the gateway drops. Home Assistant reconnects on its own, so this clears once the gateway can be reached again. If it does not, turn the gateway off and on again, and check that nothing else has taken the connection.
+The connection to the gateway has most likely dropped, leaving the entity showing the last state it was told about. Reload the integration from {% my integrations title="**Settings** > **Devices & services**" %} to reconnect. If that does not help, turn the gateway off and on again, and check that nothing else has taken the connection.
 
 ## Removing the integration
 
