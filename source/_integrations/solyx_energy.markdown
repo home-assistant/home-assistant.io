@@ -4,8 +4,6 @@ description: Monitor and control your Solyx Energy devices within Home Assistant
 ha_release: 2026.8
 ha_category: Energy
 ha_platforms:
-  - number
-  - select
   - sensor
 ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
@@ -98,11 +96,11 @@ Verify that you have copied the correct credentials and device ID from the Solyx
 
 #### Couldn't retrieve device data due to a communication error
 
-A communication error may appear when configuring the device. This is often caused by no data being available to be retrieved or sent by Home Assistant. If the device has been set up very recently (less than 30 minutes ago), it might help to wait and try again. If that does not help, contact support through the Solyx Energy [website](https://www.solyxenergy.nl/contact/).
+A communication error may appear when configuring the device. This is often caused by no data being available to be retrieved or sent by Home Assistant. If the device has been set up very recently (less than 30 minutes ago), it might help to wait and try again.
 
 ### Device data is not updating
 
-If the data in the Solyx Energy app does not correspond with the Home Assistant data, check your internet connection. Be aware that a cloud connection is required, and data is only updated once per minute. If that does not help, contact support through the Solyx Energy [website](https://www.solyxenergy.nl/contact/).
+If the data in the Solyx Energy app does not correspond with the Home Assistant data, check your internet connection. Be aware that a cloud connection is required, and data is only updated once per minute.
 
 ## Removing the integration
 
