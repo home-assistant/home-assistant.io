@@ -35,9 +35,20 @@ Currently, only Ethernet devices in **WEB** mode are supported:
   - **2TH**
   - **TH 2DI DO**
 
+## Configuration
+
+{% configuration_basic %}
+IP address:
+  description: The IP address of your Papouch device on the local network.
+Polling interval:
+  description: The frequency in seconds at which Home Assistant will fetch new data from the device.
+Password:
+  description: An optional password to access the device if authentication is enabled.
+{% endconfiguration_basic %}
+
 ## Device discovery
 
-All supported Papouch devices feature DHCP discovery. Once the integration is active in your Home Assistant instance, devices sending DHCP requests will automatically appear in the **Discovered** section on the Integrations page. Clicking **Configure** will guide you through the setup process.
+All supported Papouch devices feature DHCP discovery. Once the integration is active in your Home Assistant instance, devices sending DHCP requests will automatically appear in the **Discovered** section on the Integrations page. Selecting **Configure** will guide you through the setup process.
 
 {% note %}
 This will be active if DHCP is enabled in the device. Note that devices with an active password configured may fail or be skipped during automatic DHCP discovery because authentication is required.
@@ -46,7 +57,7 @@ This will be active if DHCP is enabled in the device. Note that devices with an 
 Active discovery is also triggered automatically when you manually add the integration via the user interface. It will scan your local network using UDP broadcasts and present a list of available, unregistered devices along with their names, locations, and IP addresses. However, if a device has a password set, it will not be displayed in the list of available devices during network scans.
 
 {% note %}
-If your Home Assistant instance is running in an isolated network environment (such as WSL or specific Docker network configurations) where UDP broadcasts cannot reach the container, automatic discovery will fail. In this case, you can simply select the option to enter the IP address manually during the configuration flow.
+If your Home Assistant instance is running in an isolated network environment (such as Windows Subsystem for Linux (WSL) or specific Docker network configurations) where UDP broadcasts cannot reach the container, automatic discovery will fail. In this case, you can simply select the option to enter the IP address manually during the configuration flow.
 {% endnote %}
 
 If your device was not discovered automatically, you can complete the setup manually:
@@ -61,7 +72,7 @@ If the device doesn't have any password set and you provide one in the setup, it
 {% endnote %}
 
 {% note %}
-Some of the devices can be run in various modes (e.g. TCP client/server, etc.). That means if you are trying to configure a device that is, for example, in TCP server mode, the integration will detect this and offer you a choice to either switch it to WEB mode or abort the configuration. Other modes are not supported since the device must operate in WEB mode for proper integration functionality.
+Some devices can run in different modes, like TCP client or TCP server. If you try to set up a device that is not in **WEB** mode, the integration will detect this and offer to switch it to **WEB** mode or abort the setup. Other modes are not supported because the device must run in **WEB** mode for the integration to work.
 {% endnote %}
 
 {% note %}
@@ -166,7 +177,7 @@ For more details, see the official manuals available in the downloads section of
 
 Papago is a family of devices.
 
-#### METEO
+#### Meteo
 
 The integration provides these entities:
 
