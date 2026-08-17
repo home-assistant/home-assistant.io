@@ -85,6 +85,7 @@ player:
 
 ## Good to know
 
+- This action can only be used by administrator users.
 - This action requires a recent Music Assistant server. On an older server, the action fails with an error stating that dashboards aren't supported.
 - The action fails if `dashboard_id` doesn't match a known display device, or if `player` isn't a Music Assistant player entity.
 - The `now_playing` dashboard requires a `player`. Omitting it results in an error.

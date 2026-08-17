@@ -60,6 +60,7 @@ dashboard_id:
 
 ## Good to know
 
+- This action can only be used by administrator users.
 - This action requires a recent Music Assistant server. On an older server, the action fails with an error stating that dashboards aren't supported.
 - It's safe to call this action when nothing is shown on the display device, or when the display device is no longer connected. Display devices are connection-scoped, so a closed browser tab or a disconnected Chromecast simply drops off the list returned by [Get dashboards](/actions/music_assistant.get_dashboards/). Hiding a dashboard on a `dashboard_id` that no longer exists does not raise an error.
 
