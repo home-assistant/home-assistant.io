@@ -10,7 +10,6 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar_modbus
 ha_platforms:
-  - diagnostics
   - switch
 ha_config_flow: true
 ha_integration_type: device
@@ -45,17 +44,6 @@ Modbus unit ID:
 Poll EPS / backup registers:
   description: "Also poll the EPS (backup power) register block, for inverters with EPS wiring. Off by default."
 {% endconfiguration_basic %}
-
-## Reconfiguration
-
-If you need to update the connection settings for your inverter, you can reconfigure the integration without removing and re-adding it:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the **Sofar Inverter Modbus** integration, select the three-dot menu and choose **Reconfigure**.
-3. Update the connection settings as needed.
-4. Select **Submit** to save the new settings.
-
-This is useful when the inverter's IP address changes, for example after a router restart or a DHCP lease renewal. Reconfiguring to point at a different physical inverter isn't supported; the integration checks the serial number and rejects the change if it doesn't match.
 
 ## Supported functionality
 
