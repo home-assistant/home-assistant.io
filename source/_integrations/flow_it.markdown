@@ -53,7 +53,7 @@ Password:
 
 ## Supported functionality
 
-The **Flow-it** integration provides the following entities:
+The **Flow-it** integration provides the following entities.
 
 ### Fans
 
