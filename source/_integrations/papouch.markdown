@@ -242,5 +242,3 @@ To apply these hardware changes:
 3. Click the three dots next to your Papouch integration and select **Reload**.
 
 The integration will fetch the updated hardware layout and create the new entities. The old entity (e.g., the previous thermometer) will become `unavailable` and you can manually delete it from the Home Assistant entity registry. Thanks to MAC address identification, you will not lose any historical data for the sensors that remained untouched.
-
-{% include integrations/remove_device.md %}
