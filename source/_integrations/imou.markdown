@@ -25,7 +25,9 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically. Channel devices expose **Live view SD** and **Live view HD** camera entities, supported actions are exposed as button entities, supported toggles are exposed as switch entities, supported options are exposed as select entities, supported measurements are exposed as sensor entities, and supported contact states are exposed as binary sensor entities in Home Assistant.
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
+
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Supported devices
 
@@ -116,7 +118,7 @@ When the cloud API reports that the option is supported for a device, the integr
 
 When the cloud API reports that a contact state is supported for a device, the integration exposes the following binary sensor entity:
 
-- **Door**: Open or closed state of a door or window contact on supported sensors.
+- **Door**: Open or closed state of a door or window contact on supported devices.
 
 ### Sensors
 
