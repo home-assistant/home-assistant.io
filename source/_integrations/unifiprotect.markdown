@@ -136,7 +136,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
-- **Events** - Cameras expose event {% term entity %} entities for momentary motion and supported smart detections. Cameras that support crossing-line detection include a [Line crossing event](#line-crossing-event); configure one or more crossing lines in UniFi Protect for the entity to fire. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
+- **Events** - Cameras expose event entities for momentary motion and supported smart detections. Cameras that support crossing-line detection include a [Line crossing event](#line-crossing-event); configure one or more crossing lines in UniFi Protect for the entity to fire. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
@@ -585,13 +585,13 @@ License Plate Recognition can be triggered by various sources, including images 
   - **event_id**: A unique ID that identifies the motion event.
 - **Description**: This event fires each time a camera starts detecting motion. It complements the camera's **Motion** sensor by giving you a point-in-time event to trigger automations on, and provides an `event_id` you can use to fetch related media.
 
-### Line crossing event
+### Line Crossing Event
 
-- **Event name**: Line crossing
-- **Event attributes**:
-  - **event\_type**: The detected object type, such as `person` or `vehicle`.
-  - **event\_id**: A unique ID that identifies the detection event.
-  - **smart\_detect\_types**: The full set of object types detected during the event.
+- **Event Name**: Line crossing
+- **Event Attributes**:
+  - **event_type**: The detected object type, such as `person` or `vehicle`.
+  - **event_id**: A unique ID that identifies the detection event.
+  - **smart_detect_types**: The full set of object types detected during the event.
 - **Description**: This event fires for each object type detected when an object crosses any detection line configured for the camera in UniFi Protect. Each detected type fires once across the lifecycle of the event.
 
 {% note %}
