@@ -69,6 +69,7 @@ The **Transmission** integration provides the following sensors and switches.
 - The total uploaded data [GB].
 - The current session upload/download ratio.
 - The total upload/download ratio.
+- The available disk space of the download directory [GiB].
 
 ### Switches
 
