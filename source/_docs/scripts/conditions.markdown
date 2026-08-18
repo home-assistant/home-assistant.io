@@ -176,7 +176,7 @@ For the full list of available conditions and its details, refer to the [Air qua
 
 The available conditions are:
 
-- Alarm is disarmed (`alarm_control_panel.is_armed`).
+- Alarm is armed (`alarm_control_panel.is_armed`).
 - Alarm is armed home (`alarm_control_panel.is_armed_home`).
 - Alarm is armed away (`alarm_control_panel.is_armed_away`).
 - Alarm is armed night (`alarm_control_panel.is_armed_night`).
@@ -442,7 +442,7 @@ The `for` template(s) will be evaluated when the condition is tested.
 
 ### Garage door conditions
 
-For the full list of available conditions and its details, refer to the [Garage door conditions](/integrations/garage-door/#list-of-conditions).
+For the full list of available conditions and details, refer to the [Garage door conditions](/integrations/garage_door/#list-of-conditions).
 
 ### Humidifier conditions
 
@@ -901,21 +901,23 @@ both entities need to be either in the home or the work zone for the condition
 to pass.
 
 ```yaml
-condition: or
 conditions:
-  - condition: zone.in_zone
-    target:
-      entity_id: device_tracker.frenck
-      entity_id: device_tracker.daphne
-    options:
-      zone: zone.home
-  - condition: zone.in_zone
-    target:
-      entity_id: device_tracker.frenck
-      entity_id: device_tracker.daphne
-    options:
-      zone: zone.work
-```
+  - condition: or
+    conditions:
+      - condition: zone.in_zone
+        target:
+          entity_id:
+            - device_tracker.frenck
+            - device_tracker.daphne
+        options:
+          zone: zone.home
+      - condition: zone.in_zone
+        target:
+          entity_id:
+            - device_tracker.frenck
+            - device_tracker.daphne
+        options:
+          zone: zone.work
 
 ## Examples
 
