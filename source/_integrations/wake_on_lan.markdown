@@ -4,7 +4,6 @@ description: Instructions on how to set up the Wake on LAN integration in Home A
 ha_category:
   - Button
   - Network
-  - Switch
 ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: wake_on_lan
@@ -48,7 +47,7 @@ It will send a magic packet to the MAC address specified in the configuration. A
 
 ### Examples
 
-Here are some real-life examples of how to use the **turn_off** variable.
+Here are some real-life examples of how to implement a `turn_off` action when using Wake on LAN with a template switch.
 
 #### Suspending Linux
 
@@ -63,9 +62,9 @@ from Home Assistant running on another Linux computer (the **server**).
 6. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
 7. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here it is `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
 8. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
-9. Create a Wake on LAN config entry with the mac address of your target.
-10. Create a Ping config entry with the IP address of your target.
-11. On the **server**, add the following to your configuration, replacing TARGET with the target's name (A Template switch {% term helper %} can also be created in the UI):
+9. Create a Wake on LAN configuration entry with the MAC address of your target.
+10. Create a Ping configuration entry with the IP address of your target.
+11. On the **server**, add the following to your configuration, replacing TARGET with the target's name. (A template switch {% term helper %} can also be created in the UI.)
 
 ```yaml
 shell_command:
@@ -74,7 +73,7 @@ shell_command:
 template:
   - switch:
       - name: "TARGET"
-        state: "{{ is_state('binary_sensor.PING_ENTITY', 'on') }}"
+        state: "{{ is_state('binary_sensor.ping_entity', 'on') }}"
         turn_on:
           action: button.press
           target:
@@ -85,7 +84,7 @@ template:
 
 ## Wake up TV
 
-For many TV's it's not possible to turn them on or off using built-in functionality, but you can send a magic packet to wake them up.
+For many TVs it's not possible to turn them on or off using built-in functionality, but you can send a magic packet to wake them up.
 
 It is optional to have a `turn_off` action, therefore a Template switch {% term helper %} can be useful without one to provide a status and make it easy to turn it on when it's off.
 
