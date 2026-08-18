@@ -67,7 +67,7 @@ You can't add views to the built-in **Activity**, **Climate**, **History**, **Ma
 
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
-6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
+6. By default, the new view is visible to all users. On the **Visibility** tab, you can disable the view for particular users.
 
 ## Migrating a view into a sections view
 
