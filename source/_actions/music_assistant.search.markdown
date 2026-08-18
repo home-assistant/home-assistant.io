@@ -44,6 +44,8 @@ Limit:
   description: The maximum number of items to return per media type.
 Only library items:
   description: Only include results that are in the library.
+Username:
+  description: Search in the library of this Music Assistant user. If the specified user has provider filtering configured, the results will be filtered accordingly.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -92,6 +94,10 @@ library_only:
   required: false
   type: boolean
   default: false
+username:
+  description: Search in the library of this Music Assistant user. If the specified user has provider filtering configured, the results will be filtered accordingly.
+  required: false
+  type: string
 {% endoptions_yaml %}
 
 ## Response data

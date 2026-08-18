@@ -64,7 +64,7 @@ attribute:
 
 {% tip %}
 
-To see all available attributes for an entity, go to {% my developer_states title="**Developer Tools** > **States**" %} and select the entity. The attributes are listed below the state value.
+To see all available attributes for an entity, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and select the entity. The attributes are listed below the state value.
 
 {% endtip %}
 

@@ -12,6 +12,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_domain: nordpool
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_integration_type: service
@@ -164,7 +165,7 @@ Below example will convert the action call response to kWh prices in the selecte
 {% endnote %}
 
 {% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+You can get your `config_entry` by using actions within [Tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
 {% endtip %}
 
 ```yaml

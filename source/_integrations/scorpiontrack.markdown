@@ -1,13 +1,17 @@
 ---
 title: ScorpionTrack
-description: Instructions on how to integrate ScorpionTrack shared vehicle locations into Home Assistant.
+description: Instructions on how to integrate ScorpionTrack shared vehicle locations, speeds, and ignition states into Home Assistant.
 ha_category:
+  - Binary sensor
   - Device tracker
+  - Sensor
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack
 ha_platforms:
+  - binary_sensor
   - device_tracker
+  - sensor
 ha_config_flow: true
 ha_integration_type: hub
 ha_codeowners:
@@ -15,9 +19,9 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-The **ScorpionTrack** {% term integration %} lets Home Assistant follow vehicles that have been shared through a public ScorpionTrack location-share link.
+The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location, speed, and ignition state of vehicles that have been shared through a public ScorpionTrack shared-location link.
 
-This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates `device_tracker` entities from that data, which appear on the Home Assistant map.
+This integration is intentionally focused on the share-link workflow. It does not use your private ScorpionTrack account credentials. Instead, it reads the shared vehicle feed exposed by ScorpionTrack and creates entities for location, speed, and ignition state from that data. The vehicle location appears on the Home Assistant map.
 
 ## Prerequisites
 
@@ -47,13 +51,19 @@ Share URL or token:
 
 ## Supported functionality
 
-The **ScorpionTrack** integration creates one {% term "device tracker" %} for each vehicle included in the share.
+The **ScorpionTrack** integration creates one device for each vehicle included in the share. Each device provides:
 
-Each tracker represents the vehicle directly on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share. The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
+- A {% term "device tracker" %} entity that represents the vehicle on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share.
+- A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
+- An **Ignition** binary sensor entity that shows the latest ignition state reported through the share.
+
+The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
+
+The **Speed** sensor initially uses the unit selected for the ScorpionTrack share. You can choose a different display unit in the entity settings.
 
 ## Data updates
 
-The **ScorpionTrack** integration {% term polling polls %} ScorpionTrack every 2 minutes for the latest shared vehicle position.
+The **ScorpionTrack** integration {% term polling polls %} ScorpionTrack every 2 minutes for the latest location, speed, and ignition state of each shared vehicle.
 
 ## Known limitations
 
