@@ -16,7 +16,7 @@ og_image: /images/blog/2019-05-release-93/components.png
 It's time for our 0.93 release and it is a whopping cool one. It's a day later than usual as I am travelling. [Frenck](https://www.github.com/frenck) streams his work on Home Assistant / Hass.io each Tuesday and Friday, and last Tuesday I decided to surprise him and visit his house during the stream 😛. We ended up talking about everything Home Assistant with the viewers for over 3 hours. For the full conversation, check out [Frenck's blog](https://frenck.dev/home-assistant-paulus-invaded-my-live-stream/). Clip of me walking into the stream:
 
 <div class='videoWrapper'>
-  <iframe src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye&parent=www.home-assistant.io" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+  <iframe src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye&parent=www.home-assistant.io&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 </div>
 
 Last week we also wrote about [our updated plans](/blog/2019/05/03/update-from-the-field/) for Home Assistant for this year. If you haven't read it yet, worth the read!
