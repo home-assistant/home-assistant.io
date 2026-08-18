@@ -20,10 +20,7 @@ The **Harbor Sleep** {% term integration %} lets you monitor a [Harbor Sleep](ht
 
 For a walkthrough of the setup process, watch the video below.
 
-<lite-youtube
-  videoid="2HrpScE2vLw" 
-  videotitle="Harbor Home Assistant Setup" posterquality="maxresdefault"
-></lite-youtube>
+<lite-youtube videoid="2HrpScE2vLw" videotitle="Harbor Home Assistant Setup"></lite-youtube>
 
 ## Supported devices
 
