@@ -88,7 +88,7 @@ To give the shutdown more time, increase the timeout:
     ```yaml
     services:
       homeassistant:
-      ...
+        ...
         stop_grace_period: 60s
     ```
 
@@ -97,7 +97,7 @@ To give the shutdown more time, increase the timeout:
 The timeout is an upper limit, not a delay: Docker continues as soon as Home Assistant has exited.
 
 {% note %}
-This setting is applied when the container is created. To change it on an existing container, recreate the container, for example with `docker compose up -d`. Restarting a container keeps the timeout it was created with.
+This setting is applied when the container is created, so restarting an existing container keeps the timeout it was created with. After changing the value in `compose.yaml`, `docker compose up -d` recreates the container, because its configuration has changed. If the container is not recreated, use `docker compose up -d --force-recreate`. With the Docker CLI, remove the container and run it again with the new option.
 {% endnote %}
 
 ### Docker compose
