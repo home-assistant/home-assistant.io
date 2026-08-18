@@ -20,7 +20,7 @@ By connecting through the [Local API](https://www.fing.com/developers/local-api/
 
 ## Prerequisites
 - Install [Fing](https://www.fing.com/) and set up a Fing Agent ([Fing Agent](https://www.fing.com/agent/), Fingbox, or [Fing Desktop](https://www.fing.com/desktop/)).
-- Ensure that the [Local API](https://www.fing.com/developers/local-api/) is enabled on your Fing Agent ([Fing Agent](https://www.fing.com/agent/), Fingbox, or [Fing Desktop](https://www.fing.com/desktop/)).
+- Ensure that the [Local API](https://www.fing.com/developers/local-api/) is enabled on your Fing Agent.
 - You will need your Fing Agent’s IP address, port, and API key to complete the setup.
 
 {% include integrations/config_flow.md %}
