@@ -61,7 +61,7 @@ card:
   entities:
     - device_tracker.demo_paulus
     - cover.kitchen_window
-    - group.kitchen
+    - light.kitchen_lights
     - lock.kitchen_door
     - light.bed_light
 ```

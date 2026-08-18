@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light brightness crossed threshold**.
+4. From the search box, search for and select **Light brightness crossed threshold**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set the brightness percentage you want the trigger to watch for.
 7. Under **Trigger when**, pick **Each**, **First**, or **All** to control how multiple targets interact.
@@ -90,7 +90,7 @@ When you dim the ceiling light below 40% in the evening, turn on the accent ligh
 - **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Condition**: Ceiling light brightness is below 40%
-- **Action**: Light: Turn on (accent lights)
+- **Action**: Turn on light (accent lights)
 
 {% details "YAML example for mood lighting on dim" %}
 

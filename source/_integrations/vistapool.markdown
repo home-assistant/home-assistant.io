@@ -12,11 +12,12 @@ ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@fdebrus"
+  - '@fdebrus'
 ha_domain: vistapool
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - number
   - select
@@ -62,7 +63,7 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 
 ## Supported functionality
 
-The **Vistopool** integration provides the following entities.
+The **Vistapool** integration provides the following entities.
 
 ### Buttons
 
