@@ -56,7 +56,7 @@ The integration looks at the contract on each meter and creates the price sensor
 
 These sensors show the supplier energy price only. They do not include network and distribution costs, energy taxes and levies, green energy contributions, or other charges on your bill, so your total cost per kWh is higher than the value shown. The default sensors include VAT, and each one has an excluding-VAT version that is turned off by default. You can turn it on from the entity settings if you need the price before VAT.
 
-Entity IDs are built from the address, so a meter at an address like Main Street 1 ends up with IDs like `sensor.main_street_1_electricity_offtake_price`. When an address has two meters of the same energy type, the last four digits of the meter's EAN are added so the two stay apart.
+Entity IDs are derived from the device name, which is the full address, so a meter at an address like Main Street 1, 1000 Brussels ends up with IDs like `sensor.main_street_1_1000_brussels_electricity_offtake_price`. When an address has two meters of the same energy type, the last four digits of the meter's EAN are added so the two stay apart.
 
 Gas is always billed at a single rate:
 
