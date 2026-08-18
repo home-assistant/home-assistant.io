@@ -12,6 +12,7 @@ ha_domain: hotspring
 ha_platforms:
   - number
 ha_integration_type: device
+ha_zeroconf: true
 ---
 
 The **Hot Spring** {% term integration %} allows you to monitor and control your [Hot Spring](https://www.hotspring.com/) spa equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) module directly from Home Assistant.
