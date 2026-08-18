@@ -42,7 +42,7 @@ Port:
 Modbus unit ID:
   description: "The inverter's Modbus unit/slave ID. The default is `1`."
 Poll EPS / backup registers:
-  description: "Also poll the EPS (backup power) register block, for inverters with EPS wiring. Off by default."
+  description: "Also poll the EPS (Emergency Power Supply, i.e. off-grid backup output) register block. Only enable this if your inverter has EPS wiring — on models without it, these registers aren't populated. Off by default."
 {% endconfiguration_basic %}
 
 ## Supported functionality
