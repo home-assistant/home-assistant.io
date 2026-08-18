@@ -8,7 +8,7 @@ ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@darkrain-nl'
-ha_domain: sofar_modbus
+ha_domain: sofar
 ha_platforms:
   - switch
 ha_config_flow: true
