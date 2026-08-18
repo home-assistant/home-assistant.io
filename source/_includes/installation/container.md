@@ -62,6 +62,44 @@ If you change the configuration, you have to restart the server. To do that you 
 
 {% endtabbed_block %}
 
+### Allow time for a clean shutdown
+
+When the container is stopped or restarted, Docker sends `SIGTERM` and then forcibly stops the container after a timeout, which is 10 seconds by default. Home Assistant can need longer than that to close its database. If it is stopped before it has finished, the next start logs warnings such as:
+
+```txt
+Ended unfinished session
+The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
+```
+
+To give the shutdown more time, increase the timeout:
+
+{% tabbed_block %}
+
+- title: Docker CLI
+  content: |
+
+    ```bash
+    docker run ... --stop-timeout 60 ...
+    ```
+
+- title: Docker Compose
+  content: |
+
+    ```yaml
+    services:
+      homeassistant:
+      ...
+        stop_grace_period: 60s
+    ```
+
+{% endtabbed_block %}
+
+The timeout is an upper limit, not a delay: Docker continues as soon as Home Assistant has exited.
+
+{% note %}
+This setting is applied when the container is created. To change it on an existing container, recreate the container, for example with `docker compose up -d`. Restarting a container keeps the timeout it was created with.
+{% endnote %}
+
 ### Docker compose
 
 {% tip %}
