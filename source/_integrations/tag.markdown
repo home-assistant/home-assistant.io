@@ -55,36 +55,33 @@ You can use a tag trigger to run an automation when a tag is scanned. The easies
 
 If you use YAML, set `trigger` to `tag` and provide the `tag_id`.
 
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id: "A7-6B-90-5F"
-```
+{% example %}
+trigger: |
+  trigger: tag
+  tag_id: "A7-6B-90-5F"
+{% endexample %}
 
 To only trigger when the tag is scanned by a specific device, add `device_id`.
 
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id: "A7-6B-90-5F"
-      device_id: 0e19cd3cf2b311ea88f469a7512c307d
-```
+{% example %}
+trigger: |
+  trigger: tag
+  tag_id: "A7-6B-90-5F"
+  device_id: 0e19cd3cf2b311ea88f469a7512c307d
+{% endexample %}
 
 You can also provide multiple tag IDs or device IDs.
 
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id:
-        - "A7-6B-90-5F"
-        - "04-B1-C6-62-2F-64-80"
-      device_id:
-        - 0e19cd3cf2b311ea88f469a7512c307d
-        - 1234567890abcdef1234567890abcdef
-```
+{% example %}
+trigger: |
+  trigger: tag
+  tag_id:
+    - "A7-6B-90-5F"
+    - "04-B1-C6-62-2F-64-80"
+  device_id:
+    - 0e19cd3cf2b311ea88f469a7512c307d
+    - 1234567890abcdef1234567890abcdef
+{% endexample %}
 
 ## Building an RFID jukebox
 
