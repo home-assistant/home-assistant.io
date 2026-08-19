@@ -93,6 +93,7 @@ The integration {% term polling polls %} the Tailscale API every minute for the 
 ## Known limitations
 
 - The integration is read-only. You cannot change devices or your Tailnet from Home Assistant.
+- The **Connected to control** binary sensor indicates connectivity to Tailscale's control plane, while the **Last seen** sensor indicates recency. Neither guarantees peer-to-peer reachability or traffic.
 - Tailscale API access tokens are valid for 90 days. When a token expires, the integration stops updating and asks you to enter a new token.
 
 ## Troubleshooting
