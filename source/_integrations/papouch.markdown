@@ -5,13 +5,19 @@ ha_category:
   - Sensor
 ha_release: 2026.8
 ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: papouch
+ha_config_flow: true
+ha_codeowners:
+  - '@VladislavLevitskii'
+ha_platforms:
+  - sensor
+ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Papouch** integration allows you to integrate your [Papouch](https://papouch.com/) hardware devices into Home Assistant.
 
-The integration works by continuously polling the device for real-time data and updating the corresponding Home Assistant sensor entities.
+The integration polls the device at the interval you choose and updates the corresponding Home Assistant sensor entities.
 
 {% include integrations/config_flow.md %}
 
@@ -19,14 +25,14 @@ The integration works by continuously polling the device for real-time data and 
 
 Currently, only Ethernet devices in **WEB** mode are supported. The integration provides sensor entities for the following devices based on their connected hardware and configuration:
 
-- **Quido ETH** (Input/output modules): Reads temperature and pulse counts. ([Official manual](https://papouch.com/quido-eth-4-4-4-vstupy-4-vystupy-teplomer-ethernet-p4646/?cid=145&vid=1797))
-- **TH2E** (Thermometers and environmental sensors): Provides environmental readings depending on the configured sensor type. ([Official manual](https://papouch.com/th2e-ethernetovy-teplomer-s-vlhkomerem-p4825/?vid=2374))
-- **TME / TME Multi / TME Radio** (Multi-channel thermometers): Provides environmental readings depending on the configured sensor type. ([TME manual](https://papouch.com/tme-ethernetovy-teplomer-p4602/?sti=635677&vid=1879), [TME Multi/Radio manual](https://papouch.com/tme-radio-bezdratovy-meric-teploty-a-vlhkosti-p4603/?sti=635678&vid=2965))
+- **Quido ETH** (Input/output modules): Reads temperature and pulse counts. ([Official manual](https://papouch.com/quido-eth-4-4-4-vstupy-4-vystupy-teplomer-ethernet-p4646/?cid=145&vid=1797)).
+- **TH2E** (Thermometers and environmental sensors): Provides environmental readings depending on the configured sensor type. ([Official manual](https://papouch.com/th2e-ethernetovy-teplomer-s-vlhkomerem-p4825/?vid=2374)).
+- **TME / TME Multi / TME Radio** (Multi-channel thermometers): Provides environmental readings depending on the configured sensor type. ([TME manual](https://papouch.com/tme-ethernetovy-teplomer-p4602/?sti=635677&vid=1879), [TME Multi/Radio manual](https://papouch.com/tme-radio-bezdratovy-meric-teploty-a-vlhkosti-p4603/?sti=635678&vid=2965)).
 - **Papago** (Ethernet sensors and meteo stations):
-  - **Meteo**: Provides environmental readings depending on the type of the sensor. ([Official manual](https://papouch.com/papago-meteo-eth-zakladna-prumyslove-meteostanice-s-ethernetem-a-poe-p6878/?vid=4887))
-  - **5HDI DO**: Reads temperature and pulse counts. ([Official manual](https://papouch.com/papago-5hdi-do-eth-5-digitalni-vstup-a-1-rele-p3132/))
-  - **2TH**: Provides environmental readings depending on the type of the sensor. ([Official manual](https://papouch.com/papago-2th-eth-2-mereni-teploty-vlhkosti-a-rosneho-bodu-s-ethernetem-p2989/))
-  - **TH 2DI DO**: Reads temperature, pulse counts, and various environmental metrics depending on the type of the sensor. ([Official manual](https://papouch.com/papago-th-2di-do-eth-environment-monitor-p3159/))
+  - **Meteo**: Provides environmental readings depending on the type of the sensor. ([Official manual](https://papouch.com/papago-meteo-eth-zakladna-prumyslove-meteostanice-s-ethernetem-a-poe-p6878/?vid=4887)).
+  - **5HDI DO**: Reads temperature and pulse counts. ([Official manual](https://papouch.com/papago-5hdi-do-eth-5-digitalni-vstup-a-1-rele-p3132/)).
+  - **2TH**: Provides environmental readings depending on the type of the sensor. ([Official manual](https://papouch.com/papago-2th-eth-2-mereni-teploty-vlhkosti-a-rosneho-bodu-s-ethernetem-p2989/)).
+  - **TH 2DI DO**: Reads temperature, pulse counts, and various environmental metrics depending on the type of the sensor. ([Official manual](https://papouch.com/papago-th-2di-do-eth-environment-monitor-p3159/)).
 
 ## Configuration
 
@@ -56,15 +62,13 @@ Some devices can run in different modes, like TCP client or TCP server. If you t
 The device must be powered on and reachable by Home Assistant during the initial setup. The integration cannot be configured with an offline IP address because it needs to fetch the hardware configuration data to create a valid instance.
 {% endnote %}
 
-If you need to change your selection during the manual configuration, simply close the setup dialog and start the process again.
+If you need to change your selection during setup, close the setup dialog and start the process again.
 
 ## Using the device
 
 For now, the integration only provides `sensor` entities to read data from the devices. Support for controlling outputs and configuring settings will be added in future updates.
 
-### Known limitations and nuances
-
-This section describes various limitations and nuances that can occur while using the devices.
+### Known limitations
 
 #### Units of measurement
 
@@ -72,7 +76,7 @@ Changing the physical unit of measurement on the device's web interface will not
 
 #### Dynamic entities
 
-Some devices (e.g., TH2E) expose a variable number of entities depending on the configured sensor type. If you change the sensor type on the device's web interface, some previously active entities may become unavailable. You can safely delete these orphaned entities from Home Assistant; their historical data will remain intact, and they will be recreated if you ever switch the sensor type back. To recreate entities after changing hardware configurations, simply **reload** the integration (Settings > Devices & Services > three dots > Reload).
+Some devices (for example, TH2E) expose a variable number of entities depending on the configured sensor type. If you change the sensor type in the device web interface, some previously active entities may become unavailable. You can safely delete these orphaned entities from Home Assistant. Their historical data will remain intact, and they will be recreated if you switch the sensor type back. To recreate entities after changing hardware configurations, reload the integration (**Settings** > **Devices & services** > three-dot menu > **Reload**).
 
 ## Troubleshooting
 
@@ -81,7 +85,7 @@ The integration detects supported sensors and outputs during its initial setup. 
 To apply these hardware changes:
 
 1. Make sure your device has fully restarted and is working with the new configuration.
-2. Navigate to **Settings** > **Devices & Services**.
-3. Click the three dots next to your Papouch integration and select **Reload**.
+2. Navigate to **Settings** > **Devices & services**.
+3. Select the three-dot menu next to your Papouch integration, then select **Reload**.
 
-The integration will fetch the updated hardware layout and create the new entities. The old entity (e.g., the previous thermometer) will become `unavailable` and you can manually delete it from the Home Assistant entity registry. Thanks to MAC address identification, you will not lose any historical data for the sensors that remained untouched.
+The integration will fetch the updated hardware layout and create the new entities. The old entity (for example, the previous thermometer) will become `unavailable`, and you can manually delete it from the Home Assistant entity registry. Thanks to MAC address identification, you will not lose any historical data for the sensors that remained untouched.
