@@ -98,7 +98,7 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## Automation template trigger
 
-The automation template trigger runs an automation when a template changes from false to true. It is useful when the condition you need cannot be expressed with a standard state, numeric state, or device trigger.
+The automation template trigger runs an automation when a template changes from false to true. It is useful when the condition you need cannot be expressed with a state, numeric state, or device trigger.
 
 A template is considered true when it renders `true`, `yes`, `on`, `enable`, or a non-zero number. It is considered false when it renders any other value.
 
