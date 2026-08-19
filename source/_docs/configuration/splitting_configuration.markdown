@@ -38,7 +38,10 @@ scene: !include scenes.yaml
 
 If you have added customizations or packages, there may also be a `homeassistant:` key. Any `!include` statements under it, such as for `customize:` or `packages:`, should stay nested inside it.
 
+Unlike the `!include` used by programming languages such as C, the `!include` in YAML can only be used as the value for a key.
+The most common use for `!include` is as the value for a top level key such as `script` or `sensor`.
 The included file must contain valid YAML for the location where it is included. You do not repeat the parent key inside the included file.
+The two spaces of indentation are also not needed in the included file.
 
 For example, if `configuration.yaml` contains:
 
