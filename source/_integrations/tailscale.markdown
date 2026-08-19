@@ -57,7 +57,7 @@ The integration creates a device in Home Assistant for each device in your Tailn
 ### Binary sensors
 
 - **Client**: Whether a Tailscale client update is available for the device.
-- **Connected to control**: Whether the device has a connection to Tailscale's coordination server (the control plane). This does not indicate peer-to-peer reachability, recent traffic, or the device's physical presence or location.
+- **Connected to control**: Whether the device has recently connected to Tailscale's coordination server (the control plane).
 - **Key expiry disabled**: Whether key expiry is turned off for the device, meaning its key does not expire.
 - **Supports IPv6**: Whether the device's client supports IPv6.
 - **Supports UDP**: Whether the device's client supports UDP.
@@ -93,7 +93,7 @@ The integration {% term polling polls %} the Tailscale API every minute for the 
 ## Known limitations
 
 - The integration is read-only. You cannot change devices or your Tailnet from Home Assistant.
-- The **Connected to control** binary sensor indicates connectivity to Tailscale's control plane, while the **Last seen** sensor indicates recency. Neither guarantees peer-to-peer reachability or traffic.
+- The **Connected to control** binary sensor indicates recent control-plane connectivity, while the **Last seen** sensor indicates recency. Neither guarantees peer-to-peer reachability or traffic.
 - Tailscale API access tokens are valid for 90 days. When a token expires, the integration stops updating and asks you to enter a new token.
 
 ## Troubleshooting
