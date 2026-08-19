@@ -1504,8 +1504,6 @@ automation:
 
 You can use `value_template` to process the incoming payload before matching it against `payload`.
 
-{% raw %}
-
 ```yaml
 automation:
   triggers:
@@ -1514,8 +1512,6 @@ automation:
       value_template: "{{ value_json.action }}"
       payload: "single"
 ```
-
-{% endraw %}
 
 {% note %}
 The `topic` and `payload` options support [limited templates](/docs/templating/where-to-use/#limited-templates). These templates are evaluated when the trigger is set up and are not re-evaluated for each incoming MQTT message.
