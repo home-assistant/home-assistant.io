@@ -1478,6 +1478,9 @@ MQTT devices often continuously generate numerous state updates. MQTT does not u
 
 ## MQTT trigger
 
+<!-- Disable terminology test, because MQTT spelled with lowercase fails it -->
+<!-- textlint-disable terminology -->
+
 {% example %}
 automation: |
   triggers:
@@ -1510,6 +1513,8 @@ automation: |
       value_template: "{{ value_json.action }}"
       payload: "single"
 {% endexample %}
+
+<!-- textlint-enable terminology -->
 
 {% note %}
 The `topic` and `payload` options support [limited templates](/docs/templating/where-to-use/#limited-templates). These templates are evaluated when the trigger is set up and are not re-evaluated for each incoming MQTT message.
