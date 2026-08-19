@@ -76,8 +76,6 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-The following are triggers without dedicated pages.
-
 ### Device tracker triggers
 
 Fires when a tracked device arrives home or leaves home, or when the first device arrives or the last device leaves. See [Device tracker integration](/integrations/device_tracker/#triggers).
