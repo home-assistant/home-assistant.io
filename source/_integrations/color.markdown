@@ -73,8 +73,8 @@ All other representations are provided as attributes:
 ### Action color.set_color
 
 Sets the stored color.
-Provide exactly one of the color fields.
-The brightness field is optional and independent of the color.
+Provide exactly one of `hex_value`, `rgb_color`, `hs_color`, `xy_color`, `color_temp_kelvin`, or `color_name`; passing more than one is an error.
+`brightness` is not part of that set: it is optional, and can be combined with any one of the color fields.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
