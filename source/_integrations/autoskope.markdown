@@ -1,6 +1,6 @@
 ---
-title: "Autoskope"
-description: "Instructions on how to integrate Autoskope devices into Home Assistant."
+title: Autoskope
+description: Instructions on how to integrate Autoskope devices into Home Assistant.
 ha_category:
   - Device tracker
 ha_release: 2026.4
@@ -9,7 +9,7 @@ ha_domain: autoskope
 ha_platforms:
   - device_tracker
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@mcisk'
 ha_quality_scale: bronze
@@ -64,7 +64,9 @@ triggers:
     entity_id: device_tracker.my_vehicle
     to: "home"
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: "The vehicle has arrived home."
 ```

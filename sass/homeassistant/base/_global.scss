@@ -1,3 +1,7 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 html {
   overflow-y: auto;
 }
@@ -95,10 +99,7 @@ textarea {
 }
 
 .divider {
-  border: none;
-  border-bottom: 2px solid $primary-color;
-  clear: both;
-  margin: 2em 0;
+  @include divider;
 }
 
 article.post,

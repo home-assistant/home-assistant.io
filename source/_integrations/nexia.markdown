@@ -102,21 +102,4 @@ It usually takes 10–15 seconds to complete, depending on the web service.
 At least one sensor must be selected.
 If you exclude all sensors, the switches will revert to show the zone's settings.
 
-### Action `nexia.set_aircleaner_mode`
-
-Sets the air cleaner mode. Options include 'auto', 'quick', and 
-'allergy'. This setting will affect all zones on the same thermostat.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `aircleaner_mode` | no | 'auto', 'quick', or 'allergy'
-
-### Action `nexia.set_humidify_setpoint`
-
-Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `humidity` | no | Humidify setpoint level, from 35 to 65.
+{% include integrations/actions.md %}
