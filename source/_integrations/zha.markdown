@@ -188,8 +188,6 @@ The following hardware is supported, but _not recommended_. Specific models and 
 
 {% enddetails %}
 
-If you find an opportunity to improve this information, refer to the section on how to [add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
-
 ## Configuration requirements
 
 {% important %}
