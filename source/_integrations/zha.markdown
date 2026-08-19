@@ -96,12 +96,25 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 
 The hardware-independent design of this integration provides support for many Zigbee coordinators available from different manufacturers, as long as the coordinator is compatible with the [zigpy](https://github.com/zigpy/zigpy) library.
 
-### Recommended Zigbee radio adapters and modules
+### Recommended: official Home Assistant hardware
+
+Official Home Assistant hardware is the recommended choice for ZHA. It is designed and built by Nabu Casa, a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org), together with the team that develops ZHA. The Zigbee firmware is maintained by that same team, with optimizations for ZHA and support for large Zigbee networks. You can keep it up to date from within Home Assistant.
+
+They all use Silicon Labs EmberZNet based radios with the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy).
+
+- [Home Assistant Connect ZBT-2](/connect/zbt-2/): USB adapter with an EFR32MG24 radio. If you are setting up a new Zigbee network, this is the one to get.
+- Home Assistant Connect ZBT-1: USB adapter with an EFR32MG21 radio. Discontinued and replaced by the Connect ZBT-2, but fully supported if you already have one.
+- Home Assistant Yellow: hub with an integrated MGM210P radio, which is based on the EFR32MG21. Currently out of stock, but fully supported if you already have one.
+
+{% tip %}
+Home Assistant Green does not have a built-in Zigbee radio. To use ZHA with Green, or with any other computer running Home Assistant, add a Zigbee adapter such as the [Home Assistant Connect ZBT-2](/connect/zbt-2/).
+{% endtip %}
+
+### Other tested and compatible Zigbee adapters
+
+The following adapters are made by other manufacturers. They are not official Home Assistant hardware, but they are known to work well with ZHA. Home Assistant does not update the firmware on these adapters. To keep them up to date, use the tools their manufacturer provides.
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [Home Assistant Connect ZBT-2](/connect/zbt-2/) (EFR32MG24-based USB adapter)
-  - Home Assistant Connect ZBT-1 (EFR32MG21-based USB dongle)
-  - Home Assistant Yellow with integrated MGM210P radio, which is based on the EFR32MG21
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/) (EFR32MG21-based USB dongle)
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
