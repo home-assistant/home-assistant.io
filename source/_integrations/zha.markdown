@@ -123,7 +123,7 @@ The following adapters are made by other manufacturers. They are not official Ho
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
 
-### Other supported but not recommended Zigbee radio adapters or modules
+### Supported but not recommended Zigbee adapters
 
 The following hardware is supported, but _not recommended_. Specific models and details are noted where available in each section.
 
