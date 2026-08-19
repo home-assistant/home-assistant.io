@@ -52,7 +52,7 @@ For a complete example, see [adding a custom sentence to trigger an automation](
 
 ### Sentence wildcards
 
-You can use lists as wildcards to capture words from the matched sentence. Captured values are available in `trigger.slots`.
+You can use lists as wildcards to capture text from the matched sentence. Captured text is available in `trigger.slots`. For the full data structure, including `trigger.details`, see [sentence trigger data](/docs/automation/templating/#sentence).
 
 {% example %}
 automation: |
@@ -69,6 +69,12 @@ automation: |
 {% endexample %}
 
 Wildcards match greedily. If a wildcard captures more text than expected, add extra words around the wildcard to make the sentence more specific.
+
+### Inline number ranges
+
+Number ranges can be matched with ranges like `{0..100:brightness}`. This matches numbers from `0` to `100` and stores the value in the `brightness` slot. It works for digits and words, so the sentence `set brightness to {0..100:brightness} percent` matches both "set brightness to 50 percent" and "set brightness to fifty percent".
+
+In both cases, `trigger.slots.brightness` is `50`. To get the spoken or written text, use `trigger.details`, such as `trigger.details.brightness.text`.
 
 ## Adding custom sentences
 

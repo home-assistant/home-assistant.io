@@ -174,6 +174,14 @@ automation:
 
 For setup steps, YAML options, and examples for the numeric state trigger, see [Numeric state trigger](/triggers/numeric_state/).
 
+### Sentence trigger
+
+For setup steps, YAML options, and examples for the sentence trigger, see [Sentence triggers](/integrations/conversation/#sentence-triggers).
+
+#### Sentence wildcards
+
+For wildcard syntax and examples, see [Sentence wildcards](/integrations/conversation/#sentence-wildcards).
+
 ### State trigger
 
 For setup steps, YAML options, and examples for the state trigger, see [State trigger](/triggers/state/).
