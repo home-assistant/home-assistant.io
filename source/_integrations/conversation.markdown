@@ -37,14 +37,14 @@ Sentence triggers run an automation when Assist matches a sentence. They use the
 
 Sentence triggers use the same [template sentence syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax) as custom sentences. You can define optional words with square brackets and alternatives with parentheses.
 
-```yaml
-automation:
+{% example %}
+automation: |
   triggers:
     - trigger: conversation
       command:
         - "[it's ]party time"
         - "happy (new year|birthday)"
-```
+{% endexample %}
 
 The first example matches both "party time" and "it's party time". The second example matches both "happy new year" and "happy birthday". Punctuation and capitalization are ignored.
 
@@ -54,10 +54,8 @@ For a complete example, see [adding a custom sentence to trigger an automation](
 
 You can use lists as wildcards to capture words from the matched sentence. Captured values are available in `trigger.slots`.
 
-{% raw %}
-
-```yaml
-automation:
+{% example %}
+automation: |
   triggers:
     - trigger: conversation
       command: "play {album} by {artist}"
@@ -68,9 +66,7 @@ automation:
       data:
         media_content_id: "{{ trigger.slots.album }}"
         media_content_type: "album"
-```
-
-{% endraw %}
+{% endexample %}
 
 Wildcards match greedily. If a wildcard captures more text than expected, add extra words around the wildcard to make the sentence more specific.
 
