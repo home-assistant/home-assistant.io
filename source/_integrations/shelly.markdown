@@ -443,7 +443,8 @@ Trigger reboot of device.
 
 The integration creates one camera entity for each available stream. Stream 1 is disabled by default.
 
-The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the Shelly camera settings under **Camera** > **Settings**.
+The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the in the device’s web panel under **Camera** > **Settings**.
+
 ## Shelly Circuit Breaker
 
 The Shelly Circuit Breaker creates a `switch` entity that lets you control the breaker. This entity shows as `unavailable` when the device's safety switch is locked.
