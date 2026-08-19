@@ -102,18 +102,13 @@ The automation template trigger runs an automation when a template changes from 
 
 A template is considered true when it renders `true`, `yes`, `on`, `enable`, or a non-zero number. It is considered false when it renders any other value.
 
-{% raw %}
-
-```yaml
-automation:
-  triggers:
-    - trigger: template
-      value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
-      for:
-        minutes: 5
-```
-
-{% endraw %}
+{% example %}
+trigger: |
+  trigger: template
+  value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+  for:
+    minutes: 5
+{% endexample %}
 
 Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
 
