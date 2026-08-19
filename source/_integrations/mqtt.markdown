@@ -1476,9 +1476,7 @@ Because MQTT state updates are often repeated frequently, even when no actual ch
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
-## Automation trigger
-
-The MQTT trigger runs an automation when Home Assistant receives a message on an MQTT topic. You can match every message on a topic or only messages with a specific payload.
+## MQTT trigger
 
 {% example %}
 automation: |
@@ -1492,7 +1490,7 @@ automation: |
         entity_id: light.living_room
 {% endexample %}
 
-By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string.
+By default, MQTT payloads are decoded as `UTF-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string.
 
 {% example %}
 automation: |
