@@ -1480,8 +1480,8 @@ MQTT devices often continuously generate numerous state updates. MQTT does not u
 
 The MQTT trigger runs an automation when Home Assistant receives a message on an MQTT topic. You can match every message on a topic or only messages with a specific payload.
 
-```yaml
-automation:
+{% example %}
+automation: |
   triggers:
     - trigger: mqtt
       topic: "living_room/switch/action"
@@ -1490,28 +1490,28 @@ automation:
     - action: light.toggle
       target:
         entity_id: light.living_room
-```
+{% endexample %}
 
 By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string.
 
-```yaml
-automation:
+{% example %}
+automation: |
   triggers:
     - trigger: mqtt
       topic: "camera/front/image"
       encoding: ""
-```
+{% endexample %}
 
 You can use `value_template` to process the incoming payload before matching it against `payload`.
 
-```yaml
-automation:
+{% example %}
+automation: |
   triggers:
     - trigger: mqtt
       topic: "living_room/remote"
       value_template: "{{ value_json.action }}"
       payload: "single"
-```
+{% endexample %}
 
 {% note %}
 The `topic` and `payload` options support [limited templates](/docs/templating/where-to-use/#limited-templates). These templates are evaluated when the trigger is set up and are not re-evaluated for each incoming MQTT message.
