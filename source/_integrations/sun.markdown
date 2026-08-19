@@ -95,13 +95,13 @@ The sun elevation is the angle between the sun and the horizon. You can use the 
 
 This is useful for automations around dawn or dusk because the length of twilight changes during the year. A value between `0` degrees and `-6` degrees is often used for twilight. For example, `-4` degrees can be a practical point for turning on outdoor lights.
 
-```yaml
-triggers:
-  - trigger: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    below: -4
-```
+{% example %}
+trigger: |
+  trigger: numeric_state
+  entity_id: sun.sun
+  attribute: elevation
+  below: -4
+{% endexample %}
 
 ### Maintains entity `sun.sun`
 
