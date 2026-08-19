@@ -183,6 +183,21 @@ script:
             - light.living_room_strip
 ```
 
+## Voice control
+
+Color helpers are not exposed to [Assist](/voice_control/) by default, the same as every other {% term helper %}.
+To control one by voice, expose it under {% my voice_assistants title="Settings > Voice assistants > Expose" %}.
+
+Once exposed, a helper accepts three things by voice, in any combination of a color and a brightness:
+
+- a color, by name — "set the couch color to red"
+- a color temperature in Kelvin — "set the couch color temperature to 2700 Kelvin"
+- a brightness percentage — "set the couch color brightness to 50%"
+
+Color names use the same vocabulary as lights, so a color means the same thing whether you say it to a light or to a color helper.
+Brightness is spoken as a percentage and stored on the helper's 0-255 scale.
+The exact phrases each assistant understands depend on the assistant; the examples above show the shape of the commands rather than the only wording that works.
+
 ## Color automation examples
 
 If you use a color {% term helper %} in automations, create the helper separately before using these examples.
