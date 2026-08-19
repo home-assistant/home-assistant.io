@@ -198,7 +198,7 @@ Entities appear for each Traffic Rule. The switches can be identified from icon 
 
 ### Control Policy Engine rules
 
-Entities appear automatically for Policy Engine rules that block internet access. Toggling a switch enables or disables the corresponding rule in UniFi Network. Policy Engine configurations that only define routing or Quality of Service are not exposed as switches.
+Entities appear automatically for Policy Engine rules that block internet access. Turning a switch on enables the corresponding rule in the UniFi Network application. Turning it off disables the rule. Policy Engine configurations that only define routing or Quality of Service do not appear as switches.
 
 ### Control Policy-Based Routing Rules
 
