@@ -1,6 +1,6 @@
 ---
 title: RainbowMiner
-description: Monitor and control your RainbowMiner cryptominer from Home Assistant.
+description: Monitor and control RainbowMiner cryptocurrency mining software from Home Assistant.
 ha_category:
   - Sensor
   - Switch
@@ -14,9 +14,9 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **RainbowMiner** {% term integration %} allows you to monitor and control [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), an open-source multipool cryptominer that automatically switches between algorithms, pools, and coins to maximize profitability.
+The **RainbowMiner** {% term integration %} allows you to monitor and control [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), an open-source cryptocurrency mining application that automatically switches between algorithms, pools, and coins to maximize profitability.
 
-RainbowMiner runs a local HTTP API server that this integration connects to. With it, you can keep track of your mining status, earnings, and power consumption right from your dashboard, and pause or resume mining without opening the RainbowMiner interface.
+RainbowMiner runs a local HTTP API server that this integration connects to. With this integration, you can keep track of your mining status, earnings, and power consumption in Home Assistant, and you can pause or resume mining without opening the RainbowMiner interface.
 
 ## Prerequisites
 
