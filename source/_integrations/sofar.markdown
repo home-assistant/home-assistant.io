@@ -41,9 +41,9 @@ Port:
   description: "The Modbus TCP port to connect to. The default is `502`."
 Modbus unit ID:
   description: "The inverter's Modbus unit/slave ID. The default is `1`."
-Poll EPS / backup registers:
-  description: "Also poll the EPS (Emergency Power Supply, i.e. off-grid backup output) register block. Only enable this if your inverter has EPS wiring — on models without it, these registers aren't populated. Off by default."
 {% endconfiguration_basic %}
+
+During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply, i.e. off-grid backup output) wiring, and polls its registers only if it does.
 
 ## Supported functionality
 
