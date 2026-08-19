@@ -25,7 +25,7 @@ The integration exposes the sensor channels configured in your Ampio installatio
 - **M-SENS** environmental sensors: temperature, humidity, absolute and relative pressure, illuminance, loudness, air quality index, and CO2.
 - Any other Ampio module whose channels report one of those measurements.
 
-Every entity is attached to a device representing its physical Ampio module, and each module device links to the M-SERV hub device. The grouping is identical for both Ampio account types: with an administrator account the devices carry the module name, model, serial, and firmware version from the M-SERV's module catalogue, while with a standard account they are named after the module's bus address until you rename them.
+Every entity is attached to a device representing its physical Ampio module, and each module device links to the M-SERV hub device. The grouping is identical for both Ampio account types: with an administrator account the devices carry the module name, model, serial, and firmware version from the M-SERV's module catalog, while with a standard account they are named after the module's bus address until you rename them.
 
 Objects belonging to output modules (relays, dimmers, blinds, RGBW, DALI) are not exposed as entities.
 
