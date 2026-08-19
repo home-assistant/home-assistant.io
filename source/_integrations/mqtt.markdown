@@ -1476,6 +1476,51 @@ Because MQTT state updates are often repeated frequently, even when no actual ch
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
+## Automation trigger
+
+The MQTT trigger runs an automation when Home Assistant receives a message on an MQTT topic. You can match every message on a topic or only messages with a specific payload.
+
+```yaml
+automation:
+  triggers:
+    - trigger: mqtt
+      topic: "living_room/switch/action"
+      payload: "single"
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room
+```
+
+By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string.
+
+```yaml
+automation:
+  triggers:
+    - trigger: mqtt
+      topic: "camera/front/image"
+      encoding: ""
+```
+
+You can use `value_template` to process the incoming payload before matching it against `payload`.
+
+{% raw %}
+
+```yaml
+automation:
+  triggers:
+    - trigger: mqtt
+      topic: "living_room/remote"
+      value_template: "{{ value_json.action }}"
+      payload: "single"
+```
+
+{% endraw %}
+
+{% note %}
+The `topic` and `payload` options support [limited templates](/docs/templating/where-to-use/#limited-templates). These templates are evaluated when the trigger is set up and are not re-evaluated for each incoming MQTT message.
+{% endnote %}
+
 ## Using Templates
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/templating/where-to-use/#mqtt).
