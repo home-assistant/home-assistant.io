@@ -18,7 +18,7 @@ The [Pushover action](https://pushover.net/) is a platform for the notify integr
 
 ## Configuration
 
-In order to get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
+To get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 {% include integrations/config_flow.md %}
 
@@ -127,23 +127,26 @@ Multiple tags can be assigned as a list:
         - building_a
 ```
 
-To cancel all emergency notifications that were sent with a specific tag, use the `pushover.cancel` action:
+To cancel emergency notifications sent through a specific Pushover account, use the `pushover.cancel` action and select the account. In the UI, the account can be selected from a dropdown; in YAML mode, the `entry_id` field expects the config entry ID of that account:
 
 ```yaml
 - action: pushover.cancel
   data:
+    entry_id: 8955375327824e14ba89e4b29cc3ec9a
     tag: garage_alarm
 ```
 
-Omitting the `tag` field cancels all currently tracked emergency notifications across all configured Pushover accounts:
+Omitting the `tag` field cancels all currently tracked emergency notifications for the selected account:
 
 ```yaml
 - action: pushover.cancel
+  data:
+    entry_id: 8955375327824e14ba89e4b29cc3ec9a
 ```
 
 Tags are matched independently per message - if a message was sent with multiple tags, it is canceled as soon as any one of its tags matches the tag provided to `pushover.cancel`.
 
-If multiple Pushover accounts are configured, `pushover.cancel` checks all accounts and cancels matching receipts from each of them.
+If multiple Pushover accounts are configured, `pushover.cancel` only affects the account selected via `entry_id`. To cancel notifications across multiple accounts, call the action once per account.
 
 {% note %}
 Receipt tracking is kept in memory. Receipts are lost when Home Assistant restarts. In that case, emergency notifications that were sent before the restart must expire naturally or be canceled manually via the Pushover app.
@@ -154,8 +157,6 @@ Receipt tracking is kept in memory. Receipts are lost when Home Assistant restar
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entries
@@ -173,5 +174,3 @@ alexa:
             url: "https://www.home-assistant.io/"
             attachment: "/tmp/image.png"
 ```
-
-{% endraw %}
