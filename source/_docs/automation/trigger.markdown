@@ -78,44 +78,6 @@ For an overview of every trigger across all integrations, see the [triggers refe
 
 The following are triggers without dedicated pages.
 
-### Calendar triggers
-
-Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
-for much more flexible automations than using the Calendar entity state which only supports a single
-event start at a time.
-
-An optional time offset can be given to have it fire a set time before or after the calendar event (such as 5 minutes before event start).
-
-```yaml
-automation:
-  triggers:
-    - trigger: calendar
-      # Possible values: start, end
-      event: start
-      # The calendar entity_id
-      entity_id: calendar.light_schedule
-      # Optional time offset
-      offset: "-00:05:00"
-```
-
-See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
-additional event data available for use by an automation.
-
-### Device tracker triggers
-
-Fires when a tracked device arrives home or leaves home, or when the first device arrives or the last device leaves. See [Device tracker integration](/integrations/device_tracker/#triggers).
-
-In YAML, use: `trigger: device_tracker`.
-
-### Device triggers
-
-Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
-[MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through autodiscovery.
-
-In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
-To use a device trigger, set up an automation through the browser frontend.
-If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
-
 ### Event trigger
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
@@ -173,60 +135,6 @@ automation:
 ### Numeric state trigger
 
 For setup steps, YAML options, and examples for the numeric state trigger, see [Numeric state trigger](/triggers/numeric_state/).
-
-### Sentence trigger
-
-A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless "Prefer handling commands locally" is enabled in the conversation agent settings.
-
-Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
-
-```yaml
-automation:
-  triggers:
-    - trigger: conversation
-      command:
-        - "[it's ]party time"
-        - "happy (new year|birthday)"
-```
-
-The sentences matched by this trigger will be:
-
-- party time
-- it's party time
-- happy new year
-- happy birthday
-
-Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
-
-#### Related topic
-
-- [Adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation)
-
-#### Sentence wildcards
-
-Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. A `slots` object will be [available in the trigger data](/docs/automation/templating#sentence).
-This allows you to match sentences with variable parts, such as album/artist names or a description of a picture.
-
-For example, the sentence `play {album} by {artist}` will match "play the white album by the beatles" and have the following variables available in the action templates:
-
-{% raw %}
-
-- `{{ trigger.slots.album }}` - "the white album"
-- `{{ trigger.slots.artist }}` - "the beatles"
-
-{% endraw %}
-
-Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day" and `artist` as "day by taken by trees".
-Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
-
-#### Inline number ranges
-
-Number ranges can be matched with ranges like `{0..100:brightness}`. This matches numbers from 0 to 100 and stores the value in a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
-
-- "set brightness to 50 percent"
-- "set brightness to fifty percent"
-
-In both cases, the value of `{{ trigger.slots.brightness }}` will be 50. If you want to get the words as spoken or written for a response, use `trigger.details`, like `{{ trigger.details.brightness.text }}`.
 
 ### State trigger
 

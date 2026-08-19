@@ -89,6 +89,20 @@ Because the duration of twilight varies throughout the year, a fixed offset is n
 
 {% endtip %}
 
+### Sun elevation trigger
+
+The sun elevation is the angle between the sun and the horizon. You can use the `elevation` attribute of `sun.sun` with a [numeric state trigger](/triggers/numeric_state/) to run an automation when the sun reaches a specific angle.
+
+This is useful for automations around dawn or dusk because the length of twilight changes during the year. A value between `0` degrees and `-6` degrees is often used for twilight. For example, `-4` degrees can be a practical point for turning on outdoor lights.
+
+```yaml
+triggers:
+  - trigger: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: -4
+```
+
 ### Maintains entity `sun.sun`
 
 | Possible state  | Description                        |
