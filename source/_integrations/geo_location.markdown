@@ -19,9 +19,9 @@ Entities can have associated geolocation coordinates (latitude and longitude) so
 
 ## Geolocation trigger
 
-The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be used in automations triggered by Geolocation entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
+The geolocation trigger can be used in automations triggered by Geolocation entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
 
-Use this trigger for `geo_location` entities, such as weather alerts, fire alerts, or earthquakes. For people and tracked devices, use [zone triggers](/integrations/zone/#triggers) instead. Geolocation entity IDs are generated from the event data and may change, so use `source` to target the platform that creates the entities.
+Use this trigger for `geo_location` entities, such as weather alerts, fire alerts, or earthquakes. For people and tracked devices, use [zone triggers](/integrations/zone/#list-of-triggers) instead. Geolocation entity IDs are generated from the event data and may change, so use `source` to target the platform that creates the entities.
 
 | Platform                                              | Source                        |
 |-------------------------------------------------------|-------------------------------|
