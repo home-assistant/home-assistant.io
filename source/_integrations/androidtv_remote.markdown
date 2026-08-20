@@ -277,7 +277,7 @@ target:
 
 ### Press and release as separate events
 
-When a button, controller, or frontend card already emits separate press and release events, you can forward each one to the TV as its own service call by prefixing the command with a direction. Each call sends exactly one event, so the release fires when your source event fires — not when a fixed `hold_secs` timer ends.
+When a button, controller, or frontend card already emits separate press and release events, you can forward each one to the TV as its own service call by prefixing the command with a direction. Each call sends exactly one event, so the release fires when your source event fires, not when a fixed `hold_secs` timer ends.
 
 The accepted prefixes are `start_long:` (press down), `end_long:` (release up), and `short:` (the default). Prefixes are case-insensitive. Plain commands without a prefix continue to send a short tap. When both a prefix and `hold_secs` are supplied, `hold_secs` takes precedence.
 
