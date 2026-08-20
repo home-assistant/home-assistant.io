@@ -89,7 +89,7 @@ Because the duration of twilight varies throughout the year, a fixed offset is n
 
 {% endtip %}
 
-### Sun elevation trigger
+### Sun elevation triggers
 
 The sun elevation is the angle between the sun and the horizon. To run an automation when the sun reaches a specific angle, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger. To react to every elevation update, use the [Sun elevation changed](/triggers/sun.elevation_changed/) trigger instead.
 
