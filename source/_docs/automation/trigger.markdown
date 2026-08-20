@@ -76,31 +76,6 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-The following are triggers without dedicated pages.
-
-### Calendar triggers
-
-Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
-for much more flexible automations than using the Calendar entity state which only supports a single
-event start at a time.
-
-An optional time offset can be given to have it fire a set time before or after the calendar event (such as 5 minutes before event start).
-
-```yaml
-automation:
-  triggers:
-    - trigger: calendar
-      # Possible values: start, end
-      event: start
-      # The calendar entity_id
-      entity_id: calendar.light_schedule
-      # Optional time offset
-      offset: "-00:05:00"
-```
-
-See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
-additional event data available for use by an automation.
-
 ### Device tracker triggers
 
 Fires when a tracked device arrives home or leaves home, or when the first device arrives or the last device leaves. See [Device tracker integration](/integrations/device_tracker/#triggers).
