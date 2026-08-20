@@ -73,7 +73,7 @@ This {% term integration %} currently supports the following device types within
 
 The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [compatible hardware](#compatible-hardware).
+If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [compatible hardware](#compatible-hardware).
 
 ### Zigbee terminology
 
