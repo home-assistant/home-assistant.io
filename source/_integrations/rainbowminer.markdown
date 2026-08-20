@@ -1,22 +1,20 @@
 ---
 title: RainbowMiner
-description: Monitor and control RainbowMiner cryptocurrency mining software from Home Assistant.
+description: Monitor RainbowMiner cryptocurrency mining software from Home Assistant.
 ha_category:
   - Sensor
-  - Switch
 ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_domain: rainbowminer
 ha_config_flow: true
 ha_platforms:
   - sensor
-  - switch
 ha_integration_type: device
 ---
 
-The **RainbowMiner** {% term integration %} allows you to monitor and control [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), an open-source cryptocurrency mining application that automatically switches between algorithms, pools, and coins to maximize profitability.
+The **RainbowMiner** {% term integration %} allows you to monitor [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), an open-source cryptocurrency mining application that automatically switches between algorithms, pools, and coins to maximize profitability.
 
-RainbowMiner runs a local HTTP API server that this integration connects to. With this integration, you can keep track of your mining status, earnings, and power consumption in Home Assistant, and you can pause or resume mining without opening the RainbowMiner interface.
+RainbowMiner runs a local HTTP API server that this integration connects to. With this integration, you can keep track of your mining status, earnings, and power consumption in Home Assistant.
 
 ## Prerequisites
 
@@ -76,12 +74,6 @@ The following sensors show earnings converted to your local currency. They are c
 - **Hourly earnings**: The total amount earned over the past hour, in your local currency.
 
 If the RainbowMiner API does not have an exchange rate for your configured currency, these sensors temporarily report `unknown` until a rate becomes available.
-
-### Switches
-
-The integration provides the following switch:
-
-- **Mining**: Turn on to resume mining, or turn off to pause mining. This controls whether RainbowMiner is actively mining.
 
 ## Data updates
 
