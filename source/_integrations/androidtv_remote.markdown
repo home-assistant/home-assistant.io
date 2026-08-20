@@ -314,7 +314,7 @@ target:
 
 ### Launching apps and activities
 
-Use `remote.turn_on` with the `activity` field to launch an app or open a specific deep link. The value can be either an application ID (see the [Launching apps section](#launching-apps)) or a URL or scheme supported by the target app.
+Use `remote.turn_on` with the `activity` field to launch an app or open a specific deep link. The value can be an application ID (see the [Launching apps section](#launching-apps)), a URL, or a scheme supported by the target app.
 
 ```yaml
 # Launch YouTube
