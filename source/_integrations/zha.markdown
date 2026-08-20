@@ -102,9 +102,9 @@ Official Home Assistant hardware is the recommended choice for ZHA. It is design
 
 They all use Silicon Labs EmberZNet based radios with the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy).
 
-- [Home Assistant Connect ZBT-2](/connect/zbt-2/): USB adapter with an EFR32MG24 radio. If you are setting up a new Zigbee network, this is the one to get.
-- Home Assistant Connect ZBT-1: USB adapter with an EFR32MG21 radio. Discontinued and replaced by the Connect ZBT-2, but fully supported if you already have one.
-- Home Assistant Yellow: hub with an integrated MGM210P radio, which is based on the EFR32MG21. Currently out of stock, but fully supported if you already have one.
+- [Home Assistant Connect ZBT-2](/connect/zbt-2/): USB adapter. If you are setting up a new Zigbee network, this is the one to get.
+- Home Assistant Connect ZBT-1: USB adapter. Discontinued and replaced by the Connect ZBT-2, but fully supported if you already have one.
+- Home Assistant Yellow: hub with a built-in Zigbee radio. Currently out of stock, but fully supported if you already have one.
 
 {% tip %}
 Home Assistant Green does not have a built-in Zigbee radio. To use ZHA with Green, or with any other computer running Home Assistant, add a Zigbee adapter such as the [Home Assistant Connect ZBT-2](/connect/zbt-2/).
