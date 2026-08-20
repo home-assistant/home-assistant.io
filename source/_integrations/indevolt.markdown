@@ -64,7 +64,7 @@ Host:
 
 {% endconfiguration_basic %}
 
-By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the homeassistant.update_entity action to define your own update frequency.
+By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the [update entity](/actions/homeassistant.update_entity/) action to define your own update frequency.
 
 {% include common-tasks/define_custom_polling.md %}
 
