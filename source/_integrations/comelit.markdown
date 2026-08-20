@@ -58,6 +58,23 @@ There is support for the following devices within Home Assistant:
         description: Comelit VEDO System.
 {% endconfiguration_basic %}
 
+## Configuration options
+
+{% include integrations/option_flow.md %}
+
+The device does not report how long a cover takes to fully open or close, so Home Assistant estimates its position based on the elapsed time since it started moving. You can set this travel time individually for each cover, since it depends on the type of cover, for example, a window opens and closes faster than a door-height shutter.
+
+1. Select the cover you want to configure.
+2. Enter the estimated time it takes for the cover to fully open or close.
+3. Select **Submit** to save the changes.
+
+{% configuration_basic %}
+Cover:
+  description: The cover {% term entity %} to set the travel time for.
+Travel time:
+  description: The estimated time, in seconds, for the cover to fully open or close. Enter a value between 1 and 120 seconds. The default is 25 seconds.
+{% endconfiguration_basic %}
+
 ## Examples
 
 ### Automation: Activate the alarm when you leave home
