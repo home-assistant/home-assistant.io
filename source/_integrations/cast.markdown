@@ -78,7 +78,8 @@ target:
   entity_id: media_player.chromecast
 data:
   media_content_type: "image/jpeg"
-  media_content_id: "https://placehold.co/1024x600/0B6B94/FFFFFF/jpeg/?text=Hello,%20Home%20Assistant!"
+  media_content_id: "https://placehold.co/1024x600/0B6B94/FFFFFF/\
+  jpeg/?text=Hello,%20Home%20Assistant!"
 ```
 
 Extra media metadata (for example title, subtitle, artist or album name) can be passed into the action and that will be shown on the Chromecast display.
