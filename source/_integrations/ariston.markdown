@@ -17,7 +17,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - humidifier
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ---
 
 {% include integrations/supported_brand.md %}
