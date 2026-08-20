@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Climate
   - Fan
   - Light
   - Number
@@ -18,6 +19,7 @@ ha_category:
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - fan
   - light
   - Number
@@ -54,6 +56,7 @@ The integration supports the following appliance types:
 - **Hood**
 - **Oven**
 - **Air Purifier**
+- **Air Conditioners**
 
 ## Prerequisites
 
@@ -130,6 +133,16 @@ This entity is used to control the appliance with the following actions:
 - **Stop**
   - **Description**: Stop the appliance.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+
+{% enddetails %}
+
+### Climate
+
+{% details "List of climate entities" %}
+
+- **Air Conditioner climate**
+  - **Description**: Allows controlling and reporting the appliance’s climate-related functions, such as changing the mode, setting the target temperature, turning the appliance on or off, adjusting the fan speed, and reading the current temperature.
+  - **Available for appliance types**: Air Conditioner.
 
 {% enddetails %}
 
