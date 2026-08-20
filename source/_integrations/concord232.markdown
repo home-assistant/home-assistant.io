@@ -7,6 +7,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.31
 ha_domain: concord232
+ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
@@ -16,65 +17,37 @@ ha_quality_scale: legacy
 
 The **Concord232** {% term integration %} provides integration with GE, Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4.
 
-To use this platform, you will need to have the external concord232 client and server installed. The server must be running on the device which is connected to the automation module's serial port. The client must be installed on the machine running Home Assistant. These may often be the same machine, but do not have to be. For additional details in setting up and testing the client and server, see the [concord232 project on GitHub](https://github.com/JasonCarter80/concord232).
+To use this integration, you will need to have the external concord232 server installed and running on the device which is connected to the automation module's serial port. For additional details in setting up and testing the server, see the [concord232 project on GitHub](https://github.com/JasonCarter80/concord232).
 
-There is currently support for the following device types within Home Assistant:
+{% include integrations/config_flow.md %}
 
-- [Alarm](#alarm-control-panel)
-- [Binary sensor](#binary-sensor)
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the concord232 server.
+Port:
+  description: The port the concord232 server listens on. The default is 5007.
+{% endconfiguration_basic %}
 
-## Alarm control panel
+## Configuration options
 
-To enable the alarm control panel platform, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+The integration provides the following configuration options:
 
-```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: concord232
-```
+{% configuration_basic %}
+Alarm code:
+  description: A code required to arm and disarm the panel from Home Assistant. When no code is configured, the panel can be armed without one and disarming sends no code to the panel.
+Arm home mode:
+  description: Whether arming in home mode is audible or silent.
+{% endconfiguration_basic %}
 
-{% configuration %}
-host:
-  description: The host where the concord232 server process is running.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port where the Alarm panel is listening.
-  required: false
-  type: integer
-  default: 5007
-code:
-  description: If defined, specifies a code to enable or disable the alarm in the frontend.
-  required: false
-  type: string
-mode:
-  description: audible/silent if defined, specifies whether Alarm Panel should be audible or silent when armed in Home Mode.
-  required: false
-  type: string
-  default: audible
-{% endconfiguration %}
+## Supported functionality
 
-## Binary sensor
+The integration provides the following entities, grouped under one panel device:
 
-To enable the binary sensor platform, add the following lines to your {% term "`configuration.yaml`" %}:
+- **Alarm control panel**: arm home, arm away and disarm the first partition reported by the panel.
+- **Binary sensors**: one per zone reported by the panel. The device class (motion, smoke, moisture, safety or opening) is guessed from the zone name and can be changed per entity in the UI.
 
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: concord232
-```
+## Migration from YAML
 
-{% configuration %}
-host:
-  description: The host where the concord232 server process is running.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port where the Alarm panel is listening.
-  required: false
-  type: integer
-  default: 5007
-{% endconfiguration %}
+Configuration of this integration via `configuration.yaml` is deprecated. An existing YAML configuration is imported into a config entry automatically and can then be removed from `configuration.yaml`.
+
+The previous `exclude_zones` and `zone_types` options of the binary sensor platform are not imported: disable unwanted zone entities and override device classes from the entity settings in the UI instead.
