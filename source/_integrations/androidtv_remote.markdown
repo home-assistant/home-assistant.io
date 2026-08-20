@@ -252,7 +252,7 @@ Other:
 
 Whether a command does something depends on your Android TV device, its firmware, and the app in the foreground. Some devices remap or ignore certain keys, so a command like `GUIDE` or `MENU` might do nothing or trigger a different action than you expect. The commands are sent to your device as is, so Home Assistant cannot change how your device reacts to them.
 
-Pass any of the keys above as `command` in the `remote.send_command` action.
+Pass any of the most common commands in the list above as `command` in the `remote.send_command` action.
 
 ```yaml
 # Open the currently selected item on the Android TV
