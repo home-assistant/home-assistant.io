@@ -98,7 +98,7 @@ The hardware-independent design of this integration provides support for many Zi
 
 ### Recommended: official Home Assistant hardware
 
-Official Home Assistant hardware is the recommended choice for ZHA. It is designed and built by Nabu Casa, a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org), together with the team that develops ZHA. The Zigbee firmware is maintained by that same team, with optimizations for ZHA and support for large Zigbee networks. You can keep it up to date from within Home Assistant.
+Official Home Assistant hardware is the recommended choice for ZHA. It is designed and built by Nabu Casa, a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org), together with the team at Home Assistant responsible for Zigbee. The Zigbee firmware is maintained by that same team, with optimizations for ZHA and support for large Zigbee networks. You can keep it up to date from within Home Assistant.
 
 They all use Silicon Labs EmberZNet based radios with the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy).
 
