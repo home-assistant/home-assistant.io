@@ -66,7 +66,7 @@ The following sensors show earnings in mBTC and are always available:
 
 #### Earnings in local currency
 
-The following sensors show earnings converted to your local currency. They are created only when Home Assistant has a currency configured and the exchange rate is available:
+The following sensors show earnings converted to your local currency. They are created whenever Home Assistant has a currency configured:
 
 - **Total earnings**: The total amount earned, in your local currency.
 - **Unpaid balance**: The current unpaid balance, in your local currency.
@@ -74,6 +74,8 @@ The following sensors show earnings converted to your local currency. They are c
 - **Weekly earnings**: The total amount earned over the past week, in your local currency.
 - **Daily earnings**: The total amount earned over the past day, in your local currency.
 - **Hourly earnings**: The total amount earned over the past hour, in your local currency.
+
+If the RainbowMiner API does not have an exchange rate for your configured currency, these sensors temporarily report `unknown` until a rate becomes available.
 
 ### Switches
 
