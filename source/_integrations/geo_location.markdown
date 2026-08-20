@@ -33,8 +33,6 @@ The geolocation trigger can be used in automations triggered by geolocation enti
 
 Use this trigger for `geo_location` entities, such as weather alerts, fire alerts, or earthquakes. For people and tracked devices, use [zone triggers](/integrations/zone/#list-of-triggers) instead. Geolocation entity IDs are generated from the event data and may change, so use `source` to target the platform that creates the entities.
 
-Conditions can be used to further filter entities, for example by inspecting their state attributes.
-
 {% details "YAML example" %}
 
 {% example %}
@@ -46,6 +44,8 @@ trigger: |
 {% endexample %}
 
 {% enddetails %}
+
+Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
 ## Geolocation notification example
 
