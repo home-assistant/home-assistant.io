@@ -172,7 +172,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ## Data updates
 
-The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds, unless custom polling has been enabled (see the configuration section). If an update fails, the integration will retry again at the set interval (self-recovery).
+The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds, unless custom polling has been enabled (see the [configuration](/integrations/indevolt/#configuration) section). If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 
