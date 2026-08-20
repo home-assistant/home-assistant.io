@@ -1,5 +1,6 @@
 ---
 title: "Capture image"
+
 action: abode.capture_image
 domain: abode
 description: "Requests a new still image from an Abode camera."
