@@ -4,7 +4,7 @@ description: Integrate with WATERCryst devices.
 ha_category:
   - Sensor
   - Water Management
-ha_release: 2026.8
+ha_release: 2026.9
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@WATERCryst'
@@ -30,8 +30,6 @@ They provide various devices for lime scale and leakage protection.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-BIOCAT serial number:
-    description: The BIOCAT serial number. You can find it on the [myBIOCAT web app](https://app.watercryst.com) device details page and on the device itself.
 Api key:
     description: The myBIOCAT REST API key. You can find it on the [myBIOCAT web app](https://app.watercryst.com) device details page under the **REST API** subpage.
 {% endconfiguration_basic %}
@@ -50,6 +48,7 @@ The **WATERCryst** integration provides the following entities.
 - **Event Category**
   - **Description**: The category of the event.
   - **Available for machines**: all
+  - **Remarks**: The category can be `info`, `warning` or `error`.
 
 - **Event ID**
   - **Description**: The unique event identifier.
