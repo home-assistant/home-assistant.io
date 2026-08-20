@@ -76,7 +76,7 @@ children:
   required: false
   type: list
 active_child_template:
-  description: "A [template](/docs/templating/) that will allow to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
+  description: "A [template](/docs/templating/) that will allow you to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
   required: false
   type: template
 state_template:

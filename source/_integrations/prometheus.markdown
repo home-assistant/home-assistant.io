@@ -189,7 +189,7 @@ The format to configure the bearer token has changed in Prometheus 2.26, so if y
 When looking into the metrics on the Prometheus side, there will be:
 
 - All Home Assistant domains, which can be easily found through the common **namespace** prefix, if defined.
-- The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e., the Home Assistant Python interpreter.
+- The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, that is, the Home Assistant Python interpreter.
 
 Typically, you will only be interested in the first set of metrics.
 
@@ -216,3 +216,15 @@ This use of `unless` (which can be slow to compute) is no longer necessary, but 
 Metrics are exported only for the following domains:
 
 `alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `geo_location`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`, `water_heater`
+
+## Info metrics
+
+The Prometheus exporter additionally exports several info metics: `area_info`, `entity_info` and `floor_info` (prefixed by the namespace if configured) for each area, entity and floor configured in your system. You can do a join across metrics to then get the labels from these onto the individual sensors if you want to use a metric of that hierarchy in a query. For example, to show temperature sensors averaged per area you might do:
+
+```promql
+avg by (area) (
+  sensor_temperature_celsius
+    * on(entity) group_left(area)
+  entity_info
+)
+```

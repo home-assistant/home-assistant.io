@@ -15,7 +15,6 @@ ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
   - '@L-I-Am'
-  - '@eifinger'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
@@ -37,7 +36,7 @@ related:
 
 The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors.
 
-The manufacturer's app is required in order to connect new devices to the network.
+The manufacturer's app is required to connect new devices to the network.
 
 The following devices are supported:
 
@@ -94,7 +93,7 @@ The `remote` {% term entities %} allow you to learn and send codes with universa
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. A convenient interface to learn, send, and delete codes can be found in web interface under  `/developer-tools/service`.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. You can learn, send, and delete command codes at {% my developer_services title="**Tools** > **Actions**" %}.
 
 | Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
@@ -151,7 +150,7 @@ _Tip:_ Click Notifications in the sidebar after using the action and follow the 
 
 #### Learning a sequence of commands
 
-In order to streamline the learning process, you may want to provide a list of commands to be learned sequentially:
+To streamline the learning process, you may want to provide a list of commands to be learned sequentially:
 
 ```yaml
 # Example configuration.yaml entry

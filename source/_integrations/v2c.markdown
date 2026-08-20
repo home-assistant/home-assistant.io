@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
+  - select  
   - sensor
   - switch
 ha_integration_type: device
@@ -26,6 +27,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Number](#number)
+- [Select](#select)
 - [Light](#light)
 - [Switch](#switch)
 
@@ -61,6 +63,11 @@ The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
 
+## Select
+
+The V2C integration currently exposes the following select entity:
+
+- charge_mode: Sets the charger mode to either single-phase or three-phase.
 ## Light
 
 The V2C integration currently exposes the following lights:

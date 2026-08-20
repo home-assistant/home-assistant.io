@@ -26,29 +26,20 @@ Support for mDNS discovery in your local network is mandatory for automatic disc
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
-  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`.
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. To find the UUID for your device use a mDNS browser. Alternatively, if you're comfortable using Python, you can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`.
 Ignore CEC:
   description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data).
 {% endconfiguration_basic %}
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action. The action takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the action):
-
-```yaml
-cast_downstairs_on_kitchen:
-  alias: "Show Downstairs on kitchen"
-  sequence:
-    - action: cast.show_lovelace_view
-      data:
-        dashboard_path: lovelace-cast
-        entity_id: media_player.kitchen
-        view_path: downstairs
-```
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device. You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action to show a specific dashboard view on a Cast device from an automation or script.
 
 {% important %}
 Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#homeassistant-configuration-variables).
 {% endimportant %}
+
+{% include integrations/actions.md %}
 
 ## Playing media
 

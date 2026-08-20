@@ -46,7 +46,7 @@ To get detailed per-module production data, you need:
 
 The integration fetches energy production for the past 7 days every 12 hours and inserts the data into statistics.
 
-You can find the created statistics under {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**" %}, searching for `solaredge:`.
+You can find the created statistics under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}, searching for `solaredge:`.
 
 You can show them in the UI using the [`Statistic card`](/dashboards/statistic/) or [`Statistics graph card`](/dashboards/statistics-graph/).
 You can use them in automations using the [`SQL`](/integrations/sql/) integration.
@@ -210,7 +210,7 @@ mode: single
 Specifically for the module statistics:
 
 - The integration intentionally doesn't create any entities/sensors for module data. All data is only available in statistics. This is because data is often delayed by a couple of hours.
-- The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-homeassistantreload_config_entry) action from an automation.
+- The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-reload-config-entry) action from an automation.
 - The API provides data at a 15-minute interval, but Home Assistant long-term statistics are limited to a 1-hour interval. The integration aggregates the 15-minute data into hourly statistics.
 
 ## Removing the integration

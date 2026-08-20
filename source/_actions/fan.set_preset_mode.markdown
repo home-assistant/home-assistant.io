@@ -12,8 +12,6 @@ The **Set fan preset mode** action is useful when your fan offers named modes li
 
 Available preset modes come from the integration that provides the fan entity. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed/) component provides **Low**, **Medium**, and **High** presets by default.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:
@@ -102,10 +100,12 @@ automation: |
 
 When you arrive home on a warm day, you can switch an ESPHome Speed Fan to **High** for stronger airflow right away.
 
-- **Trigger**: Zone: Person enters home zone
+- **Trigger**: Zone entered
+  - **Target**: Alex
+  - **Zone**: Home
 - **Action**: Set fan preset mode
-- **Target**: Living room fan
-- **Preset mode**: high
+  - **Target**: Living room fan
+  - **Preset mode**: high
 
 {% details "YAML example for an arrival high preset" %}
 
@@ -113,10 +113,11 @@ When you arrive home on a warm day, you can switch an ESPHome Speed Fan to **Hig
 automation: |
   alias: "Living room fan high preset on arrival"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   actions:
     - action: fan.set_preset_mode
       target:

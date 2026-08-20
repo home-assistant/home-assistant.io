@@ -115,6 +115,8 @@ Time in seconds from last seen until considered away:
   description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds."
 Disable UniFi Network wired bug logic:
   description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
+Ignore Wi-Fi clients with private (randomized) MAC addresses:
+  description: "Skip Wi-Fi clients that connect with a locally administered MAC address (like private or randomized Wi-Fi addresses), so no entities are created for them. Wired clients are not affected, and clients you select under **Create entities from network clients** are still included. Disabled by default."
 Network access controlled clients:
   description: "Select clients whose network access you want to control via switches by adding their MAC addresses."
 Allow control of DPI restriction groups:
@@ -140,7 +142,7 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
 ### WLAN regenerate password
-Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
+Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
 
 ## Image
 
@@ -152,9 +154,9 @@ This platform allows you to detect presence by looking at devices connected to a
 
 ### Troubleshooting and Time Synchronization
 
-If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
+If tracked devices continue to show "Home" when not connected/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming. When enabled, various UniFi Controller versions have been observed to fail to declare clients disconnected.
 
-Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
+Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network. If you would rather not track these devices at all, turn on **Ignore Wi-Fi clients with private (randomized) MAC addresses** in the integration options. Home Assistant then skips these clients instead of creating device trackers that never come back.
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
@@ -162,19 +164,7 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Actions
-
-### Action: Reconnect client
-
-The `unifi.reconnect_client` action tries to get a wireless client to reconnect to the network.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
-
-### Action: Remove clients
-
-The `unifi.remove_clients` action cleans up clients on the UniFi Network application that have only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+{% include integrations/actions.md %}
 
 ## Switch
 
@@ -205,6 +195,10 @@ Entities appear for each port Forwarding Rule. The switches can be identified fr
 ### Control Traffic Rules
 
 Entities appear for each Traffic Rule. The switches can be identified from icon {% icon "mdi:security-network" %}.
+
+### Control Policy Engine rules
+
+Entities appear automatically for Policy Engine rules that block internet access. Turning a switch on enables the corresponding rule in the UniFi Network application. Turning it off disables the rule. Policy Engine configurations that only define routing or Quality of Service do not appear as switches.
 
 ### Control Policy-Based Routing Rules
 

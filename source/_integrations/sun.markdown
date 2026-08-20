@@ -60,6 +60,10 @@ sun:
 
 ## Automation trigger
 
+Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
+
+The classic `sun` trigger described here is still supported.
+
 The sun's event listener performs the action when the sun rises or sets, with an optional offset.
 
 The sun trigger needs the trigger type `sun`, an event (`sunset` or `sunrise`), and an optional offset:
@@ -91,6 +95,10 @@ Because the duration of twilight varies throughout the year, a fixed offset is n
 | --------------- | ---------------------------------- |
 | `above_horizon` | When the sun is above the horizon. |
 | `below_horizon` | When the sun is below the horizon. |
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 ## Sensors
 

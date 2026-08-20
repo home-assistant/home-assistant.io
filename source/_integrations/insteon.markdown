@@ -29,7 +29,7 @@ ha_dhcp: true
 ---
 
 {% important %}
-The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
+The Insteon apps (Director or Insteon for Hub) are a paid service using the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
 {% endimportant %}
 
 This {% term integration %} adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
@@ -123,22 +123,7 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 
 ## Controlling Insteon scenes
 
-Controlling an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
-
-- **insteon.scene_on**
-  - **group**: (required) The Insteon scene number to trigger.
-- **insteon.scene_off**
-  - **group**: (required) The Insteon scene to turn off
-
-```yaml
-automation:
-  # Control an Insteon scene 25
-  - alias: "Turn on scene 25"
-    actions:
-      - action: insteon.scene_on
-        data:
-          group: 25
-```
+Insteon scenes are controlled through automations and scripts. Use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon group or scene number.
 
 ## Events and Mini-Remotes
 
@@ -189,16 +174,7 @@ automation:
           entity_id: light.some_light
 ```
 
-## Actions
-
-The following actions are available:
-
-- **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
-- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
-- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
-- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
-- **insteon.print_im_all_link_database**: Print the All-Link Database for the Insteon Modem (IM).
-- **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
+{% include integrations/actions.md %}
 
 ## Device overrides
 
