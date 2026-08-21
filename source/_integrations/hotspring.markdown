@@ -4,6 +4,7 @@ description: Instructions on how to integrate Hot Spring spas into Home Assistan
 ha_release: 2026.8
 ha_category:
   - Number
+  - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: hotspring
 ha_platforms:
   - number
+  - sensor
 ha_integration_type: device
 ---
 
@@ -54,6 +56,29 @@ The **Hot Spring** integration provides the following entities:
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
   - **Range**: 80 °F to 104 °F
+
+### Sensor
+
+- **Current temperature**
+  - **Description**: Current water temperature of the spa.
+- **Salt 10-day check timer**
+  - **Description**: Number of days remaining until the next 10-day salt water test reminder.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Salt cartridge age**
+  - **Description**: Number of days the FreshWater Salt System cartridge has been in use.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Salt value**
+  - **Description**: Current salt level reading from the FreshWater Salt System.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Control box version**
+  - **Description**: Firmware version of the spa control box.
+  - **Remarks**: Disabled by default.
+- **FreshWater Salt System version**
+  - **Description**: Firmware version of the FreshWater Salt System module.
+  - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
+- **Wi-Fi dongle version**
+  - **Description**: Firmware version of the Wi-Fi dongle.
+  - **Remarks**: Disabled by default.
 
 ## Data updates
 
