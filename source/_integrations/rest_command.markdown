@@ -19,11 +19,9 @@ The **RESTful Command** {% term integration %} sends HTTP requests from Home Ass
 
 {% include integrations/config_flow.md %}
 
-Each UI-managed entry represents one outbound endpoint.
+Each UI-managed entry represents one outbound endpoint. Home Assistant initially names the entry after the endpoint's hostname. You can rename the entry after setup.
 
 {% configuration_basic %}
-Endpoint name:
-    description: Name used to identify the endpoint when selecting it in an action.
 URL:
     description: HTTP or HTTPS URL to call. Do not include a username or password in the URL. Use the authentication fields instead.
 HTTP method:
