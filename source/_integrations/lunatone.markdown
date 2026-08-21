@@ -94,7 +94,7 @@ The following sensor entities are available from your Lunatone gateway and conne
   - **Available for devices**: All
 
 - **DALI line status**
-  - **Description**: Shows the DALI line status.
+  - **Description**: Shows the status of each DALI line. Possible states: `OK`, `Low bus power`, `Bus power failure`, `Charging`, `Not reachable`.
   - **Available for devices**: All
 
 - **Humidity**
