@@ -5,7 +5,7 @@ ha_category:
   - Binary sensor
   - Sensor
   - Switch
-ha_release: "2026.x"
+ha_release: 2026.9
 ha_iot_class: Local polling
 ha_config_flow: true
 ha_codeowners:
