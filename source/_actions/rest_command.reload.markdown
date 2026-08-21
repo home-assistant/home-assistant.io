@@ -39,7 +39,8 @@ The action has no YAML options.
 ## Good to know
 
 - Home Assistant validates the replacement YAML before changing registered RESTful Command actions.
-- The `rest_command.reload` and `rest_command.call_endpoint` action names are reserved and cannot be used as YAML command names.
+- The `rest_command.reload` action name is reserved and cannot be used as a YAML command name.
+- For backward compatibility, a YAML command named `call_endpoint` takes precedence over the action for UI-managed endpoints.
 - Reloading YAML-defined commands does not reload or reconfigure UI-managed endpoints.
 
 {% include actions/try_it.md %}

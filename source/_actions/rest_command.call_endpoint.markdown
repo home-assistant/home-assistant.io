@@ -67,6 +67,7 @@ payload:
 - The endpoint URL, method, authentication, content type, and timeout come from the selected config entry.
 - To use the response in later automation steps, set `response_variable`. The response contains `status`, `content`, and `headers`.
 - UI-managed endpoints use static configuration. Use a YAML-defined REST command when you need templates or arbitrary headers.
+- For backward compatibility, a YAML command named `call_endpoint` takes precedence over this action. Rename that YAML command, then reload the YAML configuration or restart Home Assistant to call UI-managed endpoints.
 
 {% include actions/try_it.md %}
 

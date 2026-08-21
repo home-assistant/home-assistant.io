@@ -72,7 +72,9 @@ rest_command:
     url: "http://example.com/"
 ```
 
-The command name becomes an action in the form `rest_command.<command_name>`. The names `reload` and `call_endpoint` are reserved and cannot be used for YAML commands.
+The command name becomes an action in the form `rest_command.<command_name>`. The name `reload` is reserved and cannot be used for a YAML command.
+
+For backward compatibility, an existing YAML command named `call_endpoint` takes precedence over the action for UI-managed endpoints. While that YAML command is configured, UI-managed endpoints cannot be called. Rename the YAML command, then reload the YAML configuration or restart Home Assistant to make the **Send request** action available.
 
 {% configuration %}
 service_name:
