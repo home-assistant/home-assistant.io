@@ -80,6 +80,62 @@ The **Hot Spring** integration provides the following entities:
   - **Description**: Firmware version of the Wi-Fi dongle.
   - **Remarks**: Disabled by default.
 
+## Hot Spring automation examples
+
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Notify when the 10-day salt check timer is due
+
+Get a reminder to test your Hot Spring spa water with a salt test strip when the 10-day check timer expires.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when 10-day salt check is due"
+  description: "Send a notification when the 10-day salt check timer reaches 0 days."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.hot_spring_salt_10_day_check_timer
+      below: 1
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.notify
+      data:
+        title: "Hot Spring spa"
+        message: "The 10-day salt water test timer has expired. Please test your spa water with a test strip."
+{% endexample %}
+
+{% enddetails %}
+
+### Notify when the spa reaches target temperature
+
+Get notified when your spa water has reached the desired target temperature and is ready for use.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when spa reaches target temperature"
+  description: "Send a notification when the spa water temperature reaches the target temperature."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.hot_spring_current_temperature
+      above: 101
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.notify
+      data:
+        title: "Hot Spring spa"
+        message: "The spa is ready! Current water temperature is {{ states('sensor.hot_spring_current_temperature') }} °F."
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The **Hot Spring** integration uses local {% term polling %} to fetch status updates directly from the spa module on your local network.
