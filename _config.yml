@@ -120,13 +120,13 @@ social:
 # Home Assistant release details
 current_major_version: 2026
 current_minor_version: 8
-current_patch_version: 2
-date_released: 2026-08-14
+current_patch_version: 3
+date_released: 2026-08-21
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#202682---august-14"
+patch_version_notes: "#202683---august-21"
 # Minor release (Example #release-0431---april-25):
 
 # Set Front matter defaults
