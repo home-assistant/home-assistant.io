@@ -46,7 +46,7 @@ action: |
     config_entry_id: REST_COMMAND_CONFIG_ENTRY_ID
 {% endexample %}
 
-This calls the selected endpoint with its stored method, headers, and default payload.
+This calls the selected endpoint with its stored method, authentication, content type, and default payload.
 
 ### Options in YAML
 
