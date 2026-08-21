@@ -34,7 +34,7 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Alarm code:
-  description: A code required to arm and disarm the panel from Home Assistant. When no code is configured, the panel can be armed without one and disarming sends no code to the panel.
+  description: The code stored for the panel. It is sent when disarming, filled in automatically when a command does not provide one, and commands that provide a code must match it. Leave empty to arm without a code and send no code when disarming.
 Arm home mode:
   description: Whether arming in home mode is audible or silent.
 {% endconfiguration_basic %}
@@ -43,11 +43,11 @@ Arm home mode:
 
 The integration provides the following entities, grouped under one panel device:
 
-- **Alarm control panel**: arm home, arm away and disarm the first partition reported by the panel.
-- **Binary sensors**: one per zone reported by the panel. The device class (motion, smoke, moisture, safety or opening) is guessed from the zone name and can be changed per entity in the UI.
+- **Alarm control panel**: arm home, arm away, and disarm the first partition reported by the panel.
+- **Binary sensors**: one per zone reported by the panel. The device class (motion, smoke, moisture, safety, or opening) is guessed from the zone name and can be changed per entity in the UI.
 
 ## Migration from YAML
 
-Configuration of this integration via `configuration.yaml` is deprecated. An existing YAML configuration is imported into a config entry automatically and can then be removed from `configuration.yaml`.
+This integration is now set up in the UI. An existing YAML configuration is imported into a config entry automatically and can then be removed from `configuration.yaml`.
 
 The previous `exclude_zones` and `zone_types` options of the binary sensor platform are not imported: disable unwanted zone entities and override device classes from the entity settings in the UI instead.
