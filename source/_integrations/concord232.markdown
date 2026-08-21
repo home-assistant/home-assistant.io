@@ -26,6 +26,8 @@ Host:
   description: The hostname or IP address of the concord232 server.
 Port:
   description: The port the concord232 server listens on. The default is 5007.
+SSL:
+  description: Connect to the concord232 server over HTTPS, for example when it sits behind a TLS-terminating reverse proxy.
 {% endconfiguration_basic %}
 
 ## Configuration options
