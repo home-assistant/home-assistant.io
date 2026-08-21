@@ -448,7 +448,7 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan/Standing Fan/Battery Circulator Fan 2 Pro
+#### Battery Circulator Fan / Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro
 
 Features:
 - turn on
@@ -456,7 +456,7 @@ Features:
 - set speed, only applicable for [direct mode]
 - set mode
 - get battery, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
-- set night light only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
+- set night light, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
 
 
 #### Air Purifier
