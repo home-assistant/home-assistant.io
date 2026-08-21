@@ -35,7 +35,9 @@ Password:
 Bearer token:
     description: Token used for Bearer authentication.
 Default payload:
-    description: Request body sent when an action does not provide a payload. The prefilled value is `{"message": "The event occurred"}`.
+    description: >
+      Request body sent when an action does not provide a payload. The
+      prefilled value is `{"message": "The event occurred"}`.
 Content type:
     description: Content-Type header sent with the request. The default is `application/json`.
 Timeout:
