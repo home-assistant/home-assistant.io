@@ -4,6 +4,7 @@ description: Instructions on how to integrate Lyngdorf audio processors into Hom
 ha_category:
   - Media player
   - Number
+  - Remote
   - Select
   - Sensor
 ha_release: 2026.8
@@ -17,6 +18,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - remote
   - select
   - sensor
 ha_integration_type: device
@@ -78,6 +80,21 @@ Numbers adjust the audio calibration, and are only created for the controls a mo
 - **Lip sync**: The audio delay, in milliseconds. The device reports its own permitted range.
 - **Trim bass** and **Trim treble**: Tone trims, in decibels.
 - **Trim centre**, **Trim height**, **Trim LFE**, and **Trim surround**: Channel trims, in decibels. Only created on surround models.
+
+### Remote
+
+A remote entity drives the processor's own on-screen menus, for the models that
+have remote keys. The TDAI series does not, so no remote entity is created there.
+
+Send keys with the `remote.send_command` action. The available keys are `up`,
+`down`, `left`, `right`, `enter`, `back`, `exit`, `menu`, `info`, `settings`,
+`multiview`, and the digits `0` to `9`. Not every model has every key, and
+sending one the device does not have reports the keys it does support rather than
+sending anything.
+
+`num_repeats` repeats the whole sequence rather than each key, so `["1", "2"]`
+with two repeats sends `1 2 1 2`. `delay_secs` is not used, because the
+integration already paces its own commands to the device.
 
 ### Selects
 
@@ -142,6 +159,23 @@ automation:
           value: 80
 ```
 
+Open the setup menu and step down to the second entry:
+
+```yaml
+script:
+  lyngdorf_open_setup:
+    sequence:
+      - action: remote.send_command
+        target:
+          entity_id: remote.lyngdorf
+        data:
+          command:
+            - menu
+            - down
+            - down
+            - enter
+```
+
 ## Data updates
 
 The **Lyngdorf** integration uses local push to receive real-time updates from the device over a TCP connection. State changes on the device are pushed to Home Assistant immediately.
@@ -153,6 +187,7 @@ The **Lyngdorf** integration uses local push to receive real-time updates from t
 - Pausing a source that is controlled by another app, such as AirPlay, ends the session rather than pausing it. The device cannot resume it; only the controlling app can start it again. This is how those protocols work, and is not specific to Home Assistant.
 - Now playing information, playback position, and transport controls require a model with a streaming module. The TDAI-2170 and the P-series do not have one.
 - The trims and lip sync apply to the main zone only.
+- The remote keys drive the device's own menus only. There is no way to read what is on screen, so an automation cannot know where in a menu it is.
 
 ## Troubleshooting
 
