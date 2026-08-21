@@ -288,6 +288,25 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
    - Troubleshooting: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
 7. If you no longer want to use the old adapter, you can unplug it now.
 
+## Sharing Thread network credentials with another border router
+
+Follow these steps if you want to add a border router from another vendor to your Home Assistant Thread network. This uses Thread 1.4 credential sharing: the Home Assistant border router generates a temporary, one-time code, which the app of the other border router uses to join the network. The network key itself is never shown or copied.
+
+### Prerequisites
+
+- A Home Assistant Thread network with an OpenThread Border Router that supports credential sharing. The share icon is only shown for networks with such a border router. If the icon is not shown, update the **OpenThread Border Router** add-on.
+- A border router whose app supports joining an existing Thread network with a Thread administration passcode (Thread 1.4).
+
+### To share the credentials with another border router
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration, then select **Configure**.
+2. In the box of your Home Assistant Thread network, select the <img width="30px" src='/images/integrations/thread/qrcode.svg'> **Share network credentials** icon.
+   - **Result**: A dialog opens, showing a QR code and a nine-digit code.
+3. In the app of the border router you want to add, choose to join an existing Thread network. Then scan the QR code or enter the nine-digit code.
+4. Keep the dialog open until the other border router has joined.
+   - The code can only be used once. It expires after two minutes, or as soon as you close the dialog.
+   - **Result**: After a refresh, the new border router is listed under your Home Assistant Thread network.
+
 ## Understanding the Thread configuration page
 
 This section explains why you might see multiple networks on the Thread configuration page and what this means for your network.
