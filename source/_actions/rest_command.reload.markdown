@@ -11,17 +11,20 @@ The **Reload** action reloads RESTful commands defined in `configuration.yaml` w
 
 {% include actions/ui_header.md %}
 
-To reload YAML-defined RESTful commands:
+To reload YAML-defined RESTful commands from an automation or a script:
 
-1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
-2. Search for and select **Reload**.
-3. Select **Perform action**.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Search for and select **Reload**.
+6. Select **Save**.
 
-This action does not support action targets or additional options.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
 ### Options in the UI
 
-The action has no options.
+This action has no additional options in the UI.
 
 {% include actions/yaml_header.md %}
 
