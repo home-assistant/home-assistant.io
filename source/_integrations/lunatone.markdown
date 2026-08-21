@@ -93,6 +93,10 @@ The following sensor entities are available from your Lunatone gateway and conne
   - **Description**: Shows the measured carbon dioxide concentration.
   - **Available for devices**: All
 
+- **DALI line status**
+  - **Description**: Shows the DALI line status.
+  - **Available for devices**: All
+
 - **Humidity**
   - **Description**: Shows the measured relative humidity.
   - **Available for devices**: All
