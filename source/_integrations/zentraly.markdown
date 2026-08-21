@@ -6,6 +6,7 @@ ha_category:
 ha_release: 2026.XX
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_zeroconf: true
 ha_codeowners:
   - '@diazmanuel'
 ha_domain: zentraly
@@ -32,25 +33,13 @@ Before setting up the integration:
 5. Make sure the Zentraly device is reachable from the Home Assistant host.
 6. Get the device password from the **About device** section in the Zentraly app. You need this password during setup.
 
-## Configuration
-
-Zentraly devices are discovered automatically using Zeroconf.
-
-To configure a discovered Zentraly device:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Locate the discovered Zentraly device with the corresponding device ID.
-3. Select **Configure**.
-4. Enter the device password obtained from the Zentraly app.
-5. Submit the configuration.
-
-Home Assistant connects directly to the device and verifies the supplied password before completing the setup.
+{% include integrations/config_flow.md %}
 
 Manual configuration is not currently supported.
 
 ## Supported devices
 
-The integration currently supports the following Zentraly device:
+The integration currently supports the following Zentraly devices:
 
 - ZTTIN thermostat
 
@@ -74,6 +63,32 @@ The integration supports:
 Changing the target temperature from Home Assistant puts the thermostat into manual mode.
 
 When the Away preset is selected, Home Assistant displays the Away temperature configured on the thermostat. The Away temperature itself cannot be changed from Home Assistant.
+
+## Zentraly automation examples
+
+You can use the Zentraly climate entity in Home Assistant automations. For example, you can automatically change the target temperature at a specific time.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Set the target temperature at night
+
+This example sets the target temperature of a Zentraly thermostat to 18 °C every day at 22:00.
+
+{% details "YAML example for setting the target temperature" %}
+{% example %}
+automation:
+  - alias: "Set Zentraly temperature at night"
+    triggers:
+      - trigger: time
+        at: "22:00:00"
+    actions:
+      - action: climate.set_temperature
+        target:
+          entity_id: climate.example
+        data:
+          temperature: 18
+{% endexample %}
+{% enddetails %}
 
 ## Data updates
 
