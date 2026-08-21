@@ -55,13 +55,9 @@ If the web interface requires a username and password, you will need these crede
 | **Use SSL** | No | Enable if the device is configured for HTTPS (default: off) |
 | **Device profile** | No | Select *Auto-detect* to let the integration determine the device type automatically |
 
-## Options
+## Data updates
 
-After setup, you can adjust the polling interval under **Settings → Integrations → ALLNET → Configure**:
-
-| Option | Default | Range | Description |
-|---|---|---|---|
-| **Polling interval** | 30 s | 10–3600 s | How often the integration polls the device for updated values |
+Home Assistant retrieves the device data every 60 seconds. Switch commands trigger an immediate refresh.
 
 ## Device information
 
