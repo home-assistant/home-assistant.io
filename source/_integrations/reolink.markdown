@@ -266,6 +266,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Hub alarm ringtone
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
+- Work mode battery (Power saving, Detection priority, Optimal surveillance, AI extended recording, Custom, Always on pre-recording, Always on continuous recording)
+- Work mode powered (Alarm recording, Continuous recording, Custom)
 - Recording packing time
 - Pre-recording frame rate*
 - Post-recording time
