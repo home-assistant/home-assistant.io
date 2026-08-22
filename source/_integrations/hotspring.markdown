@@ -10,6 +10,7 @@ ha_codeowners:
   - '@Moustachauve'
 ha_domain: hotspring
 ha_platforms:
+  - diagnostics
   - number
 ha_integration_type: device
 ---
@@ -70,6 +71,24 @@ If Home Assistant cannot establish a connection to your Hot Spring spa:
 - Verify that you can locate the device on your local network router client list.
 - Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
 - Restart the Hot Spring spa module and reload the integration in Home Assistant.
+
+## Diagnostics
+
+The Hot Spring {% term integration %} provides diagnostics to help with troubleshooting. The download includes:
+
+- Redacted configuration entry data
+- Spa hardware information and firmware versions
+- Current state and telemetry for the spa heater, jets, blower, lights, clean cycle, spa lock, water care, FreshWater IQ, energy savings schedules, connection status, and test metrics
+
+Sensitive information, such as the host, IP address, and MAC address, is redacted.
+
+To download diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Hot Spring** integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Download diagnostics**.
+
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 
