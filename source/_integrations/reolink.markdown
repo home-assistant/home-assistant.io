@@ -298,7 +298,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Record audio
 - Siren on event
 - Pre-siren on event
-- Tamper alarm
+- Tamper alarm*
 - Auto tracking
 - Auto focus
 - Guard return
