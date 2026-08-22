@@ -300,11 +300,11 @@ Follow these steps if you want to add a border router from another vendor to you
 ### To share the credentials with another border router
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration, then select **Configure**.
-2. In the box of your Home Assistant Thread network, select the <img width="30px" src='/images/integrations/thread/qrcode.svg'> **Share network credentials** icon.
+2. In the box of your Home Assistant Thread network, select the <img width="30px" src='/images/integrations/thread/qrcode.svg' alt=""> **Share network credentials** icon.
    - **Result**: A dialog opens, showing a QR code and a nine-digit code.
 3. In the app of the border router you want to add, choose to join an existing Thread network. Then scan the QR code or enter the nine-digit code.
 4. Keep the dialog open until the other border router has joined.
-   - The code can only be used once. It expires after two minutes, or as soon as you close the dialog.
+   - The code can only be used once. It expires after two minutes or as soon as you close the dialog.
    - **Result**: After a refresh, the new border router is listed under your Home Assistant Thread network.
 
 ## Understanding the Thread configuration page
