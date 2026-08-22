@@ -64,76 +64,7 @@ The following device classes are supported for covers.
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-### Cover control actions
-
-Available actions: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
-
-| Data attribute | Optional | Description                                                                                          |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`    | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
-
-#### Automation example
-
-```yaml
-automation:
-  triggers:
-    - trigger: time
-      at: "07:15:00"
-  actions:
-    - action: cover.open_cover
-      target:
-        entity_id: cover.demo
-```
-
-### Action: Set cover position
-
-The `cover.set_cover_position` action allows you to set cover position of one or multiple covers.
-
-| Data attribute | Optional | Description                                                                                          |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`    | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
-| `position`     | no       | Integer between 0 and 100.                                                                           |
-
-#### Automation example
-
-```yaml
-automation:
-  triggers:
-    - trigger: time
-      at: "07:15:00"
-  actions:
-    - action: cover.set_cover_position
-      target:
-        entity_id: cover.demo
-      data:
-        position: 50
-```
-
-### Action: Set cover tilt position
-
-The `cover.set_cover_tilt_position` action allows you to set cover tilt position of one or multiple covers.
-
-| Data attribute  | Optional | Description                                                                                          |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`     | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
-| `tilt_position` | no       | Integer between 0 and 100.                                                                           |
-
-#### Automation example
-
-```yaml
-automation:
-  triggers:
-    - trigger: time
-      at: "07:15:00"
-  actions:
-    - action: cover.set_cover_tilt_position
-      target:
-        entity_id: cover.demo
-      data:
-        tilt_position: 50
-```
+{% include integrations/actions.md %}
 
 ## Cover automation examples
 
@@ -174,7 +105,7 @@ automation: |
 
 At sunset, this automation checks whether the bedroom shutter is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Shutter is open
   - **Target**: Bedroom shutter
 - **Action**: Close cover
@@ -185,8 +116,7 @@ At sunset, this automation checks whether the bedroom shutter is still open. If 
 automation: |
   alias: "Close the bedroom shutter at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.shutter_is_open
       target:

@@ -4,6 +4,7 @@ description: Instructions on how to integrate Novy cooker hoods into Home Assist
 ha_category:
   - Fan
   - Light
+  - Radio Frequency
 ha_release: 2026.5
 ha_iot_class: Assumed State
 ha_config_flow: true

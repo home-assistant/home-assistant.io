@@ -2,7 +2,7 @@
 title: "Volatile organic compounds ratio changed"
 trigger: air_quality.voc_ratio_changed
 domain: air_quality
-description: "Triggers after one or more volatile organic compound ratios change."
+description: "Triggers when one or more volatile organic compound ratios change."
 related_triggers:
   - air_quality.voc_ratio_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Volatile organic compounds ratio changed** trigger fires after the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors changes by a meaningful amount. Some sensors express VOC concentration as a ratio (typically a percentage) rather than an absolute concentration. This ratio indicates how the current VOC level compares to a baseline, giving you a quick sense of whether air quality is improving or getting worse. It is particularly handy for tracking off-gassing from new furniture, fresh paint, or cleaning products over time.
 
 Imagine getting a notification the moment your living room air quality starts dipping after you've finished cleaning, so you know to crack a window. Use this trigger to automate ventilation, send alerts, or log trends whenever your VOC ratio reading shifts noticeably.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
