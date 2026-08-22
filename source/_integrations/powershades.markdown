@@ -26,8 +26,6 @@ Any PoE or Wi-Fi PowerShades shade with UDP communication enabled, and on the sa
 
 ## Prerequisites
 
-It is currently unknown whether UDP communication is enabled by default on every PowerShades device. If the auto-discovery cannot find your shade, and/or entering its IP address manually results in a "cannot connect" error, you may need to enable UDP on the device itself.
-
 ### Finding your shade's IP address
 
 Discovery will usually find shades on your network automatically. If you need to enter an IP address manually, you can find it in one of these ways:
@@ -158,5 +156,3 @@ automation: |
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
-If you can, please disable UDP on your shades if there isn't another source using it, since anyone on your local network can send commands and read the shade's status without any authentication.
