@@ -34,8 +34,8 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Ping - The ping that Starlink has measured, in ms
 - Ping drop rate - The percentage of failed ping requests (aka "dropped"). This is the inverse of "Uptime" in the Starlink app.
-- Obstruction - The percentage of Dishy's field of view that is obstructed
-- GPS satellites - The number of GPS satellites used by Dishy. This diagnostic sensor is disabled by default.
+- Obstruction - The percentage of the Starlink dish's field of view that is obstructed.
+- GPS satellites - The number of GPS satellites used by the Starlink dish. This diagnostic sensor is disabled by default.
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
 - Last restart - The time Starlink was last turned on
