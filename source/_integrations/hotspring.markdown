@@ -4,6 +4,7 @@ description: Instructions on how to integrate Hot Spring spas into Home Assistan
 ha_release: 2026.8
 ha_category:
   - Number
+  - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -12,6 +13,7 @@ ha_domain: hotspring
 ha_platforms:
   - diagnostics
   - number
+  - sensor
 ha_integration_type: device
 ha_zeroconf: true
 ---
@@ -56,6 +58,85 @@ The **Hot Spring** integration provides the following entities:
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
   - **Range**: 80 °F to 104 °F
+
+### Sensor
+
+- **Current temperature**
+  - **Description**: Current water temperature of the spa.
+- **Salt 10-day check timer**
+  - **Description**: Number of days remaining until the next 10-day salt water test reminder.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Salt cartridge age**
+  - **Description**: Number of days the FreshWater Salt System cartridge has been in use.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Salt value**
+  - **Description**: Current salt level reading from the FreshWater Salt System.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Control box version**
+  - **Description**: Firmware version of the spa control box.
+  - **Remarks**: Disabled by default.
+- **FreshWater Salt System version**
+  - **Description**: Firmware version of the FreshWater Salt System module.
+  - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
+- **Wi-Fi dongle version**
+  - **Description**: Firmware version of the Wi-Fi dongle.
+  - **Remarks**: Disabled by default.
+
+## Hot Spring automation examples
+
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Notify when the 10-day salt check timer is due
+
+Get a reminder to test your Hot Spring spa water with a salt test strip when the 10-day check timer expires.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when 10-day salt check is due"
+  description: "Send a notification when the 10-day salt check timer reaches 0 days."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.hot_spring_salt_10_day_check_timer
+      below: 1
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.notify
+      data:
+        title: "Hot Spring spa"
+        message: "The 10-day salt water test timer has expired. Please test your spa water with a test strip."
+{% endexample %}
+
+{% enddetails %}
+
+### Notify when the spa reaches target temperature
+
+Get notified when your spa water has reached the desired target temperature and is ready for use.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when spa reaches target temperature"
+  description: "Send a notification when the spa water temperature reaches the target temperature."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.hot_spring_current_temperature
+      above: 101
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.notify
+      data:
+        title: "Hot Spring spa"
+        message: "The spa is ready! Current water temperature is {{ states('sensor.hot_spring_current_temperature') }} °F."
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
