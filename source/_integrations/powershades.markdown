@@ -160,7 +160,3 @@ This integration follows standard integration removal.
 {% include integrations/remove_device_service.md %}
 
 If you can, please disable UDP on your shades if there isn't another source using it, since anyone on your local network can send commands and read the shade's status without any authentication.
-
-## Acknowledgments
-[comment]: <> (The Acknowledgments section of docs is not a normal part of Home Assistant docs, but dstocking was the original creator of the custom integration and I should give credit to them [remove this comment before merging this PR] )
-This integration builds on the [powershades-homeassistant](https://github.com/dstocking/powershades-homeassistant) custom integration created by [@dstocking](https://github.com/dstocking), who reverse-engineered the PowerShades UDP protocol, and made the base of this integration.
