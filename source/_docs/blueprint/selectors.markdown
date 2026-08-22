@@ -1355,6 +1355,10 @@ fields:
   type: map
   required: false
   keys:
+    default:
+      description: The default value for the field.
+      required: false
+      type: any
     label:
       description: The label of the field
       required: false
