@@ -14,7 +14,7 @@ ha_domain: delijn
 ha_platforms:
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ---
 
 The **De Lijn** {% term integration %} shows real-time departure information
