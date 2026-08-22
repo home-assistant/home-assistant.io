@@ -290,22 +290,27 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
 
 ## Sharing Thread network credentials with another border router
 
-Follow these steps if you want to add a border router from another vendor to your Home Assistant Thread network. This uses Thread 1.4 credential sharing: the Home Assistant border router generates a temporary, one-time code, which the app of the other border router uses to join the network. The network key itself is never shown or copied.
+Follow these steps if you want to add a border router from another vendor to your Home Assistant Thread network. This uses Thread 1.4 credential sharing (also called ePSKc): the Home Assistant border router generates a temporary, one-time code, which the app of the other border router uses to join the network. You don't have to look up or enter the network key: it is transferred directly between the border routers over an encrypted connection and is never shown.
+
+{% note %}
+While the code is valid, the app that enters it gets administrative access to your Thread network, not just permission to join it. Only share the code with a border router you trust.
+{% endnote %}
 
 ### Prerequisites
 
-- A Home Assistant Thread network with an OpenThread Border Router that supports credential sharing. The share icon is only shown for networks with such a border router. If the icon is not shown, update the **OpenThread Border Router** add-on.
+- A Home Assistant Thread network with an OpenThread Border Router that supports credential sharing. The share icon is only shown if that border router is listed under the network and its **OpenThread Border Router** app supports credential sharing.
 - A border router whose app supports joining an existing Thread network with a Thread administration passcode (Thread 1.4).
+- The phone running that app is on the same local network as the Home Assistant border router.
 
 ### To share the credentials with another border router
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration, then select **Configure**.
-2. In the box of your Home Assistant Thread network, select the <img width="30px" src='/images/integrations/thread/qrcode.svg' alt=""> **Share network credentials** icon.
-   - **Result**: A dialog opens, showing a QR code and a nine-digit code.
-3. In the app of the border router you want to add, choose to join an existing Thread network. Then scan the QR code or enter the nine-digit code.
+2. In the box of your Home Assistant Thread network, select the {% icon "mdi:qrcode" %} **Share network credentials** icon.
+   - **Result**: A dialog opens, showing a QR code, a nine-digit code, and how long the code is still valid.
+3. In the app of the border router you want to add, select the option to join an existing Thread network. Then scan the QR code or enter the nine-digit code.
 4. Keep the dialog open until the other border router has joined.
-   - The code can only be used once. It expires after two minutes or as soon as you close the dialog.
-   - **Result**: After a refresh, the new border router is listed under your Home Assistant Thread network.
+   - The code can only be used once. It expires after five minutes or as soon as you close the dialog.
+   - **Result**: The new border router is listed under your Home Assistant Thread network.
 
 ## Understanding the Thread configuration page
 
@@ -322,6 +327,8 @@ The Thread configuration page shows three vendor-specific Thread networks.
 These are all separate networks using different credentials. This means devices can't roam between the Thread networks.
 
 The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
+
+The {% icon "mdi:qrcode" %} icon indicates that you can [share the credentials of that network with another border router](#sharing-thread-network-credentials-with-another-border-router).
 
 Home Assistant discovers all Thread border routers in your network because they send mDNS/DNS-SD announcements. These local announcements don't contain the network credentials. That's why you see the network there, but not the credentials.
 
