@@ -3,14 +3,13 @@ title: Sofar Inverter Modbus
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP.
 ha_category:
   - Energy
-  - Switch
 ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
-  - switch
+  - sensor
 ha_config_flow: true
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -49,9 +48,14 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 
 The **Sofar Inverter Modbus** integration provides the following entities.
 
-### Switches
+### Sensors
 
-- **Active power control**: Whether a direct cap on the inverter's own power output is armed. This caps generation itself, not just how much power is exported to the grid. Only shown for inverters that support this feature.
+These diagnostic entities report on the health of the Modbus connection, not the inverter's readings:
+
+- **Communication health**: A summary of how reliably the inverter has answered recently (`Good`, `Degraded`, or `Poor`).
+- **Success rate**: The same recent success rate as a percentage.
+- **Last error** _(disabled by default)_: The message from the most recent failed poll.
+- **Last error time** _(disabled by default)_: When the error in **Last error** occurred.
 
 ## Data updates
 
@@ -59,8 +63,7 @@ The **Sofar Inverter Modbus** {% term integration %} {% term polling polls %} th
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time. Only the **Active power control** switch is available so far; sensors and additional controls are planned for future releases.
-- Toggling **Active power control** currently only stages the change; it isn't written to the inverter until a companion control to commit it is added in a future release.
+- This is an early release of the integration, added to Home Assistant one platform at a time. Only diagnostic entities for the Modbus connection are available so far; sensors for the inverter's own readings and additional controls are planned for future releases.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
