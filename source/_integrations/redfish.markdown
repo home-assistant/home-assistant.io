@@ -51,7 +51,7 @@ Username:
 Password:
   description: "The password of the Redfish account."
 Verify SSL certificate:
-  description: "Whether to verify the management controller's TLS certificate. This is disabled by default because management controllers commonly use self-signed certificates. Enable it when the controller presents a certificate that Home Assistant can validate."
+  description: "Whether to verify the management controller's TLS certificate. This is enabled by default. If the controller uses a self-signed certificate that Home Assistant cannot validate, disable verification only when the management network is trusted."
 {% endconfiguration_basic %}
 
 ## Supported functionality
