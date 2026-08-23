@@ -127,6 +127,16 @@ Each connected heating circuit device provides the following sensors:
 Additional sensors are disabled by default and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service interval (in days).
 
 
+## Examples
+
+The following blueprints help you get started with common automations for your heater:
+
+- [Guntamatic low buffer load](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/low-buffer-load.yaml): get a notification when the buffer load drops below a chosen percentage, so you know it is time to refuel.
+- [Guntamatic maintenance reminder](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/maintenance-reminders.yaml): get a notification when the ash box needs emptying or the periodic service is due soon.
+
+Import them from the blueprint folder and select your Guntamatic sensors when setting up the automation.
+
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

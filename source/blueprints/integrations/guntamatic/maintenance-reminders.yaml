@@ -1,0 +1,74 @@
+blueprint:
+  name: Guntamatic maintenance reminder
+  description: >-
+    Send a notification when the time until the next maintenance task on
+    your Guntamatic heater runs low: emptying the ash box or the periodic
+    service.
+  domain: automation
+  input:
+    ash_empty_in_entity:
+      name: Time until ash emptying sensor
+      description: >-
+        The **Time until ash emptying** diagnostic sensor of your heater.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+    ash_threshold:
+      name: Ash emptying threshold
+      description: >-
+        You receive a notification when fewer hours remain than this value.
+        Set it to 0 to disable this reminder.
+      default: 48
+      selector:
+        number:
+          min: 0
+          max: 720
+          unit_of_measurement: h
+    service_days_entity:
+      name: Service days sensor
+      description: >-
+        The **Service days** diagnostic sensor of your heater.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+    service_threshold:
+      name: Service days threshold
+      description: >-
+        You receive a notification when fewer days remain than this value.
+        Set it to 0 to disable this reminder.
+      default: 14
+      selector:
+        number:
+          min: 0
+          max: 365
+          unit_of_measurement: d
+    notification_action:
+      name: Notification action
+      default: notify.notify
+      selector:
+        action:
+mode: parallel
+trigger:
+  - platform: numeric_state
+    id: ash
+    entity_id: !input ash_empty_in_entity
+    below: !input ash_threshold
+  - platform: numeric_state
+    id: service
+    entity_id: !input service_days_entity
+    below: !input service_threshold
+actions:
+  - action: !input notification_action
+    data:
+      title: >-
+        Guntamatic: {% if trigger.id == 'ash' %}ash box{% else %}service{% endif %} due soon
+      message: >-
+        {% if trigger.id == 'ash' %}
+        Empty the ash box within the next
+        {{ states(!input ash_empty_in_entity) }} hours.
+        {% else %}
+        Schedule the periodic service within the next
+        {{ states(!input service_days_entity) }} days.
+        {% endif %}
