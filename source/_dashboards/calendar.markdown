@@ -46,11 +46,19 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
-show_addfab:
+show_add_event:
   required: false
   description: Show a button to create a new event. You need at least one calendar that allows you to create events.
   type: boolean
   default: false
+add_event_style:
+  required: false
+  description: "The layout and position of the add event button within the card. Options are `header`, `below`, and `on_top`."
+  type: string
+add_event_size:
+  required: false
+  description: "The of the add event button. Options are `small`, `medium`, and `large`. Note that the size is ignored when the style is set to `header`."
+  type: string
 {% endconfiguration %}
 
 ### Examples
