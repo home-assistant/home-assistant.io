@@ -33,10 +33,6 @@ After you enter your API key and shared secret, Home Assistant shows an **Author
 
 To connect more than one account, add the integration again for each Remember The Milk account.
 
-### Migrating from YAML
-
-If you have a `remember_the_milk:` entry in your {% term "`configuration.yaml`" %}, it will be imported automatically. After a successful import, remove the entry from `configuration.yaml` and manage the integration from the UI.
-
 ### Verifying configuration
 
 To confirm that your configuration was successful, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Remember The Milk**.
