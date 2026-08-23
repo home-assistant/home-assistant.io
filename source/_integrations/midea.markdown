@@ -3,6 +3,7 @@ title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
   - Climate
+  - Select
   - Humidifier
 ha_release: 2026.8
 ha_domain: midea
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_iot_class: Local Push
 ha_platforms:
   - climate
+  - select
   - humidifier
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -106,6 +108,7 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 The **Midea** {% term integration %} provides the following entities:
 
 - Climate
+- Select
 - Humidifier
 
 ## Known limitations
