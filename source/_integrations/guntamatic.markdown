@@ -36,7 +36,9 @@ Host:
 
 ## Data updates
 
-The integration polls the Guntamatic heater every 30 seconds. The heater does not support push updates.
+The integration polls the Guntamatic heater every 30 seconds. The heater does not support push updates. All sensors, including those of the heating circuit devices, are refreshed in this single poll.
+
+The heater exposes a small embedded web interface that may also serve other tools or dashboards. Polling the same endpoints from multiple clients at once can affect response times, so avoid adding additional integrations or scripts that read these endpoints at a high rate.
 
 ## Devices
 
