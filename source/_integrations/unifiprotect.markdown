@@ -197,13 +197,10 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 ### UniFi Protect relays
 
-Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
+Each UniFi Protect relay is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>. Relay output support requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
 
 - **Switch**: A switch entity is added for each relay output channel to turn the output on or off.
-
-{% note %}
-Relay input channels are not yet supported.
-{% endnote %}
+- **Binary sensor**: A generic binary sensor entity is added for every relay input channel. Its name uses the input name configured in UniFi Protect, and its state reflects the logical input state reported by UniFi Protect. Reliable sustained input updates have been verified with UniFi Protect 7.2.105. Earlier versions have not been verified.
 
 ### UniFi Protect sirens
 
