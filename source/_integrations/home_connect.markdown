@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Fan
   - Hub
+  - Image
   - Light
   - Number
   - Select
@@ -27,6 +28,7 @@ ha_platforms:
   - climate
   - diagnostics
   - fan
+  - image
   - light
   - number
   - select
