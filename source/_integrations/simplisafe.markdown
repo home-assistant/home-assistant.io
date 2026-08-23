@@ -37,6 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - **Smoke Detector**: reports on the smoke sensor status*.
 - **Smoke+CO Detector**: reports on the smoke and carbon monoxide sensor status*.
 - **Water Sensor**: reports on water sensor status*.
+- **Outdoor Camera**: captures motion event images and video clips.
 
 - Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
@@ -72,6 +73,7 @@ following keys:
 - `last_event_sensor_type`: the type of sensor that triggered the event (if appropriate)
 - `system_id`: the system ID to which the event belongs
 - `last_event_timestamp`: the UTC datetime at which the event was received
+- `media_urls`: a dictionary containing media URLs when `last_event_type` is `camera_motion_detected` (see below)
 
 For example, when someone rings the doorbell, a
 `SIMPLISAFE_EVENT` event will fire with the following event data:
