@@ -15,7 +15,7 @@ ha_release: "2026.9"
 ha_quality_scale: silver
 ---
 
-The **Tonewinner** {% term integration %} allows you to control Tonewinner AV processors and receivers from Home Assistant over an RS-232 serial connection, via a USB-to-serial adapter, or with a serial proxy with an ESPHome device.
+The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection, via a USB-to-serial adapter, or with a serial proxy with an ESPHome device.
 
 ## Supported devices
 
@@ -75,3 +75,9 @@ You can use Home Assistant to:
 
 - At least for the AT-500, there is a period of a few seconds during startup when the device may not accept commands, and may report incorrect information. Status should be correct once the boot sequence completes.
 - The device should be powered on and connected to the serial port before setting up the integration in Home Assistant.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
