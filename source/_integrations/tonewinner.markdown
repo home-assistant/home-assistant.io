@@ -71,19 +71,6 @@ You can use Home Assistant to:
 - Select the input source
 - Select the sound mode (for example, Direct, Pure, Stereo, or All Stereo)
 
-## Actions
-
-### Action: Send raw command
-
-The `tonewinner.send_raw` action sends a raw command to the receiver over the serial connection. This can be useful for commands that are not exposed by the media player entity.
-
-- **Data attribute**: `command`
-  - **Description**: >-
-    The command to send. Either an ASCII command string (for example, `SI HD1`)
-    or a space-separated list of hexadecimal byte values prefixed with `0x`
-    (for example, `0x21 0x50`). Hexadecimal values must decode to ASCII.
-  - **Optional**: No
-
 ## Known limitations
 
 - At least for the AT-500, there is a period of a few seconds during startup when the device may not accept commands, and may report incorrect information. Status should be correct once the boot sequence completes.
