@@ -348,6 +348,8 @@ A season may wrap the end of the year, for example October to March.
 
 If you set `sell_rate` on any period, you must set it on every period. Export rates use the same time boundaries as import rates.
 
+Periods within a season must not overlap, and seasons must not cover the same dates. A period that runs past midnight continues into the following day.
+
 You can reuse a period name within a season to describe a period that is split across the day, such as an off-peak rate that runs overnight and again in the afternoon. Every occurrence of the same name must use the same rates.
 
 {% note %}
@@ -379,7 +381,7 @@ data:
           buy_rate: 0.27
 ```
 
-A seasonal tariff with export rates, where the peak rate only applies on weekdays:
+A seasonal tariff with export rates, where the peak rate only applies on weekday evenings. The off-peak name is reused to cover the rest of the week, which is allowed as long as the rates match:
 
 ```yaml
 action: tesla_fleet.time_of_use
@@ -407,6 +409,31 @@ data:
           buy_rate: 0.30
           sell_rate: 0.15
         - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "00:00:00"
+          end_time: "16:00:00"
+          buy_rate: 0.18
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "19:00:00"
+          end_time: "00:00:00"
+          buy_rate: 0.18
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - saturday
+            - sunday
           buy_rate: 0.18
           sell_rate: 0.08
     - name: Winter
@@ -427,6 +454,31 @@ data:
           buy_rate: 0.42
           sell_rate: 0.15
         - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "00:00:00"
+          end_time: "16:00:00"
+          buy_rate: 0.21
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "19:00:00"
+          end_time: "00:00:00"
+          buy_rate: 0.21
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - saturday
+            - sunday
           buy_rate: 0.21
           sell_rate: 0.08
 ```
