@@ -75,10 +75,6 @@ fields:
         description:
           description: A description of this script parameter.
           type: string
-        advanced:
-          description: Marks this field as an advanced parameter.
-          type: boolean
-          default: false
         required:
           description: Marks this field as required. This is a UI-only feature.
           type: boolean

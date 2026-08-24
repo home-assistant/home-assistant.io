@@ -6,6 +6,7 @@ ha_category:
   - Car
   - Energy
   - Sensor
+  - Switch
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - diagnostics
   - number
   - sensor
+  - switch
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -143,6 +145,12 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 
 - **Restart**: Restarts the charging module.
 - **Restart Wi-Fi**: Restarts the charger's Wi-Fi module. Use this if the charger drops off your network but is otherwise powered.
+
+### Switches
+
+- **Current shaper**: Enables or disables the power shaper feature to dynamically limit charging power based on whole-home electrical load.
+- **Manual override**: Toggles manual override on the charger to start or pause charging regardless of scheduled or automatic claim states.
+- **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation.
 
 ## Examples
 

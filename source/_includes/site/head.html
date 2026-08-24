@@ -5,23 +5,38 @@
   <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
+    {% if page.external_url %}
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <script type="text/javascript">window.location.replace({{ page.external_url | jsonify | replace: '</', '<\/' }});</script>
+    <meta http-equiv="refresh" content="0; url={{ page.external_url | escape_once }}">
+    {% endif %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="author" content="{% if page.author %}{% if page.author.first %}{{ page.author | join: ", " }}{% else %}{{ page.author }}{% endif %}{% else %}{{ site.author }}{% endif %}">
     <meta name="description" content="{{ page.description | default: site.description | strip_html | truncate: 160 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width">
+    {% if page.external_url %}
+    <link rel="canonical" href="{{ page.external_url | escape_once }}">
+    {% else %}
     <link rel="canonical" href="{{ page.url | canonical_url }}">
+    {% endif %}
 
     {% include site/social_meta.html %}
     {% include site/structured_data.html %}
 
     <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.min.css" rel="stylesheet" />
     <link href="{{ '/stylesheets/prism.css' | cache_buster }}" rel="stylesheet">
+    <link href="{{ '/stylesheets/photoswipe/photoswipe.css' | cache_buster }}" rel="stylesheet">
     <link href="{{ '/stylesheets/screen.css' | cache_buster }}" media="screen, projection, print" rel="stylesheet">
     <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/svg+xml' href='/images/favicon.svg' sizes='any' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+    <link rel='apple-touch-icon' href='/images/favicon-192x192.png' sizes='192x192' />
+    <meta name='apple-mobile-web-app-title' content='{{ site.title }}' />
+    <meta name='theme-color' content='#18bcf2' />
+    <link rel='manifest' href='/site.webmanifest' />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
