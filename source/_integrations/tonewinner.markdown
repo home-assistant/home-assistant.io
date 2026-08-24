@@ -15,7 +15,7 @@ ha_release: "2026.9"
 ha_quality_scale: silver
 ---
 
-The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection, via a USB-to-serial adapter, or with a serial proxy with an ESPHome device.
+The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection via a USB-to-serial adapter or with an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy.
 
 ## Supported devices
 
@@ -25,6 +25,7 @@ The integration is known to work with the AT-500, but should work with other Ton
 
 - A Tonewinner processor or receiver with an RS-232 serial port.
 - A serial connection between the receiver and the machine running Home Assistant. If your machine does not have a serial port, a USB-to-serial adapter can be used.
+- The receiver communicates at 9600 baud. If you use an ESPHome-based serial proxy, configure its UART for 9600 baud.
 
 {% include integrations/config_flow.md %}
 
@@ -32,33 +33,15 @@ The integration is known to work with the AT-500, but should work with other Ton
 Serial port:
   description: >-
     The serial port the receiver is connected to, for example, `/dev/ttyUSB0`.
-    The list only shows serial ports connected via USB that were detected by Home Assistant.
-Baud rate:
-  description: >-
-    The baud rate for the serial connection. This should be 9600 for all Tonewinner devices.
+    The list shows the serial ports detected by Home Assistant, including
+    USB-to-serial adapters and ESPHome-based serial proxies. If your port is
+    not in the list, you can enter its path manually.
 {% endconfiguration_basic %}
 
-## Configuration options
+## Change the serial port
 
-Configuration options can be changed from the integration page.
-
-{% configuration_basic %}
-Serial port:
-  description: >-
-    The serial port the receiver is connected to. Changing this reconnects the
-    integration to the receiver on a different port.
-Baud rate:
-  description: The baud rate for the serial connection.
-Enabled:
-  description: >-
-    For each input (HDMI 1-6, Optical 1-2, Coaxial 1-2, Analog 1-3, Bluetooth,
-    USB, PC, and HDMI eARC): whether the input is shown in the source list of
-    the media player entity. Not all devices have all of these inputs, so you can disable inputs that aren't available on your device, as well as ones you don't use.
-Custom name:
-  description: >-
-    For each input: the name shown in the source list instead of the default
-    name.
-{% endconfiguration_basic %}
+To connect the receiver to a different serial port later, select **Reconfigure**
+on the integration page and choose the new port.
 
 ## Supported functionality
 
