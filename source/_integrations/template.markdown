@@ -96,28 +96,6 @@ Configuration using our user interface provides a more limited subset of options
 If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
 {% endnote %}
 
-## Automation template trigger
-
-The automation template trigger runs an automation when a template changes from false to true. It is useful when the condition you need cannot be expressed with a state, numeric state, or device trigger.
-
-A template is considered true when it renders `true`, `yes`, `on`, `enable`, or a non-zero number. It is considered false when it renders any other value.
-
-{% example %}
-trigger: |
-  trigger: template
-  value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
-  for:
-    minutes: 5
-{% endexample %}
-
-Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
-
-You can use `for` to require the template to stay true for a set time. Templates in `for` are evaluated when `value_template` becomes true.
-
-{% note %}
-The `for` option does not survive a Home Assistant restart or the reload of automations. To keep a time target across restarts, store the target time in an `input_datetime` helper and use that helper in your automation.
-{% endnote %}
-
 ## YAML configuration
 
 Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
@@ -2734,6 +2712,28 @@ template:
 ```
 
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
+
+## Automation template trigger
+
+The automation template trigger runs an automation when a template changes from false to true. It is useful when the condition you need cannot be expressed with a state, numeric state, or device trigger.
+
+A template is considered true when it renders `true`, `yes`, `on`, `enable`, or a non-zero number. It is considered false when it renders any other value.
+
+{% example %}
+trigger: |
+  trigger: template
+  value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+  for:
+    minutes: 5
+{% endexample %}
+
+Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
+
+You can use `for` to require the template to stay true for a set time. Templates in `for` are evaluated when `value_template` becomes true.
+
+{% note %}
+The `for` option does not survive a Home Assistant restart or the reload of automations. To keep a time target across restarts, store the target time in an `input_datetime` helper and use that helper in your automation.
+{% endnote %}
 
 ## Considerations
 
