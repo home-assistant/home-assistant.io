@@ -76,12 +76,6 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-### Device tracker triggers
-
-Fires when a tracked device arrives home or leaves home, or when the first device arrives or the last device leaves. See [Device tracker integration](/integrations/device_tracker/#triggers).
-
-In YAML, use: `trigger: device_tracker`.
-
 ### Device triggers
 
 Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
