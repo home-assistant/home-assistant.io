@@ -579,10 +579,12 @@ respond_to_read:
   type: boolean
   default: true
 send_on_init:
-  description: Send the first valid value learned by the expose to the KNX bus. If disabled, the first valid value is initialized locally without sending a telegram and remains available for read responses and periodic sending. Subsequent value changes are sent normally.
+  description: Sends the first valid value learned by the entity exposure to the KNX bus.
+    When disabled, Home Assistant initializes the first valid value locally without sending a telegram.
+    The value remains available for read responses and `periodic_send`. Subsequent value changes are sent normally.
   required: false
   type: boolean
-  default: false   
+  default: false
 {% endconfiguration %}
 
 {% enddetails %}
