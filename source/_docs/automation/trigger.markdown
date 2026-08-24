@@ -76,15 +76,6 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-### Device triggers
-
-Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
-[MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through autodiscovery.
-
-In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
-To use a device trigger, set up an automation through the browser frontend.
-If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
-
 ### Event trigger
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
