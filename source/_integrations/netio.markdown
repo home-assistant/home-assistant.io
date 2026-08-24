@@ -18,9 +18,9 @@ related:
     title: Configuration file
 ---
 
-The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and PDUs. The device outputs are exposed as {% term switch %} entities in Home Assistant.
+The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and power distribution units (PDUs). The device outputs are exposed as {% term switch %} entities in Home Assistant.
 
-The integration communicates with the device locally using the JSON version of the NETIO M2M API, which is available on all current NETIO devices (such as PowerCable, PowerBox, PowerPDU, and PowerDIN) as well as on the older Netio4 family.
+The integration communicates with the device locally using the JSON version of the NETIO machine-to-machine (M2M) API, which is available on all current NETIO devices (such as PowerCable, PowerBox, PowerPDU, and PowerDIN) as well as on the older Netio4 family.
 
 ## Prerequisites
 
