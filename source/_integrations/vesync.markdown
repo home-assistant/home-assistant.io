@@ -129,7 +129,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 
 | Sensor                  | Description                                                                            | Example   |
 | ----------------------- | -------------------------------------------------------------------------------------- | --------- |
-| `fan_level`             | The speed the fan is running at. Reported in every mode, including `auto` and `sleep`, where the device chooses the level itself and the fan entity reports no percentage. | 2 |
+| `fan_level`             | The level the fan is running at. Unlike the fan entity's percentage, this is reported in every mode, including `auto` and `sleep`. | 2 |
 | `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/EverestAir)   | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
