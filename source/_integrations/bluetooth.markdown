@@ -342,6 +342,11 @@ The following remote adapters are supported:
   - Bluetooth advertisement bundling: Shelly Gen2+ device
   - Single active connection: not supported
   - Multiple active connections: not supported
+- [SMLIGHT](/integrations/smlight/)
+  - Bluetooth advertisement listening: SMLIGHT SLZB-U device
+  - Bluetooth advertisement bundling: SMLIGHT SLZB-U device
+  - Single active connection: not supported
+  - Multiple active connections: not supported
 
 Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
 

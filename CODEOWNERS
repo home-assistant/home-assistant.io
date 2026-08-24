@@ -366,6 +366,7 @@ source/_integrations/garage_door.markdown @home-assistant/core
 source/_integrations/garages_amsterdam.markdown @klaasnicolaas
 source/_integrations/gardena_bluetooth.markdown @elupus
 source/_integrations/gate.markdown @home-assistant/core
+source/_integrations/gatus.markdown @TN-1
 source/_integrations/gaviota.markdown @starkillerOG
 source/_integrations/gdacs.markdown @exxamalte
 source/_integrations/generic.markdown @davet2001
@@ -662,7 +663,7 @@ source/_integrations/modem_callerid.markdown @tkdrob
 source/_integrations/modern_forms.markdown @wonderslug
 source/_integrations/moehlenhoff_alpha2.markdown @j-a-n
 source/_integrations/moisture.markdown @home-assistant/core
-source/_integrations/monarch_money.markdown @jeeftor
+source/_integrations/monarch_money.markdown @jeeftor @bradleyseanf
 source/_integrations/monessen.markdown @jeeftor
 source/_integrations/monoprice.markdown @etsinko @OnFreund
 source/_integrations/monzo.markdown @jakemartin-icl
@@ -792,7 +793,6 @@ source/_integrations/peco.markdown @IceBotYT
 source/_integrations/peco_opower.markdown @tronikos
 source/_integrations/pegel_online.markdown @mib1185
 source/_integrations/pepco.markdown @tronikos
-source/_integrations/permobil.markdown @IsakNyberg
 source/_integrations/persistent_notification.markdown @home-assistant/core
 source/_integrations/pge.markdown @tronikos
 source/_integrations/pglab.markdown @pglab-electronics

@@ -103,7 +103,7 @@ It leverages `select_source` action from the [Media player](/integrations/media_
 
 To find available sources for your TV
 
-1. Go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
+1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 2. Find your TV's media_player entity.
 3. Look for the `source_list` attribute which contains all available sources.
 
@@ -185,6 +185,7 @@ Make sure to enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 - If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.
 - Most newer TV firmware does not allow passing the `icon` parameter to the `notify` command, the TV will ignore the icon and only display the message.
+- On some TV firmware versions, passing the `icon` parameter to the `notify` command can prevent the notification from being shown.
 
 ## Removing the integration
 

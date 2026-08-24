@@ -11,6 +11,8 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
+  - select
   - sensor
   - water_heater
 ha_integration_type: device
@@ -76,25 +78,37 @@ The following switches can be used:
 
 ## Air-to-Water device
 
-An Air-to-Water device provides `water_heater`, `climate`, `sensor`, and `binary_sensor` platforms.
+An Air-to-Water device provides `water_heater`, `climate`, `select`, `number`, `sensor`, and `binary_sensor` platforms.
 
 ### Climate
 
 A `climate` platform entity is provided for each radiator zone in the air-to-water system. The following parameters can be controlled:
 
-- Target room temperature
+- Power (on/off). MELCloud exposes a single system-wide power state, so turning a zone off also stops the other zones and the hot water tank.
+- HVAC mode: `heat` or `off`, and `cool` on cooling-capable systems.
+- Target room temperature.
 
-The radiators need to be configured to run in room temperature control mode either through the local HMI or MELCloud. Flow temperature and curve modes are not supported.
-
-Some air-to-water devices allow cooling using the radiator zones. This feature has not been implemented due to the lack of sample devices.
-
-The system cannot be turned on/off through the `climate` entities.
+Each zone's temperature control method (**Room**, **Flow**, or **Curve**) is chosen with the operation mode `select` entity, and the target flow temperature is set with the flow temperature `number` entity while in flow temperature mode. See the [Select](#select) and [Number](#number) sections below.
 
 #### State attributes
 
 |Attribute|Description|Example|
 |---------|-----------|-------|
 |`status` |Current operation status|`idle`|
+
+### Select
+
+An operation mode `select` entity is provided for each radiator zone. It sets how the zone controls its temperature, matching the **Room** / **Flow** / **Curve** options in the MELCloud app:
+
+- **Room**: The zone targets the room temperature set on the `climate` entity.
+- **Flow**: The zone targets a flow temperature.
+- **Curve**: The zone follows the weather compensation curve configured on the unit; the target is determined automatically. Heating only.
+
+The heating or cooling direction is set separately with the `climate` entity's HVAC mode, and the selected method is kept when the direction changes.
+
+### Number
+
+A flow temperature `number` entity is provided for each radiator zone to set its target flow temperature. It follows the zone's current heating or cooling direction and is only available while the zone is controlled by flow temperature. The setting does not apply in the other control methods.
 
 ### Sensor
 
