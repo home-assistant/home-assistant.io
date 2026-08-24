@@ -25,7 +25,7 @@ The integration is known to work with the AT-500, but should work with other Ton
 
 - A Tonewinner processor or receiver with an RS-232 serial port.
 - A serial connection between the receiver and the machine running Home Assistant. If your machine does not have a serial port, a USB-to-serial adapter can be used.
-- The receiver needs to be powered on, though it can be in standby mode. 
+- The receiver needs to have power, and it can be in standby mode.
 - The receiver communicates at 9600 baud. If you use an ESPHome-based serial proxy, configure its UART for 9600 baud.
 
 {% include integrations/config_flow.md %}
@@ -59,7 +59,7 @@ You can use Home Assistant to:
 
 - At least for the AT-500, there is a period of a few seconds during startup when the device may not accept commands, and may report incorrect information. Status should be correct once the boot sequence completes.
 - The device should be powered on and connected to the serial port before setting up the integration in Home Assistant.
-- If the device is in standby mode, the model will not be detected by Home Assistant. This doesn't affect the functionality of the integration, but the model name won't appear in the device details.
+- If the device is in standby mode, Home Assistant cannot detect the device's model name. This does not affect the functionality of the integration, but the model name will not appear in the device details.
 
 ## Removing the integration
 
