@@ -5,7 +5,7 @@ domain: collection_image
 description: "Update the image entity to a random image from the configured media."
 ---
 
-Use this action to randomly select a new image for a collection_image entity.
+Use this action to randomly select a new image for a collection image entity.
 
 {% include actions/ui_header.md %}
 
@@ -33,6 +33,8 @@ action: |
   target:
     entity_id: image.my_photos
 {% endexample %}
+
+{% include actions/targets.md domain="image" %}
 
 {% include actions/try_it.md %}
 
