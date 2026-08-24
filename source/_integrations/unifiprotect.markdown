@@ -52,7 +52,7 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 
 ### Software support
 
-The minimum supported software version for UniFi Protect is `v7.2.105`. If you have an older version, you will get errors trying to set up the integration.
+Home Assistant requires UniFi Protect `7.2.105` or later. If you're running an earlier version, update UniFi Protect before you set up the integration.
 
 ### Public API features
 
@@ -207,7 +207,7 @@ Relay input channels are not yet supported.
 
 ### UniFi Protect sirens
 
-Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the NVR.
+Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>.
 
 - **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
 
