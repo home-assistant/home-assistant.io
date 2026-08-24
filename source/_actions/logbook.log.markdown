@@ -3,8 +3,6 @@ title: "Log activity"
 action: logbook.log
 domain: logbook
 description: "Adds a custom entry to the Activity panel."
-related_actions:
-  -
 ---
 
 Use this action to write a custom entry to the {% my logbook title="**Activity** panel" %}. This is useful when you want to record a meaningful event in your home's activity history that Home Assistant would not log automatically. For example, use it to record a custom script completing a task, a manual override being triggered, or a note about a condition worth tracking over time.
