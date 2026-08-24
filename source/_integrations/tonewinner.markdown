@@ -49,10 +49,10 @@ on the integration page and choose the new port.
 
 You can use Home Assistant to:
 
-- Turn the receiver on and off
-- Control volume (set, up, and down) and mute
-- Select the input source
-- Select the sound mode (for example, Direct, Pure, Stereo, or All Stereo)
+- Turn the receiver on and off.
+- Control volume (set, up, and down) and mute.
+- Select the input source.
+- Select the sound mode (for example, Direct, Pure, Stereo, or All Stereo).
 
 ## Known limitations
 
