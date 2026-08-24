@@ -196,6 +196,10 @@ Entities appear for each port Forwarding Rule. The switches can be identified fr
 
 Entities appear for each Traffic Rule. The switches can be identified from icon {% icon "mdi:security-network" %}.
 
+### Control Policy Engine rules
+
+Entities appear automatically for Policy Engine rules that block internet access. Turning a switch on enables the corresponding rule in the UniFi Network application. Turning it off disables the rule. Policy Engine configurations that only define routing or Quality of Service do not appear as switches.
+
 ### Control Policy-Based Routing Rules
 
 Entities appear for each Policy-Based Routing Rule. The switches can be identified from icon {% icon "mdi:routes" %}.

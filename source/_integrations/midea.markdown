@@ -4,6 +4,8 @@ description: Instructions on how to integrate devices with Midea protocol into H
 ha_category:
   - Climate
   - Switch
+  - Select
+  - Humidifier
 ha_release: 2026.8
 ha_domain: midea
 ha_config_flow: true
@@ -15,6 +17,8 @@ ha_iot_class: Local Push
 ha_platforms:
   - climate
   - switch
+  - select
+  - humidifier
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -107,6 +111,8 @@ The **Midea** {% term integration %} provides the following entities:
 
 - Climate
 - Switch
+- Select
+- Humidifier
 
 ## Known limitations
 
