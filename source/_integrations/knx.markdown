@@ -498,6 +498,7 @@ knx:
     - type: binary
       entity_id: binary_sensor.kitchen_window
       address: "0/6/5"
+      send_on_init: true
 
     # state of an entity with default value
     - type: binary
@@ -577,6 +578,11 @@ respond_to_read:
   required: false
   type: boolean
   default: true
+send_on_init:
+  description: Send the first valid value learned by the expose to the KNX bus. If disabled, the first valid value is initialized locally without sending a telegram and remains available for read responses and periodic sending. Subsequent value changes are sent normally.
+  required: false
+  type: boolean
+  default: false   
 {% endconfiguration %}
 
 {% enddetails %}
