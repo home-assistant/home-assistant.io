@@ -77,7 +77,7 @@ When the doorbell rings, only announce it through the living room speaker if the
 - **Condition**: Light is on
 - **Target**: Living room light
 - **Condition passes if**: Any
-- **Action**: Media player: Play media
+- **Action**: Play media
 
 {% details "YAML example for a doorbell announcement gated on lights" %}
 

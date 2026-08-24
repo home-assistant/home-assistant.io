@@ -300,6 +300,16 @@ alarm_control_panel:
       description: Defines an action to run when the alarm is armed to vacation mode.
       required: false
       type: action
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `code_format`, `changed_by`, and `code_arm_required`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     code_arm_required:
       description: If true, the code is required to arm the alarm.
       required: false
@@ -525,6 +535,15 @@ button:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     press:
       description: Defines actions to run to press the button.
       required: true
@@ -573,6 +592,16 @@ cover:
   description: Characteristics of a cover
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     close_cover:
       description: Defines an action to close the cover.
       required: inclusive
@@ -731,6 +760,16 @@ device_tracker:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     in_zones:
       description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity IDs. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
       required: false
@@ -893,6 +932,16 @@ fan:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     direction:
       description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
       required: false
@@ -1092,6 +1141,15 @@ image:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `access_token` attribute is not allow inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     url:
       description: The URL on which the image is served.
       required: true
@@ -1135,7 +1193,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp_kelvin }}"
+            value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1192,7 +1250,7 @@ template:
         set_temperature:
           action: input_number.set_value
           data:
-            value: "{{ color_temp_kelvin }}"
+            value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
         set_hs:
           - action: input_number.set_value
@@ -1272,6 +1330,16 @@ light:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     effect:
       description: Defines a template to get the effect of the light.
       required: inclusive
@@ -1365,7 +1433,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light in Kelvin. The template must return a value between 2000 and 6535.
+      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
       required: false
       type: template
       default: optimistic
@@ -1550,6 +1618,16 @@ lock:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     code_format:
       description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is `unavailable`. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
       required: false
@@ -1715,6 +1793,16 @@ number:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     max:
       description: Template for the number's maximum value.
       required: false
@@ -1817,6 +1905,15 @@ select:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `options` attribute is not allow inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     optimistic:
       description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select updates only when the `state` template returns a new value.
       required: false
@@ -2044,6 +2141,15 @@ switch:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     optimistic:
       description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch updates only when the `state` template returns a new value.
       required: false
@@ -2178,6 +2284,16 @@ update:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `auto_update`, `display_precision`, `installed_version`, `in_progress`, `latest_version`, `release_summary`, `release_url`, `skipped_version`, `title`, `update_percentage`, and `device_class`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     backup:
       default: false
       description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable always provides `False` during the `install` action, and it does not accept the `backup` option.
@@ -2451,6 +2567,16 @@ weather:
       description: The current apparent (feels-like) temperature.
       required: false
       type: template
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `temperature`, `apparent_temperature`, `dew_point`, `temperature_unit`, `humidity`, `ozone`, `cloud_coverage`, `uv_index`, `pressure`, `pressure_unit`, `wind_bearing`, `wind_gust_speed`, `wind_speed`, `wind_speed_unit`, `visibility`, `visibility_unit`, and `precipitation_unit`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     cloud_coverage:
       description: The current cloud coverage.
       required: false
