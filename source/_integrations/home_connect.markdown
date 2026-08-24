@@ -97,6 +97,18 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
+During setup, you will also be asked whether you want to enable the `Images` scope. Enabling this scope allows Home Assistant to retrieve images from appliances that have cameras. See [Image entities](#image) to see what entities could be created if the scope is enabled.
+To use this feature, the scope must first be enabled in the Home Connect developer portal application.
+<p class='img'><img src='/images/integrations/home_connect/granted_scopes_w_image_scope.png' alt="Table of granted scopes for a Home Connect application.">
+The `Images` scope is enabled because it has a checkmark in the **Images** column.
+</p>
+
+{% note %}
+
+You might need to contact Home Connect support to enable the `Images` scope for your application.
+
+{% endnote %}
+
 ## Supported functionality
 
 {% note %}
@@ -1305,6 +1317,19 @@ To solve the above issue, follow these steps:
     ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
+
+#### Symptom: Account linking rejected: invalid_scope
+
+##### Description
+
+The Home Connect integration was initially configured with the Images scope, but that scope is not enabled in the Home Connect developer portal for the application credentials used by the integration.
+
+##### Solution
+
+You can resolve this in one of two ways:
+
+1. Enable the `Images` scope in the Home Connect developer portal for the application used by the integration. You might need to contact Home Connect support to enable this scope for your application.
+2. Set up the Home Connect integration again, and do not enable the `Images` scope during configuration.
 
 ### Missing options at the "active program" and "selected program" entities
 
