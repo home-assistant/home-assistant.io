@@ -36,12 +36,12 @@ Samsung TVs expose ExLink in one of two ways:
 
 ## Unsupported devices
 
-- Samsung TVs without an ExLink jack or USB-to-ExLink dongle support.
+- Samsung TVs that do not have an ExLink jack and do not support the Samsung USB-to-ExLink dongle.
 - Samsung commercial displays that use the MDC protocol rather than ExLink.
 
 ## Prerequisites
 
-- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial cable into the ExLink jack, the Samsung USB-to-ExLink dongle, or an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy. The link is 9600&nbsp;8N1.
+- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial cable into the ExLink jack, the Samsung USB-to-ExLink dongle, or an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy. Serial settings are 9600&nbsp;baud, 8 data bits, no parity, and 1 stop bit (8N1).
 - On TVs that use the USB-to-ExLink dongle, **EXT Link Support** and **USB Serial** must be enabled in the TV's hidden service menu. To open it, with the TV off, press **Mute → 1 → 8 → 2 → Power** on the IR remote. The exact location of these settings varies by model, so consult your TV's documentation.
 
 {% include integrations/config_flow.md %}
@@ -138,7 +138,7 @@ Home Assistant could not communicate with the TV over the serial port.
 
 To resolve this issue, try the following steps:
 
-1. On TVs that use the USB-to-ExLink dongle, make sure **EXT Link Support** and **USB Serial** are enabled in the TV's service menu (open it with **Mute → 1 → 8 → 2 → Power**).
+1. On TVs that use the USB-to-ExLink dongle, make sure **EXT Link Support** and **USB Serial** are enabled in the TV's service menu (to open it, with the TV off, press **Mute → 1 → 8 → 2 → Power**).
 2. Verify the cable is connected to the TV's 3.5&nbsp;mm ExLink jack (or the Samsung USB-to-ExLink dongle) and is fully seated.
 3. Confirm the correct serial port was selected, and that no other software is using it.
 
