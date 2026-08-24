@@ -22,6 +22,10 @@ ha_quality_scale: bronze
 
 The **Harbor Sleep** {% term integration %} lets you monitor a [Harbor Sleep](https://harbor.co/) baby monitor in Home Assistant.
 
+For a walkthrough of the setup process, watch the video below.
+
+<lite-youtube videoid="2HrpScE2vLw" videotitle="Harbor Home Assistant Setup"></lite-youtube>
+
 ## Supported devices
 
 The following devices are supported:

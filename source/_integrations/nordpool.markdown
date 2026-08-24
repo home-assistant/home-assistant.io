@@ -97,7 +97,7 @@ Additional sensors are provided for peak and off-peak blocks.
 
 | Sensor                          | Type              | Description                                                                       |
 | ------------------------------- | ----------------- | --------------------------------------------------------------------------------- |
-| [peak/off-peak] highest price   | [Currency]/kWh    | The hightest hourly price during the given timeframe.                             |
+| [peak/off-peak] highest price   | [Currency]/kWh    | The highest hourly price during the given timeframe.                             |
 | [peak/off-peak] lowest  price   | [Currency]/kWh    | The lowest hourly price during the given timeframe.                               |
 | [peak/off-peak] average         | [Currency]/kWh    | The average price of the given timeframe.                                         |
 | [peak/off-peak] time from       | Datetime          | The start date/time of the given timeframe.                                       |
