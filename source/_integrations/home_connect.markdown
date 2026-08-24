@@ -204,15 +204,19 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 
 {% enddetails %}
 
-### Images
+### Image
 
 {% important %}
-Image entities doesn't update automatically. Use the `homeassistant.update_entity` service with one of the appliance's image entities to trigger an update for all of them.
+
+ Image entities do not update automatically. Use the [update entity](/actions/homeassistant.update_entity/) action targeting one of the appliance's image entities to update all image entities for that appliance.
+
 {% endimportant %}
 
 {% details "List of image entities" %}
+
 - **Door right camera**
 - **Interior right camera**
+
 {% enddetails %}
 
 ### Light
