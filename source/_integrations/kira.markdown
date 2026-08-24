@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 Some models (original Kira and Kira128) can be configured to act as either a sensor or as a remote. They are also able act as both when set to Standalone mode. The wireless models are hardware specific so the receiver can only be integrated as a sensor and the transmitter can only be integrated as a remote.
 
-If you are using two or more Kira devices for point to point IR transfer across your network they can continue to perform this function whilst also acting as a sensor or remote for Home Assistant.
+If you are using two or more Kira devices for point to point IR transfer across your network they can continue to perform this function while also acting as a sensor or remote for Home Assistant.
 
 ## Configuration
 
@@ -94,7 +94,7 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 ### Entities
 
-Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check, go to **Settings** > **Developer tools** > **States** and start to type “kira” within the entity list.
+Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and start to type “kira” within the entity list.
 
 <p class='img'>
   <img src='/images/integrations/kira/kira_states.png' />
@@ -172,7 +172,7 @@ When you have filled in the data to match your YAML entry save the script and te
   <img src='/images/integrations/kira/kira_test_script.png' />
 </p>
 
-Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding a number of buttons as a virtual remote in the Home Assistant front end.
+Once you know the code is working and procedure is correct you can use the facility in any number of ways, perhaps triggering the output based on sensor readings or by adding several buttons as a virtual remote in the Home Assistant front end.
 
 ### Example sensor
 
@@ -199,7 +199,7 @@ If the Kira module is to used in conjunction with another module be for IR over 
 
 Note that once you changed the COMPUTER IP you will longer be able to use the Kira utiltiy on your PC to capture IR codes.
 
-Next within Home Assistant go to Developer tools -> States and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
+Next within Home Assistant go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
 
 <p class='img'>
   <img src='/images/integrations/kira/kira_sensor_states.png' />

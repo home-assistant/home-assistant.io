@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#buy {
     background: linear-gradient(180deg, #DADDE2 25%, #FFF 100%);
     height: 560px;
@@ -47,6 +48,13 @@ section#buy {
             width: 100%;
             height: 100%;
         }
+    }
+
+    .currency-symbol {
+        bottom: 0;
+        align-self: flex-end;
+        line-height: 1;
+        font-size: 70%;
     }
 
     .section-inner {

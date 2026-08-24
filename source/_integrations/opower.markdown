@@ -11,9 +11,10 @@ ha_codeowners:
 ha_domain: opower
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).
@@ -48,6 +49,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Long Island
   - National Grid NY Metro
   - National Grid NY Upstate
+- Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
@@ -105,6 +107,14 @@ You will be asked to re-authenticate via MFA every 180 days.
 
 ## Sensors
 
+{% note %}
+Depending on your utility, some or all of the usage and cost sensors may not be provided, or they may permanently show a value of `0`. **This can be normal for some utilities. If your utility should provide these sensors, refer to the troubleshooting steps.**
+
+The primary way this integration provides historical energy data to Home Assistant is through **statistics**. These statistics are not exposed as standard sensor entities.
+
+Use these statistics when configuring the Energy dashboard by selecting a **statistic**. You can also view the available statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%}.
+{% endnote %}
+
 The integration adds the following diagnostic sensors for each account:
 
 - Last changed
@@ -135,7 +145,7 @@ Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic fee
 ## Energy
 
 Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects.
-You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "opower".
 **This delay means that there will be no data in the energy dashboard for today and likely yesterday** (depending on time of day you are checking).
 
 At the initial setup, the integration pulls historical monthly usage/cost since the account activation. If the utility provides more granular data, it pulls daily usage/cost for the past 3 years and hourly usage/cost for the past 2 months (note: typically, utilities provide only monthly or daily data for gas).
@@ -179,19 +189,22 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 ## Known limitations
 
 - There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
-- For some utilities, there are no usage/cost sensors added by this integration.
+- For some utilities, there are no usage/cost sensors added by this integration, or they may constantly show a value of `0`. This is expected and fine; you should use the statistics instead.
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+- For some utilities, the account number displayed in Home Assistant might not match the account number on your utility bill or web portal. This is expected behavior. The integration uses an internal identifier from the Opower system (`preferredUtilityAccountId`), which can differ from your public billing account number (`accountName`). It does not mean you are connected to anyone else's account or that you are seeing someone else's statistics.
 
 ## Troubleshooting
 
+- If your usage or cost sensors are completely missing or showing `0`, this may be expected behavior; see **Known limitations** above.
+- If the account number shown in Home Assistant doesn't match the one on your bill, this is normal and does not mean you are connected to someone else's account; see [Known limitations](#known-limitations) above.
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
-- In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+- When configuring the Energy dashboard in Home Assistant, use the statistics as described in **Known limitations** above.
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
 If you remove the integration, the statistics are not automatically deleted.
-You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".
+You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "opower".

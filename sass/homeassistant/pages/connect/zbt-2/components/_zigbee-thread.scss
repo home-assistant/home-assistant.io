@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#zigbee-thread {
     .container {
         flex-direction: column;

@@ -33,7 +33,6 @@ To configure this sensor, define the sensor connection variables and a list of q
 To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml
 sql:
@@ -61,7 +60,6 @@ sql:
         1;
     column: "state"
 ```
-{% endraw %}
 
 {% configuration %}
 sql:
@@ -131,72 +129,7 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 {% include common-tasks/define_custom_polling.md %}
 
-## Actions
-
-### Action: SQL query
-
-The `sql.query` action executes an arbitrary read-only `SELECT` query against a database and gets the results back.
-
-- **Data attribute**: `query`
-  - **Description**: The `SELECT` query to execute. Only `SELECT` statements are allowed.
-  - **Optional**: No
-- **Data attribute**: `db_url`
-  - **Description**: The URL of the database to connect to. If not provided, the default Home Assistant recorder database will be used.
-  - **Optional**: Yes
-
-The `sql.query` action returns a list of rows, where each row is a dictionary of column names to values.
-
-#### Data type conversion
-
-The data returned by the database is converted to be compatible with the action response. The following conversions are applied:
-
-- `Decimal` types are converted to floats.
-- `Date` and `Datetime` objects are converted to ISO 8601 formatted strings.
-- `bytes` and `bytearray` are converted to a hexadecimal string prefixed with `0x`.
-- All other basic types (string, integer, float, boolean) are returned as is.
-
-#### Example
-
-##### Example of calling the `sql.query` action in an automation:
-
-{% raw %}
-
-```yaml
-action: sql.query
-data:
-  query: |-
-    SELECT
-      states.state,
-      last_updated_ts
-    FROM
-      states
-      INNER JOIN states_meta ON
-        states.metadata_id = states_meta.metadata_id
-    WHERE
-      states_meta.entity_id = 'sun.sun'
-    ORDER BY
-      last_updated_ts DESC
-    LIMIT
-      3;
-response_variable: sun_history
-```
-
-{% endraw %}
-
-This would return a result similar to this, which will be stored in the `sun_history` variable:
-
-{% raw %}
-
-```yaml
-result:
-  - state: below_horizon
-    last_updated_ts: 1760634101.8498254
-  - state: below_horizon
-    last_updated_ts: 1760633981.849044
-  - state: below_horizon
-    last_updated_ts: 1760633861.848531
-```
-{% endraw %}
+{% include integrations/actions.md %}
 
 ## Information
 

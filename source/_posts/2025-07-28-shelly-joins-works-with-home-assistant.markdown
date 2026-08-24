@@ -47,15 +47,7 @@ In case you didn’t know, Works with Home Assistant differs from other certific
 
 **What devices have been certified?**
 
-- [Shelly Wave PM Mini](https://www.shelly.com/products/shelly-qubino-wave-pm-mini)
-
-- [Shelly Wave i4](https://www.shelly.com/products/shelly-qubino-wave-i4)
-
-- [Shelly Wave 1PM Mini](https://www.shelly.com/products/shelly-qubino-wave-1pm-mini)
-
-- [Shelly Wave 2PM](https://www.shelly.com/products/shelly-qubino-wave-2pm)
-
-- [Shelly Wave Pro 1PM](https://www.shelly.com/products/shelly-wave-pro-1-pm)
+{% include integrations/device_list.html brand="shelly" %}
 
 Whilst the Shelly Wave Pro 1PM sits in an electrical box, the remaining devices sit behind a standard plug, switch or device. This means they are a super cost-effective way to retrofit devices, which in turn reduces e-waste. The Minis are very small (duh), and so should fit in most tight places around the home, even with low-profile installations. The Shelly Wave 1PM Mini is the world’s smallest Z-Wave smart switch. In some areas of the world, you may need professional installation by a qualified electrician, so be sure to check your region's regulations. If you’re a confident DIYer, Shelly has a lot of [helpful guides](https://kb.shelly.cloud/knowledge-base/installation-guides) on their site to walk you through installing it yourself.
 

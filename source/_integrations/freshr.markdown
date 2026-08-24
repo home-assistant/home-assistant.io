@@ -8,10 +8,12 @@ ha_iot_class: Cloud Polling
 ha_domain: freshr
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_codeowners:
   - '@SierraNL'
+ha_quality_scale: platinum
 ---
 
 The **Fresh-r** {% term integration %} connects to the [fresh-r.me](https://www.fresh-r.me/) cloud dashboard, letting you monitor all Fresh-r ventilation devices linked to your account. It polls the Fresh-r cloud to keep your data up to date. Use it to keep an eye on your indoor air quality and ventilation performance, or to trigger automations when CO2 or humidity levels need attention.
@@ -97,13 +99,12 @@ The **Fresh-r** integration {% term polling polls %} sensor readings from the Fr
 - Some Fresh-r systems include an air quality sensor, which is not yet supported by this integration.
 - Because data is {% term polling polled %} every 10 minutes, sensor values may be slightly behind real-time readings.
 - The integration depends on the Fresh-r cloud service. If the service is unavailable, data will not update until the connection is restored.
-- Devices that are removed from your Fresh-r account are not automatically removed from Home Assistant. Remove and re-add the integration to update the device list.
 
 ## Troubleshooting
 
 ### Authentication failed
 
-If the integration shows an authentication error, make sure the username (email address) and password you entered match the credentials you use to sign in to [fresh-r.me](https://www.fresh-r.me/). If you recently changed your password, remove the integration and add it again with your updated credentials.
+If the integration shows an authentication error, make sure the username (email address) and password match what you use to sign in to [fresh-r.me](https://www.fresh-r.me/). If you recently changed your password, Home Assistant will prompt you to reauthenticate. Select the notification to re-enter your updated credentials without having to remove and re-add the integration.
 
 ### Cannot connect to Fresh-r
 
@@ -111,7 +112,7 @@ If the integration cannot connect or sensor values stop updating, check that you
 
 ### No devices appear after setup
 
-If the integration is set up successfully but no devices or sensors appear in Home Assistant, make sure at least one Fresh-r ventilation unit is connected and visible in your [fresh-r.me](https://www.fresh-r.me/) dashboard before setting up the integration. If you add or remove a device from your account, remove and re-add the integration to update the device list.
+If the integration is set up successfully but no devices or sensors appear in Home Assistant, make sure at least one Fresh-r ventilation unit is connected and visible in your [fresh-r.me](https://www.fresh-r.me/) dashboard before setting up the integration. Devices added to or removed from your Fresh-r account are picked up automatically within an hour.
 
 ## Removing the integration
 

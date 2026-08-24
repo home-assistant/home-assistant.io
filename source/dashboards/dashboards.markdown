@@ -1,6 +1,6 @@
 ---
 title: "Multiple dashboards"
-description: "Multiple powerful and configurable dashboards in Home Assistant."
+description: "Create more than one dashboard in Home Assistant: a private overview for yourself, a simpler one for the rest of the household, and a tablet view in the kitchen."
 related:
   - docs: /integrations/logbook/
     title: Activity integration
@@ -55,6 +55,7 @@ Some of the built-in dashboards are not shown in the sidebar by default, but are
 - **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
 - **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
 - **Energy** dashboards: Allows you to visualize your energy consumption and production, if you have such entities available. This includes electricity from grid and from solar panels, gas and water consumption, and the status of your battery storage.
+- **Maintenance** dashboard: Overview of your battery entities, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). Low batteries are highlighted so you can spot the ones that need attention at a glance.
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards for example are powered by their respective integrations.
 
@@ -138,7 +139,7 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
    1. Go to {% my profile title="**User profile**" %}.
-   2. On the **General** tab, under **Dashboard**, select your default dashboard.
+   2. On the **General** tab, next to **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
    3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
@@ -153,20 +154,19 @@ This will leave the default dashboard intact.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select **Add dashboard**.
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Overview** or one of the suggested ones, such as the **Map** dashboard.
+   - If you want to start with a pre-populated dashboard, choose **Overview (Legacy)** or one of the suggested ones, such as the **Map** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
-   ![Screenshot of the Add Dashboard dialog showing dashboard options like Overview, Map, and Areas](/images/dashboards/dashboards-add-dashboard-selector.png)
 
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
-   - **Result**: The dashboard is added.
+   - Result: The dashboard is added.
 
 ## Editing a new dashboard
 
 1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
-   - **Result**: The **Edit dashboard** dialog appears.
+   - Result: The **Edit dashboard** dialog appears.
 2. Select the areas you want to show on this new dashboard and select **Save**.
 3. If you want to have more detailed control over the dashboard, you need to take control:
      - This means that this dashboard is no longer automatically updated when new dashboard elements become available.
@@ -177,7 +177,6 @@ This will leave the default dashboard intact.
 
    ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
 
-
 ## Deleting a dashboard
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
@@ -187,9 +186,30 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
+## Reorganizing items in the sidebar
+
+You can define which elements are shown in the sidebar and the order in which they appear.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+3. Drag and drop items to reorder them, and toggle items to show or hide them.
+4. Select **Save**.
+
+## Restoring the sidebar to its defaults
+
+If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
+
+1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
+2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reset to defaults**.
+
 ## Adding YAML dashboards
 
-You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file. To add YAML dashboards, in your `configuration.yaml` file create a `dashboards:` section under the top-level `lovelace:` key.
+You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file.
+
+If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know how to install a file editor and find the file.
+
+To add YAML dashboards, in your `configuration.yaml` file, create a `dashboards:` section under the top-level `lovelace:` key.
 
 ```yaml
 lovelace:
@@ -289,7 +309,7 @@ views:
           Welcome to your **dashboard**.
 ```
 
-A slightly more advanced example:
+Here is a more customized example:
 
 ```yaml
 views:
