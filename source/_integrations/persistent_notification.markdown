@@ -46,7 +46,7 @@ See [Automation Trigger Variables: Persistent Notification](/docs/automation/tem
 
 ## Use as a notifier
 
-Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) when that integration is loaded. It is available as `notify.persistent_notification`. This lets you use it with features that require a notifier, such as [notify groups](/integrations/group/#notify-groups) or the [Alert integration](/integrations/alert/).
+Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) when that integration is loaded. It is available as `notify.persistent_notification`. This lets you use it with features that require a notifier, such as [notify action groups](/integrations/group/#notify-action-groups) or the [Alert integration](/integrations/alert/).
 
 You can place the following attribute inside `data` for extended functionality:
 

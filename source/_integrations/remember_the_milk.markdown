@@ -6,64 +6,32 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.57
 ha_domain: remember_the_milk
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_integration_type: service
+ha_config_flow: true
 ha_quality_scale: legacy
 ---
 
-The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
+The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk](https://www.rememberthemilk.com) (<abbr title="Remember The Milk">RTM</abbr>) from Home Assistant. You can use this if you want Home Assistant to send you a task you should not forget, for example, to water the plants. The integration supports connecting several Remember The Milk accounts.
 
-## Setup
+## Prerequisites
 
-The setup consists of two steps: getting an API key and registering your account
+You need a Remember The Milk account, an API key, and a shared secret.
 
-### Step 1: API key
+1. Sign in to your [Remember The Milk account](https://www.rememberthemilk.com).
+2. Apply for an [API key](https://www.rememberthemilk.com/services/api/keys.rtm). You also receive a shared secret when the key is approved.
 
-To be able to use this integration, you need a Remember The Milk account and you need to apply for your own [API key](https://www.rememberthemilk.com/services/api/keys.rtm). With the API key you will also receive your personal shared secret. Both of them need to be stored in your Home Assistant {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
+{% configuration_basic %}
+API key:
+  description: The API key of your Remember The Milk API application.
+Shared secret:
+  description: The shared secret of your Remember The Milk API application.
+{% endconfiguration_basic %}
 
-remember_the_milk:
-  - name: your_rtm_username
-    api_key: YOUR_API_KEY
-    shared_secret: YOUR_SHARED_SECRET
+After you enter your API key and shared secret, Home Assistant shows an **Authorize** link. Select the link to allow Home Assistant to access your Remember The Milk account on the Remember The Milk website. When you have completed the authorization, return to Home Assistant and select **Submit** to finish the setup.
 
-```
-
-{% configuration %}
-  name:
-    description: Your RTM username, as you can have several accounts in RTM. The name must be unique.
-    required: true
-    type: string
-  api_key:
-    description: Put the API key you've received in here.
-    required: true
-    type: string
-  shared_secret:
-    description: Put the shared secret you've received in here.
-    required: true
-    type: string
-{% endconfiguration %}
-
-### Step 2: Registering your account
-
-After you save the configuration:
-
-1. Restart Home Assistant. When it starts again, you receive a "Configurator" notification in Home Assistant.
-2. Select **Configure**.
-3. On the dialog, select **Remember The Milk login** and log into Remember The Milk website.
-4. Select **OK, I'll allow it** to authorize Home Assistant to access your Remember The Milk account.
-5. Close the RTM browser tab, and back in Home Assistant, select **login completed**.
-
-This tells Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
-
-If the registration was successful, the Configurator notification disappears from your Home Assistant notifications.
-
-In the background, Home Assistant downloaded a token from the Remember The Milk server, stored in the `remember_the_milk.conf` file locally.
+To connect more than one account, add the integration again for each Remember The Milk account.
 
 ### Verifying configuration
 
@@ -97,6 +65,12 @@ automation: |
           data:
             id: "{{ trigger.entity_id }}"
 {% endexample %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Disclaimer
 

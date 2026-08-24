@@ -71,10 +71,10 @@ for:
 
 ## Good to know
 
-- This condition works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+- The target must be a contact sensor or cover with the door device class.
+- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted door is open.
-- With **All**, the condition passes only if every available targeted door is open. If every targeted door is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- With **All**, the condition passes only if every available targeted door is open. If every targeted door is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
 
 {% include conditions/try_it.md %}
 
