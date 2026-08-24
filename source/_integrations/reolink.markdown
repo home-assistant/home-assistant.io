@@ -744,7 +744,7 @@ Prerequisites:
 1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
    - Decide how many time delay choices you want. 
    - Add them all to the dropdown like below. 
-   - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+   - Your first entry needs to be "Notifications active" (or similar phrasing) for when the notifications are turned on. 
    - You can define as many time options as you want. And you can define any time interval you like, for example, 22 minutes, 2 hours.
 
     ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
@@ -863,7 +863,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 ### Streams or recordings not playing
 
-- Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
+- Most Reolink cameras use h265 encoding for the high-resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you access Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find either `"encoding main": "h265"` or `"encoding main": "h264"` in the text file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
 
 ### Reducing latency of motion events
 

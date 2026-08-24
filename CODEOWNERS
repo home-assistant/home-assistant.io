@@ -663,7 +663,7 @@ source/_integrations/modem_callerid.markdown @tkdrob
 source/_integrations/modern_forms.markdown @wonderslug
 source/_integrations/moehlenhoff_alpha2.markdown @j-a-n
 source/_integrations/moisture.markdown @home-assistant/core
-source/_integrations/monarch_money.markdown @jeeftor
+source/_integrations/monarch_money.markdown @jeeftor @bradleyseanf
 source/_integrations/monessen.markdown @jeeftor
 source/_integrations/monoprice.markdown @etsinko @OnFreund
 source/_integrations/monzo.markdown @jakemartin-icl
