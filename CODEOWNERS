@@ -812,7 +812,6 @@ source/_integrations/point.markdown @fredrike
 source/_integrations/pooldose.markdown @lmaertin
 source/_integrations/poolsense.markdown @haemishkyd
 source/_integrations/portainer.markdown @erwindouna
-source/_integrations/portlandgeneral.markdown @tronikos
 source/_integrations/power.markdown @home-assistant/core
 source/_integrations/powerfox.markdown @klaasnicolaas
 source/_integrations/powerfox_local.markdown @klaasnicolaas
