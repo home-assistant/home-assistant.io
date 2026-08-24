@@ -824,13 +824,24 @@ Fan entities are added for Air Purifier, and Air Purifier Table.
 
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
+Note: Air purifiers are available as a US model and a JP model. When the light sensor is activated, turning the light on or off deactivates it.
+
+#### Air Purifier
+
 This is an encrypted device.
 
 Features:
 
-- turn on
-- turn off
-- set mode
+- turn on/off device
+- turn on/off LED
+- turn on/off child lock
+- turn on/off light sensor
+- set fan mode
+- set fan speed
+- set LED RGB
+- set LED brightness
+- get air quality level
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
 
@@ -838,9 +849,17 @@ This is an encrypted device.
 
 Features:
 
-- turn on
-- turn off
-- set mode
+- turn on/off device
+- turn on/off LED
+- turn on/off child lock
+- turn on/off wireless charging
+- turn on/off light sensor
+- set fan mode
+- set fan speed
+- set LED RGB
+- set LED brightness
+- get air quality level
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
 
