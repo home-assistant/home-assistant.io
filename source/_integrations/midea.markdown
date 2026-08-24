@@ -13,6 +13,7 @@ ha_codeowners:
 ha_iot_class: Local Push
 ha_platforms:
   - climate
+  - time
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -104,6 +105,7 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 The **Midea** {% term integration %} provides the following entities:
 
 - Climate
+- Time
 
 ## Known limitations
 
