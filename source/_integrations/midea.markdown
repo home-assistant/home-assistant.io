@@ -3,6 +3,7 @@ title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
   - Climate
+  - Fan
   - Switch
   - Number
   - Select
@@ -17,6 +18,7 @@ ha_codeowners:
 ha_iot_class: Local Push
 ha_platforms:
   - climate
+  - fan
   - switch
   - number
   - select
@@ -112,6 +114,7 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 The **Midea** {% term integration %} provides the following entities:
 
 - Climate
+- Fan
 - Switch
 - Number
 - Select
