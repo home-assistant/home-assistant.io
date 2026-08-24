@@ -4,6 +4,7 @@ description: Instructions on how to integrate devices with Midea protocol into H
 ha_category:
   - Binary sensor
   - Climate
+  - Light
   - Fan
   - Switch
   - Number
@@ -20,6 +21,7 @@ ha_iot_class: Local Push
 ha_platforms:
   - binary_sensor
   - climate
+  - light
   - fan
   - switch
   - number
@@ -117,6 +119,7 @@ The **Midea** {% term integration %} provides the following entities:
 
 - Binary sensor: Door, Motion, Full dust, Salt, Tank full, etc.
 - Climate
+- Light
 - Fan
 - Switch
 - Number
