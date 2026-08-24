@@ -66,7 +66,7 @@ The JSON API account can afterwards be removed from the device web interface.
 
 ## Legacy YAML configuration (deprecated)
 
-The previous version of this integration used the Telnet-based (KSHELL) M2M API and was configured through YAML. This configuration method is deprecated and will be removed in Home Assistant 2027.2.0. Set up the integration through the UI as described above instead.
+The previous version of this integration used the Telnet-based (KSHELL) M2M API and was configured through YAML. This configuration method is deprecated and will be removed in Home Assistant 2027.3.0. Set up the integration through the UI as described above instead.
 
 Note that the older Koukaam NETIO-230x devices do not provide the JSON API and are only supported through the deprecated YAML configuration.
 
