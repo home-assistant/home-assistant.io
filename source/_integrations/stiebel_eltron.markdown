@@ -12,6 +12,7 @@ ha_domain: stiebel_eltron
 ha_platforms:
   - climate
 ha_integration_type: device
+ha_quality_scale: silver
 related:
   - docs: /docs/configuration/
     title: Configuration file

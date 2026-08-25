@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: service
-ha_quality_scale: gold
+ha_quality_scale: platinum
 related:
   - url: https://developers.google.com/health-api
     title: Google Health API

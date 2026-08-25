@@ -15,6 +15,7 @@ ha_platforms:
   - number
   - sensor
 ha_integration_type: device
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 

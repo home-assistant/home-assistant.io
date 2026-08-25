@@ -29,6 +29,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: gold
 ha_zeroconf: true
 ha_dhcp: true
 ---
