@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: hko
 ha_platforms:
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The HKO integration retrieves weather data from the [Hong Kong Observatory](https://www.hko.gov.hk/tc/index.html) [Open Data API](https://www.hko.gov.hk/en/abouthko/opendata_intro.htm) for meteorological data in HKSAR.
+The **Hong Kong Observatory** {% term integration %} retrieves weather data from the [Hong Kong Observatory](https://www.hko.gov.hk/tc/index.html) [Open Data API](https://www.hko.gov.hk/en/abouthko/opendata_intro.htm) for meteorological data in HKSAR.
 
 There is currently support for the following platforms within Home Assistant:
 

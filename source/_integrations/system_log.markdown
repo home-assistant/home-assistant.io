@@ -9,7 +9,7 @@ ha_domain: system_log
 ha_integration_type: system
 ---
 
-The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="**Settings** > **System** > **Logs**" %} (condensed and full raw logs are available). In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored inside a condensed log. Older entries are automatically discarded from a condensed log; a full raw log keeps all records. It is possible to change the number of stored log entries in a condensed log using the parameter `max_entries`.
+The **System Log** {% term integration %} stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="**Settings** > **System** > **Logs**" %} (condensed and full raw logs are available). To not overload Home Assistant with log data, only the 50 last errors and warnings will be stored inside a condensed log. Older entries are automatically discarded from a condensed log; a full raw log keeps all records. It is possible to change the number of stored log entries in a condensed log using the parameter `max_entries`.
 
 ## Configuration
 
@@ -33,21 +33,7 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## Actions
-
-### Action `clear`
-
-To manually clear the system log, use this action.
-
-### Action `write`
-
-Write a log entry
-
-| Data attribute | Optional | Description                                                                    |
-| ---------------------- | -------- | ------------------------------------------------------------------------------ |
-| `message`              | no       | Message to log                                                                 |
-| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.         |
-| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'. |
+{% include integrations/actions.md %}
 
 ## Events
 
@@ -62,7 +48,7 @@ Errors and warnings are posted as the event `system_log_event`, so it is possibl
 | `name`      | Name of the integration, e.g., `homeassistant.components.device_tracker`    |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
-Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
+Live examples of these events can be found in the [Home Assistant logs](/integrations/logger/#viewing-logs). An example could, for instance, look like this:
 
 ```text
 2019-02-14 16:20:35 ERROR (MainThread) [homeassistant.loader] Unable to find integration system_healt
@@ -105,8 +91,6 @@ automation:
 
 This automation will create a persistent notification whenever an error or warning is logged that has the word "action" in the message:
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Create notifications for 'action' errors"
@@ -122,8 +106,6 @@ automation:
           title: "Something bad happened"
           message: "{{ trigger.event.data.message[0] }}"
 ```
-
-{% endraw %}
 
 ### Writing to log
 

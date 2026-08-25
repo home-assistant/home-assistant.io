@@ -2,6 +2,7 @@
 title: Ollama
 description: Instructions on how to integrate Ollama
 ha_category:
+  - AI
   - Voice
 ha_release: 2024.4
 ha_iot_class: Local Polling
@@ -11,7 +12,7 @@ ha_codeowners:
 ha_domain: ollama
 ha_integration_type: service
 related:
-  - docs: /docs/configuration/templating/
+  - docs: /docs/templating/
     title: Home Assistant Templating
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -23,11 +24,11 @@ ha_platforms:
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
 
-Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
+Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
-This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.md#how-can-i-expose-ollama-on-my-network).
+This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network).
 
 {% include integrations/config_flow.md %}
 
@@ -36,10 +37,12 @@ This integration requires an external Ollama server, which is available for macO
 {% configuration_basic %}
 URL:
   description: The URL of the external Ollama server, such as `http://localhost:11434`.
+API Key:
+  description: The API key to use when connecting to the Ollama server. This is optional if your Ollama server does not require authentication.
 Model:
   description: Name of the [Ollama model](https://ollama.com/library) to use, such as `mistral` or `llama2:13b`. Models will be automatically downloaded during setup.
 Instructions:
-  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/templating/).
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it. This feature is considered experimental and see [Controlling Home Assistant](#controlling-home-assistant) below for details on model limitations.
 Context window size:

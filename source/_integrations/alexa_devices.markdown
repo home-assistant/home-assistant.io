@@ -3,9 +3,13 @@ title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_category:
   - Binary Sensor
-  - Notify
+  - Button
+  - Media Player
+  - Notifications
+  - Select
   - Sensor
   - Switch
+  - To-do list
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
@@ -14,12 +18,17 @@ ha_codeowners:
 ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
+  - event
+  - media_player
   - notify
+  - select
   - sensor
   - switch
+  - todo
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Alexa Devices** {% term integration %} lets you control Alexa-enabled devices connected to your Amazon account.
@@ -37,20 +46,20 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
-
+- **Amazon Air Quality Monitor**
 - **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
 
-This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+
+You must ensure the authenticator app is set up as your preferred method for 2FA.
 
 {% endwarning %}
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  country:
-    description: The country of your Amazon account.
   username:
     description: The email address of your Amazon account.
   password:
@@ -59,44 +68,61 @@ This integration requires multifactor authentication using an authentication app
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
 
-{% note %}
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
+{% include integrations/actions.md %}
 
-## Actions
+## Notifications
 
-### Available Actions
+This integration creates **Speak** and **Announce** notify entities for devices that support them. To make a device say something, use the generic [`notify.send_message`](/integrations/notify/) action and target one of these entities.
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
+The **Speak** entity reads your message out loud on the device. The **Announce** entity plays the Alexa notification chime first and then reads your message.
 
-#### Action `notify.send_message`
-
-Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
+To send a message, target one of these notify entities and set the **Message** field to the text you want the device to say.
 
 {% tip %}
 When sending notifications to multiple devices, you may experience delays due to rate limiting by Amazon. You can avoid this by sending notifications to speaker groups created in Alexa.
 {% endtip %}
 
-#### Action `alexa_devices.send_text_command`
+{% details "Advanced message markup" %}
 
-This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
+Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips. Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html) where there are lots of examples (just pass everything between the `<speak>` and `</speak>` elements into the `message` parameter of the action).
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------------------------------------- |
-| `device_id` | no | Device on which you want to run action |
-| `text_command` | no | Command to send |
+Audio files must meet certain criteria on size, bit and sample rates and must be served over HTTPS (see [documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html#audio) for full details).  These restrictions make them fine for text and sound effects but you will not be able to play music this way.
 
-#### Action `alexa_devices.send_sound`
+Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html) which contains the markup you will need for that clip.
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds and their variants is available in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html)
+{% enddetails %}
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------------------------------------- |
-| `device_id` | no | Device on which you want to play sound |
-| `sound_variant` | no | The variant you want to play (generally 1) |
-| `sound` | no | The name of the sound to play |
+## Sensors
+
+The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
+
+### Alarm, timer, and reminder sensors
+
+All Alexa-enabled devices have timestamp sensors that show the next scheduled alarm, timer, and reminder along with their labels.
+
+### Environmental and device sensors
+
+- **Temperature**
+- **Illuminance**
+- **Wi-Fi and Bluetooth connectivity**
+
+#### Air Quality Monitor sensors
+
+- **Particulate Matter** - 10 μm & 2.5 μm
+- **Carbon Monoxide**
+- **Volatile Organic Compounds Index**
+- **Air Quality Index**
+
+## Supported functionality
+
+In addition to sensors, you can use the following entities:
+
+- **Button** - Execute Alexa routines, restart the device
+- **Media Player** - Play audio/video from several sources
+- **Notify** - Speak and Announce notifications
+- **Select** - Select Drop In status
+- **Switch** - Do not disturb
+- **To-do list** - Shopping, to-do, and custom lists.
 
 ## Examples
 
@@ -107,7 +133,7 @@ automation:
 - alias: "Alexa Announce"
   id: "alexa_announce"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: person.simone
       to: "home"
   actions:
@@ -115,89 +141,191 @@ automation:
       data:
         message: Welcome home Simone
       target:
-        entity_id: notify.echo_dot_livingroom_announce
+        entity_id: notify.echo_dot_living_room_announce
 ```
 
-### Ask the time
+### Using advanced markup in a notification
 
 ```yaml
-action: alexa_devices.send_text_command
+action: notify.send_message
 data:
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
-  text_command: whats the time
+  message: >
+    Hello, lets have some examples.
+    <amazon:emotion name="excited" intensity="medium"> This is me being mildly excited! </amazon:emotion>
+    The farmer's dog was called <say-as interpret-as='spell-out'>bingo</say-as>.
+    <prosody pitch='high'> I can sing high </prosody> <prosody pitch='low'> and I can sing low </prosody>
+target:
+  entity_id: notify.study_dot_speak
 ```
-
-### Play BBC Radio 6
 
 ```yaml
-action: alexa_devices.send_text_command
+action: notify.send_message
 data:
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
-  text_command: play BBC Radio 6
+  message: >
+    Stop! <break time='3s'/> Hammer Time. Watch out
+    <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_laser_gun_battle_01"/>
+    Shields up! <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_shields_up_01" />
+    <amazon:effect name="whispered">
+      <prosody rate="x-slow"><prosody volume="loud">Enough now</prosody></prosody>
+    </amazon:effect>
+target:
+  entity_id: notify.study_dot_speak
 ```
 
-### Play a doorbell sound
+### Create a "Last Called" sensor
+
+The integration exposes an event entity for each Alexa device that records voice interactions. Each voice interaction updates the corresponding event entity. The following state-based template sensor tracks the Alexa device that most recently received a voice command and exposes related entities and attributes for use in automations.
+
+{% details "Template sensor" %}
 
 ```yaml
-action: alexa_devices.send_sound
-data:
-  sound_variant: 1
-  sound: amzn_sfx_doorbell_chime
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
+# Example state-based configuration.yaml entry
+template:
+  - sensor:
+    - name: Alexa Devices Last Called
+      unique_id: alexa_devices_last_called
+      state: >
+        {{
+          integration_entities('alexa_devices')
+            | select('match', '^event\.')
+            | select('has_value')
+            | map('states')
+            | sort
+            | last
+        }}
+      attributes:
+        event_entity: >
+          {{
+            integration_entities('alexa_devices')
+              | select('match', '^event\.')
+              | select('has_value')
+              | select('is_state', this.state)
+              | first
+              | default(none)
+          }}
+      
+        voice_command: >
+          {{ state_attr(this.attributes.event_entity, 'voice_command') }}
+      
+        voice_reply: >
+          {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+      
+        notify_announce: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^notify\..*_announce$')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        notify_speak: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^notify\..*_speak$')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        media_player: >
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {{
+            device_entities(dev)
+              | select('match', '^media_player\.')
+              | first
+              | default(none)
+            if dev else none
+          }}
+      
+        serial_number: >-
+          {% set event_entity = this.attributes.event_entity %}
+          {% set dev = device_id(event_entity) if event_entity else none %}
+          {% set identifiers = device_attr(dev, 'identifiers') if dev else none %}
+          {{
+            (identifiers | default([], true) | list | first | default([]) | last)
+            | default(none)
+          }}
+      
+        device_id: >
+          {{ device_id(this.attributes.event_entity) if this.attributes.event_entity else none }}
 ```
+{% enddetails %}
 
-### Play alternative doorbell sound
+This sensor automatically tracks all Alexa devices in the integration and does not require any changes when devices are added, removed, or renamed.
+
+#### Attributes
+
+The sensor exposes `media_player`, `notify_speak`, `notify_announce`, `voice_command`, `voice_reply`, and device metadata `device_id`, `serial_number`, and `event_entity` as attributes for use in automations.
+
+{% details "Example: Reply to the last Alexa device used" %}
 
 ```yaml
-action: alexa_devices.send_sound
-data:
-  sound_variant: 2
-  sound: amzn_sfx_doorbell_chime
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
+automation:
+  - alias: Notify using the last Alexa device
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: >
+            {{ state_attr('sensor.alexa_devices_last_called', 'notify_speak') }}
+        data:
+          message: Motion detected
 ```
+{% enddetails %}
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every 30 seconds by default.
-
-## Supported functionality
-
-The **Alexa Devices** {% term integration %} provides the following entities:
-
-- Binary sensor - main and Bluetooth connectivity
-- Notify - Speak and Announce notifications
-- Sensor - temperature and illuminance sensors
-- Switch - Do not disturb
+This integration {% term polling polls %} data from the device every five minutes by default.
 
 ## Known limitations
 
-This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
+- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 
 ## Troubleshooting
 
-### Can’t set up the integration
+### Unable to set up
 
-#### Symptom: "Wrong Country"
-
-When trying to set up the integration, the form shows the message "Wrong Country".
+#### Symptom: "CannotAuthenticate"
 
 ##### Description
 
-This means that the settings in your Amazon account are not aligned to the country you specified.
-To fix it, please go to <https://www.amazon.XX/hz/mycd/preferences/myx#/home/settings/payment> (replace XX with your country domain. For example **co.uk**):
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication details are incorrect.
 
-- "Kindle payment": check your default address is in your country
-- "Country/Region": check your country
+You need to ensure you are:
 
-#### Symptom: "Not found"
+- using the right credentials (The ones you would use to log in to the Alexa app and Amazon shopping site)
+- set up to use app based 2FA
+- not set up to receive SMS 2FA codes
 
-When trying to set up the integration, the form shows the message "Not found".
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can log in successfully.
+
+### Sensors unavailable
+
+#### Symptom: "Too many requests"
+
+You see something similar to
+
+- `Error retrieving devices state: Too many requests for path ['listEndpoints']`
+- `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
+- `Failed to obtain notification data. Timers and alarms have not been updated`
+- `Failed to refresh communications settings for device XXXXXX, used cached values.`
+
+In logs.
 
 ##### Description
 
-This appears to indicate that your Alexa devices aren't owned by you, but are connected through Amazon Family.
-This setup isn't supported by the Alexa Mobile app, so it's not supported by this integration.
-Move the devices to your primary account.
+This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will stop these errors, but it will also stop DND, sensors, and connectivity from being updated. However, speech, announcements, and text commands will continue to work.
 
 ## Removing the integration
 

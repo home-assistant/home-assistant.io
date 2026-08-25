@@ -8,32 +8,45 @@ ha_iot_class: Cloud Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-  - '@ludeeus'
 ha_domain: analytics
 ha_integration_type: system
 ---
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
 
-Home Assistant allows users to share their usage data via the analytics integration. The aggregated data is available at <https://analytics.home-assistant.io>. It is used to influence Home Assistant development priorities and to convince manufacturers to add local control and privacy-focused features.
+The **Analytics** {% term integration %} lets you voluntarily share usage information from your Home Assistant installation with the Home Assistant project. The aggregated results are published at [analytics.home-assistant.io](https://analytics.home-assistant.io). This data helps the project decide where to focus development effort and gives manufacturers concrete numbers when advocating for local control and privacy-focused features in their products.
 
-## Data collection
+{% important %}
+Sharing analytics is completely optional. Nothing is sent from your installation unless you explicitly opt in, and you can change what is shared or turn it off at any time. Only aggregated, anonymized totals are published publicly. Your individual installation is never identifiable from the public data.
+{% endimportant %}
 
-The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my analytics title="Settings > System > Analytics" %}** .
+## Why share?
+
+- Shape the roadmap: integration usage numbers help the Home Assistant team prioritize which integrations to improve, rewrite, or expand.
+- Advocate for the open home: when the team talks to manufacturers, concrete numbers such as "X thousand Home Assistant users have device Y" are far more convincing than anecdotes. This has directly contributed to manufacturers adding local APIs, local control, and privacy-respecting features.
+- Help other users discover integrations: the public dashboard at [analytics.home-assistant.io](https://analytics.home-assistant.io) lets anyone see which integrations and devices are popular, which can help new users decide what to try.
+
+## Enabling analytics
+
+You can opt in during onboarding or at any time afterward by going to {% my analytics title="**Settings** > **System** > **Analytics**" %}.
 
 {% my analytics badge %}
 
-When enabled, data will be sent 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
+When enabled, data is sent 15 minutes after Home Assistant starts, and then every 24 hours while it runs. The exact data that is sent is also printed to your log so you can always see what was shared.
+
+## What can be shared
+
+Analytics is split into several independent options so you can choose exactly what you are comfortable sharing. Each option is described below.
 
 ### Basic analytics
 
-This includes:
+Basic analytics includes:
 
-- Unique identifier for your system (to ensure each installation is counted once)
-- Home Assistant version
-- Home Assistant installation type
-- Your country-code (derived server-side from your IP-address), example: `"NO"` for Norway.
-  - If you live in the US this will also include the region (state) code, example: `"CO"` will be used if you live in Colorado.
+- A unique identifier for your installation, so each installation is only counted once.
+- The Home Assistant version you are running.
+- The Home Assistant installation type.
+- Your country code, derived server-side from your IP address. For example, `"NO"` for Norway.
+  - If you are in the United States, this also includes the region (state) code, for example, `"CO"` for Colorado.
 
 If your system includes the Supervisor, this will also contain:
 
@@ -71,17 +84,17 @@ If you are running Home Assistant Operating System, this will also contain:
 
 _Requires basic analytics to be enabled._
 
-This includes:
+Usage analytics includes:
 
-- The names of all your core integrations
-- The names and versions of all your custom integrations if you have any
-- The name and version of the engine used in the [recorder integration](/integrations/recorder)
-- Boolean to indicate that the [energy integration](/integrations/energy) is configured
-- Boolean to indicate that [HTTP certificate](https://www.home-assistant.io/integrations/http/#ssl_certificate) is configured
+- The names of all your core integrations.
+- The names and versions of all your custom integrations, if you have any.
+- The name and version of the database engine used by the [recorder integration](/integrations/recorder).
+- Whether the [energy integration](/integrations/energy) is configured.
+- Whether an [HTTP certificate](/integrations/http/#ssl_certificate) is configured.
 
 If your system includes the Supervisor, this will also contain:
 
-- For each add-on
+- For each app in Home Assistant (formerly known as add-ons)
   - Name
   - Version
   - If protection mode is enabled
@@ -129,16 +142,16 @@ If your system includes the Supervisor, this will also contain:
 
 _Requires basic analytics to be enabled._
 
-This includes:
+Statistics includes counts only, not names. Specifically:
 
-- Number of integrations
-- Number of users
-- Number of entities
-- Number of automations
+- The number of integrations.
+- The number of users.
+- The number of entities.
+- The number of automations.
 
-If your system includes the Supervisor, this will also contain:
+If your system includes the Supervisor, this also contains:
 
-- Number of installed add-ons
+- The number of apps installed in Home Assistant.
 
 {% details "Example payload" %}
 
@@ -168,21 +181,27 @@ If your system includes the Supervisor, this will also contain:
 
 ### Diagnostics
 
-If enabled, a crash report will be collected when an unexpected error occurs and uploaded to [Sentry](https://sentry.io). These reports will help fix bugs and improve performance and stability.
+If enabled, a crash report is collected when an unexpected error occurs and uploaded to [Sentry](https://sentry.io). These reports help the developers fix bugs and improve performance and stability.
 
-Crash reports are only visible to the Home Assistant Core developers. This feature is currently limited to the [Supervisor](/docs/glossary/#home-assistant-supervisor) and [OS-Agent](https://github.com/home-assistant/os-agent).
+Crash reports are only visible to the Home Assistant Core developers. This option is currently limited to the {% term "Home Assistant Supervisor" %} and [OS-Agent](https://github.com/home-assistant/os-agent).
 
-## Data storage & processing
+## Data storage and processing
 
-All data is received and processed by the Home Assistant Analytics Receiver ([source](https://github.com/home-assistant/analytics.home-assistant.io)).
+All data is received and processed by the Home Assistant Analytics Receiver. The source code is available at [analytics.home-assistant.io on GitHub](https://github.com/home-assistant/analytics.home-assistant.io).
 
-When your installation sends a payload, that payload includes a unique identifier. This identifier is used to make sure that your installation is only counted once.
+When your installation sends a payload, that payload includes a unique identifier. This identifier is used only to make sure that your installation is counted once and that repeat submissions do not inflate the totals.
 
-Your data is securely stored in [Cloudflare's Key-Value store](https://www.cloudflare.com/products/workers-kv/). It will be stored for a maximum of 60 days since the last update. Only aggregated data is made publicly available.
+Your data is stored in [Cloudflare's Key-Value store](https://www.cloudflare.com/products/workers-kv/) for a maximum of 60 days since the last update. If your installation stops sending data, the entry is automatically removed after this period.
 
-This is an example of how the information is stored:
+Only aggregated and anonymized totals are made publicly available at [analytics.home-assistant.io](https://analytics.home-assistant.io). The raw per-installation payloads are never published.
+
+This is an example of how the information is stored on the server:
+
 {% configuration_basic %}
 "uuid:12a3456bc78d90123ef4567g789012h3":
   description: "{'version': '{{current_version}}', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
-
 {% endconfiguration_basic %}
+
+## Changing or disabling analytics
+
+You can change which options you share at any time by going to {% my analytics title="**Settings** > **System** > **Analytics**" %}. Disabling an option takes effect immediately. Any data related to your installation is removed from the receiver after 60 days without an update.

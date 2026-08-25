@@ -12,19 +12,23 @@ ha_domain: v2c
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - light
   - number
+  - select  
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The V2C integration allows monitoring and control of a local [V2C](https://v2charge.com/trydan/) Trydan EVSE in Home Assistant.
+The **V2C** {% term integration %} allows monitoring and control of a local [V2C](https://v2charge.com/trydan/) Trydan EVSE in Home Assistant.
 
 There is currently support for the following platforms within Home Assistant:
 
-- [Sensor](#sensor)
 - [Binary sensor](#binary-sensor)
+- [Sensor](#sensor)
 - [Number](#number)
+- [Select](#select)
+- [Light](#light)
 - [Switch](#switch)
 
 ## Prerequisites
@@ -58,6 +62,19 @@ The V2C integration currently exposes the following sensors:
 The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
+- voltage_installation: installation voltage
+
+## Select
+
+The V2C integration currently exposes the following select entity:
+
+- charge_mode: Sets the charger mode to either single-phase or three-phase.
+## Light
+
+The V2C integration currently exposes the following lights:
+
+- Logo LED: Indicates the light behind the V2C logo.
+- Light LED: Indicates the light of the charger.
 
 ## Switch
 

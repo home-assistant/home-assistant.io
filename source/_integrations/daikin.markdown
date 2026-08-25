@@ -15,16 +15,11 @@ ha_domain: daikin
 ha_zeroconf: true
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
-
-{% warning %}
-
-Daikin has removed their local API in newer products. They offer a Onecta cloud API for controlling Daikin devices through the cloud, see the [Daikin Europe Developer Portal](https://developer.cloud.daikineurope.com) for more details. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
-
-{% endwarning %}
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
@@ -36,27 +31,23 @@ There is currently support for the following device types within Home Assistant:
 
 ## Supported hardware
 
-- The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application. The new version of WiFi Controller Unit BRP069Bxx is also confirmed to work, tested and working devices are the BRP069B41 and BRP069B45.
-- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
+- The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the ONECTA application ([Google Play](https://play.google.com/store/apps/details?id=com.daikineurope.online.controller), [App Store](https://apps.apple.com/fr/app/onecta/id1474811586?l=en-GB), previously known as [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)). The new version of WiFi Controller Unit BRP069Bxx is also confirmed to work, tested and working devices are the BRP069B41 and BRP069B45.
+- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
+- BRP084Cxx units using firmware 2.8.0 was added in Home Assistant 2025.9.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
-{% note %}
-
-- BRP072Cxx adapters require an API key to be entered, which is labelled "KEY" on the device sticker alongside SSID, MAC, and S/N. Password should be left blank.
-- SKYFi-based units require a password to be entered. API key should be left blank.
-- Other models are auto-detected and the API key and password fields must be left blank.
-- BRP084Cxx firmware update from 1.19.0 to 2.8.0 breaks local API there is however ongoing work in fixing local API support again.
-
-{% endnote %}
+If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikout](https://codeberg.org/RevK/ESP32-Faikout).
 
 {% include integrations/config_flow.md %}
 
+If your device is set up with password, use the password. If it has an API key, use the API key. In all other cases, leave the fields blank.
+
 {% note %}
   
-If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
+If your Daikin unit does not reside in the same network as your Home Assistant instance (that is, your network is segmented), note that a couple of UDP connections are made during discovery:
 
 - From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
 - From the Daikin controller to Home Assistant: `UDP:<random port>` => `30000`
@@ -69,14 +60,25 @@ If this situation applies to you, you may need to adjust your firewall(s) accord
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `heat_cool`, or `fan_only`)
-- [**target temperature**](/integrations/climate#action-climateset_temperature)
-- [**turn on/off**](/integrations/climate#action-climateturn_on)
-- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (speed)
-- [**swing mode**](/integrations/climate#action-climateset_swing_mode)
-- [**set_preset_mode**](/integrations/climate#action-climateset_preset_mode) (away, none)
+- [**set_hvac_mode**](/integrations/climate/#action-set-hvac-mode) (`off`, `heat`, `cool`, `heat_cool`, or `fan_only`)
+- [**target temperature**](/integrations/climate/#action-set-temperature)
+- [**turn on/off**](/integrations/climate/#action-turn-on)
+- [**fan mode**](/integrations/climate/#action-set-fan-mode) (speed)
+- [**swing mode**](/integrations/climate/#action-set-swing-mode)
+- [**set_preset_mode**](/integrations/climate/#action-set-preset-mode) (away, none)
 
 Current inside temperature is displayed.
+
+When your controller supports zone temperature control (AirBase/SKYFi), the integration also exposes one climate entity per zone.
+
+### Zone climate entities
+
+- Each zone climate entity can set the temperature within a ±2 °C window around the system set point.
+- Turn a zone on or off from either its zone climate entity or its zone switch entity. Both entities stay synchronized, and neither one changes the power state of the main Daikin climate entity.
+- Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
+- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities.
+
+The primary Daikin climate continues to provide the `zone_temps` attribute for a quick overview of all zone targets.
 
 {% note %}
   
@@ -150,7 +152,7 @@ Additionally the Daikin Streamer (air purifier) function can be toggled on suppo
 
 ## Region changing
 
-The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that can not download the app for the controllers region.)
+The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that cannot download the app for the controllers region.)
 
 `http://Daikin-IP-Address/common/set_regioncode?reg=XX` Replace XX with your region code of choice.
 
@@ -162,4 +164,4 @@ Currently known region codes:
 - US
 - TH
 
-If you experience problems with certain apps like the Daikin ONECTA try setting a lower-case region code (e.g. 'eu').
+If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).

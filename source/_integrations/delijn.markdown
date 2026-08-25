@@ -19,7 +19,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `delijn` {% term integration %} will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
+The **De Lijn** {% term integration %} will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
 
 ## Setup
 
@@ -51,7 +51,7 @@ next_departure:
   type: list
   keys:
     stop_id:
-      description: "ID of the stop, e.g.,  `200552`."
+      description: "ID of the stop, for example, `200552`."
       required: true
       type: string
     number_of_departures:
@@ -81,4 +81,4 @@ sensor:
 
 ## Custom dashboard card
 
-Works best with the following custom dashboard card: <https://github.com/bollewolle/delijn-card>
+Works best with the following custom dashboard card: [delijn-card](https://github.com/bollewolle/delijn-card)

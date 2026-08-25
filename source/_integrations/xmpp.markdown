@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `xmpp` notification {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
+The **Jabber (XMPP)** {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
 ## Configuration
 
@@ -57,7 +57,7 @@ password:
   required: true
   type: string
 recipient:
-  description: The Jabber IDs (JID) that will receive the messages.
+  description: Default Jabber IDs (JID) that will receive the notification. This can be a JID or a list of JIDs for multiple recipients.<br>This is where you want to send your Jabber notifications by default (when not specifying target in the action). Any JID(s) specified in the action’s target field will override this recipient content.
   required: true
   type: [string, list]
 tls:
@@ -174,8 +174,6 @@ Number 4 sends a text-file, retrieved from GitHub, renamed to `Hass_Cheatsheet.t
 
 Number 5 sends an image retrieved from a URL, and an additional text message with `title` and `message`.
 
-{% raw %}
-
 ```yaml
 # Example script.yaml entry
 5_send_jabber_message_with_image_and_text:
@@ -189,11 +187,7 @@ Number 5 sends an image retrieved from a URL, and an additional text message wit
           url: "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192.png"
 ```
 
-{% endraw %}
-
 Number 6 sends an image from a templated URL.
-
-{% raw %}
 
 ```yaml
 # Example script.yaml entry
@@ -207,8 +201,6 @@ Number 6 sends an image from a templated URL.
         data:
           url_template: "https://www.foto-webcam.eu/webcam/dornbirn/{{ now().year }}/{{ '%02d' % now().month }}/{{ '%02d' % now().day }}/{{ '%02d' % now().hour }}{{ (now().minute + 58) % 60 // 10}}0_hd.jpg"
 ```
-
-{% endraw %}
 
 The possible source of a file is prioritized and only one will be picked up. `url_template` has the highest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
 

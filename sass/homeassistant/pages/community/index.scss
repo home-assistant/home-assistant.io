@@ -1,0 +1,20 @@
+// Setup
+@use 'homeassistant/pages/community/mixins.scss' as *;
+@use 'homeassistant/pages/community/variables.scss' as *;
+
+// Base
+@use 'homeassistant/pages/community/base.scss' as *;
+@use 'homeassistant/pages/community/icon.scss' as *;
+@use 'homeassistant/pages/community/buttons.scss' as *;
+@use 'homeassistant/pages/community/event-card.scss' as *;
+@use 'homeassistant/pages/community/photos.scss' as *;
+@use 'homeassistant/pages/community/stats.scss' as *;
+
+// Components
+@use 'homeassistant/pages/community/components/nav.scss' as *;
+@use 'homeassistant/pages/community/components/hero.scss' as *;
+@use 'homeassistant/pages/community/components/global.scss' as *;
+@use 'homeassistant/pages/community/components/join.scss' as *;
+@use 'homeassistant/pages/community/components/newsletter.scss' as *;
+@use 'homeassistant/pages/community/components/meetups.scss' as *;
+@use 'homeassistant/pages/community/components/faq.scss' as *;

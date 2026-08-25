@@ -1,3 +1,7 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 .usp {
   text-align: center;
 
@@ -33,7 +37,7 @@
   }
 
   hr {
-    @extend .divider;
+    @include divider;
     margin-bottom: 1em;
   }
 

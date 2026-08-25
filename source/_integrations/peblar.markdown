@@ -25,7 +25,7 @@ ha_zeroconf: true
 ha_quality_scale: platinum
 ---
 
-The Peblar {% term integration %} integrates the [Peblar Rocksolid EV Charger] into your smart home ecosystem. It enables real-time monitoring of charging status, tracking energy consumption, controlling charging behavior, and integrating EV charging data into the Home Assistant energy dashboard.
+The **Peblar** {% term integration %} integrates the [Peblar Rocksolid EV Charger] into your smart home ecosystem. It enables real-time monitoring of charging status, tracking energy consumption, controlling charging behavior, and integrating EV charging data into the Home Assistant energy dashboard.
 
 [Peblar Rocksolid EV Charger]: https://peblar.com/
 
@@ -256,7 +256,9 @@ automation:
         to: "on"
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Peblar charger update available!"
           message: >
@@ -287,7 +289,9 @@ automation:
           - "fault"
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Peblar charger issue detected!"
           message: >

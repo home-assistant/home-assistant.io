@@ -1,6 +1,6 @@
 ---
 title: LimitlessLED
-description: Instructions on how to setup LimitlessLED within Home Assistant.
+description: Instructions on how to set up LimitlessLED within Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Assumed State
@@ -15,17 +15,17 @@ related:
 ha_quality_scale: legacy
 ---
 
-`limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
+The **LimitlessLED** {% term integration %} can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
 
 LimitlessLED bulbs are controlled via groups, so you can only control an individual bulb via the bridge if it is in a group by itself.
 
 Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same group number, effectively allowing up to 16 groups (4 `rgbww`, 4 `rgbw`, 4 `white` and 4 `dimmer`) per bridge.
 
-An archive of the extensive API can be found [here](https://github.com/Fantasmos/LimitlessLED-DevAPI).
+An archive of the extensive API can be found [here](https://github.com/Supernova4422/LimitlessLED-DevAPI).
 
 ## Setup
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing) or [iTunes](https://apps.apple.com/app/id430921107)).
 
 To add `limitlessled` to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -136,7 +136,7 @@ Refer to the [light](/integrations/light/) documentation for general property us
   - *Color*: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness cannot be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.
   - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps; older versions only 25.
 - **White**
-  - When using a legacy Wi-Fi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
+  - When using a legacy Wi-Fi bridge (before v6), you can observe on the MiLight mobile application, you cannot select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.
   - *Temperature*: Wi-Fi bridge v6 supports 101 temperature steps; older versions only 10.
   - *Brightness*: Wi-Fi bridge v6 supports 101 brightness steps; older versions only 10.
 - **Dimmer** (Only supported on v6 bridges)

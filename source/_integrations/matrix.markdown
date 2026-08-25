@@ -72,11 +72,15 @@ commands:
   default: empty
   keys:
     word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with '!my_command'."
+      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will handle any message starting with '!my_command'."
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will handle any message that matches the regular expression."
+      required: false
+      type: string
+    reaction:
+      description: "Specifies an emoji reaction that the bot should listen to. The bot will handle any message that is reacted to with this emoji."
       required: false
       type: string
     name:
@@ -91,20 +95,18 @@ commands:
 {% endconfiguration %}
 
 {% warning %}
-In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
 
 ### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
-If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
+If the command is a word command, the `data` field contains a list of the command's arguments, that is, everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
 ### Comprehensive Configuration Example
 
 This example also uses the [matrix `notify` platform](#notifications).
-
-{% raw %}
 
 ```yaml
 # The Matrix integration
@@ -122,6 +124,8 @@ matrix:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
       name: introduction
+    - reaction: 👍
+      name: thumbsup
 
 notify:
   - name: matrix_notify
@@ -129,7 +133,7 @@ notify:
     default_room: "#hasstest:matrix.org"
 
 automation:
-  - alias: "React to !testword"
+  - alias: "Respond to !testword"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -140,7 +144,7 @@ automation:
         data:
           message: "It looks like you wrote !testword"
 
-  - alias: "React to an introduction"
+  - alias: "Respond to an introduction"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -150,14 +154,39 @@ automation:
       - action: notify.matrix_notify
         data:
           message: "Hello {{trigger.event.data.args['name']}}"
-```
 
-{% endraw %}
+  - alias: "Respond to a reaction in a thread"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: thumbsup
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "I saw that {{trigger.event.data.args['reaction']}} -- glad you appreciated this!"
+          data:
+            thread_id: "{{trigger.event.data.thread_parent}}"
+
+  - alias: "React to a command"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
+    actions:
+      - action: matrix.react
+        data:
+          reaction: "✅"
+          room: "{{trigger.event.data.room}}"
+          message_id: "{{trigger.event.data.event_id}}"
+```
 
 This configuration will:
 
-- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
+- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel and also place a ✅ reaction on the original message.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
+- Listen in both rooms for messages reacted to with 👍 and answer in a thread with "I saw that 👍 -- glad you appreciated this!"
 
 ## Notifications
 
@@ -188,7 +217,6 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
 
 ### Message formats
 
@@ -232,4 +260,25 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 ```
+
 {% endimportant %}
+
+### Replying in threads
+
+The `matrix_command` event will contain an `event_id` field that represents the message identifier for the received message.
+It will also contain a `thread_parent` field that contains the message identifier for the parent message of the thread.
+If the message was inside of a thread, `thread_parent` will be the identifier of the root message of the thread. If it
+is not inside of a thread, `thread_parent` will be the same as `event_id`.
+
+To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
+a reply message. For example:
+
+```yaml
+action: notify.matrix_notify
+data:
+  message: "Reply message goes here"
+  data:
+    thread_id: "{{ trigger.event.data.thread_parent }}"
+```
+
+{% include integrations/actions.md %}

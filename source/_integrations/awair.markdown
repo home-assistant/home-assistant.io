@@ -1,6 +1,6 @@
 ---
 title: Awair
-description: Instructions on how to setup Awair devices in Home Assistant.
+description: Instructions on how to set up Awair devices in Home Assistant.
 ha_category:
   - Health
 ha_config_flow: true
@@ -8,7 +8,7 @@ ha_release: 0.84
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ahayworth'
-  - '@danielsjf'
+  - '@ricohageman'
 ha_domain: awair
 ha_platforms:
   - sensor
@@ -16,13 +16,13 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The Awair integration will fetch data from your [Awair devices](https://getawair.com).
+The **Awair** {% term integration %} will fetch data from your [Awair devices](https://getawair.com).
 
 ## Prerequisites
 
 ### Connect locally (preferred)
 
-When connecting locally, the integration will poll the device every 30 seconds. Awair provides a [list of devices](https://support.getawair.com/hc/en-us/articles/360049221014-Awair-Element-Local-API-Feature#h_01F40FB3ETMR4TZKPVXJNE86HQ) that support the Local API. This API must be enabled via the Awair app via [these steps](https://support.getawair.com/hc/en-us/articles/360049221014-Awair-Element-Local-API-Feature#h_01F40FBBW5323GBPV7D6XMG4J8). If you add new Awair devices to your home, you must follow these steps again.
+When connecting locally, the integration will poll the device every 30 seconds. Awair provides a [list of devices](https://support.getawair.com/hc/articles/360049221014#h_01F40FB3ETMR4TZKPVXJNE86HQ) that support the Local API. This API must be enabled via the Awair app via [these steps](https://support.getawair.com/hc/articles/360049221014#h_01F40FBBW5323GBPV7D6XMG4J8). If you add new Awair devices to your home, you must follow these steps again.
 
 ### Connect via the cloud
 
@@ -38,6 +38,7 @@ The integration will fetch data from each device. The following sensors are supp
 
 - Temperature
 - Humidity
+- Absolute humidity
 - Dew point
 - Carbon dioxide
 - Total volatile organic compounds

@@ -13,7 +13,10 @@ ha_codeowners:
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
+  - number
   - sensor
+ha_zeroconf: true
 ha_integration_type: hub
 ---
 
@@ -21,8 +24,9 @@ The **air-Q** {% term integration %} allows integrating the sensors, provided by
 
 {% include integrations/config_flow.md %}
 
-During the initial configuration, the user is prompted for the IP address of the {% term device %} or the first 5 characters of the serial number, as well as the device password.
+Your air-Q device can be automatically discovered on your network. When Home Assistant discovers a new air-Q device, it appears as a notification in the UI. Select the notification and enter your device password to complete the setup.
 
+If your device is not discovered automatically, you can set it up manually. During the manual configuration, you are prompted for the IP address of the {% term device %} or the first 5 characters of the serial number, as well as the device password.
 
 For this integration to communicate with the device, both must be connected to the same Wi-Fi network.
 
@@ -59,6 +63,7 @@ Currently, the integration supports the following sensors:
 | Hydrogen             | µg/m³               |
 | Hydrogen Peroxide    | µg/m³               |
 | Methane              | %                   |
+| Mold Index           | %                   |
 | N2O                  | µg/m³               |
 | NO                   | µg/m³               |
 | NO2                  | µg/m³               |
@@ -71,7 +76,9 @@ Currently, the integration supports the following sensors:
 | Pressure             | hPa                 |
 | Relative Pressure    | hPa                 |
 | Propane              | %                   |
-| Refrigerant          | µg/m³               |
+| Refrigerant R-32     | %                   |
+| Refrigerant R-454B   | %                   |
+| Refrigerant R-454C   | %                   |
 | SiH4                 | µg/m³               |
 | SO2                  | µg/m³               |
 | Noise                | dBa                 |
@@ -84,19 +91,33 @@ Currently, the integration supports the following sensors:
 
 PM1, PM25, and PM10 correspond to concentrations of particulates with diameter less than 1µm, 2.5µm, and 10µm respectively
 
-Virus Index uses CO2 as a proxy for potential aerosol load and can be seen as an indicator of ventilation sufficiency (0 %: insufficient ventilation, 100 %: all fine).
+### Virtual sensors and indices
 
-Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware v1.80.0 but deactivated by default. You can activate them in the air-Q mobile application under "Advanced settings".
+All four supported indices—Health, Performance, Mold, and Virus—operate on a consistent scale: **0% (High Risk)** to **100% (No Risk/Optimal).**
+
+- **Virus Index:** Uses CO2 as a proxy for aerosol load. It evaluates the sufficiency of room ventilation to minimize the risk of airborne pathogen transmission.
+- **Mold Index:** Assesses the long-term risk of mold formation by analyzing temperature and relative humidity trends.
+- **Activation:** Virtual sensors such as "Relative Pressure," "Virus Index," and "Mold Index" are deactivated by default. You can enable them in the air-Q mobile app under **Settings** > **Sensors**.
 
 ## Additional configuration
 
 After the integration has been initialized, the user can configure any of the following two parameters:
 
-- **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
+- **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows you to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
 
 - **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
+
+## LED Control
+
+In addition to sensor readings, this integration exposes the brightness of the device’s LED strips as a `number` entity named `number.<device_name>_led_brightness`. You can set the brightness (0–100) manually from the Overview panel or in automations. Setting it to 0 will turn the LEDs off.
 
 ## Troubleshooting
 
 For troubleshooting or when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue reoccurs stop the debug logging, which will trigger the download of the debug log file.
 Enabling debug logging has a slight performance impact on the system and is not recommended for long-term use.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

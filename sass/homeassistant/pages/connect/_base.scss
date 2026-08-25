@@ -1,3 +1,4 @@
+@use 'mixins' as *;
 html {
 
     // Center line for render alignment checks
@@ -31,6 +32,10 @@ article.page {
         overflow-x: clip;
     }
 
+    section:target {
+        display: block;
+    }
+
     .site-header {
         .grid-wrapper {
             max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2)) !important;
@@ -56,6 +61,11 @@ article.page {
             max-width: 100%;
             border-radius: 0;
         }
+    }
+
+    .right{
+        position: unset;
+        right: unset;
     }
 
     .ha-connect {

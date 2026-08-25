@@ -8,6 +8,7 @@ ha_category:
   - Fan
   - Hub
   - Light
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -24,15 +25,16 @@ ha_platforms:
   - diagnostics
   - fan
   - light
+  - select
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
-The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
+The **Miele** {% term integration %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
 
 Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floor care.
 
@@ -136,13 +138,20 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off.
 {% enddetails %}
 
+### Select
+
+{% details "List of select entities" %}
+
+- **Mode**: Select operating mode for freezers and refrigerators. Available modes vary depending on appliance model.
+{% enddetails %}
+
 ### Sensor
 
 {% details "List of sensors" %}
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
-  - **Program**: Shows the currently active program.
+  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` to distinguish which profile is in use on the machine.
   - **Program phase**: Shows the current phase in the running program.
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
@@ -158,7 +167,14 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Elapsed time**: Shows the number of minutes that the current program has been running.
   - **Remaining time**: Shows the estimated number of minutes remaining in the current program cycle. This value can fluctuate during a program cycle based on load dirtiness or water‑heating time.
   - **Start in**: Shows the number of minutes until a delayed program start, if configured.
+  - **Start**: Shows the date and time when the program starts. If you've set a delayed start, it shows when the appliance will actually begin the cycle.
+  - **Finish**: Shows the estimated date and time when the program will finish. If you've set a delayed start, it shows when the appliance is expected to complete the cycle, including the delay time.
   - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
+  - **TwinDos level**: Two sensors displaying the remaining level in the detergent containers in applicable washing machines. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Descaling, degreasing, milk pipework cleaning cycles counter**: A set of sensors displaying the total number of cycles that the appliance has run. These sensors are available only for devices that support these maintenance programs (such as coffee machines or ovens with steam addition).
+  - **PowerDisk level**: A sensor displaying the remaining level in the detergent container in applicable dishwashers. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Rinse aid level**: A sensor displaying the remaining level in the rinse aid container in dishwashers.
+  - **Salt level**: A sensor displaying the remaining level in the salt container in dishwashers.
 {% enddetails %}
 
 ### Switch
@@ -177,37 +193,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Robot vacuum cleaner**: Miele robot vacuum cleaners can be monitored and controlled to a limited extent. The device can be started, stopped, and paused. The fan speed can also be set.
 {% enddetails %}
 
-## Actions
-
-### Action `miele.set_program`
-
-Set and start a program for applicable appliances. Note that the device must be in a state where it will accept a new program, for example, most washing machines must be in state `on` and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device did not accept the action command.
-The action can be set up by UI in Automations editor. It can also be executed in Developer tools.
-
-| Data attribute | Optional |  Description                                                                                                      |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
-| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
-
-### Action `miele.set_program_oven`
-
-Set and start a program for oven appliances. Note that the device must be in a state that will accept a new program. For example, most ovens must be in the state `on`, and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device does not accept the action command.
-The action can be set up by UI in the **Automations** editor. It can also be executed in the **Developer tools**.
-
-| Data attribute | Optional |  Description                                                                                                      |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select device in GUI mode, then switch to YAML mode to see the device_id.                                        |
-| `program_id`   | no       |  Enter the program_id number. The easiest way to find the number is to use the `get_programs` action from developer tools. It can also be found by fetching a diagnostic download while running the actual program. Use the value from the key  `state.programId.value_raw`.|
-| `duration`     | yes      |  Set an optional duration for the oven program.|
-| `temperature`  | yes      |  Set an optional target temperature for the oven program.|
-
-### Action `miele.get_programs`
-
-Get the list of available programs and associated parameters for applicable appliances. The API will return an empty list if the device doesn't support programs (for example, freezers). Same requirements on device state as described for `set_program` action above.
-
-| Data attribute | Optional |  Description                                                                                                      |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       |  Select the device in GUI mode, then switch to YAML mode to see the device_id.                                        |
+{% include integrations/actions.md %}
 
 ## Automation examples
 
@@ -217,8 +203,6 @@ Get started with these automation examples
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: "Notify when program ends"
 triggers:
@@ -227,12 +211,10 @@ triggers:
       - sensor.washing_machine
     to: program_ended
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ### Set program and start washing machine
@@ -240,8 +222,6 @@ actions:
 Load your washing machine and manually activate mobile start or remote control mode on the machine.
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 alias: "Wash cottons early in the morning"
@@ -255,8 +235,6 @@ actions:
       device_id: <Your washing machine's device_id>
       program_id: 1
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Data updates

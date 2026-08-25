@@ -25,7 +25,7 @@ ha_dhcp: true
 ha_integration_type: device
 ---
 
-The `guardian` integration integrates
+The **Elexa Guardian** {% term integration %} integrates
 [Elexa Guardian water valve controllers](https://getguardian.com) into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
@@ -33,40 +33,14 @@ There is currently support for the following device types within Home Assistant:
 - **Binary sensor**: reports the status of the onboard leak detector and access point
 - **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
-- **Switch**: allows the user to enable and disable the onboard access point
-- **Valve**: allows the user to open and close the valve
+- **Switch**: allows you to enable and disable the onboard access point
+- **Valve**: allows you to open and close the valve
 
 {% include integrations/config_flow.md %}
 
-## Actions
+{% include integrations/actions.md %}
 
-### `guardian.pair_sensor`
-
-Add a new paired sensor to the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### `guardian.unpair_sensor`
-
-Remove a paired sensor from the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### `guardian.upgrade_firmware`
-
-Upgrade the device firmware.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `url`                    | yes      | The URL of the server hosting the firmware file. |
-| `port`                   | yes      | The port on which the firmware file is served.   |
-| `filename`               | yes      | The firmware filename.                           |
-
-{% note %} 
+{% note %}
 Not all actions are available on all Guardian valve controller firmwares.
 Please ensure you upgrade your valve controller to the latest firmware before opening
 bugs related to non-working actions.

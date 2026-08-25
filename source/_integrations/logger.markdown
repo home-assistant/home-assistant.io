@@ -11,8 +11,15 @@ ha_domain: logger
 ha_integration_type: system
 ---
 
-The `logger` integration lets you define the level of logging activities in Home
-Assistant.
+The **Logger** {% term integration %} lets you define logging levels and filters in Home Assistant.
+
+Each logging entry is in this form:
+
+```txt
+[timestamp] [level] [thread] [namespace] [message]
+```
+
+## YAML configuration
 
 To enable the `logger` integration in your installation,
 add the following to your {% term "`configuration.yaml`" %} file:
@@ -22,57 +29,7 @@ add the following to your {% term "`configuration.yaml`" %} file:
 logger:
 ```
 
-The log severity level is `warning` if the logger integration is not enabled in {% term "`configuration.yaml`" %}.
-
-To log all messages and ignore events lower than critical for specified
-integrations:
-
-```yaml
-# Example configuration.yaml entry
-logger:
-  default: info
-  logs:
-    homeassistant.components.yamaha: critical
-    custom_components.my_integration: critical
-```
-
-To ignore all messages lower than critical and log event for specified
-integrations:
-
-```yaml
-# Example configuration.yaml entry
-logger:
-  default: critical
-  logs:
-    # log level for HA core
-    homeassistant.core: fatal
-
-    # log level for MQTT integration
-    homeassistant.components.mqtt: warning
-
-    # log level for all python scripts
-    homeassistant.components.python_script: warning
-
-    # individual log level for this python script
-    homeassistant.components.python_script.my_new_script.py: debug
-
-    # log level for SmartThings lights
-    homeassistant.components.smartthings.light: info
-
-    # log level for a custom integration
-    custom_components.my_integration: debug
-
-    # log level for the `aiohttp` Python package
-    aiohttp: error
-
-    # log level for both 'glances_api' and 'glances' integration
-    homeassistant.components.glances: fatal
-    glances_api: fatal
-```
-
-The log entries are in the form  
-*timestamp* *log-level* *thread* [**namespace**] *message*  
-where **namespace** is the *<component_namespace>* currently logging.
+### Configuration reference
 
 {% configuration %}
   default:
@@ -80,7 +37,7 @@ where **namespace** is the *<component_namespace>* currently logging.
     required: false
     type: string
   logs:
-    description: List of integrations and their log level.
+    description: List of integrations and their log level. See [logs](#logs).
     required: false
     type: map
     keys:
@@ -97,13 +54,6 @@ where **namespace** is the *<component_namespace>* currently logging.
         type: list
 {% endconfiguration %}
 
-In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces,
-both of which are at root. They are logged by different APIs.
-
-If you want to know the namespaces in your own environment then check your log files on startup.
-You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`.
-Those are the namespaces available for you to set a `log level` against.
-
 ### Log levels
 
 Possible log severity levels, listed in order from most severe to least severe, are:
@@ -117,6 +67,53 @@ Possible log severity levels, listed in order from most severe to least severe, 
 - debug
 - notset
 
+The standard log severity level is `warning` if the logger integration is not enabled in {% term "`configuration.yaml`" %}.
+All messages lower than the specified level will be ignored in the logs.
+
+### Logs
+
+You can change logging severity for a specific component or integration.
+
+Example `configuration.yaml` entry:
+
+```yaml
+logger:
+  default: critical
+  logs:
+    # Log level for Home Assistant Core
+    homeassistant.core: fatal
+
+    # Log level for MQTT integration
+    homeassistant.components.mqtt: warning
+
+    # Log level for all python scripts
+    homeassistant.components.python_script: warning
+
+    # Individual log level for this python script
+    homeassistant.components.python_script.my_new_script.py: debug
+
+    # Log level for SmartThings lights
+    homeassistant.components.smartthings.light: info
+
+    # Log level for a custom integration
+    custom_components.my_integration: debug
+
+    # Log level for the `aiohttp` Python package
+    aiohttp: error
+
+    # Log level for both 'glances_api' and 'glances' integration
+    homeassistant.components.glances: fatal
+    glances_api: fatal
+```
+
+In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces,
+both of which are at root. They are logged by different APIs.
+
+If you want to know the namespaces in your own environment then check your log files on startup.
+You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`.
+Those are the namespaces available for you to set a `log level` against.
+
+
 ### Log filters
 
 Service-specific Regular Expression filters for logs. A message is omitted if it matches the Regular Expression.
@@ -127,66 +124,47 @@ An example configuration might look like this:
 # Example configuration.yaml entry
 logger:
   default: info
-  logs:
-    custom_components.my_integration: critical
   filters:
+    # Filters out all entries containing "unable to connect" system wide
+    "":
+      - "unable to connect"
+
+    # Filters out all "HTTP 429" errors for my_integration
     custom_components.my_integration:
-      - "HTTP 429" # Filter all HTTP 429 errors
-      - "Request to .*unreliable.com.* Timed Out"
-    homeassistant.components.nws:
-      - "^Error handling request$"
+      - "HTTP 429"
 ```
 
-## Actions
+{% note %}
+To learn more about Regular Expression, see the [Python documentation](https://docs.python.org/3/library/re.html)
+{% endnote %}
 
-### Action `set_default_level`
-
-You can alter the default log level (for integrations without a specified log
-level) using the `logger.set_default_level` action.
-
-An example call might look like this:
-
-```yaml
-action: logger.set_default_level
-data:
-  level: info
-```
-
-### Action `set_level`
-
-You can alter log level for one or several integrations using the `logger.set_level` action.
-It accepts the same format as `logs` in the configuration.
-
-An example call might look like this:
-
-```yaml
-action: logger.set_level
-data:
-  homeassistant.core: fatal
-  homeassistant.components.mqtt: warning
-  homeassistant.components.smartthings.light: info
-  custom_components.my_integration: debug
-  aiohttp: error
-```
+{% include integrations/actions.md %}
 
 ## Viewing logs
 
-The log information are stored in the
-[configuration directory](/docs/configuration/) as `home-assistant.log`
-and you can read it with the command-line tool `cat` or follow it dynamically
-with `tail -f`.
+The primary way to view logs is through the Home Assistant UI. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and select **Home Assistant Core**. To see the full unformatted log output, enable **Show raw logs** at the top of the page. You can also download the log file from this page.
 
-You can use the example below, when logged in through the [SSH add-on](/addons/ssh/):
+### Viewing logs on Home Assistant OS
+
+On {% term "Home Assistant Operating System" %} installations, logs are not written to a file in the configuration directory. Use the UI as described above, or run the following command from the [SSH app for Home Assistant](/common-tasks/os/#installing-and-using-the-ssh-app):
+
+```bash
+ha core logs --follow
+```
+
+### Viewing logs on Container installations
+
+For {% term "Home Assistant Container" %} installations, the log information is also written to a file called `home-assistant.log` in the [configuration directory](/docs/configuration/). You can follow it dynamically with the following command:
+
+```bash
+# Follow the log dynamically
+docker logs --follow MY_CONTAINER_ID
+```
+
+Or read the file directly:
 
 ```bash
 tail -f /config/home-assistant.log
 ```
 
-On Docker you can use your host command line directly - follow the logs dynamically with:
-
-```bash
-# follow the log dynamically
-docker logs --follow  MY_CONTAINER_ID
-```
-
-To see other options use `--help` instead, or simply leave with no options to display the entire log.
+To rely only on the container runtime logs and prevent Home Assistant from writing `home-assistant.log`, set the `HA_DISABLE_LOG_FILE` environment variable to `1` (or `true`). When the log file is disabled, `/config/home-assistant.log` is not available, and you cannot enable **Show raw logs** or download the log file in the Home Assistant UI.

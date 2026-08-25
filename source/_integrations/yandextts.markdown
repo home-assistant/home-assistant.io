@@ -1,6 +1,6 @@
 ---
 title: Yandex TTS
-description: Instructions on how to setup Yandex SpeechKit TTS with Home Assistant.
+description: Instructions on how to set up Yandex SpeechKit TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.36
@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `yandextts` text-to-speech {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
+The **Yandex TTS** {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
 
 {% important %}
 This integration is working only with old API keys. For the new API keys, this integration cannot be used.

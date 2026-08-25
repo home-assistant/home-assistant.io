@@ -22,7 +22,7 @@ Be aware that `emulated_hue` doesn't work for new users of **Google Home** with 
 
 {% endwarning %}
 
-The `emulated_hue` {% term integration %} provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
+The **Emulated Hue** {% term integration %} provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
@@ -160,12 +160,12 @@ These attributes used to be found under the `customize` section of `homeassistan
 You can verify that the `emulated_hue` integration has been loaded and is responding by pointing a local browser to the following URL:
 
 - `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
-- `http://<HA IP Address>:80/api/v2/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+- `http://<HA IP Address>:80/api/v2/lights` - This will return a list of devices, lights, scenes, groups, and so on, that `emulated_hue` is exposing to Alexa.
   
 You can use the "curl" command to switch a light on or off:
 - `curl -X PUT -d '{"on":true}' http://<HA IP Address>/api/v2/lights/219/state` - This command switches light 219 on.
 
-Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
+Verify that the URLs above are using port 80, rather than port 8300 (for example, `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
 ### Platform specific instructions
 
@@ -181,7 +181,7 @@ On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `e
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
-Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/installation/linux/), your path will be `/srv/homeassistant/bin/python3`.
+Your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/installation/linux/), your path will be `/srv/homeassistant/bin/python3`.
 
 ### License
 

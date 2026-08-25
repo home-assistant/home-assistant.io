@@ -8,14 +8,14 @@ ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@wlcrs'
 ha_ssdp: true
 ha_config_flow: true
 ---
 
-This {% term integration %} provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the OKTIV or UNDOK apps.
+This {% term integration %} provides support for Internet Radios based on the [Frontier Silicon chipset]. Some manufacturers that offer products based on these chips include Hama, Medion, Silvercrest, Auna, TechniSat, Revo, and Pinell. These devices are usually controlled with the OKTIV or UNDOK apps.
 
 ## Supported models
 
@@ -71,6 +71,12 @@ Overview of the info dialog:
 <p class='img'>
 <img src='/images/screenshots/frontier_silicon_info_dialog.png' />
 </p>
+
+## Removing the integration
+
+To remove this integration, follow the standard integration removal steps. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Notes and Limitations
 

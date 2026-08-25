@@ -9,7 +9,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
-  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:
@@ -19,10 +18,10 @@ ha_platforms:
 ha_zeroconf: true
 ha_dhcp: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
-The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
+The **Samsung Smart TV** {% term integration %} allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
 {% include integrations/config_flow.md %}
 
@@ -33,9 +32,45 @@ The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.
     description: The friendly name of the TV.
 {% endconfiguration_basic %}
 
+## Supported devices
+
+The following Samsung TV models are known to be supported by the integration:
+
+- Samsung Smart TVs with Tizen operating system (2016 and later)
+- Samsung TVs with WebSocket API support
+- Samsung TV models with both REST API and WebSocket capabilities
+
+For specific model compatibility, check your TV's specifications to ensure it has a smart platform and network connectivity.
+
+## Supported functionality
+
+The Samsung Smart TV integration provides the following entities and functionality:
+
+### Media player
+
+- **Power control**: Turn the TV on and off
+- **Volume control**: Adjust volume and mute/unmute
+- **Channel selection**: Change channels directly by number
+- **Source selection**: Switch between TV, HDMI inputs, and applications
+- **Playback control**: Play, pause, stop, and fast forward media
+- **Media information**: Display current channel, source, and playback metadata
+
+### Remote
+
+- **Key commands**: Send remote control commands to your TV using standard key codes
+- **Command sequences**: Execute multiple commands in sequence
+- **Extended key support**: Navigation, menu control, and specialized functions
+
+### Diagnostics
+
+- **Device diagnostics**: Troubleshooting information for device connectivity and status
+
+{% include integrations/triggers.md %}
+
 ## Data updates
 
-The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume etc.
+The **SamsungTV** integration uses a local REST API with a WebSocket notification channel for immediate state information for media metadata, playback progress, volume level, and other state information.
+For older TV models that still use the legacy bridge implementation (internally called `SamsungTvBridge`), the integration polls the TV every 10 seconds to retrieve the latest state information.
 
 ### Turn on action
 
@@ -472,7 +507,7 @@ KEY_EXT39|
 KEY_EXT40|
 KEY_EXT41|
 
-Please note that some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
+Some codes are different on the 2016+ TVs. For example, `KEY_POWEROFF` is `KEY_POWER` on the newer TVs.
 
 The code list has been extracted from: <https://github.com/kdschlosser/samsungctl> and <https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md>
 {% enddetails %}
@@ -493,22 +528,29 @@ data:
 
 ```
 
-### Known issues and restrictions
+## Known limitations
 
-#### Subnet/VLAN
+### Subnet/VLAN restrictions
 
-Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
-It may be possible to bypass this issue by using IP masquerading or a proxy.
+Samsung Smart TVs do not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant, the integration will fail to establish a connection. It may be possible to bypass this issue by using IP masquerading or a proxy.
 
-#### H and J models
+### H and J models
 
-Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This is automatically detected when attempting to send commands using the WebSocket connection, and will trigger the corresponding authentication flow.
 
-#### Samsung TV keeps asking for permission
+## Troubleshooting
+
+### Samsung TV keeps asking for permission
 
 The default setting on newer televisions is to ask for permission on every connection attempt.
-To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
-It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`
+
+#### Resolution
+
+1. On your TV, navigate to **Device connection manager** > **Access notification**.
+2. Change the setting to **First time only**.
+3. In **Device connection manager** > **Device list**, clean up any previous connection attempts from Home Assistant.
+
+After making these changes, the TV should no longer ask for permission on each connection.
 
 ## Removing the integration
 

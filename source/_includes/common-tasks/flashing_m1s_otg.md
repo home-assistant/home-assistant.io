@@ -2,7 +2,7 @@
 
 Home Assistant can be flashed to an ODROID-M1S by connecting the device directly to your computer via the USB-OTG connection on the front of the board. 
 Unlike other ODROID boards, the M1S does not have a socket for an optional  <abbr title="embedded MultiMediaCard">eMMC</abbr> module. It also does not have a separate flash chip that holds a dedicated bootloader.
-Instead, the M1S has a build-in 64GB <abbr title="embedded MultiMediaCard">eMMC</abbr> soldered directly on the board that holds a bootloader by default. This guide will show you how to install the {% term "Home Assistant Operating System" %} to the built-in <abbr title="embedded MultiMediaCard">eMMC</abbr>.
+Instead, the M1S has a built-in 64GB <abbr title="embedded MultiMediaCard">eMMC</abbr> soldered directly on the board that holds a bootloader by default. This guide will show you how to install the {% term "Home Assistant Operating System" %} to the built-in <abbr title="embedded MultiMediaCard">eMMC</abbr>.
 
 <ins>**Warning:</ins> Installing Home Assistant OS replaces the firmware and <abbr title="secondary program loader">SPL</abbr> on the <abbr title="embedded MultiMediaCard">eMMC</abbr> with the mainline version provided by the Home Assistant OS. As a result, it is not possible to use the SD card with the EMMC2UMS image anymore, because the mainline <abbr title="secondary program loader">SPL</abbr> is not compatible with U-Boot in the EMMC2UMS image at this time (February 2024). This does not pose any problem for standard use, just makes it more complicated in case you want to return to the Hardkernel-provided OS (see [HK Recovery](#hk-recovery)).**
 
@@ -41,7 +41,7 @@ Note: This commands will render your current Home Assistant OS installation unbo
 Use the local terminal (HDMI/keyboard) to access the system console. On the Home Assistant CLI (command line), enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
 
 ```sh
-curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
+curl -L -A "Mozilla/5.0" https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | sudo dd of=/dev/mmcblk0 bs=4M status=progress conv=fsync
 ```
 
 This way, the device will start in the UMS mode on the next boot with the SD card removed. Follow the [Install over USB from PC](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide#install_over_usb_from_pc) to install a different operating system.

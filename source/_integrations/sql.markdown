@@ -19,7 +19,7 @@ related:
     title: Configuration file
 ---
 
-The `sql` sensor {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+The **SQL** {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 **This integration can be configured using both config flow and by YAML.**
@@ -33,7 +33,6 @@ To configure this sensor, define the sensor connection variables and a list of q
 To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml
 sql:
@@ -61,7 +60,6 @@ sql:
         1;
     column: "state"
 ```
-{% endraw %}
 
 {% configuration %}
 sql:
@@ -81,7 +79,7 @@ sql:
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
-      type: string
+      type: template
     column:
       description: The field name to select.
       required: true
@@ -130,6 +128,8 @@ For more detailed steps on how to define a custom interval, follow the procedure
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+{% include integrations/actions.md %}
 
 ## Information
 
@@ -182,6 +182,48 @@ LIMIT
 
 Use `state` as column for value.
 
+### Amount of state changes since using a template
+
+This example shows the amount of state changes of the sensor `sensor.temperature_in`
+using another sensor's state to provide the time window.
+
+```yaml
+sensor:
+  - platform: random
+    name: Temperature in
+    unit_of_measurement: "°C"
+```
+
+The query will look like this:
+
+{% raw %}
+
+```sql
+SELECT
+  count(state) as changes
+FROM
+  (
+    SELECT
+      states.state
+    FROM
+      states
+    WHERE
+      metadata_id = (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND last_updated_ts >= strftime('%s','{{ states("sensor.datetime_helper") }}')
+  )
+```
+
+{% endraw %}
+
+Use `changes` as column for value.
+
 ### Previous state of an entity
 
 Based on previous example with temperature, the query to get the former state is :
@@ -212,6 +254,7 @@ WHERE
       1
   );
 ```
+
 Use `state` as column for value.
 
 ### State of an entity x time ago

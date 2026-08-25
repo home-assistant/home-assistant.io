@@ -8,14 +8,15 @@ ha_iot_class: Cloud Polling
 ha_release: '2024.10'
 ha_codeowners:
   - '@jeeftor'
+  - '@bradleyseanf'
 ha_domain: monarch_money
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-[Monarch Money](https://www.monarchmoney.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
+[Monarch Money](https://monarch.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
 
 ## Prerequisites
 

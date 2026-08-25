@@ -1,6 +1,6 @@
 ---
 title: "State and state object"
-description: "Describes all there is to know about state and the state object in Home Assistant."
+description: "Every entity in Home Assistant has a state, such as on, off, or a temperature reading. This page covers what the state object contains and how to use it."
 related:
   - docs: /docs/configuration/entities_domains/
     title: Entities and domains
@@ -32,7 +32,7 @@ The `state` prefix indicates that this information is part of the state object (
 
 ### About the state
 
-The screenshot of the Developer Tools States page shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
+The screenshot of the **States** tab, available in **Settings** > **Tools**, shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>
@@ -73,7 +73,7 @@ The table lists common state attributes that may be present, depending on the en
 | `device_class`        | The type of device that an entity represents. Used to display device specific information in the UI.                                                                                                         |
 | `supported_features`  | The features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control` |
 
-When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.
+When an attribute contains spaces, you can retrieve it with the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
 ## Context
 
@@ -81,6 +81,40 @@ Context is a property used in state objects and events. It ties {% term events %
 
 | Field        | Description                                                                                                                                                                  |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `context_id` | Unique identifier for the context.                                                                                                                                           |
+| `id`         | Unique identifier for the context.                                                                                                                                           |
 | `user_id`    | Unique identifier of the user that started the change. Will be `None` if the action was not started by a user (for example, started by an automation).                       |
 | `parent_id`  | Unique identifier of the parent context that started the change, if available. For example, if an automation is triggered, the context of the trigger will be set as parent. |
+
+## Examples
+
+- Evaluate the `state.last_changed` of a switch entity:  
+
+  ```jinja
+  {{ states.switch.my_switch.last_changed }}
+  ```
+
+  result type: `string` representing a datetime object, for example  
+  `2025-11-11 12:56:10.244125+00:00`
+
+***
+
+- Evaluate the `state.context.id` of this switch:  
+  
+  ```jinja
+  {{ states.switch.my_switch.context.id }}
+  ```
+
+  result type: `string` representing an id code, for example  
+  `01K9SF2R36KRV5N4PTC38S6KJ2F`
+
+***
+
+- Evaluate the `state.context.user_id` of this switch:
+  
+  ```jinja
+
+  {{ states.switch.my_switch.context.user_id }}
+  ```
+
+  result type: `string` representing a user id code, for example
+  `01K9SF2R36KRV5N4PTC38SKS4LW6`

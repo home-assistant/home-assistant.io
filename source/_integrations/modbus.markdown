@@ -1,6 +1,6 @@
 ---
 title: Modbus
-description: Instructions on how to integrate modbus and platforms.
+description: Instructions on how to manually register Modbus entities and platforms.
 ha_category:
   - Hub
 ha_release: pre 0.7
@@ -22,17 +22,21 @@ related:
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
+The Modbus {% term integration %} lets you manually register Modbus entities by describing each register in your `configuration.yaml` file. It is meant for people who are comfortable working with Modbus, as it requires knowledge of the protocol and of the specific registers your device exposes.
+
+Before setting this up, we recommend looking for a vendor-specific integration that already supports your Modbus device. A dedicated integration handles the register details for you and is easier to set up and maintain.
+
 The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
-The modbus {% term integration %} supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
+The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (RS-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
 
 # Configuring modbus communication
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
-The modbus integration allows you to use multiple connections each with multiple sensors etc.
+The modbus integration allows you to use multiple connections each with multiple sensors.
 
-The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+The modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -123,8 +127,7 @@ modbus:
 `type: rtuovertcp` is required. Used for devices providing a TCP/IP interface directly.
 
 This is typically used, when communicating with a modbus-forwarder, a device that
-has a TCP/IP connection upwards, and one or more serial connections downwards. lets also
-write more here, to see if the error moves.
+has a TCP/IP connection upwards, and one or more serial connections downwards.
 
 {% configuration %}
 host:
@@ -378,7 +381,7 @@ device_address:
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
-  If two enities have the same unique ID, Home Assistant will raise an exception."
+  If two entities have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
 
@@ -614,11 +617,36 @@ climates:
           description: "Holding register."
         input:
           description: "Input register."
+    scale:
+      description: "Scale factor (`output` = `scale` * `value` + offset) for setting target and current temperature. Cannot be used together with `current_temp_scale` or `target_temp_scale."
+      required: false
+      type: float
+      default: 1
     offset:
-      description: "Final offset for current temperature (output = scale * value + offset)."
+      description: "Final offset for target and current temperature (`output` = `scale` * `value` + `offset). Cannot be used together with current_temp_offset or target_temp_offset`."
       required: false
       type: float
       default: 0
+    current_temp_scale:
+      description: "Scale factor for current temperature (output = `current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with `scale`"
+      required: false
+      type: float
+      default: 1.0
+    current_temp_offset:
+      description: "Offset for current temperature (output` = current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with *offset*."
+      required: false
+      type: float
+      default: 0.0
+    target_temp_scale:
+      description: "Scale factor for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with scale`."
+      required: false
+      type: float
+      default: 1.0
+    target_temp_offset:
+      description: "Offset for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with offset`."
+      required: false
+      type: float
+      default: 0.0
     target_temp_register:
       description: "Register address for target temperature (Setpoint). Using a list, it is possible to define one register for each of the available HVAC Modes. The list has to have a fixed size of 7 registers corresponding to the 7 available HVAC Modes, as follows: Register **1: HVAC AUTO mode**; Register **2: HVAC Cool mode**; Register **3: HVAC Dry mode**; Register **4: HVAC Fan only mode**; Register **5: HVAC Heat mode**; Register **6: HVAC Heat Cool mode**; Register **7: HVAC OFF mode**. It is possible to set duplicated values for the modes where the devices don't have a related register."
       required: true
@@ -628,11 +656,6 @@ climates:
       required: false
       type: boolean
       default: false
-    scale:
-      description: "Scale factor (output = scale * value + offset) for setting target temperature."
-      required: false
-      type: float
-      default: 1
     structure:
       description: "If `data_type: custom` is specified a double-quoted Python struct is expected,
       to format the string to unpack the value. See Python documentation for details.
@@ -809,7 +832,7 @@ climates:
               type: integer
     hvac_onoff_coil:
       description: "Address of On/Off state.
-        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        Only use this setting if your On/Off state is not handled as an HVAC mode.
         When zero is read from this coil, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such coil is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the coil, otherwise the
@@ -873,7 +896,7 @@ climates:
               type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
-        Only use this setting if your On/Off state is not handled as a HVAC mode.
+        Only use this setting if your On/Off state is not handled as an HVAC mode.
         When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
         dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value 0 is written to the register, otherwise the
@@ -909,7 +932,6 @@ modbus:
         offset: 0
         precision: 1
         scale: 0.1
-        max_temp: 30
         structure: ">f"
         target_temp_register: 2782
         target_temp_write_registers: true
@@ -1461,7 +1483,7 @@ sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
+      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read message."
       required: false
       type: integer
     state_class:
@@ -1475,14 +1497,6 @@ sensors:
       required: false
       type: string
       default: ">f"
-    slave_count:
-      description: "Identical to `virtual_count`."
-      required: false
-      type: integer
-    virtual_count:
-      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
-      required: false
-      type: integer
     swap:
       description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`**"
       required: false
@@ -1499,10 +1513,6 @@ sensors:
       description: "Unit to attach to value."
       required: false
       type: string
-    zero_suppress:
-      description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
-      required: false
-      type: float
     unique_id:
       description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
@@ -1640,14 +1650,14 @@ switches:
           default: "Same as `command_on`"
           type: [integer, list]
         state_off:
-          description: "Value(s) when switch is off.  The value must be an `integer` or a list of integers."
+          description: "Value(s) when switch is off. The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_off`"
           type: [integer, list]
 
 {% endconfiguration %}
 
-### Example: switch configuration
+### Example: switch configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1676,7 +1686,7 @@ modbus:
 ```
 
 
-### Example: switch full configuration
+### Example: switch full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1719,57 +1729,14 @@ Some parameters exclude other parameters, the following tables show what can be 
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# Actions
-
-The modbus integration provides two generic write actions in addition to the platform-specific actions.
-
-| Action                | Description                 |
-| --------------------- | --------------------------- |
-| modbus.write_register | Write register or registers |
-| modbus.write_coil     | Write coil or coils         |
-
-Description:
-
-| Attribute | Description                                                                                                                                                                                                                                                                                 |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
-| address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
-| value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
-| state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
-
-## Example: writing a float32 type register
-
-To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
-
-```yaml
-action: modbus.write_register
-data:
-  address: <target register address>
-  slave: <target slave address>
-  hub: <hub name>
-  value: [0x4120, 0x0000]
-```
-
-## Action `modbus.set-temperature`
-
-| Action          | Description                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
-
-## Action `modbus.set_hvac_mode`
-
-| Action        | Description                                                                                                                                                                                                                                                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
-
+{% include integrations/actions.md %}
 
 # Opening an issue
 
 When opening an issue, please add your current configuration (or a scaled down version), with at least:
 
  - the modbus configuration lines
- - the entity (sensor, etc.) lines
+ - the entity lines (such as sensor)
 
 In order for the developers better to identify the problem, please add the
 following lines to {% term "`configuration.yaml`" %}:

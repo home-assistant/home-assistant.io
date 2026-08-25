@@ -14,10 +14,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@jeeftor'
 ha_domain: weatherflow_cloud
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The **WeatherFlow Cloud** integration provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. In order to access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
+The **WeatherFlow Cloud** {% term integration %} provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. To access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
 
 ### Which integration(s) should I use
 
@@ -59,28 +59,28 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 | Lightning last | The most recent lightning strike. |
 | Lightning last distance | The distance of the most recent lightning strike. |
 
-## Weather icons
+## Weather conditions
 
-There is not a straight 1-1 mapping between the Home Assistant supported weather conditions and what tempest provides - as such you may see a difference between what is displayed in the tempest app and what is displayed in Home Assistant.
+The Home Assistant `weather` entity reports its current state as one of a fixed set of condition values, listed under [Condition mapping](/integrations/weather/#condition-mapping) on the Weather integration page. The WeatherFlow API returns a larger set of condition identifiers, so this integration maps each WeatherFlow value to the closest Home Assistant condition. Because there is no one-to-one mapping between the two, the state shown in Home Assistant may differ slightly from the condition shown in the Tempest app.
 
-| Weather Flow icon | Home Assistant icon |
-|-------------------|----------------------|
-| clear-day | sunny |
-| clear-night | clear-night |
-| cloudy | cloudy |
-| foggy | fog |
-| partly-cloudy-day | partlycloudy |
-| partly-cloudy-night | partlycloudy |
-| possibly-rainy-day | rainy |
-| possibly-rainy-night | rainy |
-| possibly-sleet-day | snowy-rainy |
-| possibly-sleet-night | snowy-rainy |
-| possibly-snow-day | snowy |
-| possibly-snow-night | snowy |
-| possibly-thunderstorm-day | lightning-rainy |
-| possibly-thunderstorm-night | lightning-rainy |
-| rainy | rainy |
-| sleet | snowy-rainy |
-| snow | snowy |
-| thunderstorm | lightning |
-| windy | windy |
+The mapping from the WeatherFlow condition to the Home Assistant weather state is:
+
+- `clear-day` is reported as `sunny`
+- `clear-night` is reported as `clear-night`
+- `cloudy` is reported as `cloudy`
+- `foggy` is reported as `fog`
+- `partly-cloudy-day` is reported as `partlycloudy`
+- `partly-cloudy-night` is reported as `partlycloudy`
+- `possibly-rainy-day` is reported as `rainy`
+- `possibly-rainy-night` is reported as `rainy`
+- `possibly-sleet-day` is reported as `snowy-rainy`
+- `possibly-sleet-night` is reported as `snowy-rainy`
+- `possibly-snow-day` is reported as `snowy`
+- `possibly-snow-night` is reported as `snowy`
+- `possibly-thunderstorm-day` is reported as `lightning-rainy`
+- `possibly-thunderstorm-night` is reported as `lightning-rainy`
+- `rainy` is reported as `rainy`
+- `sleet` is reported as `snowy-rainy`
+- `snow` is reported as `snowy`
+- `thunderstorm` is reported as `lightning`
+- `windy` is reported as `windy`

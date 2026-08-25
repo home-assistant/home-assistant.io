@@ -1,9 +1,9 @@
 ---
-title: "Automation YAML"
-description: "How to use the automation integration with YAML."
+title: "Automations in YAML"
+description: "Power-user reference for writing automations directly in YAML, including the full structure, additional options, and how to manage automations from configuration.yaml."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
+Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, select the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
@@ -67,7 +67,7 @@ trigger_variables:
   type: map
   keys:
     PARAMETER_NAME:
-      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
       type: any
 mode:
   description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
@@ -129,7 +129,6 @@ actions:
 
 Example of a {% term YAML %} based automation that you can add to {% term "`configuration.yaml`" %}.
 
-{% raw %}
 
 ```yaml
 # Example of entry in configuration.yaml
@@ -159,7 +158,7 @@ automation my_lights:
       # With a single action entry, we don't need a '-' before action - though you can if you want to
       - action: homeassistant.turn_on
         target:
-          entity_id: group.living_room
+          entity_id: light.living_room
 
   # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"
@@ -202,11 +201,9 @@ automation my_lights:
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 
-{% endraw %}
+## Additional options
 
-## Extra options
-
-When writing automations directly in {% term YAML %}, you will have access to advanced options that are not available in the user interface.
+Some options are only available when writing automations directly in {% term YAML %} and cannot be configured through the user interface.
 
 ### Automation initial state
 
@@ -237,7 +234,6 @@ automation:
 
 If you want to migrate your manual automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 
-{% raw %}
 
 ```yaml
 # Example automations.yaml entry. Note, automations.yaml is always a list!
@@ -258,7 +254,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
     - action: light.turn_on
 ```
 
-{% endraw %}
 
 ### Deleting automations
 

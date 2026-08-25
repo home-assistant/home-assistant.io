@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `garadget` cover {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
+The **Garadget** {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
 
 ## Configuration
 
@@ -75,8 +75,6 @@ covers:
   <img src='/images/integrations/garadget/cover_garadget_details.png' />
 </p>
 
-{% raw %}
-
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -113,9 +111,7 @@ customize:
     icon: mdi:wifi
 ```
 
-{% endraw %}
-
-Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
+Some of the Garadget sensors can create a lot of clutter in the **Activity** section. Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
 
 ```yaml
 logbook:
@@ -127,7 +123,7 @@ logbook:
 
 As of firmware release 1.17 the garadget device has native support for MQTT. The options allow the end-user to configure the device in the following ways 'cloud only', 'cloud and MQTT' or 'MQTT only'.
 
-For configuration of the garadget as a MQTT cover:
+For configuration of the garadget as an MQTT cover:
 
 ```yaml
 mqtt:

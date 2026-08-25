@@ -4,7 +4,7 @@
     "dockerfile": "./Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "3.1",
+      "VARIANT": "3.4",
       "NODE_VERSION": "20"
     }
   },
@@ -22,7 +22,7 @@
         "GitHub.vscode-pull-request-github",
         "mrmlnc.vscode-scss",
         "streetsidesoftware.code-spell-checker",
-        "taichi.vscode-textlint",
+        "3w36zj6.textlint",
         "yzhang.markdown-all-in-one"
       ],
       "settings": {

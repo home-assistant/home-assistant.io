@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `mvglive` {% term integration %} will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
+The **MVG** {% term integration %} will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
 
 ## Configuration
 
@@ -32,7 +32,7 @@ sensor:
 
 {% configuration %}
 station:
-  description: Name of the stop or station. Visit [the MVG live web site](https://www.mvg.de/meinhalt.html) to find valid names. Be aware, that not all data of interest might be available (i.e., bus departure-times in Haar).
+  description: Name of the stop or station. Visit [the MVG live website](https://www.mvg.de/meinhalt.html) to find valid names. Be aware, that not all data of interest might be available (for example, bus departure-times in Haar).
   required: true
   type: string
 destinations:

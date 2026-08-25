@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `iqvia` sensor platform collects and displays allergy, asthma and disease
+The **IQVIA** {% term integration %} collects and displays allergy, asthma and disease
 information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
 Data measured includes:
 
@@ -42,7 +42,7 @@ map to the following human-friendly ratings:
 ## Understanding Asthma Allergens
 
 Several asthma-related sensors carry information regarding the top three
-"asthma allergens" (i.e., irritants that may exacerbate asthma symptoms).
+"asthma allergens" (that is, irritants that may exacerbate asthma symptoms).
 Example values include:
 
 | Pollutant               | Symbol | More Info                                                                              |

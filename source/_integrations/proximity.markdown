@@ -1,6 +1,6 @@
 ---
 title: Proximity
-description: Instructions on how to setup Proximity monitoring within Home Assistant.
+description: Instructions on how to set up Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
   - Presence detection
@@ -17,7 +17,7 @@ ha_platforms:
 ha_config_flow: true
 ---
 
-The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
+The **Proximity** {% term integration %} allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.
 
 This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/docs/automation/trigger#zone-trigger) and [state](/docs/automation/trigger#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
@@ -74,6 +74,6 @@ This sensor shows the direction of travel of the nearest device or person to the
 
 ### Video tutorial
 
-This comprehensive video tutorial explains how to utilize the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
+This comprehensive video tutorial explains how to use the Proximity integration to automatically adjust the heating in your home based on your presence, whether you're leaving or entering an area around your house.
 
 <lite-youtube videoid="0ojMz1s3Y84" videotitle="Mastering Geofencing in Home Assistant with Proximity and Presence Detection: An Ultimate Guide" posterquality="maxresdefault"></lite-youtube>

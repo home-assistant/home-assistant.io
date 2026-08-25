@@ -20,10 +20,12 @@ works_with:
 
 {% include integrations/wwha.md url="https://nuki.io" name="Nuki" %}
 
+## Setting up your Nuki via Matter integrations requires Thread
+
+To use this integration, you need a Thread border router that supports Matter. For more information, refer to the [Thread documentation](/integrations/thread/). You can turn your Home Assistant installation into a Thread border router, for example, by using the [Home Assistant Connect ZBT-2](/connect/zbt-2/). For more information on setting this up, go to the [Turning Home Assistant into a Thread border router section](/integrations/thread/#turning-home-assistant-into-a-thread-border-router).
+
+For more information on setting up Matter with Nuki devices, refer to the [Nuki Matter setup guide](https://help.nuki.io/hc/en-001/articles/14596875392017-Setting-up-your-Matter-integration).
+
 ## Supported devices
 
-The following devices are supported:
-
-- [Nuki Smart Lock Go](https://nuki.io/en-uk/products/smart-lock-go)
-- [Nuki Smart Lock Pro](https://nuki.io/en-uk/products/smart-lock-pro-5th-gen)
-- [Nuki Smart Lock Ultra](https://nuki.io/en-uk/products/smart-lock-ultra)
+{% include integrations/device_list.html brand="nuki" %}

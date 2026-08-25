@@ -10,7 +10,7 @@ ha_domain: feedreader
 ha_config_flow: true
 ha_platforms:
   - event
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
@@ -52,8 +52,6 @@ automation:
           entity_id: script.my_action
 ```
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Send notification of RSS feed title when updated"
@@ -69,8 +67,6 @@ automation:
           message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
           notification_id: "{{ trigger.event.data.title }}"
 ```
-
-{% endraw %}
 
 The `trigger.event.data` variable contains at least the following keys, there might be more depending on the data the configured feed is providing.
 

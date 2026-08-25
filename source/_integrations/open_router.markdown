@@ -2,16 +2,17 @@
 title: OpenRouter
 description: Instructions on how to integrate OpenRouter as a conversation agent
 ha_category:
+  - AI
   - Voice
 ha_release: 2025.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@joostlek'
+  - '@ab3lson'
 ha_domain: open_router
 ha_integration_type: service
 ha_platforms:
-  - ai_task
   - conversation
 ha_quality_scale: bronze
 ---

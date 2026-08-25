@@ -8,7 +8,7 @@ This page contains only irrelevant and unhelpful information about Home Assistan
 
 ## Name
 
-Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. It's common to refer to Home Assistant simply as HA or `hass` (not to be confused with the German word "Hass", it's more like the abbreviation of **H**ome **A**ssistant **S**erver **S**ervice). [`hass`](/docs/tools/hass/) is also the name of the command-line part.
+Isn't it obvious? Home Assistant is the good soul that is assisting you in your home. The abbreviation `hass` (not to be confused with the German word "Hass", it's more like the abbreviation of **H**ome **A**ssistant **S**erver **S**ervice) was commonly used in the past, though it's now recommended to use the full name "Home Assistant" in documentation.
 
 ## Website
 
@@ -25,7 +25,7 @@ Home Assistant is open source software and available under the [Apache 2.0](http
 ## Hardware
 
 - End of 2020, [Home Assistant Blue](/blue/) was launched. The first dedicated smart home hub for Home Assistant. This limited edition is based on an ODROID and known for its blue aluminum case.
-- In September 2021, [Home Assistant Yellow](/yellow/) was launched. This extendable smart home hub is a custom, open-source design powered by a Raspberry Pi Compute Module 4. Home Assistant Yellow supports both Zigbee and Thread.
+- In September 2021, Home Assistant Yellow was launched. This extendable smart home hub is a custom, open-source design powered by a Raspberry Pi Compute Module 4. Home Assistant Yellow supports both Zigbee and Thread.
 - End of 2022, [Home Assistant SkyConnect](/skyconnect/) was launched: a USB dongle that provides Zigbee and Thread network support for hubs that do not have this built-in.
 - In September 2023, [Home Assistant Green](/green/) was launched. This plug-and-play smart home hub is an affordable and the easiest way to get started with Home Assistant.
 

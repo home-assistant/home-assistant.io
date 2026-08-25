@@ -3,6 +3,7 @@ title: Fronius
 description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
 ha_release: 0.96
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_codeowners:
@@ -11,14 +12,15 @@ ha_config_flow: true
 ha_domain: fronius
 ha_iot_class: Local Polling
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
-The Fronius integration polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of a Fronius SolarNet setup and integrate it in your Home Assistant installation.
+The **Fronius** {% term integration %} polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of a Fronius SolarNet setup and integrate it in your Home Assistant installation.
 
 ## Supported devices
 
@@ -33,6 +35,7 @@ The integration supports all inverters with integrated Datamanager or external "
 - Symo
 - Symo Hybrid
 - Tauro
+- Verto (Plus) 
 
 Devices connected to those inverters or dataloggers are supported as well.
 
@@ -81,7 +84,9 @@ Each device adds a set of sensors to Home Assistant.
     - Energy produced on the current day, year and total produced energy
     - Power fed to the grid (if positive) or consumed from the grid (if negative)
     - Power load as a generator (if positive) or consumer (if negative)
-    - Battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode
+    - Battery charging power (if positive) or discharging power (if negative)
+    - Whether the battery is in standby, on Gen24 devices with a battery
+    - Whether the system is currently supplying backup power during a grid outage, on Gen24, Tauro, and Verto devices with backup power configured
     - Photovoltaic production
     - Current relative self-consumption of produced energy
     - Current relative autonomy
@@ -181,7 +186,7 @@ The Solar API used by this integration is read-only. It does not provide any mea
 
 ## Troubleshooting
 
-### Can’t setup the device
+### Can’t set up the device
 
 - Make sure the device is not in a power-saving mode when currently not producing energy.
 - Make sure the device is connected to the network and is reachable from the Home Assistant instance.

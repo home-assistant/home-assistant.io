@@ -15,12 +15,12 @@ ha_bluetooth: true
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
-[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
+[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides several different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
 
 Requires Airthings hardware and a compatible Bluetooth dongle.
 
@@ -28,7 +28,7 @@ Requires Airthings hardware and a compatible Bluetooth dongle.
 
 The Airthings BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. This will include the device name and its serial number.
 
-There are two ways of retrieving the 10-digit serial number of a Wave device:
+There are two ways of retrieving the 10-digit serial number of an Airthings device:
 1. At the back of the device, located under the magnetic backplate.
 2. Airthings app: **Device settings -> Device info -> Serial Number**
 
@@ -41,6 +41,7 @@ This integration uses the last 6 digits of the serial number.
 - Wave Mini
 - Wave Plus
 - Wave Enhance
+- Corentium Home 2
 
 ## Sensors
 
@@ -53,3 +54,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - VOC
 - Co2
 - Battery
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

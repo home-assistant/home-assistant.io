@@ -16,17 +16,18 @@ related:
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_platforms:
+  - select
   - sensor
 ha_ssdp: true
 ---
 
-The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
+The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
 
 ## Prerequisites
 
 - The Imeon inverter must be connected to the local network.
-- [OS One](https://imeon-energy.com/os-one/) version must be **1.8.4** or higher.
-- *ModuleAPI* application must be activated on the OS One pannel of your Imeon inverter.
+- [OS One](https://imeon-energy.com/os-one/) version must be **1.8.1.4** or higher.
+- *ModuleAPI* application must be activated on the OS One panel of your Imeon inverter.
    - To do so, connect to **OS One** > **Applications** and by hovering over *ModuleAPI*, select **Activate**.
 
 {% include integrations/config_flow.md %}
@@ -37,104 +38,129 @@ This document provides an overview of the sensors available in the Imeon Inverte
 
 ### Battery sensors
 
-| Sensor key           | Description                                            | Unit   |
-|----------------------|--------------------------------------------------------|--------|
-| `battery_autonomy`   | Indicates the battery autonomy.                        | None   |
-| `battery_charge_time`| Time required to fully charge the battery.             | None   |
-| `battery_power`      | Power currently being used or supplied by the battery. | W      |
-| `battery_soc`        | State of charge of the battery.                        | %      |
-| `battery_stored`     | Total energy stored in the battery.                    | Wh     |
+| Sensor key         | Description                                      | Unit |
+| ------------------ | ------------------------------------------------ | ---- |
+| `battery_power`    | Power currently used or supplied by the battery. | W    |
+| `battery_soc`      | State of charge of the battery.                  | %    |
+| `battery_status`   | Current status of the battery.                   | —    |
+| `battery_stored`   | Power stored in the battery.                     | W    |
+| `battery_consumed` | Power consumed from the battery.                 | W    |
 
 ### Grid sensors
 
-| Sensor key           | Description                      | Unit   |
-|----------------------|-------------------------------|--------|
-| `grid_current_l1`    | Current on grid line 1.       | A      |
-| `grid_current_l2`    | Current on grid line 2.       | A      |
-| `grid_current_l3`    | Current on grid line 3.       | A      |
-| `grid_frequency`     | Frequency of the grid supply. | Hz     |
-| `grid_voltage_l1`    | Voltage on grid line 1.       | V      |
-| `grid_voltage_l2`    | Voltage on grid line 2.       | V      |
-| `grid_voltage_l3`    | Voltage on grid line 3.       | V      |
+| Sensor key        | Description                   | Unit |
+| ----------------- | ----------------------------- | ---- |
+| `grid_current_l1` | Current on grid line 1.       | A    |
+| `grid_current_l2` | Current on grid line 2.       | A    |
+| `grid_current_l3` | Current on grid line 3.       | A    |
+| `grid_frequency`  | Frequency of the grid supply. | Hz   |
+| `grid_voltage_l1` | Voltage on grid line 1.       | V    |
+| `grid_voltage_l2` | Voltage on grid line 2.       | V    |
+| `grid_voltage_l3` | Voltage on grid line 3.       | V    |
 
 ### AC input sensors
 
-| Sensor Key           | Description            | Unit   |
-|----------------------|------------------------|--------|
-| `input_power_l1`     | Power input on line 1. | W      |
-| `input_power_l2`     | Power input on line 2. | W      |
-| `input_power_l3`     | Power input on line 3. | W      |
-| `input_power_total`  | Total power input.     | W      |
+| Sensor key          | Description            | Unit |
+| ------------------- | ---------------------- | ---- |
+| `input_power_l1`    | Power input on line 1. | W    |
+| `input_power_l2`    | Power input on line 2. | W    |
+| `input_power_l3`    | Power input on line 3. | W    |
+| `input_power_total` | Total power input.     | W    |
 
 ### Inverter settings sensors
 
-| Sensor key                        | Description                           | Unit   |
-|-----------------------------------|---------------------------------------|--------|
-| `inverter_charging_current_limit` | Maximum charging current allowed.     | A      |
-| `inverter_injection_power_limit`  | Maximum power injected into the grid. | W      |
+| Sensor key                        | Description                           | Unit |
+| --------------------------------- | ------------------------------------- | ---- |
+| `inverter_charging_current_limit` | Charging current limit of inverter.   | A    |
+| `inverter_injection_power_limit`  | Power injection limit of inverter.    | W    |
+| `manager_inverter_state`          | Current state of the inverter (enum). | —    |
 
-### Electric meter sensors
+### Inverter setting select
 
-| Sensor key           | Description                       | Unit   |
-|----------------------|-----------------------------------|--------|
-| `meter_power`        | Power measured by the meter.      | W      |
-| `meter_power_protocol`| Power measurement protocol type. | None   |
+| Select key              | Description                                   | Unit |
+| ----------------------- | --------------------------------------------- | ---- |
+| `manager_inverter_mode` | View or change the inverter operating mode.   | —    |
+
+### Meter sensors
+
+| Sensor key    | Description                      | Unit |
+| ------------- | -------------------------------- | ---- |
+| `meter_power` | Current measured power by meter. | W    |
 
 ### AC output sensors
 
-| Sensor key           | Description               | Unit   |
-|----------------------|---------------------------|--------|
-| `output_current_l1`  | Current output on line 1. | A      |
-| `output_current_l2`  | Current output on line 2. | A      |
-| `output_current_l3`  | Current output on line 3. | A      |
-| `output_frequency`   | Output frequency.         | Hz     |
-| `output_power_l1`    | Power output on line 1.   | W      |
-| `output_power_l2`    | Power output on line 2.   | W      |
-| `output_power_l3`    | Power output on line 3.   | W      |
-| `output_power_total` | Total power output.       | W      |
-| `output_voltage_l1`  | Voltage output on line 1. | V      |
-| `output_voltage_l2`  | Voltage output on line 2. | V      |
-| `output_voltage_l3`  | Voltage output on line 3. | V      |
+| Sensor key           | Description               | Unit |
+| -------------------- | ------------------------- | ---- |
+| `output_current_l1`  | Output current on line 1. | A    |
+| `output_current_l2`  | Output current on line 2. | A    |
+| `output_current_l3`  | Output current on line 3. | A    |
+| `output_frequency`   | Frequency of the output.  | Hz   |
+| `output_power_l1`    | Output power on line 1.   | W    |
+| `output_power_l2`    | Output power on line 2.   | W    |
+| `output_power_l3`    | Output power on line 3.   | W    |
+| `output_power_total` | Total output power.       | W    |
+| `output_voltage_l1`  | Output voltage on line 1. | V    |
+| `output_voltage_l2`  | Output voltage on line 2. | V    |
+| `output_voltage_l3`  | Output voltage on line 3. | V    |
 
 ### Solar panel sensors
 
-| Sensor Key           | Description                        | Unit   |
-|----------------------|------------------------------------|--------|
-| `pv_consumed`        | Energy consumed from solar panels. | Wh     |
-| `pv_injected`        | Energy injected into the grid.     | Wh     |
-| `pv_power_1`         | Power from solar panel 1.          | W      |
-| `pv_power_2`         | Power from solar panel 2.          | W      |
-| `pv_power_total`     | Total power from solar panels.     | W      |
+| Sensor key       | Description                     | Unit |
+| ---------------- | ------------------------------- | ---- |
+| `pv_consumed`    | Power from PV consumed locally. | W    |
+| `pv_injected`    | Power from PV injected to grid. | W    |
+| `pv_power_1`     | Power from PV string 1.         | W    |
+| `pv_power_2`     | Power from PV string 2.         | W    |
+| `pv_power_total` | Total PV power production.      | W    |
 
 ### Temperature sensors
 
-| Sensor key                 | Description                                  | Unit   |
-|----------------------------|----------------------------------------------|--------|
-| `temp_air_temperature`     | Ambient air temperature around the inverter. | °C     |
-| `temp_component_temperature`| Temperature of internal components.         | °C     |
+| Sensor key                   | Description                        | Unit |
+| ---------------------------- | ---------------------------------- | ---- |
+| `temp_air_temperature`       | Ambient air temperature.           | °C   |
+| `temp_component_temperature` | Temperature of inverter component. | °C   |
 
 ### Monitoring sensors (last 24 hours)
 
-| Sensor key                       | Description                              | Unit   |
-|----------------------------------|----------------------------------------|--------|
-| `monitoring_building_consumption`| Total energy consumed by the building. | Wh     |
-| `monitoring_economy_factor`      | Economy factor for energy usage.       | None   |
-| `monitoring_grid_consumption`    | Energy consumed from the grid.         | Wh     |
-| `monitoring_grid_injection`      | Energy injected into the grid.         | Wh     |
-| `monitoring_grid_power_flow`     | Power flow through the grid.           | Wh     |
-| `monitoring_self_consumption`    | Self-consumed energy percentage.       | %      |
-| `monitoring_self_production`     | Self-produced energy percentage.       | %      |
-| `monitoring_solar_production`    | Total solar energy produced.           | Wh     |
+| Sensor key                    | Description                  | Unit |
+| ----------------------------- | ---------------------------- | ---- |
+| `monitoring_self_produced`    | Power self-produced.         | W    |
+| `monitoring_self_consumption` | Self-consumption percentage. | %    |
+| `monitoring_self_sufficiency` | Self-sufficiency percentage. | %    |
 
 ### Monitoring sensors (instant minute data)
 
-| Sensor key                            | Description                                 | Unit   |
-|---------------------------------------|---------------------------------------------|--------|
-| `monitoring_minute_building_consumption`| Energy consumed by the building (minute). | W      |
-| `monitoring_minute_grid_consumption`  | Energy consumed from the grid (minute).     | W      |
-| `monitoring_minute_grid_injection`    | Energy injected into the grid (minute).     | W      |
-| `monitoring_minute_grid_power_flow`   | Power flow through the grid (minute).       | W      |
-| `monitoring_minute_solar_production`  | Solar energy produced (minute).             | W      |
+| Sensor key                               | Description                  | Unit |
+| ---------------------------------------- | ---------------------------- | ---- |
+| `monitoring_minute_building_consumption` | Building power consumption.  | W    |
+| `monitoring_minute_grid_consumption`     | Grid power consumption.      | W    |
+| `monitoring_minute_grid_injection`       | Power injected to grid.      | W    |
+| `monitoring_minute_grid_power_flow`      | Net power flow to/from grid. | W    |
+| `monitoring_minute_solar_production`     | Solar production power.      | W    |
+
+### Timeline sensor
+
+| Sensor key          | Description              | Unit |
+| ------------------- | ------------------------ | ---- |
+| `timeline_type_msg` | Current timeline status. | —    |
+
+### Daily energy counters (made for the Home Assistant energy panel)
+
+| Sensor key                    | Description                         | Unit |
+| ----------------------------- | ----------------------------------- | ---- |
+| `energy_pv`                   | Energy produced by PV today.        | Wh   |
+| `energy_grid_injected`        | Energy injected to grid today.      | Wh   |
+| `energy_grid_consumed`        | Energy consumed from grid today.    | Wh   |
+| `energy_building_consumption` | Energy building consumption today.  | Wh   |
+| `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
+| `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
+
+### Forecast
+
+| Sensor key                      | Description                                             | Unit |
+| ------------------------------- | ------------------------------------------------------- | ---- |
+| `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
+| `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
 
 ## Troubleshooting
 

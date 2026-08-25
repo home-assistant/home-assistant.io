@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `hddtemp` sensor {% term integration %} is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).
+The **hddtemp** {% term integration %} is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).
 
 ## Setup
 
@@ -27,7 +27,7 @@ hddtemp -dF
 
 ## Configuration
 
-To setup a HDDTemp to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To set up a HDDTemp to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: iron_os
-ha_integration_type: integration
+ha_integration_type: device
 ha_platforms:
   - binary_sensor
   - button
@@ -40,7 +40,7 @@ The IronOS integration lets you monitor and control your smart soldering iron fr
 
 ## Minimum requirements
 
-- **Pinecil V2** requires IronOS v2.21 or higher to connect to Home Assistant. Please refer to the [Pinecil Wiki](https://wiki.pine64.org/wiki/Pinecil_Firmware#Overview) for update instructions.
+- **Pinecil V2** requires IronOS v2.21 or higher to connect to Home Assistant. Please refer to the [Pinecil documentation](https://pine64.org/documentation/Pinecil/Firmware/) for update instructions.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 ## Number controls
 
-- **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
+- **Setpoint temperature:** Allows you to set the desired target temperature for the soldering iron tip.
 
 ## Binary sensors
 
@@ -79,7 +79,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 - **Raw tip voltage:** Measures the raw voltage at the soldering iron's thermocouple, which is then offset compensated and converted to the tip temperature.
 - **Tip resistance:** Indicates the resistance of the currently inserted soldering iron tip (for example, "6.2 Ω" for short tips, "8 Ω" for normal tips)
 - **Uptime:** Tracks the total operating time of the soldering iron since its last power-on.
-- **Hall effect strength:** (Optional) This feature requires the device to be [modified with a hall effect sensor](https://wiki.pine64.org/wiki/Pinecil_Hall_Effect_Sensor). If a neodymium magnet is attached to the stand, it enables proximity detection and can be utilized to calibrate when the iron enters sleep mode based on its proximity to the stand.
+- **Hall effect strength:** (Optional) This feature requires the device to be [modified with a hall effect sensor](https://pine64.org/documentation/Pinecil/Modifications/Hall_effect_sensor/). If a neodymium magnet is attached to the stand, it enables proximity detection and can be utilized to calibrate when the iron enters sleep mode based on its proximity to the stand.
 
 ## Update
 
@@ -130,7 +130,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
-- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers). Options are *on*, *off*, and *safe* (does not dynamically request more power). The *safe* option requires IronOS v2.23 or higher.
+- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://pine64.org/documentation/Pinecil/Power_supplies/Power_supplies/#epr-pd31-140w-chargers). Options are *on*, *off*, and *safe* (does not dynamically request more power). The *safe* option requires IronOS v2.23 or higher.
 
 ### Advanced settings
 
@@ -156,8 +156,6 @@ Automatically activate the fume extractor when soldering begins and deactivate i
 {% my blueprint_import badge blueprint_url="<https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156>" %}
 
 {% details "Example YAML configuration" %}
-
-{% raw %}
 
 ```yaml
 triggers:
@@ -189,8 +187,6 @@ actions:
         target:
           entity_id: switch.fume_extractor
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

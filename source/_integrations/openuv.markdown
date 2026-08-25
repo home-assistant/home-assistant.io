@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The OpenUV integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
+The **OpenUV** {% term integration %} displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
 {% warning %}
 The guidelines within this documentation constitute estimates which are intended to help
@@ -97,7 +97,6 @@ configured via the config entry options within the UI. Two parameters are given:
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the
 horizon:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update OpenUV"
@@ -114,7 +113,6 @@ automation:
         target:
           entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
-{% endraw %}
 
 Update the protection window once a day at 12:00pm:
 
@@ -135,7 +133,6 @@ varies, you need to know the total hours of daylight on the longest day of the y
 for example, this is 17 hours, you can perform 2 calls around every 45 minutes without
 running into the 50 API call limit per day:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update OpenUV"
@@ -172,7 +169,6 @@ automation:
             - binary_sensor.LATITUDE_LONGITUDE_protection_window
             - sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
-{% endraw %}
 
 ## Expired API Keys and Re-authentication
 
@@ -187,7 +183,7 @@ provided by OpenUV. So, this strategy is followed:
 1. Any `HTTP 403` response will create a persistent notification asking you to
    re-authenticate the OpenUV integration.
 2. In the case of an overrun API call limit, once the `homeassistant.update_entity`
-   service call is again successful, existing re-authentication notifications will
+   action is again successful, existing re-authentication notifications will
    automatically be removed.
 
 If you receive a re-authentication notification and are certain that your key has merely

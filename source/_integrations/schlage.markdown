@@ -17,11 +17,11 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_domain: schlage
 ---
 
-The Schlage integration provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
+The **Schlage** {% term integration %} provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
 
 ## Known working devices
 
@@ -68,6 +68,8 @@ Once you have enabled the Schlage integration, you should see the following swit
 
 - **1-Touch Locking** - When enabled, locks the lock with a press of the Schlage button.
 - **Keypress Beep** - Controls whether the lock will emit beeping tones on use.
+
+{% include integrations/actions.md %}
 
 ## Removing the integration
 

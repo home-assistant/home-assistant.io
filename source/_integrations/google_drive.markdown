@@ -21,9 +21,16 @@ related:
     title: Google Drive
   - url: https://console.developers.google.com/start/api?id=drive
     title: Google Developer Console
+ha_platforms:
+  - diagnostics
+  - sensor
 ---
 
-This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called Home Assistant where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with [Home Assistant Backups](/common-tasks/general/#backups).
+
+When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. A separate folder is created for each of your Home Assistant instances. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+
+To open the backup folder, go to **Settings** > **Devices & services** > **Google Drive**, and select **Visit**.
 
 For a video walkthrough of the setup instructions, see this video from 13:50 to 19:20
 <lite-youtube videoid="pZlYu9bN72U" videoStartAt="830" videotitle="Automate Your Home Assistant Backups Like A Pro!" posterquality="maxresdefault"></lite-youtube>
@@ -40,15 +47,59 @@ These are not the same as *Device Auth* credentials previously recommended for [
 
 {% include integrations/google_oauth.md %}
 
+## Sensors
+The integration provides the following sensors, which are updated every 6 hours:
+
+- **Total available storage**: The storage limit, if applicable. This will be unknown if the user has unlimited storage.
+- **Used storage**: The total storage usage across all Google services.
+- **Used storage in Drive**: The usage by all files in Google Drive. This entity is disabled by default.
+- **Used storage in Drive Trash**: The usage by trashed files in Google Drive. This entity is disabled by default.
+- **Total size of backups**: The sum of the size of all backups for the current Home Assistant's installation.
+
+For users that are part of an organization with pooled storage, information about the available storage and used storage across all services is for the organization, rather than the individual user.
+
+## Examples
+
+Get started with these automation examples.
+
+### Send alert when drive is near storage limit
+
+Send an alert when the drive usage is close to the storage limit and needs clean up.
+
+{% details "Example YAML configuration" %}
+
+Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & services** > **Entities**) and replace `notify.my_device` with your actual notifier.
+
+```yaml
+alias: Alert when Google Account is close to storage limit
+description: Send notification to phone when drive needs clean up.
+triggers:
+  - trigger: template
+    value_template: >
+      {% set used = states('sensor.your_email_gmail_com_used_storage') | float(0) %}
+      {% set total = states('sensor.your_email_gmail_com_total_available_storage') | float(0) %}
+      {{ used > (total * 0.9) }}
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: Google Account is almost full!
+      message: >
+        Google Account has used up {{ states('sensor.your_email_gmail_com_used_storage') }}GB of {{
+        states('sensor.your_email_gmail_com_total_available_storage') | float }}GB.
+```
+{% enddetails %}
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
-- If you remove the integration, the Home Assistant folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
+- If you remove the integration, the backup folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
 
 ## Known limitations
 
-- The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files in your Google Drive.
+- The integration can only access files that it creates in the backup folder. It cannot access or modify any other files in your Google Drive.
 
 ## Troubleshooting
 

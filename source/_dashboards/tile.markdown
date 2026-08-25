@@ -6,13 +6,15 @@ description: "The tile card gives you a quick overview of an entity. The card al
 related:
   - docs: /dashboards/actions/
     title: Card actions
+  - docs: /dashboards/naming/
+    title: Card naming
   - docs:  /dashboards/features/
     title: Card features
   - docs: /dashboards/cards/
     title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of an {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
+The tile card gives you a quick overview of an {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the **More info** dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
   <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
@@ -33,8 +35,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites the entity icon.
@@ -64,6 +66,11 @@ state_content:
   description: >
     Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
+time_format:
+  required: false
+  description: >
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -94,7 +101,7 @@ features:
   type: list
 features_position:
   required: false
-  description: Position of the features on the tile card. Can be `bottom` or `inline`. Only the first feature will be displayed when the option is set to `inline`. `inline` is not compatible with the `vertical` option.
+  description: Position of the features on the tile card. Can be `bottom` or `inline`. When set to `inline`, the first feature is displayed next to the name and any remaining features are displayed below it, two per row. A feature that is alone on a row takes the full width. `inline` is not compatible with the `vertical` option.
   type: string
   default: bottom
 
@@ -132,7 +139,7 @@ hide_state: true
 ```yaml
 type: tile
 entity: light.living_room
-state_content: 
+state_content:
   - state
   - brightness
   - last-changed
@@ -150,6 +157,4 @@ features:
 
 ## Available colors
 
-You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
-
-
+The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).

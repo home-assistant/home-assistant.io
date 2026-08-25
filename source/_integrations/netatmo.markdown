@@ -37,7 +37,9 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
+[Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
+
+The **Netatmo** {% term integration %} connects these devices to Home Assistant, so you can monitor and control your Netatmo products alongside the rest of your smart home. It communicates with Netatmo's cloud service, so an active internet connection and a Netatmo account are required.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -52,6 +54,16 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Webhook Events](#webhook-events)
 
+## Prerequisites
+
+Before you set up the integration, make sure you have the following:
+
+- A Netatmo account. If you don't have one yet, create one in the Netatmo app or on the [Netatmo website](https://www.netatmo.com/) and add your devices there first.
+- At least one Netatmo device set up and working in the Netatmo app.
+- An active internet connection. The integration talks to Netatmo's cloud service, so your devices need to be reachable through your Netatmo account.
+
+To receive instant updates through [webhook events](#webhook-events), your Home Assistant instance needs to be reachable from the internet. This is optional, but recommended for the best responsiveness. See [Webhook Events](#webhook-events) for setup requirements and limitations.
+
 {% include integrations/config_flow.md %}
 
 ### Extra configuration of the integration
@@ -62,9 +74,12 @@ In the dialog, it is possible to create, edit and remove public weather sensors.
 
 To edit an existing area, enter its name and follow the dialog.
 
+By default, the opening entity *device class* (e.g. `door`, `window`) shows up as best match to Netatmo configuration. You can manually change its icon (e.g. `mdi:cupboard` for `furniture`) to better match the real appliance when no matching device class in Home Assistant.
+
 ## Binary sensor
 
-The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+The binary sensor platform shows connectivity entities for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/smart-door-and-window-sensors) as *opening* binary sensors (open/closed) and provides additional connectivity entity.
 
 ## Button
 
@@ -87,7 +102,7 @@ The `netatmo` cover platform provides support for Bubendorff shutters.
 
 ## Fan
 
-The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
+The `netatmo` fan platform provides support for Legrand centralized ventilation control.
 
 ## Light
 
@@ -103,92 +118,7 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 The `netatmo` switch platform provides support for Legrand/BTicino switches and power plugs.
 
-## Actions
-
-### Set Outdoor Camera Light Mode
-
-`set_camera_light_mode`
-
-Set the outdoor camera light mode.
-
-| Data attribute | Required | Description                |
-| ---------------------- | -------- | -------------------------- |
-| `camera_light_mode`    | Yes      | Outdoor camera light mode. |
-
-### Set Schedule
-
-`set_schedule`
-
-Set the heating schedule.
-
-| Data attribute | Required | Description                           |
-| ---------------------- | -------- | ------------------------------------- |
-| `schedule_name`        | Yes      | The name of the schedule to activate. |
-
-### Set preset mode with end date & time
-
-`set_preset_mode_with_end_datetime`
-
-Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
-
-| Data attribute | Required | Description                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------- |
-| `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
-| `end_datetime`         | Yes      | Date & time until which the preset will be active.          |
-
-### Set temperature with end date & time
-
-`set_temperature_with_end_datetime`
-
-Sets the target temperature for a Netatmo climate device with an end date & time.
-
-| Data attribute | Required | Description                                              |
-| ---------------------- | -------- | -------------------------------------------------------- |
-| `target_temperature`   | Yes      | The target temperature for the device.                   |
-| `end_datetime`         | Yes      | Date & time the target temperature will be active until. |
-
-### Set temperature with time period
-
-`set_temperature_with_time_period`
-
-Sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
-
-| Data attribute | Required | Description                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------- |
-| `target_temperature`   | Yes      | The target temperature for the device.                      |
-| `time_period`          | Yes      | Time period during which the target temperature is applied. |
-
-### Clear temperature setting
-
-`clear_temperature_setting`
-
-Clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
-
-### Set Person Home
-
-`set_persons_home`
-
-Set a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
-
-| Data attribute | Required | Description    |
-| ---------------------- | -------- | -------------- |
-| `persons`              | Yes      | List of names. |
-
-### Set Person Away
-
-`set_person_away`
-
-Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
-
-| Data attribute | Required | Description    |
-| ---------------------- | -------- | -------------- |
-| `person`               | Yes      | Person's name. |
-
-### (Un-)Register Webhooks
-
-`register_webhook` and `unregister_webhook`
-
-Actions to manually register and unregister the webhook.
+{% include integrations/actions.md %}
 
 ## Webhook Events
 
@@ -222,8 +152,6 @@ Example:
 
 Example:
 
-{% raw %}
-
 ```yaml
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
@@ -242,11 +170,7 @@ Example:
         title: "Netatmo event"
 ```
 
-{% endraw %}
-
 Example:
-
-{% raw %}
 
 ```yaml
 # Example automation for Netatmo Presence
@@ -266,11 +190,7 @@ Example:
         title: Netatmo event
 ```
 
-{% endraw %}
-
 Example:
-
-{% raw %}
 
 ```yaml
 # Example automation
@@ -297,7 +217,28 @@ Example:
         title: "Netatmo event"
 ```
 
-{% endraw %}
+## Device triggers
+
+In addition to the raw [webhook events](#webhook-events), the Netatmo integration provides device triggers that you can select in the automation editor.
+Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create or open an automation, then select **Add trigger** > **Device**.
+These triggers wrap the underlying `netatmo_event` types for supported devices.
+
+The following device triggers are available:
+
+- **Smart Indoor Camera**
+  - Detected movement
+  - Detected a person
+  - Detected a person has left
+  - Detected an alarm
+- **Smart Outdoor Camera**
+  - Detected an outdoor event
+  - Detected a human
+  - Detected an animal
+  - Detected a vehicle
+- **Smart Thermostat** and **Smart Valve**
+  - Target temperature set manually
+  - Has resumed its schedule
+  - Switched to "{subtype}" (subtype: Schedule, Frost guard, or Away)
 
 ## Development / Testing with your own client ID
 
@@ -323,8 +264,14 @@ During the process you have to choose the new Application Credentials name.
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="Developer Tools -> Events" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Light
 
-If the lights show as unavailable the issue usually is that webhook is banned by Netatmo. To solve that [unregister](#un-register-webhooks) the webhook, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook and then [register](#un-register-webhooks) the webhook.
+If the lights show as unavailable, the webhook has likely been banned by Netatmo. To resolve this, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook, and then reload the integration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

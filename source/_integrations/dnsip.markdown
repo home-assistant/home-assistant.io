@@ -11,7 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@gjohansson-ST'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS resolution (every 2 minutes), as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessibility to resolvers.
@@ -21,11 +21,33 @@ The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The target hostname to resolve into their IP address(es).
+Resolver:
+  description: "Override the default DNS resolver by specifying an IPv4 (e.g., `1.1.1.1`) or IPv6 address (e.g., `2606:4700:4700::1111`)"
+Port:
+  description: "Override the default DNS port (`53`). Useful to bypass local DNS filtering or redirection."
+{% endconfiguration_basic %}
+
+Resolver and port may be adjusted after the integration has been setup by adjusting it's options:
+
 {% include integrations/option_flow.md %}
 
-{% configuration_basic %}
-Resolver:
-  description: "You may override the default IPV4 and IPV6 nameservers that are being used by setting any nameserver IP address you like, for example `1.1.1.1` (IPV4) or `2606:4700:4700::1111` (IPV6)."
-Port:
-  description: "You may override the default DNS port of `53`. This may be useful to bypass DNS filtering or redirection."
-{% endconfiguration_basic %}
+## Data fetching and limitations
+
+Resolving the IP address(es) happens every two minutes.
+
+If resolving the IP address(es) is not possible due to connectivity issues or other errors, it retries 3 times before going unavailable.
+
+## Troubleshooting
+
+This service is reliant on an internet connection and that the chosen **resolver(s)** are available.
+
+- Turn on debug logging and check the logs.
+- Manually test to resolve the hostname using any command line tools or websites available.
+- Manually reload the integration.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}

@@ -1,3 +1,4 @@
+@use 'mixins' as *;
 .button {
     align-items: center;
     background-color: var(--connect-line-blue);
@@ -8,6 +9,7 @@
     font-size: 14px;
     color: #fff;
     text-transform: uppercase;
+    transition: background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     
 

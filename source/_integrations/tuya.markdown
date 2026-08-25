@@ -17,6 +17,7 @@ ha_category:
   - Siren
   - Switch
   - Vacuum
+  - Valve
 ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
@@ -43,11 +44,12 @@ ha_platforms:
   - siren
   - switch
   - vacuum
+  - valve
 ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
+The **Tuya** {% term integration %} integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
@@ -82,7 +84,7 @@ To scan the QR code in the Smart Life app:
 
 After adding new devices to your Tuya account through the Smart Life or Tuya Smart app, you need to reload the Tuya integration in Home Assistant for the new devices to appear:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**
+1. Go to **{% my integrations title="Settings > Devices & services" %}**
 2. Find the Tuya integration
 3. Click the three dots menu
 4. Select **Reload**
@@ -91,15 +93,17 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
+{% include integrations/actions.md %}
+
 ## Troubleshooting
 
-### Unsupported device or missing device functionnality
+### Unsupported device or missing device functionality
 
 This integration relies on the official [Python SDK provided by Tuya](https://github.com/tuya/tuya-device-sharing-sdk), which does not expose all functionality available in SmartLife.
 
 The data points provided by the SDK are visible in the Home Assistant device diagnostics JSON file, under the `status`, `status_range` and `function` keys:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**
+1. Go to **{% my integrations title="Settings > Devices & services" %}**
 2. Find the Tuya integration
 3. Select the device
 4. Under the device information, click the three dots menu
@@ -107,3 +111,28 @@ The data points provided by the SDK are visible in the Home Assistant device dia
 6. Open the diagnostic file, and check manually the `status`, `status_range` and `function` keys
 
 If `status`, `status_range` and `function` are all empty, then only scenes declared inside Tuya (if any) will be available inside Home Assistant.
+
+### Integration requires re-authenticating after every integration reload
+
+When Tuya updates the terms and conditions of iot.tuya.com, the integration will require repeated authentication.
+
+To fix this:
+
+1. Log in to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
+2. Restart Home Assistant.
+3. Reconfigure the Tuya integration.
+
+### Feeder meal plan not supported
+
+
+#### Symptom: "Feeder not supported" warning
+
+Home Assistant shows a warning that this particular feeder is not supported.
+
+#### Description
+
+Feeders are dependent on [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) to be integrated based on feeders `product_id`. 
+
+#### Resolution
+
+Open a issue to [tuya-device-handlers](https://github.com/home-assistant-libs/tuya-device-handlers) with information provided from QueryThingsDataModel API result from iot.tuya.com (under Cloud / API Explorer / Device Control).

@@ -9,7 +9,6 @@ ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
   - '@shenxn'
-  - '@Orhideous'
 ha_domain: roomba
 ha_config_flow: true
 ha_dhcp: true
@@ -17,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - vacuum
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
@@ -46,6 +45,7 @@ Sensors:
 - **Battery**: The status of your battery
 - **Bin full** (if Roomba has the capacity to do): If the bin is full
 - **Canceled missions**: Total number of missions that have been canceled
+- **Charging**: Whether the robot is currently charging
 - **Failed missions**: Total number of missions that have failed
 - **Successful missions**: Total number of successful missions
 - **Average mission time**: The amount of time a mission took on average
@@ -90,6 +90,6 @@ Copy the password (everything between `=>` and `<=`, not including leading and t
 
 ## Troubleshooting
 
-- **Integration wizard shows "Failed to connect" after submitting the password**: Before attempting a factory reset (which can be a cumbersome process), attempt submitting the password in the integration wizard while the Roomba is actively running (i.e. cleaning). Avoid opening the app to start a manual job to help with this. Instead, push the physical clean button on the device directly to start the manual job. This appears to resolve the issue on some models because they answer queries only while actively running.
+- **Integration wizard shows "Failed to connect" after submitting the password**: Before attempting a factory reset (which can be a cumbersome process), attempt submitting the password in the integration wizard while the Roomba is actively running (that is, cleaning). Avoid opening the app to start a manual job to help with this. Instead, push the physical clean button on the device directly to start the manual job. This appears to resolve the issue on some models because they answer queries only while actively running.
 
   If this still does not resolve the issue, factory reset the model.

@@ -8,6 +8,7 @@ ha_category:
   - Energy
   - Event
   - Light
+  - Media player
   - Number
   - Select
   - Sensor
@@ -21,7 +22,6 @@ ha_integration_type: virtual
 ha_supporting_domain: shelly
 ha_supporting_integration: Shelly
 ha_codeowners:
-  - '@balloob'
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'
@@ -35,6 +35,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor

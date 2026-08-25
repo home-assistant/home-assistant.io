@@ -21,10 +21,11 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
-This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
+The **Switcher** {% term integration %} allows you to control your [Switcher Devices](https://www.switcher.co.il/).
 
 Supported devices:
 
@@ -43,6 +44,7 @@ Supported devices:
 - Switcher Light SL02
 - Switcher Light SL02 Mini
 - Switcher Light SL03
+- Switcher Heater
 
 Devices that require a token:
 
@@ -53,6 +55,7 @@ Devices that require a token:
 - Switcher Light SL02
 - Switcher Light SL02 Mini
 - Switcher Light SL03
+- Switcher Heater
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
@@ -60,7 +63,7 @@ If you completed the integration setup but are still unable to control the devic
 
 Before the integration can find a device, you need to connect it to your network using the Switcher app.
 
-To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
+To enhance security, certain Switcher devices require a token for operation. To integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
 
 - **The username of your Switcher Account**: To find the username, open the Switcher app.
 - **Local control key token**: To find the local control key token, browse to the
@@ -91,7 +94,7 @@ For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, an
   
 ## Sensors
 
-For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
+For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater) the integration provides the following sensors:
 | Sensor Name         | Description                                            | Example           |
 | ------------------- | ------------------------------------------------------ | ----------------- |
 | `Auto Shutdown`*    | The auto shutdown time limit configured on the device  | 01:30:00          |
@@ -110,33 +113,15 @@ For Switcher Breeze the integration provides the following sensor:
 
 For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12), the integration allows you to control its child lock state; ON means locked, and OFF means unlocked.
 
-## Actions
-
-For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
-
-### Action: `switcher_kis.set_auto_off`
-
-You can use the `switcher_kis.set_auto_off` action to set the auto-off configuration setting for the device.
-
-Meaning the device will turn itself off when reaching the auto-off configuration limit.
-
-| Data attribute | Mandatory | Description                                                                            | Example                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
-| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
-| `auto_off`    | Yes       | Time period string containing hours and minutes                                        | "02:30"                    |
-
-### Action: `switcher_kis.turn_on_with_timer`
-
-You can use the `switcher_kis.turn_on_with_timer` action to turn on the switcher device with timer.
-
-Meaning the device will turn itself off when timer ends.
-Note: This does not affect the auto off timer.
-| Data attribute | Mandatory | Description                                                                            | Example                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
-| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
-| `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
+{% include integrations/actions.md %}
 
 ## Notes
 
 Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

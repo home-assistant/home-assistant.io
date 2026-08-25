@@ -31,9 +31,9 @@ ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API.
+This {% term integration %} interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API.
 
-If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
+If your Home Assistant host can perform [DHCP discovery](/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
 ## Prerequisites
 
@@ -55,11 +55,16 @@ Password:
 {% configuration_basic %}
 Use Bluetooth:
   description: Allows you to manually disable Bluetooth communication with the machine (if available). This can be used to avoid longer timeouts, e.g., when your machine is only sometimes in range.
+Offline mode:
+  description: Allows you to enable the offline mode manually. Requires use of Bluetooth. Also see [Data updates](#data-updates).
 {% endconfiguration_basic %}
 
 ## Data updates
 
 By default, this integration will receive push updates from the cloud about its general status. If that is not possible it will query the cloud every 15 seconds for an update of general machine information, every 15 minutes for new statistics, every 30 minutes for updated schedules and every 8 hours for a firmware update.
+
+If your host has access to a Bluetooth adapter and your machine is within range, the integration can request updates through Bluetooth. This Bluetooth mode starts automatically if internet access is not available, or when you enable the **offline mode** option.
+In **offline mode**, most entities will become unavailable. Only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. While in **offline mode**, Home Assistant requests an update from your machine every 60 seconds.
 
 # Available platforms & entities
 
@@ -78,17 +83,21 @@ By default, this integration will receive push updates from the cloud about its 
 | Number name | Description | Available for machines | Controllable through | Remarks |
 |-------------|-------------| ---------------------- |--------------------- | ------- |
 | **Coffee target temperature** | Temperature the coffee boiler is set to | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
+| **Steam target temperature** | Temperature the steam boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Smart standby time** | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Preinfusion` |
 | **Prebrew time on** | Duration which prebrew will be on | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Prebrew` |
 | **Prebrew time off** | Duration which prebrew will wait | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Prebrew` |
+| **Brew by weight Dose 1** | Weight when the machine will stop while being in *Dose 1* for Brew by weight | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is paired with a scale |
+| **Brew by weight Dose 2** | Weight when the machine will stop while being in *Dose 2* for Brew by weight | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is paired with a scale |
+
 
 ## Switches
 
 | Switch name | Description | Available for machines | Controllable through |
 |-------------|-------------| ---------------------- | -------------------- |
-| **Main**      | Allows to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
-| **Steam boiler** | Allows to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
+| **Main**      | Allows you to turn machines on-/off | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
+| **Steam boiler** | Allows you to enable/disable the steam boiler | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Smart standby enabled** | Whether smart standby is on (machine will automatically stand by after given time) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 
 ## Binary sensors
@@ -125,6 +134,12 @@ By default, this integration will receive push updates from the cloud about its 
 | **Prebrew/-infusion mode** | Whether to use prebrew, preinfusion, or neither | `Disabled`, `Prebrew`, `Preinfusion` | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Steam level** | The level your steam boiler should run at | `1`,`2`,`3` | `Linea Micra`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 | **Smart standby mode** | The smart standby mode, that decides from which events the timer to standby will run. | `Last brewing`, `Power on` | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon>  |
+| **Brew by weight dose mode** | Select the brew by weight mode of your machine | `Continuous`, `Dose 1`, `Dose 2` | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
+
+## Calendar
+
+The integration exposes a {% term calendar %} for the machine's auto-on/off schedule. It only displays the schedule; you can't make changes to the schedule from the calendar.
+The schedule will be displayed recurrently: If you set the machine to start up on Mondays at 8:00 and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you will not get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
 
 ## Supported devices
 
@@ -152,8 +167,6 @@ I often drink milk beverages in the morning and espresso in the afternoon, but f
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 alias: Turn steamboiler on when machine is turned on
 description: Ensure the steamboiler is on, when the machine gets turned on
@@ -175,7 +188,6 @@ actions:
 mode: single
 
 ```
-{% endraw %}
 {% enddetails %}
   
 ## Known Limitations
@@ -183,15 +195,15 @@ mode: single
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Troubleshooting
 
 {% details "Problem: Connection to machine is not possible" %}
 
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

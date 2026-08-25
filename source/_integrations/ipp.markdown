@@ -16,8 +16,18 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The `Internet Printing Protocol (IPP)` integration allows you to read current data from your networked printer that supports the [Internet Printing Protocol](https://www.pwg.org/ipp/everywhere.html).
+The **Internet Printing Protocol (IPP)** {% term integration %} allows you to read current data from your networked printer that supports the [Internet Printing Protocol](https://www.pwg.org/ipp/everywhere.html).
 
 It provides information about the printer's state and remaining ink levels.
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+The integration {% term polling polls %} the printer every 60 seconds to update the printer state and the remaining ink or toner levels.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

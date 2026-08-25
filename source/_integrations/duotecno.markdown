@@ -18,7 +18,7 @@ ha_platforms:
   - cover
   - light
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Duotecno** {% term integration %} can be used to control [Duotecno](https://www.duotecno.be/) nodes in Home Assistant.

@@ -11,6 +11,10 @@ ha_codeowners:
 ha_domain: zone
 ha_integration_type: system
 related:
+  - docs: /integrations/device_tracker/
+    title: Device tracker
+  - docs: /integrations/person/
+    title: Person
   - docs: /docs/configuration/basic/
     title: Editing basic settings
   - docs: /docs/organizing/areas/
@@ -23,7 +27,7 @@ related:
 
 Zones allow you to specify certain regions on a map. They enable [zone presence-detection](/getting-started/presence-detection/). This information can be used in automations. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
 
-Create a zone for each area you want to automate on. For example, work, school, and home. Different technologies can be used to detect presence in these zones. A common method is app-based detection using a mobile phone.
+Create a zone for each area you want to automate on. For example, work, school, and home. Different technologies can be used to detect presence in these zones. A common method is app-based detection using a mobile phone. Zone automations work with [person](/integrations/person/) and [device tracker](/integrations/device_tracker/) entities.
 
 <p class='img'>
     <img src="/images/screenshots/map.png" alt="Screenshot of a map dashboard in Home Assistant showing a school, work and home zone and two people."/>
@@ -42,22 +46,24 @@ During the [onboarding process](/getting-started/onboarding/), Home Assistant as
 
 ## Adding a new zone or editing zones
 
-1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
-2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
+{% note %}
+If you have configured the zone or some of the general settings in YAML, as described in [editing zones in YAML](/integrations/zone/#editing-zones-in-yaml) and in [editing the general settings in YAML](/integrations/homeassistant/#editing-the-general-settings-in-yaml), you cannot edit them using the UI.
+{% endnote %}
+
+1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %} and select the **Zones** tab.
+2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Create zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
    - The home zone always has the name of your Home Assistant installation. To change the name of the home, go to {% my general title="**Settings** > **System** > **General**" %}.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
    - For example, `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
    - For the home zone, the icon cannot be changed.
-5. To change location or radius, under **Edit location**, select edit.
-   - To adjust the location, specify the GPS coordinates or drag the icon on the map
-   - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
+5. To change the location, enter the GPS coordinates in **Latitude** and **Longitude** or drag the icon on the map. To change the zone radius, adjust the size of the zone circle or edit the **Radius** in meters.
 
     ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
 
 6. If you want to hide the zone from the frontend and not use the zone for device tracker state, enable **Passive**. You can still use it in automations.
    - For the home zone, **Passive** is not available.
-7. To save your changes, select **Update**.
+7. To save your changes, select **Save** if you are editing a zone or **Create** if you are adding a new zone.
 
 ## Editing zones in YAML
 
@@ -113,13 +119,93 @@ passive:
   default: false
 {% endconfiguration %}
 
-To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
+To find the latitude and longitude of a place:
+
+- In Bing Maps, right-click and copy the coordinates.
+- In Google Maps, right-click and select **What is here?**.
 
 ## State
 
-The state of a zone is a number, which represents the number of
-{% my people title="persons" %} that are currently in a zone.
+The state of a zone is a number, which represents the number of {% my people title="persons" %} that are currently in a zone.
 
-The number of persons in a zone can be helpful for automations, for example,
-to determine if someone is home, or home alone, or no-one is at home at all.
-The same applies to all other zones.
+The number of persons in a zone can be helpful for automations. For example, you can determine if someone is home, if one person is home, or if no one is home. The same applies to all other zones.
+
+## Supported functionality
+
+Zones provide triggers and conditions for automations. You can use them to react when people or tracked devices enter or leave a zone, or to check whether a zone is occupied.
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
+## Zone automation examples
+
+These examples show how you can use zone triggers and conditions in automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: notify when Nina arrives at work
+
+When Nina enters the work zone, this automation sends a notification to your phone.
+
+- **Trigger**: Zone entered
+  - **Target**: Nina (`person.nina`)
+  - **Zone**: Work (`zone.work`)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a work arrival notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when Nina arrives at work"
+  triggers:
+    - trigger: zone.entered
+      target:
+        entity_id: person.nina
+      options:
+        zone: zone.work
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "Nina arrived at work."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn off the office fan when home is empty
+
+When the home zone becomes empty, this automation checks that Nina is not in the home zone and turns off the office fan.
+
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Condition**: Is not in zone
+  - **Target**: Nina (`person.nina`)
+  - **Zone**: Home (`zone.home`)
+- **Action**: Turn off fan
+  - **Target**: Office fan (`fan.office`)
+
+{% details "YAML example for turning off the office fan when home is empty" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the office fan when home is empty"
+  triggers:
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
+  conditions:
+    - condition: zone.not_in_zone
+      target:
+        entity_id: person.nina
+      options:
+        zone: zone.home
+  actions:
+    - action: fan.turn_off
+      target:
+        entity_id: fan.office
+{% endexample %}
+
+{% enddetails %}

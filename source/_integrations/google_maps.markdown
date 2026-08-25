@@ -15,13 +15,13 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `google_maps` {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
+The **Google Maps** {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
 
 ## Setup
 
 You need two Google accounts. Account A is the account that has to be set up to share its location with account B. Account B is used to fetch the location of your device(s) and will be connected to this integration. 
 
-1. You first have to setup sharing of the location of account A through the Google Maps app on your mobile phone. Share your location with account B. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
+1. You first have to set up sharing of the location of account A through the Google Maps app on your mobile phone. Share your location with account B. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
 2. Next, you have to retrieve a valid cookie from Google, while being logged in with account B. Log in with your credentials of account B on [Google Maps](https://www.google.com/maps) with a PC with Firefox or Chrome. Make sure to use the `.com` TLD (e.g., maps.google.com), otherwise the cookie won't be able to provide a valid session. After you have properly authenticated, you can retrieve the cookie with either [Export cookies](https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/?src=search) for Firefox (make sure that "Prefix HttpOnly cookies" is unchecked) or [get_cookies.txt locally](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc) for Chrome/Chromium.
 3. Save the cookie file to your Home Assistant configuration directory with the following name: `.google_maps_location_sharing.cookies.` followed by the slugified username of the NEW Google account (account B). 
    - For example: If your email address was `location.tracker@gmail.com`, the filename would be: `.google_maps_location_sharing.cookies.location_tracker_gmail_com`.
@@ -40,7 +40,7 @@ device_tracker:
 ```
 
 {% note %}
-If using more than one account, your own device may show twice, however, the parameters returned from Account A will not include a value for battery_level or entity_picture. These parameters will be present in your device tracker entity from Account B. Therefore, disregard the device tracker entity with is missing those parameters. 
+If using more than one account, your device may appear twice. However, the parameters returned from Account A will not include a value for `battery_level` or `entity_picture`. These parameters will be present in the device tracker entity from Account B. Therefore, disregard the device tracker entity that is missing those parameters. 
 {% endnote %}
 
 ## Configuration

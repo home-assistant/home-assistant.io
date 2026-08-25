@@ -16,16 +16,16 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Spotify media player integration lets you control your Spotify
+The **Spotify** {% term integration %} lets you control your Spotify
 account playback and browse the [Spotify](https://www.spotify.com/) media
 library from Home Assistant.
 
 ## Prerequisites
 
-- An active Spotify account. A premium account is not required, but recommended.
-  Premium accounts can be controlled (pause, play, next, etc.), while
-  free accounts can only be used for browsing and current playback status.
-- Spotify compatible playback [source](#selecting-output-source) device
+- An active Spotify Premium account. As of February 2026, Spotify requires a
+  Premium account to access the Developer Portal and create an application.
+  This means the integration only works with a Spotify Premium account.
+- A Spotify-compatible playback [source](#selecting-output-source) device.
 - A Spotify Developer application. Instructions for that are in
   the next step.
 
@@ -131,12 +131,12 @@ data:
   source: "Denon AVR-X2000"
 ```
 
-The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="Developer Tools States" %}.
+The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 ## Playing Spotify playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
-[media_player.play_media](/integrations/media_player/#action-media_playerplay_media) action, for example:
+[media_player.play_media](/integrations/media_player/#action-play-media) action, for example:
 
 ```yaml
 # Example script to play playlist
@@ -156,3 +156,9 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 ## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API. One workaround to use Sonos players with Spotify is through [Music Assistant](https://www.music-assistant.io/) using the action `music_assistant.play_media`. Music Assistant creates another media_player entity named after the original media_player, which you can use to play from Spotify.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

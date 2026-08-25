@@ -17,6 +17,7 @@ ha_platforms:
   - media_player
   - remote
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **Android TV Remote** {% term integration %} allows you to control an Android TV and launching apps. For this to work, the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices (Fire TV devices are a notable exception).
@@ -41,13 +42,45 @@ This {% term integration %} adds a `media_player` with basic playback and volume
 
 Using the `media_player.play_media` {% term action %}, you can launch applications, switch channels, and start activities via `Deep Links`. Only `app`, `url` and `channel` media types are supported.
 
+### Launching activities
+
+The most reliable way to launch an app, or open a specific screen within it, is with a deep link supported by the app.
+
+Examples of deep links for popular applications:
+
+| App | Deep link |
+| --- | --- |
+| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Prime Video | `https://app.primevideo.com`
+| Disney+ | `https://www.disneyplus.com`
+| Plex | `plex://`
+| Twitch | `twitch://home` `[home, stream, game, video, clip, search, browse, channel, user]`
+
+Example:
+
+```yaml
+# Open a specific YouTube video:
+action: media_player.play_media
+data:
+  media:
+    media_content_type: url
+    media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+target:
+  entity_id: media_player.living_room_tv
+```
+
 ### Launching apps
 
-If the Android TV device has the Google Play Store, you can directly launch any app by its application ID (package name).
+If an app doesn't have a deep link, or the device doesn't have the Google Play Store, you can try to launch it directly by its application ID (package name).
 The app doesn't need to exist in the Google Play Store.
 If it exists, you can find the application ID in the URL of the app's Google Play Store listing.
 For example, if the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`, the application ID is `com.example.app123`.
 The application ID is also displayed in the media player card when you launch the application on the device.
+
+{% note %}
+A change to the Google Play Store is currently preventing this method from working for many apps. If launching by application ID doesn't work, use a [deep link](#launching-activities) instead.
+{% endnote %}
 
 Examples of application IDs for popular applications:
 
@@ -67,35 +100,9 @@ Example:
 # Launch the YouTube app
 action: media_player.play_media
 data:
-  media_content_type: app
-  media_content_id: com.google.android.youtube.tv
-target:
-  entity_id: media_player.living_room_tv
-```
-
-### Launching activities
-
-Alternatively, if the device doesn't have the Google Play Store or if you want to open specific activity in the app, you can pass deep links supported by some applications.
-
-Examples of deep links for popular applications:
-
-| App | Deep link |
-| --- | --- |
-| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
-| Netflix | `https://www.netflix.com/title` or `netflix://`
-| Prime Video | `https://app.primevideo.com`
-| Disney+ | `https://www.disneyplus.com`
-| Plex | `plex://`
-| Twitch | `twitch://home` `[home, stream, game, video, clip, search, browse, channel, user]`
-
-Example:
-
-```yaml
-# Open a specific YouTube video:
-action: media_player.play_media
-data:
-  media_content_type: url
-  media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  media:
+    media_content_type: app
+    media_content_id: com.google.android.youtube.tv
 target:
   entity_id: media_player.living_room_tv
 ```
@@ -110,15 +117,16 @@ Example:
 # Change channel to number 15:
 action: media_player.play_media
 data:
-  media_content_type: channel
-  media_content_id: 15
+  media:
+    media_content_type: channel
+    media_content_id: 15
 target:
   entity_id: media_player.living_room_tv
 ```
 
 ### Using with Google Cast
 
-Android TV Remote {% term integration %} provides information about the power status of the device and gives you the ability to control playback. However, it does not provide information about the currently playing content (media title, duration, play/pause state, etc.). In turn, [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (e.g. on Android TV Home Screen) and does not allow to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/) integration. Universal Media Player will automatically select the appropriate active media player entity.
+Android TV Remote {% term integration %} provides information about the power status of the device and gives you the ability to control playback. However, it does not provide information about the currently playing content (media title, duration, play/pause state, etc.). In turn, [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (e.g. on Android TV Home Screen) and does not allow you to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/) integration. Universal Media Player will automatically select the appropriate active media player entity.
 
 {% details "Example YAML configuration" %}
 
@@ -160,7 +168,8 @@ media_player:
 
 The remote allows you to send key commands and text as input to your Android TV device with the `remote.send_command` action.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
-You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` action to launch that app.
+You can pass a [deep link](#launching-activities), or the application ID shown in this `current_activity`, as `activity` in the `remote.turn_on` action to launch that app.
+Launching by application ID currently doesn't work reliably for many apps due to a Google Play Store change, so use a deep link when you have one.
 
 {% details "List of the most common commands" %}
 
@@ -244,11 +253,11 @@ Other:
 
 {% enddetails %}
 
-To send text as keyboard input use the `remote.send_command` and prefix the text to send with `text:`, e.g. `command: text:hello world` to type "hello world" in the selected input field.
+### Sending key commands
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
+Whether a command does something depends on your Android TV device, its firmware, and the app in the foreground. Some devices remap or ignore certain keys, so a command like `GUIDE` or `MENU` might do nothing or trigger a different action than you expect. The commands are sent to your device as is, so Home Assistant cannot change how your device reacts to them.
 
-Example actions:
+Pass any of the most common commands in the list above as `command` in the `remote.send_command` action.
 
 ```yaml
 # Open the currently selected item on the Android TV
@@ -258,6 +267,8 @@ data:
 target:
   entity_id: remote.living_room_tv
 ```
+
+To trigger the long-press behavior of a key, supply `hold_secs` in seconds. Fractional seconds, like `0.5` for half a second, are supported. The integration will press the key, wait the given duration, and then release it as a single atomic call.
 
 ```yaml
 # Long press on the currently selected item on the Android TV
@@ -269,6 +280,34 @@ target:
   entity_id: remote.living_room_tv
 ```
 
+### Press and release as separate events
+
+When a button, controller, or frontend card already emits separate press and release events, you can forward each one to the TV as its own service call by prefixing the command with a direction. Each call sends exactly one event, so the release fires when your source event fires, not when a fixed `hold_secs` timer ends.
+
+The accepted prefixes are `start_long:` (press down), `end_long:` (release up), and `short:` (the default). Prefixes are case-insensitive. Plain commands without a prefix continue to send a short tap. When both a prefix and `hold_secs` are supplied, `hold_secs` takes precedence.
+
+```yaml
+# Press down on DPAD_DOWN. Returns immediately, the key stays "held".
+action: remote.send_command
+data:
+  command: "start_long:DPAD_DOWN"
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Release DPAD_DOWN. Sent later, when the user lets go.
+action: remote.send_command
+data:
+  command: "end_long:DPAD_DOWN"
+target:
+  entity_id: remote.living_room_tv
+```
+
+### Sending text input
+
+To send text as keyboard input, prefix the value of `command` with `text:`. The text after the prefix is delivered to whichever input field is currently focused on the Android TV.
+
 ```yaml
 # Send "Never Gonna Give You Up" as keyboard input text to the selected input field
 action: remote.send_command
@@ -277,6 +316,10 @@ data:
 target:
   entity_id: remote.living_room_tv
 ```
+
+### Launching apps and activities
+
+Use `remote.turn_on` with the `activity` field to launch an app or open a specific deep link. The value can be an application ID (see the [Launching apps section](#launching-apps)), a URL, or a scheme supported by the target app.
 
 ```yaml
 # Launch YouTube
@@ -288,7 +331,7 @@ target:
 ```
 
 ```yaml
-# Open a specific YouTube video:
+# Open a specific YouTube video
 action: remote.turn_on
 data:
   activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -533,7 +576,7 @@ cards:
           action: perform-action
           perform_action: remote.turn_on
           data:
-            activity: com.netflix.ninja
+            activity: netflix://
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -545,7 +588,7 @@ cards:
           action: perform-action
           perform_action: remote.turn_on
           data:
-            activity: com.amazon.amazonvideo.livingroom
+            activity: https://app.primevideo.com
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -557,7 +600,7 @@ cards:
           action: perform-action
           perform_action: remote.turn_on
           data:
-            activity: com.disney.disneyplus
+            activity: https://www.disneyplus.com
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -574,15 +617,21 @@ cards:
 
 ## Limitations and known issues
 
+- Launching apps by their application ID (as opposed to a deep link) currently doesn't work for many apps due to a Google Play Store change. Use a [deep link](#launching-activities) instead when one is available.
 - The integration doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
 - If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot send commands with this integration either.
 - Commands don't work on Netflix. They don't work from the Google TV mobile app or the Google Home mobile app either.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
 - Some devices, like TCL, become unavailable after they are turned off, unless you activate the **Screenless service**. To activate it, go to **Settings** > **System** > **Power and energy** > **Screenless service**, and activate it.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
-- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
+- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to reboot Home Assistant to restart pairing with the Android TV.
 - Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by deselecting **Enable IME** in the **Configure** page of the integration.
 - If you can't turn on your Nvidia Shield device, go to **Settings** > **Remotes & accessories** > **Simplified wake buttons** and disable the following options: **SHIELD 2019 Remote: Wake on power and Netflix buttons only** and **Controllers: Wake on NVIDIA or logo buttons only**.
+
+
+## Data updates
+
+Android TV devices push data directly to Home Assistant, enabling immediate updates for device state changes such as power state, volume, and current active app. But the media player entity has assumed playback state since the Android TV Remote API doesn't provide playback status.
 
 
 ## Removing the integration

@@ -7,6 +7,7 @@ ha_release: 2021.6
 ha_iot_class: Cloud Polling
 ha_domain: wallbox
 ha_platforms:
+  - button
   - lock
   - number
   - select
@@ -15,7 +16,7 @@ ha_platforms:
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station. 
@@ -63,7 +64,7 @@ The number {% term entity %} is only loaded if the supplied username has suffici
 
 ## Lock
 
-The {% term integration %} adds a lock {% term entity %}, allowing you to lock the charger. Please note, this only works with a user with admin rights.
+The {% term integration %} adds a lock {% term entity %}, allowing you to lock the charger. This only works with a user with admin rights.
 
 ## Select
 
@@ -73,9 +74,15 @@ The {% term integration %} adds a select {% term entity %} to control solar char
 
 The {% term integration %} adds a switch {% term entity %}, allowing you to pause/resume the charging process.
 
+## Button
+
+The {% term integration %} adds a **Resume schedule** button {% term entity %}. Pressing it resumes the charger's programmed schedule and EcoSmart mode after a manual stop, mirroring the **Resume schedule** action available in the Wallbox mobile app.
+
+This action requires a user with admin rights. If the configured user lacks them, pressing the button fails with an error and a repair issue is raised. See [Insufficient Rights](#insufficient-rights) for details.
+
 ## Data updates
 
-Data is refreshed once every minute. Note that this update interval has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended.
+Data is refreshed once every 90 seconds for owners of 1 charger, this rate is multiplied by the amount of chargers for owners of multiple Wallboxes. Note that this update interval has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended.
 
 ## Troubleshooting
 

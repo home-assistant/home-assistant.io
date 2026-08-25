@@ -22,7 +22,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
+The **SimpliSafe** {% term integration %} integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -54,39 +54,7 @@ You must have multi-factor authentication (MFA) enabled on your SimpliSafe accou
 
 SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
 
-## Actions
-
-### `simplisafe.remove_pin`
-
-Remove a SimpliSafe PIN (by label or PIN value).
-
-| Data attribute | Optional | Description                      |
-| ---------------------- | -------- | -------------------------------- |
-| `label_or_pin`         | no       | The PIN label or value to remove |
-
-### `simplisafe.set_pin`
-
-Set a SimpliSafe PIN.
-
-| Data attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `label`                | no       | The label to show in the SimpliSafe UI |
-| `pin`                  | no       | The PIN value to use                   |
-
-### `simplisafe.system_properties`
-
-Set one or more system properties.
-
-| Data attribute | Optional | Description                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------- |
-| `alarm_duration`       | yes      | The number of seconds a triggered alarm should sound                         |
-| `chime_volume`         | yes      | The volume of the door chime                                                 |
-| `entry_delay_away`     | yes      | The number of seconds to delay triggering when entering with an "away" state |
-| `entry_delay_home`     | yes      | The number of seconds to delay triggering when entering with a "home" state  |
-| `exit_delay_away`      | yes      | The number of seconds to delay triggering when exiting with an "away" state  |
-| `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
-| `light`                | yes      | Whether the light on the base station should display when armed              |
-| `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
+{% include integrations/actions.md %}
 
 ## Events
 
@@ -157,7 +125,9 @@ triggers:
 
 For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
 
-To enable secret alerts for sensor changes, follow these steps:
+Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way Simplisafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
+
+For cases where you wish to reliably determine each time a binary sensor is triggered, do the following:
 
 1. Enable the secret alert for the device in the Simplisafe App.
 2. Make a note of the serial number of the device.
@@ -173,9 +143,6 @@ To enable secret alerts for sensor changes, follow these steps:
           last_event_sensor_serial: "abc123xyz"  # Replace with your device's serial number (use lowercase letters)
   ```
 
-{% note %}
-Due to the way Simplisafe implements secret alerts, you can only determine when a sensor is triggered, not when it is cleared.
-{% endnote %}
 
 ### `SIMPLISAFE_NOTIFICATION`
 
@@ -190,5 +157,5 @@ event data that contains the following keys:
 
 Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
 again for any notifications still active in the SimpliSafe web and mobile apps. To
-prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
+prevent this, either (a) clear them in the web/mobile app or (b) use the
 `clear_notifications` button provided by the alarm control panel.

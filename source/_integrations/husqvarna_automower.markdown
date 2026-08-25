@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Calendar
   - Device tracker
+  - Event
   - Lawn Mower
   - Number
   - Select
@@ -22,20 +23,21 @@ ha_platforms:
   - calendar
   - device_tracker
   - diagnostics
+  - event
   - lawn_mower
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_domain: husqvarna_automower
 ha_quality_scale: silver
 ---
 
-The Husqvarna Automower integration provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
+The **Husqvarna Automower** {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
 
-In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account.  Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
-Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required.  Most users probably created a Husqvarna account during initial mower setup.
+To use this integration you must properly configure OAuth2 credentials using your Husqvarna account. Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
+Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required. Most users probably created a Husqvarna account during initial mower setup.
 
 1. Go to the [Husqvarna Developer Portal](https://developer.husqvarnagroup.cloud) and sign in with your Husqvarna account. Authorize *Developer Portal* to access Husqvarna account when prompted.
 
@@ -51,7 +53,7 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 
     ![Create new Application](/images/integrations/husqvarna_automower/create_new_application.png)
 
-   - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
+   - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown. Protect these like a username and password.
 
 4. Click on **CONNECT NEW API** and connect the **Authentication API**.
    ![Authentication API*](/images/integrations/husqvarna_automower/connect_authentication_api.png)
@@ -108,15 +110,40 @@ The integration will create the following binary sensors:
 The integration will create the following buttons:
 
 - **Confirm Error** (if available): For confirming minor mower errors.
+- **Reset cutting blade usage time** (if available): Resets the cutting blade usage time.
 - **Sync clock**: Syncs the clock of the mower with the time set in Home Assistant.
 
 ### Calendar
 
-The integration will create a calendar entity for all mowers. The calendar shows all current and upcoming schedules.
+The integration will create a {% term calendar %} entity for all mowers. The calendar shows all current and upcoming schedules.
 
 ### Device tracker (if available)
 
 The integration will create a device tracker entity to show the position of the mower.
+
+### Event (if available)
+
+- Shows the last error as event.
+- Includes additional context: `severity`, `latitude`, `longitude`, and `date_time`.
+
+#### Example attributes
+
+| Attribute     | Description                            |
+|---------------|----------------------------------------|
+| `event_type`  | Error code (for example, `tilt_error`)        |
+| `severity`    | Error severity (for example, `error`, `warning`) |
+| `latitude`    | Latitude where the error occurred      |
+| `longitude`   | Longitude where the error occurred     |
+| `date_time`   | Timestamp of the error                 |
+
+#### Use cases
+
+- Send a notification when the mower is lifted or stuck.
+- Show last error location on a map
+
+{% note %}
+The entity will only be created when a new message is received. If a mower hasn’t reported any errors yet, the entity won't show up.
+{% endnote %}
 
 ### Lawn mower
 
@@ -150,6 +177,7 @@ The integration will create the following sensors:
 - Error. For example: *Mower tilted*, *outside geofence*.
 - Downtime (if available)
 - Inactive reason (if available). For example: *Searching for satellites* or *planning*.
+- Remaining charging time
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
@@ -182,45 +210,7 @@ The integration will create a switch to enable or disable the schedule of the mo
 
 The integration will create a switch for each work area defined for your mower. When the switch is on, the mower mows the corresponding area. When the switch is off, the mower doesn't mow the corresponding area.
 
-## Actions
-
-The integration offers the following actions:
-
-### Override schedule
-
-With this action, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode´ attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
-
-```yaml
-# Replace <name> with the name of your mower.
-action: husqvarna_automower.override_schedule
-target:
-  entity_id: lawn_mower.<name>
-data:
-  duration:
-    days: 1
-    hours: 12
-    minutes: 30
-  override_mode: mow  ### alternative: `park`
-```
-
-### Override schedule work area (if available)
-
-With this action, you can let your mower mow for a given time in a certain work area. You can enter the work area with the `work_area_id` attribute. You can get the `work_area_id` from the `Work area` sensor.
-![Work area sensor](/images/integrations/husqvarna_automower/work_area_sensor.png)
-This will override all your schedules during this time. The duration can be given in days, hours, and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
-
-```yaml
-# Replace <name> with the name of your mower.
-service: husqvarna_automower.override_schedule_work_area
-target:
-  entity_id: lawn_mower.<name>
-data:
-  duration:
-    days: 1
-    hours: 12
-    minutes: 30
-  work_area_id: 123456 ### Work area ID for the "Front lawn" from the example above.
-```
+{% include integrations/actions.md %}
 
 ## Known limitations
 

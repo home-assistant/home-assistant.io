@@ -13,11 +13,11 @@ ha_platforms:
   - binary_sensor
   - sensor
   - vacuum
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The **ROMY** integration allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
+The **ROMY** {% term integration %} allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
 
 This integration currently supports the following models:
 
@@ -27,15 +27,22 @@ This integration currently supports the following models:
 
 {% include integrations/config_flow.md %}
 
-## Actions
+## List of actions
 
-Currently supported actions are:
+ROMY provides a vacuum entity.
+To control it in automations or scripts, use the shared [vacuum actions](/integrations/vacuum/#list-of-actions) and select your ROMY vacuum as the target.
 
-- `start`
-- `pause`
-- `continue`
-- `stop`
-- `return_to_base`
+On ROMY vacuums, the [Start cleaning](/actions/vacuum.start/) action starts or continues a cleaning run.
+
+ROMY supports the following [fan speed](/actions/vacuum.set_fan_speed/) values:
+
+- `default`
+- `auto`
+- `high`
+- `intensive`
+- `normal`
+- `silent`
+- `super_silent`
 
 ## Integration entities
 

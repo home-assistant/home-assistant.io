@@ -8,7 +8,6 @@ ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@rdfurman'
   - '@mkmer'
 ha_domain: honeywell
 ha_platforms:
@@ -17,10 +16,10 @@ ha_platforms:
   - humidifier
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The Honeywell integration integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
+The **Honeywell Total Connect Comfort** {% term integration %} integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
 
 If your system is compatible with this integration, then you will be able access it via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
@@ -94,7 +93,7 @@ This integration will add Home Assistant sensors for the following:
 
 ## Switch
 
-The switch entity integrates the emergency heat option for each device.  If the thermostat supports emergency heat, the switch entity will be created.
+The switch entity integrates the emergency heat option for each device. If the thermostat supports emergency heat, the switch entity will be created.
 
 This integration will add a switch for the following:
 |Switch|Value|
@@ -126,11 +125,11 @@ automation:
       - platform: numeric_state
         entity_id: sensor.indoor_humidity
         below: 30 # Trigger when humidity drops below 30%
-    action:
-      - service: humidifier.turn_on
+    actions:
+      - action: humidifier.turn_on
         target:
           entity_id: humidifier.living_room
-      - service: humidifier.set_humidity
+      - action: humidifier.set_humidity
         target:
           entity_id: humidifier.living_room
         data:

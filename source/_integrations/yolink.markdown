@@ -24,11 +24,12 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - siren
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
@@ -102,20 +103,11 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8015-UC (X3 Outdoor Temperature & Humidity Sensor)
 - YS8017-UC (Thermometer)
 - YS8023-UC (Hygrometer Thermometer)
+- YS4102-UC (Sprinkler)
+- YS4103-UC (Sprinkler Timer)
+- YS7914-UC (Leak Sensor)
 
-## Actions
-
-### `Play on SpeakerHub`
-
-With this action, you can convert text to speech for playback on SpeakerHub.
-
-| Data attribute  | Optional | Description                                                       |
-| --------------- | -------- | ----------------------------------------------------------------- |
-| `target_device` | no       | SpeakerHub device ID for audio playback.                          |
-| `message`       | no       | Text for speech conversion.                                       |
-| `tone`          | yes      | Tone before playing audio.                                        |
-| `volume`        | yes      | Override the speaker volume during playback of this message only. |
-| `repeat`        | yes      | The number of times the text will be repeated.                    |
+{% include integrations/actions.md %}
 
 ## Community notes
 

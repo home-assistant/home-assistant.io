@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ohmconnect` {% term integration %} will show you the current [OhmConnect](https://www.ohmconnect.com/) status for the given OhmConnect ID.
+The **OhmConnect** {% term integration %} will show you the current [OhmConnect](https://www.ohmconnect.com/) status for the given OhmConnect ID.
 
 OhmConnect monitors real-time conditions on the electricity grid. When dirty and unsustainable power plants turn on, our users receive a notification to save energy. By saving energy at that time, California does not have to turn on additional power plants and California's energy authorities pay you for that.
 

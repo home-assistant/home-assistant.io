@@ -14,31 +14,31 @@ You will need a few things to get started with installing Home Assistant. The li
 
 To get started, we suggest the ODROID-N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID-M1.
 
-If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
+If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4).
 
 Home Assistant bundles (US market):
 
 The bundles come with Home Assistant pre-installed.
 
-- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
-- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
-- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
-- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
-- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935)
+- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399)
+- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831)
+- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367)
+- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903)
 
 Variants without pre-installed Home Assistant:
 
-- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
-- [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
-- [ODROID-M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
-- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
+- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418)
+- [ODROID-C4](https://ameridroid.com/products/odroid-c4)
+- [ODROID-M1](https://ameridroid.com/products/odroid-M1)
+- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903)
 
 Related components:
 
-- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
-- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
-- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
-- [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
+- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug)
+- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery)
+- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot)
+- [Case](https://ameridroid.com/products/odroid-n2-case)
 
 *These are affiliated links. We get commissions for purchases made through links in this post.*
 
@@ -111,7 +111,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before carrying out this procedure.
 2. Create a *live operating system* on a USB flash drive:
-   - Follow the [Ubuntu Desktop instructions](https://ubuntu.com/tutorials/try-ubuntu-before-you-install) on writing an Ubuntu Desktop iso file onto a USB device.
+   - Follow the [Ubuntu Desktop instructions](https://documentation.ubuntu.com/desktop/en/latest/tutorial/try-ubuntu-desktop/) on writing an Ubuntu Desktop iso file onto a USB device.
 3. Insert the USB flash drive into the system on which you want to run Home Assistant.
    - Boot the live operating system.
    - You might need to adjust boot order or use F10 (might be a different F-key depending on the BIOS) to select the USB flash drive as boot device.
@@ -180,53 +180,51 @@ Use this method only if Method 1 does not work for you.
 4. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
-{% if site.installation.types[page.installation_type].variants.size > 1 %}
-{% tabbed_block %}
-{% for variant in site.installation.types[page.installation_type].variants %}
+    {% if site.installation.types[page.installation_type].variants.size > 1 %}
+    {% tabbed_block %}
+    {% for variant in site.installation.types[page.installation_type].variants %}
 
-- title: {{ variant.name }}
-  content: |
+    - title: {{ variant.name }}
+      content: |
+
+        ```text
+        {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+        ```
+
+        {% if variant.key == "odroid-n2" %}
+        [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
+        {% elsif variant.key == "odroid-m1s" %}
+        [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
+        {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+          *(64-bit is recommended)*
+        {% endif %}
+
+    {% endfor %}
+    {% endtabbed_block %}
+    {% else %}
 
     ```text
-    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
+    {{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
     ```
 
-    {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
-    {% elsif variant.key == "odroid-m1s" %}
-    [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
-    {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
-      *(64-bit is recommended)*
     {% endif %}
 
-{% endfor %}
-{% endtabbed_block %}
-{% else %}
-
-```text
-{% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-{{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
-```
-
-{% endif %}
-
-*Select and copy the URL or use the "copy" button that appear when you hover it.*
-
+    *Select and copy the URL or use the "copy" button that appears when you hover it.*
 5. Paste the URL into your browser to start the download.
 6. Extract the file you just downloaded.
 7. Select **Flash from file** and select the image you just extracted.
    - Do not use **Flash from URL**. It does not work on some systems.
-
-  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+    ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
 8. **Select target**.
-![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
+    ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 9. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
-![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
+    ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
 10. Select **Flash!** to start writing the image.
-   - If the operation fails, decompress the .xz file and try again.
-![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-   - When Balena Etcher has finished writing the image, you will see a confirmation.
-![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
+    - If the operation fails, decompress the .xz file and try again.
+    ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
+    - When Balena Etcher has finished writing the image, you will see a confirmation.
+    ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
@@ -243,7 +241,7 @@ Use this method only if Method 1 does not work for you.
 {% note %}
 
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
-This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+This can be accomplished either by using a live operating system (for example, Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
 
   ```text
   efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
@@ -269,19 +267,29 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 
 {% endif %}
 
-3. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+3. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local" target="_blank">homeassistant.local</a>.
 
 {% note %}
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
 {% endnote %}
 
 {% else %}
+
+Follow this guide if you are already running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on [Home Assistant Yellow](/installation/yellow), [Raspberry Pi](/installation/raspberrypi), or [ODROID](/installation/odroid).
+
+{% if page.installation_type == 'macos' %}
+
+If VirtualBox is not supported on your Mac and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
+{% endif %}
 
 ### Download the appropriate image
 
 - [VirtualBox (Intel chip)][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
-- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+- [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
@@ -293,50 +301,73 @@ If you are running an older Windows version or have a stricter network configura
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
-After downloading, decompress the image. If the image comes in a ZIP file, for example, unzip it.
+After downloading the image, extract it if necessary. For example, if it comes in a ZIP file, unzip it.
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
+### Create and configure the virtual machine
 
-{% if page.installation_type == 'macos' %}
+When creating the virtual machine, assign memory and CPU resources based on your expected workload. You can increase these resources later if your workload grows.
 
-- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
-{% endif %}
+Minimum resources:
 
-### Create the virtual machine
+- Memory: 2 GB of RAM
+- Processors: 2 vCPUs
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
-
-Minimum recommended assignments:
-
-- 2 GB RAM
-- 32 GB Storage
-- 2vCPU
-
-*All these can be extended if your usage calls for more resources.*
-
-### Hypervisor specific configuration
+To create the virtual machine, follow the instructions for the hypervisor you use:
 
 {% tabbed_block %}
 
 - title: VirtualBox
   content: |
-    1. Create a new virtual machine.
-    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (ARM 64-bit)**.
-    3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
-       - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
-    4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter (i.e. `en0:Wi-Fi`).  
-    6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
 
-    {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
-    free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
-    be enabled using your host machine's terminal:
+    #### Create the virtual machine
+
+    The following steps use VirtualBox Basic Mode, which provides a simplified wizard for creating and configuring a virtual machine.
+
+    1. Open VirtualBox, and select **New** on the toolbar.
+    2. In the **Virtual machine name and operating system** step, specify the following settings:
+       - **Name**: Enter **Home Assistant**.
+       - **VM Folder**: Select a location to store the virtual machine files.
+       - **ISO Image**: Leave blank.
+       - **OS**: Select **Linux**.
+       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, M3, or M4), also set **OS Version** to **Oracle Linux (ARM 64-bit)**.
+    3. Select **Next**.
+    4. In the **Specify virtual hardware** step, specify the following settings:
+       - **Base Memory**: Set to at least **2048 MB**, which is 2 GB.
+       - **Number of CPUs**: Set to at least **2**.
+       - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
+    5. Select **Next**.
+    6. In the **Summary** step, review the settings and select **Finish**.
+
+    #### Attach the Home Assistant disk (VDI)
+
+    Configure the virtual machine to use the Home Assistant disk (VDI) that you downloaded and extracted earlier.
+
+    1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
+    2. Go to the **Storage** section.
+    3. In the **Storage Devices** list, under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click the empty placeholder disk and select **Remove attachment**.
+    4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
+    5. In the dialog that appears, select the **Add** button.
+    6. Find and select the downloaded `.vdi` file.
+    7. Select **Choose** to confirm the file.
+
+    #### Configure network
+
+    1. While still in the **Settings** window, go to the **Network** section.
+    2. In **Attached to**, change the setting to **Bridged Adapter**.
+    3. In **Name**, select the network adapter you use for internet access. Home Assistant uses this adapter to communicate with other devices on your network. If your computer uses Wi-Fi, select your Wi-Fi adapter. If it uses a wired connection, select your Ethernet adapter.
+    4. Select **OK**.
+
+    #### Enable automatic disk space reclamation (optional)
+
+    {% icon "mdi:alert-outline" %} By default, VirtualBox does not reclaim unused disk space from virtual disks. To enable automatic disk shrinking for the Home Assistant VDI, run the following command on the host machine:
 
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
 
-    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
+    Note: For Mac with Apple silicon, replace **SATA** with **VirtioSCSI**.
+
+    For more information about the command, see [VBoxManage storageattach command](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
 {% unless page.installation_type == 'macos' %}
 
@@ -365,8 +396,8 @@ Minimum recommended assignments:
     3. Choose **Generic Default** for the operating system.
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
-    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
-    7. Click **Add Hardware** (bottom left), and select **Channel**.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain words such as `secure` or `secboot`), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
     10. Finally, select **Begin Installation** (upper left corner).
@@ -386,8 +417,8 @@ Minimum recommended assignments:
        Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
        Bus 003 Device 004: ID 30c9:0052 Luxvisions Innotech Limited Integrated RGB Camera
        Bus 003 Device 003: ID 1a86:55d4 QinHeng Electronics SONOFF Zigbee 3.0 USB Dongle Plus V2
-       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc. 
-       Bus 003 Device 005: ID 8087:0033 Intel Corp. 
+       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc.
+       Bus 003 Device 005: ID 8087:0033 Intel Corp.
        Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
        Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
        Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -428,17 +459,16 @@ Minimum recommended assignments:
 
       ## Edit the VM settings
 
-      11. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
-      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
+      13. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file.
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
-      4. Right-click the `.vmx` file and select **Open with** > **Notepad**.
-      5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
-      6. Now continue with the next step to start your VM. 
+      14. Locate the **Advanced** settings under the **Options** tab and change the **Firmware type** to **UEFI**.
+      15. Now continue with the next step to start your VM.
          - If you see a message about side channel mitigations, select **OK**.
-         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
+         - If you see a message stating that the `.vmdk` file could not be found, in step 13, you likely pasted the folder, not the file. Repeat step 13.
 
 
 {% elsif page.installation_type == 'alternative' %}
@@ -446,11 +476,22 @@ Minimum recommended assignments:
 - title: VMware ESXi/vSphere
   content: |
     Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
+
+    If networking stops working and the virtual machine console repeatedly shows `e1000: Detected Tx Unit Hang`, the emulated `E1000` adapter has stalled. Restart the virtual machine to restore connectivity.
+
+    If you change the network adapter type after installation, reset the network configuration afterwards. The hypervisor assigns the new adapter a different PCI slot, which changes the network interface name inside the virtual machine. The stored network profile no longer matches, and the machine starts up without network access. To reset it, open the virtual machine console, enter `login` at the `ha >` prompt, and run:
+
+    ```bash
+    rm -r /mnt/overlay/etc/NetworkManager/system-connections
+    reboot
+    ```
+
+    Home Assistant OS creates a new default DHCP profile for the new interface during boot. The MAC address stays the same, so an existing DHCP reservation keeps working.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
   content: |
-    ⚠️ Hyper-V does not have USB support
+    ⚠️ Hyper-V does not have USB support.
 
     1. Create a new virtual machine.
     2. Select **Generation 2**.
@@ -466,11 +507,20 @@ Minimum recommended assignments:
 
 1. Start the virtual machine.
 2. Observe the boot process of the Home Assistant Operating System.
-3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local" target="_blank">homeassistant.local</a>.
 
+{% note %}
+{% if page.installation_type == 'windows' %}
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your virtual machine's IP address).
+{% else %}
+If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your virtual machine's IP address).
 {% endif %}
 
-{% include installation_survey.html %}
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
+{% endnote %}
+
+{% endif %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
@@ -485,7 +535,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
-[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vdi_aarch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

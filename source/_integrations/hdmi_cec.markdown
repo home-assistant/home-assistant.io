@@ -15,15 +15,15 @@ ha_codeowners:
 ha_quality_scale: legacy
 ---
 
-The `hdmi_cec` integration provides actions that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
+The **HDMI-CEC** {% term integration %} provides actions that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
 
 ## CEC Setup
 
 ### Home Assistant OS
 
-To test if HDMI-CEC will work on your Home Assistant OS installation, you can use the official **CEC Scanner** add-on. Run this add-on to see if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this add-on **Start on boot** as it will interfere with the integration. 
+To test if HDMI-CEC will work on your Home Assistant OS installation, you can use the official CEC Scanner app for Home Assistant (formerly known as CEC Scanner add-on). Run this app to see if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this app **Start on boot**, as it will interfere with the integration.
 
-Once you've run the add-on, you can use the resulting scan information to configure the integration.
+Once you've run the CEC Scanner app, you can use the resulting scan information to configure the integration.
 
 ### Adapter
 
@@ -61,7 +61,7 @@ If after symlinking and adding `hdmi_cec:` to your configuration you are getting
 
 ## Testing your installation
 
-- Login to Raspberry Pi
+- Log in to Raspberry Pi
 
 ```bash
 ssh pi@your_raspberry_pi_ip
@@ -150,108 +150,7 @@ hdmi_cec:
   host: 192.168.1.3
 ```
 
-## Actions
-
-### Select Device
-
-Use the `hdmi_cec.select_device` action with the name of the device from configuration or entity_id or physical address"to select it, for example:
-
-```json
-{"device": "Chromecast"}
-```
-
-```json
-{"device": "switch.hdmi_3"}
-```
-
-```json
-{"device": "1.1.0.0"}
-```
-
-So an Automation action using the example above would look something like this.
-
-```yaml
-actions:
-  - action: hdmi_cec.select_device
-    data:
-      device: Chromecast
-```
-
-### Power On
-
-Use the `hdmi_cec.power_on` action (no arguments) to power on any devices that support this function.
-
-An Automation action using the example above would look something like this.
-
-```yaml
-actions:
-  - action: hdmi_cec.power_on
-```
-
-### Standby
-
-Use the `hdmi_cec.standby` action (no arguments) to place in standby any devices that support this function.
-
-An Automation action using the example above would look something like this.
-
-```yaml
-actions:
-  - action: hdmi_cec.standby
-```
-
-### Change volume level
-
-Use the `hdmi_cec.volume` action with one of following commands:
-
-#### Volume up
-
-Increase volume three times:
-
-```json
-{"up": 3}
-```
-
-Keep increasing volume until release is called:
-
-```json
-{"up": "press"}
-```
-
-Stop increasing volume:
-
-```json
-{"up": "release"}
-```
-
-#### Volume down
-
-Decrease volume three times:
-
-```json
-{"down": 3}
-```
-
-Keep decreasing volume until release is called:
-
-```json
-{"down": "press"}
-```
-
-Stop decreasing volume:
-
-```json
-{"down": "release"}
-```
-
-#### Volume mute
-
-Toggle mute:
-
-```json
-{"mute": ""}
-```
-
-value is ignored.
+{% include integrations/actions.md %}
 
 ## Useful References
 
