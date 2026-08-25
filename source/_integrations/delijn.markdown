@@ -31,13 +31,21 @@ You need a free De Lijn Open Data API key:
 
 {% include integrations/config_flow.md %}
 
-Existing YAML configuration is imported automatically: each configured stop
-becomes its own integration entry. After the import, the YAML configuration
-can be removed from your `configuration.yaml`.
-
 {% configuration_basic %}
 API key:
-  description: Your De Lijn Open Data subscription key. When you add more stops, the key from an existing stop is prefilled.
+  description: Your De Lijn Open Data subscription key. It is entered once and shared by all your stops; you can view or change it later via the integration's reconfigure option.
+{% endconfiguration_basic %}
+
+Existing YAML configuration is imported automatically: one integration
+entry is created for the API key, and each configured stop is added to it.
+After the import, the YAML configuration can be removed from your
+`configuration.yaml`.
+
+## Adding stops
+
+Each stop is added under the De Lijn entry with the **Add stop** button:
+
+{% configuration_basic %}
 Stop:
   description: A De Lijn stop number (shown on the physical stop sign and on delijn.be), or part of a stop name to search for. Leave empty to get suggestions near a location instead.
 Search near a location:
@@ -46,11 +54,10 @@ Search near a location:
 
 Before a stop is added, a confirmation step shows its next departures and
 links to the stop's location, so you can verify you picked the platform in
-the right direction — useful when both sides of the road share a stop name.
+the right direction - useful when both sides of the road share a stop name.
 
-## Options
-
-Under **Settings** > **Devices & services** > **De Lijn** > **Configure**:
+Stops can be renamed or removed individually, and each stop's settings can
+be changed via its settings icon:
 
 {% configuration_basic %}
 Number of departures:
@@ -65,15 +72,20 @@ destination, transport type, real-time status, cancellation status, and the
 line's display colors — in the same format as earlier versions of this
 integration, so existing dashboard cards keep working.
 
+The stop's device page shows the stop number and links to the stop's page
+on delijn.be, where you can see its location and live departure board.
+
 ## Data updates
 
-The integration polls the De Lijn API once per minute. If the API is
-unreachable, the sensors become unavailable until the connection is
-restored; if the API key is no longer valid, you are asked to reauthenticate.
+The integration polls the De Lijn API once per minute per stop. If the API
+is unreachable, the sensors become unavailable until the connection is
+restored; if the API key is no longer valid, you are asked to
+reauthenticate once for all stops.
 
 ## Removing the integration
 
-This integration follows standard integration removal; each stop is removed
-individually. No extra steps are required.
+This integration follows standard integration removal; individual stops
+can also be removed separately from the De Lijn entry. No extra steps are
+required.
 
 {% include integrations/remove_device_service.md %}
