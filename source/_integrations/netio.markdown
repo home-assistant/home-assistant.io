@@ -12,7 +12,7 @@ ha_integration_type: device
 ha_codeowners:
   - '@agners'
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 related:
   - docs: /docs/configuration/
     title: Configuration file
