@@ -35,11 +35,11 @@ City/county:
 
 {% configuration_basic %}
 Maximum warnings:
-  description: "Maximum warnings fetched per city/county"
+  description: "Maximum warnings fetched per city/county."
 Affected area filter:
   description: "Whitelist regex to filter warnings based on affected areas. For details see below."
 Headline blocklist:
-  description: "Blacklist regex to filter warning based on headlines. For details see below."
+  description: "Blacklist regex to filter warnings based on headlines. For details see below."
 {% endconfiguration_basic %}
 
 ## Filter
