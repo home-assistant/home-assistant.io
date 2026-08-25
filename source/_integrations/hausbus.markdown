@@ -16,9 +16,7 @@ ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-The HausBus integration allows Home Assistant to discover, monitor, and control devices connected to a HausBus controller.
-
-HausBus is a building automation system developed by haus-bus.de. The integration communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
+HausBus is a building automation system developed by [HausBus](https://www.haus-bus.de/). The integration communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
 
 Currently, the integration provides support for roller shutters (covers).
 
@@ -36,7 +34,7 @@ Before setting up the integration:
 
 The integration is automatically discovered using Zeroconf.
 
-1. In Home Assistant, go to **Settings** > **Devices & Services**.
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. When a HausBus controller is discovered, select **Add**.
 3. Confirm the detected controller.
 4. Complete the setup flow.
@@ -80,12 +78,14 @@ Use the standard services provided by the Cover platform.
 
 To remove the HausBus integration:
 
-1. Navigate to **Settings** > **Devices & Services**.
+1. Go to **Settings** > **Devices & Services**.
 2. Select the **HausBus** integration.
-3. Open the menu.
+3. Select the three-dot menu.
 4. Select **Delete**.
 
-Removing the integration removes all entities created by the integration from Home Assistant.
+All entities created by the integration will be removed from Home Assistant.
+
+Removing the integration does not modify the configuration of the HausBus controller or connected HausBus devices.
 
 ## Troubleshooting
 
@@ -96,6 +96,4 @@ If no devices are discovered:
 - Verify that supported shutter channels are configured on the controller.
 - Restart the integration from **Settings** > **Devices & Services**.
 
-For additional information about HausBus hardware, visit:
-
-https://www.haus-bus.de/
+For more information, visit the [HausBus website](https://www.haus-bus.de/).
