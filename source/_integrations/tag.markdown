@@ -49,6 +49,8 @@ State shows the time when the card was last scanned in datetime string format. F
 - **Tag ID**: identification as set during creation of the tag.
 - **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
 
+{% include integrations/triggers.md %}
+
 ## Building an RFID jukebox
 
 One of the most fun applications of tags is to pick music in your living room. To make this super easy, you can use the below automation:
