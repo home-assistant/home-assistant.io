@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@hausbus'
 ha_domain: hausbus
+ha_release: "2026.9"
 ha_platforms:
   - cover
 ha_zeroconf: true
