@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light: Light is on**.
+4. From the search box, search for and select **Light is on**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Condition passes if**, pick **Any** or **All** to control how the check behaves when multiple lights are targeted.
 7. Select **Save**.
@@ -77,7 +77,7 @@ When the doorbell rings, only announce it through the living room speaker if the
 - **Condition**: Light is on
 - **Target**: Living room light
 - **Condition passes if**: Any
-- **Action**: Media player: Play media
+- **Action**: Play media
 
 {% details "YAML example for a doorbell announcement gated on lights" %}
 

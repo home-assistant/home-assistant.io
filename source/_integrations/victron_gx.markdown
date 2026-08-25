@@ -91,7 +91,24 @@ On success, the integration reloads automatically.
 
 ## Data updates
 
-Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.
+Entities are updated only when new values are received from the device. The integration uses an automatic update cadence chosen by metric type.
+
+## Reduce Recorder storage
+
+The [Recorder integration](/integrations/recorder/) stores state changes in the database, so Victron GX entities can generate a lot of history data.
+
+If you do not need every entity, go to {% my integrations title="**Settings** > **Devices & services** > **Integrations**" %}, select **Victron GX**, select **Entities**, and disable the entities you do not use.
+
+You can also reduce Recorder data growth by excluding specific high-churn Victron GX entities with [Recorder filters](/integrations/recorder/#configure-filter). If you need to keep more data, set Recorder options like [`commit_interval`](/integrations/recorder/#commit_interval) and [`purge_keep_days`](/integrations/recorder/#purge_keep_days) in your {% term "`configuration.yaml`" %} file to fit your setup.
+
+For example, to exclude one Victron GX entity from Recorder:
+
+```yaml
+recorder:
+  exclude:
+    entities:
+      - sensor.victron_venus_system_heartbeat
+```
 
 ## Supported functionality
 
@@ -174,7 +191,7 @@ Configurable time-of-day settings, such as:
 
 ## Known limitations
 
-- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
+- The integration receives updates through MQTT push, and applies an automatic debounce interval chosen by metric type. This means rapidly changing values may appear with a short delay.
 
 ## Examples
 

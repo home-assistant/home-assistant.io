@@ -96,9 +96,9 @@ When the bedroom humidifier turns on, start a low-speed fan to help distribute t
 
 - **Trigger**: Humidifier turned on
   - **Target**: Bedroom humidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
+  - **Percentage**: `30`%
 
 {% details "YAML example for running a fan when the humidifier turns on" %}
 
@@ -109,9 +109,6 @@ automation: |
     - trigger: humidifier.turned_on
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: fan.turn_on
       target:

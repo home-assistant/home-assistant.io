@@ -111,7 +111,7 @@ For devices where Home Assistant provides a native integration (with local API),
 
 It is recommended to run the Matter app (formerly known as Matter add-on) on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
-If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
+If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/matter-js/matterjs-server). The requirements and instructions for your host setup are described on that GitHub page.
 
 ## Adding a Matter device to Home Assistant
 
@@ -295,7 +295,7 @@ How you add a bridge to Home Assistant depends on the device. Check the document
 
 #### When not to use a bridge
 
-In some cases, bridging devices into Home Assistant via Matter might not bring you benefits. So far, The Philips Hue bridge, for example, supports Matter. But Matter only support a limited set of features. The native Home Assistant integration of Philips Hue comes with a wide variety of features. It also runs locally. You would not gain anything by adding your Philipps Hue devices to Home Assistant via Matter bridging. On the contrary, you would lose some of the features.
+In some cases, bridging devices into Home Assistant via Matter might not bring you benefits. So far, the Philips Hue Bridge, for example, supports Matter, but Matter only supports a limited set of features. The native Home Assistant integration of Philips Hue comes with a wide variety of features. It also runs locally. You would not gain anything by adding your Philips Hue devices to Home Assistant via Matter bridging. On the contrary, you would lose some of the features.
 
 <lite-youtube videoid="rEugjMk-4II" videoStartAt="4192" videotitle="Bridge a Matter device to Home Assistant"></lite-youtube>
 
@@ -412,7 +412,7 @@ The diagnostics file contains device attributes, cluster data, and network infor
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Home Assistant Matter Server app is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Home Assistant Matter Server app is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/matter-js/matterjs-server/blob/main/docs/docker.md) including a description of the host and networking requirements.
 
 - To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 
@@ -422,7 +422,7 @@ The diagnostics file contains device attributes, cluster data, and network infor
 
 - Make sure IPv6 (multicast) traffic travels freely from your network to the Home Assistant host. There is no requirement to have an IPv6-enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled on Home Assistant. Go to **{% my network title="Settings > System > Network" %}**, and make sure **IPv6** is set to **Automatic** or **static**, depending on your network setup. If you're unsure, use **Automatic**.
 
-- For more detailed information on network configuration, refer to the [README of the Matter server repository](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md).
+- For more detailed information on network configuration, refer to the [Matter server Docker documentation](https://github.com/matter-js/matterjs-server/blob/main/docs/docker.md).
 
 ### I do not see the button _Commission using the Companion app_
 

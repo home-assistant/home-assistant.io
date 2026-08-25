@@ -81,22 +81,6 @@ To help with development of this integration, enable `info` level logging for `h
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
-### Action `onvif.ptz`
-
-If your ONVIF camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.
-
-| Data attribute | Description |
-| -----------------------| ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`, `NONE` |
-| `pan` | Pan direction. Allowed values: `RIGHT`, `LEFT`, `NONE` |
-| `zoom` | Zoom. Allowed values: `ZOOM_IN`, `ZOOM_OUT`, `NONE` |
-| `distance` | Distance coefficient. Sets how much <abbr title="pan, tilt, and zoom">PTZ</abbr> should be executed in one request. Allowed values: floating point numbers, 0 to 1. Default : 0.1 |
-| `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5 |
-| `preset` | PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset. |
-| `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
-| `continuous_duration` | Set ContinuousMove delay in seconds before stopping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
-
 ### Supported switches
 
 This integration uses the ONVIF auxiliary command and imaging service to send certain settings and information to the camera via switch entities. Below is a list of currently supported switches.
@@ -106,6 +90,8 @@ This integration uses the ONVIF auxiliary command and imaging service to send ce
 | IR lamp  | `ir_lamp` |  Turn infrared lamp on and off via `IrCutFilter` ONVIF imaging setting. |
 | Autofocus  | `autofocus` |  Turn autofocus on and off via `AutoFocusMode` ONVIF imaging setting. |
 | Wiper  | `wiper` |  Turn on the lens wiper on and off via the `Wiper` ONVIF auxiliary command. |
+
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 

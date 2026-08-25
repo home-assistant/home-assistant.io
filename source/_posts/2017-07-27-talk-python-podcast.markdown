@@ -9,9 +9,10 @@ categories: Media
 og_image: /images/blog/2017-07-talk-python/logo.png
 ---
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no"
-     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335038628&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false">
-</iframe>
+<figure>
+  <audio controls src="https://talkpython.fm/episodes/download/122/home-assistant-pythonic-home-automation.mp3"></audio>
+</figure>
+
 
 Join Michael Kennedy at the Talk Python podcast for an hour long interview with Paulus Schoutsen, the founder of Home Assistant, as they discuss the release of Hass.io and the vision for the perfect home automation.
 

@@ -3,6 +3,7 @@ title: Gatus
 description: Instructions on how to integrate Gatus with Home Assistant.
 ha_category:
   - Binary sensor
+  - Sensor
 ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: gatus
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_quality_scale: silver
 ---
 
@@ -44,9 +46,17 @@ The **Gatus** {% term integration %} provides the following entities.
 
 ### Binary sensors
 
-For each endpoint configured in Gatus, the integration creates one binary sensor.
+For each endpoint configured in Gatus, the integration creates the following binary sensor:
 
 - **Connectivity**: Reports `on` (connected) when the most recent check for that endpoint succeeded, and `off` (disconnected) when it failed.
+
+### Sensors
+
+For each endpoint configured in Gatus, the integration creates the following sensors:
+
+- **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
+- **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
+- **Last event**: Reports the most recent status event from Gatus (`healthy`, `unhealthy`, `start`, or `resolved`).
 
 ## Gatus automation examples
 
@@ -127,11 +137,22 @@ automation: |
 
 The integration {% term polling polls %} your Gatus instance every 30 seconds.
 
+## Reconfiguration
+
+If you need to update the connection details (URL) of your Gatus instance, you can reconfigure the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Gatus** integration card.
+3. Select the three dots menu {% icon "mdi:dots-vertical" %}, and then select **Reconfigure**.
+4. Update the URL of your Gatus instance.
+5. Select **Submit**.
+
+Newly configured endpoints are automatically discovered and added as new binary sensor entities during regular data updates, and any endpoints that have been removed from Gatus will be cleaned up automatically.
+
 ## Known limitations
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
-- The integration requires manual reconfiguation when a new endpoint is added or removed.
-- The integration currently does not support authenticated instances
+- The integration currently does not support authenticated instances.
 
 ## Troubleshooting
 
@@ -152,8 +173,15 @@ The setup form shows an error saying it cannot connect to your Gatus instance.
 
 If entities become unavailable after setup, Home Assistant could not reach your Gatus instance during the last data refresh. Check your network connection and confirm the Gatus instance is still running. Entities will recover automatically once the connection is restored.
 
+## Diagnostics
+
+The Gatus integration supports [diagnostic data collection](/docs/configuration/troubleshooting/#download-diagnostics) to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
+
+The diagnostic data contains the status of all Gatus endpoints monitored by the integration. It does not include the URL you entered to connect to Gatus.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+

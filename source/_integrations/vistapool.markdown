@@ -8,19 +8,22 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Time
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@fdebrus"
+  - '@fdebrus'
 ha_domain: vistapool
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - number
   - select
   - sensor
+  - time
 ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: bronze
@@ -62,7 +65,7 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 
 ## Supported functionality
 
-The **Vistopool** integration provides the following entities.
+The **Vistapool** integration provides the following entities.
 
 ### Buttons
 
@@ -214,6 +217,14 @@ The controller has three independent timer slots. Each slot lets you choose the 
 - **Filtration timer speed 1**: speed used for the first timer slot. Options are `slow`, `medium`, and `high`.
 - **Filtration timer speed 2**: same, for the second slot.
 - **Filtration timer speed 3**: same, for the third slot.
+
+### Times
+
+Each of the three timer slots described above runs between a start time and an end time. These time {% term entities %} let you adjust that filtration schedule directly from Home Assistant, so you can shift the slots around without opening the Vistapool app. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
+
+- **Filtration interval 1 start**, **Filtration interval 1 end**: start and end time of the first timer slot.
+- **Filtration interval 2 start**, **Filtration interval 2 end**: same, for the second slot.
+- **Filtration interval 3 start**, **Filtration interval 3 end**: same, for the third slot.
 
 ## Data updates
 
