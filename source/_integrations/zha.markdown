@@ -466,16 +466,17 @@ To view the event data from your device, go to {% my developer_events title="**S
 
 {% details "YAML example" %}
 
-```yaml
-triggers:
-  - trigger: event
-    event_type: zha_event
-    event_data:
-      device_ieee: "00:12:4b:00:1c:d6:0f:66"
-      command: toggle
-```
+{% example %}
+trigger: |
+  trigger: event
+  event_type: zha_event
+  event_data:
+    device_ieee: "00:12:4b:00:1c:d6:0f:66"
+    command: toggle
+{% endexample %}
 
 {% enddetails %}
+
 {% include integrations/actions.md %}
 
 ## Zigbee groups and binding devices
