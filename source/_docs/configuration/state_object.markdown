@@ -1,6 +1,6 @@
 ---
 title: "State and state object"
-description: "Describes all there is to know about state and the state object in Home Assistant."
+description: "Every entity in Home Assistant has a state, such as on, off, or a temperature reading. This page covers what the state object contains and how to use it."
 related:
   - docs: /docs/configuration/entities_domains/
     title: Entities and domains
@@ -32,7 +32,7 @@ The `state` prefix indicates that this information is part of the state object (
 
 ### About the state
 
-The screenshot of the Developer tools States page shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
+The screenshot of the **States** tab, available in **Settings** > **Tools**, shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>

@@ -44,9 +44,23 @@ The integration also allows for automation and integration with other smart home
 devices. For example, you could send a notification when the vacuum is stuck, or
 pause the vacuum when a media player starts playing music.
 
-## Note about compatibility
+## Supported devices
 
-The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not fully supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
+This integration communicates with devices paired to the official Roborock app. While it was originally developed for robot vacuums, it also supports other smart home appliances in the Roborock ecosystem. 
+
+### Robot vacuums (local polling with cloud fallback)
+
+Most robotic vacuums use a hybrid communication model. Home Assistant uses local communication for commands and polling but relies on the cloud for setup and fallback control.
+
+- **S, QV, Qrevo, and Saros series:** Fully supported.
+- **Q-Series:** Compatibility varies. While many Q-series models are supported, newer variants may have a different protocol that may fail to connect properly. If your model is unsupported, it may feature partial local control using the native [Matter](/integrations/matter/) integration.
+
+### Non-vacuum appliances (cloud-dependent)
+
+Non-vacuum products paired with the Roborock app communicate strictly by using an outbound MQTT connection. These devices do **not** support local communication with Home Assistant and are entirely cloud-dependent:
+
+- **Roborock wet/dry vacuums (Dyad Series):** Currently exposes a select number of telemetry and cleaning sensors.
+- **Roborock Zeo One (smart washer/dryer):** Exposes cycle states, remaining times, and specific appliance entities.
 
 ## Prerequisites
 
@@ -166,7 +180,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
   - **Description**: States if the mop is currently attached.
 
 - **Mop drying status**
-  - **Description**: Only available on docks with drying capabilites - States if the mop is currently being driven.
+  - **Description**: Only available on docks with drying capabilities. Indicates whether the mop is currently being dried.
 
 - **Water box attached**
   - **Description**: States if the water box is currently attached.
@@ -256,6 +270,15 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Do not disturb**
   - **Description**: This enables _Do not disturb_ during the time frame you have set in the app or on the time entity. When _Do not disturb_ is enabled, the vacuum does not run or speak.
 
+- **Dust emptying**
+  - **Description**: Only available on docks that support automatic dust collection. States if the dock is currently emptying the vacuum's dust bin, and lets you start or stop emptying.
+
+- **Mop washing**
+  - **Description**: Only available on docks with mop washing capabilities. States if the mop is currently being washed, and lets you start or stop washing.
+
+- **Mop drying**
+  - **Description**: Only available on docks with mop drying capabilities. States if the mop is currently being dried, and lets you start or stop drying.
+
 #### Number
 
 - **Volume**
@@ -278,61 +301,6 @@ There are currently four buttons that allow you to reset the various maintenance
   - **Description**: The air filter is expected to be replaced every 150 hours.
 
 In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
-
-#### Actions
-
-##### Action Set Vacuum Goto Position
-
-The `roborock.set_vacuum_goto_position` action will set the vacuum to go to
-the specified coordinates.
-
-- **Data attribute**: `entity_id`
-  - **Description**: Only act on a specific robot.
-  - **Optional**: No.
-- **Data attribute**: `x`
-  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
-  - **Optional**: No.
-- **Data attribute**: `y`
-  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
-  - **Optional**: No.
-
-##### Action Get Vacuum Current Position
-
-The `roborock.get_vacuum_current_position` action will get the current position of the vacuum. This
-is a cloud call and should only be used for diagnostics. This is not meant to be used for
-automations. Frequent requests can lead to rate limiting. 
-
-- **Data attribute**: `entity_id`
-  - **Description**: Only act on a specific robot.
-  - **Optional**: No.
-
-Example:
-
-```yaml
-action: roborock.get_vacuum_current_position
-target:
-  entity_id: vacuum.roborock_s7
-data: {}
-```
-
-- **Result**: You will get a response like this:
-
-  ```yaml
-  vacuum.roborock_s7:
-    x: 28081
-    y: 25168
-  ```
-
-##### Action Get Maps
-
-The `roborock.get_maps` action will return the maps available on the device and
-details about any named rooms on each map.
-
-- **Data attribute**: `entity_id`
-  - **Description**: Get maps for a specific device
-  - **Optional**: No.
-
-This will return the name of the map, and the room names and id numbers. See [How can I clean a specific room? ](#how-can-i-clean-a-specific-room) for more details on how to use the maps response.
 
 ### Dyad devices
 
@@ -377,6 +345,8 @@ Roborock Zeo One currently exposes some entities through an MQTT connection - it
 - **Error**
   - **Description**: The current error of the Zeo, if one exists.
 
+{% include integrations/actions.md %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
@@ -390,68 +360,62 @@ This integration follows standard integration removal. No extra steps are requir
 No. This integration requires information from your Roborock app to set up and uses Roborock's protocols to communicate with your device. You must have your vacuum synced to the Roborock app.
 
 ### Can I block internet access for this device?
-As of right now - no. When the vacuum is disconnected from the internet, it will attempt to disconnect itself from Wi-Fi and reconnect itself until it can reach the Roborock servers.
+
+No. When the vacuum is disconnected from the internet, it blocks its local API until it can reach the Roborock servers. However, when connected by using Matter, the vacuum can work fully offline, but the controls and sensors are limited.
 
 ### What devices are supported?
 If you can add your device to the Roborock app - it is supported. However, some older vacuums like the Roborock S5 must be connected using the Mi Home app and can be set up in Home Assistant through the [Xiaomi Miio](/integrations/xiaomi_miio/) integration.
 
 ### What features will you support?
 We are working on adding a lot of features to the core integration. We have reverse-engineered over [100 commands](https://python-roborock.readthedocs.io/en/latest/api_commands.html). The documentation is currently very bare-bones, and we are looking for users to help us make it more complete. The following are some of the functionalities we plan to add to Home Assistant Core. We ask that you are patient with us as we add them.
-- Selective room cleaning
 - Dock controls
 - Manual vacuum remote control
-- Status information such as errors, clean time, consumables, etc.
 - Viewing the camera
-- Viewing the map
 
 ### How can I clean a specific room?
-We plan to make the process simpler in the future, but for now, it is a multi-step process.
-1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="roborock.get_maps" title="**Settings** > **Developer tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
 
-   - **Request**: Your request should look like:
+1. Go to the vacuum entity of your Roborock device.
+2. Select the gear icon button.
+3. Select **Map vacuum segments to areas**.
+4. Map the Roborock areas to your Home Assistant areas and select **Save**.
+5. Go back to the vacuum entity and select **Cleaning by area**.
+6. Select your areas and select **Clean**.
 
-      ```yaml
-      action: roborock.get_maps
-      target:
-        entity_id: vacuum.s7_roborock
-      ```
+{% note %}
+Roborock vacuums do not support cleaning in a specific room order.
+{% endnote %}
 
-   - **Result**: You will get a response like this:
+## Known limitations
 
-      ```json
-      vacuum.s7_roborock:
-        maps:
-          - flag: 0
-            name: Downstairs
-            rooms:
-              "16": Kitchen
-              "17": Living room
-      ```
+### The vacuum supports polling only
 
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+The Roborock integration polls your robot vacuum every 30 seconds with no push-based updates from the vacuum itself. The app also polls the robot vacuum approximately every 2 seconds. This means that push-based updates are not possible. If you want pushed based updates from your robot vacuum you can connect it using Matter, however only a few entities are supported.
 
-Example:
+### The vacuum requires cloud access
 
-```yaml
-action: vacuum.send_command
-data:
-  command: app_segment_clean
-  params:
-    - segments:
-        - 22
-        - 23
-      repeat: 2
-target:
-  entity_id: vacuum.s7_roborock
+Despite this integration's IoT class being local polling, cloud access is required for it to work just like any other cloud based integration.
 
-```
+### Rate limiting on the cloud API
+
+The Roborock cloud allows a certain number of requests to its cloud, until it decides to ban your IP address. To counter this, there is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban.
+
+#### Causes
+
+If your vacuum runs out of battery, hibernates or shutsdown, then Home Assistant may contact the cloud API. If you have a script that automatically reloads the integration if it goes unavailable, then you are frequently reloading and that causes rate limits.
+
+Home Assistant actions like [`get vacuum current position`](#action-get-vacuum-current-position) use the cloud API and may trigger a rate limit if used frequently
+
+#### Symptoms
+
+Home Assistant will notify you about this as a **repair issue** unless if you decide to ignore it, and will give information about rate limiting in your logs. After enough polls the rate limiting will kick in and will stop polling the cloud which will cause all the entities to go unavailable.
+
+For info on how to fix [this](#the-integration-tells-me-it-cannot-reach-my-vacuum-and-is-using-the-cloud-api-and-that-this-is-not-supported-or-i-am-having-any-networking-issues)
 
 ## Troubleshooting
 
 ### I get a invalid or no user agreement error - but nothing shows up in my app
 
-Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before.  To allow Home Assistant to use the Roborock API, you need to take the following steps:
+Roborock servers require accepting a user agreement before using the API, which may block Home Assistant during setup. Additionally, the Roborock may ask you to re-enter the user agreement, even if you have entered it before. To allow Home Assistant to use the Roborock API, you need to take the following steps:
 1. Open your Roborock app.
 2. Open **Profile** > **About Us** > **User Agreement & Privacy Policy**.
 3. Hit **Revoke authorization**.
@@ -460,34 +424,102 @@ Roborock servers require accepting a user agreement before using the API, which 
 
 ### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported or I am having any networking issues
 
-This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
+Info about the causes and symptoms of [this issue](#rate-limiting-on-the-cloud-api)
 
 The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps:
 
-1. Ensure your vacuum can communicate externally via port 8883.
-2. Ensure your vacuum can communicate with your Home Assistant instance on ports TCP 58867 and UDP 58866.
-3. If you are using a tool such as Pi-Hole, AdGuard, or anything else that modifies your DNS, ensure that your vacuum is exempted.
-4. Set a static IP for your vacuum.
+1. Ensure your vacuum has outbound access via port 8883 (MQTT) to communicate with the cloud servers.
+2. Ensure your vacuum is allowed to communicate directly with your Home Assistant instance's internal IP address over TCP 58867 and UDP 58866.
+3. If you use a network-wide ad or DNS-blockers (such as Pi-hole, AdGuard Home, or NextDNS), ensure that your Roborock vacuum's IP address is entirely exempted from filtering. Overly aggressive ad-blocking lists can inadvertently break the local handshake protocol, forcing Home Assistant to connect to it over the cloud.
+4. Roborock vacuums heavily rely on stable local handshakes. It is recommended to log into your router's admin interface and assign a Static IP / DHCP reservation to your vacuum to prevent connection drops when DHCP leases renew.
 5. Check your router's webpage. If the device is losing connection, you need to focus on increasing your Wi-Fi network's performance.
+   If you cannot log into your router's webpage, in the Roborock app, go to **Settings** > **Product Info** > **Wi-Fi Name**, and you should see its signal strength.
 
-### My Device goes unavailable every night at around 3am - how can I fix this?
+### My Device goes unavailable for a short period of time randomly - how can I fix this?
 
-Every night, the vacuum disconnects from the internet for about one minute and automatically reconnects. This causes the integration to go unavailable until the vacuum is reachable again. This is not an issue with the integration but rather the integration is reacting to the device's status.
+The vacuum randomly disconnects from the internet for about one minute and automatically reconnects. This causes the integration to go unavailable until the vacuum is reachable again. This is not an issue with the integration but rather the integration is reacting to the device's status.
 
 ### The integration tells me no devices were found even though I have devices on my account.
 
 Some devices are not supported yet as they use a different protocol than other devices. Make sure you are on the latest version of Home Assistant.
 
-### I'm getting information about rate limiting in my logs - what should I do?
-
-There is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
-
-It's also important to try to determine what caused this error in your setup. A common cause some users have is that they have a script that automatically reloads the integration if it goes unavailable. Then, if the device gets stuck and runs out of battery, you are frequently reloading and that causes rate limits.
-
 ### When I try to add the integration - it says my region is incorrect
 
 We recommend using the "Auto" setting for your region. If that doesn't work because you have accounts in multiple regions, try the following steps:
 
-1. If you ever accidentally created a Roborock account in the wrong roborock server region, delete it using the Roborock App.
-2. The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region than the one you expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
-3. Please note that the "Region" that is shown in the app is actually the country your account is registered to. It does not always match the region the integration is looking for.
+1. If you ever accidentally created a Roborock account in the wrong Roborock server region, delete it using the Roborock App.
+2. The Roborock server region for your account may not always be associated with your actual country. While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region than the one you expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
+3. The "Region" that is shown in the app is actually the country your account is registered to. It does not always match the region the integration is looking for.
+
+## Roborock integration automations
+
+The Roborock integration allows for direct control of your vacuum, but its true potential is unlocked when connected to the broader Home Assistant ecosystem.
+
+### Automation: clean when leaving the house
+
+Instead of scheduling your vacuum to run at a fixed time when you might be home or on a work call, you can trigger a full clean automatically the moment your alarm system is armed to "Away."
+
+{% warning %}
+Running a robot vacuum while your alarm system is armed can falsely trigger motion sensors (PIRs) and cause accidental alarms. Only use this automation if your motion sensors are pet-immune, positioned out of the vacuum's path, or if you can reliably verify your home's security remotely (e.g., via security cameras) to confirm if a burglary is occurring before emergency services are dispatched.
+{% endwarning %}
+
+- **Trigger**: `alarm_control_panel.home_alarm` gets set to `"armed_away"`.
+- **Conditions**: `vacuum.roborock_s8` is `"docked"`.
+- **Actions**: `vacuum.start` to start the robot vacuum to clean the house while everyone is away.
+
+{% details "YAML example for cleaning the house after the alarm is set to armed away" %}
+
+```yaml
+alias: "Vacuum: Clean when house is empty"
+description: "Triggers a full clean when the house alarm is armed to away."
+trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: "armed_away"
+condition:
+  - condition: state
+    entity_id: vacuum.roborock_s8
+    state: "docked"
+action:
+  - service: vacuum.start
+    target:
+      entity_id: vacuum.roborock_s8
+mode: single
+```
+
+{% enddetails %}
+
+### Automation: post-cooking kitchen cleanup
+
+Cooking often leaves crumbs or spills near the stove. You can automate your Roborock to head straight to the kitchen to tidy up when your smart stove or oven is turned off.
+
+- **Trigger**: `switch.smart_hob_power` gets switched to `"off"` for a minute.
+- **Conditions**: `vacuum.roborock_s8` is `"docked"`.
+- **Actions**: `vacuum.clean_area` with `cleaning_area_id: kitchen` to start the robot vacuum to clean kitchen after cooking is done.
+
+{% details "YAML example for cleaning the kitchen after the hob is turned off for a minute" %}
+
+```yaml
+alias: "Vacuum: Clean kitchen after cooking"
+description: "Sends the vacuum to the kitchen zone 1 minute after the stovetop turns off."
+mode: single
+trigger:
+  - platform: state
+    entity_id: switch.smart_hob_power
+    from: "on"
+    to: "off"
+    for:
+      minutes: 1 minute
+condition:
+  - condition: state
+    entity_id: vacuum.roborock_s8
+    state: "docked"
+action:
+  - service: vacuum.clean_area
+    target:
+      entity_id: vacuum.roborock_s8
+    data:
+      cleaning_area_id: kitchen
+```
+
+{% enddetails %}

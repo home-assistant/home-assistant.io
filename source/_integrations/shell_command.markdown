@@ -44,7 +44,7 @@ Any action data passed into the action to activate the shell command will be ava
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
 {% note %}
-After you add or edit a command, restart Home Assistant. New commands won’t work until you restart, and changes to existing commands won’t take effect until after a restart.
+After you add or edit a command, reload the Shell Command integration. New commands won’t work until you reload, and changes to existing commands won’t take effect until after a reload. You can reload shell commands from {% my server_controls title="**Settings** > **Tools** > **YAML**" %}, or by performing the `shell_command.reload` action.
 {% endnote %}
 
 ## Execution and runtime environment
@@ -122,12 +122,16 @@ automation:
         response_variable: todo_response
       - if: "{{ todo_response['returncode'] == 0 }}"
         then:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "ToDo"
               message: "{{ todo_response['stdout'] }}"
         else:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "ToDo file error"
               message: "{{ todo_response['stderr'] }}"

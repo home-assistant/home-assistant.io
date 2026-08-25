@@ -2,14 +2,12 @@
 title: "Carbon monoxide cleared"
 trigger: air_quality.co_cleared
 domain: air_quality
-description: "Triggers after one or more carbon monoxide sensors stop detecting carbon monoxide."
+description: "Triggers when one or more carbon monoxide sensors stop detecting carbon monoxide."
 related_triggers:
   - air_quality.co_detected
 ---
 
 The **Carbon monoxide cleared** trigger fires after a carbon monoxide sensor {% term entity %} stops detecting carbon monoxide, confirming that the air in your home is safe again. After the urgency of a CO alarm, knowing exactly when the danger has passed brings real peace of mind. Use this trigger to silence a siren, send an all-clear notification to everyone in the household, or restore your home to its normal state so you and your family feel safe resuming everyday life.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -20,7 +18,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your CO sensor is in (like your kitchen or garage). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Carbon monoxide cleared**.
-6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how the trigger behaves when multiple sensors are targeted.
+6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, set how long the sensor must stay in the cleared state before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
 
@@ -28,11 +26,9 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **Last** to fire only after every targeted sensor has cleared.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **All** to fire only after every targeted sensor has cleared.
 For at least:
   description: How long the sensor must stay in the cleared state before the trigger fires. Set to zero to fire immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -55,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -86,11 +82,12 @@ for:
 After a carbon monoxide alarm, a blaring siren and anxious waiting are the last things your family needs once the danger is over. This automation waits until every CO sensor in the house has been clear for fifteen minutes, then silences the siren and sends a reassuring all-clear notification to your phone. No more wondering whether it is truly safe to go back to sleep or return home.
 
 - **Trigger**: Carbon monoxide cleared
-- **Target**: All CO sensors (by label)
-- **Trigger when**: Last
-- **For at least**: 00:15:00
+  - **Target**: All CO sensors (by label)
+  - **Trigger when**: All
+  - **For at least**: 00:15:00
 - **Action**: Siren: Turn off
-- **Action**: Send a mobile notification
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for silencing the siren after CO clears" %}
 
@@ -102,13 +99,15 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: last
+        behavior: all
         for: "00:15:00"
   actions:
     - action: siren.turn_off
       target:
         entity_id: siren.home_alarm
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "All CO sensors are clear."
         title: "CO all-clear"

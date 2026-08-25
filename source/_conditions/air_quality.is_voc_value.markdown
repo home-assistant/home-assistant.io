@@ -10,8 +10,6 @@ related_conditions:
 
 The **Volatile organic compounds value** condition passes when a <abbr title="volatile organic compounds">VOC</abbr> sensor's reading meets a specific level. VOCs are invisible gases released by paints, cleaning supplies, new furniture, and even scented candles. You often notice them as that "new car" or "fresh paint" smell, and at higher concentrations they affect comfort and health. This condition lets your automation respond proportionally, turning on the ventilation fan only when VOC readings are genuinely elevated and leaving it off during a normal day so you save energy.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -30,10 +28,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The VOC level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -88,11 +84,11 @@ behavior:
 Overnight, off-gassing from furniture, carpets, and cleaning products pushes VOC levels up in a closed room. This automation triggers at wake-up time and checks the living room VOC reading. If the level is at or above 300 μg/m3, the air purifier turns on to clear the air before you start your day. On mornings when the air is already fresh, the purifier stays off and you save energy.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Air Quality: Volatile organic compounds value
-- **Target**: Living room VOC sensor
-- **Threshold type**: 300
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on (air purifier)
+- **Condition**: Volatile organic compounds value
+  - **Target**: Living room VOC sensor
+  - **Threshold type**: 300
+- **Action**: Turn on fan
+  - **Target**: Living room purifier
 
 {% details "YAML example for starting the purifier on high VOCs at wake-up" %}
 
@@ -108,7 +104,6 @@ automation: |
         entity_id: sensor.living_room_voc
       options:
         threshold: 300
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

@@ -2,7 +2,7 @@
 title: "Nitrogen dioxide level changed"
 trigger: air_quality.no2_changed
 domain: air_quality
-description: "Triggers after one or more nitrogen dioxide levels change."
+description: "Triggers when one or more nitrogen dioxide levels change."
 related_triggers:
   - air_quality.no2_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrogen dioxide level changed** trigger fires after the nitrogen dioxide (NO2) reading on one or more air quality sensors changes by a meaningful amount. Nitrogen dioxide is a reddish-brown gas with a sharp odor, produced mainly by traffic, power plants, and gas stoves. It irritates the airways and contributes to smog and acid rain. Indoors, your gas stove is often the biggest source. Every time you fire up a burner, NO2 levels in the kitchen rise.
 
 Imagine your range hood turning on automatically when you start cooking, clearing combustion byproducts before they spread through the house. Use this trigger to start ventilation, close windows facing a busy road, or send a health alert whenever your NO2 sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,7 +28,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the nitrogen dioxide level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

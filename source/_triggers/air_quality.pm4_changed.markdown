@@ -2,7 +2,7 @@
 title: "PM4 level changed"
 trigger: air_quality.pm4_changed
 domain: air_quality
-description: "Triggers after one or more PM4 levels change."
+description: "Triggers when one or more PM4 levels change."
 related_triggers:
   - air_quality.pm4_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM4 level changed** trigger fires after the PM4 (particulate matter 4 micrometers or smaller) reading on one or more air quality sensors changes by a meaningful amount. PM4 particles come from sources like pollen, mold spores, dust, and certain industrial processes. They sit between the finer PM2.5 and the coarser PM10 range, giving you an additional view of the particles floating in your air. If you deal with seasonal allergies or live near a dusty road, tracking PM4 helps you spot irritants before your nose does.
 
 Imagine your home office air purifier starting as soon as pollen counts shift on a spring afternoon, so you stay focused instead of reaching for tissues. Use this trigger to start filtration, log changes, or notify household members whenever PM4 readings shift noticeably.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,7 +28,6 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: How much the PM4 level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -77,9 +74,10 @@ threshold:
 Allergy season and dusty days make it hard to focus when you work from home. This automation sends a notification when PM4 levels in your home office change noticeably, so you know exactly when to turn on the air purifier or crack a window.
 
 - **Trigger**: PM4 level changed
-- **Target**: Office PM4 sensor
-- **Threshold type**: 10
-- **Action**: Notify mobile app
+  - **Target**: Office PM4 sensor
+  - **Threshold type**: 10
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for PM4 office notification" %}
 
@@ -93,7 +91,9 @@ automation: |
       options:
         threshold: 10
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "PM4 change detected"
         message: "PM4 levels in the office changed. Consider turning on the air purifier."

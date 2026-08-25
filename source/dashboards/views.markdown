@@ -1,6 +1,6 @@
 ---
-title: "Views"
-description: "A view is a tab inside a dashboard."
+title: "Dashboard views"
+description: "A view is a tab inside a dashboard that groups related cards together, such as a tab for the living room or one for energy."
 related:
   - docs: /dashboards/masonry/
     title: Masonry view
@@ -28,8 +28,8 @@ A view is a tab inside a dashboard. For example, the screenshot below shows a se
 Views control the layout.
 
 <p class='img'>
-    <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
-    The three basic view layouts: panel, sidebar, and masonry
+    <img src='/images/dashboards/layout-types.png' alt='The four view types: Sections, Panel, Sidebar, and Masonry'>
+    The four view types: Sections (the default), Panel, Sidebar, and Masonry.
 </p>
 
 There are four different view types:
@@ -40,6 +40,10 @@ There are four different view types:
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
 
 ## Adding a view to a dashboard
+
+{% note %}
+You can't add views to the built-in **Activity**, **Climate**, **History**, **Maintenance**, **Energy**, **Security**, and **To-do lists** dashboards. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
+{% endnote %}
 
 1. To add a view to your dashboard, in the top right corner, select the pencil icon.
 2. Select the `+` button in the top menu bar.
@@ -63,7 +67,7 @@ There are four different view types:
 
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
-6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
+6. By default, the new view is visible to all users. On the **Visibility** tab, you can disable the view for specific users.
 
 ## Migrating a view into a sections view
 

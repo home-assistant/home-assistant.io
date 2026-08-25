@@ -13,7 +13,7 @@ These actions work well alongside this one:
 {% for action_name in page.related_actions %}
   {% assign act = all_actions | where: "action", action_name | first %}
   {% if act %}
-- [{{ act.title }}]({{ act.url }}) - {{ act.description }}
+- [{{ act.title }}]({{ act.url }}): {{ act.description }}
   {% endif %}
 {% endfor %}
 {% endif %}

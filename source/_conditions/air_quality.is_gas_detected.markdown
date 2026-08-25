@@ -9,8 +9,6 @@ related_conditions:
 
 The **Gas detected** condition passes when one or more gas sensors are actively detecting gas. Gas sensors watch for combustible or toxic gases in the air, helping protect your home from leaks and hazardous buildups. Add this condition to your automation so it only takes action while a gas hazard is still present, for example keeping the kitchen exhaust fan running for as long as the sensor reports gas, or making sure an emergency notification goes out only when the threat is real and ongoing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -28,7 +26,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one targeted sensor detects gas, or **All** to pass only when every targeted sensor detects gas.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -74,11 +71,13 @@ behavior:
 
 If a gas leak started while you were away, you want to know the moment you pull into the driveway. This automation triggers when you arrive home and checks whether the kitchen gas sensor is still detecting gas. If it is, you get an urgent notification before you even open the front door so you know to stay outside and call for help.
 
-- **Trigger**: Zone: Person enters home zone
-- **Condition**: Air Quality: Gas detected
-- **Target**: Kitchen gas sensor
-- **Condition passes if**: Any
-- **Action**: Notify: Send urgent notification
+- **Trigger**: Zone entered
+  - **Target**: Frenck
+  - **Zone**: Home
+- **Condition**: Gas detected
+  - **Target**: Kitchen gas sensor
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a gas alert on arrival home" %}
 
@@ -86,18 +85,19 @@ If a gas leak started while you were away, you want to know the moment you pull 
 automation: |
   alias: "Gas alert on arrival home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: air_quality.is_gas_detected
       target:
         entity_id: binary_sensor.kitchen_gas
-      options:
-        behavior: any
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Gas detected at home"
         message: >

@@ -9,8 +9,6 @@ related_conditions:
 
 The **Carbon dioxide value** condition passes when a carbon dioxide (CO2) sensor's reading meets a specific level. A stuffy meeting room, a crowded living room on movie night, or a bedroom with the door closed overnight all push CO2 levels higher than you would expect. This condition lets your automation act only when CO2 is genuinely elevated, so the ventilation fan starts when it is truly needed and stays off when the air is fine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -29,10 +27,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The carbon dioxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -87,11 +83,11 @@ behavior:
 After you spend an evening in the living room with the doors closed, CO2 levels are sometimes higher than you would expect by the time you head to bed. This automation triggers at your usual bedtime and checks the bedroom CO2 reading. If the level is at or above 1000 ppm, the ventilation fan turns on so you sleep with fresh air. On evenings when the room already has good airflow, the fan stays off.
 
 - **Trigger**: Time: 22:30
-- **Condition**: Air Quality: Carbon dioxide value
-- **Target**: Bedroom CO2 sensor
-- **Threshold type**: 1000
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on
+- **Condition**: Carbon dioxide value
+  - **Target**: Bedroom CO2 sensor
+  - **Threshold type**: 1000
+- **Action**: Turn on fan
+  - **Target**: Bedroom ventilation
 
 {% details "YAML example for bedtime ventilation on high CO2" %}
 
@@ -107,7 +103,6 @@ automation: |
         entity_id: sensor.bedroom_co2
       options:
         threshold: 1000
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

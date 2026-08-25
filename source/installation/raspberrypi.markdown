@@ -38,7 +38,7 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 3. Choose the operating system type:
    - Select **Other specific-purpose OS** > **Home automation** > **Home Assistant**.
     ![Choose the operating system type: Other specific-purpose OS](/images/installation/rpi-ha-1.webp)
-4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
+4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;4 or RPi&nbsp;5).
     ![Choose the Home Assistant OS](/images/installation/rpi-ha-2.webp)
 5. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
@@ -60,10 +60,13 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 
 Within a few minutes after connecting the Raspberry Pi, you will be able to reach your new Home Assistant.
 
-- In the browser of your desktop system, enter <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+- In the browser of your desktop system, enter <a href="http://homeassistant.local" target="_blank">homeassistant.local</a>.
 
 {% note %}
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your Raspberry Pi’s IP address).
+
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
 {% endnote %}
 
 - The time it takes for this page to become available depends on your hardware. On a Raspberry Pi 4 or 5, this page should be available within a minute.

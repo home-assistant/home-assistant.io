@@ -14,7 +14,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
-ha_ssdp: true
 ha_platforms:
   - button
   - device_tracker
@@ -25,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
@@ -59,9 +59,16 @@ Using Early Access Release Candidate versions of UniFi Network or UniFi OS can b
 You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users will **not** work. Using an administrator or a user with full read/write access is recommended to get the most out of the integration, but it is not required. The entities that are created automatically adjust based on the permissions of the user you use.
 
 1. Sign in to your UniFi OS device.
-2. Go to **Admins & Users** from the left-hand side menu.
+2. Go to **People** from the left-hand side menu.
 3. Select **Create New**.
-4. Check **Admin**, then check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+4. Fill in the user details:
+    - Add **Name**.
+    - Check **Admin**.
+    - Set a username and password.
+    - Check **Restrict to local access only**.
+    - Uncheck **Use a pre-defined role**.
+    - Set the first privilege level (**Network**) to **Full Management**.
+    - Set the second privilege level (**OS Settings**) to **None**.
 5. In the bottom right, select **Create**.
 
 There is currently support for the following device types within Home Assistant:
@@ -100,7 +107,7 @@ and in many cases, get a read-only sensor instead of an editable switch {% term 
 
 ## Configuration options
 
-All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**. Some advanced options are only available when **Advanced Mode** is enabled on your user profile page.
+All configuration options are offered from the front end. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **UniFi Network** integration, and select **Configure**.
 
 {% configuration_basic %}
 Track network clients:
@@ -115,6 +122,8 @@ Time in seconds from last seen until considered away:
   description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds."
 Disable UniFi Network wired bug logic:
   description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
+Ignore Wi-Fi clients with private (randomized) MAC addresses:
+  description: "Skip Wi-Fi clients that connect with a locally administered MAC address (like private or randomized Wi-Fi addresses), so no entities are created for them. Wired clients are not affected, and clients you select under **Create entities from network clients** are still included. Disabled by default."
 Network access controlled clients:
   description: "Select clients whose network access you want to control via switches by adding their MAC addresses."
 Allow control of DPI restriction groups:
@@ -124,7 +133,7 @@ Bandwidth usage sensors for network clients:
 Uptime sensors for network clients:
   description: "Create uptime sensors for network clients. Disabled by default."
 Create entities from network clients:
-  description: "Advanced option to select which network clients to create entities from. Only available when **Advanced Mode** is enabled."
+  description: "Select which network clients to create entities from."
 {% endconfiguration_basic %}
 
 ## Button
@@ -140,7 +149,7 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
 ### WLAN regenerate password
-Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
+Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
 
 ## Image
 
@@ -152,9 +161,9 @@ This platform allows you to detect presence by looking at devices connected to a
 
 ### Troubleshooting and Time Synchronization
 
-If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
+If tracked devices continue to show "Home" when not connected/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming. When enabled, various UniFi Controller versions have been observed to fail to declare clients disconnected.
 
-Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
+Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network. If you would rather not track these devices at all, turn on **Ignore Wi-Fi clients with private (randomized) MAC addresses** in the integration options. Home Assistant then skips these clients instead of creating device trackers that never come back.
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
@@ -162,19 +171,7 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Actions
-
-### Action: Reconnect client
-
-The `unifi.reconnect_client` action tries to get a wireless client to reconnect to the network.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
-
-### Action: Remove clients
-
-The `unifi.remove_clients` action cleans up clients on the UniFi Network application that have only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+{% include integrations/actions.md %}
 
 ## Switch
 
@@ -205,6 +202,10 @@ Entities appear for each port Forwarding Rule. The switches can be identified fr
 ### Control Traffic Rules
 
 Entities appear for each Traffic Rule. The switches can be identified from icon {% icon "mdi:security-network" %}.
+
+### Control Policy Engine rules
+
+Entities appear automatically for Policy Engine rules that block internet access. Turning a switch on enables the corresponding rule in the UniFi Network application. Turning it off disables the rule. Policy Engine configurations that only define routing or Quality of Service do not appear as switches.
 
 ### Control Policy-Based Routing Rules
 

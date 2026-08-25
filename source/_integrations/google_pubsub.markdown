@@ -113,4 +113,4 @@ google_pubsub:
 
 ### Saving the data using a Google Cloud Function
 
-To save your data automatically to BigQuery, follow the [instructions here](https://github.com/timvancann/home-assistant-pubsub-cloud-function). The current [free tier](https://cloud.google.com/free/) of GCP should allow to store up to 10GB of data.
+To save your data automatically to BigQuery, follow the [instructions here](https://github.com/timvancann/home-assistant-pubsub-cloud-function). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to store up to 10GB of data.
