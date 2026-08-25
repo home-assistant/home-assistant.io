@@ -176,7 +176,7 @@ For setup steps, YAML options, and examples for the numeric state trigger, see [
 
 ### Sentence trigger
 
-For setup steps, YAML options, and examples for the sentence trigger, see [Sentence triggers](/integrations/conversation/#sentence-triggers).
+For setup steps, YAML options, and examples of a sentence trigger, see [Sentence triggers](/integrations/conversation/#sentence-triggers).
 
 #### Sentence wildcards
 
