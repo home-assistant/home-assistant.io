@@ -49,7 +49,7 @@ action: |
     mealplan_id: AN_EXISTING_MEALPLAN_ID
 {% endexample %}
 
-This deletes the existing meal plan with the ID 123.
+This deletes the specified meal plan.
 
 ### Options in YAML
 

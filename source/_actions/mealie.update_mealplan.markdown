@@ -42,10 +42,10 @@ Date:
 Entry type:
   description: The meal type. One of breakfast, lunch, dinner, side, dessert, snack, or drink.
 Recipe ID:
-  description: The ID or slug of the recipe to plan. Provide either a recipe or a meal note.
+  description: The ID or slug of the recipe to plan. If you want to plan a meal note instead, leave this field empty.
   required: false
 Meal note title:
-  description: The title of the meal note. Provide either a recipe or a meal note.
+  description: The title of the meal note to plan. If you want to plan a recipe instead, leave this field empty.
   required: false
 Note text:
   description: The description of the meal note.
