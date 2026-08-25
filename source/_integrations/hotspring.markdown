@@ -62,7 +62,7 @@ The **Hot Spring** integration provides the following entities:
 - **Problem**
   - **Description**: Indicates whether a failure or error condition is detected on the spa.
 - **Spa connected**
-  - **Description**: Indicates whether the wireless radio link between the Home Network Adapter (HNA) and the spa (SNA) is connected.
+  - **Description**: Indicates whether the wireless radio link between the Home Network Adapter (HNA) and the Spa Network Adapter (SNA) is connected.
 
 ### Number
 
