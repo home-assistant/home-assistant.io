@@ -63,7 +63,7 @@ There is currently support for the following device types within Home Assistant:
 
 ### Events
 
-- **Docker event**: Fires when a container's state changes, such as `starting`, `running`, `paused`, `stopping`, `exited`, `removing`, or `destroy`, as well as `health_status` changes reported by the container's health check.
+- **Docker event**: Fires when Portainer reports a Docker container lifecycle event, such as `start`, `stop`, `restart`, `die`, `pause`, `unpause`, `kill`, `oom`, or `update`, and when the container's health check status changes (`health_status_healthy`, `health_status_unhealthy`, or `health_status_starting`).
 
 ### Sensors
 
