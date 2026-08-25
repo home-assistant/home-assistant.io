@@ -87,7 +87,7 @@ The table below shows which {% term entity %} domains are available in each mode
 | Button              |     ✅      |                —                |
 | Camera              |     ✅      | ✅ (streams and snapshots only) |
 | Event               |     ✅      |                —                |
-| Light               |     ✅      |                —                |
+| Light               |     ✅      |               ✅                |
 | Media player        |     ✅      |                —                |
 | Number              |     ✅      |                —                |
 | Select              |     ✅      |                —                |
@@ -177,7 +177,7 @@ The table below shows, per device type, which connection mode is required. See [
 | Device type  | Full access |          API key only           |
 | ------------ | :---------: | :-----------------------------: |
 | Camera       |     ✅      | ✅ (streams and snapshots only) |
-| Floodlight   |     ✅      |                —                |
+| Floodlight   |     ✅      |     ✅ (light entity only)      |
 | Smart sensor |     ✅      |                —                |
 | Viewer       |     ✅      |                —                |
 | Smart chime  |     ✅      |                —                |
