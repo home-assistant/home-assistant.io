@@ -426,14 +426,24 @@ Features:
 - set position
 - get position
 - get battery level
-- toggle quiet mode
+- select motor speed
 
-Quiet mode reduces motor noise at the cost of slower movement, and applies to open, close, and set position commands.
+The Roller Shade supports two motor speeds, which can be selected each time the shade is opened, closed, or moved to a position:
 
-1. To enable **Quiet mode**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Find the SwitchBot integration and select the roller shade device you want to configure.
-3. Select **Configure** for that device.
-4. In the **Options** dialog, toggle **Quiet mode** on. The default is off (performance mode).
+| Speed         | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| `performance` | Moves the shade at full speed. This is the default.  |
+| `quiet`       | Reduces motor noise, at the cost of slower movement. |
+
+To use a speed other than the default, set the **Speed** option on the [Open cover](/actions/cover.open_cover/), [Close cover](/actions/cover.close_cover/), or [Set cover position](/actions/cover.set_cover_position/) action:
+
+```yaml
+action: cover.close_cover
+target:
+  entity_id: cover.roller_shade
+data:
+  speed: quiet
+```
 
 #### Garage Door Opener
 
