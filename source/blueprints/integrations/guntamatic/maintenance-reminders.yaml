@@ -25,19 +25,20 @@ blueprint:
           min: 0
           max: 720
           unit_of_measurement: h
-    service_days_entity:
-      name: Service days sensor
+    service_date_entity:
+      name: Service date sensor
       description: >-
-        The **Service days** diagnostic sensor of your heater.
+        The **Service date** diagnostic sensor of your heater.
       selector:
         entity:
           filter:
             - domain: sensor
+              device_class: date
     service_threshold:
-      name: Service days threshold
+      name: Service threshold
       description: >-
-        You receive a notification when fewer days remain than this value.
-        Set it to 0 to disable this reminder.
+        You receive a notification when the service date is fewer days away
+        than this value. Set it to 0 to disable this reminder.
       default: 14
       selector:
         number:
@@ -49,16 +50,23 @@ blueprint:
       default: notify.notify
       selector:
         action:
+variables:
+  service_date_entity: !input service_date_entity
+  service_threshold: !input service_threshold
+  ash_empty_in_entity: !input ash_empty_in_entity
 mode: parallel
 trigger:
   - platform: numeric_state
     id: ash
     entity_id: !input ash_empty_in_entity
     below: !input ash_threshold
-  - platform: numeric_state
+  - platform: template
     id: service
-    entity_id: !input service_days_entity
-    below: !input service_threshold
+    value_template: >-
+      {% set svc = states(service_date_entity) %}
+      {% set thr = service_threshold | int(0) %}
+      {{ thr > 0 and svc not in ['unknown', 'unavailable', 'none', '']
+         and (strptime(svc, '%Y-%m-%d') | as_datetime | as_local - now()).days < thr }}
 actions:
   - action: !input notification_action
     data:
@@ -67,8 +75,8 @@ actions:
       message: >-
         {% if trigger.id == 'ash' %}
         Empty the ash box within the next
-        {{ states(!input ash_empty_in_entity) }} hours.
+        {{ states(ash_empty_in_entity) }} hours.
         {% else %}
-        Schedule the periodic service within the next
-        {{ states(!input service_days_entity) }} days.
+        Schedule the periodic service for {{ states(service_date_entity) }}
+        (within the next {{ ((strptime(states(service_date_entity), '%Y-%m-%d') | as_datetime | as_local - now()).days) }} days).
         {% endif %}
