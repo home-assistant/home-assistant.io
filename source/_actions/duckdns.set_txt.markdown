@@ -28,7 +28,7 @@ To set the TXT record from an automation or a script:
 {% options_ui %}
 Integration ID:
   description: The Duck DNS integration to update. Leaving this empty is deprecated and will not be an option in a future release.
-  required: false
+  required: true
 TXT:
   description: The value for the TXT record. Leave empty to clear the TXT record.
   required: false
@@ -54,7 +54,7 @@ This sets the TXT record of your Duck DNS subdomain to the given value.
 config_entry_id:
   description: >
     The ID of the Duck DNS integration to update. Leaving this empty is deprecated and will not be an option in a future release.
-  required: false
+  required: true
   type: string
 txt:
   description: >
