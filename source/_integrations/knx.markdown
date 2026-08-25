@@ -527,6 +527,7 @@ knx:
     - type: binary
       entity_id: binary_sensor.kitchen_window
       address: "0/6/5"
+      send_on_init: true
 
     # state of an entity with default value
     - type: binary
@@ -606,6 +607,13 @@ respond_to_read:
   required: false
   type: boolean
   default: true
+send_on_init:
+  description: Sends the first valid value learned by the entity exposure to the KNX bus.
+    When disabled, Home Assistant initializes the first valid value locally without sending a telegram.
+    The value remains available for read responses and `periodic_send`. Subsequent value changes are sent normally.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 {% enddetails %}

@@ -230,6 +230,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Ideal battery range|No|Both|No|
 |Sensor|Inside temperature|Yes|Both|No|
 |Sensor|Left temperature request|No|Streaming|No|
+|Sensor|Lifetime energy gained regen|No||No|
+|Sensor|Miles since reset|No||No|
 |Sensor|Odometer|No|Both|No|
 |Sensor|Outside temperature|Yes|Both|No|
 |Sensor|Passenger temperature setting|No|Polling|No|
@@ -264,6 +266,7 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Scheduled charging start time|No|Both|No|
 |Sensor|Scheduled departure time|No|Both|No|
 |Sensor|Secondary drive unit torque command|No|Streaming|No|
+|Sensor|Self-driving miles since reset|No||No|
 |Sensor|Sentry mode|Yes|Streaming|No|
 |Sensor|Shift state|No|Both|No|
 |Sensor|Speed|No|Both|No|

@@ -3,6 +3,7 @@ title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
 ha_release: 2026.8
 ha_category:
+  - Binary sensor
   - Number
   - Sensor
 ha_iot_class: Local Polling
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@Moustachauve'
 ha_domain: hotspring
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - number
   - sensor
@@ -52,6 +54,15 @@ If the IP address of your Hot Spring spa changes, reconfigure the integration:
 ## Supported functionality
 
 The **Hot Spring** integration provides the following entities:
+
+### Binary sensor
+
+- **Heating**
+  - **Description**: Indicates whether the spa heater is actively heating water.
+- **Problem**
+  - **Description**: Indicates whether a failure or error condition is detected on the spa.
+- **Spa connected**
+  - **Description**: Indicates whether the wireless radio link between the Home Network Adapter (HNA) and the Spa Network Adapter (SNA) is connected.
 
 ### Number
 
