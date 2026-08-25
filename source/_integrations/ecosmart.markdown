@@ -1,6 +1,6 @@
 ---
-title: Ecosmart
-description: Instructions on how to integrate Ecosmart wholesale electricity prices into Home Assistant.
+title: ecosmart
+description: Instructions on how to integrate ecosmart wholesale electricity prices into Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -16,32 +16,32 @@ ha_integration_type: service
 ha_quality_scale: bronze
 related:
   - url: https://www.ecosmart.co.nz/electricity/api/home-assistant/
-    title: Ecosmart API documentation
+    title: ecosmart API documentation
 ---
 
-[Ecosmart](https://www.ecosmart.co.nz/) is a New Zealand electricity retailer that passes the half-hourly wholesale (spot) price of electricity straight through to its customers.
+[ecosmart](https://www.ecosmart.co.nz/) is a New Zealand electricity retailer that passes the half-hourly wholesale (spot) price of electricity straight through to its customers.
 
-The **Ecosmart** {% term integration %} brings that price, and the published forward curve, into Home Assistant, so you can move consumption into the cheap half hours.
+The **ecosmart** {% term integration %} brings that price, and the published forward curve, into Home Assistant, so you can move consumption into the cheap half hours.
 
-Ecosmart publishes the price signal. It never controls your inverter, battery, or charger.
+ecosmart publishes the price signal. It never controls your inverter, battery, or charger.
 
 ## Prerequisites
 
-You need an Ecosmart electricity account with at least one connected property, and an API key that you create yourself.
+You need an ecosmart electricity account with at least one connected property, and an API key that you create yourself.
 
-To create a key, open the Ecosmart app and go to **More** > **Settings** > **Advanced** > **API keys**.
+To create a key, open the ecosmart app and go to **More** > **Settings** > **Advanced** > **API keys**.
 
 {% important %}
-Creating a new key disables the previous one. If you already use your Ecosmart API key somewhere else, creating a key for Home Assistant stops that other tool working. Creating a key elsewhere later stops Home Assistant working until you remove the integration and add it again with the new key.
+Creating a new key disables the previous one. If you already use your ecosmart API key somewhere else, creating a key for Home Assistant stops that other tool working. Creating a key elsewhere later stops Home Assistant working until you remove the integration and add it again with the new key.
 {% endimportant %}
 
-If your switch to Ecosmart has not completed yet, a key can already exist while no connection point is attached to it. Setup then reports that the key has no connection points. Try again once the property is live.
+If your switch to ecosmart has not completed yet, a key can already exist while no connection point is attached to it. Setup then reports that the key has no connection points. Try again once the property is live.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 API key:
-  description: "The API key you created in the Ecosmart app under **More** > **Settings** > **Advanced** > **API keys**."
+  description: "The API key you created in the ecosmart app under **More** > **Settings** > **Advanced** > **API keys**."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -69,7 +69,7 @@ Every device carries two sensors. Both report cents per kWh including <abbr titl
 
 ## Data updates
 
-The integration {% term polling polls %} the Ecosmart API for each grid exit point rather than for each ICP, so several properties behind the same substation share one request.
+The integration {% term polling polls %} the ecosmart API for each grid exit point rather than for each ICP, so several properties behind the same substation share one request.
 
 - The spot price is republished by the market roughly every five minutes and is polled on the same cadence.
 - The forecast is polled every 30 minutes.
@@ -80,7 +80,7 @@ Neither sensor guesses. When it does not have a value it can stand behind, it re
 
 - The spot price is unavailable when the most recent published price is stale, or carries no value. A price more than about fifteen minutes old must never be what tells a battery to charge.
 - The forecast price is unavailable when the market has published nothing reaching this far ahead.
-- Both sensors are unavailable while the Ecosmart API cannot be reached, and they recover on the next successful poll.
+- Both sensors are unavailable while the ecosmart API cannot be reached, and they recover on the next successful poll.
 
 Re-authentication is not supported yet. If a newer key has replaced the one Home Assistant holds, remove the integration and add it again with the current key.
 
@@ -88,11 +88,11 @@ Re-authentication is not supported yet. If a newer key has replaced the one Home
 
 ### Setup reports that the key has no connection points
 
-The key is valid, but no property is attached to it yet. This is normal while a switch to Ecosmart is still in progress. Try again once the property is live.
+The key is valid, but no property is attached to it yet. This is normal while a switch to ecosmart is still in progress. Try again once the property is live.
 
 ### The sensors stopped updating and the entry reports an authentication failure
 
-The API key was replaced. Creating a key anywhere else disables the key Home Assistant is using. Remove the integration, create a new key in the Ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
+The API key was replaced. Creating a key anywhere else disables the key Home Assistant is using. Remove the integration, create a new key in the ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
 
 ## Removing the integration
 
@@ -100,4 +100,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-Removing the integration does not revoke the API key. To revoke it, create a new key in the Ecosmart app, which disables the old one.
+Removing the integration does not revoke the API key. To revoke it, create a new key in the ecosmart app, which disables the old one.
