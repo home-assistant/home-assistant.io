@@ -26,25 +26,37 @@ Forecast.Solar uses data from the [EU Photovoltaic Geographical Information Syst
 
 To create a forecast, the integration needs a few details about your solar setup:
 
-- **Location**: The latitude and longitude of your panels. By default, this is taken from the home location set in your Home Assistant settings.
-- **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright.
-- **Azimuth**: The compass direction the panels face, on a 360 degree scale. `0` is north, `90` is east, `180` is south, and `270` is west.
+- **Location**: The latitude and longitude of your panels. By default, the integration tracks your Home Assistant home location, so it keeps working automatically if you move it, such as for a solar setup on a camper, RV, or boat. You can turn this off and enter a fixed latitude and longitude instead.
+- **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright. You can enter this manually, or, if you have a sensor that reports an angle, select it instead so the tilt updates automatically.
+- **Azimuth**: The compass direction the panels face, on a 360 degree scale. `0` is north, `90` is east, `180` is south, and `270` is west. As with declination, you can enter this manually or select an angle sensor to track it automatically.
 - **Total Watt peak power**: The combined maximum power of all your panels, in Watt peak. Add up the peak power of every panel in the group to get this value.
+
+Angle sensors are only offered as an option if Home Assistant has at least one sensor that reports its unit of measurement in degrees.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Use my Home Zone for Latitude / Longitude:
+  description: "Enabled by default. Tracks the location set in your Home Assistant settings, so the forecast follows a mobile installation automatically."
 Latitude:
-  description: "The latitude of your solar panels. Defaults to your Home Assistant home location."
+  description: "The latitude of your solar panels. Only used if **Use my Home Zone for Latitude / Longitude** is turned off."
 Longitude:
-  description: "The longitude of your solar panels. Defaults to your Home Assistant home location."
-Declination (0 = Horizontal, 90 = Vertical):
+  description: "The longitude of your solar panels. Only used if **Use my Home Zone for Latitude / Longitude** is turned off."
+Declination (0 = Horizontal, 90 = Vertical). Ignored if sensor is selected.:
   description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright)."
-Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West):
+Declination sensor:
+  description: "Optional. A sensor that reports the panel's tilt in degrees. Overrides the manual declination value when set. Only offered if you have a sensor reporting an angle."
+Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West). Ignored if sensor is selected.:
   description: "The direction your panels face on a 360 degree scale."
+Azimuth sensor:
+  description: "Optional. A sensor that reports the panel's compass direction in degrees. Overrides the manual azimuth value when set. Only offered if you have a sensor reporting an angle."
 Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
+
+If you leave **Use my Home Zone for Latitude / Longitude** turned off, you must enter a latitude and longitude, or the setup will show an error.
+
+To change the location settings later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and choose **Reconfigure**.
 
 ## Configuration options
 
@@ -67,6 +79,8 @@ A plane is a group of panels that share the same orientation. If your setup has 
 
 Adding more than one plane requires a paid Forecast.Solar account. See [Using a Forecast.Solar account](#using-a-forecastsolar-account). You can configure up to four planes, and the integration combines their data into a single set of sensors, taking your inverter size into account if you set one.
 
+Each plane has its own declination and azimuth, and, like the first plane, can use an angle sensor instead of a fixed value for either.
+
 To add a plane:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
@@ -84,7 +98,7 @@ To use your account, add the API key in the integration's configuration options,
 
 A forecast will never perfectly match what your panels produce, because it is based on weather and historical data rather than the power you actually generate. Even so, you can make it more accurate for your situation in a few ways:
 
-- Fine-tune the **azimuth** and **declination** if the real orientation of your panels differs slightly from what you first entered. To change these, reconfigure the plane from the integration page.
+- Fine-tune the **azimuth** and **declination** if the real orientation of your panels differs slightly from what you first entered, or select an angle sensor for either so it tracks a moving or adjustable mount automatically. To change these, reconfigure the plane from the integration page.
 - Set a damping factor for the morning and the evening if your panels catch some shade early or late in the day. Damping lowers the forecast at those times, making it less optimistic and closer to your reality.
 - Set the inverter size if your inverter can deliver less power than your panels can produce together, so the forecast does not exceed what your inverter can handle.
 
@@ -137,6 +151,7 @@ The forecast always remains an estimate based on weather and historical data, no
 
 - The free service offers a lower data resolution, updates less often, and supports only a single plane. More frequent updates and multiple planes require a paid Forecast.Solar account.
 - Your panel location must be covered by the EU Photovoltaic Geographical Information System.
+- If an angle sensor you selected for declination or azimuth becomes unavailable or reports a value outside its valid range, the forecast update fails until the sensor recovers.
 
 ## Removing the integration
 
