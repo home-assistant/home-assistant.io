@@ -90,6 +90,10 @@ Use the **Total consumption** sensor for grid consumption and the **Total feed-i
 
 ### Get notified on high power consumption
 
+Run an action, such as sending a notification, when your power consumption stays above a threshold for a set duration:
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/wattwaechter_high_power_alert.yaml" %}
+
 {% details "Example YAML automation" %}
 {% raw %}
 
