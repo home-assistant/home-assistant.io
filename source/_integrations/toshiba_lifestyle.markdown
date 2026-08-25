@@ -1,11 +1,11 @@
 ---
-title: Toshiba
-description: Connect and control your Toshiba devices using the Midea integration
+title: Toshiba Lifestyle
+description: Connect and control your Toshiba LifeStyle devices using the Midea integration
 ha_category:
   - Climate
   - Humidifier
 ha_release: 2026.9
-ha_domain: toshiba
+ha_domain: toshiba_lifestyle
 ha_integration_type: virtual
 ha_supporting_domain: midea
 ha_supporting_integration: Midea
