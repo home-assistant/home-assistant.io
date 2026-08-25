@@ -11,6 +11,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 2026.7
 ha_config_flow: true
+ha_dhcp: true
 ha_domain: imou
 ha_codeowners:
   - '@Imou-OpenPlatform'
@@ -47,6 +48,8 @@ Before using the Imou integration, create an Imou Open Platform application:
 ## Configuration
 
 {% include integrations/config_flow.md %}
+
+Home Assistant can discover Imou and Lechange devices on the local network from their MAC address. Adding the discovered integration still requires your Imou Open Platform App ID, App secret, and server region. The discovered device is not added to your account automatically.
 
 {% configuration_basic %}
 App ID:
