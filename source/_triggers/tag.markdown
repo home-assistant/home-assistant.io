@@ -129,7 +129,7 @@ If several devices can scan the same tag, use `device_id` in YAML to run the aut
 
 - **Trigger**: Tag
   - **Tag**: Music tag
-  - **Device ID**: `0e19cd3cf2b311ea88f469a7512c307d`
+  - device_id: 0e19cd3cf2b311ea88f469a7512c307d (add it in YAML)
 - **Action**: Turn on switch
   - **Target**: Music player power
 
