@@ -33,17 +33,16 @@ In English, you can say things like "turn on kitchen lights" or "turn off lights
 
 ## Sentence triggers
 
-Sentence triggers run an automation when Assist matches a sentence. They use the default conversation agent and work with Home Assistant Assist. External conversation agents, such as OpenAI Conversation or Google Generative AI Conversation, only use sentence triggers when **Prefer handling commands locally** is enabled.
+Sentence triggers start an automation when Assist matches a sentence. They use the default conversation agent and work with Home Assistant Assist. External conversation agents, such as OpenAI Conversation or Google Generative AI Conversation, only use sentence triggers when **Prefer handling commands locally** is enabled.
 
 Sentence triggers use the same [template sentence syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax) as custom sentences. You can define optional words with square brackets and alternatives with parentheses.
 
 {% example %}
-automation: |
-  triggers:
-    - trigger: conversation
-      command:
-        - "[it's ]party time"
-        - "happy (new year|birthday)"
+trigger: |
+  trigger: conversation
+  command:
+    - "[it's ]party time"
+    - "happy (new year|birthday)"
 {% endexample %}
 
 The first example matches both "party time" and "it's party time". The second example matches both "happy new year" and "happy birthday". Punctuation and capitalization are ignored.
