@@ -48,7 +48,6 @@ The heater itself is represented as one device. Each connected heating circuit i
 
 The integration creates a sensor for each data point provided by the heater. The available sensors depend on the heater model and firmware version. Example sensors include boiler temperature, outside temperature, and buffer load. Note that sensors with a value of `-20.00 °C` or `-9.00 °C` are not returned.
 
-
 The following sensors are available for a Guntamatic BMK 20 heater:
 
 - **Boiler temperature**:
@@ -101,7 +100,6 @@ The following sensors are available for a Guntamatic BMK 20 heater:
   - **Example value**: Service Ign.
   - **Unit**: None
 
-
 ### Heating circuit devices
 
 Each connected heating circuit device provides the following sensors:
@@ -126,7 +124,6 @@ Each connected heating circuit device provides the following sensors:
 
 Additional sensors are disabled by default and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
 
-
 ## Examples
 
 The following blueprints help you get started with common automations for your heater:
@@ -135,7 +132,6 @@ The following blueprints help you get started with common automations for your h
 - [Guntamatic maintenance reminder](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/maintenance-reminders.yaml): get a notification when the ash box needs emptying or the periodic service is due soon.
 
 Import them from the blueprint folder and select your Guntamatic sensors when setting up the automation.
-
 
 ## Removing the integration
 
