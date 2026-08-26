@@ -15,8 +15,6 @@ ha_platforms:
   - sensor
 ha_bluetooth: true
 related:
-  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
-    title: Debug logs and diagnostics
   - docs: /integrations/bluetooth/
     title: Bluetooth
 ---
@@ -269,7 +267,7 @@ Home Assistant keeps the configuration entry, the encrypted bike key, and the en
 
 The integration can contact Specialized during encrypted bike setup. This request retrieves the wrapped key for the selected bike.
 
-Home Assistant does not store the Specialized account password or account token. Diagnostics redact the wrapped key and the bike hardware identifiers.
+Home Assistant does not store the Specialized account password or account token.
 
 ## Troubleshooting
 
