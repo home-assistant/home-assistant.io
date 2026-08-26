@@ -1189,9 +1189,9 @@ multiple:
   description: >
     Allows selecting multiple media items. If set to `true`, the resulting value of
     this selector will be a list instead of a single object.
-  type: boolean 
+  type: boolean
   default: false
-  required: false  
+  required: false
 {% endconfiguration %}
 
 The output of the media selector is a mapping or list of mappings with information about
