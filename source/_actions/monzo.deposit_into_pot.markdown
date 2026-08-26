@@ -71,7 +71,9 @@ amount:
 ## Good to know
 
 - The selected pot must belong to the selected account and Monzo connection.
+- Loan, Flex, and Rewards accounts do not support pot transfers.
 - After a successful transfer, Home Assistant refreshes the account and pot balances.
+- If Home Assistant cannot confirm whether a transfer completed, check your Monzo balance before you try again.
 
 {% include actions/try_it.md %}
 
