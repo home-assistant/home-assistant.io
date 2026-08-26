@@ -23,12 +23,13 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
-  - light
   - fan
-  - switch
+  - humidifier
+  - light
   - number
   - select
-  - humidifier
+  - switch
+  - time
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -122,12 +123,13 @@ The **Midea** {% term integration %} provides the following entities:
 - Binary sensor: Door, Motion, Full dust, Salt, Tank full, etc.
 - Button
 - Climate
-- Light
 - Fan
-- Switch
+- Humidifier
+- Light
 - Number
 - Select
-- Humidifier
+- Switch
+- Time
 
 ## Known limitations
 
