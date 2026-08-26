@@ -8,8 +8,11 @@ ha_iot_class: Local Push
 ha_domain: zhong_hong
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: legacy
+ha_codeowners:
+  - '@crhan'
+ha_config_flow: true
 ---
 
 The **ZhongHong** {% term integration %} lets you control Zhonghong HVAC Gateway Controller thermostats through Home Assistant.

@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - lock
   - sensor
 ha_dhcp: true

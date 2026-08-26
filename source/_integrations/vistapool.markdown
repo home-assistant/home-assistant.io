@@ -23,6 +23,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - time
 ha_integration_type: hub
 ha_dhcp: true

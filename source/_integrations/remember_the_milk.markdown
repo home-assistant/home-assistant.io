@@ -3,12 +3,14 @@ title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
 ha_category:
   - Calendar
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_domain: remember_the_milk
 ha_integration_type: service
 ha_config_flow: true
 ha_quality_scale: legacy
+ha_platforms:
+  - todo
 ---
 
 The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk](https://www.rememberthemilk.com) (<abbr title="Remember The Milk">RTM</abbr>) from Home Assistant. You can use this if you want Home Assistant to send you a task you should not forget, for example, to water the plants. The integration supports connecting several Remember The Milk accounts.

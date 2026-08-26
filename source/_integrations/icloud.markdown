@@ -14,7 +14,6 @@ ha_codeowners:
 ha_domain: icloud
 ha_platforms:
   - device_tracker
-  - media_source  
   - sensor
 ha_integration_type: hub
 ---

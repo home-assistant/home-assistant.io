@@ -10,11 +10,12 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
-  - '@jjlawren'
   - '@peterager'
+  - '@jjlawren'
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - media_player
   - number
