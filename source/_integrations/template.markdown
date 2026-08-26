@@ -2108,9 +2108,9 @@ template:
     sensor:
       - name: Positive values
         conditions:
-          condition: numeric_state
-          entity_id: sensor.source_value
-          above: 0
+          - condition: numeric_state
+            entity_id: sensor.source_value
+            above: 0
         state: "{{ states('sensor.source_value') }}"
 
       - name: Negative values
