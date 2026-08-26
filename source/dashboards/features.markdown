@@ -1055,9 +1055,8 @@ type:
 Widget that displays buttons to start, pause, cancel, and finish a [timer](/integrations/timer). Buttons are only enabled when the action is valid for the current timer state. While the timer is running, the start button becomes a restart button, which restarts the timer with the duration it was last started with, ignoring the remaining time.
 
 <p class='img'>
-  <img src='/images/dashboards/features/timer_actions.png' alt='Screenshot of the tile card with timer actions feature'>
-  Screenshot of the tile card with timer actions feature
-</p>
+  <img src='/images/dashboards/features/timer_actions.png' alt='Screenshot of the tile card with the timer actions feature'>
+  Screenshot of the tile card with the timer actions feature
 
 ```yaml
 features:
@@ -1106,7 +1105,7 @@ type:
   type: string
 presets:
   required: false
-  description: List of preset durations, each as a `H:MM:SS` string or a number of seconds.
+  description: List of preset durations, each as a `H:MM:SS` string or a number of seconds. If not set, no presets are shown.
   type: list
 style:
   required: false
