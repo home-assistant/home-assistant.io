@@ -58,18 +58,10 @@ During setup, you will be redirected to Honeywell to sign in. Use your regular R
 
 ## Binary sensors
 
-This integration provides the following binary sensors:
+This integration provides the following binary sensor:
 
-| Name                    | Description                                                |
-| ------------------------ | ----------------------------------------------------------- |
-| Vacation Hold           | Indicates whether the thermostat is currently in vacation hold. |
-| Device Pairing Enabled  | Indicates whether pairing mode is enabled on the thermostat. |
-
-Additional binary sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
-
-| Name        | Description                                                         |
-| ----------- | --------------------------------------------------------------------- |
-| Room Motion | Indicates whether motion has been detected by a room sensor accessory. |
+- **Device pairing enabled**
+  - **Description**: Indicates whether the thermostat is in pairing mode and can accept new room sensor accessories.
 
 ## Selects
 
@@ -82,22 +74,34 @@ Additional binary sensors will be created for each room sensor accessory assigne
 
 This integration provides the following sensors:
 
-| Name                | Description                                                                                                        |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Indoor Temperature  | The reported temperature from the device                                                                          |
-| Indoor Humidity     | The reported humidity from the device                                                                              |
-| Outdoor Temperature | Lyric's outdoor temperature report                                                                                 |
-| Outdoor Humidity    | Lyric's outdoor humidity                                                                                           |
-| Next Period Time    | The next time the thermostat will change                                                                          |
-| Setpoint Status     | A description of the setpoint of the device                                                                       |
-| Schedule Status     | The thermostat's current schedule status (for example, "Resume")                                                  |
-| Priority Status     | The current room priority hold status (for example, "No Hold"). Available for T9 and T10 thermostats with at least one paired room sensor. |
+- **Indoor temperature**
+  - **Description**: The temperature reported by the thermostat.
 
-Additional sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
+- **Indoor humidity**
+  - **Description**: The humidity reported by the thermostat.
 
-| Name                     | Description                                                       |
-| ------------------------- | ------------------------------------------------------------------ |
-| Room Temperature         | The temperature reported from a room sensor accessory             |
-| Room Humidity            | The humidity reported from a room accessory                       |
-| Room Average Temperature | The average temperature reported for the room                     |
-| Accessory Status         | The reported status of the room sensor accessory (for example, "Ok") |
+- **Outdoor temperature**
+  - **Description**: The outdoor temperature reported by Lyric.
+
+- **Outdoor humidity**
+  - **Description**: The outdoor humidity reported by Lyric.
+
+- **Next period time**
+  - **Description**: The next time the thermostat switches to another setpoint.
+
+- **Setpoint status**
+  - **Description**: A description of the thermostat's current setpoint, such as _Following Schedule_, _Held Permanently_, or _Held until_ a given time.
+
+- **Schedule status**
+  - **Description**: The thermostat's current schedule status, such as _Resume_.
+
+An extra set of sensors is created for each room sensor accessory paired with a thermostat:
+
+- **Room temperature**
+  - **Description**: The temperature reported by the room sensor accessory.
+
+- **Room humidity**
+  - **Description**: The humidity reported by the room sensor accessory.
+
+- **Room average temperature**
+  - **Description**: The average temperature measured in that room.
