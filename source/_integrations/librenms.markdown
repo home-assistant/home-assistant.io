@@ -3,7 +3,7 @@ title: LibreNMS
 description: Instructions on how to integrate a LibreNMS instance into Home Assistant.
 ha_category:
   - Binary Sensor
-ha_release: 2025.8
+ha_release: 2026.9
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_domain: librenms
