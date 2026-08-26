@@ -31,6 +31,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Southwestern Electric Power Company (SWEPCO)
 - Burbank Water and Power (BWP)
 - City of Austin Utilities
+- Clark Public Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
@@ -51,8 +52,8 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Upstate
 - Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
-- Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
+- Rhode Island Energy (RIEnergy)
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
 - Southern Maryland Electric Cooperative (SMECO)
