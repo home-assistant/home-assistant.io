@@ -1,14 +1,14 @@
 ---
-title: "Light is not detected"
+title: "Light level is not detected"
 condition: illuminance.is_not_detected
 domain: illuminance
-description: "Tests if light is currently not detected."
+description: "Tests if one or more light sensors are not detecting light."
 related_conditions:
   - illuminance.is_detected
   - illuminance.is_value
 ---
 
-The **Light is not detected** condition passes when one or more light binary sensors are currently dark. Use it to gate an automation on a dark area, like only running a wake-up routine if the bedroom is still dark, or only turning on hallway lights when an outdoor sensor reports no daylight.
+The **Light level is not detected** condition passes when one or more light binary sensors are currently dark. Use it to gate an automation on a dark area, like only running a wake-up routine if the bedroom is still dark, or only turning on hallway lights when an outdoor sensor reports no daylight.
 
 {% include conditions/ui_header.md %}
 
@@ -17,7 +17,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light is not detected**.
+4. From the search box, search for and select **Light level is not detected**.
 5. Under **Targets** (see [Targets](#targets)), select one or more light sensors, devices, an area, a floor, or a label.
 6. If you selected more than one target, under **Condition passes if**, pick **Any** or **All**.
 7. Under **For at least**, you can set how long the sensors must remain dark before the condition passes.
@@ -70,10 +70,11 @@ for:
 
 ## Good to know
 
-- This condition works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "no light detected" is set on the device itself.
+- The target must be a binary sensor with the light device class.
+- The sensor's threshold for what counts as "no light detected" is set on the device itself.
 - Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
-- To check for the opposite state, use [Light is detected](/conditions/illuminance.is_detected/).
+- To check for the opposite state, use [Light level is detected](/conditions/illuminance.is_detected/).
 
 {% include conditions/try_it.md %}
 
@@ -84,7 +85,7 @@ for:
 When motion is detected in the hallway, only turn on the hallway light if the outdoor light sensor has been dark for at least 5 minutes.
 
 - **Trigger**: Motion detected (hallway sensor)
-- **Condition**: Light is not detected
+- **Condition**: Light level is not detected
   - **Target**: Outdoor light sensor
   - **For at least**: 00:05:00
 - **Action**: Turn on light

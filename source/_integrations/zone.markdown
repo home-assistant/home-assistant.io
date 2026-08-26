@@ -46,22 +46,24 @@ During the [onboarding process](/getting-started/onboarding/), Home Assistant as
 
 ## Adding a new zone or editing zones
 
-1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
-2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
+{% note %}
+If you have configured the zone or some of the general settings in YAML, as described in [editing zones in YAML](/integrations/zone/#editing-zones-in-yaml) and in [editing the general settings in YAML](/integrations/homeassistant/#editing-the-general-settings-in-yaml), you cannot edit them using the UI.
+{% endnote %}
+
+1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %} and select the **Zones** tab.
+2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Create zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
    - The home zone always has the name of your Home Assistant installation. To change the name of the home, go to {% my general title="**Settings** > **System** > **General**" %}.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
    - For example, `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
    - For the home zone, the icon cannot be changed.
-5. To change location or radius, under **Edit location**, select edit.
-   - To adjust the location, specify the GPS coordinates or drag the icon on the map
-   - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
+5. To change the location, enter the GPS coordinates in **Latitude** and **Longitude** or drag the icon on the map. To change the zone radius, adjust the size of the zone circle or edit the **Radius** in meters.
 
     ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
 
 6. If you want to hide the zone from the frontend and not use the zone for device tracker state, enable **Passive**. You can still use it in automations.
    - For the home zone, **Passive** is not available.
-7. To save your changes, select **Update**.
+7. To save your changes, select **Save** if you are editing a zone or **Create** if you are adding a new zone.
 
 ## Editing zones in YAML
 
@@ -146,7 +148,7 @@ These examples show how you can use zone triggers and conditions in automations.
 
 When Nina enters the work zone, this automation sends a notification to your phone.
 
-- **Trigger**: Entered zone
+- **Trigger**: Zone entered
   - **Target**: Nina (`person.nina`)
   - **Zone**: Work (`zone.work`)
 - **Action**: Send a notification message

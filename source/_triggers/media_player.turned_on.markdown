@@ -2,7 +2,7 @@
 title: "Media player turned on"
 trigger: media_player.turned_on
 domain: media_player
-description: "Triggers after one or more media players turn on."
+description: "Triggers when one or more media players turn on."
 related_triggers:
   - media_player.turned_off
   - media_player.started_playing

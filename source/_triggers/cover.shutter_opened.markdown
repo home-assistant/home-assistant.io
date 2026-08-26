@@ -2,7 +2,7 @@
 title: "Shutter opened"
 trigger: cover.shutter_opened
 domain: cover
-description: "Triggers after one or more shutters open."
+description: "Triggers when one or more shutters open."
 related_triggers:
   - cover.shutter_closed
 ---
@@ -75,9 +75,9 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `shutter` device class.
-- If a shutter comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
-- The `for` option fires the automation only if the shutter stays open for the entire time you set.
+- Use a cover entity with the shutter device class.
+- If a shutter comes back from **Unavailable** or **Unknown**, that recovery does not count as the opening.
+- The **For at least** option fires the automation only if the shutter stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 

@@ -25,8 +25,8 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The state of a sensor entity is its currently detected value, which can be either text or a number.
 
 <p class='img'>
-<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the developer tools' />
-Screenshot showing the state of a sensor entity in the developer tools.
+<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the States tab of Tools.' />
+Screenshot showing the state of a sensor entity in {% my developer_states title="Settings > Tools > States"%}
 </p>
 
 In addition, the entity can have the following states:
@@ -89,6 +89,7 @@ The following device classes are supported for sensors:
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
+- **radon**: Concentration of radon in Bq/m³ or pCi/L
 - **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm

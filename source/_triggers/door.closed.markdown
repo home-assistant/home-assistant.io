@@ -2,7 +2,7 @@
 title: "Door closed"
 trigger: door.closed
 domain: door
-description: "Triggers after one or more doors close."
+description: "Triggers when one or more doors close."
 related_triggers:
   - door.opened
 ---
@@ -72,9 +72,9 @@ for:
 
 ## Good to know
 
-- This trigger works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the door closing.
-- The `for` option only fires the automation if the door stays closed for the entire time you set.
+- Use a door contact sensor or door cover that uses the door device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the door closing.
+- The **For at least** option only fires the automation if the door stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 
@@ -115,7 +115,7 @@ If you turn on a nearby hallway light while bringing things in from the car, the
 - **Trigger**: Door closed
 - **Target**: Garage door
 - **For at least**: 00:01:00
-- **Action**: Light: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the hallway light" %}
 

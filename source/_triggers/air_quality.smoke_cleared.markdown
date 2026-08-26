@@ -2,7 +2,7 @@
 title: "Smoke cleared"
 trigger: air_quality.smoke_cleared
 domain: air_quality
-description: "Triggers after one or more smoke sensors stop detecting smoke."
+description: "Triggers when one or more smoke sensors stop detecting smoke."
 related_triggers:
   - air_quality.smoke_detected
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Left zone"
+title: "Zone left"
 trigger: zone.left
 domain: zone
 description: "Triggers when one or more people or device trackers leave a zone."
@@ -8,7 +8,7 @@ related_triggers:
   - zone.occupancy_cleared
 ---
 
-The **Left zone** trigger fires when a person or device tracker leaves a selected zone. Use it to start an automation when someone leaves home, leaves work, or moves out of another zone you track.
+The **Zone left** trigger fires when a person or device tracker leaves a selected zone. Use it to start an automation when someone leaves home, leaves work, or moves out of another zone you track.
 
 When you target more than one person or device tracker, the **Trigger when** option controls whether the automation runs for each departure, only the first departure, or only after all selected targets have left the zone.
 
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Left zone**.
+4. From the search box, search for and select **Zone left**.
 5. Select what you want to monitor. Under **By target**, choose one or more people or device trackers.
 6. Under **Zone**, select the zone to monitor.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All**.
@@ -97,7 +97,7 @@ You can also select different target types in one trigger.
 
 - This trigger uses the `in_zones` attribute reported by person and device tracker entities.
 - If the selected person or device tracker is `unknown` or `unavailable`, Home Assistant does not treat that state as leaving the zone.
-- To react when a target enters the same zone, use [Entered zone](/triggers/zone.entered/).
+- To react when a target enters the same zone, use [Zone entered](/triggers/zone.entered/).
 
 {% include triggers/try_it.md %}
 
@@ -107,7 +107,7 @@ You can also select different target types in one trigger.
 
 When all selected people have left the home zone for 5 minutes, this automation locks the front door.
 
-- **Trigger**: Left zone
+- **Trigger**: Zone left
   - **Target**: Nina and Alex
   - **Zone**: Home (`zone.home`)
   - **Trigger when**: All
@@ -142,7 +142,7 @@ automation: |
 
 When a tracked phone leaves the school zone, this automation sends a notification.
 
-- **Trigger**: Left zone
+- **Trigger**: Zone left
   - **Target**: Phone (`device_tracker.phone`)
   - **Zone**: School (`zone.school`)
 - **Action**: Send a notification message

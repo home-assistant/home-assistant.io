@@ -2,7 +2,7 @@
 title: "Humidifier started humidifying"
 trigger: humidifier.started_humidifying
 domain: humidifier
-description: "Triggers after one or more humidifiers start actively humidifying."
+description: "Triggers when one or more humidifiers start humidifying."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_drying
@@ -132,9 +132,9 @@ When the bedroom humidifier starts humidifying, turn on a low-speed fan to distr
 
 - **Trigger**: Humidifier started humidifying
   - **Target**: Bedroom humidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
+  - **Percentage**: `30`%
 
 {% details "YAML example for running a fan when humidifying starts" %}
 
@@ -145,9 +145,6 @@ automation: |
     - trigger: humidifier.started_humidifying
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: fan.turn_on
       target:

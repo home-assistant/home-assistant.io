@@ -2,7 +2,7 @@
 title: "Light turned off"
 trigger: light.turned_off
 domain: light
-description: "Triggers after one or more lights turn off."
+description: "Triggers when one or more lights turn off."
 related_triggers:
   - light.turned_on
   - light.brightness_changed
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light turned off**.
+4. From the search box, search for and select **Light turned off**.
 5. Under **Targets**, choose what to watch:
     - To watch a specific light, select the entity.
     - To watch every light in a room, select an area.
@@ -112,7 +112,8 @@ When every light in the living room is off, stop whatever is playing on the livi
 - **Trigger**: Light turned off
 - **Target**: Living room area
 - **Trigger when**: All
-- **Action**: Media player: Turn off
+- **Action**: Turn off media player
+  - **Target**: Living room speaker
 
 {% details "YAML example for auto-pausing media when the room goes dark" %}
 

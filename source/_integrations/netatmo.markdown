@@ -37,7 +37,9 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Netatmo** {% term integration %} is the main integration to integrate all Netatmo related platforms.
+[Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
+
+The **Netatmo** {% term integration %} connects these devices to Home Assistant, so you can monitor and control your Netatmo products alongside the rest of your smart home. It communicates with Netatmo's cloud service, so an active internet connection and a Netatmo account are required.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -51,6 +53,16 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Webhook Events](#webhook-events)
+
+## Prerequisites
+
+Before you set up the integration, make sure you have the following:
+
+- A Netatmo account. If you don't have one yet, create one in the Netatmo app or on the [Netatmo website](https://www.netatmo.com/) and add your devices there first.
+- At least one Netatmo device set up and working in the Netatmo app.
+- An active internet connection. The integration talks to Netatmo's cloud service, so your devices need to be reachable through your Netatmo account.
+
+To receive instant updates through [webhook events](#webhook-events), your Home Assistant instance needs to be reachable from the internet. This is optional, but recommended for the best responsiveness. See [Webhook Events](#webhook-events) for setup requirements and limitations.
 
 {% include integrations/config_flow.md %}
 
@@ -90,7 +102,7 @@ The `netatmo` cover platform provides support for Bubendorff shutters.
 
 ## Fan
 
-The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
+The `netatmo` fan platform provides support for Legrand centralized ventilation control.
 
 ## Light
 
@@ -205,6 +217,29 @@ Example:
         title: "Netatmo event"
 ```
 
+## Device triggers
+
+In addition to the raw [webhook events](#webhook-events), the Netatmo integration provides device triggers that you can select in the automation editor.
+Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create or open an automation, then select **Add trigger** > **Device**.
+These triggers wrap the underlying `netatmo_event` types for supported devices.
+
+The following device triggers are available:
+
+- **Smart Indoor Camera**
+  - Detected movement
+  - Detected a person
+  - Detected a person has left
+  - Detected an alarm
+- **Smart Outdoor Camera**
+  - Detected an outdoor event
+  - Detected a human
+  - Detected an animal
+  - Detected a vehicle
+- **Smart Thermostat** and **Smart Valve**
+  - Target temperature set manually
+  - Has resumed its schedule
+  - Switched to "{subtype}" (subtype: Schedule, Frost guard, or Away)
+
 ## Development / Testing with your own client ID
 
 To enable the Netatmo integration with your own development credentials, you have
@@ -229,8 +264,14 @@ During the process you have to choose the new Application Credentials name.
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Light
 
-If the lights show as unavailable the issue usually is that webhook is banned by Netatmo. To solve that [unregister](#un-register-webhooks) the webhook, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook and then [register](#un-register-webhooks) the webhook.
+If the lights show as unavailable, the webhook has likely been banned by Netatmo. To resolve this, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook, and then reload the integration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

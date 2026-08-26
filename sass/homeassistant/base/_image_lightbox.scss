@@ -1,0 +1,27 @@
+@use '../variables' as *;
+
+article.page,
+article.post {
+  img[data-lightbox-image="true"] {
+    cursor: zoom-in;
+
+    &:focus-visible {
+      outline: 3px solid $blueDark;
+      outline-offset: -6px;
+    }
+  }
+}
+
+.pswp {
+  --pswp-bg: #000000;
+}
+
+.pswp__button:focus-visible {
+  outline: 3px solid $blueDark;
+  outline-offset: -3px;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img,
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
+  cursor: zoom-out;
+}

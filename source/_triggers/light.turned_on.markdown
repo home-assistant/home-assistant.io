@@ -2,7 +2,7 @@
 title: "Light turned on"
 trigger: light.turned_on
 domain: light
-description: "Triggers after one or more lights turn on."
+description: "Triggers when one or more lights turn on."
 related_triggers:
   - light.turned_off
   - light.brightness_changed
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light turned on**.
+4. From the search box, search for and select **Light turned on**.
 5. Under **Targets**, choose what to watch:
     - To watch a specific light, select the entity.
     - To watch every light in a room, select an area.
@@ -116,7 +116,10 @@ When the first downstairs light turns on in the morning, start a gentle playlist
 - **Target**: Downstairs area
 - **Trigger when**: First
 - **Condition**: Time is between 06:00 and 10:00
-- **Action**: Media player: Play media
+- **Action**: Play specified media
+  - **Target**: Kitchen media player
+  - **Media content ID**: `spotify:playlist:37i9dQZF1DXdwmD5Q7Gxah`
+  - **Media content type**: `music`
 
 {% details "YAML example for a morning welcome playlist" %}
 

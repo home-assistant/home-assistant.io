@@ -58,8 +58,6 @@ auto_off:
 
 {% include actions/try_it.md %}
 
-{% include actions/more_examples.md %}
-
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

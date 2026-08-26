@@ -2,7 +2,7 @@
 title: "Water heater target temperature crossed threshold"
 trigger: water_heater.target_temperature_crossed_threshold
 domain: water_heater
-description: "Triggers after the temperature setpoint of one or more water heaters crosses a threshold."
+description: "Triggers when the temperature setpoint of one or more water heaters crosses a threshold."
 related_triggers:
   - water_heater.target_temperature_changed
   - water_heater.operation_mode_changed
@@ -131,6 +131,7 @@ for:
 
 ## Good to know
 
+- The target water heater entity must expose a target temperature attribute.
 - This trigger watches the target temperature setpoint, not the current measured water temperature.
 - It fires only when the setpoint crosses the threshold boundary. It does not keep firing while the setpoint stays beyond the threshold.
 - To react to any setpoint change that lands above, below, inside, or outside a range, use [Water heater target temperature changed](/triggers/water_heater.target_temperature_changed/).

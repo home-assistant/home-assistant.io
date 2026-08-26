@@ -175,7 +175,7 @@ If you use a schedule to define when your porch light should be active, you can 
 automation: |
   alias: "Turn on the porch light when the evening schedule starts"
   triggers:
-    - trigger: schedule.turned_on
+    - trigger: schedule.block_started
       target:
         entity_id: schedule.evening_porch_light
   actions:

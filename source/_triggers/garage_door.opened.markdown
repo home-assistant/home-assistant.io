@@ -2,7 +2,7 @@
 title: "Garage door opened"
 trigger: garage_door.opened
 domain: garage_door
-description: "Triggers after one or more garage doors open."
+description: "Triggers when one or more garage doors open."
 related_triggers:
   - garage_door.closed
 ---
@@ -72,9 +72,9 @@ for:
 
 ## Good to know
 
-- This trigger works with garage door contact sensors that use the `garage_door` device class and garage door covers that use the `garage` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the garage door opening.
-- The `for` option only fires the automation if the garage door stays open for the entire time you set.
+- Use a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the garage door opening.
+- The **For at least** option only fires the automation if the garage door stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 
