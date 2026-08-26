@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - **Smoke+CO Detector**: reports on the smoke and carbon monoxide sensor status*.
 - **Water Sensor**: reports on water sensor status*.
 
-- Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
+\* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed. For cases where the default {% term polling %} interval of 30 seconds is too long for automations, enabling a secret alert in the SimpliSafe app will let Home Assistant automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way SimpliSafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared.
 
 ## SimpliSafe Plans
 
@@ -110,11 +110,7 @@ Each SimpliSafe system provides a system event {% term entity %} that captures e
 
 ### Automation example: detecting secret alert events
 
-For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
-
-Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way SimpliSafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
-
-For cases where you wish to reliably determine each time a binary sensor is triggered, do the following:
+Home Assistant already uses SimpliSafe secret alerts as triggers to turn on binary sensors. However, if you want to manually listen for them or adapt this example to listen for another type of system event, you can do the following:
 
 1. Enable the secret alert for the device in the SimpliSafe App.
 2. Make a note of the serial number of the device.
