@@ -195,7 +195,7 @@ The **Specialized Turbo** integration provides 26 sensor entities.
   - **Description**: Total ride energy in kilocalories
   - **Remarks**: Disabled by default
 
-## Examples
+## Automation examples
 
 ### Notify when the battery is fully charged
 
@@ -206,7 +206,9 @@ The **Specialized Turbo** integration provides 26 sensor entities.
       entity_id: sensor.specialized_turbo_battery
       above: 99
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Your bike is fully charged."
 ```
@@ -222,7 +224,9 @@ The **Specialized Turbo** integration provides 26 sensor entities.
       entity_id: sensor.specialized_turbo_battery_health
       below: 80
   actions:
-    - action: notify.mobile_app
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: >
           Bike battery health is at
