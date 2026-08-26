@@ -141,6 +141,60 @@ These entities are added per inverter and updated every minute:
 
 The connection is shared with the [Modbus integration](/integrations/modbus/) and any other integration talking to the same device, so using both doesn't open a second connection to the inverter.
 
+### Controlling the inverter over Modbus
+
+Modbus is the only interface that lets Home Assistant change settings on the inverter; the Solar API is read-only. These setpoints are added as `number` entities, and appear under _Configuration_ on the inverter's device page:
+
+- `Power limit`: caps the inverter's output, as a percentage of its nominal power output.
+- `Battery charge power limit` and `Battery discharge power limit`: cap how fast the battery may charge or discharge, as a percentage of its maximum rate.
+- `Battery minimum reserve`: the state of charge the battery is not discharged below.
+
+{% important %}
+Writing has to be allowed on the device first: _Communication_ → _Modbus_ (Gen24, Tauro, Verto) or _Settings_ → _Modbus_ (Datamanager) → turn on **Inverter control via Modbus**.
+
+Until it is, the inverter rejects every write, and the integration creates no control entities at all rather than ones that fail when used. Turn it on, then reload the integration.
+{% endimportant %}
+
+The limits are only applied while they are active, so setting one activates it. `100 %` is what "no limit" means to the device: setting a limit back to `100 %` releases it.
+
+{% note %}
+The inverter decides which control source wins. If _IO control_ or _dynamic power reduction_ has a higher priority than Modbus in the DNO Editor, the inverter may refuse or ignore what Home Assistant sends.
+{% endnote %}
+
+#### The battery limits are power, not a charge level
+
+`Battery charge power limit` limits charging **power** — it is not a "charge to 80 %" setting. The inverter exposes no maximum state of charge over Modbus at all; only the minimum reserve.
+
+A charge ceiling can be built as an automation instead, using the battery's state of charge sensor and the charge power limit:
+
+```yaml
+automation:
+  - alias: "Stop charging the battery at 80%"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.byd_battery_box_premium_hv_state_of_charge
+        above: 80
+    actions:
+      - action: number.set_value
+        target:
+          entity_id: number.gen24_battery_charge_power_limit
+        data:
+          value: 0
+  - alias: "Allow charging the battery again below 75%"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.byd_battery_box_premium_hv_state_of_charge
+        below: 75
+    actions:
+      - action: number.set_value
+        target:
+          entity_id: number.gen24_battery_charge_power_limit
+        data:
+          value: 100
+```
+
+Discharging is limited by its own setpoint, so the battery still supplies the house while charging is held at `0 %`. Because the limit is held by Home Assistant rather than the inverter, the battery charges normally again if Home Assistant stops running.
+
 ## Energy dashboard
 
 Recommended [energy dashboard](/docs/energy/) configuration:
@@ -218,7 +272,9 @@ Fronius often provides firmware updates for the datamanager interfaces and the d
 
 ## Known limitations
 
-This integration only reads from Fronius devices. The Solar API is read-only, and the [Modbus TCP](#modbus-tcp) interface is used for reading only. Most Fronius devices do support writing over Modbus TCP, for example to limit output power or control battery charging, so you can use the [Modbus integration](/integrations/modbus/) to control them. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
+The Solar API is read-only, so everything this integration changes on a device goes over [Modbus TCP](#modbus-tcp), and only what the SunSpec models expose: the output power limit and the battery charge, discharge and reserve setpoints. Every setpoint is a percentage - Fronius exposes no absolute watt setting, and no maximum state of charge.
+
+For anything beyond that, the [Modbus integration](/integrations/modbus/) can address the same device directly. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
 
 ## Troubleshooting
 
@@ -236,6 +292,13 @@ This integration only reads from Fronius devices. The Solar API is read-only, an
 
 Some data, like photovoltaic production, is only provided by the Fronius device when non-zero.
 When the integration is added at night, there might be no entities added providing photovoltaic related data. Entities will be added on sunrise, when the Fronius devices begin to provide more data.
+
+### No power limit or battery setpoints
+
+These are the `number` entities described under [Modbus TCP](#modbus-tcp).
+
+- Check that **Inverter control via Modbus** is enabled on the device's web interface, under the same _Modbus_ settings where Modbus TCP is turned on. Without it the inverter rejects every write, so the integration doesn't offer the entities.
+- Reload the integration after changing the setting.
 
 ### No MPPT, PV energy, or battery energy entities
 
