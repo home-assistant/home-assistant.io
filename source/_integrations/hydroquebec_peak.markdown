@@ -45,33 +45,73 @@ For each configured offer, the integration provides the following entities. Even
 ### Sensors
 
 - **Event begins**
-  - **Description**: Start time of the peak event in progress, or of the next upcoming event. Unknown when no event is scheduled.
+  - **Description**: Start time of the peak event in progress, or of the next upcoming event. The state is `unknown` when no event is scheduled.
 - **Event ends**
-  - **Description**: End time of the peak event in progress, or of the next upcoming event. Unknown when no event is scheduled.
+  - **Description**: End time of the peak event in progress, or of the next upcoming event. The state is `unknown` when no event is scheduled.
 
-## Example automations
+## Hydro-Québec Peak Events automation examples
+
+### Automation: Preheat the home before a peak event
 
 Preheat the home before a peak event by using the **Event begins** sensor with a time offset:
 
-{% raw %}
+{% note %}
+This example uses a time trigger with an offset, which requires the YAML editor. The visual automation editor does not support the offset field on time triggers.
+{% endnote %}
 
-```yaml
-automation:
-  - alias: "Preheat before peak event"
-    triggers:
-      - trigger: time
-        at:
-          entity_id: sensor.credit_hivernal_residentiel_cpc_d_event_begins
-          offset: "-03:00:00"
-    actions:
-      - action: climate.set_temperature
-        target:
-          entity_id: climate.living_room
-        data:
-          temperature: 22
-```
+{% example %}
+automation: |
+  alias: "Preheat before a peak event"
+  triggers:
+    - trigger: time
+      at:
+        entity_id: sensor.hydroquebec_peak_cpc_d_event_begins
+        offset: "-03:00:00"
+  actions:
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.living_room
+      data:
+        temperature: 23
+{% endexample %}
 
-{% endraw %}
+### Automation: Lower the thermostat when a peak event starts
+
+Lower the thermostat when a peak event begins by using a time trigger directly on the **Event begins** sensor:
+
+{% example %}
+automation: |
+  alias: "Lower the thermostat when a peak event starts"
+  triggers:
+    - trigger: time
+      at:
+        entity_id: sensor.hydroquebec_peak_cpc_d_event_begins
+  actions:
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.living_room
+      data:
+        temperature: 18
+{% endexample %}
+
+### Automation: Restore the temperature when a peak event ends
+
+Restore the thermostat to a normal temperature when a peak event ends by using a time trigger on the **Event ends** sensor:
+
+{% example %}
+automation: |
+  alias: "Restore the thermostat when a peak event ends"
+  triggers:
+    - trigger: time
+      at:
+        entity_id: sensor.hydroquebec_peak_cpc_d_event_ends
+  actions:
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.living_room
+      data:
+        temperature: 21
+{% endexample %}
 
 ## Data updates
 
