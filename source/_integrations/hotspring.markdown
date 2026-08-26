@@ -68,8 +68,8 @@ The **Hot Spring** integration provides the following entities:
 
 ### Light
 
-- **Light zone {zone}**
-  - **Description**: Controls a light zone on the spa. Supports turning the light on/off, adjusting brightness, and choosing full RGB colors.
+- **Light zone 1**
+  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
 
 ### Number
 
