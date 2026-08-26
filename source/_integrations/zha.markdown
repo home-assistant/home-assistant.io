@@ -969,7 +969,7 @@ The EZSP (EmberZNet Serial Protocol) interface used by Silicon Labs EmberZNet Zi
 
 ### Zigbee 3.0 support
 
-Some older Zigbee Coordinator adapters may not support firmware capable of Zigbee 3.0, but are fully backwards compatible with Zigbee 1.2 so they can still be fully functional and feature-complete depending on your needs. The main difference between Zigbee 1.2 and Zigbee 3.0 is higher security/encryption.
+Some older Zigbee coordinator adapters may not support Zigbee 3.0 firmware, but they can still be fully functional and feature-complete for Zigbee 1.2 networks, depending on your needs. Zigbee 3.0 also introduces improvements such as updated commissioning and stronger security.
 
 {% note %}
 It is up to hardware manufacturers to make such firmware available Zigbee Coordinator adapters and devices. If your coordinator was shipped with an older firmware version, you may be able to manually upgrade the firmware to a newer version. Recommendation is to check the community forum for more information.
