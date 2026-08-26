@@ -64,6 +64,8 @@ The complete transaction data provided by Monzo is available in the event entity
 
 Transaction events require either [Home Assistant Cloud](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
 
+{% include integrations/actions.md %}
+
 ## Removing the integration
 
 This integration follows the standard integration removal process. No extra steps are required.

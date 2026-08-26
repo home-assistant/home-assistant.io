@@ -45,7 +45,8 @@ The process for adding a voice involves two steps:
    - Based on your filter selection, you will then be presented with the following options on the next screen:
      - **Voice**: Select a voice from the dropdown list of available voices. You can also enter a custom voice ID from the Fish Audio website.
      - **AI voice model**: Choose a default backend model. `s2-pro` is the latest and most advanced model. Both `s2-pro` and `s1` models support [emotional markers](#using-with-large-language-models-llms).
-     - **Latency mode**: Choose between `normal` (better quality) or `balanced` (faster speed).
+     - **Latency mode**: Choose between `normal` (better quality) and `balanced` (lower latency).
+     - **Speech speed**: Set how fast the voice speaks, from `0.5` (slower) to `2.0` (faster). The default is `1.0`. This setting is stored per voice, so it also applies when you use that voice in Assist pipelines.
      - **Name**: Set the name for the TTS entity that will be created.
 
 Each voice you add creates a new TTS entity.
@@ -84,6 +85,7 @@ actions:
         voice_id: "802e3bc2b27e49c2995d23ef70e6ac89"
         backend: "s2-pro"
         latency: "normal"
+        speed: 1.15
 ```
 
 ### Using in Assist pipelines
