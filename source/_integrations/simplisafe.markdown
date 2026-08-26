@@ -96,17 +96,17 @@ Set one or more system properties.
 
 Each SimpliSafe system provides a system event {% term entity %} that captures events from your security system with the following attributes:
 
-- `event_type`: One of the following:
+- `event_type`, always one of the following:
   - **Automatic test** (`automatic_test`)
   - **Device test** (`device_test`)
   - **Secret alert triggered** (`secret_alert_triggered`)
   - **Sensor paired and named** (`sensor_paired_and_named`)
-  - **User initiated test** (`user_initiated_test`)
-- `changed_by`: The PIN that triggered the event (if applicable)
-- `info`: A human-friendly string describing the event in more detail
-- `sensor_name`: The sensor that triggered the event (if applicable)
-- `sensor_serial`: The serial number of the sensor that triggered the event (if applicable)
-- `sensor_type`: The type of sensor that triggered the event (if applicable)
+  - **User initiated test** (`user_initiated_test`).
+- `changed_by`: The PIN that triggered the event (if applicable).
+- `info`: A human-friendly string describing the event in more detail.
+- `sensor_name`: The sensor that triggered the event (if applicable).
+- `sensor_serial`: The serial number of the sensor that triggered the event (if applicable).
+- `sensor_type`: The type of sensor that triggered the event (if applicable).
 
 ### Automation example: detecting secret alert events
 
