@@ -2079,7 +2079,7 @@ template:
 
 ### State based sensor - Reduce attribute template repetition
 
-Instead of reusing code in separate attributes, template the entire attribute field for the same result.
+To avoid repeating the same template in multiple attributes, you can template the entire `attributes` field.
 
 #### Before
 
