@@ -26,7 +26,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Modern Forms](https://modernforms.com/) has a line of smart Wi-Fi-connected fans that allow for cloud or local control of the fan and light. There is support for individual sleep timers for the fan and light that can be set and cleared independently.
+[Modern Forms](https://modernforms.com/) has a line of smart Wi-Fi-connected fans that allow for cloud or local control of the fan and light. On fan models that support sleep timers, individual timers for the fan and light can be set and cleared independently.
 
 {% include integrations/config_flow.md %}
 
@@ -48,10 +48,12 @@ Some fan models have more than one light fixture, such as a separate uplight and
 
 ## Binary sensors
 
-The Modern Forms integration provides binary sensors for the following information:
+On fan models that support sleep timers, the Modern Forms integration provides binary sensors for the following information:
 
 - Fan sleep timer active status
 - Light sleep timer active status
+
+These entities are not available on fan models without sleep timer support.
 
 ## Numbers
 
@@ -63,10 +65,12 @@ This entity is not available on fan models without breeze hardware.
 
 ## Sensors
 
-The Modern Forms integration provides sensors for the following information:
+On fan models that support sleep timers, the Modern Forms integration provides sensors for the following information:
 
 - Fan sleep timer time expiring
 - Light sleep timer time expiring
+
+These entities are not available on fan models without sleep timer support.
   
 ## Switches
 
@@ -74,6 +78,8 @@ The Modern Forms integration provides support for the following toggleable attri
 
 - Away mode - to allow the fan simulate someone being home.
 - Adaptive learning - for allow learning for away mode.
+
+The adaptive learning switch is not available on fan models without adaptive learning support.
 
 {% include integrations/actions.md %}
 
