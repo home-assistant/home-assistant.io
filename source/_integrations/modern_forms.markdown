@@ -38,7 +38,7 @@ If the Modern Forms fan does not have a light unit installed, then the Light ent
 
 The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer actions for the fan.
 
-Fan models with breeze hardware also support a **Breeze** preset, which fluctuates the fan speed for a more natural airflow. Select **Normal** to return to a steady fan speed. Turning the fan off does not clear the breeze preset, so it resumes the next time the fan turns on if it was active. This preset is not available on fan models without breeze hardware.
+Fan models with breeze hardware also support the **Breeze** preset mode, which varies the fan speed for a more natural airflow. Select **Normal** to return to a steady fan speed. Turning the fan off does not clear the preset mode. If **Breeze** was active, it resumes the next time you turn the fan on. This preset mode is not available on fan models without breeze hardware.
 
 ## Lights
 
