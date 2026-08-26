@@ -12,10 +12,11 @@ ha_codeowners:
 ha_domain: nobo_hub
 ha_platforms:
   - climate
+  - diagnostics
   - select
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 related:
   - docs: /docs/organizing/areas/#creating-an-area

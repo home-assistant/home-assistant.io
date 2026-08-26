@@ -14,7 +14,9 @@ ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - number
   - sensor
+  - switch
 ha_dhcp: true
 ha_integration_type: hub
 ha_quality_scale: platinum
