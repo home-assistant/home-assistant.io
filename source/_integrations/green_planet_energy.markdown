@@ -35,10 +35,10 @@ The **Green Planet Energy** integration provides the following sensor entities.
 - **Current price**: The current electricity price in EUR/kWh.
 - **Highest price today**: The highest electricity price for the current day in EUR/kWh.
 - **Highest price time**: The timestamp when today's highest price occurs.
-- **Lowest price day (06:00–18:00)**: The lowest electricity price during daytime hours in EUR/kWh.
-- **Lowest price day time (06:00–18:00)**: The timestamp when the lowest daytime price occurs.
-- **Lowest price night (18:00–06:00)**: The lowest electricity price during nighttime hours in EUR/kWh.
-- **Lowest price night time (18:00–06:00)**: The timestamp when the lowest nighttime price occurs.
+- **Lowest price day (06:00-18:00)**: The lowest electricity price during daytime hours in EUR/kWh.
+- **Lowest price day time (06:00-18:00)**: The timestamp when the lowest daytime price occurs.
+- **Lowest price night (18:00-06:00)**: The lowest electricity price during nighttime hours in EUR/kWh.
+- **Lowest price night time (18:00-06:00)**: The timestamp when the lowest nighttime price occurs.
 
 {% include integrations/actions.md %}
 
