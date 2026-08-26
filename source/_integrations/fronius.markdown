@@ -125,11 +125,11 @@ Modbus is optional. If it isn't enabled, or the inverter is powered down, no Mod
 
 To enable it on the device's web interface:
 
-- **Gen24, Tauro, and Verto**: _Communication_ → _Modbus_ → turn on _Slave as Modbus TCP_.
-- **Devices with a Datamanager**: _Settings_ → _Modbus_ → set _Data output via Modbus_ to _TCP_. One Datamanager serves every inverter in its SolarNet ring.
+- Gen24, Tauro, and Verto: go to **Communication** > **Modbus** and turn on the Modbus TCP server (on-screen label: **Slave as Modbus TCP**).
+- Devices with a Datamanager: go to **Settings** > **Modbus** and set **Data output via Modbus** to **TCP**. One Datamanager serves every inverter in its SolarNet ring.
 
 {% note %}
-Leave the data format setting (_float_ or _int + SF_) as it is. The integration detects it automatically.
+Leave the data format setting (**float** or **int + SF**) as it is. The integration detects it automatically.
 {% endnote %}
 
 These entities are added per inverter and updated every minute:
@@ -154,9 +154,9 @@ Recommended [energy dashboard](/docs/energy/) configuration:
 {% important %}
 The [Modbus TCP](#modbus-tcp) energy values are measured on the DC side, at the MPP trackers.
 
-`PV energy total` is the energy the panels delivered, before inverter conversion losses, so it reads higher than the inverters `Energy total`, which is the AC energy actually fed out. For _"Solar production"_, prefer the AC value - that is the energy that can be used or sold.
+`PV energy total` is the energy the panels delivered, before inverter conversion losses, so it reads higher than the inverter's `Energy total`, which is the AC energy actually fed out. For _"Solar production"_, prefer the AC value. That is the energy you can use or sell.
 
-`Battery charging energy total` and `Battery discharging energy total` are DC values measured at the battery. They are counters read from the device rather than values integrated over time, so they don't drift and are unaffected by Home Assistant restarts - but for the same reason they won't match a Riemann sum of `SolarNet Power battery charge` and `SolarNet Power battery discharge` exactly.
+`Battery charging energy total` and `Battery discharging energy total` are DC values measured at the battery. They are counters read from the device rather than values integrated over time, so they don't drift and are unaffected by Home Assistant restarts. For the same reason, they don't exactly match a Riemann sum of `SolarNet Power battery charge` and `SolarNet Power battery discharge`.
 {% endimportant %}
 
 The energy meter integrated with Fronius devices can be installed (and configured) in two different installation positions: _"feed in path"_ (grid interconnection point) or _"consumption path"_.
@@ -218,7 +218,7 @@ Fronius often provides firmware updates for the datamanager interfaces and the d
 
 ## Known limitations
 
-This integration only reads from Fronius devices. The Solar API is read-only, and the [Modbus TCP](#modbus-tcp) interface is used for reading only. Most Fronius devices do support writing over Modbus TCP - for example to limit output power or control battery charging - so the [Modbus integration](/integrations/modbus/) can be used to control them. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
+This integration only reads from Fronius devices. The Solar API is read-only, and the [Modbus TCP](#modbus-tcp) interface is used for reading only. Most Fronius devices do support writing over Modbus TCP, for example to limit output power or control battery charging, so you can use the [Modbus integration](/integrations/modbus/) to control them. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
 
 ## Troubleshooting
 
