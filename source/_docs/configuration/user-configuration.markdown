@@ -48,9 +48,12 @@ You set whether a user is an administrator with the **Administrator** toggle whe
 
 Once you're signed in, you can manage your personal settings on the {% my profile title="**User profile**" %} page. To open it, select your name at the very bottom of the sidebar.
 
-The profile page has two tabs: **General** and **Security**. The **General** tab holds your personal preferences. They only affect your own account and the device you are using.
+The profile page shows your account details, a **Theme** card, and a list of sections you can open:
 
-The **Security** tab is where you manage how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
+- **Appearance**: your default dashboard and sidebar order.
+- **Localization**: language, time zone, and how dates, times, and numbers are shown.
+- **This browser** (called **This mobile app** in the companion app): settings for the device you are currently using.
+- **Security**: how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
 
 You can also sign out of Home Assistant from the profile page.
 
@@ -58,19 +61,17 @@ You can also sign out of Home Assistant from the profile page.
 
 User preferences are tied to your account and follow you across the devices you sign in to.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, adjust any of the following:
-   - **Theme**: How Home Assistant looks.
-   - **Default dashboard**: The dashboard that opens when you start Home Assistant.
+1. Go to {% my profile title="**User profile**" %} and, under **Theme**, select the theme you want to use.
+2. Go to {% my profile_preferences title="**User profile** > **Appearance**" %} and, under **Default dashboard**, choose the dashboard that opens when you start Home Assistant.
 3. To change which items appear in the sidebar and in what order, select **Edit** next to **Change the order and hide items from the sidebar**.
 
 #### Changing your localization settings
 
 Localization settings control how dates, times, and numbers are shown. They are tied to your account.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences** > **Language**, select the language of the interface.
-3. Under **Localization**, adjust any of the following:
+1. Go to {% my profile_localization title="**User profile** > **Localization**" %}.
+2. Under **Language**, select the language of the interface.
+3. Adjust any of the following:
    - **Time zone**.
    - **Number format**.
    - **Time format**.
@@ -79,10 +80,10 @@ Localization settings control how dates, times, and numbers are shown. They are 
 
 #### Changing your browser settings
 
-Browser settings apply only to the device you are currently using and may reset when you sign out or clear local data. In the companion app, this section is called **Mobile app settings**.
+These settings apply only to the device you are currently using and may reset when you sign out or clear local data. In the companion app, this section is called **This mobile app**.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **Browser settings** (or **Mobile app settings**), adjust any of the available options, such as:
+1. Go to {% my profile_browser title="**User profile** > **This browser**" %}.
+2. Adjust any of the available options, such as:
    - Always hide the sidebar.
    - Prevent automatic logout.
    - Enable keyboard shortcuts.
