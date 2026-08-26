@@ -1,0 +1,46 @@
+blueprint:
+  name: Guntamatic low buffer load
+  description: >-
+    Send a notification when the buffer load percentage reported by your
+    Guntamatic heater drops below a chosen level, so you know it is time
+    to refuel.
+  domain: automation
+  input:
+    buffer_load_entity:
+      name: Buffer load sensor
+      description: >-
+        The **Buffer load** sensor of your Guntamatic heater.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+              multiple: false
+    threshold:
+      name: Low level threshold
+      description: >-
+        You receive a notification when the buffer load drops below this
+        percentage.
+      default: 20
+      selector:
+        number:
+          min: 0
+          max: 100
+          unit_of_measurement: "%"
+    notification_action:
+      name: Notification action
+      default: notify.notify
+      selector:
+        action:
+trigger:
+  - platform: numeric_state
+    entity_id: !input buffer_load_entity
+    below: !input threshold
+variables:
+  threshold: !input threshold
+actions:
+  - action: !input notification_action
+    data:
+      title: "Guntamatic: buffer load low"
+      message: >-
+        The buffer load dropped below {{ threshold }}%.
+        Time to refill the fuel storage.

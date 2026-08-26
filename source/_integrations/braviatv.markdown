@@ -40,6 +40,12 @@ For more information, see [IP Control Authentication](https://pro-bravia.sony.ne
 
 Using the media browser, you can view a list of all installed applications and TV channels and launch them. You can access the media browser from the **Media** section in the Home Assistant side menu or by selecting the **Browse media** button on the media player card.
 
+### Opening apps and channels in automations
+
+To open an app or switch to a TV channel from an automation or a script, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Bravia TV media player as the target.
+
+The TV selects the best matching application or channel according to the media content ID. Matches can use a channel number, exact app or channel name, part of an app or channel name, or a URI string.
+
 ## Using with Google Cast
 
 The Bravia TV {% term integration %} provides information about the power status of the device, current source, and volume. It gives you the ability to control playback, run applications, and send remote control commands. Unfortunately, due to limitations of the Bravia REST API, it does not provide information about the currently playing content in applications (app name, media title, duration, play/pause state, and more). In turn, the [Google Cast](/integrations/cast/) integration does not provide reliable information about the power status of the device (for example, on Home Screen) and does not allow you to control playback in Android apps without [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) support. However, it can display full information about the content being played in supported apps. If your TV runs on Android or Google TV, you can use the Google Cast integration together with the Bravia TV integration. For convenience, you can combine two media players into one using [Universal Media Player](/integrations/universal/). Universal Media Player will automatically select the appropriate active media player entity.
@@ -105,65 +111,24 @@ media_player:
 
 {% enddetails %}
 
-## Play media action
-
-The `play_media` {% term action %} can be used in an {% term automation %} or {% term script %} to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
-
- 1. Channel number *(for example, '1' or '6')*
- 2. Exact app or channel name *(for example, 'Google Play' or 'CNN')*
- 3. Substring in app or channel name *(for example, 'BFM' in 'BFM TV')*
- 4. URI-string of app or channel *(for example, 'tv:dvbt?trip=9999.441.41104&srvName=BBC HD')*
-
-**Example to open YouTube app:**
-
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.bravia_tv
-data:
-  media_content_id: "YouTube"
-  media_content_type: "app"
-```
-
-**Example to switch to channel number 11:**
-
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.bravia_tv
-data:
-  media_content_id: 11
-  media_content_type: "channel"
-```
-
-**Example to switch to channel including 'news' in its name:**
-
-```yaml
-action: media_player.play_media
-target:
-  entity_id: media_player.bravia_tv
-data:
-  media_content_id: "news"
-  media_content_type: "channel"
-```
-
 ## Remote
 
-The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` action.
+The {% term integration %} supports `remote` {% term platform %}. Use the [**Send remote command**](/actions/remote.send_command/) action to send remote control commands to your TV.
 
-The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with an invalid command, for example, `Test`. A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). The list of commands can also be displayed by downloading the {% term diagnostics %} from the device info in the [Integration Settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
+To send a Bravia remote command from an automation or a script:
 
-**Example to send `Down` key command:**
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select the Bravia TV remote.
+6. From the actions shown for that target, select **Send remote command**.
+7. Enter the command to send.
+8. Select **Save**.
 
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.bravia_tv
-data:
-  command: "Down"
-```
+The available commands depend on your TV model. To see the supported commands for your TV, call `remote.send_command` with an invalid command, such as `Test`, and then check [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). You can also download the {% term diagnostics %} from the device info in the [integration settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
 
-{% details "Some commonly used commands" %}
+Some commonly used commands are:
 
 - Up
 - Down
@@ -188,11 +153,120 @@ data:
 - Num8
 - Num9
 
-{% enddetails %}
-
 ## Buttons
 
 The {% term integration %} supports `button` {% term platform %} and allows you to reboot the device or terminate all running applications.
+
+## Sony Bravia TV automation examples
+
+These examples show how to open apps, switch channels, and send remote commands from automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: open YouTube at a set time
+
+This automation opens the YouTube app on the Bravia TV every evening.
+
+- **Trigger**: Time: 19:00
+- **Action**: Play specified media
+  - **Target**: Bravia TV media player
+  - **Media content ID**: `YouTube`
+  - **Media content type**: `app`
+
+{% details "YAML example for opening YouTube at a set time" %}
+
+{% example %}
+automation: |
+  alias: "Open YouTube on the Bravia TV in the evening"
+  triggers:
+    - trigger: time
+      at: "19:00:00"
+  actions:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.bravia_tv
+      data:
+        media_content_id: "YouTube"
+        media_content_type: app
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: switch to a TV channel in the morning
+
+This automation switches the Bravia TV to channel 11 on weekday mornings.
+
+- **Trigger**: Time: 07:00
+- **Condition**: Time: Monday through Friday
+- **Action**: Play specified media
+  - **Target**: Bravia TV media player
+  - **Media content ID**: `11`
+  - **Media content type**: `channel`
+
+{% details "YAML example for switching to a TV channel in the morning" %}
+
+{% example %}
+automation: |
+  alias: "Switch the Bravia TV to channel 11 on weekday mornings"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  conditions:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  actions:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.bravia_tv
+      data:
+        media_content_id: "11"
+        media_content_type: channel
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: move down in the TV menu after opening the home screen
+
+This automation opens the Bravia TV home screen, waits briefly, and then sends the `Down` command.
+
+- **Trigger**: Time: 20:00
+- **Action**: Send remote command
+  - **Target**: Bravia TV remote
+  - **Command**: `Home`
+- **Action**: Wait for time to pass
+  - **Duration**: 2 seconds
+- **Action**: Send remote command
+  - **Target**: Bravia TV remote
+  - **Command**: `Down`
+
+{% details "YAML example for moving down in the TV menu after opening the home screen" %}
+
+{% example %}
+automation: |
+  alias: "Move down in the Bravia TV menu after opening home"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: remote.send_command
+      target:
+        entity_id: remote.bravia_tv
+      data:
+        command: "Home"
+    - delay: "00:00:02"
+    - action: remote.send_command
+      target:
+        entity_id: remote.bravia_tv
+      data:
+        command: "Down"
+{% endexample %}
+
+{% enddetails %}
 
 ## Limitations and known issues
 
