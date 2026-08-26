@@ -334,7 +334,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Midea]** grew substantially this release, with new fan, humidifier, light, and switch controls, select and number entities to configure your appliance, buttons for common actions, and a full dust filter alert binary sensor. Thanks, [@chemelli74]!
 - **[Subaru]** added binary sensors for doors, windows, and the hood or tailgate, per-door lock status, EV plug and charging state, and vehicle health warning lights. Thanks, [@jpettitt]!
 - **[Anova]** cook time sensors now suggest hours as the displayed unit, making long cook times easier to read. Thanks, [@goetzc]!
-- **[OwnTone]** added join and unjoin support, so you can group and ungroup multi-room audio zones directly from Home Assistant instead of the OwnTone web interface. Thanks, [@JanGiese]!
 - **[iZone]** now shows the supply and return air temperatures of your ducted system, so you can spot a struggling compressor or a clogged filter before it becomes a bigger problem. Thanks, [@Swamp-Ig]!
 - **[Imou]** added a select entity to change night vision mode and volume, and a binary sensor for door and window contacts. Thanks, [@Imou-OpenPlatform]!
 - **[OpenEVSE]** added switches for solar PV divert, so you can charge from surplus solar power, the current shaper, which limits charging to protect your home's electrical service, and a manual override to force charging on or off. Thanks, [@firstof9]!
@@ -346,7 +345,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Lyngdorf]** rounded out its debut with number entities for lip sync and channel trims, a remote entity to drive the processor's on-screen menus, selects for RoomPerfect position and voicing, sensors for the active input and streaming source, and now-playing information with transport controls for models with a streaming module. Thanks, [@fishloa]!
 - **[Harbor Sleep]** added a select entity to set the camera's night mode to Auto, On, or Off, so you can control it from Home Assistant instead of the Harbor app. Thanks, [@Lash-L]!
 - **[NeoPool]** added a pool light entity, plus an options flow to opt in to it, since the controller can't detect whether a light is actually wired to the relay. Thanks, [@svasek]!
-- **[Hot Spring]** added binary sensors for heating, spa connectivity, and problems, so you can tell at a glance whether the spa is heating, still talking to its Wi-Fi module, and free of faults. Thanks, [@Moustachauve]!
 - **[MQTT]** gained its own dashboard on the settings page, instead of hiding its tools behind the options. The topic subscribe view now formats messages as code with a copy button, and a shortcut takes you straight to the broker connection settings. Thanks, [@jbouwh]!
 
 [@adam-the-hero]: https://github.com/adam-the-hero
@@ -365,7 +363,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@fishloa]: https://github.com/fishloa
 [@goetzc]: https://github.com/goetzc
 [@Imou-OpenPlatform]: https://github.com/Imou-OpenPlatform
-[@JanGiese]: https://github.com/JanGiese
 [@jbouwh]: https://github.com/jbouwh
 [@jpettitt]: https://github.com/jpettitt
 [@lackas]: https://github.com/lackas
@@ -408,7 +405,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [MQTT]: /integrations/mqtt
 [NeoPool]: /integrations/neopool
 [OpenEVSE]: /integrations/openevse
-[OwnTone]: /integrations/forked_daapd
 [Portainer]: /integrations/portainer
 [Proxmox VE]: /integrations/proxmoxve
 [Reolink]: /integrations/reolink
