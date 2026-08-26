@@ -8,7 +8,7 @@ related_actions:
   - music_assistant.transfer_queue
 ---
 
-Use this action to play an announcement on a Music Assistant player from a URL, for example a doorbell sound when motion is detected. To announce spoken text instead, use a Home Assistant [text-to-speech](/integrations/tts/) action.
+Use this action to play an announcement on a Music Assistant player. Announce a sound from a URL, for example a doorbell sound when motion is detected, or announce spoken text by providing a message and the [text-to-speech](/integrations/tts/) entity that should speak it. Provide either a message or a URL, not both.
 
 {% include actions/ui_header.md %}
 
@@ -26,6 +26,10 @@ To play an announcement from an automation or a script:
 ### Options in the UI
 
 {% options_ui %}
+Message:
+  description: The text to announce. Requires a text-to-speech entity.
+Text-to-speech entity:
+  description: The text-to-speech entity that speaks the message.
 URL:
   description: The URL to the notification sound.
 Use pre-announce:
@@ -49,12 +53,32 @@ action: |
     url: http://example.com/doorbell.mp3
 {% endexample %}
 
+To announce spoken text, provide a message and the text-to-speech entity that speaks it:
+
+{% example %}
+action: |
+  action: music_assistant.play_announcement
+  target:
+    entity_id: media_player.kitchen_speaker
+  data:
+    message: Dinner is ready!
+    tts_entity_id: tts.piper
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
+message:
+  description: The text to announce, spoken by the text-to-speech entity set in `tts_entity_id`. Provide either a message or a URL.
+  required: false
+  type: string
+tts_entity_id:
+  description: The text-to-speech entity that speaks the message. Required when `message` is used.
+  required: false
+  type: string
 url:
-  description: The URL to the notification sound.
-  required: true
+  description: The URL to the notification sound. Provide either a message or a URL.
+  required: false
   type: string
 use_pre_announce:
   description: When set to `true`, a pre-announcement sound plays before the announcement.
