@@ -44,6 +44,8 @@ Fan models with breeze hardware also support the **Breeze** preset mode, which v
 
 The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer actions for the light.
 
+Some fan models have more than one light fixture, such as a separate uplight and downlight. Each fixture gets its own light entity that you can control independently, named after the fixture name you gave it in the Modern Forms app.
+
 ## Binary sensors
 
 The Modern Forms integration provides binary sensors for the following information:
