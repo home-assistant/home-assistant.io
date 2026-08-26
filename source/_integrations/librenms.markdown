@@ -12,7 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 This {% term integration %} allows you to add a [LibreNMS](https://www.librenms.org/) instance to Home Assistant.
