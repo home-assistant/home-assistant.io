@@ -149,13 +149,21 @@ Modbus is the only interface that lets Home Assistant change settings on the inv
 - `Battery charge power limit` and `Battery discharge power limit`: cap how fast the battery may charge or discharge, as a percentage of its maximum rate.
 - `Battery minimum reserve`: the state of charge the battery is not discharged below.
 
+The `Power limit`, `Battery charge power limit`, and `Battery discharge power limit` setpoints each have a `switch` that turns the limit on and off: `Power limiting`, `Battery charge power limiting`, and `Battery discharge power limiting`. `Battery grid charging` is a separate switch that allows or prevents charging the battery from the grid.
+
 {% important %}
 Writing has to be allowed on the device first. Go to **Communication** > **Modbus** (Gen24, Tauro, and Verto) or **Settings** > **Modbus** (Datamanager), and turn on **Inverter control via Modbus**.
 
 Until it is, the inverter rejects every write, and the integration creates no control entities at all rather than ones that fail when used. Turn it on, then reload the integration.
 {% endimportant %}
 
-The limits are only applied while they are active, so setting one activates it. `100 %` is what "no limit" means to the device: setting a limit back to `100 %` releases it.
+A setpoint is only applied while its switch is on. Setting one while the switch is off stores the value on the inverter without applying it, and turning the switch on then applies what is stored, which is the order Fronius documents.
+
+{% important %}
+Turning a limit **off** does not lift it. The inverter hands control back to the next source in its priority list, which may impose a limit of its own, such as **Dynamic power reduction**.
+
+To override such a source instead, leave the limit **on** and set it to `100 %`. That is an active instruction to run unrestricted, where off is "someone else decides".
+{% endimportant %}
 
 {% note %}
 The inverter decides which control source wins. If **IO control** or **Dynamic power reduction** has a higher priority than Modbus in the DNO Editor, the inverter may refuse or ignore what Home Assistant sends.
@@ -193,7 +201,7 @@ automation:
           value: 100
 ```
 
-Discharging is limited by its own setpoint, so the battery still supplies the house while charging is held at `0 %`. Because the limit is held by Home Assistant rather than the inverter, the battery charges normally again if Home Assistant stops running.
+`Battery charge power limiting` has to be on for this to take effect. Discharging is limited by its own setpoint, so the battery still supplies the house while charging is held at `0 %`. If Home Assistant stops running, the inverter keeps the last setpoint and switch state until you change them again.
 
 ## Energy dashboard
 
