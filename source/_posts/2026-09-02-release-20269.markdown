@@ -88,6 +88,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
+- [Golden hour, blue hour, and polar sun automations](#golden-hour-blue-hour-and-polar-sun-automations)
 - [Accessibility for charts!](#accessibility-for-charts)
 - [Serial panel](#serial-panel)
 - [How full is your network storage?](#how-full-is-your-network-storage)
@@ -185,11 +186,11 @@ Modbus devices, like solar inverters, energy meters, and heat pumps, have long b
 
 The piece that makes this possible is sharing a connection. A Modbus bus, whether it's a serial (RS-485) line or a TCP gateway, only lets one party talk at a time, so two integrations opening their own connection to the same bus used to fight over it. Now, an integration asks the **[Modbus]** integration for a unit, and two integrations asking with the same connection details share one connection behind the scenes, so their requests queue up instead of colliding. Nothing is configured or persisted separately: the shared connection exists only while something is actually using it. The integration setup wizard can also briefly hold a unit to probe a device before anything is actually configured.
 
-The first integration built this way is already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data, current, voltage, power, and lifetime energy for each MPP tracker, that its existing cloud API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions.
+The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data, current, voltage, power, and lifetime energy for each MPP tracker, that its existing cloud API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
 
 For the full story, including the new standalone `modbus-connection` library and how to build your own integration on top of it, read [Modernizing Modbus in Home Assistant](https://developers.home-assistant.io/blog/2026/07/05/modernizing-modbus) on the developer blog. Underneath, it talks to devices through [tmodbus](https://github.com/wlcrs/tmodbus), a modern, fully typed Modbus library.
 
-Thanks to Paulus ([@balloob](https://github.com/balloob)) for pushing this forward, [@wlcrs](https://github.com/wlcrs) for tmodbus, the library it's built on, and [@farmio](https://github.com/farmio) for Fronius!
+Thanks to Paulus ([@balloob](https://github.com/balloob)) for pushing this forward, [@wlcrs](https://github.com/wlcrs) for tmodbus, the library it's built on, [@farmio](https://github.com/farmio) for Fronius, [@darkrain-nl](https://github.com/darkrain-nl) for Sofar Inverter Modbus, and [@troelde](https://github.com/troelde) for Flexit!
 
 [Fronius]: /integrations/fronius/
 [Modbus]: /integrations/modbus/
@@ -216,14 +217,29 @@ We welcome the following new integrations in this release:
 - **[Hot Spring]**, added by [@Moustachauve], launching at 🏆 platinum quality  
   Monitor and control a [Hot Spring](https://www.hotspring.com/) spa equipped with the HotSpring Connected Spa Kit 2 module, directly over your local network.
 
+- **ISEO Argo BLE**, added by [@FezVrasta]  
+  Control an ISEO Argo Bluetooth smart lock, common on armored doors in Italy and Switzerland, syncing its access log into the Home Assistant logbook and managing its users through actions. Home Assistant appears to the lock as its own gateway, polling it locally over Bluetooth.
+
+- **LibreNMS**, added by [@mib1185]  
+  Bring your [LibreNMS](https://www.librenms.org/) network monitoring instance into Home Assistant. This initial release adds a binary sensor for the online status of each monitored device, with alerts and more sensor data planned for later.
+
+- **[NexBlue]**, added by [@nexblue-maintainer]  
+  Connect a NexBlue EV charger account to Home Assistant. It discovers the chargers on your account and provides read-only sensors for charging state, power, session and lifetime energy, and other electrical and diagnostic values. Charging controls are planned for a future release.
+
 - **[Ridder HortiMaX Pro]**, added by [@wildekek]  
   Bring measurements from a [Ridder](https://www.ridder.com/) HortiMaX Pro greenhouse controller into Home Assistant, including temperatures, humidity, vent and screen positions, irrigation volumes, and energy use. The integration is read-only, so your growing decisions stay fully in the controller's hands.
 
 - **[Samsung TV via ExLink]**, added by [@balloob], launching at 🥈 silver quality  
   Control Samsung TVs through their RS-232 serial port, which Samsung markets as ExLink, using a serial cable, a USB-to-serial adapter, or an ESPHome-based serial proxy. Talking directly to the TV's serial port makes control fast and reliable, and it also works with TVs that lack smart features or a network connection.
 
+- **Silla Prism**, added by [@ebaschiera]  
+  Monitor a [Silla Prism](https://www.silla.industries/) EV wallbox over its local MQTT API, with sensors for charging status, power, current, voltage, and session and lifetime energy. Setup only needs the MQTT topic your Silla app already shows you. Charging controls are planned for a future release.
+
 - **[Sofar Inverter Modbus]**, added by [@darkrain-nl]  
   Connect a Sofar Solar inverter to Home Assistant over Modbus TCP, either directly or through a Modbus TCP bridge. Setup automatically detects your inverter model, and it works with both PV-only and hybrid inverters with battery storage.
+
+- **[Specialized Turbo]**, added by [@JamieMagee]  
+  Connect a Specialized Turbo e-bike over Bluetooth Low Energy, covering the TCU1 and TCX1 through TCX4 models, with detailed ride and battery telemetry. Encrypted bikes can sign in through your Specialized account or use a manually entered key, and Home Assistant manages the Bluetooth connection itself without storing your password.
 
 - **[Tonewinner]**, added by [@emma-sg], launching at 🥈 silver quality  
   Control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps over an RS-232 serial connection, using a USB-to-serial adapter or an ESPHome-based serial proxy.
@@ -231,18 +247,25 @@ We welcome the following new integrations in this release:
 [@albertogeniola]: https://github.com/albertogeniola
 [@balloob]: https://github.com/balloob
 [@darkrain-nl]: https://github.com/darkrain-nl
+[@ebaschiera]: https://github.com/ebaschiera
 [@emma-sg]: https://github.com/emma-sg
+[@FezVrasta]: https://github.com/FezVrasta
+[@JamieMagee]: https://github.com/JamieMagee
 [@karwosts]: https://github.com/karwosts
+[@mib1185]: https://github.com/mib1185
 [@moryoav]: https://github.com/moryoav
 [@Moustachauve]: https://github.com/Moustachauve
+[@nexblue-maintainer]: https://github.com/nexblue-maintainer
 [@wildekek]: https://github.com/wildekek
 [Besen]: /integrations/besen
 [Collection image]: /integrations/collection_image
 [Flow-it]: /integrations/flow_it
 [Hot Spring]: /integrations/hotspring
+[NexBlue]: /integrations/nexblue
 [Ridder HortiMaX Pro]: /integrations/hortimax
 [Samsung TV via ExLink]: /integrations/samsung_exlink
 [Sofar Inverter Modbus]: /integrations/sofar
+[Specialized Turbo]: /integrations/specialized_turbo
 [Tonewinner]: /integrations/tonewinner
 
 This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
@@ -324,6 +347,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Harbor Sleep]** added a select entity to set the camera's night mode to Auto, On, or Off, so you can control it from Home Assistant instead of the Harbor app. Thanks, [@Lash-L]!
 - **[NeoPool]** added a pool light entity, plus an options flow to opt in to it, since the controller can't detect whether a light is actually wired to the relay. Thanks, [@svasek]!
 - **[Hot Spring]** added binary sensors for heating, spa connectivity, and problems, so you can tell at a glance whether the spa is heating, still talking to its Wi-Fi module, and free of faults. Thanks, [@Moustachauve]!
+- **[MQTT]** gained its own dashboard on the settings page, instead of hiding its tools behind the options. The topic subscribe view now formats messages as code with a copy button, and a shortcut takes you straight to the broker connection settings. Thanks, [@jbouwh]!
 
 [@adam-the-hero]: https://github.com/adam-the-hero
 [@andrew-codechimp]: https://github.com/andrew-codechimp
@@ -342,6 +366,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@goetzc]: https://github.com/goetzc
 [@Imou-OpenPlatform]: https://github.com/Imou-OpenPlatform
 [@JanGiese]: https://github.com/JanGiese
+[@jbouwh]: https://github.com/jbouwh
 [@jpettitt]: https://github.com/jpettitt
 [@lackas]: https://github.com/lackas
 [@Lash-L]: https://github.com/Lash-L
@@ -380,6 +405,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [Mealie]: /integrations/mealie
 [MikroTik]: /integrations/mikrotik
 [Modern Forms]: /integrations/modern_forms
+[MQTT]: /integrations/mqtt
 [NeoPool]: /integrations/neopool
 [OpenEVSE]: /integrations/openevse
 [OwnTone]: /integrations/forked_daapd
@@ -406,13 +432,13 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **2 integrations reached platinum** 🏆
+- **3 integrations reached platinum** 🏆
   - [Google Health], thanks to [@allenporter]
   - [LED Infrared], thanks to [@tr4nt0r]
+  - [WiiM], thanks to [@balloob] and [@Linkplay2020]
 
-- **2 integrations reached gold** 🥇
+- **1 integration reached gold** 🥇
   - [BleBox devices], thanks to [@bkobus-bbx]
-  - [WiiM], thanks to [@Linkplay2020]
 
 - **1 integration reached silver** 🥈
   - [Ouman EH-800], thanks to [@Markus98]
@@ -431,6 +457,7 @@ A big thank you to all the contributors involved! 👏
 [Google Health]: /integrations/google_health
 [LED Infrared]: /integrations/led_infrared
 [Ouman EH-800]: /integrations/ouman_eh_800
+[WiiM]: /integrations/wiim
 
 ### Now available to set up from the UI
 
@@ -459,7 +486,10 @@ Time for a little cleaning, and no, we did not wait for spring! The following {%
 
 There is even more packed into this release. Here are some of the other changes worth a mention:
 
-- **[Template]** now lets you add custom attribute templates to alarm control panel, button, cover, device tracker, fan, image, light, lock, number, select, switch, update, and weather entities, alongside the sensor and binary sensor platforms that already supported them. Thanks, [@Petro31]!
+- **[Template]** got some more love this release. Thanks, [@Petro31]!
+  - Custom attribute templates were added to alarm control panel, button, cover, device tracker, fan, image, light, lock, number, select, switch, update, and weather entities, alongside the binary sensor, event, sensor, and vacuum platforms that already supported them.
+  - The `attributes` option is now fully templatable, cutting down on repeated Jinja2 templates.
+  - Trigger-based template entities now support a per-entity `conditions` option. When set, the conditions block all updates to the entity it's attached to.
 - **[Button]** triggers can now also fire from button helpers, alongside physical device buttons. Thanks, [@abmantis]!
 - **Automation traces** now show which entities, devices, and areas each step targeted, the same way the automation editor already does, instead of baking that information into the step's own description. Thanks, [@piitaya]!
 - **[Cover]** open, close, and set position actions gained an optional speed parameter, so covers that support multiple speeds can be told how fast to move, not just where to. Thanks, [@wollew]!
@@ -478,6 +508,19 @@ There is even more packed into this release. Here are some of the other changes 
 [@wollew]: https://github.com/wollew
 [Button]: /integrations/button
 [Cover]: /integrations/cover
+
+## Golden hour, blue hour, and polar sun automations
+
+Rebuilding automations around the sun has been a slow-burn project, and this release wraps it up. [2026.7](/blog/2026/07/01/release-20267/) replaced the old, offset-heavy sun trigger with dedicated ones for sunrise, sunset, solar noon, solar midnight, dawn, dusk, and elevation changes, plus matching conditions like *is up*, *is night*, and *twilight*. [2026.8](/blog/2026/08/05/release-20268/) then added a time-based offset option to those triggers, the same way the calendar trigger already works, so you can fire an automation a set amount of time before or after a sun event.
+
+This release adds the last of it to the **[Sun]** integration: four new conditions and eight matching triggers for *golden hour*, *blue hour*, *midnight sun*, and *polar night*. Golden hour and blue hour are the warm and cool light either side of sunrise and sunset, handy for automations that match your lighting to the mood outside, or close the blinds before direct sun hits a room. Each one can be limited to morning, evening, or either.
+
+Farther from the equator, *midnight sun* and *polar night* cover the more extreme stretches of the year: the sun staying above the horizon for a full day around midsummer, or below it for a full day around midwinter. Both now have their own condition and start and end triggers too, so automations that only make sense at high latitudes finally have something to hook into. Documentation for the full set is still catching up.
+
+Thanks, [@emontnemery]!
+
+[Sun]: /integrations/sun
+[@emontnemery]: https://github.com/emontnemery
 
 ## Accessibility for charts!
 
