@@ -16,16 +16,12 @@ In December 2024, we [launched the first Home Assistant survey](/blog/2024/12/16
 
 In the spirit of building in the open, today we’re thrilled to announce the anonymized results of that survey are now freely available. In this post, we’ll run you through what the survey covered, why and how we’re publishing this data, what the data is not (read: identifiable), how we’re using this information to improve what we do, and opportunities for further understanding and research.
 
-**TL;DR**
+## TL;DR
 
 - We ran our first Home Assistant community survey in December 2024, gathering 8,616 responses on how people set up and live with their smart homes.
-
 - We have now published the anonymized results on Zenodo, after a strict anonymization process – including k-anonymity review, GDPR compliance, and cutting 12% of responses as a precaution.
-
 - This data is already shaping our work, from redesigning “areas” in Home Assistant to tailoring the Home Assistant Connect ZBT-2 and informing our privacy research.
-
 - The survey had limitations (it ran too long, and was English-only), which we’re addressing in future research.
-
 - Explore the data yourself on <a href="https://zenodo.org/records/21825688" target="_blank" rel="noopener">Zenodo</a>, or the full set of research questions and methodology on our <a href="https://github.com/OpenHomeFoundation/user-research/tree/main/community-survey24" target="_blank" rel="noopener">GitHub page</a>.
 
 <!--more-->
@@ -85,7 +81,7 @@ Our approach was iteratively reviewed by our legal advisors, and every decision 
 
 Along with the dataset, we released additional documentation so our actions can be followed, including:
 
-1. <a href="https://github.com/OpenHomeFoundation/user-research/blob/main/community-survey24/Anonymisation%20Protocol%20%26%20Decision%20Record.pdf" target="_blank" rel="noopener">Anonymization protocol and k-anonymity review.</a>
+1. <a href="https://github.com/OpenHomeFoundation/user-research/blob/main/community-survey24/Anonymisation%20Protocol%20%26%20Decision%20Record.pdf" target="_blank" rel="noopener">Anonymization protocol and k-anonymity review</a>.
 
 2. <a href="https://github.com/OpenHomeFoundation/user-research/blob/main/community-survey24/README.md" target="_blank" rel="noopener">README file</a> documenting details about the survey and the dataset.
 
