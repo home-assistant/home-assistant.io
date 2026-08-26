@@ -2,14 +2,12 @@
 title: "Fan turned on"
 trigger: fan.turned_on
 domain: fan
-description: "Triggers after one or more fans turn on."
+description: "Triggers when one or more fans turn on."
 related_triggers:
   - fan.turned_off
 ---
 
 The **Fan turned on** trigger is useful when you want something else to happen as soon as a fan starts running. Use it to send a reminder, start a related device, or begin a timed routine after a fan has been on for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -45,7 +43,7 @@ trigger: |
   target:
     entity_id: fan.bedroom
   options:
-    behavior: any
+    behavior: each
     for: "00:05:00"
 {% endexample %}
 
@@ -55,10 +53,10 @@ This fires when `fan.bedroom` has been on for 5 minutes.
 
 {% options_yaml %}
 behavior:
-  description: When multiple fans are targeted, controls whether the trigger fires for `any`, `first`, or `last`.
+  description: When multiple fans are targeted, controls whether the trigger fires for `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the fan must stay on before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
   required: false
@@ -101,7 +99,7 @@ automation: |
       target:
         entity_id: fan.bathroom
       options:
-        behavior: any
+        behavior: each
         for: "00:20:00"
   actions:
     - action: notify.send_message
@@ -133,7 +131,7 @@ automation: |
       target:
         entity_id: fan.bedroom
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_on

@@ -169,61 +169,7 @@ vlp:
     description: "Path to the VLP file to import during re-configuration. If not provided, no VLP file will be imported and a bus scan will be performed."
 {% endconfiguration_basic %}
 
-## Actions
-- `velbus.sync clock`: Synchronize Velbus time to local clock.
-- `velbus.scan`: Scan the bus for new devices.
-- `velbus.set_memo_text`: Show memo text on Velbus display modules.
-- `velbus.clear_cache`: Clear the full velbuscache or the cache for one module only.
-
-### Action: Sync clock
-
-The `velbus.sync_clock` action synchronizes the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
-
-| Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `config_entry`         | no       | The config_entry to send the command to. |
-
-### Action: Scan
-
-The `velbus.scan` action synchronizes the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
-
-| Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `config_entry`         | no       | The config_entry to send the command to. |
-
-
-### Action: Set memo text
-
-The `velbus.set_memo_text` action provides the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
-
-| Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `config_entry`         | no       | The config_entry to send the command to. |
-| `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
-| `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
-
-Example:
-
-```yaml
-script:
-  trash_memo:
-    alias: "Trash memo text"
-    sequence:
-    - action: velbus.set_memo_text
-      data:
-        address: 65
-        memo_text: "It's trash day"
-        config_entry: "01JGE8XB3MNPZFA836TTZ3KZ46"
-```
-
-### Action: Clear cache
-
-The `velbus.clear_cache` action clears the cache of one module or the full cache. Once the clear happens, the integration will start a new scan. Use this action when you make changes to your configuration via velbuslink.
-
-| Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `config_entry`         | no       | The config_entry to send the command to. |
-| `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -320,7 +266,7 @@ If you encounter issues with the Velbus integration, you can enable debug loggin
 
 ### Enabling debug logging
 
-To enable debug logging for the Velbus integration, you can check [Home Assistant Troubleshooting documentation](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for more information.
+To enable debug logging for the Velbus integration, you can check [Home Assistant Troubleshooting documentation](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for more information.
 
 ### Can't connect to Velbus interface
 

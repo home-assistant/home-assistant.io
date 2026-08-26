@@ -2,14 +2,12 @@
 title: "Lock jammed"
 trigger: lock.jammed
 domain: lock
-description: "Triggers after one or more locks jam."
+description: "Triggers when one or more locks jam."
 related_triggers:
   - lock.locked
 ---
 
 The **Lock jammed** trigger helps you react when a lock cannot finish its movement. Use it when you want Home Assistant to warn you about a problem at the door, like a misaligned bolt or something blocking the lock.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -56,10 +54,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple locks are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the lock must stay jammed before the trigger fires. Accepts a
@@ -104,7 +102,7 @@ automation: |
       target:
         entity_id: lock.front_door
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: notify.send_message
@@ -138,7 +136,7 @@ automation: |
       target:
         label_id: outside_locks
       options:
-        behavior: any
+        behavior: each
         for: "00:00:10"
   conditions:
     - condition: sun

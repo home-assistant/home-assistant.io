@@ -2,7 +2,7 @@
 title: "Nitrogen monoxide level crossed threshold"
 trigger: air_quality.no_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more nitrogen monoxide levels cross a threshold."
+description: "Triggers when one or more nitrogen monoxide levels cross a threshold."
 related_triggers:
   - air_quality.no_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrogen monoxide level crossed threshold** trigger fires when the nitrogen monoxide (NO) reading on one or more air quality sensors crosses a specific level. Nitrogen monoxide is produced by combustion engines, gas stoves, and industrial processes. It quickly converts to nitrogen dioxide (NO2) in the presence of oxygen, meaning a rising NO reading is often an early warning of broader air quality issues.
 
 Think about your garage after starting a car on a cold morning. This trigger lets you turn on the exhaust fan the second NO crosses a safe limit, clearing combustion fumes before they drift into the rest of the house. You also get a notification on your phone so you know ventilation is running, giving you confidence that the air indoors stays healthy even when engines or gas appliances are in use.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -49,7 +47,7 @@ trigger: |
     entity_id: sensor.garage_no
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the garage NO sensor crosses 50 in either direction.
@@ -66,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -113,7 +111,7 @@ automation: |
         entity_id: sensor.garage_no
       options:
         threshold: 50
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

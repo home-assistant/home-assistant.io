@@ -42,7 +42,7 @@ automation: |
       target:
         entity_id: binary_sensor.kitchen_window
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: sun
@@ -63,8 +63,10 @@ automation: |
 If you open a bedroom window to air out the room, you can wait until it is closed again before turning the heating back on.
 
 - **Trigger**: Window closed
-- **Target**: Bedroom window sensor
-- **Action**: Climate: Set HVAC mode to heat
+  - **Target**: Bedroom window sensor
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
+  - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
 
@@ -76,7 +78,7 @@ automation: |
       target:
         entity_id: binary_sensor.bedroom_window
       options:
-        behavior: any
+        behavior: each
         for: "00:02:00"
   actions:
     - action: climate.set_hvac_mode

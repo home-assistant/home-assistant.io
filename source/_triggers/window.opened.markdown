@@ -2,14 +2,12 @@
 title: "Window opened"
 trigger: window.opened
 domain: window
-description: "Triggers after one or more windows open."
+description: "Triggers when one or more windows open."
 related_triggers:
   - window.closed
 ---
 
 The **Window opened** trigger fires when a targeted window opens. Use it when you want Home Assistant to react right away, like sending an alert when a window opens after dark or pausing heating when fresh air starts coming in.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -55,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple windows are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
@@ -73,8 +71,8 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger works with binary sensors and covers that use the `window` device class.
 - To react when a window closes instead, use [Window closed](/triggers/window.closed/).
 
 {% include triggers/try_it.md %}
@@ -103,7 +101,7 @@ automation: |
       target:
         entity_id: binary_sensor.kitchen_window
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: sun
@@ -127,7 +125,8 @@ When a motorized skylight opens, there is little point in keeping the air condit
 - **Target**: Hallway skylight cover
 - **Trigger when**: Each
 - **For at least**: 00:02:00
-- **Action**: Climate: Turn off
+- **Action**: Turn off thermostat
+  - **Target**: Upstairs thermostat
 
 {% details "YAML example for pausing cooling when a skylight opens" %}
 
@@ -139,7 +138,7 @@ automation: |
       target:
         entity_id: cover.hallway_skylight
       options:
-        behavior: any
+        behavior: each
         for: "00:02:00"
   actions:
     - action: climate.turn_off

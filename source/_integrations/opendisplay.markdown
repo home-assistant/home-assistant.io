@@ -2,6 +2,7 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
+  - Binary sensor
   - DIY
   - Event
 ha_bluetooth: true
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: opendisplay
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - event
   - sensor
@@ -59,6 +61,11 @@ If the encryption key changes after the device has been set up, Home Assistant w
 
 The **OpenDisplay** integration provides the following entities.
 
+### Sensors
+
+- **Temperature**: Chip temperature
+- **Battery Voltage**: (Only if the device has a battery configured) Shows the current voltage of the attached battery
+
 ### Button events
 
 OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
@@ -85,35 +92,11 @@ actions:
 ```
 {% enddetails %}
 
-## Actions
+### Binary sensors
 
-### Action: Upload image
+- **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands.
 
-The `opendisplay.upload_image` action allows you to upload an image to a display. The image is resized and dithered to match the display's resolution and color palette.
-
-| Data attribute      | Description                                                                                      | Required | Default   |
-| ------------------- | ------------------------------------------------------------------------------------------------ | -------- | --------- |
-| `device_id`         | The OpenDisplay device to upload the image to.                                                   | Yes      | -         |
-| `image`             | The image to upload, selected from a media source.                                               | Yes      | -         |
-| `rotation`          | Clockwise rotation in degrees: 0, 90, 180, or 270.                                               | No       | 0         |
-| `dither_mode`       | Dithering algorithm for converting to the display's color palette.                               | No       | Burkes    |
-| `refresh_mode`      | Refresh mode to use. Full clears ghosting but is slower; fast is not supported on all displays.  | No       | Full      |
-| `fit_mode`          | How the image is fitted to the display.                                                          | No       | Contain   |
-| `tone_compression`  | Dynamic range compression strength as a percentage (0–100). Omit to use automatic adjustment.    | No       | Automatic |
-
-**Refresh modes**:
-
-- **Full**: Clears ghosting but takes longer
-- **Fast**: Faster refresh, not supported on all displays
-
-**Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice, and Ninke
-
-**Fit modes**:
-
-- **Contain**: Scale to fit within the display, pad remaining space with white
-- **Cover**: Scale to fill the display, crop edges that overflow
-- **Stretch**: Distort to fill the exact display dimensions
-- **Crop**: Center-crop at native resolution without scaling
+{% include integrations/actions.md %}
 
 ## Examples
 

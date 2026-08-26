@@ -2,7 +2,7 @@
 title: "Relative humidity crossed threshold"
 trigger: humidity.crossed_threshold
 domain: humidity
-description: "Triggers after one or more relative humidity readings cross a threshold."
+description: "Triggers when one or more relative humidity values cross a threshold."
 related_triggers:
   - humidity.changed
 ---
@@ -13,51 +13,18 @@ Use **Relative humidity crossed threshold** to automate ventilation when the air
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
-To use **Relative humidity crossed threshold** in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your humidity sensor is in (like your bathroom or basement). You can also select a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Relative humidity crossed threshold**.
-6. Under **Threshold type**, configure the zone the reading must enter for the trigger to fire:
-   - Select **Above** or **Below** and enter a value to fire when the reading crosses that level.
-   - Select **In range** and enter a lower and upper bound to fire when the reading enters the range from outside.
-   - Select **Outside range** and enter a lower and upper bound to fire when the reading leaves the range (crosses past either bound).
-For each option, you can enter a fixed percentage (0-100%), pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold. If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple entities are targeted.
-8. Under **For at least**, set how long the reading must stay past the threshold before the trigger fires. Leave it at zero to fire immediately.
-9. Select **Save**.
+{% include triggers/threshold_crossed_steps.md
+   title="Relative humidity crossed threshold"
+   sensor="humidity sensor"
+   areas="bathroom or basement"
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: |
-    Controls which threshold crossings fire the trigger:
-
-    - **Above** (exclusive): fires when the reading crosses to strictly above the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **Below** (exclusive): fires when the reading crosses to strictly below the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
-
-    For each mode you can enter a fixed percentage (0–100%) or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
-Trigger when:
-  description: |
-    When multiple entities are targeted, controls when the trigger fires:
-
-    - **Each**: fires every time any targeted entity crosses the threshold.
-    - **First**: fires only on the first crossing.
-    - **All**: fires only after every targeted entity crosses the threshold.
-
-    This corresponds to the `behavior` field in YAML. Default is **Each**.
-For at least:
-  description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief fluctuations. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
-{% endoptions_ui %}
+{% include triggers/threshold_crossed_options_ui.md
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -95,7 +62,7 @@ trigger: |
         number: 40
       value_max:
         number: 60
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever any of the humidity sensors crosses outside the comfort range.
@@ -121,43 +88,9 @@ This fires when the first humidity sensor with the `humidity_sensors` label cros
 
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
-{% options_yaml %}
-threshold:
-  description: |
-    A mapping that defines the threshold crossing that fires the trigger:
-
-    - `type: above` (exclusive): Sets a minimum. Fires when the reading crosses to strictly above `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: below` (exclusive): Sets a maximum. Fires when the reading crosses to strictly below `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the reading crosses into the range. A reading equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading crosses out of the range. A reading equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-
-    For example:
-
-    ```yaml
-    threshold:
-      type: above
-      value:
-        number: 70
-    ```
-  required: true
-  type: map
-behavior:
-  description: |
-    When multiple entities are targeted, controls when the trigger fires:
-
-    - `any` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
-    - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `last` (**All** in the UI): fires only after every targeted entity crosses the threshold.
-  required: false
-  type: string
-  default: any
-for:
-  description: |
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
-  required: false
-  type: string
-  default: "00:00:00"
-{% endoptions_yaml %}
+{% include triggers/threshold_crossed_options_yaml.md
+   unit_phrase_yaml="literal percentage 0–100"
+   example_value="70" %}
 
 {% include triggers/targets.md %}
 
@@ -165,12 +98,13 @@ for:
 
 ## Good to know
 
+- Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
+- Climate, humidifier, and weather entities must expose a current humidity attribute.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - A comfortable indoor humidity range is typically 40% to 60%. Use **Outside range** with those bounds to fire the moment conditions drift out of that comfort zone.
 - Pair this trigger with [Relative humidity changed](/triggers/humidity.changed/) if you also want to react to smaller fluctuations between crossings.
 - Pair this trigger with [Relative humidity](/conditions/humidity.is_value/) in follow-up conditions to double-check the final state.
-- The trigger works with climate entities, humidifier entities, weather entities, and sensors with the humidity device class.
 
 {% include triggers/try_it.md %}
 
@@ -235,7 +169,7 @@ automation: |
           type: above
           value:
             number: 60
-        behavior: any
+        behavior: each
         for: "00:10:00"
   actions:
     - action: notify.send_message

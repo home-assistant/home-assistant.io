@@ -26,6 +26,15 @@ By default, a speed test will be run every hour. You can disable polling using s
 
 {% include common-tasks/define_custom_polling.md %}
 
+## Configuration options
+
+After setup, you can choose which server the speed test runs against. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Speedtest.net** integration, and then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**).
+
+{% configuration_basic %}
+Select test server:
+  description: "The Speedtest.net server to use for tests. Select `*Auto Detect` to automatically choose a server. Defaults to `*Auto Detect`."
+{% endconfiguration_basic %}
+
 ## Integration sensors
 
 The following sensors are added by the integration:
@@ -84,5 +93,11 @@ automation:
 
 - When running on Raspberry Pi the maximum speed is limited by the LAN adapter. The Raspberry Pi 3+ models come with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
 - Running this integration can have negative effects on the system's performance as it requires a fair amount of memory.
-- If run frequently, this integration has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
+- If run frequently, this integration can use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
 - While the speedtest is running your network capacity is fully utilized. This may have a negative effect on other devices using the network such as gaming consoles or streaming boxes.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

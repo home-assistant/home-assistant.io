@@ -42,7 +42,7 @@ automation: |
         entity_id: sensor.bedroom_co2
       options:
         threshold: 1000
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:
@@ -69,7 +69,7 @@ automation: |
       target:
         label_id: co_sensors
       options:
-        behavior: any
+        behavior: each
   actions:
     - action: notify.notify
       data:
@@ -100,7 +100,7 @@ automation: |
         entity_id: sensor.outdoor_pm25
       options:
         threshold: 25
-        behavior: any
+        behavior: each
   actions:
     - action: fan.turn_on
       target:

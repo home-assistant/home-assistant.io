@@ -25,7 +25,7 @@ This {% term integration %} needs to authenticate to your Ombi instance with eit
 
 To find your `api_key` open the Ombi web interface. Navigate to **Settings** and then to **Ombi**, you should then be able to see your `api_key`.
 
-If you want to use `password` authentication simply use the same `password` you normally use to login to Ombi. Alternatively, you can set up a separate local account in Ombi designated for Home Assistant. In order to do this, open the Ombi web interface. Navigate to **User Management** and then press **Add User To Ombi**. Input your desired user details and use the same details when configuring this integration.
+If you want to use `password` authentication simply use the same `password` you normally use to log in to Ombi. Alternatively, you can set up a separate local account in Ombi designated for Home Assistant. To do this, open the Ombi web interface. Navigate to **User Management** and then press **Add User To Ombi**. Input your desired user details and use the same details when configuring this integration.
 
 ## Configuration
 
@@ -86,33 +86,4 @@ ombi:
   ssl: true
 ```
 
-## Actions
-
-### Submit request actions
-
-Available actions: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
-
-#### Action `submit_movie_request`
-
-Searches and requests the closest matching movie.
-
-| Data attribute | Optional | Description       |
-| ---------------------- | -------- | ----------------- |
-| `name`                 | no       | Search parameter. |
-
-#### Action `submit_music_request`
-
-Searches and requests the closest matching music album.
-
-| Data attribute | Optional | Description       |
-| ---------------------- | -------- | ----------------- |
-| `name`                 | no       | Search parameter. |
-
-#### Action `submit_tv_request`
-
-Searches and requests the closest matching TV show.
-
-| Data attribute | Optional | Description                                                                                |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------ |
-| `name`                 | no       | Search parameter.                                                                          |
-| `season`               | yes      | Which season(s) to request. Must be one of `first`, `latest` or `all`. Defaults to latest. |
+{% include integrations/actions.md %}

@@ -31,7 +31,7 @@ The **Renault** {% term integration %} offers integration with the **MyRenault**
 This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
-- Buttons - to start air conditioning, start/stop the charge, flash lights, and sound horn. Please note that although available, these actions do not work on all vehicles.
+- Buttons - to start air conditioning, start/stop the charge, flash lights, and sound horn. Although available, these actions do not work on all vehicles.
 - Device tracker - to track location of your car.
 - Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
@@ -72,97 +72,7 @@ Battery charge limit controls are only available for electric vehicles that supp
 Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
 For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
 
-## Actions
-
-### Action: Start A/C
-
-The `renault.ac_start` action starts A/C on a vehicle.
-
-  | Data attribute | Required | Description | Example |
-  | ---------------------- | -------- | ----------- | ------- |
-  | `vehicle`| yes | device_id of the vehicle | |
-  | `temperature` | yes | Target A/C temperature in °C | |
-  | `when` | no | Timestamp for the start of the A/C (optional - defaults to now) | `2020-05-01T17:45:00` |
-
-### Action: Cancel A/C
-
-The `renault.ac_cancel` action cancels A/C on a vehicle.
-
-  | Data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `vehicle`| yes | device_id of the vehicle |
-
-### Action: Set A/C schedules
-
-The `renault.ac_set_schedules` action updates A/C schedules on a vehicle.
-
-  | Data attribute | Required | Description | Example |
-  | ---------------------- | -------- | ----------- | ------- |
-  | `vehicle`| yes | device_id of the vehicle | |
-  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | see [example below](#ac_schedule_example) |
-
-Notes:
-
-- `schedules` can contain one or more schedules which are set within the same call.
-- The `id` is compulsory on each `schedule` (should be 1 to 5, depending on the vehicle).
-- The `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
-- The `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must contain the key `readyAtTime` (in UTC format).
-
-<a name="ac_schedule_example">Example</a>:
-
-```yaml
-- id: 1 
-  activated: true 
-  monday: 
-    readyAtTime: 'T12:00Z' 
-- id: 2 
-  activated: false 
-  monday:
-    readyAtTime: 'T12:00Z' 
-  tuesday:
-    readyAtTime: 'T12:00Z'
-```
-
-### Action: Start charge
-
-The `renault.charge_start` action starts charging on a vehicle.
-
-  | Data attribute | Required | Description | Example |
-  | ---------------------- | -------- | ----------- | ------- |
-  | `vehicle`| yes | device_id of the vehicle | 
-  | `when` | no | Timestamp for charging to start, defaults to now | `2020-05-01T17:45:00` |
-
-
-### Action: Set charge schedules
-
-The `renault.charge_set_schedules` action updates charge schedules on a vehicle.
-
-  | Data attribute | Required | Description | Example |
-  | ---------------------- | -------- | ----------- | ------- |
-  | `vehicle`| yes | device_id of the vehicle |
-  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | see [example below](#schedule_example) |
-  
-Notes:
-
-- `schedules` can contain one or more schedules which are set within the same call
-- the `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle)
-- the `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
-- the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must contain the keys `startTime` (in UTC format) and `duration` (in minutes).
-
-<a name="schedule_example">Example</a>:
-
-```yaml
-- id: 1 
-  activated: true 
-  monday: 
-    startTime: 'T12:00Z'
-    duration: 15 
-- id: 1 
-  activated: false 
-  monday: 
-    startTime: 'T12:00Z'
-    duration: 15 
-```
+{% include integrations/actions.md %}
 
 ## Known limitations
 

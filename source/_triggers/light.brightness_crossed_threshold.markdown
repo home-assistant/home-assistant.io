@@ -2,7 +2,7 @@
 title: "Light brightness crossed threshold"
 trigger: light.brightness_crossed_threshold
 domain: light
-description: "Triggers after the brightness of one or more lights crosses a threshold."
+description: "Triggers when the brightness of one or more lights crosses a threshold."
 related_triggers:
   - light.brightness_changed
   - light.turned_on
@@ -12,8 +12,6 @@ The **Light brightness crossed threshold** trigger fires when a light {% term en
 
 Unlike [Light brightness changed](/triggers/light.brightness_changed/), which fires on any sizable change, this trigger only fires when the brightness moves across the exact threshold you pick. It fires once per crossing, in whichever direction.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -21,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light brightness crossed threshold**.
+4. From the search box, search for and select **Light brightness crossed threshold**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set the brightness percentage you want the trigger to watch for.
 7. Under **Trigger when**, pick **Each**, **First**, or **All** to control how multiple targets interact.
@@ -47,7 +45,7 @@ trigger: |
     entity_id: light.living_room
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the living room light crosses 50% brightness in either direction.
@@ -64,10 +62,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple lights are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple lights are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -92,7 +90,7 @@ When you dim the ceiling light below 40% in the evening, turn on the accent ligh
 - **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Condition**: Ceiling light brightness is below 40%
-- **Action**: Light: Turn on (accent lights)
+- **Action**: Turn on light (accent lights)
 
 {% details "YAML example for mood lighting on dim" %}
 
@@ -105,7 +103,7 @@ automation: |
         entity_id: light.living_room_ceiling
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   conditions:
     - condition: sun
       after: sunset
@@ -114,7 +112,7 @@ automation: |
         entity_id: light.living_room_ceiling
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   actions:
     - action: light.turn_on
       target:

@@ -16,11 +16,12 @@ ha_domain: iaqualink
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - light
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 

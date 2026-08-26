@@ -1,6 +1,6 @@
 ---
 title: Fish Audio
-description: Instructions on how to setup Fish Audio integration with Home Assistant.
+description: Instructions on how to set up Fish Audio integration with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 2026.1
@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 
 The **Fish Audio** {% term integration %} brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (<abbr title="text-to-speech">TTS</abbr>) service, allowing you to create expressive, human-like speech.
 
-Fish Audio is positioned as a leading voice cloning service. It features the advanced `s2-pro` model, which supports emotional and tone markers for more natural-sounding speech.
+Fish Audio supports the `s2-pro` and `s2.1-pro` models, which support emotional and tone markers for more natural-sounding speech.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Currently supported languages include:
 
 The `tts.speak` service allows you to use Fish Audio voices in your automations and scripts. Select the `tts.fish_audio` entity, choose a media player, and enter your message.
 
-Example of a `tts.speak` service call in YAML:
+Example of a `tts.speak` action in YAML:
 
 ```yaml
 actions:

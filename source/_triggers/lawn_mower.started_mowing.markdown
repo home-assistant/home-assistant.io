@@ -2,13 +2,11 @@
 title: "Lawn mower started mowing"
 trigger: lawn_mower.started_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start mowing."
+description: "Triggers when one or more lawn mowers start mowing."
 ---
 
 The **Lawn mower started mowing** trigger fires when a mower begins a mowing run.
 Use it to react when yard work starts, like muting another routine, sending a confirmation, or turning on a light along the first part of the route.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lawn mowers are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the mower must stay in the mowing state before the trigger fires.

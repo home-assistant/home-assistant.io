@@ -2,7 +2,7 @@
 title: "Thermostat turned on"
 trigger: climate.turned_on
 domain: climate
-description: "Triggers after one or more climate devices turn on, regardless of the mode."
+description: "Triggers when one or more thermostats turn on, regardless of the mode."
 related_triggers:
   - climate.turned_off
   - climate.hvac_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Thermostat turned on** trigger fires after a climate {% term entity %} turns on, entering any operational mode (such as **Heat**, **Cool**, or **Auto**). Climate entities include thermostats, air conditioners, heat pumps, and evaporative coolers. The trigger doesn't care which specific mode the device switches to. It only checks that it transitions from **Off** to any active mode. Use this trigger when you want to react as soon as the climate entity becomes active, regardless of whether it's heating, cooling, or in another mode.
 
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,9 +32,9 @@ Trigger when:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fires every time any targeted thermostat turns on.
-    - **First** (`first` in YAML): fires only when the first of a group turns on.
-    - **All** (`last` in YAML): fires only after every targeted thermostat is on.
+    - **Each** (default): fires every time any targeted thermostat turns on.
+    - **First**: fires only when the first of a group turns on.
+    - **All**: fires only after every targeted thermostat is on.
 For at least:
   description: How long the thermostat must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,12 +61,12 @@ behavior:
   description: |
     When multiple thermostats are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted thermostat turns on.
-    - `first` (**First** in the UI): fire only when the first thermostat turns on.
-    - `last` (**All** in the UI): fire only after every targeted thermostat is on.
+    - `each` (default): fires every time any targeted thermostat turns on.
+    - `first`: fires only when the first thermostat turns on.
+    - `all`: fires only after every targeted thermostat is on.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the thermostat must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the thermostat has stayed on for 10 seconds.

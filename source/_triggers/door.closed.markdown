@@ -2,7 +2,7 @@
 title: "Door closed"
 trigger: door.closed
 domain: door
-description: "Triggers after one or more doors close."
+description: "Triggers when one or more doors close."
 related_triggers:
   - door.opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Door closed** trigger fires when a targeted door changes to closed. Use it when you want an automation to run only after a door is shut, like locking up, turning lights off, or resuming another routine.
 
 This trigger is especially useful for routines that should wait for a clear end state, such as a garage door finishing its close cycle or a back door being fully shut before you lock it.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -55,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple doors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple doors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the door must stay closed before the trigger fires.
@@ -74,9 +72,9 @@ for:
 
 ## Good to know
 
-- This trigger works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the door closing.
-- The `for` option only fires the automation if the door stays closed for the entire time you set.
+- Use a door contact sensor or door cover that uses the door device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the door closing.
+- The **For at least** option only fires the automation if the door stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 
@@ -117,7 +115,7 @@ If you turn on a nearby hallway light while bringing things in from the car, the
 - **Trigger**: Door closed
 - **Target**: Garage door
 - **For at least**: 00:01:00
-- **Action**: Light: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the hallway light" %}
 

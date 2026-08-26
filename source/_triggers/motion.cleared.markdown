@@ -2,7 +2,7 @@
 title: "Motion cleared"
 trigger: motion.cleared
 domain: motion
-description: "Triggers after one or more motion sensors stop detecting motion."
+description: "Triggers when one or more motion sensors stop detecting motion."
 related_triggers:
   - motion.detected
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Motion cleared** trigger fires when one or more motion sensors stop detecting motion.
 
 Use it to automate actions, such as turning devices on or off, or sending notifications, based on inactivity in an area of the house. Use a single sensor to detect motion in specific spots and a group of sensors for larger areas.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -69,12 +67,12 @@ behavior:
   description: |
     When multiple motion sensors are targeted, controls when the trigger fires:
 
-    - `any`: fires every time any targeted sensor stops detecting motion.
+    - `each`: fires every time any targeted sensor stops detecting motion.
     - `first`: fires only when the first sensor stops detecting motion.
-    - `last`: fires only after every targeted sensor stops detecting motion.
+    - `all`: fires only after every targeted sensor stops detecting motion.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the sensor or sensors must remain without detecting motion before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.

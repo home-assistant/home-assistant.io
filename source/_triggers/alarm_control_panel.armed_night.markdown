@@ -2,15 +2,13 @@
 title: "Alarm armed night"
 trigger: alarm_control_panel.armed_night
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in night mode."
+description: "Triggers when one or more alarms become armed in night mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed night** trigger fires after an alarm control panel {% term entity %} switches to the armed night state. Night mode is designed for sleeping hours, keeping perimeter sensors and select interior zones active while allowing movement in bedrooms and bathrooms. Use this trigger to kick off a bedtime routine: turn off downstairs lights, lower the thermostat, and send a goodnight confirmation so you drift off knowing the house is secure.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -54,10 +52,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple alarm panels are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple alarm panels are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -101,7 +99,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_off
@@ -136,7 +134,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_on

@@ -38,7 +38,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false

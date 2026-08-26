@@ -2,7 +2,7 @@
 title: "Humidifier started humidifying"
 trigger: humidifier.started_humidifying
 domain: humidifier
-description: "Triggers after one or more humidifiers start actively humidifying."
+description: "Triggers when one or more humidifiers start humidifying."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_drying
@@ -11,8 +11,6 @@ related_triggers:
 The **Humidifier started humidifying** trigger fires when a humidifier {% term entity %} begins actively adding moisture to the air. A humidifier that is turned on does not necessarily humidify continuously. It pauses once the target humidity is reached and then resumes when the air dries out again. **Humidifier started humidifying** fires whenever it moved from idle back to active humidification.
 
 Use **Humidifier started humidifying** to track active humidification cycles, send notifications when the air is dry enough that the device kicks back in, or coordinate other devices that should run alongside it.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,9 +32,9 @@ Trigger when:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted humidifier starts humidifying.
-    - **First** (`first` in YAML): fire only on the first humidifier that starts humidifying.
-    - **All** (`last` in YAML): fire only after every targeted humidifier starts humidifying.
+    - **Each** (default): fires every time any targeted humidifier starts humidifying.
+    - **First**: fires only on the first humidifier that starts humidifying.
+    - **All**: fires only after every targeted humidifier starts humidifying.
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -63,12 +61,12 @@ behavior:
   description: |
     When multiple humidifiers are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted humidifier starts humidifying.
-    - `first` (**First** in the UI): fire only on the first humidifier that starts humidifying.
-    - `last` (**All** in the UI): fire only after every targeted humidifier starts humidifying.
+    - `each` (default): fires every time any targeted humidifier starts humidifying.
+    - `first`: fires only on the first humidifier that starts humidifying.
+    - `all`: fires only after every targeted humidifier starts humidifying.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the humidifier must be actively humidifying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the humidifier has been actively humidifying for 5 minutes.
@@ -112,7 +110,7 @@ automation: |
       target:
         entity_id: humidifier.nursery
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   conditions:
     - condition: time
@@ -134,9 +132,9 @@ When the bedroom humidifier starts humidifying, turn on a low-speed fan to distr
 
 - **Trigger**: Humidifier started humidifying
   - **Target**: Bedroom humidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
+  - **Percentage**: `30`%
 
 {% details "YAML example for running a fan when humidifying starts" %}
 
@@ -147,9 +145,6 @@ automation: |
     - trigger: humidifier.started_humidifying
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: fan.turn_on
       target:

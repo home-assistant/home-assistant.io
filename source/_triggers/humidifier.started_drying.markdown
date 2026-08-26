@@ -2,7 +2,7 @@
 title: "Humidifier started drying"
 trigger: humidifier.started_drying
 domain: humidifier
-description: "Triggers after one or more humidifiers start actively drying (dehumidifying)."
+description: "Triggers when one or more humidifiers start drying."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_humidifying
@@ -13,8 +13,6 @@ The **Humidifier started drying** trigger fires when a humidifier {% term entity
 Use this trigger to track dehumidification cycles, send alerts when the air becomes too humid, or coordinate other actions that should happen while the device is actively removing moisture.
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -36,9 +34,9 @@ Trigger when:
   description: |
     When multiple devices are targeted, controls when the trigger fires:
 
-    - **Each** (`any` in YAML, default): fire every time any targeted device starts drying.
-    - **First** (`first` in YAML): fire only on the first device that starts drying.
-    - **All** (`last` in YAML): fire only after every targeted device starts drying.
+    - **Each** (default): fires every time any targeted device starts drying.
+    - **First**: fires only on the first device that starts drying.
+    - **All**: fires only after every targeted device starts drying.
 For at least:
   description: How long the device must be actively drying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -65,12 +63,12 @@ behavior:
   description: |
     When multiple devices are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fire every time any targeted device starts drying.
-    - `first` (**First** in the UI): fire only on the first device that starts drying.
-    - `last` (**All** in the UI): fire only after every targeted device starts drying.
+    - `each` (default): fires every time any targeted device starts drying.
+    - `first`: fires only on the first device that starts drying.
+    - `all`: fires only after every targeted device starts drying.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the device must be actively drying before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the device has been actively drying for 5 minutes.
@@ -85,8 +83,8 @@ for:
 
 ## Good to know
 
+- Use a humidifier entity that represents a dehumidifier or a multi-mode device that can report drying.
 - **Humidifier started drying** fires independently of [Humidifier turned on](/triggers/humidifier.turned_on/). A dehumidifier can be on but idle (the air is already dry enough), and **Humidifier started drying** fires only when active drying begins.
-- **Humidifier started drying** is most useful with devices that have the dehumidifier device class, but it also applies to multi-mode devices that can switch between humidifying and drying.
 
 {% include triggers/try_it.md %}
 
@@ -98,7 +96,6 @@ When the basement dehumidifier starts running again, it means the air has become
 
 - **Trigger**: Humidifier started drying
   - **Target**: Basement dehumidifier
-  - **Trigger when**: Each
   - **For at least**: 00:05:00
 - **Action**: Send a notification message
   - **Target**: My device (`notify.my_device`)
@@ -113,7 +110,6 @@ automation: |
       target:
         entity_id: humidifier.basement_dehumidifier
       options:
-        behavior: any
         for: "00:05:00"
   actions:
     - action: notify.send_message
@@ -131,9 +127,8 @@ When the dehumidifier starts drying, close any open motorized windows automatica
 
 - **Trigger**: Humidifier started drying
   - **Target**: Basement dehumidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Cover: Close cover
+- **Action**: Close cover
+  - **Target**: Basement area
 
 {% details "YAML example for closing windows on dehumidification start" %}
 
@@ -144,9 +139,6 @@ automation: |
     - trigger: humidifier.started_drying
       target:
         entity_id: humidifier.basement_dehumidifier
-      options:
-        behavior: any
-        for: "00:00:00"
   actions:
     - action: cover.close_cover
       target:

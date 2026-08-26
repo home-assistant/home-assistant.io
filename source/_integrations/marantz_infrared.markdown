@@ -2,11 +2,12 @@
 title: Marantz Infrared
 description: Integration to control Marantz amplifiers using an infrared transmitter.
 ha_category:
+  - Infrared
   - Media player
 ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_codeowners:
-  - '@home-assistant/core'
+  - '@balloob'
 ha_domain: marantz_infrared
 ha_config_flow: true
 ha_platforms:

@@ -111,7 +111,6 @@ The **My integration** integration provides the following entities.
   - **Description**: Current temperature of the coffee boiler.
   - **Available for machines**: all
   - **Remarks**: When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points.
-
 - **Current steam temperature**
   - **Description**: Current temperature of the steam boiler.
   - **Available for machines**: Linea Micra, GS3 AV, GS3 MP.
@@ -123,7 +122,6 @@ The **My integration** integration provides the following entities.
   - **Description**: Whether to use prebrew, preinfusion, or neither.
   - **Options**: Disabled, Prebrew, Preinfusion
   - **Available for machines**: Linea Micra, Linea Mini, GS3 AV
-
 - **Steam level**
   - **Description**: The level your steam boiler should run at.
   - **Options**: 1, 2, 3
@@ -142,11 +140,11 @@ Create separate files for each:
 - condition, in source/_conditions/
 - action, in source/_actions/
 -->
-{% include integrations/actions.md %}
+{% include integrations/triggers.md %}
 
 {% include integrations/conditions.md %}
 
-{% include integrations/triggers.md %}
+{% include integrations/actions.md %}
 
 <!--
 If the integration has all three components (triggers, conditions, and actions), use the combined include instead. 

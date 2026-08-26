@@ -3,10 +3,12 @@ title: Insteon
 description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
   - Fan
   - Hub
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_iot_class: Local Push
@@ -14,6 +16,8 @@ ha_release: 0.39
 ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
+  - '@ssyrell'
+  - '@connorgallopo'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -28,12 +32,19 @@ ha_dhcp: true
 ---
 
 {% important %}
-The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
+The Insteon apps (Director or Insteon for Hub) are a paid service using the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
 {% endimportant %}
 
 This {% term integration %} adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
 
 _If you have factory reset your device, please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed._
+
+## Prerequisites
+
+- **PLM (2413U, 2412U, or serial 2413S/2412S)**: the modem must be plugged into the Home Assistant host. Note the serial port path (for example `/dev/ttyUSB0` on Linux; check {% my hardware title="Settings > System > Hardware" %} > **System hardware**).
+- **Hub version 1 (2242, pre-2014) or Hub version 2 (2245)**: the Hub must be reachable on your network. Reserve a fixed IP address for it on your router. Hub version 1 uses port 9761; Hub version 2 uses port 25105.
+- **Hub version 2 credentials**: the username and password are printed on the label on the bottom of the Hub.
+- Insteon devices must be linked to the modem before they show up in Home Assistant, either from a previous controller setup or by linking them after setup with the **Add device** function in the Insteon panel.
 
 {% include integrations/config_flow.md %}
 
@@ -122,22 +133,7 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 
 ## Controlling Insteon scenes
 
-Controlling an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
-
-- **insteon.scene_on**
-  - **group**: (required) The Insteon scene number to trigger.
-- **insteon.scene_off**
-  - **group**: (required) The Insteon scene to turn off
-
-```yaml
-automation:
-  # Control an Insteon scene 25
-  - alias: "Turn on scene 25"
-    actions:
-      - action: insteon.scene_on
-        data:
-          group: 25
-```
+Insteon scenes are controlled through automations and scripts. Use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon group or scene number.
 
 ## Events and Mini-Remotes
 
@@ -159,9 +155,9 @@ automation:
     triggers:
       - trigger: event
         event_type: insteon.button_on
-    event_data:
-      address: 1a2b3c
-      button: c
+        event_data:
+          address: 1a2b3c
+          button: c
     conditions:
       - condition: state
         entity_id: light.some_light
@@ -175,29 +171,20 @@ automation:
   - alias: "Turn a light off"
     triggers:
       - trigger: event
-        event_type: insteon.button_on
-    event_data:
-      address: 1a2b3c
+        event_type: insteon.button_off
+        event_data:
+          address: 1a2b3c
     conditions:
       - condition: state
         entity_id: light.some_light
-        state: "off"
+        state: "on"
     actions:
-      - action: light.turn_on
+      - action: light.turn_off
         target:
           entity_id: light.some_light
 ```
 
-## Actions
-
-The following actions are available:
-
-- **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
-- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
-- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
-- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
-- **insteon.print_im_all_link_database**: Print the All-Link Database for the Insteon Modem (IM).
-- **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
+{% include integrations/actions.md %}
 
 ## Device overrides
 
@@ -227,3 +214,11 @@ Many users tried to factory reset their Insteon Hub when the Insteon app stopped
 3. Add devices to the Hub using the instructions for adding devices to the Insteon integration using the [Insteon configuration panel](#insteon-configuration-panel)
 
 Once your devices are linked to the Hub again they will appear in Home Assistant automatically.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+Removing the integration does not change the Insteon network itself. Devices stay linked to the modem and keep working with their existing links. If you are retiring the modem, use the **Delete device** function in the Insteon panel for each device first. This removes the links to the modem stored in each device and needs the modem still connected. Factory resetting the modem is not enough: it only clears the modem's own link database, and the records stored in your devices keep pointing at it.

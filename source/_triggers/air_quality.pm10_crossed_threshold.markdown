@@ -2,7 +2,7 @@
 title: "PM10 level crossed threshold"
 trigger: air_quality.pm10_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM10 levels cross a threshold."
+description: "Triggers when one or more PM10 levels cross a threshold."
 related_triggers:
   - air_quality.pm10_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM10 level crossed threshold** trigger fires when the PM10 (particulate matter 10 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM10 includes coarser particles like dust, pollen, and mold spores that irritate the nose, throat, and airways. Levels tend to spike during construction work, dry windy days, and seasonal pollen peaks.
 
 Get a heads-up on your phone the moment outdoor PM10 crosses 50, so you know to keep the windows shut on a high-pollen day. Or have your smart windows close automatically when a dust storm rolls in. This trigger is especially helpful during allergy season, letting your home shield you from airborne irritants before they become a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -49,7 +47,7 @@ trigger: |
     entity_id: sensor.patio_pm10
   options:
     threshold: 50
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the patio PM10 sensor crosses 50 in either direction.
@@ -66,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -115,7 +113,7 @@ automation: |
         entity_id: sensor.patio_pm10
       options:
         threshold: 50
-        behavior: any
+        behavior: each
   conditions:
     - condition: numeric_state
       entity_id: sensor.patio_pm10

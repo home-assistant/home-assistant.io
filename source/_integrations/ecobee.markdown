@@ -92,7 +92,7 @@ thermostat is not in auto mode, there is a single target temperature. When the t
 
 A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
 
-A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (home, away, sleep, etc.), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
+A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (such as home, away, or sleep), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
 defined vacation period and expires when the vacation period ends.
 
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
@@ -137,7 +137,7 @@ The `ventilator 20 min` switch is behaving like the switch in the physical ecobe
 
 ### Concepts 
 
-When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
+When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (such as natural gas or propane). This applies more to air source heat pumps than geothermal. 
 
 ### Switch
 
@@ -147,99 +147,8 @@ The `Auxiliary heat only` switch is provided to disable the use of the compresso
 
 The `Compressor minimum temperature` number represents the outdoor temperature at which the compressor (heat pump) will not run. This is represented in the temperature units you have selected in Home Assistant; however, ecobee allows configuration only in increments of 5 degrees Fahrenheit. This is also represented in the thermostat user interface. When the outdoor temperature is below this value, only auxiliary heat will be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
 
-Check your heat pump Owners' Manual prior to adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
+Check your heat pump Owners' Manual before adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
 
-## Actions
+{% include integrations/actions.md %}
 
-Besides the standard actions provided by the Home Assistant [Climate](/integrations/climate/) integration, the following extra actions are provided by the ecobee integration:
-
-- `ecobee.create_vacation`
-- `ecobee.delete_vacation`
-- `ecobee.resume_program`
-- `ecobee.set_fan_min_on_time`
-- `ecobee.set_dst_mode`
-- `ecobee.set_mic_mode`
-- `ecobee.set_occupancy_modes`
-- `ecobee.set_sensors_in_climate`
-
-### Action: Create vacation
-
-The `ecobee.create_vacation` action allows you to create a vacation on the selected ecobee thermostat.
-
-| Data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to create the vacation                                                    |
-| `vacation_name`        | no       | Name of the vacation to create. Must be unique on the thermostat                                     |
-| `cool_temp`            | no       | Cooling temperature during the vacation                                                              |
-| `heat_temp`            | no       | Heating temperature during the vacation                                                              |
-| `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format                                                        |
-| `start_time`           | yes      | Time the vacation starts in the local time zone. Must be in 24-hour format (HH:MM:SS)                |
-| `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided)                       |
-| `end_time`             | yes      | Time the vacation ends in the local time zone. Must be in 24-hour format (HH:MM:SS)                  |
-| `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
-| `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
-
-### Action: Delete vacation
-
-The `ecobee.delete_vacation` action allows you to delete a vacation on the selected ecobee thermostat.
-
-| Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to delete the vacation |
-| `vacation_name`        | no       | Name of the vacation to delete                    |
-
-### Action: Resume program
-
-The `ecobee.resume_program` action allows you to resume the standard active schedule of presets. This cancels any manual temperature settings or selected preset. This will not cancel vacation events, use `delete_vacation`.
-
-| Data attribute | Optional | Description                                                                                                                |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of climate devices to control. Omit to target all ecobee thermostats. |
-| `resume_all`           | no       | `true` will resume the standard schedule. `false` will only cancel the latest active event, which is not used often.       |
-
-### Action: Set fan minimum on time
-
-The `ecobee.set_fan_min_on_time` action allows you to set the minimum amount of time that the fan will run per hour.
-
-| Data attribute | Optional | Description                                                                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Omit to target all ecobee thermostats. |
-| `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                                          |
-
-### Action: Set DST mode
-
-The `ecobee.set_dst_mode` action allows you to enable/disable automatic daylight savings time.
-
-| Data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode. Omit to target all ecobee thermostats. |
-| `dst_enabled`          | no       | true or false                                                                                        |
-
-### Action: Set mic mode
-
-The `ecobee.set_mic_mode` action allows you to enable/disable the Alexa mic (only for ecobee 4).
-
-| Data attribute | Optional | Description                                                                            |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set the mic mode. Omit to target all ecobee thermostats. |
-| `mic_enabled`          | no       | true or false                                                                          |
-
-### Action: Set occupancy modes
-
-The `ecobee.set_occupancy_modes` action allows you to enable/disable Smart Home/Away and Follow Me modes.
-
-| Data attribute | Optional | Description                                                                               |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes. Omit to target all ecobee thermostats. |
-| `auto_away`            | yes      | true or false                                                                             |
-| `follow_me`            | yes      | true or false                                                                             |
-
-### Action: Set sensors in climate
-
-The `ecobee.set_sensors_in_climate` action allows you to set which sensors are active on a thermostat for a specific climate program.
-
-| Service data attribute | Optional | Description                                                                                                                                         |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to set the active sensors.                                                                                                |
-| `preset_mode`          | yes      | Name of the climate program to set the sensors active on (defaults to currently active program).                                                     |
-| `sensors`              | no       | Sensors to set as participating for climate. This is the device ID of the sensor/thermostat. These can be found in the available_sensors attribute. |
+In addition to these actions, the standard [Climate](/integrations/climate/) actions are available for ecobee thermostats.

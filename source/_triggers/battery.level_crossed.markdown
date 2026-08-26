@@ -13,8 +13,6 @@ Use **Battery level crossed threshold** to automate alerts when critical devices
 
 When you target more than one entity, the trigger's **Trigger when** option controls when it fires.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use **Battery level crossed threshold** in an automation:
@@ -92,7 +90,7 @@ trigger: |
         number: 20
       value_max:
         number: 101
-    behavior: last
+    behavior: all
 {% endexample %}
 
 This fires once both sensors have charged back into the effective 21%–100% range. The `value_max` is set to `number: 101` deliberately so that 100% is included, because `between` is exclusive on both bounds.
@@ -140,12 +138,12 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires. Accepts:
 
-    - `any`: fires every time any targeted entity crosses the threshold.
+    - `each`: fires every time any targeted entity crosses the threshold.
     - `first`: fires only on the first crossing.
-    - `last`: fires only after every targeted entity crosses the threshold.
+    - `all`: fires only after every targeted entity crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:30:00` fires only after the reading has stayed past the threshold for 30 minutes.
@@ -160,11 +158,11 @@ for:
 
 ## Good to know
 
+- Use a sensor with the battery device class.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - Pair this trigger with the [Battery level changed](/triggers/battery.level_changed/) trigger if you also want to react to smaller fluctuations between crossings.
 - Pair this trigger with the Battery level condition to double-check the final state.
-- The trigger works with sensors that have the battery device class.
 
 {% include triggers/try_it.md %}
 

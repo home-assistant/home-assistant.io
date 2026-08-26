@@ -2,15 +2,13 @@
 title: "Alarm disarmed"
 trigger: alarm_control_panel.disarmed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become disarmed."
+description: "Triggers when one or more alarms become disarmed."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.triggered
 ---
 
 The **Alarm disarmed** trigger fires after an alarm control panel {% term entity %} switches to the disarmed state. Use it to start welcome-home routines the moment the alarm is turned off: turn on the entryway lights, set the thermostat to a comfortable temperature, unlock the front door, or play your favorite playlist. Whether you disarm from a keypad, the app, or an automation, this trigger responds instantly.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -54,10 +52,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple alarm panels are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple alarm panels are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
@@ -101,7 +99,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: light.turn_on
@@ -136,7 +134,7 @@ automation: |
       target:
         entity_id: alarm_control_panel.home_alarm
       options:
-        behavior: any
+        behavior: each
         for: "00:00:00"
   actions:
     - action: input_boolean.turn_off

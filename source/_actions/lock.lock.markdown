@@ -120,7 +120,7 @@ automation: |
       target:
         entity_id: lock.back_door
       options:
-        behavior: any
+        behavior: each
         for: "00:10:00"
   actions:
     - action: lock.lock

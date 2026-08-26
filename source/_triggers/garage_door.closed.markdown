@@ -2,7 +2,7 @@
 title: "Garage door closed"
 trigger: garage_door.closed
 domain: garage_door
-description: "Triggers after one or more garage doors close."
+description: "Triggers when one or more garage doors close."
 related_triggers:
   - garage_door.opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Garage door closed** trigger fires when a targeted garage door changes to closed. Use it when you want an automation to wait for the garage door to finish closing before it continues.
 
 This trigger is useful for turning lights off after you park, resuming a security routine after the garage is shut, and confirming that a close cycle has finished.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -55,10 +53,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 behavior:
   description: >
-    When multiple garage doors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple garage doors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the garage door must stay closed before the trigger fires.
@@ -74,9 +72,9 @@ for:
 
 ## Good to know
 
-- This trigger works with garage door contact sensors that use the `garage_door` device class and garage door covers that use the `garage` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the garage door closing.
-- The `for` option only fires the automation if the garage door stays closed for the entire time you set.
+- Use a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the garage door closing.
+- The **For at least** option only fires the automation if the garage door stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

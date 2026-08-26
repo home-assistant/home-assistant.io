@@ -2,13 +2,11 @@
 title: "Lawn mower paused mowing"
 trigger: lawn_mower.paused_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers pause mowing."
+description: "Triggers when one or more lawn mowers pause mowing."
 ---
 
 The **Lawn mower paused mowing** trigger fires when a mower stops in the middle of a run without docking.
 Use it when you want to react to an interrupted job, like sending a reminder, pausing another yard task, or waiting before you restart the mower.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -53,10 +51,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lawn mowers are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the mower must stay paused before the trigger fires. Accepts a

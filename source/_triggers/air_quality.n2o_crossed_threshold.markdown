@@ -2,7 +2,7 @@
 title: "Nitrous oxide level crossed threshold"
 trigger: air_quality.n2o_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more nitrous oxide levels cross a threshold."
+description: "Triggers when one or more nitrous oxide levels cross a threshold."
 related_triggers:
   - air_quality.n2o_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrous oxide level crossed threshold** trigger fires when the nitrous oxide (N2O) reading on one or more air quality sensors crosses a specific level. Nitrous oxide is a potent greenhouse gas released by agricultural practices, industrial processes, and certain combustion sources. While less common in typical household monitoring, specialized sensors track N2O for environmental research, greenhouse management, and agricultural applications.
 
 If you manage a greenhouse or monitor environmental conditions, this trigger keeps you informed without constant manual checks. Get a notification on your phone the moment N2O crosses a concerning level, or have your ventilation system respond automatically to keep conditions within a healthy range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -49,7 +47,7 @@ trigger: |
     entity_id: sensor.greenhouse_n2o
   options:
     threshold: 350
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the greenhouse N2O sensor crosses 350 in either direction.
@@ -66,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -114,7 +112,7 @@ automation: |
         entity_id: sensor.greenhouse_n2o
       options:
         threshold: 350
-        behavior: any
+        behavior: each
   actions:
     - action: notify.send_message
       target:

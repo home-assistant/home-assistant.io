@@ -3,6 +3,7 @@ title: Watergate
 description: Instructions on how to integrate Watergate with Home Assistant.
 ha_category:
   - Sensor
+  - Switch
   - Valve
   - Water management
 ha_release: '2025.1'
@@ -14,18 +15,20 @@ ha_domain: watergate
 ha_platforms:
   - event
   - sensor
+  - switch
   - valve
 ha_quality_scale: silver
 ha_integration_type: device
 ---
 
 The **Watergate** {% term integration %} integrates your Watergate Devices (currently Sonic Wi-Fi) with your Home Assistant.
-With this integration, you are able to:
+With this integration, you can:
 
 - Control your valve
 - Monitor live telemetry (water flow, water pressure, water temperature)
 - Monitor water usage
 - Receive information when Sonic shuts off the valve due to potential leak
+- Turn the automatic leak shut-off on or off
 
 ## Prerequisites
 
@@ -74,6 +77,12 @@ The Watergate integration provides the following entities.
   - **Description**: The current state of the water valve (open/closed).
   - **Remarks**: It is automatically updated when the valve state is changed.
   
+#### Switches
+
+- **Auto shut-off**
+  - **Description**: Turns automatic leak shut-off on or off. When enabled, Sonic automatically closes the valve if it detects a potential leak.
+  - **Remarks**: This is a configuration switch. When disabled, Sonic no longer closes the valve automatically on a detected leak. Leak detection and monitoring are not affected.
+
 #### Events
 
 - **Auto Shut-Off**
