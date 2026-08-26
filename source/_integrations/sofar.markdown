@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
