@@ -60,6 +60,10 @@ Host:
     description: "The host name or the IP address of the device."
     required: true
     type: string
+Modbus port:
+    description: "The port of the device's Modbus TCP interface. Only used when Modbus is enabled on the device, see [Modbus TCP](#modbus-tcp). The default is `502`."
+    required: false
+    type: integer
 {% endconfiguration_basic %}
 
 ## Monitored data
@@ -113,6 +117,30 @@ Each device adds a set of sensors to Home Assistant.
 
 When an endpoint is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again. This reduces the number of requests to Fronius devices using night mode (shutdown when no PV power is produced).
 
+## Modbus TCP
+
+Most Fronius devices also provide a Modbus TCP interface using the [SunSpec](https://sunspec.org/) information models. It exposes per-string (MPP tracker) data that the Solar API does not, so the integration reads it in addition when it is available.
+
+Modbus is optional. If it isn't enabled, or the inverter is powered down, no Modbus entities are created and the rest of the integration is unaffected. The integration checks again every hour, so entities appear on their own once the device answers.
+
+To enable it on the device's web interface:
+
+- Gen24, Tauro, and Verto: go to **Communication** > **Modbus** and turn on the Modbus TCP server (on-screen label: **Slave as Modbus TCP**).
+- Devices with a Datamanager: go to **Settings** > **Modbus** and set **Data output via Modbus** to **TCP**. One Datamanager serves every inverter in its SolarNet ring.
+
+{% note %}
+Leave the data format setting (**float** or **int + SF**) as it is. The integration detects it automatically.
+{% endnote %}
+
+These entities are added per inverter and updated every minute:
+
+- `MPPT <n> DC power` and `MPPT <n> DC energy` for each MPP tracker.
+- `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
+- `PV energy total`: lifetime energy from the photovoltaic strings only, measured on the DC side.
+- `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
+
+The connection is shared with the [Modbus integration](/integrations/modbus/) and any other integration talking to the same device, so using both doesn't open a second connection to the inverter.
+
 ## Energy dashboard
 
 Recommended [energy dashboard](/docs/energy/) configuration:
@@ -122,6 +150,14 @@ Recommended [energy dashboard](/docs/energy/) configuration:
   - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `SolarNet Power photovoltaics` entity.
 - _"Battery systems"_ energy values aren't supported directly by the Solar API. Use [Riemann sum](/integrations/integration/) to integrate `SolarNet Power battery charge` and `SolarNet Power battery discharge` into energy values (kWh).
 - For _"Devices"_ use the Ohmpilots `Energy consumed` entity.
+
+{% important %}
+The [Modbus TCP](#modbus-tcp) energy values are measured on the DC side, at the MPP trackers.
+
+`PV energy total` is the energy the panels delivered, before inverter conversion losses, so it reads higher than the inverter's `Energy total`, which is the AC energy actually fed out. For _"Solar production"_, prefer the AC value. That is the energy you can use or sell.
+
+`Battery charging energy total` and `Battery discharging energy total` are DC values measured at the battery. They are counters read from the device rather than values integrated over time, so they don't drift and are unaffected by Home Assistant restarts. For the same reason, they don't exactly match a Riemann sum of `SolarNet Power battery charge` and `SolarNet Power battery discharge`.
+{% endimportant %}
 
 The energy meter integrated with Fronius devices can be installed (and configured) in two different installation positions: _"feed in path"_ (grid interconnection point) or _"consumption path"_.
 
@@ -182,7 +218,7 @@ Fronius often provides firmware updates for the datamanager interfaces and the d
 
 ## Known limitations
 
-The Solar API used by this integration is read-only. It does not provide any means to control the Fronius devices. Most Fronius devices however do support Modbus TCP directly, so the [Modbus integration](/integrations/modbus/) could be leveraged to control the devices from Home Assistant. Details about Modbus Registers can be found in the devices documentation or at the [Fronius website](https://www.fronius.com/).
+This integration only reads from Fronius devices. The Solar API is read-only, and the [Modbus TCP](#modbus-tcp) interface is used for reading only. Most Fronius devices do support writing over Modbus TCP, for example to limit output power or control battery charging, so you can use the [Modbus integration](/integrations/modbus/) to control them. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
 
 ## Troubleshooting
 
@@ -200,6 +236,14 @@ The Solar API used by this integration is read-only. It does not provide any mea
 
 Some data, like photovoltaic production, is only provided by the Fronius device when non-zero.
 When the integration is added at night, there might be no entities added providing photovoltaic related data. Entities will be added on sunrise, when the Fronius devices begin to provide more data.
+
+### No MPPT, PV energy, or battery energy entities
+
+These come from the device's [Modbus TCP](#modbus-tcp) interface.
+
+- Check that Modbus TCP is enabled on the device's web interface.
+- Check that the Modbus port configured in Home Assistant matches the device. Reconfigure the integration to change it.
+- Make sure the inverter is not in a power-saving mode. An inverter that is powered down doesn't answer, and the entities are added once it wakes up.
 
 ## Removing the integration
 
