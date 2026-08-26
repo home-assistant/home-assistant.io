@@ -527,6 +527,7 @@ knx:
     - type: binary
       entity_id: binary_sensor.kitchen_window
       address: "0/6/5"
+      send_on_init: true
 
     # state of an entity with default value
     - type: binary
@@ -606,6 +607,13 @@ respond_to_read:
   required: false
   type: boolean
   default: true
+send_on_init:
+  description: Sends the first valid value learned by the entity exposure to the KNX bus.
+    When disabled, Home Assistant initializes the first valid value locally without sending a telegram.
+    The value remains available for read responses and `periodic_send`. Subsequent value changes are sent normally.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 {% enddetails %}
@@ -630,6 +638,10 @@ default_entity_id:
     The `default_entity_id` is only used when the entity is added for the first time.
     After the entity is created, this configuration setting will no longer be used.
     You can change the entity ID in the Home Assistant UI.
+  required: false
+  type: string
+unique_id:
+  description: A custom unique ID for this entity. By default the unique ID is derived from the entity's group addresses. Set this to a stable value of your choice so the entity keeps its identity even if its group addresses change. When you add this option to an entity that already exists, its history, area, and other customizations are migrated to the new unique ID. Removing or changing the option again cannot restore the previous identity. The value must be unique among all entities of the same platform.
   required: false
   type: string
 entity_category:
@@ -659,6 +671,7 @@ knx:
   sensor:
     - name: Awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
+      unique_id: "never_change_me_1a2b3c4d"
       entity_category: diagnostic
       device:
         id: my_awesome_device
