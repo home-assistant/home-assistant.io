@@ -85,37 +85,9 @@ The integration creates a light entity for each Elgato Light device. You can con
 - **Studio mode**
   - **Description**: Toggles studio mode on the Key Light Mini. When studio mode is enabled, the device bypasses the battery and runs directly from the power adapter. Only available on Key Light Mini.
 
-## Actions
-
-### Action: Identify
-
-The `elgato.identify` action briefly blinks the Elgato Light. It was originally meant as a way to identify which light you are talking to, but it can also be used as a visual notification.
-
-This action works even when the light is turned off and turns the light back off after the identification sequence completes.
-
-{% my developer_call_service badge service="elgato.identify" %}
-
-- **Data attribute**: `entity_id`
-  - **Description**: String or list of Elgato light entity IDs.
-  - **Optional**: Yes
+{% include integrations/actions.md %}
 
 ## Examples
-
-### Visual doorbell notification
-
-Briefly flash the Elgato Light when your doorbell is pressed:
-
-```yaml
-alias: "Visual doorbell notification"
-triggers:
-  - trigger: state
-    entity_id: binary_sensor.doorbell
-    to: "on"
-actions:
-  - action: elgato.identify
-    target:
-      entity_id: light.elgato_key_light
-```
 
 ### Turn on lights when streaming software starts
 

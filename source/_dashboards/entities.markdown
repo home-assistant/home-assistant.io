@@ -48,11 +48,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: false
+  description: Set the icon color when the entity is active for all rows in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. To disable coloring, set to `none`. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
+  default: state
 header:
   required: false
   description: Header widget to render. See [header documentation](/dashboards/header-footer/).
@@ -90,21 +90,22 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `area`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
-  type: string
-format:
+  description: >
+    Show one or more pieces of additional info. Can be either a string with a single item, or a list of strings.
+    Valid values: `entity-id`, `last_changed`, `last_updated`, `area_name`, `floor_name`, `device_name`, `state`, or any attribute of the entity.
+  type: [string, list]
+time_format:
   required: false
-  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
+  description: "How timestamp states should be formatted. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
   type: [string, map]
 action_name:
   required: false
   description: Button label (only applies to `script` and `scene` rows).
   type: string
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: false
+  description: Set the icon color when the entity is active, overriding the card's `color` option for this row. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
 tap_action:
   required: false
   description: Action taken on row tap. See [action documentation](/dashboards/actions/#tap-action).
@@ -158,7 +159,7 @@ icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
   type: string
-format:
+time_format:
   required: false
   description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
   type: [string, map]
@@ -389,8 +390,8 @@ entities:
     name: Alarm Panel
   - device_tracker.demo_paulus
   - switch.decorative_lights
-  - group.all_lights
-  - group.all_locks
+  - light.home_lights
+  - lock.home_locks
 ```
 
 #### Buttons row

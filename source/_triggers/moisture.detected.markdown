@@ -2,7 +2,7 @@
 title: "Moisture detected"
 trigger: moisture.detected
 domain: moisture
-description: "Triggers after one or more moisture sensors start detecting moisture."
+description: "Triggers when one or more moisture sensors start detecting moisture."
 related_triggers:
   - moisture.cleared
   - moisture.changed
@@ -10,8 +10,6 @@ related_triggers:
 ---
 
 The **Moisture detected** trigger fires when one or more moisture binary sensors start detecting water. Use it with leak sensors under a sink, behind a dishwasher, next to a washing machine, or in a basement to react the moment water is present.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

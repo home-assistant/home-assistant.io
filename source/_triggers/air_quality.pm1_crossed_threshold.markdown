@@ -2,7 +2,7 @@
 title: "PM1 level crossed threshold"
 trigger: air_quality.pm1_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM1 levels cross a threshold."
+description: "Triggers when one or more PM1 levels cross a threshold."
 related_triggers:
   - air_quality.pm1_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM1 level crossed threshold** trigger fires when the PM1 (particulate matter 1 micrometer or smaller) reading on one or more air quality sensors crosses a specific level. PM1 particles are ultrafine, small enough to pass deep into the lungs and even enter the bloodstream. Everyday activities like burning candles, cooking, and using a fireplace produce these tiny particles.
 
 With this trigger, your air purifier switches on the second PM1 crosses your chosen limit, clearing the air before you even notice a difference. You also get the option to send a notification to your phone when candle smoke or cooking pushes ultrafine particles past a safe level, giving you peace of mind that the air your family breathes is being watched around the clock.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

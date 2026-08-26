@@ -1,14 +1,17 @@
 ---
 title: Steam
-description: Instructions on how to set up Steam sensors in Home Assistant.
+description: Instructions on how to set up Steam in Home Assistant.
 ha_category:
+  - Gaming
   - Social
+  - Image
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
 ha_platforms:
   - sensor
+  - image
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: service
@@ -38,6 +41,85 @@ To find an account's 64-bit SteamID:
 2. Open the dropdown menu labeled with your username.
 3. Select **Account details**.
    - Your **Steam ID** is displayed just below the label **Your-Account-Name Account**.
+
+## Supported functionality
+
+The **Steam** integration provides the following entities.
+
+### Sensors
+
+- **Primary sensor**
+  - **Name**: The Steam profile name of the account.
+  - **Description**: Represents the account's current presence status.
+  - **Available states**:
+    - Online
+    - Offline
+    - Away
+    - Busy
+    - Snooze
+    - Looking to play
+    - Looking to trade
+  - **Attributes**:
+    - **Account created**: The date and time when the Steam account was created.
+    - **Real name**: The user's real name, if provided on their Steam profile.
+
+- **Last online**
+  - **Description**: The date and time the Steam user was last seen online.
+
+- **Level**
+  - **Description**: The current Steam level of the user.
+
+- **Now playing**
+  - **Description**: The title of the game the user is currently playing.
+  - **Attributes**:
+    - **Steam App ID**: The Steam App ID of the currently played game.
+
+### Images
+
+Image entities provide artwork for the Steam account or the game the account is currently playing. Game-related image entities are only available while a game is actively being played.
+
+- **App icon**
+  - **Description**: The game's application icon.
+  - **Image size**: 32 × 32 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Avatar**
+  - **Description**: The Steam user's profile avatar.
+  - **Image size**: 184 × 184 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Header capsule**
+  - **Description**: The game's header artwork as displayed on its Steam store page.
+  - **Image size**: 460 × 215 px.
+
+- **Library capsule**
+  - **Description**: The game's vertical library artwork used in the Steam library.
+  - **Image size**: 600 × 900 px.
+
+- **Library hero capsule**
+  - **Description**: The game's wide hero artwork displayed at the top of the Steam library page.
+  - **Image size**: 1920 × 620 px.
+
+- **Library logo**
+  - **Description**: The transparent logo displayed on top of the library hero artwork.
+  - **Image size**: Varies by game.
+
+- **Main capsule**
+  - **Description**: The game's main capsule artwork used throughout the Steam store.
+  - **Image size**: 616 × 353 px.
+
+- **Page background**
+  - **Description**: The background artwork used on the game's Steam store page.
+  - **Image size**: 1438 × 810 px.
+
+- **Small capsule**
+  - **Description**: The game's small capsule artwork used in lists and search results.
+  - **Image size**: 231 × 87 px.
+  - **Remarks**: Entity disabled by default.
+
+- **Vertical capsule**
+  - **Description**: The game's vertical store capsule artwork.
+  - **Image size**: 374 × 448 px or 748 × 896 px.
 
 ## Examples
 

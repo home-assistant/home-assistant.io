@@ -12,8 +12,6 @@ related_conditions:
 
 The **Thermostat is heating** condition passes when a thermostat {% term entity %} is actively heating. A thermostat set to heat mode does not necessarily run continuously. It cycles on and off to maintain the target temperature. Use **Thermostat is heating** to confirm the system is in an active heating cycle, rather than just set to heat mode and idle.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Thermostat is heating** in an automation:

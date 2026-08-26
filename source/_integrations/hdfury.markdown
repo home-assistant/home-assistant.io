@@ -66,7 +66,7 @@ Below is a complete overview of the entities this integration provides.
 
 ### Select
 
-- Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
+- Operation Mode (Controls the device Operation Mode, such as Splitter or Matrix)
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
 

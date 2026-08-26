@@ -95,14 +95,14 @@ commands:
 {% endconfiguration %}
 
 {% warning %}
-In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
 
 ### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
-If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
+If the command is a word command, the `data` field contains a list of the command's arguments, that is, everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
 ### Comprehensive Configuration Example
 
@@ -281,84 +281,4 @@ data:
     thread_id: "{{ trigger.event.data.thread_parent }}"
 ```
 
-## Actions
-
-The integration also provides the following actions:
-
-### Sending a message
-
-As an alternative to using the notify integration as described above, you may use `matrix.send_message` to send a
-message to a Matrix room.
-
-```yaml
-action: matrix.send_message
-data:
-  message: "My cool message"
-  target: "#hasstest:matrix.org"
-  data:
-    images:
-      - /path/to/picture.jpg
-    format: html
-    thread_id: "$-abcdeghij_klmnopqrstuvwxyz123"
-```
-
-- **Data attribute**: `message`
-  - **Description**: The message body to send
-  - **Optional**: No
-  - **Type**: String
-
-- **Data attribute**: `target`
-  - **Description**: The room to send the message to
-  - **Optional**: No
-  - **Type**: String
-
-- **Data attribute**: `data`
-  - **Description**: Additional options
-  - **Optional**: Yes
-  - **Type**: Map
-  - **Sub-attributes**:
-    - **Data attribute**: `images`
-      - **Description**: One or more image paths to attach to the message
-      - **Optional**: Yes
-      - **Type**: List of strings
-    - **Data attribute**: `format`
-      - **Description**: The format of the message. Must be either `text` or `html`
-      - **Optional**: Yes
-      - **Default**: `text`
-      - **Type**: String
-    - **Data attribute**: `thread_id`
-      - **Description**: The ID of the parent message to thread this reply under
-      - **Optional**: Yes
-      - **Type**: String
-
-### Reacting to messages
-
-To react to a message with an emoji reaction, use the `matrix.react` action:
-
-```yaml
-action: matrix.react
-data:
-  reaction: "✅"
-  room: "{{ trigger.event.data.room }}"
-  message_id: "{{ trigger.event.data.event_id }}"
-```
-
-{% tip %}
-Reactions do not have to be an emoji. They can be any valid string. However, emoji are the typical/traditional use
-case.
-{% endtip %}
-
-- **Data attribute**: `reaction`
-  - **Description**: The reaction to send
-  - **Optional**: No
-  - **Type**: String
-
-- **Data attribute**: `room`
-  - **Description**: The room to send the reaction in
-  - **Optional**: No
-  - **Type**: String
-
-- **Data attribute**: `message_id`
-  - **Description**: The ID of the message to apply the reaction to
-  - **Optional**: No
-  - **Type**: String
+{% include integrations/actions.md %}

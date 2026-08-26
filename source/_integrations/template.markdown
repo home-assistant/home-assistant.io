@@ -226,7 +226,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface. Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -304,6 +304,16 @@ alarm_control_panel:
       description: Defines an action to run when the alarm is armed to vacation mode.
       required: false
       type: action
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `code_format`, `changed_by`, and `code_arm_required`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     code_arm_required:
       description: If true, the code is required to arm the alarm.
       required: false
@@ -529,6 +539,15 @@ button:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     press:
       description: Defines actions to run to press the button.
       required: true
@@ -577,6 +596,16 @@ cover:
   description: Characteristics of a cover
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     close_cover:
       description: Defines an action to close the cover.
       required: inclusive
@@ -735,6 +764,16 @@ device_tracker:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     in_zones:
       description: Defines a template for a list of zones for the device_tracker. The list must contain `zone` entity IDs. The list of zones has a lower priority than `latitude` and `longitude`. If the `in_zones` template is omitted, `latitude` and `longitude` are required.
       required: false
@@ -897,6 +936,16 @@ fan:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     direction:
       description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
       required: false
@@ -1001,7 +1050,7 @@ template:
 
 ### State based fan - Fan with preset modes
 
-This example uses an existing fan with only a percentage. It extends the percentage value into useable preset modes without a helper entity.
+This example uses an existing fan with only a percentage. It extends the percentage value into usable preset modes without a helper entity.
 
 ```yaml
 template:
@@ -1096,6 +1145,15 @@ image:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `access_token` attribute is not allow inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     url:
       description: The URL on which the image is served.
       required: true
@@ -1106,6 +1164,11 @@ image:
       type: boolean
       default: true
 {% endconfiguration %}
+
+### Using locally hosted images
+
+You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
+
 
 ## Light
 
@@ -1271,6 +1334,16 @@ light:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     effect:
       description: Defines a template to get the effect of the light.
       required: inclusive
@@ -1549,6 +1622,16 @@ lock:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     code_format:
       description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is `unavailable`. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
       required: false
@@ -1714,6 +1797,16 @@ number:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     max:
       description: Template for the number's maximum value.
       required: false
@@ -1734,7 +1827,7 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value. When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -1816,6 +1909,15 @@ select:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `options` attribute is not allow inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     optimistic:
       description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select updates only when the `state` template returns a new value.
       required: false
@@ -2066,6 +2168,15 @@ switch:
   required: true
   type: map
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     optimistic:
       description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch updates only when the `state` template returns a new value.
       required: false
@@ -2200,6 +2311,16 @@ update:
   required: true
   type: map
   keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `auto_update`, `display_precision`, `installed_version`, `in_progress`, `latest_version`, `release_summary`, `release_url`, `skipped_version`, `title`, `update_percentage`, and `device_class`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     backup:
       default: false
       description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable always provides `False` during the `install` action, and it does not accept the `backup` option.
@@ -2219,11 +2340,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2431,7 +2552,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can be created from the frontend in the Helpers section or via YAML.
+State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -2451,9 +2572,9 @@ template:
   - triggers:
       - trigger: state
         entity_id:
-        - weather.my_region
-        - sensor.temperature
-        - sensor.humidity
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
     weather:
       - name: "My Weather Station"
         condition: "{{ states('weather.my_region') }}"
@@ -2473,6 +2594,16 @@ weather:
       description: The current apparent (feels-like) temperature.
       required: false
       type: template
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `temperature`, `apparent_temperature`, `dew_point`, `temperature_unit`, `humidity`, `ozone`, `cloud_coverage`, `uv_index`, `pressure`, `pressure_unit`, `wind_bearing`, `wind_gust_speed`, `wind_speed`, `wind_speed_unit`, `visibility`, `visibility_unit`, and `precipitation_unit`.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     cloud_coverage:
       description: The current cloud coverage.
       required: false
@@ -2558,11 +2689,11 @@ weather:
 
 ### Condition
 
-The `condition` *must* match one of the Home Assistant defined conditons. See [here](/integrations/weather/#condition-mapping). If it does, not the state will be 'unknown' so will not be useable in a dashboard.
+The `condition` *must* match one of the Home Assistant defined conditions. See the [weather condition mapping](/integrations/weather/#condition-mapping). If it does not, the state will be 'unknown' so will not be usable in a dashboard.
 
 ### Weather Forecast data
 
-The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
 
 #### Hourly Weather Forecast
 
@@ -2574,7 +2705,7 @@ The `daily` forecast should contain dictionaries, where each dictionary represen
 
 #### Twice Daily Weather Forecast
 
-The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe. The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone. Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 
@@ -2603,7 +2734,7 @@ template:
 
 #### Video tutorial
 
-This video tutorial explains how to set up a trigger based template that makes use of an action to retrieve the weather forecast (precipitation).
+This video tutorial explains how to set up a trigger based template that uses an action to retrieve the weather forecast (precipitation).
 
 <lite-youtube videoid="zrWqDjaRBf0" videotitle="How to create Action Template Sensors in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
@@ -2735,6 +2866,28 @@ template:
 
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
 
+## Automation template trigger
+
+The automation template trigger runs an automation when a template changes from false to true. It is useful when the condition you need cannot be expressed with a state, numeric state, or device trigger.
+
+A template is considered true when it renders `true`, `yes`, `on`, `enable`, or a non-zero number. It is considered false when it renders any other value.
+
+{% example %}
+trigger: |
+  trigger: template
+  value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+  for:
+    minutes: 5
+{% endexample %}
+
+Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
+
+You can use `for` to require the template to stay true for a set time. Templates in `for` are evaluated when `value_template` becomes true.
+
+{% note %}
+The `for` option does not survive a Home Assistant restart or the reload of automations. To keep a time target across restarts, store the target time in an `input_datetime` helper and use that helper in your automation.
+{% endnote %}
+
 ## Considerations
 
 ### Startup
@@ -2756,7 +2909,7 @@ Each blueprint contains the "recipe" for creating a single template entity, but 
 To create your first template entity based on a blueprint, open up your `configuration.yaml` file and add:
 
 ```yaml
-# Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
+# Example configuration.yaml template entity based on a blueprint located in config/blueprints/template/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
       path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/

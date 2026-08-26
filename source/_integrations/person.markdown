@@ -8,9 +8,14 @@ ha_quality_scale: internal
 ha_domain: person
 ha_iot_class: Calculated
 ha_integration_type: system
+related:
+  - docs: /integrations/device_tracker/
+    title: Device tracker
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
-The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
+The **Person** {% term integration %} allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. You can use person entities with [zones](/integrations/zone/) to create automations that react when someone enters or leaves a place. The state updates of a connected device tracker set the state of the person. When you use multiple device trackers, the state of the person is determined in this order:
 
 1. If one or more [connection trackers](/integrations/device_tracker/#connection-trackers) are connected, the tracker most recently updated will be used.
 2. If there are [position trackers](/integrations/device_tracker/#position-trackers), the most recently updated tracker will be used.
@@ -32,6 +37,12 @@ In addition to the state, the person will have the state attributes `latitude`, 
 
 You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %} or via YAML in your {% term "`configuration.yaml`" %} file.
 
+## Triggers
+
+Person entities work with the [Zone entered](/triggers/zone.entered/) and [Zone left](/triggers/zone.left/) triggers, so you can run automations when a person enters or leaves a zone. This is useful for presence automations such as turning on lights when you arrive home or sending a notification when someone leaves a place.
+
+You can also use a [state trigger](/triggers/state/) to react to the state of a person entity, such as `home`, `not_home`, or the name of a zone.
+
 ## Adding a person to Home Assistant
 
 If you have administrator rights, you can add other persons to Home Assistant and create user accounts for them. Depending on the rights you give them, they can then use Home Assistant on their own devices, have their own dashboards, and be included in automations.
@@ -39,21 +50,31 @@ If you have administrator rights, you can add other persons to Home Assistant an
 1. Go to {% my people title="**Settings** > **People**" %} and select **Add person**.
 2. Enter their **Name**.
 3. Add an image if you like.
-4. Under **Allow login**, select whether they should be able to sign in.
+4. Decide whether they should be able to sign in.
    - If they cannot sign in, they do not get a user account and cannot do much with Home Assistant.
    - They cannot have their own dashboard, for example.
    - But they can still be used for device tracking, show up on a map, and be included in automations.
-5. If they are able to sign in, fill in the user information.
+5. If they can sign in, turn on **Allow login**. This opens the **Add user** dialog, where you fill in the user information.
    - Check if the username is correct. Home Assistant suggests one based on the person name, but the two do not have to be identical.
      - The username must be lowercase and contain no spaces.
      - The username is required to sign in.
      - The person name is the name displayed in the UI.
-   - Enter a password and store it in a safe location.
+   - Enter a password, confirm it, and store it in a safe location.
    - Define if they should have **Local access only**.
      - If this is enabled, they won't have access to Home Assistant when they are outside your network, for example, from their phone.
    - Define if they should have **Administrator** rights.
-   - Select **Create**.
+   - Select **Create** to create the user account and return to the person dialog.
 6. If you have already set up devices for [presence detection](/getting-started/presence-detection/), select the devices that belong to this person.
+7. To save the person, select **Add**.
+
+### Adding a device tracker to an existing person
+
+If you set up a new presence detection integration after creating a person, add the new device tracker to that person.
+
+1. Go to {% my people title="**Settings** > **People**" %} and select the person.
+2. Under **Select the devices that belong to this person**, select **Add entity**.
+3. Select the device tracker entity you want to add.
+4. Select **Save**.
 
 ### Customizing the picture for a person
 

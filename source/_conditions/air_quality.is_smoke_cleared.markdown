@@ -9,8 +9,6 @@ related_conditions:
 
 The **Smoke cleared** condition passes when one or more smoke sensors are no longer detecting smoke. After a smoke event, the last thing you want is to restore normal lighting or send an all-clear while one room still has hazy air. This condition acts as your safety gate, letting your automation continue only after every sensor in the house confirms the air is clear again.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

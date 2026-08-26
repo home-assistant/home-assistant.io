@@ -29,7 +29,7 @@ An OAUTH2 authentication flow is not supported for the IMAP integration. This me
 
 ### Google Gmail IMAP service
 
-If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
+If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account. Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
 1. Go to your [Google Account](https://myaccount.google.com/)
 2. Select **Security**
@@ -39,7 +39,7 @@ If you’re going to use Gmail, 2-step verification must be enabled on your Gmai
 6. Give your app a name that makes sense to you (Home Assistant IMAP, for example).
 7. Click **Create**, then make a note of your 16-character app password for safekeeping (remove the spaces when you save it).
 8. Click **Done**.
-9. Add the IMAP Integration to your Home Assistant instance using the My button above.  Enter the following information as needed:
+9. Add the IMAP Integration to your Home Assistant instance using the My button above. Enter the following information as needed:
 
     - Username: Your Gmail email login
     - Password: your 16-character app password (without the spaces)
@@ -49,7 +49,7 @@ If you’re going to use Gmail, 2-step verification must be enabled on your Gmai
 10. Click **Submit**.
 11. Assign your integration to an "Area" if desired, then click **Finish**.
 
-Congratulations, you now have a sensor that counts the number of unread e-mails in your Gmail account.  From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
+Congratulations, you now have a sensor that counts the number of unread emails in your Gmail account. From here you can create additional sensors based upon the data that comes through the event bus when there's a new message detected.
 
 ### Configuring IMAP Searches
 
@@ -161,127 +161,7 @@ template:
           Received-last: "{{ trigger.event.data['headers'].get('Received',['n/a'])[-1] }}"
 ```
 
-### Actions for post-processing
-
-The IMAP integration has some actions for post-pressing email messages. The actions are intended to be used in automations as actions after an "imap_content" event. The actions require the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the action is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
-
-#### Action `seen` - Mark the message as seen
-
-| Data attribute | Type | Optional | Description |
-| -- | -- | -- | -- |
-| `entry_id` | string | no | The IMAP config entry ID. |
-| `uid` | string |  no | The `uid` of the message to be marked as "seen". To be found in the message's event data. |
-
-#### Action `move` - Move the IMAP message
-
-| Data attribute | Type | Optional | Description |
-| -- | -- | -- | -- |
-| `entry_id` | string | no | The IMAP config entry ID. |
-| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
-| `target_folder` | string | no | The name of the target folder, for example `INBOX/Trash` (or `INBOX.Trash`) on older systems, where the message should be moved to. |
-| `seen` | boolean | yes | If set to `true` this will mark the message as "seen". |
-
-{% important %}
-Make sure to use the correct IMAP folder separator char. The table below show common used IMAP folder separator characters:
-
-| Mailserver            | Separator            |
-|-----------------------|----------------------|
-| Gmail                 | /                    |
-| Dovecot               | . (but often /)      |
-| Courier IMAP          | .                    |
-| Cyrus IMAP            | /                    |
-| Microsoft Exchange    | /                    |
-| Zimbra                | /                    |
-| Yahoo Mail            | /                    |
-{% endimportant %}
-
-#### Action `delete` - Delete the IMAP message
-
-| Data attribute | Type | Optional | Description |
-| -- | -- | -- | -- |
-| `entry_id` | string | no | The IMAP config entry ID. |
-| `uid` | string | no | The `uid` of the message to be deleted. To be found in the message's event data. |
-
-{% caution %}
-When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, moved or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
-{% endcaution %}
-
-#### Action `fetch` - Fetch the an IMAP message
-
-Fetches the text body and retrieves metadata about the parts inside the IMAP message.
-
-| Data attribute | Type | Optional | Description |
-| -- | -- | -- | -- |
-| `entry_id` | string | no | The IMAP config entry ID. |
-| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
-
-##### Return values for the `fetch` action
-
-{% configuration_basic %}
-text:
-  description: The plain text version of the fetched email.
-subject:
-  description: The subject of the fetched email.
-sender:
-  description: The sender's email address of the fetched email.
-uid:
-  description: The UID of the message.
-parts:
-  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size.
-  type: map
-  keys:
-    content_type:
-      description: The MIME content type of the message part, for example "image/jpeg"
-    content_transfer_encoding:
-      description: The encoding of returned message part.
-    filename:
-      description: The file name of the message. The file name is only available if it is available.
-{% endconfiguration_basic %}
-
-##### Example of `parts` data in the return variable for a multipart message:
-
-```json
-{
-    "0,0": {
-        "content_type": "text/plain",
-        "content_transfer_encoding": "7bit"
-    },
-    "0,1": {
-        "content_type": "text/html",
-        "content_transfer_encoding": "7bit"
-    },
-    "1": {
-        "content_type": "text/plain",
-        "filename": "Text attachment content.txt",
-        "content_transfer_encoding": "base64"
-    },
-}
-```
-
-#### Action `fetch_part` - Fetch a part or attachement from an IMAP message
-
-| Data attribute | Type | Optional | Description |
-| -- | -- | -- | -- |
-| `entry_id` | string | no | The IMAP config entry ID. |
-| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
-| `part` | string |  no | The index of the message part that is to be returned. Use the `part` info in the message's event data or from the `fetch` action, to receive the available parts. |
-
-##### Return values for the `fetch_part` action
-
-{% configuration_basic %}
-part_data:
-  description: The encoded data of the fetched message part.
-content_type:
-  description: The MIME content type of the message part, for example "image/jpeg".
-content_transfer_encoding:
-  description: The encoding of the data in `part_data`.
-file_name:
-  description: The filename of the message part, in case the part is added as an attachment. Will be `null` if no filename is set.
-uid:
-  description: The UID of the message.
-part:
-  description: The part index. 
-{% endconfiguration_basic %}
+{% include integrations/actions.md %}
 
 ## Example - post-processing
 
@@ -313,7 +193,7 @@ actions:
       message: "{{ message_text['subject'] }}"
 ```
 
-In case you want want to process a message part, use the `fetch_part` action, and specify the `part` option. 
+In case you want to process a message part, use the `fetch_part` action, and specify the `part` option. 
 
 ```yaml
 alias: "imap fetch and seen example"
@@ -437,7 +317,7 @@ template:
         event_type: "imap_content"
         id: "custom_event"
         event_data:
-          custom: True
+          custom: true
     sensor:
       - name: event filtered by template
         state: '{{ trigger.event.data["subject"] }}'

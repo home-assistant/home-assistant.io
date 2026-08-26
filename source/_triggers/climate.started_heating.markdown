@@ -2,7 +2,7 @@
 title: "Thermostat started heating"
 trigger: climate.started_heating
 domain: climate
-description: "Triggers after one or more thermostats start heating."
+description: "Triggers when one or more thermostats start heating."
 related_triggers:
   - climate.started_cooling
   - climate.started_drying
@@ -12,8 +12,6 @@ related_triggers:
 The **Thermostat started heating** trigger fires after a thermostat {% term entity %} begins actively heating. This trigger monitors the `hvac_action` attribute rather than the HVAC mode. A thermostat can be set to **Heat** mode but still be idle if the current temperature already meets the target. The trigger only fires when the thermostat actually starts producing heat.
 
 Use this trigger to react to the start of active heating, for example to turn on a fan to distribute warm air or to close window coverings to retain heat.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
