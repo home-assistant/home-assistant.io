@@ -126,6 +126,16 @@ The integration {% term polling polls %} the controller over Modbus TCP at a fix
 
 If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), all entities transition to `unavailable` until the next successful poll.
 
+## Diagnostics
+
+This integration provides diagnostic information to help with troubleshooting. To download the diagnostics data:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the NeoPool integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
+
+The downloaded file includes the config entry, the latest data read from the controller, and connection statistics. Sensitive values such as the host, port, and the controller's serial number are redacted and appear as `**REDACTED**`.
+
 ## Known limitations
 
 - **Discovery is not supported.** Modbus TCP gateways do not expose a standard discovery protocol that uniquely identifies a NeoPool controller behind the gateway, so the integration must be configured manually.

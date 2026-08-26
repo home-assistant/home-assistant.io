@@ -8,7 +8,7 @@ ha_category:
 ha_codeowners:
   - '@AjinkyaGokhale'
   - '@amitkio'
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_domain: energieleser
 ha_integration_type: device
 ha_iot_class: Local Polling
