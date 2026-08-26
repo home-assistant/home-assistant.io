@@ -125,7 +125,7 @@ Modbus is optional. If it isn't enabled, or the inverter is powered down, no Mod
 
 To enable it on the device's web interface:
 
-- Gen24, Tauro, and Verto: go to **Communication** > **Modbus** and turn on the Modbus TCP server.
+- Gen24, Tauro, and Verto: go to **Communication** > **Modbus** and turn on the Modbus TCP server (on-screen label: **Slave as Modbus TCP**).
 - Devices with a Datamanager: go to **Settings** > **Modbus** and set **Data output via Modbus** to **TCP**. One Datamanager serves every inverter in its SolarNet ring.
 
 {% note %}
@@ -138,8 +138,6 @@ These entities are added per inverter and updated every minute:
 - `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
 - `PV energy total`: lifetime energy from the photovoltaic strings only, measured on the DC side.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
-
-The connection is shared with the [Modbus integration](/integrations/modbus/) and any other integration talking to the same device, so using both doesn't open a second connection to the inverter.
 
 ### Controlling the inverter over Modbus
 
@@ -274,7 +272,7 @@ Fronius often provides firmware updates for the datamanager interfaces and the d
 
 The Solar API is read-only, so everything this integration changes on a device goes over [Modbus TCP](#modbus-tcp), and only what the SunSpec models expose: the output power limit and the battery charge, discharge, and reserve setpoints. Every setpoint is a percentage. Fronius exposes no absolute watt setting, and no maximum state of charge.
 
-For anything beyond that, the [Modbus integration](/integrations/modbus/) can address the same device directly. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
+Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
 
 ## Troubleshooting
 
