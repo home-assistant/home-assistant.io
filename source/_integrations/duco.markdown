@@ -51,7 +51,7 @@ Other Duco systems that expose public API version 2.1 or newer can also be set u
 
 The following node types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state select, ventilation state, target flow level, state end time, air temperatures, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor. Models that expose bypass supply targets provide temperature controls for the zones they expose (up to zones 1 through 4).
+- **BOX**: The main ventilation box; provides fan control, ventilation state select, ventilation state, target flow level, state end time, air temperatures, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor. Models that expose bypass supply targets provide temperature controls for each zone reported by the system.
 - **BSCO2**: CO₂ sensor module wired directly to the DucoBox PCB; provides CO₂ concentration and CO₂ air quality index.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
@@ -115,7 +115,7 @@ Home Assistant only shows the options advertised by your Duco system for that sp
 
 #### Bypass supply target temperatures
 
-Some Duco systems expose bypass supply target temperatures for up to four zones. When available, Home Assistant creates a number entity for each zone. You can use these entities to view and set the target temperature in your configured temperature unit. The available range and increment come from your Duco system.
+Some Duco systems expose bypass supply target temperatures. When available, Home Assistant creates a number entity for each zone reported by your Duco system. You can use these entities to view and set the target temperature in your configured temperature unit. The available range and increment come from your Duco system.
 
 If your Duco system does not expose a target for a zone, Home Assistant does not create the related number entity.
 
