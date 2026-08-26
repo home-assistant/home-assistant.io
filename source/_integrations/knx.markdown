@@ -154,7 +154,36 @@ Group monitor history:
   description: "Hours of telegram history to load when you open the group monitor."
 Retention period:
   description: "Days to keep telegram history. Older telegrams are automatically deleted during the nightly cleanup. Set this to `0` to delete all telegram history every night."
+Telegram storage backend:
+  description: "Where KNX telegrams are stored. Select **Internal storage (Default)** to keep them in the internal SQLite telegram store, or **PostgreSQL (External)** to store them in a separate PostgreSQL database. See [PostgreSQL telegram store](#postgresql-telegram-store) for details."
 {% endconfiguration_basic %}
+
+### PostgreSQL telegram store
+
+By default, Home Assistant stores KNX telegram history in an internal SQLite telegram store. If you would rather keep this history in an external database, select the **PostgreSQL (External)** storage backend. This is useful when you want to keep long-term telegram history in a dedicated time-series database, query it with other tools, or share it with analysis tools.
+
+The PostgreSQL backend works with any PostgreSQL server. When the [TimescaleDB](https://www.timescale.com/) extension is available, it is used automatically: telegrams are stored in a hypertable and older data is compressed. Without the extension, telegrams are stored in regular PostgreSQL tables with identical functionality. The first time Home Assistant connects, it creates the tables it needs (and enables the TimescaleDB extension when available). The database must already exist, and the account you provide needs permission to create tables in it.
+
+When you select **PostgreSQL (External)** and continue, Home Assistant asks for the connection details and checks that it can reach the server before saving:
+
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of the PostgreSQL server."
+Port:
+  description: "Port the PostgreSQL server listens on. The default is `5432`."
+Username:
+  description: "Username used to connect to the PostgreSQL server."
+Password:
+  description: "Password for the account. Leave blank to keep the current password."
+Database name:
+  description: "Name of the existing database to store telegrams in."
+Use TLS:
+  description: "Encrypt the connection to the PostgreSQL server with TLS."
+{% endconfiguration_basic %}
+
+{% note %}
+The connection check confirms that Home Assistant can reach the server and sign in. TimescaleDB is detected automatically and is not required.
+{% endnote %}
 
 ## Basic configuration
 
@@ -498,6 +527,7 @@ knx:
     - type: binary
       entity_id: binary_sensor.kitchen_window
       address: "0/6/5"
+      send_on_init: true
 
     # state of an entity with default value
     - type: binary
@@ -577,6 +607,13 @@ respond_to_read:
   required: false
   type: boolean
   default: true
+send_on_init:
+  description: Sends the first valid value learned by the entity exposure to the KNX bus.
+    When disabled, Home Assistant initializes the first valid value locally without sending a telegram.
+    The value remains available for read responses and `periodic_send`. Subsequent value changes are sent normally.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 {% enddetails %}
