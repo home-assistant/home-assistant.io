@@ -6,6 +6,7 @@ ha_iot_class: Cloud Polling
 ha_category:
   - Alarm
   - Button
+  - Event
   - Lock
 ha_config_flow: true
 ha_codeowners:
@@ -29,6 +30,8 @@ There is currently support for the following device types within Home Assistant:
 
 - **Alarm control panel**: reports on the current alarm status and can be used to arm and disarm the system.
 - **CO detector**: reports on the carbon monoxide sensor status*.
+- **Camera**: reports motion.
+- **Doorbell**: reports detection.
 - **Entry sensor**: reports on the current entry sensor status*.
 - **Freeze sensor**: reports on the freeze sensor temperature*.
 - **Glass Break Sensor**: reports on the glass breakage sensor status*.
@@ -39,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - **Smoke+CO Detector**: reports on the smoke and carbon monoxide sensor status*.
 - **Water Sensor**: reports on water sensor status*.
 
-- Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
+\* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed. For cases where the default {% term polling %} interval of 30 seconds is too long for automations, enabling a secret alert in the SimpliSafe app will let Home Assistant automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way SimpliSafe implements secret alerts, you can only receive push notifications when devices are triggered, not when they are cleared.
 
 ## SimpliSafe Plans
 
@@ -57,95 +60,68 @@ SimpliSafe authenticates users via its web app. Due to technical limitations, th
 
 {% include integrations/actions.md %}
 
-## Events
+## System events
 
-### `SIMPLISAFE_EVENT`
+Each SimpliSafe system provides a system event {% term entity %} that captures events from your security system with the following attributes:
 
-`SIMPLISAFE_EVENT` events represent events that appear on the timeline of the SimpliSafe
-web and mobile apps. When received, they come with event data that contains the
-following keys:
+- `event_type`, always one of the following:
+  - **Automatic test** (`automatic_test`)
+  - **Device test** (`device_test`)
+  - **Secret alert triggered** (`secret_alert_triggered`)
+  - **Sensor paired and named** (`sensor_paired_and_named`)
+  - **User initiated test** (`user_initiated_test`).
+- `changed_by`: The PIN that triggered the event (if applicable).
+- `info`: A human-friendly string describing the event in more detail.
+- `sensor_name`: The sensor that triggered the event (if applicable).
+- `sensor_serial`: The serial number of the sensor that triggered the event (if applicable).
+- `sensor_type`: The type of sensor that triggered the event (if applicable).
 
-- `last_event_changed_by`: the PIN that triggered the event (if appropriate)
-- `last_event_type`: the type of event
-- `last_event_info`: a human-friendly string describing the event in more detail
-- `last_event_sensor_name`: the sensor that triggered the event (if appropriate)
-- `last_event_sensor_serial`: the serial number of the sensor that triggered the event (if appropriate)
-- `last_event_sensor_type`: the type of sensor that triggered the event (if appropriate)
-- `system_id`: the system ID to which the event belongs
-- `last_event_timestamp`: the UTC datetime at which the event was received
+### Automation example: detecting secret alert events
 
-For example, when someone rings the doorbell, a
-`SIMPLISAFE_EVENT` event will fire with the following event data:
+Home Assistant already uses SimpliSafe secret alerts as triggers to turn on binary sensors. However, if you want to manually listen for them or adapt this example to listen for another type of system event, you can do the following:
 
-```python
-{
-    "event_type": "SIMPLISAFE_EVENT",
-    "data": {
-        "last_event_changed_by": "",
-        "last_event_type": "doorbell_detected",
-        "last_event_info": "Someone is at your \"Front Door\"",
-        "last_event_sensor_name": "Front Door",
-        "last_event_sensor_serial": "",
-        "last_event_sensor_type": "doorbell",
-        "system_id": [systemid],
-        "last_event_timestamp": "2021-01-28T22:01:32+00:00"
-    },
-    "origin": "LOCAL",
-    "time_fired": "2021-01-28T22:01:37.478539+00:00",
-    "context": {
-        "id": "[id]",
-        "parent_id": null,
-        "user_id": null
-    }
-}
-```
-
-`last_event_type` can have the following values:
-
-- `automatic_test`
-- `camera_motion_detected`
-- `doorbell_detected`
-- `device_test`
-- `secret_alert_triggered`
-- `sensor_paired_and_named`
-- `user_initiated_test`
-
-To build an automation using one of these, use `SIMPLISAFE_EVENT`
-as an event trigger, with `last_event_type` as the `event_data`.
-For example, the following will trigger when the doorbell rings:
-
-```yaml
-triggers:
-  - trigger: event
-    event_type: SIMPLISAFE_EVENT
-    event_data:
-        last_event_type: doorbell_detected
-```
-
-### Using secret alerts for sensor changes
-
-For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
-
-Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way Simplisafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
-
-For cases where you wish to reliably determine each time a binary sensor is triggered, do the following:
-
-1. Enable the secret alert for the device in the Simplisafe App.
+1. Enable the secret alert for the device in the SimpliSafe App.
 2. Make a note of the serial number of the device.
     - You can see it in the top-left corner of the page where you set the alert.
-3. Use the following event trigger:
+3. Use the **Event received** trigger on your system event entity, with a condition to match the sensor serial:
 
   ```yaml
   triggers:
-    - trigger: event
-      event_type: SIMPLISAFE_EVENT
-      event_data:
-          last_event_type: secret_alert_triggered
-          last_event_sensor_serial: "abc123xyz"  # Replace with your device's serial number (use lowercase letters)
+    - trigger: event.received
+      target:
+        entity_id: event.YOUR_SYSTEM_EVENTS_ENTITY
+      options:
+        event_type:
+          - secret_alert_triggered
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.to_state.attributes.sensor_serial == 'abc123xyz' }}"
   ```
 
 
-### `SIMPLISAFE_NOTIFICATION`
+## Camera events
+
+Each supported SimpliSafe camera (reports `camera_motion_detected`) and doorbell (reports `doorbell_detected`) also provides its own event {% term entity %}.
+
+### Automation example: doorbell notification
+
+{% example %}
+automation: |
+  - alias: "Notify me when the doorbell rings"
+    triggers:
+      - trigger: event.received
+        target:
+          entity_id: event.YOUR_DOORBELL
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.YOUR_PHONE
+        data:
+          message: "Someone is at the front door."
+{% endexample %}
+
+
+## `SIMPLISAFE_NOTIFICATION` events
 
 `SIMPLISAFE_NOTIFICATION` events represent system notifications that would appear in the
 messages section of the SimpliSafe web and mobile apps. When received, they come with

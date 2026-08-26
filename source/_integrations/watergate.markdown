@@ -84,6 +84,16 @@ The Watergate integration provides the following entities.
   - **Description**: Turns automatic leak shut-off on or off. When enabled, Sonic automatically closes the valve if it detects a potential leak.
   - **Remarks**: This is a configuration switch. When disabled, Sonic no longer closes the valve automatically on a detected leak. Leak detection and monitoring are not affected.
 
+#### Numbers
+
+- **Auto shut-off volume threshold**
+  - **Description**: The volume of water, in liters, that triggers the automatic shut-off.
+  - **Remarks**: This is a configuration entity. It has no effect while the **Auto shut-off** switch is turned off.
+
+- **Auto shut-off duration threshold**
+  - **Description**: The duration of continuous water flow, in minutes, that triggers the automatic shut-off.
+  - **Remarks**: This is a configuration entity. It has no effect while the **Auto shut-off** switch is turned off.
+
 #### Events
 
 - **Auto Shut-Off**
@@ -101,7 +111,7 @@ Thanks to the webhook option, Sonic will provide live telemetry every second whe
 
 ## Known limitations
 
-The integration does not provide the ability to set auto shut-off thresholds.
+The integration does not provide the ability to control the device buzzer, reboot the device, or change the device's Wi-Fi configuration.
 
 {% include integrations/config_flow.md %}
 

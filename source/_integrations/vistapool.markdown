@@ -8,6 +8,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Switch
   - Time
 ha_release: 2026.6
 ha_iot_class: Cloud Push
@@ -67,6 +68,27 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 ## Supported functionality
 
 The **Vistapool** integration provides the following entities.
+
+### Switches
+
+The integration provides the following switch {% term entities %}, grouped by what they control.
+
+#### Pool equipment
+
+- **Filtration**: toggle the filtration pump on or off.
+- **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way. This is useful for automations that need to reflect the actual relay state, not just the last command sent.
+
+#### Electrolysis / hydrolysis cell
+
+These are available if your controller has a hydrolysis or electrolysis module installed.
+
+- **Electrolysis cover**: enable cover-mode production reduction (lowers cell output while the pool cover is closed).
+- **Electrolysis boost**: enable boost dosing for shock chlorination.
+
+#### Mode toggles
+
+- **Heating climate**: switch heating into climate mode. Available only if your controller supports Heat mode.
+- **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports Smart mode.
 
 ### Buttons
 
