@@ -97,7 +97,7 @@ The following sensors are available for a Guntamatic BMK 20 heater:
   - **Unit**: None
 
 - **Status**:
-  - **Description**: Current operating state of the system
+  - **Description**: Current operating state of the system.
   - **Example value**: Service Ign.
   - **Unit**: None
 
@@ -107,19 +107,19 @@ The following sensors are available for a Guntamatic BMK 20 heater:
 Each connected heating circuit device provides the following sensors:
 
 - **Room temperature**:
-  - **Description**: Room temperature sensor reading for this heating circuit
+  - **Description**: Room temperature sensor reading for this heating circuit.
   - **Unit**: °C
 
 - **Flow temperature** (diagnostic):
-  - **Description**: Temperature of the water flowing towards this circuit
+  - **Description**: Temperature of the water flowing towards this circuit.
   - **Unit**: °C
 
 - **Pump** (diagnostic):
-  - **Description**: Operating mode of the circulation pump
+  - **Description**: Operating mode of the circulation pump.
   - **Possible values**: Auto, Non-stop, Off
 
 - **Program**:
-  - **Description**: Active program of this heating circuit
+  - **Description**: Active program of this heating circuit.
   - **Possible values**: Off, Timer, Heat, Setback mode, Setback mode until
 
 ### Additional sensors
