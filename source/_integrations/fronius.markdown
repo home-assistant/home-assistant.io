@@ -125,7 +125,7 @@ Modbus is optional. If it isn't enabled, or the inverter is powered down, no Mod
 
 To enable it on the device's web interface:
 
-- Gen24, Tauro, and Verto: go to **Communication** > **Modbus** and turn on the Modbus TCP server (on-screen label: **Slave as Modbus TCP**).
+- Gen24, Tauro, and Verto: go to **Communication** > **Modbus** and turn on the Modbus TCP server.
 - Devices with a Datamanager: go to **Settings** > **Modbus** and set **Data output via Modbus** to **TCP**. One Datamanager serves every inverter in its SolarNet ring.
 
 {% note %}
