@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - **Smoke+CO Detector**: reports on the smoke and carbon monoxide sensor status*.
 - **Water Sensor**: reports on water sensor status*.
 
-\* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed. For cases where the default {% term polling %} interval of 30 seconds is too long for automations, enabling a secret alert in the SimpliSafe app will let Home Assistant automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way SimpliSafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared.
+\* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed. For cases where the default {% term polling %} interval of 30 seconds is too long for automations, enabling a secret alert in the SimpliSafe app will let Home Assistant automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way SimpliSafe implements secret alerts, you can only receive push notifications when devices are triggered, not when they are cleared.
 
 ## SimpliSafe Plans
 
