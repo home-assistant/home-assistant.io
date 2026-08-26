@@ -304,7 +304,7 @@ alarm_control_panel:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `code_format`, `changed_by`, and `code_arm_required`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -375,7 +375,7 @@ binary_sensor:
     attributes:
       description: Defines templates for attributes of the entity.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -538,7 +538,7 @@ button:
     attributes:
       description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -596,7 +596,7 @@ cover:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -764,7 +764,7 @@ device_tracker:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -936,7 +936,7 @@ fan:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1144,7 +1144,7 @@ image:
     attributes:
       description: Defines templates for attributes of the entity. The `access_token` attribute is not allow inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1334,7 +1334,7 @@ light:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1622,7 +1622,7 @@ lock:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1797,7 +1797,7 @@ number:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1908,7 +1908,7 @@ select:
     attributes:
       description: Defines templates for attributes of the entity. The `options` attribute is not allow inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2001,7 +2001,7 @@ sensor:
     attributes:
       description: Defines templates for attributes of the entity.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2077,6 +2077,44 @@ template:
         availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
 
+### State based sensor - Reduce attribute template repetition
+
+Instead of reusing code in separate attributes, template the entire attribute field for the same result.
+
+#### Before
+
+```yaml
+template:
+  - sensor:
+    - name: "Light Diagnostics"
+      state: "{{ states.light | count }}"
+      attributes:
+        outside_lights: >
+          {{ states.light | map(attribute='entity_id') | match('search', '*outside') | list }}
+        lights_on: >
+          {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'on') | list }}
+        lights_off: >
+          {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'off') | list }}
+```
+
+#### After
+
+```yaml
+template:
+  - sensor:
+    - name: "Light Diagnostics"
+      state: "{{ states.light | count }}"
+      attributes: >
+        {% set lights = states.light | map(attribute='entity_id') | match('search', '*outside') | list %}
+        {{
+          {
+            "outside_lights": lights,
+            "lights_on": lights | select('is_state', 'on') | list,
+            "lights_off": lights | select('is_state', 'off') | list,
+          }
+        }}
+```
+
 ### Trigger based sensor - Using conditions to control updates
 
 This example shows how to store the last valid value of a temperature sensor. It updates as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state remains unchanged.
@@ -2144,7 +2182,7 @@ switch:
     attributes:
       description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2288,7 +2326,7 @@ update:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `auto_update`, `display_precision`, `installed_version`, `in_progress`, `latest_version`, `release_summary`, `release_url`, `skipped_version`, `title`, `update_percentage`, and `device_class`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2400,7 +2438,7 @@ vacuum:
     attributes:
       description: Defines templates for attributes of the entity.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2571,7 +2609,7 @@ weather:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `temperature`, `apparent_temperature`, `dew_point`, `temperature_unit`, `humidity`, `ozone`, `cloud_coverage`, `uv_index`, `pressure`, `pressure_unit`, `wind_bearing`, `wind_gust_speed`, `wind_speed`, `wind_speed_unit`, `visibility`, `visibility_unit`, and `precipitation_unit`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
