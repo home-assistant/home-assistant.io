@@ -28,7 +28,32 @@ ha_quality_scale: silver
 
 The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface so you can control [io-homecontrol](http://www.io-homecontrol.com) devices, such as windows, blinds, lights, and switches. The integration lets you start scenes configured on the KLF 200.
 
+## Prerequisites
+
 At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained from the [vendor's website](https://www.velux.com/klf200) and may be imported via the web interface of your KLF 200.
+
+1. Make sure you have the password for your gateway's wireless access point.
+    - You'll find it printed on the underside of your KLF 200 device.
+    - It is not the web login password.
+2. Reboot or power cycle the KLF 200 device.
+    - You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible.
+3. During configuration, keep your Home Assistant connected to your regular network.
+    - Don't connect to the device's wireless access point.
+
+{% include integrations/config_flow.md %}
+
+During configuration, you will be asked for a hostname and password:
+
+{% configuration_basic %}
+Hostname:
+    description: "The IP address or hostname of the KLF 200 gateway. You can find it in your router."
+Password:
+    description: "The password of the gateway's wireless access point. You can find it printed on the underside of the device. It is not the web login password."
+{% endconfiguration_basic %}
+
+Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
+
+## Entity platforms
 
 There is currently support for the following entity platforms:
 
@@ -39,8 +64,6 @@ There is currently support for the following entity platforms:
 - [Number](#number)
 - [Scene](#scene)
 - [Switch](#switch)
-
-## Entity platforms
 
 ### Binary sensor
 
@@ -119,30 +142,6 @@ Scenes are loaded when the integration is set up. Changes made to the scene list
 ### Switch
 
 On/off switches connected to the KLF 200 are exposed as switch entities.
-
-## Prerequisites
-
-1. Make sure you have the password for your gateway's wireless access point.
-    - You'll find it printed on the underside of your KLF 200 device.
-    - It is not the web login password.
-2. Reboot or power cycle the KLF 200 device.
-    - You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible.
-3. During configuration, keep your Home Assistant connected to your regular network.
-    - Don't connect to the device's wireless access point.
-
-{% include integrations/config_flow.md %}
-
-During configuration, you will be asked for a hostname and password:
-
-{% configuration_basic %}
-Hostname:
-    description: "The IP address or hostname of the KLF 200 gateway. You can find it in your router."
-Password:
-    description: "The password of the gateway's wireless access point. You can find it printed on the underside of the device. It is not the web login password."
-{% endconfiguration_basic %}
-
-Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
-
 ## Known limitations
 
 The number entities for the window opening limitation and the rain sensor binary sensor use the same data from the gateway. If you set the opening limitation to 11% or less, the rain sensor can show as wet even when no rain is detected.
