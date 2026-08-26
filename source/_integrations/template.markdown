@@ -2086,15 +2086,15 @@ To avoid repeating the same template in multiple attributes, you can template th
 ```yaml
 template:
   - sensor:
-    - name: "Light Diagnostics"
-      state: "{{ states.light | count }}"
-      attributes:
-        outside_lights: >
-          {{ states.light | map(attribute='entity_id') | match('search', '*outside') | list }}
-        lights_on: >
-          {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'on') | list }}
-        lights_off: >
-          {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'off') | list }}
+      - name: "Light Diagnostics"
+        state: "{{ states.light | count }}"
+        attributes:
+          outside_lights: >
+            {{ states.light | map(attribute='entity_id') | match('search', '*outside') | list }}
+          lights_on: >
+            {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'on') | list }}
+          lights_off: >
+            {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'off') | list }}
 ```
 
 #### After
@@ -2102,17 +2102,17 @@ template:
 ```yaml
 template:
   - sensor:
-    - name: "Light Diagnostics"
-      state: "{{ states.light | count }}"
-      attributes: >
-        {% set lights = states.light | map(attribute='entity_id') | match('search', '*outside') | list %}
-        {{
-          {
-            "outside_lights": lights,
-            "lights_on": lights | select('is_state', 'on') | list,
-            "lights_off": lights | select('is_state', 'off') | list,
-          }
-        }}
+      - name: "Light Diagnostics"
+        state: "{{ states.light | count }}"
+        attributes: >
+          {% set lights = states.light | map(attribute='entity_id') | match('search', '*outside') | list %}
+          {{
+            {
+              "outside_lights": lights,
+              "lights_on": lights | select('is_state', 'on') | list,
+              "lights_off": lights | select('is_state', 'off') | list,
+            }
+          }}
 ```
 
 ### Trigger based sensor - Using conditions to control updates
