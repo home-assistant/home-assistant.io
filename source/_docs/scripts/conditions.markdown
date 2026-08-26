@@ -164,149 +164,92 @@ conditions:
 
 ## Types of conditions
 
-A condition of an automation has a type that depends on the target of the condition, usually corresponding to the domain of the target. The following types are available.
+A condition of an automation has a type that depends on the target of the condition, usually corresponding to the domain of the target. Conditions are grouped in the following main types.
+
+For an overview of every condition across all integrations, refer to the [list of available conditions](/conditions/).
+
+### Air quality conditions
+
+For the full list of available conditions and its details, refer to the [Air quality conditions](/integrations/air_quality/#list-of-conditions).
 
 ### Alarm control panel conditions
 
-In YAML, use `condition: alarm_control_panel`.
-
 The available conditions are:
 
-- Alarm is disarmed (`is_armed`).
-- Alarm is armed home (`is_armed_home`).
-- Alarm is armed away (`is_armed_away`).
-- Alarm is armed night (`is_armed_night`).
-- Alarm is armed vacation (`is_armed_vacation`).
-- Alarm is disarmed (`is_disarmed`).
-- Alarm is triggered (`is_triggered`).
+- Alarm is armed (`alarm_control_panel.is_armed`).
+- Alarm is armed home (`alarm_control_panel.is_armed_home`).
+- Alarm is armed away (`alarm_control_panel.is_armed_away`).
+- Alarm is armed night (`alarm_control_panel.is_armed_night`).
+- Alarm is armed vacation (`alarm_control_panel.is_armed_vacation`).
+- Alarm is disarmed (`alarm_control_panel.is_disarmed`).
+- Alarm is triggered (`alarm_control_panel.is_triggered`).
+
+For information about each condition, refer to the [Alarm control panel conditions](/integrations/alarm_control_panel/#list-of-conditions).
 
 ### Assist satellite conditions
 
-In YAML, use `condition: assist_satellite`.
-
 The available conditions are:
 
-- Satellite is idle (`is_idle`).
-- Satellite is listening (`is_listening`).
-- Satellite is processing (`is_processing`).
-- Satellite is responding (`is_responding`).
+- Satellite is idle (`assist_satellite.is_idle`).
+- Satellite is listening (`assist_satellite.is_listening`).
+- Satellite is processing (`assist_satellite.is_processing`).
+- Satellite is responding (`assist_satellite.is_responding`).
+
+For information about each condition, refer to the [Assist satellite conditions](/integrations/assist_satellite/#list-of-conditions).
+
+### Battery conditions
+
+For the full list of available conditions and its details, refer to the [Battery conditions](/integrations/battery/#list-of-conditions).
+
+### Calendar conditions
+
+For the full list of available conditions and its details, refer to the [Calendar conditions](/integrations/calendar/#list-of-conditions).
 
 ### Climate conditions
 
-In YAML, use `condition: climate`.
-
 Some of the available conditions are:
 
-- Climate-control device is on (`is_on`).
-- Climate-control device is off (`is_off`).
-- Climate-control device is heating (`is_heating`).
-- Climate-control device is cooling (`is_cooling`).
-- Climate-control device is drying (`is_drying`).
+- Thermostat is on (`climate.is_on`).
+- Thermostat is off (`climate.is_off`).
+- Thermostat is heating (`climate.is_heating`).
+- Thermostat is cooling (`climate.is_cooling`).
+- Thermostat is drying (`climate.is_drying`).
 
-For more details, refer to [Climate conditions](/integrations/climate/#conditions).
+For the full list of available conditions and its details, refer to the [Climate conditions](/integrations/climate/#list-of-conditions).
 
 #### Example: Continue only if the climate is heating
 
 ```yaml
 conditions:
-  - condition: climate
-    type: is_heating
-    entity_id: climate.living_room
+  - condition: climate.is_heating
+    target:
+      entity_id: climate.living_room
 ```
 
-### Device tracker conditions
+### Counter conditions
 
-In YAML, use `condition: device_tracker`.
+For the full list of available conditions and its details, refer to the [Counter conditions](/integrations/counter/#list-of-conditions).
 
-The available conditions are:
+### Cover conditions
 
-- Device tracker is not home (`is_not_home`).
-- Device tracker is home (`is_home`).
-
-For more details, refer to [Device tracker conditions](/integrations/device_tracker/#conditions).
+For the full list of available conditions and its details, refer to the [Cover conditions](/integrations/cover/#list-of-conditions).
 
 ### Fan conditions
 
-In YAML, use `condition: fan`.
-
 The available conditions are:
 
-- Fan is on (`is_on`).
-- Fan is off (`is_off`).
+- Fan is on (`fan.is_on`).
+- Fan is off (`fan.is_off`).
 
-For more details, refer to [Fan conditions](/integrations/fan/#conditions).
+For information about each condition, refer to the [Fan conditions](/integrations/fan/#list-of-conditions).
 
-### Humidifier conditions
+### Generic conditions
 
-In YAML, use `condition: humidifier`.
+#### Device conditions
 
-Some of the available conditions are:
+Set of conditions provided by a device.
 
-- Humidifier is on (`is_on`).
-- Humidifier is off (`is_off`).
-- Humidifier is humidifying (`is_humidifying`).
-- Humidifier is drying (`is_drying`).
-
-For more details, refer to [Humidifier conditions](/integrations/humidifier/#conditions).
-
-### Lawn mower conditions
-
-In YAML, use `condition: lawn_mower`.
-
-The available conditions are:
-
-- Lawn mower is mowing (`is_mowing`).
-- Lawn mower is docked (`is_docked`).
-- Lawn mower is paused (`is_paused`).
-- Lawn mower is returning (`is_returning`).
-- Lawn mower is encountering an error (`is_encountering_an_error`).
-
-### Light conditions
-
-In YAML, use (`condition: light`).
-
-Some of the available conditions are:
-
-- Light is on (`is_on`).
-- Light is off (`is_off`).
-
-For more details, refer to [Light conditions](/integrations/light/#conditions).
-
-#### Example: Continue only if the living room light is on
-
-```yaml
-conditions:
-  - condition: light
-    type: is_on
-    entity_id: light.living_room
-```
-
-### Lock conditions
-
-In YAML, use `condition: lock`.
-
-The available conditions are:
-
-- Lock is locked (`is_locked`).
-- Lock is unlocked (`is_unlocked`).
-- Lock is open (`is_open`).
-- Lock is jammed (`is_jammed`).
-
-For more details, refer to [Lock conditions](/integrations/lock/#conditions).
-
-### Media player conditions
-
-In YAML, use `condition: media_player`.
-
-The available conditions are:
-
-- Media player is on (`is_on`).
-- Media player is off (`is_off`).
-- Media player is playing (`is_playing`).
-- Media player is paused (`is_paused`).
-- Media player is not playing (`is_not_playing`).
-
-### Numeric state condition
+#### Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
 
@@ -370,29 +313,7 @@ conditions:
     below: input_number.temperature_threshold_high
 ```
 
-### Person conditions
-
-In YAML, use `condition: person`.
-
-The available conditions are:
-
-- Person is home (`is_home`).
-- Person is not home (`is_not_home`).
-
-For more details, refer to [Person conditions](/integrations/person/#conditions).
-
-### Siren conditions
-
-In YAML, use `condition: siren`.
-
-The available conditions are:
-
-- Siren is on (`is_on`).
-- Siren is off (`is_off`).
-
-For more details, refer to [Siren conditions](/integrations/siren/#conditions).
-
-### State condition
+#### State condition
 
 Tests if an entity has a specified state.
 
@@ -519,7 +440,119 @@ conditions:
 
 The `for` template(s) will be evaluated when the condition is tested.
 
-### Sun condition
+### Garage door conditions
+
+For the full list of available conditions and details, refer to the [Garage door conditions](/integrations/garage_door/#list-of-conditions).
+
+### Humidifier conditions
+
+Some of the available conditions are:
+
+- Humidifier is on (`humidifier.is_on`).
+- Humidifier is off (`humidifier.is_off`).
+- Humidifier is humidifying (`humidifier.is_humidifying`).
+- Humidifier is drying (`humidifier.is_drying`).
+
+For the full list of available conditions and its details, refer to [Humidifier conditions](/integrations/humidifier/#list-of-conditions).
+
+### Humidity conditions
+
+For the full list of available conditions and its details, refer to the [Humidity conditions](/integrations/humidity/#list-of-conditions).
+
+### Lawn mower conditions
+
+The available conditions are:
+
+- Lawn mower is mowing (`lawn_mower.is_mowing`).
+- Lawn mower is docked (`lawn_mower.is_docked`).
+- Lawn mower is paused (`lawn_mower.is_paused`).
+- Lawn mower is returning (`lawn_mower.is_returning`).
+- Lawn mower is encountering an error (`lawn_mower.is_encountering_an_error`).
+
+For information about each condition, refer to the [Lawn mower conditions](/integrations/lawn_mower/#list-of-conditions).
+
+### Light conditions
+
+The available conditions are:
+
+- Light is on (`light.is_on`).
+- Light is off (`light.is_off`).
+- Light is off (`light.is_brightness`).
+
+For information about each condition, refer to the [Light conditions](/integrations/light/#list-of-conditions).
+
+#### Example: Continue only if the living room light is on
+
+```yaml
+conditions:
+  - condition: light.is_on
+    target:
+      entity_id: light.living_room
+```
+
+### Lock conditions
+
+The available conditions are:
+
+- Lock is locked (`lock.is_locked`).
+- Lock is unlocked (`lock.is_unlocked`).
+- Lock is open (`lock.is_open`).
+- Lock is jammed (`lock.is_jammed`).
+
+For information about each condition, refer to the [Lock conditions](/integrations/lock/#list-of-conditions).
+
+### Media player conditions
+
+Some of the available conditions are:
+
+- Media player is on (`media_player.is_on`).
+- Media player is off (`media_player.is_off`).
+- Media player is playing (`media_player.is_playing`).
+- Media player is paused (`media_player.is_paused`).
+- Media player is not playing (`media_player.is_not_playing`).
+
+For information about each condition, refer to the [Media player conditions](/integrations/media_player/#list-of-conditions).
+
+### Moisture conditions
+
+For the full list of available conditions and its details, refer to the [Moisture conditions](/integrations/moisture/#list-of-conditions).
+
+### Motion conditions
+
+For the full list of available conditions and its details, refer to the [Motion conditions](/integrations/motion/#list-of-conditions).
+
+### Power condition
+
+The available condition is: Power value (`power.is_value`).
+
+For details, refer to the [Power value](/conditions/power.is_value) condition page.
+
+### Remote conditions
+
+For the full list of available conditions and its details, refer to the [Remote conditions](/integrations/remote/#list-of-conditions).
+
+### Schedule conditions
+
+For the full list of available conditions and its details, refer to the [Schedule conditions](/integrations/schedule/#list-of-conditions).
+
+### Select condition
+
+The available condition is: Dropdown option is selected (`select.is_option_selected`).
+
+For details, refer to the [Dropdown option is selected](/conditions/select.is_option_selected) condition page.
+
+### Siren conditions
+
+The available conditions are:
+
+- Siren is on (`siren.is_on`).
+- Siren is off (`siren.is_off`).
+
+For information about each condition, refer to [Siren conditions](/integrations/siren/#list-of-conditions).
+
+### Sun conditions
+
+For the full list of available conditions and its details, refer to the [Sun conditions](/integrations/sun/#list-of-conditions).
 
 #### Sun state condition
 
@@ -528,17 +561,13 @@ The sun state can be used to test if the sun has set or risen.
 ```yaml
 conditions:
   - alias: "Sun up"
-    condition: state  # 'day' condition: from sunrise until sunset
-    entity_id: sun.sun
-    state: "above_horizon"
+    condition: sun.is_up
 ```
 
 ```yaml
 conditions:
   - alias: "Sun down"
-    condition: state  # from sunset until sunrise
-    entity_id: sun.sun
-    state: "below_horizon"
+    condition: sun.is_set
 ```
 
 #### Sun elevation condition
@@ -609,12 +638,18 @@ A visual timeline is provided below, showing an example of when these conditions
 
 ### Switch conditions
 
-In YAML, use `condition: switch`.
-
 The available conditions are:
 
-- Switch is on (`is_on`).
-- Switch is off (`is_off`).
+- Switch is on (`switch.is_on`).
+- Switch is off (`switch.is_off`).
+
+For information about each condition, refer to the [Switch conditions](/integrations/switch/#list-of-conditions).
+
+### Temperature condition
+
+The available condition is: Temperature value (`temperature.is_value`).
+
+For details, refer to the [Temperature value](/conditions/temperature.is_value) condition page.
 
 ### Template condition
 
@@ -689,6 +724,12 @@ It's also supported in script or automation `condition` actions:
 [template]: /docs/templating/
 [automation-templating]: /getting-started/automation-templating/
 
+### Text condition
+
+The available condition is: (`text.is_equal_to`).
+
+For details, refer to the [Text is equal to](/conditions/text.is_equal_to) condition page.
+
 ### Time condition
 
 The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
@@ -740,9 +781,17 @@ a referenced sensor or helper entity contains a timestamp with a date, the
 date part is fully ignored.
 {% endnote %}
 
-### Trigger condition
+### Timer conditions
 
-The trigger condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
+For the full list of available conditions and its details, refer to the [Timer conditions](/integrations/timer/#list-of-conditions).
+
+### To-do list conditions
+
+For the full list of available conditions and its details, refer to the [To-do list conditions](/integrations/todo/#list-of-conditions).
+
+### Triggered by condition
+
+The triggered by condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
 
 ```yaml
 conditions:
@@ -774,30 +823,46 @@ conditions:
       - event_2_trigger
 ```
 
+### Update conditions
+
+For the full list of available conditions and its details, refer to the [Update conditions](/integrations/update/#list-of-conditions).
+
 ### Vacuum conditions
 
-In YAML, use `condition: vacuum`.
+The available **Vacuum** conditions are:
 
-The available conditions are:
+- Vacuum is cleaning (`vacuum.is_cleaning`).
+- Vacuum is docked (`vacuum.is_docked`).
+- Vacuum is paused (`vacuum.is_paused`).
+- Vacuum is returning (`vacuum.is_returning`).
+- Vacuum is encountering an error (`vacuum.is_encountering_an_error`).
 
-- Vacuum is cleaning (`is_cleaning`).
-- Vacuum is docked (`is_docked`).
-- Vacuum is paused (`is_paused`).
-- Vacuum is returning (`is_returning`).
-- Vacuum is encountering an error (`is_encountering_an_error`).
+For information about adding vacuum conditions in an automation and examples, refer to [Vacuum conditions](/integrations/vacuum/#list-of-conditions).
 
-For information about adding vacuum conditions in an automation and examples, refer to [Vacuum conditions](/integrations/vacuum/#conditions).
+### Valve conditions
 
-### Zone condition
+For the full list of available conditions and its details, refer to the [Valve conditions](/integrations/valve/#list-of-conditions).
+
+### Water heater conditions
+
+For the full list of available conditions and its details, refer to the [Water heater conditions](/integrations/water-heater/#list-of-conditions).
+
+### Zone conditions
 
 Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
+
+For the full list of available conditions and its details, refer to the [Zone conditions](/integrations/zone/#list-of-conditions).
+
+#### YAML examples
 
 ```yaml
 conditions:
   - alias: "Paulus at home"
-    condition: zone
-    entity_id: device_tracker.paulus
-    zone: zone.home
+    condition: zone.in_zone
+    target:
+      entity_id: device_tracker.paulus
+    options:
+      zone: zone.home
 ```
 
 It is also possible to test the condition against multiple entities at once.
@@ -805,23 +870,30 @@ The condition will pass if all entities are in the specified zone.
 
 ```yaml
 conditions:
-  - condition: zone
-    entity_id:
-      - device_tracker.frenck
-      - device_tracker.daphne
-    zone: zone.home
+  - condition: zone.in_zone
+    target:
+      entity_id:
+        - device_tracker.frenck
+        - device_tracker.daphne
+    options:
+      zone: zone.home
 ```
 
-Testing if an entity is matching a set of possible zones;
-The condition will pass if the entity is in one of the zones.
+To test if an entity is matching a set of possible zones, you need to add two zone conditions in an **Or** condition block.
 
 ```yaml
+condition: or
 conditions:
-  - condition: zone
-    entity_id: device_tracker.paulus
-    state:
-      - zone.home
-      - zone.work
+  - condition: zone.in_zone
+    target:
+      entity_id: device_tracker.paulus
+    options:
+      zone: zone.home
+  - condition: zone.in_zone
+    target:
+      entity_id: device_tracker.paulus
+    options:
+      zone: zone.work
 ```
 
 Or, combine multiple entities with multiple zones. In the following example,
@@ -830,14 +902,22 @@ to pass.
 
 ```yaml
 conditions:
-  condition: zone
-  entity_id:
-    - device_tracker.frenck
-    - device_tracker.daphne
-  state:
-    - zone.home
-    - zone.work
-```
+  - condition: or
+    conditions:
+      - condition: zone.in_zone
+        target:
+          entity_id:
+            - device_tracker.frenck
+            - device_tracker.daphne
+        options:
+          zone: zone.home
+      - condition: zone.in_zone
+        target:
+          entity_id:
+            - device_tracker.frenck
+            - device_tracker.daphne
+        options:
+          zone: zone.work
 
 ## Examples
 
