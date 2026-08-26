@@ -26,9 +26,9 @@ Forecast.Solar uses data from the [EU Photovoltaic Geographical Information Syst
 
 To create a forecast, the integration needs a few details about your solar setup:
 
-- **Location**: The latitude and longitude of your panels. By default, the integration tracks your Home Assistant home location, so it keeps working automatically if you move it, such as for a solar setup on a camper, RV, or boat. You can turn this off and enter a fixed latitude and longitude instead.
+- **Location**: The latitude and longitude of your panels. By default, the integration tracks your Home Assistant home location, so it keeps working automatically if you move it, such as for a solar setup on a camper van, motorhome, or boat. You can turn this off and enter a fixed latitude and longitude instead.
 - **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright. You can enter this manually, or, if you have a sensor that reports an angle, select it instead so the tilt updates automatically.
-- **Azimuth**: The compass direction the panels face, on a 360 degree scale. `0` is north, `90` is east, `180` is south, and `270` is west. As with declination, you can enter this manually or select an angle sensor to track it automatically.
+- **Azimuth**: The compass direction the panels face, on a 360-degree scale. `0` is north, `90` is east, `180` is south, and `270` is west. As with declination, you can enter this manually or select an angle sensor to track it automatically.
 - **Total Watt peak power**: The combined maximum power of all your panels, in Watt peak. Add up the peak power of every panel in the group to get this value.
 
 Angle sensors are only offered as an option if Home Assistant has at least one sensor that reports its unit of measurement in degrees.
@@ -44,19 +44,19 @@ Longitude:
   description: "The longitude of your solar panels. Only used if **Use my Home Zone for Latitude / Longitude** is turned off."
 Declination (0 = Horizontal, 90 = Vertical). Ignored if sensor is selected.:
   description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright)."
-Declination sensor:
-  description: "Optional. A sensor that reports the panel's tilt in degrees. Overrides the manual declination value when set. Only offered if you have a sensor reporting an angle."
+Declination sensor (optional; overrides declination when set):
+  description: "A sensor that reports the panel's tilt in degrees. Overrides the manual declination value when set. Only offered if you have a sensor reporting an angle."
 Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West). Ignored if sensor is selected.:
   description: "The direction your panels face on a 360 degree scale."
-Azimuth sensor:
-  description: "Optional. A sensor that reports the panel's compass direction in degrees. Overrides the manual azimuth value when set. Only offered if you have a sensor reporting an angle."
+Azimuth sensor (optional; overrides azimuth when set):
+  description: "A sensor that reports the panel's compass direction in degrees. Overrides the manual azimuth value when set. Only offered if you have a sensor reporting an angle."
 Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
 
-If you leave **Use my Home Zone for Latitude / Longitude** turned off, you must enter a latitude and longitude, or the setup will show an error.
+If you turn off **Use my Home Zone for Latitude / Longitude**, you must enter a latitude and longitude, or the setup will show an error.
 
-To change the location settings later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and choose **Reconfigure**.
+To change the location settings later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and select **Reconfigure**.
 
 ## Configuration options
 
