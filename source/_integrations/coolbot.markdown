@@ -55,7 +55,13 @@ If a CoolBot loses its connection, the cloud keeps serving its last known readin
 
 ## Examples
 
-Alert when the cooler drifts too warm — useful because the CoolBot app only notifies while it has a connection to the box:
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Alert when the walk-in cooler is too warm
+
+Notifies you when the cooler stays above its safe temperature. This is worth setting up because the CoolBot app only notifies you while it has a connection to the cooler.
+
+The threshold uses the temperature unit configured in Home Assistant, so `45` means 45 °F on a system set to Fahrenheit and 45 °C on a system set to Celsius. Adjust the value to suit your unit and your cooler: 45 °F is about 7 °C.
 
 ```yaml
 automation:
@@ -66,14 +72,37 @@ automation:
         above: 45
         for: "00:15:00"
     actions:
-      - action: notify.mobile_app_your_phone
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
-          message: >
-            The walk-in cooler has been above 45°F for 15 minutes
-            ({{ states('sensor.walk_in_cooler_room_temperature') }}°F).
+          message: >-
+            The walk-in cooler has been too warm for 15 minutes (currently
+            {{ states('sensor.walk_in_cooler_room_temperature') }}
+            {{ state_attr('sensor.walk_in_cooler_room_temperature', 'unit_of_measurement') }}).
 ```
 
-A second automation worth having: alert when the room temperature sensor becomes `unavailable` for more than a few minutes, which is how a dead Wi-Fi link or an unplugged CoolBot shows up.
+### Automation: Alert when the walk-in cooler stops reporting
+
+Notifies you when readings stop arriving, which is how a dead Wi-Fi link or an unplugged CoolBot shows up. A cooler that is no longer reporting cannot warn you that it is warming up.
+
+```yaml
+automation:
+  - alias: "Walk-in cooler stopped reporting"
+    triggers:
+      - trigger: state
+        entity_id: sensor.walk_in_cooler_room_temperature
+        to: "unavailable"
+        for: "00:05:00"
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: >-
+            The walk-in cooler has stopped reporting. Check that it is powered
+            on and still connected to Wi-Fi.
+```
 
 ## Known limitations
 
@@ -83,7 +112,7 @@ A second automation worth having: alert when the room temperature sensor becomes
 
 ## Troubleshooting
 
-If sensors sit unavailable, check the **Wi-Fi signal** sensor (disabled by default). Below about −80 dBm, expect dropouts; the CoolBot app warns below 15% on its own scale.
+If sensors stay unavailable, check the **Wi-Fi signal** sensor (disabled by default). Below about −80 dBm, expect dropouts; the CoolBot app warns below 15% on its own scale.
 
 The integration supports downloading [diagnostics](/docs/configuration/troubleshooting/#download-diagnostics) from the device page. The download includes each cooler's data age, whether its readings are considered fresh, and the last disconnect time, with credentials and identifiers redacted.
 
