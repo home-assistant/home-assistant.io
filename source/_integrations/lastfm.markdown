@@ -37,7 +37,7 @@ After entering your API key and Last.fm username, you are asked to select additi
 If you provided an API secret, the next step asks you to authorize Home Assistant with your Last.fm account. Open the shown link, select **Authorize** on Last.fm, and the setup continues automatically once the authorization is detected.
 
 {% note %}
-Last.fm only shares hidden listening data with the account that authorized the integration. If you have hidden your recent listening information in the [Last.fm privacy settings](https://www.last.fm/settings/privacy), authorize with the same account you want to track. Otherwise, the now-playing state and the `last_played` attribute remain unavailable.
+Last.fm only shares hidden listening data with the account that authorized the integration. If you have hidden your recent listening information in the [Last.fm privacy settings](https://www.last.fm/settings/privacy), authorize with the same account you want to track. Otherwise, the sensor state (currently playing track) and the `last_played` attribute are unavailable.
 {% endnote %}
 
 ## Configuration options
