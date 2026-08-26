@@ -4,6 +4,7 @@ description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Event
   - Sensor
   - Switch
   - Update
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - sensor
   - switch
 ha_integration_type: service
@@ -58,6 +60,10 @@ There is currently support for the following device types within Home Assistant:
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
+
+### Events
+
+- **Docker event**: Fires when Portainer reports a Docker container lifecycle event, such as `start`, `stop`, `restart`, `die`, `pause`, `unpause`, `kill`, `oom`, or `update`, and when the container's health check status changes (`health_status_healthy`, `health_status_unhealthy`, or `health_status_starting`).
 
 ### Sensors
 
