@@ -139,8 +139,6 @@ These entities are added per inverter and updated every minute:
 - `PV energy total`: lifetime energy from the photovoltaic strings only, measured on the DC side.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
 
-The connection is shared with the [Modbus integration](/integrations/modbus/) and any other integration talking to the same device, so using both doesn't open a second connection to the inverter.
-
 ### Controlling the inverter over Modbus
 
 Modbus is the only interface that lets Home Assistant change settings on the inverter; the Solar API is read-only. These setpoints are added as `number` entities, and appear under **Configuration** on the inverter's device page:
@@ -282,7 +280,7 @@ Fronius often provides firmware updates for the datamanager interfaces and the d
 
 The Solar API is read-only, so everything this integration changes on a device goes over [Modbus TCP](#modbus-tcp), and only what the SunSpec models expose: the output power limit and the battery charge, discharge, and reserve setpoints. Every setpoint is a percentage. Fronius exposes no absolute watt setting, and no maximum state of charge.
 
-For anything beyond that, the [Modbus integration](/integrations/modbus/) can address the same device directly. Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
+Details about Modbus registers can be found in the device documentation or at the [Fronius website](https://www.fronius.com/).
 
 ## Troubleshooting
 
