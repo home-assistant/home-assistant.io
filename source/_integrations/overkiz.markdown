@@ -139,7 +139,21 @@ Verify SSL:
   description: "Verify the SSL certificate of your gateway. This option is available only when connecting via the hostname."
 {% endconfiguration_basic %}
 
-You can adjust these settings later, or switch between the cloud API and local API, via {% my integrations title="**Settings** > **Devices & services**" %}. On the **Overkiz** integration, select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
+To adjust these settings later, or to switch between the cloud API and the local API, [reconfigure the integration](#reconfiguring-the-integration).
+
+### Reconfiguring the integration
+
+Once the integration is set up, you can change how Home Assistant connects to your gateway without removing and re-adding it. For example, you can:
+
+- Switch between the cloud API and the local API.
+- Change the host of your gateway.
+
+To reconfigure the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Overkiz** integration card.
+3. From the list of gateways, find the one you want to reconfigure.
+4. Next to that gateway, select the three dots menu ({% icon "mdi:dots-vertical" %}), then select **Reconfigure**.
 
 {% include integrations/actions.md %}
 
@@ -192,7 +206,7 @@ cover:
 
 If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
 
-To change the host without removing and re-adding the integration, go to {% my integrations title="**Settings** > **Devices & services**" %}. On the **Overkiz** integration, select {% icon "mdi:dots-vertical" %}, then select **Reconfigure**.
+To change the host without removing and re-adding the integration, [reconfigure the integration](#reconfiguring-the-integration).
 
 ### Overkiz API limits
 
