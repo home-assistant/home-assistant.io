@@ -30,17 +30,95 @@ The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant al
 
 At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained from the [vendor's website](https://www.velux.com/klf200) and may be imported via the web interface of your KLF 200.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following entity platforms:
 
-- Binary sensor (reports rain detection for windows that support it)
-- Button (Reboot button on the gateway device to reboot the KLF 200 gateway)
-- Cover
-- Light
-- Number
-- Scene
-- Switch
+- [Binary sensor](#binary-sensor)
+- [Button](#button)
+- [Cover](#cover)
+- [Light](#light)
+- [Number](#number)
+- [Scene](#scene)
+- [Switch](#switch)
 
-Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
+## Entity platforms
+
+### Binary sensor
+
+Velux windows equipped with a rain sensor provide a moisture binary sensor.
+
+Rain sensors:
+
+- Are created only for windows that report a rain sensor.
+- Are disabled by default.
+- Are polled every 5 minutes because the KLF 200 does not report rain-state changes automatically.
+- May report `on` when the window's opening limitation indicates that rain protection is active.
+
+The rain sensor and the opening-position limitation entities use the same gateway data. As a result, setting the opening limitation to 11% or less can cause the rain sensor to report wet even when no rain is detected.
+
+### Button
+
+The integration provides the following buttons:
+
+- **Identify**: The identify button sends a `wink` command to the selected Velux device. The device briefly moves or otherwise signals its location, allowing you to match the Home Assistant entity with the physical window, blind, shutter, or other product.
+- **Restart gateway**: Reboots the KLF 200 gateway. This is a configuration entity.
+
+### Cover
+
+The integration creates cover entities for supported KLF 200 opening devices, including:
+
+- Windows
+- Awnings
+- Garage doors
+- Gates
+- Roller shutters
+- Blinds
+- Dual roller shutters. A dual roller shutter creates three cover entities:
+  - A combined entity controlling both curtains
+  - An upper-curtain entity
+  - A lower-curtain entity
+
+All Velux cover entities support:
+
+- Open
+- Close
+- Stop
+- Set position
+
+Blinds additionally support:
+
+- Open tilt
+- Close tilt
+- Stop tilt
+- Set tilt position
+
+### Light
+
+The integration supports two types of light:
+
+- **On/off lights**: Support turning the light on and off.
+- **Dimmable lights**: Support turning the light on and off and setting brightness.
+
+Color temperature, RGB color, and effects are not supported.
+
+### Number
+
+The integration provides the following number entities:
+
+- **Exterior heating intensity**: A percentage from 0 to 100%, in 1% steps.
+- **Open position limitation**: The minimum opening position allowed for a cover device.
+- **Closed position limitation**: The maximum closing position allowed for a cover device.
+
+The open and close position limitation entities are configuration entities and disabled by default. Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
+
+### Scene
+
+Scenes configured on the KLF 200 are exposed as Home Assistant scenes and can be activated from Home Assistant.
+
+Scenes are loaded when the integration is set up. Changes made to the scene list on the KLF 200 are not automatically reflected in Home Assistant until the integration is reloaded or restarted.
+
+### Switch
+
+On/off switches connected to the KLF 200 are exposed as switch entities.
 
 ## Prerequisites
 
