@@ -43,7 +43,10 @@ Beyond basic monitoring, the Indevolt integration enables advanced energy manage
 The integration supports the following devices:
 
 - BK1600 / BK1600 Ultra
-- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 1200
+- SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 3000 / PowerFlex 3000
+- SolidFlex 3600 / PowerFlex 3600
 
 ## Prerequisites
 
@@ -60,6 +63,10 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
+
+By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the [update entity](/actions/homeassistant.update_entity/) action to define your own update frequency.
+
+{% include common-tasks/define_custom_polling.md %}
 
 ## Supported functionality
 
@@ -121,6 +128,7 @@ The following button entity allows triggering device actions directly from Home 
 - Grid frequency (Hz)
 - Equivalent full cycles
 - Transformer temperature (°C)
+- Remaining charging / discharging time (min)
 - Main battery serial number
 - Main battery cycle count
 - Main battery SOC (%)
@@ -150,55 +158,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
 
-## Actions
-
-### Action: Charge the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `device_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `power`
-  - **Description**: The maximum charging power (0 - 2400W)
-  - **Optional**: No
-- **Data attribute**: `target_soc`
-  - **Description**: The target SOC (%): charging will stop when reached
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.charge
-data:
-  device_id: YOUR_DEVICE_ID
-  power: 1000
-  target_soc: 100
-```
-
-### Action: Discharge the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` action configure the battery to start discharging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `device_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `power`
-  - **Description**: The maximum charging power (0 - 2400W), keeping network limitations in mind
-  - **Optional**: No
-- **Data attribute**: `target_soc`
-  - **Description**: The target SOC (%): discharging will stop when reached
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.discharge
-data:
-  device_id: YOUR_DEVICE_ID
-  power: 800
-  target_soc: 10
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -212,14 +172,15 @@ data:
 
 ## Data updates
 
-The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
+The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds, unless custom polling has been enabled (see the [configuration](/integrations/indevolt/#configuration) section). If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 
 - Real-time configuration changes may appear with a small delay in Home Assistant and the Indevolt app.
-- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode.
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode (BK1600 / BK1600 Ultra).
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
+- The inverter temperature only shows when the inverter is active (BK1600 / BK1600 Ultra).
 - The SolidFlex 1200 identifies itself as a SolidFlex 2000 device.
 
 ## Troubleshooting

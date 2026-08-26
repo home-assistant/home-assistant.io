@@ -10,8 +10,6 @@ related_conditions:
 
 The **Timer is idle** condition passes when the timer is not running. Use it when an automation should continue only if the timer has not started yet, has finished, or was cancelled.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

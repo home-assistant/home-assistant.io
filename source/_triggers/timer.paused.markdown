@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer paused** trigger fires when a running timer is paused. Use it when you want to react to an interrupted countdown, like dimming a light, pausing a script, or sending a reminder.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

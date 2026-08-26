@@ -74,8 +74,12 @@ The following devices are known to be supported by the integration:
 - SEKO PoolDose Double Spa
 - SEKO PoolDose pH+ORP CF Group Wi-Fi
 - SEKO PoolDose pH
+- BWT MEDO CONNECT Wi-Fi
+- BWT Manager Connect Duo
 - VÁGNER POOL VA DOS BASIC
 - VÁGNER POOL VA DOS EXACT
+- KEMI DOSE AQUAVIVA pH-ORP
+- KEMI DOSE AQUAVIVA pH-ORP-CL
 
 ## Supported functionality
 
@@ -467,7 +471,7 @@ This integration provides diagnostics to help with debugging and troubleshooting
 - The device information reported by the coordinator with sensitive values redacted.
 - The most recent data fetched from the device by the coordinator.
 
-To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
+To collect diagnostics, go to **Settings** > **Devices & services**, open the PoolDose integration,
 click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
 
 ## Removing the integration

@@ -11,8 +11,6 @@ The **Curtain is closed** condition passes when one or more targeted curtains ar
 
 This condition is useful for reminders, lighting checks, and routines that depend on whether a curtain is closed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -77,10 +75,10 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `curtain` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+- The target must be a cover entity with the curtain device class.
+- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted curtain is closed.
-- With **All**, the condition passes only if every available targeted curtain is closed. If every targeted curtain is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- With **All**, the condition passes only if every available targeted curtain is closed. If every targeted curtain is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
 
 {% include conditions/try_it.md %}
 
@@ -90,7 +88,7 @@ for:
 
 At sunrise, this automation checks whether the curtain is still closed. If it is, Home Assistant opens it to let in daylight.
 
-- **Trigger**: Sun: Sunrise
+- **Trigger**: Sunrise
 - **Condition**: Curtain is closed
   - **Target**: Living room curtain
 - **Action**: Open cover
@@ -101,8 +99,7 @@ At sunrise, this automation checks whether the curtain is still closed. If it is
 automation: |
   alias: "Open the curtain at sunrise"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: cover.curtain_is_closed
       target:

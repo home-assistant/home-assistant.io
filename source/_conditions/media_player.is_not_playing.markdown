@@ -12,8 +12,6 @@ The **Media player is not playing** condition passes when the selected media pla
 
 Use **Media player is not playing** to start a noisy appliance, begin cleaning, or run reminders only when a room is not actively being used for playback.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is not playing** in an automation:

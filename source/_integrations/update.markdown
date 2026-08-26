@@ -62,84 +62,11 @@ The following device classes are supported for update entities:
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-The update {% term entity %} exposes three actions that can be used to install,
-skip, or restore (clear previously skipped) an offered software update.
-
-### Action: Install
-
-The `update.install` action can be used to install an offered update to the device or service.
-
-This action is only available for an update {% term entity %} if an {% term integration %} provides
-this capability. Additionally, if allowed by the {% term integration %}, the action
-provides for installing a specific version and even could make a
-backup before installing the update.
-
-#### Action data attributes
-
-{% configuration_basic %}
-entity_id (required):
-  description: "String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`."
-version:
-  description: "A specific update version to install, if not provided, the latest available update will be installed. Availability of this attribute is dependent on the {% term integration %}."
-backup:
-  description: "If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}."
-{% endconfiguration_basic %}
-
-Example action:
-
-```yaml
-action: update.install
-target:
-  entity_id:
-    - update.my_light_bulb
-```
-
-### Action: Skip
-
-The `update.skip` action can be used to skip an offered update to the device or service.
-
-After skipping an offered update, the {% term entity %} will return to the `off` state,
-which means there is no update available.
-
-```yaml
-action: update.skip
-target:
-  entity_id:
-    - update.my_light_bulb
-```
-
-Even if an update is skipped and shows as `off` (meaning no update), if there
-is a newer version available, calling the `update.install` action on the entity
-will still install the latest version.
-
-### Action: Clear skipped
-
-The `update.clear_skipped` action can be used to remove the skipped version marker of a previously skipped offered update to the device or service.
-
-After skipping an offered update, the {% term entity %} will return to the `off` state,
-but will not return to it until a newer version becomes available again.
-
-Using the `update.clear_skipped` action, the skipped version marker can be
-removed and thus the entity will return to the `on` state and the update
-notification will return.
-
-```yaml
-action: update.clear_skipped
-target:
-  entity_id:
-    - update.my_light_bulb
-```
-
-This can be helpful to, for example, in an automation that weekly unskips
-all updates you have previously marked as skipped; as a reminder to update.
+{% include integrations/actions.md %}
 
 ## Update automation examples
 
-Update entities are useful when you want to stay informed about available
-updates or take action at the right time. Here are a few examples to help you
-get started.
+Update entities are useful when you want to stay informed about available updates or take action at the right time. Here are a few examples to help you get started.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -159,7 +86,7 @@ notification to your phone right away.
 automation: |
   alias: "Send a notification when an update becomes available"
   triggers:
-    - trigger: update.update_became_available
+    - trigger: update.became_available
       target:
         entity_id: update.office_router_firmware
   actions:

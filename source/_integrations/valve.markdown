@@ -44,50 +44,6 @@ The following device classes are supported for valves:
 
 {% include integrations/triggers.md %}
 
-## Actions
+{% include integrations/conditions.md %}
 
-### Valve control actions
-
-All valves respond to `valve.open_valve`, `valve.close_valve`, and `valve.toggle`.
-Valves that allow setting a specific position may also be controlled with `valve.set_valve_position` and `valve.stop_valve`.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of valves. Use `entity_id: all` to target all.
-
-#### Automation example
-
-```yaml
-automation:
-  triggers:
-    - trigger: time
-      at: "07:15:00"
-  actions:
-    - action: valve.close_valve
-      target:
-        entity_id: valve.demo
-```
-
-### Action: Set valve position
-
-The `valve.set_valve_position` action sets the position of one or multiple valves if they support setting a specific position.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of valves. Use `entity_id: all` to target all.
-| `position` | no | Integer between 0 (fully closed) and 100 (fully open).
-
-#### Automation example
-
-```yaml
-automation:
-  triggers:
-    - trigger: time
-      at: "07:15:00"
-  actions:
-    - action: valve.set_valve_position
-      target:
-        entity_id: valve.demo
-      data:
-        position: 50
-```
+{% include integrations/actions.md %}

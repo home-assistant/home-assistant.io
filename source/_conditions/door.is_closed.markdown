@@ -11,8 +11,6 @@ The **Door is closed** condition passes when one or more targeted doors are curr
 
 This condition is useful for safety checks and routines that depend on a closed door, like starting a robot vacuum only after the patio door is shut or arming the house only after every entry point is closed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -73,10 +71,10 @@ for:
 
 ## Good to know
 
-- This condition works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+- The target must be a contact sensor or cover with the door device class.
+- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted door is closed.
-- With **All**, the condition passes only if every available targeted door is closed. If every targeted door is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- With **All**, the condition passes only if every available targeted door is closed. If every targeted door is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
 
 {% include conditions/try_it.md %}
 
@@ -88,9 +86,9 @@ If pets go in and out through the patio door, you may not want the robot vacuum 
 
 - **Trigger**: Time
 - **Condition**: Door is closed
-- **Target**: Patio door
-- **For at least**: 00:10:00
-- **Action**: Vacuum: Start
+  - **Target**: Patio door
+  - **For at least**: 00:10:00
+- **Action**: Start vacuum cleaner
 
 {% details "YAML example for delaying vacuum cleaning until the patio door is shut" %}
 
