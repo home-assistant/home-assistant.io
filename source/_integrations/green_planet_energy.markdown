@@ -46,11 +46,34 @@ The **Green Planet Energy** integration provides the following sensor entities.
 
 ### Show upcoming prices as a chart
 
-You can use the `get_prices` action together with a [template sensor](/integrations/template/) to create a sensor that holds the upcoming price data as an attribute. This makes it easy to display a price chart on your dashboard.
+You can use the **Get energy prices** action together with a [template sensor](/integrations/template/) to create a sensor that holds the upcoming price data as an attribute. This makes it easy to display a price chart on your dashboard.
 
-Add the following to your {% term "`configuration.yaml`" %} file. After you save your changes, restart Home Assistant or reload your template configuration to apply them.
+Add the following to your {% term "`configuration.yaml`" %} file:
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
-Price slots beyond today and tomorrow are not available and are omitted from the `get_prices` response.
+{% raw %}
+
+```yaml
+template:
+  - triggers:
+      - trigger: time_pattern
+        minutes: "/15"
+    actions:
+      - action: green_planet_energy.get_prices
+        data:
+          config_entry_id: 1234567890abcdef1234567890abcdef
+          hours: 6
+        response_variable: result
+    sensor:
+      - name: "Green Planet Energy next 6 hours"
+        state: "{{ result.prices | length }}"
+        unit_of_measurement: "slots"
+        attributes:
+          prices: "{{ result.prices }}"
+          hours_requested: "{{ result.hours_requested }}"
+```
+
+{% endraw %}
 
 ### Find the cheapest time for your dishwasher
 
@@ -69,7 +92,6 @@ template:
     actions:
       - action: green_planet_energy.get_cheapest_duration
         data:
-          entity_id: sensor.green_planet_energy_current_price
           duration: 3.5
           time_range: night
         response_variable: cheapest
@@ -98,9 +120,13 @@ template:
 
 This creates three sensors:
 
-- `sensor.cheapest_3_5h_start_time`: Shows when to start your dishwasher.
-- `sensor.cheapest_3_5h_hours_until`: Shows how many hours until the optimal time.
-- `sensor.cheapest_3_5h_average_price`: Shows the average price during that period.
+- `sensor.cheapest_3_5_hour_start_time`: Shows when to start your dishwasher.
+- `sensor.cheapest_3_5_hour_time_until_start`: Shows how many hours until that moment.
+- `sensor.cheapest_3_5_hour_average_price`: Shows the average price during that window.
+
+## Known limitations
+
+Prices are published for today and tomorrow only. If you ask for more hours than that, the slots without data are left out of the **Get energy prices** response instead of returned as zero.
 
 ## Removing the integration
 
