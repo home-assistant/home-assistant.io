@@ -426,6 +426,24 @@ Features:
 - set position
 - get position
 - get battery level
+- select motor speed
+
+The Roller Shade supports two motor speeds, which can be selected each time the shade is opened, closed, or moved to a position:
+
+| Speed         | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| `performance` | Moves the shade at full speed. This is the default.  |
+| `quiet`       | Reduces motor noise, at the cost of slower movement. |
+
+To use a speed other than the default, set the **Speed** option on the [Open cover](/actions/cover.open_cover/), [Close cover](/actions/cover.close_cover/), or [Set cover position](/actions/cover.set_cover_position/) action:
+
+```yaml
+action: cover.close_cover
+target:
+  entity_id: cover.roller_shade
+data:
+  speed: quiet
+```
 
 #### Garage Door Opener
 
