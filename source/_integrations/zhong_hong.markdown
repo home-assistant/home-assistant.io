@@ -54,9 +54,9 @@ Home Assistant asks the gateway for the state of every unit once, when the integ
 
 ## Known limitations
 
-- Only one program can talk to the gateway at a time. While Home Assistant is connected, the gateway refuses everything else, so Home Assistant and a phone app cannot both be connected to it.
+- Only one program can talk to the gateway at a time. While Home Assistant is connected, the gateway refuses everything else, so both Home Assistant and a phone app cannot be connected to it.
 - The indoor units are found once, when the integration is set up. An indoor unit added to the system afterwards does not appear on its own; reload the integration from {% my integrations title="**Settings** > **Devices & services**" %} to pick it up.
-- All five fan speeds are offered on every entity. Many air conditioners only have three, and there is no way to ask one which it has, so a unit ignores a speed it does not have and stays on the one it was running at.
+- All five fan speeds are offered on every entity. Many air conditioners only have three, and there is no way to know which ones it has, so a unit ignores a speed it does not have and stays on the one it was running at.
 
 ## Troubleshooting
 
