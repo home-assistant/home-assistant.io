@@ -9,7 +9,7 @@ ha_platforms:
 ha_iot_class: Local Push
 ha_codeowners:
   - '@ebaschiera'
-ha_release: 2026.8
+ha_release: 2026.9
 ha_domain: silla_prism
 ha_integration_type: device
 ha_config_flow: true
@@ -44,17 +44,17 @@ The integration creates a single device with the following entities.
 
 ### Sensors
 
-- **Status**: the charging state of the port (idle, waiting, charging, or paused).
-- **Power**: power currently delivered to the vehicle.
-- **Current**: current currently delivered to the vehicle.
-- **Voltage**: measured line voltage.
-- **Pilot current**: current signaled to the vehicle over the control pilot.
-- **Session energy**: energy delivered during the current charging session.
-- **Total energy**: lifetime energy delivered by the Prism.
-- **Session start**: when the vehicle was connected. The Prism only reports the elapsed session time, once a minute, so Home Assistant derives the start time from it; the frontend then shows a duration that stays accurate between updates. It is unknown while no vehicle is connected, and the clock keeps running while charging is paused.
-- **Error**: the fault reported by the port. The Prism MQTT protocol only documents the "no error" condition, so any other code is reported as unknown.
-- **Temperature**: internal temperature of the Prism.
-- **Grid power**: power drawn from the grid; positive values are imports, negative values are exports.
+- **Status**: The charging state of the port (idle, waiting, charging, or paused).
+- **Power**: Power currently delivered to the vehicle.
+- **Current**: Current currently delivered to the vehicle.
+- **Voltage**: Measured line voltage.
+- **Pilot current**: Current signaled to the vehicle over the control pilot.
+- **Session energy**: Energy delivered during the current charging session.
+- **Total energy**: Lifetime energy delivered by the Prism.
+- **Session start**: When the vehicle was connected. The Prism only reports the elapsed session time, once a minute, so Home Assistant derives the start time from it; the frontend then shows a duration that stays accurate between updates. It is unknown while no vehicle is connected, and the clock keeps running while charging is paused.
+- **Error**: The fault reported by the port. The Prism MQTT protocol only documents the "no error" condition, so any other code is reported as unknown.
+- **Temperature**: Internal temperature of the Prism.
+- **Grid power**: Power drawn from the grid; positive values are imports, negative values are exports.
 
 ## Data updates
 
