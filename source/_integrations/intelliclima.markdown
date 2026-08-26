@@ -15,6 +15,7 @@ related:
   - url: https://www.fantinicosmi.it/en/
     title: Fantini Cosmi
 ha_platforms:
+  - binary_sensor
   - fan
   - select
   - sensor
@@ -35,7 +36,7 @@ Before setting up this integration, you must complete the following steps in the
 1. Install the IntelliClima+ app on your smartphone (iOS or Android).
 2. Create an account or sign in to your existing account.
 3. Add your Ecocomfort 2.0 device to the app via Bluetooth.
-4. Complete the device setup and configuration in the app (network connection, device name, etc.).
+4. Complete the device setup and configuration in the app (such as network connection or device name).
 5. Verify that the device appears as Online in the IntelliClima+ app.
 
 Once your device is set up and responding in the IntelliClima+ app, you can add the integration to Home Assistant.
@@ -52,6 +53,15 @@ Password:
 ## Supported functionality
 
 The **IntelliClima** integration provides the following entities for each discovered Ecocomfort 2.0 device.
+
+### Binary sensor
+
+- **Filter Cleaning Required**
+  - **Description**: Indicates whether the device's filter needs cleaning.
+  - **Device class**: Problem
+  - **Entity category**: Diagnostic
+  - **Remarks**: This entity is unavailable if filter tracking is turned off in the IntelliClima+ app.
+  - **Available for devices**: Ecocomfort 2.0
 
 ### Fan
 
@@ -189,7 +199,7 @@ This integration is based on reverse-engineered communication with the IntelliCl
 
 ### Enabling debugging
 
-To turn on debug logging, please check the [documentation on enabling debug logs and diagnostics](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). For fully debugging, you might also want to enable debugging for the external `pyintelliclima` library by modifying your {% term "`configuration.yaml`" %} file in the `/config` directory and adding the following:
+To turn on debug logging, please check the [documentation on enabling debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). For fully debugging, you might also want to enable debugging for the external `pyintelliclima` library by modifying your {% term "`configuration.yaml`" %} file in the `/config` directory and adding the following:
 
 ```yaml
 logger:

@@ -13,8 +13,6 @@ The **Battery is low** condition passes when a battery-powered device reports th
 
 For a visual overview of all battery statuses, open {% my maintenance title="**Maintenance** dashboard" %}.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Battery is low** in an automation:
@@ -73,8 +71,10 @@ for:
 
 ## Good to know
 
-- The condition works with binary sensors that have the `battery` device class. These are typically separate entities from the battery percentage sensor and only report `on` (low) or `off` (normal).
-- Not every battery-powered device exposes a low-battery indicator. If yours doesn't, use [Battery level](/conditions/battery.is_level/) with a percentage threshold instead.
+- The target must be a binary sensor with the battery device class.
+- The device must expose a low-battery indicator.
+- Low-battery binary sensors are typically separate entities from the battery percentage sensor and only report `on` (low) or `off` (normal).
+- If your device reports only a battery percentage, use [Battery level](/conditions/battery.is_level/) with a percentage threshold instead.
 - Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - To check the opposite state, use [Battery is not low](/conditions/battery.is_not_low/).
 - For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.

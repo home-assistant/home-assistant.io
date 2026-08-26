@@ -41,7 +41,7 @@ The controllers cannot communicate directly with MQTT. Therefore, you need to in
 
 For information on setting up Home Assistant with a **Qbus** controller, refer to the [Qbus documentation](https://iot.qbus.be/). The documentation is currently only available in Dutch, but translations are planned for the future.
 
-Once the Qbus controller is connected to the MQTT server, you need to set up an MQTT client in Home Assistant to enable communication between Home Assistant and your **Qbus** system. This client should connect to the same MQTT Server as your Qbus controller. For detailed instructions, refer to the [MQTT integration documentation](https://www.home-assistant.io/integrations/mqtt/).
+Once the Qbus controller is connected to the MQTT server, you need to set up an MQTT client in Home Assistant to enable communication between Home Assistant and your **Qbus** system. This client should connect to the same MQTT Server as your Qbus controller. For detailed instructions, refer to the [MQTT integration documentation](/integrations/mqtt/).
 
 {% include integrations/config_flow.md %}
 

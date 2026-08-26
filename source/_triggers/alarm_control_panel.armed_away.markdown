@@ -2,15 +2,13 @@
 title: "Alarm armed away"
 trigger: alarm_control_panel.armed_away
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in away mode."
+description: "Triggers when one or more alarms become armed in away mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed away** trigger fires after an alarm control panel {% term entity %} switches to the armed away state. Away mode is typically the full-protection mode you set when everyone leaves the house. Use this trigger to automate tasks that should only happen when the home is completely empty, like turning off the HVAC to save energy, closing the garage door, or starting a security camera recording schedule.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

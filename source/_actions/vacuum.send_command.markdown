@@ -2,10 +2,10 @@
 title: Send command
 action: vacuum.send_command
 domain: vacuum
-description: "Send a platform-specific command or advanced function."
+description: "Send a platform-specific command."
 ---
 
-The **Send command to vacuum cleaner** action passes a custom command (and optional parameters) directly to your vacuum for advanced or platform-specific control.
+The **Send command to vacuum cleaner** action passes a custom command (and optional parameters) directly to your vacuum for platform-specific control.
 
 Use it for features that your vacuum integration exposes but that do not have a dedicated Home Assistant action, like toggling a do-not-disturb mode or changing a vendor-specific setting.
 
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Send command to vacuum cleaner**.
+3. Add an action and search for **Send command to vacuum cleaner**.
 4. Enter the desired command.
 5. Optionally add parameters.
 6. Select the vacuum target and save.

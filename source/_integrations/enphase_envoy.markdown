@@ -1,6 +1,6 @@
 ---
 title: Enphase Envoy
-description: Instructions on how to setup Enphase Envoy with Home Assistant.
+description: Instructions on how to set up Enphase Envoy with Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.76
@@ -14,6 +14,7 @@ ha_codeowners:
   - '@catsmanac'
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - number
   - select
@@ -47,11 +48,11 @@ This integration does not work with:
 - The <abbr title="IQ Gateway">Envoy</abbr> must be on your local network with IPV4 connectivity from Home Assistant. (Also See troubleshooting, [periodic network connection issues](#periodic-network-connection-issues))
 - <abbr title="IQ Gateway">Envoy</abbr> firmware version 3.9 or newer.
 - With <abbr title="IQ Gateway">Envoy</abbr> firmware 7 and greater:
-  - an Enlighten cloud username and password.
+  - An Enphase cloud username and password.
   - Home Assistant 2023.9 or newer.
 
 {% note %}
-Currently, Multi Factor Authentication for the Enlighten account is not supported by this integration. It should be disabled during Envoy configuration and token refresh.
+If you have multi-factor authentication enabled on your Enphase account, make sure to read the [required manual input](#required-manual-input) and [credentials and/or token configuration](#credentials-andor-token-configuration) for manual token entry.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -65,10 +66,13 @@ The configuration of an individual Envoy requires you to enter the following inf
 Host:
   description: "The name or IP address of the Envoy to configure. <br> Will be pre-filled if the Envoy was auto-discovered"
 Username:
-  description: "For firmware version 7.0 and later, enter your Enlighten cloud username. The Enlighten cloud username (and password) will be used to obtain a 1-year-valid token from the enphase web-site when first configured or upon expiry.
-  <br> For firmware before 7.0, enter username *installer* without a password."
+  description: "For firmware version 7.0 and later, enter your Enphase cloud username. The Enphase cloud username and password are used to obtain a one-year token from the Enphase website when first configured or when the token expires.<br>If your Enphase account uses multi-factor authentication, you must enter the access token manually instead of entering your username and password.<br>For firmware before 7.0, enter username *installer* without a password."
 Password:
-  description: "For firmware version 7.0 and later, enter your Enlighten cloud password <br> For firmware before 7.0, with username *installer*, leave blank."
+  description: "For firmware version 7.0 and later, enter your Enphase cloud password.<br>For firmware before 7.0, with username *installer*, leave blank."
+Enter the Envoy access token manually:
+  description: "If you want to enable or disable entering a token manually, select or clear this option and select **Submit**. The form will switch between username/password entry and token entry modes. Use manual token entry mode if your Enphase cloud account has multi-factor authentication enabled. See [credentials and/or token configuration](#credentials-andor-token-configuration)."
+Envoy access token:
+  description: "Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description text below the field includes the link to the portal and the current token lifetime. This field is only available when **Enter the Envoy access token manually** is enabled."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -82,11 +86,53 @@ Always use a new connection when requesting data from the Envoy:
   description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
 {% endconfiguration_basic %}
 
+## Credentials and/or token configuration
+
+When configuring an Envoy, a form appears that prompts you for the [required manual input](#required-manual-input). In all cases the Envoy IP address needs to be specified. In most cases the IP address will be pre-filled by the detection mechanism. If this is not the case, enter it as it is a required field.
+
+{% details "Configuration form in automatic token retrieval mode" %}
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_automatic_token.png" alt="Example screenshot of Envoy configuration form in automatic token retrieval mode.">
+  <figcaption>Envoy configuration form in automatic token retrieval mode.</figcaption>
+</figure>
+{% enddetails %}
+
+For firmware before 7.0, the username *installer* without a password can be used to configure the Envoy. Enter these in the form and select **Submit**.
+
+For firmware version 7.0 and later, you need to enter your Enphase cloud username and password. Home Assistant stores these credentials in the configuration and uses them to retrieve an access token from the Enphase token portal. Token retrieval happens initially during the configuration process and again 30 days before the one-year token expires. The Enphase token portal must be reachable during configuration. If it is not, the configuration fails, and you need to retry it later. If the Enphase token portal is unreachable during a token refresh attempt 30 days before expiry, Home Assistant retries the refresh on subsequent days until it succeeds.
+
+If you have multi-factor authentication enabled on your Enphase cloud account, automatic token retrieval will not work. You will have to obtain a token manually and enter it in the form. If this is the case, you have to switch the configuration method to manual token entry. Do this by selecting the option `Enter the Envoy access token manually` and select **Submit**. This will change the form to only prompt for host and token. Enter the access token retrieved from the [Enphase token portal](https://entrez.enphaseenergy.com). The description below the form field includes the link to the portal for easy access and shows the number of days until the token expires.
+
+{% details "Configuration form in manual token entry mode" %}
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_manual_token_entry.png" alt="Example screenshot of Envoy configuration form in manual token entry mode.">
+  <figcaption>Envoy configuration form in manual token entry mode.</figcaption>
+</figure>
+{% enddetails %}
+
+If you prefer not to have your Enphase cloud username and password stored by Home Assistant for this integration, you can use the manual token entry mode as well. In this mode, only the token is stored by Home Assistant for the integration.
+
+To switch back from manual token entry to automatic token retrieval use the reverse process. Deselect the option `Enter the Envoy access token manually` and select **Submit** to switch to the username/password entry mode.
+
+### Token expiry repair
+
+When in manual token entry mode, you will have to take care of timely token update. To alert you in time, the integration will display a repair note in **Settings**. The repair will show when the token expiry is within the next 30 days. Use the [reconfigure](#reconfigure) menu option for the Envoy integration to update the token. If you opt to ignore the repair, it will show again the next day. The repair will disappear when the token is updated and valid again.
+
 ## Reconfigure
 
-This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
+This integration supports updating the Envoy configuration through a `reconfigure` menu option for the Enphase Envoy integration in {% my integrations title="**Settings** > **Devices & services** > **Integrations** " %}. The reconfiguration allows for changing the Envoy IP address, username, password, manual token entry mode and/or token. The `reconfigure` menu will show the form as described in [Credentials and/or token configuration](#credentials-andor-token-configuration) and [Required manual input](#required-manual-input) with current configured information.
 
-Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [required manual input](#required-manual-input)).
+Use this menu when:
+
+- You changed your Enphase cloud credentials.
+- You need to change the IP address of the Envoy, even though a changed device IP address is typically automatically detected and updated.
+- You enable multi-factor authentication on your Enphase account and need to switch the configuration to manual token entry.
+- In manual token entry mode you need to update the manual token before expiry.
+- In case of an Envoy firmware upgrade requiring to switch from local Envoy username/password to token-based authentication with Enphase username/password.
+
+## Re-authenticating the Envoy
+
+The Envoy requires re-authentication if the automatic token refresh fails to update the token, or the manually entered token is not updated before it expires. Home Assistant shows this state, and when you resolve it, the process is the same as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). There is one difference: the IP address is not shown in the re-authentication form.
 
 ## Removing the integration
 
@@ -257,7 +303,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 #### Grid Balanced import/export sensor entities
 
-When the Envoy metered is equipped with a a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no grid import and export measurements are available. The Envoy calculates a balance of grid import and export in one of its endpoint reports. These balanced power and energy entities are available, disabled by default.
+When the Envoy Metered is equipped with a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no grid import and export measurements are available. The Envoy calculates a balance of grid import and export in one of its endpoint reports. These balanced power and energy entities are available, disabled by default.
 
 The used endpoint is not in the official API documentation and data quality has varied / may vary with firmware evolutions.
 
@@ -326,19 +372,70 @@ For each IQ Battery, an Encharge device is created, linked to the Envoy parent d
 
 #### AC-battery data
 
-No individual AC-battery data is available, only aggregated AC-battery data for all AC-batteries.
+Both aggregated AC-battery data (for all AC-batteries combined) and individual AC-battery data are available. An ACB aggregate device holds the combined values and the sleep/wake controls. Each AC-battery also has its own device, nested under the ACB aggregate device.
 
-##### AC-battery sensor entities
+##### Aggregated AC-battery sensor entities
 
-- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current AC-battery state of charge in %
-- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: AC-battery state: charging, idle, discharging
-- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current AC-battery power in W
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh
+The ACB aggregate device holds the combined values for all AC-batteries.
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current aggregated AC-battery state of charge in %
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: Aggregated AC-battery state: charging, idle, discharging, full
+- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current aggregated AC-battery power in W
+- **ACB <abbr title="Envoy serial number">SN</abbr> Sleep state**: Aggregated sleep state across all AC-batteries: awake, going to sleep, asleep, waking, or mixed when the batteries report different states
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh. This aggregate entity is on the Envoy device.
+
+{% note %}
+The **ACB <abbr title="Envoy serial number">SN</abbr> Power** value is not updated in real time and may lag behind the actual power flow in or out of the AC-batteries. If you convert this power into energy, for example with a Riemann sum integral helper, be aware that the result may not accurately reflect the actual energy going in or out of the batteries. For a more accurate view of the stored energy, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy** entity, which reports the current AC-battery energy content.
+{% endnote %}
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery.png" alt="acb battery">
-  <figcaption>Envoy AC-battery sensor entities.</figcaption>
+  <figcaption>Envoy aggregated AC-battery sensor entities.</figcaption>
 </figure>
+
+##### Individual AC-battery sensor entities
+
+For each AC-battery a device is created, nested under the ACB aggregate device. SN is the AC-battery serial number.
+
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> State of charge**: State of charge of the battery in %
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Power**: Power reported by the battery in W
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Charge status**: Battery charge status: charging, discharging, idle, unknown
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep state**: Battery sleep state: awake, going to sleep, asleep, waking
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Temperature**: Maximum cell temperature in degrees C or F, based on your localization. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Last reported**: Time when Envoy last received an update from the battery. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep SOC target**: State of charge band the battery is configured to sleep within. This is a diagnostics entity.
+
+##### Individual AC-battery binary sensor entities
+
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Communicating**: Communication status of the AC-battery, Connected / Disconnected. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery, On / Off. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Producing**: Producing status of the AC-battery, On / Off.
+
+##### AC-battery sleep and wake controls
+
+The ACB aggregate device provides controls to put all AC-batteries to sleep or to wake them.
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery sleep SOC target**: The state of charge band, in 5% steps, applied when putting the AC-batteries to sleep. This selection is kept in memory and is not persisted across restarts.
+- **ACB <abbr title="Envoy serial number">SN</abbr> Sleep**: Put all AC-batteries to sleep using the selected sleep SOC target. Pressing the button, in the UI or in an [action](#action-buttonpress), sends the request to the Envoy.
+- **ACB <abbr title="Envoy serial number">SN</abbr> Wake**: Wake all AC-batteries.
+
+{% note %}
+It can take several minutes for the Envoy to reflect a sleep or wake request in the AC-battery states.
+{% endnote %}
+
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery_individual.png" alt="acb battery">
+  <figcaption>Envoy individual AC-battery sensor entities.</figcaption>
+</figure>
+
+##### Using sleep and wake to control the AC-battery
+
+The Envoy local API does not expose a storage mode or a direct charge/discharge control for AC-batteries, and the Enphase app offers no AC-battery controls (the Enlighten web interface only offers very limited ones). The sleep and wake controls can be used as a workaround to influence charge and discharge behavior:
+
+- **Charge or discharge to a target level, then hold**: while the AC-batteries are awake, set the **Battery sleep SOC target** to the desired band and press **Sleep**. The batteries charge or discharge toward that state of charge and then go to sleep, holding at that level. If the target is lower than the current state of charge, the batteries discharge at maximum power to reach it, regardless of whether that causes an energy export, unlike self-consumption, which only discharges to match house load.
+- **Return to normal (self-consumption) operation**: press **Wake**. The batteries resume normal operation and discharge only to cover house consumption, maximizing self-consumption. If a solar system is fitted and exporting, they also charge from the excess.
+- **Prevent unwanted discharge**: keeping the AC-batteries asleep until you want them to discharge stops them from discharging when you would rather they did not.
 
 ##### Aggregated IQ and AC battery sensor entities
 
@@ -453,19 +550,13 @@ The Enphase C6 combiner controller (C6CC) provides some status information to th
 
 ## Data polling interval
 
-All data is collected in one coordinated collection cycle and sourced from a limited set of endpoints on the Envoy. For example, three different values sourced from the same endpoint are not pulled in three different requests but provided from the same single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. Only when the 1-year valid token is to expire, 1 month before due data, a new token is requested from the Enphase Enlighten website.
+All data is collected in a single coordinated collection cycle and sourced from a limited set of endpoints on Envoy. For example, three different values sourced from the same endpoint are not pulled in three separate requests but are provided in a single request. This method minimizes the number of requests to the Envoy. The local REST API of the Envoy is used. The Enphase cloud is only used when configuring an Envoy and when the one-year-valid token is about to expire. 30 days before the expiry date, a new token is requested from the Enphase website.
 
 The integration collects data for all entities by default every 60 seconds. To customize the collection interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
 Envoy installations without installed <abbr title="current transformers">CT</abbr>, collect individual solar inverter data every 5 minutes. This collection does not occur for each inverter at the same time in the 5-minute period. Shortening the collection interval will at best show updates for individual inverters quicker, but not yield more granular data.
 
 With installed <abbr title="current transformers">CT</abbr>, data granularity increases and shortening the collection interval can provide more details. The Envoy, however, has no unlimited resources and shortening the collection interval may result in dropped connections, Envoy freeze or restarts. It will require some step-wise tuning for each individual situation.
-
-## Credentials or device IP address update
-
-This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
-
-Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [required manual input](#required-manual-input)).
 
 ## Firmware updates
 
@@ -481,7 +572,7 @@ The firmware version is not available as an entity, but rather as an attribute o
 
 ### Firmware update alert
 
-To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](https://www.home-assistant.io/docs/blueprint/) from the community blueprints exchange.
+To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](/docs/blueprint/) from the community blueprints exchange.
 
 Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/automation/catsmanac/Track_envoy_firmware.yaml`. Use the [automation example](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651#p-3741023-example-10) shown in the blueprint exchange to implement an automation that will create a notification when the firmware changes.
 
@@ -551,7 +642,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect)
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select_option`](#action-selectselect_option) and [`button.press`](#action-buttonpress).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -634,6 +725,24 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
+### Action `button.press`
+
+This action presses the ACB [Sleep or Wake controls](#ac-battery-sleep-and-wake-controls), putting all AC-batteries to sleep (using the selected sleep SOC target) or waking them.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `entity_id` | no | Name(s) of entities. For example, `button.acb_1234_sleep`. |
+
+Example:
+
+```yaml
+action: button.press
+target:
+  entity_id:
+    - button.acb_1234_sleep
+data: {}
+```
+
 ## Envoy replacement
 
 When the physical Envoy needs to be replaced, some preparation is needed to assure data continuation from the old one. This description assumes that the new Envoy replaces the old one in the existing installation and is connected in the same way. The new Envoy will have a different serial number and probably a different IP address.  
@@ -644,7 +753,7 @@ In the Home Assistant configuration, the Envoy entities are identified by their 
 
 The actual data stored in states, short- and long-term statistics, is identified by an entity identifier. This entity_id is registered in the entity configuration as well. Using the entity_id, the data in the data stores is connected to the entity. Similar to the unique_id, this entity_id contains the serial number of the Envoy, micro-inverters, Enpower, and/or Encharge devices.
 
-When adding the new Envoy, new entities are created, each containing the new Envoy's serial number in unique_id and entity_id. For the Envoy data, this results in states and short- and long-term statistics starting from that point in time. Data from the old Envoy can not be seen in the new Envoy. For the micro-inverters and Enpower/Encharge device data, the serial numbers remain the same, and data will continue from the old data.
+When adding the new Envoy, new entities are created, each containing the new Envoy's serial number in unique_id and entity_id. For the Envoy data, this results in states and short- and long-term statistics starting from that point in time. Data from the old Envoy cannot be seen in the new Envoy. For the micro-inverters and Enpower/Encharge device data, the serial numbers remain the same, and data will continue from the old data.
 
 To 'chain' the data of the old Envoy to the new Envoy, the entities of the new Envoy should connect to the existing data. To do so, we need to make sure the existing data can be found when using the new entity_id that contains the new Envoy serial number. This can be done by updating the entity_id of the old Envoy entities and replacing their old serial numbers with the new Envoy serial number. See [customizing entities](/docs/configuration/customizing-devices/) for how to change the entity_id. This should be done **before** the new Envoy is configured in Home Assistant.
 
@@ -664,7 +773,7 @@ Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. 
 
 Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
 
-When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
 
 ## Known issues and limitations
 
@@ -696,8 +805,8 @@ Not all firmware versions reset `Energy production today` or `Energy consumption
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value and unexpected spikes have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data or a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, use the individual phase data.
+- Not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value, unexpected spikes, or the same value as the lifetime value have been reported. Use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
+- Not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero data, unexpected values, or the same value as the lifetime value have been reported.
 - `Energy production today` and `Energy consumption today` have been reported not to reset to zero. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
@@ -721,9 +830,11 @@ Entity sensor.envoy_123456789012_energy_consumption_today from integration enpha
 
 If these entries occur frequently and are a nuisance then disable the entity. Its data is at best doubtful.
 
+When using Envoy non-metered with firmware 8.3.5422 or newer, `Energy production today` and `Energy production last seven days` are both zero.
+
 ### Lifetime reset
 
-Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in the [Statistics tab](/docs/tools/dev-tools/#statistics-tab) of **Settings** > **Tools**.
 
 {% details "History example for Envoy Lifetime energy production value reset" %}
 
@@ -788,16 +899,17 @@ The example below shows data gaps starting at 11 PM on multiple, but not all, da
 
 ## Troubleshooting
 
-### Enlighten authentication issues
+### Enphase authentication issues
 
-If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
+If you experience authentication errors during the (re-)configuration of the Envoy, verify if multi-factor authentication (MFA) is enabled for your Enphase account. When using MFA, automatic token retrieval will fail, and you need to use manual token entry as described in [Credentials and/or token configuration](#credentials-andor-token-configuration). Disabling MFA is not required if manual token entry mode is used. Any of the errors below indicate that MFA is enabled on your Enphase cloud account.
 
 - Before HA version 2026.1.2: KeyError: 'is_consumer'
 - As of Home Assistant version 2026.1.2
   - KeyError: 'session_id'
-  - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
+  - EnvoyAuthenticationError: No session id in Enphase login reply, disable multi-factor authentication
+    - Although the error mentions to disable multi-factor authentication, in the current HA version the resolution is to switch to manual token entry.
 
-These error may also appear in the log upon token refresh, 11 months after initial token collection.
+These errors may also appear in the log upon token refresh, 11 months after initial token collection.
 
 ### Periodic network connection issues
 
@@ -824,7 +936,7 @@ This integration provides debug log and {% term diagnostics %} report as describ
 When experiencing issues during the use of the integration, enable the debug log for the <abbr title="IQ Gateway">Envoy</abbr>. Then restart the integration. This will add details on the data collection to the Home Assistant log file. Leave the debug log enabled long enough to capture the occurrence of the issue. If the issue is intermittent, this may take a while and it may grow the log file quite a bit.
 
 If you're expecting features to show but they are not shown, make sure to reload the integration while debug logging is enabled.
-When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected.  Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
+When this integration is loaded, it will scan the <abbr title="IQ Gateway">Envoy</abbr> for available features and configure these as needed. Following this initial scan, only data for the found features is collected. Performing a reload with debug enabled results in the debug log containing the initial full scan to assist with analyzing any missing features. Some features are disabled by default, and you need to enable them if you want them to show. Verify this before starting a debug session.
 
 Once the issue occurred, stop the debug logging again (*download of debug log file will start automatically*). When reporting the issue, include the debug log file as well as a [{% term diagnostics %}](#diagnostics) file.
 
@@ -907,4 +1019,8 @@ ___
 ### IQ Combiner reference
 
 [TEB-00269-2.0-EN, March 2025](https://enphase.com/it-it/media/26097)
+
+### Enphase token portal
+
+Obtain a token from the [Enphase token portal](https://entrez.enphaseenergy.com)
 ___

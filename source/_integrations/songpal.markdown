@@ -24,8 +24,8 @@ If the platform works with your non-listed device, or you encounter bugs, please
 
 A few notes:
 
-- The quick start-up mode has to be enabled in order to turn the device on.
-- Supports currently only one output terminal, i.e., the volume control works only on the first volume controller as reported by the backend library.
+- The quick start-up mode has to be enabled to turn the device on.
+- Supports currently only one output terminal, that is, the volume control works only on the first volume controller as reported by the backend library.
 - Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available actions!
 
@@ -33,16 +33,6 @@ A few notes:
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 
-## Actions
+{% include integrations/actions.md %}
 
-In addition to the general [media player actions](/integrations/media_player/#actions), the following actions are provided:
-
-### Action: Set sound setting
-
-The `songpal.set_sound_setting` action sets a sound setting. For a list of available settings and their values use the [`songpal sound`](https://github.com/rytilahti/python-songpal#sound-settings) command.
-
-| Data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target entity. To target all songpal devices, use `all` |
-| `name`                 |       no | Configuration variable, e.g., `nightmode`         |
-| `value`                |       no | New configuration value, e.g., `on`               |
+In addition to these, Sony Songpal devices support the general [media player actions](/integrations/media_player/#list-of-actions).
