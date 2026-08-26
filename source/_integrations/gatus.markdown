@@ -34,6 +34,12 @@ You need the base URL of your Gatus instance, for example `http://gatus.local:80
 {% configuration_basic %}
 URL:
   description: "The full base URL of your Gatus status page instance, including the protocol and port. For example: `http://gatus.local:8080` or `https://status.example.com`."
+Username:
+  description: "Optional username for HTTP Basic Authentication."
+Password:
+  description: "Optional password for HTTP Basic Authentication."
+API token:
+  description: "Optional API token (Bearer token) for authentication."
 {% endconfiguration_basic %}
 
 ### Supported versions
@@ -153,7 +159,6 @@ Newly configured endpoints are automatically discovered and added as new binary 
 ## Known limitations
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
-- The integration currently does not support authenticated instances.
 
 ## Troubleshooting
 
