@@ -157,7 +157,7 @@ If your Modbus TCP gateway moves to a different IP address or port, or you need 
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the NeoPool integration.
-3. Select the three-dot {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
 4. Update the settings and submit the form.
 
 The integration verifies the new settings against the controller before saving. If the device reached at the new address reports a different serial number than the one originally configured, the reconfiguration is rejected to prevent pointing the entry at a different controller.
