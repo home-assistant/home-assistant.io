@@ -46,6 +46,8 @@ The Modern Forms integration supports the fan's light, including brightness and 
 
 Some fan models have more than one light fixture, such as a separate uplight and downlight. Each fixture gets its own light entity that you can control independently, using the name you gave it in the Modern Forms app.
 
+Light fixtures that support a range of color temperatures let you adjust the color temperature from the light entity, alongside the brightness.
+
 ## Binary sensors
 
 On fan models that support sleep timers, the Modern Forms integration provides binary sensors for the following information:
