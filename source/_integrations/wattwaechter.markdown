@@ -79,7 +79,7 @@ The integration adds an update entity that reports the firmware version installe
 
 ## Data updates
 
-The integration {% term polling polls %} your WattWächter Plus device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings), system information, and the available firmware update status.
+The integration {% term polling polls %} your WattWächter Plus device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings), system information, and the firmware update status.
 
 ## Actions
 
