@@ -1084,8 +1084,8 @@ actions:
 Widget that displays preset durations for a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown. Presets with a duration of zero are not shown.
 
 <p class='img'>
-  <img src='/images/dashboards/features/timer_presets.png' alt='Screenshot of the tile card with timer presets feature'>
-  Screenshot of the tile card with timer presets feature
+  <img src='/images/dashboards/features/timer_presets.png' alt='Screenshot of the tile card with the timer presets feature'>
+  Screenshot of the tile card with the timer presets feature
 </p>
 
 ```yaml
