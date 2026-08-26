@@ -1,5 +1,5 @@
 ---
-title: Mikrotik
+title: MikroTik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
   - Binary Sensor
@@ -160,3 +160,9 @@ The integration creates the following update entities:
 
 - **RouterOS**: Updates OS firmware.
 - **RouterBOARD**: Updates BOARD firmware.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
