@@ -205,6 +205,10 @@ template:
     required: false
     type: template
     default: true
+  conditions:
+    description: Define conditions that have to be met before template entity updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
+    required: false
+    type: list
   default_entity_id:
     description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
     required: false
@@ -2094,6 +2098,29 @@ template:
         state: "{{ states('sensor.outside_temperature') }}"
 ```
 
+This example shows how to filter negative and positive values from an existing sensor. The same trigger will conditionally update a sensor that contains the positive values and a sensor that contains the negative values.
+
+```yaml
+template:
+  - triggers:
+      trigger: state
+      entity_id: sensor.source_value
+    sensor:
+      - name: Positive values
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.source_value
+            above: 0
+        state: "{{ states('sensor.source_value') }}"
+
+      - name: Negative values
+        conditions:
+          - condition: numeric_state
+            entity_id: sensor.source_value
+            below: 0
+        state: "{{ states('sensor.source_value') | float | abs }}"
+```
+
 ## Switch
 
 The template switch platform allows you to create switches with templates to define the state and scripts to define each action.
@@ -2838,6 +2865,28 @@ template:
 ```
 
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
+
+## Automation template trigger
+
+The automation template trigger runs an automation when a template changes from false to true. It is useful when the condition you need cannot be expressed with a state, numeric state, or device trigger.
+
+A template is considered true when it renders `true`, `yes`, `on`, `enable`, or a non-zero number. It is considered false when it renders any other value.
+
+{% example %}
+trigger: |
+  trigger: template
+  value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+  for:
+    minutes: 5
+{% endexample %}
+
+Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
+
+You can use `for` to require the template to stay true for a set time. Templates in `for` are evaluated when `value_template` becomes true.
+
+{% note %}
+The `for` option does not survive a Home Assistant restart or the reload of automations. To keep a time target across restarts, store the target time in an `input_datetime` helper and use that helper in your automation.
+{% endnote %}
 
 ## Considerations
 
