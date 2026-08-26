@@ -507,20 +507,9 @@ Features:
 - get battery
 - switch picture
 - display current picture
+- upload a new picture from a web address, using the [Upload AI Art Frame image](/actions/switchbot_cloud.upload_art_frame_image/) action
 
-Action:
-
-- `switchbot_cloud.upload_art_frame_image`
-
-Example:
-```yaml
-action: switchbot_cloud.upload_art_frame_image
-data:
-  image_url: "https://example.com/example.png"
-  device_id:
-    - YOUR_DEVICE_ID_1
-    - YOUR_DEVICE_ID_2
-```
+{% include integrations/actions.md %}
 
 ## Important considerations
 
