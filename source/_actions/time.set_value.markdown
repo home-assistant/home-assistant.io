@@ -66,7 +66,7 @@ time:
 
 Update a time entity every evening, for example to schedule the next morning's watering.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Action**: Set time
   - **Target**: Garden watering time
   - **Time**: A time of your choosing
@@ -77,8 +77,7 @@ Update a time entity every evening, for example to schedule the next morning's w
 automation: |
   - alias: "Set the next watering time"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: time.set_value
         target:

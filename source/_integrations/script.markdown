@@ -46,7 +46,7 @@ icon:
   required: false
   type: string
 description:
-  description: A description of the script, displayed in the **Actions** tab under **Developer tools**.
+  description: A description of the script, displayed in the **Actions** tab under **Tools**.
   required: false
   default: ''
   type: string
@@ -75,16 +75,12 @@ fields:
         description:
           description: A description of this script parameter.
           type: string
-        advanced:
-          description: Marks this field as an advanced parameter.
-          type: boolean
-          default: false
         required:
           description: Marks this field as required. This is a UI-only feature.
           type: boolean
           default: false
         example:
-          description: An example value. This is only shown in the table of options available in the **Actions** tab of the **Developer tools**.
+          description: An example value. This is only shown in the table of options available in the **Actions** tab of the **Tools**.
           type: string
         default:
           description: The default value for this field, as shown in the UI.
@@ -248,7 +244,7 @@ script:
     icon: "mdi:party-popper"
     description: "Turns on the bedroom lights and then the living room lights after a delay"
     variables:
-      turn_on_entity: group.living_room
+      turn_on_entity: light.living_room
     fields:
       minutes:
         name: Minutes
@@ -273,7 +269,7 @@ script:
       - alias: "Bedroom lights on"
         action: light.turn_on
         target:
-          entity_id: group.bedroom
+          entity_id: light.bedroom
         data:
           brightness: 100
       - delay:

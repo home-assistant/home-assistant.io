@@ -47,7 +47,7 @@ The **Teslemetry** {% term integration %} exposes various commands and sensors f
 
 You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
-Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured to run certain commands.
+The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's public key, installed in your vehicle through the Tesla app. It is required for fleet telemetry (live streaming) and signed vehicle commands. Since nearly all vehicles support both, nearly all customers need it: if your vehicle supports the virtual key, install it as a standard setup step. Vehicles without virtual-key support are the exception. They still work with Teslemetry at reduced capability—data by polling instead of streaming, and commands unsigned where Tesla permits.
 
 {% include integrations/config_flow.md %}
 
@@ -58,329 +58,264 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 
 ### Vehicles
 
-|Domain|Name|Enabled|
-|---|---|---|
-|Binary sensor|Automatic blind spot camera|No|
-|Binary sensor|Automatic emergency braking off|No|
-|Binary sensor|Battery heater|No|
-|Binary sensor|Blind spot collision warning chime|No|
-|Binary sensor|BMS full charge|No|
-|Binary sensor|Brake pedal|No|
-|Binary sensor|Cabin overheat protection actively cooling|No|
-|Binary sensor|Cellular|Yes|
-|Binary sensor|Charge cable|Yes|
-|Binary sensor|Charge enable request|No|
-|Binary sensor|Charge port cold weather mode|No|
-|Binary sensor|Charger has multiple phases|No|
-|Binary sensor|Dashcam|No|
-|Binary sensor|DC DC|No|
-|Binary sensor|Defrost for preconditioning|No|
-|Binary sensor|Drive rail|No|
-|Binary sensor|Driver seat belt|No|
-|Binary sensor|Driver seat occupied|No|
-|Binary sensor|Emergency lane departure avoidance|No|
-|Binary sensor|Europe vehicle|No|
-|Binary sensor|Fast charger present|No|
-|Binary sensor|Front driver door|Yes|
-|Binary sensor|Front driver window|Yes|
-|Binary sensor|Front passenger door|Yes|
-|Binary sensor|Front passenger window|Yes|
-|Binary sensor|GPS state|No|
-|Binary sensor|Guest mode enabled|No|
-|Binary sensor|Hazard lights|No|
-|Binary sensor|High beams|No|
-|Binary sensor|Homelink nearby|No|
-|Binary sensor|HVAC auto mode|No|
-|Binary sensor|High voltage interlock loop fault|No|
-|Binary sensor|Located at favorite|Yes|
-|Binary sensor|Located at home|Yes|
-|Binary sensor|Located at work|Yes|
-|Binary sensor|Offroad lightbar|No|
-|Binary sensor|Passenger seat belt|No|
-|Binary sensor|Pin to drive enabled|No|
-|Binary sensor|Preconditioning enabled|No|
-|Binary sensor|Preconditioning|No|
-|Binary sensor|Rear display HVAC|No|
-|Binary sensor|Rear driver door|Yes|
-|Binary sensor|Rear driver window|Yes|
-|Binary sensor|Rear passenger door|Yes|
-|Binary sensor|Rear passenger window|Yes|
-|Binary sensor|Remote start|No|
-|Binary sensor|Right hand drive|No|
-|Binary sensor|Scheduled charging pending|No|
-|Binary sensor|Seat vent enabled|No|
-|Binary sensor|Service mode|No|
-|Binary sensor|Speed limited|No|
-|Binary sensor|Status|Yes|
-|Binary sensor|Supercharger session trip planner|No|
-|Binary sensor|Tire pressure warning front left|No|
-|Binary sensor|Tire pressure warning front right|No|
-|Binary sensor|Tire pressure warning rear left|No|
-|Binary sensor|Tire pressure warning rear right|No|
-|Binary sensor|Trip charging|No|
-|Binary sensor|User present|Yes|
-|Binary sensor|Wi-Fi|Yes|
-|Binary sensor|Wiper heat|No|
-|Button|Flash lights|Yes|
-|Button|HomeLink|Yes|
-|Button|Honk horn|Yes|
-|Button|Keyless driving|Yes|
-|Button|Play fart|Yes|
-|Button|Wake|Yes|
-|Climate|Cabin overheat protection|Yes|
-|Climate|Climate|Yes|
-|Cover|Charge port door|Yes|
-|Cover|Frunk|Yes|
-|Cover|Sunroof|No|
-|Cover|Trunk|Yes|
-|Cover|Vent windows|Yes|
-|Device tracker|Location|Yes|
-|Device tracker|Origin|No|
-|Device tracker|Route|Yes|
-|Lock|Charge cable lock|Yes|
-|Lock|Lock|Yes|
-|Lock|Speed limit|Yes|
-|Media player|Media player|Yes|
-|Number|Charge current|Yes|
-|Number|Charge limit|Yes|
-|Select|Seat cooler front left|Yes|
-|Select|Seat cooler front right|Yes|
-|Select|Seat heater front left|Yes|
-|Select|Seat heater front right|Yes|
-|Select|Seat heater rear center|No|
-|Select|Seat heater rear left|No|
-|Select|Seat heater rear right|No|
-|Select|Seat heater third row left|No|
-|Select|Seat heater third row right|No|
-|Select|Steering wheel heater|Yes|
-|Sensor|Battery level|Yes|
-|Sensor|Battery range|Yes|
-|Sensor|BMS state|No|
-|Sensor|Brake pedal position|No|
-|Sensor|Brick voltage max|No|
-|Sensor|Brick voltage min|No|
-|Sensor|Charge cable|No|
-|Sensor|Charge energy added|Yes|
-|Sensor|Charge rate|Yes|
-|Sensor|Charger current|Yes|
-|Sensor|Charger power|Yes|
-|Sensor|Charger voltage|Yes|
-|Sensor|Charging|Yes|
-|Sensor|Cruise follow distance|No|
-|Sensor|Cruise set speed|No|
-|Sensor|Current speed limit|No|
-|Sensor|DC charging energy in|No|
-|Sensor|DC charging power|No|
-|Sensor|Destination|No|
-|Sensor|Distance to arrival|Yes|
-|Sensor|Driver temperature setting|No|
-|Sensor|Estimate battery range|No|
-|Sensor|Exterior color|No|
-|Sensor|Fast charger type|No|
-|Sensor|Front drive inverter axle speed|No|
-|Sensor|Front drive inverter battery voltage|No|
-|Sensor|Front drive inverter heatsink temperature|No|
-|Sensor|Front drive inverter motor current|No|
-|Sensor|Front drive inverter state|No|
-|Sensor|Front drive inverter temperature|No|
-|Sensor|Front drive unit actual torque|No|
-|Sensor|Front drive unit stator temperature|No|
-|Sensor|HVAC power state|No|
-|Sensor|Ideal battery range|No|
-|Sensor|Inside temperature|Yes|
-|Sensor|Left temperature request|No|
-|Sensor|Odometer|No|
-|Sensor|Outside temperature|Yes|
-|Sensor|Passenger temperature setting|No|
-|Sensor|Power|No|
-|Sensor|Rear drive inverter axle speed|No|
-|Sensor|Rear drive inverter battery voltage|No|
-|Sensor|Rear drive inverter heatsink temperature|No|
-|Sensor|Rear drive inverter motor current|No|
-|Sensor|Rear drive inverter state|No|
-|Sensor|Rear drive inverter temperature|No|
-|Sensor|Rear drive unit actual torque|No|
-|Sensor|Rear drive unit stator temperature|No|
-|Sensor|Rear left drive inverter axle speed|No|
-|Sensor|Rear left drive inverter battery voltage|No|
-|Sensor|Rear left drive inverter heatsink temperature|No|
-|Sensor|Rear left drive inverter motor current|No|
-|Sensor|Rear left drive inverter state|No|
-|Sensor|Rear left drive inverter temperature|No|
-|Sensor|Rear left drive unit actual torque|No|
-|Sensor|Rear left drive unit stator temperature|No|
-|Sensor|Rear right drive inverter axle speed|No|
-|Sensor|Rear right drive inverter battery voltage|No|
-|Sensor|Rear right drive inverter heatsink temperature|No|
-|Sensor|Rear right drive inverter motor current|No|
-|Sensor|Rear right drive inverter state|No|
-|Sensor|Rear right drive inverter temperature|No|
-|Sensor|Rear right drive unit actual torque|No|
-|Sensor|Rear right drive unit stator temperature|No|
-|Sensor|Right temperature request|No|
-|Sensor|Roof color|No|
-|Sensor|Scheduled charging mode|No|
-|Sensor|Scheduled charging start time|No|
-|Sensor|Scheduled departure time|No|
-|Sensor|Secondary drive unit torque command|No|
-|Sensor|Sentry mode|Yes|
-|Sensor|Shift state|No|
-|Sensor|Speed|No|
-|Sensor|State of charge at arrival|No|
-|Sensor|Time at arrival|Yes|
-|Sensor|Time at full charge|Yes|
-|Sensor|Time to arrival|Yes|
-|Sensor|Time to full charge|Yes|
-|Sensor|Tire pressure front left|No|
-|Sensor|Tire pressure front right|No|
-|Sensor|Tire pressure last measured front left|No|
-|Sensor|Tire pressure last measured front right|No|
-|Sensor|Tire pressure last measured rear left|No|
-|Sensor|Tire pressure last measured rear right|No|
-|Sensor|Tire pressure rear left|No|
-|Sensor|Tire pressure rear right|No|
-|Sensor|Traffic delay|No|
-|Sensor|Usable Battery level|No|
-|Sensor|Drive unit torque command|No|
-|Switch|Auto seat climate left|Yes|
-|Switch|Auto seat climate right|Yes|
-|Switch|Auto steering wheel heater|Yes|
-|Switch|Charge|Yes|
-|Switch|Defrost|Yes|
-|Switch|Guest mode|Yes|
-|Switch|Sentry mode|Yes|
-|Switch|Valet mode|Yes|
-|Update|Update|Yes|
+|Domain|Name|Enabled|Data|
+|---|---|---|---|
+|Binary sensor|Automatic blind spot camera|No|Streaming|
+|Binary sensor|Automatic emergency braking off|No|Streaming|
+|Binary sensor|Battery heater|No|Both|
+|Binary sensor|Blind spot collision warning chime|No|Streaming|
+|Binary sensor|BMS full charge|No|Streaming|
+|Binary sensor|Brake pedal|No|Streaming|
+|Binary sensor|Cabin overheat protection actively cooling|No|Polling|
+|Binary sensor|Cellular|Yes|Streaming|
+|Binary sensor|Charge cable|Yes|Both|
+|Binary sensor|Charge enable request|No|Streaming|
+|Binary sensor|Charge port cold weather mode|No|Streaming|
+|Binary sensor|Charger has multiple phases|No|Both|
+|Binary sensor|Dashcam|No|Polling|
+|Binary sensor|DC DC|No|Streaming|
+|Binary sensor|Defrost for preconditioning|No|Streaming|
+|Binary sensor|Drive rail|No|Streaming|
+|Binary sensor|Driver seat belt|No|Streaming|
+|Binary sensor|Driver seat occupied|No|Streaming|
+|Binary sensor|Emergency lane departure avoidance|No|Streaming|
+|Binary sensor|Europe vehicle|No|Streaming|
+|Binary sensor|Fast charger present|No|Streaming|
+|Binary sensor|Front driver door|Yes|Both|
+|Binary sensor|Front driver window|Yes|Both|
+|Binary sensor|Front passenger door|Yes|Both|
+|Binary sensor|Front passenger window|Yes|Both|
+|Binary sensor|GPS state|No|Streaming|
+|Binary sensor|Guest mode enabled|No|Streaming|
+|Binary sensor|Hazard lights|No|Streaming|
+|Binary sensor|High beams|No|Streaming|
+|Binary sensor|Homelink nearby|No|Streaming|
+|Binary sensor|HVAC auto mode|No|Streaming|
+|Binary sensor|High voltage interlock loop fault|No|Streaming|
+|Binary sensor|Located at favorite|Yes|Streaming|
+|Binary sensor|Located at home|Yes|Streaming|
+|Binary sensor|Located at work|Yes|Streaming|
+|Binary sensor|Offroad lightbar|No|Streaming|
+|Binary sensor|Passenger seat belt|No|Streaming|
+|Binary sensor|Pin to drive enabled|No|Streaming|
+|Binary sensor|Preconditioning enabled|No|Both|
+|Binary sensor|Preconditioning|No|Polling|
+|Binary sensor|Rear display HVAC|No|Streaming|
+|Binary sensor|Rear driver door|Yes|Both|
+|Binary sensor|Rear driver window|Yes|Both|
+|Binary sensor|Rear passenger door|Yes|Both|
+|Binary sensor|Rear passenger window|Yes|Both|
+|Binary sensor|Remote start|No|Streaming|
+|Binary sensor|Right hand drive|No|Streaming|
+|Binary sensor|Scheduled charging pending|No|Both|
+|Binary sensor|Seat vent enabled|No|Streaming|
+|Binary sensor|Service mode|No|Streaming|
+|Binary sensor|Speed limited|No|Streaming|
+|Binary sensor|Status|Yes|Both|
+|Binary sensor|Supercharger session trip planner|No|Streaming|
+|Binary sensor|Tire pressure warning front left|No|Polling|
+|Binary sensor|Tire pressure warning front right|No|Polling|
+|Binary sensor|Tire pressure warning rear left|No|Polling|
+|Binary sensor|Tire pressure warning rear right|No|Polling|
+|Binary sensor|Trip charging|No|Polling|
+|Binary sensor|User present|Yes|Polling|
+|Binary sensor|Wi-Fi|Yes|Streaming|
+|Binary sensor|Wiper heat|No|Streaming|
+|Button|Flash lights|Yes|—|
+|Button|HomeLink|Yes|—|
+|Button|Honk horn|Yes|—|
+|Button|Keyless driving|Yes|—|
+|Button|Play fart|Yes|—|
+|Button|Wake|Yes|—|
+|Climate|Cabin overheat protection|Yes|Both|
+|Climate|Climate|Yes|Both|
+|Cover|Charge port door|Yes|Both|
+|Cover|Frunk|Yes|Both|
+|Cover|Sunroof|No|Polling|
+|Cover|Trunk|Yes|Both|
+|Cover|Vent windows|Yes|Both|
+|Device tracker|Location|Yes|Both|
+|Device tracker|Origin|No|Streaming|
+|Device tracker|Route|Yes|Both|
+|Lock|Charge cable lock|Yes|Both|
+|Lock|Lock|Yes|Both|
+|Lock|Speed limit|Yes|Both|
+|Media player|Media player|Yes|Both|
+|Number|Charge current|Yes|Both|
+|Number|Charge limit|Yes|Both|
+|Select|Seat cooler front left|Yes|Both|
+|Select|Seat cooler front right|Yes|Both|
+|Select|Seat heater front left|Yes|Both|
+|Select|Seat heater front right|Yes|Both|
+|Select|Seat heater rear center|No|Both|
+|Select|Seat heater rear left|No|Both|
+|Select|Seat heater rear right|No|Both|
+|Select|Seat heater third row left|No|Polling|
+|Select|Seat heater third row right|No|Polling|
+|Select|Steering wheel heater|Yes|Both|
+|Sensor|Battery level|Yes|Both|
+|Sensor|Battery range|Yes|Polling|
+|Sensor|BMS state|No|Streaming|
+|Sensor|Brake pedal position|No|Streaming|
+|Sensor|Brick voltage max|No|Streaming|
+|Sensor|Brick voltage min|No|Streaming|
+|Sensor|Charge cable|No|Both|
+|Sensor|Charge energy added|Yes|Both|
+|Sensor|Charge rate|Yes|Polling|
+|Sensor|Charger current|Yes|Both|
+|Sensor|Charger power|Yes|Both|
+|Sensor|Charger voltage|Yes|Both|
+|Sensor|Charging|Yes|Both|
+|Sensor|Cruise follow distance|No|Streaming|
+|Sensor|Cruise set speed|No|Streaming|
+|Sensor|Current speed limit|No|Streaming|
+|Sensor|DC charging energy in|No|Streaming|
+|Sensor|DC charging power|No|Streaming|
+|Sensor|Destination|No|Both|
+|Sensor|Distance to arrival|Yes|Both|
+|Sensor|Driver temperature setting|No|Polling|
+|Sensor|Estimate battery range|No|Both|
+|Sensor|Exterior color|No|Both|
+|Sensor|Fast charger type|No|Both|
+|Sensor|Front drive inverter axle speed|No|Streaming|
+|Sensor|Front drive inverter battery voltage|No|Streaming|
+|Sensor|Front drive inverter heatsink temperature|No|Streaming|
+|Sensor|Front drive inverter motor current|No|Streaming|
+|Sensor|Front drive inverter state|No|Streaming|
+|Sensor|Front drive inverter temperature|No|Streaming|
+|Sensor|Front drive unit actual torque|No|Streaming|
+|Sensor|Front drive unit stator temperature|No|Streaming|
+|Sensor|HVAC power state|No|Streaming|
+|Sensor|Ideal battery range|No|Both|
+|Sensor|Inside temperature|Yes|Both|
+|Sensor|Left temperature request|No|Streaming|
+|Sensor|Lifetime energy gained regen|No|
+|Sensor|Miles since reset|No|
+|Sensor|Odometer|No|Both|
+|Sensor|Outside temperature|Yes|Both|
+|Sensor|Passenger temperature setting|No|Polling|
+|Sensor|Power|No|Polling|
+|Sensor|Rear drive inverter axle speed|No|Streaming|
+|Sensor|Rear drive inverter battery voltage|No|Streaming|
+|Sensor|Rear drive inverter heatsink temperature|No|Streaming|
+|Sensor|Rear drive inverter motor current|No|Streaming|
+|Sensor|Rear drive inverter state|No|Streaming|
+|Sensor|Rear drive inverter temperature|No|Streaming|
+|Sensor|Rear drive unit actual torque|No|Streaming|
+|Sensor|Rear drive unit stator temperature|No|Streaming|
+|Sensor|Rear left drive inverter axle speed|No|Streaming|
+|Sensor|Rear left drive inverter battery voltage|No|Streaming|
+|Sensor|Rear left drive inverter heatsink temperature|No|Streaming|
+|Sensor|Rear left drive inverter motor current|No|Streaming|
+|Sensor|Rear left drive inverter state|No|Streaming|
+|Sensor|Rear left drive inverter temperature|No|Streaming|
+|Sensor|Rear left drive unit actual torque|No|Streaming|
+|Sensor|Rear left drive unit stator temperature|No|Streaming|
+|Sensor|Rear right drive inverter axle speed|No|Streaming|
+|Sensor|Rear right drive inverter battery voltage|No|Streaming|
+|Sensor|Rear right drive inverter heatsink temperature|No|Streaming|
+|Sensor|Rear right drive inverter motor current|No|Streaming|
+|Sensor|Rear right drive inverter state|No|Streaming|
+|Sensor|Rear right drive inverter temperature|No|Streaming|
+|Sensor|Rear right drive unit actual torque|No|Streaming|
+|Sensor|Rear right drive unit stator temperature|No|Streaming|
+|Sensor|Right temperature request|No|Streaming|
+|Sensor|Roof color|No|Both|
+|Sensor|Scheduled charging mode|No|Streaming|
+|Sensor|Scheduled charging start time|No|Both|
+|Sensor|Scheduled departure time|No|Both|
+|Sensor|Secondary drive unit torque command|No|Streaming|
+|Sensor|Self-driving miles since reset|No|
+|Sensor|Sentry mode|Yes|Streaming|
+|Sensor|Shift state|No|Both|
+|Sensor|Speed|No|Both|
+|Sensor|State of charge at arrival|No|Both|
+|Sensor|Time at arrival|Yes|Both|
+|Sensor|Time at full charge|Yes|Both|
+|Sensor|Time to arrival|Yes|Both|
+|Sensor|Time to full charge|Yes|Both|
+|Sensor|Tire pressure front left|No|Both|
+|Sensor|Tire pressure front right|No|Both|
+|Sensor|Tire pressure last measured front left|No|Both|
+|Sensor|Tire pressure last measured front right|No|Both|
+|Sensor|Tire pressure last measured rear left|No|Both|
+|Sensor|Tire pressure last measured rear right|No|Both|
+|Sensor|Tire pressure rear left|No|Both|
+|Sensor|Tire pressure rear right|No|Both|
+|Sensor|Traffic delay|No|Both|
+|Sensor|Usable Battery level|No|Both|
+|Sensor|Drive unit torque command|No|Streaming|
+|Switch|Auto seat climate left|Yes|Both|
+|Switch|Auto seat climate right|Yes|Both|
+|Switch|Auto steering wheel heater|Yes|Both|
+|Switch|Charge|Yes|Both|
+|Switch|Defrost|Yes|Both|
+|Switch|Guest mode|Yes|Streaming|
+|Switch|Sentry mode|Yes|Both|
+|Switch|Valet mode|Yes|Both|
+|Update|Update|Yes|Both|
 
 ### Energy sites
 
-|Domain|Name|Enabled|
-|---|---|---|
-|Binary sensor|Backup capable|Yes|
-|Binary sensor|Grid services active|Yes|
-|Binary sensor|Grid services enabled|Yes|
-|Binary sensor|Grid status|Yes|
-|Binary sensor|Storm watch active|Yes|
-|Calendar|Buy tariff|Yes|
-|Calendar|Sell tariff|Yes|
-|Number|Backup reserve|Yes|
-|Number|Off grid reserve|Yes|
-|Select|Allow export|Yes|
-|Select|Operation mode|Yes|
-|Sensor|Battery power|Yes|
-|Sensor|Consumer imported from battery|No|
-|Sensor|Consumer imported from generator|No|
-|Sensor|Consumer imported from grid|No|
-|Sensor|Consumer imported from solar|No|
-|Sensor|Energy left|Yes|
-|Sensor|Generator exported|Yes|
-|Sensor|Generator power|No|
-|Sensor|Grid exported|Yes|
-|Sensor|Grid exported from battery|No|
-|Sensor|Grid exported from generator|No|
-|Sensor|Grid exported from solar|No|
-|Sensor|Grid imported|No|
-|Sensor|Grid power|Yes|
-|Sensor|Grid services exported|No|
-|Sensor|Grid services imported|No|
-|Sensor|Grid services power|Yes|
-|Sensor|Home usage|Yes|
-|Sensor|Island status|Yes|
-|Sensor|Load power|Yes|
-|Sensor|Percentage charged|Yes|
-|Sensor|Solar exported|No|
-|Sensor|Solar generated|Yes|
-|Sensor|Solar power|Yes|
-|Sensor|Total pack energy|No|
-|Sensor|Version|Yes|
-|Sensor|VPP backup reserve|Yes|
-|Switch|Allow charging from grid|Yes|
-|Switch|Storm watch|Yes|
+|Domain|Name|Enabled|Data|
+|---|---|---|---|
+|Binary sensor|Backup capable|Yes|Polling|
+|Binary sensor|Grid services active|Yes|Polling|
+|Binary sensor|Grid services enabled|Yes|Polling|
+|Binary sensor|Grid status|Yes|Polling|
+|Binary sensor|Storm watch active|Yes|Polling|
+|Calendar|Buy tariff|Yes|Polling|
+|Calendar|Sell tariff|Yes|Polling|
+|Number|Backup reserve|Yes|Polling|
+|Number|Off grid reserve|Yes|Polling|
+|Select|Allow export|Yes|Polling|
+|Select|Operation mode|Yes|Polling|
+|Sensor|Battery power|Yes|Polling|
+|Sensor|Consumer imported from battery|No|Polling|
+|Sensor|Consumer imported from generator|No|Polling|
+|Sensor|Consumer imported from grid|No|Polling|
+|Sensor|Consumer imported from solar|No|Polling|
+|Sensor|Energy left|Yes|Polling|
+|Sensor|Generator exported|Yes|Polling|
+|Sensor|Generator power|No|Polling|
+|Sensor|Grid exported|Yes|Polling|
+|Sensor|Grid exported from battery|No|Polling|
+|Sensor|Grid exported from generator|No|Polling|
+|Sensor|Grid exported from solar|No|Polling|
+|Sensor|Grid imported|No|Polling|
+|Sensor|Grid power|Yes|Polling|
+|Sensor|Grid services exported|No|Polling|
+|Sensor|Grid services imported|No|Polling|
+|Sensor|Grid services power|Yes|Polling|
+|Sensor|Home usage|Yes|Polling|
+|Sensor|Island status|Yes|Polling|
+|Sensor|Load power|Yes|Polling|
+|Sensor|Percentage charged|Yes|Polling|
+|Sensor|Solar exported|No|Polling|
+|Sensor|Solar generated|Yes|Polling|
+|Sensor|Solar power|Yes|Polling|
+|Sensor|Total pack energy|No|Polling|
+|Sensor|Version|Yes|Polling|
+|Sensor|VPP backup reserve|Yes|Polling|
+|Switch|Allow charging from grid|Yes|Polling|
+|Switch|Storm watch|Yes|Polling|
 
 ### Wall connector
 
-|Domain|Name|Enabled|
-|---|---|---|
-|Sensor|Fault state|No|
-|Sensor|Power|Yes|
-|Sensor|State|Yes|
-|Sensor|Vehicle|Yes|
+|Domain|Name|Enabled|Data|
+|---|---|---|---|
+|Sensor|Fault state|No|Polling|
+|Sensor|Power|Yes|Polling|
+|Sensor|State|Yes|Polling|
+|Sensor|Vehicle|Yes|Polling|
 
 ### Metadata
 
-|Domain|Name|Enabled|
-|---|---|---|
-|Sensor|Teslemetry credits|Yes|
+|Domain|Name|Enabled|Data|
+|---|---|---|---|
+|Sensor|Teslemetry credits|Yes|Streaming|
 
-## Actions
-
-Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.
-
-### Navigate to coordinates
-
-`teslemetry.navigation_gps_request`
-
-| Field         | Description                | Example                          |
-|---------------|----------------------------|----------------------------------|
-| device_id     | The vehicle's device ID    | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| gps           | Dictionary of coordinates  |                                  |
-| gps.latitude  | Latitude in degrees        | -27.9699373                      |
-| gps.longitude | Longitude in degrees       | 153.4081865                      |
-| order         | Order for this destination | 1                                |
-
-### Set scheduled charging
-
-`teslemetry.set_scheduled_charging`
-
-| Field     | Description                           | Example                          |
-|-----------|---------------------------------------|----------------------------------|
-| device_id | The vehicle's device ID              | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable    | Enable or disable scheduled charging | true                             |
-| time      | Time to start charging in HH:MM       | 6:00                             |
-
-### Set scheduled departure
-
-`teslemetry.set_scheduled_departure`
-
-| Field                           | Description                               | Example                          |
-|---------------------------------|-------------------------------------------|----------------------------------|
-| device_id                       | The vehicle's device ID                  | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable                          | Enable or disable scheduled departure     | true                             |
-| preconditioning_enabled         | Enable preconditioning                    | true                             |
-| preconditioning_weekdays_only   | Enable preconditioning on weekdays only   | false                            |
-| departure_time                  | Planned departure time (HH:MM)         | 6:00                             |
-| off_peak_charging_enabled       | Enable off-peak charging                  | false                            |
-| off_peak_charging_weekdays_only | Enable off-peak charging on weekdays only | false                            |
-| end_off_peak_time               | Time to complete charging by (HH:MM)      | 5:00                             |
-
-### Valet Mode
-
-`teslemetry.valet_mode`
-
-| Field         | Description                  | Example                          |
-|---------------|------------------------------|----------------------------------|
-| device_id     | The vehicle's device ID      | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable        | Enable or disable valet mode | true                             |
-| pin           | 4-digit pin                  | 1234                             |
-
-### Speed Limit
-
-`teslemetry.speed_limit`
-
-| Field         | Description                   | Example                          |
-|---------------|-------------------------------|----------------------------------|
-| device_id     | The vehicle's device ID       | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable        | Enable or disable speed limit | true                             |
-| pin           | 4-digit pin                   | 1234                             |
-
-### Time of use
-
-`teslemetry.time_of_use`
-
-| Field         | Description                  | Example                                                                                                          |
-|---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|
-| device_id     | The energy site's device ID  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
-| tou_settings  | Time of use settings         | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
+{% include integrations/actions.md %}
 
 ## Energy dashboard
 
@@ -392,26 +327,36 @@ which then can be used within the energy dashboard.
 
 ## Data updates
 
-The Teslemetry integration uses a combination of streaming and polling to fetch data, depending on the vehicle type and configuration.
+Teslemetry delivers data by streaming or polling, depending on the product. The **Data** column in the entity tables above shows how each entity is updated:
 
-### Streaming
+- **Streaming**: the value arrives over the live stream in real time.
+- **Polling**: the value comes from Teslemetry's cached vehicle data.
+- **Both**: the value can arrive by streaming or polling, depending on the vehicle and its configuration.
+- **—** (em dash): the entity does not report data. Buttons send commands, so they have no data source.
 
-For most modern vehicles (excluding pre-2021 Model S/X), data is streamed in real-time from the vehicle to Teslemetry, and then streamed to Home Assistant via Server-Sent Events (SSE). This provides low-latency updates for sensors and states. To enable streaming, specific configuration is required on the vehicle, which can be managed in the [Teslemetry Console](https://teslemetry.com/console).
+### Vehicle data
 
-### Polling
+Most vehicles stream their data to Home Assistant in real time over Server-Sent Events (SSE), with no per-update cost. The integration sets up and manages this streaming configuration for you.
 
-Legacy vehicles (pre-2021 Model S/X) and Energy sites use cloud polling.
+Pre-2021 Model S and Model X vehicles cannot stream. For these vehicles, Teslemetry automatically refreshes their data on its own servers at no cost to you. A non-streaming vehicle is refreshed roughly every 15 minutes, and a vehicle that Tesla marks as discounted is refreshed much more often, roughly every 90 seconds. Both are free.
 
--   **Legacy Vehicles:** Polled every 60 seconds.
--   **Energy Sites:** Polled every 30 seconds.
+Credits are only spent on an on-demand fresh full-vehicle-data fetch, which costs 2 credits, or 0.1 credit for a discounted vehicle.
 
-The integration is designed to not wake the vehicle to poll for data. Updates for sleeping vehicles will pause until the vehicle wakes up naturally or is interacted with.
+On a streaming vehicle, **Polling** entities read from Teslemetry's cached vehicle data instead of the live stream. Their values are not streamed and do not refresh on their own, which is why many of them are disabled by default. Enabling one is not a switch for Teslemetry's free automatic polling, and Home Assistant never bypasses the cache or forces a refresh on its own.
+
+If your vehicle is unpaired and streams through the safety screen, an enabled polling entity reads the cached vehicle data every 60 seconds while the vehicle is online. Most of those reads are free cache hits. Each time the cached data passes 20 minutes old, the next read becomes a charged fresh fetch at that cost, so it recurs for as long as the vehicle stays online. Streaming updates do not reset this 20-minute window.
+
+The integration does not wake a sleeping vehicle to fetch data. Updates pause until the vehicle wakes up on its own or you interact with it.
+
+### Energy site data
+
+Energy sites are cloud-polled: live status and site information every 30 seconds, and energy history every 60 seconds.
 
 ## Known limitations
 
 -   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
 -   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
--   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
+-   **Virtual Key:** See [Prerequisites](#prerequisites) for when a virtual key is needed. To set one up, follow the instructions on the [Teslemetry Console](https://teslemetry.com/console).
 
 ## Troubleshooting
 

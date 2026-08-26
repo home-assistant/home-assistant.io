@@ -19,7 +19,7 @@ To use an MQTT lawn mower in your installation, add the following to your {% ter
 # Example configuration.yaml entry
 mqtt:
   - lawn_mower:
-      command_topic: topic
+      start_mowing_command_topic: topic
       name: "Test Lawn Mower"
 ```
 
