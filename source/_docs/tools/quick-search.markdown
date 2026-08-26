@@ -135,7 +135,7 @@ There are a few possible reasons why the **Quick search** dialog won't launch:
 
 1. Your user is not an admin.
 2. The application lost focus. Try selecting the main content area of the application and typing the shortcut again.
-3. You have disabled keyboard shortcuts in your browser settings.
+3. You have disabled **Keyboard shortcuts** in {% my profile_browser title="**User profile** > **This browser**" %}.
 4. Shortcut is marked by browser as non-overridable. Firefox does this with some shortcuts, for example. But this shouldn't be a problem with single-key shortcuts currently used by the **Quick search**.
 5. Some other application or browser extension is using or overriding the shortcut. Try disabling the extension.
 

@@ -50,10 +50,10 @@ Once you're signed in, you can manage your personal settings on the {% my profil
 
 The profile page shows your account details, a **Theme** card, and a list of sections you can open:
 
-- **Appearance**: your default dashboard and sidebar order.
-- **Localization**: language, time zone, and how dates, times, and numbers are shown.
-- **This browser** (called **This mobile app** in the companion app): settings for the device you are currently using.
-- **Security**: how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
+- **Appearance**: Set your default dashboard and organize your sidebar.
+- **Localization**: Set your language, time zone, and how dates, times, and numbers are shown.
+- **This browser** (called **This mobile app** in the companion app): Adjust settings for the device you are currently using.
+- **Security**: Manage how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
 
 You can also sign out of Home Assistant from the profile page.
 
