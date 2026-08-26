@@ -32,13 +32,13 @@ Verify SSL certificate:
   description: "Whether to verify the SSL certificate when SSL encryption is used to connect to your LibreNMS instance."
 {% endconfiguration_basic %}
 
-## Data fetching
+## Data updates
 
 The integration polls data every 60 seconds.
 
 ## Binary sensors
 
-The following {% term binary_sensor "binary sensor" %} are created.
+The following {% term binary_sensor %} entities are created.
 
 | Entity | Description | Default enabled |
 | --- | --- | --- |
