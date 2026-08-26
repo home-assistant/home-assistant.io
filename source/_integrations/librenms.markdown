@@ -25,7 +25,7 @@ You need to [obtain an API key (token)](https://docs.librenms.org/API/#tokens) f
 
 {% configuration_basic %}
 URL:
-  description: "The URL of your LibreNMS instance. (_e.g. `https://librenms.example.com`_)."
+  description: "The URL of your LibreNMS instance. For example `https://librenms.example.com`."
 API key:
   description: "API key of your user account to connect to your LibreNMS instance."
 Verify SSL certificate:
@@ -46,7 +46,7 @@ The following {% term binary_sensor %} entities are created.
 
 ## Troubleshooting
 
-When reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and once the issue recurs, disable debug logging again (_the debug log download starts automatically_). If possible, also download the [diagnostics](/integrations/diagnostics/) data, and include both the debug log and diagnostics data with your issue report.
+When reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and once the issue recurs, disable debug logging again (the debug log download starts automatically). If possible, also download the [diagnostics](/integrations/diagnostics/) data, and include both the debug log and diagnostics data with your issue report.
 
 ## Known limitations
 
