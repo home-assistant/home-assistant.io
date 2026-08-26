@@ -119,6 +119,6 @@ We may update this privacy policy from time to time to reflect changes in our se
 - October 19, 2017: Initial version
 - October 19, 2020: Add information about Companion applications
 - October 30, 2024: Add health data to Companion applications
-- August 26, 2026: Comprehensive update to reflect the current privacy setup for the Home Assistant websites and services covered by this policy, including the scope of this policy, controller information, website hosting and security, self-hosted Plausible analytics, cookies and third-party services, Home Assistant Analytics, Companion apps, international data transfers, retention periods, and data subject rights.
+- August 27, 2026: Comprehensive update to reflect the current privacy setup for the Home Assistant websites and services covered by this policy, including the scope of this policy, controller information, website hosting and security, self-hosted Plausible analytics, cookies and third-party services, Home Assistant Analytics, Companion apps, international data transfers, retention periods, and data subject rights.
 
 _This privacy policy has been adapted from the [Automattic privacy policy](https://automattic.com/privacy/) and is licensed [Creative Commons ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/)._
