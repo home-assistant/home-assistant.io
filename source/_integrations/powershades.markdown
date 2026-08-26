@@ -31,7 +31,7 @@ Any PoE or Wi-Fi PowerShades shade with UDP communication enabled, and on the sa
 Discovery will usually find shades on your network automatically. If you need to enter an IP address manually, you can find it in one of these ways:
 
 - **Via the PowerShades app (recommended)**: Open the PowerShades app, navigate to your shade, and select **Enable Configuration**, then confirm the pop-up. Then scroll down to see the IP address of your shade
-- **Via your router**: Go to your router's client list. The clients with a name containing "Wideband Labs LLC" are most likely your Powershades devices.
+- **Via your router**: Go to your router's client list. The clients with a name containing "Wideband Labs LLC" are most likely your PowerShades devices.
 
 {% include integrations/config_flow.md %}
 
@@ -42,7 +42,7 @@ IP Address:
   description: "The IP address of your shade, can be autofilled by autodiscovery"
 {% endconfiguration_basic %}
 
-If your shade's IP address changes later (for example, after a DHCP reassignment), and Home Assistant does not auto resolve the problem, then you have to remove and re-add the entry
+If your shade's IP address changes later (for example, after a DHCP reassignment), and Home Assistant does not automatically resolve the problem, you have to remove and re-add the entry.
 
 ## Supported functionality
 
@@ -59,21 +59,21 @@ Each shade is represented as a cover entity, which supports:
 
 While this integration's IoT class is local push, in reality it is a combination of 3 IoT classes:
 
-- **Local push**: When Home Assistant is the one controlling the shade, called the **"UDP master"**, the shade pushes its status roughly every 10 seconds on its own, and also sends an extra push the instant it reaches its target position, so Home Assistant knows it has stopped moving without waiting for the next poll.
-- **Local polling**: Home Assistant polls the shade every 10 seconds (or every 5 seconds while the position is unknown). This is used for when the shades moves by an external source since they would not push updates to Home Assistant, because that source (If its using UDP communication like Home Assistant) is the UDP master.
-- **Assumed state**: The state of the shade (opening, closing, opened, or closed) is assumed by Home Assistant since the Shade only sends its % open to Home Assistant. This means that the state shown in Home Assistant may not be accurate to what the shade is actually doing, especially if Home Assistant is not the one controlling it.
-    - If Home Assistant is controlling the shade then it will assume that the command was sent successfully and the shade is moving. It also assumes that when the shade reaches the % Home Assistant told it open at it has stopped.
-    - However, when an external source controls the shade, Home Assistant assumes the state of the shade based on change of % opened of the shade. Home Assistant will assume it is going to the fully open or closed state, but if the % open hasn't change in 15 seconds, then it will assume it has stopped moving.
+- **Local push**: When Home Assistant is the one controlling the shade, called the **UDP subscriber**, the shade pushes its status roughly every 10 seconds on its own, and also sends an extra push the instant it reaches its target position, so Home Assistant knows it has stopped moving without waiting for the next poll.
+- **Local polling**: Home Assistant polls the shade every 10 seconds (or every 5 seconds while the position is unknown). This is used for when the shade moves by an external source, since that source would not push updates to Home Assistant if it is the UDP subscriber instead (assuming it also uses UDP communication like Home Assistant does).
+- **Assumed state**: The state of the shade (opening, closing, opened, or closed) is assumed by Home Assistant since the shade only sends its percentage open to Home Assistant. This means that the state shown in Home Assistant may not be accurate to what the shade is actually doing, especially if Home Assistant is not the one controlling it.
+    - If Home Assistant is controlling the shade, it assumes the command was sent successfully and the shade is moving. It also assumes the shade has stopped once it reaches the percentage Home Assistant told it to move to.
+    - However, when an external source controls the shade, Home Assistant assumes the shade's state based on changes to its percentage open. Home Assistant will assume it is moving toward fully open or closed, but if the percentage open hasn't changed in 15 seconds, it will assume the shade has stopped moving.
 
 All communication is local with this integration, and does not require an internet connection at all.
 
 ## Known limitations
 
-- PowerShades devices send push updates only to the UDP master. If Home Assistant is not the UDP master, then it can only get the shade's status by polling.
-- This also affects other hubs that communicate over UDP, (for example, Control4) but solely rely on push data, since they will have an outdated status of the shade if Home Assistant or any other source controls it.
+- PowerShades devices send push updates only to the UDP subscriber. If Home Assistant is not the UDP subscriber, then it can only get the shade's status by polling.
+- This also affects other hubs that communicate over UDP (for example, Control4) but solely rely on push data, since they will have an outdated status of the shade if Home Assistant or any other source controls it.
 - The shade's reported state (opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for more info.
 - The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
-- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge for full support. If you have the Powershades RF hub, it would be helpful to tell the integration owner your experience using it with this integration, and help make it compatible with this integration.
+- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge for full support. If you have the PowerShades RF hub, it would be helpful to tell the integration owner your experience using it with this integration, and help make it compatible with this integration.
 - Your shade may randomly go unavailable for anywhere between 10-120 seconds. This is normal behavior.
 
 ## Troubleshooting
@@ -101,7 +101,7 @@ To get more detailed logs:
 Opening a shade in the morning helps you get up with natural sunlight.
 
 - **Trigger**: `time` is `"07:00:00"`
-- **Action**: `cover:open_cover` to the `cover.bedroom_shade entity`
+- **Action**: `cover.open_cover` on the `cover.bedroom_shade` entity
 
 {% details "YAML example for opening a shade in the morning" %}
 
@@ -124,9 +124,9 @@ automation: |
 
 Closing a shade at sunset helps keep extra privacy, especially when it's getting dark.
 
-- **Trigger**: `state` of `sensor.sun_next_sunset` changes
-- **Condition**: `cover.bedroom_shade entity` is `open`
-- **Action**: `cover:close_cover` to the `cover.bedroom_shade entity`
+- **Trigger**: Sunset
+- **Condition**: The `cover.bedroom_shade` entity is `open`
+- **Action**: `cover.close_cover` on the `cover.bedroom_shade` entity
 
 {% details "YAML example for closing shades at sunset" %}
 
@@ -134,9 +134,8 @@ Closing a shade at sunset helps keep extra privacy, especially when it's getting
 automation: |
   alias: "Close shades at sunset"
   triggers:
-    - trigger: state
-      entity_id:
-        - sensor.sun_next_sunset
+    - trigger: sun
+      event: sunset
   conditions:
     - condition: state
       entity_id: cover.bedroom_shade
@@ -144,8 +143,7 @@ automation: |
   actions:
     - action: cover.close_cover
       target:
-        entity_id:
-          - cover.bedroom_shade
+        entity_id: cover.bedroom_shade
   mode: single
 {% endexample %}
 
