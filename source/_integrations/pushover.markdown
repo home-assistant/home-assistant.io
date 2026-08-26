@@ -144,7 +144,7 @@ Omitting the `tag` field cancels all currently tracked emergency notifications f
     entry_id: 8955375327824e14ba89e4b29cc3ec9a
 ```
 
-Tags are matched independently per message - if a message was sent with multiple tags, it is canceled as soon as any one of its tags matches the tag provided to `pushover.cancel`.
+Tags are matched independently per message. If a message was sent with multiple tags, it is canceled as soon as any one of its tags matches the tag provided to `pushover.cancel`.
 
 If multiple Pushover accounts are configured, `pushover.cancel` only affects the account selected via `entry_id`. To cancel notifications across multiple accounts, call the action once per account.
 
