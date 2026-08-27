@@ -681,9 +681,8 @@ device:
 
 ## Device class selector
 
-The device class selector allows to select a single or multiple
-device classes based on the selector configuration. The value of the input will contain
-the device class or a list of device classes, based on if `multiple` is set to `true`.
+The device class selector lets you select one or more device classes.
+The selector returns a single device class, or a list of device classes if `multiple` is set to `true`.
 
 ![Screenshot of a device class selector](/images/blueprints/selector-device-class.png)
 
