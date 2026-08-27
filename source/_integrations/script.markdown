@@ -281,6 +281,8 @@ script:
           entity_id: "{{ turn_on_entity }}"
 ```
 
+{% include integrations/actions.md %}
+
 ## Video tutorial
 
 This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
