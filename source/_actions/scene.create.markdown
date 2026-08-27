@@ -105,7 +105,8 @@ snapshot_entities:
 
 Store the current states before turning things off, then activate the stored scene once the window is closed again.
 
-- **Trigger**: State: Window changes to open
+- **Trigger**: Window opened
+  - **Target**: Window
 - **Action**: Create scene
   - **Scene entity ID**: `before`
   - **Entities snapshot**: thermostat and ceiling lights
@@ -116,10 +117,9 @@ Store the current states before turning things off, then activate the stored sce
 automation: |
   - alias: "Window opened"
     triggers:
-      - trigger: state
-        entity_id: binary_sensor.window
-        from: "off"
-        to: "on"
+      - trigger: window.opened
+        target:
+          entity_id: binary_sensor.window
     actions:
       - action: scene.create
         data:
@@ -138,10 +138,9 @@ automation: |
 
   - alias: "Window closed"
     triggers:
-      - trigger: state
-        entity_id: binary_sensor.window
-        from: "on"
-        to: "off"
+      - trigger: window.closed
+        target:
+          entity_id: binary_sensor.window
     actions:
       - action: scene.turn_on
         target:

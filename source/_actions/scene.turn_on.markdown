@@ -83,7 +83,9 @@ transition:
 
 Set the living room to a welcoming look as soon as someone arrives.
 
-- **Trigger**: State: Person changes to home
+- **Trigger**: Zone entered
+  - **Target**: Paulus
+  - **Zone**: Home
 - **Action**: Activate scene
   - **Target**: Romantic
   - **Transition**: 2.5
@@ -94,10 +96,11 @@ Set the living room to a welcoming look as soon as someone arrives.
 automation: |
   - alias: "Activate the romantic scene on arrival"
     triggers:
-      - trigger: state
-        entity_id: person.paulus
-        from: "not_home"
-        to: "home"
+      - trigger: zone.entered
+        target:
+          entity_id: person.paulus
+        options:
+          zone: zone.home
     actions:
       - action: scene.turn_on
         target:

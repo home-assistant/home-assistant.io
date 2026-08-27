@@ -85,7 +85,8 @@ transition:
 
 Dim the back light, switch the ceiling light off, and select the right TV input in a single step.
 
-- **Trigger**: State: TV changes to on
+- **Trigger**: Media player turned on
+  - **Target**: Sony Bravia TV
 - **Action**: Apply scene
   - **Entities state**: TV back light, ceiling light, and TV
 
@@ -95,9 +96,9 @@ Dim the back light, switch the ceiling light off, and select the right TV input 
 automation: |
   - alias: "Set the movie lighting when the TV turns on"
     triggers:
-      - trigger: state
-        entity_id: media_player.sony_bravia_tv
-        to: "on"
+      - trigger: media_player.turned_on
+        target:
+          entity_id: media_player.sony_bravia_tv
     actions:
       - action: scene.apply
         data:
