@@ -62,8 +62,11 @@ The **BLUETTI** integration can provide the following entities, depending on wha
 
 ## BLUETTI automation examples
 
-### Automation: Notify when the power station battery is low
+You can use the entities from this integration in automations like the examples below.
 
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when the power station battery is low
 ```yaml
 automation:
   - alias: "Notify when the power station battery is low"
