@@ -116,7 +116,7 @@ Blinds additionally support:
 
 ### Light
 
-The integration supports two types of light:
+The integration supports two types of light entities:
 
 - **On/off lights**: Support turning the light on and off.
 - **Dimmable lights**: Support turning the light on and off and setting brightness.
