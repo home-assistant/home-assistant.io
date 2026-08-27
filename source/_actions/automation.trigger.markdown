@@ -84,7 +84,9 @@ skip_condition:
 
 Reuse an existing evening routine automation when someone presses a button.
 
-- **Trigger**: A wall button is pressed
+- **Trigger**: Event received
+  - **Target**: Hallway button
+  - **Event type**: Single press
 - **Action**: Trigger automation
   - **Target**: Evening routine
 
@@ -94,8 +96,12 @@ Reuse an existing evening routine automation when someone presses a button.
 automation: |
   - alias: "Run the evening routine from the hallway button"
     triggers:
-      - trigger: state
-        entity_id: event.hallway_button
+      - trigger: event.received
+        target:
+          entity_id: event.hallway_button
+        options:
+          event_type:
+            - single_press
     actions:
       - action: automation.trigger
         target:

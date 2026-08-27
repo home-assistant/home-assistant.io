@@ -55,11 +55,13 @@ This action has no additional YAML options beyond the target.
 
 {% include actions/more_examples.md %}
 
-### Automation: let a helper switch the motion lights on and off
+### Automation: use one button to enable and disable the motion lights
 
-Use an input boolean as a single control for a motion lighting automation.
+Let a single wall button switch a motion lighting automation on and off.
 
-- **Trigger**: State: Motion lights helper changes
+- **Trigger**: Event received
+  - **Target**: Living room button
+  - **Event type**: Single press
 - **Action**: Toggle automation
   - **Target**: Motion lights
 
@@ -67,10 +69,14 @@ Use an input boolean as a single control for a motion lighting automation.
 
 {% example %}
 automation: |
-  - alias: "Follow the motion lights helper"
+  - alias: "Toggle the motion lights automation with the living room button"
     triggers:
-      - trigger: state
-        entity_id: input_boolean.motion_lights_enabled
+      - trigger: event.received
+        target:
+          entity_id: event.living_room_button
+        options:
+          event_type:
+            - single_press
     actions:
       - action: automation.toggle
         target:

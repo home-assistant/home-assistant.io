@@ -83,7 +83,8 @@ stop_actions:
 
 Disable the motion lighting automation so the lights stay as they are during the movie.
 
-- **Trigger**: State: Media player changes to playing
+- **Trigger**: Media player started playing
+  - **Target**: Living room
 - **Action**: Turn off automation
   - **Target**: Motion lights
 
@@ -93,9 +94,9 @@ Disable the motion lighting automation so the lights stay as they are during the
 automation: |
   - alias: "Pause the motion lights during a movie"
     triggers:
-      - trigger: state
-        entity_id: media_player.living_room
-        to: "playing"
+      - trigger: media_player.started_playing
+        target:
+          entity_id: media_player.living_room
     actions:
       - action: automation.turn_off
         target:

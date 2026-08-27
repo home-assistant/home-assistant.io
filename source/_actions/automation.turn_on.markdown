@@ -62,7 +62,9 @@ This action has no additional YAML options beyond the target.
 
 Switch on a second automation that fakes presence while nobody is home.
 
-- **Trigger**: State: Person changes to away
+- **Trigger**: Zone left
+  - **Target**: Paulus
+  - **Zone**: Home
 - **Action**: Turn on automation
   - **Target**: Away lighting
 
@@ -72,9 +74,11 @@ Switch on a second automation that fakes presence while nobody is home.
 automation: |
   - alias: "Enable the away lighting routine"
     triggers:
-      - trigger: state
-        entity_id: person.paulus
-        to: "not_home"
+      - trigger: zone.left
+        target:
+          entity_id: person.paulus
+        options:
+          zone: zone.home
     actions:
       - action: automation.turn_on
         target:
