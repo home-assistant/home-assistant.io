@@ -9,6 +9,7 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: device
