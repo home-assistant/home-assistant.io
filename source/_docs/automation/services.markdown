@@ -3,44 +3,19 @@ title: "Automation actions"
 description: "Reference for the actions you can call from an automation, including how to pass data, target a specific entity, and chain multiple actions together."
 ---
 
-The automation integration has actions to control automations, like turning automations on and off. This can be useful if you want to disable an automation from another automation.
+The automation {% term integration %} provides actions to control your automations, such as turning them on and off. This is useful when you want one automation to enable or disable another one.
 
-## Action {% my developer_call_service service="automation.turn_on" %}
+Each action has its own page with a step-by-step walkthrough, options, and examples:
 
-This action enables the automation's {% term triggers %}.
+- [Turn on automation](/actions/automation.turn_on/) (`automation.turn_on`)
+    Enables an automation, so it listens for its {% term triggers %} again.
+- [Turn off automation](/actions/automation.turn_off/) (`automation.turn_off`)
+    Disables an automation and, unless you say otherwise, stops the actions it is running.
+- [Toggle automation](/actions/automation.toggle/) (`automation.toggle`)
+    Enables an automation if it was off, and disables it if it was on.
+- [Trigger automation](/actions/automation.trigger/) (`automation.trigger`)
+    Runs the actions of an automation right away, without waiting for its triggers.
+- [Reload automations](/actions/automation.reload/) (`automation.reload`)
+    Loads your automations again after you change them in YAML.
 
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Entity ID of automation to turn on. Can be a list. `none` or `all` are also accepted.
-
-## Action {% my developer_call_service service="automation.turn_off" %}
-
-This action disables the automation's {% term triggers %}, and optionally stops any currently active {% term actions %}.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Entity ID of automation to turn off. Can be a list. `none` or `all` are also accepted.
-`stop_actions` | yes | Stop any currently active actions (defaults to true).
-
-## Action {% my developer_call_service service="automation.toggle" %}
-
-This action enables the automation's triggers if they were disabled, or disables the automation's triggers, and stops any currently active actions, if the triggers were enabled.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Entity ID of automation to turn on. Can be a list. `none` or `all` are also accepted.
-
-## Action {% my developer_call_service service="automation.trigger" %}
-
-This action will trigger the {% term action %} of an {% term automation %}. By default it bypasses any conditions, though that can be changed via the `skip_condition` attribute.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Entity ID of automation to trigger. Can be a list. `none` or `all` are also accepted.
-`skip_condition` | yes | Whether or not the condition will be skipped (defaults to true).
-
-## Action {% my developer_call_service service="automation.reload" %}
-
-_This action is only required if you create/edit automations in YAML. Automations via the UI do this automatically._
-
-This action reloads all automations, stopping all currently active automation actions.
+For an overview of every action across all integrations, see the [actions reference](/actions/).
