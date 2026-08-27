@@ -88,3 +88,5 @@ automation:
         entity_id: image_processing.door
 ...
 ```
+
+{% include integrations/actions.md %}
