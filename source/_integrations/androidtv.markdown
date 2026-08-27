@@ -136,7 +136,7 @@ stop_netflix:
 
 ### `androidtv.adb_command`
 
-The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be returned as an action response, stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template), and logged at the INFO level.
+The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be returned as an action response, stored in the `'adb_response'` attribute (for example `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template), and logged at the INFO level.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
