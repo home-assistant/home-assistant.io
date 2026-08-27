@@ -256,3 +256,5 @@ The following example turns off some entities as soon as a window opens. The sta
 ```
 
 {% include integrations/triggers.md %}
+
+{% include integrations/actions.md %}
