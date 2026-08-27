@@ -3,6 +3,7 @@ title: Shelly
 description: Integrate Shelly devices
 ha_category:
   - Binary sensor
+  - Camera
   - Climate
   - Cover
   - Energy
@@ -30,6 +31,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
@@ -436,6 +438,12 @@ Trigger reboot of device.
   - triggers the reboot
 
 {% include integrations/actions.md %}
+
+## Shelly Camera
+
+The integration creates one camera entity for each available stream. Stream 1 is disabled by default.
+
+The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the in the device’s web panel under **Camera** > **Settings**.
 
 ## Shelly Circuit Breaker
 

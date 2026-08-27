@@ -32,6 +32,7 @@ The following selectors are currently available:
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+- [Device class selector](#device-class-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
 - [Floor selector](#floor-selector)
@@ -676,6 +677,49 @@ device:
   entity:
     - domain: sensor
       device_class: battery
+```
+
+## Device class selector
+
+The device class selector lets you select one or more device classes.
+The selector returns a single device class, or a list of device classes if `multiple` is set to `true`.
+
+![Screenshot of a device class selector](/images/blueprints/selector-device-class.png)
+
+This selector requires an entity domain is configured that supports the `device_class` attribute, for example `sensor`.
+
+```yaml
+device_class:
+  domain: "sensor"
+```
+
+{% configuration device_class %}
+domain:
+  description: >
+    The domain for which to select device classes [domain(s)](/docs/configuration/entities_domains/#domains),
+    for example, [`sensor`](/integrations/sensor) or
+    [`binary_sensor`](/integrations/binary_sensor).
+  type: string
+  required: true
+multiple:
+  description: >
+    Allows selecting multiple devices. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the device class, or (in case `multiple` is set to
+`true`) a list of device classes.
+
+```yaml
+# Example device class selector output result, when multiple is set to false
+temperature
+
+# Example device class selector output result, when multiple is set to true
+- temperature
+- humidity
 ```
 
 ## Duration selector
