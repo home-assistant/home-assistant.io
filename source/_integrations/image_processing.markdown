@@ -79,9 +79,9 @@ sensor:
 automation:
 - alias: "Scan for faces when motion detected"
   triggers:
-    - trigger: state
-      entity_id: sensor.door_motion_sensor
-      to: "on"
+    - trigger: motion.detected
+      target:
+        entity_id: binary_sensor.door_motion_sensor
   actions:
     - action: image_processing.scan
       target:
