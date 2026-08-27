@@ -54,7 +54,7 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 
 - **System status**: The inverter's operating state, including fault conditions.
 - **Temperatures**: Inverter, heatsink, and module temperatures.
-- **Device information**: Serial number and the status of the last real-time clock sync.
+- **Device information**: The status of the last real-time clock sync.
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
 - **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
