@@ -13,6 +13,7 @@ ha_category:
   - Button
   - Climate
   - Fan
+  - Humidifier
   - Light
   - Number
   - Sensor
@@ -22,6 +23,7 @@ ha_platforms:
   - climate
   - fan
   - light
+  - humidifier
   - Number
   - sensor
 ha_quality_scale: bronze
@@ -57,6 +59,7 @@ The integration supports the following appliance types:
 - **Oven**
 - **Air Purifier**
 - **Air Conditioners**
+- **Dehumidifier**
 
 ## Prerequisites
 
@@ -153,6 +156,16 @@ This entity is used to control the appliance with the following actions:
 - **Air Purifier fan**
   - **Description**: Allows turning on and off the air purifier, setting the fan speed, and setting the work mode of the air purifier.
   - **Available for appliance types**: Air Purifier.
+
+{% enddetails %}
+
+### Humidifier
+
+{% details "List of humidifier entities" %}
+
+- **Dehumidifier humidifier entity**
+  - **Description**: Allows controlling operating modes, setting the target humidity, reading the current humidity, and turning the appliance on or off.
+  - **Available for appliance types**: Dehumidifier.
 
 {% enddetails %}
 
