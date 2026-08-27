@@ -49,7 +49,7 @@ Before using the Imou integration, create an Imou Open Platform application:
 
 {% include integrations/config_flow.md %}
 
-Home Assistant can discover Imou and Lechange devices on the local network from their MAC address. Adding the discovered integration still requires your Imou Open Platform App ID, App secret, and server region. The discovered device is not added to your account automatically.
+Home Assistant can discover Imou and Lechange devices on the local network from their MAC address. Opening a discovered Imou integration shows the same setup form as adding it manually: enter your Imou Open Platform App ID, App secret, and server region. The discovered device is not added to your account automatically.
 
 {% configuration_basic %}
 App ID:
