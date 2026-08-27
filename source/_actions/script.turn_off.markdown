@@ -61,7 +61,8 @@ This action has no additional YAML options beyond the target.
 
 Cancel a gradual wake-up light script as soon as motion is detected in the bedroom.
 
-- **Trigger**: State: Bedroom motion changes to detected
+- **Trigger**: Motion detected
+  - **Target**: Bedroom motion
 - **Action**: Turn off script
   - **Target**: Wake up lights
 
@@ -71,9 +72,9 @@ Cancel a gradual wake-up light script as soon as motion is detected in the bedro
 automation: |
   - alias: "Stop the wake-up script when you get up"
     triggers:
-      - trigger: state
-        entity_id: binary_sensor.bedroom_motion
-        to: "on"
+      - trigger: motion.detected
+        target:
+          entity_id: binary_sensor.bedroom_motion
     actions:
       - action: script.turn_off
         target:

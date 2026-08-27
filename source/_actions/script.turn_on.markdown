@@ -80,7 +80,8 @@ variables:
 
 Reuse a notification script and pass the message to it, without holding up the rest of the automation.
 
-- **Trigger**: State: Bedroom light changes to on
+- **Trigger**: Light turned on
+  - **Target**: Bedroom light
 - **Action**: Turn on script
   - **Target**: Notify Pushover
 
@@ -90,10 +91,9 @@ Reuse a notification script and pass the message to it, without holding up the r
 automation: |
   - alias: "Notify when the bedroom light turns on"
     triggers:
-      - trigger: state
-        entity_id: light.bedroom
-        from: "off"
-        to: "on"
+      - trigger: light.turned_on
+        target:
+          entity_id: light.bedroom
     actions:
       - action: script.turn_on
         target:

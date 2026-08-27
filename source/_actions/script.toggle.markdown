@@ -61,7 +61,9 @@ This action has no additional YAML options beyond the target.
 
 Let a single button start a long-running script and stop it again on the next press.
 
-- **Trigger**: A wall button is pressed
+- **Trigger**: Event received
+  - **Target**: Bedroom button
+  - **Event type**: Single press
 - **Action**: Toggle script
   - **Target**: Wake up lights
 
@@ -71,8 +73,12 @@ Let a single button start a long-running script and stop it again on the next pr
 automation: |
   - alias: "Toggle the wake-up script with the bedroom button"
     triggers:
-      - trigger: state
-        entity_id: event.bedroom_button
+      - trigger: event.received
+        target:
+          entity_id: event.bedroom_button
+        options:
+          event_type:
+            - single_press
     actions:
       - action: script.toggle
         target:
