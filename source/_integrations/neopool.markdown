@@ -8,6 +8,7 @@ ha_codeowners:
   - "@svasek"
 ha_domain: neopool
 ha_platforms:
+  - binary_sensor
   - button
   - light
   - sensor
@@ -101,11 +102,21 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
+The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
 {% endnote %}
+
+### Binary sensors
+
+- **Relay states**: the on/off state of each controller relay, including the filtration pump, pH acid pump, pool light, and auxiliary relays 1 to 4. The pool light and auxiliary relay states are added when the matching integration option is enabled.
+- **Module status**: whether the pH, Redox, chlorine, and conductivity modules are actively measuring or regulating, and whether their dosing pumps are running. Added when the corresponding module is present. Most of these are diagnostic and disabled by default.
+- **Hydrolysis status**: whether the hydrolysis module is enabled, regulating, in chlorine shock (boost) mode, or activated by the Redox or chlorine module. Added when the hydrolysis module is present.
+- **Problem indicators**: hydrolysis and ionization production problems, a chlorine flow sensor problem, and an ionization program time exceeded state. Added when the corresponding module is present.
+- **Pool cover**: whether the pool cover is open. Reported while filtration runs, since the cover state is only valid then. Added when the cover sensor is enabled in the integration options.
+- **Heating** and **UV lamp**: whether the heating relay or UV lamp is on. Added when the controller reports the corresponding relay.
+- **Device time out of sync**: raised when the controller's clock drifts more than a minute from Home Assistant. Use the **Synchronize device time** button to correct it.
 
 ### Buttons
 
