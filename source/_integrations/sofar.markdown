@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: sofar
 ha_platforms:
   - sensor
+  - switch
 ha_config_flow: true
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -64,13 +65,17 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 
 The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
 
+### Switch
+
+- **Remote switch**: Enables or disables remote control of the inverter.
+
 ## Data updates
 
 The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time. Only sensors are available so far; controls such as number and select entities are planned for future releases.
+- This is an early release of the integration, added to Home Assistant one platform at a time. Number and select entities are planned for future releases.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
