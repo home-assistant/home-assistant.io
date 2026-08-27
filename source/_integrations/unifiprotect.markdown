@@ -110,8 +110,8 @@ but it is not required. The entities that are created will automatically adjust 
 use has.
 
 1. Log in to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
-**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
-2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (for example _192.168.1.1/admins/_).
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example `192.168.1.1`), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to `https://[IP address]/admins/` (for example `https://192.168.1.1/admins/`).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
 5. Select **Full Management** for the _Protect_ role.
@@ -122,7 +122,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
@@ -136,10 +136,10 @@ Currently, creating an API key requires you to be logged in as an administrator.
 If you want to set up the {% term integration %} without creating a local user, you only need an API key.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
-5. When you add the {% term integration %}, choose the **API key only** option and enter the key.
+5. When you add the {% term integration %}, select **API key only (limited feature set)** and enter the key.
 
 ### Camera streams
 
@@ -154,11 +154,11 @@ If a camera does not have a stream available yet, Home Assistant creates a repai
 You can switch between **full access** and **API key only** at any time without removing and re-adding the {% term integration %}:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the **UniFi Protect** {% term integration %}, select the three-dot menu and choose **Reconfigure**.
+2. On the **UniFi Protect** {% term integration %}, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
 3. Choose the connection mode you want to switch to and follow the steps on screen.
 
 {% note %}
-If you switch from full access to API key only, the entities that are no longer supported become unavailable. They become available again if you switch back to full access. See [Connection modes](#connection-modes) for which entities are supported in each mode.
+If you switch from full access to API key only, the entities that are no longer supported become unavailable. They become available again if you switch back to full access. See [Connection modes](#connection-modes) to check which entity domains are supported in each mode.
 {% endnote %}
 
 ## Device support
