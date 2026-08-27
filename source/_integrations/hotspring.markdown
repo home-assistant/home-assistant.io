@@ -4,6 +4,7 @@ description: Instructions on how to integrate Hot Spring spas into Home Assistan
 ha_release: 2026.8
 ha_category:
   - Binary sensor
+  - Light
   - Number
   - Sensor
 ha_iot_class: Local Polling
@@ -14,6 +15,7 @@ ha_domain: hotspring
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - light
   - number
   - sensor
 ha_integration_type: device
@@ -63,6 +65,11 @@ The **Hot Spring** integration provides the following entities:
   - **Description**: Indicates whether a failure or error condition is detected on the spa.
 - **Spa connected**
   - **Description**: Indicates whether the wireless radio link between the Home Network Adapter (HNA) and the Spa Network Adapter (SNA) is connected.
+
+### Light
+
+- **Light zone 1**
+  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
 
 ### Number
 
