@@ -143,7 +143,7 @@ These entities are added per inverter and updated every minute:
 
 Modbus is the only interface that lets Home Assistant change settings on the inverter; the Solar API is read-only. These setpoints are added as `number` entities, and appear under **Configuration** on the inverter's device page:
 
-- `AC power limit`: caps the power the inverter puts out on AC, as a percentage of its nominal power output. This is **not** a feed-in limit - everything the inverter delivers counts against it, whether it is used in the house or exported.
+- `AC power limit`: caps the power the inverter puts out on AC, as a percentage of its nominal power output. This is **not** a feed-in limit. Everything the inverter delivers counts against it, whether it is used in the house or exported to the grid.
 - `Battery charge power limit` and `Battery discharge power limit`: cap how fast the battery may charge or discharge, as a percentage of its maximum rate.
 - `Battery minimum reserve`: the state of charge the battery is not discharged below.
 
@@ -168,12 +168,14 @@ The inverter decides which control source wins. If **IO control** or **Dynamic p
 {% endnote %}
 
 {% warning %}
-The reverse is worth knowing too. **Dynamic power reduction** is what implements an export cap agreed with your grid operator, because it measures at the grid connection point - the `AC power limit` cannot, as it only knows the inverter's own output. If Modbus outranks it, holding the limit on at `100 %` overrides that cap, which may put the installation outside what the grid operator allows.
+The reverse is worth knowing too. **Dynamic power reduction** is what implements an export cap agreed with your grid operator, because it measures at the grid connection point. The `AC power limit` cannot do that, as it only knows the inverter's own output. If Modbus outranks it, holding the limit on at `100 %` overrides that cap, which may put the installation outside what the grid operator allows.
 {% endwarning %}
 
 {% note %}
 Depending on the inverter's firmware, an `AC power limit` below `10 %` may force the inverter into standby, stopping feed-in altogether rather than throttling it.
 {% endnote %}
+
+On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output, so surplus photovoltaic power that the limit holds back goes into the battery instead of being curtailed, which is what makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
 
 #### The battery limits are power, not a charge level
 
