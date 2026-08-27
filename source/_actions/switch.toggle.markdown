@@ -59,7 +59,9 @@ This action has no additional YAML options beyond the target.
 
 Let a physical button control a smart plug, whatever state the plug is in.
 
-- **Trigger**: A wall button is pressed
+- **Trigger**: Event received
+  - **Target**: Office button
+  - **Event type**: Single press
 - **Action**: Toggle switch
   - **Target**: Desk lamp plug
 
@@ -69,8 +71,12 @@ Let a physical button control a smart plug, whatever state the plug is in.
 automation: |
   - alias: "Toggle the desk lamp plug with the wall button"
     triggers:
-      - trigger: state
-        entity_id: event.office_button
+      - trigger: event.received
+        target:
+          entity_id: event.office_button
+        options:
+          event_type:
+            - single_press
     actions:
       - action: switch.toggle
         target:

@@ -60,7 +60,9 @@ This action has no additional YAML options beyond the target.
 
 Turn the towel rail off when you leave the house, so it doesn't stay on all day.
 
-- **Trigger**: State: Person leaves the home zone
+- **Trigger**: Zone left
+  - **Target**: Paulus
+  - **Zone**: Home
 - **Action**: Turn off switch
   - **Target**: Heated towel rail
 
@@ -70,9 +72,11 @@ Turn the towel rail off when you leave the house, so it doesn't stay on all day.
 automation: |
   - alias: "Switch off the towel rail when you leave"
     triggers:
-      - trigger: state
-        entity_id: person.paulus
-        to: "not_home"
+      - trigger: zone.left
+        target:
+          entity_id: person.paulus
+        options:
+          zone: zone.home
     actions:
       - action: switch.turn_off
         target:
