@@ -100,10 +100,11 @@ Scenes can be activated using the `scene.turn_on` action (there is no `scene.tur
 # Example automation
 automation:
   triggers:
-    - trigger: state
-      entity_id: device_tracker.sweetheart
-      from: "not_home"
-      to: "home"
+    - trigger: zone.entered
+      target:
+        entity_id: device_tracker.sweetheart
+      options:
+        zone: zone.home
   actions:
     - action: scene.turn_on
       target:
@@ -118,10 +119,11 @@ With the `scene.apply` action, you can apply a scene without first defining it v
 # Example automation
 automation:
   triggers:
-    - trigger: state
-      entity_id: device_tracker.sweetheart
-      from: "not_home"
-      to: "home"
+    - trigger: zone.entered
+      target:
+        entity_id: device_tracker.sweetheart
+      options:
+        zone: zone.home
   actions:
     - action: scene.apply
       data:
@@ -145,10 +147,11 @@ Here's an example automation that activates a romantic scene with a 2.5 second t
 # Example automation
 automation:
   triggers:
-    - trigger: state
-      entity_id: device_tracker.sweetheart
-      from: "not_home"
-      to: "home"
+    - trigger: zone.entered
+      target:
+        entity_id: device_tracker.sweetheart
+      options:
+        zone: zone.home
   actions:
     - action: scene.turn_on
       target:
@@ -201,7 +204,7 @@ automation:
 
 Any scene that you have created with the `scene.create` action can also be deleted on demand with the `scene.delete` action.
 
-You will need to pass in the `entity_id` of such a scene. As opposed to the `scene_id` used for creation, the `entity_id` must also include the `scene` domain.
+Target the scene you want to delete. As opposed to the `scene_id` used for creation, the entity ID must also include the `scene` domain.
 
 If the scene was not previously created by `scene.create`, the action will fail and an error will appear in the logs.
 
@@ -209,12 +212,10 @@ If the scene was not previously created by `scene.create`, the action will fail 
 # Example automation
 automation:
   triggers:
-    - trigger: state
-      entity_id: sun.sun
-      to: "below_horizon"
+    - trigger: sun.sunset
   actions:
     - action: scene.delete
-      data:
+      target:
         entity_id: scene.my_scene
 ```
 
@@ -224,35 +225,33 @@ The following example turns off some entities as soon as a window opens. The sta
 # Example automation using snapshot
 - alias: "Window opened"
   triggers:
-  - trigger: state
-    entity_id: binary_sensor.window
-    from: "off"
-    to: "on"
+    - trigger: window.opened
+      target:
+        entity_id: binary_sensor.window
   actions:
-  - action: scene.create
-    data:
-      scene_id: before
-      snapshot_entities:
-      - climate.ecobee
-      - light.ceiling_lights
-  - action: light.turn_off
-    target:
-      entity_id: light.ceiling_lights
-  - action: climate.set_hvac_mode
-    target:
-      entity_id: climate.ecobee
-    data:
-      hvac_mode: "off"
+    - action: scene.create
+      data:
+        scene_id: before
+        snapshot_entities:
+          - climate.ecobee
+          - light.ceiling_lights
+    - action: light.turn_off
+      target:
+        entity_id: light.ceiling_lights
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.ecobee
+      data:
+        hvac_mode: "off"
 - alias: "Window closed"
   triggers:
-  - trigger: state
-    entity_id: binary_sensor.window
-    from: "on"
-    to: "off"
+    - trigger: window.closed
+      target:
+        entity_id: binary_sensor.window
   actions:
-  - action: scene.turn_on
-    target:
-      entity_id: scene.before
+    - action: scene.turn_on
+      target:
+        entity_id: scene.before
 ```
 
 {% include integrations/triggers.md %}
