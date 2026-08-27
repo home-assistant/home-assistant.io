@@ -292,62 +292,85 @@ also [define a custom polling
 interval](/common-tasks/general/#defining-a-custom-polling-interval)
 if needed.
 
-## Actions
+## NUT device commands
 
 {% important %}
-The username and password configured for the device must be granted
-`instcmds` permissions on the NUT server to use buttons and
-switches. Device {% term actions %} will not be available if user
-credentials are not specified. See the [NUT server
-documentation](https://networkupstools.org/documentation.html) for
-configuration information.
+The username and password configured for the device must be granted `instcmds` permissions on the NUT server to use buttons, switches, and device {% term actions %}. These entities and device actions will not be available if user credentials are not specified. See the [NUT server documentation](https://networkupstools.org/documentation.html) for configuration information.
 {% endimportant %}
 
-An action is available for each parameterless NUT
-[command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html)
-supported.
+Home Assistant creates a device action for each supported parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html). For supported outlet commands, you can also use the switch entity, the button entity in the UI, or the standard [button press action](/actions/button.press/) in an automation.
 
-## Automation example
+## NUT automation examples
 
-Home Assistant {% term automations %} can be created to monitor and
-take actions on one or more power devices using NUT.
+You can use NUT sensors in Home Assistant {% term automations %} to respond to power events, such as a UPS switching to battery or a battery charge dropping below a level you choose. The examples below show the UI steps first, followed by the same automation in YAML.
 
-The following example illustrates how to use this integration in a
-Home Assistant automation. This example is just a starting point, and
-you can use it as inspiration to create your own automations.
+Before using these examples, make sure the NUT integration is configured and your notification target is available. The examples use `notify.my_device` as the mobile device notification target. Replace it with the notification target you use in your own Home Assistant setup.
 
-### UPS Power Failure Notification
+{% include docs/paste_yaml_tip.md %}
 
-The following example sends a notification to your mobile device when
-a monitored UPS loses power and begins using the battery.
+### Automation: Notify when the UPS switches to battery
 
-#### Prerequisites
+This automation sends a notification when the UPS status sensor changes to **On Battery, Battery Discharging**.
 
-- The NUT integration must be installed and
-configured.
-- Your mobile device must be configured for
-notification.
-- In the example below, the NUT server device is `ups` with the status
-sensor named `ups_status`. You must change the YAML sensor name to
-match your system.
+In the automation editor:
 
-#### Example in YAML
+- **Trigger**: State
+  - **Entity**: UPS status (`sensor.ups_status`)
+  - **To**: `On Battery, Battery Discharging`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `The UPS lost power and is now on battery.`
 
-```yaml
-# Send notification on UPS power failure
-automation:
-  alias: "NUT Power failure notification"
+{% details "YAML example for notifying when the UPS switches to battery" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the UPS switches to battery"
   triggers:
     - trigger: state
-      entity_id:
-        - sensor.ups_status
+      entity_id: sensor.ups_status
       to: "On Battery, Battery Discharging"
   actions:
-    - action: notify.notify
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
-        title: "UPS power failure"
-        message: "The UPS lost power and is now on battery"
-```
+        message: "The UPS lost power and is now on battery."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when the UPS battery is low
+
+This automation sends a notification when the UPS battery charge drops below 25 percent.
+
+In the automation editor:
+
+- **Trigger**: Numeric state
+  - **Entity**: UPS battery charge (`sensor.ups_battery_charge`)
+  - **Below**: `25`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `The UPS battery charge is below 25 percent.`
+
+{% details "YAML example for notifying when the UPS battery is low" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the UPS battery is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.ups_battery_charge
+      below: 25
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The UPS battery charge is below 25 percent."
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 

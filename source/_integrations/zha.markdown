@@ -73,7 +73,7 @@ This {% term integration %} currently supports the following device types within
 
 The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
+If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [compatible hardware](#compatible-hardware).
 
 ### Zigbee terminology
 
@@ -96,21 +96,32 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 
 The hardware-independent design of this integration provides support for many Zigbee coordinators available from different manufacturers, as long as the coordinator is compatible with the [zigpy](https://github.com/zigpy/zigpy) library.
 
-### Recommended Zigbee radio adapters and modules
+### Recommended: official Home Assistant hardware
+
+Official Home Assistant hardware is the recommended choice for ZHA. It is designed and built by Nabu Casa, a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org), together with the team at Home Assistant responsible for Zigbee. The Zigbee firmware is maintained by that same team, with optimizations for ZHA and support for large Zigbee networks. You can keep it up to date from within Home Assistant.
+
+- [Home Assistant Connect ZBT-2](/connect/zbt-2/): USB adapter. If you are setting up a new Zigbee network, this is the one to get.
+- Home Assistant Connect ZBT-1: USB adapter. Discontinued and replaced by the Connect ZBT-2, but fully supported if you already have one.
+- Home Assistant Yellow: hub with a built-in Zigbee radio. Currently out of stock, but fully supported if you already have one.
+
+{% tip %}
+Home Assistant Green does not have a built-in Zigbee radio. To use ZHA with Green, or with any other computer running Home Assistant, add a Zigbee adapter such as the [Home Assistant Connect ZBT-2](/connect/zbt-2/).
+{% endtip %}
+
+### Other tested and compatible Zigbee adapters
+
+The following adapters are made by other manufacturers. They are not official Home Assistant hardware, but they are known to work well with ZHA. Home Assistant does not update the firmware on these adapters. To keep them up to date, use the tools their manufacturer provides.
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [Home Assistant Connect ZBT-2](/connect/zbt-2/) (EFR32MG24-based USB adapter)
-  - [Home Assistant Connect ZBT-1](/connectzbt1/) (EFR32MG21-based USB dongle)
-  - [Home Assistant Yellow](/yellow/) with integrated MGM210P radio, which is based on the EFR32MG21
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/) (EFR32MG21-based USB dongle)
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
-  - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
-  - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
+  - [CC2652P/CC2652R/CC2652RB-based USB adapters flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
+  - [CC1352P/CC1352R-based USB adapters flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
 
-### Other supported but not recommended Zigbee radio adapters or modules
+### Supported but not recommended Zigbee adapters
 
 The following hardware is supported, but _not recommended_. Specific models and details are noted where available in each section.
 
@@ -174,8 +185,6 @@ The following hardware is supported, but _not recommended_. Specific models and 
 - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
 
 {% enddetails %}
-
-If you find an opportunity to improve this information, refer to the section on how to [add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
 
 ## Configuration requirements
 
@@ -321,7 +330,7 @@ zha:
       type: "switch"              # corrected device type
 ```
 
-`{ieee}` is the _lowercase_ device hardware address which can be read from the Home Assistant UI when looking at _Device info_. From device info, you can find the `{endpoint_id}` by viewing the _Zigbee device signature_.
+The `{ieee}` is the device hardware address which can be read from the Home Assistant UI when looking at _Device info_. The `{endpoint_id}` can be found from device info, by viewing the _Zigbee device signature_. *Please make sure to transpose the `{ieee}` entirely in _lowercase_ when adding it to your configuration.yaml file, as the device hardware address is case-sensitive.*
 
 ### OTA updates of Zigbee device firmware
 
@@ -452,76 +461,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 Additional devices in the [Compatible hardware](#compatible-hardware) section may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
-## Actions
-
-### Action: Permit
-
-The `zha.permit` action opens the network for joining new devices.
-
-To add new devices to the network, select the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning, or performing a factory reset.
-
-| Data       | Optional | Description                                                                    |
-| ---------- | -------- | ------------------------------------------------------------------------------ |
-| `duration` | yes      | For how long to allow new devices to join, default 60s                         |
-| `ieee`     | yes      | The IEEE address of an existing device via which the new device is to be added |
-
-To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
-from the same group:
-
-| Data           | Parameter Group | Description                                                         |
-| -------------- | --------------- | ------------------------------------------------------------------- |
-| `src_ieee`     | install_code    | The IEEE address of the joining ZB3 device. Use with `install_code` |
-| `install_code` | install_code    | Install Code of the joining device. Use with `src_ieee`             |
-| `qr_code`      | qr_code         | QR code containing IEEE and Install Code of the joining ZB3 device  |
-
-{% note %}
-  Currently `qr_code` supports QR Install Codes from:
-    - Aqara
-    - Bosch
-    - Consciot
-    - Embrighten
-{% endnote %}
-
-### Action: Remove
-
-The `zha.remove` action removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
-
-| Data   | Optional | Description                          |
-| ------ | -------- | ------------------------------------ |
-| `ieee` | no       | IEEE address of the device to remove |
-
-### Action: Set lock user code
-
-The `zha.set_lock_user_code` action sets a lock code on a Zigbee lock.
-
-| Data        | Optional | Description                                                                |
-| ----------- | -------- | -------------------------------------------------------------------------- |
-| `code_slot` | no       | Which lock code slot to store the code. For example, 1-32 will work for Kwikset 954 |
-| `user_code` | no       | Code to set on the lock. For example, Kwikset accepts numbers 4-8 digits in length  |
-
-### Action: Clear lock user code
-
-The `zha.clear_lock_user_code` action clears a lock code from a Zigbee lock.
-
-| Data        | Optional | Description                   |
-| ----------- | -------- | ----------------------------- |
-| `code_slot` | no       | Which lock code slot to clear |
-
-### Action: Enable lock user code
-
-The `zha.enable_lock_user_code` action enables a lock code on a Zigbee lock.
-
-| Data        | Optional | Description                    |
-| ----------- | -------- | ------------------------------ |
-| `code_slot` | no       | Which lock code slot to enable |
-
-### Action: Disable lock user code
-
-The `zha.disable_lock_user_code` action disables a lock code on a Zigbee lock.
-
-| Data        | Optional | Description                     |
-| ----------- | -------- | ------------------------------- |
-| `code_slot` | no       | Which lock code slot to disable |
+{% include integrations/actions.md %}
 
 ## Zigbee groups and binding devices
 
@@ -946,7 +886,7 @@ The following reset methods can be used (depending on the bulb version):
   - Newer Philips Hue bulbs can reset via Bluetooth using the official Android app.
   - This is an option even if the bulb is already paired to a bridge.
 - **Hue Thief command-line tool**:
-  - Advanced users can use a third-party tool called [Hue Thief](https://github.com/vanviegen/hue-thief/).
+  - If you are comfortable using a command-line tool, you can use a third-party tool called [Hue Thief](https://github.com/vanviegen/hue-thief/).
   - This requires an EZSP-based Zigbee USB stick.
 
 #### Factory-reset using a Zigbee remote
