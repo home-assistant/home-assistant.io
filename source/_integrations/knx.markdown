@@ -499,10 +499,10 @@ The KNX API is not used by default. Select it on the {% term integration %} that
 2. Select the conversation agent integration, then select **Configure**.
 3. Add **KNX** to **Control Home Assistant**.
 
-To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol Server](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`.
+To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol Server](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
 
 {% important %}
-Only administrators can attach an LLM API to a conversation agent or to the Model Context Protocol Server. Once that is done, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
+Only administrators can select an LLM API on a conversation agent. Once the KNX API is selected, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
 
 Only enable the KNX API on agents you are willing to give write access to your installation.
 {% endimportant %}
