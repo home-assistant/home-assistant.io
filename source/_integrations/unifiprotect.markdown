@@ -74,7 +74,7 @@ Also, make sure your report is reproducible and provides all necessary context: 
 You can set up the {% term integration %} in one of two ways:
 
 - **Full access**: uses a local user and an API key, and gives you access to all the entities described on this page. This is currently the recommended option for most people.
-- **API key only**: uses only an API key, without a local user. It currently only supports a subset of entities; see the table below for the breakdown by domain, and the [device type table](#device-support) for a breakdown by device.
+- **API key only**: uses only an API key, without a local user. It currently only supports a subset of entities; see the table below for the breakdown by domain, and the [device type table](#device-support) for a breakdown by device. Actions, the media source, and the proxy views are not available in this mode.
 
 You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
 
@@ -298,6 +298,10 @@ UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you
 
 A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
 
+{% note %}
+The media source requires the **full access** connection mode. Entries set up with **API key only** do not provide a media source. See [Connection modes](#connection-modes).
+{% endnote %}
+
 ### Media browser
 
 The media source is split into 5 folders/levels:
@@ -330,6 +334,10 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 The {% term integrations %} provides four proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
 
 These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
+
+{% note %}
+These proxy views require the **full access** connection mode. They are not available for entries set up with **API key only**. See [Connection modes](#connection-modes).
+{% endnote %}
 
 Four URLs for proxy API endpoints:
 
