@@ -1223,12 +1223,39 @@ media:
     - image/*
 ```
 
+When `accept` is set, you can also set `image_upload` to let the user upload an
+image from their device instead of browsing the media that is already available
+to Home Assistant. The uploaded image is stored by Home Assistant and selected
+automatically. Combine it with `clearable` so the user can clear their choice
+and upload a different image.
+
+```yaml
+media:
+  accept:
+    - image/*
+  image_upload: true
+  clearable: true
+```
+
 {% configuration media %}
 accept:
   description: >
     List of media types the user is allowed to select.
   type: list
   required: false
+image_upload:
+  description: >
+    Show an upload field instead of a media browser, allowing the user to upload
+    an image from their device. Requires a non-empty `accept`.
+  type: boolean
+  required: false
+  default: false
+clearable:
+  description: >
+    Show a button that clears the selected media.
+  type: boolean
+  required: false
+  default: false
 {% endconfiguration %}
 
 The output of the media selector is a mapping with information about
