@@ -67,7 +67,7 @@ The overall totals and the readings most people need are enabled by default. Per
 
 ### Switch
 
-- **Remote switch**: Enables or disables remote control of the inverter.
+- **Remote switch**: Enables or disables the inverter's remote on/off control.
 
 ## Data updates
 
