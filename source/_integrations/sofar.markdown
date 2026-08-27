@@ -9,6 +9,7 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - button
   - sensor
 ha_config_flow: true
 ha_integration_type: device
@@ -48,6 +49,11 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 
 The **Sofar** integration provides the following entities.
 
+### Buttons
+
+- **RTC sync**: Writes the current date and time to the inverter's clock.
+- **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
+
 ### Sensors
 
 The **Sofar** integration reads a large number of sensors from the inverter. Only the sensors relevant to your inverter's type and configuration are added.
@@ -70,7 +76,7 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time. Only sensors are available so far; controls such as number and select entities are planned for future releases.
+- This is an early release of the integration, added to Home Assistant one platform at a time. Number and select entities are planned for future releases.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
