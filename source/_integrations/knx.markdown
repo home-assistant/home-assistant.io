@@ -485,6 +485,48 @@ Every telegram that matches an address pattern with its destination field will b
 
 {% include integrations/actions.md %}
 
+## KNX tools for AI conversation agents
+
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol Server](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
+
+With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "Read the current temperature from 4/0/1". None of this requires a Home Assistant {% term entity %} for the group address in question.
+
+### Enabling the KNX tools
+
+The KNX API is not used by default. Select it on the {% term integration %} that provides your conversation agent, such as [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation/), [OpenAI](/integrations/openai_conversation/), or [Ollama](/integrations/ollama/):
+
+1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
+2. Select the conversation agent integration, then select **Configure**.
+3. Add **KNX** to **Control Home Assistant**.
+
+To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol Server](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`.
+
+{% important %}
+Only administrators can attach an LLM API to a conversation agent or to the Model Context Protocol Server. Once that is done, everyone who can talk to that agent can use every KNX tool, including the ones that write to the bus. This also covers voice satellites, where the request is not associated with a user.
+
+Only enable the KNX API on agents you are willing to give write access to your installation.
+{% endimportant %}
+
+### Available tools
+
+The API provides 22 tools in four groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
+
+#### Telegram history
+
+`query_telegrams`, `get_last_values`, `count_telegrams`, `get_store_stats`, and `get_store_capabilities` search and summarize the telegrams the integration recorded. They need telegram history to be present. See **Retention period** in the [integration options](#reconfiguration).
+
+#### ETS project
+
+`get_project_info`, `list_group_addresses`, `describe_group_address`, `list_devices`, `list_communication_objects`, `list_functions`, `describe_function`, `get_topology`, and `list_locations` answer questions about your installation: group addresses and their names, devices and their communication objects, functional blocks, the area and line topology, and the building structure. They require a project file uploaded in the KNX panel.
+
+#### Data point types
+
+`list_dpts`, `describe_dpt`, `encode_value`, and `decode_payload` look up <abbr title="data point types">DPTs</abbr> and convert between native values and raw payloads. They need neither a project nor a bus connection.
+
+#### Live bus access
+
+`get_connection_status`, `read_group_value`, `send_group_value_read`, and `send_group_value_write` report the connection state and read from or write to group addresses on the bus. `send_group_value_write` sends a telegram to your installation, just like the group monitor does.
+
 ## Exposing entity states, entity attributes or time to KNX bus
 
 Expose Home Assistant entity states and attributes to the KNX bus so other KNX devices can react to changes or read the latest values. You can also broadcast current time and date.
@@ -2510,6 +2552,10 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 ## Known limitations
 
 - The integration aims to be compatible with a wide variety of KNX devices from different manufacturers and eras. However, there are some devices that use non-standard <abbr title="data point type">DPT</abbr> or use telegrams in a proprietary way. In these cases, you might not be able to configure {% term entities %} directly through this integration. However, you may still use [Template entities](/integrations/template/) with the [KNX telegram trigger](#telegram-trigger) to work around this.
+
+- The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
+
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in Assist API selected alongside the KNX API.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
