@@ -142,6 +142,7 @@ Scenes are loaded when the integration is set up. Changes made to the scene list
 ### Switch
 
 On/off switches connected to the KLF 200 are exposed as switch entities.
+
 ## Known limitations
 
 The number entities for the window opening limitation and the rain sensor binary sensor use the same data from the gateway. If you set the opening limitation to 11% or less, the rain sensor can show as wet even when no rain is detected.
