@@ -53,7 +53,7 @@ Password:
 
 Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
 
-## Entity platforms
+## Supported functionality
 
 There is currently support for the following entity platforms:
 
