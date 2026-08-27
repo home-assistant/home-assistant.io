@@ -58,7 +58,8 @@ This action has no additional YAML options beyond the target.
 
 Process the camera image at the door only when the motion sensor picks something up.
 
-- **Trigger**: State: Door motion sensor changes to on
+- **Trigger**: Motion detected
+  - **Target**: Door motion sensor
 - **Action**: Scan
   - **Target**: Door
 
@@ -68,9 +69,9 @@ Process the camera image at the door only when the motion sensor picks something
 automation: |
   - alias: "Scan for faces when motion is detected"
     triggers:
-      - trigger: state
-        entity_id: binary_sensor.door_motion_sensor
-        to: "on"
+      - trigger: motion.detected
+        target:
+          entity_id: binary_sensor.door_motion_sensor
     actions:
       - action: image_processing.scan
         target:
