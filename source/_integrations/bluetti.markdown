@@ -8,21 +8,19 @@ ha_codeowners:
   - '@chpego'
 ha_domain: bluetti
 ha_platforms:
-  - binary_sensor
   - diagnostics
-  - select
   - sensor
-  - switch
 ha_config_flow: true
 ha_integration_type: hub
-ha_quality_scale: gold
+ha_release: 2026.10
+ha_quality_scale: silver
 ---
 
-The **BLUETTI** {% term integration %} connects Home Assistant to your [BLUETTI](https://www.bluettipower.com/) portable power stations through the BLUETTI cloud service, letting you monitor battery levels and input/output power, and control AC/DC outputs and work modes.
+The **BLUETTI** {% term integration %} connects Home Assistant to your [BLUETTI](https://www.bluettipower.com/) portable power stations through the BLUETTI cloud service, letting you monitor battery levels and input/output power.
 
 ## Supported devices
 
-The integration supports the BLUETTI power stations bound to your BLUETTI account, across several product families, including Apex, Elite, AORA, Premium, EP, RV5, Balco, AC-series, and AC200-series models. Which sensors and controls are available depends on what your specific model reports over the BLUETTI cloud API - not every model exposes every entity described below.
+The integration supports the BLUETTI power stations bound to your BLUETTI account, across several product families, including Apex, Elite, AORA, Premium, EP, RV5, Balco, AC-series, and AC200-series models. Which sensors are available depend on what your specific model reports over the BLUETTI cloud API. Not every model exposes every entity described below.
 
 ## Prerequisites
 
@@ -45,28 +43,15 @@ The **BLUETTI** integration can provide the following entities, depending on wha
 - AC and DC output power.
 - Inverter status.
 
-### Switches
-
-- Main unit power.
-- AC output and DC output.
-- AC ECO mode and DC ECO mode.
-- Sleep mode.
-
-### Selects
-
-- Work mode (for example Backup, Self-consumption, Peak, and Off-Peak, depending on the model).
-
-### Binary sensors
-
-- Online/offline connectivity status.
-
 ## BLUETTI automation examples
 
-You can use the entities from this integration in automations like the examples below.
+The real power of this integration is being notified about your power station's state without having to open the BLUETTI app.
+Here are a few ideas to get you started.
 
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: Notify when the power station battery is low
+
 ```yaml
 automation:
   - alias: "Notify when the power station battery is low"
@@ -81,19 +66,20 @@ automation:
           message: "The BLUETTI power station's battery is below 20%."
 ```
 
-### Automation: Turn off the power station's AC output at night
+### Automation: Notify when the power station starts drawing from the grid
 
 ```yaml
 automation:
-  - alias: "Turn off the power station's AC output at night"
+  - alias: "Notify when the power station starts drawing from the grid"
     triggers:
-      - trigger: time
-        at: "23:00:00"
+      - trigger: numeric_state
+        entity_id: sensor.power_station_grid_input_power
+        above: 0
     conditions: []
     actions:
-      - action: switch.turn_off
-        target:
-          entity_id: switch.power_station_ac_output
+      - action: notify.mobile_app_your_phone
+        data:
+          message: "The BLUETTI power station is drawing power from the grid."
 ```
 
 ## Data updates
@@ -106,7 +92,7 @@ This integration is cloud-based by default: it talks to the BLUETTI cloud servic
 
 ### Optional: local Modbus for Balco260 / EP2000
 
-Balco260 and EP2000 also expose a local Modbus TCP interface, in addition to the cloud API. For these models, once the device is enabled in this integration, go to the integration's **Configure** option and select **Configure local Modbus**:
+Balco260 and EP2000 also expose a local Modbus TCP interface, in addition to the cloud API. For these models, once the device is enabled in this integration, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **BLUETTI** integration, choose **Configure**, and then select **Configure local Modbus**:
 
 {% configuration_basic %}
 Device:
