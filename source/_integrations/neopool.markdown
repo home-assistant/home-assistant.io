@@ -128,7 +128,7 @@ Only entities backed by a detected hardware module or an enabled controller opti
 
 ### Numbers
 
-- **pH minimum** and **pH maximum**: the low and high pH regulation setpoints. Added when the pH module is present.
+- **pH minimum** and **pH maximum**: the low and high pH regulation setpoints. Added when the pH module is present and the controller reports a valid dosing relay for that setpoint (a base relay for pH minimum, an acid relay for pH maximum).
 - **Redox / ORP setpoint**: the target oxidation-reduction potential in mV. Added when the Redox module is present.
 - **Free chlorine setpoint**: the target free-chlorine concentration. Added when the chlorine module is present.
 - **Hydrolysis target production level**: the target production level for the electrolytic cell. Added when the hydrolysis module is present. The maximum, unit, and step follow the controller: a percentage when it reports production in percent, or g/h when it reports a nominal production rate.
