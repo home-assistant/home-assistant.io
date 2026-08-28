@@ -8,8 +8,8 @@ related:
     title: "`strptime` function"
   - docs: /template-functions/timestamp_custom/
     title: "`timestamp_custom` filter"
-  - docs: /template-functions/relative_time/
-    title: "`relative_time` function"
+  - docs: /template-functions/time_since/
+    title: "`time_since` function"
   - docs: /template-functions/#datetime
     title: All date and time functions
   - url: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
@@ -113,6 +113,10 @@ Here are the ones you will use most often:
 
 The Python documentation has the [full list of format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) if you need something unusual.
 
+{% note %}
+Weekday and month names from `strftime`, like the ones produced by `%A` and `%B`, are always in English, regardless of the language set in your Home Assistant profile. There is currently no built-in way to render them in another language.
+{% endnote %}
+
 ## Parsing text into a datetime with strptime
 
 [`strptime`](/template-functions/strptime/) is the reverse of `strftime`. It takes a piece of text and a format string, and gives you back a datetime.
@@ -185,11 +189,11 @@ output: |
   Total minutes: 15
 {% endexample %}
 
-For a human-readable version, reach for [`relative_time`](/template-functions/relative_time/) or [`time_since`](/template-functions/time_since/) instead:
+For a human-readable version, reach for [`time_since`](/template-functions/time_since/) instead:
 
 {% example %}
 template: |
-  {{ relative_time(states.binary_sensor.front_door.last_changed) }} ago
+  {{ time_since(states.binary_sensor.front_door.last_changed) }} ago
 output: "15 minutes ago"
 {% endexample %}
 
@@ -219,7 +223,7 @@ output: "Christmas: 8 months"
 
 ## Time zones
 
-Home Assistant stores state timestamps (`last_changed`, `last_updated`) in your configured time zone. `now()` also returns your local time zone. `utcnow()` returns UTC.
+Home Assistant stores state timestamps (`last_changed`, `last_updated`) in UTC. `now()` returns the current time in your configured time zone, while `utcnow()` returns it in UTC.
 
 If you need to compare datetimes, both sides need to be in the same time zone. [`as_datetime`](/template-functions/as_datetime/) and [`strptime`](/template-functions/strptime/) return datetimes without a time zone by default. Apply the matching conversion before comparing, or stick to [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) which handle this for you.
 

@@ -12,8 +12,6 @@ The **Light is on** condition passes when a light {% term entity %} is currently
 
 When you target more than one light, the condition's **behavior** option controls how the check combines results. You can require any targeted light to be on, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -21,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light: Light is on**.
+4. From the search box, search for and select **Light is on**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Condition passes if**, pick **Any** or **All** to control how the check behaves when multiple lights are targeted.
 7. Select **Save**.
@@ -31,7 +29,6 @@ To use this condition in an automation:
 {% options_ui %}
 Condition passes if:
   description: When multiple lights are targeted, controls how results combine. Pick **Any** to pass if at least one targeted light is on, or **All** to pass only when every targeted light is on.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -55,7 +52,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple lights are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
+  required: false
   type: string
   default: any
 {% endoptions_yaml %}
@@ -80,7 +77,7 @@ When the doorbell rings, only announce it through the living room speaker if the
 - **Condition**: Light is on
 - **Target**: Living room light
 - **Condition passes if**: Any
-- **Action**: Media player: Play media
+- **Action**: Play media
 
 {% details "YAML example for a doorbell announcement gated on lights" %}
 

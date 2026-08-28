@@ -267,19 +267,29 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 
 {% endif %}
 
-3. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+3. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local" target="_blank">homeassistant.local</a>.
 
 {% note %}
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
 {% endnote %}
 
 {% else %}
+
+Follow this guide if you are already running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on [Home Assistant Yellow](/installation/yellow), [Raspberry Pi](/installation/raspberrypi), or [ODROID](/installation/odroid).
+
+{% if page.installation_type == 'macos' %}
+
+If VirtualBox is not supported on your Mac and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
+{% endif %}
 
 ### Download the appropriate image
 
 - [VirtualBox (Intel chip)][vdi] (.vdi)
 {% if page.installation_type == 'macos' %}
-- [VirtualBox (Apple Silicon chip)][vmdk_arch64] (.vmdk)
+- [VirtualBox (Apple Silicon chip)][vdi_aarch64] (.vdi)
 {% elsif page.installation_type == 'linux' %}
 - [KVM][qcow2] (.qcow2)
 {% elsif page.installation_type == 'alternative' %}
@@ -291,78 +301,73 @@ If you are running an older Windows version or have a stricter network configura
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
-After downloading, decompress the image. If the image comes in a ZIP file, for example, unzip it.
+After downloading the image, extract it if necessary. For example, if it comes in a ZIP file, unzip it.
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
+### Create and configure the virtual machine
 
-{% if page.installation_type == 'macos' %}
+When creating the virtual machine, assign memory and CPU resources based on your expected workload. You can increase these resources later if your workload grows.
 
-- If VirtualBox is not supported on your Mac, and you have experience using virtual machines, you can try running the Home Assistant Operating System on [UTM](https://mac.getutm.app/).
-{% endif %}
+Minimum resources:
 
-### Create the virtual machine
+- Memory: 2 GB of RAM
+- Processors: 2 vCPUs
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your app needs).
-
-Minimum recommended assignments:
-
-- 2 GB RAM
-- 2vCPU
-
-*All these can be extended if your usage calls for more resources.*
-
-### Hypervisor specific configuration
+To create the virtual machine, follow the instructions for the hypervisor you use:
 
 {% tabbed_block %}
 
 - title: VirtualBox
   content: |
-    
+
     #### Create the virtual machine
-    
-    1. Open VirtualBox and select the **New** button (the blue star).
-    2. **Name:** Type Home Assistant.
-    3. **ISO Image:** Leave this as **None** or **Empty**.
-    4. **Type & Version:** Select **Linux**, then select **Oracle Linux (64-bit)** (or **ARM 64-bit** if you are using a Mac with an M1/M2/M3 chip).
+
+    The following steps use VirtualBox Basic Mode, which provides a simplified wizard for creating and configuring a virtual machine.
+
+    1. Open VirtualBox, and select **New** on the toolbar.
+    2. In the **Virtual machine name and operating system** step, specify the following settings:
+       - **Name**: Enter **Home Assistant**.
+       - **VM Folder**: Select a location to store the virtual machine files.
+       - **ISO Image**: Leave blank.
+       - **OS**: Select **Linux**.
+       - **OS Distribution**: Select **Oracle Linux (64-bit)**. If you use a Mac with Apple silicon (M1, M2, M3, or M4), also set **OS Version** to **Oracle Linux (ARM 64-bit)**.
+    3. Select **Next**.
+    4. In the **Specify virtual hardware** step, specify the following settings:
+       - **Base Memory**: Set to at least **2048 MB**, which is 2 GB.
+       - **Number of CPUs**: Set to at least **2**.
+       - **Use EFI**: Select the checkbox to use UEFI instead of legacy BIOS. Home Assistant requires UEFI to boot.
     5. Select **Next**.
- 
-    #### Configure hardware
-    1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
-    2. **Number of CPUs:** Move the slider to at least **2**.
-    3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
-    4. Select **Next**.
-
-    #### Finalizing the wizard
-
-    1. On the **Virtual Hard Disk** screen, leave the settings as they are (it will suggest creating a new disk). We will swap this for your downloaded file in the next step.
-    2. Select **Finish**.
+    6. In the **Summary** step, review the settings and select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
 
-    1. Select your new "Home Assistant" VM in the left-hand list and select the **Settings** icon (the orange gear).
-    2. Go to the **Storage** section on the left menu.
-    3. In the **Storage Devices** list, you will see a disk already listed under **Controller: SATA**. Right-click that disk and select **Remove Attachment**. This removes the empty placeholder disk.
-    4. Select the **Add Hard Disk** icon (the small disk with a green plus symbol) located next to the words **Controller: SATA**.
-    5. In the window that pops up, select the **Add** button at the top.
-    6. Find and select the `.vdi` file you previously downloaded and unzipped.
+    Configure the virtual machine to use the Home Assistant disk (VDI) that you downloaded and extracted earlier.
+
+    1. Select your new **Home Assistant** VM in the list, and then select **Settings** on the toolbar.
+    2. Go to the **Storage** section.
+    3. In the **Storage Devices** list, under **Controller: SATA** (or on Mac with Apple silicon, **Controller: VirtioSCSI**), right-click the empty placeholder disk and select **Remove attachment**.
+    4. Next to **Controller: SATA** (or **Controller: VirtioSCSI**), select the **Add hard disk** icon (the blue disk with a plus sign).
+    5. In the dialog that appears, select the **Add** button.
+    6. Find and select the downloaded `.vdi` file.
     7. Select **Choose** to confirm the file.
 
     #### Configure network
 
     1. While still in the **Settings** window, go to the **Network** section.
-    2. Change the **Attached to** setting from **NAT** to **Bridged Adapter**.
-    3. Under **Name**, select the adapter you use for internet access. This allows Home Assistant to talk to other devices in your home.
+    2. In **Attached to**, change the setting to **Bridged Adapter**.
+    3. In **Name**, select the network adapter you use for internet access. Home Assistant uses this adapter to communicate with other devices on your network. If your computer uses Wi-Fi, select your Wi-Fi adapter. If it uses a wired connection, select your Ethernet adapter.
     4. Select **OK**.
 
-    {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
-    free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
-    be enabled using your host machine's terminal:
+    #### Enable automatic disk space reclamation (optional)
+
+    {% icon "mdi:alert-outline" %} By default, VirtualBox does not reclaim unused disk space from virtual disks. To enable automatic disk shrinking for the Home Assistant VDI, run the following command on the host machine:
 
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
 
-    More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
+    Note: For Mac with Apple silicon, replace **SATA** with **VirtioSCSI**.
+
+    For more information about the command, see [VBoxManage storageattach command](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
 
 {% unless page.installation_type == 'macos' %}
 
@@ -412,8 +417,8 @@ Minimum recommended assignments:
        Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
        Bus 003 Device 004: ID 30c9:0052 Luxvisions Innotech Limited Integrated RGB Camera
        Bus 003 Device 003: ID 1a86:55d4 QinHeng Electronics SONOFF Zigbee 3.0 USB Dongle Plus V2
-       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc. 
-       Bus 003 Device 005: ID 8087:0033 Intel Corp. 
+       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc.
+       Bus 003 Device 005: ID 8087:0033 Intel Corp.
        Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
        Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
        Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -456,15 +461,14 @@ Minimum recommended assignments:
 
       11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
-      3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
+      13. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file.
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
-      4. Right-click the `.vmx` file and select **Open with** > **Notepad**.
-      5. Under `.encoding`, add a line. Enter `firmware = "efi"`.
-      6. Now continue with the next step to start your VM. 
+      14. Locate the **Advanced** settings under the **Options** tab and change the **Firmware type** to **UEFI**.
+      15. Now continue with the next step to start your VM.
          - If you see a message about side channel mitigations, select **OK**.
-         - If you see a message stating that the `.vmdk` file could not be found, in step 3, you likely pasted the folder, not the file. Repeat step 3.
+         - If you see a message stating that the `.vmdk` file could not be found, in step 13, you likely pasted the folder, not the file. Repeat step 13.
 
 
 {% elsif page.installation_type == 'alternative' %}
@@ -472,6 +476,17 @@ Minimum recommended assignments:
 - title: VMware ESXi/vSphere
   content: |
     Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
+
+    If networking stops working and the virtual machine console repeatedly shows `e1000: Detected Tx Unit Hang`, the emulated `E1000` adapter has stalled. Restart the virtual machine to restore connectivity.
+
+    If you change the network adapter type after installation, reset the network configuration afterwards. The hypervisor assigns the new adapter a different PCI slot, which changes the network interface name inside the virtual machine. The stored network profile no longer matches, and the machine starts up without network access. To reset it, open the virtual machine console, enter `login` at the `ha >` prompt, and run:
+
+    ```bash
+    rm -r /mnt/overlay/etc/NetworkManager/system-connections
+    reboot
+    ```
+
+    Home Assistant OS creates a new default DHCP profile for the new interface during boot. The MAC address stays the same, so an existing DHCP reservation keeps working.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
@@ -492,7 +507,18 @@ Minimum recommended assignments:
 
 1. Start the virtual machine.
 2. Observe the boot process of the Home Assistant Operating System.
-3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. {% if page.installation_type == 'linux' %}If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% else %}If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine's IP address).{% endif %}
+3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local" target="_blank">homeassistant.local</a>.
+
+{% note %}
+{% if page.installation_type == 'windows' %}
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your virtual machine's IP address).
+{% else %}
+If you have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your virtual machine's IP address).
+{% endif %}
+
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
+{% endnote %}
 
 {% endif %}
 
@@ -509,7 +535,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
-[vmdk_arch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vmdk.zip
+[vdi_aarch64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-aarch64-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip
 [qcow2]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.qcow2.xz

@@ -2,7 +2,7 @@
 title: "Sulphur dioxide level crossed threshold"
 trigger: air_quality.so2_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more sulphur dioxide levels cross a threshold."
+description: "Triggers when one or more sulphur dioxide levels cross a threshold."
 related_triggers:
   - air_quality.so2_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Sulphur dioxide level crossed threshold** trigger fires when the sulphur dioxide (SO2) reading on one or more air quality sensors crosses a specific level. Sulphur dioxide is a sharp-smelling gas produced by burning fossil fuels that contain sulphur, volcanic activity, and some industrial processes. The WHO recommends keeping 24-hour SO2 exposure below 40 micrograms per cubic meter, because elevated levels irritate the respiratory system and worsen conditions like asthma.
 
 If you live near industrial areas or in a region with volcanic activity, this trigger is especially valuable. Have your smart windows close automatically the moment outdoor SO2 crosses your safety limit, or get an alert on your phone so you know to stay indoors until the air clears. Your home reacts to changing conditions in real time, keeping irritating fumes outside where they belong.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -23,7 +21,7 @@ To use this trigger in an automation:
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 5. From the triggers shown for that target, select **Sulphur dioxide level crossed threshold**.
 6. Under **Threshold type**, set the sulphur dioxide level the reading must cross for the trigger to fire.
-7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Any**, **First**, or **Last** to control how multiple targets interact.
+7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how multiple targets interact.
 8. Under **For at least**, set how long the level must stay past the threshold before the trigger fires. Leave at the default to fire immediately.
 9. Select **Save**.
 
@@ -32,13 +30,10 @@ To use this trigger in an automation:
 {% options_ui %}
 Threshold type:
   description: The sulphur dioxide concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
-  required: true
 Trigger when:
-  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Any** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **Last** to fire only after the last crossing.
-  required: true
+  description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
-  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -52,7 +47,7 @@ trigger: |
     entity_id: sensor.outdoor_so2
   options:
     threshold: 40
-    behavior: any
+    behavior: each
 {% endexample %}
 
 This fires whenever the outdoor SO2 sensor crosses 40 in either direction.
@@ -69,10 +64,10 @@ threshold:
   type: any
 behavior:
   description: >
-    When multiple sensors are targeted, controls when the trigger fires. Accepts `any`, `first`, or `last`.
+    When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
   required: true
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
@@ -102,7 +97,7 @@ If you live downwind of a factory or in a volcanic region, SO2 levels change fas
 - **Trigger**: Sulphur dioxide level crossed threshold
 - **Target**: Outdoor SO2 sensor
 - **Threshold type**: 40
-- **Trigger when**: Any
+- **Trigger when**: Each
 - **Condition**: SO2 is above 40
 - **Action**: Close cover (windows)
 
@@ -117,7 +112,7 @@ automation: |
         entity_id: sensor.outdoor_so2
       options:
         threshold: 40
-        behavior: any
+        behavior: each
   conditions:
     - condition: numeric_state
       entity_id: sensor.outdoor_so2

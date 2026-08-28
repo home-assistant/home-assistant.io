@@ -42,7 +42,7 @@ Similar to {% my entities title="**Settings** > **Devices & services** > **Entit
 
 Once launched, start typing your entity ID (or ["bits and pieces" of your entity ID](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Selecting an entity (or hitting `enter` when the desired entity is highlighted) will open the **More info** dialog for that entity.
 
-This is helpful when, for example, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer tools.
+This is helpful when, for example, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to **Settings** > **Tools**.
 
 ## Device filter
 
@@ -144,8 +144,6 @@ There are a few possible reasons why the **Quick search** dialog won't launch:
 The command list only shows commands that are available to you based on your user settings, and loaded integrations.
 
 For example, if you don't have `automations:` in your config, then you won't see the **Reload Automations** command.
-
-If **Advanced Mode** is turned off in User Settings, then any command related to advanced mode will not appear in the list.
 
 If a command is missing that you feel is in error, please create an issue on GitHub.
 

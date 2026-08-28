@@ -96,7 +96,9 @@ triggers:
     for:
       minutes: 15
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Air quality"
       message: >

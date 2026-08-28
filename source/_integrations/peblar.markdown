@@ -285,7 +285,9 @@ automation:
         to: "on"
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Peblar charger update available!"
           message: >
@@ -316,7 +318,9 @@ automation:
           - "fault"
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Peblar charger issue detected!"
           message: >

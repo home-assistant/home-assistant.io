@@ -7,12 +7,14 @@ ha_category:
 ha_release: 2026.5
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_dhcp: true
 ha_codeowners:
   - '@Miggets7'
 ha_domain: earn_e_p1
 ha_platforms:
   - sensor
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **EARN-E P1 Meter** {% term integration %} connects to the [EARN-E energy monitor](https://earn-e.com/product/energiemonitor/), a device that reads your smart meter's P1 port and broadcasts real-time energy data via UDP on the local network. This integration listens for those broadcasts and exposes them as sensor entities.
@@ -53,7 +55,9 @@ The EARN-E energy monitor must be:
 
 {% include integrations/config_flow.md %}
 
-When adding the integration, it will automatically listen for UDP broadcasts for approximately 10 seconds. If your EARN-E device is found, you will see a confirmation screen with its IP address.
+The EARN-E energy monitor is discovered automatically on your network using [DHCP discovery](/integrations/dhcp/). When it is detected, it appears in the **Discovered** section under **Settings** > **Devices & services**, ready to be set up with a single confirmation.
+
+When adding the integration manually, it will automatically listen for UDP broadcasts for approximately 10 seconds. If your EARN-E device is found, you will see a confirmation screen with its IP address.
 
 If no device is discovered (for example, if the meter is on a different subnet), you will be asked to enter the IP address manually. The integration will then listen for data from that IP address to verify connectivity.
 

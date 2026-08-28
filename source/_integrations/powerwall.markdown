@@ -28,12 +28,12 @@ The **Tesla Powerwall** {% term integration %} allows you to integrate your [Tes
 
 The following devices are known to be supported by the integration:
 - Tesla Powerwall 2
+- Tesla Powerwall 3 (with limitations)
 
 ## Unsupported devices
 
 The following devices are not supported by the integration:
 - Tesla Powerwall 1
-- Tesla Powerwall 3
 
 {% include integrations/config_flow.md %}
 
@@ -102,3 +102,16 @@ The following switch is added for the Powerwall Backup Gateway:
 
 - Model Number
 - Firmware Revision
+
+## Known Limitations
+
+### Powerwall 3 support
+
+Powerwall 3 exposes a more restricted local HTTP API than Powerwall 2. As a result, some entities and features are not available when Home Assistant connects to one of these gateways:
+
+- Off-Grid operation
+- Powerwall Backup Reserve
+- Per-battery sensors (Powerwall Battery Capacity, Powerwall Battery Remaining, Powerwall Battery Power, Frequency/Average Current/Average Voltage Now, Powerwall Battery Export, Powerwall Battery Import, Powerwall Grid State)
+- Powerwall Status and Powerwall Connected to Tesla binary sensors
+
+The aggregate sensors (power flow, charge, lifetime energy) and the Grid Status / Grid Services / Powerwall Charging binary sensors remain available.

@@ -11,8 +11,6 @@ related_conditions:
 
 The **PM10 value** condition passes when a PM10 sensor's reading meets a specific level. PM10 covers coarse particulate matter smaller than 10 micrometers in diameter, which includes dust, pollen, and mold spores. If someone in your household has allergies, this condition is especially useful for closing the windows automatically during high-pollen hours and keeping them open when the reading is low, so you enjoy fresh air without the sneezing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -31,10 +29,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The PM10 level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -93,10 +89,12 @@ On spring mornings, pollen and dust push PM10 readings up before you even notice
 
 - **Trigger**: State: Bedroom window cover opened
 - **Condition**: Air Quality: PM10 value
-- **Target**: Outdoor PM10 sensor
-- **Threshold type**: 50
-- **Condition passes if**: Any
-- **Action**: Cover: Close cover, then notify
+  - **Target**: Outdoor PM10 sensor
+  - **Threshold type**: 50
+  - **Condition passes if**: Any
+- **Action**: Close cover
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for closing windows back on high PM10" %}
 
@@ -118,7 +116,9 @@ automation: |
     - action: cover.close_cover
       target:
         entity_id: cover.bedroom_window
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "PM10 is high outside"
         message: >

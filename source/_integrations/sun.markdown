@@ -60,6 +60,10 @@ sun:
 
 ## Automation trigger
 
+Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
+
+The classic `sun` trigger described here is still supported.
+
 The sun's event listener performs the action when the sun rises or sets, with an optional offset.
 
 The sun trigger needs the trigger type `sun`, an event (`sunset` or `sunrise`), and an optional offset:
@@ -81,9 +85,25 @@ For example, if sunrise is at 06:00 and you set `offset: "-01:00:00"`, the autom
 
 {% tip %}
 
-Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use a [sun elevation trigger](/docs/automation/trigger/#sun-elevation-trigger) instead.
+Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger instead.
 
 {% endtip %}
+
+### Sun elevation triggers
+
+The sun elevation is the angle between the sun and the horizon. To run an automation when the sun reaches a specific angle, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger. To react to every elevation update, use the [Sun elevation changed](/triggers/sun.elevation_changed/) trigger instead.
+
+This is useful for automations around dawn or dusk because the length of twilight changes during the year. A value between `0` degrees and `-6` degrees is often used for twilight. For example, `-4` degrees can be a practical point for turning on outdoor lights.
+
+{% example %}
+trigger: |
+  trigger: sun.elevation_crossed_threshold
+  options:
+    threshold:
+      type: below
+      value:
+        number: -4
+{% endexample %}
 
 ### Maintains entity `sun.sun`
 
@@ -91,6 +111,10 @@ Because the duration of twilight varies throughout the year, a fixed offset is n
 | --------------- | ---------------------------------- |
 | `above_horizon` | When the sun is above the horizon. |
 | `below_horizon` | When the sun is below the horizon. |
+
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 ## Sensors
 

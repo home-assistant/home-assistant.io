@@ -4,6 +4,7 @@ description: Instructions on how to integrate Zinvolt batteries with Home Assist
 ha_category:
   - Binary Sensor
   - Energy
+  - Select
   - Sensor
 ha_release: 2026.3
 ha_iot_class: Cloud Polling
@@ -15,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - number
+  - select
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -51,6 +53,10 @@ The **Zinvolt** integration provides the following entities.
 - **Maximum charge level**: The maximum charge level of the battery in percentage.
 - **Standby time**: The time in minutes that the battery remains inactive before it is automatically turned off.
 - **Maximum output**: The maximum output of the battery in watts.
+
+#### Select
+
+- **Mode**: The current mode of the battery.
 
 #### Sensors
 

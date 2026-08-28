@@ -1,6 +1,6 @@
 ---
-title: "Automation YAML"
-description: "How to use the automation integration with YAML."
+title: "Automations in YAML"
+description: "Power-user reference for writing automations directly in YAML, including the full structure, additional options, and how to manage automations from configuration.yaml."
 ---
 
 Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, select the menu button in the top right then on **Edit in YAML**.
@@ -158,7 +158,7 @@ automation my_lights:
       # With a single action entry, we don't need a '-' before action - though you can if you want to
       - action: homeassistant.turn_on
         target:
-          entity_id: group.living_room
+          entity_id: light.living_room
 
   # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"
@@ -201,10 +201,9 @@ automation my_lights:
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 
+## Additional options
 
-## Extra options
-
-When writing automations directly in {% term YAML %}, you will have access to advanced options that are not available in the user interface.
+Some options are only available when writing automations directly in {% term YAML %} and cannot be configured through the user interface.
 
 ### Automation initial state
 

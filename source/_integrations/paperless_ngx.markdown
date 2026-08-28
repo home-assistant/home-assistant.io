@@ -26,7 +26,7 @@ The **Paperless-ngx** {% term integration %} allows you to connect your [Paperle
 ## Prerequisites
 
 {% important %}
-This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
+This integration is only fully supported with **Paperless-ngx version 2.19 or later**. Earlier versions are not supported.
 {% endimportant %}
 
 To ensure full functionality of this integration, you must have **read permissions** for all document-related resources, including documents, tags, document types, and correspondents.
@@ -105,7 +105,9 @@ conditions:
         false
       {% endif %}
 actions:
-  - action: notify.mobile_app_iphone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     metadata: {}
     data:
       message: A new document is available.
@@ -124,7 +126,7 @@ This integration retrieves data using a pull-based mechanism.
 
 There are a few known limitations for using the integration:
 
-- This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
+- This integration is only fully supported with **Paperless-ngx version 2.19 or later**. Earlier versions are not supported.
 - To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
 
 ## Troubleshooting

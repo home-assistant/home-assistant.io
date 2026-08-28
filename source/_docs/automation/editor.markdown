@@ -1,12 +1,12 @@
 ---
 title: "Automation editor"
-description: "Instructions on how to use the automation editor."
+description: "Create and edit automations from the Home Assistant user interface. The visual editor walks you through choosing a trigger, conditions, and actions, no coding needed."
 related:
   - docs: /getting-started/automation/
     title: Automating Home Assistant
 ---
 
-The automation editor is an easy way of creating and editing automations from the UI.
+The automation editor lets you create and edit automations directly from the Home Assistant user interface, without writing any YAML. The editor walks you through choosing a trigger, optional conditions, and the actions to run.
 
 This tutorial uses the [Random sensor](/integrations/random#sensor) because it generates data (by default, values between 0 and 20). This enables us to walk through the example, even if you do not have any actual sensors connected yet. You could use any other sensor that outputs a numeric value.
 
@@ -49,6 +49,80 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
     - Result: Automations created or edited via the user interface are activated immediately after saving the automation.
     - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
+
+## Editing an automation
+
+You can create or edit an automation from the user interface using the visual editor (default) or in YAML using the YAML editor.
+
+{% tip %}
+To edit your automation using an example where only the YAML code is available, you can copy and paste it in the visual or YAML editor.
+In the editor, select <kbd>Ctrl</kbd>+<kbd>V</kbd> (or <kbd>Cmd</kbd>+<kbd>V</kbd> on Mac).
+
+The example can be a full automation, a single trigger, a condition, or an action.
+Try it out with the YAML example in [Automation: Send a notification when Home Assistant starts](/integrations/homeassistant/#automation-send-a-notification-when-home-assistant-starts).
+{% endtip %}
+
+### From the user interface
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+    - Result: The visual editor opens and you can edit the automation.
+3. Select **Save**.
+
+### In YAML
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the upper-right corner, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Edit in YAML**.
+    - Result: The YAML editor opens and you can change the YAML code.
+    - If you just want to edit the YAML of a trigger, a condition or an action of the automation, select **Menu** {% icon "mdi:dots-vertical" %} in the right corner of the respective element, and select **Edit in YAML**.
+4. Select **Save**.
+
+If you want to go back to the visual editor, select **Menu** {% icon "mdi:dots-vertical" %} again, and then select **Edit in visual editor**.
+
+## Checking the targeted entities of an automation
+
+After creating an automation and adding a trigger, condition, or action that targets a floor, area, device, or label, you can see how many entities are included, as well as their name, state, and other details.
+
+To check the number of targeted entities of a trigger, condition, or action:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. Add a trigger, condition, or action with a floor, area, device, or label as a target, and then select **Save**.
+   - Result: The number of entities appears in parentheses in the trigger, condition, or action row.
+
+To see which entities are targeted and check their details:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. Add a trigger, condition, or action with a floor, area, device, or label as a target, and then select **Save**.
+4. In the trigger, condition, or action row, select the target with the entities you want to check.
+   - Result: The **Target details** dialog opens, where you can see a list with the name and state of the entities, grouped by parent target.
+5. From the entities list, select an entity to check its details.
+   - Result: A dialog opens with more information about the entity.
+
+If a trigger, condition, or action has a single entity as the target, instead of a floor, area, device, or label, select it from the row to open the entity details dialog.
+
+## Adding notes to an automation
+
+You can add notes to a trigger, condition, or action in an automation. Use notes to explain why a step exists, or to include additional context.
+
+To add a note to a trigger, condition, or action:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. Add a trigger, condition, or action to your automation.
+4. On the right side of the trigger, condition, or action row, select **Menu** {% icon "mdi:dots-vertical" %} and then select **Add note**.
+5. In the **Add note** dialog, enter the text of your note and select **Submit**.
+   - Result: You can read your note by hovering over or selecting the {% icon "mdi:comment-text-outline" %} button.
+
+## Editing notes in an automation
+
+If you want to change a note on a trigger, condition, or action:
+
+1. Select the trigger, condition, or action row where your note is.
+2. In the **Note** section of the trigger, condition, or action dialog, select **Edit**.
+3. Enter the new text or change the existing one and select **Submit**.
 
 ## Troubleshooting missing automations
 

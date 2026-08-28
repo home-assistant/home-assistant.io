@@ -46,7 +46,7 @@ evohome:
 
 {% configuration %}
 username:
-  description: The username (email address) that has access to the [TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
+  description: The username (email address) that has access to the [TCC](https://international.mytotalconnectcomfort.com/Account/Login) website.
   required: true
   type: string
 password:
@@ -96,7 +96,7 @@ These systems use an internet gateway rather than an Evohome controller. They us
 
 ## Temperature precision
 
-Note that TCC devices may well measure temperatures with very high precision, but the vendor API will report temperatures rounded _towards_ the setpoint (i.e., either up or down) with a precision of 0.5 °C; this is a proxy for the deadband as used by other climate systems. Where possible, this integration will leverage an older vendor API to obtain current temperatures with a precision of 0.01 °C.
+Note that TCC devices may well measure temperatures with very high precision, but the vendor API will report temperatures rounded _towards_ the setpoint (that is, either up or down) with a precision of 0.5 °C; this is a proxy for the deadband as used by other climate systems. Where possible, this integration will leverage an older vendor API to obtain current temperatures with a precision of 0.01 °C.
 
 Therefore, depending upon the above, Home Assistant will display/record current temperatures with a precision of either 0.5 °C or 0.1 °C (its highest supported precision).
 
@@ -124,124 +124,7 @@ Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto
 
 In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `system_mode_status` and `setpoint_status`, below).
 
-## Action calls
-
-This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time systems revert to **Auto**, while zones and DHW controllers revert to **FollowSchedule**.
-
-For mode reset operations, Evohome also provides **Button** entities in the UI. The corresponding actions described below will be deprecated in a future release.
-
-It is recommended to use the native actions (for example, `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (for example, `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with third-party systems such as Amazon Alexa or Google Home.
-
-In particular, the native actions allow access to time-limited modes, such as being away for three days, rather than just being away indefinitely.
-
-Actions that deal with the system as a whole require the `entity_id` of the controller. Other actions require the `entity_id` of a zone or the DHW controller.
-
-### evohome.set_system_mode
-
-This action call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is indefinite.
-
-For **AutoWithEco**, the period of time is a `duration` of up to 24 hours.
-
-```yaml
-- actions:
-    - action: evohome.set_system_mode
-      data:
-        mode: AutoWithEco
-        duration:
-          hours: 1
-          minutes: 30
-```
-
-For the other modes, such as **Away**, the duration is a `period` in days, where 1 day reverts at midnight tonight, and 2 days reverts at midnight tomorrow.
-
-```yaml
-- actions:
-    - action: evohome.set_system_mode
-      data:
-        mode: Away
-        period:
-          days: 30
-```
-
-### evohome.reset_system
-
-This action will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
-
-This same reset is also available as a **Button** entity on the controller, and this is the preferred mechanism.
-
-Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all the zones to **FollowSchedule**.
-
-### evohome.refresh_system
-
-This action will immediately pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
-
-### evohome.set_zone_override
-
-This action will override the scheduled `setpoint` of a zone, as identified by its `entity_id`.
-
-```yaml
-- actions:
-    - action: evohome.set_zone_override
-      target:
-        entity_id: climate.lounge_room
-      data:
-        setpoint: 19.5
-        duration: "02:00"
-```
-
-The `setpoint` (target temperature) is required. If no `duration` is provided, then the change is indefinite (**PermanentOverride**).
-
-The `duration` can be up to 24 hours. If a `duration` is provided, including 0 hours, then the change is temporary (**TemporaryOverride**).
-
-If the `duration` is 0 hours, then the change will be until the next scheduled setpoint.
-
-```yaml
-- actions:
-    - action: evohome.set_zone_override
-      target:
-        entity_id: climate.lounge_room
-      data:
-        setpoint: 5
-        duration:
-          hours: 0
-```
-
-### evohome.clear_zone_override
-
-This action is used to set a zone, as identified by its `entity_id`, to follow its scheduled setpoints (**FollowSchedule**).
-
-This same function is also available as a **Button** entity on each heating zone, and this is the preferred mechanism.
-
-### evohome.set_dhw_override
-
-This action will override the scheduled `state` of a DHW controller, as identified by its `entity_id`.
-
-```yaml
-- actions:
-    - action: evohome.set_dhw_override
-      target:
-        entity_id: water_heater.dhw_controller
-      data:
-        state: true
-        duration: "02:00"
-```
-
-The `state` is required and can be either `true` (On) or `false` (Off). If no `duration` is provided, then the change is indefinite (**PermanentOverride**).
-
-The `duration` can be up to 24 hours. If a `duration` is provided, including 0 hours, then the change is temporary (**TemporaryOverride**).
-
-If the `duration` is 0 hours, then the change will be until the next scheduled state change.
-
-```yaml
-- actions:
-    - action: evohome.set_dhw_override
-      target:
-        entity_id: water_heater.dhw_controller
-      data:
-        state: false
-        duration:
-          hours: 0
-```
+{% include integrations/actions.md %}
 
 ## Useful Jinja templates
 

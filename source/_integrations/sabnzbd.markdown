@@ -37,7 +37,7 @@ Here are some practical ways you can use the SABnzbd integration:
 
 ## Prerequisites
 
-You need to grab your API key from your SABnzbd instance in order to configure this integration:
+You need to grab your API key from your SABnzbd instance to configure this integration:
 
 1. Navigate to your SABnzbd web interface.
 2. Select *Config** {% icon "mdi:settings" %}, then **General**.
@@ -67,7 +67,7 @@ API key:
 
 This integration creates the following sensors to monitor your SABnzbd instance:
 
-- **Status**: The current status of SABnzbd (Idle, Downloading, Paused, etc.)
+- **Status**: The current status of SABnzbd (such as Idle, Downloading, or Paused)
 - **Speed**: The current download speed in MB/s
 - **Queue**: The total size of the download queue in GB
 - **Left**: The remaining size of the download queue in GB
@@ -94,7 +94,9 @@ This automation sends a notification when a download completes:
       to: "Idle"
       from: "Downloading"
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Download Complete"
         message: "SABnzbd has finished downloading and extracting files"
@@ -111,7 +113,9 @@ Get notified when your download drive is running low on space:
       entity_id: sensor.sabnzbd_disk_free
       below: 10
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Low Disk Space"
         message: "Download drive has less than {{ states('sensor.sabnzbd_disk_free') }} GB free"
@@ -137,7 +141,9 @@ Automatically pause downloads when your media players are active:
     - action: button.press
       target:
         entity_id: button.sabnzbd_pause
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Downloads paused for movie time"
 

@@ -10,8 +10,6 @@ related_conditions:
 
 The **Nitrogen monoxide value** condition passes when a nitrogen monoxide (NO) sensor's reading meets a specific level. NO is a reactive gas that shows up mainly around vehicle exhaust and industrial activity. If you live near a busy road, rush-hour traffic raises NO levels noticeably. This condition lets your automation respond to that pattern, closing the garage ventilation when NO spikes during the morning commute and reopening it once readings settle down.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -30,10 +28,8 @@ To use this condition in an automation:
 {% options_ui %}
 Threshold type:
   description: The nitrogen monoxide level the sensor has to meet or exceed for the condition to pass.
-  required: true
 Condition passes if:
   description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-  required: true
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -87,12 +83,13 @@ behavior:
 
 If you live near a busy road, rush-hour exhaust raises outdoor NO levels fast. This automation triggers at 7:30 AM and checks the outdoor NO reading. If the level is at or above 100 μg/m3, the garage ventilation closes so fumes stay outside. On mornings with light traffic, the ventilation stays open as usual.
 
-- **Trigger**: Time: 07:30
-- **Condition**: Air Quality: Nitrogen monoxide value
-- **Target**: Outdoor NO sensor
-- **Threshold type**: 100
-- **Condition passes if**: Any
-- **Action**: Cover: Close cover
+- **Trigger**: Time
+  - **At time**: `07:30:00` AM
+- **Condition**: Nitrogen monoxide value
+  - **Target**: Outdoor NO sensor
+  - **Threshold type**: 100
+- **Action**: Close cover
+  - **Target**: Garage ventilation
 
 {% details "YAML example for closing the garage during the morning commute" %}
 
@@ -108,7 +105,6 @@ automation: |
         entity_id: sensor.outdoor_no
       options:
         threshold: 100
-        behavior: any
   actions:
     - action: cover.close_cover
       target:

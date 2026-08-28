@@ -1,6 +1,6 @@
 ---
 title: Rainforest RAVEn
-description: Instructions on how to setup Rainforest RAVEn devices with Home Assistant.
+description: Instructions on how to set up Rainforest RAVEn devices with Home Assistant.
 ha_category:
   - Energy
   - Sensor

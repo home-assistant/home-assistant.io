@@ -1,6 +1,6 @@
 ---
 title: Sensor
-description: Instructions on how to setup your sensors with Home Assistant.
+description: Instructions on how to set up your sensors with Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.7
@@ -25,8 +25,8 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The state of a sensor entity is its currently detected value, which can be either text or a number.
 
 <p class='img'>
-<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the developer tools' />
-Screenshot showing the state of a sensor entity in the developer tools.
+<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the States tab of Tools.' />
+Screenshot showing the state of a sensor entity in {% my developer_states title="Settings > Tools > States"%}
 </p>
 
 In addition, the entity can have the following states:
@@ -57,6 +57,7 @@ The following device classes are supported for sensors:
 - **blood_glucose_concentration**: Blood glucose concentration in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide (CO₂) concentration in ppm
 - **carbon_monoxide**: Carbon Monoxide (CO) concentration in ppb, ppm, µg/m³, mg/m³
+- **conductivity**: Conductivity in S/cm, mS/cm, or µS/cm
 - **current**: Current in A, mA, µA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
@@ -88,6 +89,7 @@ The following device classes are supported for sensors:
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
 - **pressure**: Pressure in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
+- **radon**: Concentration of radon in Bq/m³ or pCi/L
 - **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm

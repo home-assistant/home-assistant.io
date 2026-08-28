@@ -1,9 +1,11 @@
 ---
 title: "Using automation blueprints"
-description: "How to create automations based off blueprints."
+description: "Blueprints are ready-made automations shared by the Home Assistant community. Install a blueprint and create your own automation by filling in a few fields, no YAML required."
 ---
 
-Automation blueprints are pre-made {% term automations %} that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+Blueprints are the easiest way to add an automation to your Home Assistant. They are ready-made automations shared by the Home Assistant community: someone else has already done the thinking and the writing, and you just plug in your own devices.
+
+You can find blueprints for almost any common use case, from "turn the lights on when motion is detected" to "announce the weather every morning at 7" to "notify me when the laundry is done". You install a blueprint once and can use it as many times as you like, with different devices and settings each time.
 
 Quick links:
 
@@ -49,8 +51,9 @@ To edit an imported blueprint, follow these steps:
 
 1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Select the blueprint from the list.
-3. Select the {% icon "mdi:dots-vertical" %} and select **Take control**.
-4. A preview of the automation is shown.
+3. Fill in all required fields, and any optional ones you plan to use.
+4. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Take control**.
+5. A preview of the automation is shown.
    - **Info**: By taking control, the blueprint is converted into an automation. You won't be able to convert this back into a blueprint.
    - To convert it into an automation and take control, select **Yes**.
    - If you change your mind and want to keep the blueprint, select **No**.

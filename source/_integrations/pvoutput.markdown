@@ -100,7 +100,9 @@ conditions:
     before: sunset
     before_offset: "-01:00:00"
 actions:
-  - action: notify.mobile_app_my_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "Solar"
       message: "Power generation is unexpectedly low."
