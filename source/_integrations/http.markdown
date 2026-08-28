@@ -129,19 +129,12 @@ If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all c
 
 {% endnote %}
 
-```yaml
-127.0.0.1:
-  banned_at: "2016-11-16T19:20:03"
-```
-
-After a ban is added, a persistent notification appears in the Home Assistant frontend.
+After a ban is added a Persistent Notification will appear in the Home Assistant frontend.
 
 To clear an IP ban, you can either:
 
-- Remove the specific IP entry from `ip_bans.yaml`.
-- Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
-
-After making changes, restart Home Assistant to apply them.
+- Use the `http.unban` action to immediately unban a banned IP address.
+- Delete the file `[your_config_dir]/.storage/http.ip_bans` and restart Home Assistant.
 
 ## Hosting files
 
@@ -290,6 +283,18 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 ```
 
 For more examples please visit the [HTTP binary sensor](#examples) page.
+
+
+## Actions
+
+### Action `http.unban`
+
+Removes an IP address from the list of banned IP addresses.
+
+| Data attribute | Optional | Description                                                |
+| ---------------| -------- | ---------------------------------------------------------- |
+| `ip_address`   | no       | IP address to remove from the list of banned IP addresses. |
+
 
 ## Troubleshooting
 
