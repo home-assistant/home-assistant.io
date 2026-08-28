@@ -175,7 +175,7 @@ The reverse is worth knowing too. **Dynamic power reduction** is what implements
 Depending on the inverter's firmware, an `AC power limit` below `10 %` may force the inverter into standby, stopping feed-in altogether rather than throttling it.
 {% endnote %}
 
-On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output, so surplus photovoltaic power that the limit holds back goes into the battery instead of being curtailed, which is what makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
+On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output. Surplus photovoltaic power goes into the battery instead of being wasted, which makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
 
 #### The battery limits are power, not a charge level
 
