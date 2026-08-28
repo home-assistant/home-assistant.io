@@ -33,6 +33,7 @@ This section explains how to generate a client ID and client secret on
 10. Review the Google API Services User Data Policy. If you agree, select the check box, then select **Continue** and **Create**.
 11. Select **Audience** in the left sidebar. Under **Publishing status**, select **Publish app**.
     > Otherwise, your credentials will expire every 7 days.
+    > If you leave the app in **Testing**, under **Test users**, select **Add users**, add your Google Account email address, then select **Save**.
 12. Select **Clients** in the left sidebar, then select **Create client**.
 13. For **Application type**, choose **Web application** and give the client a name (for example, *Home Assistant Client*).
 14. Under **Authorized redirect URIs**, add `https://my.home-assistant.io/redirect/oauth`, then select **Create**.

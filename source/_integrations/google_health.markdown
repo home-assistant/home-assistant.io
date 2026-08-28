@@ -31,8 +31,6 @@ You need to configure developer credentials to allow Home Assistant to access yo
 
 {% include integrations/google_client_secret.md %}
 
-Before creating the OAuth client, select **Audience** in the Google Auth Platform Console. Under **Test users**, select **Add users**, add your Google Account email address, and select **Save**. Google Health requires this while the OAuth client is unverified.
-
 {% include integrations/config_flow.md %}
 
 The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Google Health data.
