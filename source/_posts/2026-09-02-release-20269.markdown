@@ -104,7 +104,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 Signing up for [Home Assistant Cloud](/integrations/cloud/) now begins on a clearer start page: one obvious button to **Start your free trial**, and a link to **Sign in** if you already have an account. It also finally shows what you would actually be getting. The old page left you to guess what was behind that button, which, fair enough, didn't help anyone. Now the features are listed right there, before you even start the trial.
 
-<img src='/images/blog/2026-09/temp-cloud-signup.png' alt='Screenshot of the redesigned Home Assistant Cloud start page, with a button to start a free trial, a link to sign in, and an overview of what Home Assistant Cloud offers.' class='no-shadow' />
+<img src='/images/blog/2026-09/cloud-signup.png' alt='Screenshot of the redesigned Home Assistant Cloud start page, with a button to start a free trial, a link to sign in, and an overview of what Home Assistant Cloud offers.' class='no-shadow' />
 
 Creating an account used to end with a trip back to the sign-in page after you confirmed your email address. Now, as soon as you select the confirmation link in that email, Home Assistant logs you in automatically, so you can go straight to setting up remote access, voice, and {% term backups %}. The trial runs for a full month, and you don't need to enter any payment details to start it.
 
@@ -122,7 +122,7 @@ The new **Active alerts** section only shows up when something actually needs yo
 
 Right alongside it, a new **Favorites** section lets you pin the entities you check most, so your most important doors, locks, or {% term sensors %} sit at the top of the dashboard instead of wherever they happen to fall.
 
-<img src='/images/blog/2026-09/temp-security-dashboard-favorites.png' alt='Screenshot of the Security dashboard editor, showing the favorite entities and the active alert entities with their severity levels.' class='no-shadow' />
+<img src='/images/blog/2026-09/security-dashboard-favorites.png' alt='Screenshot of the Security dashboard editor, showing the favorite entities and the active alert entities with their severity levels.' class='no-shadow' />
 
 This started as a [community-designed concept](https://github.com/orgs/home-assistant/discussions/3545) from [@ricardoantoniocm](https://github.com/ricardoantoniocm), right down to the severity colors and the pulsing animation for anything that needs attention. It's part of [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/50) to bring severity to the Security dashboard, and there's more to come: surfacing these same alerts on the Home dashboard is still on the list for a future release.
 
@@ -130,11 +130,11 @@ This started as a [community-designed concept](https://github.com/orgs/home-assi
 
 Browsing and finding what you're looking for in **History** and **Activity** can be daunting, so... we made it better! Both pages now share a single **Sources** panel on the left side that merges target picking ({% term floors %}, {% term areas %}, {% term devices %}, and {% term entities %}) with filtering by {% term domain %}, device class, and {% term integration %}, so you can narrow a whole area down to, say, just its motion sensors. The panel docks to the side and opens automatically on wider screens, and tucks away as a pull-up sheet on narrower ones. Whatever you filter on is remembered the next time you come back.
 
-<img src='/images/blog/2026-09/temp-history-filtering.png' alt='Screenshot of the History page with the new Sources panel open, showing an area selected with 189 matching entities.' class='no-shadow' />
+<img src='/images/blog/2026-09/history-filtering.png' alt='Screenshot of the History page with the new Sources panel open, showing three areas selected and filtered down to temperature sensors, with their chart on the right.' class='no-shadow' />
 
 The two pages still behave the way they always have, on purpose: **History** waits for you to pick something before it draws a chart, since showing everything at once wouldn't be very useful (or fast in that regard 😅). **Activity** keeps showing everything by default, and you can narrow it down with filters alone, no target required.
 
-<img src='/images/blog/2026-09/temp-activity-filtering.png' alt='Screenshot of the Activity page with the new Sources panel open, filtering activity down to motion sensors.' class='no-shadow' />
+<img src='/images/blog/2026-09/activity-filtering.png' alt='Screenshot of the Activity page with the new Sources panel open, filtering activity down to the lights in the office.' class='no-shadow' />
 
 A couple of smaller improvements come along for the ride: the date range picker is now a single pill with previous and next arrows, and long entity names on the History timeline draw above their bar and truncate to fit, instead of being cut off. Always nice to see the attention to detail.
 
@@ -146,7 +146,7 @@ Open **Activity** and you can see exactly what changed: a light turned on, a doo
 
 Selecting any row in **Activity** now opens a details dialog that lays out the full story, read top to bottom: what started it (a person, a state change, a schedule, an {% term integration %}, or a restart), the automations or {% term scripts %} it passed through, and finally the entity's own change. Every step in that chain is clickable, opening the entity behind it or, for automations, its trace directly. Timestamps go down to the millisecond, so even events that landed in the same second keep their correct order.
 
-<img src='/images/blog/2026-09/temp-activity-details.png' alt="Screenshot of the Activity details dialog for a cover, showing the automation and person that triggered its state change." class='no-shadow' />
+<img src='/images/blog/2026-09/activity-details.png' alt='Screenshot of the Activity details dialog for a light, showing the presence sensor and the automation that triggered its state change, with millisecond timestamps.' class='no-shadow' />
 
 ## Insights into your Matter world
 
@@ -154,7 +154,7 @@ Zigbee (through ZHA), Z-Wave, and Bluetooth have shown you a map of how their de
 
 The Matter panel now has a **Show map** button that brings that same picture right into Home Assistant, using the same graph experience you already know from the other protocols. It shows the full picture: which devices talk over {% term Thread %} and which over Wi-Fi, which ones are routers or {% term "Thread border router" "border routers" %} versus battery-powered end devices, and the path from Home Assistant to each one. Border routers and access points are named from things you'd actually recognize, like their network host name or Wi-Fi network name, instead of a serial number. Link color tells you the transport, Thread or Wi-Fi, and the thickness and direction reflect the signal strength on each side of the connection.
 
-<img src='/images/blog/2026-09/temp-matter-network-graph.png' alt='Screenshot of the Matter network visualization page, showing Home Assistant connected through Thread border routers and a Wi-Fi access point to routers, end devices, and an offline device.' class='no-shadow' />
+<img src='/images/blog/2026-09/matter-network-graph.png' alt='Screenshot of the Matter network map, showing Home Assistant connected to Thread border routers, a Wi-Fi access point, and end devices.' class='no-shadow' />
 
 If your Matter server is a bit older and doesn't support this yet, the page tells you so instead of just failing, so you know to update rather than assume something's broken.
 
@@ -166,19 +166,25 @@ The [tile card](/dashboards/tile/) keeps gaining more ways to control an {% term
 
 **Lights** get a new **Light effect** feature, so you can pick and preview an effect, like *Rainbow*, directly from the tile.
 
-<img src='/images/blog/2026-09/temp-tile-card-feature-light-effect.png' alt='Screenshot of the tile card feature editor, showing the light-effect feature added to a light entity, with a preview.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-light-effect.png' alt='Screenshot of the tile card feature editor, showing the light-effect feature added to a light entity, with a preview.' class='no-shadow' />
 
 **Vacuums** get a new **Vacuum fan speed** feature, so you can switch between fan speeds, like *min*, *medium*, *high*, or *max*, right alongside the existing start, stop, and dock commands.
 
-<img src='/images/blog/2026-09/temp-tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of the tile card feature editor, showing the vacuum-fan-speed feature added with a fan speed selector.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of the tile card feature editor, showing the vacuum-fan-speed feature added with a fan speed selector.' class='no-shadow' />
 
 And the existing **Target humidity** feature, previously limited to humidifiers, now also works with **{% term Climate %}** entities that support humidity control, using the step size your device reports instead of a fixed one.
 
-<img src='/images/blog/2026-09/temp-tile-card-humidity-target.png' alt='Screenshot of the tile card feature editor, showing the target humidity feature added to a climate entity.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-humidity-target.png' alt='Screenshot of the target humidity feature on a tile card for a thermostat, with a humidity slider.' class='no-shadow' />
 
 All three come with matching tile card suggestions, so Home Assistant offers to add them automatically when they make sense for an entity.
 
 Thanks to [@pcan08](https://github.com/pcan08) for all three!
+
+One more tile card fix: with the **Feature position** set to **Inline**, only the first feature used to show up, and the rest were silently dropped. Now the first one sits next to the entity name as before, and the others appear below it in two columns.
+
+<img src='/images/blog/2026-09/tile-card-inline-features.png' alt='Screenshot of two tile cards with an inline feature next to the name and more features below it.' class='no-shadow' />
+
+Thanks to [@JulianHock](https://github.com/JulianHock) for that one!
 
 ## Modernizing Modbus
 
@@ -540,7 +546,7 @@ Serial joins the other protocol panels under **Settings**, the same recognition 
 
 It splits what it finds into three groups: ports actually in use by an integration or app, ports that are connected but not used by anything, and ports something expects but that aren't currently plugged in. A status banner at the top gives you the numbers at a glance, so if a stick has come loose or an app lost its connection, you see it the moment you open the page instead of hunting through logs.
 
-<img src='/images/blog/2026-09/temp-serial-panel.png' alt='Screenshot of the new Serial panel, showing connected, available, and disconnected serial ports and what uses each one.' class='no-shadow' />
+<img src='/images/blog/2026-09/serial-panel.png' alt='Screenshot of the new Serial panel, with a status banner at the top and the connected and available serial ports, showing which integration and app use each one.' class='no-shadow' />
 
 This rounds out the trio planned in [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/173): serial, infrared, and radio frequency all have their own place in Settings now. Documentation for all three is still on its way.
 
@@ -552,7 +558,7 @@ The **Storage** page in Settings has always shown which network shares you have 
 
 Each active mount now gets a small usage bar and a "{used} of {total} used" line. Rows appear immediately, and each bar fills in as soon as its own request comes back, so one slow or unreachable share never holds up the rest of the list. The bar also changes color as it fills, amber past 85% used and red past 95%, so you get a heads-up before you actually run out of space. A mount that's currently unreachable just shows no usage bar; it already gets its own warning treatment.
 
-<img src='/images/blog/2026-09/temp-network-storage-space.png' alt='Screenshot of the Storage page listing several network mounts, with usage bars showing how full each one is.' class='no-shadow' />
+<img src='/images/blog/2026-09/network-storage-space.png' alt='Screenshot of the Network storage section on the Storage page, listing three network mounts with usage bars, one of them nearly full and shown in red.' class='no-shadow' />
 
 Thanks to [@MindFreeze](https://github.com/MindFreeze) and [@silamon](https://github.com/silamon) for keeping an eye on this!
 
