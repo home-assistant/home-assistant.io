@@ -94,7 +94,7 @@ to enable them first. See the [enabling or disabling entities](/common-tasks/gen
 documentation for information on how to do this.
 {% endimportant %}
 
-- **Socket lock**: Indicates whether the socket of the charger is currently locked. When this sensor is on ({% term state %}: `on`), the socket is locked; when it is off ({% term state %}: `off`), the socket is unlocked.
+- **Socket lock**: Indicates whether the socket of the charger is currently locked. When this sensor is on ({% term state %}: `on`), the socket is unlocked; when it is off ({% term state %}: `off`), the socket is locked. This follows the Home Assistant convention for lock sensors, where on means open.
 
 {% note %}
 The **Socket lock** binary sensor is only available on Peblar chargers that are equipped with a socket.
