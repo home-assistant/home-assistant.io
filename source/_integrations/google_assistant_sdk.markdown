@@ -83,7 +83,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Create credentials" %}
 
-1. Navigate to [Google Cloud Console > Credentials](https://console.cloud.google.com/apis/credentials).
+1. Navigate to [Google Cloud console > Credentials](https://console.cloud.google.com/apis/credentials).
 2. Select the project you created earlier from the dropdown menu in the upper left corner.
 3. Select **Create credentials** (at the top of the screen), then select **OAuth client ID**.
 4. Set the Application type to **Desktop app** and give this credential set a name (like "Home Assistant Desktop Credentials").

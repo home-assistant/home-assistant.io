@@ -137,7 +137,7 @@ Google API: Google Tasks API has not been used in project before or it is disabl
 ##### Description
 
 This means that Home Assistant is unable to use the Google Tasks API because it was not
-enabled in the Google Cloud Console.
+enabled in the Google Cloud console.
 
 ##### Resolution
 
@@ -152,5 +152,5 @@ This integration follows standard integration removal. No extra steps are requir
 
 You will be asked if you would like to remove [Application Credentials](/integrations/application_credentials/) which you can do if you no longer plan to use
 Google Tasks with Home Assistant. You may want to also remove any credentials
-in the Google Cloud Console, created above in the Prerequisites, if they are no
+in the Google Cloud console, created above in the Prerequisites, if they are no
 longer in use with any of your other Home Assistant integrations.
