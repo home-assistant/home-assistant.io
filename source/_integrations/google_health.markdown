@@ -13,7 +13,6 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 ha_quality_scale: gold
-google_dev_console_link: https://console.cloud.google.com/apis/library/health.googleapis.com
 api: Google Health API
 api_link: https://console.cloud.google.com/apis/library/health.googleapis.com
 related:

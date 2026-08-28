@@ -1,6 +1,5 @@
 {% capture name %}{{ include.name | default: page.title }}{% endcapture %}
 {% capture domain %}{{ include.domain | default: page.ha_domain }}{% endcapture %}
-{% capture google_dev_console_link %}{{ include.google_dev_console_link | default: page.google_dev_console_link }}{% endcapture %}
 {% capture api %}{{ include.api | default: page.api }}{% endcapture %}
 {% capture api_link %}{{ include.api_link | default: page.api_link }}{% endcapture %}
 
@@ -18,10 +17,9 @@ In this case, you need to generate a client secret first:
 
 {% details "To generate client ID and client secret" %}
 
-This section explains how to generate a client ID and client secret on
-[Google Developers Console]({{ google_dev_console_link }}).
+This section explains how to generate a client ID and client secret in the Google Cloud console.
 
-1. Go to the [Google Developers Console]({{ google_dev_console_link }}).
+1. Go to the [Google Cloud console](https://console.cloud.google.com/).
 2. Select **Create project**, enter a project name, and select **Create**.
 3. When the project opens, make sure it is selected in the console toolbar.
 4. Go to [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}, then select **Enable**.

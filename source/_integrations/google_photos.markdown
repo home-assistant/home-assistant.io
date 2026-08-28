@@ -10,7 +10,6 @@ ha_domain: google_photos
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: service
-google_dev_console_link: https://console.cloud.google.com/apis/library/photoslibrary.googleapis.com
 api: Google Photos Library API
 api_link: https://console.cloud.google.com/apis/library/photoslibrary.googleapis.com
 related:

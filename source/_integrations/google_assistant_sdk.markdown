@@ -15,9 +15,8 @@ ha_quality_scale: gold
 ha_platforms:
   - diagnostics
   - notify
-google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 api: Google Assistant API
-api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
+api_link: https://console.cloud.google.com/apis/library/embeddedassistant.googleapis.com
 ---
 
 The **Google Assistant SDK** {% term integration %} allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
