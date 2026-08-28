@@ -37,6 +37,10 @@ action: |
 
 This reloads the zones from your YAML configuration.
 
+### Options in YAML
+
+This action has no options.
+
 ## Good to know
 
 - Zones you removed from your configuration disappear, and the ones you added show up.
