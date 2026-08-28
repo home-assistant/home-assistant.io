@@ -29,10 +29,7 @@ Before setting up the integration:
 
 {% include integrations/config_flow.md %}
 
-1. {% my integrations title="**Settings** > **Devices & services**" %}, then select **Add integration**, and search for **HausBus**.
-2. Home Assistant searches your local network for a HausBus controller. This can take a moment.
-3. If a controller is found, the integration is set up automatically.
-4. If no controller is found within the search period, you can retry the search.
+During setup, Home Assistant searches your local network for a HausBus controller. This can take a moment. If a controller is found, setup completes automatically. If no controller is found within the search period, you can retry the search.
 
 After setup, supported HausBus devices are created automatically.
 
