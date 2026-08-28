@@ -49,22 +49,20 @@ That same Master Card scan also enables the lock's **Door Status Advice** settin
 
 Home Assistant follows the door state the lock broadcasts in its Bluetooth advertisements. Changes are reported as they happen, and the lock is only connected to when you unlock it.
 
-This needs two things: the lock must have a door sensor, and its **Door Status Advice** setting must be enabled. Setting the integration up enables it for you. If your lock was added before this was the case, you can also enable Door Status Advice for the lock in the official Argo app.
-
-Locks without a door sensor report no door state at all. Their entity is marked as assumed state, and shows as locked between unlocks.
+This requires the lock's **Door Status Advice** setting to be enabled. Setting the integration up enables it for you. If your lock was added before this was the case, you can also enable Door Status Advice for the lock in the official Argo app.
 
 ## Configuration options
 
 {% configuration_basic %}
 Connect to the lock to read door status:
-  description: "Connect to the lock every 30 seconds and read the door state, in addition to following its broadcasts. Enable this only if the broadcasts do not reach Home Assistant reliably, for example at the edge of Bluetooth range or with no Bluetooth proxy nearby. It wakes the lock on every check, so it is off by default. It does not help if the lock reports no door state at all."
+  description: "Connect to the lock every 30 seconds and read the door state, in addition to following its broadcasts. Enable this only if the broadcasts do not reach Home Assistant reliably, for example at the edge of Bluetooth range or with no Bluetooth proxy nearby. It wakes the lock on every check, so it is off by default."
 {% endconfiguration_basic %}
 
 ## Known limitations
 
 - The lock only supports _one active Bluetooth connection_ at a time. Close the Argo app on all phones before unlocking or during setup.
 - The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore not supported.
-- Door state requires a lock with a door sensor and **Door Status Advice** enabled. Without it, the lock's state is assumed rather than reported.
+- Door state requires **Door Status Advice** to be enabled on the lock. Without it, the lock's state is assumed rather than reported.
 - The lock broadcasts in bursts when something happens and then goes quiet for several minutes, so an unlock can take a few seconds while Home Assistant connects to it.
 
 ## Removing the integration
