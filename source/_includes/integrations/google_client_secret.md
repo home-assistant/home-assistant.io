@@ -29,7 +29,9 @@ This section explains how to generate a client ID and client secret in the Googl
    - Under **Audience**, select **External**, then select **Next**.
    - Under **Contact Information**, enter your email address, then select **Next**.
    - Review the Google API Services User Data Policy. If you agree, select the check box, then select **Continue** and **Create**.
-7. Select **Branding** in the left sidebar. Under **App domain**, enter `https://home-assistant.io` for **Application home page**, **Application privacy policy link**, and **Application terms of service link**. Under **Authorized domains**, add `home-assistant.io`.
+7. In the left sidebar, select **Branding**:
+   - Under **App domain**, enter `https://home-assistant.io` for **Application home page**, **Application privacy policy link**, and **Application terms of service link**.
+   - Under **Authorized domains**, add `home-assistant.io`.
 8. In the left sidebar, select **Audience**:
    - Under **Publishing status**, select **Publish app**.
      > Otherwise, your credentials will expire every 7 days.
