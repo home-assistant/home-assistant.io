@@ -12,11 +12,10 @@ ha_domain: hausbus
 ha_release: "2026.9"
 ha_platforms:
   - cover
-ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-HausBus is a building automation system developed by [HausBus](https://www.haus-bus.de/). The integration communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
+The **HausBus** {% term integration %} lets you connect [HausBus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
 
 Currently, the integration provides support for roller shutters (covers).
 
@@ -28,26 +27,22 @@ Before setting up the integration:
 - The controller must be reachable from Home Assistant.
 - At least one supported HausBus shutter channel must be configured on the controller.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
-The integration is automatically discovered using Zeroconf.
+1. {% my integrations title="**Settings** > **Devices & services**" %}, then select **Add integration**, and search for **HausBus**.
+2. Home Assistant searches your local network for a HausBus controller. This can take a moment.
+3. If a controller is found, the integration is set up automatically.
+4. If no controller is found within the search period, you can retry the search.
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. When a HausBus controller is discovered, select **Add**.
-3. Confirm the detected controller.
-4. Complete the setup flow.
-
-After setup, supported HausBus devices will be created automatically.
+After setup, supported HausBus devices are created automatically.
 
 ## Supported devices
 
 The integration currently supports:
 
-- Roller shutters (Cover entities)
+- Roller shutters (cover entities)
 
-Each shutter channel is exposed as a Home Assistant Cover entity.
+Each shutter channel is exposed as a Home Assistant cover entity.
 
 Supported operations:
 
@@ -56,34 +51,11 @@ Supported operations:
 - Stop cover
 - Set cover position
 
-## Automation triggers
-
-This integration does not currently provide additional device triggers.
-
-Use the standard Home Assistant state triggers available for Cover entities.
-
-## Automation conditions
-
-This integration does not currently provide additional conditions.
-
-Use the standard Home Assistant state conditions available for Cover entities.
-
-## Actions
-
-This integration does not currently provide additional actions.
-
-Use the standard services provided by the Cover platform.
-
 ## Removing the integration
 
-To remove the HausBus integration:
+This integration follows standard integration removal.
 
-1. Go to **Settings** > **Devices & Services**.
-2. Select the **HausBus** integration.
-3. Select the three-dot menu.
-4. Select **Delete**.
-
-All entities created by the integration will be removed from Home Assistant.
+{% include integrations/remove_device_service.md %}
 
 Removing the integration does not modify the configuration of the HausBus controller or connected HausBus devices.
 
@@ -94,6 +66,7 @@ If no devices are discovered:
 - Verify that the HausBus controller is connected to the local network.
 - Verify that Home Assistant can reach the controller.
 - Verify that supported shutter channels are configured on the controller.
-- Restart the integration from **Settings** > **Devices & Services**.
+- Restart the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
 For more information, visit the [HausBus website](https://www.haus-bus.de/).
+
