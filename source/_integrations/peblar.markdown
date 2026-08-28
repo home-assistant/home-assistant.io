@@ -126,6 +126,7 @@ The **Buzzer volume** select entity controls the volume level of the charger's b
 
 - **Off** ({% term state %}: `off`): The buzzer is disabled.
 - **Low** ({% term state %}: `low`): The buzzer plays at a low volume.
+- **Low medium** ({% term state %}: `low_medium`): The buzzer plays at a volume between low and medium. This level is not offered by the charger's own web interface.
 - **Medium** ({% term state %}: `medium`): The buzzer plays at a medium volume.
 - **High** ({% term state %}: `high`): The buzzer plays at a high volume.
 
