@@ -48,6 +48,40 @@ Supported operations:
 - Stop cover
 - Set cover position
 
+## HausBus automation examples
+
+### Automation: Close the shutters at sunset
+
+This automation closes a shutter when the sun sets.
+
+```yaml
+automations:
+  - alias: "Close shutters at sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.living_room_shutter
+```
+
+### Automation: Open the shutters at sunrise
+
+This automation opens a shutter when the sun rises.
+
+```yaml
+automations:
+  - alias: "Open shutters at sunrise"
+    triggers:
+      - trigger: sun
+        event: sunrise
+    actions:
+      - action: cover.open_cover
+        target:
+          entity_id: cover.living_room_shutter
+```
+
 ## Removing the integration
 
 This integration follows standard integration removal.
@@ -63,7 +97,6 @@ If no devices are discovered:
 - Verify that the HausBus controller is connected to the local network.
 - Verify that Home Assistant can reach the controller.
 - Verify that supported shutter channels are configured on the controller.
-- Restart the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
+- Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
 For more information, visit the [HausBus website](https://www.haus-bus.de/).
-
