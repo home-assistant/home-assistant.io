@@ -46,7 +46,7 @@ This action has no additional YAML options beyond the target.
 
 ## Good to know
 
-- Processing takes a moment. The result shows up in the state and attributes of the entity once it's done, and any events the platform sends, such as `image_processing.detect_face`, follow then.
+- Processing takes a moment. The result shows up in the state and attributes of the entity once it's done, and any events the platform sends, such as `image_processing.detect_face`, follow afterward.
 - Image processing entities process on a schedule set by their `scan_interval`, which is 10 seconds by default. Set a long interval and use this action instead if you only need results at specific moments.
 - Only camera entities can be used as the image source. See [Image processing](/integrations/image_processing/) for what these entities report.
 
