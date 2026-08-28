@@ -79,22 +79,21 @@ Below is a complete overview of the entities this integration provides.
 
 ### Binary sensors
 
-The binary sensors provided are used to indicate the health status of the
-charger. The following binary sensors are available:
+The following binary sensors are available:
 
-- **Active error**: Indicates if the charger has detected an error. If this sensor is on ({% term state %}: `on`) an error has been detected, otherwise, it is off ({% term state %}: `off`).
-- **Active warning**: Indicates if the charger has raised a warning. If this sensor is on ({% term state %}: `on`) a warning has been raised, otherwise, it is off ({% term state %}: `off`).
+- **Active error**: Indicates if the charger has detected an error. If this sensor is on ({% term state %}: `on`) an error has been detected, otherwise, it is off ({% term state %}: `off`). Disabled by default.
+- **Active warning**: Indicates if the charger has raised a warning. If this sensor is on ({% term state %}: `on`) a warning has been raised, otherwise, it is off ({% term state %}: `off`). Disabled by default.
+- **Socket lock**: Indicates whether the cable is currently locked in the charger. When this sensor is on ({% term state %}: `on`), the cable is unlocked; when it is off ({% term state %}: `off`), the cable is locked. This follows the Home Assistant convention for lock sensors, where on means open.
 
-If any of these binary sensors are on, you should check the charger's local
-web interface for more information about the error or warning.
+If the **Active error** or **Active warning** binary sensor is on, you should
+check the charger's local web interface for more information about the error
+or warning.
 
 {% important %}
-These binary sensors are disabled by default. If you want to use them, you need
+Some of these binary sensors are disabled by default. If you want to use them, you need
 to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
-
-- **Socket lock**: Indicates whether the socket of the charger is currently locked. When this sensor is on ({% term state %}: `on`), the socket is unlocked; when it is off ({% term state %}: `off`), the socket is locked. This follows the Home Assistant convention for lock sensors, where on means open.
 
 {% note %}
 The **Socket lock** binary sensor is only available on Peblar chargers that are equipped with a socket.
@@ -107,7 +106,7 @@ the charger. The following buttons are available:
 
 - **Identify**: This button can be used to identify the charger. This can be useful if you have multiple chargers and want to identify which one is which. Once pressed, the LED on the charger will start blinking for a few seconds. Disabled by default.
 - **Restart**: This button can be used to restart the charger. This can be useful if the charger is not responding as expected. Disabled by default.
-- **Unlock socket**: This button unlocks the socket on the charger, allowing you to manually release the connector. This is useful when the socket is locked and you need to disconnect your vehicle. This button is enabled by default, and is only available on Peblar chargers that are equipped with a socket.
+- **Unlock socket**: This button releases the cable from the charger, so you can unplug it by hand. This is useful when **Keep socket locked** is on and you want to take the cable with you. Only available on Peblar chargers that are equipped with a socket.
 
 {% important %}
 Some of these buttons are disabled by default. If you want to use them, you need
@@ -204,14 +203,11 @@ This integration provides the following switch entities:
 
 - **Charge**: This switch allows you to start or stop/pause the charging of your electric vehicle. This can be helpful if you want to temporarily stop charging your electric vehicle, for example, to avoid charging during expensive peak hours.
 - **Force single phase**: This switch can be used to force the charger to use a single phase for charging your electric vehicle. This can be useful if you want to limit your current draw from the charger to a single phase, for example, to prevent overloading your electrical installation.
-- **Keep socket locked**: When enabled, the charger keeps the socket locked when no electric vehicle is connected. This can help prevent unauthorized use of the charger.
+- **Keep socket locked**: When enabled, the cable stays locked in the charger. When disabled, the charger releases the cable once your vehicle is disconnected, so anyone can unplug it and take it with them. Turning this on while nothing is plugged in has no immediate effect: the charger locks the cable the next time one is inserted.
 
 {% note %}
-The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
-{% endnote %}
-
-{% note %}
-The **Keep socket locked** switch is only available on Peblar chargers that are equipped with a socket.
+- The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
+- The **Keep socket locked** switch is only available on Peblar chargers that are equipped with a socket.
 {% endnote %}
 
 ### Updates
