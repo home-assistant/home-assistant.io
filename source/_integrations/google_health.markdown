@@ -19,7 +19,7 @@ related:
   - url: https://developers.google.com/health-api
     title: Google Health API
   - url: https://console.cloud.google.com/apis/library/health.googleapis.com
-    title: Google Developers Console
+    title: Google Cloud Console
 ---
 
 The **Google Health** {% term integration %} allows you to expose health and fitness data from Google Health (including Fitbit, Pixel Watch, and other devices connected to your Google Account) to Home Assistant.

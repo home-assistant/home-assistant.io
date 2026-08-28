@@ -8,7 +8,7 @@
 
 In this case, all you need to do is enable the API:
 
-1. Go to the Google Developers Console [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}.
+1. Go to the Google Cloud Console [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}.
 2. Confirm that the correct project is selected, then select **Enable**.
 3. Continue with the steps described in the [Configuration](#configuration) section.
 ### Scenario 2: You do not have credentials set up yet

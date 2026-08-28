@@ -18,7 +18,7 @@ related:
   - url: https://photos.google.com/
     title: Google Photos
   - url: https://console.cloud.google.com/apis/library/photoslibrary.googleapis.com
-    title: Google Developers Console
+    title: Google Cloud Console
 ---
 
 The **Google Photos** {% term integration %} allows you to upload photos to your [Google Photos](https://photos.google.com/) using Home Assistant. The integration adds an action for uploading photos and a
