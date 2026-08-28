@@ -166,11 +166,11 @@ The [tile card](/dashboards/tile/) keeps gaining more ways to control an {% term
 
 **Lights** get a new **Light effect** feature, so you can pick and preview an effect, like *Rainbow*, directly from the tile.
 
-<img src='/images/blog/2026-09/tile-card-feature-light-effect.png' alt='Screenshot of the tile card feature editor, showing the light-effect feature added to a light entity, with a preview.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-light-effect.png' alt='Screenshot of two light tile cards with the Light effect feature, each showing an effect selector.' class='no-shadow' />
 
 **Vacuums** get a new **Vacuum fan speed** feature, so you can switch between fan speeds, like *min*, *medium*, *high*, or *max*, right alongside the existing start, stop, and dock commands.
 
-<img src='/images/blog/2026-09/tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of the tile card feature editor, showing the vacuum-fan-speed feature added with a fan speed selector.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of two vacuum tile cards with the Vacuum fan speed feature, each showing a fan speed selector.' class='no-shadow' />
 
 And the existing **Target humidity** feature, previously limited to humidifiers, now also works with **{% term Climate %}** entities that support humidity control, using the step size your device reports instead of a fixed one.
 
@@ -182,7 +182,7 @@ Thanks to [@pcan08](https://github.com/pcan08) for all three!
 
 One more tile card fix: with the **Feature position** set to **Inline**, only the first feature used to show up, and the rest were silently dropped. Now the first one sits next to the entity name as before, and the others appear below it in two columns.
 
-<img src='/images/blog/2026-09/tile-card-inline-features.png' alt='Screenshot of two tile cards with an inline feature next to the name and more features below it.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-inline-features.png' alt='Screenshot of two tile cards with the feature position set to Inline, showing one feature next to the name and more features below it.' class='no-shadow' />
 
 Thanks to [@JulianHock](https://github.com/JulianHock) for that one!
 
