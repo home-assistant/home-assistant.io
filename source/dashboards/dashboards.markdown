@@ -111,20 +111,20 @@ The predefined **To-do lists** dashboard is powered by the [To-do integration](/
 
 The predefined **Security** dashboard shows information about security-related entities, namely:
 
-- The cards of your alarm control panels, locks, cameras, doors, covers, motion sensors, and binary sensors, that can be grouped by floor and area.
-- An **Activity** section showing the changes on your security-related entities during the past 24 hours in reverse chronological order.
+- Cards for your alarm control panels, locks, cameras, doors, covers, motion sensors, and other binary sensors. You can group these cards by floor and area.
+- An **Activity** section showing changes to your security-related entities during the past 24 hours in reverse chronological order.
 
 You can add the following sections to the **Security** dashboard:
 
-- **Favorites**, where you can pin the entities you check most often so they always appear near the top.
-- **Active alerts**, that only appears when one or more chosen entities need attention, such as a door left open or a smoke detector triggering.
+- The **Favorites** section lets you pin the entities you check most often so they always appear near the top.
+- The **Active alerts** section appears only when one or more entities you chose need attention, such as a door left open or a smoke detector that is triggering.
 
 #### Adding favorites to the Security dashboard
 
 To add favorites of your security-related entities to the **Security** dashboard:
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
-2. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
+2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
 3. Under **Favorite entities**, select **Add favorite** and then select the entity you want to pin to the top of the page from the list. You can select more than one favorite.
 4. Select **Save**.
 
@@ -134,7 +134,7 @@ To display alerts of your security-related entities on the **Security** dashboar
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
 2. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
-3. Under **Active alert entities**, select **Add entity** and pick the entity whose issue alerts to display from the list. You can select more than one entity.
+3. Under **Active alert entities**, select **Add entity** and then select the entity you want to monitor from the list. You can select more than one entity.
 4. For each added entity, select one of the display types:
     - **Alert** for issues that need immediate attention, such as a smoke detector going off.
     - **Warning** for less urgent issues, such as a window that was left open.
