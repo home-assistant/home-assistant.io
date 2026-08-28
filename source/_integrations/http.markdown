@@ -125,7 +125,7 @@ If you want to apply additional IP filtering and automatically ban brute force a
 
 {% note %}
 
-If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home Assistant sees the real IP address of each remote visitor. A ban applies only to the address that triggered it and leaves other cloud connections unaffected.
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home Assistant sees the source IP address of the remote client. A ban applies only to that IP address and leaves other cloud connections unaffected.
 
 {% endnote %}
 
