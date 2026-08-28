@@ -546,7 +546,7 @@ Serial joins the other protocol panels under **Settings**, the same recognition 
 
 It splits what it finds into three groups: ports actually in use by an integration or app, ports that are connected but not used by anything, and ports something expects but that aren't currently plugged in. A status banner at the top gives you the numbers at a glance, so if a stick has come loose or an app lost its connection, you see it the moment you open the page instead of hunting through logs.
 
-<img src='/images/blog/2026-09/serial-panel.png' alt='Screenshot of the new Serial panel, with a status banner at the top and the connected and available serial ports, showing which integration and app use each one.' class='no-shadow' />
+<img src='/images/blog/2026-09/serial-panel.png' alt='Screenshot of the new Serial panel, with a status banner at the top and the connected serial ports, showing which integrations and apps use each one.' class='no-shadow' />
 
 This rounds out the trio planned in [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/173): serial, infrared, and radio frequency all have their own place in Settings now. Documentation for all three is still on its way.
 
