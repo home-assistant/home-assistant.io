@@ -143,7 +143,7 @@ These entities are added per inverter and updated every minute:
 
 Modbus is the only interface that lets Home Assistant change settings on the inverter; the Solar API is read-only. These setpoints are added as `number` entities, and appear under **Configuration** on the inverter's device page:
 
-- `AC power limit`: caps the power the inverter puts out on AC, as a percentage of its nominal power output. This is **not** a feed-in limit. Everything the inverter delivers counts against it, whether it is used in the house or exported to the grid.
+- `AC power limit`: caps the power the inverter puts out on AC, as a percentage of its nominal power output. This is _not_ a feed-in limit. Everything the inverter delivers counts against it, whether it is used in the house or exported to the grid.
 - `Battery charge power limit` and `Battery discharge power limit`: cap how fast the battery may charge or discharge, as a percentage of its maximum rate.
 - `Battery minimum reserve`: the state of charge the battery is not discharged below.
 
