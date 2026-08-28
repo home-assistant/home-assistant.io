@@ -57,7 +57,7 @@ add_event_style:
   type: string
 add_event_size:
   required: false
-  description: "The of the add event button. Options are `small`, `medium`, and `large`. Note that the size is ignored when the style is set to `header`."
+  description: "The size of the add event button. Options are `small`, `medium`, and `large`. Note that the size is ignored when the style is set to `header`."
   type: string
 {% endconfiguration %}
 
