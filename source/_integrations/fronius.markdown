@@ -149,6 +149,10 @@ Modbus is the only interface that lets Home Assistant change settings on the inv
 
 The `AC power limit`, `Battery charge power limit`, and `Battery discharge power limit` setpoints each have a `switch` that turns the limit on and off: `AC power limiting`, `Battery charge power limiting`, and `Battery discharge power limiting`. `Battery grid charging` is a separate switch that allows or prevents charging the battery from the grid.
 
+{% warning %}
+**Dynamic power reduction** is what implements an export cap agreed with your grid operator, because it measures at the grid connection point. The `AC power limit` cannot do that, as it only knows the inverter's own output. If Modbus outranks **Dynamic power reduction**, holding the `AC power limit` on at `100 %` overrides that cap, which may put the installation outside what the grid operator allows.
+{% endwarning %}
+
 {% important %}
 Writing has to be allowed on the device first. Go to **Communication** > **Modbus** (Gen24, Tauro, and Verto) or **Settings** > **Modbus** (Datamanager), and turn on **Inverter control via Modbus**.
 
@@ -157,23 +161,11 @@ Until it is, the inverter rejects every write, and the integration creates no co
 
 A setpoint is only applied while its switch is on. Setting one while the switch is off stores the value on the inverter without applying it, and turning the switch on then applies what is stored, which is the order Fronius documents.
 
-{% important %}
-Turning a limit **off** does not lift it. The inverter hands control back to the next source in its priority list, which may impose a limit of its own, such as **Dynamic power reduction**.
+Turning a limit **off** does not lift it. The inverter hands control back to the next source in its priority list, which may impose a limit of its own, such as **Dynamic power reduction**. To override such a source instead, leave the limit **on** and set it to `100 %`. That is an active instruction to run unrestricted, where off is "someone else decides".
 
-To override such a source instead, leave the limit **on** and set it to `100 %`. That is an active instruction to run unrestricted, where off is "someone else decides".
-{% endimportant %}
-
-{% note %}
 The inverter decides which control source wins. If **IO control** or **Dynamic power reduction** has a higher priority than Modbus in the DNO Editor, the inverter may refuse or ignore what Home Assistant sends.
-{% endnote %}
 
-{% warning %}
-The reverse is worth knowing too. **Dynamic power reduction** is what implements an export cap agreed with your grid operator, because it measures at the grid connection point. The `AC power limit` cannot do that, as it only knows the inverter's own output. If Modbus outranks it, holding the limit on at `100 %` overrides that cap, which may put the installation outside what the grid operator allows.
-{% endwarning %}
-
-{% note %}
 Depending on the inverter's firmware, an `AC power limit` below `10 %` may force the inverter into standby, stopping feed-in altogether rather than throttling it.
-{% endnote %}
 
 On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output. Surplus photovoltaic power goes into the battery instead of being wasted, which makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
 
