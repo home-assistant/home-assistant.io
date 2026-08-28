@@ -55,10 +55,12 @@ add_event_style:
   required: false
   description: "The layout and position of the add event button within the card. Options are `header`, `below`, and `on_top`."
   type: string
+  default: below
 add_event_size:
   required: false
   description: "The size of the add event button. Options are `small`, `medium`, and `large`. Note that the size is ignored when the style is set to `header`."
   type: string
+  default: small
 {% endconfiguration %}
 
 ### Examples
