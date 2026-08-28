@@ -34,11 +34,12 @@ This section explains how to generate a client ID and client secret in the Googl
    - Under **Publishing status**, select **Publish app**.
      > Otherwise, your credentials will expire every 7 days.
    - If you leave the app in **Testing**, under **Test users**, select **Add users**, add your Google Account email address, then select **Save**.
-13. Select **Clients** in the left sidebar, then select **Create client**.
-14. For **Application type**, choose **Web application** and give the client a name (for example, *Home Assistant Client*).
-15. Under **Authorized redirect URIs**, add `https://my.home-assistant.io/redirect/oauth`, then select **Create**.
-    > **Note**: This is not a placeholder. It is the URI that must be used.
-16. From the resulting dialog, take a note of the **Client ID** and **Client Secret**. You **can not retrieve it again** after closing the dialog.
+13. In the left sidebar, select **Clients**:
+   - Select **Create client**.
+   - For **Application type**, choose **Web application** and give the client a name (for example, *Home Assistant Client*).
+   - Under **Authorized redirect URIs**, add `https://my.home-assistant.io/redirect/oauth`, then select **Create**.
+     > **Note**: This is not a placeholder. It is the URI that must be used.
+14. From the resulting dialog, take a note of the **Client ID** and **Client Secret**. You **can not retrieve it again** after closing the dialog.
    - Once you have noted these strings, select **Ok** to close.
    - Congratulations! You are now the keeper of a client secret. Guard it in your treasure box. In most cases, your new credentials will be active within a few minutes. However, Google states that activation may take up to five hours in some circumstances.
 {% enddetails %}
