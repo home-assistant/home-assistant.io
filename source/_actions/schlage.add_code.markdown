@@ -29,11 +29,11 @@ To add a PIN code from an automation or a script:
 
 {% options_ui %}
 PIN name:
-  description: A name for the PIN code. Must be unique to the lock, regardless of capitalization.
+  description: Name for PIN code. Must be case insensitively unique to the lock.
 PIN code:
-  description: The PIN code to add. Must be unique to the lock and between 4 and 8 digits long.
+  description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
 Notify when PIN is used:
-  description: Send the native Schlage notification when this PIN is used. On by default.
+  description: Whether the native Schlage notification should be sent when this PIN is used. On by default.
   required: false
 Start time:
   description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
@@ -83,15 +83,15 @@ action: |
 
 {% options_yaml %}
 name:
-  description: A name for the PIN code. Must be unique to the lock, regardless of capitalization.
+  description: Name for PIN code. Must be case insensitively unique to the lock.
   required: true
   type: string
 code:
-  description: The PIN code to add. Must be unique to the lock and between 4 and 8 digits long.
+  description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
   required: true
   type: string
 notify_on_use:
-  description: Send the native Schlage notification when this PIN is used.
+  description: Whether the native Schlage notification should be sent when this PIN is used.
   required: false
   type: boolean
   default: true

@@ -31,13 +31,13 @@ To update a PIN code from an automation or a script:
 Access code ID:
   description: The unique ID of the access code to update. You can get IDs from the **Schlage: Get PIN codes** action.
 PIN name:
-  description: New name for the PIN code. Must be unique to the lock, regardless of capitalization.
+  description: New name for the PIN code.
   required: false
 PIN code:
-  description: New PIN code value. Must be unique to the lock and between 4 and 8 digits long.
+  description: New PIN code value (4-8 digits).
   required: false
 Notify when PIN is used:
-  description: Send the native Schlage notification when this PIN is used.
+  description: Whether the native Schlage notification should be sent when this PIN is used.
   required: false
 Disabled:
   description: Whether the PIN code should be disabled.
@@ -91,15 +91,15 @@ access_code_id:
   required: true
   type: string
 name:
-  description: New name for the PIN code. Must be unique to the lock, regardless of capitalization.
+  description: New name for the PIN code.
   required: false
   type: string
 code:
-  description: New PIN code value. Must be unique to the lock and between 4 and 8 digits long.
+  description: New PIN code value (4-8 digits).
   required: false
   type: string
 notify_on_use:
-  description: Send the native Schlage notification when this PIN is used.
+  description: Whether the native Schlage notification should be sent when this PIN is used.
   required: false
   type: boolean
 disabled:

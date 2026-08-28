@@ -30,10 +30,10 @@ To delete a PIN code from an automation or a script:
 
 {% options_ui %}
 PIN name:
-  description: The name of the PIN code to delete. The name is matched regardless of capitalization.
+  description: Name of PIN code to delete. Either name or access_code_id is required.
   required: false
 Access code ID:
-  description: The access code ID to delete. More stable than the name. Either name or access_code_id is required.
+  description: Access code ID to delete (more stable than name). Either name or access_code_id is required.
   required: false
 {% endoptions_ui %}
 
@@ -65,11 +65,11 @@ action: |
 
 {% options_yaml %}
 name:
-  description: The name of the PIN code to delete. The name is matched regardless of capitalization.
+  description: Name of PIN code to delete. Either name or access_code_id is required.
   required: false
   type: string
 access_code_id:
-  description: The access code ID to delete. More stable than the name. Either name or access_code_id is required.
+  description: Access code ID to delete (more stable than name). Either name or access_code_id is required.
   required: false
   type: string
 {% endoptions_yaml %}
