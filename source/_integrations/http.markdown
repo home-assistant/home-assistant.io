@@ -101,7 +101,7 @@ When a network mask is provided, you must use the network address (for example, 
 
 {% note %}
 
-The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel instead of a reverse proxy. These settings have no effect on cloud connections, and you do not need to configure them for remote access.
 
 {% endnote %}
 
@@ -125,12 +125,12 @@ If you want to apply additional IP filtering and automatically ban brute force a
 
 {% note %}
 
-If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home Assistant sees the real IP address of each remote visitor. A ban applies only to the address that triggered it and leaves other cloud connections unaffected.
 
 {% endnote %}
 
 ```yaml
-127.0.0.1:
+203.0.113.42:
   banned_at: "2016-11-16T19:20:03"
 ```
 
