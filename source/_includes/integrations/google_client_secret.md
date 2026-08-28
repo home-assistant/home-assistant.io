@@ -25,26 +25,17 @@ This section explains how to generate a client ID and client secret on
 2. Select **Create project**, enter a project name, and select **Create**.
 3. When the project opens, make sure it is selected in the console toolbar.
 4. Go to [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}, then select **Enable**.
-5. Navigate to **APIs & Services** (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials).
-6. In the left sidebar, select **OAuth consent screen**.
-7. It will take you to the Overview page and ask for **Project Configuration**:
-   - Complete the App Information:
-      - Set the **App name** (the name of the application asking for consent) to anything you want, for example, *Home Assistant*.
-      - For a **Support email**, choose your email address from the dropdown menu.
-      - Select **Next**.
-   - For Audience, select **External** then select **Next**.
-   - Under Contact Information, enter your email address (the same as above is fine). Select **Next**.
-   - Read the policy and check the box if you agree. Select **Continue**.
-   - Select **Create**.
-8. In the left sidebar, select **Audience**:
-   - Under **Publishing status > Testing**, select **Publish app**.
-     > Otherwise, your credentials will expire every 7 days.
-9. In the left sidebar, select **Clients**:
-   - Select **+ Create Client**.
-   - For Application type, choose **Web Application** and give this client ID a name (like "Home Assistant Client").
-   - Add `https://my.home-assistant.io/redirect/oauth` to **Authorized redirect URIs** then select **Create**.
-     > **Note**: This is not a placeholder. It is the URI that must be used.
-10. From the resulting dialog take a note of **Client ID** and **Client Secret** you **can not retrieve it again** after closing the dialog.
-   - Once you have noted these strings, select **Close**.
-   - Congratulations! You are now the keeper of a client secret. Guard it in your treasure box. In most cases, your new credentials will be active within a few minutes. However, Google states that activation may take up to five hours in some circumstances.
+5. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
+6. If Google Auth Platform is not configured, select **Get started**.
+7. Under **App Information**, enter an app name (for example, *Home Assistant*) and select your email address for **User support email**. Then select **Next**.
+8. Under **Audience**, select **External**, then select **Next**.
+9. Under **Contact Information**, enter your email address, then select **Next**.
+10. Review the Google API Services User Data Policy. If you agree, select the check box, then select **Continue** and **Create**.
+11. Select **Audience** in the left sidebar. Under **Publishing status**, select **Publish app**.
+    > Otherwise, your credentials will expire every 7 days.
+12. Select **Clients** in the left sidebar, then select **Create client**.
+13. For **Application type**, choose **Web application** and give the client a name (for example, *Home Assistant Client*).
+14. Under **Authorized redirect URIs**, add `https://my.home-assistant.io/redirect/oauth`, then select **Create**.
+    > **Note**: This is not a placeholder. It is the URI that must be used.
+15. Copy the **Client ID** and **Client Secret** from the resulting dialog, then select **Close**.
 {% enddetails %}
