@@ -19,7 +19,7 @@ ha_config_flow: true
 
 The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <abbr title="Network Video Recorder">NVR</abbr>](https://www.hikvision.com/) to Home Assistant, providing:
 
-- Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state
+- Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
 
 The platform will automatically add all sensors to Home Assistant that are
@@ -140,6 +140,17 @@ Supported event types are:
 - Recording Failure
 - Exiting Region
 - Entering Region
+
+### State attributes
+
+Each binary sensor reports these attributes:
+
+- `last_tripped_time`: when the event last changed to "on".
+- `detection_target`: what the device classified as the cause of the event, for example `human` or `vehicle`. Only smart events carry a classification, so this attribute is only present when the device sends one. Which events include it, and which values they use, depends on the device model and firmware.
+
+### Availability
+
+The binary sensors follow the connection to your device's event stream. While the stream is down, for example because the device is powered off or unreachable on your network, the sensors show as unavailable instead of keeping their last state. They return to reporting "off" or "on" once the connection is restored.
 
 ## Removing the integration
 
