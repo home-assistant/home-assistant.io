@@ -12,6 +12,8 @@ Use this action to flip a script between running and stopped. If the script isn'
 
 Like [Turn on script](/actions/script.turn_on/), this action does not wait for the script to finish.
 
+It fits best with scripts that keep going until something stops them, such as a script that loops through the colors of the rainbow. A script like that never ends on its own, so one toggle both starts the effect and ends it.
+
 {% include actions/ui_header.md %}
 
 To toggle a script from an automation or a script:
@@ -36,10 +38,10 @@ In YAML, refer to this action as `script.toggle`. A basic example looks like thi
 action: |
   action: script.toggle
   target:
-    entity_id: script.wake_up_lights
+    entity_id: script.rainbow_lights
 {% endexample %}
 
-This starts `script.wake_up_lights` if it isn't running, and stops it if it is.
+This starts `script.rainbow_lights` if it isn't running, and stops it if it is. Because the script keeps cycling through colors until something stops it, the same action turns the effect on and off.
 
 ### Options in YAML
 
@@ -49,7 +51,8 @@ This action has no additional YAML options beyond the target.
 
 ## Good to know
 
-- This action is a good fit for long-running scripts you want a single button to start and stop.
+- This action is a good fit for scripts that repeat until you stop them, where a single control starts and ends the effect.
+- A short script finishes on its own before you can toggle it off, so toggling it behaves the same as [Turn on script](/actions/script.turn_on/).
 - If you need a specific result, use [Turn on script](/actions/script.turn_on/) or [Turn off script](/actions/script.turn_off/) instead.
 - Unlike [Turn on script](/actions/script.turn_on/), this action cannot pass variables to the script.
 
@@ -57,32 +60,32 @@ This action has no additional YAML options beyond the target.
 
 {% include actions/more_examples.md %}
 
-### Automation: use one button to start and stop a script
+### Automation: use one button to start and stop the rainbow lights
 
-Let a single button start a long-running script and stop it again on the next press.
+Let a single button start the rainbow effect and end it on the next press. The script keeps cycling through colors on its own, so nothing else has to switch it off.
 
 - **Trigger**: Event received
-  - **Target**: Bedroom button
+  - **Target**: Living room button
   - **Event type**: Single press
 - **Action**: Toggle script
-  - **Target**: Wake up lights
+  - **Target**: Rainbow lights
 
 {% details "Show example YAML" %}
 
 {% example %}
 automation: |
-  - alias: "Toggle the wake-up script with the bedroom button"
+  - alias: "Toggle the rainbow lights with the living room button"
     triggers:
       - trigger: event.received
         target:
-          entity_id: event.bedroom_button
+          entity_id: event.living_room_button
         options:
           event_type:
             - single_press
     actions:
       - action: script.toggle
         target:
-          entity_id: script.wake_up_lights
+          entity_id: script.rainbow_lights
 {% endexample %}
 
 {% enddetails %}
