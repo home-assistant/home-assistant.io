@@ -34,7 +34,11 @@ Assistant. You can control what devices and entities it can access from the {% m
    the server over <abbr title="Server-sent events">*SSE*</abbr>.
 3. If your MCP server requires authentication, then you will need an OAuth Client ID and Secret.
 
-{% include integrations/config_flow.md %}
+{% include integrations/config_flow.md discovery=true %}
+
+An app that provides an MCP server is discovered automatically. Confirm the
+discovered entry to add the server. When you uninstall the app, Home Assistant
+removes its entry again.
 
 ## Configuration options
 
