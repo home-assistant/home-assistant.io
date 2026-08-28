@@ -44,7 +44,7 @@ This reloads all your scripts.
 
 - Reloading removes scripts you deleted from your configuration and adds the ones you added.
 - Running scripts are stopped when the scripts are reloaded.
-- To reload everything that supports it in one step, use [Reload all](/actions/homeassistant.reload_all/).
+- To reload everything in one step, use [Reload all Home Assistant configuration](/actions/homeassistant.reload_all/).
 
 {% include actions/try_it.md %}
 
