@@ -68,7 +68,7 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 {% details "Inverters with a display" %}
 
 1. Press and hold **OK**, the button on the right, to open the menu.
-2. Enter the password `12312312`, by pressing **Up**, **Down**, **OK**, **Up**, **Down**, **OK**, **Up**, **Down**.
+2. Enter the password `12312312` by pressing **Up**, **Down**, **OK**, **Up**, **Down**, **OK**, **Up**, **Down**.
 3. Go to **Communication** > **LAN**, and enable **Modbus TCP**.
 
 {% enddetails %}
@@ -107,7 +107,7 @@ Your inverter is added as a single device. Home Assistant reads its serial numbe
 - **DC power**: The power coming in from your solar panels.
 - **DC current**: The current coming in from your solar panels.
 - **Temperature**: The temperature of the inverter's heatsink. The inverter reports no temperature while it is asleep, so this is unknown at night.
-- **Status**: What the inverter is doing: **Off**, **Sleeping**, **Starting**, **Producing**, **Throttled**, **Shutting down**, **Fault**, or **Standby**.
+- **Status**: What the inverter is doing: **Off**, **Sleeping**, **Starting**, **Producing**, **Throttled**, **Shutting down**, **Fault**, or **Standby**. In automations and templates, a state goes by its own value rather than the name shown here, so **Shutting down** is `shutting_down`.
 
 The following sensors are added, but disabled. They are useful for troubleshooting or for a detailed look at your installation, and there are a lot of them, so they stay out of the way until you need them. To use one, enable it in the entity's settings.
 
