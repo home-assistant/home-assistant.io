@@ -54,6 +54,19 @@ config_entry_id:
   type: string
 {% endoptions_yaml %}
 
+### Response data
+
+The action returns an object with a single `tokens` member. Each token has a
+`uid` and a `description`:
+
+```yaml
+tokens:
+  - uid: "AA:BB:CC:DD"
+    description: "My Card"
+  - uid: "11:22:33:44"
+    description: "Work Badge"
+```
+
 {% include actions/more_examples.md %}
 
 ### Automation: send a notification with the current RFID token list
@@ -77,7 +90,7 @@ automation: |
         title: "Peblar RFID tokens"
         message: >
           Currently authorized tokens:
-          {{ rfid_tokens | map(attribute='description') | join(', ') }}
+          {{ rfid_tokens.tokens | map(attribute='description') | join(', ') }}
 {% endexample %}
 
 {% enddetails %}
