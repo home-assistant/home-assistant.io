@@ -20,7 +20,7 @@ To apply a set of states from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Scene: Apply scene**.
+5. From the search box, search for and select **Apply scene**.
 6. In **Entities state**, list the entities and the state you want each of them to have.
 7. _Optional_: set a **Transition** so the change happens gradually instead of instantly.
 8. Select **Save**.
@@ -73,7 +73,7 @@ transition:
 
 ## Good to know
 
-- To see which attributes an entity accepts, look it up in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+- To see which attributes an entity accepts, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 - Transitions are only supported by lights, and the lights themselves must support them too.
 - If you want a reusable scene that appears in the UI and can be activated from a dashboard, create a scene instead and use [Activate scene](/actions/scene.turn_on/).
 
@@ -88,7 +88,7 @@ Dim the back light, switch the ceiling light off, and select the right TV input 
 - **Trigger**: Media player turned on
   - **Target**: Sony Bravia TV
 - **Action**: Apply scene
-  - **Entities state**: TV back light, ceiling light, and TV
+  - **Entities state**: TV back light, ceiling light, and TV and corresponding states (see YAML below)
 
 {% details "Show example YAML" %}
 
@@ -107,6 +107,9 @@ automation: |
               state: "on"
               brightness: 100
             light.ceiling: "off"
+            media_player.sony_bravia_tv:
+              state: "on"
+              source: "HDMI 1"
 {% endexample %}
 
 {% enddetails %}
