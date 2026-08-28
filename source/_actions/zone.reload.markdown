@@ -43,9 +43,9 @@ This action has no options.
 
 ## Good to know
 
-- Zones you removed from your configuration disappear, and the ones you added show up.
-- The home zone comes from your general settings, not from your YAML configuration, so it is not affected.
-- To reload everything that supports it in one step, use [Reload all](/actions/homeassistant.reload_all/).
+- Zones you removed from your YAML configuration disappear, and the ones you added show up.
+- The default home zone comes from your general settings. If you override it in YAML, this action reloads that configuration.
+- To reload everything that supports it in one step, use the [Reload all Home Assistant configuration](/actions/homeassistant.reload_all/) action.
 
 {% include actions/try_it.md %}
 
