@@ -2,6 +2,7 @@
 title: Bauknecht
 description: Connect and control your Bauknecht devices using the Whirlpool Appliances integration
 ha_category:
+  - Button
   - Climate
   - Hub
   - Select
@@ -16,6 +17,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - select

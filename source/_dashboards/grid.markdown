@@ -74,7 +74,7 @@ columns: 2
 square: false
 cards:
   - type: picture-entity
-    entity: group.all_lights
+    entity: light.home_lights
     image: /local/house.png
   - type: horizontal-stack
     cards:

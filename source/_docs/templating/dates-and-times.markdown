@@ -113,6 +113,10 @@ Here are the ones you will use most often:
 
 The Python documentation has the [full list of format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) if you need something unusual.
 
+{% note %}
+Weekday and month names from `strftime`, like the ones produced by `%A` and `%B`, are always in English, regardless of the language set in your Home Assistant profile. There is currently no built-in way to render them in another language.
+{% endnote %}
+
 ## Parsing text into a datetime with strptime
 
 [`strptime`](/template-functions/strptime/) is the reverse of `strftime`. It takes a piece of text and a format string, and gives you back a datetime.
@@ -219,7 +223,7 @@ output: "Christmas: 8 months"
 
 ## Time zones
 
-Home Assistant stores state timestamps (`last_changed`, `last_updated`) in your configured time zone. `now()` also returns your local time zone. `utcnow()` returns UTC.
+Home Assistant stores state timestamps (`last_changed`, `last_updated`) in UTC. `now()` returns the current time in your configured time zone, while `utcnow()` returns it in UTC.
 
 If you need to compare datetimes, both sides need to be in the same time zone. [`as_datetime`](/template-functions/as_datetime/) and [`strptime`](/template-functions/strptime/) return datetimes without a time zone by default. Apply the matching conversion before comparing, or stick to [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) which handle this for you.
 

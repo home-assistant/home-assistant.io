@@ -14,8 +14,6 @@ continue only if a device or service does not have an update waiting.
 This condition is useful for clean-up automations, status checks, and routines
 that should run only after everything you target is already up to date.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

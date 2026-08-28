@@ -12,7 +12,7 @@ related_conditions:
 
 The **Battery level** condition passes when a battery reading meets a threshold you define. You can check that a battery is above, below, or within a specific percentage range. Use it to run an automation only when a device still has enough charge, or only when its battery is getting low enough to need attention.
 
-{% include integrations/labs_entity_triggers_note.md %}
+For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include conditions/ui_header.md %}
 
@@ -152,7 +152,7 @@ behavior:
 
 ## Good to know
 
-- The condition works with sensors that have the battery device class.
+- The target sensor must have the battery device class.
 - Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - Battery level is expressed as a percentage from 0 to 100.
 - This condition checks the entity's current battery reading. To react to changes in the reading, use the [Battery level changed](/triggers/battery.level_changed/) or [Battery level crossed threshold](/triggers/battery.level_crossed/) trigger instead.

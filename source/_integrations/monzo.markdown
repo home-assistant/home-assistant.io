@@ -1,7 +1,8 @@
 ---
 title: Monzo
-description: Instructions on how to integrate Monzo integration into Home Assistant.
+description: Connect Monzo bank accounts to Home Assistant to monitor account and pot balances.
 ha_category:
+  - Event
   - Finance
   - Sensor
 ha_release: 2024.6
@@ -11,47 +12,62 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: monzo
 ha_platforms:
+  - event
   - sensor
 ha_integration_type: service
 ---
 
-The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant.
-
+[Monzo](https://monzo.com/) is a digital bank. The **Monzo** {% term integration %} connects your Monzo accounts to Home Assistant, where you can monitor account and pot balances.
 
 ## Prerequisites and approval
 
-1. Before adding the Monzo integration, you'll need to create a [Monzo developer account](https://developers.monzo.com/). 
-2. From here, you need to create a new OAuth client for Home Assistant to use by going to **Clients** > **New OAuth Client**. 
-3. Then, fill in the form as follows, making sure to **copy the URL shown** - don't replace it with your own URL:
-   - Name: Home Assistant
-   - Logo URL: This can be left blank
-   - Redirect URLs: <https://my.home-assistant.io/redirect/oauth>
-   - Description: For example: Used by the Monzo Home Assistant Integration
-   - Confidentiality: Confidential
+1. Sign in to the [Monzo developer portal](https://developers.monzo.com/) with your Monzo account.
+2. Go to **Clients** > **New OAuth Client** to create an OAuth client for Home Assistant.
+3. Enter the following values. Use the redirect URL exactly as shown; do not replace it with the URL of your Home Assistant instance:
+   - **Name**: `Home Assistant`
+   - **Logo URL**: Leave this field blank
+   - **Redirect URLs**: `https://my.home-assistant.io/redirect/oauth`
+   - **Description**: For example, `Used by the Monzo Home Assistant integration`
+   - **Confidentiality**: **Confidential**
 
 4. Once submitted, you can proceed with adding the integration.
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, and add the **Monzo** integration.
-   - Fill in the OAuth details for the client you've created in the Monzo developer portal.
-   - **Important** - After authorizing Home Assistant access via email, for security you'll also need to verify again from within the Monzo app. 
-     - A reminder to do this will be displayed in Home Assistant before completing the installation - don't proceed until you've done this from the popup in the mobile app.
-     - If you've forgotten to do this, the integration will fail to load, but you can simply accept the popup and reload the integration without entering your details again.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and add the **Monzo** integration.
+   - Enter the client ID and client secret for the OAuth client you created in the Monzo developer portal.
+   - After you authorize Home Assistant access, approve the request in the Monzo app. Home Assistant waits for this second approval and completes setup automatically. If you see **Approval timed out** or **Connection error**, follow the on-screen instructions to try again.
 
 {% include integrations/config_flow.md %}
 
 ### Adding a second account
 
-1. To add a second Monzo account in Home Assistant, repeat the above process for creating an OAuth client.
-2. Then, in Home Assistant, add the new credentials *before* trying to add the new entry.
-   - In the top right of **Devices & services** page, select the three dots {% icon "mdi:dots-vertical" %} menu, open **Application Credentials**, and select **Add application credentials**
-   - It is recommended to include the person's name in the *Name* field so you can distinguish it later.
-3. Once added, you can return to **Devices & services** > **Monzo** > **Add Entry** to proceed with authentication.
+1. Create another OAuth client by repeating the steps above.
+2. In Home Assistant, add the new credentials before adding the new integration entry.
+   - On the **Devices & services** page, select the three dots {% icon "mdi:dots-vertical" %} menu in the top-right corner, select **Application credentials**, and then select **Add application credentials**.
+   - In the **Name** field, include the Monzo user's name so you can identify the correct OAuth client during setup.
+3. Return to **Devices & services** > **Monzo**, select **Add entry**, and authenticate the second account.
 
-## Sensor
+## Sensors
 
-The integration will create a device for each of your accounts and pots. For an account or a pot, you'll have:
+The integration creates a device for each account and pot. Each device has the following sensor:
 
-- Balance: The current balance of the account.
+- **Balance**: The current balance of the account or pot.
 
-Additionally, an account will also have:
+Each account device also has the following sensor:
 
-- Total Balance: The current balance of that account plus all of its pots.
+- **Total balance**: The current balance of that account plus all of its pots.
+- **Spent today**: The amount spent from the account since around 4:00 AM (Monzo's day boundary), shown as a positive value. Money received does not reduce this amount.
+
+## Event
+
+The integration creates a **Transaction** {% term event %} {% term entity %} for each Monzo account. When Monzo reports a new transaction, the entity fires a `transaction_created` event and the integration refreshes the account and pot balances.
+
+The complete transaction data provided by Monzo is available in the event entity's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
+
+Transaction events require either [Home Assistant Cloud](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
+
+{% include integrations/actions.md %}
+
+## Removing the integration
+
+This integration follows the standard integration removal process. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

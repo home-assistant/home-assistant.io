@@ -39,7 +39,7 @@ auth_token:
 
 ### Usage
 
-After configuring the base Twilio integration, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to utilize the notification functionality.
+After configuring the base Twilio integration, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to use the notification functionality.
 
 To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#external_url) in Home Assistant.
 

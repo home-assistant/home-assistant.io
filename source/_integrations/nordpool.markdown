@@ -12,6 +12,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_domain: nordpool
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_integration_type: service
@@ -57,7 +58,7 @@ All prices are displayed as `[Currency]/kWh`.
 Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
 
 If polling cannot happen because of no connectivity or a malfunctioning API, it will wait a retry a few times before failing.
-The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
+The user can use the [`homeassistant.update_entity`](/integrations/homeassistant/#action-update-entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 
@@ -96,7 +97,7 @@ Additional sensors are provided for peak and off-peak blocks.
 
 | Sensor                          | Type              | Description                                                                       |
 | ------------------------------- | ----------------- | --------------------------------------------------------------------------------- |
-| [peak/off-peak] highest price   | [Currency]/kWh    | The hightest hourly price during the given timeframe.                             |
+| [peak/off-peak] highest price   | [Currency]/kWh    | The highest hourly price during the given timeframe.                             |
 | [peak/off-peak] lowest  price   | [Currency]/kWh    | The lowest hourly price during the given timeframe.                               |
 | [peak/off-peak] average         | [Currency]/kWh    | The average price of the given timeframe.                                         |
 | [peak/off-peak] time from       | Datetime          | The start date/time of the given timeframe.                                       |
@@ -113,99 +114,7 @@ The block price sensors are not enabled by default.
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
 | Tomorrow price available  | Binary            | True or False if tomorrow's price is available                                    |
 
-## Actions
-
-### Get price for date
-
-The integration entities provide price information only for the current date. Use the "Get price for date" action to retrieve pricing information for any date within the last two months or for tomorrow.
-
-The areas and currency parameters are optional. If omitted, the values configured in the integration will be used.
-
-See [examples](#examples) how to use in a trigger template sensor.
-
-{% configuration_basic %}
-Nord Pool configuration entry:
-  description: Select the Nord Pool configuration entry to target.
-Date:
-  description: Pick the date to fetch prices for (see note about possible dates below).
-Areas:
-  description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
-Currency:
-  description: Currency to display prices in. EUR is the base currency in Nord Pool prices.  If omitted it will use the currency from the configuration entry.
-{% endconfiguration_basic %}
-
-{% note %}
-
-The public API only allows us to see past pricing information for up to 2 months.
-
-Although Nord Pool operates in the CET/CEST timezone, all data is returned in UTC. Depending on how the data is consumed or manipulated, you may need to consider this.
-
-Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will generate an error that needs to be considered in such a case.
-
-{% endnote %}
-
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
-{% endtip %}
-
-#### Example action with data
-
-```yaml
-action: nordpool.get_prices_for_date
-data:
-  config_entry: 1234567890a
-  date: "2024-11-10"
-  areas:
-    - SE3
-    - SE4
-  currency: SEK
-```
-
-### Get price indices for date
-
-The integration can also provide price indices for any date with published prices. Use the "Get price indices for date" action to retrieve pricing information with a custom resolution time.
-
-The areas, currency, and resolution parameters are optional. If omitted, the values configured in the integration will be used and for resolution it will default to 60 minutes.
-
-{% configuration_basic %}
-Nord Pool configuration entry:
-  description: Select the Nord Pool configuration entry to target.
-Date:
-  description: Pick the date to fetch prices for (see note about possible dates below).
-Areas:
-  description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
-Currency:
-  description: Currency to display prices in. EUR is the base currency in Nord Pool prices. If omitted, it will use the currency from the configuration entry.
-Resolution:
-  description: Resolution time for price indices.
-{% endconfiguration_basic %}
-
-{% note %}
-
-The public API only allows us to see past pricing information for up to 2 months.
-
-Although Nord Pool operates in the CET/CEST timezone, all data is returned in UTC. Depending on how the data is consumed or manipulated, you may need to consider this.
-
-Tomorrow's prices are typically released around 13:00 CET/CEST, and trying to get them before that time will generate an error that needs to be considered in such a case.
-
-{% endnote %}
-
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
-{% endtip %}
-
-#### Example action with data
-
-```yaml
-action: nordpool.get_prices_for_date
-data:
-  config_entry: 1234567890a
-  date: "2024-11-10"
-  areas:
-    - SE3
-    - SE4
-  currency: SEK
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -256,7 +165,7 @@ Below example will convert the action call response to kWh prices in the selecte
 {% endnote %}
 
 {% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+You can get your `config_entry` by using actions within [Tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
 {% endtip %}
 
 ```yaml

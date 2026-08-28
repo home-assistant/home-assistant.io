@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are paused."
 The **Lawn mower is paused** condition passes when one or more targeted mowers are paused.
 Use it when an automation should continue only while the mower is stopped in the yard, like sending reminders, waiting before a restart, or holding back another task until you decide what to do next.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

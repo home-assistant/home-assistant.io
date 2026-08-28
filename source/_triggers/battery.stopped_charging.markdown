@@ -2,7 +2,7 @@
 title: "Battery stopped charging"
 trigger: battery.stopped_charging
 domain: battery
-description: "Triggers after one or more battery-powered devices stop charging."
+description: "Triggers when one or more battery-powered devices stop charging."
 related_triggers:
   - battery.started_charging
   - battery.level_changed
@@ -10,8 +10,6 @@ related_triggers:
 ---
 
 The **Battery stopped charging** trigger fires when a battery-powered device transitions from actively charging to not charging. A device stops charging when it is unplugged, removed from its dock, or when it reaches full charge and the charger cuts off. Use this trigger to detect when a device is unplugged unexpectedly, confirm when a charge cycle completes, or start automations that should run once a device is ready to use.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -48,10 +46,10 @@ In YAML, **Battery stopped charging** is referred to as `battery.stopped_chargin
 trigger: |
   trigger: battery.stopped_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This fires every time `sensor.phone_battery` stops charging.
+This fires every time `binary_sensor.phone_battery_charging` stops charging.
 
 ### Options in YAML
 
@@ -82,10 +80,10 @@ for:
 
 ## Good to know
 
+- Use a binary sensor with the battery charging device class.
 - **Battery stopped charging** fires both when a device is unplugged and when it finishes charging naturally. If you only want to react when the battery is full, combine this trigger with a condition that checks the battery level.
 - To react when a device starts charging, use [Battery started charging](/triggers/battery.started_charging/).
 - To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
-- The trigger works with sensors that report a charging state, such as devices that expose a battery charging attribute.
 
 {% include triggers/try_it.md %}
 
@@ -109,7 +107,7 @@ automation: |
   triggers:
     - trigger: battery.stopped_charging
       target:
-        entity_id: sensor.tablet_battery
+        entity_id: binary_sensor.tablet_battery_charging
   conditions:
     - condition: numeric_state
       entity_id: sensor.tablet_battery

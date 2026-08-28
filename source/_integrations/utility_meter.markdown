@@ -22,7 +22,7 @@ The **Utility Meter** {% term integration %} provides functionality to track con
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
-Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts for your consumption accordingly. When tariffs are defined a new {% term entity %} will show up, indicating the current tariff. In order to change the tariff, the user must perform an action, usually through an automation that can be based on time or other external sources (for example, a REST sensor).
+Some utility providers have different tariffs according to time or resource availability. The utility meter enables you to define the various tariffs supported by your utility provider and accounts for your consumption accordingly. When tariffs are defined a new {% term entity %} will show up, indicating the current tariff. To change the tariff, the user must perform an action, usually through an automation that can be based on time or other external sources (for example, a REST sensor).
 
 {% note %}
 Sensors created with this {% term integration %} are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the {% term integration %} was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
@@ -151,26 +151,9 @@ offset:
   minutes: 0
 ```
 
-## Actions
+Some actions are only available if you have configured tariffs for the meter.
 
-Some of the actions are only available if tariffs are configured.
-
-### Action: Reset
-
-The `utility_meter.reset` action resets the Utility Meter. All sensors tracking tariffs will be reset to 0.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-
-### Action: Calibrate
-
-The `utility_meter.calibrate` action calibrates the Utility Meter by changing the value of a given sensor.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-| `value` | no | Number | Value to calibrate the sensor with | 
+{% include integrations/actions.md %}
 
 ## Advanced configuration
 
@@ -248,7 +231,7 @@ utility_meter:
 
 ## Advanced configuration for DSMR users
 
-When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` {% term integration %}.
+When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to set up a few more instances of the `utility_meter` {% term integration %}.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
@@ -313,3 +296,7 @@ template:
           None
         {% endif %}
 ```
+
+{% caution %}
+Don't add a sensor like `Daily Energy Total` above to the Energy dashboard. Because the two underlying utility meter sensors may not reset at the exact same moment, summing them can briefly record a false value in your long-term statistics that requires manual correction. Add each utility meter sensor to the dashboard separately instead. See the [Energy dashboard FAQ](/docs/energy/faq/#why-is-my-energy-dashboard-showing-inflated-totals) for details.
+{% endcaution %}

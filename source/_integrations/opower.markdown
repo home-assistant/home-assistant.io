@@ -31,6 +31,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Southwestern Electric Power Company (SWEPCO)
 - Burbank Water and Power (BWP)
 - City of Austin Utilities
+- Clark Public Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
@@ -51,8 +52,8 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - National Grid NY Upstate
 - Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
-- Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
+- Rhode Island Energy (RIEnergy)
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
 - Southern Maryland Electric Cooperative (SMECO)
@@ -112,7 +113,7 @@ Depending on your utility, some or all of the usage and cost sensors may not be 
 
 The primary way this integration provides historical energy data to Home Assistant is through **statistics**. These statistics are not exposed as standard sensor entities.
 
-Use these statistics when configuring the Energy dashboard by selecting a **statistic**. You can also view the available statistics in **Developer Tools > Statistics**.
+Use these statistics when configuring the Energy dashboard by selecting a **statistic**. You can also view the available statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%}.
 {% endnote %}
 
 The integration adds the following diagnostic sensors for each account:
@@ -145,7 +146,7 @@ Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic fee
 ## Energy
 
 Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects.
-You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "opower".
 **This delay means that there will be no data in the energy dashboard for today and likely yesterday** (depending on time of day you are checking).
 
 At the initial setup, the integration pulls historical monthly usage/cost since the account activation. If the utility provides more granular data, it pulls daily usage/cost for the past 3 years and hourly usage/cost for the past 2 months (note: typically, utilities provide only monthly or daily data for gas).
@@ -207,4 +208,4 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 {% include integrations/remove_device_service.md %}
 
 If you remove the integration, the statistics are not automatically deleted.
-You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".
+You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "opower".

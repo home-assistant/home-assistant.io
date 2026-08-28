@@ -139,7 +139,7 @@ See [Generate codes](#generate-codes) how to generate event codes.
 
 #### Somfy RTS
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `03` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. For example, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, for example, id: `1` `02` `03` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
 To add the device, enter the value unaltered in the Event Code field, and click Submit.
 
@@ -175,10 +175,10 @@ Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and m
 
 ### Configure device options
 
-To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
+To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit*, a window with device options is presented based on the device type.
 
 {% important %}
-If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
+If a device is missing from the list, close the options window and either make sure the device sends a command or manually re-add the device by event code.
 {% endimportant %}
 
 #### Off delay
@@ -202,7 +202,7 @@ Venetian blind motors that control slats tilt can be configured in one of two mo
 
 #### Options for PT-2262 devices under the Lighting4 protocol
 
-When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the field lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
+When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the field lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available to circumvent the problem:
 
 - **data_bits**
 - **command_on**
@@ -252,7 +252,7 @@ This automatic guess should work most of the time, but there is no guarantee on 
 
 #### Replace device
 
-Some battery-powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. In order to use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user-configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automatically deleted.
+Some battery-powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. To use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user-configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automatically deleted.
 
 ### Delete device
 
@@ -335,40 +335,13 @@ automation:
           entity_id: scene.welcomescene
 ```
 
-## Actions
-
-- `rfxtrx.send`: Send a custom event using the RFXtrx device.
-
-### Action: Send
-
-The `rfxtrx.send` action sends a custom event using the RFXtrx device.
-
-Simulate a button being pressed:
-
-```yaml
-...
-actions:
-  - action: rfxtrx.send
-    data:
-      event: 0b1111e003af16aa10000060
-```
-
-Alternatively:
-
-- Go to: {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
-
-```yaml
-action: rfxtrx.send
-data:
-  event: "0b1111e003af16aa10000060"
-```
+{% include integrations/actions.md %}
 
 ## Generate codes
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}
+- Go to: {% my developer_template title="**Settings** > **Tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC
@@ -391,5 +364,5 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.
-- Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
+- Enable learning mode on your switch (that is, push the learn button or plug it into a wall socket)
 - Toggle your new switch in the Home Assistant interface

@@ -115,85 +115,7 @@ During setup, you can choose between two methods:
 
 The integration provides an update entity that shows whether a firmware update is available for your LaMetric device.
 
-## Actions
-
-The LaMetric integration provides actions to interact with your LaMetric device(s). These actions can be used, for example, in automations.
-
-### Action: Chart
-
-The {% my developer_call_service service="lametric.chart" title="`lametric.chart`" %} action displays a chart on your LaMetric device.
-
-{% my developer_call_service badge service="lametric.chart" %}
-
-{% configuration "lametric.chart" %}
-device_id:
-  description: The ID of the device to send the message to.
-  required: true
-  type: string
-data:
-  description: The data points in the chart, as a list of numbers. For example, `[1, 2, 3, 2, 1]`.
-  required: true
-  type: list
-cycles:
-  description: "Defines how long the notification is displayed. Set to `0` to require manual dismissal."
-  required: false
-  type: integer
-  default: 1
-priority:
-  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
-  required: false
-  type: string
-  default: info
-icon_type:
-  description: "Defines the nature of the notification. Allowed values are `none`, `info`, and `alert`."
-  required: false
-  type: string
-  default: none
-sound:
-  description: "The sound to play with the notification. For the list of supported sounds, see [Notification sounds](#notification-sounds)."
-  required: false
-  type: string
-{% endconfiguration %}
-
-### Action: Message
-
-The {% my developer_call_service service="lametric.message" title="`lametric.message`" %} action sends a message to your LaMetric device. These messages can be enriched with icons and sounds.
-
-{% my developer_call_service badge service="lametric.message" %}
-
-{% configuration "lametric.message" %}
-device_id:
-  description: The ID of the device to send the message to.
-  required: true
-  type: string
-message:
-  description: The message to send to the LaMetric device.
-  required: true
-  type: string
-icon:
-  description: "The ID of an icon or animation. The list of all available icons is at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
-  required: false
-  type: string
-cycles:
-  description: "Defines how long the notification is displayed. Set to `0` to require manual dismissal."
-  required: false
-  type: integer
-  default: 1
-priority:
-  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
-  required: false
-  type: string
-  default: info
-icon_type:
-  description: "Defines the nature of the notification. Allowed values are `none`, `info`, and `alert`."
-  required: false
-  type: string
-  default: none
-sound:
-  description: "The sound to play with the notification. For the list of supported sounds, see [Notification sounds](#notification-sounds)."
-  required: false
-  type: string
-{% endconfiguration %}
+{% include integrations/actions.md %}
 
 ## Notifications
 
@@ -205,11 +127,11 @@ The notification action against a LaMetric device accepts the following addition
 
 {% configuration "notification" %}
 icon:
-  description: "The ID of an icon or animation. The list of all available icons is at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. The full list of icons and their IDs is in the [LaMetric icon gallery](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
-  description: "Defines how long the notification is displayed. Set to `0` to require manual dismissal."
+  description: "How many times the notification is displayed. Set to `0` to keep it on screen until it is dismissed."
   required: false
   type: integer
   default: 1
@@ -217,7 +139,7 @@ priority:
   description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
   required: false
   type: string
-  default: warning
+  default: info
 icon_type:
   description: "Defines the nature of the notification. Allowed values are `none`, `info`, and `alert`."
   required: false
@@ -257,23 +179,6 @@ actions:
         cycles: 0
         priority: "critical"
         icon_type: "info"
-```
-
-### Display a chart of recent temperature values
-
-Send a chart with the last hour of temperature readings from a sensor:
-
-```yaml
-alias: "Show temperature chart on LaMetric"
-triggers:
-  - trigger: time_pattern
-    minutes: "/10"
-actions:
-  - action: lametric.chart
-    data:
-      device_id: YOUR_DEVICE_ID
-      data: [18, 19, 20, 21, 20, 19]
-      priority: info
 ```
 
 ### Doorbell notification with sound
@@ -370,7 +275,7 @@ If you see a "Cannot connect" error when adding the device manually, verify that
 2. The hostname or IP address you entered is correct.
 3. The API key matches the one shown in the LaMetric developer portal.
 
-## Manual automatic import configuration
+## Use your own LaMetric application credentials
 
 If you prefer not to use the Home Assistant account linking service, you can set up the LaMetric application manually.
 

@@ -53,7 +53,7 @@ The Home Assistant Model Context Protocol Server integration implements the
 [Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
 allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can 
+and directly run an MCP server as a local command line tool. You can
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
 to act as a gateway to the Home Assistant MCP SSE server.
 
@@ -66,6 +66,23 @@ will likely continue to evolve.
 
 The Home Assistant MCP server is exposed as `/api/mcp` and requires the
 client to provide an authentication token.
+
+### Exposing a specific LLM API
+
+The `/api/mcp` endpoint serves the LLM API you select when you set up the
+integration. If you have more than one LLM API available, you can also connect a
+client to a specific one by adding its ID to the URL:
+
+`/api/mcp/<api_id>`
+
+For example, the built-in Assist API is always available at `/api/mcp/assist`.
+Point your MCP client at this URL in the same way you would use the base
+`/api/mcp` endpoint. If you request an API ID that does not exist, Home Assistant
+responds with a 404 Not Found error.
+
+Connecting to any API other than Assist requires the authenticated user to be an
+administrator. The Assist API stays available to non-administrator users, just
+like the base `/api/mcp` endpoint.
 
 ### Access control
 
@@ -87,13 +104,11 @@ an OAuth Client ID. Instead, the Client ID is the base URL of the client applica
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
-1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
-
-2. Create a **Long-lived access token**
-
+1. Go to {% my profile_security title="**User profile** > **Security** tab " %}.
+2. Under **Long-lived access tokens**, select **Create token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
-For more information about Authentication in Home Assistant, refer to the [Authentication documentation](https://www.home-assistant.io/docs/authentication/#your-account-profile).
+For more information about authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/).
 
 ### Example: Claude for Desktop
 
@@ -104,15 +119,15 @@ Claude for Desktop can connect to Home Assistant using either a cloud-based remo
 When using a remote custom connector in Claude for Desktop, the connection is brokered through Anthropic's cloud infrastructure. This means your Home Assistant instance must be publicly accessible from the internet.
 
 1. Download [Claude for Desktop](https://claude.ai/download) and log in.
-2. Select your profile name, select **Settings**, and go to **Connectors**.
-3. Select **Add Custom Connector**.
+2. Select **Customize** from the side menu, and then **Connectors**.
+3. Select **+** in the **Connectors** pane, and then select **Add Custom Connector**.
 4. Enter the following details:
    - **Name**: "Home Assistant" (or any more descriptive name you prefer)
    - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp`
    - Under advanced settings:
      - **OAuth Client ID**: `https://claude.ai`
      - **OAuth Client Secret**: Leave this blank
-5. Select **OK**. Now select **Connect** next to the entry created with the name you provided above.
+5. Select **Add**. Then select **Connect** next to the entry created with the name you provided above.
 6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
 7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
@@ -189,6 +204,39 @@ Claude Code supports remote MCP servers, making it easy to connect to your Home 
 3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
 4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
 5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+
+### Example: Codex
+
+Codex can connect to Home Assistant as a remote MCP server by using OAuth:
+
+1. Install [Codex](https://developers.openai.com/codex/cli/) and sign in.
+2. Open `.codex/config.toml` in your project. To make the server available in every project, open `~/.codex/config.toml` instead.
+3. Add the following root-level setting before the first TOML table header in the file:
+
+   ```toml
+   mcp_oauth_callback_port = 12345
+   ```
+
+4. Add the Home Assistant MCP server configuration. You can add this table at the end of the file:
+
+   ```toml
+   [mcp_servers.homeassistant]
+   url = "<your_home_assistant_url>/api/mcp"
+   auth = "oauth"
+   oauth = { client_id = "http://127.0.0.1:12345" }
+   ```
+
+   Replace `<your_home_assistant_url>` with the complete URL of your Home Assistant server, including `http://` or `https://` and the port, if required. For example, use `http://homeassistant.local:8123` for a typical local connection. The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by Codex; do not replace it with your Home Assistant URL.
+
+5. If you used project-local configuration, start Codex from the project and confirm the trust prompt. After the project opens, exit Codex and return to a shell in the same project. If you do not want to trust the project, use global configuration instead.
+6. Run the following command:
+
+   ```bash
+   codex mcp login homeassistant
+   ```
+
+7. Complete the authentication in your web browser and authorize Codex to access Home Assistant.
+8. Restart Codex or start a new task to load the Home Assistant MCP server.
 
 ### Example: Cursor
 

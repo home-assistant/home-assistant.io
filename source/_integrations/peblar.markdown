@@ -118,9 +118,39 @@ The minimum value for this entity is 6A, and the maximum value is depending on y
 
 ### Selects
 
-This integration provides a single select entity: **Smart charging**.
+This integration provides the following select entities.
 
-It reflects the same smart charging state as is shown on the charger's local web interface, and allows you to control the charging behavior of the charger.
+#### Buzzer volume
+
+The **Buzzer volume** select entity controls the volume level of the charger's built-in buzzer. The following options are available:
+
+- **Off** ({% term state %}: `off`): The buzzer is disabled.
+- **Low** ({% term state %}: `low`): The buzzer plays at a low volume.
+- **Low medium** ({% term state %}: `low_medium`): The buzzer plays at a volume between low and medium. This level is not offered by the charger's own web interface.
+- **Medium** ({% term state %}: `medium`): The buzzer plays at a medium volume.
+- **High** ({% term state %}: `high`): The buzzer plays at a high volume.
+
+{% note %}
+The **Buzzer volume** select entity is only available on Peblar chargers that are equipped with a buzzer.
+{% endnote %}
+
+#### LED brightness
+
+The **LED brightness** select entity controls the brightness of the status LED on the charger. The following options are available:
+
+- **Automatic** ({% term state %}: `automatic`): The charger automatically adjusts the LED brightness based on ambient light conditions.
+- **Bright** ({% term state %}: `bright`): The LED is set to its maximum brightness.
+- **Medium** ({% term state %}: `medium`): The LED is set to a medium brightness.
+- **Dim** ({% term state %}: `dim`): The LED is set to a low brightness.
+- **Off** ({% term state %}: `off`): The LED is turned off.
+
+{% note %}
+The **LED brightness** select entity is only available on Peblar chargers that support LED brightness control.
+{% endnote %}
+
+#### Smart charging
+
+The **Smart charging** select entity reflects the same smart charging state as is shown on the charger's local web interface, and allows you to control the charging behavior of the charger.
 
 The following options are available:
 
