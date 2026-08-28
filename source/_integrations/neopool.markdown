@@ -102,7 +102,7 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay, number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
+The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
@@ -129,8 +129,8 @@ Only entities backed by a detected hardware module or an enabled controller opti
 ### Numbers
 
 - **pH minimum** and **pH maximum**: the low and high pH regulation setpoints. Added when the pH module is present and the controller reports a valid dosing relay for that setpoint (a base relay for pH minimum, an acid relay for pH maximum).
-- **Redox / ORP setpoint**: the target oxidation-reduction potential in mV. Added when the Redox module is present.
-- **Free chlorine setpoint**: the target free-chlorine concentration. Added when the chlorine module is present.
+- **Redox/ORP setpoint**: the target oxidation-reduction potential in mV. Added when the Redox module is present.
+- **Free chlorine setpoint**: the target free chlorine concentration. Added when the chlorine module is present.
 - **Hydrolysis target production level**: the target production level for the electrolytic cell. Added when the hydrolysis module is present. The maximum, unit, and step follow the controller: a percentage when it reports production in percent, or g/h when it reports a nominal production rate.
 - **Heating setpoint**: the target water temperature for the heating relay. Added when the controller has a heating relay and a temperature sensor.
 - **Smart minimum temperature** and **smart maximum temperature**: the low and high water temperatures that bound Smart filtration mode. Added when a temperature sensor is present.
@@ -141,7 +141,7 @@ Only entities backed by a detected hardware module or an enabled controller opti
 
 - **Water temperature**: current pool water temperature (when the temperature sensor is present).
 - **pH**: measured pH level (when the pH module is present).
-- **Redox / ORP**: measured oxidation-reduction potential in mV (when the Redox module is present).
+- **Redox/ORP**: measured oxidation-reduction potential in mV (when the Redox module is present).
 - **Free chlorine**: measured chlorine concentration (when the chlorine module is present).
 - **Conductivity**: measured water conductivity (when the conductivity module is present).
 - **pH pump status**: current state of the pH dosing pump (off, idle, acid pump, base pump, both pumps) (when the pH module is present).
