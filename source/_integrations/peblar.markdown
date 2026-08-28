@@ -259,10 +259,7 @@ Although this integration uses local polling, any configuration changes you make
 Peblar charger from Home Assistant will appear on the charger almost
 instantly.
 
-## Actions
-
-This integration does not provide additional actions. All actions available
-for this integration are provided by their respective entities.
+{% include integrations/actions.md %}
 
 ## Examples
 
