@@ -96,10 +96,7 @@ The exchange rate is a 15 minute average price rather than a live price, so it l
 
 ## Troubleshooting
 
-If no tip here resolves your issue, feel free to
-[open a bug](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=Bitcoin&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Fbitcoin)
-and make sure to include the
-[debug logs](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+If no tip here resolves your issue, feel free to [open a bug](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=Bitcoin&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Fbitcoin) and make sure to include the [debug logs](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ### Can't set up the integration
 
@@ -116,7 +113,7 @@ Home Assistant asks blockchain.com which currencies it quotes before it shows yo
 To resolve this issue, try the following steps:
 
 1. Make sure your Home Assistant instance can reach the internet.
-2. Open the [blockchain.com ticker](https://blockchain.info/ticker) in a browser to check that the service is up.
+2. Open the [currency ticker](https://blockchain.info/ticker) the integration uses in a browser to check that the service is up.
 3. Add the integration again.
 
 ### A repair issue asks you to remove the YAML configuration
@@ -136,7 +133,7 @@ To resolve this issue, try the following steps:
 1. Remove the `bitcoin` sensor platform from your {% term "`configuration.yaml`" %} file.
 2. Restart Home Assistant.
 3. If a second issue says the import did not succeed, it also says why:
-   - blockchain.com could not be reached. Restart Home Assistant later to try again.
+   - Home Assistant could not reach blockchain.com. Restart Home Assistant later to try again.
    - The currency in your YAML file is not one that blockchain.com quotes. Correct it and restart, or remove the YAML and add the integration from the UI.
 
 Your sensors are recreated with new entity IDs, such as `sensor.bitcoin_market_price`. Update any dashboards and automations that referred to the old ones.
