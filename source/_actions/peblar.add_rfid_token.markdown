@@ -12,6 +12,11 @@ related:
 
 The **Add RFID token** action adds a new RFID token to the Peblar charger's standalone authorization list. Once added, the token can be used to authorize charging sessions on the charger without requiring a connection to an external backend.
 
+{% note %}
+This action is only available on Peblar chargers that are equipped with an
+RFID reader. The standalone authorization list lives on that reader.
+{% endnote %}
+
 {% include actions/try_it.md %}
 
 {% include actions/ui_header.md %}
@@ -22,7 +27,7 @@ To add an RFID token from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. In the **Then do** section, select **Add action**.
 4. From the search box, search for and select **Peblar: Add RFID token**.
-5. Under **Config entry**, select the Peblar charger to add the token to.
+5. Under **Peblar EV charger**, select the Peblar charger to add the token to.
 6. Enter the **UID** of the RFID token. This is typically printed on the card or key fob.
 7. Enter a **Description** to identify the token, for example, the name of the person it belongs to.
 8. Select **Save**.
@@ -30,7 +35,7 @@ To add an RFID token from an automation or a script:
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Peblar EV charger:
   description: The Peblar charger to add the RFID token to.
   required: true
 UID:

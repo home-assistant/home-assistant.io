@@ -12,6 +12,11 @@ related:
 
 The **List RFID tokens** action retrieves all RFID tokens stored in the Peblar charger's standalone authorization list. The action returns the full list as response data, which you can use in an automation or script to inspect or react to the tokens configured on your charger.
 
+{% note %}
+This action is only available on Peblar chargers that are equipped with an
+RFID reader. The standalone authorization list lives on that reader.
+{% endnote %}
+
 {% include actions/try_it.md %}
 
 {% include actions/ui_header.md %}
@@ -22,13 +27,13 @@ To retrieve the RFID token list from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. In the **Then do** section, select **Add action**.
 4. From the search box, search for and select **Peblar: List RFID tokens**.
-5. Under **Config entry**, select the Peblar charger to retrieve the tokens from.
+5. Under **Peblar EV charger**, select the Peblar charger to retrieve the tokens from.
 6. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
-Config entry:
+Peblar EV charger:
   description: The Peblar charger to retrieve the RFID token list from.
   required: true
 {% endoptions_ui %}
