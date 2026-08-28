@@ -34,7 +34,7 @@ To retrieve the RFID token list from an automation or a script:
 
 {% options_ui %}
 Peblar EV charger:
-  description: The Peblar charger to retrieve the RFID token list from.
+  description: The Peblar EV charger to list RFID tokens for.
   required: true
 {% endoptions_ui %}
 
@@ -66,11 +66,16 @@ The action returns an object with a single `tokens` member. Each token has a
 
 ```yaml
 tokens:
-  - uid: "AA:BB:CC:DD"
+  - uid: "04A1B2C3D4E5F6"
     description: "My Card"
-  - uid: "11:22:33:44"
+  - uid: "04F6E5D4C3B2A1"
     description: "Work Badge"
 ```
+
+## Good to know
+
+- Only administrators can run this action.
+- Token UIDs identify a physical card or key fob, so treat them the way you would any other credential.
 
 {% include actions/more_examples.md %}
 
@@ -99,3 +104,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

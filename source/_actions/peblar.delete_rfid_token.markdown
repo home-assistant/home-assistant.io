@@ -35,7 +35,7 @@ To delete an RFID token from an automation or a script:
 
 {% options_ui %}
 Peblar EV charger:
-  description: The Peblar charger to delete the RFID token from.
+  description: The Peblar EV charger to delete the RFID token from.
   required: true
 UID:
   description: The unique identifier of the RFID token to delete.
@@ -69,20 +69,29 @@ uid:
   type: string
 {% endoptions_yaml %}
 
+## Good to know
+
+- Only administrators can run this action.
+- Deleting a token is permanent. To restore access, add the token again.
+
 {% include actions/more_examples.md %}
 
-### Automation: delete an RFID token when a person leaves
+### Automation: revoke guest access when guest mode ends
 
-When a person is marked as away from home, automatically delete their RFID token from the charger.
+When you turn off guest mode, delete the guest's RFID token so the card no
+longer authorizes a charging session.
 
-{% details "YAML example for deleting an RFID token when someone leaves" %}
+Deleting a token is permanent. Only delete a token you no longer want to
+grant access to, and add it again when you do.
+
+{% details "YAML example for revoking a guest RFID token" %}
 
 {% example %}
 automation: |
   triggers:
     - trigger: state
-      entity_id: person.jane
-      to: "not_home"
+      entity_id: input_boolean.guest_mode
+      to: "off"
   actions:
     - action: peblar.delete_rfid_token
       data:
@@ -91,3 +100,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

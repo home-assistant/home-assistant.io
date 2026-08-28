@@ -36,13 +36,13 @@ To add an RFID token from an automation or a script:
 
 {% options_ui %}
 Peblar EV charger:
-  description: The Peblar charger to add the RFID token to.
+  description: The Peblar EV charger to add the RFID token to.
   required: true
 UID:
-  description: The unique identifier of the RFID token to add. This is typically printed on the card or key fob.
+  description: The unique identifier of the RFID token.
   required: true
 Description:
-  description: A human-readable label for this RFID token, for example, the name of the person it belongs to.
+  description: A human-readable label for this RFID token.
   required: true
 {% endoptions_ui %}
 
@@ -79,6 +79,11 @@ description:
   type: string
 {% endoptions_yaml %}
 
+## Good to know
+
+- Only administrators can run this action.
+- The UID is usually printed on the card or key fob.
+
 {% include actions/more_examples.md %}
 
 ### Automation: add a new RFID token when an input text is updated
@@ -101,3 +106,7 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}
