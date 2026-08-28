@@ -30,11 +30,11 @@ To delete a PIN code from an automation or a script:
 
 {% options_ui %}
 PIN name:
-  description: Name of PIN code to delete. Either name or access_code_id is required.
-  required: false
+description: Name of PIN code to delete. Either name or access_code_id is required.
+required: false
 Access code ID:
-  description: Access code ID to delete (more stable than name). Either name or access_code_id is required.
-  required: false
+description: Access code ID to delete (more stable than name). Either name or access_code_id is required.
+required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -43,35 +43,35 @@ In YAML, refer to this action as `schlage.delete_code`. A basic example looks li
 
 {% example %}
 action: |
-  action: schlage.delete_code
-  target:
-    entity_id: lock.front_door
-  data:
-    name: Example Person
+action: schlage.delete_code
+target:
+entity_id: lock.front_door
+data:
+name: Example Person
 {% endexample %}
 
 To delete by access code ID:
 
 {% example %}
 action: |
-  action: schlage.delete_code
-  target:
-    entity_id: lock.front_door
-  data:
-    access_code_id: "93ab517c-0000-0000-0000-000000000000"
+action: schlage.delete_code
+target:
+entity_id: lock.front_door
+data:
+access_code_id: "93ab517c-0000-0000-0000-000000000000"
 {% endexample %}
 
 ### Options in YAML
 
 {% options_yaml %}
 name:
-  description: Name of PIN code to delete. Either name or access_code_id is required.
-  required: false
-  type: string
+description: Name of PIN code to delete. Either name or access_code_id is required.
+required: false
+type: string
 access_code_id:
-  description: Access code ID to delete (more stable than name). Either name or access_code_id is required.
-  required: false
-  type: string
+description: Access code ID to delete (more stable than name). Either name or access_code_id is required.
+required: false
+type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}

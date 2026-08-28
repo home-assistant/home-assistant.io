@@ -35,10 +35,10 @@ In YAML, refer to this action as `schlage.get_codes`. A basic example looks like
 
 {% example %}
 action: |
-  action: schlage.get_codes
-  target:
-    entity_id: lock.front_door
-  response_variable: codes
+action: schlage.get_codes
+target:
+entity_id: lock.front_door
+response_variable: codes
 {% endexample %}
 
 This stores the PIN codes of `lock.front_door` in a variable named `codes`.
@@ -101,8 +101,13 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
 {
   "type": "recurring",
   "days_of_week": {
-    "sun": false, "mon": true, "tue": true, "wed": true,
-    "thu": true, "fri": true, "sat": false
+    "sun": false,
+    "mon": true,
+    "tue": true,
+    "wed": true,
+    "thu": true,
+    "fri": true,
+    "sat": false
   },
   "start_hour": 8,
   "start_minute": 0,
@@ -118,12 +123,34 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
   "type": "recurring_multi",
   "windows": [
     {
-      "days_of_week": { "sun": false, "mon": true, "tue": true, "wed": true, "thu": true, "fri": true, "sat": false },
-      "start_hour": 8, "start_minute": 0, "end_hour": 12, "end_minute": 0
+      "days_of_week": {
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false
+      },
+      "start_hour": 8,
+      "start_minute": 0,
+      "end_hour": 12,
+      "end_minute": 0
     },
     {
-      "days_of_week": { "sun": false, "mon": true, "tue": true, "wed": true, "thu": true, "fri": true, "sat": false },
-      "start_hour": 13, "start_minute": 0, "end_hour": 17, "end_minute": 0
+      "days_of_week": {
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false
+      },
+      "start_hour": 13,
+      "start_minute": 0,
+      "end_hour": 17,
+      "end_minute": 0
     }
   ]
 }

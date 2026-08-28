@@ -29,18 +29,18 @@ To add a PIN code from an automation or a script:
 
 {% options_ui %}
 PIN name:
-  description: Name for PIN code. Must be case insensitively unique to the lock.
+description: Name for PIN code. Must be case insensitively unique to the lock.
 PIN code:
-  description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
+description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
 Notify when PIN is used:
-  description: Whether the native Schlage notification should be sent when this PIN is used. On by default.
-  required: false
+description: Whether the native Schlage notification should be sent when this PIN is used. On by default.
+required: false
 Start time:
-  description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
-  required: false
+description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
+required: false
 End time:
-  description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
-  required: false
+description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
+required: false
 {% endoptions_ui %}
 
 ### Temporary vs. permanent PINs
@@ -57,52 +57,52 @@ In YAML, refer to this action as `schlage.add_code`. A basic example looks like 
 
 {% example %}
 action: |
-  action: schlage.add_code
-  target:
-    entity_id: lock.front_door
-  data:
-    name: Example Person
-    code: "3333"
+action: schlage.add_code
+target:
+entity_id: lock.front_door
+data:
+name: Example Person
+code: "3333"
 {% endexample %}
 
 To add a temporary PIN in YAML:
 
 {% example %}
 action: |
-  action: schlage.add_code
-  target:
-    entity_id: lock.front_door
-  data:
-    name: Guest
-    code: "1234"
-    start_datetime: "2026-09-01T15:00:00"
-    end_datetime: "2026-09-01T16:00:00"
+action: schlage.add_code
+target:
+entity_id: lock.front_door
+data:
+name: Guest
+code: "1234"
+start_datetime: "2026-09-01T15:00:00"
+end_datetime: "2026-09-01T16:00:00"
 {% endexample %}
 
 ### Options in YAML
 
 {% options_yaml %}
 name:
-  description: Name for PIN code. Must be case insensitively unique to the lock.
-  required: true
-  type: string
+description: Name for PIN code. Must be case insensitively unique to the lock.
+required: true
+type: string
 code:
-  description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
-  required: true
-  type: string
+description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
+required: true
+type: string
 notify_on_use:
-  description: Whether the native Schlage notification should be sent when this PIN is used.
-  required: false
-  type: boolean
-  default: true
+description: Whether the native Schlage notification should be sent when this PIN is used.
+required: false
+type: boolean
+default: true
 start_datetime:
-  description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
-  required: false
-  type: string
+description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
+required: false
+type: string
 end_datetime:
-  description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
-  required: false
-  type: string
+description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
+required: false
+type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}

@@ -29,25 +29,25 @@ To update a PIN code from an automation or a script:
 
 {% options_ui %}
 Access code ID:
-  description: The unique ID of the access code to update. You can get IDs from the **Schlage: Get PIN codes** action.
+description: The unique ID of the access code to update. You can get IDs from the **Schlage: Get PIN codes** action.
 PIN name:
-  description: New name for the PIN code.
-  required: false
+description: New name for the PIN code.
+required: false
 PIN code:
-  description: New PIN code value (4-8 digits).
-  required: false
+description: New PIN code value (4-8 digits).
+required: false
 Notify when PIN is used:
-  description: Whether the native Schlage notification should be sent when this PIN is used.
-  required: false
+description: Whether the native Schlage notification should be sent when this PIN is used.
+required: false
 Disabled:
-  description: Whether the PIN code should be disabled.
-  required: false
+description: Whether the PIN code should be disabled.
+required: false
 Start time:
-  description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required. Omitting both preserves the code's existing schedule.
-  required: false
+description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required. Omitting both preserves the code's existing schedule.
+required: false
 End time:
-  description: When this PIN stops working. Required together with the start time. Omitting both preserves the code's existing schedule.
-  required: false
+description: When this PIN stops working. Required together with the start time. Omitting both preserves the code's existing schedule.
+required: false
 {% endoptions_ui %}
 
 ### Preserving the existing schedule
@@ -62,58 +62,58 @@ In YAML, refer to this action as `schlage.update_code`. A basic example looks li
 
 {% example %}
 action: |
-  action: schlage.update_code
-  target:
-    entity_id: lock.front_door
-  data:
-    access_code_id: "abc123"
-    name: Updated Name
+action: schlage.update_code
+target:
+entity_id: lock.front_door
+data:
+access_code_id: "abc123"
+name: Updated Name
 {% endexample %}
 
 To change a PIN's schedule in YAML:
 
 {% example %}
 action: |
-  action: schlage.update_code
-  target:
-    entity_id: lock.front_door
-  data:
-    access_code_id: "abc123"
-    start_datetime: "2026-09-01T15:00:00"
-    end_datetime: "2026-09-01T16:00:00"
+action: schlage.update_code
+target:
+entity_id: lock.front_door
+data:
+access_code_id: "abc123"
+start_datetime: "2026-09-01T15:00:00"
+end_datetime: "2026-09-01T16:00:00"
 {% endexample %}
 
 ### Options in YAML
 
 {% options_yaml %}
 access_code_id:
-  description: The unique ID of the access code to update.
-  required: true
-  type: string
+description: The unique ID of the access code to update.
+required: true
+type: string
 name:
-  description: New name for the PIN code.
-  required: false
-  type: string
+description: New name for the PIN code.
+required: false
+type: string
 code:
-  description: New PIN code value (4-8 digits).
-  required: false
-  type: string
+description: New PIN code value (4-8 digits).
+required: false
+type: string
 notify_on_use:
-  description: Whether the native Schlage notification should be sent when this PIN is used.
-  required: false
-  type: boolean
+description: Whether the native Schlage notification should be sent when this PIN is used.
+required: false
+type: boolean
 disabled:
-  description: Whether the PIN code should be disabled.
-  required: false
-  type: boolean
+description: Whether the PIN code should be disabled.
+required: false
+type: boolean
 start_datetime:
-  description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required. Omitting both preserves the code's existing schedule.
-  required: false
-  type: string
+description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required. Omitting both preserves the code's existing schedule.
+required: false
+type: string
 end_datetime:
-  description: When this PIN stops working. Required together with the start time. Omitting both preserves the code's existing schedule.
-  required: false
-  type: string
+description: When this PIN stops working. Required together with the start time. Omitting both preserves the code's existing schedule.
+required: false
+type: string
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}
