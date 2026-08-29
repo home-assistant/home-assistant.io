@@ -58,7 +58,7 @@ Model:
   description: "The BLUETTI power station model you are connecting to. There is no way for the integration to detect this automatically, so pick the model that matches your device."
 {% endconfiguration_basic %}
 
-The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+To adjust the above configuration later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, select {% icon "mdi:dots-vertical" %}, and select **Reconfigure**.
 
 ## Supported functionality
 
@@ -73,7 +73,7 @@ Your power station is added as a single device.
 - **Average Battery Temperature**: The battery's temperature.
 - **Total Battery Charged Energy**, **Total Battery Discharged Energy**: Lifetime battery energy counters.
 - **AC Output Power**, **Total AC Output Energy**: What the device is feeding to AC loads.
-- **PV 1**/**2**/**3**/**4 Input Voltage**, **Current**, **Power**: Per-string solar input, where the device has that many strings.
+- Per-string solar input (**Input Voltage**, **Input Current**, **Input Power** for PV strings 1 through 4, where the device has that many).
 - **PV AC Power**, **PV AC Energy**, **Total PV Input Power**, **Total PV Input Energy**: Combined solar production.
 - **Grid Frequency**, **Grid Input Power**: What the device reads from the grid.
 - **Total Grid Import Energy**, **Total Grid Export Energy**: Lifetime grid energy counters, where the device reports them.
@@ -82,9 +82,9 @@ Your power station is added as a single device.
 
 The following are added as diagnostic entities: **Battery Type**, **Inverter Type**, **Cell Count**, **Battery Cycle Count**, **Temperature Sensor Count**, **Number of Battery Packs**.
 
-The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities - see [Known limitations](#known-limitations).
+The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
-`Total Battery SoC` and `Total Battery SoH` read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
+**Total Battery SoC** and **Total Battery SoH** read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
 
 ## Data updates
 
