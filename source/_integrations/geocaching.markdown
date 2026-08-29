@@ -41,7 +41,7 @@ To track specific trackables:
 4. Enter the TB codes of the trackables you want to track. Separate multiple codes with commas or new lines.
 5. Select **Submit**.
 
-You can track up to 50 trackables. Each trackable is added as a separate device with a **Distance traveled** sensor. The distance is reported in kilometers.
+You can track up to 10 trackables. Each trackable is added as a separate device with a **Distance traveled** sensor. The distance is reported in kilometers.
 
 ## Tracking caches
 
