@@ -57,7 +57,7 @@ This integration supports Victron Energy devices that run Venus OS and have MQTT
 
 - A Victron Energy GX device running Venus OS with MQTT enabled.
 - Network connectivity between your Home Assistant instance and the Victron device.
-- For secured installations that do not support token pairing: The password configured on your Victron device.
+- For secured installations without token pairing support: the MQTT password you configured on your Victron device.
 
 {% include integrations/config_flow.md %}
 
@@ -283,7 +283,7 @@ Home Assistant cannot request token credentials from the Victron GX device.
 
 1. Enable pairing mode on the GX device.
 2. Submit the pairing form in Home Assistant within 120 seconds.
-3. If pairing mode expires, enable it again, and retry the form.
+3. If pairing mode expires, enable it again and retry the form.
 
 ### No sensors appear
 
