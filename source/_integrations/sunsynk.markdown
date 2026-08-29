@@ -34,7 +34,7 @@ Password:
   description: The password of your Sunsynk Connect account.
 {% endconfiguration_basic %}
 
-The integration adds all inverters of the account. Each inverter is a device in Home Assistant. If you do not want an inverter, you can disable its device.
+The integration adds all inverters of the account. Each inverter is a device in Home Assistant. If you do not want an inverter, you can disable the device.
 
 ## Supported devices
 
@@ -83,19 +83,81 @@ The integration polls the Sunsynk cloud every 5 minutes. The inverter sends new 
 
 This integration does not provide additional actions.
 
-## Examples
+## Sunsynk automation examples
+
+The sensors of this integration are useful in the energy dashboard and in automations.
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
 
 ### Energy dashboard
 
 Use these sensors in the [energy dashboard](/docs/energy/):
 
-| Energy dashboard setting | Sensor                  |
-| ------------------------ | ----------------------- |
-| Grid consumption         | Grid import total       |
-| Return to grid           | Grid export total       |
-| Solar production         | Solar energy total      |
-| Energy going in to the battery | Battery charge total |
+| Energy dashboard setting         | Sensor                  |
+| -------------------------------- | ----------------------- |
+| Grid consumption                 | Grid import total       |
+| Return to grid                   | Grid export total       |
+| Solar production                 | Solar energy total      |
+| Energy going into the battery    | Battery charge total    |
 | Energy coming out of the battery | Battery discharge total |
+
+### Automation: Notify when the battery is low
+
+Send a notification when the battery state of charge drops below 20%.
+
+- **Trigger**: Numeric state: Battery state of charge below 20
+- **Action**: Send a notification
+
+{% details "YAML example for a low battery notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the battery is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.inverter_battery_state_of_charge
+      below: 20
+  actions:
+    - action: notify.notify
+      data:
+        message: "The battery is at {{ states('sensor.inverter_battery_state_of_charge') }}%."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Use excess solar power
+
+Turn on a water heater when the solar panels produce more than 3 kW for 10 minutes. Turn it off again when solar power drops below 1 kW.
+
+- **Trigger**: Numeric state: Solar power above 3000 for 10 minutes
+- **Action**: Turn on the water heater switch
+
+{% details "YAML example for using excess solar power" %}
+
+{% example %}
+automation: |
+  alias: "Use excess solar power"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.inverter_solar_power
+      above: 3000
+      for:
+        minutes: 10
+      id: "on"
+    - trigger: numeric_state
+      entity_id: sensor.inverter_solar_power
+      below: 1000
+      for:
+        minutes: 10
+      id: "off"
+  actions:
+    - action: "switch.turn_{{ trigger.id }}"
+      target:
+        entity_id: switch.water_heater
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
