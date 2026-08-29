@@ -112,7 +112,7 @@ actions:
 
 The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
 
-Sensor values update when the charger sends status and charging-session notifications. A sensor shows an unknown value until the charger reports its corresponding measurement. All charger entities become unavailable while the Bluetooth connection is unavailable or authentication is incomplete.
+Sensor values update when the charger sends status and charging-session notifications. A sensor shows an `unknown` value until the charger reports its corresponding measurement. All charger entities become `unavailable` while the Bluetooth connection is unavailable or authentication is incomplete.
 
 This is a local push integration. There is no cloud dependency.
 
