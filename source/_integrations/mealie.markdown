@@ -31,7 +31,7 @@ ha_quality_scale: platinum
 
 ## Supported versions
 
-Mealie instances version 2 and later are supported.
+Mealie instances version 3.2 and later are supported.
 
 ## Prerequisites
 
