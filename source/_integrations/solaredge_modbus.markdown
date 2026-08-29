@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - number
+  - select
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
@@ -177,6 +178,14 @@ The inverter holds settings of its own, which this integration can change as wel
 - **External production maximum**: What other production at the site can deliver, which the inverter needs to know to keep the site within its export limit.
 - **Active power limit**: How much of its capacity the inverter may use, as a percentage.
 - **Power factor setpoint**: The cos phi the inverter aims for. Disabled by default, since it is an installer setting that a site rarely needs to move.
+
+### Selects
+
+- **Storage control mode**: What the battery does. **Maximize self-consumption** keeps your own production at home, **Time of use** follows a schedule set on the inverter, **Backup only** keeps the battery for a power cut, and **Remote control** hands the decision to whatever writes the command mode below.
+- **Storage default mode** and **Storage command mode**: What the battery is told to do, and what it falls back to when a remote command times out. The options range from charging out of solar or the grid to discharging to cover your own use or to export.
+- **Storage AC charge policy**: Whether, and how much, the battery may charge from the grid rather than from the panels.
+- **Export limitation**: How the site limits what it feeds back to the grid. **Production control** limits the inverter itself; the meter-based options measure at the connection point and need a meter, so they are only offered when one is attached. Whatever the inverter is set to is always offered, even when the hardware for it is missing, since that is what the register says.
+- **Export limit type**: Whether the export limit counts per phase or as a total. Disabled by default.
 
 {% important %}
 These settings live in the inverter's flash memory, which is meant to be written now and then rather than continuously. An automation that writes one every few minutes will wear it out. Change them when something actually changes.
