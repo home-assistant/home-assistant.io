@@ -11,7 +11,7 @@ Almost all houses are connected to the electricity grid which provides the energ
 
 ## Multiple grid connections and a battery
 
-If you have multiple grid connections and a home battery, edit each grid connection and select whether it can charge the battery under **Battery charging**. For example, mark a separate grid connection for an electric vehicle charger as **Cannot charge the battery** if it bypasses the battery inverter. This information allows the Energy dashboard to keep the grid connections separate while the battery is charging. Leave the connection that supplies the battery set to **Can charge the battery**.
+If you have multiple grid connections and a home battery, edit each grid connection and select whether it can charge the battery under **Battery charging**. For example, mark a separate grid connection for an electric vehicle charger as **Cannot charge the battery** if it bypasses the battery inverter. When exactly one active grid connection is marked **Can charge the battery**, the Energy dashboard can keep the grid connections separate while the battery is charging. If multiple active grid connections can charge the battery, the dashboard combines them to avoid guessing which one supplied the battery.
 
 ## Tariffs
 
