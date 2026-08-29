@@ -34,7 +34,7 @@ Password:
   description: The password of your Sunsynk Connect account.
 {% endconfiguration_basic %}
 
-The integration adds all inverters of the account. Each inverter is a device in Home Assistant. If you do not want an inverter, you can disable the device.
+The integration adds all inverters of the account. Each inverter is a device in Home Assistant. A battery is a second device, linked to its inverter. If you do not want an inverter, you can disable the device.
 
 ## Supported devices
 
@@ -61,13 +61,15 @@ The integration creates the sensors below for each inverter. The sensors are rea
 
 ### Battery
 
-- **Battery power** (W): The power that flows between the battery and the inverter now. The sign is the same as in the Sunsynk Connect app.
-- **Battery state of charge** (%): The charge level of the battery.
-- **Battery charge today** (kWh): The energy that went into the battery today.
-- **Battery charge total** (kWh): The energy that went into the battery since installation.
-- **Battery discharge today** (kWh): The energy that came out of the battery today.
-- **Battery discharge total** (kWh): The energy that came out of the battery since installation.
-- **Battery voltage** (V), **Battery current** (A) and **Battery temperature** (°C): These sensors are disabled by default.
+The battery is a separate device in Home Assistant. It is linked to its inverter. The integration creates it only when the inverter reports a connected battery. If you add a battery later, reload the integration. The Sunsynk cloud reports one set of values for all battery packs of an inverter.
+
+- **Power** (W): The power that flows between the battery and the inverter now. The sign is the same as in the Sunsynk Connect app.
+- **State of charge** (%): The charge level of the battery.
+- **Charge today** (kWh): The energy that went into the battery today.
+- **Charge total** (kWh): The energy that went into the battery since installation.
+- **Discharge today** (kWh): The energy that came out of the battery today.
+- **Discharge total** (kWh): The energy that came out of the battery since installation.
+- **Voltage** (V), **Current** (A) and **Temperature** (°C): These sensors are disabled by default.
 
 ### Load
 
@@ -101,14 +103,14 @@ Use these sensors in the [energy dashboard](/docs/energy/):
 | Grid consumption                 | Grid import total       |
 | Return to grid                   | Grid export total       |
 | Solar production                 | Solar energy total      |
-| Energy going into the battery    | Battery charge total    |
-| Energy coming out of the battery | Battery discharge total |
+| Energy going into the battery    | Battery: Charge total    |
+| Energy coming out of the battery | Battery: Discharge total |
 
 ### Automation: Notify when the battery is low
 
 Send a notification when the battery state of charge drops below 20%.
 
-- **Trigger**: Numeric state: Battery state of charge below 20
+- **Trigger**: Numeric state: Battery: State of charge below 20
 - **Action**: Send a notification
 
 {% details "YAML example for a low battery notification" %}
@@ -118,12 +120,12 @@ automation: |
   alias: "Notify when the battery is low"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.inverter_battery_state_of_charge
+      entity_id: sensor.battery_state_of_charge
       below: 20
   actions:
     - action: notify.notify
       data:
-        message: "The battery is at {{ states('sensor.inverter_battery_state_of_charge') }}%."
+        message: "The battery is at {{ states('sensor.battery_state_of_charge') }}%."
 {% endexample %}
 
 {% enddetails %}
