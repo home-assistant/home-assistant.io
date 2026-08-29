@@ -42,7 +42,7 @@ There are four different view types:
 ## Adding a view to a dashboard
 
 {% note %}
-You can't add views to the built-in **Activity**, **Climate**, **History**, **Maintenance**, **Energy**, **Security**, and **To-do lists** dashboards. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
+You can't add views to the built-in **Overview**,**Activity**, **Climate**, **History**, **Maintenance**, **Energy**, **Security**, and **To-do lists** dashboards. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
 {% endnote %}
 
 1. To add a view to your dashboard, in the top right corner, select the pencil icon.
