@@ -130,6 +130,7 @@ The **Midea** {% term integration %} provides the following entities:
 - Select
 - Switch
 - Time
+- Water heater
 
 ## Known limitations
 
