@@ -95,13 +95,13 @@ automation: |
     - action: peblar.list_vehicle_tokens
       data:
         config_entry_id: "01234567890abcdef01234567890abcd"
-      response_variable: vehicles
+      response_variable: autocharge_list
     - action: notify.mobile_app_your_phone
       data:
         title: "Peblar autocharge vehicles"
         message: >
           Currently allowed to charge:
-          {{ vehicles.vehicles | map(attribute='alias') | join(', ') }}
+          {{ autocharge_list.vehicles | map(attribute='alias') | join(', ') }}
 {% endexample %}
 
 {% enddetails %}
