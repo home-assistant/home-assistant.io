@@ -52,6 +52,20 @@ article {
     width: 45%;
   }
 
+  &.post {
+    ul {
+      li {
+        p {
+          margin-bottom: 0;
+        }
+
+        li {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
   .tags {
     list-style-type: none;
     margin: 0;
@@ -108,6 +122,38 @@ article {
     .entry-content {
       margin: 1em 0;
     }
+
+    .crosspost-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 0.25em;
+      padding: 5px 14px;
+      border-radius: 16px;
+      background-color: $primary-color;
+      color: #fff;
+      font-family: $sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      line-height: 1.3;
+      text-decoration: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: color.adjust($primary-color, $lightness: -8%);
+        color: #fff;
+      }
+
+      iconify-icon {
+        flex-shrink: 0;
+      }
+    }
+
+    .crosspost-image img {
+      border: 0;
+      box-shadow: none;
+      margin-bottom: 0.5em;
+    }
     + hr {
       border: none;
       border-bottom: 2px solid $grayLighter;
@@ -132,5 +178,21 @@ article {
     > header + img + p{
       margin-top: 24px;
     }
+  }
+}
+
+.wwha-footer-mobile {
+  display: none;
+
+  @media only screen and (max-width: $lap-end) {
+    display: block;
+  }
+}
+
+.wwha-sidebar-desktop {
+  display: block;
+
+  @media only screen and (max-width: $lap-end) {
+    display: none;
   }
 }

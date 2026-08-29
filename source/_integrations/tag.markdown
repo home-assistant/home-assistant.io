@@ -24,13 +24,13 @@ To make tags accessible to anyone in your house hold, there is also a [standalon
 
 The easiest way to get started with tags is to use NFC tags ([stickers](https://www.amazon.com/dp/B07N38MMTT), [cards](https://www.amazon.com/dp/B074M9J5L3)) with the official Home Assistant mobile apps. Once you have written a card, hover it with your phone to scan it.
 
-<lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
+<lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="hqdefault"></lite-youtube>
 
 {% important %}
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
 {% endimportant %}
 
-<lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="maxresdefault"></lite-youtube>
+<lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="hqdefault"></lite-youtube>
 
 ## Managing tags
 
@@ -49,11 +49,11 @@ State shows the time when the card was last scanned in datetime string format. F
 - **Tag ID**: identification as set during creation of the tag.
 - **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
 
+{% include integrations/triggers.md %}
+
 ## Building an RFID jukebox
 
 One of the most fun applications of tags is to pick music in your living room. To make this super easy, you can use the below automation:
-
-{% raw %}
 
 ```yaml
 automation:
@@ -93,9 +93,7 @@ automation:
     - delay: 2 # timeout before we allow processing next scan
 ```
 
-{% endraw %}
-
-To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
+To find your scanner's device ID, open {% my developer_events title="**Settings** > **Tools** > **Events**" %}, select **Listen to events** and subscribe to `tag_scanned`.
 Then scan a tag on the reader and note down the `device_id` from the `data` section.
 
 ## Printing tags

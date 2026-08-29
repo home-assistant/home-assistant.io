@@ -28,7 +28,7 @@ Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides a
 
 Scrape uses configuration subentries for configuring the sensors.
 
-1. Setup the resource configuration once per resource you want to scrape information from.
+1. Set up the resource configuration once per resource you want to scrape information from.
 2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
 
 {% endnote %}
@@ -49,11 +49,11 @@ scrape:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint that contains the value. One of `resource` and `resource_template` must be used.
   required: true
   type: string
 resource_template:
-  description: The resource or endpoint that contains the value with template support.
+  description: The resource or endpoint that contains the value with template support. One of `resource` and `resource_template` must be used.
   required: true
   type: template
 method:
@@ -73,7 +73,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
@@ -84,11 +84,11 @@ authentication:
   required: false
   type: string
 username:
-  description: The username for accessing the REST endpoint.
+  description: The username for accessing the resource.
   required: false
   type: string
 password:
-  description: The password for accessing the REST endpoint.
+  description: The password for accessing the resource.
   required: false
   type: string
 headers:
@@ -100,7 +100,7 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: Define the frequency to call the resource in seconds.
   required: false
   type: integer
   default: 600
@@ -110,7 +110,7 @@ encoding:
   type: string
   default: UTF-8
 sensor:
-  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of sensors to create from the shared data.
   required: true
   type: map
   keys:
@@ -179,8 +179,6 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [homepage](/)
 
-{% raw %}
-
 ```yaml
 scrape:
 # Example configuration.yaml entry
@@ -190,13 +188,9 @@ scrape:
         select: ".release-date"
 ```
 
-{% endraw %}
-
 ### Available implementations
 
 Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -207,8 +201,6 @@ scrape:
         select: 'a[href="#all"]'
         value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
-
-{% endraw %}
 
 ### Get a value out of a tag
 
@@ -257,8 +249,6 @@ scrape:
 
 This example tries to retrieve the price for electricity.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 scrape:
@@ -270,5 +260,3 @@ scrape:
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"
 ```
-
-{% endraw %}

@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - number
   - sensor
 ha_zeroconf: true
@@ -102,7 +103,7 @@ All four supported indices—Health, Performance, Mold, and Virus—operate on a
 
 After the integration has been initialized, the user can configure any of the following two parameters:
 
-- **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
+- **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows you to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
 
 - **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
 

@@ -44,26 +44,41 @@
     {% include post/author.html %}
     {% include blog/post/date.html %}{{ time }}
     {% include blog/post/tags.html %}
-    {% if page.comments != false and post.comments != false %}
+    {% if page.comments != false and post.comments != false and post.external_url == nil %}
       <a class='comments'
          href="{% if index %}{{ post.url }}{% endif %}#post-comments"
          >Comments</a>
     {% endif %}
   </div>
   {% endunless %}
+
+  {% if index and post.external_url %}
+  <a class="crosspost-badge" href="{{ post.url }}">
+    {% icon "mdi:open-in-new" %} This article is shared from the {{ post.external_source | default: "original site" }}
+  </a>
+  {% endif %}
 </header>
 
 {% if index %}
   <div class="entry-content clearfix">
+    {% if post.external_url and post.og_image %}
+    <a class="crosspost-image" href="{{ post.url }}">
+      <img src="{{ post.og_image }}" alt="{{ post.title | escape }}">
+    </a>
+    {% endif %}
     {% assign blog_post_link = 'href="' | append: post.url | append:"#" %}
     {{ post.excerpt | replace: 'href="#', blog_post_link }}
-    {% if post.content contains site.excerpt_separator %}
+    {% if post.external_url %}
+      <a class="btn pull-right" href="{{ post.url }}">Read on {{ post.external_source | default: "the original site" }} &rarr;</a>
+    {% elsif post.content contains site.excerpt_separator %}
       <a class="btn pull-right" href="{{ post.url }}#read-more">{{ site.excerpt_link }}</a>
     {% endif %}
   </div>
 {% else %}
   {{ post.content | replace: site.excerpt_separator, '<a name="read-more"></a>' }}
   {% if post.categories contains 'Works-with-Home-Assistant' %}
-    {% include blog/post/wwha_footer.html %}
+    <div class="wwha-footer-mobile">
+      {% include blog/post/wwha_blurb.html %}
+    </div>
   {% endif %}
 {% endif %}

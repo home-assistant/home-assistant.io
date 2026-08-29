@@ -45,11 +45,11 @@ The {% term integration %} creates sensors reported by the device, including:
 - Signal strength (dB)
 - Text, count, or schedule status values
 
-## Swtiches
+## Switches
 
 The {% term integration %} creates switches reported by the device, including:
 
-- Local mode, enable or disable loacal control mode
+- Local mode, enable or disable local control mode
 
 ## Troubleshooting
 

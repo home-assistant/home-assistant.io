@@ -19,15 +19,12 @@ works_with:
 
 {% include integrations/wwha.md url="https://www.evehome.com/" %}
 
-The following devices are supported:
+## Supported devices
 
-- [Eve Door & Window](https://www.evehome.com/en/eve-door-window)
-- [Eve Energy Outlet](https://www.evehome.com/en/eve-energy-outlet)
-- [Eve Energy Outdoor](https://www.evehome.com/en/eve-energy-outdoor)
-- [Eve Energy](https://www.evehome.com/en/eve-energy)
-- [Eve Light Switch](https://www.evehome.com/en/eve-light-switch)
-- [Eve Dimmer Switch](https://www.evehome.com/en/eve-dimmer-switch)
-- [Eve Motion](https://www.evehome.com/en/eve-motion)
-- [Eve MotionBlinds](https://www.evehome.com/en/eve-blinds-collection)
-- [Eve Thermo](https://www.evehome.com/en/eve-thermo)
-- [Eve Weather](https://www.evehome.com/en/eve-weather)
+{% include integrations/device_list.html brand="eve" %}
+
+## Known limitations
+
+Some Eve devices were originally sold as Bluetooth or HomeKit-only models and need a firmware upgrade to Matter before you can set them up in Home Assistant via the Matter integration. Eve's upgrade process requires an iPhone or iPad, together with an Apple Thread border router such as a HomePod mini or Apple TV 4K (2nd generation or later). Without an Apple device, these models cannot be upgraded to Matter.
+
+Before buying, check [Eve's upgrade to Matter guide](https://www.evehome.com/en/upgrade-to-matter) to confirm whether a device already supports Matter out of the box or needs to be upgraded first.

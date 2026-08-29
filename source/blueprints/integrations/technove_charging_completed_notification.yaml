@@ -1,0 +1,38 @@
+blueprint:
+  name: Notify when TechnoVE charging is complete
+  description: >
+    Send a notification or execute custom actions when your electric vehicle
+    finishes charging on a TechnoVE charging station.
+  domain: automation
+  author: Moustachauve
+  homeassistant:
+    min_version: 2024.2.0
+
+  input:
+    status_sensor:
+      name: TechnoVE status sensor
+      description: Select the TechnoVE status sensor entity to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: technove
+              domain: sensor
+              device_class: enum
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when charging completes (for example, send a notification).
+      default: []
+      selector:
+        action:
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input status_sensor
+    from: plugged_charging
+    to: plugged_waiting
+
+actions: !input actions

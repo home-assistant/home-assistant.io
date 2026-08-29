@@ -4,8 +4,10 @@ description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Event
   - Sensor
   - Switch
+  - Update
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -16,10 +18,11 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - sensor
   - switch
-ha_integration_type: hub
-ha_quality_scale: bronze
+ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
 The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
@@ -53,7 +56,14 @@ There is currently support for the following device types within Home Assistant:
 ### Buttons
 
 - **Restart container**: Restarts the container.
+- **Pause container**: Pauses the container.
+- **Resume container**: Resumes the container.
+- **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
+
+### Events
+
+- **Docker event**: Fires when Portainer reports a Docker container lifecycle event, such as `start`, `stop`, `restart`, `die`, `pause`, `unpause`, `kill`, `oom`, or `update`, and when the container's health check status changes (`health_status_healthy`, `health_status_unhealthy`, or `health_status_starting`).
 
 ### Sensors
 
@@ -94,6 +104,8 @@ There is currently support for the following device types within Home Assistant:
 - **Container**: Starts or stops an individual Docker container.
 - **Stack**: Starts or stops all containers in a stack.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 The following examples show how to use the Portainer integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
@@ -101,8 +113,6 @@ The following examples show how to use the Portainer integration in Home Assista
 ### Notify when a container went down
 
 The following example sends a notification to your mobile device when a container went down.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -115,31 +125,14 @@ automation:
           - exited
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Container alert"
           message: "Container went down!"
 ```
 
-{% endraw %}
-
-## Actions
-
-Portainer provides the following actions.
-
-### Action: Prune images
-
-The `portainer.prune_images` can be used to prune unused images more granually, such as a duration and/or if images are dangling.
-
-- **Data attribute**: `device_id`
-    - **Description**: The ID of the device/endpoint to prune images on.
-    - **Optional**: No
-- **Data attribute**: `until`
-    - **Description**: The duration in time in the past.
-    - **Optional**: Yes
-- **Data attribute**: `dangling`
-    - **Description**: If true, only prune dangling images.
-    - **Optional**: Yes
 
 ## Supported devices
 

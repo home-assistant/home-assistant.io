@@ -90,7 +90,7 @@ Two camera entities are provided: `live_view` and `last_recording`.
 `last_recording` is disabled by default.
 
 {% important %}
-Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
+Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
 ### Event
@@ -233,8 +233,6 @@ downloader:
 
 Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>.mp4`:
 
-{% raw %}
-
 ```yaml
 automation:
   alias: "Save the video when the doorbell is pushed"
@@ -256,18 +254,14 @@ automation:
       filename: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}.mp4"
 ```
 
-{% endraw %}
-
 You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file:
 
-{% raw %}
 ```yaml
     data:
       url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
       subdir: "{{ state_attr('camera.front_door_last_recording', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
       filename: "{{ now().strftime('%Y-%m-%d-at-%H-%M-%S') }}.mp4"
 ```
-{% endraw %}
 
 the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 
