@@ -11,6 +11,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: solaredge_modbus
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -115,7 +116,7 @@ The above configuration can also be adjusted later via {% my integrations title=
 
 ## Supported functionality
 
-Your inverter is added as a device, with any energy meter wired to it as a device of its own beneath it. Home Assistant reads the serial numbers during setup and uses those to recognize the hardware, so moving an inverter to another address does not create a second device, and replacing a meter does not hand the new one the old one's history.
+Your inverter is added as a device, with any energy meter or battery wired to it as a device of its own beneath it. Home Assistant reads the serial numbers during setup and uses those to recognize the hardware, so moving an inverter to another address does not create a second device, and replacing a meter does not hand the new one the old one's history.
 
 ### Inverter sensors
 
@@ -146,6 +147,25 @@ An energy meter measures what passes through it, which is what the inverter cann
 
 The voltages a meter reports are added but disabled, the same way the inverter's are. Which of them exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
 
+### Battery sensors
+
+A battery attached to the inverter gets a device named after its place on it, **Battery 1** through **Battery 3**, with what it holds and what it is doing with it.
+
+- **State of energy**: How full the battery is, as a percentage.
+- **Available energy**, **Usable capacity**, and **Rated energy**: What is in the battery right now, what it can hold as configured, and what it was rated for when it was built.
+- **Energy imported** and **Energy exported**: The totals charged into and discharged from the battery. These are the sensors for the battery on the [Energy dashboard](#energy-dashboard).
+- **Status**: What the battery is doing: **Off**, **Standby**, **Initializing**, **Charging**, **Discharging**, **Fault**, **Preserving charge**, **Idle**, or **Power saving**.
+- **State of health**: What is left of the battery's original capacity, as a percentage.
+- **DC power**, **DC voltage**, and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **Maximum charge power** and **Maximum discharge power**, and their peak counterparts: What the battery allows, continuously and in bursts.
+- **Temperature** and **Maximum temperature**: How warm the pack is on average, and the warmest cell in it.
+
+### Binary sensors
+
+- **Problem**: On when the inverter reports a fault, so an automation can tell you the same day rather than at the end of the month.
+- **Charging**: On while a battery is taking charge. Home Assistant's battery-charging triggers and conditions look at this rather than at the status sensor, so this is the one to use for them.
+- **On grid**: Whether the inverter is connected to the grid. Only added for inverter firmware that reports it.
+
 ## Energy dashboard
 
 Your inverter's production fits straight into the [Energy dashboard](/docs/energy/solar-panels/), next to what your home consumes.
@@ -167,6 +187,14 @@ The **Electricity grid** section needs a meter, since the inverter measures what
 
 Without a meter, another energy monitor, such as one reading your utility meter, can fill those in instead.
 
+A battery goes under **Home battery storage** in the same way:
+
+1. Under **Home battery storage**, select **Add battery system**.
+2. For **Energy charged into the battery**, select the battery's **Energy imported** sensor.
+3. For **Energy discharged from the battery**, select its **Energy exported** sensor.
+4. For **Battery state of charge sensor**, select its **State of energy** sensor.
+5. Select **Save**.
+
 ## SolarEdge Modbus automation examples
 
 Your inverter knows more about your solar production than a monthly report ever will. Here are a few ideas to get you started.
@@ -177,7 +205,7 @@ Your inverter knows more about your solar production than a monthly report ever 
 
 A solar installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification the moment the inverter reports a fault, so you find out on the same day instead of on your next bill.
 
-- **Trigger**: State of **Status** changed to **Fault**
+- **Trigger**: **Problem** turned on
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -188,8 +216,8 @@ automation: |
   alias: "Solar inverter fault"
   triggers:
     - trigger: state
-      entity_id: sensor.solaredge_se10000h_status
-      to: "fault"
+      entity_id: binary_sensor.solaredge_se10000h_problem
+      to: "on"
   actions:
     - action: notify.send_message
       target:
@@ -228,18 +256,18 @@ automation: |
 
 ## Data updates
 
-The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and any meter wired to it, every 10 seconds.
+The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and anything wired to it, every 10 seconds.
 
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If several inverters answer on the same address with different device IDs, for example because they are chained on one Modbus TCP bridge, they share a single connection instead of each opening their own.
 
 A [Modbus](/integrations/modbus/) setup in your {% term "`configuration.yaml`" %} is separate from this. It opens its own connection to the inverter, which counts against the number of clients the inverter accepts.
 
-If part of the installation does not answer a poll, only its {% term entity entities %} become unavailable: a silent meter leaves the inverter's sensors alone. Home Assistant does not keep showing the last known reading as if it were current.
+If part of the installation does not answer a poll, only its {% term entity entities %} become unavailable: a silent meter or battery leaves the inverter's sensors alone. Home Assistant does not keep showing the last known reading as if it were current.
 
 ## Known limitations
 
-- Batteries attached to the inverter are not included yet, and neither are the inverter's own settings, such as export limitation and battery charging.
-- Which meters are attached is read while the entry is set up. A meter added or unwired while Home Assistant runs is picked up the next time the entry loads, which you can trigger yourself by reloading the integration.
+- The inverter's own settings, such as export limitation and how the battery is told to charge, are not included yet. This integration reads the installation, it does not steer it.
+- Which meters and batteries are attached is read while the entry is set up. Hardware added or unwired while Home Assistant runs is picked up the next time the entry loads, which you can trigger yourself by reloading the integration.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
 
