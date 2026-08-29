@@ -9,11 +9,12 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - button
   - select
   - sensor
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
@@ -48,6 +49,11 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 ## Supported functionality
 
 The **Sofar** integration provides the following entities.
+
+### Buttons
+
+- **RTC sync**: Writes the current date and time to the inverter's clock.
+- **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
 
 ### Select
 
