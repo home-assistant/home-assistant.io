@@ -57,9 +57,20 @@ This integration supports Victron Energy devices that run Venus OS and have MQTT
 
 - A Victron Energy GX device running Venus OS with MQTT enabled.
 - Network connectivity between your Home Assistant instance and the Victron device.
-- For secured installations: The MQTT password configured on your Victron device.
+- For secured installations that do not support token pairing: The password configured on your Victron device.
 
 {% include integrations/config_flow.md %}
+
+When Home Assistant discovers your Victron GX device, it first tries to connect using TLS on port `8883`. If TLS is unavailable, it tries an unencrypted connection on port `1883`.
+
+If authentication is required and your device supports MQTT token pairing, Home Assistant prompts you to enable pairing mode:
+
+1. Enable pairing mode using one of these methods:
+  - On the GX device, go to **Settings** > **Integrations** > **MQTT Devices** > **Pairing mode**.
+  - On a GX device without a built-in screen, quickly press the built-in button twice.
+2. In Home Assistant, select **Submit** within 120 seconds.
+
+Home Assistant requests and stores the token credentials automatically. If your device does not support token pairing, enter the password configured on the GX device when prompted.
 
 When setting up the integration manually, you need to provide connection details based on your Victron device's security profile.
 
@@ -259,6 +270,20 @@ The credentials provided are incorrect.
 1. Double-check the username and password if authentication is enabled.
 2. These are device credentials configured on the Victron device, not <abbr title="Victron Remote Monitoring">VRM</abbr> portal credentials.
 3. Verify the security profile setting on your Victron device under **Settings** > **General** > **Local Network Security Profile**.
+
+### Token pairing failed
+
+#### Symptom: Pairing fails during setup
+
+#### Description
+
+Home Assistant cannot request token credentials from the Victron GX device.
+
+#### Resolution
+
+1. Enable pairing mode on the GX device.
+2. Submit the pairing form in Home Assistant within 120 seconds.
+3. If pairing mode expires, enable it again, and retry the form.
 
 ### No sensors appear
 
