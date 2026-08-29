@@ -82,7 +82,8 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     9. Enable the HomeGraph API.
 
 4. Add the `google_assistant` integration configuration to your {% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-5. Add services in the Google Home App (note that app versions may be slightly different).
+5. Choose which entities to expose to Google Assistant. See [Expose entities](#expose-entities) below.
+6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Select the Devices tab at the bottom and select the `+ Add` button on the bottom right corner.
     3. In the **Choose a device** screen, select **Works with Google Home**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to log in to your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
@@ -162,9 +163,6 @@ google_assistant:
   project_id: YOUR_PROJECT_ID
   service_account: !include SERVICE_ACCOUNT.json
   report_state: true
-  exposed_domains:
-    - switch
-    - light
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -172,7 +170,6 @@ google_assistant:
         - BRIGHT_LIGHTS
         - ENTRY_LIGHTS
     light.living_room:
-      expose: false
       room: LIVING_ROOM
 ```
 
@@ -204,15 +201,6 @@ report_state:
   required: false
   default: false
   type: boolean
-expose_by_default:
-  description: "Expose devices in all supported domains by default. If `exposed_domains` domains is set, only these domains are exposed by default. If `expose_by_default` is set to false, devices have to be manually exposed in `entity_config`."
-  required: false
-  default: true
-  type: boolean
-exposed_domains:
-  description: List of entity domains to expose to Google Assistant if `expose_by_default` is set to true. This has no effect if `expose_by_default` is set to false.
-  required: false
-  type: list
 entity_config:
   description: Entity specific configuration for Google Assistant
   required: false
@@ -227,11 +215,6 @@ entity_config:
           description: Name of the entity to show in Google Assistant
           required: false
           type: string
-        expose:
-          description: Force an entity to be exposed/excluded.
-          required: false
-          type: boolean
-          default: true
         aliases:
           description: Aliases that can also be used to refer to this entity
           required: false
@@ -241,6 +224,10 @@ entity_config:
           required: false
           type: string
 {% endconfiguration %}
+
+### Expose entities
+
+Choose which entities are available to Google Assistant from {% my voice_assistants title="**Settings** > **Voice assistants** > **Expose**" %}. See [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/) for the full walkthrough.
 
 ### Available domains
 
@@ -365,4 +352,4 @@ If you're having trouble with _Account linking failed_ after you unlinked your s
 
 ### Failed linking - Could not update the setting. Please check your connection
 
-If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try [unexposing](#expose-entities) all entities except a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
