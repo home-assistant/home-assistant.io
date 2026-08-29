@@ -69,7 +69,6 @@ Your power station is added as a single device.
 - **Battery Voltage**, **Total Battery Voltage**: The battery's voltage.
 - **Battery Current**, **Total Battery Current**: The battery's current.
 - **Battery SoC**, **Total Battery SoC**: The battery's present charge level.
-- **Max Charge Limit (SoC High)**, **Min Discharge Limit (SoC Low)**: The configured charge limits.
 - **Battery SoH**, **Total Battery SoH**: The battery's state of health.
 - **Average Battery Temperature**: The battery's temperature.
 - **Total Battery Charged Energy**, **Total Battery Discharged Energy**: Lifetime battery energy counters.
@@ -81,7 +80,9 @@ Your power station is added as a single device.
 - **Inverter Status**, **Inverter Fault**, **Inverter Warning**: The inverter's current status and any active fault or warning.
 - **Total Inverter Power**, **Inverter Count**: Inverter-level totals.
 
-The following are added as diagnostic entities: **Battery Type**, **Inverter Type**, **Cell Count**, **Battery Cycle Count**, **Temperature Sensor Count**, **Number of Battery Packs**, **AC Output Switch**, **Grid Charging Switch**, **Grid Feed-in Switch**, and the charge limit sensors above. Switching these on or off is not supported yet; they are read-only here.
+The following are added as diagnostic entities: **Battery Type**, **Inverter Type**, **Cell Count**, **Battery Cycle Count**, **Temperature Sensor Count**, **Number of Battery Packs**.
+
+The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities - see [Known limitations](#known-limitations).
 
 `Total Battery SoC` and `Total Battery SoH` read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
 
@@ -93,9 +94,9 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ## Known limitations
 
-- Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in) and the fault/warning bits as proper binary sensors are not available yet.
-- The device model cannot be detected automatically; you select it yourself during setup. If you picked the wrong one, use **Reconfigure** rather than removing and re-adding the integration.
-- Home Assistant identifies the device by its address, device ID, and port, not by a serial number the device reports over Modbus. Moving the device to another address requires reconfiguring the entry.
+- Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
+- The device model cannot be detected automatically; you select it yourself during setup, and setup does not always catch a wrong pick - see [Setup fails after selecting a model](#setup-fails-after-selecting-a-model). If you picked the wrong one, use **Reconfigure** rather than removing and re-adding the integration.
+- On a model that reports a serial number over Modbus (Balco260), Home Assistant identifies the device by it: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and reconfiguring the entry to that address is rejected. A model with no serial field (EP2000) is identified by its address, device ID, and port instead, with no way to detect a same-address swap to a different unit; moving the device still requires reconfiguring the entry to the new address either way.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
 ## Troubleshooting
@@ -111,7 +112,9 @@ If setup or a later poll cannot reach the device, work through the following ste
 
 ### Setup fails after selecting a model
 
-The model selected during setup must match the device actually at that address. If the device answers but the model does not match, setup fails rather than creating entities that never populate correctly.
+The model selected during setup is confirmed by successfully reading that model's registers from the device, not by checking the device's real model. EP2000's register map is almost entirely a subset of Balco260's, at the same addresses, so picking **EP2000** for a device that is actually a Balco260 can still pass setup - you get a working entry, just missing the Balco260-only sensors (serial number, ARM/DSP firmware version, grid energy totals, and PV strings 3 and 4). Picking **Balco260** for a device that is really an EP2000 does reliably fail, since Balco260's map includes registers an EP2000 does not answer.
+
+If you are missing sensors you expect, or entities that never leave `unavailable`, reconfigure the entry and try the other model.
 
 ## Removing the integration
 
