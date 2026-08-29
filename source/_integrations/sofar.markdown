@@ -73,7 +73,7 @@ The overall totals and the readings most people need are enabled by default. Per
 
 ### Switch
 
-- **Remote switch**: Enables or disables the inverter's remote on/off control.
+- **Remote switch**: Stops or resumes the inverter's operation remotely. Turning it off puts the inverter into its waiting state rather than cutting power to it.
 
 ## Data updates
 
