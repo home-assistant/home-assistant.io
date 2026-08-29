@@ -51,8 +51,9 @@ The **Persang Infrared** integration provides the following entities.
 
 - The integration uses assumed state, meaning Home Assistant cannot read the actual state of the speaker (for example, whether it is on or off, or what the current volume is).
 - Presses on the physical remote are not tracked. The integration only sends commands through an infrared transmitter, so using the remote directly leaves the entities showing whatever state Home Assistant last set.
-- Turning on and turning off the speaker both send the same IR power toggle command, as is standard with infrared remotes. The same applies to play and pause, and to muting and unmuting. To avoid toggling the speaker away from the requested state, Home Assistant skips the command when it already assumes the speaker is in that state.
+- Turning on and turning off the speaker both send the same IR power toggle command, as is standard with infrared remotes. The same applies to play and pause, and to muting and unmuting. The command is always sent, so if the speaker and Home Assistant disagree, sending the opposite command brings them back in sync.
 - Volume control is step-based only; there is no way to set an absolute volume level.
+- Mute is not restored after a restart.
 - Source selection is not exposed, because the remote has no dedicated source buttons.
 - The remaining remote buttons, such as mode, equalizer, scan, repeat, and the numeric keys, are not exposed yet.
 
