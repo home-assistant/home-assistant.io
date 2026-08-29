@@ -4,7 +4,7 @@ description: Integration to control Persang speakers using an infrared transmitt
 ha_category:
   - Infrared
   - Media player
-ha_release: 2026.9
+ha_release: '2026.10'
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
