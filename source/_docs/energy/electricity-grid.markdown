@@ -9,6 +9,10 @@ Almost all houses are connected to the electricity grid which provides the energ
 
 <img src='/images/docs/energy/grid.png' alt='Graphic showing energy flowing from the grid to Home Assistant.' style='border: 0;box-shadow: none; display: block; max-height: 400px; margin: 0 auto;'>
 
+## Multiple grid connections and a battery
+
+If you have multiple grid connections and a home battery, edit each grid connection and select whether it can charge the battery under **Battery charging**. For example, mark a separate grid connection for an electric vehicle charger as **Cannot charge the battery** if it bypasses the battery inverter. This information allows the Energy dashboard to keep the grid connections separate while the battery is charging. Leave the connection that supplies the battery set to **Can charge the battery**.
+
 ## Tariffs
 
 It has become popular for energy utilities to split the price of energy based on time of the day; this is done in order to incentivise consumers to shift their power needs towards times where the grid has lower loads. These periods of time are commonly referred to as Peak and Off-Peak. They match periods when everyone is consuming energy (Peak) and periods when energy is abundant, but no one is using it (Off-Peak). Therefore, Peak energy is more expensive than Off Peak energy.
