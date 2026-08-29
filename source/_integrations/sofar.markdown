@@ -9,6 +9,7 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - button
   - sensor
   - switch
 ha_config_flow: true
@@ -48,6 +49,11 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 ## Supported functionality
 
 The **Sofar** integration provides the following entities.
+
+### Buttons
+
+- **RTC sync**: Writes the current date and time to the inverter's clock.
+- **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
 
 ### Sensors
 
