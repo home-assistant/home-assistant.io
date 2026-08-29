@@ -11,58 +11,113 @@ ha_domain: notify
 ha_integration_type: entity
 ---
 
-The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
+The **Notify** {% term integration %} makes it possible to send notifications to a wide variety of platforms. To use it, you have to set up at least one notification target (notifier). Check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
-If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). The Persistent Notification integration is also available as an automatically configured notifier. See [its documentation](/integrations/persistent_notification/) for more details.
+If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/). It is available as an automatically configured notifier. See [its documentation](/integrations/persistent_notification/) for more details.
 
-## Service
+{% include integrations/building_block_integration.md %}
 
-Once loaded, the `notify` platform will expose a service that can be called to send notifications.
+## The state of a notify entity
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `title`                |      yes | Title of the notification.
-| `target`               |      yes | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported.
-| `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
+The state of a notify entity is the date and time when a message was last sent.
 
-The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of Home Assistant in your notifications.
+<p class='img'>
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the States tab of Tools.' />
+Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}
+</p>
 
-In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In addition, the entity can have the following states:
 
-Be aware that you might want to change the actual service to whatever service you are actually using since `notify.notify` is shorthand for the first notify service the system can find and might therefore not be working as intended.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-```yaml
-action:
-  service: notify.notify
-  data:
-    message: "Your message goes here"
-    title: "Custom subject"
-```
+{% include integrations/actions.md %}
 
-### Test if it works
+## Companion app notifications
 
-After you setup a [notifier](/integrations/#notifications) a simple way to test if you have set up your notify platform correctly, is to open **Developer Tools** from the sidebar and then select the  **Services** tab. Choose your service from the **Service** dropdown menu, enter the sample below into the **Service Data** field, and press the **CALL SERVICE** button.
+A common notification integration is via the Home Assistant Companion app for Android or iOS. If your phone is available as a notify entity, use the **Send a notification message** action and select that phone as the target. Some older setups may still provide a phone-specific action such as `notify.mobile_app_your_phone_name`. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for many customization options.
 
-{% raw %}
+With any of these integrations, the **Message** field in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional **Data** or **Target** information to customize the action. For more details, refer to their integration documentation.
 
-```json
-{
-  "message": "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
-}
-```
+Be aware that the `notify.notify` action is shorthand for the first notify action the system can find. It might not work as intended. Choose a specific action to make sure your message goes to the right place.
 
-{% endraw %}
+Notifications can also be sent using [notify action groups](/integrations/group/#notify-action-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
-The automation equivalent would be:
+## Notifications automation examples
 
-{% raw %}
+Notifications are most useful when Home Assistant sends them at the right moment, such as when something needs your attention or when you want a message to stay visible in the interface. The examples below show two common ways to use notification actions in automations.
 
-```yaml
-action:
-  service: notify.notify
-  data:
-    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
-```
+{% include docs/paste_yaml_tip.md %}
 
-{% endraw %}
+### Automation: send a notification when the garage door stays open
+
+This automation sends a message to your phone when the garage door has been open for 10 minutes.
+
+- **Trigger**: State
+  - **Entity**: Garage door (`binary_sensor.garage_door`)
+  - **To**: On
+  - **For**: 00:10:00
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: The garage door has been open for 10 minutes.
+
+{% details "YAML example for a garage door notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the garage door stays open"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.garage_door
+      to: "on"
+      for: "00:10:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          The garage door has been open for 10 minutes.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: show a persistent notification when a leak is detected
+
+This automation shows a notification in the Home Assistant interface when a leak sensor detects moisture.
+
+- **Trigger**: State
+  - **Entity**: Kitchen leak sensor (`binary_sensor.kitchen_leak`)
+  - **To**: On
+- **Action**: Send a persistent notification
+  - **Title**: Water leak detected
+  - **Message**: The kitchen leak sensor detected moisture.
+
+{% details "YAML example for a leak notification" %}
+
+{% example %}
+automation: |
+  alias: "Show a kitchen leak notification"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.kitchen_leak
+      to: "on"
+  actions:
+    - action: notify.persistent_notification
+      data:
+        title: "Water leak detected"
+        message: "The kitchen leak sensor detected moisture."
+{% endexample %}
+
+{% enddetails %}
+
+## Testing a notification action
+
+After you set up a [notifier](/integrations/#notifications), test its action in **Tools**.
+
+1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+2. From the **Action** dropdown menu, choose the action you want to test, such as **Send a notification message** or **Send a persistent notification**.
+3. If you are testing `notify.send_message`, select one or more targets using **Entity**, **Device**, **Area**, **Floor**, or **Label**.
+4. In **Message**, enter the notification text.
+5. Select **Perform action**.

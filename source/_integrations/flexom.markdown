@@ -3,10 +3,11 @@ title: Bouygues Flexom
 description: Connect and control your Bouygues Flexom devices using the Overkiz integration
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Climate
   - Cover
+  - Fan
   - Hub
   - Light
   - Lock
@@ -16,7 +17,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-  - Water Heater
+  - Water heater
 ha_domain: flexom
 ha_integration_type: virtual
 ha_supporting_domain: overkiz
@@ -24,9 +25,6 @@ ha_supporting_integration: Overkiz
 ha_release: 2022.2
 ha_codeowners:
   - '@imicknl'
-  - '@vlebourl'
-  - '@tetienne'
-  - '@nyroDev'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -35,6 +33,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - lock
   - number
@@ -44,7 +43,7 @@ ha_platforms:
   - siren
   - switch
   - water_heater
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Polling
 ha_dhcp: true
 ha_zeroconf: true
 ---

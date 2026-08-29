@@ -2,27 +2,44 @@
 title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Helper
   - Utility
 ha_release: 0.28
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_domain: trend
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_config_flow: true
+ha_integration_type: helper
+ha_codeowners:
+  - '@jpbede'
 ---
 
-The `trend` platform allows you to create sensors which show the trend of
-numeric `state` or`state_attributes` from other entities. This sensor requires
-at least two updates of the underlying sensor to establish a trend.
+The **Trend** {% term integration %} allows you to create sensors that show the trend of
+numeric `state` or `state_attributes` from other entities. This sensor requires
+at least two updates of the tracked entity to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Entity that the sensor tracks:
+  description: The sensor or counter entity that this sensor tracks.
+Attribute of the entity that the sensor tracks:
+  description: The attribute of the previously selected entity that this sensor tracks. If no attribute is specified, the sensor will track the state.
+Invert the result:
+  description: Invert the result. A `true` value would mean descending rather than ascending.
+{% endconfiguration_basic %}
+
+### YAML Configuration
 
 To enable Trend binary sensors in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,6 +86,11 @@ sensors:
       required: false
       type: integer
       default: 2
+    min_samples:
+      description: The minimum number of samples that must be collected before the gradient can be calculated.
+      required: false
+      type: integer
+      default: 2
     min_gradient:
       description: >
         The minimum rate at which the observed value
@@ -84,6 +106,12 @@ sensors:
       required: false
       type: integer
       default: 0
+    unique_id:
+      description: >
+        An ID that uniquely identifies this sensor. Set this to a unique value to allow
+        customization through the UI and to enable the sensor to be placed in areas.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Using Multiple Samples
@@ -91,7 +119,7 @@ sensors:
 If the optional `sample_duration` and `max_samples` parameters are specified
 then multiple samples can be stored and used to detect long-term trends.
 
-Each time the state changes, a new sample is stored along with the sample time. Samples older than `sample_duration` seconds will be discarded. The `max_samples` parameter must be large enough to store sensor updates over the requested duration. If you want to trend over two hours and your sensor updates every 120s then `max_samples` must be at least 60, i.e., 7200/120 = 60.
+Each time the state changes, a new sample is stored along with the sample time. Samples older than `sample_duration` seconds will be discarded. The `max_samples` parameter must be large enough to store sensor updates over the requested duration. If you want to trend over two hours and your sensor updates every 120s then `max_samples` must be at least 60, that is, 7200/120 = 60.
 
 A trend line is then fitted to the available samples, and the gradient of this
 line is compared to `min_gradient` to determine the state of the trend sensor.
@@ -126,15 +154,19 @@ binary_sensor:
     sensors:
       temp_falling:
         entity_id: sensor.outside_temperature
+        unique_id: outside_temp_falling_trend
         sample_duration: 7200
         max_samples: 120
+        min_samples: 20
         min_gradient: -0.0008
         device_class: cold
 
       temp_rising:
         entity_id: sensor.outside_temperature
+        unique_id: outside_temp_rising_trend
         sample_duration: 7200
         max_samples: 120
+        min_samples: 20
         min_gradient: 0.0008
         device_class: heat
 ```

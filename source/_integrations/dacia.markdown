@@ -2,9 +2,10 @@
 title: Dacia
 description: Connect and control your Dacia devices using the Renault integration
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Car
-  - Presence Detection
+  - Number
+  - Presence detection
   - Select
   - Sensor
 ha_domain: dacia
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - number
   - select
   - sensor
 ha_iot_class: Cloud Polling

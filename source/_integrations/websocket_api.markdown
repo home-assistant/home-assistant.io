@@ -1,6 +1,6 @@
 ---
 title: Home Assistant WebSocket API
-description: Instructions on how to setup the WebSocket API within Home Assistant.
+description: Instructions on how to set up the WebSocket API within Home Assistant.
 ha_category:
   - Other
 ha_release: 0.34
@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The `websocket_api` integration set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/integrations/http/).
+The **Home Assistant WebSocket API** {% term integration %} set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/integrations/http/).
 
 ## Configuration
 

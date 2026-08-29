@@ -54,7 +54,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 - [Release 2023.2.4 - February 13](#release-202324---february-13)
 - [Release 2023.2.5 - February 15](#release-202325---february-15)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -77,7 +77,7 @@ Today we like you to meet:
 allows you to use natural language to control Home Assistant. It is powered by
 [Hassil](https://github.com/home-assistant/hassil) and the sentences
 (contributed by 112! people) from the
-[Home Assistant Intents](https://home-assistant.github.io/intents/) project.
+[Home Assistant Intents](https://ohf-voice.github.io/intents/) project.
 
 We believe technology is meant to be played with, and projects should be
 usable as soon as possible. Together with the community, we can then iterate
@@ -733,7 +733,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Python 3.9 support has been removed" %}
 

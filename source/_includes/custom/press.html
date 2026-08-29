@@ -1,0 +1,94 @@
+{% if include.product %}{% assign press_data = site.data.product_press[include.product] %}{% endif %}
+{% assign press_title = include.title | default: press_data.title | default: "Over 2 million households" %}
+{% assign press_lead = include.lead | default: press_data.lead | default: "Trusted by home automation experts and everyday users worldwide" %}
+{% assign press_cards = include.cards | default: press_data.cards | default: site.data.community_cards.cards %}
+{% assign press_columns = include.columns | default: 4 %}
+{% assign press_classes = "press-cards community-cards" %}
+{% if include.class %}{% assign press_classes = press_classes | append: " " | append: include.class %}{% endif %}
+
+{% if press_cards.size > 0 %}
+<section class="{{ press_classes }}"{% if include.id %} id="{{ include.id }}"{% endif %}>
+  <div class="content-intro">
+    <h2 class="sub-title">{{ press_title }}</h2>
+    <p class="lead">{{ press_lead }}</p>
+  </div>
+
+  <div class="masonry">
+    {% for col in (1..press_columns) %}
+      {% assign col_index = forloop.index0 %}
+      <div class="masonry__col masonry__col--{{ forloop.index }}">
+        {% for card in press_cards %}
+          {% assign card_col = forloop.index0 | modulo: press_columns %}
+          {% if card_col == col_index %}
+            {% assign card_classes = 'material-card community-card' %}
+            {% assign card_link_icon = card.link_icon %}
+            {% assign card_is_youtube = false %}
+            {% if card.href contains "youtube.com" or card.href contains "youtu.be" %}{% assign card_is_youtube = true %}{% endif %}
+            {% if card.quote %}{% assign card_classes = card_classes | append: ' community-card--quote' %}{% endif %}
+            {% if card.background_image %}{% assign card_classes = card_classes | append: ' community-card--image' %}{% endif %}
+            {% if card.video %}
+              {% assign card_classes = card_classes | append: ' community-card--video' %}
+            {% elsif card_is_youtube %}
+              {% assign card_classes = card_classes | append: ' community-card--video-card' %}
+              {% assign card_link_icon = '/images/community-cards/play-icon.png' %}
+            {% endif %}
+            <a href="{{ card.href }}" class="community-card__link" style="--source-order: {{ forloop.index0 }};" target="_blank" rel="noopener noreferrer">
+              <div class="{{ card_classes }}">
+                <div class="community-card__content">
+                  <p>{{ card.text }}</p>
+                  <p class="community-card__meta">
+                    {% if card.author_image %}<img class="author" src="{{ card.author_image }}" alt="{{ card.author_image_alt }}">{% endif %}
+                    <span>{{ card.author }}</span>
+                    {% if card_link_icon %}<img class="meta-link" src="{{ card_link_icon }}" alt="Link icon">{% endif %}
+                  </p>
+                </div>
+                {% if card.background_image %}<img class="community-card__image" src="{{ card.background_image }}" alt="{{ card.background_image_alt }}">{% endif %}
+                {% if card.video %}<video class="community-card__video" loop muted playsinline loading="lazy" poster="{{ card.video_poster }}"><source src="{{ card.video }}" type="video/webm"></video>{% endif %}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  (function () {
+    const cards = document.querySelectorAll('.community-card--video');
+    if (!cards.length) return;
+
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+    if (supportsHover) {
+      // Desktop: play on hover
+      cards.forEach(card => {
+        const video = card.querySelector('.community-card__video');
+        if (!video) return;
+        card.addEventListener('mouseenter', () => {
+          video.play().catch(() => {});
+        });
+        card.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+    } else if ('IntersectionObserver' in window) {
+      // Mobile/touch: play when the card is in view
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const video = entry.target.querySelector('.community-card__video');
+          if (!video) return;
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: [0, 0.6, 1] });
+
+      cards.forEach(card => observer.observe(card));
+    }
+  })();
+</script>
+{% endif %}

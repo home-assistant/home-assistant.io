@@ -7,8 +7,7 @@ date_formatted: "October 25, 2022"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories:
-- Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2022-10-25-ultraloq-partner/social.png
 ---
 

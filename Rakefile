@@ -8,6 +8,8 @@ require 'json'
 public_dir      = "public/"   # compiled site directory
 source_dir      = "source"    # source file directory
 server_port     = "4000"      # port for preview server eg. localhost:4000
+sass_dir        = "sass"
+sass_compile    = "sass #{sass_dir}/:#{source_dir}/stylesheets/ --style=compressed --no-source-map --load-path=#{sass_dir} --quiet-deps"
 
 if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
   puts '## Set the codepage to 65001 for Windows machines'
@@ -18,11 +20,17 @@ end
 # Working with Jekyll #
 #######################
 
+desc "Compile SCSS files to CSS"
+task :compile_sass do
+  success = system sass_compile
+  abort("Compiling SCSS failed") unless success
+end
+
 desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
-  success = system "compass compile --css-dir #{source_dir}/stylesheets"
+  success = system sass_compile
   abort("Generating CSS failed") unless success
   success = system "rake analytics_data"
   abort("Generating analytics data failed") unless success
@@ -30,8 +38,12 @@ task :generate do
   abort("Generating alerts data failed") unless success
   success = system "rake version_data"
   abort("Generating version data failed") unless success
-  success = system "rake blueprint_exchange_data"
-  abort("Generating blueprint exchange data failed") unless success
+  success = system "rake language_scores_data"
+  abort("Generating language scores data failed") unless success
+  success = system "rake codeowners_data"
+  abort("Extracting codeowners") unless success
+  success = system "rake wwha_data"
+  abort("Generating WWHA device data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -46,17 +58,17 @@ end
 desc "Watch the site and regenerate when it changes"
 task :watch do
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
-  puts "Starting to watch source with Jekyll and Compass."
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  puts "Starting to watch source with Jekyll and Sass."
+  system sass_compile unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch --incremental")
-  compassPid = Process.spawn("compass watch")
+  sassPid = Process.spawn("#{sass_compile} --watch")
 
   trap("INT") {
-    [jekyllPid, compassPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    [jekyllPid, sassPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
     exit 0
   }
 
-  [jekyllPid, compassPid].each { |pid| Process.wait(pid) }
+  [jekyllPid, sassPid].each { |pid| Process.wait(pid) }
 end
 
 desc "preview the site in a web browser"
@@ -64,23 +76,26 @@ task :preview, :listen do |t, args|
   listen_addr = args[:listen] || '127.0.0.1'
   listen_addr = '0.0.0.0' unless ENV['DEVCONTAINER'].nil?
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
-  puts "Starting to watch source with Jekyll and Compass."
+  puts "Starting to watch source with Jekyll and Sass."
   puts "Now listening on http://localhost:#{server_port}"
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  # Always compile all SCSS files before starting Jekyll
+  system sass_compile
   system "rake analytics_data"
   system "rake version_data"
+  system "rake language_scores_data"
+  system "rake codeowners_data"
   system "rake alerts_data"
-  system "rake blueprint_exchange_data"
+  system "rake wwha_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
-  compassPid = Process.spawn("compass watch")
+  sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
 
   trap("INT") {
-    [jekyllPid, compassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    [jekyllPid, sassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
     exit 0
   }
 
-  [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
+  [jekyllPid, sassPid, rackupPid].each { |pid| Process.wait(pid) }
 end
 
 desc "Download data from analytics.home-assistant.io"
@@ -117,13 +132,46 @@ task :version_data do
   end
 end
 
-desc "Download data from the blueprint exchange @ community.home-assistant.io"
-task :blueprint_exchange_data do
-  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top.json?period=all')
+desc "Download supported language data from ohf-voice.github.io"
+task :language_scores_data do
+  uri = URI('https://ohf-voice.github.io/intents/language_scores.json')
 
   remote_data = JSON.parse(Net::HTTP.get(uri))
 
-  File.open("#{source_dir}/_data/blueprint_exchange_data.json", "w") do |file|
-    file.write(JSON.generate(remote_data['topic_list']['topics']))
+  File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download device data from works-with.home-assistant.io"
+task :wwha_data do
+  uri = URI('https://works-with.home-assistant.io/devices.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/wwha_devices.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Extract CODEOWNERS and output to _data/codeowners.json"
+task :codeowners_data do
+  codeowners = []
+  File.readlines("CODEOWNERS").each do |line|
+    next if line.start_with?("#") || line.strip.empty?
+    parts = line.split
+    next if parts.length < 2
+    owners = parts[1..-1]
+    owners.each do |owner|
+      owner = owner.delete_prefix('@')
+      next if owner.include?('/')
+      codeowners << owner unless codeowners.include?(owner)
+    end
+  end
+
+  codeowners.sort!
+
+  File.open("#{source_dir}/_data/codeowners.json", "w") do |file|
+    file.write(JSON.generate(codeowners))
   end
 end

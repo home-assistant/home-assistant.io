@@ -2,25 +2,23 @@
 title: OwnTracks
 description: Instructions on how to use OwnTracks to track devices in Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Push
 ha_release: 0.7.4
 ha_config_flow: true
 ha_domain: owntracks
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allows you to track your location and send it directly to Home Assistant. OwnTracks can be set up via  **{% my integrations title="Settings > Devices & Services" %}**.
+[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allows you to track your location and send it directly to Home Assistant. OwnTracks can be set up via  **{% my integrations title="Settings > Devices & services" %}**.
 
 By default, the integration listens for incoming messages from OwnTracks via HTTP. If Home Assistant is configured to use MQTT instead, it listens for MQTT messages. When a location is submitted via HTTP, Home Assistant returns all [Persons](/integrations/person/)' last known locations. Their location will be displayed within the OwnTracks app.
 
-<lite-youtube videoid="UieAQ8sC6GY" videotitle="Location Tracking with OwnTracks HTTP Mode and Home Assistant" posterquality="maxresdefault"></lite-youtube>
-
 ## Configuration
 
-1. To set up OwnTracks in Home Assistant, go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. To set up OwnTracks in Home Assistant, go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Add the **OwnTracks** integration.
    - This will give you the **Webhook** URL as well as the **Encryption key** to use during mobile device configuration (below).
 
@@ -44,7 +42,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ### Configuring the app - iOS
 
-1. [Install the OwnTracks application for iOS.](https://itunes.apple.com/us/app/owntracks/id692424691?mt=8)
+1. [Install the OwnTracks application for iOS.](https://apps.apple.com/app/id692424691)
 2. In the OwnTracks app, tap the (i) in the top left and select **Settings**. 
 3. Change the following settings:
 
@@ -53,9 +51,31 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
    - Turn on authentication
    - **User ID**: `<Your name>`. You can make one up for OwnTracks.
 
+## Device tracker state attributes
+
+When Home Assistant receives a location update from OwnTracks, the device tracker entity includes the following state attributes.
+
+{% details "Example state attributes" %}
+
+```yaml
+source_type: gps
+latitude: 12.345678
+longitude: 12.345678
+gps_accuracy: 60
+battery_level: 92
+tid: ab
+velocity: 0
+course: 248
+update_timestamp: "2026-03-09T12:18:40+00:00"
+```
+
+{% enddetails %}
+
+The `update_timestamp` attribute is populated from the OwnTracks `tst` field and represents the original update time reported by the device. It is only present when the location message includes a `tst value, which is always the case for standard location messages.
+
 ## Advanced configuration
 
-OwnTracks allows the user to set advanced configuration by adding a section to your `configuration.yaml`.
+OwnTracks allows the user to set advanced configuration by adding a section to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +93,7 @@ waypoints:
   default: true
   type: boolean
 waypoint_whitelist:
-  description: "A list of user names (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
+  description: "A list of usernames (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
   required: false
   default: All users who are connected to Home Assistant via OwnTracks.
   type: list
@@ -120,31 +140,31 @@ OwnTracks can track regions, and send region entry and exit information to Home 
 
 Home Assistant uses the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
-When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS coordinates), you may want to set your Zone radius in HA to be slightly smaller that the OwnTracks region radius.
+When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS coordinates), you may want to set your Zone radius in Home Assistant to be slightly smaller that the OwnTracks region radius.
 
 ## Using OwnTracks regions - forcing OwnTracks to update using iBeaconsOwntracks
 
-<div class='note'>
+{% note %}
 OwnTracks v2.0.0 removes support for iBeacons on Android.
-</div>
+{% endnote %}
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), OwnTracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 
 iBeacons are simple Bluetooth devices that send out an "I'm here" message. They are supported by iOS and some Android devices. OwnTracks explain more [here](https://owntracks.org/booklet/guide/beacons/).
 
-When you enter an iBeacon region, OwnTracks will send a `region enter` message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to HA that will set your zone to be `home`.
+When you enter an iBeacon region, OwnTracks will send a `region enter` message to Home Assistant as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to Home Assistant that will set your zone to be `home`.
 
-When you exit an iBeacon region HA will switch back to using GPS to determine your location. Depending on the size of your zone, and the accuracy of your GPS location this may change your HA zone.
+When you exit an iBeacon region Home Assistant will switch back to using GPS to determine your location. Depending on the size of your zone, and the accuracy of your GPS location this may change your Home Assistant zone.
 
-Sometimes OwnTracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` OwnTracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the OwnTracks region with Zones. So if you call your OwnTracks region `-home` then HA will recognize it as `home`, but you will have a more stable iBeacon connection.
+Sometimes OwnTracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` OwnTracks will wait longer before deciding it has exited the beacon zone. Home Assistant will ignore the `-` when it matches the OwnTracks region with Zones. So if you call your OwnTracks region `-home` then Home Assistant will recognize it as `home`, but you will have a more stable iBeacon connection.
 
 ## Using OwnTracks iBeacons to track devices
 
 iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
 
-When your phone sees a mobile iBeacon that it knows about, it will tell HA the location of that iBeacon. If your phone moves while you are connected to the iBeacon, HA will update the location of the iBeacon. But when your phone loses the connection, HA will stop updating the iBeacon location.
+When your phone sees a mobile iBeacon that it knows about, it will tell Home Assistant the location of that iBeacon. If your phone moves while you are connected to the iBeacon, Home Assistant will update the location of the iBeacon. But when your phone loses the connection, Home Assistant will stop updating the iBeacon location.
 
-To use mobile iBeacons with HA, you just set up a region that doesn't match your Zone names. If HA sees an entry event for an iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
+To use mobile iBeacons with Home Assistant, you just set up a region that doesn't match your Zone names. If Home Assistant sees an entry event for an iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
 
 This allows you to write zone automations for devices that can't track themselves (for example *alert me if I leave the house and my keys are still at home*). Another example would be *open the gates if my car arrives home*.
 

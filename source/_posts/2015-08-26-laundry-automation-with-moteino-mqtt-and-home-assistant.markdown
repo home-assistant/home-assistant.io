@@ -45,17 +45,17 @@ Next I wrote [scripts](/integrations/script/) that are run whenever the washer o
 Materials used:
 
  - [Moteino](https://lowpowerlab.com/moteino/)
- - [2 x Accelerometers](https://amzn.to/2WXa2s5)
- - [2 x Reed switch](https://amzn.to/2X0ZuZ2)
+ - [2 x Accelerometers](https://www.amazon.com/dp/B008BOPN40)
+ - [2 x Reed switch](https://www.amazon.com/dp/B01IU7NWMM)
  - [Home Assistant](/)
 
 [Sketch for the Moteino is available here.](https://codebender.cc/sketch:144743)
 
 Home Assistant Configuration:
 
-<div class='note'>
+{% note %}
 The automation and script syntax here is using a deprecated and no longer supported format.
-</div>
+{% endnote %}
 
 ```yaml
 mqtt:

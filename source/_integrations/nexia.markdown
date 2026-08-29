@@ -2,7 +2,7 @@
 title: Nexia/American Standard/Trane
 description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Scene
   - Sensor
@@ -22,14 +22,14 @@ ha_platforms:
   - scene
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
+The **Nexia/American Standard/Trane** {% term integration %} allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Scene](#scene)
@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 The following binary sensors are added for each thermostat:
 
@@ -59,6 +59,12 @@ The following sensors are added for each thermostat zone:
 - Zone Temperature
 - Zone Setpoint Status
 - Zone Status
+
+The following sensors are added for each RoomIQ sensor in zones that contain more than one RoomIQ sensor (if your device supports [RoomIQ](https://support.asairhome.com/hc/en-us/articles/360045784651-RoomIQ-Overview-and-Usage)). These sensors are disabled by default because enabling them also fetches current RoomIQ sensor states during each Nexia data refresh, which can add 5–40 seconds of latency and additional network traffic. You can [enable them in the entity settings](/docs/configuration/customizing-devices/).
+
+- Temperature
+- Humidity
+- Battery level (if the RoomIQ sensor is battery-powered)
 
 ### Climate
 
@@ -82,23 +88,24 @@ The scene platform lets you activate a nexia automation.
 
 ### Switch
 
-The switch platform lets you enable or disable hold mode for each thermostat.
+The following enable/disable switches are added for each thermostat:
 
-### Service `nexia.set_aircleaner_mode`
+- Emergency heat (if the device supports it)
 
-Sets the air cleaner mode. Options include 'auto', 'quick', and 
-'allergy'. This setting will affect all zones on the same thermostat.
+The following enable/disable switches are added for each thermostat zone:
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `aircleaner_mode` | no | 'auto', 'quick', or 'allergy'
+- Hold mode
 
-### Service `nexia.set_humidify_setpoint`
+The following include/exclude {% term switch %} is added for each RoomIQ sensor (if the device supports
+[RoomIQ](https://support.asairhome.com/hc/en-us/articles/360045784651-RoomIQ-Overview-and-Usage)).
 
-Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
+- Include `YOUR_SENSOR_NAME` (with your sensor name)
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `humidity` | no | Humidify setpoint level, from 35 to 65.
+These switches allow you to select which RoomIQ sensors to include in a zone's average temperature.
+To change your selected sensors, set each switch to represent your choice.
+Several seconds after the last such change, the selection is sent to the manufacturer's web service.
+It usually takes 10–15 seconds to complete, depending on the web service.
+At least one sensor must be selected.
+If you exclude all sensors, the switches will revert to show the zone's settings.
+
+{% include integrations/actions.md %}

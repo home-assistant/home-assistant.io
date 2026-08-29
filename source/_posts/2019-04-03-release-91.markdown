@@ -188,7 +188,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 
@@ -196,7 +196,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Z-Wave__ - The usb_path in configuration.yaml now overrides config entry usb_path. This is potentially a breaking change if people have a stale usb_path setting in configuration.yaml that's no longer accurate. This should help reduce the number of people that need to manually edit the storage/core.config_entries file if their usb_path changes. ([@cgarwood] - [#22038]) ([zwave docs])
 

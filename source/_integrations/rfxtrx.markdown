@@ -2,8 +2,9 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
+  - Event
   - Hub
   - Light
   - Sensor
@@ -21,29 +22,31 @@ ha_platforms:
   - binary_sensor
   - cover
   - diagnostics
+  - event
   - light
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
+The **RFXCOM RFXtrx** {% term integration %} supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Cover](#covers)
+- [Event](#events)
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
-- [Binary Sensor](#binary-sensors)
+- [Binary sensor](#binary-sensors)
 - [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
 ## Debug logging
 
-To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+To receive debug logging from the RFXCOM device, add the following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
@@ -88,7 +91,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration, go to **Settings** > **Devices & services** and select **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -99,6 +102,10 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 #### Covers
 
 The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
+
+#### Events
+
+The RFXtrx integration will expose event entities for remotes controlling lights as well as security devices.
 
 #### Lights
 
@@ -116,7 +123,7 @@ The RFXtrx integration support sensors that communicate in the frequency range o
 
 Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
 
-#### Binary Sensors
+#### Binary sensors
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
@@ -132,7 +139,7 @@ See [Generate codes](#generate-codes) how to generate event codes.
 
 #### Somfy RTS
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `03` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. For example, if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, for example, id: `1` `02` `03` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
 To add the device, enter the value unaltered in the Event Code field, and click Submit.
 
@@ -168,13 +175,13 @@ Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and m
 
 ### Configure device options
 
-To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
+To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit*, a window with device options is presented based on the device type.
 
-<div class='note warning'>
-If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
+{% important %}
+If a device is missing from the list, close the options window and either make sure the device sends a command or manually re-add the device by event code.
+{% endimportant %}
 
-#### Off Delay
+#### Off delay
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
@@ -195,7 +202,7 @@ Venetian blind motors that control slats tilt can be configured in one of two mo
 
 #### Options for PT-2262 devices under the Lighting4 protocol
 
-When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the field lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
+When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the field lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available to circumvent the problem:
 
 - **data_bits**
 - **command_on**
@@ -245,7 +252,7 @@ This automatic guess should work most of the time, but there is no guarantee on 
 
 #### Replace device
 
-Some battery-powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. In order to use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user-configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automatically deleted.
+Some battery-powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. To use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user-configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automatically deleted.
 
 ### Delete device
 
@@ -289,7 +296,7 @@ So, for example, to trigger an action when somebody presses the doorbell, you wo
 *Automation trigger:*
 
 ```yaml
-- platform: event
+- trigger: event
   event_type: rfxtrx_event
   event_data:
     packet_type: 22
@@ -313,8 +320,8 @@ scene:
 
 automation:
   - alias: "Use doorbell button to trigger scene"
-    trigger:
-    - platform: event
+    triggers:
+    - trigger: event
       event_type: rfxtrx_event
       event_data:
         packet_type: 22
@@ -322,77 +329,40 @@ automation:
         id_string: "00:90"
         values:
           Sound: 9
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.welcomescene
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.welcomescene
 ```
 
-## Services
-
-- `rfxtrx.send`: Send a custom event using the RFXtrx device.
-
-### Service: Send
-
-Simulate a button being pressed:
-
-```yaml
-...
-action:
-  service: rfxtrx.send
-  data:
-    event: 0b1111e003af16aa10000060
-```
-
-Alternatively:
-
-- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
-
-```yaml
-service: rfxtrx.send
-data:
-  event: "0b1111e003af16aa10000060"
-```
+{% include integrations/actions.md %}
 
 ## Generate codes
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="Developer tools -> Template" %}
+- Go to: {% my developer_template title="**Settings** > **Tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
 ```
 
-{% endraw %}
-
 ### Light: ARC
-
-{% raw %}
 
 ```yaml
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
 ```
 
-{% endraw %}
-
 ### Light: Lightwave RF
-
-{% raw %}
 
 ```yaml
 0a14000{{ range(100,700) | random | int }}bc0cf{{ range(0,10) | random | int }}100f70
 ```
 
-{% endraw %}
-
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.
-- Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
+- Enable learning mode on your switch (that is, push the learn button or plug it into a wall socket)
 - Toggle your new switch in the Home Assistant interface

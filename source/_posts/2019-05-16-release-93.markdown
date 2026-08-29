@@ -16,10 +16,7 @@ og_image: /images/blog/2019-05-release-93/components.png
 It's time for our 0.93 release and it is a whopping cool one. It's a day later than usual as I am travelling. [Frenck](https://www.github.com/frenck) streams his work on Home Assistant / Hass.io each Tuesday and Friday, and last Tuesday I decided to surprise him and visit his house during the stream 😛. We ended up talking about everything Home Assistant with the viewers for over 3 hours. For the full conversation, check out [Frenck's blog](https://frenck.dev/home-assistant-paulus-invaded-my-live-stream/). Clip of me walking into the stream:
 
 <div class='videoWrapper'>
-  <iframe
-      src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye&autoplay=false"
-      width="560" height="315"
-      frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye&parent=www.home-assistant.io&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 </div>
 
 Last week we also wrote about [our updated plans](/blog/2019/05/03/update-from-the-field/) for Home Assistant for this year. If you haven't read it yet, worth the read!
@@ -145,7 +142,7 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 
@@ -153,7 +150,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Homematic IP Cloud__ - Adds homematicip cloud temperature sensor from thermostats. Entity IDs of HmIP-SLO (Light Sensor Outdoor) will change and stale entities will need to be removed from the entity registry.  ([@SukramJ] - [#23263]) ([homematicip_cloud docs])
 - __Pollen.com__
@@ -368,7 +365,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update docstrings ([@fabaff] - [#23624]) ([panasonic_bluray docs])
 - Order imports ([@fabaff] - [#23623]) ([opple docs])
 - Polling is default ([@fabaff] - [#23622]) ([serial_pm docs])
-- Loosen discovery config validation to avoid breaking changes ([@Jc2k] - [#23625]) ([discovery docs])
+- Loosen discovery config validation to avoid backward-incompatible changes ([@Jc2k] - [#23625]) ([discovery docs])
 - Clean up redundant same-package ..package imports ([@scop] - [#23587]) ([greeneye_monitor docs]) ([huawei_lte docs]) ([tplink_lte docs])
 - Upgrade pytest to 4.4.1 ([@scop] - [#23584])
 - Upgrade mypy ([@scop] - [#23586])

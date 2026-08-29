@@ -8,24 +8,23 @@ body_id: not_found
 <h2>Oh no! This page does not exist 😞</h2>
 
 <div class='search404-container'>
-    <div class='search404'>
-        <i class="icon-search"></i>
-            <input id='search404' placeholder='Search the documentation …'>
-        <a href='#' class='search404-close'><i class="icon-remove-sign"></i></a>
-    </div>
+    <div id="search404"></div>
 </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script src="{{ '/javascripts/docsearch-options.js' | cache_buster }}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
 <script type="text/javascript">
 docsearch({
-  apiKey: '{{ site.algolia.api_key }}',
+  container: '#search404',
+  appId: 'FBHBYS3J0U',
   indexName: 'home-assistant',
-  inputSelector: '#search404',
-  debug: false // Set debug to true if you want to inspect the dropdown
-});
-
-document.querySelector('.search404-close').addEventListener('click', function(ev) {
-  ev.preventDefault();
-  document.querySelector('#search404').value = "";
+  apiKey: "{{ site.algolia.api_key }}",
+  transformItems(items) {
+    return items.map((item) => ({
+      ...item,
+      url: rewriteDocSearchPreviewUrl(item.url),
+      url_without_anchor: rewriteDocSearchPreviewUrl(item.url_without_anchor),
+    }));
+  },
 });
 </script>

@@ -1,17 +1,26 @@
 ---
 type: card
-title: "Entities Card"
+title: "Entities card"
 sidebar_label: Entities
-description: "The Entities card is the most common type of card. It groups items together into lists."
+description: "The entities card is the most common type of card. It groups items together into lists."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /dashboards/header-footer/
+    title: Card header and footer
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
+The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, and more.
 
-To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -39,11 +48,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: false
+  description: Set the icon color when the entity is active for all rows in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. To disable coloring, set to `none`. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
+  default: state
 header:
   required: false
   description: Header widget to render. See [header documentation](/dashboards/header-footer/).
@@ -54,7 +63,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+## Options for entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 
@@ -69,8 +78,8 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites icon or entity picture.
@@ -81,21 +90,22 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
-  type: string
-format:
+  description: >
+    Show one or more pieces of additional info. Can be either a string with a single item, or a list of strings.
+    Valid values: `entity-id`, `last_changed`, `last_updated`, `area_name`, `floor_name`, `device_name`, `state`, or any attribute of the entity.
+  type: [string, list]
+time_format:
   required: false
-  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
-  type: string
+  description: "How timestamp states should be formatted. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
+  type: [string, map]
 action_name:
   required: false
   description: Button label (only applies to `script` and `scene` rows).
   type: string
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: false
+  description: Set the icon color when the entity is active, overriding the card's `color` option for this row. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
 tap_action:
   required: false
   description: Action taken on row tap. See [action documentation](/dashboards/actions/#tap-action).
@@ -108,11 +118,15 @@ double_tap_action:
   required: false
   description: Action taken on row double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
+confirmation:
+  required: false
+  description: For entities that display a button element in the row (for example, button, lock, script), this option adds a confirmation dialog to the press of the button. See [options for confirmation](/dashboards/actions/#options-for-confirmation) for configuration options.
+  type: map
 {% endconfiguration %}
 
-## Special Row Elements
+## Special row elements
 
-Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+Rather than only displaying an entity's state as a text output, the entities card supports multiple special rows for buttons, attributes, web links, dividers, sections, and more.
 
 ### Attribute
 
@@ -139,16 +153,16 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
   type: string
-format:
+time_format:
   required: false
-  description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
-  type: string
+  description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."
+  type: [string, map]
 {% endconfiguration %}
 
 ### Button
@@ -220,8 +234,8 @@ entities:
       type: string
     name:
       required: false
-      description: Override the friendly entity name.
-      type: string
+      description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+      type: [string, map, list]
       default: Entity name
     show_name:
       required: false
@@ -292,30 +306,13 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states.
+  description: List of conditions to check. See [available conditions](/dashboards/conditional/#card-conditions).
   type: list
-  keys:
-    entity:
-      required: true
-      description: Entity ID.
-      type: string
-    state:
-      required: false
-      description: Entity state is equal to this value.*
-      type: string
-    state_not:
-      required: false
-      description: Entity state is unequal to this value.*
-      type: string
 row:
   required: true
   description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
-
-*one is required (`state` or `state_not`)
-
-Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
 ### Divider
 
@@ -353,7 +350,7 @@ type:
   type: string
 url:
   required: true
-  description: "Website URL (or internal URL e.g., `/hassio/dashboard` or `/panel_custom_name`)."
+  description: "Website URL, or internal URL such as `/hassio/dashboard` or `/panel_custom_name`."
   type: string
 name:
   required: false
@@ -362,7 +359,7 @@ name:
   default: URL path
 icon:
   required: false
-  description: "Icon to display (e.g., `mdi:home`)."
+  description: "Icon to display, for example `mdi:home`."
   type: string
   default: "`mdi:link`"
 new_tab:
@@ -393,8 +390,8 @@ entities:
     name: Alarm Panel
   - device_tracker.demo_paulus
   - switch.decorative_lights
-  - group.all_lights
-  - group.all_locks
+  - light.home_lights
+  - lock.home_locks
 ```
 
 #### Buttons row
@@ -436,8 +433,8 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       data:
         entity_id: light.bed_light
         transition: 10
@@ -468,8 +465,8 @@ entities:
     name: Power cycle LibreELEC
     icon: mdi:power-cycle
     tap_action:
-      action: call-service
+      action: perform-action
       confirmation:
         text: Are you sure you want to restart?
-      service: script.libreelec_power_cycle
+      perform_action: script.libreelec_power_cycle
 ```

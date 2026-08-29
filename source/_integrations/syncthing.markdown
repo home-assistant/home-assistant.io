@@ -6,14 +6,13 @@ ha_category:
   - Sensor
 ha_release: 2021.6
 ha_iot_class: Local Polling
-ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@zhulik'
 ha_domain: syncthing
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [Syncthing](https://syncthing.net/) is a continuous file synchronization program. It synchronizes files between two or more computers 
@@ -29,7 +28,7 @@ the key on the right of the settings dialog.
 
 {% include integrations/config_flow.md %}
   
-## Integration Entities
+## Integration entities
 
 The Syncthing integration adds one sensor per syncing folder:
 

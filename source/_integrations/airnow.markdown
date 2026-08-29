@@ -12,20 +12,34 @@ ha_domain: airnow
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `airnow` integration uses the [AirNow](https://www.airnow.gov/) web service
+The **AirNow** {% term integration %} uses the [AirNow](https://www.airnow.gov/) web service
 as a source for air quality data for your location.
 
 ## Setup
 
-To generate an AirNow API key, go to the [AirNow Developer Tools Page](https://docs.airnowapi.org/account/request/) page.
+To generate an AirNow API key, go to the [AirNow Developer Tools](https://docs.airnowapi.org/account/request/) page.
 
 {% include integrations/config_flow.md %}
 
-<div class="note">
+## Troubleshooting
 
+The EPA AirNow API is often flaky and will occasionally not return any results for a particular location. This will prevent the integration from being added to Home Assistant, but the situation is usually temporary and will resolve itself later.
+
+If the integration continues to report "No results found for that location" and cannot be added to Home Assistant, do the following before submitting a bug report:
+
+1. Navigate to the [AirNow web services](https://docs.airnowapi.org/webservices) page and open the **By Zip Code or Lat/Long** current observations tool, which is the service the integration uses.
+2. Enter the same latitude/longitude and select `application/json` as the output format.
+3. Select **Build**, then **Run**.
+
+If the query returns a result other than `[]`, open a bug report and include the query result (you may sanitize the data to remove your latitude and longitude, but please do not remove any fields). This information will help a lot to figure out the source of the issue.
+
+{% note %}
+The EPA is retiring the older **By latitude/longitude** observation and forecast services on September 30, 2026. The AirNow integration now uses the replacement **By Zip Code or Lat/Long** service, so use that tool when checking a location.
+{% endnote %}
+
+{% note %}
 The AirNow API allows 500 data updates per hour, but since observations are only updated hourly, the default update rate is set to 2 per hour and should not trigger rate limiting. If you use this API key for other purposes, ensure the total request rate does not exceed 500 per hour.
-
-</div>
+{% endnote %}

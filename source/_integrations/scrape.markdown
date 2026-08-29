@@ -13,21 +13,30 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
+The **Scrape** sensor {% term integration %} scrapes information from websites. The sensor loads an HTML page, and allows you to search and extract specific values. As this is not a fully featured web scraper like [scrapy](https://scrapy.org/), it will work with simple web pages and it can be time-consuming to get the right section.
 
-If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
-
-```bash
-sudo apt install libxml2
-```
-
-Both UI and YAML setup is supported while YAML provides additional configuration possibilities.
+Both UI and [YAML setup](#yaml-configuration) is supported while YAML provides additional configuration possibilities.
 
 {% include integrations/config_flow.md %}
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+{% note %}
+
+Scrape uses configuration subentries for configuring the sensors.
+
+1. Set up the resource configuration once per resource you want to scrape information from.
+2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
+
+{% endnote %}
+
+## YAML Configuration
+
+To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,16 +44,16 @@ scrape:
   - resource: https://www.home-assistant.io
     sensor:
       - name: "Current version"
-        select: ".current-version h1"
+        select: ".release-date"
 ```
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint that contains the value. One of `resource` and `resource_template` must be used.
   required: true
   type: string
 resource_template:
-  description: The resource or endpoint that contains the value with template support.
+  description: The resource or endpoint that contains the value with template support. One of `resource` and `resource_template` must be used.
   required: true
   type: template
 method:
@@ -56,11 +65,15 @@ payload:
   description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
   type: string
+payload_template:
+  description: The payload to send with a POST request with template support.
+  required: false
+  type: template
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
@@ -71,11 +84,11 @@ authentication:
   required: false
   type: string
 username:
-  description: The username for accessing the REST endpoint.
+  description: The username for accessing the resource.
   required: false
   type: string
 password:
-  description: The password for accessing the REST endpoint.
+  description: The password for accessing the resource.
   required: false
   type: string
 headers:
@@ -87,7 +100,7 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: Define the frequency to call the resource in seconds.
   required: false
   type: integer
   default: 600
@@ -97,7 +110,7 @@ encoding:
   type: string
   default: UTF-8
 sensor:
-  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of sensors to create from the shared data.
   required: true
   type: map
   keys:
@@ -156,6 +169,8 @@ sensor:
       default: None
 {% endconfiguration %}
 
+{% include integrations/using_templates.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor. There is also a [Jupyter notebook](https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/web-scraping.ipynb) available for this example to give you a bit more insight.
@@ -164,25 +179,18 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 The current release Home Assistant is published on [homepage](/)
 
-{% raw %}
-
 ```yaml
 scrape:
 # Example configuration.yaml entry
   - resource: https://www.home-assistant.io
     sensor:
       - name: Release
-        select: ".current-version h1"
-        value_template: '{{ value.split(":")[1] }}'
+        select: ".release-date"
 ```
-
-{% endraw %}
 
 ### Available implementations
 
-Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & Services**" %}.
-
-{% raw %}
+Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -193,8 +201,6 @@ scrape:
         select: 'a[href="#all"]'
         value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
-
-{% endraw %}
 
 ### Get a value out of a tag
 
@@ -243,8 +249,6 @@ scrape:
 
 This example tries to retrieve the price for electricity.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 scrape:
@@ -255,30 +259,4 @@ scrape:
         index: 1
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"
-```
-
-{% endraw %}
-
-### Container cleaning by CleanProfs in The Netherlands
-
-This example gets the container type and container cleaning date for the next two cleanings.
-
-```yaml
-# Example configuration.yaml entry. Change postal code and house number to your own address.
-scrape:
-  - resource: https://crm.cleanprofs.nl/search/planning
-    method: POST
-    payload: zipcode=5624JW&street_number=17
-    headers:
-      Content-Type: application/x-www-form-urlencoded
-    sensor:
-      - name: "Type container 1"
-        select: "div.nk-tb-item:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
-      - name: "Date container 1"
-        select: "div.nk-tb-item:nth-child(2) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
-      - name: "Type container 2"
-        select: "div.nk-tb-item:nth-child(3) > div:nth-child(1) > span:nth-child(1)"
-      - name: "Date container 2"
-        select: "div.nk-tb-item:nth-child(3) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
-
 ```

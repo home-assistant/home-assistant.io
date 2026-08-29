@@ -9,21 +9,21 @@ ha_domain: cppm_tracker
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
+This {% term integration %} allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
 
 Supported platforms (tested):
 
 - Aruba ClearPass 6.7.5
 
-<div class='note warning'>
-
+{% important %}
 You must first create an API client [here](https://www.arubanetworks.com/techdocs/ClearPass/6.6/Guest/Content/AdministrationTasks1/CreateEditAPIclient.htm).
+{% endimportant %}
 
-</div>
-
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,7 +36,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of the ClearPass server, e.g., `clearpass.server.com`."
+  description: "The IP address or hostname of the ClearPass server, for example, `clearpass.server.com`."
   required: true
   type: string
 client_id:

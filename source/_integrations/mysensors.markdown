@@ -20,10 +20,10 @@ ha_platforms:
   - switch
   - text
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
+The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} to find the devices that have been identified.
 
 {% include integrations/config_flow.md %}
 
@@ -44,9 +44,9 @@ In addition to the serial device you also need to enter the baud rate.
 If you are using the MQTT gateway, you will need to enter topic prefixes for input and output. These need to be swapped
 with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
-<div class='note'>
+{% note %}
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
-</div>
+{% endnote %}
 
 ### Ethernet gateway
 
@@ -185,7 +185,7 @@ Visit the [library API][MySensors library api] of MySensors for more information
 
 [MySensors library API]: https://www.mysensors.org/download
 
-## Binary Sensor
+## Binary sensor
 
 The following binary sensor types are supported:
 
@@ -207,7 +207,7 @@ The following binary sensor types are supported:
 | S_VIBRATION  | V_TRIPPED |
 | S_MOISTURE   | V_TRIPPED |
 
-### Binary Sensor example sketch
+### Binary sensor example sketch
 
 ```cpp
 /**
@@ -474,7 +474,13 @@ The following actuator types are supported:
 | ------- | ------------------------------------------------ |
 | S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS] |
 
-All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
+### MySensors version 2.4 and higher
+
+| S_TYPE  | V_TYPE                                                      |
+| ------- | ----------------------------------------------------------- |
+| S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS], [V_TILT] |
+
+For MySensors version 2.4 and higher, `V_UP`, `V_DOWN`, `V_STOP`, and either `V_PERCENTAGE` or `V_STATUS` are required. `V_TILT` is optional for covers that support tilt position. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent. Use V_STATUS (or V_LIGHT) if you don't.
 
 ### Cover example sketch
 
@@ -604,7 +610,7 @@ This sketch is ideally for star topology wiring. You can run up to 12 covers wit
 
 [Check out the code on GitHub.](https://github.com/gryzli133/RollerShutterSplit)
 
-## Device Tracker
+## Device tracker
 
 The following sensor types are supported:
 
@@ -614,7 +620,7 @@ The following sensor types are supported:
 | ------ | ---------- |
 | S_GPS  | V_POSITION |
 
-### Device Tracker example sketch for MySensors 2.x
+### Device tracker example sketch for MySensors 2.x
 
 ```cpp
 /**
@@ -705,9 +711,9 @@ The following actuator types are supported:
 | S_RGB_LIGHT  | V_RGB*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]  |
 | S_RGBW_LIGHT | V_RGBW*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE] |
 
-V_TYPES with a star (\*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional. Same principal applies for S_RGBW_LIGHT and V_RGBW.
+V_TYPES with a star (\*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message. For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional. Same principal applies for S_RGBW_LIGHT and V_RGBW.
 
-Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.
+Sketch should acknowledge a command sent from controller with the same type. If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent. See sketches below for examples.
 
 #### Light example sketch for MySensors 2.x
 
@@ -785,7 +791,7 @@ void receive(const MyMessage &message)
       last_dim=100;
     }
 
-    //Update constroller status
+    // Update controller status
     send_status_message();
 
   } else if ( message.type == V_PERCENTAGE ) {
@@ -794,14 +800,14 @@ void receive(const MyMessage &message)
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
 
-      //Update constroller with dimmer value & status
+      // Update controller with dimmer value & status
       send_dimmer_message();
       send_status_message();
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
 
-      //Update constroller with dimmer value
+      // Update controller with dimmer value
       send_dimmer_message();
     }
 
@@ -980,7 +986,7 @@ The following sensor types are supported:
 
 ### Custom unit of measurement
 
-Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
+Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, such as dust, sound, or vibration.
 
 By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a stand-alone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
 

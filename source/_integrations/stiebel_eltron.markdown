@@ -7,13 +7,18 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fucm'
+  - '@ThyMYthOS'
 ha_domain: stiebel_eltron
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_config_flow: true
 ---
 
-The `stiebel_eltron` integration lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
+The **STIEBEL ELTRON** {% term integration %} lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
 
 It requires the following components:
 
@@ -26,6 +31,7 @@ It requires the following components:
 By now, the following units are tested:
 
 - LWZ 504e
+- LWZ 404eco
 - LWZ 304
 - LWZ 304 Trend
 
@@ -41,49 +47,32 @@ The following HVAC modes are supported. The STIEBEL ELTRON modes are mapped and 
 
 The following preset modes are supported. The STIEBEL ELTRON modes are mapped and configurable as follows:
 
-- Eco mode (PRESET_ECO)
-- Day mode (PRESET_DAY)
-- Setback mode (PRESET_SETBACK)
+- Standby mode (PRESET_READY)
+- Setback mode (PRESET_ECO)
+- Day mode (PRESET_COMFORT)
+- Water heating mode (PRESET_WATER_HEATING)
+- Automatic mode (PRESET_AUTO)
+- Manual mode (PRESET_MANUAL)
 - Emergency mode (PRESET_EMERGENCY)
 
-## Configuration
+## Installation
 
-To enable this integration, add the following lines to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-stiebel_eltron:
-  name: LWZ504e
-```
-
-{% configuration %}
-name:
-  description: Displayed name of the unit.
-  required: false
-  default: Unnamed Device
+{% configuration_basic %}
+Host:
+  description: "The IP address of the ISG. You can find it in your router."
+  required: true
   type: string
-hub:
-  description: The name of the hub where this slave is located.
+Port:
+  description: The TCP port for Modbus.
   required: false
-  default: default
-  type: string
-{% endconfiguration %}
+  default: 502
+  type: integer
+{% endconfiguration_basic %}
 
-<div class='note'>
+## Removing the integration
 
-This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work
+This integration follows standard integration removal. No extra steps are required.
 
-</div>
-
-Full configuration example including modbus setup shown below:
-
-```yaml
-# Full example configuration.yaml entry
-modbus:
-  type: tcp
-  host: YOUR_ISGWEB_IP
-  port: 502
-
-stiebel_eltron:
-  name: LWZ504e
-```
+{% include integrations/remove_device_service.md %}

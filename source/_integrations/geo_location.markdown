@@ -15,9 +15,11 @@ Geolocation aware entities are typically related to events in the real world in 
 
 Entities can have associated geolocation coordinates (latitude and longitude) so that they are displayed on the map. The distance from the entity's coordinates to Home Assistant's location can be used for filtering.
 
+{% include integrations/building_block_integration.md %}
+
 ## Geolocation trigger
 
-The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be used in automations triggered by Geolocation entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
+The geolocation trigger can be used in automations triggered by geolocation entities appearing in or disappearing from zones. One of the source values in the following table must be used as `source` of the trigger depending on which platform is managing the entities.
 
 | Platform                                              | Source                        |
 |-------------------------------------------------------|-------------------------------|
@@ -29,13 +31,25 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | Queensland Bushfire Alert                             | `qld_bushfire`                |
 | U.S. Geological Survey Earthquake Hazards Program     | `usgs_earthquakes_feed`       |
 
+Use this trigger for `geo_location` entities, such as weather alerts, fire alerts, or earthquakes. For people and tracked devices, use [zone triggers](/integrations/zone/#list-of-triggers) instead. Geolocation entity IDs are generated from the event data and may change, so use `source` to target the platform that creates the entities.
+
+{% details "YAML example" %}
+
+{% example %}
+trigger: |
+  trigger: geo_location
+  source: nsw_rural_fire_service_feed
+  zone: zone.bushfire_alert_zone
+  event: enter
+{% endexample %}
+
+{% enddetails %}
+
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
 ## Geolocation notification example
 
 The following example automation creates a notification on the screen when a fire classified as 'Bush Fire' is reported within a predefined bush fire alert zone:
-
-{% raw %}
 
 ```yaml
 geo_location:
@@ -54,19 +68,17 @@ zone:
 
 automation:
   - alias: "Bush Fire Alert"
-    trigger:
-      platform: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bush_fire_alert_zone
-      event: enter
-    condition:
-      condition: template
-      value_template: "{{ trigger.to_state.attributes.type == 'Bush Fire' }}"
-    action:
-      - service: persistent_notification.create
+    triggers:
+      - trigger: geo_location
+        source: nsw_rural_fire_service_feed
+        zone: zone.bush_fire_alert_zone
+        event: enter
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state.attributes.type == 'Bush Fire' }}"
+    actions:
+      - action: persistent_notification.create
         data:
           message: "{{ trigger.to_state.name }} - {{ trigger.to_state.attributes.status }}"
           title: "Bush Fire Alert"
 ```
-
-{% endraw %}

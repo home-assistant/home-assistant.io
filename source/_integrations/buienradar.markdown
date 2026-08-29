@@ -16,12 +16,12 @@ ha_platforms:
   - camera
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Buienradar integration uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
+The **Buienradar** {% term integration %} uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
 
-The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor integration).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
+The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor integration). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
 Besides the weather platform, there is currently support for the following additional device types:
 
@@ -37,17 +37,17 @@ The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as
 Internally, this integration uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
 
-The camera entity is disabled by default and should be [enabled](/common-tasks/general/#enabling-entities) before it reads the camera images. 
+The camera {% term entity %} is disabled by default and should be [enabled](/common-tasks/general/#enabling-entities) before it reads the camera images.
 
 ## Sensor
 
-The Buienradar integration will set up separate sensor entities with more detailed weather data. The selected weather station will provide all-weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from Buienradar using your actual GPS location (and not the location of the nearest weather station). The sensor entities are disabled by default and should be enabled before they will be updated with data.
+The **Buienradar** {% term integration %} will set up separate sensor {% term entities %} with more detailed weather data. The selected weather station will provide all-weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from Buienradar using your actual GPS location (and not the location of the nearest weather station). The sensor entities are disabled by default and should be enabled before they will be updated with data.
 
-The following entities will be created:
+The following {% term entities %} will be created:
 
 - **Station name**: The name of the selected meteo-station
 - **Barometer forecast**: A numeric barometric forecast (1 to 7)
-- **Barometer forecast name**: A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)
+- **Barometer forecast name**: A textual representation of the barometer forecast, such as Thunderstorms or Stable
 - **Condition code**: A symbol and a unique code identifying the current weather condition 
   - `a`: sunny/clear
   - `b`: Mix of clear and medium or low clouds
@@ -77,7 +77,7 @@ The following entities will be created:
 - **Ground temperature**: The current ground temperature (in [°C](https://en.wikipedia.org/wiki/Celsius))
 - **Wind speed**: The wind speed (in [km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour))
 - **Wind force**: The wind speed/force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale))
-- **Wind direction**: Where the wind is coming from: N (North), Z (south), NO (North-East), etc.
+- **Wind direction**: Where the wind is coming from, such as N (North), Z (South), or NO (North-East)
 - **Wind azimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise
 - **Pressure**: The sea-level air pressure (in [hPa](https://en.wikipedia.org/wiki/Hectopascal))
 - **Visibility**: Visibility (in [m](https://en.wikipedia.org/wiki/Metre))
@@ -96,7 +96,7 @@ The following entities will be created:
 - **Minimum rain n days ahead**: The minimum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
 - **Maximum rain n days ahead**: The maximum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
 - **Wind azimuth n days ahead**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise for n days ahead (derived from `Wind direction n days ahead`)
-- **Wind direction n days ahead**: Where the wind will be coming from n days ahead: N (North), Z (south), NO (North-East), etc.
+- **Wind direction n days ahead**: Where the wind will be coming from n days ahead. For example, N (North), Z (South), or NO (North-East).
 - **Wind force n days ahead**: The expected wind force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)) n days ahead
 - **Wind speed n days ahead**: The expected wind speed (in [m/s](https://en.wikipedia.org/wiki/M/s)) n days ahead (derived from `Wind force n days ahead`)
 - **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead
@@ -116,9 +116,9 @@ timeframe:
   description: Minutes to look ahead for precipitation forecast sensors (minimum 5, maximum 120).
 {% endconfiguration_basic %}
 
-<div class='note'>
+{% note %}
 
 **Usage statement**
 Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the [full usage statement](https://www.buienradar.nl/overbuienradar/gratis-weerdata) to confirm your use or to request permission.
 
-</div>
+{% endnote %}

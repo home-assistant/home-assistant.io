@@ -1,10 +1,10 @@
 ---
 title: Ping (ICMP)
-description: Instructions on how to integrate Ping (ICMP)-based into Home Assistant.
+description: Instructions on how to use ICMP ping checks in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Network
-  - Presence Detection
+  - Presence detection
 ha_release: 0.43
 ha_iot_class: Local Polling
 ha_quality_scale: internal
@@ -12,96 +12,111 @@ ha_domain: ping
 ha_platforms:
   - binary_sensor
   - device_tracker
-ha_integration_type: integration
+  - sensor
+ha_integration_type: service
+ha_config_flow: true
+ha_codeowners:
+  - '@jpbede'
 ---
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
-- [Presence Detection](#presence-detection)
+- [Binary sensor](#binary-sensor)
+- [Sensors](#sensors)
+- [Presence detection](#presence-detection)
 
-## Binary Sensor
+{% include integrations/config_flow.md %}
 
-The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
+The setup dialog asks for the following information:
 
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the device you want Home Assistant to ping.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: ping
-    host: 192.168.0.1
-```
+## Adding a device to the integration
 
-{% configuration %}
-host:
-  description: The IP address or hostname of the system you want to track.
-  required: true
-  type: string
-count:
-  description: Number of packets to be sent up to a maximum of 100.
-  required: false
-  type: integer
-  default: 5
-name:
-  description: Let you overwrite the name of the device.
-  required: false
-  type: string
-  default: Ping [hostname]
-{% endconfiguration %}
+Before you add a device, give it a stable network address. Use a static IP address or a DHCP reservation in your router for the device you want to ping. If the address changes, Home Assistant keeps checking the old address.
 
-The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Add integration**.
+2. Search for and select **Ping**.
+3. Select **Add service**.
+4. In **Host**, enter the hostname or IP address of the device.
+5. Select **Submit**.
+6. Optional: Change the default device name or add the device to an area.
+7. Select **Finish**.
 
-- `round_trip_time_mdev`
-- `round_trip_time_avg`
-- `round_trip_time_min`
-- `round_trip_time_max`
+## Polling interval
 
-The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the device every 30 seconds.
+By default, the integration will ping the device every 30 seconds.
+If you wish to do a ping at a different interval, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired frequency.
 
-```yaml
-# Example configuration.yaml entry to ping host 192.168.0.1 with 2 packets every 30 seconds.
-binary_sensor:
-  - platform: ping
-    host: 192.168.0.1
-    name: "device name"
-    count: 2
-    scan_interval: 30
-```
+For more detailed steps on how to define a custom interval, follow the procedure below.
 
-<div class='note'>
-When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
-</div>
+### Defining a custom polling interval
 
-## Presence Detection
+{% include common-tasks/define_custom_polling.md %}
 
-The `ping` device tracker platform offers presence detection by using `ping` to send ICMP echo requests. This can be useful when devices are running a firewall and are blocking UDP or TCP packets but responding to ICMP requests (like Android phones). This tracker doesn't need to know the MAC address since the host can be on a different subnet. This makes this an option to detect hosts on a different subnet when `nmap` or other solutions don't work since `arp` doesn't work.
+## Configuration options
 
-<div class='note'>
-  Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
-</div>
+The integration provides the following configuration options:
 
-### Configuration
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the device you want Home Assistant to ping.
+Ping count:
+  description: The number of echo requests to send to the target. The default is 5.
+Consider home:
+  description: The number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
+{% endconfiguration_basic %}
 
-To use this presence detection in your installation, add the following to your `configuration.yaml` file:
+## Binary sensor
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: ping
-    hosts:
-      device_name_1: 192.168.2.10
-```
+The binary sensor sends ICMP echo requests so you can check whether a device (or host at a specific IP address) is reachable and determine the round trip times from your Home Assistant instance to that host.
+This sensor is enabled by default. The default polling interval is 30 seconds.
 
-{% configuration %}
-hosts:
-  description: Map of device names and their corresponding IP address or hostname. Device names must conform to the standard requirements of lower case, numbers and underscore only - see [entity names](/docs/configuration/troubleshooting/#entity-names).
-  required: true
-  type: map
-count:
-  description: Number of packet used for each device (avoid false detection).
-  required: false
-  type: integer
-{% endconfiguration %}
+## Sensors
 
-See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.
+The integration exposes the different round trip times milliseconds as entities:
+
+- `Round Trip Time Mean Deviation` - the standard deviation
+- `Round Trip Time Average` - the average round trip time
+- `Round Trip Time Minimum` - the shortest round trip time
+- `Round Trip Time Maximum` - the longest round trip time
+- `Jitter` - the variation in round trip times
+- `Packet loss` - the percentage of missed ICMP replies
+
+**These entities are disabled by default and can be enabled in the UI if needed.**
+
+## Presence detection
+
+Use ping presence detection to check whether a device can be reached on your network and use that as a presence signal (for example, `home` or `not_home`). This can help when you want presence detection for a phone, tablet, or other device connected to your home network.
+
+When you add a device or address to the integration, Home Assistant creates different entities for different uses:
+
+- The binary sensor is enabled by default and shows whether the device or address is reachable.
+- The device tracker is disabled by default and provides the presence state, such as `home` or `not_home`.
+
+To use ping for presence detection, enable the device tracker entity:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Ping** integration.
+2. Select the device or address you want to track.
+3. To see all entities, under **Diagnostic** select **N disabled entities**.
+4. Select the entity with the person icon {% icon "mdi:account" %}, select the cogwheel {% icon "mdi:cog-outline" %}, then turn on **Enable**.
+5. Select **Update**.
+
+The device trackers are [connection trackers](/integrations/device_tracker/#connection-trackers). They have the `tracking_type` state attribute set to `connection` and report whether a device is connected to the associated zone, which is the home zone by default. They do not provide latitude or longitude attributes. For a simple home presence check in an automation, use a state condition that checks whether the tracker is `home`.
+
+{% note %}
+Phones may turn off Wi-Fi when they are idle. A single ping tracker may not be reliable on its own.
+{% endnote %}
+
+For person-based presence detection, add the ping device tracker to a [person](/integrations/person/) entity. You can combine it with other trackers for the same person, such as a tracker from the Home Assistant Companion app or a router integration. This lets Home Assistant use more than one signal to decide whether the person is home.
+
+If you only need one on/off presence signal from multiple ping devices or addresses and do not use person entities, create a [binary sensor group](/integrations/group/#binary-sensor-light-and-switch-groups) {% term helper %} from the ping binary sensor entities. By default, the group is `on` when at least one grouped device is reachable.
+
+### How ping presence detection works
+
+The integration checks presence by sending ICMP echo requests to the configured hostname or IP address. It can work for devices that block UDP or TCP packets but still answer ICMP requests, such as some Android phones.
+
+Because ping uses the configured address, it does not need the device MAC address. This can help with devices on another subnet, where methods that depend on ARP, such as some network scans, do not work.

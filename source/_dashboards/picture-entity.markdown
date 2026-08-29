@@ -1,22 +1,31 @@
 ---
 type: card
-title: Picture Entity Card
-sidebar_label: Picture Entity
-description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
+title: Picture entity card
+sidebar_label: Picture entity
+description: The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
+The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
   <img src='/images/dashboards/picture_entity.gif' alt='Picture entity card'>
   Background changes according to the entity state.
 </p>
 
-To add the Picture Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/add_picture_to_card.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -25,8 +34,13 @@ type:
   type: string
 entity:
   required: true
-  description: "An `entity_id` used for the picture."
+  description: "Entity to display. Camera, image, and person entities are shown as pictures by default."
   type: string
+show_entity_picture:
+  required: false
+  description: "Use the entity's `entity_picture` attribute as the image."
+  type: boolean
+  default: false
 camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
@@ -38,7 +52,7 @@ camera_view:
   type: string
 image:
   required: false
-  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 state_image:
   required: false
@@ -52,10 +66,15 @@ aspect_ratio:
   required: false
   description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   type: string
+fit_mode:
+  required: false
+  description: 'Defines the manner in which the image is stretched/clipped to fit the card area. `cover`: The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit. `contain`: The image keeps its aspect ratio, but is resized to fit within the given dimension. `fill`: The image is resized to fill the given dimension. If necessary, the image will be stretched or squished to fit.'
+  type: string
+  default: cover
 name:
   required: false
-  description: Overwrite entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 show_name:
   required: false
   description: Shows name in footer.
@@ -104,32 +123,42 @@ entity: light.bed_light
 image: /local/bed_light.png
 ```
 
-Different images for each state:
+Use an entity's `entity_picture` attribute to show an entity-provided image, like an update entity that shows a component logo:
+
+```yaml
+type: picture-entity
+entity: update.home_assistant_core_update
+show_entity_picture: true
+show_state: true
+show_name: true
+```
+
+Different images for each state (supports local, web, or `media-source://` URLs):
 
 ```yaml
 type: picture-entity
 entity: light.bed_light
 state_image:
   "on": /local/bed_light_on.png
-  "off": /local/bed_light_off.png
+  "off": https://demo.home-assistant.io/stub_config/bedroom.png
+  "unavailable": media-source://image_upload/123456789
 ```
 
 Displaying a live feed from an FFmpeg camera:
 
-{% raw %}
 
 ```yaml
 type: picture-entity
 entity: camera.backdoor
 camera_view: live
 tap_action:
-  action: call-service
-  service: camera.snapshot
+  action: perform-action
+  perform_action: camera.snapshot
   data:
     entity_id: camera.backdoor
     filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
 ```
 
-{% endraw %}
 
-The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/docs/configuration/basic/)).
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/integrations/homeassistant/#allowlist_external_dirs)).
+

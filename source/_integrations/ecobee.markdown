@@ -2,20 +2,17 @@
 title: ecobee
 description: Instructions for how to integrate ecobee thermostats and sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Humidifier
   - Notifications
   - Number
   - Sensor
+  - Switch
   - Weather
-featured: true
 ha_release: 0.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@marthoc'
-  - '@marcolivierarsenault'
 ha_domain: ecobee
 ha_platforms:
   - binary_sensor
@@ -24,78 +21,62 @@ ha_platforms:
   - notify
   - number
   - sensor
+  - switch
   - weather
 ha_zeroconf: true
 ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
-
-## Preliminary Steps
-
-You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
-
-1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
-2. Log in with your ecobee credentials. (Make sure multifactor authentication is disabled to meet the developer login form's limits. If you've already enabled MFA, the web portal doesn't support disabling it. The iOS and Android apps do under Account > Account Security. You can re-enable MFA after becoming a developer.)
-3. Accept the SDK agreement.
-4. Fill in the fields.
-5. Click **save**.
-
-Log in to the regular consumer portal and click the overflow menu button in the upper right. You will see a new option named **Developer**. Now an application can be created to integrate with Home Assistant.
-
-1. Select the **Developer** option from the hamburger menu on the top-right.
-2. Select **Create New**.
-3. Complete the form on the right. (Neither of the fields are referenced by Home Assistant)
-    - Name: Must be unique across all ecobee users.
-    - Summary: Does not need to be unique.
-4. Click *Authorization method* and select **ecobee PIN**.
-5. Click **Create**.
-
-Your new application will now appear on the left. Upon clicking on the application, API key will appear on the right. Copy this key and use it in the configuration section below. Click **X** to close the Developer section.
-
-## Configuration
-
-1. In the **Settings** -> **Devices & Services** menu, click **+** and then select "ecobee" from the pop-up menu.
-2. In the pop-up box, enter the API key you obtained from ecobee's [developer portal](https://ecobee.com/developers).
-3. In the next pop-up box, you will be presented with a unique 8 character code separated by a dash (format: XXXX-XXXX), which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, clicking **Validate** and then **Add Application** in the bottom right.
-4. After authorizing the app with ecobee, return to Home Assistant and click **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats, ventilators and sensors will be available in Home Assistant.
-
-## Manual Configuration
-
-If you prefer to set up the integration in [`configuration.yaml`](/docs/configuration/), add your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** panel):
-
-```yaml
-# Example configuration.yaml entry
-ecobee:
-  api_key: YOUR_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: Your ecobee API key. This is only needed for the initial setup of the integration. Once registered it can be removed. If you revoke the key in the ecobee portal, you will need to remove the existing `ecobee` configuration in the **Integrations** panel, update this, and then configure the integration again.
-  required: false
-  type: string
-{% endconfiguration %}
+The **ecobee** {% term integration %} lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
 
 <p class='img'>
   <img src='/images/screenshots/ecobee-sensor-badges.png' />
+  <br />
   <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the integration. Then, select **Configure** and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.
+## Prerequisites
+
+- Username and password for [ecobee.com](https://ecobee.com). 
+   - You will need it when adding the integration to set up a connection between the integration and Home Assistant. 
+- Have the devices connected to your ecobee.com account.
+   - You can add devices either before or after you configure the service in Home Assistant, but having them connected to your ecobee.com account ahead of time is recommended to confirm that they are picked up by the service correctly.
+
+{% note %}
+Since version 2026.3, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, the integration will fail, and you will need to remove the service in Home Assistant and set it up again.
+{% endnote %}
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: If you have a developer API key, use this field and ignore the others. If you are logging in without an API key, leave this field blank and use username and password.
+username:
+  description: The email address you use to sign in to [ecobee.com](https://ecobee.com).
+password:
+  description: The password for the above account.
+{% endconfiguration_basic %}
+
+## Multi-factor authentication (MFA)
+
+When signing in with your ecobee username and password, if your ecobee account has multi-factor authentication (MFA) enabled with a time-based one-time password (TOTP) from an authenticator app, Home Assistant will prompt you for the 6-digit code after you submit your credentials. The integration captures a refresh token after the initial login, so subsequent token refreshes happen without prompting you for the code again.
+
+If the refresh token is ever invalidated (for example, after a password change on ecobee.com), Home Assistant will start a reauthentication flow. It will ask you for your password and the MFA code, if your account still has MFA enabled.
+
+Other MFA methods (push, SMS, email) are not currently supported.
 
 ## Notifications
 
-The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. The `target` parameter of the service call is required to specify the index of the recipient thermostat. The index values assigned to the thermostats are consecutive integers, starting at 0.
+The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. For each thermostat found, a `notify` entity will be added.
 
-Example service call:
+Example action:
 
 ```yaml
-service: notify.ecobee
+action: notify.send_message
 data:
   message: "Hello, this is your thermostat."
-  target: 0
+  entity_id: notify.ecobee
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -111,7 +92,7 @@ thermostat is not in auto mode, there is a single target temperature. When the t
 
 A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
 
-A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (home, away, sleep, etc.), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
+A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (such as home, away, or sleep), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
 defined vacation period and expires when the vacation period ends.
 
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
@@ -120,7 +101,7 @@ The _HVAC mode_ of the device is the currently active operational modes that the
 
 The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
-When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling auxiliary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
+On a thermostat configured with auxiliary heat, an aux_heat_only switch will be present. When this switch is turned on, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Turning off the aux_heat_only switch will change the thermostat back to the last active HVAC mode (heat, auto, etc).
 
 ### Attributes
 
@@ -137,7 +118,13 @@ The ecobee climate entity has some extra attributes to represent the state of th
 
 ### Concepts
 
-The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the min time home and min time away numbers.
+The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the minimum time home and minimum time away numbers.
+
+### Switch
+
+The `ventilator 20 min` switch is behaving like the switch in the physical ecobee device. When switched on, the ventilator turns on for 20 min. When turned off, it stops the ventilator.
+
+*Note: this does not interact with the `ventilator min time`*
 
 ### Number
 
@@ -146,86 +133,22 @@ The ecobee thermostat supports the addition of an accessory. If you have an air 
 | `ventilator_min_on_time_home` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are home. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself. |
 | `ventilator_min_on_time_away` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are away. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself. |
 
-## Services
+## Auxiliary Heat
 
-Besides the standard services provided by the Home Assistant [Climate](/integrations/climate/) integration, the following extra services are provided by the ecobee integration:
+### Concepts 
 
-- `ecobee.create_vacation`
-- `ecobee.delete_vacation`
-- `ecobee.resume_program`
-- `ecobee.set_fan_min_on_time`
-- `ecobee.set_dst_mode`
-- `ecobee.set_mic_mode`
-- `ecobee.set_occupancy_modes`
+When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (such as natural gas or propane). This applies more to air source heat pumps than geothermal. 
 
-### Service `ecobee.create_vacation`
+### Switch
 
-Creates a vacation on the selected ecobee thermostat.
+The `Auxiliary heat only` switch is provided to disable the use of the compressor (heat pump), only using the auxiliary heater. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source. 
 
-| Service data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to create the vacation                                                    |
-| `vacation_name`        | no       | Name of the vacation to create. Must be unique on the thermostat                                     |
-| `cool_temp`            | no       | Cooling temperature during the vacation                                                              |
-| `heat_temp`            | no       | Heating temperature during the vacation                                                              |
-| `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format                                                        |
-| `start_time`           | yes      | Time the vacation starts in the local time zone. Must be in 24-hour format (HH:MM:SS)                |
-| `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided)                       |
-| `end_time`             | yes      | Time the vacation ends in the local time zone. Must be in 24-hour format (HH:MM:SS)                  |
-| `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
-| `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
+### Number
 
-### Service `ecobee.delete_vacation`
+The `Compressor minimum temperature` number represents the outdoor temperature at which the compressor (heat pump) will not run. This is represented in the temperature units you have selected in Home Assistant; however, ecobee allows configuration only in increments of 5 degrees Fahrenheit. This is also represented in the thermostat user interface. When the outdoor temperature is below this value, only auxiliary heat will be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
 
-Delete a vacation on the selected ecobee thermostat.
+Check your heat pump Owners' Manual before adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
 
-| Service data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to delete the vacation |
-| `vacation_name`        | no       | Name of the vacation to delete                    |
+{% include integrations/actions.md %}
 
-### Service `ecobee.resume_program`
-
-Resumes the currently active schedule.
-
-| Service data attribute | Optional | Description                                                                                                              |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
-| `resume_all`           | no       | true or false                                                                                                            |
-
-### Service `ecobee.set_fan_min_on_time`
-
-Sets the minimum amount of time that the fan will run per hour.
-
-| Service data attribute | Optional | Description                                                                                                              |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
-| `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                                       |
-
-### Service `ecobee.set_dst_mode`
-
-Enable/disable automatic daylight savings time.
-
-| Service data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode |
-| `dst_enabled`          | no       | true or false                                                |
-
-### Service `ecobee.set_mic_mode`
-
-Enable/disable Alexa mic (only for ecobee 4).
-
-| Service data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set the mic mode |
-| `mic_enabled`          | no       | true or false                                  |
-
-### Service `ecobee.set_occupancy_modes`
-
-Enable/disable Smart Home/Away and Follow Me modes.
-
-| Service data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes |
-| `auto_away`            | yes      | true or false                                     |
-| `follow_me`            | yes      | true or false                                     |
+In addition to these actions, the standard [Climate](/integrations/climate/) actions are available for ecobee thermostats.

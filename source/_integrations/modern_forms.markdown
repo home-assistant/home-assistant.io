@@ -2,9 +2,10 @@
 title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Fan
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 2021.7
@@ -16,8 +17,10 @@ ha_domain: modern_forms
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - fan
   - light
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -27,19 +30,19 @@ ha_integration_type: integration
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
-If the Modern Forms fan does not have a light unit installed, then the Light entities and services will not show up.
-
-</div>
+{% note %}
+If the Modern Forms fan does not have a light unit installed, then the Light entities and actions will not show up.
+{% endnote %}
 
 ## Fans
 
-The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer services for the fan.
+The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer actions for the fan.
+
+Fan models with breeze hardware also support the **Breeze** preset mode, which varies the fan speed for a more natural airflow. Select **Normal** to return to a steady fan speed. Turning the fan off does not clear the preset mode. If **Breeze** was active, it resumes the next time you turn the fan on. This preset mode is not available on fan models without breeze hardware.
 
 ## Lights
 
-The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer services for the light.
+The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer actions for the light.
 
 ## Binary sensors
 
@@ -47,6 +50,14 @@ The Modern Forms integration provides binary sensors for the following informati
 
 - Fan sleep timer active status
 - Light sleep timer active status
+
+## Numbers
+
+On fan models with breeze hardware, the Modern Forms integration provides a number entity to configure the following setting:
+
+- Breeze intensity - how much the fan speed fluctuates while the breeze preset is active. Range: 1-3.
+
+This entity is not available on fan models without breeze hardware.
 
 ## Sensors
 
@@ -62,34 +73,8 @@ The Modern Forms integration provides support for the following toggleable attri
 - Away mode - to allow the fan simulate someone being home.
 - Adaptive learning - for allow learning for away mode.
 
-## Services
+{% include integrations/actions.md %}
 
-### Service `modern_forms.clear_fan_sleep_timer`
-
-This service will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
-
-### Service `modern_forms.clear_light_sleep_timer`
-
-This service will clear the sleep timer for the light if it has been set. It will not turn off the light when the timer is cleared.
-
-### Service `modern_forms.set_fan_sleep_timer`
-
-This service will set a sleep timer for the fan. When the sleep timer is expired it will turn off the fan.
-
-| Service Data Attribute | Required | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day). |
-
-### Service `modern_forms.set_light_sleep_timer`
-
-This service will set a sleep timer for the light. When the sleep timer is expired it will turn off the light.
-
-| Service Data Attribute | Required | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day).|
-
-<div class='note'>
-
-Modern Forms Fans use NTP to pool.ntp.org in order to set its internal clock and check of sleep timers have expired. Sleep timers will only work if the Modern Forms Fans have internet NTP access. You can block off cloud access for the fan and only leave NTP (UDP port 123) outbound working for the sleep timers.
-
-</div>
+{% note %}
+Modern Forms fans use NTP (via `pool.ntp.org`) to set their internal clock and check whether sleep timers have expired. Sleep timers only work if your fan can reach an NTP server on the internet. You can block cloud access for the fan and allow only outbound NTP (UDP port 123) so sleep timers keep working.
+{% endnote %}

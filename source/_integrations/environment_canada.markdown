@@ -17,45 +17,47 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Environment Canada integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
+The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
 
 {% include integrations/config_flow.md %}
 
-## Location Selection
+## Location selection
 
-The integration automatically determines the closest weather station based on the latitude and longitude specified. If integration-specific coordinates are not provided, the coordinates configured for Home Assistant are used.
+Choose your weather location using either:
 
-You can also specify a weather station to use by providing a identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
+- Station selector: Select a station location from a dropdown of all Environment Canada weather stations.
+- Coordinates: Provide latitude and longitude to automatically find the nearest station (defaults to your Home Assistant location).
 
 ## Entities
 
-The integration will create the entities listed below. Some of the entities are disabled by default and can be enabled via the integration's Entities page.
+The integration will create the entities listed below.
 
 ### Weather
 
-- Current conditions and daily forecast
-- Current conditions and hourly forecast (disabled by default)
+- Current conditions, daily forecast, and hourly forecast
 
-### Camera
+### Radar map (Camera)
 
-- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the service described below.
+- Loop of radar imagery from the last 3 hours.
+- This entity is disabled by default and can be enabled in the entry's settings dialog.
+- Radar display settings can be customized through the integration options. See [Radar camera options](#radar-camera-options) below.
 
 ### Sensors
 
-#### Conditions and Forecasts
+#### Conditions and forecasts
 
 - Current condition
 - Forecast summary
-- [Icon code](https://dd.weather.gc.ca/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) of current condition
+- [Icon code](https://dd.weather.gc.ca/today/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) of current condition
 - Barometric pressure
 - Pressure tendency
 - Humidity
 - Visibility
 - UV index
-- Air Quality (AQHI)
+- Air quality health index (AQHI)
 
 #### Temperature
 
@@ -76,7 +78,6 @@ The integration will create the entities listed below. Some of the entities are 
 #### Precipitation
 
 - Probability of precipitation
-- Precipitation yesterday
 
 #### Alerts
 
@@ -88,11 +89,51 @@ The integration will create the entities listed below. Some of the entities are 
 
 The alert sensors use the number of current alerts as their state, with an attribute containing the title of each alert.
 
-## Solving Problems
+## Radar camera options
+
+You can customize the radar display settings, grouped into four sections.
+
+### Map
+
+- **Map radius**: Radius of the radar map in kilometers, from 10 to 2,000 km (default: 200 km).
+
+### Radar
+
+- **Radar type**: The radar layer to display: **Rain**, **Snow**, or **Precipitation type** (a composite layer showing the type of precipitation). The default is **Precipitation type**.
+- **Color scale**: Number of colors in the **Rain** and **Snow** radar images, either **8 colors** or **14 colors** (default: **14 colors**). This setting does not apply to the **Precipitation type** radar type, which always uses its own color scale.
+- **Radar opacity**: Opacity of the radar overlay, from 0 to 100 (default: 65).
+- **Show legend**: Whether to show the color legend on the radar image (default: off).
+
+### Time
+
+- **Past minutes**: How far back the radar animation goes, in minutes, from 0 to 180 (default: 0, which uses the full history available from Environment Canada).
+- **Future minutes**: Extends the radar loop past now using Environment Canada's short-term forecast (nowcast) data, in minutes, from 0 to 72 (default: 0, no extrapolation frames). This setting only applies to the **Rain** and **Snow** radar types; it has no effect on **Precipitation type**.
+- **Show timestamp**: Whether to show the timestamp on the radar image (default: on).
+
+### Image
+
+This section is collapsed by default.
+
+- **Smooth radar image**: Whether to smooth the radar image instead of leaving it pixelated. Turning this on uses more bandwidth (default: off).
+- **Loop frame rate**: Frame rate of the radar animation, from 1 to 30 frames per second (FPS) (default: 5 FPS).
+
+### Configuring radar camera display
+
+To configure the radar camera display:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Environment Canada** integration.
+3. Select **Configure** (the cogwheel icon).
+4. Change the options you want.
+5. Select **Submit**.
+
+Changing these settings reloads the integration, so the new radar settings take effect immediately. The radar camera entity is briefly unavailable during the reload.
+
+## Solving problems
 
 The Environment Canada service is very stable and provides high-quality data. Here are some steps that you can take before opening a problem report or posting on the forum.
 
-### Service Interruptions
+### Service interruptions
 
 Although infrequent, there have been some outages and instabilities of the Environment Canada service. If you see error messages in your logs similar to the one below, it is very unlikely to be a problem with this integration and is likely a problem with the Environment Canada service.
 
@@ -100,19 +141,21 @@ Although infrequent, there have been some outages and instabilities of the Envir
 2022-10-05 12:25:08.619 ERROR (MainThread) [homeassistant.components.environment_canada] Timeout fetching environment_canada weather data
 ```
 
-The first course of action should be to check if there are known problems with the service. Look for recent messages on the [Environment Canada mailing list](https://lists.ec.gc.ca/pipermail/dd_info/) ([example message](https://lists.ec.gc.ca/pipermail/dd_info/2022-October/000542.html)). The next course of action is to post on the forum. The answers are usually already known by someone.
+The first course of action should be to check if there are known problems with the service. Look for recent messages on the [Environment Canada mailing list](https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/) ([example message](https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/thread/QJHBU7C5MWICGFHETGQ5752MUWR6OZ6G/)). The next course of action is to post on the forum. The answers are usually already known by someone.
 
 ### Sensor `unavailable` or `unknown`
 
-Not all weather stations provide a complete set of weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/citypage_weather/xml/). Browsing the XML data for your station will help you to understand what data is (un)available.
+Not all weather stations provide a complete set of weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/today/citypage_weather/). Browsing the XML data for your station will help you to understand what data is (un)available.
 
-## Template Sensors
+## Template sensors
 
-The configuration snippet below adds a useful [template sensors](/integrations/template/) showing the current "feels like" temperature among air temperature, humidex, and wind chill.
+The configuration snippets below add [template sensors](/integrations/template/). See the [weather integration](/integrations/weather/) for additional examples.
 
-Replace `NAME` with the name used to configure your integration.
+Replace `NAME` with the weather entity used in your configuration.
 
-{% raw %}
+### Feels Like
+
+A sensor that takes into account the humidex or wind chill for what the temperature feels like.
 
 ```yaml
 template:
@@ -130,16 +173,57 @@ template:
         {% endif %}
 ```
 
-{% endraw %}
+### Additional Forecast Data
 
+The configuration snippet below adds a template sensor containing the current forecast information as attributes and the text summary of the forecast for the current day.
 
-## Services
+```yaml
+- trigger:
+    - platform: time_pattern
+      hours: "/4"
+    - platform: homeassistant
+      event: start
+    - platform: event
+      event_type: event_template_reloaded
+  actions:
+    - action: environment_canada.get_forecasts
+      target:
+        entity_id: weather.NAME
+      response_variable: forecasts
+  sensor:
+    - name: Weather Forecast Daily
+      unique_id: weather_forecast_daily
+      state: "{{ states('weather.NAME') }}"
+      attributes:
+        daily: "{{ forecasts['weather.NAME']['daily_forecast'] }}"
+        hourly: "{{ forecasts['weather.NAME']['hourly_forecast'] }}"
+        summary: "{{ forecasts['weather.NAME']['daily_forecast'][0]['text_summary'] }}"
+        temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
+```
 
-### Service `environment_canada.set_radar_type`
+### Alerts
 
-Sets the type of radar to retrieve for the camera.
+To get the alerts in a sensor with all the alert data, use the following, replacing `CONFIG_ENTRY_ID` with an actual `config_entry_id`. Note, this updates the sensor every minute, adjust to your needs. The Environment Canada integration updates forecast data, which includes alerts, every 5 minutes.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | Camera to set the radar type for.
-| `radar_type` | no | One of "Auto", "Rain", or "Snow".
+```yaml
+- trigger:
+    - platform: time_pattern
+      minutes: "/1"
+    - platform: homeassistant
+      event: start
+    - platform: event
+      event_type: event_template_reloaded
+  actions:
+    - action: environment_canada.get_alerts
+      data:
+        config_entry_id: "CONFIG_ENTRY_ID"
+      response_variable: alerts
+  sensor:
+    - name: "Medicine Hat Alert Data"
+      unique_id: "CONFIG_ENTRY_ID"
+      state: "{{ alerts.values() | map('length') | sum }}"
+      attributes:
+        alerts: "{{ alerts }}"
+```
+
+{% include integrations/actions.md %}

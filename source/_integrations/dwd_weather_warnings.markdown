@@ -10,19 +10,20 @@ ha_domain: dwd_weather_warnings
 ha_codeowners:
   - '@runningman84'
   - '@stephan192'
-  - '@andarotajo'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Deutscher Wetterdienst Weather Warnings integration uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance weather warnings. The configured sensor checks for data every 15 minutes.
+The **Deutscher Wetterdienst Weather Warnings** {% term integration %} uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance weather warnings. The configured sensor checks for data every 15 minutes.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Warncell ID or name:
-  description: Identifier of the region. It can be a warncell ID (integer) or a warncell name. It is heavily advised to use warncell ID because a warncell name is sometimes not unique. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. If the warncell name is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`. Setting this field is required.
+  description: Identifier of the region. It can be a warncell ID (integer) or a warncell name. It is heavily advised to use warncell ID because a warncell name is sometimes not unique. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. If the warncell name is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`.
+Device tracker entity:
+  description: A `device_tracker` entity that will be used to identify the warncell. The entity *has* to contain the attributes `latitude` and `longitude`. Setting either this field or `Warncell ID or name` is required, but not both.
 {% endconfiguration_basic %}
 
 ### Attributes
@@ -45,8 +46,58 @@ Warncell ID or name:
 | `warning_<x>_parameters` | *(list)* A list of additional warning parameters. More information can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/warning_codes_pdf.pdf?__blob=publicationFile&v=5). |
 | `warning_<x>_color` | *(str)* The DWD color of the warning encoded as `#rrggbb`. |
 
-<div class="note">
-
+{% note %}
 In the attribute name `x` is the counter of the warning starting from `1`.
+{% endnote %}
 
-</div>
+### Some example automations
+
+The following example reads out the headline and its description of the DWD warnings above 2 to your local media player.
+
+```yaml
+alias: DWD-Warning at level 3
+description: DWD-Warnings at level 3
+triggers:
+  - entity_id: sensor.<your_city>_current_warning_level
+    above: 2
+    trigger: numeric_state
+conditions:
+  - condition: state
+    entity_id: sensor.<your_city>_current_warning_level
+    state: "3"
+  - condition: time
+    after: "06:20:00"
+  - condition: time
+    before: "22:00:00"
+actions:
+  - data:
+      volume_level: 0.14
+    target:
+      device_id: <your_device_id>
+    action: media_player.volume_set
+  - target:
+      entity_id: media_player.<your_mediaplayer>
+    data:
+      message: >
+        Warning! There are {{
+        state_attr('sensor.<your_city>_current_warning_level',
+        'warning_count') }} weather-warnings from DWD.·  {%
+        for i in range(0,
+        (state_attr('sensor.<your_city>_current_warning_level',
+        'warning_count')|int) + 1 | int ) %}
+          {% set headline = state_attr('sensor.<your_city>_current_warning_level', 'warning_' ~ i ~ '_headline') %}
+          {% set description = state_attr('sensor.<your_city>_current_warning_level', 'warning_' ~ i ~ '_description') %}
+          {% set instruction = state_attr('sensor.stadt_osnabruck_current_warning_level', 'warning_' ~ i ~ '_instruction') %}
+          {% if headline and description %} 
+            Warning {{ i }}:
+          {% if headline %} {{ headline }} {% endif %}
+          {% if description %} {{ description }} {% endif %}
+          {% if instruction %} {{ instruction }} {% endif %}
+          {% endif %}
+        {% endfor %}
+    action: tts.google_translate_say
+    enabled: true
+mode: single
+```
+
+Substitute `<your_city>`, your `<your_device_id>` and `<your_mediaplayer>` with your entity-names.

@@ -2,9 +2,9 @@ module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
       'action'       => '/docs/scripts/',
-      'device_class' => '/docs/configuration/customizing-devices/#device-class',
+      'device_class' => '/integrations/homeassistant/#device-class',
       'template'     => '/docs/configuration/templating/',
-      'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'icon'         => '/integrations/homeassistant/#icon',
       'selector'     => '/docs/blueprint/selectors/',
     }
 
@@ -64,7 +64,7 @@ module Jekyll
       result << vars.map do |key, attr|
         markup = Array.new
         # There are spaces around the "{key}", to improve double-click selection in Chrome.
-        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
 
@@ -72,12 +72,12 @@ module Jekyll
           if attr['type'].kind_of? Array
             attr['type'].each do |type|
               raise ArgumentError, "Configuration type '#{type}' for key '#{key}' is not a valid type in the documentation."\
-              " See: https://developers.home-assistant.io/docs/en/documentation_create_page.html#configuration" unless \
+              " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
                 TYPES.include? type
             end
           else
             raise ArgumentError, "Configuration type '#{attr['type']}' for key '#{key}' is not a valid type in the documentation."\
-            " See: https://developers.home-assistant.io/docs/en/documentation_create_page.html#configuration" unless \
+            " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
               TYPES.include? attr['type']
           end
 
@@ -93,8 +93,8 @@ module Jekyll
         if attr.key? 'default' and not attr['default'].to_s.empty?
           isDefault = true
           defaultValue = converter.convert(attr['default'].to_s)
-        elsif attr['type'].to_s.include? 'boolean'
-          # If the type is a boolean, a default key is required
+        elsif attr['type'].to_s.include?('boolean') && attr['required'] != true
+          # Optional booleans need a documented default to avoid ambiguity
           raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
             " therefore, requires a default."
         end
@@ -121,7 +121,7 @@ module Jekyll
           markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span><span class='default'>#{shortDefaultValue}</span>#{endSymbol}</span>"
         end
 
-        markup << "</div><div class='config-vars-description-and-children'>"
+        markup << "<a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a></div><div class='config-vars-description-and-children'>"
 
         if attr.key? 'description'
           markup << "<span class='config-vars-description'>#{converter.convert(attr['description'].to_s)}</span>"
@@ -166,11 +166,17 @@ module Jekyll
 
       vars = SafeYAML.load(contents)
 
+      linkId = [component, platform, 'configuration-variables']
+        .compact
+        .reject(&:empty?)
+        .join('-')
+      
+
       <<~MARKUP
         <div class="config-vars">
-          <h3>
-            <a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables
-          </h3>
+          <h4>
+            Configuration Variables <a class="title-link" name="#{linkId}" href="##{linkId}"></a>
+          </h4>
           <div class="configuration-link">
             <a href="/docs/configuration/" target="_blank">Looking for your configuration file?</a>
           </div>

@@ -1,47 +1,55 @@
 ---
 title: "Onboarding Home Assistant"
-description: "Instructions to get Home Assistant configured."
+description: "Set up Home Assistant for the first time. Create your account, restore from a backup, or pick up where you left off."
+toc: false
 ---
 
-Alright, you made it here. The tough part is done.
+After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant. The entire onboarding takes only a few minutes and is done in your browser, so no command-line or coding is required.
 
-After entering the Home Assistant device's address in your browser's address bar, the welcome screen is shown. Depending on your hardware, preparation may take a while.
+1. Open the address shown in your installation guide in your browser.
+   - For Home Assistant Operating System, this is usually [http://homeassistant.local/](http://homeassistant.local/).
+      - If Home Assistant does not open at that address, try [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
+   - For Home Assistant Container: usually `http://<host>:8123`, where `<host>` is the host name or IP address of the computer running Home Assistant Container.
+   - Result: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
+     - Home Assistant downloads the latest version of Home Assistant (about 700&nbsp;MB).
+   - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
+   - Once preparation is finished, the welcome screen is shown.
 
-![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
+    ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
-With Home Assistant installed, it's time to set up the basics.
+2. You can either create a new installation or recover an existing installation from a backup:
+   - **Option 1: new installation**: If this is your initial installation, we will now create the owner's account of Home Assistant.
+     - {% icon "mdi:information-outline" %} This account is an administrator account. It will always be able to change everything.
+     - Select **Create my smart home**.
+     - Enter a name, username, and password.
+       - Make sure the username is lowercase and contains no whitespace.
+       - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person that is shown in the UI. The username is used for login.
 
-In this step, you will create the owner's account of Home Assistant. This account is an administrator account. It will always be able to change everything.
- 
-1. If you want to restore from a backup of a previous installation, select **Restore from backup**.
-    - Continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
-    - Ignore the rest of this procedure. The following steps describe how to create a new installation, not how to restore from backup.
-2. If this is your initial installation, select **Create my smart home**.
-3. Enter a name, username, and password. Select **Create account**.
+        ![Set your username and password.](/images/getting-started/onboarding_username.png)
+     - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
+     - Select **Create account**.
 
-    ![Set your username and password.](/images/getting-started/username.png)
+   - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, follow the steps on [restoring from backup](/common-tasks/general/#restoring-a-backup).
+       - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25454643790237).
+       - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25160431579165).
 
-4. Enter the location of your home.
-   - The location is used to populate settings such as time zone, unit system, and currency.
-   - It is also used for location-based information and automations: for example showing the weather-forecast, opening the shades at sunrise, or starting the vacuum when you leave the home.
-   - If you'd rather not send your location, you can choose a location far away from where you live.
+3. Enter the location of your home.
+   - The home location is used to configure the time zone, unit system, and currency.
+   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m.
    - You can always change this information later in the settings.
+   - This home zone can be used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
+   - After finding your location, select **Next**.
 
     ![Define your location.](/images/getting-started/onboarding_location.png)
 
-5. Select which information you are willing to share.
+4. Select which information you are willing to share.
     - Sharing is disabled by default. However, we would like to encourage you to share some of this data.
-    - This information helps us to find out which platforms we need to support and where to focus our efforts.
+    - This information helps us find out which platforms we need to support and where to focus our efforts.
     - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/).
+    - To confirm, select **Next**.
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-6. Once you are done, select **Next**.
-    - Home Assistant will then show any {% term devices %} it has discovered on your network.
-    - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
-
-    ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
-
-7. Finally, select **Finish**.
-   - Now you're brought to the Home Assistant web interface. If some of your devices were discovered and setup automatically, this default dashboard may already show some of your devices.
+5. {% icon "mdi:party-popper" %} You’ve now got Home Assistant up and running.
+   - Press **Finish** and you now see the default [dashboard](/dashboards/).
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

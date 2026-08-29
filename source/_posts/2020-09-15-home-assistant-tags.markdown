@@ -29,9 +29,9 @@ Thanks to [@David-Development](https://github.com/david-development) for the NFC
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-<div class='note' data-title='for iPhone users'>
+{% note %}
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
-</div>
+{% endnote %}
 
 ## Standalone Tag Reader
 
@@ -116,7 +116,7 @@ Printed NFC cards. <a href="/integrations/tag/#printing-tags">Learn how to make 
 
 ## Time to get scanning!
 
-With these new features, you will be able to do a lot of cool things. Get yourself some [NFC tags](https://amzn.to/3bQU0nN) or [NFC cards](https://amzn.to/2RlqPzM) to get going. Here is some inspiration:
+With these new features, you will be able to do a lot of cool things. Get yourself some [NFC tags](https://www.amazon.com/dp/B07N38MMTT) or [NFC cards](https://www.amazon.com/dp/B074M9J5L3) to get going. Here is some inspiration:
 
 - NFC cards to play music
 - NFC stickers on books that play grandparents reading the book

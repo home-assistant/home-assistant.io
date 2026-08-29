@@ -9,15 +9,20 @@ ha_domain: dublin_bus_transport
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `dublin_bus_transport` sensor will give you the time until the next two departures from a Dublin bus stop using the RTPI information.
+The **Dublin Bus** {% term integration %} will give you the time until the next two departures from a Dublin bus stop using the RTPI information.
 
 The [Dublin Bus](https://www.dublinbus.ie/RTPI/) website can help to determine the id of your bus stop. You can check if this is correct by going to
 
 https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=[Stop ID]
 
-Then add the data to your `configuration.yaml` file as shown in the example:
+Then add the data to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +37,7 @@ stopid:
   required: true
   type: string
 route:
-  description: Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`.
+  description: Only show a single bus route at the stop. This is the same as the bus number, for example, `83`.
   required: false
   type: string
 name:

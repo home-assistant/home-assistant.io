@@ -1,6 +1,6 @@
 ---
 title: AccuWeather
-description: Instructions on how to integrate Accuweather within Home Assistant.
+description: Instructions on how to integrate AccuWeather within Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.114
@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: accuweather
-ha_quality_scale: platinum
 ha_platforms:
   - diagnostics
   - sensor
@@ -17,34 +16,16 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The AccuWeather integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
+The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location. A paid subscription is required to use this integration.
 
 ## Setup
 
-To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with the following settings:
-- Products
-  - Core Weather
-    - **Core Weather Limited Trial**
-  - Minute Cast
-    - **None**
-- Where will the API be used? 
-  - **Other**
-- What will you be creating with this API?
-  - **Internal App**
-- What programming language is your APP written in? 
-  - **Python**
-- Is this for Business to Business or Business to Consumer use?
-  - **Business to Business**
-- Is this Worldwide or Country specific use?
-  - **Worldwide**
+To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register, subscribe to one of the available plans and create application in **Subscriptions & Keys** section.
 
-You can test your newly created API key [here](https://developer.accuweather.com/accuweather-current-conditions-api/apis)
+You can test your newly created API key [here](https://developer.accuweather.com/core-weather/location-key-locations#location-search-by-location-key)
 
 {% include integrations/config_flow.md %}
 
-<div class="note warning">
+## Data updates
 
-Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
-The Limited Trial account only allows 50 API calls per day.
-
-</div>
+By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes, daily forecast data every 6 hours and hourly forecast data every 30 minutes. If you want to configure the integration for more than two locations, you need a plan higher than **Starter**.

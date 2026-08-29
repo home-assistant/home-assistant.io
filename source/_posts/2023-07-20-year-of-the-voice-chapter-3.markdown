@@ -29,7 +29,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 [Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
 [Chapter 2]: https://www.home-assistant.io/blog/2023/04/27/year-of-the-voice-chapter-2/
-[50 languages]: https://home-assistant.github.io/intents/
+[50 languages]: https://ohf-voice.github.io/intents/
 [live-stream]: https://youtube.com/live/sXzItFksYFA?feature=share
 [Assist]: /voice_control/
 [ESPHome]: /voice_control/thirteen-usd-voice-remote/
@@ -45,7 +45,6 @@ Starting in Chapter 3, Assist is now natively supported through the [Home Assist
 <img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/phone-ha.jpg" alt="Screenshot of Assist in HA Companion app" style="max-height: 550px;" />
 Assist on Android is built-in to the Android app and uses the speech-to-text from Home Assistant
 </p>
-
 
 Have a [Home Assistant Cloud subscription]? You can now control your smart home via voice from anywhere in the world without giving up your privacy. [Multiple Home Assistant servers are supported], so you can just as easily talk to your parent's house:
 
@@ -149,7 +148,7 @@ You can use [Piper in automations] to make text-to-speech announcements, or use 
 
 ## New ESPHome voice modes
 
-<a href="https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa"><img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/atom_echo.png" alt="ATOM Echo Smart Speaker from M5Stack" style='width:96px;float:right;margin-left:8px;'/></a>
+<a href="https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit"><img src="/images/blog/2023-07-20-year-of-the-voice-chapter-3/atom_echo.png" alt="ATOM Echo Smart Speaker from M5Stack" style='width:96px;float:right;margin-left:8px;'/></a>
 
 With hardware like the $13 [ATOM Echo], it was possible in Chapter 2 to [create a push-to-talk voice Assistant using ESPHome].
 
@@ -171,6 +170,7 @@ binary_sensor:
           else:
             - voice_assistant.start_continuous:
 ```
+
 [ESPHome Voice Assistant documentation](https://esphome.io/components/voice_assistant.html#click-to-converse)
 
 ### Silence detection
@@ -182,7 +182,7 @@ ESPHome's new voice modes use Home Assistant to detect the end of each voice com
 ESPHome Voice Assistant have two config entities to automate it's behavior in Home Assistant
 </p>
 
-[ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
+[ATOM Echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit
 [create a push-to-talk voice Assistant using ESPHome]: /voice_control/thirteen-usd-voice-remote/
 
 ## Until next time
@@ -196,9 +196,9 @@ If you want to help fund our work on voice and further development of Home Assis
 
 After three chapters in the Year of Voice, the message from Home Assistant users and creators is loud and clear: we want a wake word for Assist!
 
-In Chapter 4, our focus will be on delivering the foundation for wake word detection. As a part of the [Open Home], this foundation will keep in line with our values: privacy, choice, and durability. Stay tuned!
+In Chapter 4, our focus will be on delivering the foundation for wake word detection. As a part of the [Open Home], this foundation will keep in line with our values: privacy, choice, and sustainability. Stay tuned!
 
 [Joris Pelgröm]: https://github.com/jpelgrom
-[Open Home]: https://www.home-assistant.io/blog/2021/12/23/the-open-home/?ref=building.open-home.io
+[Open Home]: https://www.home-assistant.io/blog/2021/12/23/the-open-home/
 
 _Some links on this page are affiliate links and purchases using these links support the Home Assistant project._

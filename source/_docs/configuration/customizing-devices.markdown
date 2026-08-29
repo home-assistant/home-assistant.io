@@ -1,129 +1,78 @@
 ---
 title: "Customizing entities"
-description: "Simple customization for entities."
+description: "Override the name, icon, or other properties of an entity."
+related:
+  - docs: /integrations/homeassistant/
+  - docs: /docs/configuration/
+    title: configuration.yaml file
+  - docs: /docs/configuration/troubleshooting/
+  - docs: /docs/organizing/labels/
 ---
 
-## Changing the entity ID
+After adding a new device, you might find the automatically assigned entity ID too technical and the entity lacking a friendly name. You can personalize these elements to better fit your naming conventions or modify other attributes like the icon.
 
-You can use the UI to change the entity ID and friendly name of supported entities. To do this:
+## Recommendations on entity naming and related elements
 
-1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
-2. Click on the cog icon in the right corner of the entity's dialog
-![Entity dialog box.](/images/docs/configuration/customizing-entity-dialog.png)
-3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
-![Settings for entity.](/images/docs/configuration/customizing-entity.png)
-4. Select *Update*
+If you want a straightforward and organized Home Assistant setup, create a simple name for each entity, as well as for each related floor, area and device, and then configure everything properly. Name every element for what it is and Home Assistant will add the context around it based on what you have configured. Here are a few recommendations and examples:
 
-If your entity is not supported, or you cannot customize what you need via this method, please see below for more options.
+- Create a short, standalone name for each item. Leave out its location and what it belongs to. For example, a good name for an area is `Living room` instead of `Ground floor living room`, and a good name for a device is `Multi sensor` instead of `Office multi sensor`.
+- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant will use that information in pickers, dialogs, and tables so you don't need to add the location of areas, entities, and devices in their names.
+- Customize the presentation of floors, areas, devices, and entities by editing the cards and views of dashboards. For example, you can adjust the displayed name of a dashboard entity card or remove it if it is longer than you would like, instead of changing the entity name.
 
-## Customizing entities
+## Changing the attributes of an entity
 
-By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
+To change entity attributes, follow these steps:
 
-### Possible values
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity from the list.
+2. In the top-right corner, select the {% icon "mdi:cog" %} cog icon.
 
-{% configuration customize %}
-friendly_name:
-  description: Name of the entity as displayed in the UI.
-  required: false
-  type: string
-entity_picture:
-  description: URL to use as picture for entity.
-  required: false
-  type: string
-icon:
-  description: "Any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release."
-  required: false
-  type: string
-assumed_state:
-  description: For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
-  required: false
-  type: boolean
-  default: true
-device_class:
-  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
-  required: false
-  type: device_class
-  default: None
-unit_of_measurement:
-  description: Defines the units of measurement, if any. This will also influence the graphical presentation in the history visualization as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
-  required: false
-  type: string
-  default: None
-initial_state:
-  description: Sets the initial state for automations, `on` or `off`.
-  required: false
-  type: boolean
-  default: None
-{% endconfiguration %}
+   ![Entity dialog box with cog icon.](/images/docs/configuration/customizing-entity-dialog.png)
 
-### Device Class
+3. Enter or edit the attributes:
+   - For example, the entity ID here could be shortened to `binary_sensor.lumi_sensor_aq2_opening`.
+     - You can use lowercase letters, numbers, and underscores.
+     - The ID must not start or end with an underscore.
+     - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
+     - To revert all the entity IDs for a device, on the device page, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recreate entity IDs**.
+     - Result: This resets the entity ID and applies the current default naming convention.
+       - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
+         1. If you changed the name of the entity, the entity name will be used.
+         2. The entity ID suggested by the integration (just a few integrations do this).
+         3. The default name in the user language, if using Latin script.
+            - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
-Device class is currently supported by the following platforms:
+   - Enter or edit the entity name.
+     - In this example, this would change "Opening".
+   - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
+   - If you like, add a [label](/docs/organizing/labels/).
 
-- [Binary Sensor](/integrations/binary_sensor/)
-- [Button](/integrations/button/)
-- [Cover](/integrations/cover/)
-- [Humidifier](/integrations/humidifier/)
-- [Media Player](/integrations/media_player/)
-- [Number](/integrations/number/)
-- [Sensor](/integrations/sensor/)
-- [Switch](/integrations/switch/)
+   ![Settings for entity.](/images/docs/configuration/customizing-entity.png)
 
-### Manual customization
+4. To apply the changes, select **Update**.
+5. If you changed the entity ID and use this entity in automations or scripts, update the entity ID there as well.
+   - Changing only the entity name does not affect your automations or scripts because they refer to the entity ID.
+   - Go to {% my automations title="**Settings** > **Automations & scenes**" %}, open the respective tab, and find your automation or script.
 
-<div class='note'>
+## Changing the entity ID format for new entities
 
-If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
+Home Assistant generates entity IDs for new entities based on parts of your setup, like the area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, device, and entity name, in that order.
 
-</div>
+However, you can change the default format of entity IDs by defining which parts will be used and its order. The new format that you set will only be used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs. You can still rename the entity IDs afterwards in the entity settings.
 
-```yaml
-homeassistant:
-  name: Home
-  unit_system: metric
-  # etc
+{% note %}
+Some integrations suggest their own entity ID for new entities. In that case, this format is not used.
+{% endnote %}
 
-  customize:
-    # Add an entry for each entity that you want to overwrite.
-    thermostat.family_room:
-      entity_picture: https://example.com/images/nest.jpg
-      friendly_name: Nest
-    switch.wemo_switch_1:
-      friendly_name: Toaster
-      entity_picture: /local/toaster.jpg
-    switch.wemo_switch_2:
-      friendly_name: Kitchen kettle
-      icon: mdi:kettle
-    switch.rfxtrx_switch:
-      assumed_state: false
-    media_player.my_media_player:
-      source_list:
-        - Channel/input from my available sources
-  # Customize all entities in a domain
-  customize_domain:
-    light:
-      icon: mdi:home
-    automation:
-      initial_state: "on"
-  # Customize entities matching a pattern
-  customize_glob:
-    "light.kitchen_*":
-      icon: mdi:description
-    "scene.month_*_colors":
-      icon: mdi:other
-```
+To change the format:
 
-### Reloading customize
+1. Go to **Settings** > **System** > **Entity ID format**.
+2. Add, remove, or reorder the **Floor**, **Area**, **Device**, and **Entity** parts to build the format you want. The **Preview** shows an example of the result.
+3. Select **Save**.
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
+If you want to go back to the default format, select **Reset to default**.
 
-To reload customizations, navigate to Developer Tools > YAML and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+When you recreate the entity IDs for a device, Home Assistant will use the new format to generate them.
 
-You can also use the [Quick bar](/docs/tools/quick-bar/#command-palette), and choose "Reload Location & Customizations".
+## Customizing an entity in YAML
 
-Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button.
-
-<div class='note warning'>
-New customize information will be applied the next time the state of the entity gets updated.
-</div>
+If your entity is not supported, or you could not customize what you need via the user interface, you need to edit the settings in your {% term "`configuration.yaml`" %} file. For a detailed description of the entity configuration variables and [device class](/integrations/homeassistant/#device-class) information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).

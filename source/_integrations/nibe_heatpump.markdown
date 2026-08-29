@@ -18,31 +18,33 @@ ha_platforms:
   - sensor
   - switch
   - water_heater
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Nibe Heat Pump integration allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.
+The **Nibe Heat Pump** {% term integration %} allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.
 
 Supported devices:
 
-- F1145/F1155
-- S1145/S1155
-- F1245/F1255
-- F1355/F1355
+- F1145/F1245
+- F1155/F1255
+- S1155/S1255
+- F1345
+- F1355
 - S2125
 - S320/S325
+- S330/S332
 - F370
 - F470
 - F730
 - S735
 - F750
+- S1156
+- S1255
+- S1256
 - SMO40
 - SMOS40
-- VVM225
-- VVM310
-- VVM320
-- VVM325
-- VVM500
+- VVM225/VVM320/VVM325
+- VVM310/VVM500
 
 {% include integrations/config_flow.md %}
 
@@ -93,7 +95,7 @@ Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP
 
 #### TCP/IP
 
-The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://partner.nibe.eu/nibedocuments/29795/M12676EN.pdf).
+The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://www.nibe.eu/download/18.3db69dc1795e0d992c5722/1622634529178/Modbus%20S-series%20EN%20M12676EN-1.pdf).
 
 - `tcp://[IP OR HOSTNAME]`
 - `tcp://[IP OR HOSTNAME]:502`
@@ -105,6 +107,6 @@ If your system is equipped with a MODBUS40 accessory, this can be used to contro
 - `serial://[DEVICE PATH]` for direct local connection
 - `rfc2217://[IP OR HOSTNAME]:[PORT]` for a [ser2net](https://linux.die.net/man/8/ser2net) type proxy
 
-<div class='note info'>
+{% note %}
 Support for RCU-based communication is currently untested.
-</div>
+{% endnote %}

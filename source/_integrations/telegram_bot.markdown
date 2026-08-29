@@ -2,275 +2,193 @@
 title: Telegram bot
 description: Telegram bot support
 ha_category:
-  - Hub
+  - Notifications
 ha_release: 0.42
 ha_iot_class: Cloud Push
+ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: gold
+ha_codeowners:
+  - '@hanwg'
+ha_platforms:
+  - diagnostics
+  - event
+  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
+This integration creates notification actions to send, edit, receive messages or download attachments from a [Telegram Bot account](https://core.telegram.org/bots).
 
-This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/integrations/telegram_polling) platform or with the [webhooks](/integrations/telegram_webhooks) one, and trigger events when receiving messages.
+## Introduction - Telegram bot platforms
 
-If you don't need to receive messages, you can use the [broadcast](/integrations/telegram_broadcast) platform instead.
+Platforms are Telegram bot implementations for managing communications with Telegram for sending and receiving messages.
+When setting up this integration, you should specify the platform which fits your environment and use case.
 
-## Notification services
+### Broadcast
 
-Available services: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message` and `leave_chat`.
+Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the internet and there is no polling to receive messages or commands sent to the bot.
 
-### Service `telegram_bot.send_message`
+### Polling
 
-Send a notification.
+Telegram chatbot polling implementation.
+This implementation fetches data from Telegram via long polling with a timeout of 10 seconds.
+(In long polling, the bot will wait until the timeout expires before fetching the data again if there are no updates from Telegram.)
 
-| Service data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
-| `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
-| `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html` or `markdown`.                                                                                                                                                                                                                                          |
-| `disable_notification`     | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
-| `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
-| `resize_keyboard`          | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`        | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`                 | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`              | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
-| `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
+Your Home Assistant instance does not have to be exposed to the internet.
 
-### Service `telegram_bot.send_photo` 
+### Webhooks
 
-Send a photo.
+Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
+This implementation allows Telegram to push updates directly to your server and requires your Home Assistant instance to be exposed to the internet.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                  | no       | Remote path to an image.                                                                                                                                                                                                                                                                                  |
-| `file`                 | no       | Local path to an image.                                                                                                                                                                                                                                                                                   |
-| `caption`              | yes      | The title of the image.                                                                                                                                                                                                                                                                                   |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html` or `markdown`.                                                                                                                                                                                                                                          |
-| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
-| `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+## Prerequisites
 
-### Service `telegram_bot.send_video`
+### Create a bot in Telegram
 
-Send a video.
+To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-create-a-bot), follow these steps:
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                  | no       | Remote path to a video.                                                                                                                                                                                                                                                                                   |
-| `file`                 | no       | Local path to a video.                                                                                                                                                                                                                                                                                    |
-| `caption`              | yes      | The title of the video.                                                                                                                                                                                                                                                                                   |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html` or `markdown`.                                                                                                                                                                                                                                          |
-| `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
-| `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+1. Tell Telegram to create a bot for you:
+   - In Telegram, open a chat with [@BotFather](https://t.me/BotFather) and enter `/newbot`.
+   - Follow the instructions on screen and give your bot a name.
+   - BotFather will give you a link to your new bot and an HTTP **API token**.
+   - Store the **API token** somewhere safe, it will be used for setting up the integration later.
+2. Get your **chat ID**:
+   - Send any message to [@id_bot](https://t.me/id_bot).
+   - Note down the value of the **ID** field in the bot's response. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
+   - From the conversation with BotFather, select the link to open a chat.
+   - In the chat, enter `/start`.
 
-### Service `telegram_bot.send_animation`
+### Allow Telegram bot to access your Home Assistant files (Optional)
 
-Send an animation.
+To enable Telegram bot to send local files, you must grant access to it by adding the file's folder to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs).
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                  | no       | Remote path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                             |
-| `file`                 | no       | Local path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                              |
-| `caption`              | yes      | The title of the animation.                                                                                                                                                                                                                                                                               |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html` or `markdown`.                                                                                                                                                                                                                                          |
-| `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
-| `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+Example `configuration.yaml`:
 
-### Service `telegram_bot.send_voice`
+```yaml
+homeassistant:
+  allowlist_external_dirs:
+    - "/media"
+```
 
-Send a voice message.
+### Allow Telegram to connect to your Home Assistant (Webhooks platform only)
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                  | no       | Remote path to a voice message.                                                                                                                                                                                                                                                                           |
-| `file`                 | no       | Local path to a voice message.                                                                                                                                                                                                                                                                            |
-| `caption`              | yes      | The title of the voice message.                                                                                                                                                                                                                                                                           |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
-| `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+{% note %}
+This integration currently does not support self-signed certificates for HTTPS.
+If you are using the *Reverse proxy* or *Direct* method, please ensure that your certificates are signed by a public Certificate Authority (CA).
+{% endnote %}
 
-### Service `telegram_bot.send_sticker`
+If you plan to use the `Webhooks` platform, you will need to allow Telegram to connect to your Home Assistant using one of the following methods:
 
-Send a sticker.
+#### Home Assistant Cloud
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                  | no       | Remote path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                   |
-| `file`                 | no       | Local path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                    |
-| `sticker_id`           | no       | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot)                                   |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
-| `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/articles/26474279202973#to-activate-remote-access-from-outside-your-network) to your Home Assistant.
 
-### Service `telegram_bot.send_document`
+#### Reverse proxy
 
-Send a document.
+If your Home Assistant is behind a publicly accessible reverse proxy (for example NGINX, Caddy, Traefik) with HTTPS enabled, do the following:
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                  | no       | Remote path to a document.                                                                                                                                                                                                                                                                                |
-| `file`                 | no       | Local path to a document.                                                                                                                                                                                                                                                                                 |
-| `caption`              | yes      | The title of the document.                                                                                                                                                                                                                                                                                |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
-| `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html` or `markdown`.                                                                                                                                                                                                                                          |
-| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
-| `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending document in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                    |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure **Home Assistant URL**.
+2. In the **HTTP server** section, allow Home Assistant to accept connections from your reverse proxy:
+   - Turn on **Trust X-Forwarded-For**.
+   - Add the IP address or CIDR network of the reverse proxy to **Trusted proxies**.
 
-### Service `telegram_bot.send_location`
+#### Direct
 
-Send a location.
+If your Home Assistant is publicly accessible, do the following:
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `latitude`             | no       | The latitude to send.                                                                                                                                                                                                                                                                                     |
-| `longitude`            | no       | The longitude to send.                                                                                                                                                                                                                                                                                    |
-| `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                                                                                                                                                     |
-| `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
-| `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
-| `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
-| `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
-| `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
-| `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and configure **Home Assistant URL**.
+2. In the **HTTP server** section, configure the settings needed for HTTPS, such as **Server port**, **Listen addresses**, **SSL certificate path**, and **SSL key path**.
 
-### Service `telegram_bot.send_poll`
+{% include integrations/config_flow.md %}
 
-Send a poll.
+{% note %}
+When configuring the **API endpoint**, note the following protocol requirements:
 
-| Service data attribute    | Optional | Description                                                                                                                                                                    |
-| ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `question`                | no       | Poll question, 1-300 characters.                                                                                                                                               |
-| `options`                 | no       | List of answer options, 2-10 strings 1-100 characters each.                                                                                                                    |
-| `target`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                          |
-| `is_anonymous`            | yes      | True/false for if the poll needs to be anonymous, defaults to True.                                                                                                            |
-| `allows_multiple_answers` | yes      | True/false for if the poll allows multiple answers, defaults to False.                                                                                                         |
-| `open_period`             | yes      | Amount of time in seconds the poll will be active after creation, 5-600.                                                                                                       |
-| `disable_notification`    | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
-| `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
+- (Default) Official Telegram servers: HTTPS is required.
+- Custom API endpoints: Both HTTP and HTTPS are supported.
 
-### Service `telegram_bot.edit_message`
+{% endnote %}
 
-Edit a previously sent message in a conversation.
+{% configuration_basic %}
+Platform:
+  description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
+API key:
+  description: The API token of your bot.
+API endpoint:
+  description: The endpoint of the Telegram bot API server. You should only change this value if you are using a self-hosted or third-party [Telegram bot API server](https://core.telegram.org/bots/api#using-a-local-bot-api-server). Changing this value will result in a *10-minute lockout* on the official Telegram bot API server. Defaults to the official Telegram bot API server at `https://api.telegram.org`.
+Proxy URL:
+  description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
+{% endconfiguration_basic %}
 
-| Service data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`                  | no       | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
-| `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
-| `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
-| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html` or `markdown`.                                                                                                                                                                                                                                          |
-| `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
-| `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+### Webhooks configuration
 
-### Service `telegram_bot.edit_caption`
+{% note %}
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
+{% endnote %}
 
-Edit the caption of a previously sent message.
+{% note %}
+If you are using a custom **API endpoint**, you must include the IP address or IP range of the server in CIDR notation, like `192.168.0.0/16`, in the **Trusted networks** field.
+{% endnote %}
 
-| Service data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
-| `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
-| `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
-| `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
+{% configuration_basic %}
+URL:
+  description: Allow to overwrite the external URL from the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml) for different setups (`https://<public_url>:<port>`).
+Trusted networks:
+  description: Telegram server access ACL as list. Default is `149.154.160.0/20, 91.108.4.0/22`.
+{% endconfiguration_basic %}
 
-### Service `telegram_bot.edit_replymarkup`
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Parse mode:
+  description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
+{% endconfiguration_basic %}
 
-Edit the inline keyboard of a previously sent message.
+## Allowlisting chat IDs via Subentries
 
-| Service data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
-| `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
-| `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative).
+You must allowlist the chat ID for the Telegram bot before it can send/receive messages for that chat.
+To allowlist the chat ID, [retrieve the chat ID](#create-a-bot-in-telegram) and create a subentry:
 
-### Service `telegram_bot.answer_callback_query`
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Select the Telegram bot integration.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Add allowed chat ID**.
 
-Respond to a callback query originated by clicking on an online keyboard button. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert.
+{% configuration_basic %}
+Chat ID:
+  description: ID representing the user or group chat to which messages can be sent.
+{% endconfiguration_basic %}
 
-| Service data attribute | Optional | Description                                                                                                                   |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `message`              | no       | Unformatted text message body of the notification.                                                                            |
-| `callback_query_id`    | no       | Unique id of the callback response. In the `telegram_callback` event data: {% raw %}`{{ trigger.event.data.id }}`{% endraw %} |
-| `show_alert`           | yes      | True/false for show a permanent notification. Defaults to False.                                                              |
+## Notifiers
 
-### Service `telegram_bot.delete_message`
+This integration will add a notify {% term entity %} for each configured chat ID.
+You can use the `notify.send_message` action to publish notifications.
 
-Delete a previously sent message in a conversation.
+{% details "Example YAML configuration" %}
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `message_id`           | no       | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
-| `chat_id`              | no       | The chat_id where to delete the message.                                                                                                                                                                                                                   |
+```yaml
+action: notify.send_message
+data:
+  message: "Reminder: Have you considered frogs?"
+  entity_id: notify.telegram_bot_chat
+```
 
-### Service `telegram_bot.leave_chat`
+{% enddetails %}
 
-Remove the bot from the chat group where it was added.
-
-| Service data attribute | Optional | Description                               |
-| ---------------------- | -------- | ----------------------------------------- |
-| `chat_id`              | no       | The chat_id from where to remove the bot. |
+{% include integrations/actions.md %}
 
 ## Telegram notification platform
 
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag` and `disable_web_page_preview` are also supported.
+{% warning %}
+
+The notification platform has been marked as legacy and might be deprecated in the future.
+Please use [notifiers](./#notifiers) instead.
+
+{% endwarning %}
+
+The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
 The required YAML configuration now reduces to:
 
@@ -281,121 +199,263 @@ notify:
     chat_id: USER_CHAT_ID
 ```
 
-## Event triggering
+## Event entity
 
+The **Telegram bot** integration provides an {% term event %} {% term entity %} which represents the state of the last message sent or received. It also provides several event attributes that can be used in automations.
+For received messages that are replies to another message, the optional `reply_to_message_id` attribute contains the message ID (`id`) of the message being replied to. It is not present when the message is not a reply.
+
+### Event: Attachment received
+
+The `telegram_attachment` event is triggered when the bot receives a file.
+
+Example event attributes:
+
+```yaml
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+date: "<message timestamp>"
+event_type: "telegram_attachment"
+file_id: "<unique identifier for the file>"
+file_mime_type: "<MIME type of the file, if available>"
+file_name: "<name of the file, if available>"
+file_size: "<file size in bytes, if available>"
+friendly_name: "<name of the event entity>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+reply_to_message_id: "<id of the message being replied to, if applicable>"
+text: "<caption of the file, if available>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_attachment
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+        Received a file.
+        MIME type   : {{ trigger.to_state.attributes.file_mime_type }}
+        Size (bytes): {{ trigger.to_state.attributes.file_size }}
+        File ID     : {{ trigger.to_state.attributes.file_id }} 
+        File name   : {{ trigger.to_state.attributes.file_name }}
+```
+
+### Event: Callback query received
+
+The `telegram_callback` event is triggered when the bot receives a callback query from an inline keyboard button.
+
+{% tip %}
+The `id` attribute is used as the `callback_query_id` parameter for the `answer_callback_query` action.
+{% endtip %}
+
+Example event attributes:
+
+```yaml
+# Callback query always have no args
+args: []
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+chat_instance: "<chat instance id>"
+command: "<callback query>"
+data: "<data associated to action callback>"
+event_type: "telegram_callback"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+friendly_name: "<name of the event entity>"
+id: "<callback id>"
+message: "<message origin of the action callback>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+        Received callback query.
+        Callback ID   : {{ trigger.to_state.attributes.id }}
+        Callback query: {{ trigger.to_state.attributes.data }}
+```
+
+### Event: Command received
+
+The `telegram_command` event is triggered when the bot receives a command.
 A command looks like `/thecommand` or `/othercommand with some args`.
 
-When received by Home Assistant it will fire a `telegram_command` event on the event bus with the following `event_data`:
+Example event attributes:
 
 ```yaml
-command: "/thecommand"
 args: "<any other text following the command>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+command: "/thecommand"
+date: "<message timestamp>"
+event_type: "telegram_command"
+friendly_name: "<name of the event entity>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+reply_to_message_id: "<id of the message being replied to, if applicable>"
 user_id: "<id of the sender>"
-chat_id: "<origin chat id>"
-chat: "<chat info>"
 ```
 
-Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
+Example automation:
 
 ```yaml
-text: "some text received"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-user_id: "<id of the sender>"
-chat_id: "<origin chat id>"
-chat: "<chat info>"
-```
-
-If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
-
-```yaml
-data: "<data associated to action callback>"
-message: <message origin of the action callback>
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-user_id: "<id of the sender>"
-id: "<unique id of the callback>"
-chat_instance: "<chat instance>"
-chat_id: "<origin chat id>"
-```
-
-### Configuration samples
-
-Simple ping pong example.
-
-```yaml
-alias: 'Telegram bot that reply pong to ping'
-trigger:
-  platform: event
-  event_type: telegram_command
-  event_data:
-    command: "/ping"
-action:
-  - service: notify.notify
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_command
+actions:
+  - action: notify.persistent_notification
     data:
-      message: "pong"
+      message: >-
+        Received command.
+        Command: {{ trigger.to_state.attributes.command }}
+        Args   : {{ trigger.to_state.attributes.args }}
 ```
 
-An example that shows keyboard interaction with `notify.telegram`
+### Event: Text received
+
+The `telegram_text` event is triggered when the bot receives a text message (any message that does not begin with `/`).
+
+Example event attributes:
 
 ```yaml
-trigger:
-  platform: event
-  event_type: telegram_command
-  event_data:
-    command: "/start"
-action:
-  - service: notify.telegram
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+date: "<message timestamp>"
+event_type: "telegram_text"
+friendly_name: "<name of the event entity>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+reply_to_message_id: "<id of the message being replied to, if applicable>"
+text: "<the text received>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_text
+actions:
+  - action: notify.persistent_notification
     data:
-      message: "commands"
-      data:
-        keyboard:
-          - '/ping, /alarm'
-          - '/siren'
+      message: >-
+      Message received.
+      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+      First name: {{ trigger.to_state.attributes.from_first }}
+      Last name : {{ trigger.to_state.attributes.from_last }}
+      Message   : {{ trigger.to_state.attributes.text }}
 ```
 
-and an automation to trigger a related command "/siren".
+### Event: Message sent
+
+The `telegram_sent` event is triggered when the bot sends a message of any type.
+
+{% tip %}
+The `message_id` attribute can be used with the edit, delete and `set_message_reaction` actions to interact with a previously sent message.
+{% endtip %}
+
+Example event attributes:
 
 ```yaml
-trigger:
-  platform: event
-  event_type: telegram_command
-  event_data:
-    command: "/siren"
-action:
-  - service: homeassistant.turn_on
-    target:
-      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
-  - delay:
-      seconds: 10
-  - service: homeassistant.turn_off
-    target:
-      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+user_id: "<id of the sender>"
 ```
 
-An example to show the use of event_data in action:
-
-{% raw %}
+Example automation:
 
 ```yaml
-- alias: 'Kitchen Telegram Speak'
-  trigger:
-    platform: event
-    event_type: telegram_command
-    event_data:
-      command: "/speak"
-  action:
-    - service: notify.kitchen_echo
-      data:
-        message: >
-          Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_sent
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+      Bot sent a message.
+      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+      Message ID: {{ trigger.to_state.attributes.message_id }}
+        
 ```
 
-{% endraw %}
-
-### Sample automations with callback queries and inline keyboards
+### Sample automations with inline keyboards and callback queries
 
 A quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
 
@@ -405,184 +465,324 @@ A quick example to show some of the callback capabilities of inline keyboards wi
 
 Text repeater:
 
-{% raw %}
-
 ```yaml
-- alias: 'Telegram bot that repeats text'
-  trigger:
-    platform: event
-    event_type: telegram_text
-  action:
-    - service: telegram_bot.send_message
-      data:
-        title: "*Dumb automation*"
-        target: "{{ trigger.event.data.user_id }}"
-        message: "You said: {{ trigger.event.data.text }}"
-        disable_notification: true
-        inline_keyboard:
-          - "Edit message:/edit_msg, Don't:/do_nothing"
-          - "Remove this button:/remove_button"
+alias: Telegram bot that repeats text
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_text
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: "You said: {{ trigger.to_state.attributes.text }}"
+      title: "*Dumb automation*"
+      disable_notification: true
+      inline_keyboard:
+        - Edit message:/edit_msg, Don't:/do_nothing
+        - Remove this button:/remove_button
 ```
-
-{% endraw %}
 
 Message editor:
 
-{% raw %}
-
 ```yaml
-- alias: 'Telegram bot that edits the last sent message'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/edit_msg"
-  action:
-    - service: telegram_bot.answer_callback_query
-      data:
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "Editing the message!"
-        show_alert: true
-    - service: telegram_bot.edit_message
-      data:
-        message_id: "{{ trigger.event.data.message.message_id }}"
-        chat_id: "{{ trigger.event.data.chat_id }}"
-        title: "*Message edit*"
-        inline_keyboard:
-          - "Edit message:/edit_msg, Don't:/do_nothing"
-          - "Remove this button:/remove_button"
-        message: >
-          Callback received from {{ trigger.event.data.from_first }}.
-          Message id: {{ trigger.event.data.message.message_id }}.
-          Data: {{ trigger.event.data.data|replace("_", "\_") }}
+alias: Telegram bot that edits the last sent message
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: command
+    state: /edit_msg
+actions:
+  - action: telegram_bot.answer_callback_query
+    data:
+      show_alert: true
+      message: Editing the message!
+      callback_query_id: "{{ trigger.to_state.attributes.id }}"
+  - action: telegram_bot.edit_message
+    data:
+      inline_keyboard:
+        - Edit message:/edit_msg, Don't:/do_nothing
+        - Remove this button:/remove_button
+      message_id: "{{ trigger.to_state.attributes.message.message_id }}"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      title: "*Message edit*"
+      message: >-
+        Callback received from {{ trigger.to_state.attributes.from_first }}.
+        Message id: {{ trigger.to_state.attributes.message.message_id }}.
+        Data: {{ trigger.to_state.attributes.data|replace("_", "\_") }}
 ```
-
-{% endraw %}
 
 Keyboard editor:
 
-{% raw %}
-
 ```yaml
-- alias: 'Telegram bot that edits the keyboard'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/remove_button"
-  action:
-    - service: telegram_bot.answer_callback_query
-      data:
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "Callback received for editing the inline keyboard!"
-    - service: telegram_bot.edit_replymarkup
-      data:
-        message_id: "last"
-        chat_id: "{{ trigger.event.data.chat_id }}"
-        inline_keyboard:
-          - "Edit message:/edit_msg, Don't:/do_nothing"
+alias: Telegram bot that edits the keyboard
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: command
+    state: /remove_button
+actions:
+  - action: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: "{{ trigger.to_state.attributes.id }}"
+      message: Callback received for editing the inline keyboard!
+      show_alert: false
+  - action: telegram_bot.edit_replymarkup
+    data:
+      inline_keyboard:
+        - Edit message:/edit_msg, Don't:/do_nothing
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_id: last
 ```
-
-{% endraw %}
 
 Only acknowledges the 'NO' answer:
 
-{% raw %}
-
 ```yaml
-- alias: 'Telegram bot that simply acknowledges'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/do_nothing"
-  action:
-    - service: telegram_bot.answer_callback_query
-      data:
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "OK, you said no!"
+alias: Telegram bot that simply acknowledges
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: command
+    state: /do_nothing
+actions:
+  - action: telegram_bot.answer_callback_query
+    data:
+      message: OK, you said no!
+      callback_query_id: "{{ trigger.to_state.attributes.id }}"
 ```
 
-{% endraw %}
+### Sample automation to receive `chat_id` and `message_id` identifiers of sent messages
 
-Telegram callbacks also support arguments and commands the same way as normal messages.
-
-{% raw %}
-
-```yaml
-- alias: 'Telegram bot repeats arguments on callback query'
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      command: "/repeat"
-  action:
-    - service: telegram_bot.answer_callback_query
-      data:
-        show_alert: true
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "I repeat: {{trigger.event.data['args']}}"
-```
-
-{% endraw %}
-
-In this case, having a callback with `/repeat 1 2 3` will pop a notification saying `I repeat: [1, 2, 3]`
-
-Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegram_bot`.
-
-{% raw %}
+The following sample automation stores the `chat_id` and `message_id` of the last sent message using input entities.
+These attributes can then be used in other **Telegram bot** actions.
 
 ```yaml
-- alias: 'Notifications about messages sent by Telegram bot'
-  trigger:
-    platform: event
-    event_type: telegram_sent
-    event_data:
-      message_tag: "msg_start"
-  action:
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.chat_id
-        value: "{{ trigger.event.data.chat_id }}"
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.message_id
-        value: "{{ trigger.event.data.message_id }}"
+alias: Notifications about messages sent by Telegram bot
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_sent
+actions:
+  - action: input_number.set_value
+    data_template:
+      value: "{{ trigger.to_state.attributes.chat_id }}"
+    target:
+      entity_id: input_number.chat_id # Replace with your input entity
+  - action: input_number.set_value
+    data_template:
+      value: "{{ trigger.to_state.attributes.message_id }}"
+    target:
+      entity_id: input_number.message_id # Replace with your input entity
 ```
-
-{% endraw %}
 
 ## Example: send_message with formatted Text
 
 ```yaml
-action:
-- service: notify.telegrambot
-  data:
-    title: Example Message
-    message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
+actions:
+  - action: telegram_bot.send_message
+    data:
+      title: Example Message
+      message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
 ```
 
 ## Example: send_message with message tag
 
 ```yaml
-action:
-- service: notify.telegrambot
-  data:
-    title: Example Message
-    message: "Message with tag"
+actions:
+  - action: telegram_bot.send_message
     data:
+      title: Example Message
+      message: "Message with tag"
       message_tag: "example_tag"
 ```
 
-## Example: send_message with disabled webpage preview:
+## Example: send_message with disabled webpage preview
 
 ```yaml
-action:
-- service: notify.telegram
-  data:
-    message: >-
-      <a href="https://www.home-assistant.io/">HA site</a>
+actions:
+  - action: telegram_bot.send_message
     data:
+      message: >-
+        <a href="https://www.home-assistant.io/">HA site</a>
       parse_mode: html
       disable_web_page_preview: true
 ```
+
+## Example: send_message then edit it after a delay
+
+```yaml
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: testing
+    response_variable: response
+  - delay:
+      seconds: 5
+  - action: telegram_bot.edit_message
+    data:
+      message: done testing
+      chat_id: "{{ response.chats[0].chat_id }}"
+      message_id: "{{ response.chats[0].message_id }}"
+```
+
+## Example: send_message to a topic within a group
+
+```yaml
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: "Message to a topic"
+      message_thread_id: 123
+```
+
+## Example: send_media_group
+
+```yaml
+actions:
+  - action: telegram_bot.send_media_group
+    data:
+      media:
+        - url: https://example/image.jpg
+          caption: My album
+          media_type: photo
+        - url: https://example/video.mp4
+          media_type: video
+```
+
+## Example: automation to send a message and delete after a delay
+
+```yaml
+alias: telegram send message and delete
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: testing
+    response_variable: response
+  - delay:
+      seconds: 5
+  - repeat:
+      sequence:
+        - action: telegram_bot.delete_message
+          data:
+            message_id: "{{ repeat.item.message_id }}"
+            chat_id: "{{ repeat.item.chat_id }}"
+      for_each: "{{ response.chats }}"
+```
+
+## Example: Multi-step automation that reports progress using draft messages
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your Telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your Telegram bot event entity
+    attribute: text
+    state: "Start morning routine"
+actions:
+  - action: telegram_bot.send_message_draft
+    data:
+      draft_id: 1
+      message: "_Opening shades..._"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
+  - action: cover.open_cover
+    target:
+      entity_id: cover.bedroom
+  - action: telegram_bot.send_message_draft
+    data:
+      draft_id: 1
+      message: "_Adjusting thermostat..._"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
+  - action: climate.set_temperature
+    target:
+      entity_id: climate.bedroom
+    data:
+      temperature: 24
+  - action: telegram_bot.send_message
+    data:
+      message: "Done!"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_thread_id: "{{ trigger.to_state.attributes.message_thread_id }}"
+```
+
+## Known limitations
+
+The following features are not available in this integration:
+
+- Editing the bot (You can edit the bot using [@BotFather](https://t.me/botfather) on the Telegram app instead)
+- All payment related features such as Telegram Premium, Telegram Star and Telegram Gifts
+- Telegram Business
+- Telegram ADS
+- Mini Bot Apps and Mini Bot Store
+- Calls and live streaming
+- Wallpapers and Themes
+
+## Troubleshooting
+
+{% details "Error sending message: Can't parse entities" %}
+
+When using send actions such as `telegram_bot.send_message` with the `markdownv2` parse mode, the action will fail with the "Can't parse entities" error if the user input in the `message` field contains malformed Markdown syntax.
+
+You can perform any of the following steps to resolve this issue:
+
+- Use the `plain_text` parse mode either by configuring the Telegram bot options or by specifying it via the action's `parse_mode` data attribute.
+- Escape special characters in the `message` field with a preceding '\\' character.
+- Format your message according to the [formatting options](https://core.telegram.org/bots/api#formatting-options).
+
+{% enddetails %}
+
+{% details "Telegram Webhook bot is unable to receive updates" %}
+
+If your Telegram bot is unable to receive updates (for example, all events other than `telegram_sent` are not triggered), please follow the troubleshooting steps below:
+
+1. Reconfigure your Telegram bot to use the **Polling** platform and test again to verify that the issue is not related to network connectivity between Telegram and your Home Assistant.
+2. Check your firewall rules to verify that incoming connections are not blocked.
+3. Verify that your webhook URL is public and accessible.
+
+If the issue persists, please refer to the [Webhooks Guide](https://core.telegram.org/bots/webhooks) for more detailed troubleshooting.
+
+{% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

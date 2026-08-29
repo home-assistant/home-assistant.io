@@ -1,6 +1,6 @@
 ---
-title: Input Text
-description: Instructions on how to integrate the Input Text integration into Home Assistant.
+title: Input text
+description: Instructions on how to integrate the Input text integration into Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,14 +12,18 @@ ha_domain: input_text
 ha_integration_type: helper
 ---
 
-The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The **Input text** {% term integration %} lets you create a text {% term helper %}: an entity that stores a text value you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable text setting for your automations, scripts, and dashboards. For example, you can create a text helper to store a status message, a name, or a code. It can also be set to password mode, which obscures the text as you type.
 
-The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain=input_text title="Text" %}** option.
+On a dashboard, a text helper appears as a text box you can type into. Each time the value changes, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the value, which makes a text helper a convenient way to share a setting between the UI and your automations.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
-If you removed `default_config:` from your configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
+## Creating a text helper
 
-It can also be configured via `configuration.yaml`:
+The preferred way to create a text helper is through the user interface.
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_text" title="Text" %}**.
+
+It can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entries
@@ -79,20 +83,11 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### Services
+## Restore state
 
-This integration provides a service to modify the state of the `input_text` and a service to reload the `input_text` configuration without restarting Home Assistant itself.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
-| `reload` | | Reload `input_text` configuration |
-
-### Restore State
-
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
-
-### Scenes
+## Scenes
 
 To set the state of the input_text in a [Scene](/integrations/scene/):
 
@@ -104,11 +99,15 @@ scene:
       input_text.example: Hello!
 ```
 
-## Automation Examples
+{% include integrations/triggers.md domain="text" %}
+
+{% include integrations/conditions.md domain="text" %}
+
+{% include integrations/actions.md %}
+
+## Automation examples
 
 Here's an example using `input_text` in an action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_text' in an action in an automation
@@ -129,15 +128,31 @@ input_text:
     
 automation:
   - alias: "Bedroom Light - Custom"
-    trigger:
-      platform: state
-      entity_id: input_select.scene_bedroom
-    action:
-      - service: input_text.set_value
+    triggers:
+      - trigger: state
+        entity_id: input_select.scene_bedroom
+    actions:
+      - action: input_text.set_value
         target:
           entity_id: input_text.bedroom
         data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
 
-{% endraw %}
+## Troubleshooting
+
+### The Text helper option is missing from the user interface
+
+#### Symptom
+
+When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Text** option is not listed.
+
+#### Description
+
+Text helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_text:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your text helpers from the user interface.

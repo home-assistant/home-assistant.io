@@ -1,11 +1,18 @@
 ---
 type: card
-title: "Statistic Card"
+title: "Statistic card"
 sidebar_label: Statistic
-description: "The Statistic card allows you to display a statistical value for an entity."
+description: "The statistic card allows you to display a statistical value for an entity."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Statistic card allows you to display a statistical value for an entity.
+The statistic card allows you to display a statistical value for an entity.
 
 Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific period, or the `sum` for a metered entity.
 
@@ -16,7 +23,9 @@ If your sensor doesn't work with statistics, check [this](/more-info/statistics/
 Screenshot of the statistic card for a temperature sensor.
 </p>
 
-To add the Statistic card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Statistic** from the card picker. All options for this card can be configured via the user interface, but if you want more options for the period, you will have to define them in `yaml`.
+{% include dashboard/edit_dashboard.md %}
+
+All options for this card can be configured via the user interface, but if you want more options for the period, you will have to define them in `yaml`.
 
 {% configuration %}
 type:
@@ -25,7 +34,7 @@ type:
   type: string
 entity:
   required: true
-  description: "A entity ID of a sensor with statistics, or an external statistic id"
+  description: "An entity ID of a sensor with statistics, or an external statistic id"
   type: string
 stat_type:
   required: true
@@ -33,8 +42,8 @@ stat_type:
   type: string
 name:
   required: false
-  description: Name of entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name.
 icon:
   required: false
@@ -57,6 +66,10 @@ footer:
   required: false
   description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).
   type: map
+collection_key:
+  required: false
+  description: "If using `period: energy_date_selection`, you can set a custom key to match the optional key of an `energy-date-selection` card. This is not typically required, but can be useful if multiple date selection cards are used on the same view. See [energy documentation](/dashboards/energy/#using-multiple-collections)."
+  type: string
 {% endconfiguration %}
 
 ## Example
@@ -72,9 +85,9 @@ period:
 stat_type: change
 ```
 
-## Options For Period
+## Options for period
 
-Periods can be configured in 3 different ways:
+Periods can be configured in 4 different ways:
 
 ### Calendar
 
@@ -140,7 +153,7 @@ period:
 stat_type: change
 ```
 
-### Rolling Window
+### Rolling window
 
 {% configuration %}
 duration:
@@ -168,5 +181,18 @@ period:
       hours: -2
       minutes: -20
       seconds: -10
+stat_type: change
+```
+
+### Dynamic date selection
+
+When placed on a view with an Energy date selection card, the statistic card can be linked to show data from the period selected on the date selection card.
+
+Example of a period from the date selector:
+
+```yaml
+type: statistic
+entity: sensor.energy_consumption
+period: energy_date_selection
 stat_type: change
 ```

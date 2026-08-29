@@ -8,20 +8,23 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
+The **MQTT Sensor** {% term integration %} uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
 
 ## Configuration
 
-<a id='new_format'></a>
 
-To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
+To use an MQTT sensor in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
+  sensor:
+    - name: "Bedroom Temperature"
       state_topic: "home/bedroom/temperature"
 ```
+
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -44,7 +47,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -53,11 +56,15 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `sensor.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -89,8 +96,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -107,12 +122,10 @@ device:
       type: string
 device_class:
   description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend. The `device_class` can be `null`.
-  default: None
   required: false
   type: device_class
-  default: None
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -122,12 +135,15 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
-  default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 expire_after:
-  description: If set, it defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires.
+  description: If set, it defines the number of seconds after the sensor's state expires if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires. By default, the sensor's state never expires. Note that when a sensor's value was sent retained to the MQTT broker, the last value sent will be replayed by the MQTT broker when Home Assistant restarts or is reloaded. As this could cause the sensor to become available with an expired state, it is not recommended to retain the sensor's state payload at the MQTT broker. Home Assistant will store and restore the sensor's state for you and calculate the remaining time to retain the sensor's state before it becomes unavailable.
   required: false
   type: integer
   default: 0
@@ -136,12 +152,16 @@ force_update:
   required: false
   type: boolean
   default: false
+group:
+  description: A list of unique IDs of the member sensor entities. Set this if the sensor entity represents a sensor group.
+  required: false
+  type: list 
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
   type: template
 json_attributes_topic:
@@ -149,7 +169,7 @@ json_attributes_topic:
   required: false
   type: string
 last_reset_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the last_reset. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the last_reset. When `last_reset_value_template` is set, the `state_class` option must be `total`. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
   required: false
   type: template
 name:
@@ -157,10 +177,10 @@ name:
   required: false
   type: string
   default: MQTT Sensor
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
+options:
+  description: List of allowed sensor state value. An empty list is not allowed. The sensor's `device_class` must be set to `enum`. The `options` option cannot be used together with `state_class` or `unit_of_measurement`.
   required: false
-  type: string
+  type: list
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -171,6 +191,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+platform:
+  description: Must be `sensor`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 suggested_display_precision:
   description: The number of decimals which should be used in the sensor's state after rounding.
   required: false
@@ -184,44 +208,121 @@ state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
-  default: None
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'null'` value will set the sensor to an `unknown` state. The `device_class` can be `null`.
-  default: None
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'None'` value will set the sensor to an `unknown` state. If a `value_template` is used to parse a JSON payload, a `null` value in the JSON [will be rendered as](/docs/templating/where-to-use/#mqtt) `'None'`. Note that the `device_class` can be `null`.
   required: true
   type: string
 unique_id:
-  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
+  description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery."
   required: false
   type: string
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
-  default: None
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value. If the template throws an error, the current state will be used instead."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the value. If the template throws an error, the current state will be used instead."
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples
 
-In this section you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples showing how to use this sensor.
 
-### JSON attributes topic configuration
+### Processing Unix EPOCH timestamps
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"ClientName": <string>, "IP": <string>, "MAC": <string>, "RSSI": <string>, "HostName": <string>, "ConnectedSSID": <string>}` in a separate topic `home/sensor1/attributes` to add extra attributes. It also makes use of the `availability` topic.
-
-Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
+The example below shows how an MQTT sensor can process a Unix EPOCH payload.
 
 {% raw %}
+
+Set up via YAML:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "RSSI"
+  sensor:
+    - name: "turned on"
+      state_topic: "pump/timestamp_on"
+      device_class: "timestamp"
+      value_template: "{{ as_datetime(value) }}"
+      unique_id: "hp_1231232_ts_on"
+      device:
+        name: "Heat pump"
+        identifiers:
+          - "hp_1231232"
+```
+
+{% endraw %}
+
+Or set up via MQTT discovery:
+
+Discovery topic: `homeassistant/sensor/hp_1231232/config`
+
+{% raw %}
+
+```json
+{
+  "name": "turned on",
+  "state_topic": "pump/timestamp_on",
+  "device_class": "timestamp",
+  "value_template": "{{ as_datetime(value) }}",
+  "unique_id": "hp_1231232_ts_on",
+  "device": {
+    "name": "Heat pump",
+    "identifiers": [
+      "hp_1231232"
+    ]
+  }
+}
+```
+
+{% endraw %}
+
+To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+
+Payload topic: `pump/timestamp_on`
+Payload: `1707294116`
+
+To set the state of the sensor manually:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -p 1883 -u username -P some_password -t pump/timestamp_on -m '1707294116'
+```
+
+Make sure the IP address of your MQTT broker is used and that user credentials have been set up correctly.
+
+The `value_template` will render the Unix EPOCH timestamp to correct format: `2024-02-07 08:21:56+00:00`.
+
+### JSON attributes topic configuration
+
+The example sensor below shows a configuration example which uses the following separate topic and JSON structure to add extra attributes.
+
+Topic: `home/sensor1/attributes`
+ ```json
+ {
+    "ClientName": <string>,
+    "IP": <string>,
+    "MAC": <string>,
+    "RSSI": <string>,
+    "HostName": <string>,
+    "ConnectedSSID": <string>
+}
+ ```
+ It also uses the `availability` topic.
+
+Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - name: "RSSI"
       state_topic: "home/sensor1/infojson"
       unit_of_measurement: "dBm"
       value_template: "{{ value_json.RSSI }}"
@@ -232,48 +333,59 @@ mqtt:
       json_attributes_topic: "home/sensor1/attributes"
 ```
 
-{% endraw %}
-
 ### JSON attributes template configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes. To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
+The example sensor below shows a configuration example which uses the following topic and JSON structure with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes.
 
-Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
+Topic: `tele/sonoff/sensor`
+```json
+{
+    "Timer1": {
+        "Arm": <status>,
+        "Time": <time>
+    },
+    "Timer2": {
+        "Arm": <status>,
+        "Time": <time>
+    }
+}
+```
+To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
 
-{% raw %}
+Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/templating/states/). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Timer 1"
+  sensor:
+    - name: "Timer 1"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer1.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer1 | tojson }}"
-  - sensor:
-      name: "Timer 2"
+
+    - name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
       value_template: "{{ value_json.Timer2.Arm }}"
       json_attributes_topic: "tele/sonoff/sensor"
       json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
 
-{% endraw %}
+{% warning %}
+If `json_attributes_topic` and `state_topic` share the same topic, a state update will happen only once, unless the state update did not change the state or `force_update` was set to `true`.
 
-The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message. An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes. Such automations will be triggered twice if both the state and the attributes change. Please use a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger) and process the JSON in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [trigger data](/docs/automation/templating/#mqtt) for automations that must synchronously handle multiple JSON values within the same MQTT message.
+Setting up MQTT sensor's with extra state attributes that contain values that change at every update, like timestamps, or enabling the `force_update` option, is discouraged, as this will trigger state writes for every update. This can have a serious impact on the total system performance. A better option is creating separate sensors instead.
+{% endwarning %}
 
 ### Usage of `entity_id` in the template
 
 The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temp 1"
+  sensor:
+    - name: "Temp 1"
       state_topic: "sensor/temperature"
       value_template: |-
         {% if states(entity_id) == None %}
@@ -283,38 +395,42 @@ mqtt:
         {% endif %}
 ```
 
-{% endraw %}
-
 ### Owntracks battery level sensor
 
 If you are using the [OwnTracks](/integrations/owntracks) and enable the reporting of the battery level then you can use an MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this:
 
-```bash
-owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
+Topic: `owntracks/tablet/tablet`
+```json
+{
+    "_type": "location",
+    "lon": 7.21,
+    "t": "u",
+    "batt": 92,
+    "tst": 144995643,
+    "tid": "ta",
+    "acc": 27,
+    "lat": 46.12
+} 
 ```
 
 Thus the trick is extracting the battery level from the payload.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Battery Tablet"
+  sensor:
+    - name: "Battery Tablet"
       state_topic: "owntracks/tablet/tablet"
       unit_of_measurement: "%"
       value_template: "{{ value_json.batt }}"
 ```
 
-{% endraw %}
-
 ### Temperature and humidity sensors
 
-If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
+If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with an MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
 
+Topic: `office/sensor1`
 ```json
-office/sensor1
   {
     "temperature": 23.20,
     "humidity": 43.70
@@ -323,29 +439,24 @@ office/sensor1
 
 Then use this configuration example to extract the data from the payload:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Temperature"
+  sensor:
+    - name: "Temperature"
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
       value_template: "{{ value_json.temperature }}"
-  - sensor:
-      name: "Humidity"
+    - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
       value_template: "{{ value_json.humidity }}"
 ```
 
-{% endraw %}
-
 ### Get sensor value from a device with ESPEasy
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the `configuration.yaml` file.
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the {% term "`configuration.yaml`" %} file.
 
 - **Controller Subscribe**: `home/%sysname%/#` (instead of `/%sysname%/#`)
 - **Controller Publish**: `home/%sysname%/%tskname%/%valname%` (instead of `/%sysname%/%tskname%/%valname%`)
@@ -365,7 +476,7 @@ The configuration will look like the example below:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - sensor:
-      name: "Brightness"
+  sensor:
+    - name: "Brightness"
       state_topic: "home/bathroom/analog/brightness"
 ```

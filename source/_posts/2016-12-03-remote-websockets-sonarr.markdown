@@ -127,7 +127,7 @@ We are working on a better solution for 0.35.
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
@@ -136,7 +136,7 @@ We are working on a better solution for 0.35.
 
 ### If you need help...
 
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
 
 ### Reporting Issues
 

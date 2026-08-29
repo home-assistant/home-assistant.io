@@ -2,7 +2,7 @@
 title: Amcrest
 description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Hub
   - Sensor
@@ -17,19 +17,24 @@ ha_platforms:
 ha_codeowners:
   - '@flacjacket'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
+The **Amcrest** {% term integration %} allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Camera
 - Sensor
 
 ## Configuration
 
-To enable your camera in your installation, add the following to your `configuration.yaml` file:
+To enable your camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -112,9 +117,9 @@ binary_sensors:
   default: None
   keys:
     audio_detected:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+      description: "Return `on` when audio is detected, `off` when not. To use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     audio_detected_polled:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
+      description: "Return `on` when audio is detected, `off` when not. To use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected:
       description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected_polled:
@@ -124,7 +129,7 @@ binary_sensors:
     crossline_detected_polled:
       description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
-      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
+      description: "Return `on` when camera is available (that is, responding to commands), `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -155,9 +160,9 @@ control_light:
   default: true
 {% endconfiguration %}
 
-**Note:** Amcrest cameras with newer firmware no longer have the ability to
+**Note:** Amcrest cameras with newer firmware can no longer
 stream `high` definition video with MJPEG encoding. You may need to use `low`
-resolution stream or the `snapshot` stream source instead.  If the quality seems
+resolution stream or the `snapshot` stream source instead. If the quality seems
 too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in
 your camera's configuration manager. If you defined the `stream_source` to
 `mjpeg`, make sure your camera supports `Basic` HTTP authentication.
@@ -167,13 +172,13 @@ Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
 
-### Streaming vs Polled Binary Sensors
+### Streaming vs polled binary sensors
 
 Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
 
 ## Events
 
-Once loaded, the Amcrest integration will generate (Home Assistant) events when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
+Once loaded, the Amcrest integration will generate (Home Assistant) {% term events %} when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
 
 ```json
 {
@@ -188,77 +193,7 @@ Once loaded, the Amcrest integration will generate (Home Assistant) events when 
 
 The event code is sent by Amcrest or Dahua devices in the payload as a "Code" member. To ease event matching in automations, this code is replicated in a more top-level `event` member in `data`.
 
-## Services
-
-Once loaded, the `amcrest` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
-
-Available services:
-`enable_audio`, `disable_audio`,
-`enable_motion_recording`, `disable_motion_recording`,
-`enable_recording`, `disable_recording`,
-`goto_preset`, `set_color_bw`,
-`start_tour`, `stop_tour`, and
-`ptz_control`
-
-### Service `enable_audio`/`disable_audio`
-
-These services enable or disable the camera's audio stream.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-
-### Service `enable_motion_recording`/`disable_motion_recording`
-
-These services enable or disable the camera to record a clip to its configured storage location when motion is detected.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-
-### Service `enable_recording`/`disable_recording`
-
-These services enable or disable the camera to continuously record to its configured storage location.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-
-### Service `goto_preset`
-
-This service will cause the camera to move to one of the PTZ locations configured within the camera.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-`preset` | no | Preset number, starting from 1.
-
-### Service `set_color_bw`
-
-This service will set the color mode of the camera.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-`color_bw` | no | One of `auto`, `bw` or `color`.
-
-### Service `start_tour`/`stop_tour`
-
-These services start or stop the camera's PTZ tour function.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-
-### Service `ptz_control`
-
-If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
-
-Service data attribute | Optional | Description
--|-|-
- `entity_id` | no| The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
- `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
- `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
+{% include integrations/actions.md %}
 
 ## Notes
 
@@ -287,8 +222,8 @@ elements:
       right: 25px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: up
@@ -299,8 +234,8 @@ elements:
       right: 25px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: down
@@ -311,8 +246,8 @@ elements:
       right: 50px
       bottom: 25px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left
@@ -323,8 +258,8 @@ elements:
       right: 0px
       bottom: 25px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right
@@ -335,8 +270,8 @@ elements:
       right: 50px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_up
@@ -347,8 +282,8 @@ elements:
       right: 0px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_up
@@ -359,8 +294,8 @@ elements:
       right: 50px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_down
@@ -371,8 +306,8 @@ elements:
       right: 0px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_down
@@ -383,20 +318,20 @@ elements:
       bottom: 25px
       right: 25px
     tap_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:
-      action: call-service
-      service: amcrest.ptz_control
+      action: perform-action
+      perform_action: amcrest.ptz_control
       data:
         entity_id: camera.lakehouse
         movement: zoom_out
 ```
 
-## Advanced Configuration
+## Advanced configuration
 
 You can also use this more advanced configuration example:
 
@@ -424,22 +359,22 @@ amcrest:
       - ptz_preset
 ```
 
-## Example Automation to Detect Button Presses on AD110 and AD410 Doorbells
+## Example automation to detect button presses on AD110 and AD410 doorbells
 
-Using this trigger in an automation will allow you to detect the press of the doorbell call button and create automations based upon it. 
+Using this {% term trigger %} in an {% term automation %} will allow you to detect the press of the doorbell call button and create automations based upon it.
 
 ```yaml
 # Example automations.yaml entry
-alias: Doorbell Pressed
+alias: "Doorbell Pressed"
 description: "Trigger when Amcrest Button Press Event Fires"
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: amcrest
     event_data:
       event: "CallNoAnswered"
       payload:
         action: "Start"
-action:
+actions:
   - type: flash
     entity_id: light.living_room
     domain: light

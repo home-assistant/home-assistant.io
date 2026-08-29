@@ -11,21 +11,24 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Date integration is built for the controlling and monitoring of dates on devices.
+The **Date** {% term integration %} is built for the controlling and monitoring of dates on devices.
 
-Date entities cannot be created manually, but can be provided by other integrations. If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
+{% include integrations/building_block_integration.md %}
 
-## Services
+If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-### date services
+## The state of a date entity
 
-Available services: `date.set_value`
+The state of a date entity is the actual date value.
 
-### Service `date.set_value`
+<p class='img'>
+<img src='/images/integrations/date/state_date.png' alt='Screenshot showing the state of a date in the States tab of Tools.' />
+Screenshot showing the state of a date in {% my developer_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
+</p>
 
-Set a new value for the date entity.
+In addition, the entity can have the following states:
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of dates to control.
-| `date` | no | New date value to set.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+{% include integrations/actions.md %}

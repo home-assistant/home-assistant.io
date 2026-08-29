@@ -159,7 +159,7 @@ Finally, if you are still receiving a message that your configuration contains e
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 
@@ -167,7 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Google Assistant__ - You will now have to say a pin code before being able to control locks, doors and garage doors. You can set this pin in configuration -> cloud or, for manual installs, add `secure_devices_pin` to your config. ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
 - __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])

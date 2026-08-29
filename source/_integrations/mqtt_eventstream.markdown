@@ -1,19 +1,24 @@
 ---
 title: MQTT Eventstream
-description: Instructions on how to setup MQTT eventstream within Home Assistant.
+description: Instructions on how to set up MQTT eventstream within Home Assistant.
 ha_category:
   - Other
 ha_release: 0.11
 ha_iot_class: Local Polling
 ha_domain: mqtt_eventstream
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `mqtt_eventstream` integration connects two Home Assistant instances via MQTT.
+The **MQTT Eventstream** {% term integration %} connects two Home Assistant instances via MQTT.
 
 ## Configuration
 
-To integrate MQTT Eventstream into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate MQTT Eventstream into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,12 +37,12 @@ subscribe_topic:
   required: false
   type: string
 ignore_event:
-  description: List of [events](/docs/configuration/events/) which will not be sent over mqtt.
+  description: List of [events](/docs/configuration/events/) which will not be sent over MQTT.
   required: false
   type: list
 {% endconfiguration %}
 
-## Multiple Instances
+## Multiple instances
 
 Events from multiple instances can be aggregated to a single parent instance by subscribing to a wildcard topic from the parent instance.
 

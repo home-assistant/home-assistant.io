@@ -34,9 +34,9 @@ So if you put an iBeacon on your keys or in your car - then you can track them.
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
-<div class='note warning'>
+{% warning %}
 OwnTracks currently only supports mobile beacons on iOS.
-</div>
+{% endwarning %}
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 

@@ -45,7 +45,7 @@ My oh my, enjoy this release!
 - [Release 2021.3.3 - March 8](#release-202133---march-8)
 - [Release 2021.3.4 - March 12](#release-202134---march-12)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -219,7 +219,7 @@ If you want to help translate that into your native language,
 [join the frontend team on Localize](https://developers.home-assistant.io/docs/translations).
 
 But we did not stop there! Now add-ons can provide
-[translation files](https://developers.home-assistant.io/docs/add-ons/configuration#add-on-translations)
+[translation files](https://developers.home-assistant.io/docs/apps/configuration#app-translations)
 for configuration options and network descriptions that
 are shown in the frontend.
 
@@ -516,13 +516,13 @@ The following integrations are now available via the Home Assistant UI:
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

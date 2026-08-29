@@ -46,7 +46,7 @@ Now that we have that great news out of the way, onto this week's release which 
 
 ## 0.27
 
-While this release is **#Amazing**, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce breaking changes. Please make sure to read the [Breaking Changes](#breaking-changes) section below.
+While this release is **#Amazing**, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce backward-incompatible changes. Please make sure to read the [Backward-incompatible changes](#backward-incompatible-changes) section below.
 
 ### Hue Bridge Emulation
 
@@ -137,7 +137,7 @@ Along with the new `climate` component, [@Teagan42] and I ([@robbiet480]) decide
 - Allow emulating a [Hue] bridge to control entities ([@mgbowen])
 - New [Fan][fan] component ([@Teagan42], [@robbiet480])
 
-### Breaking changes
+### Backward-incompatible changes
 - Ecobee3 occupancy sensors have moved from sensor platform to binary sensor platform.
 - Forecast.io entity IDs are now like `sensor.forecastio_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make Forecast.io more generic now that we have many weather platforms.
 - The [Loop Energy][Loop] sensor configuration format changed slightly, please reformat based on the revised documentation.
@@ -155,7 +155,7 @@ Thanks all for sticking with me to the end. I'll be taking over a lot of Paulus'
 
 Also, thanks as always to our developer contributors, documentation contributors, but most of all our users! This would've just been a script that Paulus (@balloob) used to control his lights at home if we didn't have your enthusiasm.
 
-Feel free to let me know what you thought of this blog post and release on [Discord](https://discord.gg/c5DvZ4e) or my [Twitter](https://twitter.com/robbie), or even the [Home Assistant Twitter](https://twitter.com/home_assistant). Did I mention we have a brand new [Facebook page](https://www.facebook.com/homeassistantio) that you should absolutely Like? There's a convenient Facebook Like and Twitter follow button right on the sidebar.
+Feel free to let me know what you thought of this blog post and release on [Discord](https://discord.gg/home-assistant) or my [Twitter](https://twitter.com/robbie), or even the [Home Assistant Twitter](https://twitter.com/home_assistant). Did I mention we have a brand new [Facebook page](https://www.facebook.com/homeassistantio) that you should absolutely Like? There's a convenient Facebook Like and Twitter follow button right on the sidebar.
 
 I almost forgot about your 🎁 for reading all the way to here: a 🍪! Hope you enjoy it in good health 😄.
 

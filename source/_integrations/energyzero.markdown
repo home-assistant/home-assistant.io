@@ -12,28 +12,41 @@ ha_domain: energyzero
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The EnergyZero integration integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
+The **EnergyZero** {% term integration %} integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
 
 The integration makes it possible to retrieve the dynamic energy/gas prices
-from EnergyZero in order to gain insight into the price trend of the day and
+from EnergyZero to gain insight into the price trend of the day and
 to adjust your consumption accordingly.
 
-Partners who purchase their energy through EnergyZero:
+Partners who are a reseller from EnergyZero:
 
 - [ANWB Energie](https://www.anwb.nl/huis/energie/anwb-energie)
-- [Mijndomein Energie](https://www.mijndomein.nl/energie)
 - [Energie van Ons](https://www.energie.vanons.org)
 - [GroeneStroomLokaal](https://www.groenestroomlokaal.nl)
+- [Mijndomein Energie](https://www.mijndomein.nl/energie)
+- [SamSam](https://www.samsam.nu)
+- [ZonderGas](https://www.zondergas.nu)
 
 {% include integrations/config_flow.md %}
 
+## Use cases
+
+With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from EnergyZero. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+
+## Data updates
+
+The integration will poll the EnergyZero API every 10 minutes to update the data in Home Assistant.
+
+## Known limitations
+
+The prices retrieved via the API are bare prices including VAT, however an energy company also charges other rates such as **energy tax** and **purchase costs**. The integration has no configuration option to add these values, but you could create a [template sensor](#all-in-price-sensor) for this.
+
 ## Sensors
 
-The EnergyZero integration creates a number of sensor entities for both gas and electricity prices.
+The EnergyZero integration creates several sensor entities for both gas and electricity prices.
 
 ### Energy market price
 
@@ -52,3 +65,57 @@ Every day around **14:00 UTC time**, the new prices are published for the follow
 For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
+
+{% include integrations/actions.md %}
+
+## Templates
+
+Create template sensors to display the prices in a chart or to calculate the all-in hour price.
+
+### Prices sensor with response data
+
+To use the response data from the actions, you can create a template sensor that updates every hour.
+
+```yaml
+template:
+  - trigger:
+      - trigger: time_pattern
+        hours: "*"
+    action:
+      - action: energyzero.get_energy_prices
+        response_variable: prices
+        data:
+          config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+          incl_vat: true
+    sensor:
+      - name: Energy prices
+        device_class: timestamp
+        state: "{{ now() }}"
+        attributes:
+          prices: '{{ prices }}'
+```
+
+### All-in price sensor
+
+To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+
+```yaml
+template:
+  - sensor:
+      - name: EnergyZero all-in current price
+        unique_id: allin_current_price
+        icon: mdi:cash
+        unit_of_measurement: "€/kWh"
+        state_class: measurement
+        state: >
+          {% set energy_tax = PUT_HERE_THE_PRICE %}
+          {% set purch_costs = PUT_HERE_THE_PRICE %}
+          {% set current_price = states('sensor.energyzero_today_energy_current_hour_price') | float(0) %}
+          {{ (current_price + energy_tax + purch_costs) | round(2) }}
+```
+
+## Removing the integration
+
+This integration follows standard integration removal steps. If you also use the template sensors, you need to remove them manually.
+
+{% include integrations/remove_device_service.md %}

@@ -1,24 +1,33 @@
 ---
 type: card
-title: "Glance Card"
+title: "Glance card"
 sidebar_label: Glance
-description: "The Glance card is useful to group multiple sensors in a compact overview."
+description: "The glance card is useful to group multiple sensors in a compact overview."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
+The glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card'>
-Screenshot of the Glance card.
+Screenshot of the glance card.
 </p>
-
-To add the Glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 All options for this card can be configured via the user interface.
 
-## YAML Configuration
+{% include dashboard/edit_dashboard.md %}
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -48,6 +57,11 @@ show_state:
   description: Show entity state text.
   type: boolean
   default: "true"
+time_format:
+  required: false
+  description: >
+    Controls how timestamp states are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
@@ -56,14 +70,14 @@ columns:
   required: false
   description: Number of columns to show. If not specified the number will be set automatically.
   type: integer
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: true
+  description: Set the icon color when the entity is active for all entities in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. To disable coloring, set to `none`. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
+  default: state
 {% endconfiguration %}
 
-### Options For Entities
+### Options for entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -74,8 +88,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites icon.
@@ -94,6 +108,10 @@ show_state:
   description: Show entity state text.
   type: boolean
   default: true
+color:
+  required: false
+  description: Set the icon color when the entity is active, overriding the card's `color` option for this entity. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
@@ -106,15 +124,6 @@ double_tap_action:
   required: false
   description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
-{% endconfiguration %}
-
-### Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
 {% endconfiguration %}
 
 ### Examples

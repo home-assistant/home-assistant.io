@@ -28,7 +28,7 @@ The new format of the changelog which was introduced with 0.40 will provide a li
 - [Volumio][volumio] media player added ([@jslove])
 - [Workday][workday] sensor ([@BastianPoe])
 
-## Breaking changes
+## Backward-incompatible changes
 
 - The [Kodi notifier][kodi] platform was migrated to async and the configuration synced with the Kodi media player platform ([#6497]).
 - For the [Music Player Daemon][mpd] (MPD) platform was `location` replaced with `name` ([#6553]).
@@ -348,7 +348,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 
 [@bdurrer]: https://github.com/bdurrer
 [interview]: /blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/

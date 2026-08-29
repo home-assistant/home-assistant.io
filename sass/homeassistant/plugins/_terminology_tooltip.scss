@@ -1,0 +1,53 @@
+@use '../variables' as *;
+.terminology {
+  position: relative;
+  border-bottom: 2px dotted $primary-color;
+  cursor: help;
+
+  &:hover .terminology-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .terminology-tooltip {
+    visibility: hidden;
+    width: 250px;
+    background-color: $primary-color;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 8px;
+    border-radius: 8px;
+
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    position: fixed;
+    z-index: 1000;
+
+    a {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    &:after {
+      content: " ";
+      position: absolute;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      top: 100%;
+      border-color: $primary-color transparent transparent transparent;
+    }
+
+    &.below {
+      &:after {
+        top: -10px;
+        border-color: transparent transparent $primary-color transparent;
+      }
+    }
+  }
+  code {
+    border-bottom: 2px dotted $primary-color;
+  }
+}

@@ -11,19 +11,43 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@gjohansson-ST'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The DNS IP integration will expose an IP address, fetched via DNS resolution (every 2 minutes), as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessibility to resolvers.
+The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS resolution (every 2 minutes), as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessibility to resolvers.
 
-1. When you enable the integration with the default value, it will query the [OpenDNS](https://www.opendns.com/) nameservers with the hostname `myip.opendns.com`, which will resolve to your external/public IP address.
-2. If you specify a `hostname`, a regular DNS lookup will be performed, providing you the IP the hostname resolves to.
+1. When you enable the {% term integration %}  with the default value, it will query the [OpenDNS](https://www.opendns.com/) nameservers with the hostname `myip.opendns.com`, which will resolve to your external/public IP address.
+2. If you specify a `hostname`, a regular DNS lookup will be performed, providing you the IP the hostname resolves to. If your hostname resolves to multiple IP addresses, the lowest IP will be returned as the state. The first 10 IPs will be returned in ascending order in the `ip_addresses` attribute.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The target hostname to resolve into their IP address(es).
+Resolver:
+  description: "Override the default DNS resolver by specifying an IPv4 (e.g., `1.1.1.1`) or IPv6 address (e.g., `2606:4700:4700::1111`)"
+Port:
+  description: "Override the default DNS port (`53`). Useful to bypass local DNS filtering or redirection."
+{% endconfiguration_basic %}
+
+Resolver and port may be adjusted after the integration has been setup by adjusting it's options:
+
 {% include integrations/option_flow.md %}
 
-{% configuration_basic %}
-Resolver:
-  description: "You may override the default nameservers that are being used by setting any nameserver you like."
-{% endconfiguration_basic %}
+## Data fetching and limitations
+
+Resolving the IP address(es) happens every two minutes.
+
+If resolving the IP address(es) is not possible due to connectivity issues or other errors, it retries 3 times before going unavailable.
+
+## Troubleshooting
+
+This service is reliant on an internet connection and that the chosen **resolver(s)** are available.
+
+- Turn on debug logging and check the logs.
+- Manually test to resolve the hostname using any command line tools or websites available.
+- Manually reload the integration.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}

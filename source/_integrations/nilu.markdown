@@ -11,13 +11,18 @@ ha_domain: nilu
 ha_platforms:
   - air_quality
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `nilu` air quality platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](https://www.luftkvalitet.info) and [nilu.no](https://nilu.no/) available in Home Assistant.
+The **NILU** {% term integration %} shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](https://www.luftkvalitet.info) and [nilu.no](https://nilu.no/) available in Home Assistant.
 
 ## Configuration
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -137,7 +142,7 @@ Example where the sensors are also added to the map.
 # Additionally adds the sensors to the map.
 air_quality:
   - platform: nilu
-    show_on_map: True
+    show_on_map: true
 ```
 
 Example of a specific station.

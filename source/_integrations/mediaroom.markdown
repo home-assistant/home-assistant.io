@@ -2,7 +2,7 @@
 title: Mediaroom
 description: Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.63
 ha_codeowners:
@@ -11,11 +11,16 @@ ha_domain: mediaroom
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
+The **Mediaroom** {% term integration %} allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
 
-To add a Mediaroom STB to your installation, add the following to your `configuration.yaml` file:
+To add a Mediaroom STB to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -47,7 +52,7 @@ Notice that all parameters are optional, and discovery should configure everythi
 
 The integration has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
 
-In most cases (single STB) you just need to setup the *platform* and discovery will do the rest.
+In most cases (single STB) you just need to set up the *platform* and discovery will do the rest.
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the integration will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
 
@@ -58,41 +63,33 @@ If the STB is on the same network segment as Home Assistant, it can determine wh
 
 The `play_media` function can be used in scripts to change channels:
 
-{% raw %}
-
 ```yaml
 # Example play_media script to change channel
 #
 change_channel:
   sequence:
-    service: media_player.play_media
-    target:
-      entity_id: media_player.mediaroom_stb
-    data:
-      media_content_id: "{{ channel_number }}"
-      media_content_type: "channel"
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.mediaroom_stb
+      data:
+        media_content_id: "{{ channel_number }}"
+        media_content_type: "channel"
 ```
 
-{% endraw %}
-
 The `play_media` function can also be used to trigger actions on the set-up-box such opening the videoclub:
-
-{% raw %}
 
 ```yaml
 # Example play_media script to trigger an action
 #
 press_button:
   sequence:
-    service: media_player.play_media
-    target:
-      entity_id: media_player.mediaroom_stb
-    data:
-      media_content_id: "{{ action }}"
-      media_content_type: "mediaroom"
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.mediaroom_stb
+      data:
+        media_content_id: "{{ action }}"
+        media_content_type: "mediaroom"
 ```
-
-{% endraw %}
 
 Check [here](https://github.com/dgomes/pymediaroom) for the list of possible media_content_id's
 

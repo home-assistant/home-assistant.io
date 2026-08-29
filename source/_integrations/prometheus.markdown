@@ -9,13 +9,18 @@ ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The **Prometheus** {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
 ## Configuration
 
-To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `prometheus` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -167,7 +172,7 @@ Replace `your.longlived.token` with a Home Assistant [generated token](https://d
 The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
 
 ```yaml
-# Example Prometheus scrape_configs entry (For version 2.26+
+# Example Prometheus scrape_configs entry (For version 2.26+)
   - job_name: "hass"
     scrape_interval: 60s
     metrics_path: /api/prometheus
@@ -184,19 +189,42 @@ The format to configure the bearer token has changed in Prometheus 2.26, so if y
 When looking into the metrics on the Prometheus side, there will be:
 
 - All Home Assistant domains, which can be easily found through the common **namespace** prefix, if defined.
-- The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e., the Home Assistant Python interpreter.
-  
+- The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, that is, the Home Assistant Python interpreter.
+
 Typically, you will only be interested in the first set of metrics.
 
 ## Metrics in unavailable or unknown states
 
-When the Prometheus exporter starts (typically when Home Assistant starts), all non-excluded entities in an unavailable or unknown state are not be exported until they are available again. If the entity goes into state unavailable or unknown again, the value exported will always be the latest known one.
+When the Prometheus exporter starts (typically when Home Assistant starts), all non-excluded entities in an unavailable or unknown state are not exported until they are available and known.
 
-While an entity is in those states, the `entity_available` corresponding metric is set to 0. This metric can be used to filter out values while the entity is unavailable or in an unknown state thanks to a [recording rule](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
+If an available entity goes into state unavailable or unknown, then it will automatically be unexported and return again automatically when available and known.
 
-For example:
+{% note %}
+
+To filter out these stale values, `entity_available` could be used in a query or recording rule. For example:
 
 ```yaml
 - record: "known_temperature_c"
   expr: "temperature_c unless entity_available == 0"
+```
+
+This use of `unless` (which can be slow to compute) is no longer necessary, but will continue to work.
+{% endnote %}
+
+## Supported metrics
+
+Metrics are exported only for the following domains:
+
+`alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `geo_location`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`, `water_heater`
+
+## Info metrics
+
+The Prometheus exporter additionally exports several info metrics: `area_info`, `entity_info` and `floor_info` (prefixed by the namespace if configured) for each area, entity and floor configured in your system. You can do a join across metrics to then get the labels from these onto the individual sensors if you want to use a metric of that hierarchy in a query. For example, to show temperature sensors averaged per area you might do:
+
+```promql
+avg by (area) (
+  sensor_temperature_celsius
+    * on(entity) group_left(area)
+  entity_info
+)
 ```

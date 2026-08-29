@@ -2,7 +2,7 @@
 title: Venstar
 description: Instructions for how to integrate Venstar WiFi thermostats within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Sensor
 ha_release: 0.62
@@ -14,11 +14,12 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@garbled1'
+  - '@jhollowe'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
+The **Venstar** {% term integration %} allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
 Venstar thermostats feature a local API that allows for automation without the need for their Skyport cloud service.
 
 Currently supported and tested thermostats:
@@ -49,7 +50,8 @@ The following values are supported for the preset_mode state attribute:
 
 Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
 
-### Enabling Local API
+### Enabling local API
+
 Local API mode needs to be enabled on the thermostat itself. It cannot be enabled using the Venstar mobile apps or Skyport cloud service. Exact steps vary across different [series](https://venstar.com/thermostats/) of thermostats:
 
 - [ColorTouch](https://venstar.com/thermostats/colortouch/)
@@ -76,25 +78,18 @@ If the local API is successfully enabled on the thermostat, you should see some 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-host:
-  description: Address of your thermostat, e.g., 192.168.1.32.
-  required: true
-  type: string
-username:
-  description: Username for the thermostat.
-  required: false
-  type: string
-password:
-  description:  Password for the thermostat.
-  required: false
-  type: string
-pin:
-  description: Pin for Lockscreen (required if lock screen enabled)
-  required: false
-  type: string
-ssl:
-  description: Whether to use SSL or not when communicating.
-  required: false
-  type: boolean
-  default: false
+Host:
+  description: "The IP address of your thermostat, for example, `192.168.1.32`."
+Username:
+  description: "Username for the thermostat. Only supported on ColorTouch models."
+Password:
+  description: "Password for the thermostat. Only supported on ColorTouch models."
+PIN:
+  description: "The lock screen PIN, if you have enabled the lock screen on the thermostat."
+SSL:
+  description: "Whether to use HTTPS when communicating with the thermostat. Only supported on ColorTouch models."
 {% endconfiguration_basic %}
+
+{% note %}
+HTTPS, username, and password authentication are only available on ColorTouch thermostats. Other models, such as the Explorer Mini and Explorer IAQ, only support unencrypted HTTP connections with no authentication.
+{% endnote %}

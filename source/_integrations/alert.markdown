@@ -1,6 +1,6 @@
 ---
 title: Alert
-description: Instructions on how to setup automatic alerts within Home Assistant.
+description: Instructions on how to set up automatic alerts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.38
@@ -11,9 +11,12 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@frenck'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `alert` integration is designed to notify you when problematic issues arise.
+The **Alert** {% term integration %} is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
 to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
@@ -23,17 +26,18 @@ Alerts will add an entity to the front end.
 This entity allows you to silence an alert until it is resolved and has three
 possible states:
 
-State | Description
--|-
-`idle` | The condition for the alert is false.
-`on` | The condition for the alert is true.
-`off` | The condition for the alert is true but it was acknowledged.
+| State  | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `idle` | The condition for the alert is false.                        |
+| `on`   | The condition for the alert is true.                         |
+| `off`  | The condition for the alert is true but it was acknowledged. |
 
-### Basic Example
+### Basic example
 
-The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must setup a `notification` integration.
-Then, add the following to your configuration file:
+The `alert` integration uses any of the `notification` integrations. To
+set up the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
+Then, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,7 +67,7 @@ entity_id:
 title:
   description: >
     A title to be used for the notification if the notifier supports it
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 state:
@@ -78,7 +82,7 @@ repeat:
   required: true
   type: [integer, list]
 can_acknowledge:
-  description: Allows the alert to be unacknowledgeable.
+  description: Control whether the notification can be acknowledged; set to `false` if the alert should not be acknowledgeable.
   required: false
   type: boolean
   default: true
@@ -92,13 +96,13 @@ skip_first:
 message:
   description: >
     A message to be sent after an alert transitions from `idle` to `on`
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 done_message:
   description: >
     A message sent after an alert transitions from `on` or `off` to `idle` with
-    [template](/docs/configuration/templating/) support. Is only sent if an alert notification
+    [template](/docs/templating/) support. Is only sent if an alert notification
     was sent for transitioning from `idle` to `on`.
   required: false
   type: template
@@ -131,7 +135,7 @@ provided by the `alert` integration:
 - platform: group
   name: john_phone_sms
   services:
-    - service: twilio_sms
+    - action: twilio_sms
       data:
         target: !secret john_phone
 ```
@@ -149,7 +153,7 @@ alert:
       - john_phone_sms
 ```
 
-### Complex Alert Criteria
+### Complex alert criteria
 
 By design, the `alert` integration only handles very simple criteria for firing.
 That is, it only checks if a single entity's state is equal to a value. At some
@@ -159,7 +163,6 @@ disable the alert on certain days. Maybe the alert firing should depend on more
 than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
-{% raw %}
 
 ```yaml
 template:
@@ -178,13 +181,12 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
 raises above 15 or the alert is acknowledged on the frontend.
 
-### Dynamic Notification Delay Times
+### Dynamic notification delay times
 
 It may be desirable to have the delays between alert notifications dynamically
 change as the alert continues to fire. This can be done by setting the `repeat`
@@ -213,9 +215,9 @@ Now the first message will be sent after a 15 minute delay, the second will be
 sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
-sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+sent at 2:15, 2:45, 3:45, 4:45, and so on, continuing every 60 minutes.
 
-### Message Templates
+### Message templates
 
 It may be desirable to have the alert notifications include information
 about the state of the entity. [Templates][template]
@@ -223,7 +225,6 @@ can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -242,7 +243,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
@@ -281,13 +281,13 @@ but you will still receive the done message.
 
 ```yaml
 - alias: "Telegram callback to stop alerts for garage door"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: telegram_callback
       event_data:
         data: "/garage_acknowledge"
-  action:
-    - service: alert.turn_off
+  actions:
+    - action: alert.turn_off
       target:
         entity_id: alert.garage_door
 ```
@@ -311,4 +311,4 @@ alert:
       tag: garage-door
 ```
 
-[template]: /docs/configuration/templating/
+[template]: /docs/templating/

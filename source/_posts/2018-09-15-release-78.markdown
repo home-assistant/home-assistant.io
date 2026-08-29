@@ -64,7 +64,7 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 
@@ -72,7 +72,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Trafikverket weather: Instead of having multiple sensor configurations per station, add only one configuration per station and select the type of measurement data to subscribe to using monitored_conditions.
 The configuration value type should no longer be used. ([@endor-force] - [#15935]) ([sensor.trafikverket_weatherstation docs]) (breaking change)

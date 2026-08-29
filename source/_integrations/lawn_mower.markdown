@@ -1,46 +1,100 @@
 ---
-title: Lawn Mower
-description: Instructions on how to setup and use lawn mowers in Home Assistant.
+title: Lawn mower
+description: Instructions on how to set up and use lawn mowers in Home Assistant.
 ha_release: 2023.9
 ha_domain: lawn_mower
 ha_quality_scale: internal
 ha_category:
-  - Lawn Mower
+  - Lawn mower
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 ---
 
-The lawn mower integration allows the control of robotic lawn mowers to be reflected within Home Assistant.
+The **Lawn mower** {% term integration %} lets you bring compatible robotic lawn mowers into Home Assistant.
+Use it to monitor whether your mower is mowing, paused, returning to dock, docked, or reporting an error, and build automations around those states.
 
-Please note, the lawn mower integration cannot be directly used; you cannot create your own lawn mower entities using this integration. This integration is a building block for other integrations to use, enabling them to create lawn mower entities for you.
+{% include integrations/building_block_integration.md %}
 
-## Services
+## The state of a lawn mower entity
 
-Available services: `start_mowing`, `pause` and `dock`.
+A lawn mower entity can have the following states:
 
-Before calling one of these services, make sure your lawn_mower platform supports it.
+- **Mowing**: The lawn mower is currently mowing.
+- **Docked**: The lawn mower is done mowing and is currently docked.
+- **Paused**: The lawn mower was active and is now paused.
+- **Returning**: The lawn mower is returning to the dock.
+- **Error**: The lawn mower encountered an error while active and needs assistance.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-### Service `lawn_mower.start_mowing`
+{% include integrations/triggers.md %}
 
-Start or resume a mowing task.
+{% include integrations/conditions.md %}
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+{% include integrations/actions.md %}
 
-### Service `lawn_mower.pause`
+## Lawn mower automation examples
 
-Pause a mowing task.
+You can use lawn mower triggers and conditions to react when mowing starts, pauses, or finishes.
+You can also combine them with weather, time, and notifications to keep your yard routine simple.
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+{% include docs/paste_yaml_tip.md %}
 
-### Service `lawn_mower.dock`
+### Automation: Send a notification when mowing is done
 
-Tell the lawn_mower to return to dock.
+When the mower returns to dock, send a message so you know the job is finished without checking the app.
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+- **Trigger**: Lawn mower returned to dock
+  - **Target**: Backyard mower
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for notifying when mowing is done" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the mower is done"
+  triggers:
+    - trigger: lawn_mower.returned_to_dock
+      target:
+        entity_id: lawn_mower.backyard
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The backyard mower is back at the dock."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Return the mower to dock when rain starts
+
+If rain starts while the mower is active, you can stop the run early and send it back to the dock.
+
+- **Trigger**: State: Rain sensor turned on
+- **Condition**: Lawn mower is mowing
+  - **Target**: Backyard mower
+- **Action**: Return lawn mower to dock
+
+{% details "YAML example for docking the mower when rain starts" %}
+
+{% example %}
+automation: |
+  alias: "Dock the mower when it starts raining"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.rain_detected
+      to: "on"
+  conditions:
+    - condition: lawn_mower.is_mowing
+      target:
+        entity_id: lawn_mower.backyard
+  actions:
+    - action: lawn_mower.dock
+      target:
+        entity_id: lawn_mower.backyard
+{% endexample %}
+
+{% enddetails %}

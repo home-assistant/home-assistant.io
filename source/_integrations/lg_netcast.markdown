@@ -2,84 +2,117 @@
 title: LG Netcast
 description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: '0.20'
 ha_domain: lg_netcast
 ha_platforms:
   - media_player
+  - remote
 ha_codeowners:
   - '@Drafteed'
-ha_integration_type: integration
+  - '@splinter98'
+ha_integration_type: device
 ---
 
-The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
+The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).
+For the new LG webOS TV's use the [LG webOS TV](/integrations/webostv#media-player) platform.
 
-To add a LG TV to your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: lg_netcast
-    host: IP_ADDRESS
-```
+{% include integrations/triggers.md %}
 
-{% configuration %}
-host:
-  description: The IP address of the LG Smart TV, e.g., 192.168.0.20.
-  required: true
-  type: string
-access_token:
-  description: The access token needed to connect.
-  required: false
-  type: string
-name:
-  description: The name you would like to give to the LG Smart TV.
-  required: false
-  default: LG TV Remote
-  type: string
-turn_on_action:
-  description: Defines an [action](/docs/automation/action/) to turn the TV on.
-  required: false
-  type: string
-{% endconfiguration %}
+## Remote
 
-To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
-After starting Home Assistant the TV will display the access token on screen.
-Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
+The LG Netcast integration creates a media player entity and a remote entity for each configured TV.
 
-<div class='note'>
-  The access token will not change until you factory reset your TV.
-</div>
+To change channels from an automation or script, use the [**Play specified media**](/actions/media_player.play_media/) action and select your LG Netcast media player entity as the target. Set **Media content ID** to the channel number and **Media content type** to `channel`.
 
-## Advanced configuration
+To send remote control commands, use the `remote.send_command` action provided by the [Remote](/integrations/remote/) integration and select your LG Netcast remote entity as the target.
 
-The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
+### Sending remote commands in automations
 
-```yaml
-wake_on_lan: # enables `wake_on_lan` integration
+To send a remote command from an automation or a script:
 
-# Enables the `lg_netcast` media player
-media_player:
-  - platform: lg_netcast
-    host: 192.168.0.20
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: AA-BB-CC-DD-EE-FF
-        broadcast_address: 11.22.33.44
-```
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your LG Netcast remote entity.
+6. From the actions shown for that target, select **Send remote command**.
+7. Enter the **Command** to send.
+8. Select **Save**.
 
-## Change channel through play_media service
+Supported commands include:
 
-The `play_media` service can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
+{% details "Full key code list" %}
 
-```yaml
-# Example action entry in script to switch to channel number 15
-service: media_player.play_media
-target:
-  entity_id: media_player.lg_tv
-data:
-  media_content_id: 15
-  media_content_type: channel
-```
+- `APPS`
+- `ASPECT_RATIO`
+- `AUDIO_DESCRIPTION`
+- `AV_MODE`
+- `BACK`
+- `BLUE`
+- `CHANNEL_DOWN`
+- `CHANNEL_UP`
+- `DASH`
+- `DOWN`
+- `ENERGY_SAVING`
+- `EPG`
+- `EXIT`
+- `EXTERNAL_INPUT`
+- `FAST_FORWARD`
+- `FAVORITE_CHANNEL`
+- `GREEN`
+- `HOME_MENU`
+- `LEFT`
+- `LIVE_TV`
+- `LR_3D`
+- `MARK`
+- `MUTE_TOGGLE`
+- `NUMBER_0`
+- `NUMBER_1`
+- `NUMBER_2`
+- `NUMBER_3`
+- `NUMBER_4`
+- `NUMBER_5`
+- `NUMBER_6`
+- `NUMBER_7`
+- `NUMBER_8`
+- `NUMBER_9`
+- `OK`
+- `PAUSE`
+- `PIP_CHANNEL_DOWN`
+- `PIP_CHANNEL_UP`
+- `PIP_SECONDARY_VIDEO`
+- `PLAY`
+- `POWER`
+- `PREVIOUS_CHANNEL`
+- `PROGRAM_INFORMATION`
+- `PROGRAM_LIST`
+- `QUICK_MENU`
+- `RECORD`
+- `RECORDING_LIST`
+- `RED`
+- `REPEAT`
+- `RESERVATION_PROGRAM_LIST`
+- `REWIND`
+- `RIGHT`
+- `SHOW_SUBTITLE`
+- `SIMPLINK`
+- `SKIP_BACKWARD`
+- `SKIP_FORWARD`
+- `STOP`
+- `SWITCH_VIDEO`
+- `TELE_TEXT`
+- `TEXT_OPTION`
+- `UP`
+- `VIDEO_3D`
+- `VOLUME_DOWN`
+- `VOLUME_UP`
+- `YELLOW`
+
+{% enddetails %}
+
+To power on the TV, use the [Device is requested to turn on](/triggers/lg_netcast.turn_on/) trigger.
