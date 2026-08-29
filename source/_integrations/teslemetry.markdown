@@ -54,7 +54,7 @@ The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
-Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise.
+Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
 The **Enable keep accessory power** and **Disable keep accessory power** buttons are only created for vehicles on firmware 2025.38 or newer.
 
 ### Vehicles
