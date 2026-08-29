@@ -77,7 +77,9 @@ The integration creates the sensors below for each inverter. The sensors are rea
 
 ## Data updates
 
-The integration polls the Sunsynk cloud every 5 minutes. The inverter sends new data to the cloud every 5 minutes, so a shorter interval does not give newer data.
+The integration polls the Sunsynk cloud every 5 minutes. Each inverter polls on its own. If the cloud does not answer for one inverter, only the entities of that inverter become unavailable.
+
+The inverter sends new data to the cloud every 5 minutes, so a shorter interval does not give newer data. To read the data of one inverter now, use the `homeassistant.update_entity` action on one of its entities.
 
 ## Actions
 
