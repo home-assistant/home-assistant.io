@@ -11,8 +11,10 @@ ha_codeowners:
   - '@frenck'
 ha_domain: solaredge_modbus
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: device
+ha_zeroconf: true
 ha_quality_scale: bronze
 ---
 
@@ -40,7 +42,7 @@ Your inverter reports itself as a part number, such as `SE17K-RW0T0BNN4`. The pa
 
 Modbus TCP is available on inverters that have a network connection. If you cannot find the setting on your inverter, updating the inverter firmware usually adds it.
 
-An inverter that only has an RS485 connection can be used if you connect it through a Modbus TCP bridge, such as a serial-to-network adapter wired to its RS485 port.
+An inverter without a network port can be reached over RS485 instead, either wired to a serial port on the machine running Home Assistant, or through a Modbus TCP bridge such as a serial-to-network adapter.
 
 ## Unsupported devices
 
@@ -50,7 +52,7 @@ The following devices are not supported:
 
 ## Prerequisites
 
-Modbus TCP is turned off on a new inverter, so you need to enable it on the inverter itself first. How you get there depends on whether your inverter has a display.
+An inverter is reached over your network or over RS485, and either way Modbus has to be turned on at the inverter itself first. How you get there depends on whether your inverter has a display.
 
 {% details "Inverters without a display" %}
 
@@ -75,13 +77,19 @@ The same setting is under **Site Communication** in the SetApp mobile app, if yo
 
 Enabling Modbus TCP sets the port to `1502`. The device ID of the inverter is `1`, unless you gave it another one yourself.
 
-You also need the hostname or IP address of the inverter on your network. Giving the inverter a fixed address in your router keeps Home Assistant pointed at the right device.
+For a network connection, you also need the hostname or IP address of the inverter. Giving it a fixed address in your router keeps Home Assistant pointed at the right device.
 
 {% tip %}
 SolarEdge may stop supporting Modbus over Wi-Fi in a future firmware version. Connecting the inverter to your network with an Ethernet cable is the more reliable choice.
 {% endtip %}
 
+For an RS485 connection, set the protocol of the inverter's RS485 port to **SunSpec (Non-SE Logger)** in the same communication settings, note its baud rate (`115200` unless it was changed), and know which serial port of your machine the bus is wired to.
+
 {% include integrations/config_flow.md %}
+
+Setting up starts by picking how the inverter is reached, **Network (Modbus TCP)** or **Serial (RS485)**. A discovered inverter skips that question: it announced itself over the network.
+
+For a network connection:
 
 {% configuration_basic %}
 Host:
@@ -92,13 +100,24 @@ Device ID:
   description: "The Modbus device ID of the inverter, as configured on the inverter itself. The SolarEdge default is `1`. You only need to change this if your inverter was given another ID, for example because several inverters share one connection."
 {% endconfiguration_basic %}
 
+For a serial connection:
+
+{% configuration_basic %}
+Serial port:
+  description: "The serial port the inverter's RS485 bus is wired to. For example, `/dev/ttyUSB0`."
+Baud rate:
+  description: "The baud rate of the RS485 bus, as configured on the inverter. The SolarEdge default is `115200`."
+Device ID:
+  description: "The Modbus device ID of the inverter, as configured on the inverter itself. The SolarEdge default is `1`. Inverters chained on one bus each need their own."
+{% endconfiguration_basic %}
+
 The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
 ## Supported functionality
 
-Your inverter is added as a single device. Home Assistant reads its serial number during setup and uses that to recognize the inverter, so moving it to another address does not create a second device.
+Your inverter is added as a device, with any energy meter wired to it as a device of its own beneath it. Home Assistant reads the serial numbers during setup and uses those to recognize the hardware, so moving an inverter to another address does not create a second device, and replacing a meter does not hand the new one the old one's history.
 
-### Sensors
+### Inverter sensors
 
 - **Power**: The AC power the inverter is feeding into your home right now. The [Energy dashboard](#energy-dashboard) uses this one for live power flow.
 - **Energy**: The total energy the inverter has produced since it was installed. This is the sensor to use for solar production on the [Energy dashboard](#energy-dashboard).
@@ -115,7 +134,17 @@ The following sensors are added, but disabled. They are useful for troubleshooti
 - **DC voltage**: The voltage coming in from your solar panels.
 - **Frequency**: The frequency of the grid the inverter is connected to.
 - **Apparent power**, **Reactive power**, and **Power factor**: How the inverter's output relates to the grid.
-- **Vendor status**: The status code the inverter reports in SolarEdge's own numbering. Useful when a fault needs to be discussed with your installer.
+
+### Meter sensors
+
+An energy meter measures what passes through it, which is what the inverter cannot see: what your home takes from the grid, and what it sends back. Every meter attached to the inverter gets a device named after its place on it, **Meter 1** through **Meter 3**, with its own sensors.
+
+- **Power**, **Apparent power**, **Reactive power**, and **Power factor**: What the meter measures right now, and how that relates to the grid.
+- **Energy imported** and **Energy exported**: The totals since the meter was installed. These are the sensors for the grid on the [Energy dashboard](#energy-dashboard).
+- **Current** and **Frequency**: The current through the meter, and the frequency of the grid it sits on.
+- **Per phase**: Power, current, imported and exported energy for each phase the meter measures. A split-phase meter has two phases rather than three.
+
+The voltages a meter reports are added but disabled, the same way the inverter's are. Which of them exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
 
 ## Energy dashboard
 
@@ -129,7 +158,14 @@ Your inverter's production fits straight into the [Energy dashboard](/docs/energ
 
 Home Assistant records long-term statistics for the **Energy** sensor from the moment the entity appears, so the dashboard also fills in the days before you added it here.
 
-The **Electricity grid** section is a separate matter. Your inverter measures what it produces, not what your home takes from the grid or sends back to it. That needs an energy meter, such as one that reads your utility meter.
+The **Electricity grid** section needs a meter, since the inverter measures what it produces and not what your home takes from the grid or sends back to it. With a SolarEdge meter wired to the inverter, this integration provides that too:
+
+1. Under **Electricity grid**, select **Add grid connection**.
+2. For **Grid consumption**, select the meter's **Energy imported** sensor.
+3. For **Return to grid**, select the meter's **Energy exported** sensor.
+4. Select **Save**.
+
+Without a meter, another energy monitor, such as one reading your utility meter, can fill those in instead.
 
 ## SolarEdge Modbus automation examples
 
@@ -192,18 +228,18 @@ automation: |
 
 ## Data updates
 
-The **SolarEdge Modbus** integration {% term polling polls %} the inverter every 10 seconds.
+The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and any meter wired to it, every 10 seconds.
 
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If several inverters answer on the same address with different device IDs, for example because they are chained on one Modbus TCP bridge, they share a single connection instead of each opening their own.
 
 A [Modbus](/integrations/modbus/) setup in your {% term "`configuration.yaml`" %} is separate from this. It opens its own connection to the inverter, which counts against the number of clients the inverter accepts.
 
-If the inverter does not answer a poll, its {% term entity entities %} become unavailable. Home Assistant does not keep showing the last known reading as if it were current.
+If part of the installation does not answer a poll, only its {% term entity entities %} become unavailable: a silent meter leaves the inverter's sensors alone. Home Assistant does not keep showing the last known reading as if it were current.
 
 ## Known limitations
 
-- Only the inverter itself is read. Energy meters and batteries connected to it are not included, and neither are the inverter's own settings, such as export limitation and battery charging.
-- Only Modbus TCP connections are supported. A direct serial (RS485) connection to Home Assistant is not supported yet, but a Modbus TCP bridge can be used instead.
+- Batteries attached to the inverter are not included yet, and neither are the inverter's own settings, such as export limitation and battery charging.
+- Which meters are attached is read while the entry is set up. A meter added or unwired while Home Assistant runs is picked up the next time the entry loads, which you can trigger yourself by reloading the integration.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
 
@@ -218,6 +254,8 @@ If setup or a later poll cannot reach the inverter, work through the following s
 3. Check the port. SolarEdge uses `1502`, where Modbus devices in general often use `502`.
 4. Check whether another system is already polling the inverter, and stop it while you test.
 
+On an RS485 connection, check the baud rate and the device ID against what the inverter is set to, and that its RS485 port speaks SunSpec rather than talking to a SolarEdge logger.
+
 ### Setup says the device does not answer as a SolarEdge inverter
 
 Something answers on that address and device ID, but it is not a SolarEdge inverter:
@@ -231,6 +269,10 @@ Home Assistant recognizes your inverter by its serial number. This message means
 
 1. Look up the inverter's current address, and give it a fixed address while you are there.
 2. Select **Reconfigure** on the integration entry and enter the new address.
+
+### Getting to what the inverter reports
+
+The integration's diagnostics carry everything the inverter says about itself and about the hardware wired to it, including meters and batteries, whether or not there are entities for them. To download them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the integration, and use {% icon "mdi:dots-vertical" %} > **Download diagnostics**. Serial numbers are redacted.
 
 ## Removing the integration
 
