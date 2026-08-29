@@ -8,7 +8,7 @@ ha_category:
 ha_release: 2026.4
 ha_domain: unifi_access
 ha_iot_class: Local Push
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@imhotep'
@@ -16,9 +16,10 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - event
   - image
-  - lock
+  - select
   - sensor
   - switch
 ha_integration_type: hub
@@ -45,13 +46,17 @@ This integration supports any door managed by a UniFi Access controller, includi
 Before setting up this integration, make sure you have the following:
 
 - A running UniFi Access controller (for example, on a UniFi Dream Machine Pro or Cloud Key Gen2 Plus with the Access application installed).
-- An API token generated from the UniFi Access controller settings:
-  1. Open the UniFi Access web interface.
-  2. Navigate to **Settings** > **Advanced**.
-  3. Under **API Token**, select **Create Token**.
-  4. Give the token a descriptive name (for example, *Home Assistant*) and save it.
-  5. Copy the generated token — you will need it during setup.
+- An API token generated in the UniFi Access controller's web interface:
+  1. Open your console's IP address in a browser and select **Access** at the top.
+  2. In the left menu, go to **Settings** > **General**, then under **API Token**, select **Create New**.
+  3. Give the token a descriptive name, for example _Home Assistant_, and copy it — you will need it during setup.
+
+  For full details, see Ubiquiti's [Getting Started with the Official UniFi API](https://help.ui.com/hc/en-us/articles/30076656117655-Getting-Started-with-the-Official-UniFi-API) and the [UniFi Access API reference (PDF)](https://assets.identity.ui.com/unifi-access/api_reference.pdf), section "1.1 Create API Token & Download API Documentation".
 - Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
+
+{% important %}
+Create the token in the **UniFi Access** controller's web interface, as shown above. Do not use the console's **Integrations** page (the UniFi OS Control Plane), where UniFi Protect API keys are created. A key made there belongs to the console, and UniFi Access rejects it with a message that the key is associated with UniFi Protect. On newer consoles, the two pages look similar, so it is easy to pick the wrong one.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -91,7 +96,6 @@ Each door provides two **event** entities:
   - `access_denied`: The access attempt was denied (API result: `BLOCKED` or any other non-`ACCESS` value).
 
   The event includes the following additional attributes when available:
-
   - `actor`: The name of the person who attempted access.
   - `authentication`: The authentication method used (for example, NFC, PIN code, Face).
   - `result`: The raw result from the UniFi Access controller (for example, `ACCESS`, `BLOCKED`).
@@ -112,7 +116,7 @@ Each door registered in your UniFi Access controller is represented by a **binar
 The integration provides two switch entities for controlling the emergency modes of your UniFi Access controller.
 
 {% important %}
-These switches affect *all* doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
+These switches affect _all_ doors managed by the controller at once and have direct physical security and safety implications. Make sure to restrict access to these switches in your dashboards and avoid triggering them accidentally in automations.
 {% endimportant %}
 
 - **Evacuation**
@@ -120,12 +124,19 @@ These switches affect *all* doors managed by the controller at once and have dir
 - **Lockdown**
   - **Description**: Activates or deactivates the lockdown mode on your UniFi Access controller. When turned on, the controller triggers a facility-wide lockdown, locking all doors to restrict access.
 
+#### Selects
+
+For controllers that support temporary lock rules, each door exposes the following select entity:
+
+- **Door Lock Rule**: Sets the active temporary lock rule for the door. Available options are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
+
 #### Sensors
 
-For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entities:
+For controllers that support temporary lock rules, each door also exposes the following diagnostic sensor entity:
 
-- **Door Lock Rule**: Reports the currently active temporary lock rule for the door. Possible states are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, `lock_now`, `reset`, and `schedule`. Returns `unknown` when no temporary rule is active.
 - **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
+
+{% include integrations/actions.md %}
 
 ## Data updates
 
@@ -135,73 +146,49 @@ The integration uses a local push architecture via WebSocket. When a door's lock
 
 ### Send a notification when the doorbell rings
 
-{% raw %}
+Get notified on your phone or trigger any action when someone rings a UniFi Access doorbell.
 
-```yaml
-alias: "Doorbell notification"
-triggers:
-  - trigger: state
-    entity_id: event.front_door_doorbell
-actions:
-  - action: notify.mobile_app_my_phone
-    data:
-      title: "Doorbell"
-      message: "Someone is at the front door!"
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_doorbell_notification.yaml" %}
 
-{% endraw %}
+### React to door access events
 
-### Log who unlocked a door
+Send a notification or trigger an action when someone unlocks a door or when an access attempt is denied.
 
-{% raw %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/unifi_access_door_access_notification.yaml" %}
 
-```yaml
-alias: "Access granted notification"
-triggers:
-  - trigger: state
-    entity_id: event.front_door_access
-conditions:
-  - condition: state
-    entity_id: event.front_door_access
-    attribute: event_type
-    state: "access_granted"
-actions:
-  - action: notify.mobile_app_my_phone
-    data:
-      title: "Door unlocked"
-      message: >
-        {{ trigger.to_state.attributes.actor }}
-        unlocked the front door
-        via {{ trigger.to_state.attributes.authentication }}.
-```
+### Use a UniFi Access unlock button as a HomeKit lock
 
-{% endraw %}
+HomeKit natively supports door locks, which lets you unlock doors with Siri or from the Home app. Because a door strike only supports a momentary unlock pulse — there is no physical lock state to read back — the UniFi Access integration correctly models door openers as **button** entities. This is by design and cannot be changed within the integration itself. As a result, HomeKit Bridge cannot expose them as locks directly.
 
-### Alert on denied access attempts
+You can work around this by creating a **Template Lock** helper that wraps the unlock button. The lock always reports as _locked_ (because the door re-locks itself after the momentary pulse), and the unlock action calls the button. HomeKit handles this pattern gracefully.
 
-{% raw %}
+#### Step 1: Create a Template Lock helper
 
-```yaml
-alias: "Access denied alert"
-triggers:
-  - trigger: state
-    entity_id: event.front_door_access
-conditions:
-  - condition: state
-    entity_id: event.front_door_access
-    attribute: event_type
-    state: "access_denied"
-actions:
-  - action: notify.mobile_app_my_phone
-    data:
-      title: "Access denied!"
-      message: >
-        Access denied at front door
-        for {{ trigger.to_state.attributes.actor }}
-        ({{ trigger.to_state.attributes.authentication }}).
-```
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
+2. Select **+ Create helper**.
+3. Select **Template**, then select **Template Lock**.
+4. Fill in the form:
+   - **Name**: for example, `Front door`.
+   - **Value template**: enter `true` (this makes the lock always report as _locked_, which is correct for a door that re-locks itself after each pulse).
+   - **Lock action**: leave empty (no-op).
+   - **Unlock action**: use the action picker to select `button.press`, then choose your UniFi Access unlock button entity, for example `button.front_door_unlock`.
+   - **Open action**: leave empty.
+5. Select **Submit**.
 
-{% endraw %}
+#### Step 2: Expose the lock to HomeKit Bridge
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and open your **HomeKit Bridge** integration.
+2. Select **Configure** on your bridge instance.
+3. Verify that the newly created `lock.front_door` entity is not filtered out. If needed, add it explicitly under the entity filter.
+4. Restart Home Assistant so the new lock entity is picked up by HomeKit Bridge.
+
+After restarting, HomeKit Bridge automatically exposes the entity as a **Door Lock** accessory in the Home app.
+
+#### How it works
+
+- Saying _"Hey Siri, unlock the front door"_ sends an unlock command to Home Assistant, which calls `button.press` on the UniFi Access unlock button.
+- The door opens momentarily and then re-locks itself.
+- Because the value template always returns `true` (locked), HomeKit correctly shows the door as locked again after the pulse — no extra automation is needed.
 
 ## Known limitations
 

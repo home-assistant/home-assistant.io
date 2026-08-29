@@ -1,6 +1,6 @@
 ---
 title: AirGradient
-description: Instructions on how to setup AirGradient devices in Home Assistant.
+description: Instructions on how to set up AirGradient devices in Home Assistant.
 ha_category:
   - Health
   - Sensor
@@ -74,7 +74,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 
-A number of configuration entities are available as sensors to automate with if you control the device via the AirGradient dashboard instead of set it to control locally.
+Several configuration entities are available as sensors to automate with if you control the device via the AirGradient dashboard instead of set it to control locally.
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset
@@ -130,7 +130,6 @@ use them as inspiration to create your own automations.
 
 The following example sends a notification to your mobile device when the CO2 level exceeds 1000 ppm.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -141,7 +140,9 @@ automation:
         above: 1000
 
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "High CO2 Level Alert"
           message: >
@@ -149,7 +150,6 @@ automation:
             Please consider ventilating the room.
 ```
 
-{% endraw %}
 
 ## Known limitations
 

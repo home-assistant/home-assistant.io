@@ -9,7 +9,7 @@ Choose a meaningful name for your scene.
 
 ![Scene editor](/images/docs/scenes/editor.png)
 
-Select all the {% term devices %} (or {% term entities %} when advanced mode is enabled on your user profile) you want to include in your scene.
+Select all the {% term devices %} or {% term entities %} you want to include in your scene.
 The state of your devices will be saved, so it can be restored when you are finished creating your scene.
 Set the state of the devices to how you want them to be in your scene, this can be done by selecting it and edit the state from the popup, or any other method that changes the state.
 On the moment you save the scene, all the states of your devices are stored in the scene.

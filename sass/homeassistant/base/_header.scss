@@ -52,12 +52,16 @@ body > header {
 
   .logo {
     border-radius: 0;
-    width: 226px;
+    width: 216px;
     height: 32px;
     margin-right: 10px;
     background-image: url('/images/home-assistant-logo.svg');
     background-repeat: no-repeat;
     background-size: contain;
+
+    @media only screen and (min-width: 389px) {
+      width: 226px;
+    }
   }
 
   a>* {

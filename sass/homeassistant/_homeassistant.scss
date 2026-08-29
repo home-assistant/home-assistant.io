@@ -29,12 +29,14 @@
 @use 'base/print' as *;
 @use 'base/collaboration_badge' as *;
 @use 'base/back_to_top' as *;
+@use 'base/image_lightbox' as *;
 
 @use 'plugins/alert' as *;
 @use 'plugins/details' as *;
 @use 'plugins/tabbed_block' as *;
 @use 'plugins/terminology_tooltip' as *;
 @use 'plugins/integration_alert' as *;
+@use 'plugins/template_functions' as *;
 
 @use 'base/sidebar' as *;
 @use 'aside/buy_dialog' as *;
@@ -50,6 +52,7 @@
 @use 'pages/landingpage' as *;
 @use 'pages/component_page' as *;
 @use 'pages/getting_started' as *;
+@use 'pages/social-media' as *;
 
 @use 'helpers/classes' as *;
 @use 'helpers/grid-fix' as *;

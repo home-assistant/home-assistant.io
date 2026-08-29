@@ -14,12 +14,12 @@ The conditional card displays another card based on conditions.
 
 ![Screenshot of the conditional card](/images/dashboards/conditional_card.gif)
 
+Most options for this card can be configured via the user interface.
+
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
 The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) tab.
-
-Most options for this card can be configured via the user interface.
 
 ## YAML configuration
 
@@ -61,7 +61,7 @@ card:
   entities:
     - device_tracker.demo_paulus
     - cover.kitchen_window
-    - group.kitchen
+    - light.kitchen_lights
     - lock.kitchen_door
     - light.bed_light
 ```
@@ -206,7 +206,7 @@ Specify the visibility of the card based on the current user's current location.
 condition: location
 locations:
   - home
-  - Home Neigborhood
+  - Home Neighborhood
 ```
 
 {% configuration %}

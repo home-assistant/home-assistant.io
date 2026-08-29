@@ -1,6 +1,6 @@
 ---
 title: Binary sensor
-description: Instructions on how-to setup binary sensors with Home Assistant.
+description: Instructions on how-to set up binary sensors with Home Assistant.
 ha_category:
   - Binary sensor
 ha_release: 0.9
@@ -82,4 +82,4 @@ The following device classes are supported for binary sensors:
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
-For comparison, here are the [device classes](https://www.home-assistant.io/integrations/sensor#device-class) for analog sensors.
+For comparison, here are the [device classes](/integrations/sensor#device-class) for analog sensors.

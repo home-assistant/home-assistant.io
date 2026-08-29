@@ -57,6 +57,14 @@ ha_quality_scale: bronze
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
 
+{% warning %}
+**Upcoming breaking API change (October 2026).**
+
+Samsung has announced that free access to the SmartThings API will be phased out starting in **October 2026**. After this date, the SmartThings API access will require a paid Personal Plan subscription ($4.99/month).
+
+If you use this integration, you will need to either subscribe to Samsung's Personal Plan or migrate your devices (like local Zigbee/Z-Wave devices) before October 2026 to avoid a service disruption. For full details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
+{% endwarning %}
+
 ## Prerequisites
 
 - You need a Samsung account and account credentials.
@@ -403,6 +411,10 @@ The SmartThings integration does not support all SmartThings capabilities. Only 
 3. If the capability is available in the SmartThings API but not yet supported by this integration, you can request support by creating a [GitHub Discussion](https://github.com/orgs/home-assistant/discussions?discussions_q=is%3Aopen+label%3A%22integration%3A+smartthings%22).
    - Do not create a GitHub Issue for feature requests, as issues are intended for bug reports.
    - When creating a feature request, attach the [device diagnostics](#viewing-device-diagnostics) for the device that is missing functionality. This helps identify which capabilities your device exposes and speeds up the implementation.
+
+## SmartThings community
+
+The SmartThings integration is complex due to the breadth of devices and capabilities it supports. If you need community support or want to discuss device integration topics with other SmartThings users, you can join the [SmartThings Integration community on Discord](https://discord.gg/EJYdwMCz7K).
 
 ## Removing the integration
 
