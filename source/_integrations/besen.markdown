@@ -30,18 +30,18 @@ Other Besen chargers using the same `ACP#` Bluetooth protocol may also work.
 ## Prerequisites
 
 - A Besen charger advertising as `ACP#...`.
-- The charger's Bluetooth address and 6-digit PIN.
+- The charger's 6-digit PIN.
 - A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
 
 ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
 
 {% include integrations/config_flow.md %}
 
-Home Assistant can discover chargers that advertise as `ACP#...`. If discovery does not find your charger, add the integration manually and enter the charger's Bluetooth address.
+Home Assistant can discover chargers that advertise as `ACP#...`. If your charger is not discovered automatically, add the integration manually and select it from the list of Besen chargers currently visible over Bluetooth. If no charger is found, follow the [discovery troubleshooting steps](#the-charger-is-not-discovered).
 
 {% configuration_basic %}
-Bluetooth address:
-  description: "The BLE address of the charger. Discovery fills this automatically when Home Assistant sees an ACP# advertisement."
+Device:
+  description: "The discovered Besen charger to set up."
 PIN:
   description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
 {% endconfiguration_basic %}
