@@ -173,7 +173,7 @@ Make sure that Home Assistant has an internet connection and that [Sunsynk Conne
 
 ### The password is no longer valid
 
-If you change the password of your Sunsynk Connect account, Home Assistant asks you to enter the new password. Go to **{% my integrations title="Settings > Devices & services" %}**, select the Sunsynk integration and select **Reconfigure**.
+If you change the password of your Sunsynk Connect account, the integration cannot log in and its entities become unavailable. Remove the integration and add it again with the new password.
 
 ### The values do not match the Sunsynk Connect app
 
