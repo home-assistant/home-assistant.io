@@ -13,6 +13,7 @@ ha_domain: solaredge_modbus
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - number
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
@@ -166,6 +167,23 @@ A battery attached to the inverter gets a device named after its place on it, **
 - **Charging**: On while a battery is taking charge. Home Assistant's battery-charging triggers and conditions look at this rather than at the status sensor, so this is the one to use for them.
 - **On grid**: Whether the inverter is connected to the grid. Only added for inverter firmware that reports it.
 
+### Numbers
+
+The inverter holds settings of its own, which this integration can change as well as read. They sit under the inverter's configuration rather than with its measurements.
+
+- **Backup reserve**: How much of the battery is kept back for a power cut, as a percentage.
+- **Storage charge limit** and **Storage discharge limit**: How fast the battery is allowed to charge and discharge.
+- **Site export limit**: How much the site may feed back to the grid.
+- **External production maximum**: What other production at the site can deliver, which the inverter needs to know to keep the site within its export limit.
+- **Active power limit**: How much of its capacity the inverter may use, as a percentage.
+- **Power factor setpoint**: The cos phi the inverter aims for. Disabled by default, since it is an installer setting that a site rarely needs to move.
+
+{% important %}
+These settings live in the inverter's flash memory, which is meant to be written now and then rather than continuously. An automation that writes one every few minutes will wear it out. Change them when something actually changes.
+
+They can also affect what your installation is allowed to do. Export limits in particular are often part of an agreement with your grid operator, and changing them can put your site outside it, or change what you are billed.
+{% endimportant %}
+
 ## Energy dashboard
 
 Your inverter's production fits straight into the [Energy dashboard](/docs/energy/solar-panels/), next to what your home consumes.
@@ -256,7 +274,7 @@ automation: |
 
 ## Data updates
 
-The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and anything wired to it, every 10 seconds.
+The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and anything wired to it, every 10 seconds. The inverter's settings are read every 5 minutes instead: they only move when something writes them, and every read costs a slot on a connection that has few to give.
 
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If several inverters answer on the same address with different device IDs, for example because they are chained on one Modbus TCP bridge, they share a single connection instead of each opening their own.
 
@@ -266,7 +284,8 @@ If part of the installation does not answer a poll, only its {% term entity enti
 
 ## Known limitations
 
-- The inverter's own settings, such as export limitation and how the battery is told to charge, are not included yet. This integration reads the installation, it does not steer it.
+- Which of the inverter's settings exist depends on the installation. Storage settings need a battery, and the export settings need the inverter to have them enabled; what is absent is simply not added.
+- SolarEdge does not document the control registers, and not every firmware exposes them the same way. What a setting does is the inverter's business, and it will refuse a value it does not accept.
 - Which meters and batteries are attached is read while the entry is set up. Hardware added or unwired while Home Assistant runs is picked up the next time the entry loads, which you can trigger yourself by reloading the integration.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
