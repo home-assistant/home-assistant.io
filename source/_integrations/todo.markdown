@@ -45,6 +45,32 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
+## Subtasks
+
+Some to-do lists let you group items into subtasks. A subtask belongs to another
+item on the same list, which helps you break a larger task into the steps needed
+to finish it.
+
+To turn an item into a subtask:
+
+1. Open the **To-do lists** dashboard and select your list.
+2. Select the item you want to group.
+3. Under **Subtask of**, select the item it belongs to.
+4. Select **Save item**.
+
+Subtasks are shown indented under the item they belong to. To turn a subtask back
+into a regular item, clear the **Subtask of** field and save.
+
+Subtasks are one level deep, which means an item that is already a subtask cannot
+have subtasks of its own.
+
+Not every to-do list supports subtasks. If you do not see the **Subtask of**
+field, the integration that provides the list does not support them.
+
+You can also group items from an automation or script. The
+**Add to-do list item** and **Update to-do list item** actions both take a
+**Parent item** field, which accepts the name or UID of the item to group under.
+
 ## Blueprint to add an item to a dedicated list
 
 This blueprint allows you to create a script to add an
