@@ -9,10 +9,13 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - button
+  - diagnostics
+  - select
   - sensor
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
@@ -48,21 +51,31 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 
 The **Sofar** integration provides the following entities.
 
+### Buttons
+
+- **RTC sync**: Writes the current date and time to the inverter's clock.
+- **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
+
+### Select
+
+- **Charger use mode**: The battery charger's operating mode, such as self use, time of use, or feed-in priority. Only shown for inverters with battery storage.
+- **EPS mode**: Turns the EPS/backup output off and on, and whether it's allowed to cold-start from battery power alone. Only shown for inverters wired for EPS/backup power.
+
 ### Sensors
 
 The **Sofar** integration reads a large number of sensors from the inverter. Only the sensors relevant to your inverter's type and configuration are added.
 
 - **System status**: The inverter's operating state, including fault conditions.
 - **Temperatures**: Inverter, heatsink, and module temperatures.
-- **Device information**: Serial number and the status of the last real-time clock sync. The inverter's hardware and software versions appear on the device page rather than as sensors.
+- **Device information**: The status of the last real-time clock sync.
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
-- **PV strings**: Power for each connected solar panel string, plus voltage and current if you need the detail. Only shown for PV-capable inverters.
-- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each connected battery pack, plus combined power, state of charge, and state of health totals. Only shown for inverters with battery storage.
+- **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
+- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
 - **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 
-The overall totals and the readings most people need are enabled by default. Per-phase detail, additional battery packs beyond the first, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
+The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
 
 ## Data updates
 
@@ -70,7 +83,7 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time. Only sensors are available so far; controls such as number and select entities are planned for future releases.
+- This is an early release of the integration, added to Home Assistant one platform at a time. Number entities are planned for a future release.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
