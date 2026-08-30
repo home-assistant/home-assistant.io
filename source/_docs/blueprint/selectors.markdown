@@ -696,9 +696,9 @@ device_class:
 {% configuration device_class %}
 domain:
   description: >
-    The domain for which to select device classes [domain(s)](/docs/configuration/entities_domains/#domains),
+    The [domain](/docs/configuration/entities_domains/#domains) for which to select device classes,
     for example, [`sensor`](/integrations/sensor) or
-    [`binary_sensor`](/integrations/binary_sensor).
+    [`binary_sensor`](/integrations/binary_sensor). The domain must support the `device_class` property.
   type: string
   required: true
 multiple:
