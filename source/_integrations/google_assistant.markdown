@@ -227,7 +227,7 @@ entity_config:
 
 ### Expose entities
 
-Choose which entities are available to Google Assistant from {% my voice_assistants title="**Settings** > **Voice assistants** > **Expose**" %}. See [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/) for the full walkthrough.
+Choose which entities are available to Google Assistant from {% my voice_assistants title="**Settings** > **Voice assistants**" %}, and then open the **Expose** tab. See [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/) for the full walkthrough.
 
 ### Available domains
 
