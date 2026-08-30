@@ -4,7 +4,7 @@ description: Instructions on how to integrate Sunsynk inverters within Home Assi
 ha_category:
   - Energy
   - Sensor
-ha_release: 2026.10
+ha_release: "2026.10"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
