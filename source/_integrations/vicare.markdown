@@ -110,7 +110,9 @@ Select entities allow configuring the domestic hot water (<abbr title="domestic 
 
 ### Switch
 
-Ventilation devices expose their quickmodes as switches, such as **Comfort**, **Eco**, **Boost**, and **Silent**. Only the quickmodes reported by the device are created.
+Ventilation devices expose their quickmodes as switches, such as **Intensive**, **Eco**, **Boost**, and **Silent**. Only the quickmodes reported by the device are created.
+
+Quickmodes are mutually exclusive. Turn the active one off before turning another on, otherwise activation fails with "Only one quickmode can be active at a time".
 
 {% include integrations/actions.md %}
 
