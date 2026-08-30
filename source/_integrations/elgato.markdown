@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -85,6 +86,11 @@ The integration creates a light entity for each Elgato Light device. You can con
 - **Power-on color temperature**
   - **Description**: The color temperature the light uses when it powers on. Only applied when **Power-on behavior** is set to **Use defaults**. Shows as unknown on a light configured to power on to a color instead of a color temperature.
   - **Entity category**: Configuration
+
+### Selects
+
+- **Power-on behavior**
+  - **Description**: What the light does when it regains power. **Restore last state** returns it to how it was before it lost power. **Use defaults** applies the stored power-on brightness and color temperature instead.
 
 ### Sensors
 
