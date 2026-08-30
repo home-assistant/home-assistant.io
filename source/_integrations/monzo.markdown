@@ -110,6 +110,20 @@ If Home Assistant cannot register a webhook, account and pot sensors continue to
 
 ## Troubleshooting
 
+### Monzo displays a network error during authentication
+
+#### Symptom: “Network error” after entering your email address
+
+During setup or reauthentication, the Monzo authentication page displays **Network error** after you enter your email address.
+
+#### Description
+
+This error can occur when the redirect URL configured for your OAuth client in the Monzo developer portal is incorrect.
+
+#### Resolution
+
+In the [Monzo developer portal](https://developers.monzo.com/), open the OAuth client used by Home Assistant and set **Redirect URLs** to `https://my.home-assistant.io/redirect/oauth`. Use this URL exactly as shown. Do not replace it with a local or Home Assistant Cloud URL. Then, retry authentication in Home Assistant.
+
 ### Approval times out
 
 #### Symptom: “Approval timed out”
