@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - diagnostics
   - light
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -73,6 +74,12 @@ The integration creates a light entity for each Elgato Light device. You can con
 
 - **Restart**
   - **Description**: Restarts the Elgato Light device.
+  - **Entity category**: Configuration
+
+### Selects
+
+- **Power-on behavior**
+  - **Description**: What the light does when it regains power. **Restore last state** returns it to how it was before it lost power. **Use defaults** applies the stored power-on brightness and color temperature instead.
   - **Entity category**: Configuration
 
 ### Sensors
