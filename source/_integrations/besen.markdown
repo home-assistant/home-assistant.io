@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
+  - number
   - sensor
   - switch
 ha_config_flow: true
@@ -32,18 +33,18 @@ Other Besen chargers using the same `ACP#` Bluetooth protocol may also work.
 ## Prerequisites
 
 - A Besen charger advertising as `ACP#...`.
-- The charger's Bluetooth address and 6-digit PIN.
+- The charger's 6-digit PIN.
 - A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
 
 ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
 
 {% include integrations/config_flow.md %}
 
-Home Assistant can discover chargers that advertise as `ACP#...`. If discovery does not find your charger, add the integration manually and enter the charger's Bluetooth address.
+Home Assistant can discover chargers that advertise as `ACP#...`. If your charger is not discovered automatically, add the integration manually and select it from the list of Besen chargers currently visible over Bluetooth. If no charger is found, follow the [discovery troubleshooting steps](#the-charger-is-not-discovered).
 
 {% configuration_basic %}
-Bluetooth address:
-  description: "The BLE address of the charger. Discovery fills this automatically when Home Assistant sees an ACP# advertisement."
+Device:
+  description: "The discovered Besen charger to set up."
 PIN:
   description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
 {% endconfiguration_basic %}
@@ -55,6 +56,10 @@ PIN:
 The {% term integration %} provides a **Charge** switch to start or stop charging.
 
 The switch state follows the charging state reported by the charger.
+
+### Number
+
+The **Charging current** number sets the maximum current the charger can use. The available range starts at 6 A and ends at the maximum reported by the charger. Home Assistant uses 32 A if the charger does not report a maximum.
 
 ### Sensors
 
@@ -79,6 +84,7 @@ The integration does not provide custom actions. Use the standard entity actions
 
 - `switch.turn_on` starts charging.
 - `switch.turn_off` stops charging.
+- `number.set_value` sets the charging current.
 
 ## Examples
 
@@ -120,7 +126,7 @@ This is a local push integration. There is no cloud dependency.
 
 The integration does not support:
 
-- Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
+- Changing charger settings such as language, temperature unit, LCD brightness, or device name.
 - Reporting additional telemetry such as charging status text, charger error details, or Bluetooth signal strength as entities.
 - Wi-Fi provisioning.
 - Password reset.
