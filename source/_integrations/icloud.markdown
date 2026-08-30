@@ -15,7 +15,7 @@ ha_codeowners:
 ha_domain: icloud
 ha_platforms:
   - device_tracker
-  - media_source  
+  - media_source
   - sensor
   - todo
 ha_integration_type: hub
@@ -63,12 +63,12 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### To-do list
 
-The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes, and the changes sync back to your Apple devices.
+The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices.
 
-Reminder groups, which hold other lists rather than reminders, are not shown as to-do lists. Because Home Assistant to-do lists are flat, a reminder's subtasks are listed directly after the reminder they belong to.
+Reminder groups hold other lists rather than reminders, so they do not appear as to-do lists. Home Assistant to-do lists are flat, so a reminder's subtasks are listed directly after the reminder they belong to.
 
 {% note %}
-If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) turned on, your reminders are end-to-end encrypted and Apple only returns readable content to a session that your device has approved. Approve the request on one of your Apple devices when prompted; until then, reminder titles cannot be read.
+If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) turned on, your reminders are end-to-end encrypted. Apple only returns readable content to a session that one of your devices has approved, so Home Assistant cannot display your reminder titles until you approve the request when prompted on an Apple device.
 {% endnote %}
 
 {% include integrations/actions.md %}
