@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: anova
 ha_integration_type: hub
 ha_platforms:
+  - number
   - sensor
   - switch
 ---
@@ -55,3 +56,14 @@ This integration provides the following switch.
 - **Cook**: Starts and stops a cook. When turned on, a cook is started using
   the current target temperature and timer values. When turned off, the
   current cook is stopped.
+
+## Number
+
+This integration provides the following numbers.
+
+- **Target temperature**: The temperature the water is heated to. Used to start
+  a cook and adjustable while a cook is running.
+  - Range: 0-100 °C
+- **Timer**: The length of the cook in minutes. Used to start a cook and
+  adjustable while a cook is running.
+  - Range: 0-4,320 minutes (up to 72 hours)
