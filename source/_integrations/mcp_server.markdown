@@ -37,7 +37,13 @@ The integration provides the following configuration options:
 Control Home Assistant:
   description: If MCP clients are allowed to control Home Assistant. Clients can only
     control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+Require an administrator account:
+  description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
+    option is turned on for new setups. If you set up the integration before this option existed,
+    it stays turned off so that your clients keep working.
 {% endconfiguration_basic %}
+
+To change these options, go to **{% my integrations title="Settings > Devices & services" %}**, select the **Model Context Protocol Server** integration, and then select **Configure**. The **Require an administrator account** option is only available here, not during initial setup.
 
 ## Architecture overview
 
@@ -81,10 +87,21 @@ Point your MCP client at this URL in the same way you would use the base
 responds with a 404 Not Found error.
 
 Connecting to any API other than Assist requires the authenticated user to be an
-administrator. The Assist API stays available to non-administrator users, just
-like the base `/api/mcp` endpoint.
+administrator. The Assist API stays available to non-administrator users. Access
+to the base `/api/mcp` endpoint follows the **Require an administrator account**
+option instead.
 
 ### Access control
+
+#### Administrator accounts
+
+The `/api/mcp` endpoint serves the LLM APIs you selected for the integration.
+Turn on **Require an administrator account** in the [configuration options](#configuration-options)
+if you only want administrator accounts to reach it. Clients that authenticate as
+a non-administrator account then get a 401 Unauthorized response.
+
+Keep this option turned off if you want to give a non-administrator account, such
+as an account you created for a single MCP client, access to the endpoint.
 
 #### OAuth
 
