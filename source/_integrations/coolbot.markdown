@@ -10,7 +10,6 @@ ha_codeowners:
   - '@strulock'
 ha_domain: coolbot
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -28,12 +27,12 @@ You need a CoolBot Pro account (the account used in the CoolBot mobile app) with
 
 {% configuration_basic %}
 Email:
-  description: The email address of your CoolBot Pro account — the same one you use in the CoolBot app.
+  description: The email address of your CoolBot Pro account (the same one you use in the CoolBot app).
 Password:
   description: The password of your CoolBot Pro account.
 {% endconfiguration_basic %}
 
-Credentials are verified against the CoolBot service before the entry is created. To change them later, use **Reconfigure** on the integration entry; if the password stops working, Home Assistant prompts for a new one automatically.
+Credentials are verified against the CoolBot service before the entry is created. To change them later, remove the integration and add it again with the new credentials.
 
 ## Supported functionality
 
@@ -51,7 +50,7 @@ The hardware reports temperatures in Fahrenheit; Home Assistant converts them to
 
 The integration holds one connection open per account, and the CoolBot service pushes new readings every 12–15 seconds; the service is not polled.
 
-If a CoolBot loses its connection, the cloud keeps serving its last known reading, so a stale value can look current. To avoid charting a temperature that has quietly stopped moving, measurement sensors become unavailable after two minutes without a new push. The set point sensor is exempt, since a configured target stays meaningful while the cooler is offline.
+If a CoolBot loses its connection, the cloud keeps serving its last known reading, so a stale value can look current. To avoid charting a temperature that has quietly stopped moving, sensors become unavailable after two minutes without a new push.
 
 ## Examples
 
@@ -114,12 +113,8 @@ automation:
 
 If sensors stay unavailable, check the **Wi-Fi signal** sensor (disabled by default). Below about −80 dBm, expect dropouts; the CoolBot app warns below 15% on its own scale.
 
-The integration supports downloading [diagnostics](/docs/configuration/troubleshooting/#download-diagnostics) from the device page. The download includes each cooler's data age, whether its readings are considered fresh, and the last disconnect time, with credentials and identifiers redacted.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required, and nothing on the CoolBot account is modified.
 
 {% include integrations/remove_device_service.md %}
-
-If a cooler is removed from your CoolBot account, its device can be deleted from the device page in Home Assistant once it stops being reported.
