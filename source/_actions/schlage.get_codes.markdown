@@ -55,7 +55,6 @@ The action returns the result for each targeted lock, keyed by entity ID. For ea
 - **name**: The name of the PIN code.
 - **code**: The PIN value.
 - **access_code_id**: A unique access code identifier.
-- **notify_on_use**: Whether the native Schlage notification is sent when this PIN is used.
 - **schedule**: The schedule for this PIN, or `null` for permanent PINs.
 
 ```yaml
@@ -64,13 +63,11 @@ lock.front_door:
     name: Example Person
     code: "3333"
     access_code_id: "93ab517c-0000-0000-0000-000000000000"
-    notify_on_use: true
     schedule: null
   82958b77-0000-0000-0000-000000000000:
     name: Guest
     code: "1234"
     access_code_id: "82958b77-0000-0000-0000-000000000000"
-    notify_on_use: true
     schedule:
       type: temporary
       start_datetime: "2026-09-01T15:00:00+00:00"
@@ -116,7 +113,7 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
 
 ```json
 {
-  "type": "recurring_multi",
+  "type": "multi_recurring",
   "windows": [
     {
       "days_of_week": {
@@ -152,7 +149,7 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
 }
 ```
 
-Recurring and recurring_multi schedules are configured through the Schlage app and cannot be set through Home Assistant service actions.
+Recurring and multi_recurring schedules are configured through the Schlage app and cannot be set through Home Assistant service actions.
 
 {% include actions/try_it.md %}
 
