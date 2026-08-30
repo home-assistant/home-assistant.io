@@ -83,7 +83,7 @@ The integration creates a light entity for each Elgato Light device. You can con
   - **Entity category**: Configuration
 
 - **Power-on color temperature**
-  - **Description**: The color temperature the light uses when it powers on. Only applied when **Power-on behavior** is set to **Use defaults**. Not available on devices configured to power on to a color instead of a color temperature.
+  - **Description**: The color temperature the light uses when it powers on. Only applied when **Power-on behavior** is set to **Use defaults**. Shows as unknown on a light configured to power on to a color instead of a color temperature.
   - **Entity category**: Configuration
 
 ### Sensors
