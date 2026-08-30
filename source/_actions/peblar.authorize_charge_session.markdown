@@ -73,7 +73,7 @@ uid:
   type: string
 description:
   description: >
-    The label of the RFID token to present, instead of its UID. Provide this or `uid`, not both.
+    The label of the RFID token to present, instead of its UID. Provide this or `uid`. You must provide one of the two.
   required: false
   type: string
 {% endoptions_yaml %}
