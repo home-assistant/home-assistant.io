@@ -3,6 +3,7 @@ title: Besen
 description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
 ha_category:
   - Car
+  - Energy
 ha_release: 2026.9
 ha_iot_class: Local Push
 ha_codeowners:
@@ -10,6 +11,7 @@ ha_codeowners:
 ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
+  - sensor
   - switch
 ha_config_flow: true
 ha_integration_type: device
@@ -48,9 +50,28 @@ PIN:
 
 ## Supported functionality
 
-The {% term integration %} provides a switch to start or stop charging.
+### Switch
+
+The {% term integration %} provides a **Charge** switch to start or stop charging.
 
 The switch state follows the charging state reported by the charger.
+
+### Sensors
+
+The following sensors are enabled by default:
+
+- **Charging power**: Current charging power reported by the charger in watts (W).
+- **Total energy**: Lifetime energy reported by the charger in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
+- **Session energy**: Energy delivered during the current or most recently completed charging session in kilowatt-hours (kWh). This value can reset when a new session starts, so it is not recommended for the Energy dashboard.
+- **Internal temperature**: Temperature measured inside the charger in degrees Celsius (°C).
+
+The following diagnostic sensors are disabled by default:
+
+- **External temperature**: External temperature reported by the charger in degrees Celsius (°C).
+- **L1 voltage** and **L1 current**: Voltage and current reported for phase L1.
+- **L2 voltage**, **L2 current**, **L3 voltage**, and **L3 current**: Voltage and current reported for phases L2 and L3. These sensors are created only for three-phase chargers.
+
+To use a diagnostic sensor, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
 
 ## Actions
 
@@ -91,6 +112,8 @@ actions:
 
 The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
 
+Sensor values update when the charger sends status and charging-session notifications. A sensor shows an `unknown` value until the charger reports its corresponding measurement. All charger entities become `unavailable` while the Bluetooth connection is unavailable or authentication is incomplete.
+
 This is a local push integration. There is no cloud dependency.
 
 ## Known limitations
@@ -98,7 +121,7 @@ This is a local push integration. There is no cloud dependency.
 The integration does not support:
 
 - Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
-- Reporting detailed charger telemetry as Home Assistant sensor entities.
+- Reporting additional telemetry such as charging status text, charger error details, or Bluetooth signal strength as entities.
 - Wi-Fi provisioning.
 - Password reset.
 - Device reset.

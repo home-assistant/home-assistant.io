@@ -104,7 +104,7 @@ an OAuth Client ID. Instead, the Client ID is the base URL of the client applica
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
-1. Go to {% my profile_security title="**User profile** > **Security** tab " %}.
+1. Go to {% my profile_security title="**User profile** > **Security**" %}.
 2. Under **Long-lived access tokens**, select **Create token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
