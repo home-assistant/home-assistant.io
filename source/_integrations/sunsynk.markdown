@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@jamesridgway'
 ha_domain: sunsynk
+ha_dhcp: true
 ha_platforms:
   - sensor
 ha_integration_type: hub
@@ -24,6 +25,8 @@ Sunsynk makes hybrid solar inverters and batteries. The inverter sends its data 
 
 - A Sunsynk inverter that is connected to the Sunsynk cloud with a Wi-Fi or Ethernet data logger.
 - A Sunsynk Connect account. Use the same email address and password that you use in the Sunsynk Connect app.
+
+Home Assistant can find the Sunsynk data logger on your network. The data logger has the hostname `e-linter`. When it is found, Home Assistant shows a **Sunsynk** discovery card. Select **Add** and enter your account details. You can also add the integration by hand.
 
 {% include integrations/config_flow.md %}
 
