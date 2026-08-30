@@ -1,72 +1,97 @@
 ---
 title: Flexit
-description: Instructions on how to integrate Flexit A/C unit into Home Assistant.
+description: Instructions on how to integrate a Flexit air handling unit into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
+  - Sensor
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: flexit
 ha_platforms:
+  - binary_sensor
   - climate
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - sensor
+ha_integration_type: device
+ha_codeowners:
+  - '@troelde'
+ha_config_flow: true
 ha_quality_scale: legacy
 ---
 
-Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.
+The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en/) air handling units equipped with a CI66 Modbus adapter to Home Assistant.
 
-Requires an CI66 Modbus Adapter [CI66](https://www.flexit.no/en/products/air_handling_units_700-5000_m-h/accessories_ahu/modbusadapter_ci66/modbus_adapter_ci66_k2-c2-uni/)
+## Prerequisites
 
-To enable this integration, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+Your Flexit unit needs a [CI66 Modbus adapter](https://www.flexit.com/en/products/111647/modbus-adapter-ci66-k2-c2-uni/). Depending on how the adapter is connected, you need one of the following:
 
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: flexit
-    slave: 21
-```
+- **Serial (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
+- **Network (Modbus TCP) via bridge**: The CI66 adapter is wired to a Modbus TCP bridge or gateway on your network.
 
-{% configuration %}
-slave:
-  description: The slave ID of the modbus adapter, set using DIP-switches.
-  required: true
-  type: integer
-name:
-  description: Displayed name of the A/C unit.
-  required: false
-  type: string
-hub:
-  description: The name of the hub where this slave is located.
-  required: false
-  default: default
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
-{% important %}
-This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work.
-{% endimportant %}
+When you set up the integration, you're asked to choose between a serial or a network connection.
 
-Full configuration example including modbus setup shown below:
+{% configuration_basic %}
+Serial device:
+  description: "The serial device your Flexit CI66 Modbus adapter is connected to. Only shown for a serial connection."
+Baud rate:
+  description: "The baud rate of the serial connection. Defaults to `9600`. Only shown for a serial connection."
+Host:
+  description: "The hostname or IP address of your Flexit CI66 Modbus bridge. Only shown for a network connection."
+Port:
+  description: "The port of your Flexit CI66 Modbus bridge. Defaults to `502`. Only shown for a network connection."
+Unit ID:
+  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `247`."
+{% endconfiguration_basic %}
 
-DIP-switch settings on the CI66:
-1=ON, 2=ON, 3=OFF, 4=ON, 5=OFF, 6=ON, 7=ON, 8=ON
+{% note %}
+Home Assistant can share a Modbus connection between integrations when their connection settings are compatible. If another integration uses the same connection with incompatible settings, setup fails with a connection error.
+{% endnote %}
 
-```yaml
-# Full example configuration.yaml entry
-modbus:
-  type: serial
-  method: rtu
-  port: /dev/ttyUSB0
-  baudrate: 56000
-  stopbits: 1
-  bytesize: 8
-  parity: E
+## Migrating from YAML configuration
 
-climate:
-  - platform: flexit
-    name: Main A/C
-    slave: 21
-```
+If you previously configured this integration through `configuration.yaml`, it can't be imported automatically. The Modbus connection details used to live in a separate `modbus:` section, which isn't accessible from the `climate` platform configuration.
+
+1. Remove the `flexit` entry under `climate:` from your `configuration.yaml` file.
+2. Set up the integration again from the Home Assistant UI, providing the Modbus connection details and unit ID of your Flexit unit.
+3. Restart Home Assistant.
+
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} will guide you through the same steps.
+
+## Supported functionality
+
+### Climate
+
+The integration adds a climate entity for the Flexit unit. You can set a target temperature and choose a fan mode (**Off**, **Low**, **Medium**, or **High**). The current activity, such as heating, cooling, or idle, is shown as the entity's HVAC action.
+
+### Sensors
+
+- **Air filter operating time**: The number of hours the air filter has been in operation.
+- **Heat exchanger regulation**: The current heat exchanger output as a percentage.
+- **Electric heater regulation**: The current electric heater output as a percentage.
+- **Cooling regulation**: The current cooling output as a percentage.
+- **Outdoor air temperature**: The temperature of the outdoor air entering the unit.
+
+### Binary sensors
+
+- **Filter alarm**: Indicates whether the unit reports a filter problem.
+- **Electric heater enabled**: Indicates whether the electric heater is enabled.
+
+## Data updates
+
+The **Flexit** integration {% term polling polls %} the unit every 30 seconds.
+
+## Troubleshooting
+
+If setup fails with a connection error:
+
+- Make sure the serial device or host and port are correct and reachable from Home Assistant.
+- Make sure no other integration is already using the same connection with different settings.
+- Make sure the unit ID matches the Modbus address configured on your CI66 adapter.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
