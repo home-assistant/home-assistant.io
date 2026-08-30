@@ -141,16 +141,28 @@ Supported event types are:
 - Exiting Region
 - Entering Region
 
-### State attributes
-
-Each binary sensor reports these attributes:
-
-- `last_tripped_time`: when the event last changed to "on".
-- `detection_target`: what the device classified as the cause of the event, for example `human` or `vehicle`. Only smart events carry a classification, so this attribute is only present when the device sends one. Which events include it, and which values they use, depends on the device model and firmware.
-
 ### Availability
 
 The binary sensors follow the connection to your device's event stream. While the stream is down, for example because the device is powered off or unreachable on your network, the sensors show as unavailable instead of keeping their last state. They return to reporting "off" or "on" once the connection is restored.
+
+## Event
+
+Some Hikvision devices classify what triggered a smart event, so you can tell a person from a passing car. The integration creates an event entity for each of these event types on each channel:
+
+- Motion
+- Line crossing
+- Field detection
+
+Each event entity reports one of these event types when it triggers:
+
+- `human`
+- `pet`
+- `vehicle`
+- `triggered`, when the device does not say what caused the event
+
+Whether your device classifies events, and which of these values it uses, depends on the model and the firmware. Devices that do not classify report `triggered` every time.
+
+Use these entities when you want an automation to react only to a particular kind of trigger, for example to send a notification for a person crossing a line but not for a vehicle. Use the binary sensors instead when you want to know whether an event is currently active.
 
 ## Removing the integration
 
