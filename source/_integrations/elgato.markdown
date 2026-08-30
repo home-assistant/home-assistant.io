@@ -80,6 +80,14 @@ The integration creates a light entity for each Elgato Light device. You can con
 - **Battery**
   - **Description**: The current battery level of your Elgato Key Light Mini, as a percentage. Only available on Key Light Mini.
 
+- **Wi-Fi signal strength**
+  - **Description**: How good the connection to your Wi-Fi network is, as a percentage. Useful for tracking down a device that keeps becoming unavailable.
+  - **Entity category**: Diagnostic
+
+- **Wi-Fi RSSI**
+  - **Description**: The same signal in dBm, the unit the device itself reports. Disabled by default.
+  - **Entity category**: Diagnostic
+
 ### Switches
 
 - **Studio mode**
