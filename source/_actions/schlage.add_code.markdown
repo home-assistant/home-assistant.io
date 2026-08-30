@@ -28,7 +28,7 @@ To add a PIN code from an automation or a script:
 
 {% options_ui %}
 PIN name:
-  description: Name for PIN code. Must be case insensitively unique to the lock.
+  description: Name for PIN code. Must be unique ignoring capitalization to the lock.
 PIN code:
   description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
 Notify when PIN is used:
@@ -82,7 +82,7 @@ action: |
 
 {% options_yaml %}
 name:
-  description: Name for PIN code. Must be case insensitively unique to the lock.
+  description: Name for PIN code. Must be unique ignoring capitalization to the lock.
   required: true
   type: string
 code:
@@ -97,11 +97,11 @@ notify_on_use:
 start_datetime:
   description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
   required: false
-  type: string
+  type: datetime
 end_datetime:
   description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
   required: false
-  type: string
+  type: datetime
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}
