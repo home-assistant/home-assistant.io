@@ -75,7 +75,7 @@ Your power station is added as a single device.
 - **PV AC power**, **PV AC energy**, **Total PV input power**, **Total PV input energy**: Combined solar production.
 - **Grid frequency**, **Grid input power**: What the device reads from the grid.
 - **Total grid import energy**, **Total grid export energy**: Lifetime grid energy counters, where the device reports them.
-- **Inverter status**, **Inverter fault**, **Inverter warning**: The inverter's current status and any active fault or warning.
+- **Inverter status**: The inverter's current status.
 - **Total inverter power**, **Inverter count**: Inverter-level totals.
 
 The following are added as diagnostic entities: **Battery type**, **Inverter type**, **Cell count**, **Battery cycle count**, **Temperature sensor count**, **Number of battery packs**.
@@ -84,7 +84,7 @@ The device's charge limits (max charge / min discharge SoC) and its AC output, g
 
 **Total battery SoC** and **Total battery SoH** read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
 
-The device's ARM and DSP firmware versions appear on the device's info page ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) rather than as sensors.
+On a model that reports one over Modbus (Balco260), the serial number appears on the device's info page too, alongside the ARM and DSP firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
 
 ## Data updates
 
