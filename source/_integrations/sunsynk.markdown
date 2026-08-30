@@ -37,7 +37,7 @@ Password:
   description: The password of your Sunsynk Connect account.
 {% endconfiguration_basic %}
 
-The integration adds all inverters of the account. Each inverter is a device in Home Assistant. A battery is a second device, linked to its inverter. If you do not want an inverter, you can disable the device.
+The integration adds all inverters of the account. Each inverter is a device in Home Assistant, named **Inverter** and the serial number, or the alias you set in Sunsynk Connect. A battery is a second device, linked to its inverter, named **Battery** and the serial number of the inverter. If you do not want an inverter, you can disable the device.
 
 ## Supported devices
 
@@ -123,12 +123,12 @@ automation: |
   alias: "Notify when the battery is low"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.battery_state_of_charge
+      entity_id: sensor.battery_1234567890_state_of_charge
       below: 20
   actions:
     - action: notify.notify
       data:
-        message: "The battery is at {{ states('sensor.battery_state_of_charge') }}%."
+        message: "The battery is at {{ states('sensor.battery_1234567890_state_of_charge') }}%."
 {% endexample %}
 
 {% enddetails %}
@@ -147,13 +147,13 @@ automation: |
   alias: "Use excess solar power"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.inverter_solar_power
+      entity_id: sensor.inverter_1234567890_solar_power
       above: 3000
       for:
         minutes: 10
       id: "on"
     - trigger: numeric_state
-      entity_id: sensor.inverter_solar_power
+      entity_id: sensor.inverter_1234567890_solar_power
       below: 1000
       for:
         minutes: 10
