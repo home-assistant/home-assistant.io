@@ -5,6 +5,7 @@ ha_category:
   - Media source
   - Presence detection
   - Sensor
+  - To-do list
 ha_iot_class: Cloud Polling
 ha_release: '0.10'
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - device_tracker
   - media_source  
   - sensor
+  - todo
 ha_integration_type: hub
 ---
 
@@ -25,6 +27,7 @@ There is currently support for the following platforms within Home Assistant:
 
 - [Device tracker](#device-tracker)
 - [Sensor](#sensor)
+- [To-do list](#to-do-list)
 
 It does require that your devices are registered with the [Find My](https://www.apple.com/icloud/find-my/) service.
 
@@ -57,6 +60,16 @@ The iCloud integration will track available devices on your iCloud account.
 ### Sensor
 
 The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
+
+### To-do list
+
+The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes, and the changes sync back to your Apple devices.
+
+Reminder groups, which hold other lists rather than reminders, are not shown as to-do lists. Because Home Assistant to-do lists are flat, a reminder's subtasks are listed directly after the reminder they belong to.
+
+{% note %}
+If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) turned on, your reminders are end-to-end encrypted and Apple only returns readable content to a session that your device has approved. Approve the request on one of your Apple devices when prompted; until then, reminder titles cannot be read.
+{% endnote %}
 
 {% include integrations/actions.md %}
 
