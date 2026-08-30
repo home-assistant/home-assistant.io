@@ -20,6 +20,11 @@ The **KACO Modbus** {% term integration %} connects Home Assistant to a
 it is producing. The inverter is read directly over your local network, so no
 cloud account or manufacturer portal is involved.
 
+## Supported devices
+
+KACO inverters that provide SunSpec over Modbus TCP, which covers the current
+three-phase range including the NX3, TL3 and NH3 families.
+
 ## Prerequisites
 
 - The inverter needs a network connection to Home Assistant, over its Ethernet port.
@@ -50,6 +55,11 @@ Modbus unit ID:
   described in [integrating your solar panels](/docs/energy/solar-panels/).
 - **Operating state**: What the inverter is currently doing, such as producing,
   asleep, or in a fault condition.
+
+## Data updates
+
+The **KACO Modbus** {% term integration %} {% term polling polls %} the inverter
+every 30 seconds.
 
 ## Known limitations
 
