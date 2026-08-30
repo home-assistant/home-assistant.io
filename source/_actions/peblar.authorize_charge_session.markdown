@@ -68,7 +68,7 @@ config_entry_id:
   type: string
 uid:
   description: >
-    The unique identifier (UID) of the RFID token to present. Provide this or `description`, not both.
+    The unique identifier (UID) of the RFID token to present. Provide either this or `description`. You must provide one of the two.
   required: false
   type: string
 description:
