@@ -82,7 +82,10 @@ description:
 
 - Only administrators can run this action.
 - The charger accepts the request and acts on it a moment later, so watch the charger's state to see the result rather than the action itself.
-- This action does not apply to every charger. A charger without an RFID reader has no standalone list to draw from, a charger managed over OCPP has its sessions authorized by that backoffice, and a charger set to charge without authorization has nothing to authorize.
+- This action does not apply to every charger:
+  - Chargers without an RFID reader do not have a standalone authorization list.
+  - Chargers managed over OCPP have their sessions authorized by the OCPP back-end system.
+  - Chargers set to charge without authorization have nothing to authorize.
 
 {% include actions/more_examples.md %}
 
