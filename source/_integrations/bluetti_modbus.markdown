@@ -58,33 +58,33 @@ Model:
   description: "The BLUETTI power station model you are connecting to. There is no way for the integration to detect this automatically, so pick the model that matches your device."
 {% endconfiguration_basic %}
 
-To adjust the above configuration later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, select {% icon "mdi:dots-vertical" %}, and select **Reconfigure**.
-
 ## Supported functionality
 
 Your power station is added as a single device.
 
 ### Sensors
 
-- **Battery Voltage**, **Total Battery Voltage**: The battery's voltage.
-- **Battery Current**, **Total Battery Current**: The battery's current.
-- **Battery SoC**, **Total Battery SoC**: The battery's present charge level.
-- **Battery SoH**, **Total Battery SoH**: The battery's state of health.
-- **Average Battery Temperature**: The battery's temperature.
-- **Total Battery Charged Energy**, **Total Battery Discharged Energy**: Lifetime battery energy counters.
-- **AC Output Power**, **Total AC Output Energy**: What the device is feeding to AC loads.
-- Per-string solar input (**Input Voltage**, **Input Current**, **Input Power** for PV strings 1 through 4, where the device has that many).
-- **PV AC Power**, **PV AC Energy**, **Total PV Input Power**, **Total PV Input Energy**: Combined solar production.
-- **Grid Frequency**, **Grid Input Power**: What the device reads from the grid.
-- **Total Grid Import Energy**, **Total Grid Export Energy**: Lifetime grid energy counters, where the device reports them.
-- **Inverter Status**, **Inverter Fault**, **Inverter Warning**: The inverter's current status and any active fault or warning.
-- **Total Inverter Power**, **Inverter Count**: Inverter-level totals.
+- **Battery voltage**, **Total battery voltage**: The battery's voltage.
+- **Battery current**, **Total battery current**: The battery's current.
+- **Battery SoC**, **Total battery SoC**: The battery's present charge level.
+- **Battery SoH**, **Total battery SoH**: The battery's state of health.
+- **Average battery temperature**: The battery's temperature.
+- **Total battery charged energy**, **Total battery discharged energy**: Lifetime battery energy counters.
+- **AC output power**, **Total AC output energy**: What the device is feeding to AC loads.
+- Per-string solar input (**Input voltage**, **Input current**, **Input power** for PV strings 1 through 4, where the device has that many).
+- **PV AC power**, **PV AC energy**, **Total PV input power**, **Total PV input energy**: Combined solar production.
+- **Grid frequency**, **Grid input power**: What the device reads from the grid.
+- **Total grid import energy**, **Total grid export energy**: Lifetime grid energy counters, where the device reports them.
+- **Inverter status**, **Inverter fault**, **Inverter warning**: The inverter's current status and any active fault or warning.
+- **Total inverter power**, **Inverter count**: Inverter-level totals.
 
-The following are added as diagnostic entities: **Battery Type**, **Inverter Type**, **Cell Count**, **Battery Cycle Count**, **Temperature Sensor Count**, **Number of Battery Packs**.
+The following are added as diagnostic entities: **Battery type**, **Inverter type**, **Cell count**, **Battery cycle count**, **Temperature sensor count**, **Number of battery packs**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
-**Total Battery SoC** and **Total Battery SoH** read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
+**Total battery SoC** and **Total battery SoH** read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
+
+The device's ARM and DSP firmware versions appear on the device's info page ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) rather than as sensors.
 
 ## Data updates
 
@@ -95,8 +95,8 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 ## Known limitations
 
 - Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
-- The device model cannot be detected automatically; you select it yourself during setup, and setup does not always catch a wrong pick - see [Setup fails after selecting a model](#setup-fails-after-selecting-a-model). If you picked the wrong one, use **Reconfigure** rather than removing and re-adding the integration.
-- On a model that reports a serial number over Modbus (Balco260), Home Assistant identifies the device by it: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and reconfiguring the entry to that address is rejected. A model with no serial field (EP2000) is identified by its address, device ID, and port instead, with no way to detect a same-address swap to a different unit; moving the device still requires reconfiguring the entry to the new address either way.
+- There is no way yet to change a device's address, port, or device ID, or to correct a wrong model pick, without removing and re-adding the integration - see [Setup fails after selecting a model](#setup-fails-after-selecting-a-model).
+- On a model that reports a serial number over Modbus (Balco260), Home Assistant identifies the device by it: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data. A model with no serial field (EP2000) is identified by its address, device ID, and port instead, with no way to detect a same-address swap to a different unit.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
 ## Troubleshooting
@@ -112,9 +112,9 @@ If setup or a later poll cannot reach the device, work through the following ste
 
 ### Setup fails after selecting a model
 
-The model selected during setup is confirmed by successfully reading that model's registers from the device, not by checking the device's real model. EP2000's register map is almost entirely a subset of Balco260's, at the same addresses, so picking **EP2000** for a device that is actually a Balco260 can still pass setup - you get a working entry, just missing the Balco260-only sensors (serial number, ARM/DSP firmware version, grid energy totals, and PV strings 3 and 4). Picking **Balco260** for a device that is really an EP2000 does reliably fail, since Balco260's map includes registers an EP2000 does not answer.
+The model selected during setup is confirmed by successfully reading that model's registers from the device, not by checking the device's real model. EP2000's register map is almost entirely a subset of Balco260's, at the same addresses, so picking **EP2000** for a device that is actually a Balco260 can still pass setup - you get a working entry, just missing the Balco260-only sensors (grid energy totals and PV strings 3 and 4) and its serial number and firmware version. Picking **Balco260** for a device that is really an EP2000 does reliably fail, since Balco260's map includes registers an EP2000 does not answer.
 
-If you are missing sensors you expect, or entities that never leave `unavailable`, reconfigure the entry and try the other model.
+If you are missing sensors you expect, or entities that never leave `unavailable`, remove the integration and set it up again with the other model.
 
 ## Removing the integration
 
