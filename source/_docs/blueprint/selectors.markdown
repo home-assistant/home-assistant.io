@@ -1254,7 +1254,7 @@ multiple:
     this selector will be a list instead of a single object.
   type: boolean
   default: false
-  required: false  
+  required: false
 {% endconfiguration %}
 
 The output of the media selector is a mapping or list of mappings with information about
