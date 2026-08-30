@@ -190,7 +190,7 @@ The inverter holds settings of its own, which this integration can change as wel
 
 ### Switches
 
-Both are flags on the export control, set by an installer to describe the site, and both are disabled by default.
+These switches are flags on the export control. An installer sets them to describe the site, and they are disabled by default.
 
 - **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
 - **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
