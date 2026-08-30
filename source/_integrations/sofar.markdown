@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: sofar
 ha_platforms:
   - button
+  - diagnostics
   - select
   - sensor
 ha_config_flow: true
