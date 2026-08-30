@@ -351,7 +351,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Lyngdorf]** rounded out its debut with number entities for lip sync and channel trims, a remote entity to drive the processor's on-screen menus, selects for RoomPerfect position and voicing, sensors for the active input and streaming source, and now-playing information with transport controls for models with a streaming module. Thanks, [@fishloa]!
 - **[Harbor Sleep]** added a select entity to set the camera's night mode to Auto, On, or Off, so you can control it from Home Assistant instead of the Harbor app. Thanks, [@Lash-L]!
 - **[NeoPool]** added a pool light entity, plus an options flow to opt in to it, since the controller can't detect whether a light is actually wired to the relay. Thanks, [@svasek]!
-- **[MQTT]** gained its own dashboard on the settings page, instead of hiding its tools behind the options. The topic subscribe view now formats messages as code with a copy button, and a shortcut takes you straight to the broker connection settings. Thanks, [@jbouwh]!
+- **[MQTT]** gained its own dashboard on the settings page, the same kind of integration-specific view that Matter and Z-Wave already have, instead of hiding its tools behind the options. The topic subscribe view now formats messages as code with a copy button, and a shortcut takes you straight to the broker connection settings. Thanks, [@jbouwh]!
 
 [@adam-the-hero]: https://github.com/adam-the-hero
 [@andrew-codechimp]: https://github.com/andrew-codechimp
