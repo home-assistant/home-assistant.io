@@ -192,7 +192,7 @@ Modbus devices, like solar inverters, energy meters, and heat pumps, have long b
 
 The piece that makes this possible is sharing a connection. A Modbus bus, whether it's a serial (RS-485) line or a TCP gateway, only lets one party talk at a time, so two integrations opening their own connection to the same bus used to fight over it. Now, an integration asks the **[Modbus]** integration for a unit, and two integrations asking with the same connection details share one connection behind the scenes, so their requests queue up instead of colliding. Nothing is configured or persisted separately: the shared connection exists only while something is actually using it. The integration setup wizard can also briefly hold a unit to probe a device before anything is actually configured.
 
-The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data, current, voltage, power, and lifetime energy for each MPP tracker, that its existing local HTTP API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
+The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data — current, voltage, power, and lifetime energy for each MPP tracker — that its existing local HTTP API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
 
 For the full story, including the new standalone `modbus-connection` library and how to build your own integration on top of it, read [Modernizing Modbus in Home Assistant](https://developers.home-assistant.io/blog/2026/07/05/modernizing-modbus) on the developer blog. Underneath, it talks to devices through [tmodbus](https://github.com/wlcrs/tmodbus), a modern, fully typed Modbus library.
 
@@ -593,9 +593,11 @@ The deprecated fireplace mode switch entity has been removed. If you have {% ter
 
 {% details "KNX" %}
 
-KNX exposes no longer send the first value of an exposed entity to the KNX bus once that value becomes available. Previously, an entity that already had a value when the expose was registered was initialized silently, while an entity that became available later immediately sent that first value to the bus. Both cases now behave the same way: the first value is adopted locally without sending anything, while it stays available for read requests and periodic sending. Later value changes continue to be sent as before.
+KNX exposes no longer send an entity's first value to the KNX bus. Previously, this depended on timing: if the entity already had a value when the expose was set up, nothing was sent, but if the value arrived later, it was sent to the bus right away.
 
-If you want the value being sent to KNX right away, that's an optional configuration now. No matter if the expose was initialized before or after the exposed entity became available.
+Now, both cases behave the same way. The first value is adopted locally without sending a telegram, but stays available for read requests and periodic sending. Later value changes are still sent as before.
+
+To send the first value right away, turn on **Send on initialization** for the expose in the KNX panel, or set `send_on_init: true` in your YAML configuration.
 
 ([@Kolbi] - [#178793]) ([KNX documentation])
 
