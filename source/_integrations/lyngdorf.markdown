@@ -32,24 +32,22 @@ The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] and [St
 
 ## Supported devices
 
-Every model gets a main zone media player and the RoomPerfect position and
-voicing selects. The rest depends on what the model has:
+Every model gets a main zone media player and the RoomPerfect position and voicing selects. The rest depends on what the model has:
 
 | Model | Zone B | Now playing and transport | Remote | Lip sync | Bass and treble trims | Channel trims | Input sensors |
 | ----- | ------ | ------------------------- | ------ | -------- | --------------------- | ------------- | ------------- |
-| [MP-40](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-40/) | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| [MP-50](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-50/) | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| [MP-60](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-60/) | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| [TDAI-1120](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-1120/) | — | Yes | — | — | Yes | — | — |
-| [TDAI-2170](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-2170/) | — | — | — | — | — | — | — |
-| [TDAI-2210](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-2210/) | — | Yes | — | — | Yes | — | — |
-| [TDAI-3400](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-3400/) | — | Yes | — | — | Yes | — | — |
-| [P100](https://steinwaylyngdorf.com/steinway-sons-p100/) | Yes | — | Yes | Yes | — | — | Yes |
-| [P200](https://steinwaylyngdorf.com/steinway-sons-p200/) | Yes | — | Yes | Yes | — | — | Yes |
-| [P300](https://steinwaylyngdorf.com/steinway-sons-p300/) | Yes | — | Yes | Yes | — | — | Yes |
+| [MP-40](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-40/) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [MP-50](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-50/) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [MP-60](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-60/) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [TDAI-1120](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-1120/) | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| [TDAI-2170](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-2170/) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [TDAI-2210](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-2210/) | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| [TDAI-3400](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-3400/) | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| [P100](https://steinwaylyngdorf.com/steinway-sons-p100/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| [P200](https://steinwaylyngdorf.com/steinway-sons-p200/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| [P300](https://steinwaylyngdorf.com/steinway-sons-p300/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ |
 
-The P100, P200, and P300 are made by Lyngdorf and marketed as
-[Steinway & Lyngdorf].
+The P100, P200, and P300 are made by Lyngdorf and marketed as [Steinway & Lyngdorf].
 
 {% note %}
 Only the MP-60, TDAI-1120, and TDAI-3400 have been tested against real hardware. The other models listed here are implemented from the protocol documentation and have not been verified by an owner, so if you have one, please report anything that does not work on [GitHub](https://github.com/home-assistant/core/issues).
@@ -57,17 +55,9 @@ Only the MP-60, TDAI-1120, and TDAI-3400 have been tested against real hardware.
 
 ## Prerequisites
 
-- Home Assistant must be able to reach the device on TCP port 84, which carries
-  the control protocol.
-- The device is identified by the serial number in its UPnP description. Home
-  Assistant locates the description with an SSDP request on UDP port 1900, then
-  fetches it over HTTP from the port the device advertises. The device assigns
-  that port itself and it is not fixed, so a firewall rule cannot rely on a
-  particular number. This applies when adding a device by IP address as well as
-  when one is discovered.
-- Automatic discovery additionally needs the device on the same subnet as Home
-  Assistant, because it relies on multicast SSDP. A device on another subnet can
-  still be added by IP address.
+- Home Assistant must be able to reach the device on TCP port 84, which carries the control protocol.
+- The device is identified by the serial number in its UPnP description. Home Assistant locates the description with an SSDP request on UDP port 1900, then fetches it over HTTP from the port the device advertises. The device assigns that port itself and it is not fixed, so a firewall rule cannot rely on a particular number. This applies when adding a device by IP address as well as when one is discovered.
+- Automatic discovery additionally needs the device on the same subnet as Home Assistant, because it relies on multicast SSDP. A device on another subnet can still be added by IP address.
 
 {% include integrations/config_flow.md %}
 
@@ -215,7 +205,7 @@ The Lyngdorf device does not show up as a discovered device in Home Assistant.
 
 To resolve this issue, try the following steps:
 
-1. Make sure your Lyngdorf device is powered on and on the same subnet as Home Assistant. Automatic discovery uses multicast SSDP, which does not cross subnets.
+1. Make sure your Lyngdorf device is powered on and connected to the same subnet as Home Assistant. Automatic discovery uses multicast SSDP, which does not cross subnets.
 2. Check that UPnP/SSDP is not blocked on your network.
 3. Add the device manually using its IP address. This works across subnets, but still needs UPnP to be reachable, because the device is identified from its UPnP description.
 
