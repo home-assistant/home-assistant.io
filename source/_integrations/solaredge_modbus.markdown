@@ -285,6 +285,8 @@ automation: |
 
 The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and anything wired to it, every 10 seconds. The inverter's settings are read every 5 minutes instead: they only move when something writes them, and every read costs a slot on a connection that has few to give.
 
+Every 15 minutes, Home Assistant also looks at what is wired to the inverter. Meters and batteries are found while the integration starts, so finding a change means starting it again, which it does by itself.
+
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If several inverters answer on the same address with different device IDs, for example because they are chained on one Modbus TCP bridge, they share a single connection instead of each opening their own.
 
 A [Modbus](/integrations/modbus/) setup in your {% term "`configuration.yaml`" %} is separate from this. It opens its own connection to the inverter, which counts against the number of clients the inverter accepts.
@@ -295,7 +297,7 @@ If part of the installation does not answer a poll, only its {% term entity enti
 
 - Which of the inverter's settings exist depends on the installation. Storage settings need a battery, and the export settings need the inverter to have them enabled; what is absent is simply not added.
 - SolarEdge does not document the control registers, and not every firmware exposes them the same way. What a setting does is the inverter's business, and it will refuse a value it does not accept.
-- Which meters and batteries are attached is read while the entry is set up. Hardware added or unwired while Home Assistant runs is picked up the next time the entry loads, which you can trigger yourself by reloading the integration.
+- A meter or battery wired in or out while Home Assistant runs takes up to 15 minutes to appear or disappear, since that is how often the inverter is asked what is attached. Picking it up reloads the integration, so its entities are briefly unavailable. Reloading it yourself is quicker if you cannot wait.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
 
