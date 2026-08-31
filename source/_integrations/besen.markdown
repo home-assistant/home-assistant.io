@@ -64,14 +64,20 @@ The following sensors are enabled by default:
 - **Total energy**: Lifetime energy reported by the charger in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
 - **Session energy**: Energy delivered during the current or most recently completed charging session in kilowatt-hours (kWh). This value can reset when a new session starts, so it is not recommended for the Energy dashboard.
 - **Internal temperature**: Temperature measured inside the charger in degrees Celsius (°C).
+- **Charging status**: High-level charging state reported by the charger.
+- **Charging message**: Additional guidance reported for the current charging state.
 
 The following diagnostic sensors are disabled by default:
 
 - **External temperature**: External temperature reported by the charger in degrees Celsius (°C).
+- **Error state**: Detailed charger fault state.
+- **Plug state**: Connection and lock state reported for the charging plug.
+- **Output state**: Low-level state of the charger output.
+- **Current state**: Low-level operating state reported by the charger.
 - **L1 voltage** and **L1 current**: Voltage and current reported for phase L1.
 - **L2 voltage**, **L2 current**, **L3 voltage**, and **L3 current**: Voltage and current reported for phases L2 and L3. These sensors are created only for three-phase chargers.
 
-To use a diagnostic sensor, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
+To use an entity that is disabled by default, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
 
 ## Actions
 
@@ -121,7 +127,7 @@ This is a local push integration. There is no cloud dependency.
 The integration does not support:
 
 - Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
-- Reporting additional telemetry such as charging status text, charger error details, or Bluetooth signal strength as entities.
+- Reporting Bluetooth signal strength as an entity.
 - Wi-Fi provisioning.
 - Password reset.
 - Device reset.
