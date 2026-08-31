@@ -28,6 +28,16 @@ Because it talks to the inverter directly, readings arrive every few seconds ins
 
 If you would rather use SolarEdge's cloud service, for example to see how each individual panel is doing, use the [SolarEdge](/integrations/solaredge/) integration instead. You can use both at the same time.
 
+## Use cases
+
+Reading the inverter directly, rather than through SolarEdge's cloud, is worth it for a few things in particular:
+
+- **Seeing your production as it happens.** Values arrive every few seconds, which is fast enough to watch a cloud pass over your roof, and they keep arriving when your internet connection is unavailable.
+- **Putting solar on the [Energy dashboard](#energy-dashboard).** Production, and with a meter also what you take from the grid and send back to it, and with a battery what goes in and out of it.
+- **Running appliances on your own power.** An automation that starts the dishwasher, the washing machine or a car charger when production is high enough, rather than at a fixed time.
+- **Noticing when something is wrong.** An inverter that has stopped producing is easy to miss for weeks; a fault here is a state you can automate on the same day.
+- **Changing what the installation does.** The export limit, how the battery charges, and what the inverter may deliver, without an installer visit or the SolarEdge app.
+
 ## Supported devices
 
 This integration has been tested with, or reported to work on, the following inverters:
