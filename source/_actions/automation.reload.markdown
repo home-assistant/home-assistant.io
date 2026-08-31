@@ -25,10 +25,6 @@ To reload the automations from an automation or a script:
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label. Only users with administrator rights can run this action.
 
-### Options in the UI
-
-This action has no additional options in the UI.
-
 {% include actions/yaml_header.md %}
 
 In YAML, refer to this action as `automation.reload`. A basic example looks like this:

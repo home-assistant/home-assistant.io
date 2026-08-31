@@ -22,10 +22,6 @@ To toggle an automation from an automation or a script:
 6. From the actions shown for that target, select **Toggle automation**.
 7. Select **Save**.
 
-### Options in the UI
-
-This action has no additional options beyond the target.
-
 {% include actions/yaml_header.md %}
 
 In YAML, refer to this action as `automation.toggle`. A basic example looks like this:
@@ -38,10 +34,6 @@ action: |
 {% endexample %}
 
 This enables `automation.motion_lights` if it was off, and disables it if it was on.
-
-### Options in YAML
-
-This action has no additional YAML options beyond the target.
 
 {% include actions/targets.md %}
 
