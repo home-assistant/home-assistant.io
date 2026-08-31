@@ -4,14 +4,12 @@ description: Instructions on how to integrate a Flexit air handling unit into Ho
 ha_category:
   - Binary sensor
   - Climate
-  - Sensor
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: flexit
 ha_platforms:
   - binary_sensor
   - climate
-  - sensor
 ha_integration_type: device
 ha_codeowners:
   - '@troelde'
@@ -64,14 +62,6 @@ A repair issue in {% my integrations title="**Settings** > **Devices & services*
 ### Climate
 
 The integration adds a climate entity for the Flexit unit. You can set a target temperature and choose a fan mode (**Off**, **Low**, **Medium**, or **High**). The current activity, such as heating, cooling, or idle, is shown as the entity's HVAC action.
-
-### Sensors
-
-- **Air filter operating time**: The number of hours the air filter has been in operation.
-- **Heat exchanger regulation**: The current heat exchanger output as a percentage.
-- **Electric heater regulation**: The current electric heater output as a percentage.
-- **Cooling regulation**: The current cooling output as a percentage.
-- **Outdoor air temperature**: The temperature of the outdoor air entering the unit.
 
 ### Binary sensors
 
