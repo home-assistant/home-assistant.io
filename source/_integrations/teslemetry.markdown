@@ -137,7 +137,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|Located at home|Yes|Streaming|No|
 |Binary sensor|Located at work|Yes|Streaming|No|
 |Binary sensor|Offroad lightbar|No|Streaming|No|
-|Binary sensor|Passenger seat belt|No|Streaming|No|
 |Binary sensor|Pin to drive enabled|No|Streaming|No|
 |Binary sensor|Preconditioning enabled|No|Both|No|
 |Binary sensor|Preconditioning|No|Polling|No|

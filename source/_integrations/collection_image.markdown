@@ -26,6 +26,8 @@ Media:
   description: The media folder from which images will be chosen.
 {% endconfiguration_basic %}
 
+{% include integrations/actions.md %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

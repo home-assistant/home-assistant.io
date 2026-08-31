@@ -640,6 +640,10 @@ default_entity_id:
     You can change the entity ID in the Home Assistant UI.
   required: false
   type: string
+unique_id:
+  description: A custom unique ID for this entity. By default the unique ID is derived from the entity's group addresses. Set this to a stable value of your choice so the entity keeps its identity even if its group addresses change. When you add this option to an entity that already exists, its history, area, and other customizations are migrated to the new unique ID. Removing or changing the option again cannot restore the previous identity. The value must be unique among all entities of the same platform.
+  required: false
+  type: string
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -667,6 +671,7 @@ knx:
   sensor:
     - name: Awesome sensor
       default_entity_id: "sensor.awesome_entity_id"
+      unique_id: "never_change_me_1a2b3c4d"
       entity_category: diagnostic
       device:
         id: my_awesome_device

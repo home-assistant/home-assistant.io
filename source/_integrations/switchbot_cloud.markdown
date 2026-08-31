@@ -94,8 +94,9 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 - Lock Pro Wifi
 - Lock Lite
 - [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- Lock Vision
-- Lock Vision Pro
+- [Lock Ultra Max](https://www.switch-bot.com/products/switchbot-lock-ultra-max)
+- [Lock Vision](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-combo)
+- [Lock Vision Pro](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-pro-combo)
 
 ### Sensors
 
@@ -529,6 +530,9 @@ Features:
 - get battery
 - switch picture
 - display current picture
+- upload a new picture from a web address, using the [Upload AI Art Frame image](/actions/switchbot_cloud.upload_art_frame_image/) action
+
+{% include integrations/actions.md %}
 
 ## Important considerations
 
