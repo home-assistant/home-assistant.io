@@ -96,7 +96,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Located at home|Yes|Streaming|
 |Binary sensor|Located at work|Yes|Streaming|
 |Binary sensor|Offroad lightbar|No|Streaming|
-|Binary sensor|Passenger seat belt|No|Streaming|
 |Binary sensor|Pin to drive enabled|No|Streaming|
 |Binary sensor|Preconditioning enabled|No|Both|
 |Binary sensor|Preconditioning|No|Polling|
