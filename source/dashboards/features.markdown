@@ -1081,7 +1081,9 @@ actions:
 
 ## Timer presets
 
-Widget that displays preset durations for a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown. Presets with a duration of zero are not shown.
+Widget that displays the preset durations of a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown.
+
+Presets belong to the timer entity and are managed in its more info dialog: select 'Edit presets' in the overflow menu to add, edit, delete, or reorder them. A timer has no presets until you add some, and the widget is hidden while the list is empty.
 
 <p class='img'>
   <img src='/images/dashboards/features/timer_presets.png' alt='Screenshot of the tile card with the timer presets feature'>
@@ -1092,10 +1094,6 @@ Widget that displays preset durations for a [timer](/integrations/timer). Select
 features:
   - type: "timer-presets"
     style: "buttons"
-    presets:
-      - "0:01:00"
-      - "0:05:00"
-      - "0:10:00"
 ```
 
 {% configuration features %}
@@ -1103,10 +1101,6 @@ type:
   required: true
   description: "`timer-presets`"
   type: string
-presets:
-  required: false
-  description: List of preset durations, each as a `H:MM:SS` string or a number of seconds. If not set, no presets are shown.
-  type: list
 style:
   required: false
   description: "Which style of control to display. It can be either `buttons` or `dropdown`."
