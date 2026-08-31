@@ -9,6 +9,7 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - binary_sensor
   - button
   - diagnostics
   - select
@@ -62,6 +63,10 @@ The integration reads the serial number again and only accepts the new settings 
 ## Supported functionality
 
 The **Sofar** integration provides the following entities.
+
+### Binary sensor
+
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any of that category's underlying fault bits is currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI faults are disabled by default, since PV and hybrid inverters don't have that hardware. The complete, decoded list of every currently active fault is included in the integration's diagnostics download.
 
 ### Buttons
 
