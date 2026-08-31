@@ -19,6 +19,8 @@ The **Willow** {% term integration %} allows you to monitor the health of your i
 
 Willow sensors periodically collect environmental and soil measurements and upload them to the Willow cloud platform. Home Assistant retrieves this information from the Willow cloud service, allowing you to visualize plant conditions and create automations based on sensor readings.
 
+This integration communicates with the Willow cloud API using the open source [pywillow](https://github.com/PlantWithWillow/pywillow) Python library (available on [PyPI](https://pypi.org/project/pywillow/)).
+
 ## Supported devices
 
 The following devices are supported by the integration:
