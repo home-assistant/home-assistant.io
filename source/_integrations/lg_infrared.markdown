@@ -18,6 +18,7 @@ ha_platforms:
   - climate
   - event
   - media_player
+  - select
   - switch
 ha_integration_type: device
 ha_quality_scale: silver
@@ -145,6 +146,13 @@ Horizontal swing positions the airflow left or right:
 
 Supported range: 16 °C to 30 °C in 1 °C steps.
 
+#### Select
+
+When an infrared emitter is configured, an **Energy limit** select entity is created for the air conditioner. It caps the unit's power draw at a percentage of its maximum.
+
+- **Off**: No limit.
+- **40%**, **60%**, **80%**: Caps the power draw at the selected percentage.
+
 #### Switches
 
 When an infrared emitter is configured, these switch entities are created for the air conditioner. Each uses a separate infrared code to turn the feature on or off.
@@ -164,6 +172,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - Volume control for the TV is step-based only; there is no way to set an absolute volume level.
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
+- The air conditioner energy limit select also uses assumed state. It sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown option reflects the last command sent.
 - The air conditioner switch entities also use assumed state. Each sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown state reflects the last command sent.
 
 ## Removing the integration
