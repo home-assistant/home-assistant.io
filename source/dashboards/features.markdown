@@ -1021,7 +1021,6 @@ Widget that displays a slider to select the target humidity for a [humidifier](/
 features:
   - type: "target-humidity"
     style: "buttons"
-    step: 1
 ```
 
 {% configuration features %}
@@ -1036,7 +1035,7 @@ style:
   default: slider
 step:
   required: false
-  description: "If `buttons` style is selected, by how much a button press changes the target"
+  description: "If the `buttons` style is selected, by how much a button press changes the target humidity"
   type: integer
   default: 1
 {% endconfiguration %}
