@@ -123,62 +123,23 @@ Diagnostic sensors report what the device is receiving and playing:
 
 ## Examples
 
-Switch voicing and RoomPerfect position when playback starts on the main zone:
+### Use a different voicing while watching
 
-```yaml
-automation:
-  - alias: "Cinema mode"
-    triggers:
-      - trigger: state
-        entity_id: media_player.lyngdorf_main_zone
-        to: "playing"
-    actions:
-      - action: select.select_option
-        target:
-          entity_id: select.lyngdorf_voicing
-        data:
-          option: "Movie"
-      - action: select.select_option
-        target:
-          entity_id: select.lyngdorf_roomperfect_position
-        data:
-          option: "Focus 1"
-```
+A voicing chosen for music is rarely the one you want for a film. This blueprint switches the RoomPerfect voicing while a chosen source is selected and the processor is actually receiving video and audio, and switches back as soon as it is not.
 
-Correct lip sync for a source that needs it:
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/lyngdorf_cinema_mode.yaml" %}
 
-```yaml
-automation:
-  - alias: "Fix lip sync on the streaming box"
-    triggers:
-      - trigger: state
-        entity_id: media_player.lyngdorf_main_zone
-        attribute: source
-        to: "HDMI 2"
-    actions:
-      - action: number.set_value
-        target:
-          entity_id: number.lyngdorf_lip_sync
-        data:
-          value: 80
-```
+### Correct lip sync for one source
 
-Open the setup menu and step down to the second entry:
+A single source whose picture and sound drift apart needs a delay the other sources do not. This blueprint applies a lip sync delay while that source is selected, and returns to your normal delay when you switch away.
 
-```yaml
-script:
-  lyngdorf_open_setup:
-    sequence:
-      - action: remote.send_command
-        target:
-          entity_id: remote.lyngdorf
-        data:
-          command:
-            - menu
-            - down
-            - down
-            - enter
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/lyngdorf_lip_sync_per_source.yaml" %}
+
+### Run a scene when surround audio starts
+
+The audio information sensor reports the incoming format, so it knows a surround soundtrack has started even when the source has not changed. This blueprint runs any action you choose when a surround format appears, and another when it goes back to stereo.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/lyngdorf_surround_scene.yaml" %}
 
 ## Data updates
 
