@@ -13,6 +13,7 @@ ha_platforms:
   - diagnostics
   - select
   - sensor
+  - switch
 ha_config_flow: true
 ha_integration_type: device
 ha_quality_scale: silver
@@ -87,6 +88,10 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 
 The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
+
+### Switch
+
+The integration adds one switch, named after the inverter itself, that stops and resumes its operation remotely. Turning it off puts the inverter into its waiting state rather than cutting power to it.
 
 ## Data updates
 
