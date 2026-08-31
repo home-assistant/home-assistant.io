@@ -17,6 +17,7 @@ ha_platforms:
   - climate
   - event
   - media_player
+  - switch
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -126,6 +127,13 @@ The climate entity offers the modes you selected during setup.
 
 Supported range: 16 °C to 30 °C in 1 °C steps.
 
+#### Switches
+
+When an infrared emitter is configured, these switch entities are created for the air conditioner. Each uses a separate infrared code to turn the feature on or off.
+
+- **Ion generator**: Turns the ionizer or plasma air-purifying feature on or off.
+- **Auto clean**: Turns the self-cleaning drying cycle on or off.
+
 #### Physical remote state tracking
 
 If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG air conditioner remote and updates the climate entity to match, so the mode, fan speed, and target temperature stay in sync.
@@ -138,6 +146,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - Volume control for the TV is step-based only; there is no way to set an absolute volume level.
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
+- The air conditioner switch entities also use assumed state. Each sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown state reflects the last command sent.
 
 ## Removing the integration
 
