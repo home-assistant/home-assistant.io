@@ -77,7 +77,7 @@ sensor:
   scan_interval: 10000
 ...
 automation:
-- alias: "Scan for faces when motion detected"
+- alias: "Scan for faces when motion is detected"
   triggers:
     - trigger: motion.detected
       target:

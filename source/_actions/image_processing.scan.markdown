@@ -21,10 +21,6 @@ To process an image from an automation or a script:
 6. From the actions shown for that target, select **Scan**.
 7. Select **Save**.
 
-### Options in the UI
-
-This action has no additional options beyond the target.
-
 {% include actions/yaml_header.md %}
 
 In YAML, refer to this action as `image_processing.scan`. A basic example looks like this:
@@ -38,15 +34,11 @@ action: |
 
 This processes the current image from the camera behind `image_processing.door`.
 
-### Options in YAML
-
-This action has no additional YAML options beyond the target.
-
 {% include actions/targets.md %}
 
 ## Good to know
 
-- Processing takes a moment. The result shows up in the state and attributes of the entity once it's done, and any events the platform sends, such as `image_processing.detect_face`, follow afterward.
+- Processing sometimes takes a long time. The result shows up in the state and attributes of the entity after it's done, and any events the platform sends, such as `image_processing.detect_face`, follow afterward.
 - Image processing entities process on a schedule set by their `scan_interval`, which is 10 seconds by default. Set a long interval and use this action instead if you only need results at specific moments.
 - Only camera entities can be used as the image source. See [Image processing](/integrations/image_processing/) for what these entities report.
 
