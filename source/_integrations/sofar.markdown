@@ -47,6 +47,17 @@ Modbus unit ID:
 
 During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does.
 
+## Reconfiguration
+
+If the inverter becomes reachable somewhere else on the network, for example after a DHCP lease change or when you replace the Modbus TCP bridge it's connected through, you can update the connection settings without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
+2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
+3. Update the **Host**, **Port**, or **Modbus unit ID** as needed.
+4. Select **Submit** to save the new settings.
+
+The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
+
 ## Supported functionality
 
 The **Sofar** integration provides the following entities.
