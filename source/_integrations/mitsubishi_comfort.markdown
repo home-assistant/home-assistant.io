@@ -45,7 +45,7 @@ Password:
 
 ## Finding device IP addresses
 
-The Kumo Cloud account provides the device list and credentials, but never a device's local IP address. The integration finds each address automatically through DHCP discovery — including devices that were already seen on the network before the integration was set up — and records the new address when a device's IP changes. Automatic discovery works when your devices are on the same network as Home Assistant.
+The Kumo Cloud account provides the device list and credentials, but never a device's local IP address. The integration finds each address automatically through DHCP discovery—including devices that were already seen on the network before the integration was set up—and records the new address when a device's IP changes. Automatic discovery works when your devices are on the same network as Home Assistant.
 
 If a device is on a different subnet or VLAN, DHCP discovery cannot reach it. The device then has no entities yet, and the integration raises a repair issue where you can enter the IP address manually:
 
@@ -83,7 +83,7 @@ The Mitsubishi Comfort integration {% term polling polls %} the status of your d
 
 ### Devices show up without entities or stay unavailable
 
-A device has no entities until its local IP address is known. The integration normally finds the address through DHCP discovery, which only works when the device is on the same network as Home Assistant; while any device lacks an address, the integration raises a repair issue where you can enter it manually. See [Finding device IP addresses](#finding-device-ip-addresses).
+A device has no entities until its local IP address is known. The integration normally finds the address through DHCP discovery, which only works when the device is on the same network as Home Assistant. While any device lacks an address, the integration raises a repair issue where you can enter it manually. See [Finding device IP addresses](#finding-device-ip-addresses).
 
 ## Removing the integration
 
