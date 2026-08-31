@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: willow
 ha_codeowners:
-  - "@PlantWithWillow"
+  - "@paxprz"
 ha_platforms:
   - sensor
 ha_integration_type: hub
@@ -48,7 +48,6 @@ Each Willow sensor provides the following sensor entities in Home Assistant:
 - **Moisture**: Soil moisture level.
 - **Illuminance**: Light exposure in lux.
 - **Battery life**: Sensor battery percentage.
-- **Last reading**: Timestamp of the latest sensor reading.
 
 ## Willow automation examples
 
@@ -88,17 +87,13 @@ The **Willow** integration uses cloud {% term polling %} to retrieve the latest 
 - Historical sensor data stored in the Willow platform is not exposed through this integration.
 - If a Willow sensor goes offline, Home Assistant retains the last successfully retrieved values until new data becomes available.
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 ## Troubleshooting
-
-### Reauthentication is required
-
-#### Symptom
-
-Home Assistant can no longer access your Willow account and asks you to reauthenticate.
-
-#### Resolution
-
-Go to **Settings** > **Devices & services** > **Willow** and follow the prompts to reconnect your account.
 
 ### Sensor data is missing
 
