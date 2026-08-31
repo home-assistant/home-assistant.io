@@ -11,7 +11,7 @@ ha_domain: map_tiles
 ha_integration_type: system
 ---
 
-The **Map tiles** {% term integration %} serves the base map that you see behind the Home Assistant map, such as on the [map dashboard](/dashboards/dashboards/#map-dashboard) and the [map card](/dashboards/map/). It provides the streets, place names, and other map imagery that your entities are shown on top of.
+The **Map tiles** {% term integration %} serves the base map that you see behind the Home Assistant map, such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard) and the [Map card](/dashboards/map/). It provides the streets, place names, and other map imagery that your entities are shown on top of.
 
 The map tiles come from the [OpenStreetMap Foundation](https://osmfoundation.org/) tile servers and are based on OpenStreetMap data from its contributors. This integration proxies those requests and caches recently used tiles in memory to improve performance and help keep the map usable during brief upstream or internet outages.
 
