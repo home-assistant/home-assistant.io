@@ -77,16 +77,14 @@ sensor:
   scan_interval: 10000
 ...
 automation:
-- alias: "Scan for faces when motion is detected"
+- alias: "Scan for faces when motion detected"
   triggers:
-    - trigger: motion.detected
-      target:
-        entity_id: binary_sensor.door_motion_sensor
+    - trigger: state
+      entity_id: sensor.door_motion_sensor
+      to: "on"
   actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.door
 ...
 ```
-
-{% include integrations/actions.md %}

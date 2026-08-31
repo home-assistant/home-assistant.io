@@ -126,8 +126,14 @@
     });
   }
 
-  function getLightboxItem(image) {
-    return {
+  function getInteractiveImages() {
+    return Array.from(
+      document.querySelectorAll("img[data-lightbox-image='true']")
+    );
+  }
+
+  function getLightboxItems(images) {
+    return images.map((image) => ({
       src: getImageSource(image),
       srcset: image.getAttribute("srcset") || undefined,
       width: image.naturalWidth,
@@ -135,7 +141,7 @@
       msrc: getImageSource(image),
       alt: image.getAttribute("alt") || "",
       element: image,
-    };
+    }));
   }
 
   function getZoomLevel(zoomLevelObject, scale) {
@@ -173,10 +179,6 @@
             arrowPrevTitle: "Previous image",
             arrowNextTitle: "Next image",
             errorMsg: "The image could not be loaded.",
-            allowPanToNext: false,
-            arrowKeys: false,
-            loop: false,
-            preload: [0, 0],
             trapFocus: true,
             returnFocus: true,
             ...(prefersReducedMotion
@@ -198,36 +200,6 @@
 
           lightbox.on("uiRegister", () => {
             lightbox.pswp.element.setAttribute("aria-label", "Image viewer");
-
-            lightbox.pswp.ui.registerElement({
-              name: "caption",
-              order: 9,
-              isButton: false,
-              appendTo: "root",
-              onInit: (captionElement, pswp) => {
-                captionElement.className = "pswp__caption";
-                captionElement.id = "image-lightbox-caption";
-
-                const updateCaption = () => {
-                  const caption = pswp.currSlide?.data.alt || "";
-
-                  captionElement.textContent = caption;
-                  captionElement.hidden = !caption;
-
-                  if (caption) {
-                    pswp.element.setAttribute(
-                      "aria-describedby",
-                      captionElement.id
-                    );
-                  } else {
-                    pswp.element.removeAttribute("aria-describedby");
-                  }
-                };
-
-                pswp.on("change", updateCaption);
-                updateCaption();
-              },
-            });
           });
 
           return lightbox;
@@ -250,10 +222,21 @@
   }
 
   function openImage(image, event) {
+    const images = getInteractiveImages();
+    const index = images.indexOf(image);
+
+    if (index === -1) {
+      return;
+    }
+
     event.preventDefault();
 
     getLightbox().then((lightbox) => {
-      lightbox.loadAndOpen(0, [getLightboxItem(image)], getInitialPoint(event));
+      lightbox.loadAndOpen(
+        index,
+        getLightboxItems(images),
+        getInitialPoint(event)
+      );
     });
   }
 

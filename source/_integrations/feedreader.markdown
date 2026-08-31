@@ -102,6 +102,6 @@ To get started developing custom integrations, please refer to the [developers](
 
 For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/22c19375ac5dcb49e0648aa16c431537407aa5e4/config/packages/hasspodcast.yaml).
 
-## Removing the integration
+## Remove the integration
 
 {% include integrations/remove_device_service.md %}

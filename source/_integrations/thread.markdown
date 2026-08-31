@@ -442,9 +442,7 @@ First, make sure you have followed all the prerequisites for adding a Matter dev
 If pairing still fails after verifying the prerequisites, check the following:
 
 - **The device is still in pairing mode.** Most devices only stay in pairing mode for a limited time. If it expires, reset the device to pairing mode and try again.
-- **Restart your phone.** If commissioning fails or stalls, a full restart of your phone can clear stale Bluetooth state or stale Thread routes and often resolves the issue.
 - **Mesh Wi-Fi access points are not blocking multicast.** Some mesh Wi-Fi systems aggressively filter multicast traffic on Wi-Fi. This can prevent your phone from discovering the border router via mDNS. If you suspect this, check your mesh system's settings for options related to multicast, IGMP snooping, or mDNS.
-- **Your container platform has a limited kernel.** If you are running Home Assistant as a container on a NAS or similar device, the host kernel may be missing the IPv6 routing support that Thread requires. Thread border routers announce routes to the host, and if the kernel cannot process these announcements, Thread devices cannot be reached — even after pairing appears to succeed. The most reliable solution is to migrate to a platform with a fully capable kernel, such as a dedicated device running [Home Assistant Operating System](/installation/) or a virtual machine running a standard Linux distribution. For technical details, see the [Matter Server OS requirements](https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/os_requirements.md).
 
 ### Understanding OTBR log messages
 

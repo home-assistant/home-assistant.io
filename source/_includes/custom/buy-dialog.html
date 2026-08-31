@@ -82,27 +82,20 @@
             document.documentElement.style.overflow = "";
         });
 
-        function openDialog(context) {
-            dialog.classList.add('open');
-            document.documentElement.style.overflow = "hidden";
-            focusDistributors(dialog);
-
-            if (typeof window.plausible === "function") {
-                if (context) window.plausible("Buy Dialog", { props: { context } });
-                else window.plausible("Buy Dialog");
-            }
-        }
-
         let openTargets = document.querySelectorAll('.buy');
         openTargets.forEach(target => {
             target.addEventListener('click', function (e) {
                 e.preventDefault();
-                openDialog(target.dataset.context);
+                dialog.classList.add('open');
+                document.documentElement.style.overflow = "hidden";
+                focusDistributors(dialog);
             });
         });
 
         if (window.location.hash === '#buy') {
-            openDialog('fragment');
+            dialog.classList.add('open');
+            document.documentElement.style.overflow = "hidden";
+            focusDistributors(dialog);
         }
 
         dialog.addEventListener('click', function (e) {

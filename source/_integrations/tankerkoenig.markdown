@@ -101,6 +101,6 @@ visibility:
 
 Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, _if still possible_, download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, include them in the issue report.
 
-## Removing the integration
+## Remove the integration
 
 {% include integrations/remove_device_service.md %}

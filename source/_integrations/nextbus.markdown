@@ -15,6 +15,6 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **NextBus** {% term integration %} will give you the next departure time and associated data from your public transit station/stop. The data comes from [Umo](https://rider.umoiq.com), which provides real-time transit data for several transit authorities.
+The **NextBus** {% term integration %} will give you the next departure time and associated data from your public transit station/stop. The data comes from [NextBus](https://www.nextbus.com), which provides real time transit data for several transit authorities.
 
 {% include integrations/config_flow.md %}

@@ -62,6 +62,6 @@ The SMHI weather service is free under the Creative Commons Attribution 4.0, int
 
 Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/metfcst).
 
-## Removing the integration
+## Remove the integration
 
 {% include integrations/remove_device_service.md %}

@@ -1,6 +1,0 @@
-# Labels and icons for the domains shown on the actions reference at
-# /actions/ and in the sidebar of each action page. Domains that are not
-# listed fall back to the title of the matching integration page.
-- key: automation
-  label: Automation
-  icon: mdi:robot

@@ -213,6 +213,6 @@ To use the Nordpool integration in the **Energy** dashboard, when configuring gr
   <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
 </p>
 
-## Removing the integration
+## Remove the integration
 
 {% include integrations/remove_device_service.md %}

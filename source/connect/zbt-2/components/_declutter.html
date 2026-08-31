@@ -60,7 +60,6 @@
         function wiiclutter() {
             if(stage > 0) return;
             stage = 1;
-            if (typeof window.plausible === "function") window.plausible("Easter Egg");
             video.pause();
             video.autoplay = false;
             video.src = '/connect/zbt-2/video/declutter-alt.mp4';

@@ -132,13 +132,11 @@ The number of persons in a zone can be helpful for automations. For example, you
 
 ## Supported functionality
 
-Zones provide triggers, conditions, and actions for automations. You can use them to react when people or tracked devices enter or leave a zone, or to check whether a zone is occupied.
+Zones provide triggers and conditions for automations. You can use them to react when people or tracked devices enter or leave a zone, or to check whether a zone is occupied.
 
 {% include integrations/triggers.md %}
 
 {% include integrations/conditions.md %}
-
-{% include integrations/actions.md %}
 
 ## Zone automation examples
 

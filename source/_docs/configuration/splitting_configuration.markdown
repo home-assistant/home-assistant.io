@@ -22,7 +22,7 @@ As commenting code doesn't always happen, please read on to learn in detail how 
 
 ## How splitting works
 
-The `configuration.yaml` file stays in place when you split it. You move parts of its content into separate files and reference them with the YAML tag `!include`. Use this tag where YAML expects a value, like the value of a key. The most common use for `!include` is as the value for a top-level key such as `script` or `sensor`.
+The `configuration.yaml` file stays in place when you split it. You move parts of its content into separate files and reference them with `!include`.
 
 A fresh `configuration.yaml` includes several entries that should not be removed:
 
@@ -38,7 +38,7 @@ scene: !include scenes.yaml
 
 If you have added customizations or packages, there may also be a `homeassistant:` key. Any `!include` statements under it, such as for `customize:` or `packages:`, should stay nested inside it.
 
-The included file must contain valid YAML for the location where it is included. Do not repeat the parent key inside the included file, and do not indent the entire included file to match the indentation level in `configuration.yaml`.
+The included file must contain valid YAML for the location where it is included. You do not repeat the parent key inside the included file.
 
 For example, if `configuration.yaml` contains:
 
