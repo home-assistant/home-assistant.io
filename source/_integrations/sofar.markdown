@@ -77,52 +77,9 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 
 The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
 
-## Actions
-
 The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
-### Action: Set feed-in limit
-
-Limits how much power the inverter exports to the grid.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `config_entry_id` | no | The inverter to send this to. |
-| `mode` | no | Whether to limit the total exported power, or per phase. |
-| `max_power` | no | The export ceiling in watts. The inverter only accepts multiples of 100 W. |
-
-### Action: Set active power limit
-
-Caps the inverter's own output as a percentage of its rated power. Unlike the feed-in limit, this caps generation directly, without depending on the inverter's own sense of grid flow.
-
-The rated power is the figure on the inverter's nameplate, which is usually also part of its model name: a 4.4 KTLX-G3 is rated 4.4 kW, so a limit of 50% caps it at 2.2 kW. The integration doesn't currently read the rating from the inverter itself.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `config_entry_id` | no | The inverter to send this to. |
-| `enabled` | no | Whether the inverter applies the limit. Turning this off leaves the last limit in place, unused. |
-| `limit` | no | The output ceiling, as a percentage of rated power. |
-
-### Action: Set passive mode timeout
-
-Sets how long a passive-mode command holds, and what the inverter does when it expires. Only for inverters with battery storage.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `config_entry_id` | no | The inverter to send this to. |
-| `timeout` | no | How long a passive-mode command holds, in seconds. |
-| `action` | no | What the inverter does once the timeout expires. |
-
-### Action: Set passive mode power
-
-Commands the passive-mode setpoints. Only for inverters with battery storage.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `config_entry_id` | no | The inverter to send this to. |
-| `grid_power` | no | The power to draw from the grid, or to export when negative. |
-| `battery_power_min` | no | The lower end of the battery power window. |
-| `battery_power_max` | no | The upper end of the battery power window. |
+{% include integrations/actions.md %}
 
 ## Data updates
 
