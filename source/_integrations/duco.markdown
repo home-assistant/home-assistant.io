@@ -201,7 +201,7 @@ Indoor air quality ranges for humidity:
 The following diagnostic sensors may be available for the main ventilation box (BOX), depending on your model and firmware:
 
 - **Ventilation**: Shows the diagnostic status reported by the ventilation subsystem.
-- **Filter**: Shows the diagnostic status reported by the filter subsystem. This entity is disabled by default.
+- **Filter**: Shows the diagnostic status reported by the filter subsystem.
 - **Ventilation cooling**: Shows the diagnostic status reported by the ventilation cooling subsystem. This entity is disabled by default.
 - **Sun control**: Shows the diagnostic status reported by the sun control subsystem. This entity is disabled by default.
 - **Wi-Fi signal strength**: Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
