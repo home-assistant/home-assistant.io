@@ -1,5 +1,5 @@
 ---
-layout: crosspost
+layout: post
 title: "Building the device database together: Public preview now live"
 description: "Explore the preview edition of our community-powered smart home device database. We need your input to make this tool as accessible and useful as possible."
 date: 2026-07-23 00:00:01

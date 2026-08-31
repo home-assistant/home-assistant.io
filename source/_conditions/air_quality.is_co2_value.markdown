@@ -83,11 +83,11 @@ behavior:
 After you spend an evening in the living room with the doors closed, CO2 levels are sometimes higher than you would expect by the time you head to bed. This automation triggers at your usual bedtime and checks the bedroom CO2 reading. If the level is at or above 1000 ppm, the ventilation fan turns on so you sleep with fresh air. On evenings when the room already has good airflow, the fan stays off.
 
 - **Trigger**: Time: 22:30
-- **Condition**: Air Quality: Carbon dioxide value
-- **Target**: Bedroom CO2 sensor
-- **Threshold type**: 1000
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on
+- **Condition**: Carbon dioxide value
+  - **Target**: Bedroom CO2 sensor
+  - **Threshold type**: 1000
+- **Action**: Turn on fan
+  - **Target**: Bedroom ventilation
 
 {% details "YAML example for bedtime ventilation on high CO2" %}
 
@@ -103,7 +103,6 @@ automation: |
         entity_id: sensor.bedroom_co2
       options:
         threshold: 1000
-        behavior: any
   actions:
     - action: fan.turn_on
       target:
