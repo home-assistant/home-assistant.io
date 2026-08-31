@@ -663,7 +663,7 @@ source/_integrations/modem_callerid.markdown @tkdrob
 source/_integrations/modern_forms.markdown @wonderslug
 source/_integrations/moehlenhoff_alpha2.markdown @j-a-n
 source/_integrations/moisture.markdown @home-assistant/core
-source/_integrations/monarch_money.markdown @jeeftor
+source/_integrations/monarch_money.markdown @jeeftor @bradleyseanf
 source/_integrations/monessen.markdown @jeeftor
 source/_integrations/monoprice.markdown @etsinko @OnFreund
 source/_integrations/monzo.markdown @jakemartin-icl
@@ -699,6 +699,7 @@ source/_integrations/netdata.markdown @fabaff
 source/_integrations/netgear.markdown @Quentame @starkillerOG
 source/_integrations/netgear_lte.markdown @tkdrob
 source/_integrations/network.markdown @home-assistant/core
+source/_integrations/nexblue.markdown @nexblue-maintainer
 source/_integrations/nexen.markdown @jcisio
 source/_integrations/nexia.markdown @bdraco
 source/_integrations/nexity.markdown @imicknl
@@ -812,7 +813,6 @@ source/_integrations/point.markdown @fredrike
 source/_integrations/pooldose.markdown @lmaertin
 source/_integrations/poolsense.markdown @haemishkyd
 source/_integrations/portainer.markdown @erwindouna
-source/_integrations/portlandgeneral.markdown @tronikos
 source/_integrations/power.markdown @home-assistant/core
 source/_integrations/powerfox.markdown @klaasnicolaas
 source/_integrations/powerfox_local.markdown @klaasnicolaas

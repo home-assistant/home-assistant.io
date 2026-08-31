@@ -6,6 +6,7 @@
   <head>
     <meta charset="utf-8">
     {% if page.external_url %}
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <script type="text/javascript">window.location.replace({{ page.external_url | jsonify | replace: '</', '<\/' }});</script>
     <meta http-equiv="refresh" content="0; url={{ page.external_url | escape_once }}">
     {% endif %}
@@ -26,10 +27,16 @@
 
     <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.min.css" rel="stylesheet" />
     <link href="{{ '/stylesheets/prism.css' | cache_buster }}" rel="stylesheet">
+    <link href="{{ '/stylesheets/photoswipe/photoswipe.css' | cache_buster }}" rel="stylesheet">
     <link href="{{ '/stylesheets/screen.css' | cache_buster }}" media="screen, projection, print" rel="stylesheet">
     <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/svg+xml' href='/images/favicon.svg' sizes='any' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+    <link rel='apple-touch-icon' href='/images/favicon-192x192.png' sizes='192x192' />
+    <meta name='apple-mobile-web-app-title' content='{{ site.title }}' />
+    <meta name='theme-color' content='#18bcf2' />
+    <link rel='manifest' href='/site.webmanifest' />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
