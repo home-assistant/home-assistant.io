@@ -6,6 +6,7 @@ ha_category:
   - Event
   - Infrared
   - Media player
+  - Switch
 ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
