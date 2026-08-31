@@ -107,7 +107,7 @@ offset_type:
 - This trigger does not use a target. It applies to the sun at your configured home location.
 - Golden hour is the period when the sun's elevation is between -4° and 6°. In the morning, it ends as the sun rises past 6°. In the evening, it ends as the sun descends past -4°, where blue hour begins.
 - To react to the moment golden hour starts, use [Golden hour started](/triggers/sun.golden_hour_started/). For the deeper twilight just after evening golden hour, use [Blue hour started](/triggers/sun.blue_hour_started/).
-- The length of golden hour changes through the year and with your latitude. Near the poles, it can last much longer or fail to occur on some days. When it does not occur, the trigger does not fire that day.
+- The length of golden hour changes through the year and with your latitude. Near the poles, it can last much longer or fail to occur on some days. When it does not occur, the trigger does not fire on that day.
 
 {% include triggers/try_it.md %}
 

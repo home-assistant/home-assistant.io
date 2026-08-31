@@ -50,7 +50,8 @@ This passes only while the sun stays below the horizon around the clock.
 
 When morning comes during the polar night, turn on a bright daylight lamp so the room has some light even though the sun does not rise.
 
-- **Trigger**: Time is 8:00 AM
+- **Trigger**: Time
+  - **At time**: `8:00:00` AM
 - **Condition**: It is polar night
 - **Action**: Turn on light
   - **Target**: Daylight lamp

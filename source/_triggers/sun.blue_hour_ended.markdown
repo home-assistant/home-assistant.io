@@ -107,7 +107,7 @@ offset_type:
 - This trigger does not use a target. It applies to the sun at your configured home location.
 - Blue hour is the period when the sun's elevation is between -6° and -4°. In the morning, it ends as the sun rises past -4°, where golden hour begins. In the evening, it ends as the sun descends past -6°.
 - To react to the moment blue hour starts, use [Blue hour started](/triggers/sun.blue_hour_started/). After the evening blue hour ends, the sky keeps darkening through the later twilight phases before it is fully dark. To check for those, use [It is evening twilight](/conditions/sun.is_evening_twilight/) or [It is night](/conditions/sun.is_night/) as a condition.
-- The length of blue hour changes through the year and with your latitude. Near the poles, it can last much longer or fail to occur on some days. When it does not occur, the trigger does not fire that day.
+- The length of blue hour changes through the year and with your latitude. Near the poles, it can last much longer or fail to occur on some days. When it does not occur, the trigger does not fire on that day.
 
 {% include triggers/try_it.md %}
 

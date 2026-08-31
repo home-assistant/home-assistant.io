@@ -68,7 +68,7 @@ period:
 ## Good to know
 
 - This condition does not use a target. It checks the sun at your configured home location.
-- Blue hour is the period when the sun's elevation is between -6° and -4°. Just above it, between -4° and 6°, is [It is golden hour](/conditions/sun.is_golden_hour/).
+- Blue hour is the period when the sun's elevation is between -6° and -4°. To test if the sun's elevation is just above it, between -4° and 6°, use [It is golden hour](/conditions/sun.is_golden_hour/).
 - Blue hour falls within civil twilight. For the wider twilight periods, use [It is morning twilight](/conditions/sun.is_morning_twilight/) and [It is evening twilight](/conditions/sun.is_evening_twilight/).
 - The length of blue hour changes through the year and with your latitude. Near the poles, it can last much longer or fail to occur on some days, and the condition does not pass then.
 
@@ -81,7 +81,8 @@ period:
 When someone is home during the evening blue hour, turn on the garden lights so the yard is lit as the sky darkens.
 
 - **Trigger**: Someone comes home
-- **Condition**: It is blue hour (Evening)
+- **Condition**: It is blue hour
+  - **Period**: Evening
 - **Action**: Turn on light
   - **Target**: Garden lights
 

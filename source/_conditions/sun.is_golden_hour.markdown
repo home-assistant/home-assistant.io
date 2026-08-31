@@ -68,7 +68,7 @@ period:
 ## Good to know
 
 - This condition does not use a target. It checks the sun at your configured home location.
-- Golden hour is the period when the sun's elevation is between -4° and 6°. Just below it, between -6° and -4°, is [It is blue hour](/conditions/sun.is_blue_hour/).
+- Golden hour is the period when the sun's elevation is between -4° and 6°. To test if the sun's elevation is just below it, between -6° and -4°, use [It is blue hour](/conditions/sun.is_blue_hour/).
 - The morning golden hour happens while the sun is rising, and the evening golden hour while it is descending. To tell the two apart on their own, use [Sun is ascending](/conditions/sun.is_ascending/) and [Sun is descending](/conditions/sun.is_descending/).
 - The length of golden hour changes through the year and with your latitude. Near the poles, it can last much longer or fail to occur on some days, and the condition does not pass then.
 
@@ -81,7 +81,9 @@ period:
 When motion is detected in the living room during the evening golden hour, turn on the lamps at a warm color so the indoor light matches the low sun outside.
 
 - **Trigger**: Living room motion detected
-- **Condition**: It is golden hour (Evening)
+- **Condition**: It is golden hour
+  - **Period**: Evening 
+
 - **Action**: Turn on light
   - **Target**: Living room lamps
 
