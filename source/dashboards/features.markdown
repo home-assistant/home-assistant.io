@@ -1057,6 +1057,7 @@ Widget that displays buttons to start, pause, cancel, and finish a [timer](/inte
 <p class='img'>
   <img src='/images/dashboards/features/timer_actions.png' alt='Screenshot of the tile card with the timer actions feature'>
   Screenshot of the tile card with the timer actions feature
+</p>
 
 ```yaml
 features:
