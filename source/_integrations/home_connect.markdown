@@ -7,7 +7,6 @@ ha_category:
   - Climate
   - Fan
   - Hub
-  - Image
   - Light
   - Number
   - Select
@@ -28,7 +27,6 @@ ha_platforms:
   - climate
   - diagnostics
   - fan
-  - image
   - light
   - number
   - select
@@ -213,21 +211,6 @@ You might need to contact Home Connect support to enable the `Images` scope for 
   - **Description**: Controls the fan speed of air conditioner appliances.
   - **Availability**: Air conditioner
   - **Controls**: fan speed percentage, fan speed mode
-
-{% enddetails %}
-
-### Image
-
-{% important %}
-
- Image entities do not update automatically. Use the [update entity](/actions/homeassistant.update_entity/) action targeting one of the appliance's image entities to update all image entities for that appliance.
-
-{% endimportant %}
-
-{% details "List of image entities" %}
-
-- **Door right camera**
-- **Interior right camera**
 
 {% enddetails %}
 
