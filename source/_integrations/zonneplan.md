@@ -3,7 +3,7 @@ title: Zonneplan
 description: Instructions on how to integrate Zonneplan within Home Assistant.
 ha_category:
   - Energy
-ha_release: 2026.10
+ha_release: "2026.10"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
