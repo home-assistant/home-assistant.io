@@ -12,7 +12,7 @@ ha_domain: smartyplants
 ha_platforms:
   - sensor
 ha_integration_type: hub
-ha_quality_scale: platinum
+ha_quality_scale: bronze
 ---
 
 The **SmartyPlants** {% term integration %} connects your SmartyPlants plant
@@ -71,9 +71,6 @@ SmartyPlants cloud. Sensors are discovered from your account, so there is
 nothing to pair in Home Assistant: whatever appears in the SmartyPlants app
 appears here.
 
-Plants that do not yet have a sensor attached are also shown, so you can see
-the whole collection in one place.
-
 ## Supported functionality
 
 Each plant with a sensor attached provides the following entities.
@@ -87,26 +84,7 @@ Each plant with a sensor attached provides the following entities.
 | Light quality | A 0–100 score for how suitable the light is for this species. |
 | Health score | A 0–100 overall score for the plant. |
 | Fertilise in | Days until fertilising is due. |
-| Status | What, if anything, still needs your attention. See below. |
 | Battery | Sensor battery level. Diagnostic. |
-| Last reported | When the sensor last sent data. Diagnostic. |
-
-### Status
-
-The **Status** entity reports what state the pairing is in:
-
-| State | Meaning |
-| ----- | ------- |
-| OK | Everything is working. |
-| Add a sensor in the app | The plant has no sensor attached yet. |
-| Add a plant in the app | The sensor is not assigned to a plant yet. |
-| Waiting for first readings | Paired, but no readings have arrived yet. |
-| Sensor offline | The sensor has stopped reporting. |
-| Readings outdated | The last reading is more than three hours old. |
-
-A plant with no sensor attached still appears in Home Assistant, showing only
-its **Status** entity. Once you attach a sensor in the SmartyPlants app, the
-readings appear within a few minutes.
 
 ## Data updates
 
@@ -114,14 +92,9 @@ The integration {% term polling polls %} SmartyPlants every minute. If a
 webhook is configured, readings are also pushed as they arrive and the poll acts
 as a fallback.
 
-Readings older than three hours are treated as unreliable: the measurement
-entities become unavailable rather than continue showing values that no longer
-describe the plant. Diagnostic entities such as **Battery** and **Last
-reported** keep reporting so you can see why.
-
-Plants and sensors added or removed in the SmartyPlants app are picked up
-automatically. There is no need to reload the integration or restart Home
-Assistant.
+A sensor the SmartyPlants cloud reports as offline has its entities marked
+unavailable, rather than continuing to show readings that no longer describe
+the plant.
 
 ## Use cases
 
@@ -160,15 +133,16 @@ automation:
   - alias: "SmartyPlants sensor stopped reporting"
     triggers:
       - trigger: state
-        entity_id: sensor.monstera_status
-        to: "outdated"
+        entity_id: sensor.monstera_soil_moisture
+        to: "unavailable"
+        for:
+          minutes: 30
     actions:
       - action: persistent_notification.create
         data:
           title: "Plant sensor offline"
           message: >-
-            The Monstera sensor has not reported for over three hours.
-            Check its battery.
+            The Monstera sensor has stopped reporting. Check its battery.
 ```
 
 Turn on a grow light when light has been low:
@@ -195,28 +169,22 @@ automation:
 
 - Plant photos from the SmartyPlants app are not shown in Home Assistant.
 - The integration is read-only. Renaming a plant or assigning a sensor is done
-  in the SmartyPlants app, and Home Assistant follows on the next update.
-- A plant's environment in the app is used as the {% term area %} only when the
-  device does not already have one, so an area you set yourself is never
-  overwritten.
+  in the SmartyPlants app.
+- Sensors are read once when the integration starts. A sensor added in the
+  SmartyPlants app appears after you reload the integration.
+- Plants that have no sensor attached are not shown.
 
 ## Troubleshooting
 
 ### The integration cannot connect
 
 Check that the API key is still valid in the SmartyPlants app under
-**Settings**. If it was revoked or regenerated, Home Assistant will ask you to
-re-enter it.
-
-### A plant shows "Add a sensor in the app"
-
-The plant exists in your SmartyPlants account but has no sensor attached.
-Attach one in the app; readings appear within a few minutes.
+**Settings**. If it was revoked or regenerated, delete the integration and add
+it again with the new key.
 
 ### Readings are shown as unavailable
 
-The sensor has not reported for more than three hours. Check the **Last
-reported** and **Battery** entities on the device: a flat battery or a sensor
-out of range is the usual cause.
+SmartyPlants is reporting the sensor as offline. Check the **Battery** entity
+on the device: a flat battery or a sensor out of range is the usual cause.
 
 {% include integrations/remove_device_service.md %}
