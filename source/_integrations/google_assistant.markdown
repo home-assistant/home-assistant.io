@@ -245,10 +245,10 @@ entity_config:
 
 ### Expose entities
 
-Choose which entities are available to Google Assistant from {% my voice_assistants title="**Settings** > **Voice assistants** > **Expose**" %}. See [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/) for the full walkthrough.
+Choose which entities are available to Google Assistant from {% my voice_assistants title="**Settings** > **Voice assistants**" %}, then open the **Expose** tab. See [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/) for the full walkthrough.
 
 {% note %}
-If an entity's domain is covered by `expose_by_default` or `exposed_domains`, or the entity has an explicit `expose` setting in `entity_config`, that YAML setting keeps controlling its exposure, and any change you make here is temporary. To manage exposure for all your entities from the UI, set `expose_by_default: false` in your YAML configuration.
+If you configure exposure in YAML (`expose_by_default`, `exposed_domains`, or `entity_config`), those settings take precedence over what you select on the **Expose** tab. To manage exposure for all your entities from the UI, set `expose_by_default: false` in your YAML configuration.
 {% endnote %}
 
 ### Available domains
@@ -374,4 +374,4 @@ If you're having trouble with _Account linking failed_ after you unlinked your s
 
 ### Failed linking - Could not update the setting. Please check your connection
 
-If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` in your YAML configuration, then [expose](#expose-entities) a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` in your YAML configuration, then [expose](#expose-entities) a single simple device (light or switch preferably). It is also worth checking whether a home network ad blocker is enabled and temporarily disabling it if you are having issues.
