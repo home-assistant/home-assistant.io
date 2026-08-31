@@ -11,7 +11,7 @@ related_triggers:
 
 The **Polar night started** trigger fires when the polar night period begins, the part of the year at high latitudes when the sun stays below the horizon for a full 24 hours and stops rising. Home Assistant calculates this for your [home location](/docs/configuration/basic/).
 
-Use it to switch to a dark-season setup for the weeks ahead. For example, turn on a daylight lamp routine during the day, or send yourself a reminder that the sun will not rise for a while.
+Use it to switch to a dark-season setup for the period ahead. For example, turn on a daylight lamp routine during the day, or send yourself a reminder that the sun will not rise for a while.
 
 {% include triggers/ui_header.md %}
 
@@ -93,7 +93,7 @@ For this trigger, there is no target entity to change. Because the polar night h
 
 ### Automation: remind you to prepare for dark days
 
-When the polar night period starts, send a notification so you can get ready for weeks without a sunrise.
+When the polar night period starts, send a notification so you can get ready for the period without a sunrise.
 
 - **Trigger**: Polar night started
 - **Action**: Send a notification message

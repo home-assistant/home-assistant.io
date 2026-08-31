@@ -11,7 +11,7 @@ related_triggers:
 
 The **Midnight sun started** trigger fires when the midnight sun period begins, the part of the year at high latitudes when the sun stays above the horizon for a full 24 hours and stops setting. Home Assistant calculates this for your [home location](/docs/configuration/basic/).
 
-Use it to switch to a bright-season setup for the weeks ahead. For example, turn on a routine that keeps blackout blinds closed at night, or send yourself a reminder that the sun will not set for a while.
+Use it to switch to a bright-season setup for the period ahead. For example, turn on a routine that keeps blackout blinds closed at night, or send yourself a reminder that the sun will not set for a while.
 
 {% include triggers/ui_header.md %}
 
@@ -93,7 +93,7 @@ For this trigger, there is no target entity to change. Because the midnight sun 
 
 ### Automation: remind you to prepare for bright nights
 
-When the midnight sun period starts, send a notification so you can get ready for weeks without a sunset.
+When the midnight sun period starts, send a notification so you can get ready for the period without a sunset.
 
 - **Trigger**: Midnight sun started
 - **Action**: Send a notification message

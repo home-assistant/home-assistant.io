@@ -38,7 +38,8 @@ This passes only while the sun stays below the horizon around the clock.
 
 - This condition does not use a target. It checks the sun at your configured home location.
 - The polar night only happens at high latitudes, roughly above the polar circles, during the local winter. Away from the poles, this condition never passes.
-- During the polar night, the sun never crosses the horizon, so [Sunrise](/triggers/sun.sunrise/) and [Sunset](/triggers/sun.sunset/) do not fire and [Sun is up](/conditions/sun.is_up/) does not pass. There can still be twilight around midday when the sun is just below the horizon.
+- This condition follows the sun's daily high, at solar noon: it passes while that midday high stays below the horizon, and turns off at the solar noon when the high rises above it again. On a full polar-night day the sun never crosses the horizon, so [Sunrise](/triggers/sun.sunrise/) and [Sunset](/triggers/sun.sunset/) do not fire and [Sun is up](/conditions/sun.is_up/) does not pass.
+- On the day the polar night ends, the sun can briefly clear the horizon around midday before the condition turns off at solar noon. Even during the polar night, there can still be twilight around midday when the sun is just below the horizon.
 - For the opposite time of year, when the sun stays above the horizon all day, use [It is midnight sun](/conditions/sun.is_midnight_sun/).
 
 {% include conditions/try_it.md %}

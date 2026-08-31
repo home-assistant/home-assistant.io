@@ -38,7 +38,8 @@ This passes only while the sun stays above the horizon around the clock.
 
 - This condition does not use a target. It checks the sun at your configured home location.
 - The midnight sun only happens at high latitudes, roughly above the polar circles, during the local summer. Away from the poles, this condition never passes.
-- During the midnight sun, the sun never crosses the horizon, so [Sunrise](/triggers/sun.sunrise/) and [Sunset](/triggers/sun.sunset/) do not fire and [It is night](/conditions/sun.is_night/) does not pass.
+- This condition follows the sun's daily low, at solar midnight: it passes while that midnight low stays above the horizon, and turns off at the solar midnight when the low drops below it again. On a full midnight-sun day the sun never crosses the horizon, so [Sunrise](/triggers/sun.sunrise/) and [Sunset](/triggers/sun.sunset/) do not fire and [It is night](/conditions/sun.is_night/) does not pass.
+- On the day the midnight sun ends, the sun can briefly dip below the horizon around midnight before the condition turns off at solar midnight.
 - For the opposite time of year, when the sun stays below the horizon all day, use [It is polar night](/conditions/sun.is_polar_night/).
 
 {% include conditions/try_it.md %}

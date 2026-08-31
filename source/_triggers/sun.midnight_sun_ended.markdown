@@ -9,7 +9,7 @@ related_triggers:
   - sun.sunset
 ---
 
-The **Midnight sun ended** trigger fires when the midnight sun period is over and the sun sets again for the first time in weeks. The midnight sun is the part of the year at high latitudes when the sun stays above the horizon for a full 24 hours. Home Assistant calculates this for your [home location](/docs/configuration/basic/).
+The **Midnight sun ended** trigger fires when the midnight sun period is over and the sun dips below the horizon again around midnight. The midnight sun is the part of the year at high latitudes when the sun stays above the horizon for a full 24 hours. Home Assistant calculates this for your [home location](/docs/configuration/basic/).
 
 Use it to switch back to your normal day-and-night setup. For example, re-enable automations that depend on sunset, or send yourself a reminder that dark evenings are returning.
 
@@ -91,15 +91,15 @@ For this trigger, there is no target entity to change. Because the midnight sun 
 
 {% include triggers/more_examples.md %}
 
-### Automation: welcome back the first sunset
+### Automation: announce the end of the midnight sun
 
-When the midnight sun period ends and the sun sets again, send a notification so you know dark evenings are returning.
+When the midnight sun period ends and the sun starts setting again, send a notification so you know dark evenings are returning.
 
 - **Trigger**: Midnight sun ended
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for the first sunset notification" %}
+{% details "YAML example for a midnight sun ended notification" %}
 
 {% example %}
 automation: |
@@ -112,7 +112,7 @@ automation: |
         entity_id: notify.my_device
       data:
         message: >
-          The midnight sun is over. The sun will set again tonight.
+          The midnight sun is over. Nights are returning.
 {% endexample %}
 
 {% enddetails %}

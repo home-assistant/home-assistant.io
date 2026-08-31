@@ -9,7 +9,7 @@ related_triggers:
   - sun.sunrise
 ---
 
-The **Polar night ended** trigger fires when the polar night period is over and the sun rises again for the first time in weeks. The polar night is the part of the year at high latitudes when the sun stays below the horizon for a full 24 hours. Home Assistant calculates this for your [home location](/docs/configuration/basic/).
+The **Polar night ended** trigger fires when the polar night period is over and the sun climbs back above the horizon around midday. The polar night is the part of the year at high latitudes when the sun stays below the horizon for a full 24 hours. Home Assistant calculates this for your [home location](/docs/configuration/basic/).
 
 Use it to switch back to your normal day-and-night setup. For example, re-enable automations that depend on sunrise, or send yourself a reminder that daylight is returning.
 
@@ -91,15 +91,15 @@ For this trigger, there is no target entity to change. Because the polar night h
 
 {% include triggers/more_examples.md %}
 
-### Automation: welcome back the first sunrise
+### Automation: announce the end of the polar night
 
-When the polar night period ends and the sun rises again, send a notification so you know daylight is returning.
+When the polar night period ends and the sun climbs above the horizon again, send a notification so you know daylight is returning.
 
 - **Trigger**: Polar night ended
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for the first sunrise notification" %}
+{% details "YAML example for a polar night ended notification" %}
 
 {% example %}
 automation: |
@@ -112,7 +112,7 @@ automation: |
         entity_id: notify.my_device
       data:
         message: >
-          The polar night is over. The sun will rise again today.
+          The polar night is over. Daylight is returning.
 {% endexample %}
 
 {% enddetails %}
