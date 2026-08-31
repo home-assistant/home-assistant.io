@@ -138,9 +138,9 @@ It is based on **API v1** while some new devices are based on **API v2**.
 
 ## Troubleshooting
 
-This integration uses a fixed IP address to connect to the device. If your Home Assistant instance is on the same network as the device, the integration will automatically discover the new IP address when reloaded.
+This integration uses the device's IP address to connect to it. If the IP address changes, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Midea**, and select **Reload**. If Home Assistant is on the same network, it will try to discover the device again and update the IP address.
 
-If necessary, you can use the reconfiguration flow to update the IP address manually.
+If Home Assistant can't discover the device, select **Reconfigure** instead and enter the new IP address.
 
 ## Removing the integration
 
