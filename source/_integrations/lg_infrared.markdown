@@ -147,7 +147,7 @@ Supported range: 16 °C to 30 °C in 1 °C steps.
 
 #### Buttons
 
-When an infrared emitter is configured, these button entities are created for the air conditioner. Each button sends a one-shot infrared command that has no separate on and off code.
+When an infrared emitter is configured, these button entities are created for the air conditioner. Each button sends a single infrared command. There is no separate command to turn the feature on and off again.
 
 - **Jet**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco**: Reduces the unit's power draw. Some remotes label this button Diet.
@@ -181,7 +181,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - Volume control for the TV is step-based only; there is no way to set an absolute volume level.
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
-- The air conditioner button entities send one-shot commands and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet** or **Eco** cannot be shown as active.
+- The air conditioner button entities each send a single command and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet** or **Eco** cannot be shown as active.
 - The air conditioner switch entities also use assumed state. Each sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown state reflects the last command sent.
 
 ## Removing the integration
