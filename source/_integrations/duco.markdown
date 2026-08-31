@@ -349,7 +349,6 @@ The integration {% term polling polls %} the Duco box every 10 seconds. If you a
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
 - Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - Some model-specific sensors are not yet exposed in Home Assistant. This currently affects parts of the DucoBox Energy sensor surface, and VOC-capable node families currently expose only the ventilation-related entities.
-- Integration diagnostics are available, but subsystem-specific diagnostics for the different Duco models are not yet exposed separately.
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
