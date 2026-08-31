@@ -63,6 +63,10 @@ The integration reads the serial number again and only accepts the new settings 
 
 The **Sofar** integration provides the following entities.
 
+### Binary sensor
+
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any of that category's underlying fault bits is currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI faults are disabled by default, since PV and hybrid inverters don't have that hardware. The complete, decoded list of every currently active fault is included in the integration's diagnostics download.
+
 ### Buttons
 
 - **RTC sync**: Writes the current date and time to the inverter's clock.
@@ -78,7 +82,6 @@ The **Sofar** integration provides the following entities.
 The **Sofar** integration reads a large number of sensors from the inverter. Only the sensors relevant to your inverter's type and configuration are added.
 
 - **System status**: The inverter's operating state.
-- **Faults**: One diagnostic sensor per vendor fault register (`Fault 1` to `Fault 30`, some numbers reserved). They're numbered rather than named by category because the vendor doesn't group faults that way, a grid fault and a battery fault can share the same register, so no name would be accurate for all of it. Only `Fault 1` to `Fault 12` are enabled by default; the rest cover string, combiner, and AFCI hardware and are disabled. Each sensor's state is the fault's own description, and its `active_faults` attribute lists everything else active on that register at the same time.
 - **Temperatures**: Inverter, heatsink, and module temperatures.
 - **Device information**: The status of the last real-time clock sync.
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
