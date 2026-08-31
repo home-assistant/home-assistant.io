@@ -321,7 +321,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Reolink]** gained floodlight on/off schedule times, a button to synchronize the camera's clock, a select to choose the anti-flicker frequency, and the ability to enable or disable the tamper alarm. Thanks, [@Lukkasss] and [@starkillerOG]!
 - **[Roborock]** brought dock controls, such as starting mop washing, drying, or emptying, to V1 vacuums. Thanks, [@piitaya]!
 - **[Google Gemini]** added a thinking budget option for Gemini 2.5 models and a thinking level option for Gemini 3 models, so you can tune how much the model reasons before it responds. Thanks, [@mxwmnn]!
-- **[Home Connect]** gained new event sensors, including short and long presses of the Favorite button on hobs and hoods, a setpoint temperature option for air conditioners, and image entities for appliances with a camera. Thanks, [@Diegorro98]!
+- **[Home Connect]** gained new event sensors, including short and long presses of the Favorite button on hobs and hoods, and a setpoint temperature option for air conditioners. Thanks, [@Diegorro98]!
 - **[Tado]** lets you choose which heating circuit serves a zone, handy in homes with more than one circuit, like a mix of underfloor heating and radiators. Thanks, [@PeterLinuxOSS]!
 - **[SwitchBot Cloud]** now supports the Permanent Outdoor Lights string lighting and the Curtain4 curtain motor, so you can control them from Home Assistant alongside the rest of your SwitchBot devices. Thanks, [@XiaoLing-git]!
 - **[KNX]** weather and select entities can now be created directly from the KNX panel in the UI, and YAML-defined entities can be given an explicit unique ID instead of relying on the auto-generated one. Thanks, [@farmio]!
