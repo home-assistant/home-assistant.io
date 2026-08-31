@@ -16,6 +16,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: device
 ha_zeroconf: true
 ha_quality_scale: bronze
@@ -186,6 +187,13 @@ The inverter holds settings of its own, which this integration can change as wel
 - **Storage AC charge policy**: Whether, and how much, the battery may charge from the grid rather than from the panels.
 - **Export limitation**: How the site limits what it feeds back to the grid. **Production control** limits the inverter itself; the meter-based options measure at the connection point and need a meter, so they are only offered when one is attached. Whatever the inverter is set to is always offered, even when the hardware for it is missing, since that is what the register says.
 - **Export limit type**: Whether the export limit counts per phase or as a total. Disabled by default.
+
+### Switches
+
+These switches are flags on the export control. An installer sets them to describe the site, and they are disabled by default.
+
+- **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
+- **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
 
 {% important %}
 These settings live in the inverter's flash memory, which is meant to be written now and then rather than continuously. An automation that writes one every few minutes will wear it out. Change them when something actually changes.
