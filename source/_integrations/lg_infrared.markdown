@@ -101,7 +101,7 @@ A climate entity is created for each LG air conditioner device you set up.
 
 - **LG AC**
   - **Description**: Represents the LG split air conditioner and allows you to control it via IR commands.
-  - **Supported features**: Set HVAC mode and set fan mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
+  - **Supported features**: Set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
 
 #### Supported modes
 
@@ -122,13 +122,30 @@ The climate entity offers the modes you selected during setup.
 - **Medium high**: Between medium and high.
 - **High**: High fan speed.
 
+#### Swing modes
+
+The climate entity has two independent swing controls, one for the vertical vanes and one for the horizontal vanes. Your air conditioner might not have both.
+
+Vertical swing positions the airflow up or down:
+
+- **Off**: The vanes stay in their current position.
+- **Lowest**, **Low**, **Middle low**, **Middle high**, **High**, **Highest**: Fixed vane positions from the lowest to the highest.
+- **Swing**: The vanes move up and down continuously.
+
+Horizontal swing positions the airflow left or right:
+
+- **Off**: The vanes stay in their current position.
+- **Left**, **Middle left**, **Middle**, **Middle right**, **Right**: Fixed vane positions from left to right.
+- **Left half**, **Right half**: The vanes swing in the left or right half of the range.
+- **Swing**: The vanes move left and right continuously.
+
 #### Temperature range
 
 Supported range: 16 °C to 30 °C in 1 °C steps.
 
 #### Physical remote state tracking
 
-If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG air conditioner remote and updates the climate entity to match, so the mode, fan speed, and target temperature stay in sync.
+If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG air conditioner remote and updates the climate entity to match, so the mode, fan speed, target temperature, and swing modes stay in sync.
 
 ## Known limitations
 
