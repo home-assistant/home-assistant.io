@@ -13,6 +13,7 @@ ha_zeroconf: true
 ha_codeowners:
   - '@MandusBorjesson'
   - '@simontegelid'
+  - '@real-tintin'
 ha_domain: bitvis
 ha_integration_type: device
 ---
@@ -25,8 +26,8 @@ Because data is pushed directly from the device, no cloud connection or polling 
 
 Before adding the integration, make sure:
 
-- Your Bitvis Power Hub is connected to your local network and configured to send data to the IP address of your Home Assistant host on the UDP port above (default: `58220`).
-- Your router or firewall allows UDP traffic from the Power Hub to Home Assistant on that port.
+- Your Bitvis Power Hub is connected to your local network.
+- Your router or firewall allows UDP traffic from the Power Hub to Home Assistant on port 58220.
 
 {% note %}
 The Bitvis Power Hub and Home Assistant must be on the same network subnet, or your router/firewall must be configured to forward UDP traffic between them.
@@ -37,8 +38,6 @@ The Bitvis Power Hub and Home Assistant must be on the same network subnet, or y
 {% configuration_basic %}
 Host:
   description: The hostname or IP address of your Bitvis Power Hub on your local network.
-Port:
-  description: The UDP port Home Assistant listens on for data from the device. Defaults to `58220`.
 Name:
   description: A friendly name for this device in Home Assistant.
 {% endconfiguration_basic %}
