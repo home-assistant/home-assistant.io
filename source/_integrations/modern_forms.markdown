@@ -3,6 +3,7 @@ title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Fan
   - Light
   - Number
@@ -17,6 +18,7 @@ ha_domain: modern_forms
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - fan
   - light
@@ -46,6 +48,8 @@ The Modern Forms integration supports the fan's light, including brightness and 
 
 Some fan models have more than one light fixture, such as a separate uplight and downlight. Each fixture gets its own light entity that you can control independently, using the name you gave it in the Modern Forms app.
 
+Light fixtures that support a range of color temperatures let you adjust the color temperature from the light entity, alongside the brightness.
+
 ## Binary sensors
 
 On fan models that support sleep timers, the Modern Forms integration provides binary sensors for the following information:
@@ -54,6 +58,10 @@ On fan models that support sleep timers, the Modern Forms integration provides b
 - Light sleep timer active status
 
 These entities are not available on fan models without sleep timer support.
+
+## Buttons
+
+The Modern Forms integration provides a **Restart** button to reboot the fan.
 
 ## Numbers
 
@@ -86,3 +94,7 @@ The adaptive learning switch is not available on fan models without adaptive lea
 {% note %}
 Modern Forms fans use NTP (via `pool.ntp.org`) to set their internal clock and check whether sleep timers have expired. Sleep timers only work if your fan can reach an NTP server on the internet. You can block cloud access for the fan and allow only outbound NTP (UDP port 123) so sleep timers keep working.
 {% endnote %}
+
+## Troubleshooting
+
+On rare occasions, a fan can report a status that doesn't match reality, such as showing as off while still running. If a fan seems unresponsive or its state doesn't match what you see, select the **Restart** button and give the fan a minute or two to reconnect rather than assuming it's back right away. If that doesn't help, power-cycling the fan at the breaker or switch usually does.

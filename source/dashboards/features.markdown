@@ -1050,6 +1050,65 @@ type:
   type: string
 {% endconfiguration %}
 
+## Timer actions
+
+Widget that displays buttons to start, pause, cancel, and finish a [timer](/integrations/timer). Buttons are only enabled when the action is valid for the current timer state. While the timer is running, the start button becomes a restart button, which restarts the timer with the duration it was last started with, ignoring the remaining time.
+
+<p class='img'>
+  <img src='/images/dashboards/features/timer_actions.png' alt='Screenshot of the tile card with the timer actions feature'>
+  Screenshot of the tile card with the timer actions feature
+</p>
+
+```yaml
+features:
+  - type: "timer-actions"
+    actions:
+      - start
+      - pause
+      - cancel
+      - finish
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-actions`"
+  type: string
+actions:
+  required: false
+  description: List of actions to show on the card. The list can contain `start`, `pause`, `cancel`, and `finish`. If not set, `start`, `pause`, and `cancel` are shown.
+  type: list
+{% endconfiguration %}
+
+## Timer presets
+
+Widget that displays the preset durations of a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown.
+
+Presets belong to the timer entity and are managed in its more info dialog, that you open by selecting the entity. Then go to **Menu** {% icon "mdi:dots-vertical" %} > **Edit presets** to add, edit, delete, or reorder them. A timer has no presets until you add some, and the widget is hidden while the list is empty.
+
+<p class='img'>
+  <img src='/images/dashboards/features/timer_presets.png' alt='Screenshot of the tile card with the timer presets feature'>
+  Screenshot of the tile card with the timer presets feature
+</p>
+
+```yaml
+features:
+  - type: "timer-presets"
+    style: "buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-presets`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `dropdown`."
+  type: string
+  default: buttons
+{% endconfiguration %}
+
 ## Toggle
 
 Widget that displays a button to toggle a [switch](/integrations/switch) or [input boolean](/integrations/input_boolean) entity on or off.
