@@ -37,13 +37,13 @@ To update daily restrictions from an automation or a script:
 
 {% options_ui %}
 Device:
-  description: The ID of the device to update daily restrictions for.
+  description: The Nintendo Switch to update daily restrictions for.
 Day of the week:
   description: The day of the week to update restrictions for (`monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, or `sunday`).
 Max playtime:
   description: The maximum playtime allowed in minutes for this day (between 0 and 360). Omit to disable playtime limits for this day.
 Bedtime start:
-  description: The time when bedtime restrictions start (must be between 16:00 and 23:00). Both bedtime start and bedtime end must be provided to enable bedtime restrictions.
+  description: The time when bedtime restrictions start (must be between 16:00 and 23:00, or 00:00). Both bedtime start and bedtime end must be provided to enable bedtime restrictions.
 Bedtime end:
   description: The time from which play is allowed (must be between 05:00 and 09:00). Both bedtime start and bedtime end must be provided to enable bedtime restrictions.
 {% endoptions_ui %}
