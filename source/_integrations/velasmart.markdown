@@ -11,7 +11,7 @@ ha_codeowners:
   - "@liulijun2019"
 ha_platforms:
   - cover
-ha_integration_type: device
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
