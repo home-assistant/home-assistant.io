@@ -27,6 +27,3 @@ The VelaSmart integration allows you to control VelaSmart smart curtains and bli
 
 The integration polls the VelaSmart cloud every 30 seconds to update the state of your curtains.
 
-## Troubleshooting
-
-{% include integrations/troubleshooting.md %}
