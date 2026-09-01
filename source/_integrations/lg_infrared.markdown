@@ -18,6 +18,7 @@ ha_platforms:
   - climate
   - event
   - media_player
+  - select
   - switch
 ha_integration_type: device
 ha_quality_scale: silver
@@ -162,6 +163,13 @@ To turn one of these modes off, select any other mode, such as **Cool**.
 - **Diagnose**: Triggers the unit's self-diagnosis routine.
 - **Toggle vertical swing**: Switches the vertical vanes between swing and off. This button is disabled by default because the climate entity's swing mode control offers the same feature with more positions. Enable it only if your model does not respond to the swing mode control.
 
+#### Select
+
+When an infrared emitter is configured, an **Energy limit** select entity is created for each configured air conditioner. It caps the unit's power draw at a percentage of its maximum.
+
+- **Off**: No limit.
+- **40%**, **60%**, **80%**: Cap the power draw at the selected percentage.
+
 #### Switches
 
 When an infrared emitter is configured, these switch entities are created for the air conditioner. Each uses a separate infrared code to turn the feature on or off.
@@ -182,6 +190,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
 - The air conditioner button entities each send a single command and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet mode** or **Eco mode** cannot be shown as active.
+- The **Energy limit** select for each air conditioner also uses assumed state. It sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown option reflects the last command sent.
 - The air conditioner switch entities also use assumed state. Each sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown state reflects the last command sent.
 
 ## Removing the integration
