@@ -18,17 +18,17 @@ ha_codeowners:
 ha_bluetooth: true
 ---
 
-The **Flic Button** {% term integration %} allows you to connect [Flic](https://flic.io/) smart buttons to Home Assistant over Bluetooth Low Energy (BLE). Flic buttons are wireless buttons that trigger automations with presses, double-presses, holds, swipe gestures, and rotation.
+The **Flic Button** {% term integration %} allows you to connect [Flic](https://flic.io/) smart buttons to Home Assistant over Bluetooth Low Energy (BLE). Flic buttons are wireless buttons that trigger automations with pushes, double-pushes, holds, swipe gestures, and rotation.
 
-For example, you can keep a Flic button on your nightstand to turn off every light with a single press, stick one by the front door to start your "leaving home" routine, or use a Flic Twist to dim the living room lights by turning the dial.
+For example, you can keep a Flic button on your nightstand to turn off every light with a single push, stick one by the front door to start your "leaving home" routine, or use a Flic Twist to dim the living room lights by turning the dial.
 
 ## Supported devices
 
 The following Flic devices are supported:
 
-- Flic 2: A single-button device powered by a CR2032 coin cell battery. It supports press, double-press, and hold actions.
-- Flic Duo: A two-button device (a big button and a small button) powered by a CR2032 coin cell battery. It supports press, double-press, hold, swipe gestures (left, right, up, and down), and rotation while a button is held.
-- Flic Twist: A rotary dial powered by two AAA batteries, with 12 physical detent positions. It supports press, double-press, hold, and rotation. The rotation behavior is configurable through the push twist mode option.
+- Flic 2: A single-button device powered by a CR2032 coin cell battery. It supports push, double-push, and hold actions.
+- Flic Duo: A two-button device (a big button and a small button) powered by a CR2032 coin cell battery. It supports push, double-push, hold, swipe gestures (left, right, up, and down), and rotation while a button is held.
+- Flic Twist: A rotary dial powered by two AAA batteries, with 12 physical detent positions. It supports push, double-push, hold, and rotation. The rotation behavior is configurable through the push twist mode option.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ The **Flic Button** integration provides the following entities.
 
 ## Data updates
 
-Flic buttons push their events to Home Assistant over Bluetooth the moment they happen, so presses, holds, and rotations are reported immediately. There is no {% term polling %} interval to configure.
+Flic buttons push their events to Home Assistant over Bluetooth the moment they happen, so pushes, holds, and rotations are reported immediately. There is no {% term polling %} interval to configure.
 
 ## Known limitations
 
