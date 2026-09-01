@@ -40,7 +40,7 @@ Host:
 Port:
   description: "The port of your Flexit CI66 Modbus bridge. Defaults to `502`. Only shown for a network connection."
 Unit ID:
-  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `247`."
+  description: "The Modbus unit ID of your Flexit unit. Enter a value from `1` through `32`."
 {% endconfiguration_basic %}
 
 {% note %}
