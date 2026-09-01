@@ -57,9 +57,20 @@ This integration supports Victron Energy devices that run Venus OS and have MQTT
 
 - A Victron Energy GX device running Venus OS with MQTT enabled.
 - Network connectivity between your Home Assistant instance and the Victron device.
-- For secured installations: The MQTT password configured on your Victron device.
+- For secured installations without token pairing support: the MQTT password you configured on your Victron device.
 
 {% include integrations/config_flow.md %}
+
+When Home Assistant discovers your Victron GX device, it first tries to connect using TLS on port `8883`. If TLS is unavailable, it tries an unencrypted connection on port `1883`.
+
+If authentication is required and your device supports MQTT token pairing, Home Assistant prompts you to enable pairing mode:
+
+1. Enable pairing mode using one of these methods:
+  - On the GX device, go to **Settings** > **Integrations** > **MQTT Devices** > **Pairing mode**.
+  - On a GX device without a built-in screen, quickly press the built-in button twice.
+2. In Home Assistant, select **Submit** within 120 seconds.
+
+Home Assistant requests and stores the token credentials automatically. If your device does not support token pairing, enter the password configured on the GX device when prompted.
 
 When setting up the integration manually, you need to provide connection details based on your Victron device's security profile.
 
@@ -91,7 +102,24 @@ On success, the integration reloads automatically.
 
 ## Data updates
 
-Entities are updated only when new values are received from the device, but no more frequently than every 30 seconds.
+Entities are updated only when new values are received from the device. The integration uses an automatic update cadence chosen by metric type.
+
+## Reduce Recorder storage
+
+The [Recorder integration](/integrations/recorder/) stores state changes in the database, so Victron GX entities can generate a lot of history data.
+
+If you do not need every entity, go to {% my integrations title="**Settings** > **Devices & services** > **Integrations**" %}, select **Victron GX**, select **Entities**, and disable the entities you do not use.
+
+You can also reduce Recorder data growth by excluding specific high-churn Victron GX entities with [Recorder filters](/integrations/recorder/#configure-filter). If you need to keep more data, set Recorder options like [`commit_interval`](/integrations/recorder/#commit_interval) and [`purge_keep_days`](/integrations/recorder/#purge_keep_days) in your {% term "`configuration.yaml`" %} file to fit your setup.
+
+For example, to exclude one Victron GX entity from Recorder:
+
+```yaml
+recorder:
+  exclude:
+    entities:
+      - sensor.victron_venus_system_heartbeat
+```
 
 ## Supported functionality
 
@@ -174,7 +202,7 @@ Configurable time-of-day settings, such as:
 
 ## Known limitations
 
-- The integration receives updates through MQTT push, but limits entity updates to at most once every 30 seconds. This means rapidly changing values may appear with a short delay.
+- The integration receives updates through MQTT push, and applies an automatic debounce interval chosen by metric type. This means rapidly changing values may appear with a short delay.
 
 ## Examples
 
@@ -242,6 +270,20 @@ The credentials provided are incorrect.
 1. Double-check the username and password if authentication is enabled.
 2. These are device credentials configured on the Victron device, not <abbr title="Victron Remote Monitoring">VRM</abbr> portal credentials.
 3. Verify the security profile setting on your Victron device under **Settings** > **General** > **Local Network Security Profile**.
+
+### Token pairing failed
+
+#### Symptom: Pairing fails during setup
+
+#### Description
+
+Home Assistant cannot request token credentials from the Victron GX device.
+
+#### Resolution
+
+1. Enable pairing mode on the GX device.
+2. Submit the pairing form in Home Assistant within 120 seconds.
+3. If pairing mode expires, enable it again and retry the form.
 
 ### No sensors appear
 

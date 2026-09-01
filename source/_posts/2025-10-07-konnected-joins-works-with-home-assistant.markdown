@@ -42,7 +42,7 @@ Remember, the development of projects like ESPHome from the [Open Home Foundatio
     The Konnected Smart Garage Door Opener blaQ
 </p>
 
-For anyone new to the Works With Home Assistant program, it’s a way for us to formally certify devices that have been tested by our team, and help you know what works great out of the box with Home Assistant. Any company joining also commits to providing long-term support and firmware updates. Works With Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and the support of [Home Assistant Cloud](/cloud/) subscribers funds this work. These items were all tested by members of the ESPHome team to see exactly how they function in their own homes.
+For anyone new to the Works with Home Assistant program, it’s a way for us to formally certify devices that have been tested by our team, and help you know what works great out of the box with Home Assistant. Any company joining also commits to providing long-term support and firmware updates. Works with Home Assistant is operated by the [Open Home Foundation](https://www.openhomefoundation.org/), and the support of [Home Assistant Cloud](/cloud/) subscribers funds this work. These items were all tested by members of the ESPHome team to see exactly how they function in their own homes.
 
 The Konnected certified devices are listed below:
 

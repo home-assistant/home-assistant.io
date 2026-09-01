@@ -744,6 +744,31 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light effect
+
+Widget that displays a dropdown to select an effect for a [light](/integrations/light).
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_effect.png' alt='Screenshot of the tile card with the light effect feature'>
+  Screenshot of the tile card with the light effect feature
+</p>
+
+```yaml
+features:
+  - type: "light-effect"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-effect`"
+  type: string
+effects:
+  required: false
+  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
+  type: list
+{% endconfiguration %}
+
 ## Lock commands
 
 Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
@@ -841,7 +866,7 @@ type:
   type: string
 sound_modes:
   required: false
-  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. When not specified, all available sound modes are shown."
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
   type: list
 {% endconfiguration %}
 
@@ -985,7 +1010,7 @@ options:
 
 ## Target humidity
 
-Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier).
+Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier) or a [climate](/integrations/climate) entity.
 
 <p class='img'>
   <img src='/images/dashboards/features/target_humidity.png' alt='Screenshot of the tile card with the target humidity feature'>
@@ -1023,6 +1048,65 @@ type:
   required: true
   description: "`target-temperature`"
   type: string
+{% endconfiguration %}
+
+## Timer actions
+
+Widget that displays buttons to start, pause, cancel, and finish a [timer](/integrations/timer). Buttons are only enabled when the action is valid for the current timer state. While the timer is running, the start button becomes a restart button, which restarts the timer with the duration it was last started with, ignoring the remaining time.
+
+<p class='img'>
+  <img src='/images/dashboards/features/timer_actions.png' alt='Screenshot of the tile card with the timer actions feature'>
+  Screenshot of the tile card with the timer actions feature
+</p>
+
+```yaml
+features:
+  - type: "timer-actions"
+    actions:
+      - start
+      - pause
+      - cancel
+      - finish
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-actions`"
+  type: string
+actions:
+  required: false
+  description: List of actions to show on the card. The list can contain `start`, `pause`, `cancel`, and `finish`. If not set, `start`, `pause`, and `cancel` are shown.
+  type: list
+{% endconfiguration %}
+
+## Timer presets
+
+Widget that displays the preset durations of a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown.
+
+Presets belong to the timer entity and are managed in its more info dialog, that you open by selecting the entity. Then go to **Menu** {% icon "mdi:dots-vertical" %} > **Edit presets** to add, edit, delete, or reorder them. A timer has no presets until you add some, and the widget is hidden while the list is empty.
+
+<p class='img'>
+  <img src='/images/dashboards/features/timer_presets.png' alt='Screenshot of the tile card with the timer presets feature'>
+  Screenshot of the tile card with the timer presets feature
+</p>
+
+```yaml
+features:
+  - type: "timer-presets"
+    style: "buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`timer-presets`"
+  type: string
+style:
+  required: false
+  description: "Which style of control to display. It can be either `buttons` or `dropdown`."
+  type: string
+  default: buttons
 {% endconfiguration %}
 
 ## Toggle
@@ -1138,6 +1222,31 @@ type:
 commands:
   required: true
   description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate`, and `return_home`.
+  type: list
+{% endconfiguration %}
+
+## Vacuum fan speed
+
+Widget that displays a dropdown to select the fan speed for a [vacuum](/integrations/vacuum).
+
+<p class='img'>
+  <img src='/images/dashboards/features/vacuum_fan_speed.png' alt='Screenshot of the tile card with the vacuum fan speed feature'>
+  Screenshot of the tile card with the vacuum fan speed feature
+</p>
+
+```yaml
+features:
+  - type: "vacuum-fan-speed"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`vacuum-fan-speed`"
+  type: string
+fan_speeds:
+  required: false
+  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
   type: list
 {% endconfiguration %}
 

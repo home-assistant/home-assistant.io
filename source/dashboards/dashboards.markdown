@@ -107,6 +107,39 @@ If you see a [person](/integrations/person/) on the map, it means you have conne
 
 The predefined **To-do lists** dashboard is powered by the [To-do integration](/integrations/todo/). To learn how to use to-do and shopping lists, refer to the documentation of the to-do list integration.
 
+### Security dashboard
+
+The predefined **Security** dashboard shows information about security-related entities, namely:
+
+- Cards for your alarm control panels, locks, cameras, doors, covers, motion sensors, and other binary sensors. You can group these cards by floor and area.
+- An **Activity** section showing changes to your security-related entities during the past 24 hours in reverse chronological order.
+
+You can add the following sections to the **Security** dashboard:
+
+- The **Favorites** section lets you pin the entities you check most often so they always appear near the top.
+- The **Active alerts** section appears only when one or more entities you chose need attention, such as a door left open or a smoke detector that is triggering.
+
+#### Adding favorites to the Security dashboard
+
+To add favorites of your security-related entities to the **Security** dashboard:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
+2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+3. Under **Favorite entities**, select **Add favorite** and then select the entity you want to pin to the top of the page from the list. You can select more than one favorite.
+4. Select **Save**.
+
+#### Adding active alerts to the Security dashboard
+
+To display alerts of your security-related entities on the **Security** dashboard:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
+2. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
+3. Under **Active alert entities**, select **Add entity** and then select the entity you want to monitor from the list. You can select more than one entity.
+4. For each added entity, select one of the display types:
+    - **Alert** for issues that need immediate attention, such as a smoke detector going off.
+    - **Warning** for less urgent issues, such as a window that was left open.
+5. Select **Save**.
+
 ## Webpage dashboard
 
 Another available (but not default) dashboard is the webpage dashboard. The webpage dashboard allows you to add and embed a webpage to your dashboard.
@@ -138,8 +171,8 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
 
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
-   1. Go to {% my profile title="**User profile**" %}.
-   2. On the **General** tab, next to **Dashboard**, select your default dashboard.
+   1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+   2. Next to **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
    3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
@@ -190,8 +223,8 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 
 You can define which elements are shown in the sidebar and the order in which they appear.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
 3. Drag and drop items to reorder them, and toggle items to show or hide them.
 4. Select **Save**.
 
@@ -199,8 +232,8 @@ You can define which elements are shown in the sidebar and the order in which th
 
 If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reset to defaults**.
 
 ## Adding YAML dashboards
@@ -309,7 +342,7 @@ views:
           Welcome to your **dashboard**.
 ```
 
-A slightly more advanced example:
+Here is a more customized example:
 
 ```yaml
 views:

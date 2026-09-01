@@ -41,6 +41,10 @@ There are four different view types:
 
 ## Adding a view to a dashboard
 
+{% note %}
+You can't add views to the built-in **Activity**, **Climate**, **History**, **Maintenance**, **Energy**, **Security**, and **To-do lists** dashboards. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
+{% endnote %}
+
 1. To add a view to your dashboard, in the top right corner, select the pencil icon.
 2. Select the `+` button in the top menu bar.
 
@@ -63,7 +67,7 @@ There are four different view types:
 
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
-6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
+6. By default, the new view is visible to all users. On the **Visibility** tab, you can disable the view for specific users.
 
 ## Migrating a view into a sections view
 

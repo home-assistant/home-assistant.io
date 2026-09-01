@@ -28,11 +28,11 @@ There is an automatic and continuous verification of the condition state. When y
 
 In the three dots menu in the automation list or automation editor UI, select the **Run actions** button. This will execute all the {% term actions %}, while skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/docs/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
 
-You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Automation: Trigger**, then **Choose entity** to select the automation you are testing. Toggle whether to skip the conditions, then **Perform action**. If needed, additional `trigger` or other data can be added in the YAML view for testing. The [trigger](/docs/automation/trigger/) page has more information about data within the trigger.
+You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}. In the **Action** drop-down, select **Automation: Trigger**, then **Choose entity** to select the automation you are testing. Toggle whether to skip the conditions, then **Perform action**. If needed, additional `trigger` or other data can be added in the YAML view for testing. The [trigger](/docs/automation/trigger/) page has more information about data within the trigger.
 
 If an event fires a trigger, the trigger row displays the message **Triggered** in the automation editor UI. You can select the message to see the YAML details in the **Triggering event detail** dialog.
 
-Testing with complex triggers, conditions, and variables can be difficult. Note that using the **Run actions** button will skip all triggers and conditions, while **Developer tools** can be used with or without checking conditions.
+Testing with complex triggers, conditions, and variables can be difficult. Note that using the **Run actions** button will skip all triggers and conditions, while **Tools** can be used with or without checking conditions.
 
 ### Running individual actions or conditions
 
@@ -50,7 +50,7 @@ In the automation editor UI, each {% term action %} can be tested individually. 
 
 Note that complex automations that depend on previous blocks, such as trigger IDs, variables in templates, or action calls that return data to use in subsequent blocks, cannot be tested this way.
 
-If you are writing automations in YAML, it is also useful to go to {% my server_controls title="**Developer tools** > **YAML**" %} and in the Configuration validation section, select the **Check configuration** button. This is to make sure there are no syntax errors before restarting Home Assistant.
+If you are writing automations in YAML, it is also useful to go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and in the Configuration validation section, select the **Check configuration** button. This is to make sure there are no syntax errors before restarting Home Assistant.
 
 ## Traces
 
@@ -89,7 +89,7 @@ trace:
 
 If your automation uses [templates](/docs/templating/) in any part, you can do the following to make sure it works as expected:
 
-1. Go to {% my developer_template title="**Settings** > **Developer tools** > **Template**" %} tab.
+1. Go to {% my developer_template title="**Settings** > **Tools** > **Template**" %} tab.
 2. Create all variables (sources) required for your template as described at the end of [this](/docs/templating/where-to-use/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.

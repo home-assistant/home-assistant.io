@@ -1,5 +1,5 @@
 ---
-title: "Vacuum returned to dock"
+title: "Vacuum cleaner returned to dock"
 trigger: vacuum.returned_to_dock
 domain: vacuum
 description: "Triggers when a vacuum cleaner docks."
@@ -8,7 +8,7 @@ related_triggers:
   - vacuum.started_cleaning
 ---
 
-The **Vacuum returned to dock** trigger fires when your vacuum docks at its charging station.
+The **Vacuum cleaner returned to dock** trigger fires when your vacuum docks at its charging station.
 Use it to automate notifications or actions when cleaning has finished.
 
 This is a good fit when you want to send a completion message, reset a cleaning status helper, or start another task only after the robot is safely back on the charger.
@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Vacuum: Vacuum returned to dock**.
+4. From the search box, search for and select **Vacuum cleaner returned to dock**.
 5. Under **Targets**, choose a single vacuum, an area, floor, or multiple vacuums.
 6. Under **Trigger when**, pick **Each**, **First**, or **All** to control how the trigger fires when more than one vacuum is targeted.
 7. Under **For at least**, enter how long the vacuum must stay docked before the trigger fires.
@@ -90,7 +90,7 @@ for:
 
 When the vacuum docks, the cleaning run is usually complete. This automation sends a quick message so you know the robot is done and back on the charger.
 
-- **Trigger**: Vacuum returned to dock
+- **Trigger**: Vacuum cleaner returned to dock
   - **Target**: Downstairs vacuum
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
