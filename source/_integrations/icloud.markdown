@@ -2,6 +2,7 @@
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
 ha_category:
+  - Calendar
   - Media source
   - Presence detection
   - Sensor
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@nzapponi'
 ha_domain: icloud
 ha_platforms:
+  - calendar
   - device_tracker
   - media_source  
   - sensor
@@ -23,6 +25,7 @@ The **Apple iCloud** {% term integration %} allows you to detect presence using 
 
 There is currently support for the following platforms within Home Assistant:
 
+- [Calendar](#calendar)
 - [Device tracker](#device-tracker)
 - [Sensor](#sensor)
 
@@ -49,6 +52,10 @@ You need to use an [app-specific password](https://support.apple.com/102654) to 
 Delete the integration's configuration (most likely in `/config/.storage/icloud`), then retry.
 
 ## Platforms
+
+### Calendar
+
+The iCloud integration adds a calendar entity for each of your iCloud calendars, showing the event in progress or the next one due. Calendars are read-only, so events cannot be created or edited from Home Assistant.
 
 ### Device tracker
 

@@ -1,0 +1,81 @@
+blueprint:
+  name: Lyngdorf lip sync per source
+  description: >
+    Apply a lip sync delay when a Lyngdorf zone switches to a particular
+    source, and reset it when the zone switches away.
+  domain: automation
+  author: fishloa
+
+  input:
+    media_player_entity:
+      name: Media player
+      description: The Lyngdorf zone to watch.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: media_player
+    source_name:
+      name: Source
+      description: >
+        The source that needs the delay, as named on the processor, for example
+        Sky.
+      selector:
+        text:
+    lip_sync_entity:
+      name: Lip sync
+      description: The lip sync number entity.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: number
+    delay_ms:
+      name: Delay
+      description: The delay to apply while that source is selected.
+      default: 80
+      selector:
+        number:
+          min: 0
+          max: 500
+          unit_of_measurement: ms
+    reset_ms:
+      name: Delay when switched away
+      description: The delay to return to for other sources.
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 500
+          unit_of_measurement: ms
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input media_player_entity
+    attribute: source
+    id: source_changed
+
+actions:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ state_attr(media_player_entity, 'source') == source_name }}
+        sequence:
+          - action: number.set_value
+            target:
+              entity_id: !input lip_sync_entity
+            data:
+              value: !input delay_ms
+    default:
+      - action: number.set_value
+        target:
+          entity_id: !input lip_sync_entity
+        data:
+          value: !input reset_ms
+
+variables:
+  media_player_entity: !input media_player_entity
+  source_name: !input source_name

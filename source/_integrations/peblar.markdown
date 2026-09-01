@@ -244,10 +244,16 @@ This integration provides the following switch entities:
 
 The Peblar integration provides two update entities for the Peblar charger:
 
-- **Firmware**: Indicates if there is a firmware update available for the charger. The firmware can be thought of as the operating system of the charger.
-- **Customization**: Indicates if there is a customization update available for the charger. The customization can be thought of as the user interface of the charger that you see when you log in to the charger's local web interface.
+- **Firmware**: Indicates if there is a firmware update available for the charger, and installs it. The firmware can be thought of as the operating system of the charger.
+- **Customization**: Indicates if there is a customization update available for the charger, and installs it. The customization can be thought of as the user interface of the charger that you see when you log in to the charger's local web interface.
 
-Software updates cannot be installed through Home Assistant. You need to log in to the charger's local web interface to install the updates.
+{% important %}
+If both updates are available, install the customization update first. Home Assistant does not install a firmware update while a customization update is still available. The charger's own web interface installs them in the same order.
+{% endimportant %}
+
+Installing an update takes several minutes. The charger first downloads the package and then restarts itself. While it restarts, the charger is unavailable in Home Assistant.
+
+Home Assistant does not show a progress percentage while an update installs, because the charger does not report one. The version numbers are updated once the charger is back online.
 
 ## Data updates
 
