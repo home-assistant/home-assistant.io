@@ -16,6 +16,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: device
 ha_zeroconf: true
 ha_quality_scale: bronze
@@ -26,6 +27,16 @@ The **SolarEdge Modbus** {% term integration %} connects Home Assistant to your 
 Because it talks to the inverter directly, readings arrive every few seconds instead of every few minutes. That makes it a good source for the [Energy dashboard](#energy-dashboard) and for automations that respond to what your panels are producing right now.
 
 If you would rather use SolarEdge's cloud service, for example to see how each individual panel is doing, use the [SolarEdge](/integrations/solaredge/) integration instead. You can use both at the same time.
+
+## Use cases
+
+Reading the inverter directly, rather than through SolarEdge's cloud, is worth it for a few things in particular:
+
+- **Seeing your production as it happens.** Values arrive every few seconds, which is fast enough to watch a cloud pass over your roof, and they keep arriving when your internet connection is unavailable.
+- **Putting solar on the [Energy dashboard](#energy-dashboard).** Production, and with a meter also what you take from the grid and send back to it, and with a battery what goes in and out of it.
+- **Running appliances on your own power.** An automation that starts the dishwasher, the washing machine or a car charger when production is high enough, rather than at a fixed time.
+- **Noticing when something is wrong.** An inverter that has stopped producing is easy to miss for weeks; a fault here is a state you can automate on the same day.
+- **Changing what the installation does.** The export limit, how the battery charges, and what the inverter may deliver, without an installer visit or the SolarEdge app.
 
 ## Supported devices
 
@@ -187,6 +198,13 @@ The inverter holds settings of its own, which this integration can change as wel
 - **Export limitation**: How the site limits what it feeds back to the grid. **Production control** limits the inverter itself; the meter-based options measure at the connection point and need a meter, so they are only offered when one is attached. Whatever the inverter is set to is always offered, even when the hardware for it is missing, since that is what the register says.
 - **Export limit type**: Whether the export limit counts per phase or as a total. Disabled by default.
 
+### Switches
+
+These switches are flags on the export control. An installer sets them to describe the site, and they are disabled by default.
+
+- **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
+- **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
+
 {% important %}
 These settings live in the inverter's flash memory, which is meant to be written now and then rather than continuously. An automation that writes one every few minutes will wear it out. Change them when something actually changes.
 
@@ -285,6 +303,8 @@ automation: |
 
 The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and anything wired to it, every 10 seconds. The inverter's settings are read every 5 minutes instead: they only move when something writes them, and every read costs a slot on a connection that has few to give.
 
+Every 15 minutes, Home Assistant also asks the inverter what is connected. If it detects that a meter or battery was added or removed, it reloads the integration automatically.
+
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If several inverters answer on the same address with different device IDs, for example because they are chained on one Modbus TCP bridge, they share a single connection instead of each opening their own.
 
 A [Modbus](/integrations/modbus/) setup in your {% term "`configuration.yaml`" %} is separate from this. It opens its own connection to the inverter, which counts against the number of clients the inverter accepts.
@@ -295,7 +315,7 @@ If part of the installation does not answer a poll, only its {% term entity enti
 
 - Which of the inverter's settings exist depends on the installation. Storage settings need a battery, and the export settings need the inverter to have them enabled; what is absent is simply not added.
 - SolarEdge does not document the control registers, and not every firmware exposes them the same way. What a setting does is the inverter's business, and it will refuse a value it does not accept.
-- Which meters and batteries are attached is read while the entry is set up. Hardware added or unwired while Home Assistant runs is picked up the next time the entry loads, which you can trigger yourself by reloading the integration.
+- A meter or battery wired in or out while Home Assistant runs takes up to 15 minutes to appear or disappear, since that is how often the inverter is asked what is attached. Picking it up reloads the integration, so its entities are briefly unavailable. Reloading it yourself is quicker if you cannot wait.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
 

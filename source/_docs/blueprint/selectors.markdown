@@ -1248,9 +1248,16 @@ image_upload:
   type: boolean
   required: false
   default: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector is a mapping with information about
+The output of the media selector is a mapping or list of mappings with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1293,6 +1300,20 @@ metadata:
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
+```
+
 
 ## Number selector
 
