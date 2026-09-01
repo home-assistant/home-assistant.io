@@ -1,6 +1,6 @@
 ---
 title: Zonneplan
-description: Instructions on how to integrate Zonneplan within Home Assistant.
+description: Get electricity and gas prices from Zonneplan in Home Assistant.
 ha_category:
   - Energy
 ha_release: "2026.10"
@@ -14,8 +14,8 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Zonneplan {% term integration %} allows you to retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch dynamic energy contract provider, energy supplier, batteries and EV charge points.
-The integration is under active development and features will be expanded gradually.
+The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
+This integration currently provides electricity and gas price entities.
 
 ## Prerequisites
 
@@ -38,8 +38,8 @@ The following sensors are provided by this integration:
 - **Current electricity price**: The electricity price for the current hour.
 - **Lowest electricity price today**: The lowest electricity price for today.
 - **Highest electricity price today**: The highest electricity price for today.
-- **Lowest electricity price tomorrow**: The lowest electricity price for tomorrow, once available at 13:00 CET.
-- **Highest electricity price tomorrow**: The highest electricity price for tomorrow, once available at 13:00 CET.
+- **Lowest electricity price tomorrow**: The lowest electricity price for tomorrow, once published (typically around 13:00 CET/CEST).
+- **Highest electricity price tomorrow**: The highest electricity price for tomorrow, once published (typically around 13:00 CET/CEST).
 - **Electricity prices tomorrow status**: Indicates whether tomorrow's electricity prices are already `available`, or still `incoming`.
 - **Gas price daily**: The gas price for today.
 
@@ -48,5 +48,7 @@ The lowest and highest electricity price sensors also expose a `start` and `end`
 ## Known limitations
 
 Zonneplan also offers home batteries and EV charge points as part of its product line, but this integration does not yet expose entities for them. Only electricity and gas price data is currently supported.
+
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
