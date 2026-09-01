@@ -90,7 +90,7 @@ Enjoy the (beta) release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [Golden hour, blue hour, and polar sun automations](#golden-hour-blue-hour-and-polar-sun-automations)
 - [Accessibility for charts!](#accessibility-for-charts)
-- [Serial panel](#serial-panel)
+- [Serial and MQTT panels](#serial-and-mqtt-panels)
 - [How full is your network storage?](#how-full-is-your-network-storage)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -351,7 +351,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Lyngdorf]** rounded out its debut with number entities for lip sync and channel trims, a remote entity to drive the processor's on-screen menus, selects for RoomPerfect position and voicing, sensors for the active input and streaming source, and now-playing information with transport controls for models with a streaming module. Thanks, [@fishloa]!
 - **[Harbor Sleep]** added a select entity to set the camera's night mode to Auto, On, or Off, so you can control it from Home Assistant instead of the Harbor app. Thanks, [@Lash-L]!
 - **[NeoPool]** added a pool light entity, plus an options flow to opt in to it, since the controller can't detect whether a light is actually wired to the relay. Thanks, [@svasek]!
-- **[MQTT]** gained its own dashboard on the settings page, instead of hiding its tools behind the options. The topic subscribe view now formats messages as code with a copy button, and a shortcut takes you straight to the broker connection settings. Thanks, [@jbouwh]!
 
 [@adam-the-hero]: https://github.com/adam-the-hero
 [@andrew-codechimp]: https://github.com/andrew-codechimp
@@ -541,7 +540,7 @@ This works on your line and bar charts, including the device breakdown on the **
 
 Thanks to [@MindFreeze](https://github.com/MindFreeze) for bringing this to charts!
 
-## Serial panel
+## Serial and MQTT panels
 
 Serial joins the other protocol panels under **Settings**, the same recognition [infrared](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant) and [radio frequency](/blog/2026/05/06/release-20265/#radio-frequency-joins-infrared-as-a-first-class-citizen) got over the last two releases. Once anything is using a serial port, whether that's a USB dongle like a Zigbee or {% term Thread %} radio, or an {% term app %} talking to one, the new **Serial** page lists it.
 
@@ -552,6 +551,8 @@ It splits what it finds into three groups: ports actually in use by an integrati
 This rounds out the trio planned in [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/173): serial, infrared, and radio frequency all have their own place in Settings now. Documentation for all three is still on its way.
 
 Thanks to [@puddly](https://github.com/puddly), who built this end to end, panel and all!
+
+**[MQTT]** got a settings page of its own this release too, sitting right alongside **Serial** and **Bluetooth** in **Settings** instead of hiding its tools behind the integration's options. A status banner at the top shows whether the broker is online and how many devices it's found, with quick links to the devices and entities on your network. Discovery options and the broker connection settings each get their own row instead of sharing one options flow, and a new **Publish a packet** tool lets you send a test message, topic, QoS, and retain flag included, straight from the page, with a code editor for the payload. The topic subscribe view also now formats incoming messages as code, with a copy button. Thanks, [@jbouwh]!
 
 ## How full is your network storage?
 
