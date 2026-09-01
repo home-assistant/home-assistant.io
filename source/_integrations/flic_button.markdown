@@ -1,10 +1,10 @@
 ---
-title: Flic
+title: Flic Button
 description: Connect Flic smart buttons to Home Assistant over Bluetooth.
 ha_category:
   - Event
   - Number
-ha_release: 2026.7
+ha_release: 2026.9
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: flic_button
@@ -18,7 +18,7 @@ ha_codeowners:
 ha_bluetooth: true
 ---
 
-The **Flic** {% term integration %} allows you to connect [Flic](https://flic.io/) smart buttons to Home Assistant over Bluetooth Low Energy (BLE). Flic buttons are wireless buttons that trigger automations with clicks, double-clicks, holds, swipe gestures, and rotation.
+The **Flic Button** {% term integration %} allows you to connect [Flic](https://flic.io/) smart buttons to Home Assistant over Bluetooth Low Energy (BLE). Flic buttons are wireless buttons that trigger automations with presses, double-presses, holds, swipe gestures, and rotation.
 
 For example, you can keep a Flic button on your nightstand to turn off every light with a single press, stick one by the front door to start your "leaving home" routine, or use a Flic Twist to dim the living room lights by turning the dial.
 
@@ -26,14 +26,14 @@ For example, you can keep a Flic button on your nightstand to turn off every lig
 
 The following Flic devices are supported:
 
-- **Flic 2** — A single-button device powered by a CR2032 coin cell battery. It supports click, double-click, and hold actions.
-- **Flic Duo** — A two-button device (a big button and a small button) powered by a CR2032 coin cell battery. It supports click, double-click, hold, swipe gestures (left, right, up, and down), and rotation while a button is held.
-- **Flic Twist** — A rotary dial powered by two AAA batteries, with 12 physical detent positions. It supports click, double-click, hold, and rotation. The rotation behavior is configurable through the push-twist mode option.
+- Flic 2: A single-button device powered by a CR2032 coin cell battery. It supports press, double-press, and hold actions.
+- Flic Duo: A two-button device (a big button and a small button) powered by a CR2032 coin cell battery. It supports press, double-press, hold, swipe gestures (left, right, up, and down), and rotation while a button is held.
+- Flic Twist: A rotary dial powered by two AAA batteries, with 12 physical detent positions. It supports press, double-press, hold, and rotation. The rotation behavior is configurable through the push twist mode option.
 
 ## Prerequisites
 
 - A working [Bluetooth](/integrations/bluetooth) adapter on the device running Home Assistant.
-- The Flic button must be in pairing mode. To enter pairing mode, make sure the button is not currently connected to anything, then hold the button for 10 seconds until the LED flashes.
+- The Flic button must be in pairing mode. To enter pairing mode, make sure the button is not currently connected to anything, then push and hold it until the LED flashes. This should take no longer than 10 seconds.
 
 {% include integrations/config_flow.md %}
 
@@ -46,86 +46,61 @@ Flic buttons are automatically discovered over Bluetooth when they are in pairin
 If the button is not automatically discovered:
 
 1. Make sure the button is not connected to anything.
-2. Put the button into pairing mode by holding it for 10 seconds until the LED flashes.
-3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-4. Select **Add integration**, then search for **Flic**.
-5. Follow the on-screen instructions to complete pairing.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Select **Add integration**, then search for **Flic Button**.
+4. When the **Pair with Flic device** step asks for it, push and hold the button until it connects.
+5. Submit the form to complete pairing.
 
 ## Configuration options
 
-Configuration options are available for **Flic Twist** devices only. To access them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Flic integration entry for your Twist device, and select **Configure**.
+Configuration options are available for Flic Twist devices only. To access them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Flic Button entry for your Twist device, and select **Configure**.
 
-### Push-twist mode
-
-The push-twist mode controls what happens when you hold the button and twist the dial:
-
-- **Default** — Fires twist increment and decrement events, along with push-twist increment and decrement events. Values stop at the boundaries.
-- **Continuous** — Behaves like the default mode, but values wrap around instead of stopping at the boundaries.
-- **Selector mode** — Fires clockwise and counter-clockwise rotation events, along with selector-changed events. This mode is useful when you want the dial to behave like a selector with distinct positions.
-
-Changing the push-twist mode reloads the integration and updates the event types available on the **Button** entity.
+{% configuration_basic %}
+Push twist mode:
+  description: "Controls what happens when you hold the button and twist the dial. **Default** fires twist and push-twist increment and decrement events, which stop at the boundaries. **Continuous** behaves like **Default**, but values wrap around instead of stopping. **Selector mode** fires rotation and selector changed events, so the dial behaves like a selector with distinct positions. Changing this option reloads the integration, which changes the entities and event types the Twist provides."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
-### Entities
+The **Flic Button** integration provides the following entities.
 
-#### Flic 2
+### Events
 
-- **Button** (event) — Fires events for click, double-click, hold, press, and release actions.
+- **Button**
+  - **Description**: Fires an event for each action on the button.
+  - **Available for**: Flic 2 and Flic Twist.
+  - **Event types**: **Single push**, **Double push**, **Hold**, **Down**, and **Up**.
+  - **Remarks**: A Flic Twist adds event types that depend on the push twist mode. **Default** and **Continuous** add **Twist incremented**, **Twist decremented**, **Push-twist incremented**, and **Push-twist decremented**. **Selector mode** adds **Rotated clockwise**, **Rotated counter-clockwise**, and **Selector changed**.
 
-#### Flic Duo
+- **Big button**
+  - **Description**: Fires an event for each action on the big button.
+  - **Available for**: Flic Duo.
+  - **Event types**: **Single push**, **Double push**, **Hold**, **Down**, **Up**, **Swipe left**, **Swipe right**, **Swipe up**, **Swipe down**, **Rotated clockwise**, and **Rotated counter-clockwise**.
 
-- **Big button** (event) — Fires events for the big button, including click, double-click, hold, press, release, swipe gestures (left, right, up, and down), and rotation while held (clockwise and counter-clockwise).
-- **Small button** (event) — Fires the same event types as the big button.
+- **Small button**
+  - **Description**: Fires an event for each action on the small button.
+  - **Available for**: Flic Duo.
+  - **Event types**: The same event types as **Big button**.
 
-#### Flic Twist
+### Numbers
 
-The entities available depend on the selected push-twist mode (see [Configuration options](#configuration-options)).
+- **Twist position**
+  - **Description**: The rotation position of the dial, from 0 to 100%. Setting it moves the position the device tracks, along with its LED ring.
+  - **Available for**: Flic Twist in **Default** and **Continuous** modes.
 
-For the default and continuous modes:
+- **Push-twist position**
+  - **Description**: The rotation position accumulated while the button is held, from 0 to 100%.
+  - **Available for**: Flic Twist in **Default** and **Continuous** modes.
+  - **Remarks**: Tracked separately from **Twist position**, so the two do not affect each other.
 
-- **Button** (event) — Fires events for click, double-click, hold, press, release, twist increment and decrement, and push-twist increment and decrement.
-- **Twist position** (number) — The rotation position of the dial, from 0 to 100%. Setting it moves the position the device tracks and its LED ring.
-- **Push-twist position** (number) — The rotation position accumulated while the button is held, from 0 to 100%. It is tracked separately from the twist position.
-
-For the selector mode:
-
-- **Button** (event) — Fires events for click, double-click, hold, press, release, rotation (clockwise and counter-clockwise), and selector changed.
-- **Slot 1** to **Slot 12** (number) — The rotation position of each of the twelve detent positions, from 0 to 100%. Each slot keeps its own value, so turning the dial only changes the slot that is currently selected.
-
-## Device automations
-
-### Triggers
-
-Device triggers are available for each Flic device. The available triggers depend on the device type.
-
-#### Flic 2
-
-- Button clicked, double-clicked, held, pressed, or released
-
-#### Flic Duo
-
-Triggers are available for each button (big and small):
-
-- Button clicked, double-clicked, held, pressed, or released
-- Swiped left, right, up, or down
-- Rotated clockwise or counter-clockwise
-
-#### Flic Twist (default and continuous modes)
-
-- Button clicked, double-clicked, held, pressed, or released
-- Twist incremented or decremented
-- Push-twist incremented or decremented
-
-#### Flic Twist (selector mode)
-
-- Button clicked, double-clicked, held, pressed, or released
-- Rotated clockwise or counter-clockwise
-- Selector changed
+- **Slot 1** to **Slot 12**
+  - **Description**: The rotation position of each of the twelve detent positions, from 0 to 100%.
+  - **Available for**: Flic Twist in **Selector mode**.
+  - **Remarks**: Each slot keeps its own value, so turning the dial only changes the slot that is currently selected.
 
 ## Data updates
 
-Flic buttons push their events to Home Assistant over Bluetooth the moment they happen, so button presses, holds, and rotations are reported immediately. There is no {% term polling %} interval to configure.
+Flic buttons push their events to Home Assistant over Bluetooth the moment they happen, so presses, holds, and rotations are reported immediately. There is no {% term polling %} interval to configure.
 
 ## Known limitations
 
@@ -137,17 +112,17 @@ Battery level and firmware updates are not exposed yet. Additional functionality
 
 ### Button not discovered
 
-Make sure the button is in pairing mode before you start discovery. If it is connected to something else, disconnect it first, then hold the button for 10 seconds until the LED flashes. Keep the button close to your Bluetooth adapter and try again.
+Make sure the button is in pairing mode before you start discovery. If it is connected to something else, disconnect it first, then push and hold the button until the LED flashes. Keep the button close to your Bluetooth adapter and try again.
 
 ### Pairing failed
 
 If pairing fails, try the following:
 
 1. Make sure the button is not connected to anything.
-2. Make sure the button is still in pairing mode (the LED is flashing).
+2. Make sure the button is still in pairing mode, indicated by the flashing LED.
 3. Move the button closer to the Bluetooth adapter.
 4. If you see an "invalid signature" error, the button might not be a genuine Flic device.
-5. If you are still having issues, try a factory reset. Remove the battery, insert it again, immediately press and hold the button for 10 seconds, then release it when the LED blinks red a few times.
+5. If you are still having issues, try a factory reset. Remove the battery, insert it again, immediately push and hold the button for 10 seconds, then release it when the LED blinks red a few times.
 
 ### Button disconnects frequently
 
