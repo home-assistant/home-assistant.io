@@ -14,7 +14,7 @@ If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" 
 Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
 {% endnote %}
 
-As commenting code doesn't always happen, read on to learn in detail how configuration files can be structured.
+As commenting on code doesn't always happen, read on to learn how configuration files can be structured.
 
 ## How splitting works
 
