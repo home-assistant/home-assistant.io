@@ -5,6 +5,7 @@ domain: roborock
 description: "Sends a Roborock vacuum to a specific position."
 related_actions:
   - roborock.get_vacuum_current_position
+  - roborock.set_vacuum_zoned_cleaning
   - roborock.get_maps
 ---
 

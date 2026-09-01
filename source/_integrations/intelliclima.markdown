@@ -15,6 +15,7 @@ related:
   - url: https://www.fantinicosmi.it/en/
     title: Fantini Cosmi
 ha_platforms:
+  - binary_sensor
   - fan
   - select
   - sensor
@@ -52,6 +53,15 @@ Password:
 ## Supported functionality
 
 The **IntelliClima** integration provides the following entities for each discovered Ecocomfort 2.0 device.
+
+### Binary sensor
+
+- **Filter Cleaning Required**
+  - **Description**: Indicates whether the device's filter needs cleaning.
+  - **Device class**: Problem
+  - **Entity category**: Diagnostic
+  - **Remarks**: This entity is unavailable if filter tracking is turned off in the IntelliClima+ app.
+  - **Available for devices**: Ecocomfort 2.0
 
 ### Fan
 
