@@ -42,7 +42,13 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Connection timeout:
-  description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 5 seconds. Must be between 1 and 1800 seconds (30 minutes)."
+    description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 5 seconds. Must be between 1 and 1800 seconds (30 minutes)."
+Reply-To email address:
+    description: "Email address to use for recipient replies. If not specified, the sender's email address is used."
+Reply-To name:
+    description: "Display name shown as the Reply-To name."
+Return-Path:
+    description: "Email address to use for bounce messages. If not specified, the sender's email address is used."
 {% endconfiguration_basic %}
 
 ## Adding recipients
