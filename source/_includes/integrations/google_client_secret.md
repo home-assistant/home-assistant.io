@@ -38,7 +38,7 @@ This section explains how to generate a client ID and client secret in the Googl
    - If you leave the app in **Testing**, under **Test users**, select **Add users**, add your Google Account email address, then select **Save**.
 9. In the left sidebar, select **Clients**:
    - Select **Create client**.
-   - For **Application type**, choose **Web application** and give the client a name (for example, *Home Assistant Client*).
+   - For **Application type**, choose **Web application** and give the client a name (for example, `Home Assistant Client`).
    - Under **Authorized redirect URIs**, add `https://my.home-assistant.io/redirect/oauth`, then select **Create**.
      > **Note**: This is not a placeholder. It is the URI that must be used.
 10. From the resulting dialog, take a note of the **Client ID** and **Client Secret**. You _cannot_ retrieve it again after closing the dialog.
