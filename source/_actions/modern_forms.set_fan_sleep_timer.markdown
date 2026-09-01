@@ -10,6 +10,8 @@ related_actions:
 
 Use this action to set a sleep timer on a Modern Forms fan. When the timer expires, the fan turns off.
 
+Sleep timers are not available on all fan models. On a fan without sleep timer support, this action fails with an error.
+
 {% include actions/ui_header.md %}
 
 To set a fan sleep timer from an automation or a script:
