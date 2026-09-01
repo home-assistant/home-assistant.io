@@ -65,6 +65,8 @@ The integration adds a climate entity for the Flexit unit. You can set a target 
 
 ### Binary sensors
 
+The following binary sensors are categorized as diagnostic entities:
+
 - **Filter alarm**: Indicates whether the unit reports a filter problem.
 - **Electric heater enabled**: Indicates whether the electric heater is enabled.
 
