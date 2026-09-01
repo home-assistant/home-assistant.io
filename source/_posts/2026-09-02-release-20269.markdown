@@ -192,7 +192,7 @@ Modbus devices, like solar inverters, energy meters, and heat pumps, have long b
 
 The piece that makes this possible is sharing a connection. A Modbus bus, whether it's a serial (RS-485) line or a TCP gateway, only lets one party talk at a time, so two integrations opening their own connection to the same bus used to fight over it. Now, an integration asks the **[Modbus]** integration for a unit, and two integrations asking with the same connection details share one connection behind the scenes, so their requests queue up instead of colliding. Nothing is configured or persisted separately: the shared connection exists only while something is actually using it. The integration setup wizard can also briefly hold a unit to probe a device before anything is actually configured.
 
-The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data, current, voltage, power, and lifetime energy for each MPP tracker, that its existing cloud API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
+The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data — current, voltage, power, and lifetime energy for each MPP tracker — that its existing local HTTP API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
 
 For the full story, including the new standalone `modbus-connection` library and how to build your own integration on top of it, read [Modernizing Modbus in Home Assistant](https://developers.home-assistant.io/blog/2026/07/05/modernizing-modbus) on the developer blog. Underneath, it talks to devices through [tmodbus](https://github.com/wlcrs/tmodbus), a modern, fully typed Modbus library.
 
@@ -324,7 +324,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Home Connect]** gained new event sensors, including short and long presses of the Favorite button on hobs and hoods, and a setpoint temperature option for air conditioners. Thanks, [@Diegorro98]!
 - **[Tado]** lets you choose which heating circuit serves a zone, handy in homes with more than one circuit, like a mix of underfloor heating and radiators. Thanks, [@PeterLinuxOSS]!
 - **[SwitchBot Cloud]** now supports the Permanent Outdoor Lights string lighting and the Curtain4 curtain motor, so you can control them from Home Assistant alongside the rest of your SwitchBot devices. Thanks, [@XiaoLing-git]!
-- **[KNX]** weather and select entities can now be created directly from the KNX panel in the UI, and YAML-defined entities can be given an explicit unique ID instead of relying on the auto-generated one. Thanks, [@farmio]!
+- **[KNX]** weather and select entities can now be created directly from the KNX panel in the UI, and YAML-defined entities can be given an explicit unique ID instead of relying on the auto-generated one. YAML entities can now also be assigned to devices. Thanks, [@farmio] and [@martinhoefling]!
 - **[Proxmox VE]** added a button to pause a VM, handy for freeing up resources for a moment, for example while another job needs the extra headroom, without fully shutting the VM down. Thanks, [@erwindouna]!
 - **[HomematicIP Cloud]** added a carbon dioxide sensor for supported devices, so you can trigger ventilation or an air purifier automation when CO2 levels creep up in a room. Thanks, [@lackas]!
 - **[VIZIO SmartCast]** now supports Crave portable speakers, with a battery level sensor and a charging binary sensor. Thanks, [@raman325]!
@@ -374,6 +374,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@lackas]: https://github.com/lackas
 [@Lash-L]: https://github.com/Lash-L
 [@Lukkasss]: https://github.com/Lukkasss
+[@martinhoefling]: https://github.com/martinhoefling
 [@michaeldavie]: https://github.com/michaeldavie
 [@mxwmnn]: https://github.com/mxwmnn
 [@nijel]: https://github.com/nijel
@@ -592,9 +593,11 @@ The deprecated fireplace mode switch entity has been removed. If you have {% ter
 
 {% details "KNX" %}
 
-KNX exposes no longer send the first value of an exposed entity to the KNX bus once that value becomes available. Previously, an entity that already had a value when the expose was registered was initialized silently, while an entity that became available later immediately sent that first value to the bus. Both cases now behave the same way: the first value is adopted locally without sending anything, while it stays available for read requests and periodic sending. Later value changes continue to be sent as before.
+KNX exposes no longer send an entity's first value to the KNX bus. Previously, this depended on timing: if the entity already had a value when the expose was set up, nothing was sent, but if the value arrived later, it was sent to the bus right away.
 
-If you relied on the first value of a newly available entity being sent to KNX right away, that initial telegram is no longer sent.
+Now, both cases behave the same way. The first value is adopted locally without sending a telegram, but stays available for read requests and periodic sending. Later value changes are still sent as before.
+
+To send the first value right away, turn on **Send on initialization** for the expose in the KNX panel, or set `send_on_init: true` in your YAML configuration.
 
 ([@Kolbi] - [#178793]) ([KNX documentation])
 
