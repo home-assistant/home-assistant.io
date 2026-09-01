@@ -149,18 +149,18 @@ Supported range: 16 °C to 30 °C in 1 °C steps.
 
 When an infrared emitter is configured, these button entities are created for the air conditioner. Each button sends a single infrared command. There is no separate command to turn the feature on and off again.
 
-- **Jet**: Runs the unit at maximum power for fast cooling or heating.
-- **Eco**: Reduces the unit's power draw. Some remotes label this button Diet.
-- **Viraat**: Runs an extra boost mode, separate from **Jet**. Only LG India models offer it, so this button is disabled by default. Enable it if your remote has a Viraat button.
+- **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
+- **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
+- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is disabled by default. Enable it if your remote has a Viraat button.
 - **AI mode**: Turns on the automatic AI operating mode.
 
 To turn one of these modes off, select any other mode, such as **Cool**.
 
-- **Light**: Toggles the display light on the unit.
-- **Beep**: Toggles the confirmation sound the unit makes.
-- **Wi-Fi**: Turns on the unit's Wi-Fi pairing.
+- **Toggle light**: Switches the display light on the unit on or off.
+- **Toggle beep**: Switches the confirmation sound the unit makes on or off.
+- **Start Wi-Fi pairing**: Puts the unit into Wi-Fi pairing mode.
 - **Diagnose**: Triggers the unit's self-diagnosis routine.
-- **Vertical swing toggle**: Switches the vertical vanes between swing and off. This button is disabled by default because the climate entity's swing mode control offers the same feature with more positions. Enable it only if your model does not respond to that control.
+- **Toggle vertical swing**: Switches the vertical vanes between swing and off. This button is disabled by default because the climate entity's swing mode control offers the same feature with more positions. Enable it only if your model does not respond to that control.
 
 #### Switches
 
@@ -181,7 +181,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - Volume control for the TV is step-based only; there is no way to set an absolute volume level.
 - For the air conditioner, the dry mode temperature is fixed at 24 °C by the LG air conditioner infrared protocol and cannot be changed. Fan only mode has no target temperature at all. Changing the target temperature in either mode is remembered for the next time you switch to cool or heat, but nothing is sent to the unit.
 - Changing the fan speed while the air conditioner is off is also remembered rather than sent. It is applied with the next command that turns the unit on.
-- The air conditioner button entities each send a single command and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet** or **Eco** cannot be shown as active.
+- The air conditioner button entities each send a single command and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet mode** or **Eco mode** cannot be shown as active.
 - The air conditioner switch entities also use assumed state. Each sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown state reflects the last command sent.
 
 ## Removing the integration
