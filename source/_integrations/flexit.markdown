@@ -23,7 +23,7 @@ The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en
 
 Your Flexit unit needs a [CI66 Modbus adapter](https://www.flexit.com/en/products/111647/modbus-adapter-ci66-k2-c2-uni/). Depending on how the adapter is connected, you need one of the following:
 
-- **Serial (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
+- **Serial (Modbus RTU)**: The CI66 adapter is connected through an RS-485 interface. You can use a USB-to-RS485 converter connected to your Home Assistant host. Alternatively, as an experimental option, an [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) with an RS-485 interface can expose the connection to Home Assistant as a network-attached serial port.
 - **Network (Modbus TCP) via bridge**: The CI66 adapter is wired to a Modbus TCP bridge or gateway on your network.
 
 {% include integrations/config_flow.md %}
