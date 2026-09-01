@@ -147,7 +147,7 @@ Supported range: 16 °C to 30 °C in 1 °C steps.
 
 #### Buttons
 
-When an infrared emitter is configured, these button entities are created for the air conditioner. Each button sends a single infrared command. There is no separate command to turn the feature on and off again.
+When an infrared emitter is configured, these button entities are created for the air conditioner. Each button sends a single infrared command. The protocol has no separate on and off codes for these features, so they are buttons rather than switches.
 
 - **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
@@ -160,7 +160,7 @@ To turn one of these modes off, select any other mode, such as **Cool**.
 - **Toggle beep**: Switches the confirmation sound the unit makes on or off.
 - **Start Wi-Fi pairing**: Puts the unit into Wi-Fi pairing mode.
 - **Diagnose**: Triggers the unit's self-diagnosis routine.
-- **Toggle vertical swing**: Switches the vertical vanes between swing and off. This button is disabled by default because the climate entity's swing mode control offers the same feature with more positions. Enable it only if your model does not respond to that control.
+- **Toggle vertical swing**: Switches the vertical vanes between swing and off. This button is disabled by default because the climate entity's swing mode control offers the same feature with more positions. Enable it only if your model does not respond to the swing mode control.
 
 #### Switches
 
