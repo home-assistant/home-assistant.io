@@ -90,7 +90,7 @@ Enjoy the (beta) release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [Golden hour, blue hour, and polar sun automations](#golden-hour-blue-hour-and-polar-sun-automations)
 - [Accessibility for charts!](#accessibility-for-charts)
-- [Serial panel](#serial-panel)
+- [Serial and MQTT panels](#serial-and-mqtt-panels)
 - [How full is your network storage?](#how-full-is-your-network-storage)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -104,7 +104,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 Signing up for [Home Assistant Cloud](/integrations/cloud/) now begins on a clearer start page: one obvious button to **Start your free trial**, and a link to **Sign in** if you already have an account. It also finally shows what you would actually be getting. The old page left you to guess what was behind that button, which, fair enough, didn't help anyone. Now the features are listed right there, before you even start the trial.
 
-<img src='/images/blog/2026-09/temp-cloud-signup.png' alt='Screenshot of the redesigned Home Assistant Cloud start page, with a button to start a free trial, a link to sign in, and an overview of what Home Assistant Cloud offers.' class='no-shadow' />
+<img src='/images/blog/2026-09/cloud-signup.png' alt='Screenshot of the redesigned Home Assistant Cloud start page, with a button to start a free trial, a link to sign in, and an overview of what Home Assistant Cloud offers.' class='no-shadow' />
 
 Creating an account used to end with a trip back to the sign-in page after you confirmed your email address. Now, as soon as you select the confirmation link in that email, Home Assistant logs you in automatically, so you can go straight to setting up remote access, voice, and {% term backups %}. The trial runs for a full month, and you don't need to enter any payment details to start it.
 
@@ -122,7 +122,7 @@ The new **Active alerts** section only shows up when something actually needs yo
 
 Right alongside it, a new **Favorites** section lets you pin the entities you check most, so your most important doors, locks, or {% term sensors %} sit at the top of the dashboard instead of wherever they happen to fall.
 
-<img src='/images/blog/2026-09/temp-security-dashboard-favorites.png' alt='Screenshot of the Security dashboard editor, showing the favorite entities and the active alert entities with their severity levels.' class='no-shadow' />
+<img src='/images/blog/2026-09/security-dashboard-favorites.png' alt='Screenshot of the Security dashboard editor, showing the favorite entities and the active alert entities with their severity levels.' class='no-shadow' />
 
 This started as a [community-designed concept](https://github.com/orgs/home-assistant/discussions/3545) from [@ricardoantoniocm](https://github.com/ricardoantoniocm), right down to the severity colors and the pulsing animation for anything that needs attention. It's part of [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/50) to bring severity to the Security dashboard, and there's more to come: surfacing these same alerts on the Home dashboard is still on the list for a future release.
 
@@ -130,11 +130,11 @@ This started as a [community-designed concept](https://github.com/orgs/home-assi
 
 Browsing and finding what you're looking for in **History** and **Activity** can be daunting, so... we made it better! Both pages now share a single **Sources** panel on the left side that merges target picking ({% term floors %}, {% term areas %}, {% term devices %}, and {% term entities %}) with filtering by {% term domain %}, device class, and {% term integration %}, so you can narrow a whole area down to, say, just its motion sensors. The panel docks to the side and opens automatically on wider screens, and tucks away as a pull-up sheet on narrower ones. Whatever you filter on is remembered the next time you come back.
 
-<img src='/images/blog/2026-09/temp-history-filtering.png' alt='Screenshot of the History page with the new Sources panel open, showing an area selected with 189 matching entities.' class='no-shadow' />
+<img src='/images/blog/2026-09/history-filtering.png' alt='Screenshot of the History page with the new Sources panel open, showing three areas selected and filtered down to temperature sensors, with their chart on the right.' class='no-shadow' />
 
 The two pages still behave the way they always have, on purpose: **History** waits for you to pick something before it draws a chart, since showing everything at once wouldn't be very useful (or fast in that regard 😅). **Activity** keeps showing everything by default, and you can narrow it down with filters alone, no target required.
 
-<img src='/images/blog/2026-09/temp-activity-filtering.png' alt='Screenshot of the Activity page with the new Sources panel open, filtering activity down to motion sensors.' class='no-shadow' />
+<img src='/images/blog/2026-09/activity-filtering.png' alt='Screenshot of the Activity page with the new Sources panel open, filtering activity down to the lights in the office.' class='no-shadow' />
 
 A couple of smaller improvements come along for the ride: the date range picker is now a single pill with previous and next arrows, and long entity names on the History timeline draw above their bar and truncate to fit, instead of being cut off. Always nice to see the attention to detail.
 
@@ -146,7 +146,7 @@ Open **Activity** and you can see exactly what changed: a light turned on, a doo
 
 Selecting any row in **Activity** now opens a details dialog that lays out the full story, read top to bottom: what started it (a person, a state change, a schedule, an {% term integration %}, or a restart), the automations or {% term scripts %} it passed through, and finally the entity's own change. Every step in that chain is clickable, opening the entity behind it or, for automations, its trace directly. Timestamps go down to the millisecond, so even events that landed in the same second keep their correct order.
 
-<img src='/images/blog/2026-09/temp-activity-details.png' alt="Screenshot of the Activity details dialog for a cover, showing the automation and person that triggered its state change." class='no-shadow' />
+<img src='/images/blog/2026-09/activity-details.png' alt='Screenshot of the Activity details dialog for a light, showing the presence sensor and the automation that triggered its state change, with millisecond timestamps.' class='no-shadow' />
 
 ## Insights into your Matter world
 
@@ -154,7 +154,7 @@ Zigbee (through ZHA), Z-Wave, and Bluetooth have shown you a map of how their de
 
 The Matter panel now has a **Show map** button that brings that same picture right into Home Assistant, using the same graph experience you already know from the other protocols. It shows the full picture: which devices talk over {% term Thread %} and which over Wi-Fi, which ones are routers or {% term "Thread border router" "border routers" %} versus battery-powered end devices, and the path from Home Assistant to each one. Border routers and access points are named from things you'd actually recognize, like their network host name or Wi-Fi network name, instead of a serial number. Link color tells you the transport, Thread or Wi-Fi, and the thickness and direction reflect the signal strength on each side of the connection.
 
-<img src='/images/blog/2026-09/temp-matter-network-graph.png' alt='Screenshot of the Matter network visualization page, showing Home Assistant connected through Thread border routers and a Wi-Fi access point to routers, end devices, and an offline device.' class='no-shadow' />
+<img src='/images/blog/2026-09/matter-network-graph.png' alt='Screenshot of the Matter network map, showing Home Assistant connected to Thread border routers, a Wi-Fi access point, and end devices.' class='no-shadow' />
 
 If your Matter server is a bit older and doesn't support this yet, the page tells you so instead of just failing, so you know to update rather than assume something's broken.
 
@@ -166,19 +166,25 @@ The [tile card](/dashboards/tile/) keeps gaining more ways to control an {% term
 
 **Lights** get a new **Light effect** feature, so you can pick and preview an effect, like *Rainbow*, directly from the tile.
 
-<img src='/images/blog/2026-09/temp-tile-card-feature-light-effect.png' alt='Screenshot of the tile card feature editor, showing the light-effect feature added to a light entity, with a preview.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-light-effect.png' alt='Screenshot of two light tile cards with the Light effect feature, each showing an effect selector.' class='no-shadow' />
 
 **Vacuums** get a new **Vacuum fan speed** feature, so you can switch between fan speeds, like *min*, *medium*, *high*, or *max*, right alongside the existing start, stop, and dock commands.
 
-<img src='/images/blog/2026-09/temp-tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of the tile card feature editor, showing the vacuum-fan-speed feature added with a fan speed selector.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of two vacuum tile cards with the Vacuum fan speed feature, each showing a fan speed selector.' class='no-shadow' />
 
 And the existing **Target humidity** feature, previously limited to humidifiers, now also works with **{% term Climate %}** entities that support humidity control, using the step size your device reports instead of a fixed one.
 
-<img src='/images/blog/2026-09/temp-tile-card-humidity-target.png' alt='Screenshot of the tile card feature editor, showing the target humidity feature added to a climate entity.' class='no-shadow' />
+<img src='/images/blog/2026-09/tile-card-feature-humidity-target.png' alt='Screenshot of the target humidity feature on a tile card for a thermostat, with a humidity slider.' class='no-shadow' />
 
 All three come with matching tile card suggestions, so Home Assistant offers to add them automatically when they make sense for an entity.
 
 Thanks to [@pcan08](https://github.com/pcan08) for all three!
+
+One more tile card fix: with the **Feature position** set to **Inline**, only the first feature used to show up, and the rest were silently dropped. Now the first one sits next to the entity name as before, and the others appear below it in two columns.
+
+<img src='/images/blog/2026-09/tile-card-inline-features.png' alt='Screenshot of two tile cards with the feature position set to Inline, showing one feature next to the name and more features below it.' class='no-shadow' />
+
+Thanks to [@JulianHock](https://github.com/JulianHock) for that one!
 
 ## Modernizing Modbus
 
@@ -186,7 +192,7 @@ Modbus devices, like solar inverters, energy meters, and heat pumps, have long b
 
 The piece that makes this possible is sharing a connection. A Modbus bus, whether it's a serial (RS-485) line or a TCP gateway, only lets one party talk at a time, so two integrations opening their own connection to the same bus used to fight over it. Now, an integration asks the **[Modbus]** integration for a unit, and two integrations asking with the same connection details share one connection behind the scenes, so their requests queue up instead of colliding. Nothing is configured or persisted separately: the shared connection exists only while something is actually using it. The integration setup wizard can also briefly hold a unit to probe a device before anything is actually configured.
 
-The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data, current, voltage, power, and lifetime energy for each MPP tracker, that its existing cloud API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
+The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data — current, voltage, power, and lifetime energy for each MPP tracker — that its existing local HTTP API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
 
 For the full story, including the new standalone `modbus-connection` library and how to build your own integration on top of it, read [Modernizing Modbus in Home Assistant](https://developers.home-assistant.io/blog/2026/07/05/modernizing-modbus) on the developer blog. Underneath, it talks to devices through [tmodbus](https://github.com/wlcrs/tmodbus), a modern, fully typed Modbus library.
 
@@ -315,10 +321,10 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Reolink]** gained floodlight on/off schedule times, a button to synchronize the camera's clock, a select to choose the anti-flicker frequency, and the ability to enable or disable the tamper alarm. Thanks, [@Lukkasss] and [@starkillerOG]!
 - **[Roborock]** brought dock controls, such as starting mop washing, drying, or emptying, to V1 vacuums. Thanks, [@piitaya]!
 - **[Google Gemini]** added a thinking budget option for Gemini 2.5 models and a thinking level option for Gemini 3 models, so you can tune how much the model reasons before it responds. Thanks, [@mxwmnn]!
-- **[Home Connect]** gained new event sensors, including short and long presses of the Favorite button on hobs and hoods, a setpoint temperature option for air conditioners, and image entities for appliances with a camera. Thanks, [@Diegorro98]!
+- **[Home Connect]** gained new event sensors, including short and long presses of the Favorite button on hobs and hoods, and a setpoint temperature option for air conditioners. Thanks, [@Diegorro98]!
 - **[Tado]** lets you choose which heating circuit serves a zone, handy in homes with more than one circuit, like a mix of underfloor heating and radiators. Thanks, [@PeterLinuxOSS]!
 - **[SwitchBot Cloud]** now supports the Permanent Outdoor Lights string lighting and the Curtain4 curtain motor, so you can control them from Home Assistant alongside the rest of your SwitchBot devices. Thanks, [@XiaoLing-git]!
-- **[KNX]** weather and select entities can now be created directly from the KNX panel in the UI, and YAML-defined entities can be given an explicit unique ID instead of relying on the auto-generated one. Thanks, [@farmio]!
+- **[KNX]** weather and select entities can now be created directly from the KNX panel in the UI, and YAML-defined entities can be given an explicit unique ID instead of relying on the auto-generated one. YAML entities can now also be assigned to devices. Thanks, [@farmio] and [@martinhoefling]!
 - **[Proxmox VE]** added a button to pause a VM, handy for freeing up resources for a moment, for example while another job needs the extra headroom, without fully shutting the VM down. Thanks, [@erwindouna]!
 - **[HomematicIP Cloud]** added a carbon dioxide sensor for supported devices, so you can trigger ventilation or an air purifier automation when CO2 levels creep up in a room. Thanks, [@lackas]!
 - **[VIZIO SmartCast]** now supports Crave portable speakers, with a battery level sensor and a charging binary sensor. Thanks, [@raman325]!
@@ -345,7 +351,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 - **[Lyngdorf]** rounded out its debut with number entities for lip sync and channel trims, a remote entity to drive the processor's on-screen menus, selects for RoomPerfect position and voicing, sensors for the active input and streaming source, and now-playing information with transport controls for models with a streaming module. Thanks, [@fishloa]!
 - **[Harbor Sleep]** added a select entity to set the camera's night mode to Auto, On, or Off, so you can control it from Home Assistant instead of the Harbor app. Thanks, [@Lash-L]!
 - **[NeoPool]** added a pool light entity, plus an options flow to opt in to it, since the controller can't detect whether a light is actually wired to the relay. Thanks, [@svasek]!
-- **[MQTT]** gained its own dashboard on the settings page, instead of hiding its tools behind the options. The topic subscribe view now formats messages as code with a copy button, and a shortcut takes you straight to the broker connection settings. Thanks, [@jbouwh]!
 - **[UniFi Protect]** can now be set up with just an API key from your UniFi OS Console, no local user account required, which helps on consoles where a local user cannot be created, such as sites enrolled in a UniFi Fabric. Select **API key only (limited feature set)** when adding the integration, or switch an existing entry over at any time. This first usable piece of the public API migration covers the alarm panel, cameras with their streams and snapshots, and lights. Sensors, switches, events, and media browsing are not available in this mode yet, and more platforms follow as they move over. Thanks, [@RaHehl]!
 
 [@adam-the-hero]: https://github.com/adam-the-hero
@@ -369,6 +374,7 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@lackas]: https://github.com/lackas
 [@Lash-L]: https://github.com/Lash-L
 [@Lukkasss]: https://github.com/Lukkasss
+[@martinhoefling]: https://github.com/martinhoefling
 [@michaeldavie]: https://github.com/michaeldavie
 [@mxwmnn]: https://github.com/mxwmnn
 [@nijel]: https://github.com/nijel
@@ -536,17 +542,19 @@ This works on your line and bar charts, including the device breakdown on the **
 
 Thanks to [@MindFreeze](https://github.com/MindFreeze) for bringing this to charts!
 
-## Serial panel
+## Serial and MQTT panels
 
 Serial joins the other protocol panels under **Settings**, the same recognition [infrared](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant) and [radio frequency](/blog/2026/05/06/release-20265/#radio-frequency-joins-infrared-as-a-first-class-citizen) got over the last two releases. Once anything is using a serial port, whether that's a USB dongle like a Zigbee or {% term Thread %} radio, or an {% term app %} talking to one, the new **Serial** page lists it.
 
 It splits what it finds into three groups: ports actually in use by an integration or app, ports that are connected but not used by anything, and ports something expects but that aren't currently plugged in. A status banner at the top gives you the numbers at a glance, so if a stick has come loose or an app lost its connection, you see it the moment you open the page instead of hunting through logs.
 
-<img src='/images/blog/2026-09/temp-serial-panel.png' alt='Screenshot of the new Serial panel, showing connected, available, and disconnected serial ports and what uses each one.' class='no-shadow' />
+<img src='/images/blog/2026-09/serial-panel.png' alt='Screenshot of the new Serial panel, with a status banner at the top and the connected serial ports, showing which integrations and apps use each one.' class='no-shadow' />
 
 This rounds out the trio planned in [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/173): serial, infrared, and radio frequency all have their own place in Settings now. Documentation for all three is still on its way.
 
 Thanks to [@puddly](https://github.com/puddly), who built this end to end, panel and all!
+
+**[MQTT]** got a settings page of its own this release too, sitting right alongside **Serial** and **Bluetooth** in **Settings** instead of hiding its tools behind the integration's options. A status banner at the top shows whether the broker is online and how many devices it's found, with quick links to the devices and entities on your network. Discovery options and the broker connection settings each get their own row instead of sharing one options flow, and a new **Publish a packet** tool lets you send a test message, topic, QoS, and retain flag included, straight from the page, with a code editor for the payload. The topic subscribe view also now formats incoming messages as code, with a copy button. Thanks, [@jbouwh]!
 
 ## How full is your network storage?
 
@@ -554,7 +562,7 @@ The **Storage** page in Settings has always shown which network shares you have 
 
 Each active mount now gets a small usage bar and a "{used} of {total} used" line. Rows appear immediately, and each bar fills in as soon as its own request comes back, so one slow or unreachable share never holds up the rest of the list. The bar also changes color as it fills, amber past 85% used and red past 95%, so you get a heads-up before you actually run out of space. A mount that's currently unreachable just shows no usage bar; it already gets its own warning treatment.
 
-<img src='/images/blog/2026-09/temp-network-storage-space.png' alt='Screenshot of the Storage page listing several network mounts, with usage bars showing how full each one is.' class='no-shadow' />
+<img src='/images/blog/2026-09/network-storage-space.png' alt='Screenshot of the Network storage section on the Storage page, listing three network mounts with usage bars, one of them nearly full and shown in red.' class='no-shadow' />
 
 Thanks to [@MindFreeze](https://github.com/MindFreeze) and [@silamon](https://github.com/silamon) for keeping an eye on this!
 
@@ -588,9 +596,11 @@ The deprecated fireplace mode switch entity has been removed. If you have {% ter
 
 {% details "KNX" %}
 
-KNX exposes no longer send the first value of an exposed entity to the KNX bus once that value becomes available. Previously, an entity that already had a value when the expose was registered was initialized silently, while an entity that became available later immediately sent that first value to the bus. Both cases now behave the same way: the first value is adopted locally without sending anything, while it stays available for read requests and periodic sending. Later value changes continue to be sent as before.
+KNX exposes no longer send an entity's first value to the KNX bus. Previously, this depended on timing: if the entity already had a value when the expose was set up, nothing was sent, but if the value arrived later, it was sent to the bus right away.
 
-If you relied on the first value of a newly available entity being sent to KNX right away, that initial telegram is no longer sent.
+Now, both cases behave the same way. The first value is adopted locally without sending a telegram, but stays available for read requests and periodic sending. Later value changes are still sent as before.
+
+To send the first value right away, turn on **Send on initialization** for the expose in the KNX panel, or set `send_on_init: true` in your YAML configuration.
 
 ([@Kolbi] - [#178793]) ([KNX documentation])
 
