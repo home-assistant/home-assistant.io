@@ -472,4 +472,4 @@ automation ui: !include automations.yaml
 
 ## Configuration file examples for inspiration
 
-Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories) or look for other examples on [Discord](https://discord.gg/home-assistant).
+Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories) or look for other examples on the [Home Assistant Discord](https://discord.gg/home-assistant).
