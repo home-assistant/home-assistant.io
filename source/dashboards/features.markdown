@@ -1035,9 +1035,8 @@ style:
   default: slider
 step:
   required: false
-  description: "If the `buttons` style is selected, by how much a button press changes the target humidity"
+  description: "If the `buttons` style is selected, by how much a button press changes the target humidity, if not specified it uses the target_humidity_step of the entity"
   type: integer
-  default: 1
 {% endconfiguration %}
 
 ## Target temperature
