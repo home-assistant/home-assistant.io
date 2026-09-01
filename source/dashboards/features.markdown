@@ -1084,7 +1084,7 @@ actions:
 
 Widget that displays the preset durations of a [timer](/integrations/timer). Selecting a preset starts the timer with that duration. Presets can be shown as a row of buttons or as a dropdown.
 
-Presets belong to the timer entity and are managed in its more info dialog: select 'Edit presets' in the overflow menu to add, edit, delete, or reorder them. A timer has no presets until you add some, and the widget is hidden while the list is empty.
+Presets belong to the timer entity and are managed in its more info dialog, that you open by selecting the entity. Then go to **Menu** {% icon "mdi:dots-vertical" %} > **Edit presets** to add, edit, delete, or reorder them. A timer has no presets until you add some, and the widget is hidden while the list is empty.
 
 <p class='img'>
   <img src='/images/dashboards/features/timer_presets.png' alt='Screenshot of the tile card with the timer presets feature'>
