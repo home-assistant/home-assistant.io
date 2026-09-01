@@ -8,7 +8,7 @@ ha_release: 2021.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@dennisschroer'
+  - '@DieEneSchrodinger'
 ha_domain: huisbaasje
 ha_platforms:
   - sensor
@@ -25,8 +25,6 @@ by the monitoring device installed on your energy meters.
 This integration provides the following sensors:
 
 - Current power usage
-- Current power consumption from the grid, for both normal and off-peak time periods.
-- Current power return to the grid, for both normal and off-peak time periods.
 - Total energy used today
 - Current gas usage
 - Total gas used today
