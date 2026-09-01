@@ -156,8 +156,8 @@ When an infrared emitter is configured, these button entities are created for th
 
 To turn one of these modes off, select any other mode, such as **Cool**.
 
-- **Toggle light**: Switches the display light on the unit on or off.
-- **Toggle beep**: Switches the confirmation sound the unit makes on or off.
+- **Toggle light**: Turns the unit's display light on or off.
+- **Toggle beep**: Turns the unit's confirmation sound on or off.
 - **Start Wi-Fi pairing**: Puts the unit into Wi-Fi pairing mode.
 - **Diagnose**: Triggers the unit's self-diagnosis routine.
 - **Toggle vertical swing**: Switches the vertical vanes between swing and off. This button is disabled by default because the climate entity's swing mode control offers the same feature with more positions. Enable it only if your model does not respond to the swing mode control.
