@@ -610,7 +610,7 @@ max_devices:
   default: 20
 pannable:
   required: false
-  description: Whether the graph can be panned by dragging. When set to `false`, a drag gesture starting on the card falls through to the page instead.
+  description: Whether the graph can be panned by dragging. When set to `false`, dragging on the card scrolls the page instead.
   type: boolean
   default: true
 {% endconfiguration %}
