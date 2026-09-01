@@ -528,6 +528,27 @@ Please check from the device Web UI that the configured server is reachable.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
 
+## Replacing a device
+
+If a Shelly device fails, you can move its configuration to the replacement unit instead of setting the new device up from scratch. The entities, entity IDs, history, and automations of the old device are kept.
+
+To be offered the migration, all of the following must be true:
+
+- The replacement must report the **same device name** as the old device, and that name must be set **before the device is added** to Home Assistant. Set it in the Shelly app or in the device web interface. A device with no name reports its host name, which contains its own MAC address, so two unnamed devices never match each other.
+- Both devices must be the same model and the same [generation](#shelly-device-generations).
+- The existing configuration entry must not be working. As long as the old device still answers, Home Assistant assumes both devices are in use and sets the new one up separately.
+
+When you add the replacement, Home Assistant offers two options:
+
+- **Add as a new device**: sets the device up as an additional device and leaves the existing configuration untouched. Two Shelly devices are allowed to share a name.
+- **Migrate configuration to the new device**: moves the configuration of the old device over to the new one, including its sub-devices.
+
+The host, port, and credentials of the migrated configuration are taken from the new device. If the old device used a password and the new one does not, the stored credentials are dropped.
+
+{% note %}
+If the Shelly integration already has a device registered for the MAC address of the replacement, the migration is refused and nothing is changed. Add the Shelly as a new device instead.
+{% endnote %}
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
