@@ -134,16 +134,14 @@ Leave the data format setting (**float** or **int + SF**) as it is. The integrat
 
 These entities are added per inverter and updated every minute:
 
-- `MPPT <n> DC power` and `MPPT <n> DC energy` for each MPP tracker.
+- `MPPT <n> DC power` and `MPPT <n> energy` for each MPP tracker.
 - `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
 - `PV energy total`: lifetime energy from the photovoltaic strings only. Whether this is a DC measurement depends on the device, see below.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
 
-{% note %}
-`MPPT <n> DC power` is a DC measurement on every device tested, and matches `DC current` times `DC voltage`.
+`MPPT <n> DC power` is a DC measurement on every device tested, and matches `MPPT <n> DC current` times `MPPT <n> DC voltage`.
 
-`MPPT <n> DC energy` is not consistent between devices. A Gen24 reports the lifetime energy of each string, which is a DC value and therefore a few percent above `Total energy`, the AC counter. A SnapINverter reports the same value as `Total energy` instead, so `PV energy total` matches it exactly rather than adding anything. Comparing the two entities on your own system shows which the inverter provides.
-{% endnote %}
+`MPPT <n> energy` is not consistent between devices, which is why its name does not claim a side. A Gen24 reports the lifetime energy of each string, which is a DC value and therefore a few percent above `Total energy`, the AC counter. A SnapINverter reports the same value as `Total energy` instead, so `PV energy total` matches it exactly rather than adding anything. Comparing the two entities on your own system shows which the inverter provides.
 
 ### Controlling the inverter over Modbus
 
