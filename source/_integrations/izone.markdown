@@ -78,6 +78,8 @@ The integration creates the following {% term sensor %} entities for each contro
 
 - **Supply temperature**: (diagnostic) The temperature of the air leaving the indoor unit into the ductwork.
 - **Return temperature**: (diagnostic) The temperature of the air returning to the indoor unit.
+- **Control zone**: (diagnostic) The climate entity ID that currently owns the unit target temperature. This is the controller climate entity when the controller sets the target, or a zone climate entity such as `climate.living_room` when a zone is driving the unit.
+- **Control zone setpoint**: (diagnostic) The target temperature of that climate entity. The sensor state is `unknown` when the controlling zone is not climate-controlled.
 
 ## Control zone (climate control mode)
 
@@ -87,51 +89,60 @@ When your iZone system has multiple climate-controlled zones, the target tempera
 
 You can set the target temperature directly on the controller in these situations:
 
-- Your system is in RAS mode (return air sensor mode, not master/slave mode)
-- Your system is in master mode, but the control zone is set to zone 13 (the master unit itself) or an invalid zone number
-- Any of your zones don't have a temperature sensor installed
+- Your system is in RAS mode (return air sensor)
+- Your system is in **Master** mode, but the control zone is set to zone 13 (the indoor unit itself) or an invalid zone number
+- A climate-controlled zone does not have a temperature sensor installed
 
-In these cases, you can set the target temperature on the controller entity just like any other climate entity.
+Open/close and constant (bypass) zones are not climate-controlled. A missing temperature reading on those zones does not let you set the controller target.
+
+In these cases, you can set the target temperature on the controller entity just like any other climate entity. The **Control zone** sensor reports the controller climate entity ID, and **Control zone setpoint** reports the controller target.
 
 ### When you set temperatures on individual zones
 
-When your system is in master mode with a valid control zone (and all zones have temperature sensors), you set the target temperature for each individual zone instead of the controller.
+When your system is in **Master** or **Zones** mode with a valid control zone (and every climate-controlled zone has a temperature sensor), you set the target temperature for each individual zone instead of the controller.
 
 The climate controller automatically selects the zone that is furthest from its target temperature and uses that zone's current and target temperatures to control the air conditioner unit, closing zones that have already reached their target.
 
-In this mode, the controller entity reports:
+In this mode:
 
-- The current control zone that has been selected
-- The target temperature for that zone (read-only on the controller; set it via the individual zone entities)
-- The current temperature of the control zone
+- The **Control zone** sensor reports the climate entity ID of the selected zone. Use that ID in automations when you need to target the climate entity that is currently driving the unit.
+- The **Control zone setpoint** sensor reports that zone's target temperature (read-only on the controller; set it on the individual zone entity).
+- The controller climate entity reports the current temperature of the control zone.
 
-You can configure template sensors to read the control zone values (in {% term "`configuration.yaml`" %}; use the ID of your unit). Prefer the native **Supply temperature** sensor for supply air readings:
+To show the zone's name on a dashboard, you can optionally create a template sensor that looks up `friendly_name` from the **Control zone** entity ID (in {% term "`configuration.yaml`" %}; use the ID of your unit):
 
 ```yaml
-# Example configuration.yaml entry to create sensors
-# from the izone controller state attributes
+# Example configuration.yaml entry for a display-only zone name
 template:
   - sensor:
-    - name: "Control zone"
-      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
-    - name: "Target temperature"
-      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
-      unit_of_measurement: "°C"
+      - name: "Control zone name"
+        state: >-
+          {{
+            state_attr(
+              states('sensor.izone_controller_0000XXXXX_control_zone'),
+              'friendly_name'
+            )
+          }}
 ```
 
-And then graph them on a dashboard, along with the supply temperature sensor and the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
-snippet into the code editor:
+Graph the numeric sensors on a history graph, and show the optional name on an entities card. Either add the entities via the visual editor, or paste these snippets into the code editor:
 
 ```yaml
 # Example snippet for dashboard card configuration (code editor)
-entities:
-  - entity: sensor.control_zone
-  - entity: sensor.target_temperature
-  - entity: sensor.izone_controller_0000XXXXX_supply_temperature
-  - entity: climate.izone_controller_0000XXXXX
-hours_to_show: 24
-refresh_interval: 0
 type: history-graph
+hours_to_show: 24
+entities:
+  - entity: sensor.izone_controller_0000XXXXX_supply_temperature
+  - entity: sensor.izone_controller_0000XXXXX_return_temperature
+  - entity: sensor.izone_controller_0000XXXXX_control_zone_setpoint
+  - entity: climate.izone_controller_0000XXXXX
+```
+
+```yaml
+# Example snippet for dashboard card configuration (code editor)
+type: entities
+entities:
+  - entity: sensor.control_zone_name
 ```
 
 ## Diagnostics
