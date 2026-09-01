@@ -12,6 +12,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -1575,6 +1576,186 @@ modbus:
         offset: 0
         precision: 1
         data_type: integer
+```
+
+## Configuring number entities
+
+The Modbus number platform allows you to read and write numeric values from holding registers.
+
+Number entities can be changed from the UI or via the `number.set_value` action.
+
+Only scalar `data_type` values are supported. See the configuration below and [Parameter usage](#parameters-usage-matrix) for allowed `swap` combinations.
+
+{% configuration %}
+numbers:
+  description: "A list of all number entities in this modbus instance."
+  required: false
+  type: map
+  keys:
+    device_class:
+      description: "The [type/class](/integrations/number/#device-class) of the number to set the icon in the frontend."
+      required: false
+      type: device_class
+    input_type:
+      description: "Modbus register type for the number entity."
+      required: false
+      default: holding
+      type: list
+      keys:
+        holding:
+          description: "Holding register."
+    min_value:
+      description: "Minimum allowed value in the UI."
+      required: false
+      type: float
+      default: 0
+    max_value:
+      description: "Maximum allowed value in the UI."
+      required: false
+      type: float
+      default: 100
+    step:
+      description: "Step size for the UI control."
+      required: false
+      type: float
+      default: 1
+    unit_of_measurement:
+      description: "Unit to attach to the value."
+      required: false
+      type: string
+    data_type:
+      description: "Response representation. Only scalar numeric types are supported. Register count and structure are set automatically from `data_type`."
+      required: false
+      default: int16
+      type: list
+      keys:
+        float16:
+          description: "16 bit signed float (1 register holds 1 value)."
+        float32:
+          description: "32 bit signed float (2 registers holds 1 value)."
+        float64:
+          description: "64 bit signed float (4 register holds 1 value)."
+        int16:
+          description: "16 bit signed integer (1 register holds 1 value)."
+        int32:
+          description: "32 bit signed integer (2 registers holds 1 value)."
+        int64:
+          description: "64 bit signed integer (4 registers holds 1 value)."
+        uint16:
+          description: "16 bit unsigned integer (1 register holds 1 value)."
+        uint32:
+          description: "32 bit unsigned integer (2 registers holds 1 value)."
+        uint64:
+          description: "64 bit unsigned integer (4 registers holds 1 value)."
+    offset:
+      description: "Final offset (output = scale * value + offset)."
+      required: false
+      type: float
+      default: 0
+    precision:
+      description: "Number of valid decimals. Defaults to 0 for integer data types and 2 for floating-point data types when omitted."
+      required: false
+      type: integer
+    scale:
+      description: "Scale factor (output = scale * value + offset)."
+      required: false
+      type: float
+      default: 1
+    swap:
+      description: "Swap the order of bytes/words."
+      required: false
+      default: none
+      type: list
+      keys:
+        byte:
+          description: "Swap bytes AB -> BA."
+        word:
+          description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`, `float16`**"
+        word_byte:
+          description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`, `float16`**"
+    write_type:
+      description: "Type of write request."
+      required: false
+      default: holding
+      type: list
+      keys:
+        holding:
+          description: "`write_register` is called for a single register, otherwise `write_registers`."
+        holdings:
+          description: "`write_registers` is always called, even for a single register."
+{% endconfiguration %}
+
+Number entities only support **holding registers**, because input registers are read-only in Modbus.
+
+Number entities do **not** support `count`, `structure`, `data_type: custom`, `data_type: string`, `slave_count`, or `virtual_count`. Use [sensors](#configuring-sensor-entities) for custom or string register layouts.
+
+For `swap` combinations with scalar data types, refer to [Parameter usage](#parameters-usage-matrix) (the `count` and `structure` rows do not apply to number entities).
+
+{% note %}
+If you specify `scale` or `offset` as floating-point values, double-precision floating-point arithmetic is used to calculate the final value. This can cause a loss of precision for values larger than `2^53`.
+{% endnote %}
+
+### Example: typical number configuration
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    numbers:
+      - name: Power limit
+        address: 40220
+        data_type: int16
+        scale: 0.1
+        precision: 1
+        step: 0.1
+        min_value: 0
+        max_value: 100
+        unit_of_measurement: "kW"
+```
+
+### Example: full number configuration
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    numbers:
+      - name: Temperature setpoint
+        slave: 10
+        address: 51
+        input_type: holding
+        data_type: int16
+        device_class: temperature
+        unit_of_measurement: "°C"
+        scale: 1
+        offset: 0
+        precision: 0
+        min_value: 5
+        max_value: 35
+        step: 0.5
+        scan_interval: 15
+        unique_id: temp_setpoint
+```
+
+### Example: float32 number with swap
+
+```yaml
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    numbers:
+      - name: Float setpoint
+        address: 1000
+        data_type: float32
+        swap: word
+        precision: 2
+        step: 0.1
 ```
 
 ## Configuring switch entities
