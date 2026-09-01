@@ -104,6 +104,7 @@ The disk needs to be formatted already. These file systems are supported:
 - exFAT
 - NTFS
 - Btrfs
+- F2FS (requires Home Assistant OS 18.3 or later)
 
 Home Assistant does not format disks for you. If your disk uses a different file system, format it on a computer first.
 
