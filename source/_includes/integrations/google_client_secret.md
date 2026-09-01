@@ -21,7 +21,7 @@ This section explains how to generate a client ID and client secret in the Googl
 
 1. Go to the [Google Cloud console](https://console.cloud.google.com/).
 2. Select **Create or select a project**, then **New project**, enter a project name, and select **Create**.
-3. When the project opens, make sure it is selected in the console toolbar at the top. Select it otherwise.
+3. When the project opens, make sure it is selected in the console toolbar at the top. If it isn't, select it.
 4. Go to [{{ api }}]({{ api_link }}) {% if page.api2 %} and [{{ page.api2 }}]({{ page.api2_link }}) {% endif %}, then select **Enable**.
 5. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
 6. If Google Auth Platform is not configured, select **Get started**:
@@ -41,7 +41,7 @@ This section explains how to generate a client ID and client secret in the Googl
    - For **Application type**, choose **Web application** and give the client a name (for example, *Home Assistant Client*).
    - Under **Authorized redirect URIs**, add `https://my.home-assistant.io/redirect/oauth`, then select **Create**.
      > **Note**: This is not a placeholder. It is the URI that must be used.
-10. From the resulting dialog, take a note of the **Client ID** and **Client Secret**. You **can not retrieve it again** after closing the dialog.
+10. From the resulting dialog, take a note of the **Client ID** and **Client Secret**. You _cannot_ retrieve it again after closing the dialog.
    - Once you have noted these strings, select **Ok** to close.
    - Congratulations! You are now the keeper of a client secret. Guard it in your treasure box. In most cases, your new credentials will be active within a few minutes. However, Google states that activation may take up to five hours in some circumstances.
 {% enddetails %}
