@@ -285,7 +285,7 @@ automation: |
 
 The **SolarEdge Modbus** integration {% term polling polls %} the inverter, and anything wired to it, every 10 seconds. The inverter's settings are read every 5 minutes instead: they only move when something writes them, and every read costs a slot on a connection that has few to give.
 
-Every 15 minutes, Home Assistant also looks at what is wired to the inverter. Meters and batteries are found while the integration starts, so finding a change means starting it again, which it does by itself.
+Every 15 minutes, Home Assistant also asks the inverter what is connected. If it detects that a meter or battery was added or removed, it reloads the integration automatically.
 
 Home Assistant keeps one Modbus connection per address and shares it between the integrations that use it. If several inverters answer on the same address with different device IDs, for example because they are chained on one Modbus TCP bridge, they share a single connection instead of each opening their own.
 
