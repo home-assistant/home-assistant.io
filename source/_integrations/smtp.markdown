@@ -47,8 +47,6 @@ Reply-To email address:
     description: "Email address to use for recipient replies. If not specified, the sender's email address is used."
 Reply-To name:
     description: "Display name shown as the Reply-To name."
-Return-Path:
-    description: "Email address to use for bounce messages. If not specified, the sender's email address is used."
 {% endconfiguration_basic %}
 
 ## Adding recipients
