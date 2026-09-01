@@ -15,7 +15,7 @@ Daily restrictions can only be updated when the device's restriction mode is set
 
 Calling this action overwrites the existing daily configuration for the specified day:
 
-- Any omitted restriction setting (`max_play_time`, or `bedtime_start`/`bedtime_end`) will be disabled for that day. For example, to adjust `max_play_time` while retaining an existing bedtime schedule, you must supply both `bedtime_start` and `bedtime_end` in the same call.
+- Any omitted restriction setting (`max_play_time` or `bedtime_start`/`bedtime_end`) will be disabled for that day. For example, to adjust `max_play_time` while retaining an existing bedtime schedule, you must supply both `bedtime_start` and `bedtime_end` in the same call.
 - To disable all restrictions for a specific day, provide only the `device_id` and `day_of_week`.
 {% endimportant %}
 
