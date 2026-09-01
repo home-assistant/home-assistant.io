@@ -4,6 +4,7 @@ description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Camera
   - Car
   - Climate
   - Cover
@@ -30,6 +31,7 @@ ha_domain: matter
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
