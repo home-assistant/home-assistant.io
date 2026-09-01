@@ -16,6 +16,7 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_config_flow: true
+ha_quality_scale: silver
 ---
 
 The **STIEBEL ELTRON** {% term integration %} lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).

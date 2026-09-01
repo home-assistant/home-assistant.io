@@ -10,6 +10,7 @@ ha_codeowners:
   - '@daniel-bergmann-00'
 ha_domain: envertech_evt800
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **Envertech EVT800** {% term integration %} allows you to integrate [Envertech EVT800](https://www.envertec.com/products/microinverter/66.html/) solar inverters in Home Assistant.
