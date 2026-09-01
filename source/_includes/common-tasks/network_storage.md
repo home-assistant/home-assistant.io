@@ -85,7 +85,7 @@ If you want to change the local network storage that is used to store your backu
 
 ## Local disk storage
 
-You can also add a disk that is connected to your system, such as an internal drive or a USB drive, and use it for media, shared files, or backups. Home Assistant mounts the disk for you and reconnects it after a restart.
+You can also add a disk connected to your system, such as an internal drive or a USB drive, and use it for media, shared files, or backups. Home Assistant mounts the disk and reconnects it after a restart.
 
 <!-- TODO: Replace TBD below with the Home Assistant Operating System version that ships local disk storage. -->
 
@@ -124,13 +124,13 @@ Name:
 Usage:
   description: Here, you select how the disk should be used. [See usage types above](#usage-types)
 Disk:
-  description: The disk you want to use. Only disks that are ready to be used are listed, so a disk that is already in use, or that belongs to Home Assistant itself, is not offered.
+  description: The disk you want to use. Disks that are already in use, or that belong to Home Assistant, are not listed.
 Read-only:
-  description: Home Assistant reads from the disk but never writes to it. A write-protected disk can only be added as read-only, and a disk used for backups cannot be read-only.
+  description: Home Assistant reads from the disk but never writes to it. A write-protected disk can only be added as read-only. Backup storage cannot be read-only.
 {% endconfiguration_basic %}
 
 ### Keep a local disk connected
 
-Home Assistant remembers the disk by the unique identifier of its file system rather than by a device name such as `/dev/sda1`. Device names can change when you restart your system or move a drive to a different port, so your storage keeps working either way.
+Home Assistant remembers the disk by its file system identifier, not by a device name such as `/dev/sda1`. Device names can change after a restart or when you move a drive, so your storage keeps working either way.
 
-If the disk is disconnected, or it is missing when your system starts, Home Assistant creates a repair issue at **{% my repairs title="Settings > System > Repairs" %}**. Anything trying to use the disk's folder while it is disconnected gets an error, instead of silently writing to your system's internal storage. Reconnect the disk and it is mounted again automatically the next time something uses it; the repair issue then clears on its own after a few minutes. If you no longer want to use the disk, select the storage and select **Delete** instead.
+If the disk is disconnected, or missing when the system starts, Home Assistant creates a repair issue at **{% my repairs title="Settings > System > Repairs" %}**. Anything using the disk's folder while it is disconnected gets an error instead of writing to internal storage. Reconnect the disk and it is mounted again the next time something uses it. The repair issue then clears on its own after a few minutes. If you no longer want to use the disk, select the storage and select **Delete**.
