@@ -3,12 +3,14 @@ title: Flic
 description: Connect Flic smart buttons to Home Assistant over Bluetooth.
 ha_category:
   - Event
+  - Number
 ha_release: 2026.7
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: flic_button
 ha_platforms:
   - event
+  - number
 ha_integration_type: device
 ha_quality_scale: silver
 ha_codeowners:
@@ -78,15 +80,18 @@ Changing the push-twist mode reloads the integration and updates the event types
 
 #### Flic Twist
 
-The events available on the **Button** entity depend on the selected push-twist mode (see [Configuration options](#configuration-options)).
+The entities available depend on the selected push-twist mode (see [Configuration options](#configuration-options)).
 
 For the default and continuous modes:
 
 - **Button** (event) — Fires events for click, double-click, hold, press, release, twist increment and decrement, and push-twist increment and decrement.
+- **Twist position** (number) — The rotation position of the dial, from 0 to 100%. Setting it moves the position the device tracks and its LED ring.
+- **Push-twist position** (number) — The rotation position accumulated while the button is held, from 0 to 100%. It is tracked separately from the twist position.
 
 For the selector mode:
 
 - **Button** (event) — Fires events for click, double-click, hold, press, release, rotation (clockwise and counter-clockwise), and selector changed.
+- **Slot 1** to **Slot 12** (number) — The rotation position of each of the twelve detent positions, from 0 to 100%. Each slot keeps its own value, so turning the dial only changes the slot that is currently selected.
 
 ## Device automations
 
@@ -124,7 +129,9 @@ Flic buttons push their events to Home Assistant over Bluetooth the moment they 
 
 ## Known limitations
 
-This integration currently exposes Flic buttons as event entities only, which you can use to trigger automations. Additional functionality may be added in future releases.
+The Flic Twist does not store its rotation position itself. Home Assistant holds the position and sends it back to the button every time they connect. If you turn the dial while the button is disconnected, that movement is not reported, and the position is restored to the last value Home Assistant saw once the button reconnects.
+
+Battery level and firmware updates are not exposed yet. Additional functionality may be added in future releases.
 
 ## Troubleshooting
 
