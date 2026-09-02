@@ -98,7 +98,7 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 Modifying specific number-based settings allows you to fine-tune your setup.
 
 - **Maximum boiler temperature setpoint**
-  - **Description**: Adjust the temperature setpoint for space heating function.
+  - **Description**: Adjust the temperature setpoint for the space heating function.
 - **Domestic hot water setpoint**
   - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 - **Temperature offset**
@@ -124,7 +124,7 @@ A generous number of sensors is provided for your climate setup. Examples includ
 - **Gateway mode**
   - **Description**: Select from available Adam gateway modes.
 - **Regulation mode**
-  - **Description**: Select from Adam regulation modes.
+  - **Description**: Select from available Adam regulation modes.
 - **Thermostat schedule**
   - **Description**: Select from available schedules, generic (Anna) or for the current zone (Adam).
   - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
