@@ -43,7 +43,7 @@ The following sensors are provided by this integration:
 - **Electricity prices tomorrow status**: Indicates whether tomorrow's electricity prices are already `available`, or still `incoming`.
 - **Gas price daily**: The gas price for today.
 
-The lowest and highest electricity price sensors also expose a `start` and `end` timestamp attribute, marking the block of consecutive hours around that day's extreme price. This lets you build automations that act on the entire block of cheap or expensive hours instead of a single hour.
+The lowest and highest electricity price sensors also expose `start` and `end` timestamp attributes, marking the block of consecutive hours around that day's extreme price. This lets you build automations that act on the entire block of cheap or expensive hours instead of a single hour.
 
 ## Known limitations
 
