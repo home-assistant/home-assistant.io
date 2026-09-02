@@ -72,7 +72,7 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices.
 
-Reminder groups hold other lists rather than reminders, so they do not appear as to-do lists. Home Assistant to-do lists are flat, so subtasks appear as regular items in the same list as the reminders they belong to. This matches how the Home Assistant app for iOS syncs your Apple Reminders.
+Reminder groups hold other lists rather than reminders, so they do not appear as to-do lists. Home Assistant to-do lists are flat, so subtasks appear as regular items rather than nested under a parent. They are listed directly below the reminder they belong to, the way you see them in Reminders on your Apple devices.
 
 {% note %}
 If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) turned on, your reminders are end-to-end encrypted and Home Assistant cannot read them yet. Those reminders are left out of the to-do list, so a list can look shorter in Home Assistant than it does on your Apple devices.
