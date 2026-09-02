@@ -3,6 +3,7 @@ title: Duco
 description: Instructions on how to integrate Duco ventilation with Home Assistant.
 ha_release: 2026.5
 ha_category:
+  - Binary Sensor
   - Fan
   - Number
   - Select
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - fan
   - number
@@ -196,15 +198,17 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
-#### Diagnostic sensors
+#### Diagnostic entities
 
-The following diagnostic sensors may be available for the main ventilation box (BOX), depending on your model and firmware:
+The following diagnostic entities may be available for the main ventilation box (BOX), depending on your model and firmware:
 
-- **Ventilation**: Shows the diagnostic status reported by the ventilation subsystem.
-- **Filter**: Shows the diagnostic status reported by the filter subsystem.
-- **Ventilation cooling**: Shows the diagnostic status reported by the ventilation cooling subsystem. This entity is disabled by default.
-- **Sun control**: Shows the diagnostic status reported by the sun control subsystem. This entity is disabled by default.
+- **Ventilation**: Indicates whether the ventilation subsystem reports a problem.
+- **Filter**: Indicates whether the filter subsystem reports a problem.
+- **Ventilation cooling**: Indicates whether the ventilation cooling subsystem reports a problem. This entity is disabled by default.
+- **Sun control**: Indicates whether the sun control subsystem reports a problem. This entity is disabled by default.
 - **Wi-Fi signal strength**: Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+
+The subsystem problem entities turn on when Duco reports `Error` or `Disable` and remain off when Duco reports `OK`.
 
 ## Use cases
 
