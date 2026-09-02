@@ -28,10 +28,23 @@ the key on the right of the settings dialog.
 
 {% include integrations/config_flow.md %}
   
-## Integration entities
+## Supported functionality
 
-The Syncthing integration adds one sensor per syncing folder:
+The **Syncthing** integration provides the following entities.
+
+### Sensors
+
+The Syncthing integration adds a sensor for each configured device and each synced folder:
+
+- One sensor per synced folder. Its state reflects the folder's synchronization status reported by Syncthing. Details such as the number of files and the folder size are available as state attributes.
+- One sensor per configured device. Its state reflects the device's connection status: `online`, `connected`, `disconnected`, `paused`, or `unknown`. The entry representing your own Syncthing server always shows `online`. Details, such as the device ID and addresses, are available as state attributes.
 
 ![Syncthing Sensors](/images/integrations/syncthing/sensors.png)
 
-![Syncthing Sensors](/images/integrations/syncthing/sensor.png)
+![Syncthing Device](/images/integrations/syncthing/device.png)
+
+![Syncthing Folder](/images/integrations/syncthing/folder.png)
+
+## Data updates
+
+Device sensors are updated by events sent by Syncthing and refreshed via {% term polling %} every 120 seconds. A device sensor's status may be outdated or shown as `unknown` until the next event is received or the next poll completes.
