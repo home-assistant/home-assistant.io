@@ -64,7 +64,7 @@ Your power station is added as a single device.
 ### Sensors
 
 - **Battery voltage**, **Total battery voltage**: The battery's voltage.
-- **Battery current**, **Total battery current**: The battery's current.
+- **Total battery current**: The battery's current.
 - **Battery SoC**, **Total battery SoC**: The battery's present charge level.
 - **Battery SoH**, **Total battery SoH**: The battery's state of health.
 - **Average battery temperature**: The battery's temperature.
