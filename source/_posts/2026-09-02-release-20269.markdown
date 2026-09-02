@@ -563,6 +563,22 @@ We do our best to avoid making changes to existing functionality that might unex
 
 We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
 
+{% details "Browser support" %}
+
+Some older browsers can no longer run the Home Assistant interface:
+
+- Firefox older than version 94, released in November 2021, is no longer supported. Update Firefox to fix this. Both the current release and the current extended support release (ESR) are well past this version. If your operating system no longer receives Firefox updates, use Chrome instead.
+- iOS and iPadOS 11 and older are no longer supported. The iPad (4th generation), iPhone 5, and iPhone 5c cannot be updated past iOS 10.3, so they can no longer open Home Assistant. Installing a different browser does not help, because every browser on iOS uses the same engine as Safari. Devices that can be updated to iOS 12.5, such as the iPad Air (1st generation) and the iPad mini 2 and 3, keep working.
+
+Older devices that are still supported benefit from this change: the version of the interface served to them is roughly 20% smaller, so it loads faster.
+
+([@maartenla] - [#53691])
+
+[@maartenla]: https://github.com/maartenla
+[#53691]: https://github.com/home-assistant/frontend/pull/53691
+
+{% enddetails %}
+
 {% details "Flexit Nordic (BACnet)" %}
 
 The deprecated fireplace mode switch entity has been removed. If you have {% term automations %} or {% term scripts %} that use `switch.<device>_fireplace_mode`, use the `climate.set_preset_mode` action on the Flexit climate entity with `preset_mode: fireplace` instead.
