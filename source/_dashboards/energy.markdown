@@ -608,6 +608,11 @@ max_devices:
   description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
   type: integer
   default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node and link
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -671,6 +676,11 @@ max_devices:
   description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
   type: integer
   default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric value on each node and link.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
