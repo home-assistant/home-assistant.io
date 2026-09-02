@@ -39,7 +39,7 @@ Token for WebSocket authentication:
 
 The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home Assistant's guideline that polling intervals are not user-configurable.
 
-## Supported functions
+## Supported functionality
 
 - **Sensor**: Temperature, humidity, illuminance, air quality, wind, ekey identifier and finger, logic counters, hub diagnostics, channel currents/voltages/timeouts, hub status, frequencies, and percentages.
 
