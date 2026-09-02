@@ -298,7 +298,7 @@ While the code is valid, the app that enters it gets administrative access to yo
 
 ### Prerequisites
 
-- A Home Assistant Thread network with an OpenThread Border Router that supports credential sharing. The share icon is only shown if that border router is listed under the network and its **OpenThread Border Router** app supports credential sharing.
+- A Home Assistant Thread network with an OpenThread Border Router that supports credential sharing. The share icon is only shown if the **OpenThread Border Router** app of a border router on that network supports credential sharing.
 - A border router whose app supports joining an existing Thread network with a Thread administration passcode (Thread 1.4).
 - The phone running that app is on the same local network as the Home Assistant border router.
 
