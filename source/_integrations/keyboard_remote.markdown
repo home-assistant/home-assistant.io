@@ -20,7 +20,7 @@ Receive signals from a keyboard and use it as a remote control.
 
 This {% term integration %} allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
 
-The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
+The `evdev` package is used to interface with the keyboard and thus this is Linux only. By default, the integration grabs the device exclusively, which means other applications will not receive its events. Set `exclusive: false` to share the device.
 
 To enable the Keyboard Remote {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -51,6 +51,16 @@ emulate_key_hold_repeat:
   required: false
   type: float
   default: 0.033
+exclusive:
+  description: >
+    When `true`, grabs the device exclusively so that no other client
+    (including the system) receives its events while Home Assistant is running.
+    Set to `false` if other applications also need to receive input from the
+    same device (for example, using a gamepad both as a remote and to play a
+    game).
+  required: false
+  type: boolean
+  default: true
 device_descriptor:
   description: Path to the local event input device file that corresponds to the keyboard.
   required: false
