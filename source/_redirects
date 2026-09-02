@@ -355,8 +355,6 @@ layout: null
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /installation/#about-installation-methods /installation/#about-installation-types
 /installation/nuc /installation/generic-x86-64
-/installation/odroid#install-home-assistant-container /installation/container
-/installation/generic-x86-64#install-home-assistant-container /installation/container
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
 /integrations/blueprint /docs/automation/using_blueprints
