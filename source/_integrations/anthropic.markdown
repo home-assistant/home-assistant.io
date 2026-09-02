@@ -172,7 +172,7 @@ Set up and configure Claude as a conversation agent in an [Assist pipeline](/int
 
 ### Home Assistant interface
 
-You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my config_ai_task title="**Settings** > **System** > **AI tasks**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
+You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my config_ai title="**Settings** > **System** > **AI tasks**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
 
 ### Automation
 
