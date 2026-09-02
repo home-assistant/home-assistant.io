@@ -11,13 +11,38 @@ ha_codeowners:
 ha_domain: compensation
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 ha_quality_scale: legacy
 ---
 
 The **Compensation** {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`. A single polynomial, linear by default, is fit to all data points provided.
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration) section.
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input.
+Data points:
+  description: "The collection of data point conversions. Set the uncompensated value and the compensated value per set."
+Attribute:
+  description: Attribute from the source to monitor/compensate. When omitted, the state value of the source will be used.
+Degree:
+  description: "The degree of a polynomial. For example, Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, and so on."
+Precision:
+  description: Defines the number of decimal places of the calculated sensor value.
+Unit of measurement:
+  description: Defines the units of measurement of the sensor, if any.
+Lower limit:
+  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collection's data points, lowest the uncompensated value."
+Upper limit:
+  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collection's data points, greatest the uncompensated value."
+{% endconfiguration_basic %}
+
+## YAML Configuration
 
 To enable the compensation sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
