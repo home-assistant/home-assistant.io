@@ -22,6 +22,8 @@ and routing platform. There is currently support for the following device types
 within Home Assistant:
 
 - [Presence detection](#presence-detection)
+- [Sensors](#sensors)
+
 
 {% include integrations/config_flow.md %}
 
@@ -51,3 +53,14 @@ The API user requires the following privileges:
 ## Presence detection
 
 This platform allows you to detect presence by looking at devices connected to an OPNsense router.
+
+## Sensors
+
+These sensors are automatically created and associated with each tracker entity:
+
+- **Interface**: The name of the interface the device is connected to (for example, "LAN").
+
+The following are also added but are disabled by default:
+
+- **Expired**: If the connection has become idle.
+- **Expires**: When the connection will expire if the device doesn't check in again.
