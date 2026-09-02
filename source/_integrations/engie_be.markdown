@@ -32,7 +32,7 @@ The integration makes it possible to retrieve the electricity and gas prices fro
 - Access to the phone number or email address that receives the code, since signing in asks for a one-time verification code.
 
 {% important %}
-Use a dedicated ENGIE user for Home Assistant rather than your everyday login. Signing in to the same account from engie.be or the ENGIE Smart App revokes the integration's session and forces it to re-authenticate. You can create a separate user on the [ENGIE user management page](https://www.engie.be/nl/energiedesk/usermanagement/manage-access/).
+Use a dedicated ENGIE user for Home Assistant rather than your everyday login. Signing in to the same account from engie.be or the ENGIE Smart App revokes the integration's session and stops its sensors from updating. You can create a separate user on the [ENGIE user management page](https://www.engie.be/nl/energiedesk/usermanagement/manage-access/).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -41,7 +41,7 @@ Use a dedicated ENGIE user for Home Assistant rather than your everyday login. S
 Email address:
   description: The email address of your dedicated ENGIE Belgium account.
 Password:
-  description: The password of your ENGIE Belgium account. It is only used to sign in and re-authenticate, and is never stored.
+  description: The password of your ENGIE Belgium account. It is only used to sign in, and is never stored.
 Two-factor authentication method:
   description: How you want to receive the one-time verification code, by SMS or email.
 Verification code:
@@ -87,23 +87,23 @@ A single ENGIE login can cover more than one address or meter. The integration a
 
 ## Data updates
 
-The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so you should not have to sign in again during normal use.
+The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
 
-If the session does become invalid, Home Assistant asks you to sign in again with your password and a fresh verification code, and the integration picks up where it left off. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it.
+If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. To recover, delete the integration and set it up again.
 
-Your password is only used to sign in and re-authenticate, and it is never stored. The integration keeps only the tokens ENGIE hands back, and refreshes them when needed.
+Your password is only used to sign in, and it is never stored. The integration keeps only the tokens ENGIE hands back, and refreshes them when needed.
 
 ## Known limitations
 
 - Addresses on a dynamic (EPEX-based) tariff show up as a device, but their prices are not available yet. Support for dynamic prices is planned.
 - Price sensors appear only while a price period covers the current day. During a gap between contract periods, they become unavailable until a new price period starts.
-- If Home Assistant happens to restart at the exact moment the sign-in tokens are being renewed, you may be asked to sign in again.
+- If Home Assistant restarts at the exact moment the sign-in tokens are being renewed, the integration can lose the session and its sensors become unavailable until you set it up again.
 
 ## Troubleshooting
 
-### Re-authentication keeps being requested
+### Sensors stopped updating
 
-This almost always means the ENGIE account is shared between the integration and engie.be or the ENGIE Smart App. Every sign-in somewhere else invalidates the integration's session. Set up a dedicated ENGIE user (see [Prerequisites](#prerequisites)) to avoid this.
+This almost always means the ENGIE account is shared between the integration and engie.be or the ENGIE Smart App. Every sign-in somewhere else revokes the integration's session, so its sensors become unavailable. Set up a dedicated ENGIE user (see [Prerequisites](#prerequisites)) to avoid this, then delete the integration and set it up again to recover.
 
 ## Removing the integration
 
