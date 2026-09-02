@@ -3,14 +3,12 @@ title: Flic Button
 description: Connect Flic smart buttons to Home Assistant over Bluetooth.
 ha_category:
   - Event
-  - Number
 ha_release: 2026.9
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: flic_button
 ha_platforms:
   - event
-  - number
 ha_integration_type: device
 ha_quality_scale: silver
 ha_codeowners:
@@ -57,7 +55,7 @@ Configuration options are available for Flic Twist devices only. To access them,
 
 {% configuration_basic %}
 Push twist mode:
-  description: "Controls what happens when you hold the button and twist the dial. **Default** fires twist and push-twist increment and decrement events, which stop at the boundaries. **Continuous** behaves like **Default**, but values wrap around instead of stopping. **Selector mode** fires rotation and selector changed events, so the dial behaves like a selector with distinct positions. Changing this option reloads the integration, which changes the entities and event types the Twist provides."
+  description: "Controls what happens when you hold the button and twist the dial. **Default** fires twist and push-twist increment and decrement events, which stop at the boundaries. **Continuous** behaves like **Default**, but values wrap around instead of stopping. **Selector mode** fires rotation and selector changed events, so the dial behaves like a selector with distinct positions. Changing this option reloads the integration, which changes the event types the Twist provides."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -82,31 +80,13 @@ The **Flic Button** integration provides the following entities.
   - **Available for**: Flic Duo.
   - **Event types**: The same event types as **Big button**.
 
-### Numbers
-
-- **Twist position**
-  - **Description**: The rotation position of the dial, from 0 to 100%. Setting it moves the position the device tracks, along with its LED ring.
-  - **Available for**: Flic Twist in **Default** and **Continuous** modes.
-
-- **Push-twist position**
-  - **Description**: The rotation position accumulated while the button is held, from 0 to 100%.
-  - **Available for**: Flic Twist in **Default** and **Continuous** modes.
-  - **Remarks**: Tracked separately from **Twist position**, so the two do not affect each other.
-
-- **Slot 1** to **Slot 12**
-  - **Description**: The rotation position of each of the twelve detent positions, from 0 to 100%.
-  - **Available for**: Flic Twist in **Selector mode**.
-  - **Remarks**: Each slot keeps its own value, so turning the dial only changes the slot that is currently selected.
-
 ## Data updates
 
 Flic buttons push their events to Home Assistant over Bluetooth the moment they happen, so pushes, holds, and rotations are reported immediately. There is no {% term polling %} interval to configure.
 
 ## Known limitations
 
-The Flic Twist does not store its rotation position itself. Home Assistant holds the position and sends it back to the button every time they connect. If you turn the dial while the button is disconnected, that movement is not reported, and the position is restored to the last value Home Assistant saw once the button reconnects.
-
-Battery level and firmware updates are not exposed yet. Additional functionality may be added in future releases.
+This integration exposes Flic buttons as event entities, which you can use to trigger automations. Rotation positions, battery level, and firmware updates are not exposed yet. Additional functionality may be added in future releases.
 
 ## Troubleshooting
 
