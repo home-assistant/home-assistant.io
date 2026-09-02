@@ -55,7 +55,7 @@ Font size:
   description: The size of the title and message text. One of small, medium, large, or maximum.
   required: false
 Transparency:
-  description: The opacity of the background. One of 0% (solid), 25%, 50%, 75%, or 100% (invisible).
+  description: The transparency of the background. One of 0% (solid), 25%, 50%, 75%, or 100% (invisible).
   required: false
 {% endoptions_ui %}
 
@@ -123,7 +123,7 @@ fontsize:
   type: string
 transparency:
   description: >
-    The opacity of the background. One of `0%` (solid), `25%`, `50%`, `75%`, or `100%` (invisible).
+    The transparency of the background. One of `0%` (solid), `25%`, `50%`, `75%`, or `100%` (invisible).
   required: false
   type: string
 {% endoptions_yaml %}
