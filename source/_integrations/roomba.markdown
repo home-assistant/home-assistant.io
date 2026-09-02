@@ -53,6 +53,7 @@ Sensors:
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
 - **Total cleaned area**: The total area in m² the robot has cleaned
+- **Not ready code** (diagnostic): A numeric code indicating why the robot cannot currently start a mission. `0` means the robot is ready
 
 ### Retrieving your credentials
 
