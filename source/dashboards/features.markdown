@@ -1004,7 +1004,7 @@ type:
   type: string
 style:
   required: false
-  description: "How the options should be displayed. It can be either `dropdown` or `segmented`."
+  description: "How the options should be displayed. It can be either `buttons` or `dropdown`."
   type: string
   default: dropdown
 options:
