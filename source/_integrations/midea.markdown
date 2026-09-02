@@ -130,6 +130,7 @@ The **Midea** {% term integration %} provides the following entities:
 - Light
 - Number
 - Select
+- Sensor: Various diagnostic sensors.
 - Switch
 - Time
 

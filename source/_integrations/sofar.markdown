@@ -54,15 +54,15 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 
 - **System status**: The inverter's operating state, including fault conditions.
 - **Temperatures**: Inverter, heatsink, and module temperatures.
-- **Device information**: Serial number and the status of the last real-time clock sync. The inverter's hardware and software versions appear on the device page rather than as sensors.
+- **Device information**: Serial number and the status of the last real-time clock sync.
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
 - **Off-grid (EPS/backup) measurements**: The same kind of readings for the EPS/backup output. Only shown for inverters wired for EPS/backup power.
-- **PV strings**: Power for each connected solar panel string, plus voltage and current if you need the detail. Only shown for PV-capable inverters.
-- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each connected battery pack, plus combined power, state of charge, and state of health totals. Only shown for inverters with battery storage.
+- **PV strings**: Power for each solar panel string, plus voltage and current if you need more detail. Each string the inverter supports gets its own device, connected via the inverter. Only shown for PV-capable inverters.
+- **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
 - **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 
-The overall totals and the readings most people need are enabled by default. Per-phase detail, additional battery packs beyond the first, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
+The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
 
 ## Data updates
 

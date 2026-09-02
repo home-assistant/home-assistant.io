@@ -136,20 +136,28 @@ Leave the data format setting (**float** or **int + SF**) as it is. The integrat
 
 These entities are added per inverter and updated every minute:
 
-- `MPPT <n> DC power` and `MPPT <n> DC energy` for each MPP tracker.
+- `MPPT <n> DC power` and `MPPT <n> energy` for each MPP tracker.
 - `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
-- `PV energy total`: lifetime energy from the photovoltaic strings only, measured on the DC side.
+- `PV energy total`: lifetime energy from the photovoltaic strings only. Whether this is a DC measurement depends on the device, see below.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
+
+`MPPT <n> DC power` is a DC measurement on every device tested, and matches `MPPT <n> DC current` times `MPPT <n> DC voltage`.
+
+`MPPT <n> energy` is not consistent between devices, which is why its name does not claim a side. A Gen24 reports the lifetime energy of each string, which is a DC value and therefore a few percent above `Total energy`, the AC counter. A SnapINverter reports the same value as `Total energy` instead, so `PV energy total` matches it exactly rather than adding anything. Comparing the two entities on your own system shows which the inverter provides.
 
 ### Controlling the inverter over Modbus
 
 Modbus is the only interface that lets Home Assistant change settings on the inverter; the Solar API is read-only. These setpoints are added as `number` entities, and appear under **Configuration** on the inverter's device page:
 
-- `Power limit`: caps the inverter's output, as a percentage of its nominal power output.
+- `AC power limit`: caps the power the inverter puts out on AC, as a percentage of its nominal power output. This is _not_ a feed-in limit. Everything the inverter delivers counts against it, whether it is used in the house or exported to the grid.
 - `Battery charge power limit` and `Battery discharge power limit`: cap how fast the battery may charge or discharge, as a percentage of its maximum rate.
 - `Battery minimum reserve`: the state of charge the battery is not discharged below.
 
-The `Power limit`, `Battery charge power limit`, and `Battery discharge power limit` setpoints each have a `switch` that turns the limit on and off: `Power limiting`, `Battery charge power limiting`, and `Battery discharge power limiting`. `Battery grid charging` is a separate switch that allows or prevents charging the battery from the grid.
+The `AC power limit`, `Battery charge power limit`, and `Battery discharge power limit` setpoints each have a `switch` that turns the limit on and off: `AC power limiting`, `Battery charge power limiting`, and `Battery discharge power limiting`. `Battery grid charging` is a separate switch that allows or prevents charging the battery from the grid.
+
+{% warning %}
+**Dynamic power reduction** is what implements an export cap agreed with your grid operator, because it measures at the grid connection point. The `AC power limit` cannot do that, as it only knows the inverter's own output. If Modbus outranks **Dynamic power reduction**, holding the `AC power limit` on at `100 %` overrides that cap, which may put the installation outside what the grid operator allows.
+{% endwarning %}
 
 {% important %}
 Writing has to be allowed on the device first. Go to **Communication** > **Modbus** (Gen24, Tauro, and Verto) or **Settings** > **Modbus** (Datamanager), and turn on **Inverter control via Modbus**.
@@ -159,15 +167,13 @@ Until it is, the inverter rejects every write, and the integration creates no co
 
 A setpoint is only applied while its switch is on. Setting one while the switch is off stores the value on the inverter without applying it, and turning the switch on then applies what is stored, which is the order Fronius documents.
 
-{% important %}
-Turning a limit **off** does not lift it. The inverter hands control back to the next source in its priority list, which may impose a limit of its own, such as **Dynamic power reduction**.
+Turning a limit **off** does not lift it. The inverter hands control back to the next source in its priority list, which may impose a limit of its own, such as **Dynamic power reduction**. To override such a source instead, leave the limit **on** and set it to `100 %`. That is an active instruction to run unrestricted, where off is "someone else decides".
 
-To override such a source instead, leave the limit **on** and set it to `100 %`. That is an active instruction to run unrestricted, where off is "someone else decides".
-{% endimportant %}
-
-{% note %}
 The inverter decides which control source wins. If **IO control** or **Dynamic power reduction** has a higher priority than Modbus in the DNO Editor, the inverter may refuse or ignore what Home Assistant sends.
-{% endnote %}
+
+Depending on the inverter's firmware, an `AC power limit` below `10 %` may force the inverter into standby, stopping feed-in altogether rather than throttling it.
+
+On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output. Surplus photovoltaic power goes into the battery instead of being wasted, which makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
 
 #### The battery limits are power, not a charge level
 
@@ -214,9 +220,9 @@ Recommended [energy dashboard](/docs/energy/) configuration:
 - For _"Devices"_ use the Ohmpilots `Energy consumed` entity.
 
 {% important %}
-The [Modbus TCP](#modbus-tcp) energy values are measured on the DC side, at the MPP trackers.
+For _"Solar production"_, prefer the inverter's `Energy total`. That is the AC energy you can use or sell.
 
-`PV energy total` is the energy the panels delivered, before inverter conversion losses, so it reads higher than the inverter's `Energy total`, which is the AC energy actually fed out. For _"Solar production"_, prefer the AC value. That is the energy you can use or sell.
+Where the device reports per-string energy, `PV energy total` is what the panels delivered before inverter conversion losses, so it reads a few percent higher. Where it does not, it is the same value as `Energy total` and adds nothing. Either way, the AC value is the one to use.
 
 `Battery charging energy total` and `Battery discharging energy total` are DC values measured at the battery. They are counters read from the device rather than values integrated over time, so they don't drift and are unaffected by Home Assistant restarts. For the same reason, they don't exactly match a Riemann sum of `SolarNet Power battery charge` and `SolarNet Power battery discharge`.
 {% endimportant %}
