@@ -45,7 +45,7 @@ The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home A
 
 ## Data updates
 
-Every 10 seconds the coordinator pulls the compact system status from the SmartHub and refreshes the entities from it. The same heartbeat serves as a liveness probe—entities become *unavailable* when it fails (timeout, network error, or refused connection). Push-style delivery of individual bus events is planned for a follow-up release.
+Every 10 seconds the coordinator pulls the compact system status from the SmartHub and refreshes the entities from it. The same heartbeat serves as a liveness probe—entities become `unavailable` when it fails (timeout, network error, or refused connection). Push-style delivery of individual bus events is planned for a follow-up release.
 
 ## Known limitations
 
