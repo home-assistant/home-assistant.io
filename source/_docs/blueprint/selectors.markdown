@@ -1635,7 +1635,7 @@ This selector limits selectable state classes to the measurement state classes.
 
 ```yaml
 state_class:
-  state_classes_filter:
+  state_classes:
     - measurement
     - measurement_angle
 ```
@@ -1648,7 +1648,7 @@ multiple:
   type: boolean
   default: false
   required: false
-state_classes_filter:
+state_classes:
   description: >
     Limits the selectable state classes to the state classes supplied. When not configured, all available state classes are selectable.
   type: list
