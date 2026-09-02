@@ -18,24 +18,26 @@ ha_quality_scale: gold
 
 The **Ecowitt Modbus** {% term integration %} reads [Fine Offset / Ecowitt](https://www.ecowitt.com/) weather sensors over Modbus.
 
-These are the wired, RS-485 members of the Ecowitt range. They are separate products from the wireless sensors that report to an Ecowitt gateway, which the [Ecowitt](/integrations/ecowitt/) integration handles instead.
+These are the wired, RS-485 members of the Ecowitt range: the `LP` models, which have a Modbus interface. They are separate products from the wireless sensors that report to an Ecowitt gateway, which the [Ecowitt](/integrations/ecowitt/) integration handles instead.
 
 ## Supported devices
 
-| Device | Description |
-| ------ | ----------- |
-| WS90 | All-in-one weather sensor array with no moving parts. Measures light, UV index, temperature, humidity, wind speed, gust speed, wind direction, rainfall, and pressure. |
-| WN69LP | Wired 7-in-1 sensor array with a mechanical anemometer and a tipping-bucket rain gauge. Measures the same quantities, and additionally reports its own battery and supply voltage. |
+| Device | Wireless equivalent | Description |
+| ------ | ------------------- | ----------- |
+| WN90LP | WS90 | All-in-one weather sensor array with no moving parts. Measures light, UV index, temperature, humidity, wind speed, gust speed, wind direction, rainfall, and pressure. |
+| WN69LP | WS69 | 7-in-1 sensor array with a mechanical anemometer and a tipping-bucket rain gauge. Measures the same quantities, and additionally reports its own battery and supply voltage. |
+
+Each `LP` model is the wired version of the wireless sensor beside it: the same measurements, with the solar panel replaced by an RS-485 connection. If you are looking for the **WS90**, the WN90LP is the one that speaks Modbus. Ecowitt originally published its Modbus specification under the WS90 name and has since renamed the document, leaving the register map unchanged.
 
 ## Unsupported devices
 
-Wireless Ecowitt sensors, and the gateways they report to (GW1000, GW2000, and similar), do not speak Modbus. Use the [Ecowitt](/integrations/ecowitt/) integration for those.
+The wireless sensors themselves (WS90, WS69, and the rest), and the gateways they report to (GW1000, GW2000, and similar), have no RS-485 interface and do not speak Modbus. Use the [Ecowitt](/integrations/ecowitt/) integration for those.
 
 ## Prerequisites
 
 - The sensor is reachable over Modbus. This is typically an RTU-over-TCP serial gateway bridging the sensor's RS-485 connection onto your network, rather than the sensor speaking Modbus TCP natively.
 - The host or IP address and port of that gateway. Most gateways use port 502.
-- The sensor's Modbus device address. Both models ship with a factory default (`0x90`/144 for the WS90, `0x24`/36 for the WN69LP) and only need a different value if you have changed it.
+- The sensor's Modbus device address. Both models ship with a factory default (`0x90`/144 for the WN90LP, `0x24`/36 for the WN69LP) and only need a different value if you have changed it.
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +47,7 @@ You are asked for the model first. The sensors do not report which model they ar
 
 {% configuration_basic %}
 Model:
-  description: The model printed on the sensor, either `WS90` or `WN69LP`.
+  description: The model printed on the sensor, either `WN90LP` or `WN69LP`.
 Host:
   description: The hostname or IP address of the gateway the sensor is connected to.
 Port:
@@ -72,7 +74,7 @@ These entities are created for both models:
 - **Rainfall**: Cumulative rainfall total.
 - **Absolute pressure**: Absolute atmospheric pressure, uncorrected for altitude.
 
-The WS90 additionally creates:
+The WN90LP additionally creates:
 
 - **Rain counter**: The same cumulative total as **Rainfall**, read from a separate register at 0.01 mm resolution instead of 0.1 mm. Disabled by default, because it duplicates a sensor that is already there.
 
@@ -92,7 +94,7 @@ The integration {% term polling polls %} each sensor every 30 seconds.
 
 How often a sensor has new data to give is a property of the device, not of this integration:
 
-- The **WS90** refreshes wind readings every 2 seconds and everything else every 8.75 seconds.
+- The **WN90LP** refreshes wind readings every 2 seconds and everything else every 8.75 seconds.
 - The **WN69LP** samples on an interval set in its own configuration, 16 seconds by default. Battery and supply voltage are refreshed once a minute regardless.
 
 Polling faster than the sensor measures would return the same values again, so the interval is not configurable.
@@ -115,7 +117,7 @@ automation: |
   alias: "Close the awning when it gets windy"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.ws90_gust_speed
+      entity_id: sensor.wn90lp_gust_speed
       above: 40
       for: "00:00:30"
   actions:
@@ -138,14 +140,14 @@ automation: |
   alias: "Warn when the UV index is high"
   triggers:
     - trigger: numeric_state
-      entity_id: sensor.ws90_uv_index
+      entity_id: sensor.wn90lp_uv_index
       above: 6
       for: "00:05:00"
   actions:
     - action: notify.notify
       data:
         message: >
-          UV index is {{ states('sensor.ws90_uv_index') }}. Cover up before
+          UV index is {{ states('sensor.wn90lp_uv_index') }}. Cover up before
           going outside.
 {% endexample %}
 
@@ -162,7 +164,7 @@ The WN69LP has no model or serial-number register. Two consequences follow:
 - Setup cannot positively confirm the model. It checks that the readings fall within the ranges a weather sensor can physically produce, which rules out most unrelated devices, but it cannot distinguish a WN69LP from another device whose registers happen to decode plausibly at the same addresses.
 - A WN69LP is identified by where it answers, not by what it is. If a different WN69LP is put at the same address, its readings are published under the original sensor's entities. Moving a WN69LP to a new address is a [reconfiguration](#reconfiguration); the integration cannot tell that apart from a second sensor being added, so it has to be told.
 
-The WS90 reports both a fixed device code and a device ID, so neither limitation applies to it.
+The WN90LP reports both a fixed device code and a device ID, so neither limitation applies to it.
 
 ### Automatic reporting is not used
 
@@ -185,7 +187,7 @@ If a sensor moves to a different gateway, port, or device address, reconfigure t
 3. Open the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
 4. Update the settings and submit the form.
 
-The new address is checked before anything is saved. A WS90 entry compares the device ID it finds there and refuses to adopt a different sensor; a WN69LP entry cannot, for the reason given above, so check the address before confirming.
+The new address is checked before anything is saved. A WN90LP entry compares the device ID it finds there and refuses to adopt a different sensor; a WN69LP entry cannot, for the reason given above, so check the address before confirming.
 
 The model cannot be changed. A different model is a different device, and should be added as its own entry.
 
@@ -232,13 +234,13 @@ All of a sensor's entities show as unavailable at the same time.
 
 #### Description
 
-Either the sensor stopped answering, or — for a WS90 — a different sensor started answering at its address.
+Either the sensor stopped answering, or — for a WN90LP — a different sensor started answering at its address.
 
 #### Resolution
 
 1. Check the gateway and the sensor's power and wiring. Entities recover on their own once the sensor answers again; no reload is needed.
 2. Check whether another Modbus client has taken the gateway's single connection.
-3. If the entry itself is in an error state reporting a different serial number, a different WS90 is answering at that address. Either restore the original sensor, or reconfigure the entry if the sensor was deliberately replaced.
+3. If the entry itself is in an error state reporting a different serial number, a different WN90LP is answering at that address. Either restore the original sensor, or reconfigure the entry if the sensor was deliberately replaced.
 
 ### Readings are implausible
 
