@@ -139,6 +139,23 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 - Summer mode
 - Temperature
 
+#### Thermostat Actions
+
+Thermostat devices also support {% term actions %} which can be useful for {% term automations %}:
+
+##### Action: fritzbox.set_window_open
+
+This action triggers the open window detecton. This will override the schedule for the specified duration. You might call this
+action from an automation based on a separate window sensor.
+
+| Data attribute | Required | Description |
+| --- | --- | --- |
+| `duration` | yes | Timeout (seconds) after which the termostat will revert to its normal schedule. Valid values: 1 to 86400. Default: 600. |
+
+##### Action: fritzbox.set_window_close
+
+This action cancels a previous fritzbox.set_window_open action (or the device's internal open window detection). The device will revert to its schedule-based operation.
+
 ### Other devices
 
 Event based devices like motion detection sensors or window/door contacts or buttons (_for example, [FRITZ!Smart Control 350][fritzdect_350] or the [FRITZ!Smart Control 440][fritzdect_440]_) cannot be controlled or used via this integration, but their sensors can still be integrated.
