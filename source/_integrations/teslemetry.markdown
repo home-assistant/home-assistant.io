@@ -96,7 +96,6 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Located at home|Yes|Streaming|
 |Binary sensor|Located at work|Yes|Streaming|
 |Binary sensor|Offroad lightbar|No|Streaming|
-|Binary sensor|Passenger seat belt|No|Streaming|
 |Binary sensor|Pin to drive enabled|No|Streaming|
 |Binary sensor|Preconditioning enabled|No|Both|
 |Binary sensor|Preconditioning|No|Polling|
@@ -189,6 +188,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Ideal battery range|No|Both|
 |Sensor|Inside temperature|Yes|Both|
 |Sensor|Left temperature request|No|Streaming|
+|Sensor|Lifetime energy gained regen|No|
+|Sensor|Miles since reset|No|
 |Sensor|Odometer|No|Both|
 |Sensor|Outside temperature|Yes|Both|
 |Sensor|Passenger temperature setting|No|Polling|
@@ -223,6 +224,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Sensor|Scheduled charging start time|No|Both|
 |Sensor|Scheduled departure time|No|Both|
 |Sensor|Secondary drive unit torque command|No|Streaming|
+|Sensor|Self-driving miles since reset|No|
 |Sensor|Sentry mode|Yes|Streaming|
 |Sensor|Shift state|No|Both|
 |Sensor|Speed|No|Both|

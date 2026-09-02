@@ -2,73 +2,72 @@
 title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
 ha_category:
-  - Calendar
-ha_iot_class: Cloud Push
+  - To-do list
+ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_domain: remember_the_milk
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_integration_type: service
+ha_config_flow: true
+ha_platforms:
+  - todo
 ha_quality_scale: legacy
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
 ---
 
-The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
+The **Remember The Milk** {% term integration %} connects your [Remember The Milk](https://www.rememberthemilk.com) (<abbr title="Remember The Milk">RTM</abbr>) account to Home Assistant. Your RTM lists appear as [to-do lists](/integrations/todo/) in Home Assistant, so you can manage list items from the **To-do list** dashboard or the [**To-do list** card](/dashboards/todo-list/) and add tasks from automations. The integration supports connecting several Remember The Milk accounts.
 
-## Setup
+## Prerequisites
 
-The setup consists of two steps: getting an API key and registering your account
+You need a Remember The Milk account, an API key, and a shared secret.
 
-### Step 1: API key
+1. Sign in to your [Remember The Milk account](https://www.rememberthemilk.com).
+2. Apply for an [API key](https://www.rememberthemilk.com/services/api/keys.rtm). You also receive a shared secret when the key is approved.
 
-To be able to use this integration, you need a Remember The Milk account and you need to apply for your own [API key](https://www.rememberthemilk.com/services/api/keys.rtm). With the API key you will also receive your personal shared secret. Both of them need to be stored in your Home Assistant {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
+{% configuration_basic %}
+API key:
+  description: The API key of your Remember The Milk API application.
+Shared secret:
+  description: The shared secret of your Remember The Milk API application.
+{% endconfiguration_basic %}
 
-remember_the_milk:
-  - name: your_rtm_username
-    api_key: YOUR_API_KEY
-    shared_secret: YOUR_SHARED_SECRET
+After you enter your API key and shared secret, Home Assistant shows an **Authorize** link. Select the link to allow Home Assistant to access your Remember The Milk account on the Remember The Milk website. When you have completed the authorization, return to Home Assistant and select **Submit** to finish the setup.
 
-```
+To connect more than one account, add the integration again for each Remember The Milk account.
 
-{% configuration %}
-  name:
-    description: Your RTM username, as you can have several accounts in RTM. The name must be unique.
-    required: true
-    type: string
-  api_key:
-    description: Put the API key you've received in here.
-    required: true
-    type: string
-  shared_secret:
-    description: Put the shared secret you've received in here.
-    required: true
-    type: string
-{% endconfiguration %}
+## To-do lists
 
-### Step 2: Registering your account
+Each of your Remember The Milk lists appears in Home Assistant as a [to-do list](/integrations/todo/) entity. You can view and manage your lists from the [**To-do list** dashboard card](/dashboards/todo-list/).
 
-After you save the configuration:
+Your lists stay in sync with your Remember The Milk account in both directions. Creating, renaming, or deleting a list in Home Assistant is reflected in your RTM account, and vice versa. Smart, archived, locked, and deleted lists are not synced.
 
-1. Restart Home Assistant. When it starts again, you receive a "Configurator" notification in Home Assistant.
-2. Select **Configure**.
-3. On the dialog, select **Remember The Milk login** and log into Remember The Milk website.
-4. Select **OK, I'll allow it** to authorize Home Assistant to access your Remember The Milk account.
-5. Close the RTM browser tab, and back in Home Assistant, select **login completed**.
+Each to-do list item supports a summary, an optional due date or due date and time, and an optional description.
 
-This tells Home Assistant that you have completed the login process on the Remember The Milk page and Home Assistant should try to register with this account.
+### Adding a list
 
-If the registration was successful, the Configurator notification disappears from your Home Assistant notifications.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Remember The Milk** integration.
+2. Select **Add list**.
+3. Enter a name for the list. A new list with that name is also created in your Remember The Milk account.
 
-In the background, Home Assistant downloaded a token from the Remember The Milk server, stored in the `remember_the_milk.conf` file locally.
+### Renaming a list
 
-### Verifying configuration
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Remember The Milk** integration.
+2. Next to the list you want to rename, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+3. Enter a new name. The list is also renamed in your Remember The Milk account.
 
-To confirm that your configuration was successful, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Remember The Milk**.
-The integration should now show **1 entity** and if you select it, it should be named after your RTM username.
+### Removing a list
+
+Removing a list in Home Assistant also deletes it from your Remember The Milk account.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Remember The Milk** integration.
+2. Next to the list you want to remove, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
 {% include integrations/actions.md %}
 
@@ -97,6 +96,12 @@ automation: |
           data:
             id: "{{ trigger.entity_id }}"
 {% endexample %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Disclaimer
 
