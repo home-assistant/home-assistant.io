@@ -1,0 +1,201 @@
+@use '../mixins' as *;
+
+section#map {
+    --section-spacing-y: 32px;
+
+    background-color: #002332;
+    border-radius: 12px;
+    margin-top: 24px;
+    overflow: hidden;
+
+    @include bp(tablet) {
+        border-radius: 24px;
+    }
+
+    @include bp(desktop) {
+        --section-spacing-y: 52px;
+    }
+
+    &,
+    p {
+        color: #ffffff;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+        margin-bottom: 16px;
+        text-align: center;
+
+        @include bp(tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .map {
+        aspect-ratio: 4 / 3;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        width: 100%;
+
+        @include bp(tablet) {
+            aspect-ratio: 16 / 9;
+        }
+
+        &.is-loading {
+            .leaflet-pane,
+            .leaflet-control-container {
+                opacity: 0;
+            }
+        }
+
+        .leaflet-pane,
+        .leaflet-control-container {
+            transition: opacity 400ms ease-out;
+        }
+
+        .leaflet-tile {
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .leaflet-control a {
+            text-decoration: none;
+
+            &:before,
+            &:after {
+                content: none;
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    section#map .map {
+        .leaflet-pane,
+        .leaflet-control-container {
+            transition: none;
+        }
+    }
+}
+
+.map-marker {
+    background-color: #ffffff;
+    border: 4px solid #002332;
+    border-radius: 50%;
+    height: 5px;
+    transition: transform 150ms ease-in-out, border-color 150ms ease-in-out;
+    width: 5px;
+
+    &:hover,
+    &.is-active {
+        border-color: var(--color-secondary);
+    }
+
+    &.is-active {
+        z-index: 999 !important;
+    }
+}
+
+.leaflet-popup-content-wrapper {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: none !important;
+    max-width: 300px;
+    padding: 16px !important;
+
+    @include bp(tablet) {
+        max-width: 500px;
+        padding: 18px 24px !important;
+    }
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .event-popup {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 200px;
+
+        h4 {
+            @include h5;
+            color: #002332;
+            margin: 0;
+        }
+
+        dl {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 0;
+
+            div {
+                display: flex;
+                gap: 6px;
+            }
+
+            dt {
+                span {
+                    display: none;
+                }
+
+                &:before {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    content: '';
+                    display: block;
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+
+            dt.starts:before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M10.0833 11.3333L7.25 8.49604V4.5H8.75V7.875L11.1458 10.2708L10.0833 11.3333ZM7.25 3V1.5H8.75V3H7.25ZM13 8.75V7.25H14.5V8.75H13ZM7.25 14.5V13H8.75V14.5H7.25ZM1.5 8.75V7.25H3V8.75H1.5ZM8 16C6.8975 16 5.86146 15.7917 4.89188 15.375C3.92229 14.9583 3.07292 14.3854 2.34375 13.6562C1.61458 12.9271 1.04167 12.0767 0.625 11.105C0.208333 10.1333 0 9.09514 0 7.99042C0 6.88569 0.208333 5.84722 0.625 4.875C1.04167 3.90278 1.61458 3.05556 2.34375 2.33333C3.07292 1.61111 3.92333 1.04167 4.895 0.625C5.86667 0.208333 6.90486 0 8.00958 0C9.11431 0 10.1528 0.21 11.1252 0.63C12.0974 1.05 12.9432 1.62 13.6625 2.34C14.3817 3.06 14.951 3.90667 15.3706 4.88C15.7902 5.85333 16 6.89333 16 8C16 9.1025 15.7917 10.1385 15.375 11.1081C14.9583 12.0777 14.3889 12.9271 13.6667 13.6562C12.9444 14.3854 12.0963 14.9583 11.1223 15.375C10.1483 15.7917 9.1075 16 8 16ZM8.00958 14.5C9.82153 14.5 11.3563 13.8681 12.6138 12.6042C13.8713 11.3403 14.5 9.80236 14.5 7.99042C14.5 6.17847 13.8713 4.64375 12.6138 3.38625C11.3563 2.12875 9.82153 1.5 8.00958 1.5C6.19764 1.5 4.65972 2.12875 3.39583 3.38625C2.13194 4.64375 1.5 6.17847 1.5 7.99042C1.5 9.80236 2.13194 11.3403 3.39583 12.6042C4.65972 13.8681 6.19764 14.5 8.00958 14.5Z' fill='%234F606E'/%3E%3C/svg%3E");
+            }
+
+            dt.location:before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='16' viewBox='0 0 11 16' fill='none'%3E%3Cpath d='M1.875 15.3438C0.958333 14.9062 0.5 14.3333 0.5 13.625C0.5 13.2639 0.635417 12.934 0.90625 12.6354C1.17708 12.3368 1.5625 12.0764 2.0625 11.8542L3.27083 13C3.0625 13.0694 2.84028 13.1562 2.60417 13.2604C2.36806 13.3646 2.16667 13.4931 2 13.6458C2.11111 13.8403 2.54167 14.0312 3.29167 14.2188C4.04167 14.4062 4.77778 14.5 5.5 14.5C6.27778 14.5 7.03472 14.4062 7.77083 14.2188C8.50694 14.0312 8.91667 13.8194 9 13.5833C8.81944 13.4583 8.60764 13.3438 8.36458 13.2396C8.12153 13.1354 7.89583 13.0486 7.6875 12.9792L8.89583 11.8125C9.42361 12.0347 9.82292 12.3021 10.0938 12.6146C10.3646 12.9271 10.5 13.2639 10.5 13.625C10.5 14.3333 10.0417 14.9062 9.125 15.3438C8.20833 15.7812 7 16 5.5 16C4 16 2.79167 15.7812 1.875 15.3438ZM5.52083 11.625C6.84028 10.6528 7.83333 9.65625 8.5 8.63542C9.16667 7.61458 9.5 6.61111 9.5 5.625C9.5 4.26389 9.06944 3.23611 8.20833 2.54167C7.34722 1.84722 6.44444 1.5 5.5 1.5C4.55556 1.5 3.65278 1.84722 2.79167 2.54167C1.93056 3.23611 1.5 4.26389 1.5 5.625C1.5 6.52778 1.83333 7.48264 2.5 8.48958C3.16667 9.49653 4.17361 10.5417 5.52083 11.625ZM5.5 13.5C3.65278 12.1389 2.27431 10.7951 1.36458 9.46875C0.454861 8.14236 0 6.86111 0 5.625C0 4.70833 0.166667 3.89931 0.5 3.19792C0.833333 2.49653 1.26389 1.90972 1.79167 1.4375C2.31944 0.965278 2.90972 0.607639 3.5625 0.364583C4.21528 0.121528 4.86111 0 5.5 0C6.13889 0 6.78472 0.121528 7.4375 0.364583C8.09028 0.607639 8.68056 0.965278 9.20833 1.4375C9.73611 1.90972 10.1667 2.49653 10.5 3.19792C10.8333 3.89931 11 4.70833 11 5.625C11 6.86111 10.5451 8.14236 9.63542 9.46875C8.72569 10.7951 7.34722 12.1389 5.5 13.5ZM5.5 7C5.91667 7 6.27083 6.85417 6.5625 6.5625C6.85417 6.27083 7 5.91667 7 5.5C7 5.08333 6.85417 4.72917 6.5625 4.4375C6.27083 4.14583 5.91667 4 5.5 4C5.08333 4 4.72917 4.14931 4.4375 4.44792C4.14583 4.74653 4 5.09722 4 5.5C4 5.90278 4.14583 6.25347 4.4375 6.55208C4.72917 6.85069 5.08333 7 5.5 7Z' fill='%234F606E'/%3E%3C/svg%3E");
+            }
+
+            dd {
+                @include small;
+                color: #4F606E;
+                margin: 0;
+            }
+        }
+
+        .button {
+            align-self: flex-start;
+            margin-top: 4px;
+            color: #000000;
+
+            &:hover {
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+.leaflet-popup-tip {
+    display: none !important;
+}
