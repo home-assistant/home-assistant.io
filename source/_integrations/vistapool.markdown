@@ -48,6 +48,13 @@ When your pool controller's Wi-Fi module joins your network, Home Assistant dete
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Vistapool Username:
+  description: "The email address of your Vistapool cloud account. All pools linked to this account are added automatically."
+Password:
+  description: "The password of your Vistapool cloud account."
+{% endconfiguration_basic %}
+
 ## Prerequisites
 
 - A supported Vistapool-compatible pool controller
