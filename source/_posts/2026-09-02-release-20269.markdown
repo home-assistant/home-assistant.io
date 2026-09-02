@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2026.9 Beta: A betta title"
-description: "Beta release notes"
-date: 2026-08-26 00:00:00
+title: "2026.9: There's room on this bus"
+description: "Home Assistant Cloud gets clearer login visibility and a friendlier signup flow, the Security dashboard gains active alerts and favorites, Activity now explains why something changed, Matter gets its own network map, Modbus integrations learn to share a connection, charts become accessible by keyboard and sound, and 13 new integrations!"
+date: 2026-09-02 00:00:00
 date_formatted: "September 2, 2026"
 author: Franck Nijhof
 author_twitter: frenck
@@ -10,72 +10,32 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-09/beta-social.png
+og_image: /images/blog/2026-09/social.png
 ---
 
 <lite-youtube videoid="TgGiUchnmDw" videotitle="Home Assistant 2026.9 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.9** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/148)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/830)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/154)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=TgGiUchnmDw) on September 2, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
-
-{% endtip %}
-
 Home Assistant 2026.9! 🎉
 
-Enjoy the (beta) release!
+I'll be honest: Modbus has never been the flashiest part of Home Assistant. It quietly powers solar inverters, heat pumps, and energy meters, but only if you're comfortable hand-writing your own register map in YAML, a real wall that's kept a huge category of devices out of reach. This release finally makes room on the bus: integrations that already know how a device talks over Modbus, sharing a single connection instead of fighting over it, so you simply pick your device in the UI like anything else in Home Assistant. It won't show up in a screenshot, but [modernizing Modbus](#modernizing-modbus) is hands-down my favorite change this release. 🔧
+
+I'm also really looking forward to jumping on [the new Cloud voice processing](#test-the-new-voice-processing) myself and putting it through its paces. We're a household with a non-English main language, and if you've ever run a private voice assistant in one, you know exactly how fast accents and background noise trip things up. This new speech-to-text engine specifically targets those pain points, so I'm very curious to see how it holds up against my own accent. 😉
+
+And there's plenty more: [active alerts and favorites](#active-alerts-and-favorites-for-the-security-dashboard) for the Security dashboard, a shared [Sources panel](#a-new-sources-pane-for-history-and-activity) for History and Activity, Activity that finally explains [why something changed](#from-what-changed-to-why-it-changed), a brand new [network map for Matter](#insights-into-your-matter-world), charts you can now [navigate by keyboard and sound](#accessibility-for-charts), and 13 new integrations! 🚀
+
+One more thing before you dive in: we're at [IFA Berlin](https://www.openhomefoundation.org/blog/ifa-berlin-2026-save-the-date/) this weekend! It's one of the largest consumer electronics expos out there, running September 4 to 8, 2026, and the Open Home Foundation has its own [booth in the Smart Home hall](https://www.ifa-berlin.com/exhibitors/open-home-foundation): Hall 1.2, stand 1.2-153. If you're around, come find us and say hi. 👋
+
+Enjoy the release!
 
 ../Frenck
 
 <!--more-->
 
-- [Sign up for Home Assistant Cloud, and you're already signed in](#sign-up-for-home-assistant-cloud-and-youre-already-signed-in)
-- [Active alerts \& favorites for the Security dashboard](#active-alerts--favorites-for-the-security-dashboard)
+- [Home Assistant Cloud](#home-assistant-cloud)
+  - [Seeing through the Cloud](#seeing-through-the-cloud)
+  - [Test the new voice processing](#test-the-new-voice-processing)
+  - [Float in to be a Cloud subscriber](#float-in-to-be-a-cloud-subscriber)
+- [Active alerts and favorites for the Security dashboard](#active-alerts-and-favorites-for-the-security-dashboard)
 - [A new Sources pane for History and Activity](#a-new-sources-pane-for-history-and-activity)
 - [From what changed to why it changed](#from-what-changed-to-why-it-changed)
 - [Insights into your Matter world](#insights-into-your-matter-world)
@@ -96,25 +56,47 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@frenck] who helped write these release notes. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@googanhiem] and [@piitaya] who helped write these release notes. Also, [@Diegorro98], [@jan-tdy], [@RaHehl], and [@farmio] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
-[@frenck]: https://github.com/frenck
+[@jan-tdy]: https://github.com/jan-tdy
+[@piitaya]: https://github.com/piitaya
+[@googanhiem]: https://github.com/googanhiem
 
-## Sign up for Home Assistant Cloud, and you're already signed in
+## Home Assistant Cloud
 
-Signing up for [Home Assistant Cloud](/integrations/cloud/) now begins on a clearer start page: one obvious button to **Start your free trial**, and a link to **Sign in** if you already have an account. It also finally shows what you would actually be getting. The old page left you to guess what was behind that button, which, fair enough, didn't help anyone. Now the features are listed right there, before you even start the trial.
+[Home Assistant Cloud](https://www.home-assistant.io/cloud) is an essential part of funding the [Open Home Foundation](https://www.openhomefoundation.org/). We're so thankful for all the support from our subscribers, and from the start we've always been clear: this isn't just a donation to Home Assistant, we want it to provide real benefits to subscribers. Together with [Nabu Casa](https://www.nabucasa.com/), we've been constantly working to make Cloud better, and here are some useful recent additions.
+
+### Seeing through the Cloud
+
+A new addition that should help security-conscious [Home Assistant Cloud](https://www.home-assistant.io/cloud) subscribers is the ability to better see who is attempting to log into your instance. In the past, they all looked like local requests, and you may have seen the *127.0.0.1 invalid login attempt* message, which wasn't that helpful. Now the proper IP address gets passed through, so whether that's you mixing up your passwords when logging in, or some bot trying their luck, you'll now know better where it's coming from.
+
+A side benefit of this change is that it's now possible to use IP banning to make it harder for these malicious actors, which was [added to the UI](https://www.home-assistant.io/blog/2026/08/05/release-20268/#want-to-change-the-port-weve-got-you-covered) in the previous release. In conjunction with setting up [multi-factor authentication](https://www.home-assistant.io/docs/authentication/multi-factor-auth/) (2FA) in Home Assistant, you can add a little extra peace of mind to your home, but that's not the only Cloud benefit being improved this month.
+
+### Test the new voice processing
+
+When we launched [Home Assistant Voice Preview Edition](https://www.home-assistant.io/voice-pe/), a good amount of the community jumped into running their own private voice assistants in their homes. Building something to rival big tech is still a [work-in-progress](https://www.home-assistant.io/blog/categories/assist/), but every year we get closer. Today, we're again asking for our Cloud subscribers to help us test another awesome step forward.
+
+Our friends at [Nabu Casa](https://www.nabucasa.com/) are testing a new speech-to-text engine for Home Assistant Cloud, and it significantly improves the three common places voice processing gets tripped up: accents, background noise, and non-English languages. Many of us around the Foundation have been using it and finding it works great with our sometimes *unique* accents even in noisy environments.
+
+There are several big changes under the hood, including switching to a new provider [Soniox](https://soniox.com/), so it needs to be tested. You'll still get the same privacy guarantee of no logging, storing, or training on your audio. It'll be available to test via [Labs](https://my.home-assistant.io/redirect/labs/), with the normal caveat that it may not be a permanent addition, so provide [your feedback](https://docs.google.com/forms/d/e/1FAIpQLSdIxGYIGDi1z71TH4m7KF9VVjeDgKfZ87WQsljZYtMPiizVmA/closedform) on the Labs page if it's the right step forward.
+
+If you're a Home Assistant Cloud subscriber, you can toggle this on right now by heading to [**Settings \> System \> Labs**](https://my.home-assistant.io/redirect/labs/). If you're not a subscriber, there is a 31-day trial. Speaking of which, there are some big improvements on signing up coming as well.
+
+### Float in to be a Cloud subscriber
+
+[Signing up for Home Assistant Cloud](https://my.home-assistant.io/redirect/cloud/) now begins on a clearer start page: one obvious button to **Start your free trial,** and a link to **Sign in** if you already have an account. It also finally shows what you would actually be getting. The old page left you to guess what was behind that button, which, fair enough, didn't help anyone. Now the features are listed right there, before you even start the trial.
 
 <img src='/images/blog/2026-09/cloud-signup.png' alt='Screenshot of the redesigned Home Assistant Cloud start page, with a button to start a free trial, a link to sign in, and an overview of what Home Assistant Cloud offers.' class='no-shadow' />
 
-Creating an account used to end with a trip back to the sign-in page after you confirmed your email address. Now, as soon as you select the confirmation link in that email, Home Assistant logs you in automatically, so you can go straight to setting up remote access, voice, and {% term backups %}. The trial runs for a full month, and you don't need to enter any payment details to start it.
+Now confirming your email will automatically log you in to Home Assistant Cloud, so you can immediately set up remote access, voice, and {% term backups %}. No more logging in after signing up! And as always, the one-month trial requires no payment details.
 
 Home Assistant Cloud is built and run by [Nabu Casa](https://www.nabucasa.com/), a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org/). Every subscription **funds the foundation** directly, and with it, the full-time development of Home Assistant, this release included. 😊
 
-In return, you get secure remote access with no port forwarding or VPN, encrypted off-site backups ready to restore your whole system the moment you need them, faster and more accurate speech-to-text and text-to-speech for your own voice assistant, native Amazon Alexa and Google Assistant support, and more. It's all built with the same respect for your privacy as Home Assistant itself: no ads, no data harvesting, just a service that keeps Home Assistant independent.
+In return, you get secure remote access with no port forwarding or VPN, encrypted off-site {% term backups %} ready to restore your whole system the moment you need them, faster and more accurate speech-to-text and text-to-speech for your own voice assistant, native Amazon Alexa and Google Assistant support, and more. It's all built with the same respect for your privacy as Home Assistant itself: no ads, no data harvesting, just a service that keeps Home Assistant independent.
 
-If you have been thinking about a subscription, there has never been an easier moment to {% my cloud title="try it" %}.
+If you have been thinking about a subscription, there has never been an easier moment to [try it](https://my.home-assistant.io/redirect/cloud).
 
-## Active alerts & favorites for the Security dashboard
+## Active alerts and favorites for the Security dashboard
 
 The built-in **Security** dashboard is getting more love, and this release adds two things people kept asking for, both managed from the same editor.
 
@@ -144,7 +126,7 @@ This follows an [Open Home Foundation design discussion](https://github.com/Open
 
 Open **Activity** and you can see exactly what changed: a light turned on, a door unlocked, a blind closed. What you couldn't see was why. Figuring that out meant guessing which {% term automation %} was responsible, opening it, digging into its trace, and working backward to the {% term entity %} that actually triggered it. It got harder still after a recent redesign of the log rows, which traded the sentence that used to explain where an entry came from for showing an entity's area and device instead, so even that small hint disappeared.
 
-Selecting any row in **Activity** now opens a details dialog that lays out the full story, read top to bottom: what started it (a person, a state change, a schedule, an {% term integration %}, or a restart), the automations or {% term scripts %} it passed through, and finally the entity's own change. Every step in that chain is clickable, opening the entity behind it or, for automations, its trace directly. Timestamps go down to the millisecond, so even events that landed in the same second keep their correct order.
+Selecting any row in **Activity** now opens a details dialog that lays out the full story, read top to bottom: what started it (a person, a state change, a schedule, an {% term integration %}, or a restart), the {% term automations %} or {% term scripts %} it passed through, and finally the entity's own change. Every step in that chain is clickable, opening the entity behind it or, for automations, its trace directly. Timestamps go down to the millisecond, so even events that landed in the same second keep their correct order.
 
 <img src='/images/blog/2026-09/activity-details.png' alt='Screenshot of the Activity details dialog for a light, showing the presence sensor and the automation that triggered its state change, with millisecond timestamps.' class='no-shadow' />
 
@@ -172,7 +154,7 @@ The [tile card](/dashboards/tile/) keeps gaining more ways to control an {% term
 
 <img src='/images/blog/2026-09/tile-card-feature-vacuum-fan-speed.png' alt='Screenshot of two vacuum tile cards with the Vacuum fan speed feature, each showing a fan speed selector.' class='no-shadow' />
 
-And the existing **Target humidity** feature, previously limited to humidifiers, now also works with **{% term Climate %}** entities that support humidity control, using the step size your device reports instead of a fixed one.
+And the existing **Target humidity** feature, previously limited to humidifiers, now also works with {% term Climate %} entities that support humidity control, using the step size your device reports instead of a fixed one.
 
 <img src='/images/blog/2026-09/tile-card-feature-humidity-target.png' alt='Screenshot of the target humidity feature on a tile card for a thermostat, with a humidity slider.' class='no-shadow' />
 
@@ -188,9 +170,7 @@ Thanks to [@JulianHock](https://github.com/JulianHock) for that one!
 
 ## Modernizing Modbus
 
-Modbus devices, like solar inverters, energy meters, and heat pumps, have long been supported in Home Assistant through the {% term YAML %}-based **[Modbus]** integration, where you hand-write a register map for your device yourself. That still works and isn't going anywhere, but it puts the burden of understanding a device's protocol on every user. This release lays the groundwork for a different way: integrations that already know a device's registers, so you pick your device in the UI, the same as any other integration.
-
-The piece that makes this possible is sharing a connection. A Modbus bus, whether it's a serial (RS-485) line or a TCP gateway, only lets one party talk at a time, so two integrations opening their own connection to the same bus used to fight over it. Now, an integration asks the **[Modbus]** integration for a unit, and two integrations asking with the same connection details share one connection behind the scenes, so their requests queue up instead of colliding. Nothing is configured or persisted separately: the shared connection exists only while something is actually using it. The integration setup wizard can also briefly hold a unit to probe a device before anything is actually configured.
+Modbus devices, like solar inverters, energy meters, and heat pumps, have long been supported in Home Assistant through the {% term YAML %}-based **[Modbus]** integration, where you hand-write a register map for your device yourself. That still works and isn't going anywhere, but it puts the burden of understanding a device's protocol on every user. This release lays the groundwork for a different way: integrations that already know how a device talks over Modbus, so you pick your device in the UI, the same as any other integration.
 
 The first integrations built this way are already here: **[Fronius]** gained optional Modbus TCP (SunSpec) support, adding per-string solar data — current, voltage, power, and lifetime energy for each MPP tracker — that its existing local HTTP API doesn't expose. It shares its connection with anything else talking to the same inverter, which matters in practice: some Fronius models only accept a handful of simultaneous Modbus sessions. **[Sofar Inverter Modbus]** and **[Flexit]** are built the same way.
 
@@ -200,8 +180,6 @@ Thanks to Paulus ([@balloob](https://github.com/balloob)) for pushing this forwa
 
 [Fronius]: /integrations/fronius/
 [Modbus]: /integrations/modbus/
-
-_(Paulus: this is a starting draft, feel free to expand or rewrite it however you like.)_
 
 ## Integrations
 
@@ -223,22 +201,22 @@ We welcome the following new integrations in this release:
 - **[Hot Spring]**, added by [@Moustachauve], launching at 🏆 platinum quality  
   Monitor and control a [Hot Spring](https://www.hotspring.com/) spa equipped with the HotSpring Connected Spa Kit 2 module, directly over your local network.
 
-- **ISEO Argo BLE**, added by [@FezVrasta]  
+- **[ISEO Argo BLE]**, added by [@FezVrasta]  
   Control an ISEO Argo Bluetooth smart lock, common on armored doors in Italy and Switzerland, syncing its access log into the Home Assistant logbook and managing its users through actions. Home Assistant appears to the lock as its own gateway, polling it locally over Bluetooth.
 
-- **LibreNMS**, added by [@mib1185]  
+- **[LibreNMS]**, added by [@mib1185]  
   Bring your [LibreNMS](https://www.librenms.org/) network monitoring instance into Home Assistant. This initial release adds a binary sensor for the online status of each monitored device, with alerts and more sensor data planned for later.
 
 - **[NexBlue]**, added by [@nexblue-maintainer]  
   Connect a NexBlue EV charger account to Home Assistant. It discovers the chargers on your account and provides read-only sensors for charging state, power, session and lifetime energy, and other electrical and diagnostic values. Charging controls are planned for a future release.
 
 - **[Ridder HortiMaX Pro]**, added by [@wildekek]  
-  Bring measurements from a [Ridder](https://www.ridder.com/) HortiMaX Pro greenhouse controller into Home Assistant, including temperatures, humidity, vent and screen positions, irrigation volumes, and energy use. The integration is read-only, so your growing decisions stay fully in the controller's hands.
+  Bring measurements from a [Ridder](https://www.ridder.com/) HortiMaX Pro greenhouse controller into Home Assistant, including temperatures, humidity, vent and screen positions, irrigation volumes, and energy use. The integration is read-only, so your growing decisions stay fully in the controller's hands. It's the same kind of controller running the greenhouses at [Amsterdam's Hortus Botanicus](https://www.dehortus.nl/en/), one of the oldest botanical gardens in the world, which we visited earlier Read [the full story](https://newsletter.openhomefoundation.org/the-walled-garden-thats-breaking-down-barriers/) in our newsletter.
 
 - **[Samsung TV via ExLink]**, added by [@balloob], launching at 🥈 silver quality  
   Control Samsung TVs through their RS-232 serial port, which Samsung markets as ExLink, using a serial cable, a USB-to-serial adapter, or an ESPHome-based serial proxy. Talking directly to the TV's serial port makes control fast and reliable, and it also works with TVs that lack smart features or a network connection.
 
-- **Silla Prism**, added by [@ebaschiera]  
+- **[Silla Prism]**, added by [@ebaschiera]  
   Monitor a [Silla Prism](https://www.silla.industries/) EV wallbox over its local MQTT API, with sensors for charging status, power, current, voltage, and session and lifetime energy. Setup only needs the MQTT topic your Silla app already shows you. Charging controls are planned for a future release.
 
 - **[Sofar Inverter Modbus]**, added by [@darkrain-nl]  
@@ -267,9 +245,12 @@ We welcome the following new integrations in this release:
 [Collection image]: /integrations/collection_image
 [Flow-it]: /integrations/flow_it
 [Hot Spring]: /integrations/hotspring
+[ISEO Argo BLE]: /integrations/iseo_argo_ble
+[LibreNMS]: /integrations/librenms
 [NexBlue]: /integrations/nexblue
 [Ridder HortiMaX Pro]: /integrations/hortimax
 [Samsung TV via ExLink]: /integrations/samsung_exlink
+[Silla Prism]: /integrations/silla_prism
 [Sofar Inverter Modbus]: /integrations/sofar
 [Specialized Turbo]: /integrations/specialized_turbo
 [Tonewinner]: /integrations/tonewinner
@@ -380,7 +361,6 @@ It is not just new {% term integrations %} that have been added; existing ones k
 [@PeterLinuxOSS]: https://github.com/PeterLinuxOSS
 [@Petro31]: https://github.com/Petro31
 [@petschni]: https://github.com/petschni
-[@piitaya]: https://github.com/piitaya
 [@raman325]: https://github.com/raman325
 [@starkillerOG]: https://github.com/starkillerOG
 [@svasek]: https://github.com/svasek
@@ -513,7 +493,7 @@ There is even more packed into this release. Here are some of the other changes 
 
 ## Golden hour, blue hour, and polar sun automations
 
-Rebuilding automations around the sun has been a slow-burn project, and this release wraps it up. [2026.7](/blog/2026/07/01/release-20267/) replaced the old, offset-heavy sun trigger with dedicated ones for sunrise, sunset, solar noon, solar midnight, dawn, dusk, and elevation changes, plus matching conditions like *is up*, *is night*, and *twilight*. [2026.8](/blog/2026/08/05/release-20268/) then added a time-based offset option to those triggers, the same way the calendar trigger already works, so you can fire an automation a set amount of time before or after a sun event.
+Rebuilding {% term automations %} around the sun has been a slow-burn project, and this release wraps it up. [2026.7](/blog/2026/07/01/release-20267/) replaced the old, offset-heavy sun {% term trigger %} with dedicated ones for sunrise, sunset, solar noon, solar midnight, dawn, dusk, and elevation changes, plus matching {% term conditions %} like *is up*, *is night*, and *twilight*. [2026.8](/blog/2026/08/05/release-20268/) then added a time-based offset option to those triggers, the same way the calendar trigger already works, so you can fire an automation a set amount of time before or after a sun event.
 
 This release adds the last of it to the **[Sun]** integration: four new conditions and eight matching triggers for *golden hour*, *blue hour*, *midnight sun*, and *polar night*. Golden hour and blue hour are the warm and cool light either side of sunrise and sunset, handy for automations that match your lighting to the mood outside, or close the blinds before direct sun hits a room. Each one can be limited to morning, evening, or either.
 
@@ -534,7 +514,7 @@ That changes this release. Tab into a chart and it becomes a real focus stop: th
 
 Here's the best part: as you move through a chart, Home Assistant also plays a short tone for each point, rising and falling with the data. You don't just hear the individual numbers, you hear the shape of the whole trend, like a little melody. 🎵 It plays for anyone navigating a chart by keyboard, not only people using a screen reader, since there is no reliable way to know who needs it, so it's on for everyone.
 
-_(We need a short video clip here that shows a chart being navigated by keyboard, with the sound on, since that's the part a screenshot can't capture.)_
+<lite-youtube videoid="ox2lxlqeYAo" videotitle="Home Assistant 2026.9: Accessible charts, navigated by keyboard and sound"></lite-youtube>
 
 This works on your line and bar charts, including the device breakdown on the **Energy** dashboard. A few more specialized ones, like timelines, sankey diagrams, and network graphs, aren't covered yet.
 
@@ -649,7 +629,7 @@ UniFi Protect 7.2.105 or newer is now required. On an older version, the integra
 
 {% details "Update" %}
 
-Installing an update, skipping an update, and clearing a skipped update now require an administrator account. These are configuration-level actions, so they are now restricted to admins, like other sensitive actions in Home Assistant.
+Installing an {% term update %}, skipping an update, and clearing a skipped update now require an administrator account. These are configuration-level actions, so they are now restricted to admins, like other sensitive actions in Home Assistant.
 
 {% term Automations %} are not affected, because they run without a user context. A {% term script %} runs in the context of the user who started it, so a script that installs or skips an update now fails when a non-admin user starts it. Trigger it from an automation instead, or start it as an admin.
 
@@ -685,6 +665,7 @@ The Z-Wave actions to manage lock users and credentials (`set_user`, `delete_use
 
 If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
 
+- [Configurator integration is now deprecated](https://developers.home-assistant.io/blog/2026/08/31/deprecate-configurator)
 - [Device registry WebSocket API changes](https://developers.home-assistant.io/blog/2026/08/19/device-registry-websocket-api-changes)
 - [More device registry deprecations, new helpers and validation](https://developers.home-assistant.io/blog/2026/08/24/device-registry-follow-up-changes)
 
