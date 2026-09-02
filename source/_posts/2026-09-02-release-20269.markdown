@@ -470,6 +470,7 @@ Time for a little cleaning, and no, we did not wait for spring! The following {%
 
 There is even more packed into this release. Here are some of the other changes worth a mention:
 
+- **Settings** gained a new **Connectivity** page that groups Matter, Zigbee, Z-Wave, KNX, MQTT, Thread, Bluetooth, Serial, Infrared, Radio frequency, Insteon, and Tags behind a single entry, instead of listing each one directly in the settings menu. Every existing link keeps working, and **Voice assistants** moved down to join it as the settings root's short second group. Thanks, [@balloob]!
 - **[Template]** got some more love this release. Thanks, [@Petro31]!
   - Custom attribute templates were added to alarm control panel, button, cover, device tracker, fan, image, light, lock, number, select, switch, update, and weather entities, alongside the binary sensor, event, sensor, and vacuum platforms that already supported them.
   - The `attributes` option is now fully templatable, cutting down on repeated Jinja2 templates.
@@ -524,7 +525,7 @@ Thanks to [@MindFreeze](https://github.com/MindFreeze) for bringing this to char
 
 ## Serial and MQTT panels
 
-Serial joins the other protocol panels under **Settings**, the same recognition [infrared](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant) and [radio frequency](/blog/2026/05/06/release-20265/#radio-frequency-joins-infrared-as-a-first-class-citizen) got over the last two releases. Once anything is using a serial port, whether that's a USB dongle like a Zigbee or {% term Thread %} radio, or an {% term app %} talking to one, the new **Serial** page lists it.
+Serial joins the other protocol panels under **Settings** \> **Connectivity**, the same recognition [infrared](/blog/2026/04/01/release-20264/#infrared-becoming-a-first-class-citizen-of-home-assistant) and [radio frequency](/blog/2026/05/06/release-20265/#radio-frequency-joins-infrared-as-a-first-class-citizen) got over the last two releases. Once anything is using a serial port, whether that's a USB dongle like a Zigbee or {% term Thread %} radio, or an {% term app %} talking to one, the new **Serial** page lists it.
 
 It splits what it finds into three groups: ports actually in use by an integration or app, ports that are connected but not used by anything, and ports something expects but that aren't currently plugged in. A status banner at the top gives you the numbers at a glance, so if a stick has come loose or an app lost its connection, you see it the moment you open the page instead of hunting through logs.
 
@@ -534,7 +535,7 @@ This rounds out the trio planned in [an Open Home Foundation roadmap opportunity
 
 Thanks to [@puddly](https://github.com/puddly), who built this end to end, panel and all!
 
-**[MQTT]** got a settings page of its own this release too, sitting right alongside **Serial** and **Bluetooth** in **Settings** instead of hiding its tools behind the integration's options. A status banner at the top shows whether the broker is online and how many devices it's found, with quick links to the devices and entities on your network. Discovery options and the broker connection settings each get their own row instead of sharing one options flow, and a new **Publish a packet** tool lets you send a test message, topic, QoS, and retain flag included, straight from the page, with a code editor for the payload. The topic subscribe view also now formats incoming messages as code, with a copy button. Thanks, [@jbouwh]!
+**[MQTT]** got a settings page of its own this release too, sitting right alongside **Serial** and **Bluetooth** in **Connectivity** instead of hiding its tools behind the integration's options. A status banner at the top shows whether the broker is online and how many devices it's found, with quick links to the devices and entities on your network. Discovery options and the broker connection settings each get their own row instead of sharing one options flow, and a new **Publish a packet** tool lets you send a test message, topic, QoS, and retain flag included, straight from the page, with a code editor for the payload. The topic subscribe view also now formats incoming messages as code, with a copy button. Thanks, [@jbouwh]!
 
 ## How full is your network storage?
 
