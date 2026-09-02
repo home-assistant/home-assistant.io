@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **BLUETTI Modbus** {% term integration %} connects Home Assistant to your BLUETTI power station over your own network, using the Modbus TCP interface built into the device. There is no account, no API key, and no cloud service involved, so your readings keep arriving in Home Assistant even when your internet connection or the BLUETTI cloud service is down.
+The **BLUETTI Modbus** {% term integration %} connects Home Assistant to your [BLUETTI](https://www.bluettipower.com/) power station over your own network, using the Modbus TCP interface built into the device. There is no account, no API key, and no cloud service involved, so your readings keep arriving in Home Assistant even when your internet connection or the BLUETTI cloud service is down.
 
 If you would rather use BLUETTI's cloud service, for example to control the device or to add a device that has no local Modbus interface, use the [BLUETTI](/integrations/bluetti/) integration instead. You can use both at the same time on the same device.
 
