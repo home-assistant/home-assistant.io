@@ -96,7 +96,7 @@ Your password is only used to sign in and re-authenticate, and it is never store
 ## Known limitations
 
 - Addresses on a dynamic (EPEX-based) tariff show up as a device, but their prices are not available yet. Support for dynamic prices is planned.
-- When no price period covers the current day, for example during a gap between contract periods, the sensors read `unknown` until the next period begins.
+- Price sensors appear only while a price period covers the current day. During a gap between contract periods, they become unavailable until a new price period starts.
 - If Home Assistant happens to restart at the exact moment the sign-in tokens are being renewed, you may be asked to sign in again.
 
 ## Troubleshooting
