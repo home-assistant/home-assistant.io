@@ -25,13 +25,16 @@ The **Ecowitt WS90** {% term integration %} reads a [Fine Offset / Ecowitt WS90]
 
 ## Configuration
 
-| Field | Description |
-| ----- | ----------- |
-| Host | The WS90's Modbus gateway hostname or IP address. |
-| Port | The Modbus TCP port of the gateway. |
-| Unit ID | The WS90's Modbus device address. The factory default is `0x90` (144). |
+{% configuration_basic %}
+Host:
+  description: The WS90's Modbus gateway hostname or IP address.
+Port:
+  description: The Modbus TCP port of the gateway. Defaults to `502`.
+Unit ID:
+  description: The WS90's Modbus device address. The factory default is `0x90` (144).
+{% endconfiguration_basic %}
 
-During setup, the integration connects to the given address and reads the device's identity register to confirm a WS90 answers there. Setup does not complete if it does not.
+During setup, the integration connects to the given address and reads the device's identity register to confirm that a WS90 answers there. Setup does not complete unless a WS90 responds.
 
 ## Supported functionality
 
