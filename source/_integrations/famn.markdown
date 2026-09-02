@@ -54,7 +54,7 @@ Completed items disappear from the entity once Famn confirms them. Re-opening a 
 
 ### Calendars
 
-Every calendar of the space becomes a calendar entity, including entity calendars Famn maintains for vehicles and properties. Recurring events are expanded by Famn itself — exceptions, moved occurrences, and cancelled dates are handled correctly. Calendars are read-only from Home Assistant; use [calendar triggers](/integrations/calendar/#automation) to automate on events.
+Every calendar of the space becomes a calendar entity, including entity calendars Famn maintains for vehicles and properties. Recurring events are expanded by Famn itself — exceptions, moved occurrences, and canceled dates are handled correctly. Calendars are read-only from Home Assistant; use [calendar triggers](/integrations/calendar/#automation) to automate on events.
 
 ### Sensors
 
