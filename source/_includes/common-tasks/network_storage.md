@@ -44,7 +44,7 @@ Usage:
 Server:
   description: The IP/hostname of the server running NFS/CIFS.
 "Type<sup>3</sup>":
-  description: The service the server is using for the network storage.
+  description: The type of network storage. Select NFS or CIFS.
 "[NFS]<sup>1</sup> Remote share path":
   description: The path used to connect to the remote storage server.
 "[CIFS]<sup>2</sup> Username":
@@ -104,7 +104,7 @@ The disk needs to be formatted already. These file systems are supported:
 - exFAT
 - NTFS
 - Btrfs
-- F2FS (requires Home Assistant OS 18.3 or later)
+- F2FS (requires {% term "Home Assistant Operating System" %} 18.3 or later)
 
 Home Assistant does not format disks for you. If your disk uses a different file system, format it on a computer first.
 
