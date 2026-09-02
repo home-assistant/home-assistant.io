@@ -29,7 +29,7 @@ Off time:
 
 ## YAML configuration
 
-Alternatively, this integration can be configured and set up manually via YAML. This has some additional functionality over the UI setup.
+Alternatively, this integration can be configured and set up manually via YAML.
 
 The time ranges can be provided as an absolute local time or by using the `sunrise` or `sunset` keyword, calculated based on the sun position for the location.
 
