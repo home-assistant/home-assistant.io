@@ -18,11 +18,11 @@ related:
     title: Configure access to files
 ---
 
-A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
+A view is a tab inside a dashboard. For example, the screenshot below shows one of the views of the user-created dashboard **Main controls**.
 
 <p class='img'>
-    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of a light view tab on the Overview dashboard'>
-    A lights view tab on the Overview dashboard
+    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of one of the view tabs of a user-created dashboard'>
+    One of the view tabs of a user-created dashboard
 </p>
 
 Views control the layout.
@@ -42,7 +42,7 @@ There are four different view types:
 ## Adding a view to a dashboard
 
 {% note %}
-You can't add views to the built-in **Overview**, **Activity**, **Climate**, **History**, **Maintenance**, **Energy**, **Security**, and **To-do lists** dashboards. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
+You can't add views to the built-in dashboards **Activity**, **Climate**, **History**, **Lights**, **Maintenance**, **Energy**, **Overview**, **Security**, and **To-do lists**. To create your own views, [create a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard), [add the cards you want](/dashboards/cards/#adding-cards-to-your-dashboard), and add a view.
 {% endnote %}
 
 1. To add a view to your dashboard, in the top right corner, select the pencil icon.
