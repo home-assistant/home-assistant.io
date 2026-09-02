@@ -103,7 +103,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Adding a new device to the Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
 3. Check if your device supports SmartStart:
@@ -151,7 +151,7 @@ Do this before using the device with another adapter, or when you don't use the 
 
 Do this when you have a device that is still paired with an adapter, but you don't have access to that adapter anymore. If the device was not excluded from that adapter, you cannot join it to a new network. This process removes the device from the previous adapter's network, allowing you to pair it with a new adapter.
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Select **Options**.
 3. Next to **Remove foreign device**, select **Remove** > **Start exclusion**.
 4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
@@ -193,7 +193,7 @@ There is no easy way to update that device.
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Under **Migrate adapter**, select **Migrate**.
 3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
@@ -332,7 +332,7 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 ### To backup your Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Under **Download backup**, select **Download**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 3. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
@@ -348,7 +348,7 @@ You can restore your Z-Wave network from a backup.
 
 ### Restoring a Z-Wave network from backup
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Under **Restore from backup**, select **Restore**.
    - Select the backup you want to restore from.
    - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
@@ -375,7 +375,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 
 ### To update firmware of a Z-Wave device
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Select **Devices**.
    - Then select the device you want to update.
 3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Update**.

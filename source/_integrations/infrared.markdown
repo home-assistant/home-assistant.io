@@ -63,7 +63,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
 
 You can see all your infrared remote adapters in one place from the **Infrared** configuration panel.
 
-1. Go to {% my config_infrared title="**Settings** > **Connectivity** > **Infrared**" %}.
+1. Go to {% my config_infrared title="**Settings** > **Infrared**" %}.
    - At the top, a status summary shows how many of your infrared remote adapters are currently online.
 2. Select **Devices** to open the list of infrared remote adapters. For each one, you can see:
    - The name of the adapter.
