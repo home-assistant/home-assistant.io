@@ -227,7 +227,7 @@ To add or remove a dashboard from the sidebar:
 
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. On the right of the listed dashboard you want to add or remove, select the **Overflow menu** {% icon "mdi:dots-vertical" %} and then **Edit**.
-3. In the dashboard editing dialog, next to **Add to sidebar**, toggle the setting on or off.
+3. In the dashboard editing dialog, next to **Add to sidebar**, turn the setting on or off.
 4. Select **Update**.
 
 ## Reorganizing items in the sidebar
