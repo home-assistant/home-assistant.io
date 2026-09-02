@@ -50,6 +50,12 @@ The **Xbox integration** allows tracking the online status, activity, and other 
 
 Once added, a new device will appear with the same set of entities available for your own Xbox account, allowing you to track your friend’s activity.
 
+## Track game progress
+
+The **Xbox integration** can also expose detailed information about games you play, including progress, achievements, and other game related data. To add a game, go to {% my integration domain="xbox" title="**Settings** > **Devices & services** > **Xbox**" %} and select **{% icon "mdi:plus" %} Add game title**.
+
+After adding a title, a dedicated device is created with various game-specific [sensors](#game-sensors)
+
 ## Supported devices
 
 - Xbox One (S/X)
@@ -400,6 +406,23 @@ These sensors track the storage on your own **Xbox consoles** and connected stor
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
+### Game sensors
+
+| Entity Name               | Description                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| **Earned achievements**   | Number of achievements you have unlocked for this game.                           |
+| **Earned Gamerscore**     | Total Gamerscore earned from unlocked achievements in this game.                  |
+| **Total achievements**    | Total number of achievements available in the game.                               |
+| **Total Gamerscore**      | Maximum Gamerscore that can be earned for the game.                               |
+| **Last time played**      | When the game was last played on your Xbox account.                               |
+| **Progress**              | Overall completion percentage based on unlocked achievements.                     |
+| **Title**                 | Full title of the game. The attributes include description and short description. |
+| **Developer**             | Studio that developed the game.                                                   |
+| **Publisher**             | Company that published the game.                                                  |
+| **Release date**          | Original release date of the game.                                                |
+| **Genres**                | One or more genres the game belongs to.                                           |
+| **Minimum age**           | Recommended minimum player age based on age ratings.                              |
+
 ## Image
 
 For your account and each of your friends, several image entities are available:
@@ -447,7 +470,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Data updates
 
-This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
+This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds. Game title data is updated every 10 minutes.
 
 ## Known limitations
 
