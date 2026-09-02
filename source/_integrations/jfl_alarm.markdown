@@ -31,11 +31,11 @@ Other Active-series panels described in JFL's own protocol documentation are imp
 
 The panel has to be programmed to report to Home Assistant before the integration can see it:
 
-1. In the panel's own programming (via its keypad, or JFL's configuration software), set a **free** reporting destination to this machine's IP address and a TCP port of your choosing.
+1. In the panel's own programming (via its keypad or JFL's configuration software), set a **free** reporting destination to the IP address of the machine running Home Assistant and a TCP port of your choosing.
 2. If the panel already reports to a monitoring company, use a different slot for Home Assistant and enable dual reporting so the existing connection keeps working.
-3. Make sure the chosen port is reachable from the panel — from the same network, or forwarded if the panel is elsewhere.
+3. Make sure the chosen port is reachable from the panel. Keeping the panel on the same local network as Home Assistant is strongly recommended. If the panel is at another location, connect the two networks with a VPN rather than forwarding the port on your router: the listener is unauthenticated, so exposing it directly to the internet is not safe.
 
-Nothing else needs to be prepared: model, partitions and everything about the panel's configuration is detected automatically once it connects.
+Nothing else needs to be prepared: model, partitions, and everything about the panel's configuration is detected automatically once it connects.
 
 {% include integrations/config_flow.md %}
 
@@ -56,7 +56,7 @@ Code to arm and disarm (optional):
 Also ask for the code when arming:
     description: "By default the code is only asked for when disarming. Turn this on to also require it when arming."
 Read-only mode:
-    description: "While on, the integration only observes the panel and never sends it a command. Status is still requested, because the panel only reports its state when asked."
+    description: "While on, the integration does not send arm or disarm commands to the panel; it only observes. It still requests status updates, because the panel only reports its state when asked."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -65,7 +65,7 @@ This integration provides one {% term entity %} per partition:
 
 ### Alarm Control Panel
 
-An {% term entity %} for each partition programmed on the panel, supporting **arm home**, **arm away** and **disarm**. State is read from the panel's own status reports; nothing is assumed or optimistically set ahead of the panel confirming it.
+An {% term entity %} for each partition programmed on the panel, supporting arm home, arm away, and disarm. State is read from the panel's own status reports; nothing is assumed or optimistically set ahead of the panel confirming it.
 
 A partition that has not been named in the panel's own programming is labeled by its number; the integration reads real zone and partition names directly from the panel and uses them once they are available.
 
