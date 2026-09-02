@@ -24,6 +24,11 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Device password:
+    description: "Optional. The password configured on your CCM15 controller's settings page (factory default `123456`). Only needed if your firmware enforces it on control commands; status polling stays unauthenticated. If the controller starts rejecting commands later, Home Assistant prompts you to re-enter it through the reauthentication flow."
+{% endconfiguration_basic %}
+
 ## Climate
 
 Each data controller can support up to 64 `climate` devices.
