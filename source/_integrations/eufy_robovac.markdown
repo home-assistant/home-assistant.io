@@ -21,7 +21,15 @@ Your Eufy account credentials are used during setup to discover the vacuum and r
 
 ## Supported devices
 
-The integration supports the Eufy RoboVac G30 Hybrid (`T2253`). Other Eufy RoboVac models are not supported.
+The integration supports the following device:
+
+- Eufy RoboVac G30 Hybrid (`T2253`)
+
+## Unsupported devices
+
+The following devices are not supported:
+
+- All other Eufy RoboVac models
 
 ## Prerequisites
 
@@ -58,7 +66,13 @@ The vacuum entity reports its current activity and supports the following contro
 
 ## Eufy RoboVac automation examples
 
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Start weekday vacuum cleaning
+
 To start cleaning at 09:00 every weekday, use an automation such as this:
+
+{% details "YAML example for starting weekday vacuum cleaning" %}
 
 ```yaml
 automation:
@@ -79,6 +93,8 @@ automation:
         target:
           entity_id: vacuum.hall_vacuum
 ```
+
+{% enddetails %}
 
 Replace `vacuum.hall_vacuum` with your vacuum entity ID.
 
