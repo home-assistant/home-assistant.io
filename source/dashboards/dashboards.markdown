@@ -219,6 +219,17 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
+## Adding or removing a dashboard from the sidebar
+
+Except for the built-in **Overview**, any dashboard that is listed in {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} can be added to or removed from the vertical bar on the left side of Home Assistant UI at any time. This is different from [reordering or hiding items that are already in the sidebar](#reorganizing-items-in-the-sidebar).
+
+To add or remove a dashboard from the sidebar:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. On the right of the listed dashboard you want to add or remove, select the **Overflow menu** {% icon "mdi:dots-vertical" %} and then **Edit**.
+3. In the dashboard editing dialog, next to **Add to sidebar**, toggle the setting on or off.
+4. Select **Update**.
+
 ## Reorganizing items in the sidebar
 
 You can define which elements are shown in the sidebar and the order in which they appear.
