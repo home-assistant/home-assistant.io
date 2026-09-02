@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: iseo_argo_ble
 ha_platforms:
   - lock
+  - switch
 ha_bluetooth: true
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -36,17 +37,34 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 1. As soon as you add the integration to Home Assistant, Home Assistant scans for nearby ISEO locks and presents them in a list.
 2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 3. From the list, select the lock you want to set up.
-4. Select **Submit** and within 30 seconds, scan the Master Card on the lock to authorize Home Assistant. 
+4. Decide whether to leave **Enable user management** turned on.
+5. Select **Submit** and within 30 seconds, scan the Master Card on the lock to authorize Home Assistant.
    - **Result**: The lock's LED will blink green when the card is successfully read.
+
+{% configuration_basic %}
+Enable user management:
+  description: "Register a second, administrator identity for Home Assistant, so it can list the people enrolled on your lock and turn each of them on or off. Both identities have to be registered during the same Master Card scan, so this can only be turned on while you set the lock up. Defaults to on."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
 - **Lock**: Controls the lock (unlock only). Reflects the current locked/unlocked state.
+- **Switches**: One switch per credential enrolled on the lock, such as a card, a PIN, or a phone. Turning a switch off suspends that credential: it stays on the lock but no longer opens the door. Turning it back on restores it. These switches are only created if you enabled user management during setup.
+
+The credential type is part of each switch's name, because one person often holds several and the lock allows them to share a name. The two identities Home Assistant registered for itself do not get switches, so you cannot lock yourself out of your own lock.
+
+## Data updates
+
+Home Assistant reads the list of enrolled credentials once, while it sets the lock up. It is not read again on a timer, because repeatedly running administrator commands over Bluetooth eventually stops recent ISEO firmware from responding at all. After you turn a switch on or off, Home Assistant applies that change to the list it already holds rather than reading it again.
+
+To pick up credentials that were added or removed in the Argo app, reload the integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select the lock, and select **Reload** from the three-dot menu.
 
 ## Known limitations
 
 - The lock only supports _one active Bluetooth connection_ at a time. Close the Argo app on all phones before unlocking or during setup.
 - The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore not supported.
+- User management can only be turned on while you set the lock up, because the administrator identity has to be registered during the Master Card scan. If you set your lock up without it, delete the integration and add it again.
+- Credentials added or removed in the Argo app appear after you reload the integration, not straight away.
 
 ## Removing the integration
 
