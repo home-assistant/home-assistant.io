@@ -134,10 +134,14 @@ Leave the data format setting (**float** or **int + SF**) as it is. The integrat
 
 These entities are added per inverter and updated every minute:
 
-- `MPPT <n> DC power` and `MPPT <n> DC energy` for each MPP tracker.
+- `MPPT <n> DC power` and `MPPT <n> energy` for each MPP tracker.
 - `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
-- `PV energy total`: lifetime energy from the photovoltaic strings only, measured on the DC side.
+- `PV energy total`: lifetime energy from the photovoltaic strings only. Whether this is a DC measurement depends on the device, see below.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
+
+`MPPT <n> DC power` is a DC measurement on every device tested, and matches `MPPT <n> DC current` times `MPPT <n> DC voltage`.
+
+`MPPT <n> energy` is not consistent between devices, which is why its name does not claim a side. A Gen24 reports the lifetime energy of each string, which is a DC value and therefore a few percent above `Total energy`, the AC counter. A SnapINverter reports the same value as `Total energy` instead, so `PV energy total` matches it exactly rather than adding anything. Comparing the two entities on your own system shows which the inverter provides.
 
 ### Controlling the inverter over Modbus
 
@@ -214,9 +218,9 @@ Recommended [energy dashboard](/docs/energy/) configuration:
 - For _"Devices"_ use the Ohmpilots `Energy consumed` entity.
 
 {% important %}
-The [Modbus TCP](#modbus-tcp) energy values are measured on the DC side, at the MPP trackers.
+For _"Solar production"_, prefer the inverter's `Energy total`. That is the AC energy you can use or sell.
 
-`PV energy total` is the energy the panels delivered, before inverter conversion losses, so it reads higher than the inverter's `Energy total`, which is the AC energy actually fed out. For _"Solar production"_, prefer the AC value. That is the energy you can use or sell.
+Where the device reports per-string energy, `PV energy total` is what the panels delivered before inverter conversion losses, so it reads a few percent higher. Where it does not, it is the same value as `Energy total` and adds nothing. Either way, the AC value is the one to use.
 
 `Battery charging energy total` and `Battery discharging energy total` are DC values measured at the battery. They are counters read from the device rather than values integrated over time, so they don't drift and are unaffected by Home Assistant restarts. For the same reason, they don't exactly match a Riemann sum of `SolarNet Power battery charge` and `SolarNet Power battery discharge`.
 {% endimportant %}
