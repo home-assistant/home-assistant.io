@@ -19,7 +19,7 @@ related:
     title: Aqvify web
   - url: https://app.aqvify.com/
     title: Aqvify user account
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 The **Aqvify** {% term integration %} allows users to integrate their [Aqvify](https://www.aqvify.com) water well and tank sensors using the [official public API](https://public.aqvify.com/swagger/index.html).
 

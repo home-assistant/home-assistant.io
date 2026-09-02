@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ha_codeowners:
   - '@Herbertmt978'
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location and speed of vehicles that have been shared through a public ScorpionTrack shared-location link.
