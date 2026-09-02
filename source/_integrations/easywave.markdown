@@ -19,9 +19,10 @@ The **Easywave** {% term integration %} connects your Easywave home automation d
 
 Easywave is a wireless protocol operating on the European 868 MHz ISM band. It is widely used for home automation devices such as blinds, shutters, lights, and switches. This integration supports the **RX11 USB Transceiver** and enables you to:
 
-- **Receive input from transmitters** such as wall switches and hand-held remotes (1–4 buttons)
-- **Receive sensor data** from Easywave neo wireless sensors (temperature and humidity)
-- **Monitor the gateway** with a diagnostic connection status sensor
+- Receive button presses from wall switches and hand-held remotes
+- Read temperature and humidity from Easywave neo wireless sensors
+- Trigger automations when a remote button is pressed or released, or when the USB gateway connects or disconnects
+- Monitor the gateway connection status
 
 ## Supported devices
 
@@ -36,16 +37,24 @@ Before setting up the integration, make sure the following requirements are met:
 - An RX11 USB transceiver is physically connected to your Home Assistant host.
 - The device is recognized by the operating system and appears as a serial port (typically `/dev/ttyACM0` or similar).
 - If you are running Home Assistant Operating System or a supervised installation, USB devices are passed through automatically. For container-based installations, ensure the serial device is mapped into the container.
+- Your Home Assistant **Country** setting is a region where the 868 MHz band is permitted. Check this under {% my general title="**Settings** > **System** > **General**" %}.
 
 {% include integrations/config_flow.md %}
 
 During setup, Home Assistant scans for connected RX11 USB devices. If a single device is found, you will be taken directly to the confirmation step. If multiple devices are found, you will be asked to select which one to use.
+
+Only one Easywave gateway can be configured at a time.
 
 ### USB discovery
 
 The RX11 USB transceiver is automatically discovered when plugged in. Home Assistant will display a notification offering to set up the Easywave integration. Accepting the notification will guide you through the setup process.
 
 If you prefer to set up the integration manually, go to {% my integrations title="**Settings** > **Devices & services**" %} and add the **Easywave** integration.
+
+{% configuration_basic %}
+USB device path:
+  description: "The serial port of the RX11 USB Transceiver. Home Assistant lists the ports it finds during setup."
+{% endconfiguration_basic %}
 
 ## Adding devices
 
@@ -56,38 +65,22 @@ After the RX11 gateway is set up, you can add transmitters and Easywave neo sens
 3. Open the three dots {% icon "mdi:dots-vertical" %} menu and choose **Add Easywave transmitter** or **Add Easywave neo sensor**.
 4. Follow the on-screen steps to learn the device.
 
-The RX11 transceiver must be connected while you add a device.
+The RX11 transceiver must be connected while you add a device. Only one learning session can run at a time. If another learning session is already in progress, wait until it finishes and try again.
 
-## Automations
+## Supported functionality
 
-### Using transmitters as triggers
+### Transmitters
 
-Each transmitter exposes a **State** sensor that reports which button was pressed most recently. The transmitter device also appears as **device triggers** in the automations editor, so you can start an automation when a button is pressed or released without writing YAML.
+Easywave transmitters are input devices (remotes, wall switches) whose button presses are received by the RX11. When adding a transmitter, choose how many buttons the device has (1–4), then press a button on the physical device when prompted. The integration learns the transmitter's serial number automatically.
 
-Available transmitter device triggers:
+Each transmitter creates these sensor entities:
 
-- **Button pressed (Button A)**, **Button B**, **Button C**, or **Button D**
-- **Button released** when the button is released
-- **Battery OK** and **Battery low**
-
-You can also use the **State** sensor directly as a state trigger in automations.
-
-### Gateway triggers
-
-The RX11 gateway device exposes **Gateway connected** and **Gateway disconnected** device triggers, which are useful for notifications when the USB transceiver is unplugged or reconnected.
-
-## Transmitters
-
-Easywave transmitters are input devices (remotes, wall switches) whose button presses are received and forwarded by the RX11. When adding a transmitter, choose how many buttons the device has (1–4), then press a button on the physical device when prompted. The integration learns the transmitter's serial number automatically.
-
-Each transmitter creates two sensor entities:
-
-- **State** — an enum sensor that reports the most recently pressed button (`Button A`, `Button B`, `Button C`, `Button D`, or `Not pressed` when the button is released)
+- **State** — reports the most recently pressed button (`Button A`, `Button B`, `Button C`, `Button D`, or `Not pressed` when the button is released)
 - **Battery** — a diagnostic sensor that reports `OK` or `Low`
 
-The **State** sensor value is restored across restarts, so the last known button state remains visible after a reboot.
+The **State** and **Battery** values are restored across restarts.
 
-## Easywave neo sensors
+### Easywave neo sensors
 
 Easywave neo wireless sensors transmit temperature and humidity data via RF. When adding a sensor, press the learn button on the physical sensor when prompted. Home Assistant automatically detects which measurements the sensor provides and creates the matching entities:
 
@@ -96,37 +89,93 @@ Easywave neo wireless sensors transmit temperature and humidity data via RF. Whe
 
 Measurement values are restored across restarts.
 
-## Gateway sensor
+### Gateway
 
-A **Connection status** diagnostic sensor is always created for the RX11 gateway.
+A **Connection status** diagnostic sensor is always created for the RX11 gateway:
 
 - `Connected` — the transceiver is connected and operational
 - `Disconnected` — the transceiver is not found or offline
 
 The sensor also exposes the `device_path` attribute, which shows the current system path of the USB device. This path may change after a reconnect (for example, from `/dev/ttyACM0` to `/dev/ttyACM1`).
 
-### Automatic reconnection
+The gateway device in Home Assistant also shows the hardware and firmware versions reported by the transceiver.
 
-The integration monitors the USB connection and automatically detects when the transceiver is disconnected or reconnected. When the device goes offline, transmitter and sensor entities become unavailable and the gateway sensor changes to `Disconnected`. The integration will periodically attempt to reconnect and restore normal operation without user intervention.
+#### Automatic reconnection
 
-## Regulatory compliance
+The integration monitors the USB connection and automatically detects when the transceiver is disconnected or reconnected. When the device goes offline, transmitter and sensor entities become unavailable and the gateway sensor changes to `Disconnected`. The integration periodically attempts to reconnect.
 
-Easywave operates on the **868 MHz ISM band**, which is permitted in the following regions:
+If you replace the RX11 with another compatible stick and only one Easywave transceiver is connected, Home Assistant reconnects to that stick without requiring a new setup.
 
-- All EU/EEA member states
-- United Kingdom
-- Switzerland
-- Norway, Iceland, and Liechtenstein
-- Other CEPT member states
+{% include integrations/triggers.md %}
 
-If your configured Home Assistant country is outside the permitted region for the 868 MHz band, the integration will not start and a **repair issue** will be created in your Home Assistant dashboard explaining the restriction.
+## Easywave automation examples
 
-To verify or change your country setting, go to {% my general title="**Settings** > **System** > **General**" %} and check the **Country** field.
+Use these examples as a starting point for remotes and gateway monitoring.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn on a light when Button A is pressed
+
+When someone presses Button A on an Easywave wall switch, turn on the living room light.
+
+- **Trigger**: Button A pressed
+  - **Target**: Living room wall switch state sensor
+- **Action**: Turn on light
+  - **Target**: Living room light
+
+{% details "YAML example for turning on a light from Button A" %}
+
+{% example %}
+automation: |
+  alias: "Turn on living room light from Easywave Button A"
+  triggers:
+    - trigger: easywave.button_press_a
+      target:
+        entity_id: sensor.living_room_wall_switch_state
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.living_room
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: notify when the RX11 disconnects
+
+Send a notification if the USB transceiver is unplugged or goes offline.
+
+- **Trigger**: Gateway disconnected
+  - **Target**: RX11 connection status sensor
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a gateway disconnect notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when Easywave gateway disconnects"
+  triggers:
+    - trigger: easywave.gateway_disconnected
+      target:
+        entity_id: sensor.rx11_usb_transceiver_connection_status
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The Easywave RX11 USB transceiver is disconnected."
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+Easywave uses local push. The RX11 delivers RF telegrams as they arrive, and Home Assistant updates transmitter and neo sensor entities immediately. The gateway connection status is checked periodically (about every 30 seconds) so a disconnected stick can be rediscovered without user intervention.
 
 ## Known limitations
 
 - Receivers are not yet supported. Classic Easywave receivers and Easywave neo receivers are planned for a future release.
-- Transmitters are supported in group mode with impulse switching only. Individual per-button entities and type-2/type-3 transmitter modes are planned for a future release.
+- Transmitters are supported in group mode with impulse switching only. Individual per-button entities and other transmitter operating types are planned for a future release.
 - Only one RX11 USB transceiver can be configured at a time.
 
 ## Troubleshooting
@@ -141,12 +190,21 @@ To verify or change your country setting, go to {% my general title="**Settings*
 ### The sensor shows "Disconnected" after setup
 
 - The transceiver may have been physically disconnected. Reconnect it and wait for the automatic reconnection (up to 30 seconds).
+- If you replaced the stick, make sure only one compatible RX11 is connected so Home Assistant can adopt it automatically.
 - Check your system logs for USB-related errors.
 
 ### Repair issue: frequency not permitted
 
-- This occurs when your Home Assistant country setting does not match a region where 868 MHz operation is allowed.
+- This occurs when your Home Assistant country setting does not match a region where 868 MHz operation is allowed (CEPT member states).
 - Go to {% my general title="**Settings** > **System** > **General**" %} and verify that the correct country is selected.
+- After correcting the country, reload the Easywave integration or restart Home Assistant.
+- If the country setting is already correct, disconnect the RX11 and remove the integration.
+
+### Learning times out or says another session is in progress
+
+- Move the transmitter or sensor closer to the RX11 and try again.
+- Wait until any other learning session finishes, then start a new one.
+- Confirm that the gateway **Connection status** sensor shows `Connected`.
 
 ## Removing the integration
 
