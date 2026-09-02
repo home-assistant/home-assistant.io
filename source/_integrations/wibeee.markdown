@@ -60,7 +60,8 @@ The following sensors are enabled by default:
 - **Inductive reactive power**: Inductive reactive power.
 - **Frequency**: Grid frequency.
 - **Power factor**: Power factor.
-- **Active energy**: Total active energy consumed. You can use this sensor in the energy dashboard.
+- **Active energy**: Total active energy consumed, on devices whose firmware reports a single energy counter. You can use this sensor in the energy dashboard.
+- **Consumed active energy** and **Produced active energy**: Created instead of **Active energy** on devices with newer firmware that reports separate consumption and production counters. Use the consumed sensor in the energy dashboard, and the produced one if your installation exports energy.
 - **Inductive reactive energy**: Total inductive reactive energy.
 
 The following sensors are disabled by default. You can enable them from the entity settings if you need them:
@@ -114,6 +115,10 @@ template:
 ```
 
 {% endraw %}
+
+{% note %}
+On devices with newer firmware, the energy entity is named `sensor.wibeee_xxxx_l1_consumed_active_energy` instead of `sensor.wibeee_xxxx_l1_active_energy`.
+{% endnote %}
 
 ## Known limitations
 
