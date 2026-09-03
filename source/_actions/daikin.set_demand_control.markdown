@@ -16,10 +16,9 @@ To set a demand control from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Daikin {% term device %} you want to target.
-6. From the actions shown for that target, select **Set demand control**.
-7. Set the **Demand control** parameters you want to apply.
-8. Select **Save**.
+5. Under **By type**, select the **Set demand control** {% term action %}.
+6. Set the **Demand control** parameters you want to apply.
+7. Select **Save**.
 
 ### Options in the UI
 
@@ -34,7 +33,7 @@ Maximum power:
   description: Maximum power as a percentage of the unit's nominal power (40-100). Required when enabling the demand control with mode `Manual`.
   required: false
 Mode:
-  description: "Demand control mode: `Manual`, `Scheduled`, `Auto`. Defaults to `Manual`."
+  description: "Demand control mode: `Manual`, `Auto`. Defaults to `Manual`."
   required: false
 {% endoptions_ui %}
 
@@ -69,7 +68,7 @@ max_pow:
   type: integer
   required: false
 mode:
-  description: "Demand control mode: `manual`, `scheduled`, `auto`. Defaults to `manual`."
+  description: "Demand control mode: `manual`, `auto`. Defaults to `manual`."
   type: string
   required: false
 
@@ -80,7 +79,6 @@ mode:
 - this action works with Daikin climate device
 - if multiple indoor units are connected to an outdoor unit, the outdoor unit automatically selects the least restrictive demand setting. For example, if one indoor unit is set to an 80% capacity limit and the other to a 50% capacity limit, the outdoor unit will operate at a maximum capacity of 80%.
 - `max_pow` is only applied in manual mode (`mode: manual`).
-- `mode: scheduled` applies the previously configured schedule and requires a schedule to have been set first (for example with the ONECTA app or the WLAN API).
 
 {% include actions/try_it.md %}
 
@@ -100,28 +98,28 @@ mode:
 automation: |
   - alias: "Limit maximum AC power during high-rate periods"
     triggers:
-    - trigger: state
-        entity_id: binary_sensor.electricity_high_rate
-        to:
-        - "on"
-        - "off"
+      - trigger: state
+          entity_id: binary_sensor.electricity_high_rate
+          to:
+          - "on"
+          - "off"
     actions:
-    - if:
-        - condition: state
-        entity_id: binary_sensor.electricity_high_rate
-        state:
-        - 'on'
-        then:
-        - action: daikin.set_demand_control
-            data:
-            device_id: "17159993ce512ff1794b6c1abc6f3df3"
-            en_demand: true
-            max_pow: 40
-        else:
-        - action: daikin.set_demand_control
-            data:
-            device_id: "17159993ce512ff1794b6c1abc6f3df3"
-            en_demand: false
+      - if:
+          - condition: state
+            entity_id: binary_sensor.electricity_high_rate
+            state:
+            - 'on'
+            then:
+            - action: daikin.set_demand_control
+                data:
+                device_id: "17159993ce512ff1794b6c1abc6f3df3"
+                en_demand: true
+                max_pow: 40
+            else:
+            - action: daikin.set_demand_control
+                data:
+                device_id: "17159993ce512ff1794b6c1abc6f3df3"
+                en_demand: false
 {% endexample %}
 
 {% enddetails %}
