@@ -295,5 +295,5 @@ H8840,
 H8841
 
 {% note %}
-Some scenes may not be supported from all devices. If you find a scene that's not working with a specific model, please open an issue at the [underling library](https://github.com/Galorhallen/govee-local-api/issues)
+Some scenes may not be supported from all devices. If you find a scene that's not working with a specific model, please open an issue at the [underlying library](https://github.com/Galorhallen/govee-local-api/issues)
 {% endnote %}
