@@ -13,6 +13,7 @@ ha_domain: gatus
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_quality_scale: silver
 ---
@@ -34,6 +35,12 @@ You need the base URL of your Gatus instance, for example `http://gatus.local:80
 {% configuration_basic %}
 URL:
   description: "The full base URL of your Gatus status page instance, including the protocol and port. For example: `http://gatus.local:8080` or `https://status.example.com`."
+Username:
+  description: "Optional username for HTTP Basic Authentication."
+Password:
+  description: "Optional password for HTTP Basic Authentication."
+API token:
+  description: "Optional API token (Bearer token) for authentication."
 {% endconfiguration_basic %}
 
 ### Supported versions
@@ -54,6 +61,7 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
+- **Certificate expiration**: Reports the remaining SSL certificate validity in days of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 - **Last event**: Reports the most recent status event from Gatus (`healthy`, `unhealthy`, `start`, or `resolved`).
@@ -152,7 +160,6 @@ Newly configured endpoints are automatically discovered and added as new binary 
 ## Known limitations
 
 - The integration shows the result of the most recent health check. Historical results stored by Gatus are not available as entities.
-- The integration currently does not support authenticated instances.
 
 ## Troubleshooting
 
@@ -184,4 +191,3 @@ The diagnostic data contains the status of all Gatus endpoints monitored by the 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-

@@ -12,10 +12,12 @@ ha_codeowners:
 ha_domain: nobo_hub
 ha_platforms:
   - climate
+  - diagnostics
   - select
   - sensor
+  - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_dhcp: true
 related:
   - docs: /docs/organizing/areas/#creating-an-area
@@ -102,7 +104,7 @@ Override type:
 
 ## Supported functionality
 
-The integration creates entities for every zone in the hub, a global override selector for the hub itself, and a temperature sensor for every Nobø Switch and thermostat that reports a temperature.
+The integration creates entities for every zone in the hub, a global override selector for the hub itself, and a temperature sensor for every Nobø Switch and thermostat that reports a temperature. Each zone also gets a switch to exclude it from the global override.
 
 ### Climate entities
 
@@ -125,11 +127,15 @@ The HVAC mode and preset are linked, so a change to one updates the other:
 ### Select entities
 
 - **Week profile**: Per zone. Lets you change which week profile is active. Week profiles must be created and edited in the Nobø Energy mobile app. The selector lists the profiles the hub currently knows about.
-- **Global override**: One per hub. Overrides every zone (except zones that are configured in the Nobø Energy app to ignore the global override) to the selected preset. The available options are **None**, **Away**, **Eco**, and **Comfort**. The global override uses the same override type as preset changes.
+- **Global override**: One per hub. Overrides every zone to the selected preset, except zones that have **Disable global overrides** turned on. The available options are **None**, **Away**, **Eco**, and **Comfort**. The global override uses the same override type as preset changes.
 
 ### Sensor entities
 
 - **Temperature**: One per device that reports a temperature, such as a Nobø Switch (SW4) or a thermostat with a temperature sensor. The reading is in degrees Celsius. If the device is linked to a zone, the same temperature is also shown as the current temperature on that zone's climate entity.
+
+### Switch entities
+
+- **Disable global overrides**: Per zone. This configuration entity controls whether the zone reacts to the hub's **Global override** selector. When turned on, the zone ignores the global override and keeps following its own week profile and presets; when off, the zone follows the global override. This mirrors the **Disable global overrides** setting for the zone in the Nobø Energy mobile app.
 
 ## Examples
 
