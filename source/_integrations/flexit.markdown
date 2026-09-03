@@ -47,7 +47,7 @@ Home Assistant can share a Modbus connection between integrations when their con
 
 ## Migrating from YAML configuration
 
-If you previously configured this integration through `configuration.yaml`, it can't be imported automatically. The Modbus connection details used to live in a separate `modbus:` section, which isn't accessible from the `climate` platform configuration.
+If you previously configured this integration through {% term "configuration.yaml" %}, it can't be imported automatically. The Modbus connection details used to live in a separate `modbus:` section, which isn't accessible from the `climate` platform configuration.
 
 1. Remove the `flexit` entry under `climate:` from your `configuration.yaml` file.
 2. Set up the integration again from the Home Assistant UI, providing the Modbus connection details and unit ID of your Flexit unit.
