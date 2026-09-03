@@ -3,9 +3,8 @@ title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
   - Camera
-  - Sensor
 ha_release: 2026.9
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@TN-1'
@@ -13,7 +12,6 @@ ha_domain: indi_allsky
 ha_integration_type: service
 ha_platforms:
   - camera
-  - sensor
 ha_quality_scale: bronze
 ---
 
@@ -44,24 +42,9 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 - **Camera**: Provides the latest image from your INDI Allsky server.
 
-### Sensors
-
-- **Exposure time**: Exposure duration of the latest capture in seconds.
-- **Sky quality**: Sky quality meter (SQM) measurement for sky darkness.
-- **Stars**: Count of detected stars in the latest exposure.
-- **Temperature**: Camera / sensor temperature reading in °C.
-
-#### Diagnostic sensors
-
-The following sensors are disabled by default and can be enabled via the {% term entity %} settings:
-
-- **Bin mode**: Sensor pixel binning mode.
-- **Filename**: Filename of the captured image.
-- **Gain**: Camera sensor gain setting.
-
 ## Data updates
 
-The integration maintains a WebSocket connection to the INDI Allsky web server to receive real-time exposure completion pushes. Live camera images are fetched on-demand when requested by Home Assistant.
+The camera entity fetches the latest image on-demand from the INDI Allsky server whenever requested by Home Assistant.
 
 ## Removing the integration
 
