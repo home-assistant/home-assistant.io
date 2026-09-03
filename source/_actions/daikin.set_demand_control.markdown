@@ -33,7 +33,7 @@ Maximum power:
   description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100.
   required: false
 Mode:
-  description: "Demand control mode: `Manual`, `Auto`. Defaults to `Manual`."
+  description: "Demand control mode: `Manual`, `Auto`. Defaults to `Manual`. In `Auto` mode, the unit manages the limit and Maximum power is not applied"
   required: false
 {% endoptions_ui %}
 
@@ -68,7 +68,7 @@ max_pow:
   type: integer
   required: false
 mode:
-  description: "Demand control mode: `manual`, `auto`. Defaults to `manual`."
+  description: "Demand control mode: `manual`, `auto`. Defaults to `manual`. In `auto` mode, the unit manages the limit and `max_pow` is not applied"
   type: string
   required: false
 
@@ -88,9 +88,9 @@ mode:
 
 - **Trigger**: State: High rate signal from energy supplier 
 - **Action**: Set demand control
-  - **Device**: The unit
-  - **Enable**: The desired state of demand control management
-  - **Max power**: The desired maximum power
+  - **Device**: The unit {% term device %}
+  - **Enable**: True if the High rate signal is true, False otherwise
+  - **Maximum power**: 40% if the high rate signal is true, not provided otherwise
 
 {% details "Show example YAML" %}
 
@@ -127,9 +127,9 @@ automation: |
 
 - **Trigger**: State: Sun
 - **Action**: Set demand control
-  - **Device**: The unit
-  - **Enable**: The desired state of demand control management
-  - **Max power**: The desired maximum power
+  - **Device**: The unit {% term device %}
+  - **Enable**: True if the sun is below the horizon (night), False otherwise
+  - **Maximum power**: 60% if the sun is below the horizon is true, not provided otherwise
 
 {% details "Show example YAML" %}
 
