@@ -33,7 +33,7 @@ Maximum power:
   description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100.
   required: false
 Mode:
-  description: "Demand control mode: `Manual`, `Auto`. Defaults to `Manual`. In `Auto` mode, the unit manages the limit and Maximum power is not applied"
+  description: "The demand control mode. Select **Manual** or **Auto**. Defaults to **Manual**. In **Auto** mode, the unit manages the limit, and **Maximum power** is not applied."
   required: false
 {% endoptions_ui %}
 
@@ -132,11 +132,18 @@ automation: |
 
 ### Automation: Limit the maximum power of the unit during the night
 
-- **Trigger**: State: Sun
-- **Action**: Set demand control
-  - **Device**: The unit {% term device %}
-  - **Enable**: True if the sun is below the horizon (night), False otherwise
-  - **Maximum power**: 60% if the sun is below the horizon is true, not provided otherwise
+- **Trigger**: State
+  - **Entity**: Sun (`sun.sun`)
+  - **To**: Below Horizon or Above Horizon
+- **Action**: If-then
+  - **If**: Sun is below the horizon
+  - **Then**: Set demand control
+    - **Device**: Daikin unit
+    - **Enable**: On
+    - **Maximum power**: 60%
+  - **Else**: Set demand control
+    - **Device**: Daikin unit
+    - **Enable**: Off
 
 {% details "Show example YAML" %}
 
