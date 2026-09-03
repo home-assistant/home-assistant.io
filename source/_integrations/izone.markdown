@@ -13,6 +13,7 @@ ha_domain: izone
 ha_homekit: true
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: hub
 related:

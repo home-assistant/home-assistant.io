@@ -13,6 +13,7 @@ ha_domain: gatus
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_quality_scale: silver
 ---
@@ -190,4 +191,3 @@ The diagnostic data contains the status of all Gatus endpoints monitored by the 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
