@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first sensor stops detecting light.
     - **All**: fires only after every targeted sensor stops detecting light.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must remain dark before the trigger fires. The default is `0` (fires immediately).
   required: false
