@@ -103,8 +103,10 @@ The table below shows which {% term entity %} domains are available in each mode
 | Select              |     ✅      |                —                |
 | Sensor              |     ✅      |                —                |
 | Siren               |     ✅      |                —                |
-| Switch              |     ✅      |                —                |
+| Switch              |     ✅      |  ✅ (public API settings only)  |
 | Text                |     ✅      |                —                |
+
+In API key only mode, switches are limited to the settings the public API can change: the camera status light, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
 {% note %}
 This table reflects the entities currently supported by this {% term integration %}. The UniFi Protect public Integration API is actively growing, and this {% term integration %} is being incrementally migrated to use it, so expect more domains to become available in API key only mode over time.
@@ -184,16 +186,16 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
 
-| Device type  | Full access |          API key only           |
-| ------------ | :---------: | :-----------------------------: |
-| Camera       |     ✅      | ✅ (streams and snapshots only) |
-| Floodlight   |     ✅      |     ✅ (light entity only)      |
-| Smart sensor |     ✅      |                —                |
-| Viewer       |     ✅      |                —                |
-| Smart chime  |     ✅      |                —                |
-| Relay        |     ✅      |                —                |
-| Siren        |     ✅      |                —                |
-| NVR          |     ✅      |     ✅ (Alarm Manager only)     |
+| Device type  | Full access |           API key only            |
+| ------------ | :---------: | :-------------------------------: |
+| Camera       |     ✅      | ✅ (streams, snapshots, switches) |
+| Floodlight   |     ✅      |      ✅ (light and switches)      |
+| Smart sensor |     ✅      |        ✅ (switches only)         |
+| Viewer       |     ✅      |                 —                 |
+| Smart chime  |     ✅      |                 —                 |
+| Relay        |     ✅      |                ✅                 |
+| Siren        |     ✅      |                 —                 |
+| NVR          |     ✅      |      ✅ (Alarm Manager only)      |
 
 ### UniFi Protect cameras
 
