@@ -30,10 +30,10 @@ The **Gatus** {% term integration %} connects Home Assistant with your [Gatus](h
 
 You need the base URL of your Gatus instance, for example `http://gatus.local:8080` or `https://status.example.com`.
 
-If your Gatus instance requires authentication, you will also need either:
+If your Gatus instance requires authentication, you will also need one of the following:
 
-- A username and password for HTTP Basic Authentication, or
-- An API token / Bearer token.
+- A username and password for HTTP Basic Authentication.
+- An API key (API token / Bearer token).
 
 {% include integrations/config_flow.md %}
 
@@ -176,7 +176,7 @@ If the credentials for your Gatus instance become invalid, Home Assistant will p
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select **Reconfigure** on the notification or Gatus integration card.
-3. Enter the updated username/password or API token.
+3. Enter the updated username/password or API key.
 4. Select **Submit**.
 
 ## Known limitations
@@ -205,7 +205,7 @@ The setup form shows an error saying authentication failed.
 #### Resolution
 
 1. If using HTTP Basic Authentication, verify that the username and password are correct.
-2. If using an API token, verify that the token is valid and not expired.
+2. If using an API key, verify that the key is valid and not expired.
 
 ### Entities are unavailable
 
