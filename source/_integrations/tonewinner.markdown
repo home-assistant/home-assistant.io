@@ -4,14 +4,14 @@ description: Instructions on how to integrate Tonewinner processors and receiver
 ha_category:
   - Media player
 ha_codeowners:
-  - "@emma-sg"
+  - '@emma-sg'
 ha_config_flow: true
 ha_domain: tonewinner
 ha_integration_type: device
 ha_iot_class: Local Push
 ha_platforms:
   - media_player
-ha_release: "2026.9"
+ha_release: '2026.9'
 ha_quality_scale: silver
 ---
 
