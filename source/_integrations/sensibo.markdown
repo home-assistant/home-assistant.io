@@ -254,6 +254,6 @@ This service is reliant on an internet connection and that the **Sensibo** API i
 When setting up a device the first time, a `remote` needs to be defined for the device in the **Sensibo** app, either automatically or manually.
 The device will appear in Home Assistant, but won't be usable as no HVAC modes can be selected.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

@@ -3,16 +3,17 @@ title: Steam
 description: Instructions on how to set up Steam in Home Assistant.
 ha_category:
   - Gaming
-  - Social
   - Image
+  - Social
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
 ha_platforms:
-  - sensor
   - image
+  - sensor
 ha_codeowners:
+  - '@tr4nt0r'
   - '@tkdrob'
 ha_integration_type: service
 ---
@@ -62,13 +63,6 @@ The **Steam** integration provides the following entities.
   - **Attributes**:
     - **Account created**: The date and time when the Steam account was created.
     - **Real name**: The user's real name, if provided on their Steam profile.
-    - **Level**: The current Steam level of the user.
-    - **Last online**: The date and time the Steam user was last seen online.
-    - **Game**: The title of the game the user is currently playing.
-    - **Game ID**: The Steam App ID of the currently played game.
-    - **Game image**: The URL of the logo image for the game the user is currently playing.
-    - **Game header image**: The URL of the header image for the game the user is currently playing.
-    - **Game icon**: The URL of the icon for the game the user is currently playing.
 
 - **Last online**
   - **Description**: The date and time the Steam user was last seen online.
