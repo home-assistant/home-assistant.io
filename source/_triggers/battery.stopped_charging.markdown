@@ -34,6 +34,8 @@ Trigger when:
     - **Each** (default): fires every time any targeted device stops charging.
     - **First**: fires only on the first device that stops charging.
     - **All**: fires only after every targeted device stops charging.
+  required: false
+  default: Each
 For at least:
   description: How long the device must remain not charging before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

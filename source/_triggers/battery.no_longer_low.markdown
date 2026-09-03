@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first targeted sensor stops reporting a low battery.
     - **All**: fires only after every targeted sensor stops reporting a low battery.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must remain reporting a normal battery level before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false

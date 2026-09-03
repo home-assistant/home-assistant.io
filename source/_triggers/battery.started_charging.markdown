@@ -34,6 +34,8 @@ Trigger when:
     - **Each** (default): fires every time any targeted device starts charging.
     - **First**: fires only on the first device that starts charging.
     - **All**: fires only after every targeted device starts charging.
+  required: false
+  default: Each
 For at least:
   description: How long the device must be actively charging before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
