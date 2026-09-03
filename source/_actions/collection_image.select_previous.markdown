@@ -23,7 +23,7 @@ To update the image from an automation or a script:
 
 {% options_ui %}
 Wrap:
-  description: When true, on reaching the beginning of the directory, the next `select_previous` operation will advance to the last item. If false, the first image will remain selected. 
+  description: When true and the first image is selected, the action wraps around to the last image. If false, the first image remains selected.
   default: false
 {% endoptions_ui %}
 
