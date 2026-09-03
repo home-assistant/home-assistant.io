@@ -36,6 +36,8 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat starts heating.
     - **First**: fires only when the first of a group starts heating.
     - **All**: fires only after every targeted thermostat is heating.
+  required: false
+  default: Each
 For at least:
   description: How long the thermostat must stay in the heating state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
