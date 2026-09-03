@@ -28,7 +28,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple fans are targeted, controls whether the trigger fires for **Each** fan, only the **First** fan, or after **All** targeted fans are off.
   required: false
-  default: Each
 For at least:
   description: How long the fan must stay off before the trigger fires.
   required: false
