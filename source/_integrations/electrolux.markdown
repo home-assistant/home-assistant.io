@@ -17,6 +17,7 @@ ha_category:
   - Light
   - Number
   - Sensor
+  - Switch
 ha_platforms:
   - binary_sensor
   - button
@@ -24,8 +25,9 @@ ha_platforms:
   - fan
   - light
   - humidifier
-  - Number
+  - number
   - sensor
+  - switch
 ha_quality_scale: bronze
 related:
   - url: https://developer.electrolux.one/documentation
@@ -211,6 +213,16 @@ This entity is used to control the appliance with the following actions:
 - **Remote control**
   - **Description**: Reports the remote control status.
   - **Available for appliance types**: Oven.
+
+{% enddetails %}
+
+### Switch
+
+{% details "List of switch entities" %}
+
+- **Child Lock**
+  - **Description**: Enables the child lock function. This switch cannot be turned off remotely.
+  - **Available for appliance types**: Hob.
 
 {% enddetails %}
 
