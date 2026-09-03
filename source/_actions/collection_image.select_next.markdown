@@ -39,6 +39,16 @@ action: |
     entity_id: image.my_photos
 {% endexample %}
 
+### Options in YAML
+
+{% options_yaml %}
+wrap:
+  description: When true and the last image is selected, the action wraps around to the first image. If false, the last image remains selected.
+  required: false
+  default: false
+  type: boolean
+{% endoptions_yaml %}
+
 {% include actions/targets.md domain="image" %}
 
 {% include actions/try_it.md %}
