@@ -74,7 +74,7 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `each`: Fires every time any targeted water heater turns on.
+    - `each` (default): Fires every time any targeted water heater turns on.
     - `first`: Fires only when the first targeted water heater turns on.
     - `all`: Fires only after all targeted water heaters are on.
   required: false
