@@ -30,6 +30,7 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple blinds are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted blind opens, **First** to fire only when the first targeted blind opens, or **All** to fire only after every targeted blind is open. The default is **Each**.
   required: false
+  default: Each
 For at least:
   description: How long the blind must stay open before the trigger fires. The default is `0` (fires immediately).
   required: false
@@ -56,10 +57,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple blinds are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the blind must stay open before the trigger fires.

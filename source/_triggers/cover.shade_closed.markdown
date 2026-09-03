@@ -30,6 +30,7 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple shades are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted shade closes, **First** to fire only when the first targeted shade closes, or **All** to fire only after every targeted shade is closed. The default is **Each**.
   required: false
+  default: Each
 For at least:
   description: How long the shade must stay closed before the trigger fires. The default is `0` (fires immediately).
   required: false
@@ -56,10 +57,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple shades are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the shade must stay closed before the trigger fires.
