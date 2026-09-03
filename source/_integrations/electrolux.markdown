@@ -19,6 +19,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Vacuum
 ha_platforms:
   - binary_sensor
   - button
@@ -30,6 +31,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - vacuum
 ha_quality_scale: bronze
 related:
   - url: https://developer.electrolux.one/documentation
@@ -275,6 +277,14 @@ This entity is used to control the appliance with the following actions:
 - **Child Lock**
   - **Description**: Enables the child lock function. This switch cannot be turned off remotely.
   - **Available for appliance types**: Hob.
+
+{% enddetails %}
+
+### Vacuum
+
+{% details "List of vacuum entities" %}
+
+This entity allows controlling Electrolux group robot vacuum cleaners by starting, stopping, pausing, returning to the charging dock, adjusting the fan speed, starting cleaning in specific areas and reporting the current state of the vacuum.
 
 {% enddetails %}
 
