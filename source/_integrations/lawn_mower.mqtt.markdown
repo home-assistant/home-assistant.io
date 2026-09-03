@@ -27,7 +27,7 @@ Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-d
 
 {% configuration %}
 activity_state_topic:
-  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `idle`, `docked`, `returning`, and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received, the activity state will be reset to `unknown`.  
+  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `idle`, `docked`, `returning`, and `error`. Use `value_template` to extract the activity state from a custom payload. When the payload `none` is received, the activity state will be reset to `unknown`.
   required: false
   type: string
 activity_value_template:
