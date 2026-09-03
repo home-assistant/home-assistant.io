@@ -14,20 +14,11 @@ ha_codeowners:
   - '@jptstar'
 ---
 
-The **TSUN** {% term integration %} connects supported
-[TSUN](https://www.tsun-ess.com/) micro-inverters directly to Home Assistant
-over the local network. It provides production and energy measurements without
-requiring a cloud service or proxy. All communication with the micro-inverter
-is read-only.
+The **TSUN** {% term integration %} connects supported [TSUN](https://www.tsun-ess.com/) micro-inverters directly to Home Assistant over the local network. It provides production and energy measurements without requiring a cloud service or proxy. All communication with the micro-inverter is read-only.
 
 ## Supported devices
 
-The integration is protocol-based rather than model-based. Compatibility is
-determined by the local communication protocol exposed by the logger, not by a
-fixed list of models. TSUN micro-inverters using a supported protocol can
-therefore work even when their model has not yet been tested individually. The
-integration validates the protocol response during setup and creates only the
-measurements provided by the detected device.
+The integration is protocol-based rather than model-based. Compatibility is determined by the local communication protocol exposed by the logger, not by a fixed list of models. TSUN micro-inverters using a supported protocol can therefore work even when their model has not yet been tested individually. The integration validates the protocol response during setup and creates only the measurements provided by the detected device.
 
 The following devices have been tested on physical hardware:
 
@@ -36,16 +27,11 @@ The following devices have been tested on physical hardware:
 
 ## Prerequisites
 
-- The micro-inverter logger must be powered on. A solar-powered logger may be
-  unavailable at night.
+- The micro-inverter logger must be powered on. A solar-powered logger may be unavailable at night.
 - Home Assistant must be able to reach the logger on the local network.
 - You need the logger's IP address or hostname.
 
-The default TCP port is `8899`. During setup, Home Assistant tries to read the
-numeric **SN** automatically from the logger's local status page. If it cannot
-be read, the setup form asks you to enter it manually. Use the numeric
-**Device serial number** shown on the local status page or printed on the
-logger label, not the alphanumeric micro-inverter serial number.
+The default TCP port is `8899`. During setup, Home Assistant tries to read the numeric **SN** automatically from the logger's local status page. If it cannot be read, the setup form asks you to enter it manually. Use the numeric **Device serial number** shown on the local status page or printed on the logger label, not the alphanumeric micro-inverter serial number.
 
 {% include integrations/config_flow.md %}
 
@@ -60,54 +46,41 @@ SN:
 
 ## Supported functionality
 
-The integration creates one device for each configured micro-inverter and
-provides the following sensors when supported by that device:
+The integration creates one device for each configured micro-inverter and provides the following sensors when supported by that device:
 
 - AC voltage, current, frequency, and power
 - AC energy today and total AC energy
-- PV voltage, current, power, energy today, and total energy for each detected
-  PV input
+- PV voltage, current, power, energy today, and total energy for each detected PV input
 - Total DC power calculated from the available PV power measurements
 
-The number of PV inputs and the available measurements are detected from the
-device response.
+The number of PV inputs and the available measurements are detected from the device response.
 
 ## Data updates
 
-The integration {% term polling polls %} the micro-inverter every 20 seconds.
-When the logger is not reachable, its entities become unavailable. Home
-Assistant resumes updates automatically when communication is restored.
+The integration {% term polling polls %} the micro-inverter every 20 seconds. When the logger is not reachable, its entities become unavailable. Home Assistant resumes updates automatically when communication is restored.
 
 ## Known limitations
 
 - A solar-powered logger can be unreachable at night.
-- Automatic SN detection depends on the logger's local status page. If this
-  page is unavailable or its credentials have been changed, enter the numeric
-  SN manually.
-- Only the TSOL-MP3000 and TSOL-MX500 have currently been validated on
-  physical hardware.
-- This initial version does not provide network discovery, controls, alarms,
-  or communication diagnostics.
+- Automatic SN detection depends on the logger's local status page. If this page is unavailable or its credentials have been changed, enter the numeric SN manually.
+- Only the TSOL-MP3000 and TSOL-MX500 have currently been validated on physical hardware.
+- This initial version does not provide network discovery, controls, alarms, or communication diagnostics.
 
 ## Troubleshooting
 
 ### The device cannot be set up
 
-1. Configure the integration while the micro-inverter and its logger are
-   powered on.
+1. Configure the integration while the micro-inverter and its logger are powered on.
 2. Confirm that Home Assistant can reach the logger's IP address and TCP port.
 3. Check firewall, VLAN, and Wi-Fi client-isolation settings.
-4. If automatic SN detection fails, enter the numeric **Device serial number**
-   from the logger status page or label.
+4. If automatic SN detection fails, enter the numeric **Device serial number** from the logger status page or label.
 
 ### The sensors are unavailable at night
 
-This is expected when the logger is powered by the PV input. The integration
-will resume polling automatically after the logger starts again.
+This is expected when the logger is powered by the PV input. The integration will resume polling automatically after the logger starts again.
 
 ## Removing the integration
 
-This integration follows standard integration removal. Removing it does not
-change any setting on the micro-inverter.
+This integration follows standard integration removal. Removing it does not change any setting on the micro-inverter.
 
 {% include integrations/remove_device_service.md %}
