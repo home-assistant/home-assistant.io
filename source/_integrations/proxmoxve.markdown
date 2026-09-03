@@ -17,6 +17,7 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
+  - update
 ha_integration_type: service
 related:
   - docs: /docs/configuration/
@@ -204,6 +205,10 @@ Some entities are not enabled by default, you can enable them via the device pag
 **Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
 {% endnote %}
 
+### Update
+
+For each node in your Proxmox VE environment, the update entity shows whether the node is up to date or if a new version is available, including any pending package updates.
+
 ## Data updates
 
 Data is {% term polling polled %} from devices every 60 seconds.
@@ -245,6 +250,10 @@ If you want to use the `button` entities to perform actions on your node(s), add
 - For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
 - To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
 If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+
+### Update unavailable
+
+If the update entity for any of your nodes shows **Unavailable**, make sure your Proxmox VE user has the `Sys.Modify` privilege or the `PVEAdmin` role.
 
 ### Diagnostic data
 
