@@ -48,7 +48,7 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
   - **Access denied**: A credential was turned away, for example a wrong PIN or password, an expired or out-of-schedule credential, or a fingerprint that did not match.
   - **Fault**: The lock reported a problem, such as a full memory, a failing backup battery, or a hardware fault.
 
-Each event carries the lock's own description of what happened, the event code behind it, the time the lock recorded, and the name the lock stored for whoever triggered it, when it stored one.
+Each event carries the lock's own description of what happened, the event code behind it, the time the lock recorded, the name the lock stored for whoever triggered it (`opened_by`, when it stored one), and the identifier of the credential involved (`credential_id`).
 
 {% include integrations/actions.md %}
 
@@ -86,8 +86,8 @@ automation: |
         entity_id: notify.my_device
       data:
         message: >
-          {{ state_attr('event.front_door_access_log', 'opened_by') }}
-          just came in.
+          {{ state_attr('event.front_door_access_log', 'opened_by')
+             or 'Someone' }} just came in.
 {% endexample %}
 
 {% enddetails %}
