@@ -13,6 +13,7 @@ ha_domain: gatus
 ha_integration_type: service
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ---
@@ -65,6 +66,7 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
+- **Certificate expiration**: Reports the remaining SSL certificate validity in days of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 - **Last event**: Reports the most recent event type (`Started`, `Healthy`, `Unhealthy`, or `Resolved`).
@@ -220,4 +222,3 @@ The diagnostic data contains the status of all Gatus endpoints monitored by the 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
