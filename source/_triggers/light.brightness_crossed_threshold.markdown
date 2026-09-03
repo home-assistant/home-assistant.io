@@ -32,6 +32,8 @@ Threshold type:
   description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted lights have crossed the threshold.
+  required: false
+  default: Each
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
