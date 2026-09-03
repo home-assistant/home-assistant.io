@@ -16,8 +16,8 @@ To set a demand control from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Under **By type**, select the **Set demand control** {% term action %}.
-6. Set the **Demand control** parameters you want to apply.
+5. Under **By type**, select the **Set demand control** {% term action %} under the **Daikin AC** {% term integration %}.
+6. Set the **Demand control** targeted device and parameters you want to apply.
 7. Select **Save**.
 
 ### Options in the UI
