@@ -27,7 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple windows are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted window closes, **First** to fire only when the first targeted window closes, or **All** to fire only after every targeted window is closed.
-  required: true
+  required: false
+  default: Each
 For at least:
   description: How long the window must stay closed before the trigger fires. Set to zero to fire immediately.
   required: true
@@ -54,7 +55,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
