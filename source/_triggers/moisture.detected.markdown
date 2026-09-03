@@ -35,6 +35,7 @@ Trigger when:
     - **First**: fires only when the first sensor starts detecting moisture.
     - **All**: fires only after every targeted sensor starts detecting moisture.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must keep detecting moisture before the trigger fires. The default is `0` (fires immediately).
   required: false
