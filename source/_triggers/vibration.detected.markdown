@@ -35,7 +35,6 @@ Trigger when:
     - **First**: fires only when the first sensor starts detecting vibration.
     - **All**: fires only after every targeted sensor starts detecting vibration.
   required: false
-  default: Each
 For at least:
   description: How long the sensor or sensors must keep detecting vibration before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
