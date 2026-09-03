@@ -2,11 +2,13 @@
 title: Flexit
 description: Instructions on how to integrate a Flexit air handling unit into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: flexit
 ha_platforms:
+  - binary_sensor
   - climate
 ha_integration_type: device
 ha_quality_scale: legacy
@@ -32,7 +34,7 @@ When you set up the integration, you're asked to choose between a serial or a ne
 Serial device:
   description: "The serial device your Flexit CI66 Modbus adapter is connected to. Only shown for a serial connection."
 Baud rate:
-  description: "The baud rate of the serial connection. Defaults to `57600`. Only shown for a serial connection."
+  description: "The baud rate of the serial connection. Defaults to `9600`. Only shown for a serial connection."
 Host:
   description: "The hostname or IP address of your Flexit CI66 Modbus bridge. Only shown for a network connection."
 Port:
@@ -60,6 +62,13 @@ A repair issue in {% my integrations title="**Settings** > **Devices & services*
 ### Climate
 
 The integration adds a climate entity for the Flexit unit. You can set a target temperature and choose a fan mode (**Off**, **Low**, **Medium**, or **High**). The current activity, such as heating, cooling, or idle, is shown as the entity's HVAC action.
+
+### Binary sensors
+
+The following binary sensors are categorized as diagnostic entities:
+
+- **Filter alarm**: Indicates whether the unit needs a filter replacement.
+- **Electric heater enabled**: Indicates whether the electric heater is enabled.
 
 ## Data updates
 
