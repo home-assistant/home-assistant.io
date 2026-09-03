@@ -10,7 +10,7 @@ related_triggers:
   - easywave.button_release
 ---
 
-The **Button C pressed** trigger fires when an Easywave transmitter sends a press for Button C. Use it to start automations from multi-button remotes without watching the **State** sensor yourself.
+The **Button C pressed** trigger fires when an Easywave transmitter sends a press for Button C. Use it for 3- or 4-button remotes, or for a 1-button transmitter that was learned with code C.
 
 {% include triggers/ui_header.md %}
 
@@ -50,7 +50,8 @@ This trigger has no additional YAML options beyond the target.
 
 - Target an Easywave transmitter **State** sensor (an enum sensor). The trigger is not available for neo sensors or the gateway connection status sensor.
 - Changes to `unavailable` or `unknown` do not count as button presses.
-- This trigger is only offered when the transmitter was learned with at least 3 buttons.
+- For multi-button transmitters, this trigger is offered when the device was learned with at least 3 buttons (codes A, B, and C).
+- For a **1-button** transmitter, this trigger is offered when Button C was the code pressed during learning.
 
 {% include triggers/try_it.md %}
 

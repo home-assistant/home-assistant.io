@@ -3,7 +3,7 @@ title: Easywave
 description: Instructions on how to set up the Easywave integration in Home Assistant.
 ha_category:
   - Sensor
-ha_release: "2026.4"
+ha_release: "2026.9"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -73,9 +73,13 @@ The RX11 transceiver must be connected while you add a device. Only one learning
 
 Easywave transmitters are input devices (remotes, wall switches) whose button presses are received by the RX11. When adding a transmitter, choose how many buttons the device has (1–4), then press a button on the physical device when prompted. The integration learns the transmitter's serial number automatically.
 
+For a **1-button** transmitter, Home Assistant also stores which button code was pressed during learning (`Button A`, `Button B`, `Button C`, or `Button D`). The **State** sensor and the matching press trigger then use only that code. A 1-button remote that sent code B during learning therefore exposes **Button B pressed**, not **Button A pressed**.
+
+For transmitters with 2–4 buttons, the available codes are always the first letters in order: A/B, A/B/C, or A/B/C/D.
+
 Each transmitter creates these sensor entities:
 
-- **State** — reports the most recently pressed button (`Button A`, `Button B`, `Button C`, `Button D`, or `Not pressed` when the button is released)
+- **State** — reports the most recently pressed button among the codes configured for that transmitter, or `Not pressed` when the button is released
 - **Battery** — a diagnostic sensor that reports `OK` or `Low`
 
 The **State** and **Battery** values are restored across restarts.
