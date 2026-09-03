@@ -78,7 +78,7 @@ The following sensors are currently available per plant:
 | nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
-| last_sensor_update    | date   | Date when the sensor last sent an update to the FYTA hub |
+| last_update           | date   | Date when the sensor last sent an update to the FYTA hub |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
