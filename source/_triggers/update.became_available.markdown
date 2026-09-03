@@ -36,7 +36,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple update entities are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted update becomes available, **First** to fire only when the first targeted update becomes available, or **All** to fire only after every targeted update is available. The default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the update must stay available before the trigger fires. Set it to zero to fire immediately. The default is `00:00:00`.
 {% endoptions_ui %}
