@@ -9,10 +9,11 @@ ha_domain: flexit
 ha_platforms:
   - climate
 ha_integration_type: device
+ha_config_flow: true
+ha_quality_scale: legacy
 ha_codeowners:
   - '@troelde'
 ha_config_flow: true
-ha_quality_scale: legacy
 ---
 
 The **Flexit** {% term integration %} connects [Flexit](https://www.flexit.no/en/) air handling units equipped with a CI66 Modbus adapter to Home Assistant.
