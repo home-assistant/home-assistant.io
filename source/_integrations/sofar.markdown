@@ -66,6 +66,7 @@ The **Sofar** integration provides the following entities.
 
 ### Binary sensors
 
+- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which leaves the limit itself stored but unused while this is off. Disabled by default.
 - **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are disabled by default, since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
@@ -91,8 +92,9 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Battery**: Voltage, current, power, temperature, state of charge, state of health, and charge cycles for each battery pack, plus combined power, state of charge, and state of health totals. Each pack gets its own device, connected via the inverter, and only packs that respond are added. A pack added later appears on its own, without reloading the integration. Only shown for inverters with battery storage.
 - **Battery configuration**: The battery parameters configured on the inverter, such as capacity, protocol, cell type, and voltage and current limits. Only shown for inverters with battery storage.
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
+- **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
-The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
+The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
 
 ### Switch
 
