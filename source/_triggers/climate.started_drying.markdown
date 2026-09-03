@@ -37,7 +37,6 @@ Trigger when:
     - **First**: fires only when the first of a group starts drying.
     - **All**: fires only after every targeted thermostat is drying.
   required: false
-  default: Each
 For at least:
   description: How long the thermostat must stay in the drying state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}

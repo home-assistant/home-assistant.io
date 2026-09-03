@@ -41,7 +41,6 @@ Trigger when:
     - **First**: fires only on the first mode change.
     - **All**: fires only after every targeted thermostat changes mode.
   required: false
-  default: Each
 For at least:
   description: How long the thermostat must remain in the new mode before the trigger fires. Useful to ignore brief mode changes. Default is `0` (fires immediately).
 {% endoptions_ui %}

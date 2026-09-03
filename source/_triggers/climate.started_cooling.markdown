@@ -39,7 +39,6 @@ Trigger when:
     - **First**: fires only when the first of a group starts cooling.
     - **All**: fires only after every targeted thermostat is cooling.
   required: false
-  default: Each
 For at least:
   description: How long the thermostat must stay in the cooling state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}

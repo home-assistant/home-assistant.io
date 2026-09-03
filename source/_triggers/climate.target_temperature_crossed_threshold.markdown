@@ -56,7 +56,6 @@ Trigger when:
     - **First**: fires only on the first threshold crossing.
     - **All**: fires only after every targeted thermostat crosses the threshold.
   required: false
-  default: Each
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
