@@ -72,7 +72,7 @@ For each endpoint configured in Gatus, the integration creates the following sen
 
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
-- **Last event**: Reports the most recent event type (`Started`, `Healthy`, `Unhealthy`, or `Resolved`).
+- **Last event**: Reports the most recent event type (`start`, `healthy`, `unhealthy`, or `resolved`).
 - **Certificate expiration**: Reports the timestamp when the SSL/TLS certificate expires. Only created for endpoints with certificate monitoring enabled.
 - **DNS response code**: Reports the DNS query response code (such as `no_error`, `format_error`, `server_failure`, `non_existent_domain`, `not_implemented`, `refused`). Only created for endpoints with DNS monitoring enabled.
 
