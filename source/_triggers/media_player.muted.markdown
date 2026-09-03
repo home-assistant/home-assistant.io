@@ -72,9 +72,9 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted media player is muted.
-    - `first` (**First** in the UI): fires when the first targeted media player is muted.
-    - `all` (**All** in the UI): fires when every targeted media player is muted.
+    - `each` (default): fires every time any targeted media player is muted.
+    - `first`: fires when the first targeted media player is muted.
+    - `all`: fires when every targeted media player is muted.
   required: false
   type: string
   default: each

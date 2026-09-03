@@ -72,9 +72,9 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted media player turns on.
-    - `first` (**First** in the UI): fires when the first targeted media player turns on.
-    - `all` (**All** in the UI): fires when every targeted media player turns on.
+    - `each` (default): fires every time any targeted media player turns on.
+    - `first`: fires when the first targeted media player turns on.
+    - `all`: fires when every targeted media player turns on.
   required: false
   type: string
   default: each
