@@ -35,6 +35,8 @@ Trigger when:
     - **Each** (default): Fire every time any targeted water heater turns on.
     - **First**: Fire only when the first targeted water heater turns on.
     - **All**: Fire only after all targeted water heaters are on.
+  required: false
+  default: Each
 For at least:
   description: How long the water heater must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,7 +62,7 @@ trigger: |
   target:
     label_id: basement_water_heaters
   options:
-    behavior: last
+    behavior: all
     for: "00:05:00"
 {% endexample %}
 
@@ -73,12 +75,12 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI): Fires every time any targeted water heater turns on.
+    - `each` (**Each** in the UI): Fires every time any targeted water heater turns on.
     - `first` (**First** in the UI): Fires only when the first targeted water heater turns on.
-    - `last` (**All** in the UI): Fires only after all targeted water heaters are on.
+    - `all` (**All** in the UI): Fires only after all targeted water heaters are on.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the water heater must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
@@ -146,7 +148,7 @@ automation: |
       target:
         label_id: basement_water_heaters
       options:
-        behavior: last
+        behavior: all
         for: "00:05:00"
   actions:
     - action: water_heater.set_operation_mode
