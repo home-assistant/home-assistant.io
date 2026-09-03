@@ -30,7 +30,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted door closes, **First** to fire only when the first targeted door closes, or **All** to fire only after every targeted door is closed.
   required: false
-  default: Each
 For at least:
   description: How long the door must stay closed before the trigger fires. Set it to zero to fire immediately.
 {% endoptions_ui %}
