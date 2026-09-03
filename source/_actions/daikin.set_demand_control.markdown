@@ -107,8 +107,7 @@ automation: |
       - if:
           - condition: state
             entity_id: binary_sensor.electricity_high_rate
-            state:
-              - 'on'
+            state: "on"
         then:
           - action: daikin.set_demand_control
             data:
@@ -147,8 +146,7 @@ automation: |
       - if:
           - condition: state
             entity_id: sun.sun
-            state:
-              - 'below_horizon'
+            state: "below_horizon"
         then:
           - action: daikin.set_demand_control
             data:
