@@ -43,6 +43,7 @@ To use Home Assistant Assist as your voice assistant, follow these steps:
    - [Start Assist using the action button](#to-start-assist-using-the-action-button).
    - [Start Assist using control center](#to-start-assist-using-control-center).
    - [Start Assist from Lock Screen](#to-start-assist-from-lock-screen).
+   - [Start Assist using Voice Control](#to-start-assist-using-voice-control).
 3. [Give a command](/voice_control/custom_sentences/).
 
 #### To create a shortcut to Assist in App
@@ -81,6 +82,28 @@ For control center and lock screen:
 4. Tap on it to add a new item and find **Home Assistant Assist** in the list.
 5. After you see the icon in lock screen, tap once more to choose which pipeline you want to use.
 6. Alternatively you can execute the same steps but add a widget below the lock screen clock.
+
+#### To start Assist using Voice Control
+
+iOS includes an accessibility feature called **Voice Control** that allows you to operate your iPhone entirely with voice commands. Using **custom commands**, you can trigger the **Assist in app** shortcut with your own wake phrase.
+
+For example, you could create a custom command such as **"Okay Nabu"** that runs the **Assist in app** shortcut.
+
+To set this up:
+
+1. Go to **Settings** > **Accessibility** > **Voice Control**.
+2. Enable **Voice Control**.
+3. Tap **Customize Commands** > **Create New Command**.
+4. Enter the phrase you want to use (for example, `Okay Nabu`).
+5. Under **Action**, select **Run Shortcut**.
+6. Choose the **Assist in app** shortcut you created earlier.
+7. Save the command.
+
+After this is configured, saying your custom phrase will launch Assist.
+
+{% note %}
+While this approach works well, it may not be as fast as triggering Siri or using hardware buttons. Also note that enabling Voice Control means full system voice navigation is active, which may occasionally trigger other commands unintentionally.
+{% endnote %}
 
 ## Adjusting the language
 

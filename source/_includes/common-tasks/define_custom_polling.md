@@ -11,8 +11,10 @@ To add the automation:
 3. To define your custom polling interval, create an automation.
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
    - Define any trigger and condition you like.
-   - Select **Add action**, then, select **Other actions**.
-   - Select **Perform action**, and from the list, select the [`homeassistant.update_entity` action](/integrations/homeassistant/#action-homeassistantupdate_entity).
-   - Choose your targets by selecting the **Choose area**, **Choose device**, **Choose entity**, or **Choose label** buttons. 
+   - Select **Add action**, then select **Other actions**.
+   - Select **Perform action**, and from the list, select the [`homeassistant.update_entity` action](/actions/homeassistant.update_entity/).
+   - Add the entities you want to poll to the **Entity** field. The `homeassistant.update_entity` action only supports targeting by entity. Selecting an area, device, or label is not supported.
    ![Update entity](/images/screenshots/custom_polling_02.png)
 4. Save your new automation to poll for data.
+
+Note that `homeassistant.update_entity` has a 10-second debounce, which means that entities cannot be updated more frequently than once every ten seconds through this method.

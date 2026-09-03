@@ -52,13 +52,13 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <script type="module" src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module" integrity="sha384-2Ea4WL8tjFb0qQKUqBoX45KlPVoUgL+Z3zUqsD0MHmtJ3faDbfNyZulLg/LfYDUZ" crossorigin="anonymous"></script>
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
 
-       - **For advanced users**: The configuration files are available on GitHub:
+       - **To customize the configuration**: The configuration files are available on GitHub:
          - [ESP32-S3-BOX-3 config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-3/esp32-s3-box-3.yaml)
 
     2. To connect the ESP32-S3-BOX-3 to your computer, follow these steps:
        - In the pop-up window, view the available ports.
        - Plug the USB-C cable into the box directly, not into the docking station (not into the blue part) and connect it to your computer.
-       - **Troubleshooting**: If your ESP32-S3-BOX-3 does not appear in the list of devices presented by your browser, you need to manually invoke "flash mode":
+       - Troubleshooting: If your ESP32-S3-BOX-3 does not appear in the list of devices presented by your browser, you need to manually invoke "flash mode":
          - Hold the "boot" button (left side upper button) as you tap the "reset" button (left side lower button).
          - After a few seconds, the ESP32-S3-BOX-3 should appear in the list of USB devices presented by your browser.
          - Follow the steps until step 3. After selecting the **Next** button, on the S3-Box-3, tap the "Reset" button again.
@@ -97,7 +97,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <script type="module" src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module" integrity="sha384-2Ea4WL8tjFb0qQKUqBoX45KlPVoUgL+Z3zUqsD0MHmtJ3faDbfNyZulLg/LfYDUZ" crossorigin="anonymous"></script>
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box/manifest.json"></esp-web-install-button>
 
-       - **For advanced users**: The configuration files are available on GitHub:
+       - **To customize the configuration**: The configuration files are available on GitHub:
          - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box/esp32-s3-box.yaml)
 
     2. To connect the ESP32-S3-BOX to your computer, follow these steps:
@@ -134,7 +134,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <script type="module" src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module" integrity="sha384-2Ea4WL8tjFb0qQKUqBoX45KlPVoUgL+Z3zUqsD0MHmtJ3faDbfNyZulLg/LfYDUZ" crossorigin="anonymous"></script>
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-lite/manifest.json"></esp-web-install-button>
 
-       - **For advanced users**: The configuration files are available on GitHub:
+       - **To customize the configuration**: The configuration files are available on GitHub:
          - [ESP32-S3-BOX-Lite config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-lite/esp32-s3-box-lite.yaml)
 
     2. To connect the ESP32-S3-BOX-Lite to your computer, follow these steps:

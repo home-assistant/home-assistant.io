@@ -193,7 +193,6 @@ input:
 {% endconfiguration %}
 
 
-
 The following example shows a *blueprint schema* with some inputs in a section:
 
 ```yaml
@@ -218,7 +217,7 @@ blueprint:
 
 The inputs are available as custom YAML tags, but not as template variables.
 To use a blueprint input in a template, it first needs to be exposed as either
-a [script level variable](/integrations/script/#configuration-variables) or in
+a [script level variable](/integrations/script/#variables) or in
 a [variable script step](/docs/scripts/#variables).
 
 ```yaml

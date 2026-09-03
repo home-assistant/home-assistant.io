@@ -54,6 +54,7 @@ The Weheat integration provides the following sensors:
 - **Electricity used DHW**: Total electricity used in kWh during DHW mode (optional)
 - **Electricity used cooling**: Total electricity used in kWh during cooling mode
 - **Electricity used defrost**: Total electricity used in kWh during defrost mode
+- **Electricity used standby**: Total electricity used in kWh during standby mode
 - **Electricity used**: Total electricity used in kWh
 - **Energy output heating**: Total output generated in kWh during central heating mode
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
@@ -72,7 +73,7 @@ Depending on the model/installation, states for the Indoor Unit states are avail
 - **Indoor unit water pump**
 - **Indoor unit auxiliary water pump**
 - **Indoor unit DHW valve or water pump**
-- **Indoor unit gas boiler heating allowed** - Note: This may be True even when no gas boiler is installed or active at this time.
+- **Indoor unit gas boiler heating allowed** - Note: This may be True even when no gas boiler is installed or active.
 - **Indoor unit electric heater**
 
 ## Data updates

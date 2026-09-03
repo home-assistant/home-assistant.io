@@ -31,7 +31,7 @@ name:
   required: false
   type: string
 extra_arguments:
-  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
+  description: Extra options to pass to `ffmpeg`, such as image quality or video filter options.
   required: false
   type: string
   default: "-pred 1"

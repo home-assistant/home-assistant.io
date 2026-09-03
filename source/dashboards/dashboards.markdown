@@ -1,6 +1,6 @@
 ---
 title: "Multiple dashboards"
-description: "Multiple powerful and configurable dashboards in Home Assistant."
+description: "Create more than one dashboard in Home Assistant: a private overview for yourself, a simpler one for the rest of the household, and a tablet view in the kitchen."
 related:
   - docs: /integrations/logbook/
     title: Activity integration
@@ -55,6 +55,7 @@ Some of the built-in dashboards are not shown in the sidebar by default, but are
 - **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
 - **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
 - **Energy** dashboards: Allows you to visualize your energy consumption and production, if you have such entities available. This includes electricity from grid and from solar panels, gas and water consumption, and the status of your battery storage.
+- **Maintenance** dashboard: Overview of your battery entities, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). Low batteries are highlighted so you can spot the ones that need attention at a glance.
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards for example are powered by their respective integrations.
 
@@ -106,6 +107,39 @@ If you see a [person](/integrations/person/) on the map, it means you have conne
 
 The predefined **To-do lists** dashboard is powered by the [To-do integration](/integrations/todo/). To learn how to use to-do and shopping lists, refer to the documentation of the to-do list integration.
 
+### Security dashboard
+
+The predefined **Security** dashboard shows information about security-related entities, namely:
+
+- Cards for your alarm control panels, locks, cameras, doors, covers, motion sensors, and other binary sensors. You can group these cards by floor and area.
+- An **Activity** section showing changes to your security-related entities during the past 24 hours in reverse chronological order.
+
+You can add the following sections to the **Security** dashboard:
+
+- The **Favorites** section lets you pin the entities you check most often so they always appear near the top.
+- The **Active alerts** section appears only when one or more entities you chose need attention, such as a door left open or a smoke detector that is triggering.
+
+#### Adding favorites to the Security dashboard
+
+To add favorites of your security-related entities to the **Security** dashboard:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
+2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+3. Under **Favorite entities**, select **Add favorite** and then select the entity you want to pin to the top of the page from the list. You can select more than one favorite.
+4. Select **Save**.
+
+#### Adding active alerts to the Security dashboard
+
+To display alerts of your security-related entities on the **Security** dashboard:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
+2. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
+3. Under **Active alert entities**, select **Add entity** and then select the entity you want to monitor from the list. You can select more than one entity.
+4. For each added entity, select one of the display types:
+    - **Alert** for issues that need immediate attention, such as a smoke detector going off.
+    - **Warning** for less urgent issues, such as a window that was left open.
+5. Select **Save**.
+
 ## Webpage dashboard
 
 Another available (but not default) dashboard is the webpage dashboard. The webpage dashboard allows you to add and embed a webpage to your dashboard.
@@ -137,8 +171,8 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
 
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
-   1. Go to {% my profile title="**User profile**" %}.
-   2. On the **General** tab, under **Dashboard**, select your default dashboard.
+   1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+   2. Next to **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
    3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
@@ -153,20 +187,19 @@ This will leave the default dashboard intact.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select **Add dashboard**.
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Overview** or one of the suggested ones, such as the **Map** dashboard.
+   - If you want to start with a pre-populated dashboard, choose **Overview (Legacy)** or one of the suggested ones, such as the **Map** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
-   ![Screenshot of the Add Dashboard dialog showing dashboard options like Overview, Map, and Areas](/images/dashboards/dashboards-add-dashboard-selector.png)
 
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
    - Define if you want the dashboard to be listed in the sidebar.
    - Select **Create**.
-   - **Result**: The dashboard is added.
+   - Result: The dashboard is added.
 
 ## Editing a new dashboard
 
 1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
-   - **Result**: The **Edit dashboard** dialog appears.
+   - Result: The **Edit dashboard** dialog appears.
 2. Select the areas you want to show on this new dashboard and select **Save**.
 3. If you want to have more detailed control over the dashboard, you need to take control:
      - This means that this dashboard is no longer automatically updated when new dashboard elements become available.
@@ -177,7 +210,6 @@ This will leave the default dashboard intact.
 
    ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
 
-
 ## Deleting a dashboard
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
@@ -187,9 +219,41 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
+## Adding or removing a dashboard from the sidebar
+
+Except for the built-in **Overview**, any dashboard that is listed in {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} can be added to or removed from the vertical bar on the left side of Home Assistant UI at any time. This is different from [reordering or hiding items that are already in the sidebar](#reorganizing-items-in-the-sidebar).
+
+To add or remove a dashboard from the sidebar:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. On the right of the listed dashboard you want to add or remove, select the **Overflow menu** {% icon "mdi:dots-vertical" %} and then **Edit**.
+3. In the dashboard editing dialog, next to **Add to sidebar**, turn the setting on or off.
+4. Select **Update**.
+
+## Reorganizing items in the sidebar
+
+You can define which elements are shown in the sidebar and the order in which they appear.
+
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
+3. Drag and drop items to reorder them, and toggle items to show or hide them.
+4. Select **Save**.
+
+## Restoring the sidebar to its defaults
+
+If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
+
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reset to defaults**.
+
 ## Adding YAML dashboards
 
-You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file. To add YAML dashboards, in your `configuration.yaml` file create a `dashboards:` section under the top-level `lovelace:` key.
+You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file.
+
+If it is the first time you edit the `configuration.yaml` file, refer to [Editing configuration.yaml](/docs/configuration/#editing-configuration.yaml) to know how to install a file editor and find the file.
+
+To add YAML dashboards, in your `configuration.yaml` file, create a `dashboards:` section under the top-level `lovelace:` key.
 
 ```yaml
 lovelace:
@@ -289,7 +353,7 @@ views:
           Welcome to your **dashboard**.
 ```
 
-A slightly more advanced example:
+Here is a more customized example:
 
 ```yaml
 views:

@@ -14,13 +14,13 @@ The state will be updated only after a new message is published on `state_topic`
 the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup.
 Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 
-Stateless devices such as buttons, remote controls etc are better represented by [MQTT device triggers](/integrations/device_trigger.mqtt/) than by binary sensors.
+Stateless devices, like buttons, remote controls, and similar stateless devices, are better represented by [MQTT device triggers](/integrations/device_trigger.mqtt/) than by binary sensors.
 
 ## Configuration
 
-The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
+The `mqtt` binary sensor platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (that is, publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
-To use an MQTT binary sensor in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT binary sensor in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -30,7 +30,7 @@ mqtt:
       state_topic: "basement/window/contact"
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -53,7 +53,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -62,7 +62,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -70,7 +70,7 @@ availability_topic:
   required: false
   type: string
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `binary_sensor.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `binary_sensor.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -131,7 +131,7 @@ device_class:
   required: false
   type: string
 enabled_by_default:
-  description: Flag which defines if the entity should be enabled when first added.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
   type: boolean
   default: true
@@ -166,7 +166,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -220,9 +220,14 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no preprocessing of original message is required)."
+  description: "Defines a [template](/docs/templating/where-to-use/#mqtt) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (that is, no preprocessing of the original message is required)."
   required: false
   type: template
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples
@@ -244,7 +249,6 @@ mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m '{"state":"OFF"}'
 
 The example below shows a full configuration for a binary sensor:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -262,11 +266,9 @@ mqtt:
       value_template: "{{ value_json.state }}"
 ```
 
-{% endraw %}
 
 ### Toggle the binary sensor each time a message is received on state_topic
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -276,7 +278,6 @@ mqtt:
       value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
 ```
 
-{% endraw %}
 
 ### Get the state of a device with ESPEasy
 

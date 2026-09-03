@@ -24,9 +24,9 @@ Screenshot of the gauge card.
 Screenshot of the gauge card in needle mode.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -119,7 +119,7 @@ hold_action:
 double_tap_action:
   required: false
   description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
-  type: map      
+  type: map
 {% endconfiguration %}
 
 ### Examples

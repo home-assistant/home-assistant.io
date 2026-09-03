@@ -5,6 +5,7 @@ ha_category:
   - Alarm
   - Binary sensor
   - Hub
+  - Sensor
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
@@ -16,8 +17,10 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - diagnostics
+  - sensor
   - switch
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
@@ -27,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary sensor: Reports on zone or output statuses
 - Switch: allows for setting states of selected outputs
 - Alarm control panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
+- Sensor: Reports zone temperatures for zones that have temperature support 
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
@@ -41,7 +45,10 @@ The integration only supports the **ETHM-1 Plus**, with firmware version 2.00 or
 3. Open the **System and hardware structure** tab.
 4. Navigate to the **Hardware** section, expand the tree and select the **ETHM-1 Plus** module.
 5. Select the **Integration** checkbox.
-6. Clear the **Encrypted integration** checkbox. Encrypted connection is currently not supported.
+6. Configure encryption:
+    - If you want to use an unencrypted connection, clear the **Encrypted integration** checkbox.
+    - If you want to use an encrypted connection, select the **Encrypted integration** checkbox and note the
+     integration encryption key you configured in the **Keypads** module from the navigation tree.
 
 {% note %}
 If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
@@ -54,6 +61,9 @@ Host:
   description: The IP address of the Satel Integra ETHM module.
 Port:
   description: The port on which the ETHM module listens for clients using the integration protocol.
+Integration encryption key:
+  description: Encryption key to use if an encrypted connection is used, as configured in DLOADX
+    for the ETHM-1 Plus module. Leave empty if not using an encrypted connection.
 Code:
   description: Optional code that will be used to toggle switchable outputs.
 {% endconfiguration_basic %}
@@ -64,7 +74,7 @@ After setting up the connection details, you can configure partitions, zones, an
 
 A list of all partition, zone, and output IDs can be acquired by running the DLOADX program and connecting to your alarm.
 To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
-**Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
+**Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output. Sensors will be created for each zone that has temperature sensor support enabled.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
