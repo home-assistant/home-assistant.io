@@ -26,6 +26,10 @@ The **Gatus** {% term integration %} connects Home Assistant with your [Gatus](h
 - Trigger automations or send notifications when a monitored service goes down or comes back up.
 - Combine endpoint status with other Home Assistant entities to coordinate responses to outages, such as switching to a backup service or alerting specific people.
 
+## Supported devices
+
+The integration creates a device for each endpoint configured in your Gatus instance under the Gatus service. When endpoints are added or removed in Gatus, the integration dynamically creates or removes the corresponding devices and entities during periodic polling updates.
+
 ## Prerequisites
 
 You need the base URL of your Gatus instance, for example `http://gatus.local:8080` or `https://status.example.com`.
@@ -33,7 +37,7 @@ You need the base URL of your Gatus instance, for example `http://gatus.local:80
 If your Gatus instance requires authentication, you will also need one of the following:
 
 - A username and password for HTTP Basic Authentication.
-- An API key (API token / Bearer token).
+- An API key (API token or Bearer token).
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +49,7 @@ Username:
 Password:
   description: "Optional password for HTTP Basic Authentication."
 API key:
-  description: "Optional API token / Bearer token for authentication."
+  description: "Optional API key (API token or Bearer token) for authentication."
 {% endconfiguration_basic %}
 
 ### Supported versions
@@ -66,16 +70,11 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
-- **Certificate expiration**: Reports the remaining SSL certificate validity in days of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
 - **Last event**: Reports the most recent event type (`Started`, `Healthy`, `Unhealthy`, or `Resolved`).
 - **Certificate expiration**: Reports the timestamp when the SSL/TLS certificate expires. Only created for endpoints with certificate monitoring enabled.
 - **DNS response code**: Reports the DNS query response code (such as `no_error`, `format_error`, `server_failure`, `non_existent_domain`, `not_implemented`, `refused`). Only created for endpoints with DNS monitoring enabled.
-
-## Supported devices
-
-The integration creates a device for each endpoint configured in your Gatus instance under the Gatus service. When endpoints are added or removed in Gatus, the integration dynamically creates or removes the corresponding devices and entities during periodic polling updates.
 
 ## Gatus automation examples
 
@@ -170,7 +169,7 @@ If you need to update the connection details (URL or credentials) of your Gatus 
 4. Update the URL or credentials of your Gatus instance.
 5. Select **Submit**.
 
-## Re-authentication
+### Reauthentication
 
 If the credentials for your Gatus instance become invalid, Home Assistant will prompt you to re-authenticate:
 
