@@ -36,7 +36,6 @@ Trigger when:
     - **First**: Fires when the first targeted media player stops playing.
     - **All**: Fires when every targeted media player stops playing.
   required: false
-  default: Each
 For at least:
   description: How long playback must stay stopped before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}

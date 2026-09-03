@@ -36,7 +36,6 @@ Trigger when:
     - **First**: Fires when the first targeted media player turns on.
     - **All**: Fires when every targeted media player turns on.
   required: false
-  default: Each
 For at least:
   description: How long the media player must stay on before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
