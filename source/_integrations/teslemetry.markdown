@@ -55,6 +55,7 @@ The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
 Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
+The **Enable keep accessory power** and **Disable keep accessory power** buttons are only created for vehicles on firmware 2025.38 or newer.
 
 ### Vehicles
 
@@ -120,6 +121,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|User present|Yes|Polling|
 |Binary sensor|Wi-Fi|Yes|Streaming|
 |Binary sensor|Wiper heat|No|Streaming|
+|Button|Disable keep accessory power|Yes|—|
+|Button|Enable keep accessory power|Yes|—|
 |Button|Flash lights|Yes|—|
 |Button|HomeLink|Yes|—|
 |Button|Honk horn|Yes|—|
