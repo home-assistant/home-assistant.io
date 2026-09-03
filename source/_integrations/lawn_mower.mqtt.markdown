@@ -217,7 +217,7 @@ start_mowing_command_template:
   required: false
   type: template
 start_mowing_command_topic:
-  description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action used. Use a `start_mowing_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action is used. Use a `start_mowing_command_template` to publish a custom format.
   required: false
   type: string
 stop_command_template:
