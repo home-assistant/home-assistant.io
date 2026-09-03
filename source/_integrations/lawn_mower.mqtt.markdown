@@ -27,7 +27,7 @@ Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-d
 
 {% configuration %}
 activity_state_topic:
-  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `docked`, and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received, the activity state will be reset to `unknown`.  
+  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `idle`, `docked`, `returning`, and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received, the activity state will be reset to `unknown`.  
   required: false
   type: string
 activity_value_template:
@@ -212,12 +212,20 @@ qos:
   required: false
   type: integer
   default: 0
-start_mowing_template:
+start_mowing_command_template:
   description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `start_mowing_command_topic`. The `value` parameter in the template will be set to `start_mowing`.
   required: false
   type: template
 start_mowing_command_topic:
   description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action used. Use a `start_mowing_command_template` to publish a custom format.
+  required: false
+  type: string
+stop_command_template:
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `stop_command_topic`. The `value` parameter in the template will be set to `stop`.
+  required: false
+  type: template
+stop_command_topic:
+  description: The MQTT topic that publishes commands when the `lawn_mower.stop` action is performed. The value `stop` is published when the action is used. Use a `stop_command_template` to publish a custom format.
   required: false
   type: string
 retain:
@@ -257,4 +265,6 @@ mqtt:
       dock_command_template: '{"activity": "{{ value }}"}' 
       start_mowing_command_topic: "lawn_mower_plus/set"
       start_mowing_command_template: '{"activity": "{{ value }}"}' 
+      stop_command_topic: "lawn_mower_plus/set"
+      stop_command_template: '{"activity": "{{ value }}"}' 
 ```
