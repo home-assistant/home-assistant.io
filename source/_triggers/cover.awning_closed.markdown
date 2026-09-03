@@ -30,7 +30,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple awnings are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted awning closes, **First** to fire only when the first targeted awning closes, or **All** to fire only after every targeted awning is closed. The default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the awning must stay closed before the trigger fires. The default is `0` (fires immediately).
   required: false

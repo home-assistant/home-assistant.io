@@ -30,7 +30,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple blinds are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted blind closes, **First** to fire only when the first targeted blind closes, or **All** to fire only after every targeted blind is closed. The default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the blind must stay closed before the trigger fires. The default is `0` (fires immediately).
   required: false

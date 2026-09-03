@@ -30,7 +30,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple shutters are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted shutter opens, **First** to fire only when the first targeted shutter opens, or **All** to fire only after every targeted shutter is open. The default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the shutter must stay open before the trigger fires. The default is `0` (fires immediately).
   required: false

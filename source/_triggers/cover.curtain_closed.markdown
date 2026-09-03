@@ -30,7 +30,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple curtains are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted curtain closes, **First** to fire only when the first targeted curtain closes, or **All** to fire only after every targeted curtain is closed. The default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the curtain must stay closed before the trigger fires. The default is `0` (fires immediately).
   required: false
