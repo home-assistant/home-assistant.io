@@ -112,9 +112,9 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI): Fires every time any targeted water heater crosses the threshold.
-    - `first` (**First** in the UI): Fires only on the first threshold crossing.
-    - `all` (**All** in the UI): Fires only after all targeted water heaters cross the threshold.
+    - `each`: Fires every time any targeted water heater crosses the threshold.
+    - `first`: Fires only on the first threshold crossing.
+    - `all`: Fires only after all targeted water heaters cross the threshold.
   required: false
   type: string
   default: each
