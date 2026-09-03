@@ -28,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer finishes, **First** to fire only for the first finished timer, or **All** to fire only after all targeted timers finish.
+  required: false
 For at least:
   description: How long ago the timer must have finished before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
