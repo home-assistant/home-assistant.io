@@ -1,5 +1,5 @@
 ---
-title: "Set Daikin Unit demand control"
+title: "Set demand control"
 action: daikin.set_demand_control
 domain: daikin
 since: "2026.10.0"
@@ -30,7 +30,7 @@ Enable:
   description: Whether demand control should be enabled.
   required: true
 Maximum power:
-  description: Maximum power as a percentage of the unit's nominal power (40-100). Required when enabling the demand control with mode `Manual`.
+  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100.
   required: false
 Mode:
   description: "Demand control mode: `Manual`, `Auto`. Defaults to `Manual`."
@@ -64,7 +64,7 @@ en_demand:
   required: true
   type: boolean
 max_pow:
-  description: Maximum power as a percentage of the unit's nominal power (40-100). Required when enabling the demand control with mode `manual`.
+  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100.
   type: integer
   required: false
 mode:
@@ -76,8 +76,8 @@ mode:
 
 ## Good to know
 
-- this action works with Daikin climate device
-- if multiple indoor units are connected to an outdoor unit, the outdoor unit automatically selects the least restrictive demand setting. For example, if one indoor unit is set to an 80% capacity limit and the other to a 50% capacity limit, the outdoor unit will operate at a maximum capacity of 80%.
+- This action works with Daikin climate devices.
+- If multiple indoor units are connected to an outdoor unit, the outdoor unit automatically selects the least restrictive demand setting. For example, if one indoor unit is set to an 80% capacity limit and the other to a 50% capacity limit, the outdoor unit will operate at a maximum capacity of 80%.
 - `max_pow` is only applied in manual mode (`mode: manual`).
 
 {% include actions/try_it.md %}
@@ -89,8 +89,8 @@ mode:
 - **Trigger**: State: High rate signal from energy supplier 
 - **Action**: Set demand control
   - **Device**: The unit
-  - **Enable**: the desired state of demand control management
-  - **Max power**: the desired maximum power
+  - **Enable**: The desired state of demand control management
+  - **Max power**: The desired maximum power
 
 {% details "Show example YAML" %}
 
@@ -105,21 +105,61 @@ automation: |
           - "off"
     actions:
       - if:
-          - condition: state
-            entity_id: binary_sensor.electricity_high_rate
-            state:
-            - 'on'
-            then:
-            - action: daikin.set_demand_control
-                data:
-                device_id: "17159993ce512ff1794b6c1abc6f3df3"
-                en_demand: true
-                max_pow: 40
-            else:
-            - action: daikin.set_demand_control
-                data:
-                device_id: "17159993ce512ff1794b6c1abc6f3df3"
-                en_demand: false
+        - condition: state
+          entity_id: binary_sensor.electricity_high_rate
+          state:
+          - 'on'
+          then:
+          - action: daikin.set_demand_control
+              data:
+              device_id: "17159993ce512ff1794b6c1abc6f3df3"
+              en_demand: true
+              max_pow: 40
+          else:
+          - action: daikin.set_demand_control
+              data:
+              device_id: "17159993ce512ff1794b6c1abc6f3df3"
+              en_demand: false
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Limit the maximum power of the unit during the night
+
+- **Trigger**: State: Sun
+- **Action**: Set demand control
+  - **Device**: The unit
+  - **Enable**: The desired state of demand control management
+  - **Max power**: The desired maximum power
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  - alias: "Limit the maximum power of the unit during the night"
+    triggers:
+      - trigger: state
+          entity_id: sun.sun
+          to:
+          - "below_horizon"
+          - "above_horizon"
+    actions:
+      - if:
+        - condition: state
+          entity_id: sun.sun
+          state:
+          - 'below_horizon'
+          then:
+          - action: daikin.set_demand_control
+              data:
+              device_id: "17159993ce512ff1794b6c1abc6f3df3"
+              en_demand: true
+              max_pow: 60
+          else:
+          - action: daikin.set_demand_control
+              data:
+              device_id: "17159993ce512ff1794b6c1abc6f3df3"
+              en_demand: false
 {% endexample %}
 
 {% enddetails %}
