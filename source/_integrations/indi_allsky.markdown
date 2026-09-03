@@ -2,8 +2,8 @@
 title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
-  - Camera
-ha_release: 2026.9
+  - Sensor
+ha_release: "2026.10"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
