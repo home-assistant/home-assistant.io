@@ -36,7 +36,6 @@ Trigger when:
     - **First**: Fire only when the first targeted water heater turns off.
     - **All**: Fire only after all targeted water heaters are off.
   required: false
-  default: Each
 For at least:
   description: How long the water heater must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

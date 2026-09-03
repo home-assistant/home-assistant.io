@@ -51,7 +51,6 @@ Trigger when:
     - **First**: Fire only on the first threshold crossing.
     - **All**: Fire only after all targeted water heaters cross the threshold.
   required: false
-  default: Each
 For at least:
   description: How long the setpoint must stay beyond the threshold before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

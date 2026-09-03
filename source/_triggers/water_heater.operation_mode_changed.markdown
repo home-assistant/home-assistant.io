@@ -39,7 +39,6 @@ Trigger when:
     - **First**: Fire only when the first targeted water heater changes to one of the selected modes.
     - **All**: Fire only after all targeted water heaters have changed to one of the selected modes.
   required: false
-  default: Each
 For at least:
   description: How long the water heater must stay in the selected mode before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
