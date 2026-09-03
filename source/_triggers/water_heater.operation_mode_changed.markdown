@@ -38,6 +38,8 @@ Trigger when:
     - **Each** (default): Fire every time any targeted water heater changes to one of the selected modes.
     - **First**: Fire only when the first targeted water heater changes to one of the selected modes.
     - **All**: Fire only after all targeted water heaters have changed to one of the selected modes.
+  required: false
+  default: Each
 For at least:
   description: How long the water heater must stay in the selected mode before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -86,12 +88,12 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI): Fires every time any targeted water heater changes to one of the selected modes.
+    - `each` (**Each** in the UI): Fires every time any targeted water heater changes to one of the selected modes.
     - `first` (**First** in the UI): Fires only when the first targeted water heater changes to one of the selected modes.
-    - `last` (**All** in the UI): Fires only after all targeted water heaters have changed to one of the selected modes.
+    - `all` (**All** in the UI): Fires only after all targeted water heaters have changed to one of the selected modes.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the water heater must stay in the selected mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
