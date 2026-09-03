@@ -2,7 +2,7 @@
 title: "Set Daikin Unit demand control"
 action: daikin.set_demand_control
 domain: daikin
-since: "2026.9.0"
+since: "2026.10.0"
 description: "Sets the parameters of Daikin demand control mode"
 ---
 
