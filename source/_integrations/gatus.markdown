@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Gatus** {% term integration %} connects Home Assistant with your [Gatus](https://gatus.io) monitoring instance. Gatus is a developer-oriented health dashboard that lets you monitor your services using HTTP, ICMP, TCP, and DNS queries, and evaluate results based on conditions like status codes, response times, certificate expiration, and response bodies.
@@ -26,9 +26,18 @@ The **Gatus** {% term integration %} connects Home Assistant with your [Gatus](h
 - Trigger automations or send notifications when a monitored service goes down or comes back up.
 - Combine endpoint status with other Home Assistant entities to coordinate responses to outages, such as switching to a backup service or alerting specific people.
 
+## Supported devices
+
+The integration creates a device for each endpoint configured in your Gatus instance under the Gatus service. When endpoints are added or removed in Gatus, the integration dynamically creates or removes the corresponding devices and entities during periodic polling updates.
+
 ## Prerequisites
 
 You need the base URL of your Gatus instance, for example `http://gatus.local:8080` or `https://status.example.com`.
+
+If your Gatus instance requires authentication, you will also need one of the following:
+
+- A username and password for HTTP Basic Authentication.
+- An API key (API token or Bearer token).
 
 {% include integrations/config_flow.md %}
 
@@ -39,13 +48,13 @@ Username:
   description: "Optional username for HTTP Basic Authentication."
 Password:
   description: "Optional password for HTTP Basic Authentication."
-API token:
-  description: "Optional API token (Bearer token) for authentication."
+API key:
+  description: "Optional API key (API token or Bearer token) for authentication."
 {% endconfiguration_basic %}
 
 ### Supported versions
 
-This integration supports **Gatus version 5.x.x or higher**
+This integration supports **Gatus version 5.x.x or higher**.
 
 ## Supported functionality
 
@@ -61,10 +70,11 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
-- **Certificate expiration**: Reports the remaining SSL certificate validity in days of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
-- **Last event**: Reports the most recent status event from Gatus (`healthy`, `unhealthy`, `start`, or `resolved`).
+- **Last event**: Reports the most recent event type (`start`, `healthy`, `unhealthy`, or `resolved`).
+- **Certificate expiration**: Reports the timestamp when the SSL/TLS certificate expires. Only created for endpoints with certificate monitoring enabled.
+- **DNS response code**: Reports the DNS query response code (such as `no_error`, `format_error`, `server_failure`, `non_existent_domain`, `not_implemented`, `refused`). Only created for endpoints with DNS monitoring enabled.
 
 ## Gatus automation examples
 
@@ -145,17 +155,28 @@ automation: |
 
 The integration {% term polling polls %} your Gatus instance every 30 seconds.
 
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Reconfiguration
 
-If you need to update the connection details (URL) of your Gatus instance, you can reconfigure the integration:
+If you need to update the connection details (URL or credentials) of your Gatus instance, you can reconfigure the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Gatus** integration card.
 3. Select the three dots menu {% icon "mdi:dots-vertical" %}, and then select **Reconfigure**.
-4. Update the URL of your Gatus instance.
+4. Update the URL or credentials of your Gatus instance.
 5. Select **Submit**.
 
-Newly configured endpoints are automatically discovered and added as new binary sensor entities during regular data updates, and any endpoints that have been removed from Gatus will be cleaned up automatically.
+### Reauthentication
+
+If the credentials for your Gatus instance become invalid, Home Assistant will prompt you to re-authenticate:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Reconfigure** on the notification or Gatus integration card.
+3. Enter the updated username/password or API key.
+4. Select **Submit**.
 
 ## Known limitations
 
@@ -176,6 +197,15 @@ The setup form shows an error saying it cannot connect to your Gatus instance.
 3. If Gatus is behind a reverse proxy or uses HTTPS, make sure the certificate is valid and the URL matches exactly.
 4. Check your firewall rules to confirm Home Assistant is allowed to reach the Gatus host on the configured port.
 
+#### Symptom: "Invalid authentication"
+
+The setup form shows an error saying authentication failed.
+
+#### Resolution
+
+1. If using HTTP Basic Authentication, verify that the username and password are correct.
+2. If using an API key, verify that the key is valid and not expired.
+
 ### Entities are unavailable
 
 If entities become unavailable after setup, Home Assistant could not reach your Gatus instance during the last data refresh. Check your network connection and confirm the Gatus instance is still running. Entities will recover automatically once the connection is restored.
@@ -184,7 +214,7 @@ If entities become unavailable after setup, Home Assistant could not reach your 
 
 The Gatus integration supports [diagnostic data collection](/docs/configuration/troubleshooting/#download-diagnostics) to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
 
-The diagnostic data contains the status of all Gatus endpoints monitored by the integration. It does not include the URL you entered to connect to Gatus.
+The diagnostic data contains the status of all Gatus endpoints monitored by the integration. It does not include authentication credentials or sensitive connection parameters.
 
 ## Removing the integration
 
