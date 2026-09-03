@@ -66,6 +66,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Horizontal vane**: Auto, Swing, Left, Left centre, Centre, Right centre, Right
 - **Target temperature**
 - **Current room temperature**
+- **Outdoor temperature**
 
 #### Air-to-Water (ATW) units
 
@@ -74,6 +75,7 @@ Each heating zone of an air-to-water heat pump is exposed as a separate climate 
 - **HVAC modes**: Off, Heat, Cool (if supported by the unit)
 - **Target temperature** (per zone)
 - **Current room temperature** (per zone)
+- **Outdoor temperature**
 
 ### Sensors
 
