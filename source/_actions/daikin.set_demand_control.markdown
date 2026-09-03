@@ -2,8 +2,8 @@
 title: "Set demand control"
 action: daikin.set_demand_control
 domain: daikin
-since: "2026.10.0"
-description: "Sets the parameters of Daikin demand control mode"
+since: "2026.10"
+description: "Limit the maximum power of the unit to a percentage of its nominal power."
 ---
 
 Use this action to limit the maximum power of the unit to a percentage of its nominal power, for example to reduce power consumption during peak electricity price periods. It is only available on units that support demand control.
@@ -64,13 +64,15 @@ en_demand:
   required: true
   type: boolean
 max_pow:
-  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100.
+  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100.
   type: integer
   required: false
+  default: 100
 mode:
-  description: "The demand control mode. Choose `manual` or `auto`. Defaults to `manual`. In `auto` mode, the unit manages the limit and `max_pow` is not applied."
+  description: "The demand control mode. Choose `manual` or `auto`. In `auto` mode, the unit manages the limit and `max_pow` is not applied."
   type: string
   required: false
+  default: manual
 
 {% endoptions_yaml %}
 
@@ -84,7 +86,9 @@ mode:
 
 {% include actions/more_examples.md %}
 
-### Automation: Limit the maximum power of the unit during peak/high-rate electricity periods
+### Automation: Limit the maximum power of the unit during high-rate electricity periods
+
+This example assumes that `binary_sensor.electricity_high_rate` already exists and turns on during high-rate periods. Replace it with the entity provided by your electricity-rate integration or one you created separately.
 
 - **Trigger**: State
   - **Entity**: High-rate signal (`binary_sensor.electricity_high_rate`)
