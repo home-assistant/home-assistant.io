@@ -116,7 +116,6 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Problem indicators**: hydrolysis and ionization production problems, a chlorine flow sensor problem, and an ionization program time exceeded state. Added when the corresponding module is present.
 - **Pool cover**: whether the pool cover is open. Reads `unknown` unless filtration is running, since the controller only reports a valid cover state then. Added when the cover sensor is enabled in the integration options.
 - **Heating** and **UV lamp**: whether the heating relay or UV lamp is on. Added when the controller reports the corresponding relay.
-- **Device time out of sync**: raised when the controller's clock drifts more than a minute from Home Assistant. Use the **Synchronize device time** button to correct it.
 
 ### Buttons
 
