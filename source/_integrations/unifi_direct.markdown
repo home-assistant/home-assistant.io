@@ -71,4 +71,3 @@ If the setup fails or the integration stops working, check the following:
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-

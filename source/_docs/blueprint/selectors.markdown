@@ -696,9 +696,9 @@ device_class:
 {% configuration device_class %}
 domain:
   description: >
-    The domain for which to select device classes [domain(s)](/docs/configuration/entities_domains/#domains),
+    The [domain](/docs/configuration/entities_domains/#domains) for which to select device classes,
     for example, [`sensor`](/integrations/sensor) or
-    [`binary_sensor`](/integrations/binary_sensor).
+    [`binary_sensor`](/integrations/binary_sensor). The domain must support the `device_class` property.
   type: string
   required: true
 multiple:
@@ -1223,15 +1223,41 @@ media:
     - image/*
 ```
 
+When `accept` is set, you can also set `image_upload` to let the user upload an
+image from their device instead of browsing the media that is already available
+to Home Assistant. The uploaded image is stored by Home Assistant and selected
+automatically, and the user can clear their choice to upload a different image.
+
+```yaml
+media:
+  accept:
+    - image/*
+  image_upload: true
+```
+
 {% configuration media %}
 accept:
   description: >
     List of media types the user is allowed to select.
   type: list
   required: false
+image_upload:
+  description: >
+    Show an upload field instead of a media browser, allowing the user to upload
+    an image from their device. Requires a non-empty `accept`.
+  type: boolean
+  required: false
+  default: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector is a mapping with information about
+The output of the media selector is a mapping or list of mappings with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1274,6 +1300,20 @@ metadata:
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
+```
+
 
 ## Number selector
 
