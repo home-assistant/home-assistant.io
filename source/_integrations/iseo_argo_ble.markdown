@@ -104,7 +104,7 @@ To pick up credentials that were added or removed in the Argo app, reload the in
 - The lock only supports _one active Bluetooth connection_ at a time. Close the Argo app on all phones before unlocking or during setup.
 - The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore not supported.
 - User management can only be turned on while you set the lock up, because the administrator identity has to be registered during the Master Card scan. If you set your lock up without it, delete the integration and add it again.
-- Credentials added or removed in the Argo app appear after you reload the integration, not straight away.
+- Credentials added or removed in the Argo app appear after you reload the integration, not straight away. Asking Home Assistant to update a credential sensor does nothing on purpose, because re-reading the list is the operation that upsets the lock's firmware.
 
 ## Removing the integration
 
