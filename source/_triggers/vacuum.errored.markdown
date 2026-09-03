@@ -32,7 +32,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When more than one vacuum is targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum reports an error, **First** to fire only on the first error event, or **All** to fire only after all targeted vacuums have reported an error.
   required: false
-  default: Each
 For at least:
   description: The time the vacuum must remain in the error state before the trigger fires.
   required: false

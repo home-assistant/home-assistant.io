@@ -31,7 +31,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum starts returning, **First** to fire only on the first return event, or **All** to fire only after all targeted vacuums have started returning.
   required: false
-  default: Each
 For at least:
   description: The time the vacuum must keep returning before the trigger fires.
   required: false

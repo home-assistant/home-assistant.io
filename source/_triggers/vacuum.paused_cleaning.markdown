@@ -32,7 +32,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum pauses, **First** to fire only on the first pause event, or **All** to fire only after all targeted vacuums have paused.
   required: false
-  default: Each
 For at least:
   description: The time the vacuum must remain paused before the trigger fires.
   required: false

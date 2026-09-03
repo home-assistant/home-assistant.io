@@ -32,7 +32,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum returns to dock, **First** to fire only on the first dock event, or **All** to fire only after all targeted vacuums have returned to dock.
   required: false
-  default: Each
 For at least:
   description: The time the vacuum must remain docked before the trigger fires.
   required: false
