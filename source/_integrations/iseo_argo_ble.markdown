@@ -10,8 +10,8 @@ ha_codeowners:
   - '@FezVrasta'
 ha_domain: iseo_argo_ble
 ha_platforms:
+  - binary_sensor
   - lock
-  - switch
 ha_bluetooth: true
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -49,13 +49,53 @@ Enable user management:
 ## Supported functionality
 
 - **Lock**: Controls the lock (unlock only). Reflects the current locked/unlocked state.
-- **Switches**: One switch per credential enrolled on the lock, such as a card, a PIN, or a phone. Turning a switch off suspends that credential: it stays on the lock but no longer opens the door. Turning it back on restores it. These switches are only created if you enabled user management during setup.
+- **Credential sensors**: One sensor per credential enrolled on the lock, such as a card, a PIN, or a phone. Each shows whether that credential may currently open the door. These sensors are only created if you enabled user management during setup.
 
-The credential type is part of each switch's name, because one person often holds several and the lock allows them to share a name. The two identities Home Assistant registered for itself do not get switches, so you cannot lock yourself out of your own lock.
+The credential type is part of each sensor's name, because one person often holds several and the lock allows them to share a name. The two identities Home Assistant registered for itself do not get sensors, so you cannot lock yourself out of your own lock.
+
+The sensors are read-only. To suspend or restore a credential, use the [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) action, which only Home Assistant administrators can run.
+
+{% include integrations/actions.md %}
+
+## ISEO Argo BLE automation examples
+
+Credentials do not have to be managed by hand. Home Assistant can suspend and restore them for you.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Suspend a lost card straight away
+
+When you mark a card as lost with a toggle helper you created yourself, the card stops opening the door.
+
+- **Trigger**: State of the **Card lost** toggle changes to **On**
+- **Action**: ISEO Argo BLE: Set credential enabled
+  - **Target**: Alice's card (`binary_sensor.front_door_alice_card`)
+  - **Enabled**: off
+
+{% details "YAML example for suspending a lost card" %}
+
+{% example %}
+automation: |
+  alias: "Suspend the lost card"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.card_lost
+      to: "on"
+  actions:
+    - action: iseo_argo_ble.set_credential_enabled
+      target:
+        entity_id: binary_sensor.front_door_alice_card
+      data:
+        enabled: false
+{% endexample %}
+
+{% enddetails %}
+
+The **Card lost** toggle is an `input_boolean` {% term helper %} you have to create yourself, under **Settings** > **Devices & services** > **Helpers**.
 
 ## Data updates
 
-Home Assistant reads the list of enrolled credentials once, while it sets the lock up. It is not read again on a timer, because repeatedly running administrator commands over Bluetooth eventually stops recent ISEO firmware from responding at all. After you turn a switch on or off, Home Assistant applies that change to the list it already holds rather than reading it again.
+Home Assistant reads the list of enrolled credentials once, while it sets the lock up. It is not read again on a timer, because repeatedly running administrator commands over Bluetooth eventually stops recent ISEO firmware from responding at all. After you suspend or restore a credential, Home Assistant applies that change to the list it already holds rather than reading it again.
 
 To pick up credentials that were added or removed in the Argo app, reload the integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select the lock, and select **Reload** from the three-dot menu.
 
