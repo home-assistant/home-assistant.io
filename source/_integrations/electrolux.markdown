@@ -17,6 +17,7 @@ ha_category:
   - Light
   - Number
   - Sensor
+  - Vacuum
 ha_platforms:
   - binary_sensor
   - button
@@ -26,6 +27,7 @@ ha_platforms:
   - humidifier
   - Number
   - sensor
+  - vacuum
 ha_quality_scale: bronze
 related:
   - url: https://developer.electrolux.one/documentation
@@ -211,6 +213,14 @@ This entity is used to control the appliance with the following actions:
 - **Remote control**
   - **Description**: Reports the remote control status.
   - **Available for appliance types**: Oven.
+
+{% enddetails %}
+
+### Vacuum
+
+{% details "List of vacuum entities" %}
+
+This entity allows controlling Electrolux group robot vacuum cleaners by starting, stopping, pausing, returning to the charging dock, adjusting the fan speed, starting cleaning in specific areas and reporting the current state of the vacuum.
 
 {% enddetails %}
 
