@@ -7,9 +7,11 @@ description: "Updates restrictions for a specific day of the week on the selecte
 
 The **Update daily restrictions** action updates playtime and bedtime restrictions for a specific day of the week on a specified device.
 
-{% note %}
-Daily restrictions can only be updated when the device's restriction mode is set to **Different for each day**.
-{% endnote %}
+## Prerequisites
+
+- You are signed in with an administrator account. Only administrators can run this action.
+- The device's restriction mode is set to **Different for each day**. You can update daily restrictions only in this mode.
+
 
 {% important %}
 
