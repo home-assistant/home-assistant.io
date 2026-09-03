@@ -54,7 +54,6 @@ Trigger when:
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. For example, set it to `0:05:00` to wait 5 minutes before running the automation. Default is `0` (fires immediately).
 {% endoptions_ui %}
