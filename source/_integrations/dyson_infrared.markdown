@@ -3,10 +3,10 @@ title: Dyson Infrared
 description: Integration to control Dyson Fan using an infrared transmitter.
 ha_category:
   - Fan
-ha_release: "2026.8" 
-ha_iot_class: Assumed State 
+ha_release: '2026.8'
+ha_iot_class: Assumed State
 ha_codeowners:
-  - "@elax46"
+  - '@elax46'
 ha_domain: dyson_infrared
 ha_config_flow: true
 ha_platforms:

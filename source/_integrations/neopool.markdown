@@ -5,16 +5,17 @@ ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@svasek"
+  - '@svasek'
 ha_domain: neopool
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_category:
   - Hub
 ---
@@ -160,6 +161,17 @@ Only entities backed by a detected hardware module or an enabled controller opti
 The integration {% term polling polls %} the controller over Modbus TCP at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
 
 If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), all entities transition to `unavailable` until the next successful poll.
+
+## Reconfigure
+
+If your Modbus TCP gateway moves to a different IP address or port, or you need to change the unit ID or Modbus framer, you can update the connection settings without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the NeoPool integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+4. Update the settings and submit the form.
+
+The integration verifies the new settings against the controller before saving. If the device reached at the new address reports a different serial number than the one originally configured, the reconfiguration is rejected to prevent pointing the entry at a different controller.
 
 ## Diagnostics
 

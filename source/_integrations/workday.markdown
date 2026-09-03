@@ -96,6 +96,6 @@ Check the [holidays repository](https://github.com/vacanza/python-holidays) if y
 Some holidays in your country may not be actual official holidays and are therefore set in a special category that needs to be selected.
 Missing holidays or incorrect days need to be raised directly in the [holidays repository](https://github.com/vacanza/python-holidays).
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

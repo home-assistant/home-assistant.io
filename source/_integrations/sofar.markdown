@@ -9,10 +9,14 @@ ha_codeowners:
   - '@darkrain-nl'
 ha_domain: sofar
 ha_platforms:
+  - button
+  - diagnostics
+  - select
   - sensor
+  - switch
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
@@ -44,9 +48,30 @@ Modbus unit ID:
 
 During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does.
 
+## Reconfiguration
+
+If the inverter becomes reachable somewhere else on the network, for example after a DHCP lease change or when you replace the Modbus TCP bridge it's connected through, you can update the connection settings without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
+2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
+3. Update the **Host**, **Port**, or **Modbus unit ID** as needed.
+4. Select **Submit** to save the new settings.
+
+The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
+
 ## Supported functionality
 
 The **Sofar** integration provides the following entities.
+
+### Buttons
+
+- **RTC sync**: Writes the current date and time to the inverter's clock.
+- **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
+
+### Select
+
+- **Charger use mode**: The battery charger's operating mode, such as self use, time of use, or feed-in priority. Only shown for inverters with battery storage.
+- **EPS mode**: Turns the EPS/backup output off and on, and whether it's allowed to cold-start from battery power alone. Only shown for inverters wired for EPS/backup power.
 
 ### Sensors
 
@@ -64,13 +89,17 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 
 The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, and the battery configuration are disabled. To use one of them, enable it from the entity's settings.
 
+### Switch
+
+The integration adds one switch, named after the inverter itself, that stops and resumes its operation remotely. Turning it off puts the inverter into its waiting state rather than cutting power to it.
+
 ## Data updates
 
 The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time. Only sensors are available so far; controls such as number and select entities are planned for future releases.
+- This is an early release of the integration, added to Home Assistant one platform at a time. Number entities are planned for a future release.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 

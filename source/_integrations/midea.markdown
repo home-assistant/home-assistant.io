@@ -5,29 +5,31 @@ ha_category:
   - Binary sensor
   - Button
   - Climate
-  - Light
   - Fan
-  - Switch
+  - Humidifier
+  - Light
   - Number
   - Select
-  - Humidifier
+  - Switch
 ha_release: 2026.8
 ha_domain: midea
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
   - '@rokam'
-  - '@wuwentao'
-ha_iot_class: Local Push
+  - '@caibinqing'
+ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
   - climate
+  - diagnostics
   - fan
   - humidifier
   - light
   - number
   - select
+  - sensor
   - switch
   - time
 ha_integration_type: device
@@ -128,6 +130,7 @@ The **Midea** {% term integration %} provides the following entities:
 - Light
 - Number
 - Select
+- Sensor: Various diagnostic sensors.
 - Switch
 - Time
 
