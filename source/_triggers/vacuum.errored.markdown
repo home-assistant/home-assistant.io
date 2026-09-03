@@ -31,7 +31,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When more than one vacuum is targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum reports an error, **First** to fire only on the first error event, or **All** to fire only after all targeted vacuums have reported an error.
-  required: true
+  required: false
+  default: Each
 For at least:
   description: The time the vacuum must remain in the error state before the trigger fires.
   required: false
@@ -62,7 +63,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
