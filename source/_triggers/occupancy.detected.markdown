@@ -35,6 +35,7 @@ Trigger when:
     - **First**: fires only when the first sensor starts reporting the space as occupied.
     - **All**: fires only after every targeted sensor reports the space as occupied.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must keep reporting the space as occupied before the trigger fires. The default is zero (fires immediately).
   required: false
