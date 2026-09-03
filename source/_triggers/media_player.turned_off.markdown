@@ -35,6 +35,8 @@ Trigger when:
     - **Each**: Fires every time any targeted media player turns off (default).
     - **First**: Fires when the first targeted media player turns off.
     - **All**: Fires when every targeted media player turns off.
+  required: false
+  default: Each
 For at least:
   description: How long the media player must stay off before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,7 +62,7 @@ trigger: |
   target:
     area_id: upstairs
   options:
-    behavior: last
+    behavior: all
     for: "00:02:00"
 {% endexample %}
 
@@ -71,12 +73,12 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player turns off.
+    - `each` (**Each** in the UI, default): fires every time any targeted media player turns off.
     - `first` (**First** in the UI): fires when the first targeted media player turns off.
-    - `last` (**All** in the UI): fires when every targeted media player turns off.
+    - `all` (**All** in the UI): fires when every targeted media player turns off.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the media player must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false
