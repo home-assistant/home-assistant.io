@@ -56,7 +56,6 @@ Trigger when:
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief light fluctuations. For example, set it to `0:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
 {% endoptions_ui %}
