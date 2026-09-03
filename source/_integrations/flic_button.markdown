@@ -35,20 +35,6 @@ The following Flic devices are supported:
 
 {% include integrations/config_flow.md %}
 
-### Auto-discovery
-
-Flic buttons are automatically discovered over Bluetooth when they are in pairing mode. When a Flic button is discovered, it appears as a new device on the integrations page, ready for you to set up.
-
-### Manual setup
-
-If the button is not automatically discovered:
-
-1. Make sure the button is not connected to anything.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. Select **Add integration**, then search for **Flic Button**.
-4. When the **Pair with Flic device** step asks for it, push and hold the button until it connects.
-5. Submit the form to complete pairing.
-
 ## Configuration options
 
 Configuration options are available for Flic Twist devices only. To access them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Flic Button entry for your Twist device, and select **Configure**.
