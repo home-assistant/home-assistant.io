@@ -87,9 +87,9 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI): Fires every time any targeted water heater changes to one of the selected modes.
-    - `first` (**First** in the UI): Fires only when the first targeted water heater changes to one of the selected modes.
-    - `all` (**All** in the UI): Fires only after all targeted water heaters have changed to one of the selected modes.
+    - `each`: Fires every time any targeted water heater changes to one of the selected modes.
+    - `first`: Fires only when the first targeted water heater changes to one of the selected modes.
+    - `all`: Fires only after all targeted water heaters have changed to one of the selected modes.
   required: false
   type: string
   default: each

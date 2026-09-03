@@ -74,9 +74,9 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `each` (**Each** in the UI): Fires every time any targeted water heater turns off.
-    - `first` (**First** in the UI): Fires only when the first targeted water heater turns off.
-    - `all` (**All** in the UI): Fires only after all targeted water heaters are off.
+    - `each`: Fires every time any targeted water heater turns off.
+    - `first`: Fires only when the first targeted water heater turns off.
+    - `all`: Fires only after all targeted water heaters are off.
   required: false
   type: string
   default: each
