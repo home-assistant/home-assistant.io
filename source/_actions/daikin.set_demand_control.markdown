@@ -99,25 +99,25 @@ automation: |
   - alias: "Limit maximum AC power during high-rate periods"
     triggers:
       - trigger: state
-          entity_id: binary_sensor.electricity_high_rate
-          to:
+        entity_id: binary_sensor.electricity_high_rate
+        to:
           - "on"
           - "off"
     actions:
       - if:
-        - condition: state
-          entity_id: binary_sensor.electricity_high_rate
-          state:
-          - 'on'
-          then:
+          - condition: state
+            entity_id: binary_sensor.electricity_high_rate
+            state:
+              - 'on'
+        then:
           - action: daikin.set_demand_control
-              data:
+            data:
               device_id: "17159993ce512ff1794b6c1abc6f3df3"
               en_demand: true
               max_pow: 40
-          else:
+        else:
           - action: daikin.set_demand_control
-              data:
+            data:
               device_id: "17159993ce512ff1794b6c1abc6f3df3"
               en_demand: false
 {% endexample %}
@@ -139,25 +139,25 @@ automation: |
   - alias: "Limit the maximum power of the unit during the night"
     triggers:
       - trigger: state
-          entity_id: sun.sun
-          to:
+        entity_id: sun.sun
+        to:
           - "below_horizon"
           - "above_horizon"
     actions:
       - if:
-        - condition: state
-          entity_id: sun.sun
-          state:
-          - 'below_horizon'
-          then:
+          - condition: state
+            entity_id: sun.sun
+            state:
+              - 'below_horizon'
+        then:
           - action: daikin.set_demand_control
-              data:
+            data:
               device_id: "17159993ce512ff1794b6c1abc6f3df3"
               en_demand: true
               max_pow: 60
-          else:
+        else:
           - action: daikin.set_demand_control
-              data:
+            data:
               device_id: "17159993ce512ff1794b6c1abc6f3df3"
               en_demand: false
 {% endexample %}
