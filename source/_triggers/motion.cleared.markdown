@@ -35,6 +35,7 @@ Trigger when:
     - **First**: fires only when the first sensor stops detecting motion.
     - **All**: fires only after every targeted sensor stops detecting motion.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must remain without detecting motion before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
