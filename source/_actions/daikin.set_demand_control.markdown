@@ -138,7 +138,7 @@ automation: |
 
 - **Trigger**: State
   - **Entity**: Sun (`sun.sun`)
-  - **To**: Below Horizon or Above Horizon
+  - **To**: Below horizon or Above horizon
 - **Action**: If-then
   - **If**: Sun is below the horizon
   - **Then**: Set demand control
