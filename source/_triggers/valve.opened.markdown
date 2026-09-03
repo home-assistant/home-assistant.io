@@ -35,7 +35,6 @@ Trigger when:
     - **First** fires only when the first of a group opens.
     - **All** fires only after every targeted valve is open.
   required: false
-  default: Each
 For at least:
   description: How long the valve must stay open before the trigger fires. Default is 0 (fires immediately). Useful to ignore brief, accidental openings.
 {% endoptions_ui %}
