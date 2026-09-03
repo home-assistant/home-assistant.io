@@ -28,7 +28,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple windows are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted window opens, **First** to fire only when the first targeted window opens, or **All** to fire only after every targeted window is open.
   required: false
-  default: Each
 For at least:
   description: How long the window must stay open before the trigger fires. Set to zero to fire immediately.
   required: true
