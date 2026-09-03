@@ -32,7 +32,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters are reset. Default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the counter must stay at its reset value before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
