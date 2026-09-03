@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first satellite in the group starts listening.
     - **All**: fires only after every targeted satellite is in the listening state.
   required: false
+  default: Each
 For at least:
   description: How long the satellite or satellites must keep reporting the listening state before the trigger fires. The default is zero (fires immediately).
   required: false

@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first satellite in the group starts responding.
     - **All**: fires only after every targeted satellite is in the responding state.
   required: false
+  default: Each
 For at least:
   description: How long the satellite or satellites must keep reporting the responding state before the trigger fires. The default is zero (fires immediately).
   required: false

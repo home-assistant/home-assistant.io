@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first satellite in the group returns to idle.
     - **All**: fires only after every targeted satellite is back in the idle state.
   required: false
+  default: Each
 For at least:
   description: How long the satellite or satellites must keep reporting the idle state before the trigger fires. The default is zero (fires immediately). Use a short duration such as five seconds to avoid triggering on momentary idle flickers between pipeline stages.
   required: false
