@@ -13,6 +13,7 @@ ha_domain: vizio
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - remote
   - sensor

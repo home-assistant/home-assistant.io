@@ -3,6 +3,7 @@ title: LinkedGo
 description: Connect and control your LinkedGo devices using the Shelly integration
 ha_category:
   - Binary sensor
+  - Camera
   - Climate
   - Cover
   - Energy
@@ -30,6 +31,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
