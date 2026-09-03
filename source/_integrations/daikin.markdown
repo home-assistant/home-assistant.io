@@ -2,6 +2,7 @@
 title: Daikin AC
 description: Instructions on how to integrate Daikin AC devices with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Energy
   - Sensor
