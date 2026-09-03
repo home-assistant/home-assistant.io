@@ -75,7 +75,6 @@ Each heating zone of an air-to-water heat pump is exposed as a separate climate 
 - **HVAC modes**: Off, Heat, Cool (if supported by the unit)
 - **Target temperature** (per zone)
 - **Current room temperature** (per zone)
-- **Outdoor temperature**
 
 ### Sensors
 
