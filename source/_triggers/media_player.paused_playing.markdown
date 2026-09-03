@@ -71,9 +71,9 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted media player pauses.
-    - `first` (**First** in the UI): fires when the first targeted media player pauses.
-    - `all` (**All** in the UI): fires when every targeted media player pauses.
+    - `each` (default): fires every time any targeted media player pauses.
+    - `first`: fires when the first targeted media player pauses.
+    - `all`: fires when every targeted media player pauses.
   required: false
   type: string
   default: each

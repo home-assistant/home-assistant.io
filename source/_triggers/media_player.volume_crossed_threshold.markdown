@@ -96,9 +96,9 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `each` (**Each** in the UI, default): fires every time any targeted media player crosses the threshold.
-    - `first` (**First** in the UI): fires when the first targeted media player crosses the threshold.
-    - `all` (**All** in the UI): fires when every targeted media player crosses the threshold.
+    - `each` (default): fires every time any targeted media player crosses the threshold.
+    - `first`: fires when the first targeted media player crosses the threshold.
+    - `all`: fires when every targeted media player crosses the threshold.
   required: false
   type: string
   default: each
