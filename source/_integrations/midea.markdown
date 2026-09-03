@@ -139,6 +139,12 @@ The **Midea** {% term integration %} provides the following entities:
 This integration requires devices with protocol V1, V2, and V3.
 It is based on **API v1** while some new devices are based on **API v2**.
 
+## Troubleshooting
+
+This integration uses the device's IP address to connect to it. If the IP address changes, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Midea**, and select **Reload**. If Home Assistant is on the same network, it will try to discover the device again and update the IP address.
+
+If Home Assistant can't discover the device, select **Reconfigure** instead and enter the new IP address.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
