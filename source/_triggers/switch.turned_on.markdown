@@ -28,6 +28,7 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple switches are targeted, controls whether the trigger fires for **Each** switch, only the **First** switch, or after **All** targeted switches are on.
   required: false
+  default: Each
 For at least:
   description: How long the switch must stay on before the trigger fires. The default is `0` (fires immediately).
   required: false
