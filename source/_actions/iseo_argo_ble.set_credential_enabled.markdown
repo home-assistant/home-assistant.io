@@ -4,6 +4,8 @@ action: iseo_argo_ble.set_credential_enabled
 domain: iseo_argo_ble
 description: "Lets a credential enrolled on your ISEO lock open the door, or stops it doing so."
 since: "2026.10"
+related_actions:
+  - iseo_argo_ble.delete_credential
 ---
 
 The **Set credential enabled** action suspends or restores one of the credentials enrolled on your ISEO Argo lock: a card, a PIN, a phone, or a fingerprint. A suspended credential stays on the lock, it just stops opening the door, so you can hand it back later without enrolling it again.
@@ -72,7 +74,7 @@ enabled:
 
 - Changing a credential connects to the lock over Bluetooth. Close the Argo app on all phones first, because the lock only accepts one connection at a time.
 - If the lock is out of Bluetooth range, the action reports an error and nothing changes on the lock.
-- Suspending a credential does not remove it. To delete a credential for good, use the official Argo app.
+- Suspending a credential does not remove it. To remove one for good, use the [**Delete credential**](/actions/iseo_argo_ble.delete_credential/) action instead.
 
 {% include actions/try_it.md %}
 

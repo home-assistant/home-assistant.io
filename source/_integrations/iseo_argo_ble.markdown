@@ -53,7 +53,7 @@ Enable user management:
 
 The credential type is part of each sensor's name, because one person often holds several and the lock allows them to share a name. The two identities Home Assistant registered for itself do not get sensors, so you cannot lock yourself out of your own lock.
 
-The sensors are read-only. To suspend or restore a credential, use the [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) action, which only Home Assistant administrators can run.
+The sensors are read-only. To suspend or restore a credential, use the [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) action, and to remove one for good, use [**Delete credential**](/actions/iseo_argo_ble.delete_credential/). Both are limited to Home Assistant administrators.
 
 {% include integrations/actions.md %}
 
@@ -103,6 +103,7 @@ To pick up credentials that were added or removed in the Argo app, reload the in
 
 - The lock only supports _one active Bluetooth connection_ at a time. Close the Argo app on all phones before unlocking or during setup.
 - The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore not supported.
+- Home Assistant can suspend and remove credentials, but it cannot enrol new ones. Adding a credential needs your Master Card and the Argo app.
 - User management can only be turned on while you set the lock up, because the administrator identity has to be registered during the Master Card scan. If you set your lock up without it, delete the integration and add it again.
 - Credentials added or removed in the Argo app appear after you reload the integration, not straight away. Asking Home Assistant to update a credential sensor does nothing on purpose, because re-reading the list is the operation that upsets the lock's firmware.
 
