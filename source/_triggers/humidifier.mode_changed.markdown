@@ -39,7 +39,6 @@ Trigger when:
     - **First**: fires only on the first mode change.
     - **All**: fires only after every targeted humidifier changes mode.
   required: false
-  default: Each
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
 {% endoptions_ui %}

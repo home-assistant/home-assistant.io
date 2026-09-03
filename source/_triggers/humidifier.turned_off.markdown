@@ -37,7 +37,6 @@ Trigger when:
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted humidifier is off.
   required: false
-  default: Each
 For at least:
   description: How long the humidifier must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

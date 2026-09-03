@@ -36,7 +36,6 @@ Trigger when:
     - **First**: fires only on the first humidifier that starts humidifying.
     - **All**: fires only after every targeted humidifier starts humidifying.
   required: false
-  default: Each
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
