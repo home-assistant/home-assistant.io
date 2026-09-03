@@ -2,6 +2,7 @@
 title: Persang Infrared
 description: Integration to control Persang speakers using an infrared transmitter.
 ha_category:
+  - Button
   - Infrared
   - Media player
 ha_release: '2026.10'
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: persang_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - media_player
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -47,6 +49,16 @@ The **Persang Infrared** integration provides the following entities.
   - **Description**: Represents the speaker and allows you to control it over IR.
   - **Supported features**: Turn on, turn off, volume up, volume down, mute, play, pause, next track, and previous track.
 
+### Buttons
+
+Button entities are provided for the remaining remote buttons, which the media player entity does not expose:
+
+- **Mode**: Cycles through the speaker's playback modes.
+- **Equalizer**: Cycles through the speaker's equalizer presets.
+- **Scan**: Starts scanning the current source.
+- **Repeat**: Cycles through the repeat modes.
+- **Number 0** to **Number 9**: Send the corresponding numeric key, which the speaker uses to select a track.
+
 ## Known limitations
 
 - The integration uses assumed state, meaning Home Assistant cannot read the actual state of the speaker (for example, whether it is on or off, or what the current volume is).
@@ -55,7 +67,7 @@ The **Persang Infrared** integration provides the following entities.
 - Volume control is step-based only; there is no way to set an absolute volume level.
 - Mute is not restored after a restart.
 - Source selection is not exposed, because the remote has no dedicated source buttons.
-- The remaining remote buttons, such as mode, equalizer, scan, repeat, and the numeric keys, are not exposed yet.
+- The mode, equalizer, and repeat buttons cycle through the available settings, so Home Assistant cannot select a specific one or tell which one is active.
 
 ## Removing the integration
 
