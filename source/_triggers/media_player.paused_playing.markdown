@@ -36,7 +36,6 @@ Trigger when:
     - **First**: Fires when the first targeted media player pauses.
     - **All**: Fires when every targeted media player pauses.
   required: false
-  default: Each
 For at least:
   description: How long playback must stay paused before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}

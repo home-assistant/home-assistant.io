@@ -40,7 +40,6 @@ Trigger when:
     - **First**: Fires when the first targeted media player crosses the threshold.
     - **All**: Fires when every targeted media player crosses the threshold.
   required: false
-  default: Each
 For at least:
   description: How long the crossed state must remain true before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
