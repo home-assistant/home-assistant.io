@@ -68,7 +68,7 @@ max_pow:
   type: integer
   required: false
 mode:
-  description: "Demand control mode: `manual`, `auto`. Defaults to `manual`. In `auto` mode, the unit manages the limit and `max_pow` is not applied"
+  description: "The demand control mode. Choose `manual` or `auto`. Defaults to `manual`. In `auto` mode, the unit manages the limit and `max_pow` is not applied."
   type: string
   required: false
 
