@@ -86,11 +86,18 @@ mode:
 
 ### Automation: Limit the maximum power of the unit during peak/high-rate electricity periods
 
-- **Trigger**: State: High rate signal from energy supplier 
-- **Action**: Set demand control
-  - **Device**: The unit {% term device %}
-  - **Enable**: True if the High rate signal is true, False otherwise
-  - **Maximum power**: 40% if the high rate signal is true, not provided otherwise
+- **Trigger**: State
+  - **Entity**: High-rate signal (`binary_sensor.electricity_high_rate`)
+  - **To**: On or Off
+- **Action**: If-then
+  - **If**: High-rate signal is on
+  - **Then**: Set demand control
+    - **Device**: Daikin unit
+    - **Enable**: On
+    - **Maximum power**: 40%
+  - **Else**: Set demand control
+    - **Device**: Daikin unit
+    - **Enable**: Off
 
 {% details "Show example YAML" %}
 
