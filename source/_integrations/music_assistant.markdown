@@ -73,6 +73,10 @@ The Music Assistant integration creates a button entity for each player to favor
 
 If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
 
+### Dashboards
+
+Music Assistant dashboards can be shown on display devices, such as Chromecasts, Fully Kiosk browsers, and open Music Assistant web clients, from an automation. Available dashboards are party, now playing, and music quiz. Use the [Get dashboards](/actions/music_assistant.get_dashboards/) action to list the available display devices, then use the [Show dashboard](/actions/music_assistant.show_dashboard/) and [Hide dashboard](/actions/music_assistant.hide_dashboard/) actions to control what's shown.
+
 {% include integrations/actions.md %}
 
 ## Notes
