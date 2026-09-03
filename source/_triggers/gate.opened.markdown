@@ -30,7 +30,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple gates are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted gate opens, **First** to fire only when the first targeted gate opens, or **All** to fire only after every targeted gate is open.
   required: false
-  default: Each
 For at least:
   description: How long the gate must stay open before the trigger fires. Set it to zero to fire immediately.
 {% endoptions_ui %}
