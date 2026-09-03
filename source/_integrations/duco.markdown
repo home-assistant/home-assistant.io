@@ -3,6 +3,7 @@ title: Duco
 description: Instructions on how to integrate Duco ventilation with Home Assistant.
 ha_release: 2026.5
 ha_category:
+  - Binary Sensor
   - Fan
   - Number
   - Select
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - fan
   - number
@@ -196,9 +198,17 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
-#### Wi-Fi signal strength
+#### Diagnostic entities
 
-Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+The following diagnostic entities may be available for the main ventilation box (BOX), depending on your model and firmware:
+
+- **Ventilation**: Indicates whether the ventilation subsystem reports a problem.
+- **Filter**: Indicates whether the filter subsystem reports a problem.
+- **Ventilation cooling**: Indicates whether the ventilation cooling subsystem reports a problem. This entity is disabled by default.
+- **Sun control**: Indicates whether the sun control subsystem reports a problem. This entity is disabled by default.
+- **Wi-Fi signal strength**: Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+
+The subsystem problem entities turn on when Duco reports `Error` or `Disable` and remain off when Duco reports `OK`.
 
 ## Use cases
 
@@ -343,7 +353,6 @@ The integration {% term polling polls %} the Duco box every 10 seconds. If you a
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
 - Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - Some model-specific sensors are not yet exposed in Home Assistant. This currently affects parts of the DucoBox Energy sensor surface, and VOC-capable node families currently expose only the ventilation-related entities.
-- Integration diagnostics are available, but subsystem-specific diagnostics for the different Duco models are not yet exposed separately.
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
