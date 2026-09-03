@@ -22,6 +22,17 @@ ha_quality_scale: silver
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
 
+## Use cases
+
+The **Sofar** integration brings your inverter's own measurements into Home Assistant, so the solar system becomes something you can build automations on rather than something you check in a vendor app:
+
+- **Put your solar production in the energy dashboard** - Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's energy dashboard, measured at the inverter rather than estimated.
+- **Run appliances on surplus solar** - Start the dishwasher or washing machine once the inverter reports more production than the house is using, and raise or lower a car charger's rate as production rises and falls.
+- **Automate around the battery** - Use the battery's state of charge to decide when to run heavy loads, when to hold charge back for the evening, and when to warn that the reserve is nearly gone.
+- **Notice problems the same day they happen** - The fault binary sensors and the system status sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
+- **Keep an eye on the hardware** - Inverter, heatsink, and module temperatures, plus battery state of health and charge cycles, show how the installation is ageing.
+- **Stop and resume the inverter remotely** - Put the inverter into its waiting state for grid work or an export ban, then bring it back, without going to the unit.
+
 ## Supported devices
 
 During setup, the integration reads the inverter's serial number and uses it to automatically detect the inverter model and its register map. It currently recognizes newer-generation Sofar inverters, including:
@@ -107,6 +118,91 @@ The inverter's power limits and its passive-mode setpoints each span several reg
 ## Data updates
 
 The **Sofar** {% term integration %} {% term polling polls %} the inverter's live readings every 5 seconds. Values that rarely change, such as the device information and the battery configuration, are polled every 60 seconds instead, so each poll stays short.
+
+## Examples
+
+The following examples show how to use the **Sofar** integration in Home Assistant automations. They are a starting point, so treat them as inspiration for your own.
+
+The entity IDs below are named after the inverter, so replace `sofar` with your own inverter's name.
+
+Feel free to contribute more examples to this documentation. Have you built a useful automation around your inverter? Consider sharing it so other users get more out of theirs.
+
+### Notify when the inverter reports a fault
+
+The following example sends a notification when the inverter raises a fault or drops out of normal grid-connected operation.
+
+```yaml
+automation:
+  - alias: "Sofar inverter fault"
+    triggers:
+      - trigger: state
+        entity_id:
+          - binary_sensor.sofar_grid_fault
+          - binary_sensor.sofar_pv_fault
+          - binary_sensor.sofar_battery_fault
+          - binary_sensor.sofar_thermal_fault
+        from: "off"
+        to: "on"
+      - trigger: state
+        entity_id: sensor.sofar_system_state
+        to:
+          - "recoverable_fault"
+          - "permanent_fault"
+
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Sofar inverter fault"
+          message: >
+            The inverter reported a fault. Download the integration's
+            diagnostics for the decoded list of everything currently active.
+```
+
+### Run an appliance on surplus solar
+
+The following example starts a smart plug once the inverter has been producing more than the house is consuming for ten minutes, so a passing cloud doesn't switch it on and straight back off.
+
+```yaml
+automation:
+  - alias: "Dishwasher on surplus solar"
+    triggers:
+      - trigger: template
+        value_template: >
+          {{ states('sensor.sofar_pv_power_total') | float(0)
+             - states('sensor.sofar_active_power_load_system') | float(0) > 1.5 }}
+        for:
+          minutes: 10
+
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.dishwasher
+```
+
+### Warn when the battery reserve runs low
+
+The following example sends a notification when the battery drops below a fifth of its capacity, so you can decide whether to hold back the remaining charge.
+
+```yaml
+automation:
+  - alias: "Sofar battery reserve low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.sofar_battery_state_of_charge_total
+        below: 20
+
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Home battery is low"
+          message: >
+            The battery is below 20%. Heavy loads will start drawing
+            from the grid.
+```
 
 ## Known limitations
 
