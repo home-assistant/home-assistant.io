@@ -15,9 +15,8 @@ ha_quality_scale: gold
 ha_platforms:
   - diagnostics
   - notify
-google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 api: Google Assistant API
-api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
+api_link: https://console.cloud.google.com/apis/library/embeddedassistant.googleapis.com
 ---
 
 The **Google Assistant SDK** {% term integration %} allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
@@ -61,7 +60,7 @@ The integration setup will next give you instructions to enter the [Application 
 2. If your Google account settings are set to a language not supported by the SDK -- which can be noticed by the authentication screen of Google being localized in that language -- the authorization will fail without a clear error. Changing the language at the bottom of the error page to one that is [supported](https://developers.google.com/assistant/sdk/reference/rpc/languages) by the SDK will allow you to continue to the link page of Home Assistant.
 
 {% note %}
-You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+You may get a message telling you that the app has not been verified and you will need to acknowledge that to proceed.
 {% endnote %}
 
 3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Select **Continue**.
@@ -84,7 +83,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Create credentials" %}
 
-1. Navigate to [Google Developers Console > Credentials](https://console.cloud.google.com/apis/credentials).
+1. Navigate to [Google Cloud console > Credentials](https://console.cloud.google.com/apis/credentials).
 2. Select the project you created earlier from the dropdown menu in the upper left corner.
 3. Select **Create credentials** (at the top of the screen), then select **OAuth client ID**.
 4. Set the Application type to **Desktop app** and give this credential set a name (like "Home Assistant Desktop Credentials").
@@ -117,7 +116,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Enable personal results" %}
 
-1. Go to  {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`.
+1. Go to  {% my developer_services title="**Settings** > **Tools** > **Actions**" %} and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`.
 2. On your phone, you should receive a notification **Allow personal answers** **Allow Google Assistant to answer your questions about your calendar, trips, and more**.
 3. DO NOT tap on **ALLOW** (it won't work until you enter a device name). Instead, tap on the notification text.
 4. If the app doesn't open, you need to retry on a device running Android 12. If you don't have such a device, you can use an Android emulator.
@@ -140,6 +139,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
 
 ## Limitations/known issues
 
+- **Text responses are no longer returned by the Google Assistant SDK API.** All responses are now delivered as audio. If you do not provide a `media_player` entity, you will not receive any feedback from the integration.
 - Multiple Google accounts are not supported.
 - If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
@@ -152,76 +152,9 @@ The easiest way to check if the integration is working is to check [My Google Ac
 
 On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages).
 
-## Actions
+{% include integrations/actions.md %}
 
-### Send text command
-
-You can use the `google_assistant_sdk.send_text_command` action to send commands to Google Assistant.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `command`              | no       | Command(s) to send to Google Assistant. |
-| `media_player`         | yes      | Name(s) of media player entities to play the Google Assistant's audio response on. This does **not** target the device for the command itself. |
-
-Examples:
-
-```yaml
-action: google_assistant_sdk.send_text_command
-data:
-  command: "turn off kitchen TV"
-```
-
-```yaml
-# Say a joke on the living room speaker. The `media_player` entity receives the audio response.
-action: google_assistant_sdk.send_text_command
-data:
-  command: "tell me a joke"
-  media_player: media_player.living_room_speaker
-```
-
-```yaml
-# Stream a camera to a Chromecast-enabled TV or display.
-# The target device ("living room tv") must be part of the command itself.
-action: google_assistant_sdk.send_text_command
-data:
-  command: "show the front door camera on the living room tv"
-```
-
-Note: To control a specific device, like streaming a camera to a TV, you must include the device's name (as known by Google Assistant) in the text `command`. The `media_player` parameter is only used for playing back Google Assistant's audio response and will not direct the video stream.
-
-You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
-
-```yaml
-action: google_assistant_sdk.send_text_command
-data:
-  command:
-    - "open the garage door"
-    - "1234"
-```
-
-You can get responses. Example:
-
-```yaml
-action: google_assistant_sdk.send_text_command
-data:
-  command:
-    - "tell me a joke"
-    - "tell me another one"
-```
-
-returns:
-
-```yaml
-responses:
-  - text: |-
-      What do you call a belt made of watches?
-      A waist of time 👖 🕝
-  - text: |-
-      What's the most musical part of the turkey?
-      The drumsticks 🍗
-```
-
-### Action: Broadcast message
+## Broadcast message
 
 The `notify.google_assistant_sdk` action allows you to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
 
@@ -252,7 +185,7 @@ data:
 ## Conversation agent
 
 You can add an assistant with the conversation agent set to "Google Assistant SDK".
-See setup your assistant section [here](/voice_control/voice_remote_local_assistant/).
+See set up your assistant section [here](/voice_control/voice_remote_local_assistant/).
 Then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)

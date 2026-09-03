@@ -60,7 +60,7 @@ The following state attributes are available for each entity in addition to the 
 | severity         | Severity of the alert. |
 | vulnerability    | Vulnerability score (textual or numerical). |
 
-Please note that some of the attribute values depend on the context and may not
+Some of the attribute values depend on the context and may not
 be comparable between different event types.
 
 ## Sensor

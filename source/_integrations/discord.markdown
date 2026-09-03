@@ -14,13 +14,17 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The [Discord service](https://discordapp.com/) is a platform for the notify integration. This allows integrations to send messages to the user using Discord.
+The **Discord** {% term integration %} lets you send notifications from Home Assistant to [Discord](https://discordapp.com/) channels and users via a bot. You can send text messages, attach files, like images or videos, from local paths or remote URLs, and use Discord embeds for rich formatting.
+
+{% note %}
+This integration is for outgoing messages only. It cannot read incoming Discord messages or use them as triggers for automations.
+{% endnote %}
 
 ## Prerequisites
 
 ### Creating a Discord Application
 
-In order to create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
+To create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
@@ -103,7 +107,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | ------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `title`       | yes      | Title of the embed.                                                                                  |
 | `description` | yes      | Description of the embed.                                                                            |
-| `color`       | yes      | Color code of the embed.  This value is an *int*.                                                    |
+| `color`       | yes      | Color code of the embed. This value is an *int*.                                                    |
 | `url`         | yes      | URL of the embed.                                                                                    |
 | `author`      | yes      | Sets the author for the embed content.                                                               |
 | `footer`      | yes      | Sets the footer for the embed content.                                                               |
@@ -132,10 +136,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
     data:
-      verify_ssl: False
-      urls: 
-      - "https://example.com/image.jpg"
-      - "https://example.com/video.mp4"
+      verify_ssl: false
+      urls:
+        - "https://example.com/image.jpg"
+        - "https://example.com/video.mp4"
 ```
 
 Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
@@ -185,4 +189,4 @@ For more information about creating and authorizing bots, visit the [OAuth2 info
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).
 
-Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (i.e., `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.
+Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (that is, `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.

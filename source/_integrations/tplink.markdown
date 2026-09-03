@@ -91,7 +91,11 @@ The hub attached Tapo buttons S200B and S200D, which do not currently support al
 {% endnote %}
 
 {% note %}
-Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Some firmware versions (e.g., for Tapo Cameras or KH100 hub) require explicit activation of third-party integrations before they will allow access from Home Assistant.
+If you encounter authentication issues, ensure that Third-Party Compatibility is enabled within the device settings of the official vendor app.
+The option can be found under **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app or **Settings** > **Third-Party Compatibility** in the Kasa app,
+depending on the device you are integrating.
+
 Alternatively, you can factory reset and then prevent the device from accessing the internet.
 {% endnote %}
 
@@ -105,7 +109,9 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 - **Hubs**: KH100[^1]
 - **Hub-Connected Devices[^3]**: KE100[^1]
 
-### Supported Tapo[^1] devices
+### Supported Tapo devices
+
+Tapo devices require authentication.
 
 - **Plugs**: P100, P105, P110, P110M, P115, P125M, P135, TP15
 - **Power Strips**: P210M, P300, P304M, P306, TP25
@@ -193,7 +199,7 @@ Light effects are currently not supported on Kasa bulbs.
 
 Due to limitations of the devices, the energy monitoring state of Kasa power strip child plugs is only updated every 60 seconds.
 
-If required, you can manually trigger an update via **Developer tools** > **Actions** > **Home Assistant Core Integration: Update entity** passing a list of the child entities.
+If required, you can manually trigger an update via **Settings** > **Tools** > **Actions** > **Home Assistant Core Integration: Update entity** passing a list of the child entities.
 
 ## Troubleshooting
 
@@ -201,21 +207,21 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 
 - Take note of the known limitation for subnets above.
 - Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
-- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step. This appears to break connections for some power strip and outlet models and the intregration gives a communication error instead of notifying you that you need to change this setting in the app.
+- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step. This appears to break connections for some power strip and outlet models and the integration gives a communication error instead of notifying you that you need to change this setting in the app.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
 - Ensure stable network connectivity between Home Assistant and the device.
 - Unplug existing TP-Link/Tapo devices on your network before onboarding a new device. The TP-Link Simple Setup (TSS) protocol, which shares credentials from existing devices, can break authentication. If issues persist, factory reset the new device and re-add it without other TP-Link devices active.
 - Check the [reported connection solutions](#reported-connection-solutions) section below.
 - Check the [supported device list](#supported-devices) to see if the device is tested to work with the integration. 
 - Try running the [kasa tool](https://github.com/python-kasa/python-kasa) to connect to the device. An easy way to do this is to [install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx --from python-kasa kasa --username <tplink cloud username> --password <tplink cloud password>`
-- Raise a support issue.  See the [section below](#raising-support-issues) for guidelines.
+- Raise a support issue. See the [section below](#raising-support-issues) for guidelines.
 
 #### Reported connection solutions
 
 These are some of the solutions that Home Assistant users have reported as solving their device connection issues:
 
 - Make the first letter of your TP-Link cloud username email upper-case. This could be because it was automatically capitalized when first entered into the Tapo app.
-- Remove the device from the Tapo app and re-add by searching for the correct model (i.e. do not use auto-discovery)
+- Remove the device from the Tapo app and re-add by searching for the correct model (that is, do not use auto-discovery)
 - Log out of the Tapo and Kasa apps, factory reset the device, log back in to the Tapo app, then re-add the device to the Tapo app.
 - Specifically for cameras, disable and re-enable the **Settings** > **Advanced Settings** > **Camera account** options in the Tapo app.
 - Specifically for cameras, reset the **Settings** > **Advanced Settings** > **Camera account** credentials in the Tapo app.
@@ -244,7 +250,7 @@ For the maintainers of the TP-Link integration to be able to properly assist wit
 
 ### Enable debug logging
 
-To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/) to look like this:
+To capture debug logs from Home Assistant first starting up, update [`configuration.yaml`](/docs/configuration/) to look like this:
 
 ```yaml
 logger:
@@ -267,100 +273,7 @@ Remember to disable debug logging after troubleshooting to prevent excessive log
 - Turn on lights when it gets dark and turn them off again with a voice command.
 - Turn off privacy mode and turn on motion detection for internal cameras when you leave home (with geofencing) and toggle back when you get home.
 
-### Light effect services
-
-There are two services for light effects that can be used in automations.
-
-These are available on devices that support light effects such as bulbs and light strips, except for [kasa bulbs](#no-light-effects-on-kasa-bulbs)
-
-#### Random Effect - Action `tplink.random_effect`
-
-Light strips allow setting a random effect.
-
-| Data attribute | Description |
-| ---------------------- | ----------- |
-| `entity_id` | The entity_id of the light strip to set the effect on |
-| `init_states` | Initial HSV sequence |
-| `backgrounds` | List of HSV sequences (Max 16) |
-| `segments` | List of segments (0 for all) |
-| `brightness` | Initial brightness |
-| `duration` | Duration |
-| `transition` | Transition |
-| `fadeoff` | Fade off |
-| `hue_range` | Range of hue |
-| `saturation_range` | Range of saturation |
-| `brightness_range` | Range of brightness |
-| `transition_range` | Range of transition |
-| `random_seed` | Random seed |
-
-```yaml
-#Example action
-action: tplink.random_effect
-target:
-  entity_id:
-    - light.strip
-data:
-  init_states: 199,99,96
-  backgrounds:
-    - - 199
-      - 89
-      - 50
-    - - 160
-      - 50
-      - 50
-    - - 180
-      - 100
-      - 50
-  segments: 0, 2, 4, 6, 8
-  brightness: 90
-  transition: 2000
-  fadeoff: 2000
-  hue_range: 340, 360
-  saturation_range: 40, 95
-  brightness_range: 90, 100
-  transition_range: 2000, 6000
-  random_seed: 80
-```
-
-#### Sequence Effect - Action `tplink.sequence_effect`
-
-Light strips allow setting a sequence effect.
-
-| Data attribute | Description |
-| ---------------------- | ----------- |
-| `entity_id` | The entity_id of the light strip to set the effect on |
-| `sequence` | List of HSV sequences (Max 16) |
-| `segments` | List of segments (0 for all) |
-| `brightness` | Initial brightness |
-| `duration` | Duration |
-| `repeat_times` | Repetitions (0 for continuous) |
-| `transition` | Transition |
-| `spread` | Speed of spread |
-| `direction` | Direction |
-
-```yaml
-#Example action
-action: tplink.sequence_effect
-target:
-  entity_id:
-    - light.strip
-data:
-  sequence:
-    - - 340
-      - 20
-      - 50
-    - - 20
-      - 50
-      - 50
-    - - 0
-      - 100
-      - 50
-  segments: 0, 2, 4, 6, 8
-  brightness: 80
-  transition: 2000
-  spread: 1
-  direction: 1
-```
+{% include integrations/actions.md %}
 
 ## Removing the integration
 

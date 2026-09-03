@@ -50,8 +50,15 @@ irrigations schedules on a calendar.
 Host:
   description: "The IP address of your Rain Bird device. You can find the IP address under the device in the Rain Bird app under **Controller Settings** > **Network Info**."
 Password:
-  description: "The password used to authenticate the Rain Bird device."
+  description: "The **controller password**, which you set when the Rain Bird WiFi controller was first configured. This is not the password for your Rain Bird account. It is 4-8 letters or numbers; if you set it up with the Rain Bird 2.0 app, it is the 6-digit PIN."
 {% endconfiguration_basic %}
+
+The controller password is specific to the controller and protects its network
+and sharing settings. Rain Bird documents it here:
+
+- [WiFi controller password and what it protects](https://wifi.rainbird.com/articles/wifi-controller-password-and-what-it-protects/)
+- [How do I change my controller password?](https://wifi.rainbird.com/articles/how-do-i-change-my-controller-password/)
+- [Forgotten controller passwords](https://wifi.rainbird.com/articles/forgotten-controller-passwords/)
 
 ## Configuration options
 
@@ -103,43 +110,14 @@ The Rain Bird integration provides the following entities.
     configured controllers. Turning on the switch will open the irrigation valve for that zone.
   - **Available for devices**: All
 
-## Actions
-
-The integration exposes actions to give additional control over a Rain Bird device.
-
-### `rainbird.start_irrigation`
-
-Start a Rain Bird zone for a set number of minutes. This action accepts a Rain Bird sprinkler
-zone switch entity and allows a custom duration unlike the switch.
-
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
-| `duration`             | no       | Number of minutes for this zone to be turned on.      |
-
-
-```yaml
-# Example configuration.yaml automation entry
-automation:
-  - alias: "Turn irrigation on"
-    triggers:
-      - trigger: time
-        at: "5:30:00"
-    actions:
-      - action: rainbird.start_irrigation
-        data:
-          entity_id: switch.rain_bird_sprinkler_1
-          duration: 5
-```
-
-This lets you other triggers in Home Assistant to set a more complex schedule
-than what is possible using the built in schedule in the Rain Bird app.
+{% include integrations/actions.md %}
 
 ## Known Limitations
 
-The new Rain Bird 2.0 App and Firmware is not compatible with Home Assistant.
-The upgrade process will migrate devices to require use of the new Rain Bird
-IQ4 cloud, and Home Assistant will not be able to access the device.
+Controllers updated by the Rain Bird 2.x app and newer firmware serve their local
+API over HTTPS instead of HTTP. Home Assistant 2026.3.1 or later tries both, so
+these controllers are supported and are still controlled locally, with no cloud
+requirement. On earlier versions, setup fails with a connection error.
 
 The Rain Bird LNK WiFi can only receive one incoming request at a time. It may
 not be possible for Home Assistant to send commands to the device while you

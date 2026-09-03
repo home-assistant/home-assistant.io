@@ -12,12 +12,14 @@ ha_domain: input_select
 ha_integration_type: helper
 ---
 
-The **Input select** {% term integration %} allows you to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When you select a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The **Input select** {% term integration %} lets you create a dropdown {% term helper %}: an entity that stores one value chosen from a list of options you define. Because the value is not tied to a physical device, you can use it as a selectable setting for your automations, scripts, and dashboards. For example, you can create a dropdown helper to pick who cooks today, choose a thermostat mode, or select a house scene.
 
-The preferred way to configure an input select is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_select" title="Dropdown" %}** option.
+On a dashboard, a dropdown helper appears as a dropdown menu you can select from. Each time you select a new option, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the selected option, which makes a dropdown helper a convenient way to share a setting between the UI and your automations.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
+## Creating a dropdown helper
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_select" title="Dropdown" %}**.
 
 Input selects can also be configured via {% term "`configuration.yaml`" %}:
 
@@ -67,39 +69,11 @@ input_select:
 Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
 {% endnote %}
 
-### Restore state
+## Restore state
 
-If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping.
 
-### Actions
-
-This integration provides three actions to modify the state of the `input_select`.
-
-| Action          | Data                        | Description                                           |
-| --------------- | --------------------------- | ----------------------------------------------------- |
-| `select_option` | `option`                    | This can be used to select a specific option.         |
-| `set_options`   | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities. |
-| `select_first`  |                             | Select the first option.                              |
-| `select_last`   |                             | Select the last option.                               |
-| `reload`        |                             | Reload `input_select` configuration                   |
-
-#### Action `input_select.select_next`
-
-Select the next option.
-
-| Data attribute | Optional | Description                                                         |
-| ---------------------- | -------- | ------------------------------------------------------------------- |
-| `cycle`                | yes      | Whether to cycle to the first value after the last. Default: `true` |
-
-#### Action `input_select.select_previous`
-
-Select the previous option.
-
-| Data attribute | Optional | Description                                                          |
-| ---------------------- | -------- | -------------------------------------------------------------------- |
-| `cycle`                | yes      | Whether to cycle to the last value before the first. Default: `true` |
-
-### Scenes
+## Scenes
 
 Specifying a target option in a [Scene](/integrations/scene/) is simple:
 
@@ -126,6 +100,11 @@ scene:
         state: Bob
 ```
 
+{% include integrations/triggers.md domain="select" %}
+
+{% include integrations/conditions.md domain="select" %}
+
+{% include integrations/actions.md %}
 
 ## Automation examples
 
@@ -164,8 +143,6 @@ automation:
 ```
 
 Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_select' in an action in an automation
@@ -210,4 +187,20 @@ input_select:
         payload: "{{ states('input_select.thermostat_mode') }}"
 ```
 
-{% endraw %}
+## Troubleshooting
+
+### The Dropdown helper option is missing from the user interface
+
+#### Symptom
+
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Dropdown** option is not listed.
+
+#### Description
+
+Dropdown helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_select:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your dropdown helpers from the user interface.

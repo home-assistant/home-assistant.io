@@ -22,10 +22,9 @@ related:
   - url: https://support.google.com/tasks/answer/7675772
     title: Google Tasks
   - url: https://console.cloud.google.com/apis/library/tasks.googleapis.com
-    title: Google Developers Console
-google_dev_console_link: https://console.developers.google.com/start/api?id=tasks
+    title: Google Cloud console
 api: Google Tasks API
-api_link: https://console.cloud.google.com/apis/enableflow?apiid=tasks.googleapis.com
+api_link: https://console.cloud.google.com/apis/library/tasks.googleapis.com
 ---
 
 The **Google Tasks** {% term integration %} allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772)
@@ -95,7 +94,7 @@ Google Tasks to-do list.
 ## Data updates
 
 The Google Tasks integration fetches task lists once initially, and creates a
-to-do list for each task list. Data for each to-do list refreshed refreshed by
+to-do list for each task list. Data for each to-do list is refreshed by
 {% term polling %} every 30 minutes.
 
 Updates to the to-do list in Home Assistant use the Google Tasks API and changes
@@ -111,7 +110,7 @@ There are some known Google Tasks API limitations that affect this integration:
 
 ## Troubleshooting
 
-### Can’t setup the integration
+### Can’t set up the integration
 
 #### Symptom: “The OAuth client was not found.”
 
@@ -138,7 +137,7 @@ Google API: Google Tasks API has not been used in project before or it is disabl
 ##### Description
 
 This means that Home Assistant is unable to use the Google Tasks API because it was not
-enabled in the Google Cloud Console.
+enabled in the Google Cloud console.
 
 ##### Resolution
 
@@ -153,5 +152,5 @@ This integration follows standard integration removal. No extra steps are requir
 
 You will be asked if you would like to remove [Application Credentials](/integrations/application_credentials/) which you can do if you no longer plan to use
 Google Tasks with Home Assistant. You may want to also remove any credentials
-in the Google Cloud Console, created above in the Prerequisites, if they are no
+in the Google Cloud console, created above in the Prerequisites, if they are no
 longer in use with any of your other Home Assistant integrations.

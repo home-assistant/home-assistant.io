@@ -52,8 +52,6 @@ automation:
           entity_id: script.my_action
 ```
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Send notification of RSS feed title when updated"
@@ -69,8 +67,6 @@ automation:
           message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
           notification_id: "{{ trigger.event.data.title }}"
 ```
-
-{% endraw %}
 
 The `trigger.event.data` variable contains at least the following keys, there might be more depending on the data the configured feed is providing.
 
@@ -106,6 +102,6 @@ To get started developing custom integrations, please refer to the [developers](
 
 For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/22c19375ac5dcb49e0648aa16c431537407aa5e4/config/packages/hasspodcast.yaml).
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

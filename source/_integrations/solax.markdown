@@ -20,11 +20,13 @@ The **SolaX Power** {% term integration %} connects Home Assistant to Solax sola
 
 {% include integrations/config_flow.md %}
 
+### Inverter model selection
+
+This integration automatically detects your inverter model. If auto-detection results in multiple compatible inverter models, you can manually select your inverter model from the dropdown list during setup.
+
 ### Optional template sensor
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/integrations/template).
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry for template platform
@@ -37,8 +39,6 @@ template:
     unit_of_measurement: "W"
     state: "{{ (states('sensor.power_now') | float(default=0)) - (states('sensor.exported_power') | float(default=0)) }}"
 ```
-
-{% endraw %}
 
 ### Configuring the Energy Dashboard
 

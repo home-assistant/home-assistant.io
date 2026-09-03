@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Instructions on how to setup the configuration panel for Home Assistant.
+description: Instructions on how to set up the configuration panel for Home Assistant.
 ha_category:
   - Front end
 ha_release: 0.39
@@ -46,13 +46,26 @@ Enables you to install and use additional standalone third-party software packag
 
 Enables you to add new [dashboards](/dashboards) and manage existing ones.
 
+### Connectivity
+
+Gives access to the panels for the communication protocols and radios your devices use. Depending on what you have set up, this includes:
+
+- **Matter**
+- **Zigbee**
+- **Z-Wave**
+- **KNX**
+- **MQTT**
+- **Thread**
+- **Bluetooth**
+- **Serial**
+- **Infrared**
+- **Radio frequency**
+- **Insteon**
+- **Tags**, to set up NFC tags and QR codes
+
 ### Voice assistants
 
 Enables you to create and manage [voice assistants](/voice_control/).
-
-### Tags
-
-Allows you to set up NFC tags and QR codes.
 
 ### People
 
