@@ -27,7 +27,6 @@ To use this trigger in an automation:
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower starts returning, **First** to fire only when the first targeted mower starts returning, or **All** to fire only after every targeted mower has started returning.
   required: false
-  default: Each
 For at least:
   description: How long the mower must stay in the returning state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
