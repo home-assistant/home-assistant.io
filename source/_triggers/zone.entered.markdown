@@ -35,7 +35,6 @@ Zone:
 Trigger when:
   description: Pick **Each** to fire every time any selected target enters the zone, **First** to fire only when the first selected target enters the zone, or **All** to fire only after every selected target is in the zone. The default is **Each**.
   required: false
-  default: Each
 For at least:
   description: How long the target must stay in the zone before the trigger fires. The default is zero, which fires immediately.
   required: false
