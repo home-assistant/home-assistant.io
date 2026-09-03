@@ -33,7 +33,6 @@ Trigger when:
     - **First**: fires only when the first of a group turns on.
     - **All**: fires only after every targeted remote is on.
   required: false
-  default: Each
 For at least:
   description: How long the remote must stay on before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
