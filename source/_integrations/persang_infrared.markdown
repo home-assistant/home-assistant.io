@@ -57,7 +57,7 @@ Button entities are provided for the remaining remote buttons, which the media p
 - **Equalizer**: Cycles through the speaker's equalizer presets.
 - **Scan**: Starts scanning the current source.
 - **Repeat**: Cycles through the repeat modes.
-- **Number 0** to **Number 9**: Send the corresponding numeric key, which the speaker uses to select a track.
+- **Number 0** to **Number 9**: Sends the corresponding numeric key, which the speaker uses to select a track.
 
 ## Known limitations
 
