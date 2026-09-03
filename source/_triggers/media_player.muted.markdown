@@ -35,6 +35,8 @@ Trigger when:
     - **Each**: Fires every time any targeted media player is muted (default).
     - **First**: Fires when the first targeted media player is muted.
     - **All**: Fires when every targeted media player is muted.
+  required: false
+  default: Each
 For at least:
   description: How long the media player must stay muted before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,7 +62,7 @@ trigger: |
   target:
     area_id: living_room
   options:
-    behavior: last
+    behavior: all
     for: "00:02:00"
 {% endexample %}
 
@@ -71,12 +73,12 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player is muted.
+    - `each` (**Each** in the UI, default): fires every time any targeted media player is muted.
     - `first` (**First** in the UI): fires when the first targeted media player is muted.
-    - `last` (**All** in the UI): fires when every targeted media player is muted.
+    - `all` (**All** in the UI): fires when every targeted media player is muted.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the media player must stay muted before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false
