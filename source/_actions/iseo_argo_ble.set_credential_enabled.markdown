@@ -75,6 +75,8 @@ enabled:
 - Changing a credential connects to the lock over Bluetooth. Close the Argo app on all phones first, because the lock only accepts one connection at a time.
 - If the lock is out of Bluetooth range, the action reports an error and nothing changes on the lock.
 - Suspending a credential does not remove it. To remove one for good, use the [**Delete credential**](/actions/iseo_argo_ble.delete_credential/) action instead.
+- A credential that is only valid for a period — an invitation, or a guest card with an end date — keeps that period when you restore it. Home Assistant remembers the window it read from the lock and puts it back.
+- A credential that was already suspended before Home Assistant first read the lock cannot be restored from here, because its original period is no longer on the lock to read. Restore it in the Argo app, which set it that way.
 
 {% include actions/try_it.md %}
 
