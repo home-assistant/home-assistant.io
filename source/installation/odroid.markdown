@@ -8,9 +8,6 @@ Included sections for this page is located under source/_includes/installation
 {% endcomment %}
 
 {% include installation/operating_system.md %}
+{% include installation/container.md %}
 
 _We get commissions for purchases made through links in this post._
-
-## Other installation methods
-
-If you would rather run Home Assistant in a container that you manage yourself, follow the [Home Assistant Container installation guide](/installation/container).
