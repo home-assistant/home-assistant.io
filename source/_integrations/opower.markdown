@@ -21,6 +21,7 @@ The **Opower** {% term integration %} allows you to get energy information from 
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- AES Indiana
 - American Electric Power (AEP) subsidiaries
   - AEP Ohio
   - AEP Texas
