@@ -109,7 +109,7 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
 }
 ```
 
-**Recurring multi** — two time windows, also set through the Schlage app:
+**Multi-recurring** — two time windows, also set through the Schlage app:
 
 ```json
 {

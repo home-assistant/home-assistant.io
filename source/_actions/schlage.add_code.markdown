@@ -28,7 +28,7 @@ To add a PIN code from an automation or a script:
 
 {% options_ui %}
 PIN name:
-  description: Name for PIN code. Must be unique ignoring capitalization to the lock.
+  description: The name of the PIN code. Must be unique to the lock, regardless of capitalization.
 PIN code:
   description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
 Notify when PIN is used:
@@ -82,7 +82,7 @@ action: |
 
 {% options_yaml %}
 name:
-  description: Name for PIN code. Must be unique ignoring capitalization to the lock.
+  description: The name of the PIN code. Must be unique to the lock, regardless of capitalization.
   required: true
   type: string
 code:
