@@ -191,7 +191,7 @@ For each park & ride you add, the following sensor entities are created:
 
 For each transit line you add, one calendar entity is created:
 
-- **Line `<code>`**
+- **Alerts**
   - **Description**: The traffic alerts published for this line. The entity is _on_ while an alert is in progress and _off_ otherwise. Each alert is an event whose summary is the title published by TCL, and whose description carries the full message along with the cause (for example, `travaux` or `accident voyageur`) and the alert type (`Perturbation`, `Information` or `Information ligne`).
 
 Alert text is published in French by the transport operator.
@@ -241,7 +241,7 @@ automation:
     triggers:
       - trigger: calendar
         event: start
-        entity_id: calendar.line_c3
+        entity_id: calendar.line_c3_alerts
     actions:
       - action: notify.notify
         data:
