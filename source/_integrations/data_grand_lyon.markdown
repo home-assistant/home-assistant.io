@@ -96,7 +96,7 @@ Park & ride:
 
 {% configuration_basic %}
 Line:
-  description: "The transit line code, as displayed to passengers (for example, `C3`, `A` or `T1`)."
+  description: "The transit line code, as displayed to passengers (for example, `C3`, `A`, or `T1`)."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -192,15 +192,12 @@ For each park & ride you add, the following sensor entities are created:
 For each transit line you add, one calendar entity is created:
 
 - **Alerts**
-  - **Description**: The traffic alerts published for this line. The entity is _on_ while an alert is in progress and _off_ otherwise. Each alert is an event whose summary is the title published by TCL, and whose description carries the full message along with the cause (for example, `travaux` or `accident voyageur`) and the alert type (`Perturbation`, `Information` or `Information ligne`).
+  - **Description**: The traffic alerts published for this line. The entity is _on_ while an alert is in progress and _off_ otherwise. Each alert is an event whose summary is the title published by TCL, and whose description carries the full message along with the cause (for example, `travaux` or `accident voyageur`) and the alert type (`Perturbation`, `Information`, or `Information ligne`).
 
 Alert text is published in French by the transport operator.
 
 {% note %}
-The integration reports the alert type exactly as TCL publishes it. TCL labels
-roughly three alerts in four as a disruption, including a single stop being
-moved for months, so the label alone doesn't tell you how badly your journey is
-affected. Read the alert to judge, or automate on the `cause`.
+The integration reports the alert type exactly as TCL publishes it. TCL labels roughly three alerts in four as a disruption, including a single stop being moved for months, so the label alone doesn't tell you how badly your journey is affected. Read the alert to judge, or trigger your automations on the `cause` field.
 {% endnote %}
 
 ## Examples
@@ -250,14 +247,13 @@ automation:
 
 {% endraw %}
 
-Use `mode: queued`, as the calendar documentation requires: several alerts can
-start at the same time, and `single` would drop all but the first.
+The example uses `mode: queued` because several alerts can start at the same time. As the calendar documentation recommends, avoid `single` for calendar triggers and use `queued` or `parallel` instead.
 
 ## Data updates
 
 The integration polls data from the Data Grand Lyon API every 5 minutes by default.
 
-Calendar triggers are a Home Assistant feature that re-reads calendars every 15 minutes, so an automation triggered by an alert can fire up to 15 minutes after the alert starts.
+Calendars are read once every 15 minutes for calendar triggers, so an automation triggered by an alert can fire up to 15 minutes after the alert starts.
 
 ## Known limitations
 
@@ -312,9 +308,7 @@ Make sure the park & ride ID is correct. You can verify it on the [Grand Lyon op
 
 ### Transit line shows no alerts
 
-An empty calendar means the line currently has no published alert, which is the
-normal state for most lines. If you expect one, check that the line code matches
-the one TCL shows passengers — the code is case-sensitive and has no space.
+An empty calendar means the line currently has no published alert, which is the normal state for most lines. If you expect one, check that the line code matches the one TCL shows passengers — the code is case-sensitive and has no spaces.
 
 ## Removing the integration
 
