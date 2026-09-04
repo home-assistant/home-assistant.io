@@ -125,3 +125,5 @@ The integration only recognizes inverter models it knows the register map for. I
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+Battery packs appear as separate devices under the inverter. A pack you physically remove stays listed until you delete its device from {% my integrations title="**Settings** > **Devices & services**" %}. Packs the inverter still reports cannot be deleted, and a pack that is reconnected is added back on the next update. PV strings come from the inverter model rather than from a reading, so they cannot be deleted.
