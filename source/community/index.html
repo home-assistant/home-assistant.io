@@ -7,6 +7,8 @@ frontpage: false
 ---
 <script type="module" src="https://cdn.jsdelivr.net/gh/inorganik/countUp.js@2.9.0/dist/countUp.umd.js" integrity="sha384-cZn+k4IHBZGsuT+b6toxynBSqLie8V/r2I1Zd6sKhpMw730McyK/W8zU4zOYEmb2" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/stylesheets/homeassistant/pages/community/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-gesture-handling@1.2.2/dist/leaflet-gesture-handling.min.css" integrity="sha384-IKK988kZjVpx+y4Iqax/6yU7EVQx/sHewAKb/iqDCb9tCtgy25bGk5ZINDla9rgv" crossorigin="anonymous" />
 <script type="module">
   import {DSAP} from "/javascripts/dsap.es.js";
   window.dsap = new DSAP();
@@ -22,6 +24,11 @@ frontpage: false
     {% include_relative components/_join.html %}
     {% include_relative components/_newsletter.html %}
     {% include_relative components/_meetups.html %}
+    {% include_relative components/_map.html %}
     {% include_relative components/_faq.html %}
   </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-gesture-handling@1.2.2/dist/leaflet-gesture-handling.min.js" integrity="sha384-TqJpQ0URK8MzCC4s3ekivmwQmVfay3oiXhBt/Vl5nViiMrO7+rdFTc5VKDeUuto8" crossorigin="anonymous"></script>
+<script src="/javascripts/community/find-a-meetup.js"></script>

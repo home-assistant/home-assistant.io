@@ -1,0 +1,25 @@
+{% assign meetups = site.data.meetups_data %}
+{% assign has_meetups = false %}
+{% if meetups and meetups.size > 0 %}
+{% assign has_meetups = true %}
+{% endif %}
+<section id="map">
+    <div class="container">
+        <div class="header">
+            <h3 class="h3">{% if has_meetups %}Find a meetup near you{% else %}Host an event in your area{% endif %}</h3>
+            <a href="https://luma.com/homeassistant" class="button secondary" target="_blank" rel="noopener">
+                <div class="icon">
+                    <svg>
+                        <use href="#luma" />
+                    </svg>
+                </div>
+                {% if has_meetups %}Browse all meetups on Luma{% else %}Host a meetup{% endif %}
+            </a>
+        </div>
+
+        {% if has_meetups %}
+        <div id="meetup-map" class="map is-loading" aria-label="Map of Home Assistant community meetups"></div>
+        <script type="application/json" id="meetup-map-events">{{ meetups | jsonify | replace: "<", "\u003c" }}</script>
+        {% endif %}
+    </div>
+</section>
