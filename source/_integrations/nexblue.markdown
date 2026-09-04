@@ -5,6 +5,7 @@ ha_category:
   - Car
   - Energy
   - Sensor
+  - Switch
 ha_release: 2026.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: nexblue
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -44,7 +46,7 @@ Password:
 
 ## Supported functionality
 
-The NexBlue integration currently provides read-only sensor entities for each charger in your account.
+The NexBlue integration provides sensor entities and a charging switch for each charger in your account.
 
 ### Sensors
 
@@ -59,6 +61,15 @@ The integration provides the following charger information:
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
 - **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
 
+### Charging control
+
+The integration provides a charging switch for each charger:
+
+- Turn the switch on to start charging.
+- Turn the switch off to stop charging.
+
+If the charger is offline or rejects a command, Home Assistant reports the command failure.
+
 ## NexBlue and automations
 
 NexBlue does not provide integration-specific triggers, conditions, or actions in this initial version. You can still use its sensor entities with standard Home Assistant automations, such as sending a notification when charging completes.
@@ -70,8 +81,7 @@ The NexBlue integration uses cloud {% term polling %} and updates charger data e
 ## Known limitations
 
 - The integration requires an internet connection between Home Assistant and the NexBlue cloud service.
-- This initial version is read-only. Starting or stopping charging is not currently available through Home Assistant.
-- A charger that is offline remains visible, but its entities show an unknown state until the charger can be reached again.
+- A charger that is offline remains visible, but its entities become unavailable until the charger can be reached again.
 
 ## Troubleshooting
 
