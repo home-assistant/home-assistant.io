@@ -156,7 +156,7 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 
 ### Select
 
-- **Override state**: Sets the manual override state on the charger. Available options are **Auto** (clears override), **Active** (force charging active), or **Disabled** (force charging paused). This entity requires OpenEVSE Wi-Fi firmware 4.0.1 or later.
+- **Override state**: Sets the manual override state on the charger. Options are **Auto** (clears the override), **Active** (forces charging to start), and **Disabled** (forces charging to pause). This entity requires OpenEVSE Wi-Fi firmware version 4.0.1 or later.
 
 ## Examples
 
