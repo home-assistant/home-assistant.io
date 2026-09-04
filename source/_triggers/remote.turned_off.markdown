@@ -32,6 +32,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted remote turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted remote is off.
+  required: false
 For at least:
   description: How long the remote must stay off before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
