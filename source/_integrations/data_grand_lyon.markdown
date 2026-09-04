@@ -197,11 +197,10 @@ For each transit line you add, one calendar entity is created:
 Alert text is published in French by the transport operator.
 
 {% note %}
-The integration reports the alert type exactly as TCL publishes it and does not
-rank alerts by how disruptive they are. TCL labels roughly three alerts in four
-as a disruption, including a single stop being moved for months, so the label
-alone doesn't tell you how badly your journey is affected. Read the alert to
-judge, or automate on the `cause`.
+The integration reports the alert type exactly as TCL publishes it. TCL labels
+roughly three alerts in four as a disruption, including a single stop being
+moved for months, so the label alone doesn't tell you how badly your journey is
+affected. Read the alert to judge, or automate on the `cause`.
 {% endnote %}
 
 ## Examples
