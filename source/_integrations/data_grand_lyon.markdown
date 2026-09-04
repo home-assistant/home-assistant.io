@@ -27,7 +27,7 @@ With this integration, you can:
 - Track upcoming departure times at transit stops.
 - Monitor real-time bike and dock availability at [Vélo'v](https://velov.grandlyon.com/) bike-sharing stations.
 - Monitor real-time parking space availability at TCL park & ride (P+R) facilities.
-- Follow traffic alerts on transit lines: disruptions, roadworks and service information.
+- Follow traffic alerts on transit lines: disruptions, road work, and service information.
 
 ## Prerequisites
 
