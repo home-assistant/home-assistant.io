@@ -61,21 +61,31 @@ ha_zeroconf: true
 
 The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
-For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
+This integration runs its own Matter **controller** as an app (formerly known as an add-on) in a separate process that connects your Matter network to the Home Assistant integration using a WebSocket connection.
 
-# Introduction - What is Matter?
+## What is Matter?
 
-Matter is a new smart home connectivity standard for home automation products and IoT (Internet of Things) devices, see its [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).
+Matter is a smart home connectivity standard for home automation products and Internet of Things (IoT) devices.
 
-The initial version 1.0 release of Matter was published in October of 2022. Matter is still in the process of being adopted in the smart home market. It has gotten much publicity because of its promise of interoperability across all ecosystems. The largest tech companies like Google, Apple and Amazon teamed up to develop this new smart home connectivity standard under the roof of the CSA ([Connectivity Standards Alliance](https://csa-iot.org/)). The largest tech companies that are already active in the home automation market have announced that they are or will be working on Matter-compatible products and also joined the development effort.
+Tech companies including Google, Apple, and Amazon collaborated in 2022 to develop this smart home connectivity standard under the roof of the CSA ([Connectivity Standards Alliance](https://csa-iot.org/)), and the Matter standard continues to grow and develop while being adopted in the smart home market.
 
-Matter products run locally and always allow local control, with device control done without the need for any internet connection or cloud services. From a technical perspective, you can use a Matter-compatible device with Home Assistant without connecting to a vendor-specific cloud. However, some vendors may require you to set up an account before you can enable Matter support for some products, (especially for commercial manufacturer's own branded gateways/bridges/hubs/controllers sold as appliances).
+You can read more about the Matter standard and its history on the [Wikipedia article](https://en.wikipedia.org/wiki/Matter_(standard)).
 
-Unlike other common radio-based protocols for IoT, (like Zigbee, Z-Wave, and Bluetooth), the Matter standard specification itself does not contain its own proprietary radio protocol or network transport protocol, but instead, it is a service control protocol that runs **on top** of the existing network infrastructure at the application level, with all Matter devices communicating using standard IP-based (IPv6) communication over your existing [local area network (that is, LAN networks like Wi-Fi and Ethernet)](https://en.wikipedia.org/wiki/Local_area_network) or [Thread (Low-Power Wireless Personal Area Network)](https://en.wikipedia.org/wiki/Thread_(network_protocol)) depending on the type of device.
+### How does Matter work?
 
-Home Assistant is a so-called "_controller_" in a Matter ecosystem, meaning that it can control Matter-based devices. Other examples of Matter controllers are the Google Nest products, Apple HomePod speakers, Samsung SmartThings Station, and some newer Amazon Echo devices.
+Matter devices run locally and always allow local control without the need for an internet connection or cloud service to control the device.
 
-## What does Thread have to do with Matter?
+Matter is a service control protocol that runs **on top** of an existing network. Matter devices communicate using standard IP-based (IPv6) communication over your existing [local area network (LAN)](https://en.wikipedia.org/wiki/Local_area_network) or a {% term Thread %} network (depending on the type of device).
+
+Unlike other radio-based protocols such as Zigbee, Z-Wave, and Bluetooth, the Matter specification does not contain its own proprietary radio protocol or network transport protocol.
+
+Home Assistant is considered a **controller** in a Matter network, meaning that it can control Matter-based devices. Other examples of Matter controllers include Google Nest products, Apple HomePod speakers, Samsung SmartThings Stations, and some newer Amazon Echo devices.
+
+{% note %}
+You can use a Matter-compatible device with Home Assistant without connecting to a vendor-specific cloud, but **some vendors may require you to set up an account in order to enable Matter support** for some products (such as a manufacturer's own branded appliance, often called a gateway, bridge, hub, or controller).
+{% endnote %}
+
+### What does Thread have to do with Matter?
 
 {% term Thread %} is a low power radio mesh networking technology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it a suitable transport protocol option for Matter.
 
@@ -87,7 +97,7 @@ Image taken from [the Thread Smart Home Fact Sheet](https://www.threadgroup.org/
 
 For more information about Thread, refer to the [Thread documentation](/integrations/thread/).
 
-### Thread devices don't necessarily support Matter
+#### Thread devices don't necessarily support Matter
 
 Many devices on the market use {% term Thread %} for radio communication and Matter as a control protocol. But this is not guaranteed. Some Thread-based devices support Apple HomeKit or another vendor-specific communication protocol. There are also a few cases where you need to apply for a (beta) firmware update on the device to enable Matter as a communication protocol.
 
@@ -141,7 +151,7 @@ Make sure you have all these components ready before trying to add a Matter devi
 
 - On the device packaging, check for both the Matter logo and for either the Wi-Fi or the {% term Thread %} logo.
 - Check if the QR code or the numeric setup code is on the device.
-  - If you reset your device you'll need the QR code *or* numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
+  - If you reset your device you'll need the QR code _or_ numeric setup code to {% term commission %} that device again! Without this information, commissioning won't be possible.
   - If the QR code or the numeric setup code is only in accompanied documentation, it is a good practice to snap a picture of the QR code and/or numeric setup code as a backup, ideally along with the device for reference, and store it in a safe place.
 
 #### Prepare Android or iPhone
@@ -285,7 +295,7 @@ To allow Home Assistant to control the Matter device that has already been added
 
 ### Using a Matter bridge
 
-For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aqara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
+For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a _Matter bridge_. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aqara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
 
 Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
 
@@ -367,7 +377,21 @@ Notification of an OTA update for a Matter device
 The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
 {% endnote %}
 
-{% include integrations/actions.md %}
+## Actions
+
+The Matter integration has the following actions:
+
+- `matter.water_heater_boost`
+
+### Action: Water heater boost
+
+The `matter.water_heater_boost` action enables water heater boost for a specific duration.
+
+| Data attribute       | Optional | Description                                                        |
+|----------------------|----------|--------------------------------------------------------------------|
+| `duration`           | No       | Boost duration in seconds                                          |
+| `emergency_boost`    | Yes      | Whether to enable emergency boost mode                             |
+| `temporary_setpoint` | Yes      | Temporary setpoint temperature in Celsius during the boost period  |
 
 ## Automate on a button press
 
@@ -380,7 +404,7 @@ You do not yet have any Matter-compatible hardware but you do like to try it out
 NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise {% term commissioning %} will fail. iOS users will not have this issue but they will get a prompt during {% term commissioning %} asking if you trust the development device.
 
 1. Make sure you use Google Chrome or Microsoft Edge browser.
-2. Open https://nabucasa.github.io/matter-example-apps/
+2. Open [https://nabucasa.github.io/matter-example-apps/](https://nabucasa.github.io/matter-example-apps/)
 3. Attach the ESP32 device using a USB cable.
 4. Select the radio button next to the example you like to set up, in case of an M5 Stamp, click **Lighting app for M5STAMP C3**.
 5. Select **Connect**.
