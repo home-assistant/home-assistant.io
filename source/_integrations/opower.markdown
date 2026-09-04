@@ -183,6 +183,28 @@ For gas:
 Your **Configure gas consumption** should now look like this:
 ![Screenshot configure gas consumption](/images/integrations/opower/configure_gas_consumption.png)
 
+{% details "Track usage and cost per rate period (time of use or tiered rates)" %}
+
+Many utilities bill by rate period: time of use rates charge different prices by time of day (for example, on peak, part peak and off peak), and tiered rates charge different prices by how much you use (tier 1, tier 2). When your utility reports usage and cost broken down this way, the integration creates a consumption and a cost statistic per period next to the account totals:
+
+- **Opower {utility name} elec {account number} {period} consumption**
+- **Opower {utility name} elec {account number} {period} cost**
+
+The period names come from your utility's data, so they match the names on your utility's website, not necessarily the names on your bill. For example, SMUD reports its Mid-Peak period as `part peak`. A repair issue lists the new statistics the first time they are created.
+
+To show them in the Energy dashboard, add one grid connection (or gas source) per period, and do not add the account total next to them, or usage is counted twice:
+
+1. Select **Add consumption** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} on peak consumption** (or the period you are adding) for **consumed energy**.
+3. Enter a short **Display name**, for example `On-Peak`.
+4. Select the radio button to **Use an entity tracking the total costs**.
+5. Select **Opower {utility name} elec {account number} on peak cost** for **entity with the total costs**.
+6. Repeat for each period.
+
+The Energy dashboard then stacks the periods in one graph and lists usage and cost per period. Period statistics only cover the daily and hourly history; monthly bill data has no breakdown, so the periods show 0 before the daily history starts while the totals still have data. Return to grid energy and compensation are not split per period.
+
+{% enddetails %}
+
 With the above changes your (**{% my config_energy title="Settings > Dashboards > Energy" %}**) page should now look like this:
 
 ![Screenshot Energy Configuration](/images/integrations/opower/energy_config.png)
@@ -194,6 +216,7 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+- Per rate period statistics (time of use periods or tiers) are only created for utilities whose data includes the breakdown, and only for daily and hourly history. Monthly bill data has no breakdown.
 - For some utilities, the account number displayed in Home Assistant might not match the account number on your utility bill or web portal. This is expected behavior. The integration uses an internal identifier from the Opower system (`preferredUtilityAccountId`), which can differ from your public billing account number (`accountName`). It does not mean you are connected to anyone else's account or that you are seeing someone else's statistics.
 
 ## Troubleshooting
