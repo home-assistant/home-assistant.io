@@ -55,7 +55,8 @@ The Weheat integration provides the following sensors:
 - **Electricity used cooling**: Total electricity used in kWh during cooling mode
 - **Electricity used defrost**: Total electricity used in kWh during defrost mode
 - **Electricity used standby**: Total electricity used in kWh during standby mode
-- **Electricity used**: Total electricity used in kWh
+- **Electricity used**: Total electricity used in kWh for the outdoor unit
+- **Electricity used Indoor Unit**: Total electricity used in kWh for the indoor unit
 - **Energy output heating**: Total output generated in kWh during central heating mode
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
 - **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
@@ -65,6 +66,9 @@ The Weheat integration provides the following sensors:
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
 - **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
 - **DHW pump flow**: The flow volume of the DHW pump (optional)
+- **DHW control method**: The DHW control method that is currently used
+- **DHW target temperature**: The DHW target temperature
+- **Air outlet temperature**: The air outlet temperature
 - **Compressor RPM**: The rpm of the compressor fan.
 - **Compressor percentage**: The percentage of the compressor fan. Can exceed 100% for some models.
 
