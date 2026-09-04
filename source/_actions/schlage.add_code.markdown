@@ -46,9 +46,9 @@ End time:
 
 When you add a PIN without a start or end time, it becomes a permanent PIN that works until you delete it. If you provide both a start time and an end time, the PIN becomes a temporary PIN that is only active during that window.
 
-You must provide both times together or leave both empty. If you provide only one, you get an error: _Start and end times are required together. Provide both to create a temporary PIN, or neither for a permanent one._
+You must provide both times together or leave both empty. If you provide only one, you get an error: `Start and end times are required together. Provide both to create a temporary PIN, or neither for a permanent one.`
 
-The start time must be before the end time. If the start time is the same as or after the end time, you get an error: _Start time must be before end time._
+The start time must be before the end time. If the start time is the same as or after the end time, you get an error: `Start time must be before end time.`
 
 {% include actions/yaml_header.md %}
 
