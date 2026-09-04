@@ -56,7 +56,7 @@ The Weheat integration provides the following sensors:
 - **Electricity used defrost**: Total electricity used in kWh during defrost mode
 - **Electricity used standby**: Total electricity used in kWh during standby mode
 - **Electricity used**: Total electricity used in kWh for the outdoor unit
-- **Electricity used Indoor Unit**: Total electricity used in kWh for the indoor unit
+- **Electricity used indoor unit**: Total electricity used in kWh for the indoor unit
 - **Energy output heating**: Total output generated in kWh during central heating mode
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
 - **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
