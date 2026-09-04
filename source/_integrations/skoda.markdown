@@ -13,296 +13,152 @@ ha_category:
   - Sensor
 ha_platforms:
   - sensor
+ha_quality_scale: bronze
 related:
   - url: https://public.api.connect.skoda-auto.cz/docs
-    title: MyŠkoda Public API documentation
+    title: Škoda public API documentation
 ---
 
-The **Škoda** {% term integration %} is used to integrate your [Škoda](https://www.skoda-auto.com) vehicle.
+The **Škoda** {% term integration %} lets you monitor your [Škoda](https://www.skoda-auto.com) vehicle in Home Assistant, using the official Škoda public API and a Škoda Connect account.
 
 ## Use cases
 
-### Monitor safety and status of your vehicle
+### Monitor vehicle status
 
-Keep an eye on doors and windows, and get immediate notifications if something changes. You can create automations that alert you when service is required, or when a door is left open.
+Keep an eye on the mileage, fuel level, and when the vehicle last reported in. Build automations around synchronization gaps, or simply track how the car is used over time.
 
 ### Manage charging and battery
 
-Track battery state of charge, estimated electric range, and current charging status. Automate charging to start or stop based on battery level, departure time, or electricity rates, and monitor progress using the integration's sensors.
+Track the battery's state of charge, electric range, charging power, charging state, and estimated time until fully charged. Get notified when charging starts, finishes, or is unexpectedly interrupted.
 
-**Note:** This integration does not provide direct control to start or stop charging. To actually start or stop charging, use the integration for your charger.
+**Note:** This integration does not provide direct control to start, stop, or schedule charging. It only reports the state reported by the Škoda Connect API.
 
-### Preheat cabin and battery
+### Track climate preconditioning
 
-Preheat or precondition the cabin and battery before a trip to improve comfort and efficiency. Schedule preheating or preconditioning relative to your departure time or trigger it based on the outside temperature.
+See the target cabin temperature and, while active, the estimated time until the climate control system reaches it.
+
+**Note:** This integration does not let you start or stop climate control from Home Assistant. It only reports what's currently configured on the vehicle.
 
 ## Supported vehicles
 
-- Car models starting from model year 2010.
-- Cars located in Europe, Middle East, Africa, US, Canada, and Latin America regions. Or view the [full list of countries](https://developer.volvocars.com/terms-and-conditions/apis-supported-locations/).
+- Any vehicle connected to a **Škoda Connect** account through the [Škoda public API](https://public.api.connect.skoda-auto.cz/docs).
 
 {% important %}
-Features available depend on model, year and location.
+Which entities show up depends on your vehicle's model, powertrain, and equipment. For example, sensors related to combustion fuel only appear for vehicles with a combustion or hybrid engine, and charging-related sensors only appear for vehicles that support charging.
 {% endimportant %}
 
 ## Prerequisites
 
-1. Head over to [Volvo's developer portal](https://developer.volvocars.com/).
-2. Make an account.
-3. Go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications).
-4. Create an **API application** and give it a meaningful name.
-
-To avoid hitting request limits, **create one API application per vehicle** you want to add. Each API application has a maximum number of requests per day. The primary and secondary API keys shown in Volvo's developer portal both belong to the same API application, and both count toward the same daily limit.
+1. You need an active **Škoda Connect** account with at least one vehicle registered to it.
+2. Obtain an API key for the vehicle you want to add, either:
+   - In the **MyŠkoda** app, under **Profile** -> **Smart Home**, or
+   - Via the [Škoda API key web portal](https://go.skoda.eu/api-keys).
+3. Have the vehicle's 17-character **Vehicle Identification Number (VIN)** ready. You can find it in the MyŠkoda app or on the vehicle's registration documents.
 
 {% note %}
-Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
-
-Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
+API keys are issued per vehicle. If you want to add more than one vehicle, generate a separate API key for each one.
 {% endnote %}
-
-{% details "Using custom application credentials" icon="mdi:account-key" %}
-
-{% important %}
-Custom Volvo application credentials have a limited grant period, which means you'll need to re-authenticate with Volvo after each period.
-The exact timing is mentioned on the developer portal in the [Refresh the access token](https://developer.volvocars.com/apis/docs/authorisation/) section.
-Data updates will stop working once the grant expires until you re-authenticate.
-
-For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
-{% endimportant %}
-
-1. On Volvo's API application page, click the **Publish** button underneath your API application.
-2. Fill in all required fields in the screen that follows. Pay attention to:
-   - **Scopes**: Make sure to select them all (you need to expand the sections).
-   - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
-3. Click **View summary** and **confirm**.
-4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
-
-For this to work, you'll need to configure [My Home Assistant](https://my.home-assistant.io/) to let it point to your local Home Assistant instance. Check the [FAQ](https://my.home-assistant.io/faq/) for more information about this feature.
-
-{% enddetails %}
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-API key:
-    description: "Enter the API key obtained in the prerequisites steps."
-VIN:
-    description: "If you have more than one car under this account, then you can select the Vehicle Identification Number of the vehicle you wish to add."
+Vehicle VIN (17 characters):
+    description: "The 17-character Vehicle Identification Number (VIN) of your vehicle."
+API-Key:
+    description: "Your API key from the MyŠkoda app under Profile -> Smart Home, or from the web portal."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-The **Volvo** integration provides the following entities.
+The **Škoda** integration provides the following sensors. Which ones appear depends on your vehicle's equipment; entities that don't apply to your vehicle are simply not created.
 
-### All engine types
+### Sensors
 
-#### Binary sensors
+- **Mileage**: Total distance driven, from the odometer.
+- **Fuel level**: Remaining fuel, for vehicles with a combustion or hybrid engine.
+- **Battery state of charge**: Current battery charge level, for vehicles that support charging.
+- **Total range**: Combined estimated range across all engines.
+- **Electric range**: Estimated electric-only range, for vehicles that support charging.
+- **Air conditioning remaining time**: Estimated time until the climate control system reaches its target temperature, while active.
+- **Charging power**: Current charging power, while the vehicle is actively charging.
+- **Charging state**: `Charging`, `Connect cable`, `Ready for charging`, `Conserving`, `Discharging`, or `Charging interrupted`.
+- **Time to full charge**: Estimated remaining time until the battery is fully charged, while charging.
+- **Charge type**: `AC`, `DC`, `Off`, or `Not charging`.
+- **Auxiliary heating mode**: Current mode of the auxiliary heating, for equipped vehicles.
+- **Auxiliary heating remaining duration**: Remaining runtime of the auxiliary heating, while active.
+- **Target cabin temperature**: The cabin temperature configured on the vehicle for climate preconditioning.
 
-- **Brake fluid**: Indicates if the brake fluid level is too low.
-- **Brake light center**: Warns of a failure in the center brake light.
-- **Brake light left**: Warns of a failure in the left brake light.
-- **Brake light right**: Warns of a failure in the right brake light.
-- **Coolant level**: Indicates if the engine coolant level is too low.
-- **Daytime running light left**: Warns of a failure in the left daytime running light.
-- **Daytime running light right**: Warns of a failure in the right daytime running light.
-- **Door front left**: Detects if the front left door is open or closed.
-- **Door front right**: Detects if the front right door is open or closed.
-- **Door rear left**: Detects if the rear left door is open or closed.
-- **Door rear right**: Detects if the rear right door is open or closed.
-- **Engine status**: Shows if the engine is currently running.
-- **Fog light front**: Warns of a failure in the front fog light.
-- **Fog light rear**: Warns of a failure in the rear fog light.
-- **Hazard lights**: Warns of a failure in the hazard lights.
-- **High beam left**: Warns of a failure in the left high beam.
-- **High beam right**: Warns of a failure in the right high beam.
-- **Hood**: Detects if the hood is open or closed.
-- **Low beam left**: Warns of a failure in the left low beam.
-- **Low beam right**: Warns of a failure in the right low beam.
-- **Oil level**: Indicates oil level warnings and service requirements.
-- **Position light front left**: Warns of a failure in the front left position light.
-- **Position light front right**: Warns of a failure in the front right position light.
-- **Position light rear left**: Warns of a failure in the rear left position light.
-- **Position light rear right**: Warns of a failure in the rear right position light.
-- **Registration plate light**: Warns of a failure in the registration plate light.
-- **Reverse lights**: Warns of a failure in the reverse lights.
-- **Service**: Indicates if service is required for the vehicle.
-- **Side mark lights**: Warns of a failure in the side mark lights.
-- **Sunroof**: Detects if the sunroof is open or closed.
-- **Tailgate**: Detects if the tailgate is open or closed.
-- **Tank lid**: Detects if the tank lid is open or closed.
-- **Tire front left**: Indicates pressure warnings for the front left tire.
-- **Tire front right**: Indicates pressure warnings for the front right tire.
-- **Tire rear left**: Indicates pressure warnings for the rear left tire.
-- **Tire rear right**: Indicates pressure warnings for the rear right tire.
-- **Turn indication front left**: Warns of a failure in the front left turn indicator.
-- **Turn indication front right**: Warns of a failure in the front right turn indicator.
-- **Turn indication rear left**: Warns of a failure in the rear left turn indicator.
-- **Turn indication rear right**: Warns of a failure in the rear right turn indicator.
-- **Washer fluid**: Indicates if the washer fluid level is too low.
-- **Window front left**: Detects if the front left window is open or closed.
-- **Window front right**: Detects if the front right window is open or closed.
-- **Window rear left**: Detects if the rear left window is open or closed.
-- **Window rear right**: Detects if the rear right window is open or closed.
+### Diagnostic sensors
 
-#### Buttons
+These are categorized as diagnostic entities. Some are disabled by default because they're mainly useful for troubleshooting; enable them from the entity's settings if you need them.
 
-- **Start climatization**: Starts the climate control system to pre-condition the vehicle's interior temperature.
-- **Stop climatization**: Stops the climate control system.
-- **Flash**: Activates the vehicle's lights to flash briefly.
-- **Honk**: Activates the vehicle's horn for a short duration.
-- **Flash & honk**: Combines flashing lights and horn activation.
-- **Lock reduced guard**: Locks the vehicle with reduced guard.
-
-{% important %}
-The **Honk** and **Flash** controls have caused 12&nbsp;V battery drain issues in the past.
-Use them with care!
-{% endimportant %}
-
-#### Device tracker
-
-Go to Volvo's developer portal to view [the availability](https://developer.volvocars.com/apis/location/v1/overview/#availability).
-
-- **Location**: The car's current location.
-
-#### Lock
-
-- **Lock**: Locks or unlocks the vehicle, and reports the current lock state of the vehicle.
-
-#### Sensors
-
-- **Car connection**: Connectivity of the car.
-- **Direction**: In which direction the car is heading.
-- **Distance to service**: Remaining distance until the next service maintenance.
-- **Odometer**: Odometer.
-- **Service**: Indicates whether service is due and the reason.
-- **Time to engine service**: Remaining engine-hours until the next service maintenance.
-- **Time to service**: Remaining time until the next service maintenance.
-- **Trip automatic average speed**: Average speed on the automatic trip meter.
-- **Trip automatic distance**: Total distance on the automatic trip meter.
-- **Trip manual average speed**: Average speed on the manual trip meter.
-- **Trip manual distance**: Total distance on the manual trip meter.
-
-### Battery-only and plug-in hybrid
-
-#### Sensors
-
-- **Average energy consumption since charge**: Average energy consumption since the last charge of the battery.
-- **Battery**: Current state of charge of the battery.
-- **Battery capacity**: Total capacity of the battery.
-- **Distance to empty battery**: Electric range.
-
-#### Sensors for specific models
-
-Go to Volvo's developer portal to view [the list of supported models](https://developer.volvocars.com/apis/energy/v2/overview/#availability).
-
-- **Charging connection status**: Charging connection status.
-- **Charging limit**: Charging limit configured in the car.
-- **Charging power**: Current charging power.
-- **Charging power status**: Indication if power is being provided.
-- **Charging status**: Indication if the car is charging or not.
-- **Charging type**: AC or DC.
-- **Estimated charging time**: Estimated charging time to reach the target battery charge level.
-- **Trip automatic average energy consumption**: Average energy consumption on the automatic trip meter.
-- **Target battery charge level**: Target battery charge level configured in the car.
-- **Trip manual average energy consumption**: Average energy consumption on the manual trip meter.
-
-### Fuel-only and plug-in hybrid
-
-#### Buttons
-
-- **Start engine**: Starts the engine for 15 minutes.
-- **Stop engine**: Stops the engine.
-
-#### Sensors
-
-- **Distance to empty tank**: Fuel range.
-- **Fuel amount**: Remaining fuel.
-- **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
-- **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
-
-{% include integrations/actions.md %}
+- **Last synchronization**: When the vehicle last reported its status to Škoda's servers.
+- **Registration plate**: The vehicle's registration plate, if set in MyŠkoda.
+- **API key expiration** _(disabled by default)_: When your API key expires. Renew it before this date to avoid losing connectivity.
+- **API requests remaining** _(disabled by default)_: Remaining API requests in the current rate-limit window.
+- **API rate limit reset** _(disabled by default)_: When the API rate-limit window resets.
+- **Next update** _(disabled by default)_: When the integration expects to poll the API again.
 
 ## Examples
 
-### Notify if doors are left open
+### Notify when charging is interrupted
 
-Send a notification to your mobile phone if at least one door is open for 5 minutes.
+Send a notification if charging unexpectedly stops before the vehicle is done charging.
 
 ```yaml
-alias: Notify me if doors are left open for 5 minutes
+alias: Notify me if charging is interrupted
 triggers:
   - trigger: state
-    entity_id:
-      - binary_sensor.volvo_YOUR_MODEL_door_front_left
-      - binary_sensor.volvo_YOUR_MODEL_door_front_right
-      - binary_sensor.volvo_YOUR_MODEL_door_rear_left
-      - binary_sensor.volvo_YOUR_MODEL_door_rear_right
-      - binary_sensor.volvo_YOUR_MODEL_tailgate
-    to: "on"
-    for:
-      minutes: 5
+    entity_id: sensor.YOUR_MODEL_charging_state
+    to: "charging_interrupted"
 actions:
   - action: notify.mobile_app_phone_john_doe
     data:
-      data:
-        url: /lovelace/volvo
-      title: 🚘 Volvo
-      message: "You've left some doors open."
+      title: 🚘 Škoda
+      message: "Charging was interrupted."
 ```
 
-### Estimated charging finish time
+### Notify when the API key is about to expire
 
-The Volvo API only provides an estimated charging time (in minutes). To calculate the finish time, you can create a **Template sensor** helper with the template below.
+Send a reminder a week before your API key expires, so you can renew it before the integration loses access.
 
-{% raw %}
-
-```jinja2
-{% set charging_time =
-  states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
-{% if charging_time > 0 -%}
-  {% set new_time = now() + timedelta(minutes=charging_time) %}
-  {{ new_time }}
-{%- else -%}
-  {{ this.state }}
-{%- endif %}
+```yaml
+alias: Notify me before my Škoda API key expires
+triggers:
+  - trigger: template
+    value_template: >
+      {{ (as_timestamp(states('sensor.YOUR_MODEL_api_key_expiration')) - as_timestamp(now())) < 7 * 86400 }}
+actions:
+  - action: notify.mobile_app_phone_john_doe
+    data:
+      title: 🚘 Škoda
+      message: "Your Škoda API key expires in less than a week. Generate a new one in the MyŠkoda app."
 ```
 
-{% endraw %}
-
-Set the **Device class** to **Timestamp** and optionally choose your vehicle for **Device**.
+{% note %}
+The **API key expiration** sensor is disabled by default. Enable it first if you want to use this automation.
+{% endnote %}
 
 ## Data updates
 
-The **Volvo** integration fetches data from the API at different intervals:
+The **Škoda** integration polls the API for the current vehicle status once every 5 minutes, using a single API call per vehicle per update.
 
-- **Every 30 minutes**: car connectivity, diagnostics, tyres, and warnings.
-- **Every 15 minutes**: brakes, engine warnings, location, and odometer.
-- **Every 2 minutes**: energy data, engine status, fuel status, and statistics.
-- **Every minute**: doors, lock, and windows status.
-
-If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
-Every poll operation accounts for about a dozen calls (depends on model).
+The Škoda public API enforces a rate limit per API key. The **API requests remaining** and **API rate limit reset** diagnostic sensors (disabled by default) let you keep an eye on your remaining quota if you need to.
 
 ## Known limitations
 
-The official Volvo app has access to a more feature-rich API. As a result, this integration cannot provide live updates, display tire pressure values, start air purifying, schedule climatization, show climatization status, and so on.
+- This integration is currently **read-only**: it reports vehicle status but does not let you start or stop charging, control climate, or lock/unlock the vehicle from Home Assistant.
+- Available sensors depend on the vehicle's model, powertrain, and equipment.
 
 ## Troubleshooting
 
-### The `charging_power_status` entity shows `fault` as value or is unavailable
+### Entities become unavailable, or setup fails with a rate-limit error
 
-- Some models will report `fault` if there is no power from the charger (for example, because the charger was paused) while being connected.
-- This field is poorly documented in the API, and therefore, we need to learn the possible values along the way. If an unknown value is detected, the entity will become `unavailable` and a warning will be logged. Please [open a ticket](https://github.com/home-assistant/core/issues/new?template=bug_report.yml) - if no one else has - with the value mentioned in the log.
+The Škoda public API enforces a rate limit per API key. If you hit it, requests fail temporarily until the window resets. The integration will automatically retry; no action is needed.
 
-### API availability
+### Re-authentication is requested
 
-#### Symptoms
-
-Entities from the **Volvo** {% term integration %} can become unavailable when one or more Volvo API endpoints do not respond properly.
-
-#### Resolution
-
-The integration will automatically re-enable affected entities once the API becomes available again.
+If your API key expires or is revoked, the integration will prompt you to re-authenticate. Generate a new API key in the MyŠkoda app (**Profile** -> **Smart Home**) or via the [web portal](https://go.skoda.eu/api-keys), and enter it when prompted.
 
 ## Removing the integration
 
@@ -310,4 +166,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications) on Volvo's developer portal and delete the app you use for the Home Assistant integration.
+After removing the integration, you can optionally revoke the associated API key in the MyŠkoda app or via the [web portal](https://go.skoda.eu/api-keys) if you no longer need it.
