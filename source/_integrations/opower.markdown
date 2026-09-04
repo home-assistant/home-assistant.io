@@ -192,7 +192,7 @@ Many utilities bill by rate period. Time-of-use rates charge different prices by
 - **Opower {utility name} elec {account number} {period} return**
 - **Opower {utility name} elec {account number} {period} compensation**
 
-The period names come from your utility's data. They match the names on your utility's website, not necessarily the names on your bill. For example, SMUD reports its Mid-Peak period as `part peak`. On a rate that is both time-of-use and tiered, the time-of-use period is used and the tiers are merged inside it. You can find the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} by searching for "opower".
+The period names come from your utility's data. They match the names on your utility's website, not necessarily the names on your bill. For example, SMUD reports its Mid-Peak period as `part peak`. On a rate that is both time-of-use and tiered, each combination gets its own statistics, for example `off peak tier 2`, because each is billed at its own price. You can find the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} by searching for "opower".
 
 To show them in the Energy dashboard, add one grid connection (or gas source) per period. Do not add the account total next to them, or usage is counted twice.
 
