@@ -27,7 +27,7 @@ The following device has been verified to work with this integration:
 
 - Exicom Spin AC wall charger
 
-The charger advertises its serial number as its Bluetooth name, in the form `123456789012_ab12`.
+The charger advertises its serial number as its Bluetooth name, in the form `123456789012_ab12`. Some units advertise it with a leading space, which Home Assistant ignores when matching.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ To resolve this issue, try the following steps:
 
 1. Check that the charger is powered on.
 2. Close the vendor phone app, and stop any other tool that may be connected to the charger.
-3. Confirm the charger appears in **Settings** > **Devices & services** > **Bluetooth** > **Advertisement monitor**, with a name in the form `123456789012_ab12`.
+3. Confirm the charger appears in **Settings** > **Connectivity** > **Bluetooth** > **Advertisement monitor**, with a name in the form `123456789012_ab12`.
 4. Move an ESPHome Bluetooth proxy closer to the charger, or place a local Bluetooth adapter near it.
 5. Make sure the proxy has active connections enabled. A passive-only adapter can see the charger advertise but cannot read from it.
 
@@ -105,7 +105,7 @@ Another Bluetooth client already holds the charger's single slot, or the charger
 To resolve this issue, try the following steps:
 
 1. Close the vendor phone app and try again.
-2. Check **Settings** > **Devices & services** > **Bluetooth** > **Connection monitor** and confirm the adapter or proxy has a free active connection slot.
+2. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor** and confirm the adapter or proxy has a free active connection slot.
 3. Move the charger, the proxy, or the adapter so they are closer together.
 
 ### The sensors become unavailable
