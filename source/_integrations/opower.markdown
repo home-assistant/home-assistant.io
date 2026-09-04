@@ -206,7 +206,12 @@ To show them in the Energy dashboard, add one grid connection (or gas source) pe
 6. If you have solar, select **Opower {utility name} elec {account number} on peak return** for **energy returned to the grid** and **Opower {utility name} elec {account number} on peak compensation** for **entity with the total compensation**.
 7. Repeat for each period.
 
+Your **Configure grid connection** for one period should now look like this:
+![Screenshot configure grid connection for a rate period](/images/integrations/opower/configure_rate_period.png)
+
 The Energy dashboard then stacks the periods in one graph and lists usage and cost per period.
+
+![Screenshot Energy dashboard with one source per rate period](/images/integrations/opower/energy_rate_periods.png)
 
 Period statistics only cover the daily and hourly history. Monthly bill data has no breakdown, so the periods show `0` before the daily history starts while the totals still have data.
 
