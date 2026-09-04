@@ -70,7 +70,7 @@ Bluetooth control is opt-in and set up per vehicle. You add each vehicle you wan
 4. Home Assistant looks for the vehicle over Bluetooth. Make sure the vehicle is awake and within range, then continue.
 5. When prompted, select **Submit**, then approve Home Assistant's virtual key by placing your key card against the center console card reader of the vehicle.
 
-You only need to do this once per vehicle. To pair a vehicle again later, select **Reconfigure Bluetooth vehicle** for it.
+You only need to do this once per vehicle.
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
