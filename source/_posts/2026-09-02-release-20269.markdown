@@ -52,6 +52,8 @@ Enjoy the release!
 - [Accessibility for charts!](#accessibility-for-charts)
 - [Serial and MQTT panels](#serial-and-mqtt-panels)
 - [How full is your network storage?](#how-full-is-your-network-storage)
+- [Patch releases](#patch-releases)
+  - [2026.9.1 - September 5](#202691---september-5)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -546,6 +548,91 @@ Each active mount now gets a small usage bar and a "{used} of {total} used" line
 <img src='/images/blog/2026-09/network-storage-space.png' alt='Screenshot of the Network storage section on the Storage page, listing three network mounts with usage bars, one of them nearly full and shown in red.' class='no-shadow' />
 
 Thanks to [@MindFreeze](https://github.com/MindFreeze) and [@silamon](https://github.com/silamon) for keeping an eye on this!
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2026.9 in September.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2026.9.1 - September 5
+
+- Fix SMTP attaching valid images as files when content sniffing fails ([@Chang-Jin-Lee] - [#176774])
+- Warn that removing an app deletes its data in repair flows ([@agners] - [#181009])
+- Fix receive backup streaming ([@MartinHjelmare] - [#181012])
+- Fix potential deadlock in receive_file backup util ([@emontnemery] - [#181070])
+- Add missing state_class for miele filling level sensors ([@astrandb] - [#181093])
+- Update python-roborock to 7.2.3 ([@Lash-L] - [#181096])
+- Bump vizaio to 0.6.1 for vizio state_extended 404 fallback fix ([@raman325] - [#181131])
+- Stop rounding Amber Electric prices to 2 decimal places ([@romeovan] - [#181157])
+- Fix host override ignored in UniFi Protect public-only mode ([@RaHehl] - [#181176])
+- Purge unreachable deleted devices on device registry load ([@emontnemery] - [#181207])
+- Bump pydaikin to 2.19.1 (hotfix) ([@GhislainC] - [#181219])
+- Fix Besen config flow schema serialization ([@moryoav] - [#181223])
+- Speed up lookup of colliding orphans in device registry ([@arturpragacz] - [#181244])
+- Revert orjson to 3.11.9 ([@emontnemery] - [#181245])
+- Bump aioflo to 2026.9.3 and scope Flo consumption by device ([@BradKollmyer] - [#181246])
+- Bump serialx to 1.10.0 ([@puddly] - [#181249])
+- Bump env-canada to 0.19.2 ([@michaeldavie] - [#181250])
+- Bump python-hotspring to 2.1.0 (hotfix) ([@Moustachauve] - [#181256])
+- Bump samsung-exlink to 1.1.1 ([@balloob] - [#181260])
+- Reject Hot Spring Spa Network Adapter (SNA) in config flow (hotfix) ([@Moustachauve] - [#181261])
+- Update knx-frontend to 2026.9.4.63549 ([@farmio] - [#181268])
+- Allow empty motionEye usernames ([@frenck] - [#181270])
+- Handle Tradfri devices without a firmware version ([@frenck] - [#181276])
+- Update frontend to 20260826.6 ([@bramkragten] - [#181293])
+- Bump reolink_aio to 0.21.15 ([@starkillerOG] - [#181300])
+- Bump pylitterbot to 2025.6.5 ([@natekspencer] - [#181346])
+- Bump uiprotect to 16.6.1 ([@RaHehl] - [#180670])
+
+[#176774]: https://github.com/home-assistant/core/pull/176774
+[#180670]: https://github.com/home-assistant/core/pull/180670
+[#181009]: https://github.com/home-assistant/core/pull/181009
+[#181012]: https://github.com/home-assistant/core/pull/181012
+[#181070]: https://github.com/home-assistant/core/pull/181070
+[#181093]: https://github.com/home-assistant/core/pull/181093
+[#181096]: https://github.com/home-assistant/core/pull/181096
+[#181131]: https://github.com/home-assistant/core/pull/181131
+[#181157]: https://github.com/home-assistant/core/pull/181157
+[#181176]: https://github.com/home-assistant/core/pull/181176
+[#181207]: https://github.com/home-assistant/core/pull/181207
+[#181219]: https://github.com/home-assistant/core/pull/181219
+[#181223]: https://github.com/home-assistant/core/pull/181223
+[#181244]: https://github.com/home-assistant/core/pull/181244
+[#181245]: https://github.com/home-assistant/core/pull/181245
+[#181246]: https://github.com/home-assistant/core/pull/181246
+[#181249]: https://github.com/home-assistant/core/pull/181249
+[#181250]: https://github.com/home-assistant/core/pull/181250
+[#181256]: https://github.com/home-assistant/core/pull/181256
+[#181260]: https://github.com/home-assistant/core/pull/181260
+[#181261]: https://github.com/home-assistant/core/pull/181261
+[#181268]: https://github.com/home-assistant/core/pull/181268
+[#181270]: https://github.com/home-assistant/core/pull/181270
+[#181276]: https://github.com/home-assistant/core/pull/181276
+[#181293]: https://github.com/home-assistant/core/pull/181293
+[#181300]: https://github.com/home-assistant/core/pull/181300
+[#181346]: https://github.com/home-assistant/core/pull/181346
+[@BradKollmyer]: https://github.com/BradKollmyer
+[@Chang-Jin-Lee]: https://github.com/Chang-Jin-Lee
+[@GhislainC]: https://github.com/GhislainC
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Moustachauve]: https://github.com/Moustachauve
+[@RaHehl]: https://github.com/RaHehl
+[@agners]: https://github.com/agners
+[@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@michaeldavie]: https://github.com/michaeldavie
+[@moryoav]: https://github.com/moryoav
+[@natekspencer]: https://github.com/natekspencer
+[@puddly]: https://github.com/puddly
+[@raman325]: https://github.com/raman325
+[@romeovan]: https://github.com/romeovan
+[@starkillerOG]: https://github.com/starkillerOG
 
 ## Need help? Join the community
 
