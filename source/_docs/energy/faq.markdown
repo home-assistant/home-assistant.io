@@ -62,12 +62,12 @@ You are trying to add a sensor to the Energy dashboard, but it does not appear i
 To find out why the sensor is not showing, check the following points:
 
 - The sensor must have the appropriate attributes. Check your entity attributes in {% my developer_states title="**Settings** > **Tools** > **States**" %}. The required attributes depend on what the sensor measures:
-  - Energy sensors must have `device_class: energy` and `state_class: total` or `state_class: total_increasing`.
-  - Power sensors must have `device_class: power` and `state_class: measurement`.
-  - Battery state of charge sensors must have `device_class: battery`, `state_class: measurement`, and `unit_of_measurement: "%"`.
-  - Gas sensors must have `device_class: gas` and `state_class: total` or `state_class: total_increasing`.
-  - Water sensors must have `device_class: water` and `state_class: total` or `state_class: total_increasing`.
-  - The sensor must have an appropriate `unit_of_measurement`. See the help text for each category to see which units are accepted. Units containing an exponent must match superscript characters exactly.
+  - **Energy**: `device_class: energy` with `state_class: total` or `state_class: total_increasing`.
+  - **Power**: `device_class: power` with `state_class: measurement`.
+  - **Battery state of charge**: `device_class: battery`, `state_class: measurement`, and `unit_of_measurement: "%"`.
+  - **Gas**: `device_class: gas` with `state_class: total` or `state_class: total_increasing`.
+  - **Water**: `device_class: water` with `state_class: total` or `state_class: total_increasing`.
+  - The sensor must use a supported `unit_of_measurement`. See the help text for the Energy dashboard field for the accepted units. Units containing an exponent must match superscript characters exactly.
 
   If any of the attributes are not correct, please open an issue against the integration that provides your sensor, or if you are developing custom template sensors, make sure the templates have the correct attributes.
 
