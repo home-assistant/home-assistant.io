@@ -13,7 +13,6 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **AquaLogic** {% term integration %} provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.

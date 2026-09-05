@@ -31,11 +31,11 @@ Most LG TVs sold starting roughly 2008, as well as LG commercial signage display
 
 ## Unsupported devices
 
-- LG TVs without a physical RS-232C port. Many entry-level TVs from 2018 onwards dropped the serial port. For those, use the [LG webOS Smart TV]({% link _integrations/webostv.markdown %}) integration instead.
+- LG TVs without a physical RS-232C port. Many entry-level TVs from 2018 onwards dropped the serial port. For those, use the [LG webOS Smart TV](/integrations/webostv/) integration instead.
 
 ## Prerequisites
 
-- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial (RS-232) cable, a USB-to-serial adapter, or an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy.
+- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial (RS-232) cable, a USB-to-serial adapter, or an [ESPHome](/integrations/esphome/)-based serial proxy.
 - LG TVs use a null-modem (cross-over) cable: the TX and RX lines must be swapped.
 - **RS-232C Control** must be enabled on the TV. On many LG models this option lives in a hidden service (`InStart`) menu. Consult your TV's documentation.
 

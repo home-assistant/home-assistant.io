@@ -32,6 +32,7 @@ The following selectors are currently available:
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+- [Device class selector](#device-class-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
 - [Floor selector](#floor-selector)
@@ -46,6 +47,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [State class selector](#state-class-selector)
 - [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
@@ -678,6 +680,49 @@ device:
       device_class: battery
 ```
 
+## Device class selector
+
+The device class selector lets you select one or more device classes.
+The selector returns a single device class, or a list of device classes if `multiple` is set to `true`.
+
+![Screenshot of a device class selector](/images/blueprints/selector-device-class.png)
+
+This selector requires an entity domain is configured that supports the `device_class` attribute, for example `sensor`.
+
+```yaml
+device_class:
+  domain: "sensor"
+```
+
+{% configuration device_class %}
+domain:
+  description: >
+    The [domain](/docs/configuration/entities_domains/#domains) for which to select device classes,
+    for example, [`sensor`](/integrations/sensor) or
+    [`binary_sensor`](/integrations/binary_sensor). The domain must support the `device_class` property.
+  type: string
+  required: true
+multiple:
+  description: >
+    Allows selecting multiple devices. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the device class, or (in case `multiple` is set to
+`true`) a list of device classes.
+
+```yaml
+# Example device class selector output result, when multiple is set to false
+temperature
+
+# Example device class selector output result, when multiple is set to true
+- temperature
+- humidity
+```
+
 ## Duration selector
 
 The duration selector lets you select a time duration.
@@ -1179,15 +1224,41 @@ media:
     - image/*
 ```
 
+When `accept` is set, you can also set `image_upload` to let the user upload an
+image from their device instead of browsing the media that is already available
+to Home Assistant. The uploaded image is stored by Home Assistant and selected
+automatically, and the user can clear their choice to upload a different image.
+
+```yaml
+media:
+  accept:
+    - image/*
+  image_upload: true
+```
+
 {% configuration media %}
 accept:
   description: >
     List of media types the user is allowed to select.
   type: list
   required: false
+image_upload:
+  description: >
+    Show an upload field instead of a media browser, allowing the user to upload
+    an image from their device. Requires a non-empty `accept`.
+  type: boolean
+  required: false
+  default: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector is a mapping with information about
+The output of the media selector is a mapping or list of mappings with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1230,6 +1301,20 @@ metadata:
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
+```
+
 
 ## Number selector
 
@@ -1572,6 +1657,55 @@ The output of this selector is the select state (not the translated or
 prettified name shown in the frontend), or a list of states if `multiple` is true.
 
 For example: `heat_cool`.
+
+## State class selector
+
+The state class selector lets you select one or more sensor state classes.
+The selector returns a single state class, or a list of state classes if `multiple` is set to `true`.
+
+![Screenshot of a state class selector](/images/blueprints/selector-state-class.png)
+
+This selector shows all available sensor state classes:
+
+```yaml
+state_class:
+```
+
+This selector limits selectable state classes to the measurement state classes.
+
+```yaml
+state_class:
+  state_classes:
+    - measurement
+    - measurement_angle
+```
+
+{% configuration state_class %}
+multiple:
+  description: >
+    Allows selecting multiple state classes. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+state_classes:
+  description: >
+    Limits the selectable state classes to the state classes supplied. When not configured, all available state classes are selectable.
+  type: list
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the state class, or (in case `multiple` is set to
+`true`) a list of state classes.
+
+```yaml
+# Example state class selector output result, when multiple is set to false
+measurement
+
+# Example state class selector output result, when multiple is set to true
+- measurement
+- total_increasing
+```
 
 ## Statistic selector
 
