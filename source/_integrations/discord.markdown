@@ -67,8 +67,6 @@ After the bot has been added to your server, get the channel ID of the channel y
 2. Enable **Developer Mode**.
 3. Right-click the channel name and select **Copy Channel ID**.
 
-![Screenshot of Discord developer mode](/images/screenshots/discord-api.png)
-
 The channel ID, or a user ID for direct messages, is used as the target when calling the notification action. Multiple channel or user IDs can be specified across multiple servers or direct messages.
 
 ## Add Discord integration to Home Assistant
