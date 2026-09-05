@@ -34,42 +34,11 @@ With the [energy dashboard](/energy) you can use the `current hour` price entity
 
 ## Examples
 
-### Send a notification when the energy price is low
+### Run actions when the energy price is low
 
-Use the current hour price sensor to send a notification when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
+Use this blueprint to run one or more actions when an easyEnergy electricity price sensor drops below a threshold you choose. For example, you can send a notification or start an appliance when electricity is cheap.
 
-```yaml
-automation:
-  - alias: "Notify when the energy price is low"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
-        below: 0.15
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          title: "Low energy price"
-          message: "The current energy price is {{ trigger.to_state.state }} €/kWh."
-```
-
-### Start a dishwasher when the energy price is low
-
-Use the current hour price sensor to start a dishwasher when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
-
-```yaml
-automation:
-  - alias: "Start dishwasher when energy price is low"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
-        below: 0.15
-    actions:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.dishwasher
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_run_action_on_low_price.yaml" %}
 
 ## Data updates
 
