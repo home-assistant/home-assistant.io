@@ -41,7 +41,7 @@ The [Rainforest Automation Eagle](/integrations/rainforest_eagle) is one such de
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
 
-We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by [ESPHome's pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
+We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
