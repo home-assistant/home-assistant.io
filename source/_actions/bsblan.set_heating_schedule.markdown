@@ -21,7 +21,7 @@ To set the heating schedule from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **BSB-LAN: Set heating schedule**.
-6. Select the **heating circuit device** to configure.
+6. Select the **Heating circuit** sub-device to configure.
 7. For each day you want to change, add one or more time slots with a start and end time.
 8. Select **Save**.
 
