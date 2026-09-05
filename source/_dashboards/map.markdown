@@ -162,6 +162,7 @@ entity:
 name:
   required: false
   description: Replace the default label for the marker.
+  type: string
 label_mode:
   required: false
   default: name
