@@ -48,9 +48,9 @@ For TX 29 DTH-IT sensors, you can also read the ID from the display and calculat
 
 {% include integrations/config_flow.md %}
 
-After obtaining the sensor ID you can start the setup of the lacrosse device. First configure the receiving USB stick.
+After obtaining the sensor ID you can start the setup of the LaCrosse device. First configure the receiving USB stick.
 Available USB devices are prefilled in the `device`dropdown. If auto detection did not find your USB stick you can
-manually input the device path. The default baud rate should be sufficient for most devices. In case you use lacrosse
+manually input the device path. The default baud rate should be sufficient for most devices. In case you use LaCrosse
 devices with different datarates you can configure the receiver to toggle between those every `n` seconds via the toggle mask and toggle interval.
 
 {% configuration_basic %}
