@@ -335,15 +335,17 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 
 ### Vehicle data
 
-Most vehicles stream their data to Home Assistant in real time over Server-Sent Events (SSE), with no per-update cost. The integration sets up and manages this streaming configuration for you.
+Most vehicles stream their data to Home Assistant in real time. Streaming has no per-update cost, and the integration sets it up and manages it for you.
 
-Pre-2021 Model S and Model X vehicles cannot stream. For these vehicles, Teslemetry automatically refreshes their data on its own servers at no cost to you. A non-streaming vehicle is refreshed roughly every 15 minutes, and a vehicle that Tesla marks as discounted is refreshed much more often, roughly every 90 seconds. Both are free.
+Some entities can only get their data by polling. These show as **Polling** in the tables above. Home Assistant creates them only for vehicles where polling costs little or nothing.
 
-Credits are only spent on an on-demand fresh full-vehicle-data fetch, which costs 2 credits, or 0.1 credit for a discounted vehicle.
+A vehicle that streams and is not discounted gets no polling-only entities. Its data comes entirely from the live stream. Home Assistant never polls it, so fetching its data never spends credits. You still see its **Streaming** and **Both** entities.
 
-On a streaming vehicle, **Polling** entities read from Teslemetry's cached vehicle data instead of the live stream. Their values are not streamed and do not refresh on their own, which is why many of them are disabled by default. Enabling one is not a switch for Teslemetry's free automatic polling, and Home Assistant never bypasses the cache or forces a refresh on its own.
+A vehicle that does not stream gets polling-only entities. Teslemetry refreshes it on its own servers at no cost, roughly every 15 minutes, or roughly every 90 seconds if Tesla marks it as discounted. Home Assistant reads that data for free.
 
-If your vehicle is unpaired and streams through the safety screen, an enabled polling entity reads the cached vehicle data every 60 seconds while the vehicle is online. Most of those reads are free cache hits. Each time the cached data passes 20 minutes old, the next read becomes a charged fresh fetch at that cost, so it recurs for as long as the vehicle stays online. Streaming updates do not reset this 20-minute window.
+A vehicle that streams and is marked as discounted also gets polling-only entities. Each refresh for a discounted vehicle costs only 0.1 credit.
+
+When you update, a vehicle that streams and is not discounted no longer gets polling-only entities. If you had enabled one, Home Assistant removes it and it disappears. This is expected, and it stops that vehicle from being polled.
 
 The integration does not wake a sleeping vehicle to fetch data. Updates pause until the vehicle wakes up on its own or you interact with it.
 
