@@ -34,9 +34,9 @@ blueprint:
 
 mode: single
 
-triggers:
+trigger:
   - trigger: numeric_state
     entity_id: !input price_sensor
     below: !input price_threshold
 
-actions: !input actions
+action: !input actions
