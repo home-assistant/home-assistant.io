@@ -19,7 +19,6 @@ node_modules
 source/.jekyll-metadata
 *.iml
 .idea/
-.claude/
 .vscode/*
 !.vscode/cSpell.json
 !.vscode/extensions.json

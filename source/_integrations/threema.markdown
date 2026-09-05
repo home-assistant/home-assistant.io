@@ -10,6 +10,7 @@ ha_domain: threema
 ha_platforms:
   - notify
 ha_integration_type: service
+ha_quality_scale: bronze
 ha_codeowners:
   - '@LukasQ'
 ha_quality_scale: silver
@@ -33,8 +34,6 @@ Setting up Threema Gateway is a two-step process:
 2. Configure the integration
    - Once your Gateway ID is approved, use the Gateway ID, API secret, and the previously generated private key to complete the integration setup in Home Assistant.
 
-## Setup
-
 During setup, you can choose between two options:
 
 - **Add existing Gateway ID**: Enter your Gateway ID, API secret, and the private key generated for it. You can optionally also paste the public key you registered at [gateway.threema.ch](https://gateway.threema.ch) — it is only used once, to verify it matches the private key, and is never stored.
@@ -45,6 +44,16 @@ If you leave the private key empty, the integration uses **basic mode** instead,
 Should your API secret later be revoked or changed on the Threema Gateway side, Home Assistant will prompt you to re-authenticate instead of requiring you to remove and re-add the integration — see [Troubleshooting](#troubleshooting).
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+Gateway ID:
+  description: "Your Threema Gateway ID (starts with `*` and is 8 characters total)."
+API secret:
+  description: "The API secret from your Threema Gateway dashboard."
+Private key:
+  description: "Optional for basic mode, required for end-to-end encryption mode."
+Public key:
+  description: "Optional for basic mode, required for end-to-end encryption mode."
+{% endconfiguration_basic %}
 
 ## Recipients
 
@@ -153,4 +162,13 @@ This integration follows standard integration removal, no additional steps are r
 - **Text messages only** — images, files, and other media are not supported.
 - **No group messaging** — only 1-to-1 messages are supported.
 - **Send only** — receiving messages is not supported.
+<<<<<<< HEAD
 - **No credit balance sensor** — check your remaining Gateway credits on the [Threema Gateway dashboard](https://gateway.threema.ch).
+=======
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+>>>>>>> 1e753df19800d82f6fd288001a57a1791783d697
