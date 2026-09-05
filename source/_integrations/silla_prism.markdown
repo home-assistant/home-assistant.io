@@ -2,10 +2,20 @@
 title: Silla Prism
 description: Instructions on how to integrate your Silla Prism EV wallbox with Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
   - Car
+  - Number
+  - Select
   - Sensor
+  - Switch
 ha_platforms:
+  - binary_sensor
+  - button
+  - number
+  - select
   - sensor
+  - switch
 ha_iot_class: Local Push
 ha_codeowners:
   - '@ebaschiera'
@@ -17,6 +27,8 @@ ha_quality_scale: bronze
 ---
 
 The **Silla Prism** {% term integration %} lets you monitor and control a [Silla Prism](https://silla.industries) electric vehicle wallbox from Home Assistant over its native MQTT protocol. [Silla](https://silla.industries) is an Italian manufacturer of EV charging equipment.
+
+Besides monitoring the charging session, the integration can control the Prism current limit and port mode, expose touch gestures from the wallbox, and optionally balance EV charging against photovoltaic surplus and a home battery.
 
 ## Prerequisites
 
@@ -36,14 +48,40 @@ To use more than one Prism, give each unit its own base topic in the Silla app, 
 {% configuration_basic %}
 Base topic:
   description: "The MQTT topic prefix the Prism publishes to, as configured in the Silla app. It must match exactly, without a trailing slash. The default is `prism`."
+Number of available ports:
+  description: "Number of physical Prism outputs. Use `1` for a single Prism and `2` for a Prism DUO."
+Maximum settable current:
+  description: "Upper current limit that Home Assistant may send to the Prism, from 6 A to 32 A."
+Solar battery balancing:
+  description: "Enable entities that calculate photovoltaic surplus and automatically adjust the Prism current while the port is in solar mode."
+Battery power sensor:
+  description: "Home Assistant sensor that reports the home battery charge or discharge power in W. It is required when solar battery balancing is enabled."
+Solar production sensor:
+  description: "Optional Home Assistant sensor that reports photovoltaic production in W. Use it together with the home load sensor when the Prism solar power topic is not populated."
+Home load sensor:
+  description: "Optional Home Assistant sensor that reports house consumption in W."
+Home load sensor includes the EV charger:
+  description: "Enable this when the home load sensor is a total-load sensor that also includes EV charging. The balancer subtracts EV power before calculating surplus."
+Battery SOC sensor:
+  description: "Optional Home Assistant sensor for the home battery state of charge in percent. When provided, the reserve power changes at the configured SOC thresholds."
+Battery discharge is a positive value:
+  description: "Controls the sign convention for the battery power sensor. Enable it when positive values mean discharge and negative values mean charge."
+Solar balance dry run:
+  description: "Calculate and expose the balancing decision without sending current or mode commands to the Prism."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-The integration creates a single device with the following entities.
+The integration creates one device per configured Prism or charging port with the following entities.
 
 ### Sensors
 
+- **Solar balance status**: Current state of the optional solar battery balancer.
+- **Solar surplus current**: Current that the available surplus can support.
+- **Stable surplus countdown**: Remaining time before charging can restart after surplus becomes stable.
+- **Calculated total surplus**: Power considered available for EV charging after grid, home load, PV and battery reserve calculations.
+- **Calculated target current**: Current the balancer wants to set on the Prism.
+- **Decision reason** and **Decision summary**: Diagnostics explaining why the balancer is waiting, holding at 6 A, ramping, or charging from surplus.
 - **Status**: The charging state of the port (idle, waiting, charging, or paused).
 - **Power**: Power currently delivered to the vehicle.
 - **Current**: Current currently delivered to the vehicle.
@@ -56,16 +94,40 @@ The integration creates a single device with the following entities.
 - **Temperature**: Internal temperature of the Prism.
 - **Grid power**: Power drawn from the grid. Positive values are imports, negative values are exports.
 
+### Binary sensors
+
+- **Connection status**: Whether retained MQTT status has been received recently.
+- **Error status**: Whether the port reports an error code.
+- **Single touch**, **Double touch**, and **Long touch**: Short-lived entities that turn on when the Prism touch input reports the matching gesture.
+
+### Numbers
+
+- **Current limit**: Current limit sent to the Prism port.
+- **Current limited by user**: User maximum current used by the Prism and by the balancer.
+
+### Selects
+
+- **Set port output mode**: Changes the Prism port mode. Available options are **Solar**, **Normal**, **Paused**, and **Hybrid**.
+
+### Switches
+
+- **Solar battery balancing**: Enables or disables automatic current control from photovoltaic surplus and home battery data. The balancer only sends commands while the Prism port is in solar mode. If charging was stopped because surplus was too low, it restarts from 6 A instead of jumping to the previously reported current.
+
+### Buttons
+
+- **Set mode traps auth** and **Set mode traps noauth**: Send the Prism authorization trap commands.
+
 ## Data updates
 
 The Prism pushes an MQTT message whenever a value changes, so entities update in real time. Status topics are retained on the broker, so Home Assistant restores the current values immediately after a restart. The session time is the exception: the Prism publishes it without the retain flag, about once a minute, so the session start sensor stays unknown for up to a couple of minutes after a restart.
 
+When solar battery balancing is enabled, Home Assistant also listens to the configured battery, solar production, home load, and battery SOC sensors. Any change to those sensors or to the Prism MQTT status causes the balancer to recalculate the current limit.
+
 ## Known limitations
 
-- The integration currently provides read-only sensors. Setting the charging current and changing the charging mode are not available yet.
-- Only the first charging port is supported. On a Prism DUO, the second cable is not exposed.
-- The current limit used for custom load balancing, the night schedule, and charge authorization are not exposed yet.
-- Solar and home power flows are only meaningful when a Powerwall or compatible meter is configured on the Prism; otherwise they report `0`.
+- The fixed MQTT discovery topic only discovers devices that use the default `prism` base topic. Add devices with custom base topics manually.
+- Solar and home power flows are only meaningful when a Powerwall, compatible meter, or matching Home Assistant sensors are configured.
+- Solar battery balancing depends on accurate external power sensors. If those sensors are unavailable, the balancer waits and does not change the charging current.
 
 ## Removing the integration
 
