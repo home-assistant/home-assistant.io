@@ -214,7 +214,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
-- **Events** - Cameras with Smart Detections expose event {% term entity %} entities for momentary detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
+- **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
@@ -676,11 +676,18 @@ License Plate Recognition can be triggered by various sources, including images 
 - **Event Name**: Smart detection
 - **Event Attributes**:
   - **event_type**: The detected object type, such as `person`, `vehicle`, `animal`, `package`, `license_plate`, `face`, `car`, or `pet`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_source**: The raw Protect event type: `smartDetectZone`, `smartDetectLine`, or `smartDetectLoiterZone`.
   - **event_id**: A unique ID that identifies the detection event.
   - **smart_detect_types**: The full set of object types detected during the event.
-- **Description**: This event fires for each object type a Smart Detection camera detects, including types that do not have their own sensor. Each detected type fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
+- **Description**: This event fires for each object type and event source a Smart Detection camera detects, including types that do not have their own sensor. Each object and source pair fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
 
 {% note %}
+This is a behavior change: an existing automation that does not filter `event_source` can run multiple times for the same `event_id` and object type when Protect emits overlapping sources. Automations that should react only to line crossings must filter for `smartDetectLine`.
+
+The Package event entity exposes the same `event_source` attribute and can likewise fire once for each distinct source.
+
+Line-crossing event data does not identify which configured line was crossed or the crossing direction. Home Assistant can therefore distinguish a line crossing from zone and loitering detections, but it cannot provide a line name, line ID, or direction.
+
 The Smart detection event reports _which_ type was detected, not the richer recognized metadata behind it. The UniFi Protect public API does not currently expose details such as the recognized license plate text, vehicle color and type, or detection confidence on this event. For the recognized license plate and vehicle attributes, use the dedicated [Vehicle Detection Event](#vehicle-detection-event), which still sources that data from the private API.
 {% endnote %}
 
