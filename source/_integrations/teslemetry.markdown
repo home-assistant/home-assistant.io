@@ -51,6 +51,32 @@ The [virtual key](https://teslemetry.com/docs/topics/virtualkey) is Teslemetry's
 
 {% include integrations/config_flow.md %}
 
+## Local Powerwall control
+
+By default, Teslemetry sends energy site commands through the cloud. If your energy site includes a Powerwall 2 or Powerwall 3, you can pair Home Assistant with your Powerwall so it can send commands directly over your local network. Local commands are faster. Home Assistant automatically falls back to the cloud whenever the local connection isn't available, so your existing cloud-based energy entities keep working.
+
+### Requirements
+
+- A Powerwall 2 or Powerwall 3 that's reachable on your local network.
+
+### Setting up local control
+
+Local control is optional and you add it per energy site. Only sites with a Powerwall can be added, so sites with only a wall connector or solar panels aren't offered.
+
+To pair your Powerwall or Backup Gateway:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
+2. Select **Add local energy site**.
+3. Under **Energy site**, choose the site whose Powerwall you want to control over your local network, then continue.
+4. On the **Approve the local access key** step, flick the On/Off switch on your primary Powerwall off and back on to approve Home Assistant's access, then continue. You only need to do this once.
+5. On the **Connect to your Powerwall system** step, confirm the local network address that Home Assistant discovered, or edit it if needed, and enter your Powerwall's Wi-Fi password in the **Password** field. Only the last 5 characters are needed - find them on the QR label behind the front cover of your Powerwall 3, or behind the Backup Gateway door on Powerwall 2.
+
+Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
+
+{% note %}
+Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
+{% endnote %}
+
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
