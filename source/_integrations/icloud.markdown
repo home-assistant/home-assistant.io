@@ -17,7 +17,6 @@ ha_domain: icloud
 ha_platforms:
   - calendar
   - device_tracker
-  - media_source
   - sensor
   - todo
 ha_integration_type: hub

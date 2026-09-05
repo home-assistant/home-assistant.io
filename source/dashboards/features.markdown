@@ -1002,6 +1002,11 @@ type:
   required: true
   description: "`select-options`"
   type: string
+style:
+  required: false
+  description: "How the options should be displayed. It can be either `buttons` or `dropdown`."
+  type: string
+  default: dropdown
 options:
   required: false
   description: List of options to show on the card. If not specified, all available options from the entity are displayed.
