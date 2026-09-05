@@ -23,6 +23,11 @@ The map card allows you to display your home zone, entities, and other predefine
 Screenshot of the map card.
 </p>
 
+The two buttons below the zoom controls let you manage the markers and map viewport:
+
+- **Toggle grouping** groups nearby markers into clusters or shows them individually. This button is shown when more than one entity is displayed.
+- **Reset focus** recenters and zooms the map to fit the displayed entities. If automatic fitting was paused by manually moving or zooming the map, this also resumes it.
+
 ## Adding the map card to a dashboard
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
@@ -157,7 +162,6 @@ entity:
 name:
   required: false
   description: Replace the default label for the marker.
-  type: string
 label_mode:
   required: false
   default: name
