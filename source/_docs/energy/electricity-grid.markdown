@@ -27,7 +27,21 @@ The best way to get this data is directly from your electricity meter that sits 
 
 The P1 port is a standardized port in the Netherlands, Belgium and Luxembourg. A P1 reader can connect to this port and receive real-time information.
 
-We have worked with creator [Marcel Zuidwijk](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
+We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to develop [SlimmeLezer+](https://www.zuidwijk.com/product/slimmelezer-plus/). It's an affordable P1 reader powered by [ESPHome](https://esphome.io) that will seamlessly integrate this information in Home Assistant. It is being sold on [his website](https://www.zuidwijk.com/product/slimmelezer-plus/) and the firmware is open source [on GitHub](https://github.com/zuidwijk/dsmr).
+
+![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
+
+#### Connect via Zigbee Energy Profile
+
+The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK, Canada, and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware and often requires that the Zigbee connection be provisioned by your utility. As such, your utility, assuming they support this at all, will have a list of currently supported hardware.
+
+The [Rainforest Automation Eagle](/integrations/rainforest_eagle) is one such device that implements this which supports a local API and is compatible with Home Assistant.
+
+#### Reading the meter via a pulse counter
+
+Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
+
+We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
