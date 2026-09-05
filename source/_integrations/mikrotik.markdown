@@ -211,15 +211,15 @@ The **MikroTik** {% term integration %} {% term polling polls %} the router's Ro
 
 - Presence detection only tracks clients connected to the router configured in the {% term integration %}. If your network has multiple MikroTik devices, such as a separate wireless access point or a CAPsMAN cluster, add each device as its own integration entry to track the devices connected to it.
 - The RouterBOARD update entity is only created on devices that report RouterBOARD information. It's not available on the Cloud Hosted Router (CHR) or other installations without a RouterBOARD.
-- All clients connected to the router are tracked, not only MikroTik-branded devices. This includes any device connected over Wi-Fi or Ethernet, such as computers, phones, and other network equipment.
+- Tracking isn't limited to MikroTik-branded devices, but not every connected client is tracked. By default, only wireless clients are tracked, using the router's wireless registration table. Wired clients are tracked only when **Force scanning using DHCP** is enabled, and then only those that have a DHCP lease. Devices with a manually configured static IP address aren't tracked.
 
 ## Troubleshooting
 
-### A device shows as not home while it's connected
+### A wired device shows as not home while it's connected
 
 #### Resolution
 
-If a wired device with a static IP address shows as `not_home` while it's connected, enable the **Force scanning using DHCP** and **Enable ARP ping** [configuration options](#configuration-options) so the integration can verify wired devices directly instead of relying only on the wireless registration table.
+By default, only wireless clients are tracked. If a wired device that has a DHCP lease shows as `not_home` while it's connected, enable the **Force scanning using DHCP** [configuration option](#configuration-options) so the integration also tracks devices from the router's DHCP lease table. Optionally enable **Enable ARP ping** as well so the integration verifies that those devices are still reachable instead of trusting the lease. A wired device with a manually configured static IP address has no DHCP lease and can't be tracked.
 
 ### Setup fails with a connection or authentication error
 
