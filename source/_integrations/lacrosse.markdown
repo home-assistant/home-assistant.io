@@ -5,7 +5,7 @@ ha_category:
   - DIY
 ha_release: 0.58
 ha_config_flow: true
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: lacrosse
 ha_platforms:
   - sensor
