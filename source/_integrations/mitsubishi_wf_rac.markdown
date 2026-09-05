@@ -80,7 +80,88 @@ The current temperature shown is the unit's own return-air reading, corrected by
 
 The integration polls each module every 60 seconds over the local network. A command you send is applied immediately rather than waiting for the next poll.
 
-Commands issued close together are coalesced into a single frame, because the module accepts one connection at a time and expects about a second between requests. Changing the mode and the temperature in the same breath therefore reaches the unit as one write, not two.
+Commands issued together are coalesced into a single frame, because the module accepts one connection at a time and expects about a second between requests. A scene that sets the mode, the temperature and the fan speed at once therefore reaches the unit as one write rather than three. Actions issued one after another, each waiting for its own result, are sent separately.
+
+## Examples
+
+### Pre-cool the bedroom before bedtime, but only in summer
+
+The unit measures at the return air grille, so a separate room sensor is the better trigger. This waits for the room itself to be warm rather than switching on by the clock alone.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Pre-cool the bedroom"
+    triggers:
+      - trigger: time
+        at: "21:30:00"
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.bedroom_temperature
+        above: 23
+    actions:
+      - action: climate.set_temperature
+        target:
+          entity_id: climate.bedroom
+        data:
+          temperature: 22
+          hvac_mode: cool
+```
+
+{% endraw %}
+
+### Turn the unit off when a window is opened
+
+The unit keeps running against an open window on its own. Give it a couple of minutes so a quick airing does not switch it off.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Stop cooling with the window open"
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.bedroom_window
+        to: "on"
+        for: "00:02:00"
+    actions:
+      - action: climate.turn_off
+        target:
+          entity_id: climate.bedroom
+```
+
+{% endraw %}
+
+### Fall back to Home Leave instead of switching off
+
+On units that report it, Home Leave keeps the room within a wide band rather than letting it drift. It is offered as the `away` preset and needs the unit to be cooling or heating already, so the direction it should hold is unambiguous.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Home Leave while nobody is in"
+    triggers:
+      - trigger: state
+        entity_id: person.alex
+        to: "not_home"
+        for: "00:30:00"
+    conditions:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: climate.living_room
+            state: "off"
+    actions:
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.living_room
+        data:
+          preset_mode: away
+```
+
+{% endraw %}
 
 ## Known limitations
 
