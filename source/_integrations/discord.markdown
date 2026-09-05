@@ -44,7 +44,7 @@ The name you give your application determines the name of the notify action. For
 To allow the bot to send messages to a server:
 
 1. In the Discord Developer Portal, open **Installation** for your application.
-2. Make sure **Guild Install** is enabled.
+2. Under **Installation Contexts**, make sure **Guild Install** is enabled. **User Install** is not used by this Home Assistant integration and can be disabled.
 3. Under **Install Link**, select **Discord Provided Link**.
 4. Under **Default Install Settings** for **Guild Install**, add the `bot` scope.
 5. Select the permissions the bot needs. To send notifications, grant **Send Messages**. Also grant **Embed Links** or **Attach Files** if you plan to use embeds or attachments.
