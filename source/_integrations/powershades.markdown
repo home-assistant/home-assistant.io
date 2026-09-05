@@ -1,0 +1,156 @@
+---
+title: PowerShades
+description: Instructions on how to integrate PowerShades motorized shades with Home Assistant.
+ha_category:
+  - Cover
+ha_release: 2026.9
+ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@vemboy200'
+ha_domain: powershades
+ha_platforms:
+  - cover
+ha_integration_type: device
+ha_quality_scale: silver
+ha_dhcp: true
+---
+
+The **PowerShades** {% term integration %} allows you to control [PowerShades](https://powershades.com) motorized shades. It communicates with the shade controller directly over your local network using UDP, so no cloud connection is required.
+
+This integration is tested with PoE and Wi-Fi PowerShades controllers. Support for the RF hub may be limited or non-existent. If you have RF shades, it is recommended to use a [Bond](/integrations/bond/) bridge to connect them to Home Assistant instead. If you already have a PowerShades RF hub and would like to help test this integration with it, please [open an issue](https://github.com/home-assistant/core/issues).
+
+## Supported devices
+
+Any PoE or Wi-Fi PowerShades shade with UDP communication enabled, and on the same local network as Home Assistant.
+
+## Prerequisites
+
+### Finding your shade's IP address
+
+Discovery will usually find shades on your network automatically. If you need to enter an IP address manually, you can find it in one of these ways:
+
+- **Via the PowerShades app (recommended)**: Open the PowerShades app, navigate to your shade, and select **Enable Configuration**, then confirm the pop-up. Then scroll down to see the IP address of your shade
+- **Via your router**: Go to your router's client list. The clients with a name containing "Wideband Labs LLC" are most likely your PowerShades devices.
+
+{% include integrations/config_flow.md %}
+
+### Configuration parameters
+
+{% configuration_basic %}
+IP Address:
+  description: "The IP address of your shade, can be autofilled by autodiscovery"
+{% endconfiguration_basic %}
+
+If your shade's IP address changes later (for example, after a DHCP reassignment), and Home Assistant does not automatically resolve the problem, you have to remove and re-add the entry.
+
+## Supported functionality
+
+### Cover
+
+Each shade is represented as a cover entity, which supports:
+
+- **Open** and **close** the shade fully.
+- **Set position**, to move the shade to a specific position between 0% and 100%.
+- **Stop**, to stop the shade while it is moving.
+
+
+## Data updates
+
+While this integration's IoT class is local push, in reality it is a combination of 3 IoT classes:
+
+- **Local push**: When Home Assistant is the one controlling the shade, called the **UDP subscriber**, the shade pushes its status roughly every 10 seconds on its own, and also sends an extra push the instant it reaches its target position, so Home Assistant knows it has stopped moving without waiting for the next poll.
+- **Local polling**: Home Assistant polls the shade every 10 seconds (or every 5 seconds while the position is unknown). This is used for when the shade moves by an external source, since that source would not push updates to Home Assistant if it is the UDP subscriber instead (assuming it also uses UDP communication like Home Assistant does).
+- **Assumed state**: The state of the shade (opening, closing, opened, or closed) is assumed by Home Assistant since the shade only sends its percentage open to Home Assistant. This means that the state shown in Home Assistant may not be accurate to what the shade is actually doing, especially if Home Assistant is not the one controlling it.
+    - If Home Assistant is controlling the shade, it assumes the command was sent successfully and the shade is moving. It also assumes the shade has stopped once it reaches the percentage Home Assistant told it to move to.
+    - However, when an external source controls the shade, Home Assistant assumes the shade's state based on changes to its percentage open. Home Assistant will assume it is moving toward fully open or closed, but if the percentage open hasn't changed in 15 seconds, it will assume the shade has stopped moving.
+
+All communication is local with this integration, and does not require an internet connection at all.
+
+## Known limitations
+
+- PowerShades devices send push updates only to the UDP subscriber. If Home Assistant is not the UDP subscriber, then it can only get the shade's status by polling.
+- This also affects other hubs that communicate over UDP (for example, Control4) but solely rely on push data, since they will have an outdated status of the shade if Home Assistant or any other source controls it.
+- The shade's reported state (opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for more info.
+- The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
+- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge for full support. If you have the PowerShades RF hub, it would be helpful to tell the integration owner your experience using it with this integration, and help make it compatible with this integration.
+- Your shade may randomly go unavailable for anywhere between 10-120 seconds. This is normal behavior.
+
+## Troubleshooting
+
+### Cannot connect, or the cover entity is unavailable
+
+This means Home Assistant cannot communicate with the shade. Check the following:
+
+- The shade is powered on and connected to your network.
+- Home Assistant can reach port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade are on different ones.
+- The IP address entered is correct and is not already used by another config entry. If the shade's IP address has changed due to DHCP, remove and re-add the config entry, and set a DHCP reservation for the shade.
+
+### Enabling debug logging
+
+To get more detailed logs:
+
+- Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the PowerShades integration.
+- Select the three-dot {% icon "mdi:dots-vertical" %} menu in the top right corner and select **Enable debug logging**.
+- Reproduce the issue, then return to the same menu and select **Disable debug logging** to download the logs.
+
+## Automation examples
+
+### Automation: Open a shade in the morning
+
+Opening a shade in the morning helps you get up with natural sunlight.
+
+- **Trigger**: `time` is `"07:00:00"`
+- **Action**: `cover.open_cover` on the `cover.bedroom_shade` entity
+
+{% details "YAML example for opening a shade in the morning" %}
+
+{% example %}
+automation: |
+  alias: "Open bedroom shade"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  actions:
+    - action: cover.open_cover
+      target:
+        entity_id: cover.bedroom_shade
+  mode: single
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Closing a shade at sunset
+
+Closing a shade at sunset helps keep extra privacy, especially when it's getting dark.
+
+- **Trigger**: Sunset
+- **Condition**: The `cover.bedroom_shade` entity is `open`
+- **Action**: `cover.close_cover` on the `cover.bedroom_shade` entity
+
+{% details "YAML example for closing shades at sunset" %}
+
+{% example %}
+automation: |
+  alias: "Close shades at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  conditions:
+    - condition: state
+      entity_id: cover.bedroom_shade
+      state: "open"
+  actions:
+    - action: cover.close_cover
+      target:
+        entity_id: cover.bedroom_shade
+  mode: single
+{% endexample %}
+
+{% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
