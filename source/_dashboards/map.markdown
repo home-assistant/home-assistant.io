@@ -25,8 +25,8 @@ Screenshot of the map card.
 
 The two buttons below the zoom controls let you manage the markers and map viewport:
 
-- **Toggle grouping** groups nearby markers into clusters or shows them individually. This button is shown when more than one entity is displayed.
-- **Reset focus** recenters and zooms the map to fit the displayed entities. If automatic fitting was paused by manually moving or zooming the map, this also resumes it.
+- **Toggle grouping** enables or disables clustering of nearby markers.
+- **Reset focus** adjusts the map view to fit the displayed entities.
 
 ## Adding the map card to a dashboard
 
