@@ -1,0 +1,42 @@
+blueprint:
+  name: Run actions when the easyEnergy price is low
+  description: >
+    Run one or more actions when an easyEnergy electricity price sensor falls
+    below a configured threshold.
+  domain: automation
+  author: klaasnicolaas
+  input:
+    price_sensor:
+      name: Electricity price sensor
+      description: Select an easyEnergy electricity price sensor to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: easyenergy
+              domain: sensor
+
+    price_threshold:
+      name: Price threshold
+      description: Run the actions when the price falls below this value.
+      default: 0.15
+      selector:
+        number:
+          min: -5
+          max: 5
+          step: 0.01
+          mode: box
+
+    actions:
+      name: Actions
+      description: Actions to run when the price falls below the threshold.
+      selector:
+        action:
+
+mode: single
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input price_sensor
+    below: !input price_threshold
+
+actions: !input actions
