@@ -61,6 +61,7 @@ The following device classes are supported for binary sensors:
 - **door**: `on` means open, `off` means closed
 - **garage_door**: `on` means open, `off` means closed
 - **gas**: `on` means gas detected, `off` means no gas (clear)
+- **glass_break**: `on` means glass break detected, `off` means no glass break (clear)
 - **heat**: `on` means hot, `off` means normal
 - **light**: `on` means light detected, `off` means no light
 - **lock**: `on` means open (unlocked), `off` means closed (locked)
