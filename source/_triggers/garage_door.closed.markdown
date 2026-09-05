@@ -28,9 +28,11 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple garage doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted garage door closes, **First** to fire only when the first targeted garage door closes, or **All** to fire only after every targeted garage door is closed.
+  description: When multiple garage doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted garage door closes, **First** to fire only when the first targeted garage door closes, or **All** to fire only after every targeted garage door is closed. The default is **Each**.
+  required: false
 For at least:
-  description: How long the garage door must stay closed before the trigger fires. Set it to zero to fire immediately.
+  description: How long the garage door must stay closed before the trigger fires. The default is `0` (fires immediately).
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

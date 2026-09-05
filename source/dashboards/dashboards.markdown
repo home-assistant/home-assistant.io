@@ -107,6 +107,39 @@ If you see a [person](/integrations/person/) on the map, it means you have conne
 
 The predefined **To-do lists** dashboard is powered by the [To-do integration](/integrations/todo/). To learn how to use to-do and shopping lists, refer to the documentation of the to-do list integration.
 
+### Security dashboard
+
+The predefined **Security** dashboard shows information about security-related entities, namely:
+
+- Cards for your alarm control panels, locks, cameras, doors, covers, motion sensors, and other binary sensors. You can group these cards by floor and area.
+- An **Activity** section showing changes to your security-related entities during the past 24 hours in reverse chronological order.
+
+You can add the following sections to the **Security** dashboard:
+
+- The **Favorites** section lets you pin the entities you check most often so they always appear near the top.
+- The **Active alerts** section appears only when one or more entities you chose need attention, such as a door left open or a smoke detector that is triggering.
+
+#### Adding favorites to the Security dashboard
+
+To add favorites of your security-related entities to the **Security** dashboard:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
+2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+3. Under **Favorite entities**, select **Add favorite** and then select the entity you want to pin to the top of the page from the list. You can select more than one favorite.
+4. Select **Save**.
+
+#### Adding active alerts to the Security dashboard
+
+To display alerts of your security-related entities on the **Security** dashboard:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Security** dashboard from the list.
+2. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
+3. Under **Active alert entities**, select **Add entity** and then select the entity you want to monitor from the list. You can select more than one entity.
+4. For each added entity, select one of the display types:
+    - **Alert** for issues that need immediate attention, such as a smoke detector going off.
+    - **Warning** for less urgent issues, such as a window that was left open.
+5. Select **Save**.
+
 ## Webpage dashboard
 
 Another available (but not default) dashboard is the webpage dashboard. The webpage dashboard allows you to add and embed a webpage to your dashboard.
@@ -185,6 +218,17 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 2. From the list of dashboards, select the dashboard you want to delete.
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
+
+## Adding or removing a dashboard from the sidebar
+
+Except for the built-in **Overview**, any dashboard that is listed in {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} can be added to or removed from the vertical bar on the left side of Home Assistant UI at any time. This is different from [reordering or hiding items that are already in the sidebar](#reorganizing-items-in-the-sidebar).
+
+To add or remove a dashboard from the sidebar:
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. On the right of the listed dashboard you want to add or remove, select the **Overflow menu** {% icon "mdi:dots-vertical" %} and then **Edit**.
+3. In the dashboard editing dialog, next to **Add to sidebar**, turn the setting on or off.
+4. Select **Update**.
 
 ## Reorganizing items in the sidebar
 

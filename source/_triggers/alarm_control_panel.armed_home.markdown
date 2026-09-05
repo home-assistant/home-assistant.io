@@ -28,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms home, **First** to fire only when the first panel in a group arms home, or **All** to fire only after every targeted panel is armed home.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed home before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}

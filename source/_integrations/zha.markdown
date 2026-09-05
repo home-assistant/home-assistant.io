@@ -73,7 +73,7 @@ This {% term integration %} currently supports the following device types within
 
 The ZHA integration is a hardware-independent Zigbee gateway implementation that can replace most proprietary Zigbee gateways (or bridges, hubs, or controllers). ZHA creates a single Zigbee network to which you can add most Zigbee-based devices.
 
-ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/zigpy), so any coordinator that is compatible with zigpy can be used with ZHA. Review [compatible hardware](#compatible-hardware) recommendations before purchasing Zigbee devices.
+If you do not have a coordinator yet, the [Home Assistant Connect ZBT-2](/connect/zbt-2/) is the recommended choice. For all the options, refer to [compatible hardware](#compatible-hardware).
 
 ### Zigbee terminology
 
@@ -96,21 +96,32 @@ ZHA uses an open-source Python library called [zigpy](https://github.com/zigpy/z
 
 The hardware-independent design of this integration provides support for many Zigbee coordinators available from different manufacturers, as long as the coordinator is compatible with the [zigpy](https://github.com/zigpy/zigpy) library.
 
-### Recommended Zigbee radio adapters and modules
+### Recommended: official Home Assistant hardware
+
+Official Home Assistant hardware is the recommended choice for ZHA. It is designed and built by Nabu Casa, a commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org), together with the team at Home Assistant responsible for Zigbee. The Zigbee firmware is maintained by that same team, with optimizations for ZHA and support for large Zigbee networks. You can keep it up to date from within Home Assistant.
+
+- [Home Assistant Connect ZBT-2](/connect/zbt-2/): USB adapter. If you are setting up a new Zigbee network, this is the one to get.
+- Home Assistant Connect ZBT-1: USB adapter. Discontinued and replaced by the Connect ZBT-2, but fully supported if you already have one.
+- Home Assistant Yellow: hub with a built-in Zigbee radio. Currently out of stock, but fully supported if you already have one.
+
+{% tip %}
+Home Assistant Green does not have a built-in Zigbee radio. To use ZHA with Green, or with any other computer running Home Assistant, add a Zigbee adapter such as the [Home Assistant Connect ZBT-2](/connect/zbt-2/).
+{% endtip %}
+
+### Other tested and compatible Zigbee adapters
+
+The following adapters are made by other manufacturers. They are not official Home Assistant hardware, but they are known to work well with ZHA. Home Assistant does not update the firmware on these adapters. To keep them up to date, use the tools their manufacturer provides.
 
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [Home Assistant Connect ZBT-2](/connect/zbt-2/) (EFR32MG24-based USB adapter)
-  - Home Assistant Connect ZBT-1 (EFR32MG21-based USB dongle)
-  - Home Assistant Yellow with integrated MGM210P radio, which is based on the EFR32MG21
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
   - [SMLIGHT SLZB-07](https://smlight.tech/product/slzb-07/) (EFR32MG21-based USB dongle)
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
-  - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
-  - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
+  - [CC2652P/CC2652R/CC2652RB-based USB adapters flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
+  - [CC1352P/CC1352R-based USB adapters flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
 
-### Other supported but not recommended Zigbee radio adapters or modules
+### Supported but not recommended Zigbee adapters
 
 The following hardware is supported, but _not recommended_. Specific models and details are noted where available in each section.
 
@@ -175,8 +186,6 @@ The following hardware is supported, but _not recommended_. Specific models and 
 
 {% enddetails %}
 
-If you find an opportunity to improve this information, refer to the section on how to [add support for new and unsupported devices](#how-to-add-support-for-new-and-unsupported-devices).
-
 ## Configuration requirements
 
 {% important %}
@@ -226,7 +235,7 @@ If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration
 
 ### Global options
 
-There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Options**.
+There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Options**.
 
 The options are as follows:
 
@@ -251,7 +260,7 @@ Refresh mains-powered devices state on startup:
 
 ### About network information
 
-The network information page provides details about your Zigbee network and coordinator. To open it, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Network information**.
+The network information page provides details about your Zigbee network and coordinator. To open it, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Network information**.
 
 The following information is shown:
 
@@ -281,7 +290,7 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 #### To change the Zigbee channel
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Network information**.
 3. To edit the Zigbee channel, select the pencil {% icon "mdi:edit" %}.
 4. Select the desired Zigbee channel from the dropdown menu.
@@ -360,7 +369,7 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 **To add a new Zigbee device:**
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
 3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (for example, turn lights on and off up to 10 times; switches usually have a reset button or pin). It might take a few seconds for the devices to appear. You can select **Show logs** for more verbose output.
 4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
@@ -468,7 +477,7 @@ While using a native Zigbee group instead of Home Assistant's [Group](/integrati
 
 #### To create a Zigbee group
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Choose **Groups** and select the **Create group** button.
 3. Enter a name for the group.
 4. Select which devices to include in the group:
@@ -498,7 +507,7 @@ This section only outlines how to manage bindings in general. It will not cover 
 Prerequisites and steps can vary depending on the device type, manufacturer, and your desired end result.
 {% endnote %}
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Devices**, then select the device you want to manage bindings for.
 3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
 4. In the pop-up dialog, select the **Bindings** tab.
@@ -539,7 +548,7 @@ You will not be able to control your existing Zigbee devices until they join the
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Migrate**.
 3. Plug in the new Zigbee adapter.
    - To minimize interference:
@@ -776,7 +785,7 @@ Be aware that OTAU (Over-The-Air Upgrade) of Zigbee devices typically takes arou
 
 ### Visualization of the Zigbee network topology and device links
 
-To visualize device links in your Zigbee network topology, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map**.
+To visualize device links in your Zigbee network topology, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Show map**.
 
 The network visualization can help to identify devices with poor connection (that is, low values on the link). You will need to look at the ZHA logs to find more detailed information required for troubleshooting.
 
@@ -839,7 +848,7 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+     - Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
         1. Select **Devices** and from the list, select your device.
         2. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Download diagnostics**.
         3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.

@@ -23,6 +23,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - time
   - update
 ha_integration_type: hub
 ha_dhcp: true
@@ -123,6 +124,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI linger animal+ (up to 3 zones)
 - AI item forgotten+ (up to 3 zones)
 - AI item taken+ (up to 3 zones)
+- Tamper+
 - IO input+
 - Sleep status+
 
@@ -132,6 +134,8 @@ For redundancy, these sensors are polled every 60 seconds together with the upda
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
 For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app, you can add up to 3 zones/lines, and for each zone/line, you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
+
+The **Tamper** entity only activates when the **Tamper alarm** is enabled.
 
 ### Number entities
 
@@ -229,6 +233,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Guard set current position
 - Pre-siren
 - Restart*
+- Synchronize time*
 
 **PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
 **PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
@@ -252,6 +257,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - HDR* (Off, On, Auto)
 - Binning mode* (Off, On, Auto)
 - Image exposure mode* (Auto, Low noise, Anti-smearing, Manual)
+- Anti-flicker* (Off, Other, 50 Hz, 60 Hz)
 - Clear frame rate*
 - Fluent frame rate*
 - Clear bit rate*
@@ -264,6 +270,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Hub alarm ringtone
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
+- Work mode battery (Power saving, Detection priority, Optimal surveillance, AI extended recording, Custom, Always on pre-recording, Always on continuous recording)
+- Work mode powered (Alarm recording, Continuous recording, Custom)
 - Recording packing time
 - Pre-recording frame rate*
 - Post-recording time
@@ -293,6 +301,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Record audio
 - Siren on event
 - Pre-siren on event
+- Tamper alarm*
 - Auto tracking
 - Auto focus
 - Guard return
@@ -361,6 +370,15 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Battery percentage+
 - Battery temperature*+
 - Battery state*+ (discharging, charging, charge complete)
+
+### Time entities
+
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following time entities are added:
+
+- Floodlight schedule start*+
+- Floodlight schedule end*+
+
+**Floodlight schedule start** and **Floodlight schedule end** set the time window during which the floodlight turns on while the **Floodlight mode** select entity is set to **Schedule**. Because the camera only stores the schedule in this mode, setting either time also switches the floodlight to **Schedule** mode. If the configured window covers the current time, the floodlight turns on immediately. The times are entered as 24-hour `HH:MM` and are evaluated using the camera's own clock and time zone (Home Assistant does not convert them). Windows that span midnight are supported, for example a start of `22:00` and an end of `06:00`.
 
 ### Update entity
 
