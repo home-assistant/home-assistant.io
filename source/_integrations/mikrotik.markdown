@@ -21,14 +21,14 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **MikroTik** {% term integration %} offers presence detection and device management for a [MikroTik RouterOS](https://mikrotik.com) based router, switch, or Cloud Hosted Router (CHR).
+The **MikroTik** {% term integration %} offers presence detection and device management for [MikroTik](https://mikrotik.com) routers, switches, and Cloud Hosted Routers (CHR) running RouterOS.
 
 Common use cases include:
 
 - Track connected devices for presence detection to trigger automations when family members arrive home or leave.
 - Monitor router health, such as CPU, memory, and disk usage, or device temperature and power voltage.
 - Get notified about RouterOS and RouterBOARD firmware updates and install them from Home Assistant.
-- Enable or disable specific Ethernet or Wi-Fi interfaces, or PoE output on interfaces that support it.
+- Enable or disable specific Ethernet or Wi-Fi interfaces, or <abbr title="Power over Ethernet">PoE</abbr> output on interfaces that support it.
 - Restart or shut down the router as part of an automation.
 
 ## Supported devices
@@ -38,7 +38,7 @@ This integration works with any device running MikroTik RouterOS, including phys
 Some entities depend on hardware and firmware capabilities and are only created when the router reports the corresponding data:
 
 - The **RouterBOARD** update entity is only available on physical devices that have a RouterBOARD. It doesn't appear on the Cloud Hosted Router (CHR) or other RouterOS installations without one.
-- Wireless-related entities depend on whether the router uses CAPsMAN, the classic wireless package, or the wifiwave2 package.
+- Wireless-related entities depend on which wireless system the router uses: `CAPsMAN`, or the `wireless`, `wifiwave2`, or `wifi` package.
 
 ## Prerequisites
 
@@ -155,8 +155,11 @@ The integration creates the following update entities:
 
 ### Automation: Notify when a family member arrives home
 
-- **Trigger**: Device tracker: `device_tracker.<device_name>` changes state to **Home**
+- **Trigger**: State changed
+  - **Entity**: John's phone
+  - **To**: Home
 - **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for a presence detection notification" %}
 
@@ -179,8 +182,10 @@ automation: |
 
 ### Automation: Turn off the guest Wi-Fi at bedtime
 
-- **Trigger**: Time: at a set time
+- **Trigger**: Time
+  - **At time**: `22:00:00`
 - **Action**: Turn off switch
+  - **Target**: Guest Wi-Fi (`switch.guest_wifi`)
 
 {% details "YAML example for turning off the guest Wi-Fi at bedtime" %}
 
@@ -204,17 +209,21 @@ The **MikroTik** {% term integration %} {% term polling polls %} the router's Ro
 
 ## Known limitations
 
-- **Presence detection only tracks clients connected to the router configured in the {% term integration %}.** If your network has multiple MikroTik devices, such as a separate wireless access point or a CAPsMAN cluster, add each device as its own integration entry to track the devices connected to it.
-- **The RouterBOARD update entity is only created on devices that report RouterBOARD information.** It's not available on the Cloud Hosted Router (CHR) or other installations without a RouterBOARD.
-- **All clients connected to the router are tracked, not only MikroTik-branded devices.** This includes any device connected over Wi-Fi or Ethernet, such as computers, phones, and other network equipment.
+- Presence detection only tracks clients connected to the router configured in the {% term integration %}. If your network has multiple MikroTik devices, such as a separate wireless access point or a CAPsMAN cluster, add each device as its own integration entry to track the devices connected to it.
+- The RouterBOARD update entity is only created on devices that report RouterBOARD information. It's not available on the Cloud Hosted Router (CHR) or other installations without a RouterBOARD.
+- All clients connected to the router are tracked, not only MikroTik-branded devices. This includes any device connected over Wi-Fi or Ethernet, such as computers, phones, and other network equipment.
 
 ## Troubleshooting
 
 ### A device shows as not home while it's connected
 
+#### Resolution
+
 If a wired device with a static IP address shows as `not_home` while it's connected, enable the **Force scanning using DHCP** and **Enable ARP ping** [configuration options](#configuration-options) so the integration can verify wired devices directly instead of relying only on the wireless registration table.
 
 ### Setup fails with a connection or authentication error
+
+#### Resolution
 
 1. Make sure the RouterOS API service is enabled and reachable on the configured port, as described under [Prerequisites](#prerequisites).
 2. Make sure the username and password are correct and that the user has at least the `read`, `api`, and `test` [privileges](#the-user-privileges-in-routeros).
