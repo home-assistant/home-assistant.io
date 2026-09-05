@@ -472,7 +472,7 @@ The condition ensures the notification is only sent for actual doorbell rings an
 - **Event Name**: NFC
 - **Event Attributes**:
   - **event_type**: `scanned`
-  - **event_id**: A unique ID that identifies the doorbell event.
+  - **event_id**: A unique ID that identifies the NFC card scan event.
   - **nfc_id**: The ID of the scanned NFC card.
 - **Description**: This event is triggered when an NFC card is scanned at a compatible device (for example, a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
 
