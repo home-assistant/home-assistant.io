@@ -1025,6 +1025,7 @@ Widget that displays a slider to select the target humidity for a [humidifier](/
 ```yaml
 features:
   - type: "target-humidity"
+    style: "buttons"
 ```
 
 {% configuration features %}
@@ -1032,6 +1033,15 @@ type:
   required: true
   description: "`target-humidity`"
   type: string
+style:
+  required: false
+  description: "How the target humidity should be displayed. It can be either `buttons` or `slider`."
+  type: string
+  default: slider
+step:
+  required: false
+  description: "If the `buttons` style is selected, by how much a button press changes the target humidity, if not specified it uses the target_humidity_step of the entity"
+  type: integer
 {% endconfiguration %}
 
 ## Target temperature
