@@ -132,7 +132,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
@@ -146,7 +146,7 @@ Currently, creating an API key requires you to be logged in as an administrator.
 If you want to set up the {% term integration %} without creating a local user, you only need an API key.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. When you add the {% term integration %}, select **API key only (limited feature set)** and enter the key.
@@ -472,7 +472,7 @@ The condition ensures the notification is only sent for actual doorbell rings an
 - **Event Name**: NFC
 - **Event Attributes**:
   - **event_type**: `scanned`
-  - **event_id**: A unique ID that identifies the NFC card scan event.
+  - **event_id**: A unique ID that identifies the doorbell event.
   - **nfc_id**: The ID of the scanned NFC card.
 - **Description**: This event is triggered when an NFC card is scanned at a compatible device (for example, a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
 
