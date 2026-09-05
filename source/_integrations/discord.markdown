@@ -79,7 +79,7 @@ When adding the Discord integration, enter the **bot token** from the Discord ap
 
 After setting up the integration, you can test it without creating an automation first:
 
-1. In Home Assistant, go to **Settings** > **Tools** > **Actions**.
+1. In Home Assistant, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 2. Select the `notify` action that matches the name of your Discord application, for example `notify.home_assistant_notifications`.
 3. Enter a message.
 4. In **Target**, enter the Discord channel ID or user ID.
@@ -91,7 +91,7 @@ If the action does not appear, check that the Discord integration is configured 
 
 To send a Discord notification from the automation editor:
 
-1. Go to **Settings** > **Automations & scenes** and create or edit an automation.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create or edit an automation.
 2. Add an action and search for the `notify` action that matches your Discord application.
 3. Enter the message and the Discord channel ID or user ID in **Target**.
 4. Save the automation.
