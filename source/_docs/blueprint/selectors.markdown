@@ -1662,7 +1662,7 @@ The output of this selector is the state class, or (in case `multiple` is set to
 # Example state class selector output result, when multiple is set to false
 measurement
 
-# Example device class selector output result, when multiple is set to true
+# Example state class selector output result, when multiple is set to true
 - measurement
 - total_increasing
 ```
