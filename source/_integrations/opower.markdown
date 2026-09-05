@@ -183,6 +183,42 @@ For gas:
 Your **Configure gas consumption** should now look like this:
 ![Screenshot configure gas consumption](/images/integrations/opower/configure_gas_consumption.png)
 
+{% details "Track usage and cost per rate period (time-of-use or tiered rates)" %}
+
+Many utilities bill by rate period. Time-of-use rates charge different prices by time of day (for example, on peak, part peak, and off peak). Tiered rates charge different prices by how much you use (tier 1, tier 2). When your utility reports usage and cost broken down this way, the integration creates the same four statistics per period as it does for the account:
+
+- **Opower {utility name} elec {account number} {period} consumption**
+- **Opower {utility name} elec {account number} {period} cost**
+- **Opower {utility name} elec {account number} {period} return**
+- **Opower {utility name} elec {account number} {period} compensation**
+
+The period names come from your utility's data. They match the names on your utility's website, not necessarily the names on your bill. For example, SMUD reports its Mid-Peak period as `part peak`. On a rate that is both time-of-use and tiered, each combination gets its own statistics, for example `off peak tier 2`. Each combination is billed at its own price, and keeping them apart is what lets you see how much of your off-peak usage went over the baseline allowance. That matters for schedules meant to cut cost, such as pre-cooling or pre-heating outside the peak window, which only save money while the extra usage stays in tier 1. You can find the statistics in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} by searching for "opower".
+
+To see which periods your utility reports, open {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for `opower`. Every period has four statistics, so a utility with three periods shows twelve rows next to the four account totals. The period name is the part between the account number and `consumption`, `return`, `cost`, or `compensation`.
+
+To show them in the Energy dashboard, add one grid connection (or gas source) per period. Do not add the account total next to them, or usage is counted twice. In the statistic picker, search for the period name plus the kind you need, for example `on peak consumption`, `tier 2 cost`, or `part peak return`. A statistic already used by another source is hidden from the picker, so the list gets shorter as you go.
+
+1. Select **Add consumption** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} on peak consumption** (or the period you are adding) for **consumed energy**.
+3. Enter a short **Display name**, for example `On-Peak`.
+4. Select the radio button to **Use an entity tracking the total costs**.
+5. Select **Opower {utility name} elec {account number} on peak cost** for **entity with the total costs**.
+6. If you have solar, select **Opower {utility name} elec {account number} on peak return** for **energy returned to the grid** and **Opower {utility name} elec {account number} on peak compensation** for **entity with the total compensation**.
+7. Repeat for each period.
+
+Your **Configure grid connection** for one period should now look like this:
+![Screenshot configure grid connection for a rate period](/images/integrations/opower/configure_rate_period.png)
+
+The Energy dashboard then stacks the periods in one graph and lists usage and cost per period.
+
+![Screenshot Energy dashboard with one source per rate period](/images/integrations/opower/energy_rate_periods.png)
+
+Period statistics only cover the daily and hourly history. Monthly bill data has no breakdown, so the periods show `0` before the daily history starts while the totals still have data.
+
+If you have solar, the periods and the account can disagree on daily data. A daily read is one net number for the account, but one net number per period. A day can be a net export for the account while one of its periods is a net import. Hourly data reconciles, so the difference is limited to history older than two months.
+
+{% enddetails %}
+
 With the above changes your (**{% my config_energy title="Settings > Dashboards > Energy" %}**) page should now look like this:
 
 ![Screenshot Energy Configuration](/images/integrations/opower/energy_config.png)
@@ -194,6 +230,7 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+- Per rate period statistics (time-of-use periods or tiers) are only created for utilities whose data includes the breakdown, and only for daily and hourly history. Monthly bill data has no breakdown.
 - For some utilities, the account number displayed in Home Assistant might not match the account number on your utility bill or web portal. This is expected behavior. The integration uses an internal identifier from the Opower system (`preferredUtilityAccountId`), which can differ from your public billing account number (`accountName`). It does not mean you are connected to anyone else's account or that you are seeing someone else's statistics.
 
 ## Troubleshooting
