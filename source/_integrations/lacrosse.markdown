@@ -9,7 +9,7 @@ ha_iot_class: Local Push
 ha_domain: lacrosse
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 
