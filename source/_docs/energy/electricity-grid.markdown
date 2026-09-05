@@ -43,7 +43,7 @@ Many meters, including older ones, have an LED that will flash whenever energy p
 
 We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by [ESPHome's pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
 
-![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/home-assistant-glow.jpg)
+![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
 #### Reading the meter via IEC62056-21
 
