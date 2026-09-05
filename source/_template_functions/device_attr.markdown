@@ -61,7 +61,7 @@ attr_name:
 
 {% tip %}
 
-To see all available device attributes, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and look at the device registry entries, or use the **Devices** page in {% my integrations title="**Settings** > **Devices & services**" %} to inspect a specific device.
+Device attributes are stored in the device registry and are separate from entity state attributes. You can view commonly used device information, such as the manufacturer, model, firmware version, hardware version, and serial number, by going to {% my integrations title="**Settings** > **Devices & services**" %} > **Devices** and selecting a device. Not every device registry attribute is shown in the user interface.
 
 {% endtip %}
 
