@@ -61,7 +61,7 @@ attr_name:
 
 {% tip %}
 
-Device attributes are stored in the device registry and are separate from entity state attributes. You can view commonly used device information, such as the manufacturer, model, firmware version, hardware version, and serial number, by going to {% my integrations title="**Settings** > **Devices & services**" %} > **Devices** and selecting a device. Not every device registry attribute is shown in the user interface.
+Device attributes are stored in the device registry and are separate from entity state attributes. You can view commonly used device information, such as the manufacturer, model, software version, hardware version, and serial number, by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting **Devices**, and then selecting a device. Not every device registry attribute is shown in the user interface.
 
 {% endtip %}
 
