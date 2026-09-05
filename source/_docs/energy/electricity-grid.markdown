@@ -41,9 +41,9 @@ The [Rainforest Automation Eagle](/integrations/rainforest_eagle) is one such de
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
 
-We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
+We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by [ESPHome's pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
 
-![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
+![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
 #### Reading the meter via IEC62056-21
 
@@ -76,6 +76,18 @@ Some energy providers will provide you real-time information about your usage an
 ### Manual integration
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [Template](/integrations/template) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
+
+## Add the data to the Energy dashboard
+
+Once your energy data is available in Home Assistant, add it to the Energy dashboard:
+
+1. Go to **Settings** > **Dashboards** > **Energy**.
+2. Under **Electricity grid**, select **Add grid connection**.
+3. Select the statistic that represents the energy consumed from the grid.
+4. If applicable, also select the statistic for energy returned to the grid.
+5. Save the grid connection.
+
+Only compatible statistics are available for selection. If your sensor provides instantaneous power instead of accumulated energy, first create an energy sensor, for example, with the [Riemann sum integral integration](/integrations/integration/#energy).
 
 ### Troubleshooting
 
