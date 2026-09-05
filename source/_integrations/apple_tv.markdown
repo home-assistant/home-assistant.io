@@ -47,7 +47,7 @@ Examples of some `Deep Links` for popular applications:
 
 | App       | URL                                                                   |
 | --------- | --------------------------------------------------------------------- |
-| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ                         |
+| YouTube   | youtube://watch/dQw4w9WgXcQ                                          |
 | Netflix   | https://www.netflix.com/title/80234304                                |
 | Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE   |
 | Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx |
@@ -77,7 +77,7 @@ target:
 action: media_player.play_media
 data:
   media_content_type: url
-  media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
+  media_content_id: youtube://watch/dQw4w9WgXcQ
 target:
   entity_id: media_player.living_room_apple_tv
 ```
