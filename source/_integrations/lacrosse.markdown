@@ -48,14 +48,14 @@ For TX 29 DTH-IT sensors, you can also read the ID from the display and calculat
 
 {% include integrations/config_flow.md %}
 
-After obtaining the sensor ID you can start the setup of the LaCrosse device. First configure the receiving USB stick.
-Available USB devices are prefilled in the `device`dropdown. If auto detection did not find your USB stick you can
-manually input the device path. The default baud rate should be sufficient for most devices. In case you use LaCrosse
-devices with different datarates you can configure the receiver to toggle between those every `n` seconds via the toggle mask and toggle interval.
+After obtaining the sensor ID you can start the setup of the LaCrosse sensor. First configure the receiver.
+Available receivers connected providing a serial interface via USB are prefilled in the `device` dropdown. If auto detection did not find your receiver you can
+manually input the path. The default baud rate should be sufficient for most sensors. In case you use LaCrosse
+sensors with different `datarates` you can configure the receiver to toggle between those every `toggle_interval` seconds via the toggle mask and toggle interval.
 
 {% configuration_basic %}
   device:
-    description: The serial device. Select via dropdown.
+    description: The Jeelink receiver connected via USB. Select via dropdown.
     default: /dev/ttyUSB0
   baud:
     description: The serial baudrate.
@@ -79,18 +79,18 @@ Additional sensors or additional values can be added at a later stage, e.g. if a
 
 {% configuration_basic %}
   id:
-    description: "The LaCrosse Id of the sensor. Calculate the ID with: `hex2dec(ID_on_display) / 4` if the device has a display."
+    description: "The LaCrosse Id of the sensor. Calculate the ID with: `hex2dec(ID_on_display) / 4` if the sensor has a display."
   type:
-    description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. At least either `humidity`or `temperature` need to be selected."    
+    description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. At least either `humidity`or `temperature` need to be selected."
   name:
     description: The name of the sensor.
   expire after:
-    description: Timeout after which sensors are considered offline if no update telegram was received. Defaults to 300s.
+    description: Timeout after which sensors are considered offline if no update telegram was received. If empty the library default of 300s will be used.
   {% endconfiguration_basic %}
 
 ## Reconfiguration and Device Replacement
 
-This integration supports reconfiguration, allowing you to make changes—such as updating the USB device path, adding more sensors or changing the sensor IDs after a powercycle-after a device has already been set up.
+This integration supports reconfiguration, allowing you to make changes—such as updating the receiver path, adding more sensors or changing the sensor ID after a powercycle.
 
 ## Supported functionality
 
@@ -102,7 +102,7 @@ The **LaCrosse** integration provides the following entities:
 
 ## Known limitations
 
-The LaCrosse devices randomly choose their ID when powered on or after a battery change. In some cases, a device may randomly select an ID that conflicts with another sensor. When this happens, you may receive readings from both sensors.
+The LaCrosse sensors randomly choose their ID when powered on or after a battery change. In some cases, a sensor may randomly select an ID that conflicts with another sensor. When this happens, you may receive readings from both sensors.
 
 {% tip %}
 To resolve ID conflicts, restart one of the sensors to force it to select a new ID.
@@ -114,10 +114,10 @@ To resolve ID conflicts, restart one of the sensors to force it to select a new 
 
 If your LaCrosse sensors are not being detected, verify the following:
 
-- Ensure the Jeelink USB dongle is properly connected to your Home Assistant system.
-- Confirm the correct USB device path is configured (usually `/dev/ttyUSB0` on Linux).
+- Ensure the Jeelink receiver dongle is properly connected to your Home Assistant system.
+- Confirm the correct receiver device path is configured (usually `/dev/ttyUSB0` on Linux).
 - Check that your sensors are powered on and within range of the receiver.
-- Verify the baud rate setting matches your device's requirements (default is 57600).
+- Verify the baud rate setting matches your sensors's requirements (default is 57600).
 - Try scanning for available sensor IDs using the `pylacrosse` command-line tool before configuring the integration.
 
 ### Sensors show offline
@@ -126,7 +126,7 @@ If sensors appear offline in Home Assistant, they may not be transmitting data. 
 
 - The sensor has fresh batteries and is powered on.
 - The sensor is within range of the Jeelink receiver.
-- The `expire after` timeout is set appropriately (default is 300 seconds).
+- The **expire after** timeout is set appropriately (default is 300 seconds).
 - No interference is affecting the wireless signal.
 
 ### ID conflicts between sensors
