@@ -35,7 +35,7 @@ To send notifications from Home Assistant, first create a Discord application wi
 Use the **bot token** from the **Bot** page. Do not use the **Public Key** or another application credential. Treat the bot token like a password and do not share it.
 {% endimportant %}
 
-The name you give your application determines the name of the notify action. For example, if you enter "Discord Chat", the action will be named `notify.discord_chat`.
+The name you give your application determines the name of the notify action. For example, if you enter "Home Assistant Notifications", the action will be named `notify.home_assistant_notifications`.
 
 ![Screenshot of Discord bot config](/images/screenshots/discord-bot.png)
 
@@ -82,7 +82,7 @@ When adding the Discord integration, enter the **bot token** from the Discord ap
 After setting up the integration, you can test it without creating an automation first:
 
 1. In Home Assistant, go to **Settings** > **Tools** > **Actions**.
-2. Select the `notify` action that matches the name of your Discord application, for example `notify.discord_chat`.
+2. Select the `notify` action that matches the name of your Discord application, for example `notify.home_assistant_notifications`.
 3. Enter a message.
 4. In **Target**, enter the Discord channel ID or user ID.
 5. Select **Perform action**.
@@ -150,7 +150,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 ### Example action
 
 ```yaml
-- action: notify.discord
+- action: notify.home_assistant_notifications
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
@@ -163,7 +163,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 ### Example action with attachments sourced from remote URLs
 
 ```yaml
-- action: notify.discord
+- action: notify.home_assistant_notifications
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
@@ -179,7 +179,7 @@ Note that `verify_ssl` defaults to `True`, and that any remote hosts will need t
 ### Example embed action
 
 ```yaml
-- action: notify.discord
+- action: notify.home_assistant_notifications
   data:
     message: ""
     target: ["1234567890", "0987654321"]
