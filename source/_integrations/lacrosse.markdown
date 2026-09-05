@@ -10,7 +10,7 @@ ha_domain: lacrosse
 ha_platforms:
   - sensor
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ---
 
 The **LaCrosse** {% term integration %} uses the [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle to receive sensor data. Alternatively, you can use an [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip) to create your own receiver.
