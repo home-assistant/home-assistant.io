@@ -122,6 +122,7 @@ sunday_slots:
 ## Good to know
 
 - You only need to set the days you want to change. Days you leave out keep their current schedule.
+- BSB-LAN supports a maximum of three time slots per day.
 
 {% include actions/try_it.md %}
 
