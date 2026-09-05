@@ -37,7 +37,7 @@ Use the **bot token** from the **Bot** page. Do not use the **Public Key** or an
 
 The name you give your application determines the name of the notify action. For example, if you enter "Home Assistant Notifications", the action will be named `notify.home_assistant_notifications`.
 
-![Screenshot of Discord bot config](/images/screenshots/discord-bot.png)
+![Screenshot of the Bot page in the Discord Developer Portal showing the bot username and token controls](/images/integrations/discord/bot.png)
 
 ### Installing the bot on a Discord server
 
@@ -53,9 +53,9 @@ To allow the bot to send messages to a server:
 
 You need permission to manage the server to install the application.
 
-![Screenshot of Discord bot permissions](/images/screenshots/discord-bot-permissions.png)
+![Screenshot of the Installation page in the Discord Developer Portal showing Guild Install scopes and permissions](/images/integrations/discord/installation.png)
 
-![Screenshot of Discord bot auth](/images/screenshots/discord-auth.png)
+![Screenshot of the Discord authorization dialog for adding the Home Assistant Notifications bot to a server](/images/integrations/discord/authorize.png)
 
 For more information, see Discord's [application installation documentation](https://docs.discord.com/developers/resources/application#install-links).
 
