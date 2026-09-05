@@ -175,6 +175,14 @@ Depending on the inverter's firmware, an `AC power limit` below `10 %` may force
 
 On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output. Surplus photovoltaic power goes into the battery instead of being wasted, which makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
 
+#### Falling back to the inverter's own settings
+
+A setpoint stays on the inverter until it is changed, including while Home Assistant is shut down or unreachable. To have the inverter recover on its own instead, turn on **Revert the AC power limit if Home Assistant stops**: go to **Settings** > **Devices & services**, select the Fronius integration, and choose **Configure**.
+
+The inverter then drops the `AC power limit` an hour after it last received it, and hands control back to its own priority list. Home Assistant sends the limit again every 15 minutes, so the hour only ever runs out once Home Assistant has really stopped - a restart or a short outage has plenty of room. An inverter held at `30 %` runs unrestricted an hour after the Home Assistant host dies.
+
+This applies to the `AC power limit` only. Fronius documents no timeout for the battery setpoints, so those keep their value and switch state whatever happens to Home Assistant.
+
 #### The battery limits are power, not a charge level
 
 `Battery charge power limit` limits charging _power_. It is not a "charge to 80 %" setting. The inverter exposes no maximum state of charge over Modbus at all; only the minimum reserve.
