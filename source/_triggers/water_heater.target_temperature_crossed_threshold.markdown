@@ -50,6 +50,7 @@ Trigger when:
     - **Each** (default): Fire every time any targeted water heater crosses the threshold.
     - **First**: Fire only on the first threshold crossing.
     - **All**: Fire only after all targeted water heaters cross the threshold.
+  required: false
 For at least:
   description: How long the setpoint must stay beyond the threshold before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -86,7 +87,7 @@ trigger: |
       value:
         number: 48
         unit_of_measurement: "°C"
-    behavior: last
+    behavior: all
     for: "00:10:00"
 {% endexample %}
 
@@ -111,12 +112,12 @@ behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI): Fires every time any targeted water heater crosses the threshold.
-    - `first` (**First** in the UI): Fires only on the first threshold crossing.
-    - `last` (**All** in the UI): Fires only after all targeted water heaters cross the threshold.
+    - `each` (default): Fires every time any targeted water heater crosses the threshold.
+    - `first`: Fires only on the first threshold crossing.
+    - `all`: Fires only after all targeted water heaters cross the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:10:00` waits 10 minutes.
@@ -200,7 +201,7 @@ automation: |
           value:
             number: 48
             unit_of_measurement: "°C"
-        behavior: last
+        behavior: all
         for: "00:10:00"
   actions:
     - action: notify.send_message
