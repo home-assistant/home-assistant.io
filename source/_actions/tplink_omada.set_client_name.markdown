@@ -5,7 +5,7 @@ domain: tplink_omada
 description: "Sets the name of a network client on the Omada controller."
 ---
 
-The **Set client name** action sets the name of a network client on your Omada controller. The name is shown in the Omada client list and is used by Home Assistant as the client's default device name. This is useful for giving a friendly name to clients that only identify themselves by their MAC address or a generic hostname.
+The **Set client name** action sets the name of a network client on your Omada controller. The name is shown in the Omada client list. Home Assistant uses the client name when creating tracker entities for the device, which is useful for clients that only identify themselves by their MAC address or a generic hostname.
 
 This action does not target an entity. Instead, you select the Omada device of the client and enter the new name. The client's MAC address is taken from the device's registered network connection.
 
