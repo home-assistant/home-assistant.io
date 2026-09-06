@@ -60,7 +60,7 @@ The **Theben Conexa** integration provides the following entities.
 
 ## Data updates
 
-The **Theben Conexa** integration {% term polling polls %} data from the device every 15 minutes. This is due to a restriction of the current firmware version which does not allow to poll the live meter readings. The SMGW provides a new measurement every 15 minutes based on this scheme: On any given UTC hour `hh` a new value is provided at `hh:00`, `hh:15`, `hh:30`, and `hh:45`. This integration therefore polls a few seconds after these times so that you have always access to the latest data in Home Assistant.
+The **Theben Conexa** integration {% term polling polls %} data from the device every 15 minutes. This is due to a restriction in the current firmware version, which does not allow polling the live meter readings. The <abbr title="Smart Meter Gateway">SMGW</abbr> provides a new measurement every 15 minutes based on this scheme: On any given UTC hour `hh` a new value is provided at `hh:00`, `hh:15`, `hh:30`, and `hh:45`. This integration therefore polls a few seconds after these times so that you always have access to the latest data in Home Assistant.
 
 ## Troubleshooting
 
