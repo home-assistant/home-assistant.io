@@ -21,6 +21,10 @@ The **BirdNET-Go** {% term integration %} allows you to monitor bird detections 
 
 BirdNET-Go is an acoustic monitoring system that identifies bird species in real time from audio streams using AI classifier models.
 
+## Prerequisites
+
+This integration connects to BirdNET-Go version 2.0 or newer and requires the `/api/v2/dashboard/kpis` endpoint. Ensure your BirdNET-Go station is running with the V2 database manager and has completed any pending database migrations.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -41,7 +45,7 @@ This integration provides the following sensors for your BirdNET-Go station:
 - **Today's detections**: Total number of bird vocalizations identified today.
 - **Lifetime species**: Cumulative count of distinct bird species recorded by the station.
 - **Detection streak**: Current streak of consecutive days with at least one bird detection.
-- **Best day detections**: Highest single-day record for bird detections.
+- **Best day detections (past year)**: Highest single-day record for bird detections within the past year.
 
 ## Data updates
 
