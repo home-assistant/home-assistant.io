@@ -72,7 +72,7 @@ When trying to set up the integration, the form shows the message “This device
 
 #### Description
 
-Most likely your device running Home Assistant is located in a different IPv4 subnet than your SMGW. Because the SMGW uses a static IP address set by your grid operator, you may need to change your Home Assistant network settings so the devices can reach each other.
+Most likely your device running Home Assistant is located in a different IPv4 subnet than your <abbr title="Smart Meter Gateway">SMGW</abbr>. Because the SMGW uses a static IP address set by your grid operator, you may need to change your Home Assistant network settings so the devices can reach each other.
 
 #### Resolution
 
