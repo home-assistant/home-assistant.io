@@ -68,42 +68,19 @@ With the [energy dashboard](/energy) you can use the `current hour` price entity
 
 ## easyEnergy automation examples
 
+These blueprints use the **Current hour** sensor on the easyEnergy **Energy market price - Usage** device. Set your price threshold in EUR/kWh; the sensor price includes VAT but excludes energy tax and purchase costs. Both blueprints run when the price crosses below the threshold. They do not run immediately if you enable them while the price is already below it. They can also run when price data becomes available again with a value below the threshold.
+
 ### Automation: Send a notification when the energy price is low
 
-Use the current hour price sensor to send a notification when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
+Receive a notification when the electricity usage price drops below your chosen threshold. Select your easyEnergy price sensor and a notification entity when creating the automation. The message includes the current price.
 
-```yaml
-automation:
-  - alias: "Notify when the energy price is low"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
-        below: 0.15
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          title: "Low energy price"
-          message: "The current energy price is {{ trigger.to_state.state }} €/kWh."
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_notification.yaml" %}
 
 ### Automation: Start a dishwasher when the energy price is low
 
-Use the current hour price sensor to start a dishwasher when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
+Turn on a switch when the electricity usage price drops below your chosen threshold. For a dishwasher, choose a switch that starts its program; switching on the power supply alone may not start a cycle. You can also use this blueprint for another device controlled by a switch. The switch remains on when prices rise.
 
-```yaml
-automation:
-  - alias: "Start dishwasher when energy price is low"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
-        below: 0.15
-    actions:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.dishwasher
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_switch.yaml" %}
 
 ## Templates
 
