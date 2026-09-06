@@ -37,10 +37,9 @@ and electricity prices.
 
 #### Energy market prices
 
-In terms of electricity you get two separate services, easyEnergy uses separate
-prices for electricity that you use (buy) or return (sell).
+easyEnergy provides separate prices for electricity that you use (buy) and return (sell).
 
-- The `current` and `next hour` electricity market price
+- The `current hour` and `next hour` electricity market price
 - Average electricity price of the day
 - Lowest energy price
 - Highest energy price
@@ -48,7 +47,7 @@ prices for electricity that you use (buy) or return (sell).
 - Time of day when the price is at its lowest
 - Percentage of the current price compared to the maximum price
 
-In addition, the usage price service has an entity that counts the hours with a price equal to or lower than the current usage price. The return price service has an entity that counts the hours with a price equal to or higher than the current return price. With this information, you could switch devices during the cheapest hours of the day, as illustrated in the graph below.
+For electricity usage, an additional sensor counts the hours with a price equal to or lower than the current usage price. For electricity return, an additional sensor counts the hours with a price equal to or higher than the current return price. With this information, you could switch devices during the cheapest hours of the day, as illustrated in the graph below.
 
 <p class='img'>
   <img src='/images/integrations/easyenergy/pricegraph.png' alt='Screenshot showing energy price graph.'>
@@ -58,7 +57,7 @@ In addition, the usage price service has an entity that counts the hours with a 
 #### Gas market price
 
 For the dynamic gas prices, only entities are created that display the
-`current` and `next hour` price because the price is always fixed for
+`current hour` and `next hour` price because the price is always fixed for
 24 hours.
 
 {% include integrations/actions.md %}
@@ -118,7 +117,7 @@ To use the response data from the actions, you can create a template sensor that
 template:
   - triggers:
       - trigger: time_pattern
-        minutes: "0"
+        minutes: 0
     actions:
       - action: easyenergy.get_energy_usage_prices
         response_variable: prices
@@ -175,7 +174,7 @@ The sensor prices are bare prices including VAT, however an energy company also 
 **Description:** Prices for the requested date may not have been published yet. See [data updates](#data-updates).
 
 **Resolution:**
-Wait until easyEnergy has published the prices, then run the action again with `start` and `end` set to the date you want to retrieve.
+Wait until easyEnergy has published the prices, then run the action again with `start` and `end` set to the same date in `YYYY-MM-DD` format. In YAML, quote the date values to keep them as strings.
 
 {% enddetails %}
 
