@@ -32,10 +32,6 @@ Use SSL:
   description: "Whether to connect using HTTPS."
 API Key:
   description: "Optional API key or Bearer token if authentication is enabled."
-Username:
-  description: "Optional username for Basic Authentication if configured."
-Password:
-  description: "Optional password for Basic Authentication if configured."
 {% endconfiguration_basic %}
 
 ## Supported functionality
