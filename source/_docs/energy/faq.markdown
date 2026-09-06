@@ -25,6 +25,20 @@ If you are using a third-party device (for example, not reading directly from yo
 
 To accomplish this, you can use the [utility_meter integration](/integrations/utility_meter/). With this integration you define as many tariffs as required by your utility provider.
 
+## Power measurement sign conventions
+
+When you add a power sensor to a **Grid**, **Solar panels**, or **Home battery storage** source, Home Assistant needs to know how your sensor represents the direction of flow. You set this with the **Type of power measurement** option in the source's configuration dialog.
+
+Three options are available:
+
+- **Standard**: a single sensor that uses positive and negative values for the two directions of flow. Home Assistant expects these signs:
+  - For a **grid** source, positive values mean energy imported from the grid, and negative values mean energy exported to the grid.
+  - For a **home battery** source, positive values mean the battery is discharging, and negative values mean the battery is charging.
+- **Inverted**: the same as **Standard**, but with the signs reversed. Select this when your device reports the opposite sign, for example a battery that reports charging as a positive value. Using this option avoids having to create a template sensor to invert the value.
+- **Two sensors**: two separate sensors that both report positive values, one for each direction of flow. For a battery, you select a separate charge power and discharge power sensor. For a grid source, you select separate import and export power sensors.
+
+This setting applies only to the real-time power sensor. Energy sensors (in kWh) are always cumulative, positive-only values, and you add a separate sensor for each direction of flow.
+
 ## Setting up a dedicated solar export connection in the Energy dashboard
 
 If you have a solar installation with a dedicated grid connection that is used only for exporting production—separate from the main household consumption grid connection—you can configure the energy dashboard as follows:
@@ -34,7 +48,7 @@ If you have a solar installation with a dedicated grid connection that is used o
 3. Add the dedicated solar grid connection as a **Grid** source.
     - Configure **Energy exported to grid** and leave **Energy imported from grid** empty, as this connection never imports.
     - Set the **Power measurement** sensor for this connection to a sensor that reads the export power.
-    - Set the **Type of power measurement** setting to **Inverted** so that the value is negative when exporting to the grid. Most inverters report export power as a positive value.
+    - Set the **Type of power measurement** setting to **Inverted** so that the value is negative when exporting to the grid. Most inverters report export power as a positive value. For more details, see [Power measurement sign conventions](/docs/energy/faq/#power-measurement-sign-conventions).
     - On the **Export compensation** setting, select one of the desired cost tracking options. Leave the **Cost tracking** setting empty.
 
 With this setup, the dashboard correctly attributes solar production exported via the dedicated connection as **Solar → Grid**.
