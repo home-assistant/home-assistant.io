@@ -38,7 +38,7 @@ Use SSL:
 
 This integration provides the following sensors for your BirdNET-Go station:
 
-- **Today detections**: Total number of bird vocalizations identified today.
+- **Today's detections**: Total number of bird vocalizations identified today.
 - **Lifetime species**: Cumulative count of distinct bird species recorded by the station.
 - **Detection streak**: Current streak of consecutive days with at least one bird detection.
 - **Best day detections**: Highest single-day record for bird detections.
