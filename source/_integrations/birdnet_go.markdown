@@ -65,10 +65,14 @@ automation: |
   description: "Send a notification when the lifetime species counter increases."
   triggers:
     - trigger: state
-      entity_id: sensor.birdnet_go_station_lifetime_species
-  conditions:
+      entity_id: sensor.your_birdnet_go_lifetime_species
     - condition: template
-      value_template: "{{ trigger.to_state.state | int(0) > trigger.from_state.state | int(0) }}"
+      value_template: >-
+        {{
+          trigger.from_state is not none
+          and trigger.to_state is not none
+          and (trigger.to_state.state | int(0)) > (trigger.from_state.state | int(0))
+        }}
   actions:
     - action: notify.persistent_notification
       data:
