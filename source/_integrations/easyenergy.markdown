@@ -28,13 +28,48 @@ Companies that use the data from easyEnergy:
 
 {% include integrations/config_flow.md %}
 
+## Supported functionality
+
+### Sensors
+
+The easyEnergy integration creates several sensor entities for both gas
+and electricity prices.
+
+#### Energy market prices
+
+In terms of electricity you get two separate services, easyEnergy uses separate
+prices for electricity that you use (buy) or return (sell).
+
+- The `current` and `next hour` electricity market price
+- Average electricity price of the day
+- Lowest energy price
+- Highest energy price
+- Time of day when the price is highest
+- Time of day when the price is at its lowest
+- Percentage of the current price compared to the maximum price
+
+In addition, the usage price service has an entity that counts the hours with a price equal to or lower than the current usage price. The return price service has an entity that counts the hours with a price equal to or higher than the current return price. With this information, you could switch devices during the cheapest hours of the day, as illustrated in the graph below.
+
+<p class='img'>
+  <img src='/images/integrations/easyenergy/pricegraph.png' alt='Screenshot showing energy price graph.'>
+  Example showing the energy price graph.
+</p>
+
+#### Gas market price
+
+For the dynamic gas prices, only entities are created that display the
+`current` and `next hour` price because the price is always fixed for
+24 hours.
+
+{% include integrations/actions.md %}
+
 ## Use cases
 
-With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from easyEnergy. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from easyEnergy. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for today in a chart on your dashboard.
 
-## Examples
+## easyEnergy automation examples
 
-### Send a notification when the energy price is low
+### Automation: Send a notification when the energy price is low
 
 Use the current hour price sensor to send a notification when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
 
@@ -54,7 +89,7 @@ automation:
           message: "The current energy price is {{ trigger.to_state.state }} €/kWh."
 ```
 
-### Start a dishwasher when the energy price is low
+### Automation: Start a dishwasher when the energy price is low
 
 Use the current hour price sensor to start a dishwasher when the energy price drops below your chosen threshold. In this example, the threshold is `0.15 €/kWh`.
 
@@ -71,74 +106,27 @@ automation:
           entity_id: switch.dishwasher
 ```
 
-## Data updates
-
-The integration will poll the easyEnergy API every 10 minutes to update the data in Home Assistant.
-
-## Known limitations
-
-The prices retrieved via the API are bare prices including VAT, however an energy company also charges other rates such as **energy tax** and **purchase costs**. The integration has no configuration option to add these values, but you could create a [template sensor](#all-in-price-sensor) for this.
-
-## Sensors
-
-The easyEnergy integration creates several sensor entities for both gas
-and electricity prices.
-
-### Energy market prices
-
-In terms of electricity you get two separate services, easyEnergy uses separate
-prices for electricity that you use (buy) or return (sell). Every day around
-**14:00 UTC time**, the new prices are published for the following day.
-
-- The `current` and `next hour` electricity market price
-- Average electricity price of the day
-- Lowest energy price
-- Highest energy price
-- Time of day when the price is highest
-- Time of day when the price is at its lowest
-- Percentage of the current price compared to the maximum price
-- Number of hours with the current price higher or lower
-
-Entities with the number of hours indicate how many hours there are with a price
-**above** or **below** the current hourly price. If we take the graph below as an example
-and it is 00:30, then there are 8 hours below the current price and 4 hours above the
-current price. With this information, you could switch devices at the X cheapest number
-of hours during the day.
-
-<p class='img'>
-  <img src='/images/integrations/easyenergy/pricegraph.png' alt='Screenshot showing energy price graph.'>
-  Example showing the energy price graph.
-</p>
-
-### Gas market price
-
-For the dynamic gas prices, only entities are created that display the
-`current` and `next hour` price because the price is always fixed for
-24 hours; new prices are published every morning at **05:00 UTC time**.
-
-{% include integrations/actions.md %}
-
 ## Templates
 
 Create template sensors to display the prices in a chart or to calculate the all-in hour price.
 
 ### Prices sensor with response data
 
-To use the response data from the actions, you can create a template sensor that updates every hour.
+To use the response data from the actions, you can create a template sensor that updates every hour. This example retrieves today's all-in electricity usage prices at quarter-hour intervals. Replace `YOUR_CONFIG_ENTRY_ID` with your easyEnergy configuration entry ID.
 
 ```yaml
 template:
   - triggers:
       - trigger: time_pattern
-        seconds: "*"
+        minutes: "0"
     actions:
       - action: easyenergy.get_energy_usage_prices
         response_variable: prices
         data:
-          config_entry: 013713c172577bada2874a32dbe44feb
+          config_entry: YOUR_CONFIG_ENTRY_ID
           incl_vat: true
           granularity: quarter
-          price_type: all_in
+          price_type: invoice
     sensor:
       - name: Energy prices
         device_class: timestamp
@@ -162,20 +150,32 @@ template:
         state: >
           {% set energy_tax = PUT_HERE_THE_PRICE %}
           {% set purch_costs = PUT_HERE_THE_PRICE %}
-          {% set current_price = states('sensor.easyenergy_today_energy_usage_current_hour_price') | float(0) %}
+          {% set current_price =
+            states('sensor.easyenergy_today_energy_usage_current_hour_price')
+            | float(0) %}
           {{ (current_price + energy_tax + purch_costs) | round(2) }}
 ```
+
+## Data updates
+
+The integration will poll the easyEnergy API every 10 minutes to update the data in Home Assistant.
+
+Electricity prices for the following day and gas prices are published daily. You can retrieve published prices for a specific date using the actions.
+
+## Known limitations
+
+The sensor prices are bare prices including VAT, however an energy company also charges other rates such as energy tax and purchase costs. The integration has no configuration option to add these values, but you could create a [template sensor](#all-in-price-sensor) for this.
 
 ## Troubleshooting
 
 {% details "Prices for tomorrow are unavailable" %}
 
-**Symptom:** The next-day price entities are unavailable or do not show tomorrow's prices.
+**Symptom:** An action cannot retrieve tomorrow's prices.
 
-**Description:** The electricity prices for the next day are usually published around **14:00 UTC time**. Gas prices are published every morning around **05:00 UTC time**.
+**Description:** Prices for the requested date may not have been published yet. See [data updates](#data-updates).
 
 **Resolution:**
-Wait until the prices have been published by easyEnergy and then wait for the next integration update. The integration polls the API every 10 minutes.
+Wait until easyEnergy has published the prices, then run the action again with `start` and `end` set to the date you want to retrieve.
 
 {% enddetails %}
 
@@ -183,7 +183,7 @@ Wait until the prices have been published by easyEnergy and then wait for the ne
 
 **Symptom:** The price shown by Home Assistant is lower than the price charged by the energy company.
 
-**Description:** The prices retrieved from the easyEnergy API are bare prices including VAT. Energy companies can charge additional costs, such as energy tax and purchase costs.
+**Description:** The sensor prices exclude the additional costs described under [known limitations](#known-limitations).
 
 **Resolution:**
 Create a template sensor that adds these extra costs to the current price. See the [all-in price sensor](#all-in-price-sensor) example.
