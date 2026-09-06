@@ -7,6 +7,7 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: 0.69
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -21,6 +22,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - valve
 ha_zeroconf: true
 ha_homekit: true
 ha_integration_type: device
@@ -34,6 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - Button
 - Sensor
 - Switch
+- Valve
 
 Note that some entities are disabled by default. If you are missing a sensor or binary sensor, check the configured integration!
 
@@ -43,19 +46,19 @@ Note that some entities are disabled by default. If you are missing a sensor or 
 
 The integration has two configuration options: 
 
-1. "Default Zone Run Time": sets a default duration when turning on a zone switch (default: 600 seconds). This can be overridden with an action (see below).
+1. "Default Zone Run Time": sets a default duration when opening a zone valve (default: 600 seconds). This can be overridden with an action (see below).
 2. "Use Run Times from App": if enabled, will use the zone-specific run times from the last time the zone was turned on manually in the RainMachine App – this allows you to set per-zone default times using the RainMachine app instead of the same default time for all zones.
 
 {% include integrations/actions.md %}
 
 ## Controlling Your Device
 
-After Home Assistant loads, new switches will be added for every enabled program and zone. These work as expected:
+After Home Assistant loads, switches are added for programs and valves are added for zones:
 
-- Program On/Off: starts/stops a program
-- Zone On/Off: starts/stops a zone (using the configuration options described above to determine how long to run for)
+- Program switch On/Off: starts/stops a program
+- Zone valve Open/Close: starts/stops a zone (using the configuration options described above to determine how long to run for)
 
-Programs and zones are linked. While a program is running, you will see both the program and zone switches turned on; turning either one off will turn the other one off (just like in the web app).
+Programs and zones are linked. While a program is running, you will see the program switch turned on and the active zone valve open. Turning the program off or closing the zone valve stops the watering (just like in the web app).
 
 ## Entity Availability
 
