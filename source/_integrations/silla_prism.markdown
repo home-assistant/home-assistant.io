@@ -60,7 +60,12 @@ The integration creates a single device with the following entities.
 
 ### Selects
 
-- **Charging mode**: The operating mode of the port. **Solar** charges only with the surplus available, **Normal** charges at the set current, and **Paused** suspends charging without disconnecting the vehicle. The Prism also pauses charging on its own when load balancing runs out of available power; that condition cannot be selected back, so the charging mode reads as unknown while it lasts and the status sensor reports the port as paused.
+- **Charging mode**: The operating mode of the port:
+  - **Solar**: Charges only with the surplus power available.
+  - **Normal**: Charges at the maximum current set on the wallbox itself.
+  - **Paused**: Suspends charging without disconnecting the vehicle.
+
+The Prism can also pause charging on its own when load balancing runs out of available power. That mode cannot be set from Home Assistant, so the charging mode is `unknown` for as long as it lasts. The status sensor still reports the port as paused.
 
 ## Data updates
 
