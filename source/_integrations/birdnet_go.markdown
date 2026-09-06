@@ -47,6 +47,60 @@ This integration provides the following sensors for your BirdNET-Go station:
 - **Detection streak**: Current streak of consecutive days with at least one bird detection.
 - **Best day detections (past year)**: Highest single-day record for bird detections within the past year.
 
+## BirdNET-Go automation examples
+
+Here are a few automation examples to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Notification when a new bird species is detected
+
+Send a notification whenever your BirdNET-Go station records a new bird species.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify when a new bird species is detected"
+  description: "Send a notification when the lifetime species counter increases."
+  triggers:
+    - trigger: state
+      entity_id: sensor.birdnet_go_station_lifetime_species
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.to_state.state | int(0) > trigger.from_state.state | int(0) }}"
+  actions:
+    - action: notify.persistent_notification
+      data:
+        title: "New bird species identified"
+        message: "A new bird species was recorded! Total lifetime species: {{ trigger.to_state.state }}."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notification when reaching a detection streak milestone
+
+Send a notification when your BirdNET-Go station reaches a 7-day detection streak.
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Notify on 7-day detection streak"
+  description: "Send a notification when the detection streak reaches 7 consecutive days."
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.birdnet_go_station_detection_streak
+      above: 6
+  actions:
+    - action: notify.persistent_notification
+      data:
+        title: "BirdNET-Go streak milestone"
+        message: "Your BirdNET-Go station has reached a 7-day bird detection streak!"
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration {% term polling polls %} the BirdNET-Go station every 30 seconds for updated dashboard statistics.
