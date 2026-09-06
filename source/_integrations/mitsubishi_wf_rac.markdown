@@ -29,7 +29,8 @@ The module is the requirement, not the indoor unit: a unit that works with the S
 ## Prerequisites
 
 - The module has to be on your network already. Set it up once with the manufacturer's app, or through the module's own access point; this integration does not perform that first-time setup.
-- Give the module a fixed address in your router. A changed address is not followed automatically and has to be corrected with **Reconfigure**.
+- Give the module a fixed address in your router. A changed address is picked up when the module announces itself again, but only then; if it does not, correct it with **Reconfigure**.
+- The module presents a self-signed certificate, and the connection does not verify it by default. To verify it instead, save the module's certificate as `ac_cert.pem` in your Home Assistant configuration directory; the integration picks it up on the next reload. Fetch it with `openssl s_client -connect <module IP>:51443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > ac_cert.pem`. This is optional, and it only makes a difference on a network where you do not trust the path to the module.
 - The module accepts a limited number of registered controllers. If its account table is full, Home Assistant cannot register and the integration raises a repair issue saying so; free a slot in the app, or factory-reset the module.
 
 {% include integrations/config_flow.md %}
