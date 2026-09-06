@@ -201,7 +201,7 @@ The table below shows, per device type, which connection mode is required. See [
 **Smart Detections**: The following cameras have Smart Detections:
 
 - All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
-- All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
+- All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifiprotect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
 
 G3 Series cameras do _not_ have Smart detections.
 {% endnote %}
@@ -472,7 +472,7 @@ The condition ensures the notification is only sent for actual doorbell rings an
 - **Event Name**: NFC
 - **Event Attributes**:
   - **event_type**: `scanned`
-  - **event_id**: A unique ID that identifies the doorbell event.
+  - **event_id**: A unique ID that identifies the NFC card scan event.
   - **nfc_id**: The ID of the scanned NFC card.
 - **Description**: This event is triggered when an NFC card is scanned at a compatible device (for example, a smart doorbell). It contains information such as the `nfc_id` of the scanned card.
 
