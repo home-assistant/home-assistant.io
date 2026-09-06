@@ -1,7 +1,7 @@
 ---
 title: Theben Conexa Smart Meter Gateway
 description: Instructions on how to integrate a Conexa SMGW with Home Assistant.
-ha_release: 2026.7
+ha_release: 2026.10
 ha_category:
   - Energy
   - Sensor
@@ -50,12 +50,12 @@ The **Theben Conexa** integration provides the following entities.
 
 ### Sensors
 
-- **Total Power Consumed**
-  - **Description**: The total amount of Power (more precise Energy in Wh) you used from the electricity grid. This should be the same value as your electricity meter shows on its display.
+- **Energy Consumed**
+  - **Description**: The total amount of electrical energy you used from the electricity grid. This should be the same value as your electricity meter shows on its display.
   - **Remarks**: The Conexa SMGW provides a new measurement every 15 minutes.
 
-- **Total Power Supplied**
-  - **Description**: The total amount of Power (more precise Energy in Wh) you supplied to the electricity grid.
+- **Energy Supplied**
+  - **Description**: The total amount of electrical energy you supplied to the electricity grid.
   - **Remarks**: Only shown if you actually supply power back to the grid. The Conexa SMGW provides a new measurement every 15 minutes.
 
 ## Data updates
@@ -79,8 +79,8 @@ Most likely your device running Home Assistant is located in a different IPv4 su
 To resolve this issue, try one of the following options:
 
 - Option 1: Change the <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> server settings: If your Home Assistant device gets its network settings from a DHCP server (your router), change the DHCP settings so that it assigns IP addresses in the same subnet as your <abbr title="Smart Meter Gateway">SMGW</abbr>.
-- Option 2 - Add another IP address to the Home Assistant device: One network interface can be assigned multiple IP addresses. So for example if your device currently uses `192.168.188.4/24` on device `eth0` but the <abbr title="Smart Meter Gateway">SMGW</abbr> has the static IP `192.168.1.200/24` then you can assign for example `192.168.1.4/24` as another IP for `eth0`
-- Option 3 - You have a (semi) professional router: If your router is 'smart' then you can set it up to be connected to both subnets and provide a static route between the two. _Hint:_ Most routers / gateways provided by an <abbr title="Internet service provider">ISP</abbr> are not capable of doing this.
+- Option 2: Add another IP address to the Home Assistant device: One network interface can be assigned multiple IP addresses. So for example if your device currently uses `192.168.188.4/24` on device `eth0` but the <abbr title="Smart Meter Gateway">SMGW</abbr> has the static IP `192.168.1.200/24` then you can assign for example `192.168.1.4/24` as another IP for `eth0`
+- Option 3: You have a (semi) professional router: If your router is 'smart' then you can set it up to be connected to both subnets and provide a static route between the two. _Hint:_ Most routers / gateways provided by an <abbr title="Internet service provider">ISP</abbr> are not capable of doing this.
 
 ## Removing the integration
 
