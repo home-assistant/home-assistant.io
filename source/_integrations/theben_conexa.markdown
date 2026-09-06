@@ -30,7 +30,7 @@ The following device is known to be supported by the integration:
 
 1. To access the HAN interface you need to get the _IP address_, _username_, and _password_ from your grid operator.
 2. Some grid operators need to enable the HAN interface itself as well.
-3. Optional but strongly encouraged: Test connectivity and authentication by accessing the web interface of the SMGW (should be `https://IP/`).
+3. Optional, but strongly encouraged: Test connectivity and authentication by accessing the web interface of the <abbr title="Smart Meter Gateway">SMGW</abbr> (should be `https://IP/`).
 4. Make sure that the device running Home Assistant has network connectivity to the SMGW.
 
 {% include integrations/config_flow.md %}
