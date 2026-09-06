@@ -47,6 +47,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [State class selector](#state-class-selector)
 - [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
@@ -1248,9 +1249,16 @@ image_upload:
   type: boolean
   required: false
   default: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector is a mapping with information about
+The output of the media selector is a mapping or list of mappings with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1293,6 +1301,20 @@ metadata:
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
+```
+
 
 ## Number selector
 
@@ -1635,6 +1657,55 @@ The output of this selector is the select state (not the translated or
 prettified name shown in the frontend), or a list of states if `multiple` is true.
 
 For example: `heat_cool`.
+
+## State class selector
+
+The state class selector lets you select one or more sensor state classes.
+The selector returns a single state class, or a list of state classes if `multiple` is set to `true`.
+
+![Screenshot of a state class selector](/images/blueprints/selector-state-class.png)
+
+This selector shows all available sensor state classes:
+
+```yaml
+state_class:
+```
+
+This selector limits selectable state classes to the measurement state classes.
+
+```yaml
+state_class:
+  state_classes:
+    - measurement
+    - measurement_angle
+```
+
+{% configuration state_class %}
+multiple:
+  description: >
+    Allows selecting multiple state classes. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+state_classes:
+  description: >
+    Limits the selectable state classes to the state classes supplied. When not configured, all available state classes are selectable.
+  type: list
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the state class, or (in case `multiple` is set to
+`true`) a list of state classes.
+
+```yaml
+# Example state class selector output result, when multiple is set to false
+measurement
+
+# Example state class selector output result, when multiple is set to true
+- measurement
+- total_increasing
+```
 
 ## Statistic selector
 

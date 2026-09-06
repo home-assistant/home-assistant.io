@@ -12,15 +12,15 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_config_flow: true
-ha_dhcp: false
 ha_integration_type: hub
 related:
   - url: https://www.aqvify.com/
     title: Aqvify web
   - url: https://app.aqvify.com/
     title: Aqvify user account
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
+
 The **Aqvify** {% term integration %} allows users to integrate their [Aqvify](https://www.aqvify.com) water well and tank sensors using the [official public API](https://public.aqvify.com/swagger/index.html).
 
 ## Use case
@@ -36,6 +36,11 @@ The **Aqvify** {% term integration %} supports the following entities:
 ### Sensors
 
 There is currently support for sensors measuring the well water level from different perspectives. Please refer to Aqvify's documentation for the exact interpretation of the values.
+
+- **Meter value**: This metric typically represents the distance from the ground surface to the water surface in a well.
+- **Water level**: This metric typically represents the distance from the bottom of a well or tank to the water surface.
+- **Stored volume**: The available water volume in the well or tank.
+- **Temperature**: Some sensor probes contain a temperature sensor in addition to the pressure sensor. This entity is disabled by default in the UI.
 
 ## Automation example
 

@@ -15,6 +15,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.
@@ -141,7 +142,7 @@ Home Assistant does not discover the charger automatically.
 
 To resolve this issue, try the following steps:
 
-1. Confirm the charger appears in **Settings** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
+1. Confirm the charger appears in **Settings** > **Connectivity** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
 2. Move an ESPHome Bluetooth proxy closer to the charger.
 3. Make sure the proxy is added to Home Assistant through the ESPHome integration.
 4. Run an active scan or temporarily place a local Bluetooth adapter near the charger.
@@ -173,7 +174,7 @@ The charge switch becomes unavailable after the integration was set up.
 
 To resolve this issue, try the following steps:
 
-1. Check **Settings** > **Bluetooth** > **Connection monitor**.
+1. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor**.
 2. Verify the proxy has free active connection slots.
 3. Stop any old MQTT bridge or companion process that may still hold the charger's Bluetooth connection.
 4. Prefer Ethernet ESPHome Bluetooth proxies when possible.

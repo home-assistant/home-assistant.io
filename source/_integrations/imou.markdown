@@ -153,6 +153,8 @@ This integration communicates with Imou cloud services. Device control commands 
 
 Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
 
+If you changed the **App secret**, Home Assistant will ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration.
+
 ### API quota is used quickly
 
 The integration polls the platform regularly to discover devices and refresh online status. API usage increases with the number of devices on your account. Review your usage on the Imou Open Platform.
