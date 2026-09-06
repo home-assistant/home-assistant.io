@@ -80,7 +80,7 @@ To resolve this issue, try one of the following options:
 
 - Option 1: Change the <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> server settings: If your Home Assistant device gets its network settings from a DHCP server (your router), change the DHCP settings so that it assigns IP addresses in the same subnet as your <abbr title="Smart Meter Gateway">SMGW</abbr>.
 - Option 2 - Add another IP address to the Home Assistant device: One network interface can be assigned multiple IP addresses. So for example if your device currently uses `192.168.188.4/24` on device `eth0` but the SMGW has the static IP `192.168.1.200/24` then you can assign for example `192.168.1.4/24` as another IP for `eth0`
-- Option 3 - You have a (semi) professional router: If your router is 'smart' then you can set it up to be connected to both subnets and provide a static route between the two. _Hint:_ Most routers / gateways provided by an ISP are not capable of doing this.
+- Option 3 - You have a (semi) professional router: If your router is 'smart' then you can set it up to be connected to both subnets and provide a static route between the two. _Hint:_ Most routers / gateways provided by an <abbr title="Internet service provider">ISP</abbr> are not capable of doing this.
 
 ## Removing the integration
 
