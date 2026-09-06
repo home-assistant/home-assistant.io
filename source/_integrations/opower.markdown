@@ -104,6 +104,14 @@ You will be asked to re-authenticate via MFA periodically.
 The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
 You will be asked to re-authenticate via MFA every 180 days.
 
+### Southwest Gas
+
+Use your Opower (Energy Savings Portal) credentials when you set up the integration. These are different from your Southwest Gas MyAccount website credentials.
+
+If you haven't created an Opower account yet, sign in to the Southwest Gas MyAccount portal and follow the **Energy Savings Portal** link ("Compare your monthly natural gas usage with similar homes and get personalized tips on how to save on your natural gas bill"). Have your Southwest Gas bill handy with your account number to sign up. Then use those Energy Savings Portal credentials in Home Assistant.
+
+If you get an invalid credentials error but you can still sign in on the Southwest Gas website, you are likely using your MyAccount credentials instead of your Energy Savings Portal credentials.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
