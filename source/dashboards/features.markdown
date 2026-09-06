@@ -1055,6 +1055,27 @@ type:
   type: string
 {% endconfiguration %}
 
+## Text input
+
+Widget that displays a field to input the text for an [input text](/integrations/input_text) or a [text](/integrations/text).
+
+<p class='img'>
+  <img src='/images/dashboards/features/text_input.png' alt='Screenshot of the tile card with the text input feature'>
+  Screenshot of the tile card with the text input feature
+</p>
+
+```yaml
+features:
+  - type: "text-input"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`text-input`"
+  type: string
+{% endconfiguration %}
+
 ## Timer actions
 
 Widget that displays buttons to start, pause, cancel, and finish a [timer](/integrations/timer). Buttons are only enabled when the action is valid for the current timer state. While the timer is running, the start button becomes a restart button, which restarts the timer with the duration it was last started with, ignoring the remaining time.
