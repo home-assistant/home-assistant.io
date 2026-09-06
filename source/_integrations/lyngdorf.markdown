@@ -53,7 +53,9 @@ The MP-60 is the only model that has been tested in the wild so far. Other model
 
 ## Prerequisites
 
-- Your Lyngdorf device must be connected to the same network as Home Assistant.
+- Home Assistant must be able to reach the device on TCP port 84, which carries the control protocol.
+- The device is identified by the serial number in its UPnP description. Home Assistant sends a unicast SSDP request to the device on UDP port 1900, then fetches the description over HTTP from the port the device advertises. The device assigns that port itself and it is not fixed, so a firewall rule cannot rely on a particular number. This applies when adding a device by IP address as well as when one is discovered.
+- Automatic discovery additionally needs the device on the same subnet as Home Assistant, because it relies on multicast SSDP. A device on another subnet can still be added by IP address.
 
 {% include integrations/config_flow.md %}
 
@@ -201,7 +203,7 @@ The Lyngdorf device does not show up as a discovered device in Home Assistant.
 
 To resolve this issue, try the following steps:
 
-1. Make sure your Lyngdorf device is powered on and connected to the same network as Home Assistant.
+1. Make sure your Lyngdorf device is powered on and on the same subnet as Home Assistant. Automatic discovery uses multicast SSDP, which does not cross subnets.
 2. Check that UPnP/SSDP is not blocked on your network.
 3. Add the device manually using its IP address.
 
