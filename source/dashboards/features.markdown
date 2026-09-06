@@ -1057,7 +1057,7 @@ type:
 
 ## Text input
 
-Widget that displays a field to input the text for an [input text](/integrations/input_text) or a [text](/integrations/text).
+Widget that displays a field for entering text for an [input text](/integrations/input_text) or a [text](/integrations/text).
 
 <p class='img'>
   <img src='/images/dashboards/features/text_input.png' alt='Screenshot of the tile card with the text input feature'>
