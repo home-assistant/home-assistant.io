@@ -23,7 +23,7 @@ related:
 
 The **Flow-it** {% term integration %} lets you monitor and control your Flow-it ventilation system in Home Assistant.
 
-Use case: You can control the fan speed, toggle intake and exhaust airflow, activate preset modes such as Auto or Boost, and automate your Flow-it ventilation system alongside other smart home devices.
+You can control the fan speed, turn intake and exhaust airflow on or off, activate preset modes like Auto or Boost, and automate your Flow-it ventilation system alongside other smart home devices.
 
 ## Supported devices
 
