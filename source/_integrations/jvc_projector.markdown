@@ -103,7 +103,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: all
 
 - **Color depth**
-  - **Description**: The signal color depth.
+  - **Description**: The signal color depth. Note: The projector may incorrectly report 8-bit on YCbCr 4:2:2 signals according to JVC documentation.
   - **Available for models**: all
 
 - **Color space**
@@ -113,6 +113,22 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
 - **HDR**
   - **Description**: The signal HDR mode.
   - **Available for models**: 2017-present
+
+- **Software Version** (disabled by default)
+  - **Description**: The projector firmware version formatted as X.Y.Z.
+  - **Available for models**: all
+
+- **Resolution** (disabled by default)
+  - **Description**: The current input resolution.
+  - **Available for models**: all
+
+- **Colorimetry** (disabled by default)
+  - **Description**: The color space metadata (e.g., BT.709, BT.2020).
+  - **Available for models**: all
+
+- **Link Rate** (disabled by default)
+  - **Description**: The HDMI link rate and lane configuration.
+  - **Available for models**: all
 
 ## Select
 
@@ -142,6 +158,11 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Description**: The clear motion drive setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
+
+- **Motion Enhance** (disabled by default)
+  - **Description**: The motion enhancement setting.
+  - **Options**: high, low, off
+  - **Available for models**: 2021-present
 
 - **Anamorphic**
   - **Description**: The anamorphic setting.
