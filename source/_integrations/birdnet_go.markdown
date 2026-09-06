@@ -30,8 +30,6 @@ Port:
   description: "The port BirdNET-Go is running on (default: 8080)."
 Use SSL:
   description: "Whether to connect using HTTPS."
-API Key:
-  description: "Optional API key or Bearer token if authentication is enabled."
 {% endconfiguration_basic %}
 
 ## Supported functionality
