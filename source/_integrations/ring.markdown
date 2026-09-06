@@ -93,6 +93,8 @@ Two camera entities are provided: `live_view` and `last_recording`.
 Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
+The `last_recording` camera provides a `last_recording_at` state attribute with the date and time when Ring created the recording. The attribute is empty until recording history has been retrieved and is cleared when no recording history is available.
+
 ### Event
 
 The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
