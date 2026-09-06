@@ -93,7 +93,7 @@ Two camera entities are provided: `live_view` and `last_recording`.
 Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
-The `last_recording` camera provides a `last_recording_at` state attribute containing the UTC date and time when Ring created the recording, serialized in ISO 8601 format. Its value is `null` until recording history has been retrieved and whenever no recording history is available.
+The `last_recording` camera provides a `last_recording_at` state attribute containing the UTC date and time when Ring created the recording, in ISO 8601 format. Its value is `null` until Home Assistant retrieves the recording history or when no recording history is available.
 
 ### Event
 
