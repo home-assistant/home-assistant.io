@@ -193,13 +193,13 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 - For some utilities, there are no usage/cost sensors added by this integration, or they may constantly show a value of `0`. This is expected and fine; you should use the statistics instead.
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
-- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, a month). This results in showing `0` for cost. This is currently seen with Consolidated Edison (ConEd) electricity and gas, Puget Sound Energy (PSE) gas, and AEP Ohio, among others. In that case, monthly costs still appear in the yearly view.
+- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, a month). This means daily and hourly cost statistics show `0`. This is currently seen with Consolidated Edison (ConEd) electricity and gas, Puget Sound Energy (PSE) gas, and AEP Ohio, among others. In that case, monthly totals still appear when you view the Energy dashboard by year.
 - For some utilities, the account number displayed in Home Assistant might not match the account number on your utility bill or web portal. This is expected behavior. The integration uses an internal identifier from the Opower system (`preferredUtilityAccountId`), which can differ from your public billing account number (`accountName`). It does not mean you are connected to anyone else's account or that you are seeing someone else's statistics.
 
 ## Troubleshooting
 
 - If your usage or cost sensors are completely missing or showing `0`, this may be expected behavior; see **Known limitations** above.
-- If consumption works but daily cost is `0` while monthly costs appear in the yearly view, your utility only provides bill-period cost. This is expected behavior, and you don't need to open an issue. Home Assistant can't currently combine Opower statistics with a manually entered price in the Energy dashboard.
+- If consumption works but daily cost statistics show `0` while monthly totals still appear when you view the Energy dashboard by year, your utility only provides billing period cost. This is expected behavior, and you do not need to open an issue.
 - If the account number shown in Home Assistant doesn't match the one on your bill, this is normal and does not mean you are connected to someone else's account; see [Known limitations](#known-limitations) above.
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - When configuring the Energy dashboard in Home Assistant, use the statistics as described in **Known limitations** above.
