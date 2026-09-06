@@ -1,0 +1,188 @@
+---
+title: Imou
+description: Integrate Imou smart devices into Home Assistant.
+ha_category:
+  - Binary sensor
+  - Button
+  - Camera
+  - Select
+  - Sensor
+  - Switch
+ha_iot_class: Cloud Polling
+ha_release: 2026.7
+ha_config_flow: true
+ha_dhcp: true
+ha_domain: imou
+ha_codeowners:
+  - '@Imou-OpenPlatform'
+ha_platforms:
+  - binary_sensor
+  - button
+  - camera
+  - select
+  - sensor
+  - switch
+ha_integration_type: hub
+ha_quality_scale: bronze
+---
+
+The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
+
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+
+## Supported devices
+
+The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button, switch, select, sensor, and binary sensor entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ, and battery sensors only appear on devices that report battery level).
+
+Add or remove devices in the Imou Open Platform or Imou app; new devices are picked up on the next data refresh.
+
+## Prerequisites
+
+Before using the Imou integration, create an Imou Open Platform application:
+
+1. Visit [Imou Open Platform](https://open.imoulife.com).
+2. Register or log in to your Imou account, then open the **Control board**.
+3. Go to **App Information** to obtain an **App ID** and **App secret**.
+4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
+
+## Configuration
+
+{% include integrations/config_flow.md %}
+
+Home Assistant can discover Imou and Lechange devices on the local network from their MAC address. Opening a discovered Imou integration shows the same setup form as adding it manually: enter your Imou Open Platform App ID, App secret, and server region. The discovered device is not added to your account automatically.
+
+{% configuration_basic %}
+App ID:
+  description: The App ID from your Imou Open Platform application.
+App secret:
+  description: The App secret from your Imou Open Platform application.
+Server region:
+  description: The API region for your account. Choose the region closest to where your account was registered.
+{% endconfiguration_basic %}
+
+When adding the integration, select **Server region** to match your Open Platform account:
+
+- **Singapore (Asia-Pacific)** (`sg`)
+- **Europe** (`eu`)
+- **North America** (`na`)
+- **China** (`cn`)
+
+These regions correspond to the API endpoints used by the integration.
+
+## API usage
+
+Imou Open Platform API usage limits apply to your App ID:
+
+1. Each App ID includes a monthly quota of 30,000 free API requests. Usage above the quota is billed at the [published unit price](https://open.imoulife.com/price).
+2. API endpoints are split by region. Select the matching **Server region** during setup. For details, see the [development specification](https://open.imoulife.com/book/http/develop.html).
+3. For additional API documentation, see the HTTP interface section in the [development documentation](https://open.imoulife.com/book/en).
+
+## Supported functionality
+
+### Camera
+
+Each device channel with a camera feed exposes two camera entities:
+
+- **Live view SD**: Standard-definition cloud live stream.
+- **Live view HD**: High-definition cloud live stream.
+
+Both are enabled by default. You can view a still image or start a live stream when the device is online.
+
+### Buttons
+
+The integration exposes button entities when the cloud API reports that the action is supported for a device:
+
+
+- **PTZ up**, **PTZ down**, **PTZ left**, **PTZ right**: Move the camera lens in the corresponding direction. Each press moves the lens for a short interval. The device must support PTZ.
+- **Mute**: Silence alarm audio on supported gateway devices.
+- **Restart**: Remotely restart the device (shown with the restart device class when supported).
+
+### Switches
+
+When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
+
+- **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
+- **Audio recording**: Toggle audio recording on supported cameras.
+- **Human detection**: Toggle human detection on supported cameras.
+- **Indicator light**: Toggle the device status indicator LED on supported models.
+- **Motion detection**: Toggle motion detection on supported cameras.
+- **Plug switch**: Control the main power relay on supported IoT socket devices.
+- **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
+- **White light**: Manually toggle the camera white LED illuminator on supported models.
+
+### Selects
+
+When the cloud API reports that the option is supported for a device, the integration exposes the following select entities (device settings, configuration category):
+
+- **Night vision mode**: Choose the night vision mode on supported cameras.
+- **Volume**: Choose mute, low, medium, or high volume on supported devices.
+
+### Binary sensors
+
+When the cloud API reports that a contact state is supported for a device, the integration exposes the following binary sensor entity:
+
+- **Door**: Open or closed state of a door or window contact on supported devices.
+
+### Sensors
+
+When the cloud API reports that a measurement is supported for a device, the integration exposes sensor entities. Only supported sensor types are created for each device.
+
+- **Battery**: Battery level as a percentage on supported battery-powered devices.
+- **Temperature**: Current ambient temperature in degrees Celsius on supported models.
+- **Humidity**: Current relative humidity as a percentage on supported models.
+- **Power**, **Voltage**, **Current**: Real-time electrical measurements on supported IoT socket and power-monitoring devices.
+- **Energy consumption**: Total energy used in kilowatt-hours on supported socket devices.
+- **Usage duration**: Total operating time in minutes on supported socket devices.
+- **Cycles today**: Number of switch cycles for the current day on supported socket devices.
+- **Storage used**: Storage usage as a percentage. When the storage medium is unavailable or reports an abnormal condition, the entity state is `unknown`.
+- **Status**: Device connectivity state (`online`, `offline`, `sleep`, or `upgrading`). This sensor remains available when the device is offline so you can still see its last reported state.
+
+Battery, storage used, and status sensors are shown under **Diagnostic** on the device page. Other sensors appear under **Sensors**.
+
+## Data updates
+
+The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
+
+## Security and privacy considerations
+
+This integration communicates with Imou cloud services. Device control commands are sent through Imou servers. Review Imou's [privacy policy](https://open.imoulife.com/book/http/privacy.html) and terms of service before proceeding.
+
+## Troubleshooting
+
+### Invalid App ID or App secret
+
+Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
+
+If you changed the **App secret**, Home Assistant will ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration.
+
+### API quota is used quickly
+
+The integration polls the platform regularly to discover devices and refresh online status. API usage increases with the number of devices on your account. Review your usage on the Imou Open Platform.
+
+### A button is unavailable
+
+Buttons are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+### A switch is unavailable
+
+Switches are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+### A select is unavailable
+
+Selects are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+### A binary sensor is unavailable
+
+Binary sensors are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+### A sensor is unavailable
+
+Most sensors are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
+
+The **Status** sensor is an exception: it stays available when the device is offline and reports `offline` instead of becoming unavailable.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

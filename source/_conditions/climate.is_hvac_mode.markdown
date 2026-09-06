@@ -14,8 +14,6 @@ The **Thermostat is in HVAC mode** condition passes when a thermostat {% term en
 
 When you target more than one thermostat, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted thermostat to be in the selected mode, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Thermostat is in HVAC mode** in an automation:

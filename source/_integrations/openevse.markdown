@@ -2,9 +2,11 @@
 title: OpenEVSE
 description: Instructions on how to integrate OpenEVSE charging stations with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Energy
   - Sensor
+  - Switch
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,10 +16,14 @@ ha_codeowners:
 ha_domain: openevse
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
   - number
   - sensor
+  - switch
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **OpenEVSE** {% term integration %} connects your Home Assistant installation to an [OpenEVSE](https://www.openevse.com/) electric vehicle charging station that runs the OpenEVSE Wi-Fi firmware. The integration talks to the charger locally over your home network, so it works without an internet connection and without a cloud account.
@@ -134,6 +140,17 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 ### Number
 
 - **Charge rate**: Sets the maximum current the charger will deliver, in amperes. The minimum and maximum follow the limits that the charger reports for itself, so you cannot set a value outside the safe range for your hardware.
+
+### Buttons
+
+- **Restart**: Restarts the charging module.
+- **Restart Wi-Fi**: Restarts the charger's Wi-Fi module. Use this if the charger drops off your network but is otherwise powered.
+
+### Switches
+
+- **Current shaper**: Enables or disables the power shaper feature to dynamically limit charging power based on whole-home electrical load.
+- **Manual override**: Toggles manual override on the charger to start or pause charging regardless of scheduled or automatic claim states.
+- **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation.
 
 ## Examples
 

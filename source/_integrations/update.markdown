@@ -68,8 +68,6 @@ The following device classes are supported for update entities:
 
 Update entities are useful when you want to stay informed about available updates or take action at the right time. Here are a few examples to help you get started.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: send a notification when an update becomes available
@@ -88,7 +86,7 @@ notification to your phone right away.
 automation: |
   alias: "Send a notification when an update becomes available"
   triggers:
-    - trigger: update.update_became_available
+    - trigger: update.became_available
       target:
         entity_id: update.office_router_firmware
   actions:

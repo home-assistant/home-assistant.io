@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Eve Joins Works With Home Assistant"
+title: "Eve Joins Works with Home Assistant"
 description: "They have had multiple Matter-over-Thread devices certified, including a cool outdoor weather sensor and smart heating devices."
 date: 2025-04-29 00:00:01
 date_formatted: "April 29, 2025"

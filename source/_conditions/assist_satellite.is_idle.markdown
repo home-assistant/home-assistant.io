@@ -13,8 +13,6 @@ The **Satellite is idle** condition passes when a targeted Assist satellite {% t
 
 Use it when you want an automation to continue only if the satellite is not currently busy with a voice interaction. For example, gate an announcement so it is only delivered when the satellite is not already mid-conversation, confirm all satellites are idle before running a scheduled pipeline test, or allow a follow-up action to proceed only after a previous voice session has fully completed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

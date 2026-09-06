@@ -9,8 +9,6 @@ related_conditions:
 
 The **Incomplete to-do items** condition helps you check whether a list still has work left. You can test whether the number of incomplete items is above, below, inside, or outside a range, and use that result to send a reminder or block another automation until the list is in the state you want.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

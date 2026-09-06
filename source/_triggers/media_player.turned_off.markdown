@@ -2,7 +2,7 @@
 title: "Media player turned off"
 trigger: media_player.turned_off
 domain: media_player
-description: "Triggers after one or more media players turn off."
+description: "Triggers when one or more media players turn off."
 related_triggers:
   - media_player.turned_on
   - media_player.stopped_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player turned off** trigger fires when a media player turns off. Use it when you want Home Assistant to react when the device itself powers down, not only when playback stops.
 
 Use **Media player turned off** to switch off related lights, lock up a room after a projector is shut down, or end routines that only make sense while a media player is on.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

@@ -2,7 +2,7 @@
 title: "Ozone level crossed threshold"
 trigger: air_quality.ozone_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more ozone levels cross a threshold."
+description: "Triggers when one or more ozone levels cross a threshold."
 related_triggers:
   - air_quality.ozone_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Ozone level crossed threshold** trigger fires when the ozone (O3) reading on one or more air quality sensors crosses a specific level. Ground-level ozone forms when sunlight reacts with pollutants from vehicles and industry, and it tends to peak on hot, sunny afternoons. High ozone levels irritate the lungs and are especially risky during outdoor exercise.
 
 Imagine getting a notification before your afternoon run telling you ozone is too high to exercise outside today. Or having your ventilation system close its fresh-air intake automatically when ozone spikes, so your indoor air stays clean without you thinking about it. This trigger watches the sky for you and lets your home take action the instant conditions become unhealthy.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

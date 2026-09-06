@@ -2,14 +2,12 @@
 title: "Smoke cleared"
 trigger: air_quality.smoke_cleared
 domain: air_quality
-description: "Triggers after one or more smoke sensors stop detecting smoke."
+description: "Triggers when one or more smoke sensors stop detecting smoke."
 related_triggers:
   - air_quality.smoke_detected
 ---
 
 The **Smoke cleared** trigger fires after a smoke sensor {% term entity %} stops detecting smoke, letting your home confirm that the danger has passed and it is safe to breathe easy again. After the chaos of a smoke alarm, an automatic all-clear brings real relief. Use this trigger to re-lock doors that were unlocked during evacuation, send a reassuring notification to your family, or restore your home to its normal routine.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

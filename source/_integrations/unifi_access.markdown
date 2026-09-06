@@ -136,30 +136,7 @@ For controllers that support temporary lock rules, each door also exposes the fo
 
 - **Rule End Time**: Reports the date and time when the active temporary lock rule expires. Returns `unknown` when no temporary rule is active or when the rule has no expiry.
 
-### Actions
-
-For controllers that support temporary lock rules, the integration also provides the `unifi_access.set_lock_rule` action.
-
-Use this action to apply a temporary lock rule to a specific door from an automation or script. It complements the existing **Door Lock Rule** select entity and adds support for setting the interval directly. In the automation editor, select the UniFi Access door device you want to target.
-
-| Data attribute | Optional | Description                                                                                                   |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| `device_id`    | no       | The UniFi Access door device to update.                                                                       |
-| `rule`         | no       | The lock rule to apply. Supported values are `custom`, `keep_lock`, `keep_unlock`, `lock_early`, and `reset`. |
-| `interval`     | yes      | How long the rule stays active, as a duration (for example, `"00:30:00"` for 30 minutes). Defaults to 10 minutes when omitted. |
-
-Example action:
-
-```yaml
-action: unifi_access.set_lock_rule
-data:
-  device_id: 0123456789abcdef0123456789abcdef
-  rule: keep_lock
-  interval:
-    hours: 0
-    minutes: 30
-    seconds: 0
-```
+{% include integrations/actions.md %}
 
 ## Data updates
 

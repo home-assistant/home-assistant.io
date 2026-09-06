@@ -3,6 +3,7 @@ title: Shelly
 description: Integrate Shelly devices
 ha_category:
   - Binary sensor
+  - Camera
   - Climate
   - Cover
   - Energy
@@ -30,6 +31,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
@@ -56,6 +58,8 @@ Host:
     description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+Verify SSL:
+    description: "Verify SSL/TLS certificate when connecting on HTTPS (port 443, Gen2+). Enable this only if the device uses a certificate signed by a certificate authority your Home Assistant instance trusts."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -70,6 +74,12 @@ Bluetooth scanner mode:
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
 Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+
+## Shelly Enhanced Security
+
+Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the European Union's Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must enable Enhanced Security manually and upload your own certificate to enable HTTPS. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate. Enhanced Security can also be enabled without uploading a HTTPS certificate, allowing you to preserve compatibility with 3rd-party HTTP-only integrations.
+
+The Shelly integration automatically detects whether HTTPS is configured on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
 
 ## Data updates
 
@@ -94,7 +104,9 @@ The list below will help you diagnose and fix the problem:
 
 ### Shelly device configuration (generation 2+)
 
-Generation 2+ devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2+ devices use the `RPC` protocol to communicate with Home Assistant. By default, no additional configuration is required.
+
+**Only battery-operated devices** (even if connected via USB) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL, or if the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** > **Connectivity** > **Outbound WebSocket**, and select **Enable Outbound WebSocket**. Under **Server**, enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
@@ -297,7 +309,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer tools/Events](/docs/tools/dev-tools/) to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in the **Events** tab of [Tools](/docs/tools/dev-tools/) to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:
@@ -427,6 +439,21 @@ Trigger reboot of device.
 
 {% include integrations/actions.md %}
 
+## Shelly Camera
+
+The integration creates one camera entity for each available stream. Stream 1 is disabled by default.
+
+The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the in the device’s web panel under **Camera** > **Settings**.
+
+## Shelly Circuit Breaker
+
+The Shelly Circuit Breaker creates a `switch` entity that lets you control the breaker. This entity shows as `unavailable` when the device's safety switch is locked.
+
+The integration also creates two binary sensors:
+
+- Safety switch lock state. When locked, the device can't be controlled remotely.
+- Output state.
+
 ## Shelly Thermostatic Radiator Valve (TRV)
 
 Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.
@@ -495,7 +522,8 @@ Please check from the device Web UI that the configured server is reachable.
   - Shelly Dimmer 2
   - Shelly RGBW2
   - Shelly Vintage
-- Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
+- Generation 1 Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol).
+- Shelly AZ H&T is not supported (the device does not support Outbound WebSocket, which is required for real-time communication with the integration).
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

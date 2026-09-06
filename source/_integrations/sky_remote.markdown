@@ -35,80 +35,41 @@ host:
 
 ## Remote
 
-The Sky Remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send commands via the `remote.send_command` action.
+The Sky Remote platform creates a [Remote](/integrations/remote/) entity for the device. This entity allows you to send commands with the [**Send remote command**](/actions/remote.send_command/) action. It also supports the [**Turn on via remote**](/actions/remote.turn_on/) and [**Turn off via remote**](/actions/remote.turn_off/) actions.
 
-### Action: Send command
+### Sending remote commands in automations
 
-The `remote.send_command` action sends a single command or a set of commands to one Sky box.
+To send a remote command from an automation or a script:
 
-| Data attribute | Optional | Description                                         |
-| ---------------------- | -------- | --------------------------------------------------- |
-| `entity_id`            | no       | Entity ID to target.                                |
-| `command`              | no       | A single command or a list of commands to send.     |
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your Sky remote entity.
+6. From the actions shown for that target, select **Send remote command**.
+7. Enter the **Command** to send.
+8. Select **Save**.
 
+Supported commands include:
 
-A typical action for sending several commands looks like this:
+- Power and navigation: `power`, `up`, `down`, `left`, `right`, `select`, `backup`
+- Menu access: `sky`, `tvguide`, `boxoffice`, `services`, `interactive`
+- Channel controls: `channelup`, `channeldown`
+- Information and help: `i`, `text`, `help`
+- Color buttons: `red`, `green`, `yellow`, `blue`
+- Numbers: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`
+- Playback controls: `play`, `pause`, `stop`, `record`, `fastforward`, `rewind`
+- Sky Q only: `sidebar`, `dismiss`, `search`, `home`
 
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.192_168_1_250
-data:
-  command:
-    - sky
-    - tvguide
-```
+In YAML, a basic example looks like this:
 
-### Available Commands
-
-The following commands are supported:
-
-#### Power & Navigation
-
-- `power` - Turns Sky box on or off
-- `up`, `down`, `left`, `right` - Navigate menus and guides
-- `select` - Confirm selection
-- `backup` - Return to previous screen or step in navigation. 
-
-#### Menu Access
-
-- `sky` - Exits menus and returns to live TV
-- `tvguide` - Open the TV guide
-- `boxoffice` - Access Sky Box Office
-- `services` - Access Sky services
-- `interactive` - Access interactive features
-
-#### Channel Controls
-
-- `channelup` - Moves to next channel or to next page in menus
-- `channeldown` - Moves to previous channel or to previous page in menus
-
-#### Information and Help
-
-- `i` - Displays information about the current program
-- `text` - Access text services when on live TV
-- `help` - Access subtitles or audio description when in live TV
-
-#### Color Coded Shortcut Buttons
-
-`red`, `green`, `yellow`, `blue` - Perform specific actions or open options within the user interface. The functions of these buttons vary depending on the menu or app currently in use.
-
-#### Numeric Keypad
-
-`0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` - Number keys used for channel or PIN input
-
-#### Playback Controls
-
-- `play` - Starts or resumes playback.
-- `pause` - Pauses playback.
-- `stop` - Stops playback entirely.
-- `record` - Starts recording the current program or selected content.
-- `fastforward` - Speeds up playback to skip ahead.
-- `rewind` - Rewinds playback to go back.
-
-#### SkyQ Only
-
-- `sidebar` - Opens the SkyQ sidebar
-- `dismiss` - Dismiss interactive content 
-- `search` - Opens SkyQ search interface
-- `home` - Launches SkyQ homepage
+{% example %}
+action: |
+  action: remote.send_command
+  target:
+    entity_id: remote.192_168_1_250
+  data:
+    command:
+      - sky
+      - tvguide
+{% endexample %}

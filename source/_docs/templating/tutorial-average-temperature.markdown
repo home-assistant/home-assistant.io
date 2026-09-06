@@ -29,15 +29,15 @@ You get a real sensor entity, so you can also use it in automations, chart it in
 You need:
 
 - At least two temperature sensors in Home Assistant. They should have `device_class: temperature` in their attributes. Most climate integrations set this automatically.
-- Five minutes with the [Developer tools template editor](/docs/templating/debugging/#the-template-editor) open.
+- Five minutes with the [Template editor](/docs/templating/debugging/#the-template-editor) open.
 
 If you want your result in Fahrenheit, see the [Going further](#going-further) section at the bottom.
 
 ## Step 1: See your temperature sensors
 
-Open {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and filter on `temperature`.
+Open {% my developer_states title="**Settings** > **Tools** > **States**" %} and filter on `temperature`.
 
-<!-- screenshot placeholder: Developer tools > States filtered to temperature sensors -->
+<!-- screenshot placeholder: Tools > States filtered to temperature sensors -->
 
 You should see a list of entities with `device_class: temperature` in their attributes. The state column shows the current reading as text, like `22.5`.
 
@@ -45,7 +45,7 @@ These are the sensors your new sensor will average. Make a mental note of how ma
 
 ## Step 2: Write the averaging template
 
-In {% my developer_template title="**Developer tools** > **Template**" %}, paste this:
+In {% my developer_template title="**Settings** > **Tools** > **Template**" %}, paste this:
 
 {% example %}
 template: |

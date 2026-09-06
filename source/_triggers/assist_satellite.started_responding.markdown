@@ -13,8 +13,6 @@ The **Satellite started responding** trigger fires when one or more Assist satel
 
 Use it to automate actions that should happen while the satellite is speaking. For example, create an automation to dim lights slightly to create a clear audio focus in the room, to pause background music during the response so the spoken answer is easy to hear, or to activate an LED ring that signals the household that the assistant is currently speaking.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

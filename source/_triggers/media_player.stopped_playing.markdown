@@ -2,7 +2,7 @@
 title: "Media player stopped playing"
 trigger: media_player.stopped_playing
 domain: media_player
-description: "Triggers after one or more media players stop playing."
+description: "Triggers when one or more media players stop playing."
 related_triggers:
   - media_player.paused_playing
   - media_player.started_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player stopped playing** trigger fires when playback stops on a media player. Use it when you want Home Assistant to react after listening or watching ends.
 
 Use **Media player stopped playing** to turn off lights, return a room to its normal state, or start another routine only when playback is fully finished.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

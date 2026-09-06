@@ -13,8 +13,6 @@ The **Water heater operation mode** condition passes when a water heater {% term
 
 When you target more than one water heater, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted water heater to match the selected mode, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Water heater operation mode** in an automation:

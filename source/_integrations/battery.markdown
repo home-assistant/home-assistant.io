@@ -13,7 +13,9 @@ ha_integration_type: system
 
 This {% term integration %} provides automation triggers and conditions for binary sensors with device class battery and battery charging, and sensors and number entities with device class battery. There are no configuration options for this integration.
 
-For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
+For an overview of the status of your battery {% term entities %}, open {% my maintenance title="**Maintenance** dashboard" %}. This dashboard allows you to quickly see which batteries need replacing.
+
+You can also use the triggers and conditions below to set up automations that respond to battery state changes.
 
 {% include integrations/triggers.md %}
 

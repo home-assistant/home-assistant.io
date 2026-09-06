@@ -2,7 +2,7 @@
 title: "Water heater turned off"
 trigger: water_heater.turned_off
 domain: water_heater
-description: "Triggers after one or more water heaters turn off."
+description: "Triggers when one or more water heaters turn off."
 related_triggers:
   - water_heater.turned_on
   - water_heater.operation_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater turned off** trigger fires when a water heater {% term entity %} changes to the off state. Use it when you want to react as soon as hot water heating is stopped, like pausing a recirculation pump or sending a notification if the water heater turns off unexpectedly.
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each water heater that turns off, only for the first one, or only after all targeted water heaters are off.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

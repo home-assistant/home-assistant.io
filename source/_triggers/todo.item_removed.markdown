@@ -2,15 +2,13 @@
 title: "To-do item removed"
 trigger: todo.item_removed
 domain: todo
-description: "Triggers when a to-do item is removed from a list."
+description: "Triggers when one or more to-do items are removed from a list."
 related_triggers:
   - todo.item_added
   - todo.item_completed
 ---
 
 The **To-do item removed** trigger is useful when you want Home Assistant to react after an item disappears from a list. You can use it to notify someone, refresh a related routine, or keep another system in sync with your to-do list.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -50,7 +48,7 @@ This trigger has no additional YAML options beyond the target.
 
 - This trigger fires after Home Assistant removes one or more items from the targeted to-do list.
 - Changes to `unavailable` or `unknown` do not count as items being removed.
-- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can be useful in a more advanced automation.
+- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can be useful for tailoring an automation to your needs.
 
 {% include triggers/try_it.md %}
 

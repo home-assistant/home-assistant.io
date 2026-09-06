@@ -2,7 +2,7 @@
 title: "PM10 level changed"
 trigger: air_quality.pm10_changed
 domain: air_quality
-description: "Triggers after one or more PM10 levels change."
+description: "Triggers when one or more PM10 levels change."
 related_triggers:
   - air_quality.pm10_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM10 level changed** trigger fires after the PM10 (particulate matter 10 micrometers or smaller) reading on one or more air quality sensors changes by a meaningful amount. PM10 includes dust, pollen, mold spores, and other coarse particles that are stirred up by wind, traffic, construction, and household activities like vacuuming or sweeping. Spring pollen, a windy day, or a renovation project next door all send PM10 readings climbing.
 
 Imagine your robot vacuum automatically heading out for a cleanup once the dust from a nearby construction site settles, without you having to remember. Use this trigger to start an air purifier, close windows, or send a reminder whenever PM10 readings shift noticeably.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

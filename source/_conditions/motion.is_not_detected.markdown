@@ -9,8 +9,6 @@ related_conditions:
 
 The **Motion is not detected** condition passes when one or more motion sensors are not detecting motion. Use it in an automation for turning devices on or off, running security checks or sending alerts if motion is not detected. You can set up an automation to run only if motion is not being detected in a particular area of the house, for example.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

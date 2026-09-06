@@ -78,7 +78,8 @@ You must set at least one of `name` or `name_dark`. Any option you leave out kee
 
 Switch to a darker theme at sunset and back to a lighter one at sunrise.
 
-- **Trigger**: Sun: sunset, and Sun: sunrise
+- **Trigger**: Sunset
+- **Trigger**: Sunrise
 - **Action**: Set theme, picking the matching theme for each
 
 {% details "Show example YAML" %}
@@ -87,11 +88,9 @@ Switch to a darker theme at sunset and back to a lighter one at sunrise.
 automation: |
   alias: "Day and night theme"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
       id: "night"
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
       id: "day"
   actions:
     - choose:

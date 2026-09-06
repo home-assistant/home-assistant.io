@@ -9,8 +9,6 @@ related_conditions:
 
 The **Fan is off** condition is useful when an automation should continue only if a fan is not running. Use it to avoid repeated stop commands, prevent unnecessary noise at night, or start a fan only when it is currently off.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

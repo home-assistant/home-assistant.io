@@ -38,19 +38,5 @@ The button entities provide some additional LinkPlay features available on the d
 - **Time Sync**: Synchronize the device's internal clock with the current time in Home Assistant. 
 - **Restart Device**: Reboot the device, allowing for convenient troubleshooting and maintenance.
 
-## Actions
 
-The LinkPlay integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
-
-### Action: Play preset
-
-The `linkplay.play_preset` action plays a preset on a LinkPlay media player. 
-
-{% note %}
-Companion apps, such as 4stream, allow you to save music presets (for example, Spotify playlists). This action can be used to start playing these presets. 
-{% endnote %}
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | The speakers to target. To target all LinkPlay devices, use `all`.
-| `preset_number` | no | The number of the preset to play.
+{% include integrations/actions.md %}

@@ -2,7 +2,7 @@
 title: "Counter decremented"
 trigger: counter.decremented
 domain: counter
-description: "Triggers after one or more counters decrement."
+description: "Triggers when one or more counters decrement."
 related_triggers:
   - counter.incremented
   - counter.minimum_reached
@@ -10,8 +10,6 @@ related_triggers:
 
 The **Counter decremented** trigger fires when a counter {% term helper %} decreases by its configured step size.
 Use it when you want an automation to react as a count goes down, like turning something off, sending a warning that a balance is getting low, or reacting when a user-created tally is being worked back down to zero.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

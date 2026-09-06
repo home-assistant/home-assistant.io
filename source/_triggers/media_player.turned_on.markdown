@@ -2,7 +2,7 @@
 title: "Media player turned on"
 trigger: media_player.turned_on
 domain: media_player
-description: "Triggers after one or more media players turn on."
+description: "Triggers when one or more media players turn on."
 related_triggers:
   - media_player.turned_off
   - media_player.started_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player turned on** trigger fires when a media player powers on. Use it when you want Home Assistant to react as soon as the device becomes available for use, even before playback starts.
 
 Use **Media player turned on** to prepare the room, set a source, or turn on supporting devices whenever a TV, speaker, or receiver powers up.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

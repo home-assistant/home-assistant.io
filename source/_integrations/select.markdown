@@ -22,8 +22,8 @@ a limited set of selectable options for the entity.
 The state of a select entity is the value of the currently selected option.
 
 <p class='img'>
-<img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in the developer tools' />
-Screenshot showing the state of a select entity in the developer tools.
+<img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in the States tab of Tools.' />
+Screenshot showing the state of a select entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -31,8 +31,4 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-{% include integrations/actions.md %}
-
-{% include integrations/triggers.md %}
-
-{% include integrations/conditions.md %}
+{% include integrations/triggers_conditions_actions.md %}

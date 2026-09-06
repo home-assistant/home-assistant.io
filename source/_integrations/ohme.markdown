@@ -93,9 +93,6 @@ The Ohme integration provides the following entities.
 - **Current**
   - **Description**: Current draw from the charger in amperes.
   - **Available for devices**: all
-- **Energy**
-  - **Description**: Energy consumption of the charger in kWh.
-  - **Available for devices**: all
 - **Voltage**
   - **Description**: Voltage supplied to the charger. This is only available when a vehicle is connected.
   - **Available for devices**: all
@@ -127,27 +124,7 @@ The Ohme integration provides the following entities.
   - **Description**: Sets the time you need your vehicle charged by.
   - **Available for devices**: all
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: List charge slots
-
-The `ohme.list_charge_slots` action is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
-
-| Data attribute         | Optional | Description                                                  |
-|------------------------|----------|--------------------------------------------------------------|
-| `config_entry`         | No       | The config entry of the account to get the charge list from. |
-
-### Action: Set price cap
-
-The `ohme.set_price_cap` action is used to set the price cap threshold. This can be toggled by the switch **Price cap**.
-
-| Data attribute         | Optional | Description                                                 |
-|------------------------|----------|-------------------------------------------------------------|
-| `config_entry`         | No       | The config entry of the account to apply the price cap to.  |
-| `price_cap`            | No       | Threshold in 1/100ths of your local currency.               |
-
+{% include integrations/actions.md %}
 
 ## Use cases
 
@@ -162,6 +139,24 @@ Use the charge mode to maximize solar consumption:
 If you have a home battery system:
 - Charge your EV when the battery is above certain capacity
 - Pause EV charging when the battery needs replenishing
+
+## Tracking energy consumption
+
+The Ohme API does not provide an energy reading. To track cumulative energy usage (kWh) and add your charger to the Energy dashboard, you can use the [Integral](/integrations/integration/) helper to derive it from the **Power** sensor.
+
+To set this up:
+
+1. Go to **Settings** > **Devices & Services** > **Helpers**.
+2. Select **+ Create Helper** and choose **Integration - Riemann sum integral sensor**.
+3. Configure the helper:
+   - **Name**: e.g. `Ohme Energy`
+   - **Input sensor**: your Ohme `Power` sensor, e.g. `sensor.ohme_home_pro_power`
+   - **Metric prefix**: `none` — the Power sensor already reports in kW, so no additional scaling is needed
+   - **Time unit**: `Hours` — combined with the kW input, this produces a result in kWh
+   - **Integration method**: `Left Riemann sum`
+4. Select **Submit**.
+
+This creates a new sensor, e.g. `sensor.ohme_energy`, reporting cumulative energy in kWh.
 
 ## Examples
 
@@ -195,7 +190,7 @@ This integration fetches data every 30 seconds with the exception of device sett
 
 ## Known limitations
 
-The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
+The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app. It also does not provide an energy sensor directly - see [Tracking energy consumption](#tracking-energy-consumption) for a way to derive one using the Power sensor.
 
 ## Removing the integration
 

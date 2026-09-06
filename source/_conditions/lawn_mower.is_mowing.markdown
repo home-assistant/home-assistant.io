@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are mowing."
 The **Lawn mower is mowing** condition passes when one or more targeted mowers are actively mowing.
 Use it when an automation should continue only while the mower is out in the yard, like before delaying sprinklers or sending the mower back because of rain.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

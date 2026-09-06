@@ -43,7 +43,7 @@ A camera can have the following states. Not all camera integrations support all 
 
 ## Test if it works
 
-A way to test if you have set up your `camera` platform correctly, is to use **Actions** from the **Developer tools**. Choose your action from the dropdown menu **Action**, enter something like the sample below into the **data** field, and select **Perform action**.
+A way to test if you have set up your `camera` platform correctly, is to use **Actions** from the **Tools**. Choose your action from the dropdown menu **Action**, enter something like the sample below into the **data** field, and select **Perform action**.
 
 ```yaml
 entity_id: camera.living_room_camera

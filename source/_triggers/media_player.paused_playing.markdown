@@ -2,7 +2,7 @@
 title: "Media player paused playing"
 trigger: media_player.paused_playing
 domain: media_player
-description: "Triggers after one or more media players pause playing."
+description: "Triggers when one or more media players pause playing."
 related_triggers:
   - media_player.started_playing
   - media_player.stopped_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player paused playing** trigger fires when playback pauses on a media player. Use it when you want Home Assistant to react during a break without waiting for playback to stop completely.
 
 Use **Media player paused playing** to raise the lights, lower background noise, or send a reminder when something has been left paused for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

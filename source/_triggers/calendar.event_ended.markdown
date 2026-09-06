@@ -2,7 +2,7 @@
 title: "Calendar event ended"
 trigger: calendar.event_ended
 domain: calendar
-description: "Triggers when a calendar event ends."
+description: "Triggers when one or more calendar events end."
 related_triggers:
   - calendar.event_started
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Calendar event ended** trigger fires when a calendar event ends. You can also set up the trigger to fire before or after the end of the event.
 
 Use it to automate actions based on the end of a calendar event.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

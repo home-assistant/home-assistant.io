@@ -66,7 +66,7 @@ command_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to trigger the button.
+  description: The MQTT topic that Home Assistant publishes to when you press the button in Home Assistant, including when you call the `button.press` action.
   required: true
   type: string
 default_entity_id:
@@ -219,6 +219,11 @@ unique_id:
   description: An ID that uniquely identifies this button entity. If two buttons have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}

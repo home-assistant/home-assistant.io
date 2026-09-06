@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is triggered** condition passes when one or more alarm control panel {% term entities %} are in a triggered state. Use it to gate your emergency response so sirens and notifications only fire while the alarm is genuinely going off, preventing false follow-up actions after the situation has been resolved.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

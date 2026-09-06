@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed away** condition passes when one or more alarm control panel {% term entities %} are armed in away mode. Use it to stop automations that make no sense in an empty house, like skipping thermostat schedules, holding back welcome-home lighting, or pausing the robot vacuum. On the flip side, use it to _enable_ away-only automations, like dropping the heating to a setback temperature to save energy while nobody is home.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -84,11 +82,15 @@ for:
 
 When a water leak sensor detects a leak, turn the thermostat down to prevent further damage, but only if the alarm is armed in away mode. If someone is home, they should handle it themselves.
 
-- **Trigger**: State: Water leak sensor detects a leak
+- **Trigger**: State
+  - **Entity**: Water leak sensor
+  - **To**: On
 - **Condition**: Alarm is armed away
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Climate: Set temperature
+- **Action**: Set thermostat target temperature
+  - **Target**: Thermostat
+  - **Temperature**: `15`
 
 {% details "YAML example for lowering the thermostat on a leak when away" %}
 

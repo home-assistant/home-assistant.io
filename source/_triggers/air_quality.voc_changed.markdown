@@ -2,7 +2,7 @@
 title: "Volatile organic compounds level changed"
 trigger: air_quality.voc_changed
 domain: air_quality
-description: "Triggers after one or more volatile organic compound levels change."
+description: "Triggers when one or more volatile organic compound levels change."
 related_triggers:
   - air_quality.voc_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Volatile organic compounds level changed** trigger fires after the <abbr title="volatile organic compounds">VOC</abbr> reading on one or more air quality sensors changes by a meaningful amount. Volatile organic compounds are gases released by paints, cleaning products, adhesives, new furniture, cooking, and many building materials. That "new furniture smell" or the sharp scent of a freshly cleaned bathroom? Those are VOCs. Elevated levels affect indoor air quality and comfort, and prolonged exposure is a health concern.
 
 Imagine the exhaust fan in your freshly painted room switching on automatically as fumes build up, clearing the air so you don't have to keep checking. Use this trigger to boost ventilation, turn on an air purifier, or log air quality changes whenever your VOC sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

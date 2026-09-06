@@ -13,8 +13,6 @@ The **Satellite started listening** trigger fires when one or more Assist satell
 
 Use it to automate actions at the moment a voice interaction begins. For example, create an automation to switch on indicator lights that show the satellite is actively listening, to pause media playback so the satellite can hear the command clearly, or to log the time of each voice session for energy-use auditing.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

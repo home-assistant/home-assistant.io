@@ -2,7 +2,7 @@
 title: "Thermostat mode changed"
 trigger: climate.hvac_mode_changed
 domain: climate
-description: "Triggers after the HVAC mode of one or more climate devices changes."
+description: "Triggers when the mode of one or more thermostats changes."
 related_triggers:
   - climate.turned_on
   - climate.turned_off
@@ -13,9 +13,6 @@ The **Thermostat mode changed** trigger fires after the HVAC mode of a climate {
 Note: The UI labels this trigger as "Thermostat," but it works with all climate entities.
 
 You can optionally filter the trigger to fire only when the thermostat switches to one or more specific modes. Leave the mode option empty to fire on any mode change.
-
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -106,9 +103,10 @@ for:
 
 ## Good to know
 
+- The target climate entity must support the HVAC mode you want to use.
 - The available modes depend entirely on the device. Check your climate entity's documentation or the entity's attributes to see which modes are supported.
 - If you filter by mode, the trigger only fires when the device _enters_ that mode, not when it leaves it.
-- The HVAC mode is different from the `hvac_action`. The mode is what you set the device to do, while the action is what the device is currently doing (heating, cooling, or idle).
+- The HVAC mode is different from the current HVAC action. The mode is what you set the device to do, while the action is what the device is currently doing, such as heating, cooling, or idle.
 
 {% include triggers/try_it.md %}
 

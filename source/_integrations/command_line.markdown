@@ -533,7 +533,7 @@ command_line:
 
 ### Details about the upstream Home Assistant release
 
-You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
+You can see directly in the frontend (**Tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
 command_line:
@@ -739,12 +739,4 @@ command_line:
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
 
-## Actions
-
-Available actions: `reload`.
-
-### Action: Reload
-
-The `command_line.reload` action allows you to reload all `command_line` entities.
-
-This action takes no data attributes.
+{% include integrations/actions.md %}

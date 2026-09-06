@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - valve
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://ouman.fi/en/product/ouman-eh-800-and-eh-800b/
     title: Ouman EH-800 manufacturer website

@@ -2,7 +2,7 @@
 title: "Nitrogen dioxide level crossed threshold"
 trigger: air_quality.no2_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more nitrogen dioxide levels cross a threshold."
+description: "Triggers when one or more nitrogen dioxide levels cross a threshold."
 related_triggers:
   - air_quality.no2_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrogen dioxide level crossed threshold** trigger fires when the nitrogen dioxide (NO2) reading on one or more air quality sensors crosses a specific level. Nitrogen dioxide is a reddish-brown gas with a sharp odor, produced primarily by vehicle traffic and gas appliances. Elevated NO2 irritates the airways and worsens respiratory conditions like asthma, so the WHO recommends keeping short-term exposure below 25 micrograms per cubic meter.
 
 If you live near a busy road, this trigger is a game-changer. Have your ventilation system close its fresh-air intake automatically when street-side NO2 rises past your limit, keeping traffic pollution out of the house. Or get an alert on your phone during rush hour so you know to keep the kids inside until levels drop. Your home watches the air for you and reacts the instant conditions change.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

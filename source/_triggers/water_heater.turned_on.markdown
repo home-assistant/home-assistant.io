@@ -2,7 +2,7 @@
 title: "Water heater turned on"
 trigger: water_heater.turned_on
 domain: water_heater
-description: "Triggers after one or more water heaters turn on, regardless of the operation mode."
+description: "Triggers when one or more water heaters turn on, regardless of the operation mode."
 related_triggers:
   - water_heater.turned_off
   - water_heater.operation_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater turned on** trigger fires when a water heater {% term entity %} changes from off to on. It does not depend on which operation mode the water heater uses after turning on. Use it when you want to react as soon as hot water heating becomes active again, like starting a recirculation pump or restoring a normal schedule.
 
 When you target more than one water heater, the **Trigger when** option controls whether the automation runs for each water heater that turns on, only for the first one, or only after all targeted water heaters are on.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

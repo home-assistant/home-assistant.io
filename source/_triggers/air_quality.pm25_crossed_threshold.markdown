@@ -2,7 +2,7 @@
 title: "PM2.5 level crossed threshold"
 trigger: air_quality.pm25_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM2.5 levels cross a threshold."
+description: "Triggers when one or more PM2.5 levels cross a threshold."
 related_triggers:
   - air_quality.pm25_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM2.5 level crossed threshold** trigger fires when the PM2.5 (particulate matter 2.5 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM2.5 is one of the most widely tracked air quality metrics because these fine particles travel deep into the lungs and affect your health. When PM2.5 rises above 25 μg/m³, air quality is already poor enough to bother sensitive groups, including children and anyone with asthma or allergies.
 
 Have your air purifier start the second PM2.5 crosses the safe limit, or close your windows automatically when wildfire smoke pushes outdoor readings into unhealthy territory. You also get a notification on your phone so you always know what is happening, whether you are at home or away. This trigger helps your home react to air quality changes faster than you ever could on your own.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

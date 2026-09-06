@@ -36,8 +36,8 @@ The state of a to-do list entity is a number, which represents the number of
 incomplete items in the list.
 
 <p class='img'>
-<img src='/images/integrations/todo/state_todo.png' alt='Screenshot showing the state of a to-do list entity in the developer tools' />
-Screenshot showing the state of a to-do list entity in the developer tools.
+<img src='/images/integrations/todo/state_todo.png' alt='Screenshot showing the state of a to-do list entity in the States tab of Tools.' />
+Screenshot showing the state of a to-do list entity in {% my developer_states title="Settings > Tools > States" %}.
 </p>
 
 In addition, the entity can have the following states:
@@ -61,8 +61,6 @@ item to a pre-configured to-do list.
 ## To-do list automation examples
 
 To-do list triggers and conditions make it easier to react to changes in a list or check whether a list still needs attention.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include docs/paste_yaml_tip.md %}
 

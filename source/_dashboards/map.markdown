@@ -92,6 +92,11 @@ default_zoom:
   description: The default zoom level of the map. Use a lower number to zoom out and a higher number to zoom in.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
+scale_ruler:
+  required: false
+  description: Shows a ruler that indicates the current scale of the map.
+  type: boolean
+  default: false
 theme_mode:
   required: false
   description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'

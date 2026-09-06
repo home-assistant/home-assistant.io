@@ -53,6 +53,8 @@ If using `media_player.play_media`, then note the `media_content_id` payload can
 - A streaming provider URI. For example, `spotify://artist/12345`.
 - A streaming provider URL. For example, `https://open.spotify.com/track/31cWPvM99ZHxMl3mdgiw4I`.
 
+The `media_player.play_media` action runs as the Home Assistant user who made the request if their username matches a Music Assistant user. This affects the playlog entry and any provider filtering configured for that user. The `media_player.play_media` action doesn't let you choose the user, so if you call it from a script or automation and want the request attributed to a specific user, use the Music Assistant [Play media](/actions/music_assistant.play_media/) action instead and set its **Username** field.
+
 If using `media_player.browse_media`, then the `media_content_id` payload must be a URI of the form `library://artist/1`, `library://album/20`, or `spotify://album/5zj4Ej0FrlJQaSo0d6cttH`. The type of item that the URI refers to must be an album or artist.
 
 These URIs can, for example, be obtained from the output of the [Get library items](/actions/music_assistant.get_library/) or [Search Music Assistant](/actions/music_assistant.search/) actions, or the `media_player.browse_media` action from Home Assistant.

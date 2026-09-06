@@ -85,7 +85,7 @@ context:
 
 {% include triggers/try_it.md %}
 
-For this trigger, there is no target entity to change. To test it, fire an event from {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}.
+For this trigger, there is no target entity to change. To test it, fire an event from {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
 
 {% include triggers/more_examples.md %}
 

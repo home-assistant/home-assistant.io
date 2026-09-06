@@ -9,8 +9,6 @@ related_conditions:
 
 The **All to-do items completed** condition helps you check whether a list is fully done before an automation continues. Use it when something should happen only after every item on a checklist is complete, like locking up for the night or sending a final reminder that the day is wrapped up.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

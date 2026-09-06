@@ -20,12 +20,14 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
+  - Cover
   - Light
   - Number
   - Select
   - Sensor
   - Switch
 ha_platforms:
+  - cover
   - diagnostics
   - light
   - number
@@ -87,7 +89,19 @@ The Liebherr appliances operate based on the temperature unit selected on the de
 
 ## Supported functionality
 
-The **Liebherr** integration provides temperature monitoring, climate control, presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+The **Liebherr** integration provides temperature monitoring, setpoint control, door control (AutoDoor), presentation lighting, and special feature management for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Covers
+
+The integration creates cover entities for appliances equipped with an AutoDoor feature. The AutoDoor allows you to open and close the appliance door remotely.
+
+- **AutoDoor**: Controls the automatic door. Supports opening and closing the door.
+
+For appliances with multiple cooling zones, a separate cover entity is created for each zone that has an AutoDoor:
+
+- **Top zone AutoDoor**: Controls the automatic door for the uppermost compartment.
+- **Middle zone AutoDoor**: Controls the automatic door for the middle compartment (if present).
+- **Bottom zone AutoDoor**: Controls the automatic door for the lowermost compartment (if present).
 
 ### Lights
 

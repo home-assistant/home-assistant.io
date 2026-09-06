@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are returning to the dock."
 The **Lawn mower is returning** condition passes when one or more targeted mowers are on their way back to the dock.
 Use it when an automation should continue only during the return trip, like keeping a path light on or waiting to start another yard task.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -87,7 +85,7 @@ If the dock is in a darker part of the yard, this automation checks whether the 
 - **Condition**: Lawn mower is returning
   - **Target**: Backyard mower
   - **For at least**: 00:00:30
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for keeping the path lit" %}
@@ -104,8 +102,7 @@ automation: |
         entity_id: lawn_mower.backyard
       options:
         for: "00:00:30"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

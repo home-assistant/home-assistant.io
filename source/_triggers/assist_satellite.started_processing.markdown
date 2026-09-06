@@ -13,8 +13,6 @@ The **Satellite started processing** trigger fires when one or more Assist satel
 
 Use it to automate actions during the brief moment the satellite is thinking. For example, create an automation to show a visual indicator on a display that the request is being processed, to log pipeline invocations for usage auditing, or to start a timeout helper that alerts you if processing takes longer than expected and may point to a resource-heavy pipeline.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

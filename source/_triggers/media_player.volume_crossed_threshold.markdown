@@ -2,7 +2,7 @@
 title: "Media player volume crossed threshold"
 trigger: media_player.volume_crossed_threshold
 domain: media_player
-description: "Triggers after the volume of one or more media players crosses a threshold."
+description: "Triggers when the volume of one or more media players crosses a threshold."
 related_triggers:
   - media_player.volume_changed
   - media_player.muted
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player volume crossed threshold** trigger fires when volume crosses a threshold you define. Use it when you care about the crossing itself, like moving above a limit or dropping below one, instead of every volume update.
 
 Use **Media player volume crossed threshold** to react when listening gets too loud, when background music becomes too quiet, or when volume moves into or out of a range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

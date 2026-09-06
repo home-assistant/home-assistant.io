@@ -2,15 +2,13 @@
 title: "Alarm armed night"
 trigger: alarm_control_panel.armed_night
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in night mode."
+description: "Triggers when one or more alarms become armed in night mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed night** trigger fires after an alarm control panel {% term entity %} switches to the armed night state. Night mode is designed for sleeping hours, keeping perimeter sensors and select interior zones active while allowing movement in bedrooms and bathrooms. Use this trigger to kick off a bedtime routine: turn off downstairs lights, lower the thermostat, and send a goodnight confirmation so you drift off knowing the house is secure.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

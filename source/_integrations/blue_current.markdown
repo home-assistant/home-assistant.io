@@ -79,18 +79,6 @@ The Blue Current integration provides the following buttons:
 - Reboot
 - Stop charge session
 
-## Actions
-The following actions are provided by the Blue Current integration:
-
-### Action: Start charge session
-
-The `blue_current.start_charge_session` action allows you to start a new charge session. When no charging card ID is provided, no charging card will be used.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `device_id` | no | Charge point device ID |
-| `charging_card_id` | yes | Charging card ID that will be used to start a charge session. |
-
 ## Switch
 
 The Blue Current integration provides the following switches:
@@ -101,3 +89,5 @@ The Blue Current integration provides the following switches:
   - When enabled, visitors can't use the charge point. Only linked charging cards are allowed.
 - Toggle charge point block
   - Enables or disables a charge point.
+ 
+{% include integrations/actions.md %}

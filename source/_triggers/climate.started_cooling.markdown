@@ -2,7 +2,7 @@
 title: "Thermostat started cooling"
 trigger: climate.started_cooling
 domain: climate
-description: "Triggers after one or more thermostats start cooling."
+description: "Triggers when one or more thermostats start cooling."
 related_triggers:
   - climate.started_heating
   - climate.started_drying
@@ -14,8 +14,6 @@ The **Thermostat started cooling** trigger fires after a thermostat {% term enti
 Use this trigger to react to the start of active cooling, for example to turn on a fan to distribute cool air or to close window coverings to block out heat.
 
 When you target more than one thermostat, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted thermostat starts cooling, only after all targeted thermostats have started cooling, or every single time any of them start cooling.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

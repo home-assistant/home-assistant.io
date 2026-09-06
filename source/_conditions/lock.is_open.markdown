@@ -7,9 +7,7 @@ related_conditions:
   - lock.is_locked
 ---
 
-The **Lock is open** condition helps you check whether a lock is currently open. Use it when an automation should continue only while a door is still open, like leaving a light on or delaying another action until the door is closed again.
-
-{% include integrations/labs_entity_triggers_note.md %}
+The **Lock is open** condition helps you check whether a lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. A lock reaches this state through the [Open](/actions/lock.open/) action on locks that support it. Use it when an automation should continue only while the lock is in the open state.
 
 {% include conditions/ui_header.md %}
 
@@ -76,16 +74,16 @@ for:
 ## Good to know
 
 - Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- Not every lock reports an open state. Use this condition only with locks that support open-state reporting.
-- To check for the secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
+- Only locks that support the [Open](/actions/lock.open/) action can reach the open state. On other locks, this condition never passes.
+- To check for the secured state instead, use [Lock is locked](/conditions/lock.is_locked/).
 
 {% include conditions/try_it.md %}
 
 {% include conditions/more_examples.md %}
 
-### Automation: keep the hallway light on while the front door is open
+### Automation: keep the hallway light on while the front door lock is open
 
-If the front door stays open while you carry things inside, it helps to keep the hallway lit. This automation checks every minute and turns the light on while the door remains open.
+If the front door lock stays open while you carry things inside, it helps to keep the hallway lit. This automation checks every minute and turns the light on while the lock remains in the open state.
 
 - **Trigger**: Time pattern: Every 1 minute
 - **Condition**: Lock is open
@@ -94,11 +92,11 @@ If the front door stays open while you carry things inside, it helps to keep the
 - **For at least**: 00:00:10
 - **Action**: Turn on
 
-{% details "YAML example for keeping a light on while the door is open" %}
+{% details "YAML example for keeping a light on while the lock is open" %}
 
 {% example %}
 automation: |
-  alias: "Keep the hallway light on while the door is open"
+  alias: "Keep the hallway light on while the lock is open"
   triggers:
     - trigger: time_pattern
       minutes: "/1"
@@ -119,7 +117,7 @@ automation: |
 
 ### Automation: send a reminder if any patio door lock stays open
 
-If you want a simple reminder before bed, check whether any patio door is still open. This automation runs at night and sends a message if any targeted patio lock has stayed open for 2 minutes.
+If you want a simple reminder before bed, check whether any patio lock is still open. This automation runs at night and sends a message if any targeted patio lock has stayed in the open state for 2 minutes.
 
 - **Trigger**: Time: 22:30
 - **Condition**: Lock is open
@@ -129,11 +127,11 @@ If you want a simple reminder before bed, check whether any patio door is still 
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for a patio door reminder" %}
+{% details "YAML example for a patio lock reminder" %}
 
 {% example %}
 automation: |
-  alias: "Remind me if a patio door is still open"
+  alias: "Remind me if a patio lock is still open"
   triggers:
     - trigger: time
       at: "22:30:00"
@@ -149,8 +147,8 @@ automation: |
       target:
         entity_id: notify.my_device
       data:
-        title: "Patio door still open"
-        message: "A patio door has remained open for at least 2 minutes."
+        title: "Patio lock still open"
+        message: "A patio lock has stayed open for at least 2 minutes."
 {% endexample %}
 
 {% enddetails %}

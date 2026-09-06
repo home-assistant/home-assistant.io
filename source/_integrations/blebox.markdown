@@ -23,12 +23,15 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
   - switch
   - update
 ha_integration_type: device
 ha_zeroconf: true
+ha_dhcp: true
+ha_quality_scale: gold
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).
@@ -88,33 +91,37 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 
 ### gateBox
 
-This integration adds the Blebox device as a cover entity to Home Assistant.
+This integration adds the BleBox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
 - Open (trigger primary output)
 - Close (trigger primary output)
-- Stop (trigger secondary output)
 - Gate state (open, close, unknown)
 
 #### Additional features
 
-- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
+The secondary output is exposed differently depending on how you configure it in the wBox app or on the device's website:
+
+- If it is set to stop, the cover entity supports **Stop**.
+- If it is set to walk-in gate or another function, a button entity is added to trigger that output.
 
 ### gateBox Pro
 
-This integration adds the Blebox device as a cover entity to Home Assistant.
+This integration adds the BleBox device as a cover entity to Home Assistant.
 
 #### Key supported features
 
 - Open (trigger primary output)
 - Close (trigger primary output)
-- Stop (trigger secondary output)
 - Gate state (open, close, unknown)
 
 #### Additional features
 
-- "stop" requires setting your device's secondary trigger as stop (via website or phone app).
+The secondary output is exposed differently depending on how you configure it in the wBox app or on the device's website:
+
+- If it is set to stop, the cover entity supports **Stop**.
+- If it is set to walk-in gate or another function, a button entity is added to trigger that output.
 
 ### doorBox
 
@@ -170,7 +177,7 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### shutterBoxDC
 
@@ -194,11 +201,11 @@ This integration adds the Blebox device as a cover entity to Home Assistant.
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### switchBox
 
-This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as a switch entity and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -206,10 +213,11 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - Off
 - Active power measurement
 - Last hour energy consumption measurement
+- Voltage measurement
 
 ### switchBox DIN
 
-This integration adds the Blebox device as a switch entity and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as a switch entity and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -217,10 +225,11 @@ This integration adds the Blebox device as a switch entity and 2 sensor entities
 - Off
 - Active power measurement
 - Last hour energy consumption measurement
+- Voltage measurement
 
 ### switchBoxD
 
-This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -228,10 +237,11 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - Off
 - Active power measurement
 - Last hour energy consumption measurement
+- Voltage measurement
 
 ### switchBoxD DIN
 
-This integration adds the Blebox device as 2 switch entities and 2 sensor entities to Home Assistant.
+This integration adds the Blebox device as 2 switch entities and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -239,6 +249,7 @@ This integration adds the Blebox device as 2 switch entities and 2 sensor entiti
 - Off
 - Active power measurement
 - Last hour energy consumption measurement
+- Voltage measurement
 
 ### switchBoxDC
 
@@ -444,6 +455,30 @@ This integration adds the Blebox device as a binary sensor entity to Home Assist
 
 - Periodic read of state of rain detection
 
+### inputSensorD
+
+This integration adds the Blebox device as 2 binary sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of state of 2 input sensors
+
+{% note %}
+If you need an immediate response (without local polling delay), the device can also be integrated using webhooks and automation, in the same way as [actionBox, actionBoxS, and proxiBox](#actionbox-actionboxs-and-proxibox).
+{% endnote %}
+
+### inputSensorQ
+
+This integration adds the Blebox device as 4 binary sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of state of 4 input sensors
+
+{% note %}
+If you need an immediate response (without local polling delay), the device can also be integrated using webhooks and automation, in the same way as [actionBox, actionBoxS, and proxiBox](#actionbox-actionboxs-and-proxibox).
+{% endnote %}
+
 ### airSensor
 
 This integration adds the Blebox device as a sensor entity to Home Assistant.
@@ -454,6 +489,15 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
   - pm1
   - pm2.5
   - pm10
+
+### co2Sensor
+
+This integration adds the Blebox device as 2 sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of CO2 concentration
+- Periodic read of CO2 level description
 
 ### windSensor PRO
 
@@ -471,13 +515,27 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of illuminance (unit: lx)
 
-### smartMeter DIN
+### openSensor
+
+This integration adds the Blebox device as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (2 or 3 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
+
+### energyMeter DIN
 
 This integration adds the Blebox device as multiple sensor entities to Home Assistant.
 
 #### Key supported features
 
-- Periodic read of energy consumption (forward and reverse)
+- Periodic read of energy consumption (active and reactive, both forward and reverse)
 - Periodic read of power (active, reactive, and apparent)
 - Periodic read of voltage, current, and frequency
 
@@ -602,7 +660,7 @@ This integration adds the Simon 24 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 24 GO SWITCHSHUTT
 
@@ -718,7 +776,7 @@ This integration adds the Simon 54 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 54 GO SWITCHSHUTT
 
@@ -834,11 +892,11 @@ This integration adds the Simon 55 GO device ("blebox inside") as a cover entity
 - Close
 - Stop
 - Position
-- Tilt regulation
+- Tilt regulation (90-degree and 180-degree modes)
 
 ### Simon 55 GO SOCKET (TEGZ1W.02)
 
-This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 2 sensor entities to Home Assistant.
+This integration adds the Simon 55 GO device ("blebox inside") as a switch entity and 3 sensor entities to Home Assistant.
 
 #### Key supported features
 
@@ -846,6 +904,7 @@ This integration adds the Simon 55 GO device ("blebox inside") as a switch entit
 - Off
 - Active power measurement
 - Last hour energy consumption measurement
+- Voltage measurement
 
 ### Simon 55 GO SWITCHSHUTT
 
@@ -1107,7 +1166,7 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 
 #### Key supported features
 
-- Periodic read of energy consumption (forward and reverse)
+- Periodic read of energy consumption (active and reactive, both forward and reverse)
 - Periodic read of power (active, reactive, and apparent)
 - Periodic read of voltage, current, and frequency
 
@@ -1116,6 +1175,20 @@ This integration adds the Pstryk device ("blebox inside") as multiple sensor ent
 - Option to configure the number of phases (1 or 3) is available in the wBox app.
 - Option to enable/disable reverse energy measurement is available in the wBox app.
 - After a settings change, the device needs to be reloaded.
+
+### Drutex SmartWindow
+
+This integration adds the Drutex device ("blebox inside") as a sensor entity and a binary sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of open status (from 2 to 5 statuses depending on configuration)
+- Periodic read of open/closed state (binary sensor)
+
+#### Additional features
+
+- An option to change the detection mode is available in the wBox app.
+- After changing settings, the device needs to be reloaded.
 
 ## Examples
 

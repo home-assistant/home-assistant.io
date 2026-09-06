@@ -9,8 +9,6 @@ related_conditions:
 
 The **Lock is unlocked** condition helps you check whether a lock is currently unlocked. Use it when an automation should continue only while a door is not secured, like reminding you to lock up before bed.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

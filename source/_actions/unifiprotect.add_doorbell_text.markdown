@@ -4,7 +4,7 @@ action: unifiprotect.add_doorbell_text
 domain: unifiprotect
 description: "Adds a custom message that can be shown on a UniFi Protect doorbell."
 related_actions:
-  - action: unifiprotect.remove_doorbell_text
+  - unifiprotect.remove_doorbell_text
 ---
 
 With this action, you can add a custom message to the list of texts available on your UniFi Protect doorbells. Once added, you can select the message on the doorbell so visitors see it on the screen.

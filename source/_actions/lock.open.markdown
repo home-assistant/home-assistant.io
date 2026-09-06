@@ -9,7 +9,6 @@ related_actions:
 
 The **Open lock** action lets you unlatch a supported lock from an automation or script. Use it when you want Home Assistant to open a door for a short, specific moment, like letting someone in after you verify who is there.
 
-The difference between **Open lock** and [Unlock lock](/actions/lock.unlock/) is that **Open** unlatches the door on locks that support that feature, while **Unlock** only changes the lock to the unlocked state. If you want the door ready to push open right away, use **Open**. If you only want to unlock the door, use [Unlock](/actions/lock.unlock/).
 The difference between **Open lock** and [Unlock lock](/actions/lock.unlock/) is that **Open lock** unlatches the door on locks that support that feature, while **Unlock lock** only changes the lock to the unlocked state. If you want the door ready to push open right away, use **Open lock**. If you only want to unlock the door, use [Unlock lock](/actions/lock.unlock/).
 
 {% include actions/ui_header.md %}

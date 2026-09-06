@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Turn off vacuum cleaner**.
+3. Add an action and search for **Turn off vacuum cleaner**.
 4. Choose the vacuum, area, or device to turn off.
 5. Select **Save**.
 
@@ -57,7 +57,7 @@ target:
 
 If your vacuum supports a separate power state, this automation turns it off after it has finished cleaning and returned to the dock.
 
-- **Trigger**: Vacuum returned to dock
+- **Trigger**: Vacuum cleaner returned to dock
 - **Action**: Turn off vacuum
 - **Target**: Downstairs vacuum
 
@@ -67,7 +67,7 @@ If your vacuum supports a separate power state, this automation turns it off aft
 automation: |
   alias: "Turn off vacuum after docking"
   triggers:
-    - trigger: vacuum.docked
+    - trigger: vacuum.returned_to_dock
       target:
         entity_id: vacuum.downstairs
   actions:

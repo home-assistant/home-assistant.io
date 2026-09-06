@@ -2,7 +2,7 @@
 title: "Sulphur dioxide level changed"
 trigger: air_quality.so2_changed
 domain: air_quality
-description: "Triggers after one or more sulphur dioxide levels change."
+description: "Triggers when one or more sulphur dioxide levels change."
 related_triggers:
   - air_quality.so2_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Sulphur dioxide level changed** trigger fires after the sulphur dioxide (SO2) reading on one or more air quality sensors changes by a meaningful amount. Sulphur dioxide is a sharp-smelling gas released by burning fossil fuels (especially coal and oil), volcanic activity, and certain industrial processes. It irritates the respiratory system and contributes to acid rain. If you live near an industrial area, a power plant, or in a volcanically active region, SO2 levels are worth watching closely.
 
 Imagine your outdoor vents sealing automatically when an industrial plume drifts your way, keeping that acrid air out of your home. Use this trigger to activate air filtration, close outdoor vents, or send notifications whenever your SO2 sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

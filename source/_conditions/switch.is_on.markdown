@@ -9,8 +9,6 @@ related_conditions:
 
 The **Switch is on** condition is useful when an automation should continue only if a switch is already activated. Use it to avoid duplicate actions, confirm a power plug is supplying power before doing something else, or branch your automation based on whether a switch is currently in use.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

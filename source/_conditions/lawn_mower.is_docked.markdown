@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are docked."
 The **Lawn mower is docked** condition passes when one or more targeted mowers are currently docked.
 Use it when you only want an automation to continue after the mower is safely back at the dock, like before turning off a yard light or sending a completion summary.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

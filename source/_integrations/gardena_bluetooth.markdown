@@ -4,6 +4,7 @@ description: Instructions on how to integrate Gardena Bluetooth devices within H
 ha_category:
   - Binary sensor
   - Button
+  - Image
   - Number
   - Select
   - Sensor
@@ -19,6 +20,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - image
   - number
   - select
   - sensor
@@ -30,7 +32,7 @@ ha_integration_type: device
 
 The **Gardena Bluetooth** {% term integration %} allows users to integrate their Gardena Bluetooth devices into Home Assistant.
 
-See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps), [aqua contours](#aqua-contours).
+See the device sections for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps), [pressure tank units](#pressure-tank-units), [aqua contours](#aqua-contours).
 
 {% include integrations/config_flow.md %}
 
@@ -78,10 +80,19 @@ Gardena Bluetooth lawn mowers are currently not supported due to custom protocol
 - Garden Pump ([9058-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6300-silentcomfort/970645301.html))
 - Garden Pump ([9059-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6500-silentcomfort/970645501.html))
 
+## Pressure tank units
+
+- Pressure Tank Unit 5600 SilentComfort ([9067-20](https://www.gardena.com/int/products/pumps/domestic-water-supply-pumps/pressure-tank-unit-5600-silentcomfort/970646301.html))
+- Pressure Tank Unit 6300 SilentComfort ([9068-20](https://www.gardena.com/int/products/pumps/domestic-water-supply-pumps/pressure-tank-unit-6300-silentcomfort/970646501.html))
+
+In addition to the pump controls, pressure tank units provide sensors for the current tank pressure and water temperature.
+
 ## Aqua Contours
 
 - Aqua Precise Overground ([16000-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-irrigation-system/970746801.html))
 - Aqua Precise Underground ([16001-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-pipeline-irrigation-system/970746901.html))
+
+For these devices, the integration provides diagnostic sensors for flow and lets you configure positions and names. Watering contours are exposed as image entities.
 
 ### Limitations
 

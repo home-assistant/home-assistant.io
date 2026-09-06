@@ -2,15 +2,13 @@
 title: "To-do item completed"
 trigger: todo.item_completed
 domain: todo
-description: "Triggers when a to-do item is marked as done."
+description: "Triggers when one or more to-do items are marked as done."
 related_triggers:
   - todo.item_added
   - todo.item_removed
 ---
 
 The **To-do item completed** trigger is useful when you want an automation to run after someone finishes a task on a list. You can use it to lock up for the night, clean up completed items, or send a confirmation that a chore is done.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

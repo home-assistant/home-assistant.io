@@ -2,7 +2,7 @@
 title: "Awning closed"
 trigger: cover.awning_closed
 domain: cover
-description: "Triggers after one or more awnings close."
+description: "Triggers when one or more awnings close."
 related_triggers:
   - cover.awning_opened
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Awning closed** trigger fires when a targeted awning changes to closed. Use it when you want Home Assistant to react as soon as an awning closes.
 
 This trigger is useful for lighting, notifications, and routines that should run as soon as an awning closes.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -77,9 +75,9 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `awning` device class.
-- If an awning comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
-- The `for` option fires the automation only if the awning stays closed for the entire time you set.
+- Use a cover entity with the awning device class.
+- If an awning comes back from **Unavailable** or **Unknown**, that recovery does not count as the closing.
+- The **For at least** option fires the automation only if the awning stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

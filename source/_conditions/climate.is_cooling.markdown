@@ -12,8 +12,6 @@ related_conditions:
 
 The **Thermostat is cooling** condition passes when a thermostat {% term entity %} is actively cooling. A thermostat set to cool mode does not necessarily run continuously. It cycles on and off to maintain the target temperature. Use **Thermostat is cooling** to confirm the system is in an active cooling cycle, rather than just set to cool mode and idle.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Thermostat is cooling** in an automation:

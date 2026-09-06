@@ -19,7 +19,7 @@ To use an MQTT lawn mower in your installation, add the following to your {% ter
 # Example configuration.yaml entry
 mqtt:
   - lawn_mower:
-      command_topic: topic
+      start_mowing_command_topic: topic
       name: "Test Lawn Mower"
 ```
 
@@ -229,6 +229,11 @@ unique_id:
   description: An ID that uniquely identifies this lawn mower. If two lawn mowers have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}

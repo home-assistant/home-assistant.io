@@ -2,7 +2,7 @@
 title: "Power changed"
 trigger: power.changed
 domain: power
-description: "Triggers after one or more power values change."
+description: "Triggers when one or more power values change."
 related_triggers:
   - power.crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Power changed** trigger fires when a power reading changes and the new value matches the threshold you set. You can react to any change, only when the new reading is above or below a limit, or only when it lands inside or outside a range.
 
 Use **Power changed** when you want to react to the latest power reading right away, such as noticing when an appliance starts drawing noticeable power or when a circuit moves outside its normal operating range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

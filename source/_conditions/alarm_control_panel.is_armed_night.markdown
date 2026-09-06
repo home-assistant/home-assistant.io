@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed night** condition passes when one or more alarm control panel {% term entities %} are armed in night mode. Use it to adjust how your home behaves while everyone is asleep. Hallway lights dim to a gentle glow instead of full brightness, the doorbell stops chiming through the speakers, and automations that would disturb sleep simply don't run.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -84,11 +82,12 @@ for:
 
 When the hallway motion sensor detects movement, turn on the hallway light at 10% brightness, but only while the alarm is armed in night mode. During the day, you want full brightness instead.
 
-- **Trigger**: State: Hallway motion sensor detects motion
+- **Trigger**: State
+  - **Entity**: Hallway motion sensor
+  - **To**: On
 - **Condition**: Alarm is armed night
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
-- **Action**: Light: Turn on at 10% brightness
+  - **Target**: Hallway alarm panel
+- **Action**: Turn on light (at 10% brightness)
 
 {% details "YAML example for a dim hallway nightlight when armed night" %}
 
@@ -103,8 +102,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_night
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.turn_on
       target:

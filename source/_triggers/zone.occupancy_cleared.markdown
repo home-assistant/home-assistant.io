@@ -2,15 +2,13 @@
 title: "Zone occupancy cleared"
 trigger: zone.occupancy_cleared
 domain: zone
-description: "Triggers when a zone changes from occupied to empty."
+description: "Triggers when one or more zones transition from occupied to unoccupied."
 related_triggers:
   - zone.occupancy_detected
   - zone.left
 ---
 
 The **Zone occupancy cleared** trigger fires when a selected zone changes from occupied to empty. Use it when an automation should run after everyone has left a place, without listing each person or device tracker in the trigger.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

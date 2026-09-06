@@ -11,8 +11,6 @@ related_conditions:
 
 The **PM4 value** condition passes when a PM4 sensor's reading meets a specific level. PM4 covers particulate matter smaller than 4 micrometers in diameter, a size range that bridges fine and coarse particles. Some sensors report PM4 alongside PM2.5 and PM10, giving you a more complete picture of what is floating in the air. This condition lets your automation react when PM4 readings are elevated, for example sending a notification that your air filter is due for a check.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

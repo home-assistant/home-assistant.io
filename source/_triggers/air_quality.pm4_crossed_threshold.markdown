@@ -2,7 +2,7 @@
 title: "PM4 level crossed threshold"
 trigger: air_quality.pm4_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM4 levels cross a threshold."
+description: "Triggers when one or more PM4 levels cross a threshold."
 related_triggers:
   - air_quality.pm4_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM4 level crossed threshold** trigger fires when the PM4 (particulate matter 4 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM4 sits between the finest particles (PM2.5) and the coarser dust and pollen (PM10), capturing a range of irritants that affect breathing and comfort. Sources include household dust, pollen, mold spores, and cooking emissions.
 
 Think of a nursery where clean air really matters. This trigger lets you boost the air filter to high speed the moment PM4 levels rise, or send a notification to your phone when spring pollen pushes particle counts past your comfort level. You stay one step ahead, keeping the air cleaner for young children and anyone with allergies.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

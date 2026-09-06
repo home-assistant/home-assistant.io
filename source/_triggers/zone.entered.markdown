@@ -1,5 +1,5 @@
 ---
-title: "Entered zone"
+title: "Zone entered"
 trigger: zone.entered
 domain: zone
 description: "Triggers when one or more people or device trackers enter a zone."
@@ -8,11 +8,9 @@ related_triggers:
   - zone.occupancy_detected
 ---
 
-The **Entered zone** trigger fires when a person or device tracker enters a selected zone. Use it to start an automation when someone arrives home, reaches work, or enters another place that you track with a zone.
+The **Zone entered** trigger fires when a person or device tracker enters a selected zone. Use it to start an automation when someone arrives home, reaches work, or enters another place that you track with a zone.
 
 When you target more than one person or device tracker, the **Trigger when** option controls whether the automation runs for each arrival, only the first arrival, or only after all selected targets are in the zone.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -21,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Entered zone**.
+4. From the search box, search for and select **Zone entered**.
 5. Select what you want to monitor. Under **By target**, choose one or more people or device trackers.
 6. Under **Zone**, select the zone to monitor.
 7. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All**.
@@ -99,7 +97,7 @@ You can also select different target types in one trigger.
 
 - This trigger uses the `in_zones` attribute reported by person and device tracker entities.
 - If the selected person or device tracker is `unknown` or `unavailable`, Home Assistant does not treat that state as entering the zone.
-- To react when a target leaves the same zone, use [Left zone](/triggers/zone.left/).
+- To react when a target leaves the same zone, use [Zone left](/triggers/zone.left/).
 
 {% include triggers/try_it.md %}
 
@@ -109,7 +107,7 @@ You can also select different target types in one trigger.
 
 When Nina enters the work zone, this automation sends a notification to your phone.
 
-- **Trigger**: Entered zone
+- **Trigger**: Zone entered
   - **Target**: Nina (`person.nina`)
   - **Zone**: Work (`zone.work`)
 - **Action**: Send a notification message
@@ -140,7 +138,7 @@ automation: |
 
 When the first selected person enters the home zone after sunset, this automation turns on the hallway light.
 
-- **Trigger**: Entered zone
+- **Trigger**: Zone entered
   - **Target**: Nina and Alex
   - **Zone**: Home (`zone.home`)
   - **Trigger when**: First

@@ -84,13 +84,4 @@ The update platform shows if the controller app requires an update.
 
 With MyLights or MyPlace, light entities will be created for each light.
 
-## Actions
-
-### Action: Set time to
-
-The `advantage_air.set_time_to` action is used to set the On/Off Timer using the relevant sensor entity.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
-| `minutes` | no | Number of minutes between `0` and `720`.
+{% include integrations/actions.md %}

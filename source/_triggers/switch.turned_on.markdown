@@ -2,14 +2,12 @@
 title: "Switch turned on"
 trigger: switch.turned_on
 domain: switch
-description: "Triggers after one or more switches turn on."
+description: "Triggers when one or more switches turn on."
 related_triggers:
   - switch.turned_off
 ---
 
 The **Switch turned on** trigger is useful when you want something else to happen as soon as a switch is activated. Use it to start a related device, send a reminder, or begin a timed routine after a switch has been on for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

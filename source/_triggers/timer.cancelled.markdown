@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer cancelled** trigger fires when a timer is cancelled before it reaches zero. Use it when you want to react differently to a manual cancel than to a finished countdown.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

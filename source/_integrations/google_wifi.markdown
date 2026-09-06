@@ -49,8 +49,6 @@ monitored_conditions:
     new_version:
       description: Latest available firmware version. If router is up-to-date, this value shows to `Latest`.
     uptime:
-      description: Days since router has been turned on.
-    last_restart:
       description: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
     local_ip:
       description: Local public IP address.

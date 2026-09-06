@@ -2,14 +2,12 @@
 title: "Smoke detected"
 trigger: air_quality.smoke_detected
 domain: air_quality
-description: "Triggers after one or more smoke sensors start detecting smoke."
+description: "Triggers when one or more smoke sensors start detecting smoke."
 related_triggers:
   - air_quality.smoke_cleared
 ---
 
 The **Smoke detected** trigger fires the moment a smoke sensor {% term entity %} starts detecting smoke, giving you the earliest possible warning of a potential fire. Whether you are deep asleep at 3 AM, away on vacation, or simply in another part of the house, this trigger makes sure Home Assistant reacts on your behalf. Flash the lights to wake sleeping children, unlock doors to speed up evacuation, or send an urgent alert to your phone so you always know what is happening at home.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -87,7 +85,7 @@ Picture this: it is the middle of the night and a smoke sensor activates in the 
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Light: Turn on light (flash)
+- **Action**: Turn on light (flash)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

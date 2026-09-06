@@ -10,8 +10,6 @@ related_conditions:
 
 The **Ozone value** condition passes when an ozone (O3) sensor's reading meets a specific level. Ground-level ozone is a key component of smog and tends to spike on hot, sunny afternoons. This condition helps your automation make smarter ventilation decisions, keeping the windows shut during a smog alert but allowing fresh air in after the ozone reading decreases to a comfortable level.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

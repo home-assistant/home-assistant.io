@@ -12,8 +12,6 @@ The **Media player is paused** condition passes when the selected media player i
 
 Use **Media player is paused** to raise lights during a pause, show a reminder on a dashboard, or run an action only when media is ready to resume.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is paused** in an automation:

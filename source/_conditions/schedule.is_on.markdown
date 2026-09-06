@@ -9,8 +9,6 @@ related_conditions:
 
 The **Schedule is on** condition is useful when an automation should continue only while a schedule block is active. Use it to limit automations to certain times, or to check whether a routine is currently in effect before doing something.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

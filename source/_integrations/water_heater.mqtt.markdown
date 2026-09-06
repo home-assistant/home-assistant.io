@@ -300,6 +300,11 @@ value_template:
   description: Default template to render the payloads on *all* `*_state_topic`s with.
   type: template
   required: false
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Optimistic mode

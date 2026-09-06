@@ -20,7 +20,7 @@ There are multiple ways to add an alias of an entity:
 
 - **Option 1**: Go to **Settings** > **Voice assistants**. On the **Expose** tab, select the entity for which you want to add an alias.
 ![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases.png)
-- **Option 2**: You can also change the alias from the entity's more information dialog in the settings tab in the advanced section.
+- **Option 2**: You can also change the alias from the entity's more information dialog. In the upper right corner of the dialog, select the cogwheel {% icon "mdi:cog-outline" %} and then select **Voice assistants**.
 ![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases_02.png).
 
 ## Adding an alias of an area

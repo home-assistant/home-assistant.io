@@ -10,17 +10,17 @@ The configuration options to perform action are the same between all integration
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
 {% tip %}
-Use the **Actions** tab under {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} to discover available actions.
+Use the **Actions** tab under {% my developer_services title="**Settings** > **Tools** > **Actions**" %} to discover available actions.
 {% endtip %}
 
 ### The basics
 
-Perform the action `homeassistant.turn_on` on the {% term entity %} `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
+Perform the action `homeassistant.turn_on` on the {% term entity %} `light.living_room`, which is a [light group](/integrations/group/). This turns on every light that is a member of the group. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 action: homeassistant.turn_on
 target:
-  entity_id: group.living_room
+  entity_id: light.living_room
 ```
 
 ### Targeting areas and devices
@@ -53,7 +53,7 @@ You can also specify other parameters beside the entity to target. For example, 
 ```yaml
 action: light.turn_on
 target:
-  entity_id: group.living_room
+  entity_id: light.living_room
 data:
   brightness: 120
   rgb_color: [255, 0, 0]
@@ -80,13 +80,13 @@ entity_id: switch.ac
 ### Using the Actions developer tool
 
 You can use the **Actions** developer tool to test data to pass in an action.
-For example, you may test turning on or off a 'group' (See [groups](/integrations/group/) for more info)
+For example, you may test turning a [light group](/integrations/group/) on or off.
 
-To turn a group on or off, pass the following info:
+To turn a light group on or off, pass the following info:
 
 - Domain: `homeassistant`
 - Action: `turn_on`
-- Action data: `{ "entity_id": "group.kitchen" }`
+- Action data: `{ "entity_id": "light.kitchen" }`
 
 ### Use templates to determine the attributes
 

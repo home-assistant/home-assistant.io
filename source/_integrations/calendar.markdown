@@ -160,8 +160,4 @@ automation:
 
 {% enddetails %}
 
-{% include integrations/actions.md %}
-
-{% include integrations/triggers.md %}
-
-{% include integrations/conditions.md %}
+{% include integrations/triggers_conditions_actions.md %}

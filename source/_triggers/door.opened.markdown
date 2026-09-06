@@ -2,7 +2,7 @@
 title: "Door opened"
 trigger: door.opened
 domain: door
-description: "Triggers after one or more doors open."
+description: "Triggers when one or more doors open."
 related_triggers:
   - door.closed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Door opened** trigger fires when a targeted door changes to open. Use it when you want Home Assistant to respond the moment someone opens a front door, patio door, or garage door.
 
 This trigger is useful for entry lighting, arrival notifications, security checks, and automations that should start as soon as access to a room or building changes.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -74,9 +72,9 @@ for:
 
 ## Good to know
 
-- This trigger works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as opening the door.
-- The `for` option only fires the automation if the door stays open for the entire time you set.
+- Use a door contact sensor or door cover that uses the door device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as opening the door.
+- The **For at least** option only fires the automation if the door stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 
@@ -88,7 +86,7 @@ If someone comes home after sunset, this automation turns on the entry light as 
 
 - **Trigger**: Door opened
 - **Target**: Front door sensor
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for entry lighting on arrival" %}
 

@@ -2,7 +2,7 @@
 title: "Carbon dioxide level crossed threshold"
 trigger: air_quality.co2_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more carbon dioxide levels cross a threshold."
+description: "Triggers when one or more carbon dioxide levels cross a threshold."
 related_triggers:
   - air_quality.co2_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Carbon dioxide level crossed threshold** trigger fires when a carbon dioxide (CO2) reading on one or more air quality sensors crosses a specific level. CO2 builds up naturally in occupied rooms from breathing, cooking, and heating. Once levels climb above 1,000 ppm, a room feels stuffy, concentration drops, and it is time to let in fresh air.
 
 Picture your bedroom ventilation fan switching on automatically the moment CO2 crosses 1,000 ppm while you sleep, keeping the air fresh without you lifting a finger. Or getting a gentle reminder on your phone to crack a window when the living room gets stuffy during a gathering. This trigger lets your home respond to stale air the instant it becomes a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

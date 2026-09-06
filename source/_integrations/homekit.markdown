@@ -222,10 +222,10 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch` and `fan` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`.
+              description: Only for `switch`, `fan`, and `climate` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. For `climate` entities, the type is chosen automatically when you leave this unset.
               required: false
               type: string
-              default: '`switch`'
+              default: "`switch` for `switch` entities, `fan` for `fan` entities, and chosen automatically for `climate` entities"
             stream_count:
               description: Only for `camera` entities. The number of simultaneous streams the camera can support.
               required: false
@@ -360,6 +360,24 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 If you create a HomeKit integration via the UI (for example, **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
+
+### Climate accessory type
+
+Climate entities are exposed to HomeKit as one of two accessory types. Air conditioners and heat pumps that offer two or more fan speeds or a swing mode that can be turned off are listed as Heater Cooler accessory type. This puts the mode, target temperature, heating and cooling thresholds, fan speed, and swing on one tile, matching how the device works. Everything else, such as a central thermostat, is exposed as a Thermostat accessory. A climate entity that controls a target humidity always stays a Thermostat, since the Heater Cooler accessory cannot control humidity.
+
+This choice is made automatically the first time an entity is added to HomeKit. Entities that were already exposed before this feature was introduced keep their Thermostat accessory, and you can switch them to the Heater Cooler accessory at any time.
+
+You can also pick the accessory type yourself at any time. For a bridge created in the UI, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure** on the HomeKit bridge, and choose **Thermostat** or **Heater Cooler** for each climate entity in the climate step. For a bridge set up in YAML, set the entity's `type` to `heater_cooler` or `thermostat` in `entity_config`:
+
+```yaml
+# Example configuration.yaml entry
+homekit:
+  entity_config:
+    climate.living_room:
+      type: heater_cooler
+```
+
+The accessory keeps its identifier, which is derived from the entity ID, so its room assignment and name are preserved when the accessory type changes. Any Home app scenes or automations that referenced the old controls may need to be recreated against the new tile.
 
 ### Accessory mode
 

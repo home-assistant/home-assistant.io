@@ -2,7 +2,7 @@
 title: "Thermostat started drying"
 trigger: climate.started_drying
 domain: climate
-description: "Triggers after one or more thermostats start drying."
+description: "Triggers when one or more thermostats start drying."
 related_triggers:
   - climate.started_heating
   - climate.started_cooling
@@ -12,8 +12,6 @@ related_triggers:
 The **Thermostat started drying** trigger fires after a thermostat {% term entity %} begins actively drying. This trigger monitors the `hvac_action` attribute rather than the HVAC mode. A thermostat can be set to **Dry** mode but still be idle if the current humidity already meets the target. The trigger only fires when the thermostat actually starts the drying process.
 
 Use this trigger to react to the start of active drying, for example to close windows to prevent more humid air from entering or to turn on additional ventilation to help remove moisture.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

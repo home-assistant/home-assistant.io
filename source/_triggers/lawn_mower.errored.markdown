@@ -2,13 +2,11 @@
 title: "Lawn mower encountered an error"
 trigger: lawn_mower.errored
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers encounter an error."
+description: "Triggers when one or more lawn mowers encounter an error."
 ---
 
 The **Lawn mower encountered an error** trigger fires when a mower reports a problem while it is working.
 Use it to notify you quickly, pause related automations, or turn on a nearby light before you go outside to check what happened.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -117,7 +115,7 @@ If the mower reports an error after dark, turn on the porch light so you can see
 - **Trigger**: Lawn mower encountered an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:15
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the yard on error" %}
@@ -132,8 +130,7 @@ automation: |
       options:
         for: "00:00:15"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

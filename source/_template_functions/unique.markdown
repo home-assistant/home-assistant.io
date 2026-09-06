@@ -67,7 +67,7 @@ Deduplicate a list of objects based on a specific attribute, keeping only the fi
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("sensor.home_sensors")
     | unique(attribute="state")
     | map(attribute="entity_id")
     | list
@@ -94,7 +94,7 @@ Get the unique state values from a group of entities.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | map(attribute="state")
     | unique
     | list

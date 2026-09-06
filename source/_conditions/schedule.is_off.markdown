@@ -9,8 +9,6 @@ related_conditions:
 
 The **Schedule is off** condition is useful when an automation should continue only while a schedule is inactive. Use it to avoid interruptions during blocked times, or to wait until one or more scheduled routines have finished.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer started** trigger fires when a timer begins from the idle state. Use it when you want something to happen as soon as a countdown starts.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:

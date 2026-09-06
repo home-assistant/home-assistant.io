@@ -2,7 +2,7 @@
 title: "Media player started playing"
 trigger: media_player.started_playing
 domain: media_player
-description: "Triggers after one or more media players start playing."
+description: "Triggers when one or more media players start playing."
 related_triggers:
   - media_player.paused_playing
   - media_player.stopped_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player started playing** trigger fires when a media player starts playback. Use it when you want Home Assistant to react as soon as music, video, or radio begins.
 
 Use **Media player started playing** to dim lights, close blinds, or start another device that should run while audio or video is playing.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

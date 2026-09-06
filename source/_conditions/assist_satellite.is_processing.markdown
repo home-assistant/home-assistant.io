@@ -13,8 +13,6 @@ The **Satellite is processing** condition passes when a targeted Assist satellit
 
 Use it when you want an automation to continue only if a satellite is actively running its pipeline. For example, check whether any satellite is still processing before sending a follow-up announcement.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

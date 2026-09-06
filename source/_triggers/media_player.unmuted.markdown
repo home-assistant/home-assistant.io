@@ -2,7 +2,7 @@
 title: "Media player unmuted"
 trigger: media_player.unmuted
 domain: media_player
-description: "Triggers after one or more media players are unmuted."
+description: "Triggers when one or more media players are unmuted."
 related_triggers:
   - media_player.muted
   - media_player.started_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player unmuted** trigger fires when a media player stops being muted. Use it when you want Home Assistant to react as soon as sound is available again.
 
 Use **Media player unmuted** to restore lighting, resume a routine that depends on audio, or send a notification when a shared media player is ready to play sound again.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
