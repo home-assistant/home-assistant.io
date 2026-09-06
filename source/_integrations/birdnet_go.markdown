@@ -66,6 +66,7 @@ automation: |
   triggers:
     - trigger: state
       entity_id: sensor.your_birdnet_go_lifetime_species
+  conditions:
     - condition: template
       value_template: >-
         {{
