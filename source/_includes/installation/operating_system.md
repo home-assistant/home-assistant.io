@@ -61,7 +61,7 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
 2. Then, write the {% term "Home Assistant Operating System" %} disk image to your boot medium.
 
-If you just need the image [generic-x86-64].
+If you only need the image, [download the image][generic-x86-64].
 
 {% endimportant %}
 
