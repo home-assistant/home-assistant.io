@@ -26,4 +26,4 @@ ha_iot_class: Local Push
 ha_ssdp: true
 ---
 
-The Steinway & Sons P100, P200, and P300 surround processors are made by Lyngdorf and are supported by the [Lyngdorf](/integrations/lyngdorf) {% term integration %}.
+{% include integrations/supported_brand.md %}
