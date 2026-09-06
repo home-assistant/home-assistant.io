@@ -203,7 +203,7 @@ The Lyngdorf device does not show up as a discovered device in Home Assistant.
 
 To resolve this issue, try the following steps:
 
-1. Make sure your Lyngdorf device is powered on and on the same subnet as Home Assistant. Automatic discovery uses multicast SSDP, which does not cross subnets.
+1. Make sure your Lyngdorf device is powered on and connected to the same subnet as Home Assistant. Automatic discovery uses multicast SSDP, which does not cross subnets.
 2. Check that UPnP/SSDP is not blocked on your network.
 3. Add the device manually using its IP address.
 
