@@ -106,11 +106,15 @@ You will be asked to re-authenticate via MFA every 180 days.
 
 ### Southwest Gas
 
-Use your Opower (Energy Savings Portal) credentials when you set up the integration. These are different from your Southwest Gas MyAccount website credentials.
+Use your **Energy Savings Portal** (Opower) credentials when you set up the integration. These are different from your Southwest Gas **MyAccount** credentials.
 
-If you haven't created an Opower account yet, sign in to the Southwest Gas MyAccount portal and follow the **Energy Savings Portal** link ("Compare your monthly natural gas usage with similar homes and get personalized tips on how to save on your natural gas bill"). Have your Southwest Gas bill handy with your account number to sign up. Then use those Energy Savings Portal credentials in Home Assistant.
+If you do not have an Energy Savings Portal account yet:
 
-If you get an invalid credentials error but you can still sign in on the Southwest Gas website, you are likely using your MyAccount credentials instead of your Energy Savings Portal credentials.
+1. Sign in to the Southwest Gas MyAccount portal.
+2. Select **Energy Savings Portal**.
+3. Follow the prompts to create an account. You will need your bill account number.
+
+If you see an invalid credentials error, but you can still sign in to the Southwest Gas MyAccount portal, you are likely entering your MyAccount credentials instead of your Energy Savings Portal credentials.
 
 {% include integrations/config_flow.md %}
 
