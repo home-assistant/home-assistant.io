@@ -119,6 +119,8 @@ Air quality follows the US EPA air quality index. The values come from atmospher
 
 The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses eight requests for one location, around 384 requests per day, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so the Freemium limit allows about five locations. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
+The `weather.get_forecasts` action reads the forecast the integration has already retrieved, so using it in templates and automations costs no extra requests.
+
 ## Use cases
 
 - Delay irrigation when the daily forecast predicts rain.
