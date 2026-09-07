@@ -32,9 +32,20 @@ Partners who are a reseller from EnergyZero:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Electricity price interval:
+  description: "Select **Hourly** (the default) for electricity prices per hour or **Quarter-hourly** for prices per 15 minutes."
+{% endconfiguration_basic %}
+
+The selected interval applies to today's and tomorrow's electricity prices and the electricity sensors. Changing this option automatically reloads the integration. Gas prices and the polling interval are unaffected.
+
+The `energyzero.get_energy_prices` action always returns hourly prices, regardless of this option.
+
 ## Use cases
 
-With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from EnergyZero. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+With the [energy dashboard](/energy) you can use the **Current price** electricity sensor or **Current hour** gas sensor to calculate how much the electricity or gas has cost each hour based on the prices from EnergyZero. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
 
 ## Data updates
 
@@ -52,13 +63,18 @@ The EnergyZero integration creates several sensor entities for both gas and elec
 
 Every day around **14:00 UTC time**, the new prices are published for the following day.
 
-- The `current` and `next hour` electricity market price
+- **Current price** and **Next price** for electricity
 - Average electricity price of the day
 - Lowest energy price
 - Highest energy price
 - Time of day when the price is highest
 - Time of day when the price is at its lowest
 - Percentage of the current price compared to the maximum price
+- **Periods priced equal or lower**
+
+The **Current price** sensor shows the price for the current electricity price period. The **Next price** sensor shows the price one hour or 15 minutes ahead, depending on the selected **Electricity price interval**.
+
+The **Periods priced equal or lower** sensor counts today's price periods priced at or below the current electricity price. It reports a count without units. Each period lasts one hour or 15 minutes, depending on the selected **Electricity price interval**.
 
 ### Gas market price
 
@@ -70,7 +86,7 @@ For the dynamic gas prices, only entities are created that display the
 
 ## Templates
 
-Create template sensors to display the prices in a chart or to calculate the all-in hour price.
+Create template sensors to display the prices in a chart or to calculate the all-in electricity price.
 
 ### Prices sensor with response data
 
@@ -97,7 +113,7 @@ template:
 
 ### All-in price sensor
 
-To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+To calculate the all-in electricity price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
 
 ```yaml
 template:
