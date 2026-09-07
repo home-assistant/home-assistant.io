@@ -10,7 +10,7 @@ For actions, you can specify the `entity_id` that it should apply to and optiona
 
 You can also perform the action to activate [a scene](/integrations/scene/) which will allow you to define how you want your devices to be and have Home Assistant perform the right action.
 
-The following examples show two automations. The first changes two lights at sunset. The second sends notifications before and after sunset and uses a variable for the first notification action.
+The following examples show two automations. The first changes two lights at sunset. The second sends notifications before and after sunset and uses a variable to set the `action:` value for the first notification.
 
 ```yaml
 automation:
@@ -39,7 +39,7 @@ automation:
     variables:
       notification_action: notify.paulus_iphone
     actions:
-      # The action name can use a variable.
+      # The action value can be templated with a variable.
       - action: "{{ notification_action }}"
         data:
           message: "Beautiful sunset!"
@@ -49,7 +49,7 @@ automation:
           message: "Oh wow you really missed something great."
 ```
 
-Conditions can also be part of an action. You can combine multiple actions and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any action after that condition will not be executed.
+Conditions can also be steps in an action sequence. You can combine action and condition steps in one sequence, and Home Assistant processes them in the order you put them in. If a condition evaluates to false, the sequence stops there, so later actions are not executed.
 
 In the following example, the `or` condition lets the remaining actions run when either the sun is low enough or the office illuminance is below 10. If neither condition is true, the automation stops before activating the scene, lights, and switches. For more information about the available condition types and their syntax, see [conditions](/docs/scripts/conditions/).
 
