@@ -15,6 +15,7 @@ This trigger requires a target. The target is the object that Home Assistant wil
 
 You can also select different target types in one trigger. For example, you can add a specific entity and an area as targets in the same trigger to monitor both of them at once.
 
+{% if page.trigger %}
 ### Trigger variables
 
 When the trigger fires, the `trigger` variable identifies the entity that caused it to fire. This is useful when a target contains multiple entities, such as a device, area, floor, or label.
@@ -26,8 +27,9 @@ The following trigger-specific variables are available:
 | `trigger.entity_id` | Entity ID of the entity that caused the trigger to fire. |
 | `trigger.from_state` | Previous state object of that entity. |
 | `trigger.to_state` | New state object of that entity. |
-| `trigger.for` | Duration configured for the trigger, or `None` if no duration is configured. |
+| `trigger.for` | Timedelta object of how long the trigger criteria was met, if applicable. |
 
 For example, use `{{ trigger.to_state.name }}` in an action to include the name of the entity that caused the trigger in a notification.
 
 The `trigger` variable describes the entity that caused the trigger to fire; it does not contain all entities resolved from the configured target.
+{% endif %}
