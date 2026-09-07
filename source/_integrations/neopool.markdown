@@ -39,6 +39,7 @@ The NeoPool integration brings your pool controller into Home Assistant, providi
 - **Surface pool-controller problems**: expose alarm states as sensor readings, and raise a repair issue if the controller's GPIO configuration register becomes corrupted.
 - **Control the pool light**: turn the pool light relay on and off when the relay timer is in a manual mode. Opt-in through the integration options.
 - **Control filtration and relays**: run the filtration pump manually, start and stop backwash, drive the auxiliary relays, and toggle the controller's configuration flags.
+- **Keep the controller clock accurate**: automatically correct the controller's clock when it drifts from Home Assistant time. Opt-in through the integration options.
 
 ## Supported devices
 
@@ -98,6 +99,8 @@ Enable auxiliary relays 1 to 4:
   description: Turn on for each auxiliary relay you have wired to a device. When enabled, an **Auxiliary relay** switch is added for that relay. Off by default because the controller cannot detect what, if anything, is wired to each auxiliary relay.
 Enable cover sensor:
   description: Turn on if a pool cover sensor is wired to the controller. When enabled, the **Enable cover reduction** switch is added so you can toggle the cover-driven hydrolysis reduction. Off by default because the controller cannot detect whether a cover sensor is present.
+Automatically sync device clock:
+  description: Turn on to let Home Assistant keep the controller's clock in sync. When enabled, each poll compares the controller clock against Home Assistant time and corrects it if it has drifted by more than a few minutes. Off by default. The controller keeps its own real-time clock, which several features depend on, such as timers, runtime counters, and scheduling, and it can drift or reset after a power loss.
 {% endconfiguration_basic %}
 
 ## Supported functionality
