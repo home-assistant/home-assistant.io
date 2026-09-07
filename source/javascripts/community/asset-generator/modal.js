@@ -53,6 +53,9 @@ if (dialog) {
     button.addEventListener("click", openDialog);
   }
 
+  dialog.querySelector("[data-asset-generator-close]")
+    ?.addEventListener("click", () => dialog.close());
+
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();
   });
