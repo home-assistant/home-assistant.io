@@ -67,8 +67,6 @@ The all-in electricity sensors use EnergyZero's rates. If your contract uses dif
 
 The EnergyZero integration creates several sensor entities for both gas and electricity prices.
 
-<a id="energy-market-price"></a>
-
 ### Electricity market price
 
 Every day around **14:00 UTC time**, the new electricity prices are published for the following day.
