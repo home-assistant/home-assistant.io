@@ -12,8 +12,6 @@ ha_integration_type: service
 ha_codeowners:
   - '@Nihvel'
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs
 ha_config_flow: true
