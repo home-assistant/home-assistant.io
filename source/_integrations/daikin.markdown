@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Australian Daikin Wifi controllers:
   - BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working models include:
     - Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA, with operation mode, temp, and fan swing (3d, horizontal, vertical).
-    - Daikin Alira X FTXM20YVMA and FTXM60WVMA.
+    - Daikin Alira X series (FTXM20YVMA and FTXM60WVMA).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
 - BRP084Cxx units using firmware 2.8.0 was added in Home Assistant 2025.9.
