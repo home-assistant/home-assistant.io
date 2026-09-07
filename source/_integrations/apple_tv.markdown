@@ -95,6 +95,7 @@ The following commands are currently available:
 - `home`
 - `top_menu`
 - `menu`
+- `control_center`
 - `select`
 - `play`
 - `pause`
