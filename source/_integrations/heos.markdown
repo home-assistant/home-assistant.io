@@ -33,7 +33,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 - Browsing HEOS music services (for example, **Tidal**) and sources (such as **Favorites**)
 - Grouping and ungrouping HEOS devices
 - Clearing playlists
-- {% term TTS %} announcements that pause and resume playback; resuming may [skip to the next track](https://www.home-assistant.io/integrations/heos/#known-limitations)
+- {% term TTS %} announcements that pause local HEOS playback and resume with the next track
 
 ## Prerequisites
 
@@ -88,6 +88,36 @@ In addition to the standard [media player actions](/integrations/media_player/#a
 {% include integrations/actions.md %}
 
 ## Examples
+
+### TTS announcements
+
+Use the `announce` option with the `media_player.play_media` action to play a TTS URL as an announcement. Local HEOS playback is paused while the announcement plays, and the temporary URL stream is removed from the queue afterward.
+
+```yaml
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: music
+  media_content_id: media-source://tts/google_translate?message=This%20is%20a%20test
+  announce: true
+```
+
+The announcement volume can be provided in `extra` as either a Home Assistant normalized value from `0.0` to `1.0`, or as a percentage from `1` to `100`:
+
+```yaml
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: music
+  media_content_id: media-source://tts/google_translate?message=Test
+  announce: true
+  extra:
+    volume: 0.5
+```
+
+When Spotify Connect, another Connect source, or an AUX source is active, the integration checks the HEOS queue before starting the announcement. The announcement is allowed only when that queue is empty. If the queue contains items, the action is rejected to prevent HEOS from automatically resuming its queue after the announcement.
+
+The external source is not restored automatically after the announcement. Spotify Connect may need to be reconnected from the Spotify app.
 
 ### Playing media
 
@@ -251,7 +281,8 @@ HEOS pushes data to Home Assistant via the local network when data and entity st
 ## Known limitations
 
 - AVR receiver features, such as zone selection/control and power on/off, cannot be controlled through this integration. Use the [Universal Media Player](/integrations/universal/#denon-avr--heos) to combine AVR receiver functionality with this integration.
-- Due to HEOS protocol limitations, exact position resumption within a track is not supported for {% term TTS %}. When playback resumes after a TTS announcement, HEOS advances to the next track.
+- Due to HEOS protocol limitations, exact position resumption within a track is not supported for {% term TTS %}. For local HEOS playback, playback resumes with the next track rather than restarting the interrupted track.
+- Spotify Connect and other external source sessions cannot be restored through the documented HEOS API. To protect external playback, announcements are blocked when the external source is active and the HEOS queue is not empty.
 - The maximum length of a URL that can be used in the `play_media` action is 255 characters due to a limitation in the HEOS firmware.
 
 ## Logging and diagnostics
