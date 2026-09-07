@@ -29,6 +29,8 @@ Diematic 3 and Diematic 4 use the base register layout. iSystem uses a different
 
 Hardware testing of the underlying library has focused on one Diematic iSystem installation reporting the type code `D4`. Other Diematic 3 and Diematic 4 installations still need testing. Available readings depend on your control panel and fitted equipment. A reported type code such as `D4` does not reliably identify the physical boiler model or the layout you should select.
 
+## Unsupported devices
+
 Diematic Delta is not supported.
 
 ## Prerequisites
@@ -39,7 +41,9 @@ Diematic Delta is not supported.
 - The name of the Diematic system used by your control panel.
 
 {% important %}
-The gateway must forward Modbus RTU messages unchanged over TCP. This is often called transparent mode or RTU over TCP. A gateway configured to translate requests to standard Modbus TCP is not compatible with this integration.
+The gateway must forward Modbus RTU messages unchanged over TCP.
+This is often called transparent mode or RTU over TCP.
+A gateway configured to translate requests to standard Modbus TCP is not compatible with this integration.
 {% endimportant %}
 
 Configure the gateway's serial settings to match your boiler's Modbus interface. These settings belong to the gateway, not the Home Assistant setup form. Direct USB or serial connections to the Home Assistant host are not supported.
@@ -107,9 +111,9 @@ If a group of readings fails to update, its sensors become unavailable while suc
 5. Confirm that **System** matches the control panel. The boiler's reported type code alone is not enough to choose a layout.
 6. If another application is polling the same boiler, pause that application's polling and try again. A busy serial bus or a gateway's connection limit can prevent a response.
 
-### A sensor is missing or shows unknown
+### A sensor is missing or shows Unknown
 
-Check whether the controller displays that measurement and whether the corresponding probe is fitted. In particular, circuit A and circuit B room-temperature sensors only appear after the controller supplies a room-temperature value. A flue gas sensor that is not fitted can leave **Flue gas temperature** unknown.
+Check whether the controller displays that measurement and whether the corresponding probe is fitted. In particular, circuit A and circuit B room-temperature sensors only appear after the controller supplies a room-temperature value. A flue gas sensor that is not fitted can leave **Flue gas temperature** as **Unknown**.
 
 Compare **Boiler temperature target** with the controller's target, not with the measured **Boiler temperature**. These values describe different things and do not need to match.
 
