@@ -57,7 +57,7 @@ Delta values:
     Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
 Periodically resetting:
   description: >
-    Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`. When **Net consumption** is disabled, negative differences between consecutive source readings are ignored. If the source becomes unavailable or unknown before returning with a valid value, the first new valid reading does not add a difference. When **Net consumption** is enabled, negative differences are treated as valid consumption and reduce the utility meter. If tariffs are configured, the same behavior applies separately to each tariff sensor while it is active. When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+    Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`; when **Net consumption** is disabled, decreases in the source value are ignored. When **Net consumption** is enabled, negative differences are treated as valid consumption. When this option is disabled, the _difference_ between the new value and the last valid value is added to the utility meter.
 Sensor always available:
   description: >
     If activated, the sensor will always be available with the last totalized value, even if the source entity is unavailable or unknown.
@@ -125,7 +125,7 @@ tariffs:
   default: []
   type: list
 periodically_resetting:
-  description: Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`. When `net_consumption` is disabled, negative differences between consecutive source readings are ignored. If the source becomes unavailable or unknown before returning with a valid value, the first new valid reading does not add a difference. When `net_consumption` is enabled, negative differences are treated as valid consumption and reduce the utility meter. If tariffs are configured, the same behavior applies separately to each tariff sensor while it is active. When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+  description: Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`; when `net_consumption` is disabled, decreases in the source value are ignored. When `net_consumption` is enabled, negative differences are treated as valid consumption. When this option is disabled, the _difference_ between the new value and the last valid value is added to the utility meter.
   required: false
   default: true
   type: boolean
