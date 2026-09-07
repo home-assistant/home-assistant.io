@@ -82,6 +82,12 @@ Supported controller commands include:
 - `GoHome`, `GoBack`
 - `ShowGuideTab`, `ShowGuide`
 
+{% note %}
+
+Any value that does **not** match a supported command will be sent as literal text input. To force sending text that matches a command, prefix it with `text:`, for example `text:A`
+
+{% endnote %}
+
 ## Xbox automation examples
 
 These examples show common ways to use your Xbox media player and remote entities in automations. In these examples, `media_player.xboxone` and `remote.xboxone` are example entity IDs. Replace them with the entity IDs for your Xbox media player and remote entities.
@@ -389,7 +395,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 
 These sensors track the storage on your own **Xbox consoles** and connected storage devices.
 
-| Entity Name      | Description                                                                |
+| Entity Name | Description |
 | ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |

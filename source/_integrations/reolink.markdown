@@ -23,6 +23,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - time
   - update
 ha_integration_type: hub
 ha_dhcp: true
@@ -123,6 +124,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI linger animal+ (up to 3 zones)
 - AI item forgotten+ (up to 3 zones)
 - AI item taken+ (up to 3 zones)
+- Tamper+
 - IO input+
 - Sleep status+
 
@@ -132,6 +134,8 @@ For redundancy, these sensors are polled every 60 seconds together with the upda
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
 
 For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app, you can add up to 3 zones/lines, and for each zone/line, you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
+
+The **Tamper** entity only activates when the **Tamper alarm** is enabled.
 
 ### Number entities
 
@@ -266,6 +270,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Hub alarm ringtone
 - Hub visitor ringtone
 - Hub scene mode (Off, Disarmed, Home, Away)
+- Work mode battery (Power saving, Detection priority, Optimal surveillance, AI extended recording, Custom, Always on pre-recording, Always on continuous recording)
+- Work mode powered (Alarm recording, Continuous recording, Custom)
 - Recording packing time
 - Pre-recording frame rate*
 - Post-recording time
@@ -295,6 +301,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Record audio
 - Siren on event
 - Pre-siren on event
+- Tamper alarm*
 - Auto tracking
 - Auto focus
 - Guard return
@@ -740,7 +747,7 @@ Prerequisites:
 1. First, create the dropdown from **Settings** > **Devices & services** > **Helpers** > **+ Create Helper** > **Dropdown**. 
    - Decide how many time delay choices you want. 
    - Add them all to the dropdown like below. 
-   - Your first entry needs to be "Notifications active" (or simular phrasing) for when the notifications are turned on. 
+   - Your first entry needs to be "Notifications active" (or similar phrasing) for when the notifications are turned on. 
    - You can define as many time options as you want. And you can define any time interval you like, for example, 22 minutes, 2 hours.
 
     ![Dropdown](/images/integrations/reolink/auto_pause__dropdown.png)
@@ -859,7 +866,7 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 ### Streams or recordings not playing
 
-- Most Reolink cameras use h265 encoding for the high resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you acces Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"encoding main": "h265"\"h264"` in the txt file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
+- Most Reolink cameras use h265 encoding for the high-resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you access Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find either `"encoding main": "h265"` or `"encoding main": "h264"` in the text file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
 
 ### Reducing latency of motion events
 

@@ -49,7 +49,7 @@ The {% term integration %} creates sensors reported by the device, including:
 
 The {% term integration %} creates switches reported by the device, including:
 
-- Local mode, enable or disable loacal control mode
+- Local mode, enable or disable local control mode
 
 ## Troubleshooting
 

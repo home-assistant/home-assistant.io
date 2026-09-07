@@ -39,6 +39,14 @@ If you have a solar installation with a dedicated grid connection that is used o
 
 With this setup, the dashboard correctly attributes solar production exported via the dedicated connection as **Solar → Grid**.
 
+## Why is my Energy dashboard showing inflated totals?
+
+If you add up several sensors that reset on a schedule, for example with a template sensor or a **Group** helper that sums two `utility_meter` sensors, and use that combined sensor as an Energy dashboard source, your totals can become inflated. The individual sensors are unlikely to reset to zero at the exact same moment, so in the brief gap where one has reset and the other hasn't, the combined sensor reports a false, temporary value. Home Assistant records that value in long-term statistics, where it's easy to miss and requires manual correction.
+
+To avoid this, add each cumulative sensor to the Energy dashboard as its own separate source, instead of combining them into one summed sensor first.
+
+If inflated data has already been recorded, you can review and adjust it from {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+
 ## The Energy dashboard is not visible
 
 If you do not see the Energy dashboard in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your {% term "`configuration.yaml`" %}. If you have, you will need to enable the integrations and UI elements required for the dashboard to appear.
