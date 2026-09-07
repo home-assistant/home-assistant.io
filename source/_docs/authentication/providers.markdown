@@ -198,7 +198,7 @@ The command line authentication provider executes a configurable shell command t
 
 This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS.
 
-Here is a configuration example in {% term "`configuration.yaml`" %} for the Command Line authentication provider:
+Here is a configuration example:
 
 ```yaml
 homeassistant:
