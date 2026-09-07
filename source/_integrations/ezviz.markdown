@@ -105,7 +105,7 @@ For battery powered cameras, you can use this entity to select the battery work 
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |
 | Plugged in             | The camera will keep recording. The camera should be plugged in.                                     |
 | High performance       | One video clip is longer but saves less power.                                                       |
-| Power save             | One video clip is shorter but saves more power.                                                      |
+| Power save             | One video clip is shorter and saves more power.                                                      |
 | Super power saving     | Sleep mode is on. Active live view can wake up the camera.                                           |
 | Custom                 | The camera will use the schedules registered in the app.                                            |
 
