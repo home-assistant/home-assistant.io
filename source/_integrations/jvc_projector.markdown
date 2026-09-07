@@ -115,7 +115,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: 2017-present
 
 - **Software Version** (disabled by default)
-  - **Description**: The projector firmware version formatted as X.Y.Z.
+  - **Description**: The projector firmware version formatted as X.YY (for example, 3.01).
   - **Available for models**: all
 
 - **Resolution** (disabled by default)
