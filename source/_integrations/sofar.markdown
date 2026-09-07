@@ -26,10 +26,10 @@ The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar in
 
 The **Sofar** integration brings your inverter's own measurements into Home Assistant, so the solar system becomes something you can build automations on rather than something you check in a vendor app:
 
-- **Put your solar production in the energy dashboard** - Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's energy dashboard, measured at the inverter rather than estimated.
+- **Put your solar production on the [Energy dashboard](/docs/energy/)** - Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's Energy dashboard, measured at the inverter rather than estimated.
 - **Run appliances on surplus solar** - Start the dishwasher or washing machine once the inverter reports more production than the house is using, and raise or lower a car charger's rate as production rises and falls.
 - **Automate around the battery** - Use the battery's state of charge to decide when to run heavy loads, when to hold charge back for the evening, and when to warn that the reserve is nearly gone.
-- **Notice problems the same day they happen** - The fault binary sensors and the system status sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
+- **Notice problems the same day they happen** - The fault binary sensors and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
 - **Keep an eye on the hardware** - Inverter, heatsink, and module temperatures, plus battery state of health and charge cycles, show how the installation is aging.
 - **Stop and resume the inverter remotely** - Put the inverter into its waiting state for grid work or an export ban, then bring it back, without going to the unit.
 
@@ -94,7 +94,7 @@ The **Sofar** integration provides the following entities.
 
 The **Sofar** integration reads a large number of sensors from the inverter. Only the sensors relevant to your inverter's type and configuration are added.
 
-- **System status**: The inverter's operating state, including fault conditions.
+- **System state**: The inverter's operating state, including fault conditions.
 - **Temperatures**: Inverter, heatsink, and module temperatures.
 - **Device information**: The status of the last real-time clock sync.
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
