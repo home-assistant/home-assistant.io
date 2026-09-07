@@ -15,7 +15,6 @@ ha_platforms:
   - climate
   - sensor
 ha_integration_type: hub
-ha_quality_scale: bronze
 ---
 
 The **CoolMasterNet** {% term integration %} lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
