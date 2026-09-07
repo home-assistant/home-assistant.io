@@ -22,6 +22,17 @@ ha_quality_scale: silver
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
 
+## Use cases
+
+The **Sofar** integration brings your inverter's own measurements into Home Assistant, so the solar system becomes something you can build automations on rather than something you check in a vendor app:
+
+- Putting your solar production on the [Energy dashboard](/docs/energy/). Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's Energy dashboard, measured at the inverter rather than estimated.
+- Running appliances on surplus solar. Start the dishwasher or washing machine once the inverter reports more production than the house is using, and raise or lower a car charger's rate as production rises and falls.
+- Automating around the battery. Use the battery's state of charge to decide when to run heavy loads, when to hold charge back for the evening, and when to warn that the reserve is nearly gone.
+- Noticing problems the same day they happen. The fault binary sensors and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
+- Keeping an eye on the hardware. Inverter, heatsink, and module temperatures, plus battery state of health and charge cycles, show how the installation is aging.
+- Stopping and resuming the inverter remotely. Put the inverter into its waiting state for grid work or an export ban, then bring it back, without going to the unit.
+
 ## Supported devices
 
 During setup, the integration reads the inverter's serial number and uses it to automatically detect the inverter model and its register map. It currently recognizes newer-generation Sofar inverters, including:
@@ -83,7 +94,7 @@ The **Sofar** integration provides the following entities.
 
 The **Sofar** integration reads a large number of sensors from the inverter. Only the sensors relevant to your inverter's type and configuration are added.
 
-- **System status**: The inverter's operating state, including fault conditions.
+- **System state**: The inverter's operating state, including fault conditions.
 - **Temperatures**: Inverter, heatsink, and module temperatures.
 - **Device information**: The status of the last real-time clock sync.
 - **Grid and output measurements**: Frequency, and active, reactive, and apparent power, both at the inverter's output and at the point of common coupling (PCC). Total household load and external solar production, as reported by the inverter, are also included. Per-phase voltage, current, power, and power factor are available for inverters with multiple phases.
@@ -103,6 +114,114 @@ The integration adds one switch, named after the inverter itself, that stops and
 The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
 {% include integrations/actions.md %}
+
+## Sofar automation examples
+
+Your inverter measures far more about your solar production than any monthly report shows. Here are a few ideas to get you started.
+
+The entity IDs below are named after the inverter, so replace `sofar` with your own inverter's name.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: get a notification when the inverter reports a fault
+
+An installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification as soon as the inverter raises a fault or drops out of normal grid-connected operation, so you find out the same day instead of weeks later in the monthly yield.
+
+- **Trigger**: **Grid fault**, **PV fault**, **Battery fault**, or **Thermal fault** turned on
+- **Trigger**: **System state** changed to **Recoverable fault** or **Permanent fault**
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a fault notification" %}
+
+{% example %}
+automation: |
+  alias: "Sofar inverter fault"
+  triggers:
+    - trigger: state
+      entity_id:
+        - binary_sensor.sofar_grid_fault
+        - binary_sensor.sofar_pv_fault
+        - binary_sensor.sofar_battery_fault
+        - binary_sensor.sofar_thermal_fault
+      from: "off"
+      to: "on"
+    - trigger: state
+      entity_id: sensor.sofar_system_state
+      to:
+        - "recoverable_fault"
+        - "permanent_fault"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Sofar inverter fault"
+        message: >
+          The inverter reported a fault. Download the integration's
+          diagnostics for the decoded list of everything active.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: run an appliance on surplus solar
+
+Appliances that don't care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once the inverter has been producing more than the house is using for ten minutes, which is long enough to know it isn't a passing gap in the clouds.
+
+- **Trigger**: Template, true while **PV power total** stays more than 1.5 kW above **Active power load system** for 10 minutes
+- **Action**: Turn on switch
+  - **Target**: Dishwasher
+
+{% details "YAML example for running an appliance on surplus solar" %}
+
+{% example %}
+automation: |
+  alias: "Dishwasher on surplus solar"
+  triggers:
+    - trigger: template
+      value_template: >
+        {{ states('sensor.sofar_pv_power_total') | float(0)
+           - states('sensor.sofar_active_power_load_system') | float(0)
+           > 1.5 }}
+      for:
+        minutes: 10
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.dishwasher
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: warn when the battery reserve runs low
+
+The battery is worth the most in the evening, when the panels have stopped and the grid is expensive. This automation notifies you when the battery drops below a fifth of its capacity, so you can decide whether to hold the rest back or let heavy loads keep running.
+
+- **Trigger**: **Battery state of charge total** below 20
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a low battery warning" %}
+
+{% example %}
+automation: |
+  alias: "Sofar battery reserve low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.sofar_battery_state_of_charge_total
+      below: 20
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Home battery is low"
+        message: >
+          The battery is below 20%. Heavy loads will start drawing
+          from the grid.
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
