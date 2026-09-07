@@ -103,7 +103,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: all
 
 - **Color depth**
-  - **Description**: The signal color depth. Note: The projector may incorrectly report 8-bit on YCbCr 4:2:2 signals according to JVC documentation.
+  - **Description**: The signal color depth. The projector might incorrectly report `8-bit` for `YCbCr 4:2:2` signals (per JVC documentation).
   - **Available for models**: all
 
 - **Color space**
