@@ -234,6 +234,8 @@ entities:
   - zone.home
 ```
 
+The `sensor.gas_station_gas_price` entity in the following example is a placeholder. Replace it with an existing entity that has numeric `latitude` and `longitude` attributes.
+
 ```yaml
 type: map
 entities:
