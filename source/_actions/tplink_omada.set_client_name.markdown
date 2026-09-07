@@ -5,9 +5,13 @@ domain: tplink_omada
 description: "Sets the name of a network client on the Omada controller."
 ---
 
-The **Set client name** action sets the name of a network client on your Omada controller. The name is shown in the Omada client list. Home Assistant uses the client name when creating tracker entities for the device, which is useful for clients that only identify themselves by their MAC address or a generic hostname.
+The **Set client name** action sets the name of a network client on your Omada controller. The name is shown in the Omada client list. Home Assistant uses the client name when creating device tracker entities for the device, which is useful for clients that only identify themselves by their MAC address or a generic hostname.
 
 This action does not target an entity. Instead, you select the Omada device of the client and enter the new name. The client's MAC address is taken from the device's registered network connection.
+
+{% important %}
+Only users with administrator privileges can run this action.
+{% endimportant %}
 
 {% include actions/ui_header.md %}
 
@@ -18,8 +22,8 @@ To set the name of a network client from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **TP-Link Omada: Set client name**.
-6. Select the **device** of the client you want to rename. If you have more than one Omada controller, also select the **Omada controller** to use.
-7. Enter the new **name** for the client.
+6. Select the **Device** of the client you want to rename. If you have more than one Omada controller, also select the **Omada controller** to use.
+7. Enter the new **Name** for the client.
 8. Select **Save**.
 
 ### Options in the UI
@@ -87,12 +91,12 @@ automation: |
   alias: "Name newly connected Omada client"
   triggers:
     - trigger: state
-      entity_id: device_tracker.ting_d5_10
+      entity_id: device_tracker.my_device
       to: "home"
   actions:
     - action: tplink_omada.set_client_name
       data:
-        device_id: "{{ device_id('device_tracker.ting_d5_10') }}"
+        device_id: "{{ device_id('device_tracker.my_device') }}"
         name: "Ting sensor"
 {% endexample %}
 
