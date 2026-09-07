@@ -1033,10 +1033,6 @@ style:
   description: "How the target humidity should be displayed. It can be either `buttons` or `slider`."
   type: string
   default: slider
-step:
-  required: false
-  description: "If the `buttons` style is selected, by how much a button press changes the target humidity, if not specified it uses the target_humidity_step of the entity"
-  type: integer
 {% endconfiguration %}
 
 ## Target temperature
