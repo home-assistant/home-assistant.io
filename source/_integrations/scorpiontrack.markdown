@@ -56,6 +56,7 @@ The **ScorpionTrack** integration creates one device for each vehicle included i
 - A {% term "device tracker" %} entity that represents the vehicle on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share.
 - A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
 - An **Ignition** binary sensor entity that shows the latest ignition state reported through the share.
+- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is disabled by default.
 
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
