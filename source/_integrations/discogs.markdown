@@ -42,7 +42,7 @@ Every sensor exposes your Discogs username as the `identity` state attribute.
 
 ## Data updates
 
-The integration polls the Discogs API every 10 minutes.
+The **Discogs** integration {% term polling polls %} the Discogs API every 10 minutes.
 
 ## YAML configuration
 
