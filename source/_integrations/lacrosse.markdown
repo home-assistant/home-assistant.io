@@ -29,7 +29,7 @@ You need a Jeelink USB dongle or an Arduino-based receiver to use this integrati
 
 ## Setup
 
-Since the sensor change their ID after each powercycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
+Since the sensor change their ID after each power cycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
 
 ```bash
 sudo pylacrosse -d /dev/ttyUSB0 scan
@@ -48,49 +48,59 @@ For TX 29 DTH-IT sensors, you can also read the ID from the display and calculat
 
 {% include integrations/config_flow.md %}
 
+### Required manual input
+
 After obtaining the sensor ID you can start the setup of the LaCrosse sensor. First configure the receiver.
 Available receivers connected providing a serial interface via USB are prefilled in the `device` dropdown. If auto detection did not find your receiver you can
-manually input the path. The default baud rate should be sufficient for most sensors. In case you use LaCrosse
-sensors with different `datarates` you can configure the receiver to toggle between those every `toggle_interval` seconds via the toggle mask and toggle interval.
+manually input the path. The default baud rate should be sufficient for most sensors.
 
 {% configuration_basic %}
-  device:
-    description: The Jeelink receiver connected via USB. Select via dropdown.
-    default: /dev/ttyUSB0
-  baud:
-    description: The serial baudrate.
-    default: 57600
-  led:
-    description: Activate or deactivate the Jeelink LED.
-    default: false
-  frequency:
-    description: Initial frequency in 5kHz steps.
-  datarate:
-    description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
-  toggle_mask:
-    description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
-  toggle_interval:
-    description: Enable the toggle mode and set the interval in seconds.
+device:
+  description: The Jeelink receiver connected via USB. Select via dropdown.
+  default: /dev/ttyUSB0
+baud:
+  description: The serial baudrate.
+  default: 57600
 {% endconfiguration_basic %}
 
-Once the receiver is configured you can add one or more sensors either during setup or at a later stage. A sensor must either report humidity or temperature. 
-Optionally it can report battery levels. Battery levels are limited to the values of `new` and `low` and not reported as percentage.
-Additional sensors or additional values can be added at a later stage, e.g. if a sensors exposes humidity on top of the temperature just add the humidity sensor with the same sensor ID.
+### Optional input
+
+In case you use LaCrosse sensors with different `datarates` you can configure the receiver to toggle between those every `toggle_interval` seconds via the toggle mask and toggle interval.
+Also the LED of the receiver is off by default. In case you want to enable the led you can do so via the led flag.
 
 {% configuration_basic %}
-  id:
-    description: "The LaCrosse Id of the sensor. Calculate the ID with: `hex2dec(ID_on_display) / 4` if the sensor has a display."
-  type:
-    description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. At least either `humidity`or `temperature` need to be selected."
-  name:
-    description: The name of the sensor.
-  expire after:
-    description: Timeout after which sensors are considered offline if no update telegram was received. If empty the library default of 300s will be used.
-  {% endconfiguration_basic %}
+led:
+  description: Activate or deactivate the Jeelink LED.
+frequency:
+  description: Initial frequency in 5kHz steps.
+datarate:
+  description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
+toggle_mask:
+  description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
+toggle_interval:
+  description: Enable the toggle mode and set the interval in seconds.
+{% endconfiguration_basic %}
 
-## Reconfiguration and Device Replacement
+### Adding a sensor
 
-This integration supports reconfiguration, allowing you to make changes—such as updating the receiver path, adding more sensors or changing the sensor ID after a powercycle.
+Once the receiver is configured you can add one or more sensors either during setup or at a later stage. A sensor must either report humidity or temperature. 
+Optionally it can report battery levels. Battery levels are limited to the values of **new** and **low** and not reported as percentage.
+Additional sensors or sensors exposing more readings can be added at a later stage. If a sensors exposes humidity on top of the temperature you can later add only the humidity sensor and supply the same sensor ID.
+
+{% configuration_basic %}
+id:
+  description: "The LaCrosse Id of the sensor. Calculate the ID with: `hex2dec(ID_on_display) / 4` if the sensor has a display."
+type:
+  description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. At least either `humidity`or `temperature` need to be selected."
+name:
+  description: The name of the sensor.
+'expire after':
+  description: Timeout after which sensors are considered offline if no update telegram was received. If empty the library default of 300s will be used.
+{% endconfiguration_basic %}
+
+## Reconfiguration and device replacement
+
+This integration supports reconfiguration, allowing you to make changes—such as updating the receiver path, adding more sensors or changing the sensor ID after a power cycle.
 
 ## Supported functionality
 
@@ -117,7 +127,7 @@ If your LaCrosse sensors are not being detected, verify the following:
 - Ensure the Jeelink receiver dongle is properly connected to your Home Assistant system.
 - Confirm the correct receiver device path is configured (usually `/dev/ttyUSB0` on Linux).
 - Check that your sensors are powered on and within range of the receiver.
-- Verify the baud rate setting matches your sensors's requirements (default is 57600).
+- Verify the baud rate setting matches your sensor's requirements (default is 57600).
 - Try scanning for available sensor IDs using the `pylacrosse` command-line tool before configuring the integration.
 
 ### Sensors show offline
