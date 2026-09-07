@@ -99,7 +99,7 @@ icon_height:
   default: auto
 color:
   required: false
-  description: Set the color for the icon when the entity is active. When the entity is inactive, the icon uses its inactive state color. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
+  description: Set the color for the icon when the entity is active. When the entity is inactive, the icon uses its inactive state color instead. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
   type: string
   default: state
 tap_action:
