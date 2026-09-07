@@ -21,7 +21,8 @@ To retrieve a device usage report from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Nintendo Switch parental controls: Device usage report**.
 6. Choose the **Device**.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the result, for example `usage_report`.
+8. Select **Save**.
 
 ### Options in the UI
 
