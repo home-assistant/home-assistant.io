@@ -33,7 +33,12 @@ Most Teltonika routers running RutOS are supported, including:
 
 ## Prerequisites
 
-You need the IP address and login credentials for your router's web interface. The account must have sufficient read permissions to access device, system, and modem information. The default user group may not provide all required permissions, so adjust the group's read permissions in RutOS if data is missing.
+You need:
+
+- The IP address of your router.
+- Login credentials for your router's web interface with read permissions for device, system, and modem information.
+
+If data is missing, adjust the read permissions of the account's user group in RutOS.
 
 {% include integrations/config_flow.md %}
 
