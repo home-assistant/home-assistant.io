@@ -66,7 +66,7 @@ baud:
 ### Optional input
 
 In case you use LaCrosse sensors with different `datarates` you can configure the receiver to toggle between those every `toggle_interval` seconds via the toggle mask and toggle interval.
-Also the LED of the receiver is off by default. In case you want to enable the led you can do so via the led flag.
+Also the LED of the receiver is off by default. In case you want to enable the LED you can do so via the `led` checkbox.
 
 {% configuration_basic %}
 led:
@@ -108,7 +108,7 @@ The **LaCrosse** integration provides the following entities:
 
 - **Temperature sensor**: Displays the temperature reading from the LaCrosse sensor.
 - **Humidity sensor**: Displays the humidity reading (available on compatible models like TX 29 DTH-IT).
-- **Battery sensor**: Displays the battery status as either `new` or `low`.
+- **Battery sensor**: Displays the battery status as either **new** or **low**.
 
 ## Known limitations
 
