@@ -12,9 +12,9 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The **USB Discovery** {% term integration %} detects supported USB devices that can be discovered by Home Assistant integrations. Devices that match a supported integration show up in the discovered section on the integrations page in the configuration panel.
+The **USB Discovery** {% term integration %} detects supported USB devices that can be discovered by Home Assistant integrations. Devices that match a supported integration appear in the **Discovered** section on {% my integrations title="**Settings** > **Devices & services**" %}.
 
-This integration does not manage USB storage devices. To use a USB-attached SSD or HDD as storage with Home Assistant Operating System, see [Using external data disk](/common-tasks/os/#using-external-data-disk).
+This integration does not manage USB storage devices. To use a USB-attached drive, such as an SSD or HDD, as storage with {% term "Home Assistant Operating System" %}, see [using an external data disk](/common-tasks/os/#using-external-data-disk).
 
 - On all supported systems, devices are detected during startup.
 - On Linux systems that have functional `udev` support, including Home Assistant Operating System, devices are detected as soon as they are plugged in.
