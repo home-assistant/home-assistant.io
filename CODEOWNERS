@@ -2256,7 +2256,7 @@ source/_triggers/assist_satellite.started_processing.markdown @home-assistant/co
 source/_triggers/assist_satellite.started_responding.markdown @home-assistant/core @synesthesiam @arturpragacz
 source/_triggers/battery.became_low.markdown @home-assistant/core
 source/_triggers/battery.level_changed.markdown @home-assistant/core
-source/_triggers/battery.level_crossed.markdown @home-assistant/core
+source/_triggers/battery.level_crossed_threshold.markdown @home-assistant/core
 source/_triggers/battery.no_longer_low.markdown @home-assistant/core
 source/_triggers/battery.started_charging.markdown @home-assistant/core
 source/_triggers/battery.stopped_charging.markdown @home-assistant/core
