@@ -17,7 +17,7 @@ ha_platforms:
   - update
 ha_zeroconf: true
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
 The **WattWächter Plus** {% term integration %} connects Home Assistant to a [WattWächter Plus](https://wattwächter.de) energy monitoring device by [SmartCircuits GmbH](https://smartcircuits.de). The device reads data from your smart electricity meter via the <abbr title="Smart Message Language">SML</abbr>/<abbr title="Object Identification System">OBIS</abbr> protocol and exposes it over a local HTTP API. All communication stays on your local network. No cloud service is involved.
