@@ -1,7 +1,7 @@
 ---
 title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
-ha_release: 2026.8
+ha_release: 2026.9
 ha_category:
   - Binary sensor
   - Light
@@ -20,6 +20,7 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The **Hot Spring** {% term integration %} allows you to monitor and control your [Hot Spring](https://www.hotspring.com/) spa equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) module directly from Home Assistant.

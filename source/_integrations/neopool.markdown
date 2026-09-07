@@ -5,15 +5,16 @@ ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@svasek"
+  - '@svasek'
 ha_domain: neopool
 ha_platforms:
   - button
+  - diagnostics
   - light
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_category:
   - Hub
 ---

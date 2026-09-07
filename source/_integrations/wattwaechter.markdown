@@ -12,6 +12,7 @@ ha_codeowners:
   - '@smartcircuits'
 ha_domain: wattwaechter
 ha_platforms:
+  - diagnostics
   - sensor
   - update
 ha_zeroconf: true
