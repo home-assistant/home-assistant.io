@@ -39,7 +39,7 @@ Icon:
 Icon Height:
   description: The height of the icon, in pixels.
 Color:
-  description: The color of the icon when the entity is active. When the entity is inactive, the icon uses its inactive state color.
+  description: The color of the icon when the entity is active. When the entity is inactive, the icon uses the inactive state color instead.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 Show Name:
