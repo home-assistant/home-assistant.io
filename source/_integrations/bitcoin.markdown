@@ -55,15 +55,15 @@ The **Bitcoin** integration provides the following entities. All of them are cre
   - **Description**: The same revenue, expressed in BTC.
 - **Mined**
   - **Description**: New BTC created in the last 24 hours.
-- **Mined Blocks**
+- **Mined blocks**
   - **Description**: Number of blocks mined in the last 24 hours.
 - **Block size**
   - **Description**: Combined size of the blocks mined in the last 24 hours, in bytes.
 - **Difficulty**
   - **Description**: How hard it currently is to mine a block.
-- **Time between Blocks**
+- **Time between blocks**
   - **Description**: Average number of minutes between blocks.
-- **No. of Transactions**
+- **No. of transactions**
   - **Description**: Number of transactions confirmed in the last 24 hours.
 - **Hash rate**
   - **Description**: Estimated computing power of the whole network, in PH/s.
@@ -75,11 +75,11 @@ The **Bitcoin** integration provides the following entities. All of them are cre
   - **Description**: Estimate of the same value with change outputs left out, in BTC.
 - **Total**
   - **Description**: All BTC in circulation.
-- **Total Blocks**
+- **Total blocks**
   - **Description**: Number of blocks in the chain.
 - **Next retarget**
   - **Description**: Block height at which the mining difficulty changes next.
-- **Est. Transaction volume**
+- **Est. transaction volume**
   - **Description**: Estimated value moved in the last 24 hours, in USD.
 - **Timestamp**
   - **Description**: When blockchain.com produced these numbers.
