@@ -37,6 +37,10 @@ The integration provides the following configuration options:
 Control Home Assistant:
   description: If MCP clients are allowed to control Home Assistant. Clients can only
     control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+Require an administrator account:
+  description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
+    option is turned on by default. If you set up the integration before this option existed,
+    it stays turned off so that your clients keep working.
 {% endconfiguration_basic %}
 
 ## Architecture overview
@@ -81,10 +85,18 @@ Point your MCP client at this URL in the same way you would use the base
 responds with a 404 Not Found error.
 
 Connecting to any API other than Assist requires the authenticated user to be an
-administrator. The Assist API stays available to non-administrator users, just
-like the base `/api/mcp` endpoint.
+administrator. The Assist API stays available to non-administrator users. Access
+to the base `/api/mcp` endpoint follows the **Require an administrator account**
+option instead.
 
 ### Access control
+
+#### Administrator accounts
+
+The **Require an administrator account** option restricts the `/api/mcp` endpoint
+to administrator accounts and is turned on by default. Turn it off to let a
+non-administrator account, such as an account you created for a single MCP client,
+use the endpoint.
 
 #### OAuth
 
@@ -104,7 +116,7 @@ an OAuth Client ID. Instead, the Client ID is the base URL of the client applica
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
-1. Go to {% my profile_security title="**User profile** > **Security** tab " %}.
+1. Go to {% my profile_security title="**User profile** > **Security**" %}.
 2. Under **Long-lived access tokens**, select **Create token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
