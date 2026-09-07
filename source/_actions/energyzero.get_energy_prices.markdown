@@ -9,6 +9,8 @@ related_actions:
 
 The **Get energy prices** action fetches the dynamic energy prices from EnergyZero for a period you choose.
 
+The action returns hourly prices, regardless of the **Electricity price interval** selected in the [integration options](/integrations/energyzero/#options).
+
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to show the prices in a template sensor.
 
 {% include actions/ui_header.md %}
