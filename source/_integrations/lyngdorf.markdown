@@ -43,9 +43,9 @@ Every model gets a main zone media player and the RoomPerfect position and voici
 | [TDAI-2170](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-2170/) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [TDAI-2210](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-2210/) | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
 | [TDAI-3400](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-3400/) | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| [P100](https://steinwaylyngdorf.com/steinway-sons-p100/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ |
-| [P200](https://steinwaylyngdorf.com/steinway-sons-p200/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ |
-| [P300](https://steinwaylyngdorf.com/steinway-sons-p300/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| [P100](https://steinwaylyngdorf.com/steinway-sons-p100/) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| [P200](https://steinwaylyngdorf.com/steinway-sons-p200/) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| [P300](https://steinwaylyngdorf.com/steinway-sons-p300/) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
 
 The P100, P200, and P300 are made by Lyngdorf and marketed as [Steinway & Lyngdorf].
 
@@ -150,7 +150,7 @@ The **Lyngdorf** integration uses local push to receive real-time updates from t
 - Only the MP-60, TDAI-1120, and TDAI-3400 have been tested against real hardware. The other models are implemented from the protocol documentation and may not support all features.
 - Only local network control is supported.
 - Pausing a source that is controlled by another app, such as AirPlay, ends the session rather than pausing it. The device cannot resume it; only the controlling app can start it again. This is how those protocols work, and is not specific to Home Assistant.
-- Now playing information, playback position, and transport controls require a model with a streaming module. The TDAI-2170 and the P-series do not have one.
+- Now playing information, playback position, and transport controls require a model with a streaming module. The TDAI-2170 does not have one.
 - The trims and lip sync apply to the main zone only.
 - The remote keys drive the device's own menus only. There is no way to read what is on screen, so an automation cannot know where in a menu it is.
 
