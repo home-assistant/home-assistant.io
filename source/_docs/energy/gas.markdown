@@ -9,11 +9,11 @@ Home Assistant allows you to track your gas usage and easily compare it against 
 
 ## Hardware
 
-Home Assistant will need to know the amount of gas that is being consumed.
+Home Assistant needs a source that measures the amount of gas being consumed. How this is measured depends on your installation. For homes connected to a gas grid, the gas meter is usually the best source for this data.
 
 ### Connect to your meter
 
-The best way to get this data is directly from your gas meter that sits between your house and the grid. In certain countries these meters contain standardized ways of reading out the information locally or provide this information via the electricity meter.
+If your home is connected to a gas grid, the best way to get this data is usually directly from the gas meter that sits between your house and the grid. In certain countries these meters contain standardized ways of reading out the information locally or provide this information via the electricity meter.
 
 #### Connect using a P1 port
 
