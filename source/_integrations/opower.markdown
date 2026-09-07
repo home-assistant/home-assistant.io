@@ -104,6 +104,14 @@ You will be asked to re-authenticate via MFA periodically.
 The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
 You will be asked to re-authenticate via MFA every 180 days.
 
+### Southwest Gas
+
+Use your **Energy Savings Portal** (Opower) credentials when you set up the integration. These are different from your Southwest Gas **MyAccount** credentials.
+
+If you do not have an Energy Savings Portal account yet, create one at the [Southwest Gas Energy Savings Portal](https://swg.opower.com/). You will need your utility account number and full name exactly as they appear on your energy bill.
+
+If you see **Invalid authentication**, but you can still sign in to the Southwest Gas **MyAccount** portal, you are likely entering your **MyAccount** credentials instead of your **Energy Savings Portal** credentials.
+
 {% include integrations/config_flow.md %}
 
 ## Sensors
