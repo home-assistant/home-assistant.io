@@ -12,6 +12,7 @@ ha_platforms:
 ha_release: '2026.10'
 ha_codeowners:
   - '@jptstar'
+ha_quality_scale: bronze
 ---
 
 The **TSUN** {% term integration %} connects supported [TSUN](https://www.tsun-ess.com/) micro-inverters directly to Home Assistant over the local network. It provides production and energy measurements without requiring a cloud service or proxy. All communication with the micro-inverter is read-only.
