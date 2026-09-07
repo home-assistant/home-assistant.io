@@ -91,7 +91,7 @@ In addition to the standard [media player actions](/integrations/media_player/#a
 
 ### TTS announcements
 
-Use the `announce` option with the `media_player.play_media` action to play a TTS URL as an announcement. Local HEOS playback is paused while the announcement plays, and the temporary URL stream is removed from the queue afterward.
+Use the `announce` option with the `media_player.play_media` action to play a TTS message as an announcement. Local HEOS playback is paused while the announcement plays, and the temporary URL stream is removed from the queue afterward.
 
 ```yaml
 action: media_player.play_media
