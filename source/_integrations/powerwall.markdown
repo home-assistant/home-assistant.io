@@ -41,8 +41,8 @@ Before setting up the integration, make sure you have the following information:
 
 - IP address: The local IP address assigned to your Powerwall or Backup Gateway. Home Assistant may discover this automatically. If it does not, check your router or DHCP server for the address assigned to the device.
 - Password:
-  - On newer models, use the last 5 characters of the password printed inside the Backup Gateway.
-  - On older models, use the last 5 characters of the Backup Gateway serial number. You can find the serial number in the Tesla app.
+  - If a password is printed inside the Backup Gateway, use the last 5 characters of that password.
+  - If there is no separate password, use the last 5 characters of the Backup Gateway serial number. You can find the serial number in the Tesla app.
 
 {% include integrations/config_flow.md %}
 
