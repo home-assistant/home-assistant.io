@@ -17,19 +17,19 @@ The **LaCrosse** {% term integration %} uses the [Jeelink](https://www.digitalsm
 
 This integration creates temperature, humidity, and battery level sensors for each configured LaCrosse sensor.
 
-## Prerequisites
-
-You need a Jeelink USB dongle or an Arduino-based receiver to use this integration.
-
 ## Supported devices
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
 - TFA Dostmann LaCrosse sensors (type 30.3147.IT)
 
+## Prerequisites
+
+You need a Jeelink USB receiver or an Arduino-based receiver to use this integration.
+
 ## Setup
 
-Since the sensor change their ID after each power cycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
+Since the sensors choose a new ID after each power cycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
 
 ```bash
 sudo pylacrosse -d /dev/ttyUSB0 scan
@@ -50,9 +50,9 @@ For TX 29 DTH-IT sensors, you can also read the ID from the display and calculat
 
 ### Required manual input
 
-After obtaining the sensor ID you can start the setup of the LaCrosse sensor. First configure the receiver.
-Available receivers connected providing a serial interface via USB are prefilled in the `device` dropdown. If auto detection did not find your receiver you can
-manually input the path. The default baud rate should be sufficient for most sensors.
+After obtaining the sensor's ID you can start the configuration of the LaCrosse receiver.
+You can select your receiver via the `device` dropdown, if it's connected via USB. If auto detection does not find your receiver you can
+manually input the correct path. The default baud rate or 57000 works for most sensors, but can optionally be changed via the `baud` input.
 
 {% configuration_basic %}
 device:
@@ -65,16 +65,17 @@ baud:
 
 ### Optional input
 
-In case you use LaCrosse sensors with different `datarates` you can configure the receiver to toggle between those every `toggle_interval` seconds via the toggle mask and toggle interval.
-Also the LED of the receiver is off by default. In case you want to enable the LED you can do so via the `led` checkbox.
+By default the receiver uses a 868Mhz frequency with a 17.241kbps datarate. Optionally you can change the frequency in 5kHz steps via `frequency`. 
+In case you have LaCrosse sensors using a different datarate you can configure the receiver to toggle between those every `toggle_interval` seconds by setting  `toggle_mask` and `toggle_interval`.
+The LED of the receiver is off by default. In case you want to enable the LED you can do so via the `led` checkbox.
 
 {% configuration_basic %}
 led:
   description: Activate or deactivate the Jeelink LED.
 frequency:
-  description: Initial frequency in 5kHz steps.
+  description: Initial frequency of 868,9500Mhz. Can be changed in 5kHz steps.
 datarate:
-  description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
+  description: "Set the data rate in kbps. Special values for well-known settings are: `1`: 17.241 kbps, `2`: 9.579 kbps, `4`: 8.842 kbps."
 toggle_mask:
   description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
 toggle_interval:
