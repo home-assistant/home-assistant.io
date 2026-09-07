@@ -27,6 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sirens are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted siren turns on, **First** to fire only when the first targeted siren turns on, or **All** to fire only after every targeted siren has turned on.
+  required: false
 For at least:
   description: How long the siren must stay on before the trigger fires. Set to zero to fire right away.
 {% endoptions_ui %}

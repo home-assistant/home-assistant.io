@@ -107,6 +107,8 @@ All Velux cover entities support:
 - Stop
 - Set position
 
+The **Open cover**, **Close cover**, and **Set cover position** actions support an optional `speed` option. Available values are listed in the `supported_speeds` attribute of the cover entity (`silent`, `fast`, and `default`).
+
 Blinds additionally support:
 
 - Open tilt

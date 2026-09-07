@@ -5,6 +5,7 @@ domain: roborock
 description: "Retrieves the map and room information of a Roborock vacuum."
 related_actions:
   - roborock.set_vacuum_goto_position
+  - roborock.set_vacuum_zoned_cleaning
   - roborock.get_vacuum_current_position
 ---
 

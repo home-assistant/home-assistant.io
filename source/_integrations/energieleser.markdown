@@ -15,6 +15,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics

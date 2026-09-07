@@ -86,8 +86,9 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Device class**: `duration`
 
 #### Switch
+
 - **Suspend software**
-  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
+  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits.
 
 #### Time
 
@@ -97,17 +98,6 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Description**: The time that bedtime should end. Set to 00:00 to disable. Accepts values between 05:00 and 09:00 for the bedtime end time.
 
 {% include integrations/actions.md %}
-
-### Action: Update pin code
-
-The `nintendo_parental_controls.update_pin_code` action allows you to change the parental controls override PIN of a specified device. When entering this PIN on the Switch, all parental control restrictions can be bypassed.
-
-- **Data attribute**: `device_id`
-  - **Description**: The ID of the device to change the PIN on.
-  - **Optional**: No
-- **Data attribute**: `pin`
-  - **Description**: The new PIN is to be set between 1000 and 99999999.
-  - **Optional**: No
 
 ## Known limitations
 

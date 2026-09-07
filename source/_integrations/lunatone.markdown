@@ -2,6 +2,7 @@
 title: Lunatone
 description: Instructions on how to integrate Lunatone REST API devices with Home Assistant.
 ha_category:
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: lunatone
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - light
   - sensor
@@ -54,6 +56,12 @@ URL:
 ### Entities
 
 The Lunatone integration provides the following entities.
+
+#### Binary sensors
+
+- **DALI scan**
+  - **Description**: Shows whether a DALI scan is running.
+  - **Available for devices**: All
 
 #### Lights
 
