@@ -61,7 +61,7 @@ Every day around **14:00 UTC time**, the new prices are published for the follow
 - Percentage of the current price compared to the maximum price
 - **Periods priced equal or lower**
 
-The **Periods priced equal or lower** sensor counts today's price periods whose price is equal to or lower than the current electricity price. It reports a count without a unit of measurement. The integration currently retrieves hourly electricity prices.
+The **Periods priced equal or lower** sensor counts today's price periods whose price is equal to or lower than the current electricity price. It reports a count without a unit of measurement. Each electricity price period used by the integration currently lasts one hour.
 
 ### Gas market price
 
