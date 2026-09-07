@@ -14,7 +14,7 @@ ha_domain: theben_conexa
 ha_integration_type: device
 related:
   - url: https://www.theben-se.de/conexa/
-    title: Official website
+    title: Theben Smart Energy website
 
 ---
 
