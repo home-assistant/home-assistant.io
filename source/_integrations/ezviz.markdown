@@ -32,7 +32,7 @@ related:
 The **EZVIZ** integration uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
-As there is no official documentation for the API, the integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
+The integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
@@ -105,7 +105,7 @@ For battery powered cameras, you can use this entity to select the battery work 
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |
 | Plugged in             | The camera will keep recording. The camera should be plugged in.                                     |
 | High performance       | One video clip is longer but saves less power.                                                       |
-| Power save             | One video clip is shorter and saves more power.                                                      |
+| Power save             | One video clip is shorter but saves more power.                                                      |
 | Super power saving     | Sleep mode is on. Active live view can wake up the camera.                                           |
 | Custom                 | The camera will use the schedules registered in the app.                                            |
 
