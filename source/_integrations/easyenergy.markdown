@@ -134,7 +134,7 @@ template:
 
 ## Data updates
 
-The integration will poll the easyEnergy API every 10 minutes to update the data in Home Assistant.
+The integration will {% term polling poll %} the easyEnergy API every 10 minutes to update the data in Home Assistant.
 
 Electricity prices for the following day and gas prices are published daily. You can retrieve published prices for a specific date using the actions.
 
