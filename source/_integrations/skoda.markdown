@@ -4,7 +4,9 @@ description: Instructions on setting up Škoda within Home Assistant.
 ha_release: 2026.10
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@mobility-lab-vsb'
+  - '@TomVSB'
+  - '@DavidMagyarics'
+  - '@dvx76'
 ha_domain: skoda
 ha_integration_type: hub
 ha_config_flow: true
