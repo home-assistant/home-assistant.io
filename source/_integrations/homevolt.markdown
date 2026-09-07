@@ -54,7 +54,15 @@ The {% term integration %} creates switches reported by the device, including:
 
 ## Selects
 
-The **Battery mode** select changes the battery's operating mode. It is available when local mode is enabled. The available modes are Idle, Inverter charge, Inverter discharge, Frequency reserve, and Solar charge.
+The **Battery mode** select changes the battery's operating mode. It is available when the **Local mode** switch is enabled.
+
+Available modes:
+
+- Idle
+- Inverter charge
+- Inverter discharge
+- Frequency reserve
+- Solar charge
 
 ## Troubleshooting
 
