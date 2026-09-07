@@ -610,7 +610,7 @@ max_devices:
   default: 20
 show_values:
   required: false
-  description: Whether to show the numeric values on each node and link
+  description: Whether to show the numeric values on each node.
   type: boolean
   default: false
 {% endconfiguration %}
@@ -678,7 +678,7 @@ max_devices:
   default: 20
 show_values:
   required: false
-  description: Whether to show the numeric value on each node and link.
+  description: Whether to show the numeric values on each node.
   type: boolean
   default: false
 {% endconfiguration %}
