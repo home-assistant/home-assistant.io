@@ -17,7 +17,18 @@ ha_integration_type: hub
 
 The **HausBus** {% term integration %} lets you connect [HausBus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
 
-Currently, the integration provides support for roller shutters (covers).
+## Supported devices
+
+Currently, the integration provides support for roller shutters (cover entity).
+
+Each shutter channel is exposed as a Home Assistant cover entity.
+
+Supported operations:
+
+- Open cover
+- Close cover
+- Stop cover
+- Set cover position
 
 ## Prerequisites
 
@@ -32,21 +43,6 @@ Before setting up the integration:
 During setup, Home Assistant searches your local network for a HausBus controller. This can take a moment. If a controller is found, setup completes automatically. If no controller is found within the search period, you can retry the search.
 
 After setup, supported HausBus devices are created automatically.
-
-## Supported devices
-
-The integration currently supports:
-
-- Roller shutters (cover entities)
-
-Each shutter channel is exposed as a Home Assistant cover entity.
-
-Supported operations:
-
-- Open cover
-- Close cover
-- Stop cover
-- Set cover position
 
 ## HausBus automation examples
 
@@ -82,14 +78,6 @@ automations:
           entity_id: cover.living_room_shutter
 ```
 
-## Removing the integration
-
-This integration follows standard integration removal.
-
-{% include integrations/remove_device_service.md %}
-
-Removing the integration does not modify the configuration of the HausBus controller or connected HausBus devices.
-
 ## Troubleshooting
 
 If no devices are discovered:
@@ -100,3 +88,12 @@ If no devices are discovered:
 - Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
 For more information, visit the [HausBus website](https://www.haus-bus.de/).
+
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+Removing the integration does not modify the configuration of the HausBus controller or connected HausBus devices.
