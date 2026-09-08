@@ -596,7 +596,7 @@ License Plate Recognition can be triggered by various sources, including images 
 - **Description**: This event fires for each object type and event source a Smart Detection camera detects, including types that do not have their own sensor. Each object and source pair fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
 
 {% note %}
-This is a behavior change: an existing automation that does not filter `event_source` can run multiple times for the same `event_id` and object type when Protect emits overlapping sources. Automations that should react only to line crossings must filter for `smartDetectLine`.
+This is a behavior change. An existing automation that does not filter `event_source` can run multiple times for the same `event_id` and object type when Protect emits overlapping sources. Automations that should react only to line crossings must filter for `smartDetectLine`.
 
 The Package event entity exposes the same `event_source` attribute and can likewise fire once for each distinct source.
 
