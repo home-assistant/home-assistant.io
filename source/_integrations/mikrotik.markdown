@@ -238,7 +238,7 @@ The **MikroTik** {% term integration %} {% term polling polls %} the router's Ro
 
 - Presence detection only tracks clients connected to the router configured in the {% term integration %}. If your network has multiple MikroTik devices, such as a separate wireless access point or a CAPsMAN cluster, add each device as its own integration entry to track the devices connected to it.
 - The RouterBOARD update entity is only created on devices that report RouterBOARD information. It's not available on the Cloud Hosted Router (CHR) or other installations without a RouterBOARD.
-- Tracking isn't limited to MikroTik-branded devices, but not every connected client is tracked. By default, only wireless clients are tracked, using the router's wireless registration table. Wired clients are tracked only when **Force scanning using DHCP** is enabled, and then only those that have a DHCP lease. Devices with a manually configured static IP address aren't tracked.
+- Tracking isn't limited to MikroTik-branded devices, but not every connected client is tracked. Wireless clients are tracked through the router's wireless registration table, even without a DHCP lease. Wired clients are tracked from the DHCP lease table, which the integration uses when the wireless registration table returns no devices or when **Force scanning using DHCP** is enabled. A wired device without a DHCP lease, such as one with a manually configured static IP address, isn't tracked.
 
 ## Troubleshooting
 
@@ -246,7 +246,7 @@ The **MikroTik** {% term integration %} {% term polling polls %} the router's Ro
 
 #### Resolution
 
-By default, only wireless clients are tracked. If a wired device that has a DHCP lease shows as `not_home` while it's connected, enable the **Force scanning using DHCP** [configuration option](#configuration-options) so the integration also tracks devices from the router's DHCP lease table. Optionally enable **Enable ARP ping** as well so the integration verifies that those devices are still reachable instead of trusting the lease. A wired device with a manually configured static IP address has no DHCP lease and can't be tracked.
+The integration tracks wired devices from the router's DHCP lease table, which it uses automatically when the wireless registration table returns no devices, and always when **Force scanning using DHCP** is enabled. If a wired device that has a DHCP lease still shows as `not_home` while it's connected, enable the **Force scanning using DHCP** [configuration option](#configuration-options) so the lease table is always scanned, and optionally enable **Enable ARP ping** so the integration verifies that the device is still reachable instead of trusting the lease. A wired device without a DHCP lease, such as one with a manually configured static IP address, can't be tracked.
 
 ### Setup fails with a connection or authentication error
 
