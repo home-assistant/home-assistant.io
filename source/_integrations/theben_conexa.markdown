@@ -54,7 +54,7 @@ The **Theben Conexa** integration provides the following entities.
   - **Description**: The total amount of electrical energy you used from the electricity grid. This should be the same value as your electricity meter shows on its display.
   - **Remarks**: The Conexa SMGW provides a new measurement every 15 minutes.
 
-- **Energy Supplied**
+- **Energy supplied**
   - **Description**: The total amount of electrical energy you supplied to the electricity grid.
   - **Remarks**: Only shown if you actually supply power back to the grid. The Conexa SMGW provides a new measurement every 15 minutes.
 
