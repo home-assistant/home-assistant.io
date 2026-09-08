@@ -23,4 +23,6 @@ The **CoolMasterNet** {% term integration %} lets you control HVAC through [Cool
 
 ## Removing the integration
 
+This integration follows standard integration removal.
+
 {% include integrations/remove_device_service.md %}
