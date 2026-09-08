@@ -249,7 +249,11 @@ Because setup didn't finish, the integration isn't added yet, so the **Download 
 
 ### Entities are missing for your inverter
 
+#### Description
+
 If the integration set up successfully but entities you expect aren't there, such as battery or EPS/backup sensors on a hybrid inverter, the inverter is reporting that it doesn't serve those registers.
+
+#### Resolution
 
 Download the {% term diagnostics %} data and include it in the issue report. It lists which register blocks the inverter reports it supports, which shows whether the model genuinely lacks that hardware or the integration is reading it wrongly.
 
