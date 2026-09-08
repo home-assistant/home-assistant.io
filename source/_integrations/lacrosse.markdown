@@ -29,7 +29,7 @@ You need a Jeelink USB receiver or an Arduino-based receiver to use this integra
 
 ## Setup
 
-Since the sensors choose a new ID after each power cycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
+Since the sensors choose a new ID after each power cycle or battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
 
 ```bash
 sudo pylacrosse -d /dev/ttyUSB0 scan
@@ -51,51 +51,48 @@ For TX 29 DTH-IT sensors, you can also read the ID from the display and calculat
 ### Required manual input
 
 After obtaining the sensor's ID you can start the configuration of the LaCrosse receiver.
-You can select your receiver via the `device` dropdown, if it's connected via USB. If auto detection does not find your receiver you can
-manually input the correct path. The default baud rate or 57000 works for most sensors, but can optionally be changed via the `baud` input.
+If your receiver is connected via USB, you can select it from the `device` dropdown. If autodetection does not find your receiver, you can manually enter the correct path. The default baud rate of 57600 works for most sensors, but you can optionally change it via the `baud` input.
 
 {% configuration_basic %}
-device:
-  description: The Jeelink receiver connected via USB. Select via dropdown.
-  default: /dev/ttyUSB0
-baud:
-  description: The serial baudrate.
-  default: 57600
+Device:
+   description: Select the Jeelink receiver connected via USB.
+Baud rate:
+   description: The serial baud rate.
 {% endconfiguration_basic %}
 
 ### Optional input
 
-By default the receiver uses a 868Mhz frequency with a 17.241kbps datarate. Optionally you can change the frequency in 5kHz steps via `frequency`. 
-In case you have LaCrosse sensors using a different datarate you can configure the receiver to toggle between those every `toggle_interval` seconds by setting  `toggle_mask` and `toggle_interval`.
-The LED of the receiver is off by default. In case you want to enable the LED you can do so via the `led` checkbox.
+By default, the receiver uses an 868.95 MHz frequency with a 17.241 kbps data rate. Optionally, you can change the frequency in 5 kHz steps via `frequency`.
+ If you have LaCrosse sensors using a different data rate, you can configure the receiver to toggle between them every `toggle_interval` seconds by setting `toggle_mask` and `toggle_interval`.
+ The LED of the receiver is off by default. If you want to enable it, select the `led` checkbox.
 
 {% configuration_basic %}
-led:
+LED:
   description: Activate or deactivate the Jeelink LED.
-frequency:
+Frequency:
   description: Initial frequency of 868,9500Mhz. Can be changed in 5kHz steps.
-datarate:
+Data rate:
   description: "Set the data rate in kbps. Special values for well-known settings are: `1`: 17.241 kbps, `2`: 9.579 kbps, `4`: 8.842 kbps."
-toggle_mask:
+Toggle mask:
   description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
-toggle_interval:
+Toggle interval:
   description: Enable the toggle mode and set the interval in seconds.
 {% endconfiguration_basic %}
 
 ### Adding a sensor
 
-Once the receiver is configured you can add one or more sensors either during setup or at a later stage. A sensor must either report humidity or temperature. 
-Optionally it can report battery levels. Battery levels are limited to the values of **new** and **low** and not reported as percentage.
-Additional sensors or sensors exposing more readings can be added at a later stage. If a sensors exposes humidity on top of the temperature you can later add only the humidity sensor and supply the same sensor ID.
+Once the receiver is configured, you can add one or more sensors either during setup or later. A sensor must report either humidity or temperature.
+ Optionally, it can report battery level. Battery level is limited to **new** and **low**, and it is not reported as a percentage.
+ If a sensor reports humidity as well as temperature, you can add the humidity sensor later and use the same sensor ID.
 
 {% configuration_basic %}
-id:
+ID:
   description: "The LaCrosse Id of the sensor. Calculate the ID with: `hex2dec(ID_on_display) / 4` if the sensor has a display."
-type:
+Type:
   description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. At least either `humidity`or `temperature` need to be selected."
-name:
+Name:
   description: The name of the sensor.
-'expire after':
+Expire after:
   description: Timeout after which sensors are considered offline if no update telegram was received. If empty the library default of 300s will be used.
 {% endconfiguration_basic %}
 
@@ -137,7 +134,7 @@ If sensors appear offline in Home Assistant, they may not be transmitting data. 
 
 - The sensor has fresh batteries and is powered on.
 - The sensor is within range of the Jeelink receiver.
-- The **expire after** timeout is set appropriately (default is 300 seconds).
+- The **Expire after** timeout is set appropriately (default is 300 seconds).
 - No interference is affecting the wireless signal.
 
 ### ID conflicts between sensors
