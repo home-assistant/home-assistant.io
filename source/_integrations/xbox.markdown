@@ -382,7 +382,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 
 | Entity Name      | Description                                                                |
 | ---------------- | -------------------------------------------------------------------------- |
-| **Status**       | Shows the account's text status as it appears in your friends list.        |
+| **Status**       | Shows the account's text status as it appears on the Xbox Network.          |
 | **Gamerscore**   | Displays the account's Gamerscore.                                         |
 | **Friends**      | Displays the number of mutual friend relationships of the account.         |
 | **Follower**     | Displays the number of people following the account.                       |
