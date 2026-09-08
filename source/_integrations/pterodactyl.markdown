@@ -73,7 +73,7 @@ Using **force stop** will terminate the server immediately and may lead to game 
 {% endwarning %}
 
 {% note %}
-All buttons are disabled in case the server is suspended.
+All buttons are disabled when the server is suspended.
 {% endnote %}
 
 ## Sensors
