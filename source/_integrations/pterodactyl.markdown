@@ -51,9 +51,10 @@ Account API key:
 
 ## Binary sensors
 
-This integration provides a binary sensor with the following information for each game server of your Pterodactyl server:
+This integration provides following binary sensors with the following information for each game server of your Pterodactyl server:
 
 - Status: `Running` or `Not running`
+- Suspended: `On` or `Off`
 
 ## Buttons
 
@@ -70,6 +71,10 @@ The following button is provided as well, but disabled by default:
 {% warning %}
 Using **force stop** will terminate the server immediately and may lead to game server file corruption.
 {% endwarning %}
+
+{% note %}
+All buttons are disabled in case the server is suspended.
+{% endnote %}
 
 ## Sensors
 
