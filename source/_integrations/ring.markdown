@@ -93,15 +93,15 @@ Two camera entities are provided: `live_view` and `last_recording`.
 Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
-The `last_recording` camera provides a `last_recording_at` state attribute showing when Ring created the current recording. Until Home Assistant retrieves recording history, its value is `null`. If the history contains a recording, the value is a UTC timestamp in ISO 8601 format. If no recording history is available, the value is `null`.
-
 ### Event
 
 The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
 
 ### Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level, Wi-Fi signal, and the last recording timestamp for subscribed video devices.
+
+The `last_recording` timestamp sensor is disabled by default. When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
 
 The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
