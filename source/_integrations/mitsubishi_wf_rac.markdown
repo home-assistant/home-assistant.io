@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: mitsubishi_wf_rac
 ha_platforms:
   - climate
-  - diagnostics
 ha_zeroconf: true
 ha_integration_type: device
 ---
@@ -29,42 +28,21 @@ The module is the requirement, not the indoor unit: a unit that works with the S
 ## Prerequisites
 
 - The module has to be on your network already. Set it up once with the manufacturer's app, or through the module's own access point; this integration does not perform that first-time setup.
-- Give the module a fixed address in your router. A changed address is picked up when the module announces itself again, but only then; if it does not, correct it with **Reconfigure**.
+- Give the module a fixed address in your router. A changed address is picked up when the module announces itself again, but only then.
 - The module presents a self-signed certificate, and the connection does not verify it by default. To verify it instead, save the module's certificate as `ac_cert.pem` in your Home Assistant configuration directory; the integration picks it up on the next reload. Fetch it with `openssl s_client -connect <module IP>:51443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > ac_cert.pem`. This is optional, and it only makes a difference on a network where you do not trust the path to the module.
 - The module accepts a limited number of registered controllers. If its account table is full, Home Assistant cannot register and the integration raises a repair issue saying so; free a slot in the app, or factory-reset the module.
 
 {% include integrations/config_flow.md %}
 
-Units on the same network are discovered automatically and appear as discovered devices. Confirm one and give it a name.
+Units on the same network are discovered automatically and appear as discovered devices. Confirm one to add it.
 
 {% configuration_basic %}
-Name:
-  description: "The name the airco gets in Home Assistant. It names the device and prefixes the entities belonging to it."
 Host:
   description: "The local IP address of the airco's wireless module."
 Port:
   description: "The port the module's local API listens on. This is 51443 on every firmware branch seen so far; discovery fills it in."
 Ignore duplicate IP address:
   description: "Off by default. Adds the airco even though another entry already uses that IP address, for re-adding a unit whose old entry went missing. The module accepts one connection at a time, so two entries polling it produce errors in the log."
-{% endconfiguration_basic %}
-
-## Configuration options
-
-Everything else is configured after setup, with the **Configure** button on the integration entry.
-
-{% configuration_basic %}
-Retry limit:
-  description: "Consecutive failed polls before the airco is marked unavailable. The minimum of three is about three minutes at the 60-second poll interval, which is enough to ride through the module's hourly Wi-Fi reassociation. Raise it on a weak link."
-Target Temp. Offset:
-  description: "Calibrates the setpoint sent to the unit. Positive lowers what is sent while the card keeps showing your setting. Most units round a half degree up to the next whole one, so 0.5 often acts as 1."
-Target Temp. Offset (Cooling):
-  description: "Overrides the general target offset for cool and dry mode. Leave empty to use the general offset there too."
-Target Temp. Offset (Heating):
-  description: "Overrides the general target offset for heat mode. Leave empty to use the general offset for heat too."
-Indoor Temp. Sensor Offset:
-  description: "Added to the unit's own indoor reading before it is shown. Display only; it does not change what the unit does."
-Outdoor Temp. Sensor Offset:
-  description: "The same, for the outdoor temperature the unit reports."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -77,7 +55,7 @@ The integration creates one device per air conditioner with a climate entity tha
 - **Vertical and horizontal swing**, including the unit's 3D auto mode where fitted.
 - **Away preset**, which switches the unit into its own Home Leave mode.
 
-The current temperature shown is the unit's own return-air reading, corrected by the indoor sensor offset.
+The current temperature shown is the unit's own return-air reading.
 
 ## Mitsubishi WF-RAC automation examples
 
@@ -92,6 +70,8 @@ A separate room sensor is the better trigger, so the unit only starts when the r
 - **Trigger**: Time: 21:30
 - **Condition**: Numeric state: bedroom temperature above 23 °C
 - **Action**: Climate: Set target temperature to 22 °C in cool mode
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/mitsubishi_wf_rac_precool_with_room_sensor.yaml" %}
 
 {% details "YAML example for pre-cooling the bedroom" %}
 
@@ -123,6 +103,8 @@ The unit keeps running against an open window on its own. Give it a couple of mi
 - **Trigger**: State: bedroom window open for 2 minutes
 - **Action**: Climate: Turn off
 
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/mitsubishi_wf_rac_off_with_open_window.yaml" %}
+
 {% details "YAML example for switching off with the window open" %}
 
 {% example %}
@@ -148,6 +130,8 @@ On units that report it, Home Leave keeps the room within a wide band rather tha
 - **Trigger**: State: person away from home for 30 minutes
 - **Condition**: The living room unit is not off
 - **Action**: Climate: Set preset mode to `away`
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/mitsubishi_wf_rac_home_leave_while_away.yaml" %}
 
 {% details "YAML example for falling back to Home Leave" %}
 
@@ -183,9 +167,9 @@ Commands issued together are coalesced into a single frame, because the module a
 
 ## Known limitations
 
-- **The unit briefly goes unavailable about once an hour.** The module reassociates with your Wi-Fi on its own; the default retry limit of three polls is chosen to ride through it. This is the module's behavior, not a network fault.
+- **The unit briefly goes unavailable about once an hour.** The module reassociates with your Wi-Fi on its own; the integration tolerates three failed polls in a row to ride through it. This is the module's behavior, not a network fault.
 - **Only one controller writes at a time.** The module grants a 60-second exclusive write lease to whoever wrote last. A command sent while somebody else holds it, typically the manufacturer's app, is refused and retried once when the lease lapses.
-- **The current temperature is measured at the return air grille**, above the unit and inside its own airflow, so it reads differently from a thermostat placed in the room. The target and sensor offsets exist to calibrate that difference.
+- **The current temperature is measured at the return air grille**, above the unit and inside its own airflow, so it reads differently from a thermostat placed in the room.
 - **A limited number of controllers can be registered** on a module at once. Home Assistant occupies one slot.
 
 ## Troubleshooting
