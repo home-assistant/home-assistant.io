@@ -1013,6 +1013,33 @@ options:
   type: list
 {% endconfiguration %}
 
+## State
+
+Widget that displays the state of the entity, or another state content item such as an attribute, as read-only text. On the [tile card](/dashboards/tile/) with `features_position: inline`, the value is shown next to the entity name.
+
+<p class='img'>
+  <img src='/images/dashboards/features/state.png' alt='Screenshot of the tile card with the state feature'>
+  Screenshot of the tile card with the state feature
+</p>
+
+```yaml
+features:
+  - type: "state"
+    state_content: state
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`state`"
+  type: string
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
+{% endconfiguration %}
+
 ## Target humidity
 
 Widget that displays a slider to select the target humidity for a [humidifier](/integrations/humidifier) or a [climate](/integrations/climate) entity.
