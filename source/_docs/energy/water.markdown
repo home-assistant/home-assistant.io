@@ -39,6 +39,12 @@ There are also products for water usage monitoring that are based on existing co
 - [Zigbee](/integrations/zha)
 - [Matter](/integrations/matter)
 
+## Viewing your water usage
+
+Once a compatible water consumption sensor is available in Home Assistant, add it to the Energy dashboard under {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the Energy dashboard to review usage for different periods.
+
+For cumulative water meters, a sensor with the `total_increasing` state class can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.
+
 ## Individual water devices
 
 Similar to tracking individual energy devices, Home Assistant supports tracking water usage of individual devices. This feature allows you to monitor water consumption from specific appliances or fixtures in your home, such as washing machines, dishwashers, or individual faucets.
