@@ -83,9 +83,9 @@ The **Škoda** integration provides the following sensors. The available sensors
 - **Electric range**: Estimated electric-only range, for vehicles with a battery (BEV or PHEV).
 - **Air conditioning remaining time**: Remaining runtime of the Climate Control, while active.
 - **Charging power**: Current charging power, while the vehicle is actively charging.
-- **Charging state**: `Charging`, `Connect cable`, `Ready for charging`, `Conserving`, `Discharging`, or `Charging interrupted`.
+- **Charging state**: `charging`, `connect_cable`, `ready_for_charging`, `conserving`, `discharging`, or `charging_interrupted`.
 - **Time to full charge**: Estimated remaining time until the battery is charged to the defined target level, while charging.
-- **Charge type**: `AC`, `DC`, `Off`, or `Not charging`.
+- **Charge type**: `ac`, `dc`, `off`, or `not_charging`.
 - **Auxiliary heating mode**: Current mode (heating/ventilation) of the auxiliary heating, for equipped vehicles.
 - **Auxiliary heating remaining duration**: Remaining runtime of the auxiliary heating, while active.
 - **Target cabin temperature**: The cabin temperature configured on the vehicle/MyŠkoda app for Climate Control/Auxiliary Air Conditioning (where supported).
