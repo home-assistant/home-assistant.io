@@ -229,7 +229,6 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
@@ -240,10 +239,19 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 1. Make sure the inverter (or the Modbus TCP bridge it's connected through) is powered on and reachable on the network.
 2. Confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
 3. Check that Modbus is enabled on the inverter, if it has a setting for this.
+4. If it still fails, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log in the issue report, together with the host, port, and Modbus unit ID you used.
 
 ### Inverter isn't recognized
 
 The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
+
+Because setup didn't finish, there's nothing to download {% term diagnostics %} data from yet. Include the first ten characters of your inverter's serial number and the model name from its label in the issue report instead. Together, those identify which register map the inverter uses. The rest of the serial number isn't needed.
+
+### Entities are missing for your inverter
+
+If the integration set up successfully but entities you expect aren't there, such as battery or EPS/backup sensors on a hybrid inverter, the inverter is reporting that it doesn't serve those registers.
+
+Download the {% term diagnostics %} data and include it in the issue report. It lists which register blocks the inverter reports it supports, which shows whether the model genuinely lacks that hardware or the integration is reading it wrongly.
 
 ## Removing the integration
 
