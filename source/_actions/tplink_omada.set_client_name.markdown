@@ -22,7 +22,7 @@ To set the name of a network client from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **TP-Link Omada: Set client name**.
-6. Select the **Device** of the client you want to rename. If you have more than one Omada controller, also select the **Omada controller** to use.
+6. Select the **Device** of the client you want to rename, and the **Omada controller** to use.
 7. Enter the new **Name** for the client.
 8. Select **Save**.
 
@@ -30,8 +30,8 @@ To set the name of a network client from an automation or a script:
 
 {% options_ui %}
 Omada controller:
-  description: The Omada integration the client is connected to. If you have a single controller, you can leave this empty.
-  required: false
+  description: The Omada integration the client is connected to.
+  required: true
 Device:
   description: The device of the network client to rename. The client's MAC address is taken from the device.
   required: true
@@ -48,6 +48,7 @@ In YAML, refer to this action as `tplink_omada.set_client_name`. A basic example
 action: |
   action: tplink_omada.set_client_name
   data:
+    config_entry_id: "01HXYZ..."
     device_id: "d5f2a4f9f0e54f8e9b1e2a3b4c5d6e7f"
     name: "Ting sensor"
 {% endexample %}
@@ -58,10 +59,8 @@ This renames the client with the given device ID to "Ting sensor" on the Omada c
 
 {% options_yaml %}
 config_entry_id:
-  description: >
-    The Omada integration the client is connected to. If you have
-    a single controller, you can leave this out.
-  required: false
+  description: The Omada integration the client is connected to.
+  required: true
   type: string
 device_id:
   description: The ID of the device of the network client to rename.
@@ -96,6 +95,7 @@ automation: |
   actions:
     - action: tplink_omada.set_client_name
       data:
+        config_entry_id: "01HXYZ..."
         device_id: "{{ device_id('device_tracker.my_device') }}"
         name: "Ting sensor"
 {% endexample %}
