@@ -12,6 +12,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: monzo
 ha_platforms:
+  - diagnostics
   - event
   - sensor
 ha_integration_type: service
@@ -63,6 +64,8 @@ The integration creates a **Transaction** {% term event %} {% term entity %} for
 The complete transaction data provided by Monzo is available in the event entity's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
 
 Transaction events require either [Home Assistant Cloud](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
+
+{% include integrations/actions.md %}
 
 ## Removing the integration
 

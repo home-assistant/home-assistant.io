@@ -3,30 +3,35 @@ title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
-  - Light
   - Fan
-  - Switch
+  - Humidifier
+  - Light
   - Number
   - Select
-  - Humidifier
+  - Switch
 ha_release: 2026.8
 ha_domain: midea
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
   - '@rokam'
-  - '@wuwentao'
-ha_iot_class: Local Push
+  - '@caibinqing'
+ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
+  - button
   - climate
-  - light
+  - diagnostics
   - fan
-  - switch
+  - humidifier
+  - light
   - number
   - select
-  - humidifier
+  - sensor
+  - switch
+  - time
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -118,18 +123,27 @@ The integration pushes updates to Home Assistant upon changes for all main funct
 The **Midea** {% term integration %} provides the following entities:
 
 - Binary sensor: Door, Motion, Full dust, Salt, Tank full, etc.
+- Button
 - Climate
-- Light
 - Fan
-- Switch
+- Humidifier
+- Light
 - Number
 - Select
-- Humidifier
+- Sensor: Various diagnostic sensors.
+- Switch
+- Time
 
 ## Known limitations
 
 This integration requires devices with protocol V1, V2, and V3.
 It is based on **API v1** while some new devices are based on **API v2**.
+
+## Troubleshooting
+
+This integration uses the device's IP address to connect to it. If the IP address changes, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Midea**, and select **Reload**. If Home Assistant is on the same network, it will try to discover the device again and update the IP address.
+
+If Home Assistant can't discover the device, select **Reconfigure** instead and enter the new IP address.
 
 ## Removing the integration
 

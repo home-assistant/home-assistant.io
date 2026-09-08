@@ -18,6 +18,7 @@ ha_platforms:
   - switch
 ha_integration_type: device
 ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **Harbor Sleep** {% term integration %} lets you monitor a [Harbor Sleep](https://harbor.co/) baby monitor in Home Assistant.

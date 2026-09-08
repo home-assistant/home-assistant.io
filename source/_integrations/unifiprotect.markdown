@@ -79,7 +79,40 @@ This does not mean that everything reported from EA channels will be fixed immed
 Also, make sure your report is reproducible and provides all necessary context: always include the Protect version, and if your issue concerns specific cameras, please mention the model(s) as well. Whenever possible, also provide relevant excerpts from the error log.
 {% endimportant %}
 
-### Local user
+### Connection modes
+
+You can set up the {% term integration %} in one of two ways:
+
+- **Full access**: uses a local user and an API key, and gives you access to all the entities described on this page. This is currently the recommended option for most people.
+- **API key only**: uses only an API key, without a local user. It currently only supports a subset of entities; see the table below for the breakdown by domain, and the [device type table](#device-support) for a breakdown by device. Actions, the media source, and the proxy views are not available in this mode.
+
+You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
+
+The table below shows which {% term entity %} domains are available in each mode:
+
+| Domain              | Full access |          API key only           |
+| ------------------- | :---------: | :-----------------------------: |
+| Alarm control panel |     ✅      |               ✅                |
+| Binary sensor       |     ✅      |                —                |
+| Button              |     ✅      |                —                |
+| Camera              |     ✅      | ✅ (streams and snapshots only) |
+| Event               |     ✅      |                —                |
+| Light               |     ✅      |               ✅                |
+| Media player        |     ✅      |                —                |
+| Number              |     ✅      |                —                |
+| Select              |     ✅      |                —                |
+| Sensor              |     ✅      |                —                |
+| Siren               |     ✅      |                —                |
+| Switch              |     ✅      |                —                |
+| Text                |     ✅      |                —                |
+
+{% note %}
+This table reflects the entities currently supported by this {% term integration %}. The UniFi Protect public Integration API is actively growing, and this {% term integration %} is being incrementally migrated to use it, so expect more domains to become available in API key only mode over time.
+{% endnote %}
+
+<a id="local-user"></a>
+
+### Full access
 
 You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
 It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
@@ -87,8 +120,8 @@ but it is not required. The entities that are created will automatically adjust 
 use has.
 
 1. Log in to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
-**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
-2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (for example _192.168.1.1/admins/_).
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (for example `192.168.1.1`), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to `https://[IP address]/admins/` (for example `https://192.168.1.1/admins/`).
 3. Click on **+** in the top right corner and select **Add Admin**.
 4. Select **Restrict to local access only** and enter a new _username_ and _password_.
 5. Select **Full Management** for the _Protect_ role.
@@ -99,7 +132,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to [IP address]/network/default/integrations/ (for example _192.168.1.1/network/default/integrations/_).
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
@@ -108,6 +141,16 @@ In addition to the username and password, you now need to create an API key for 
 Currently, creating an API key requires you to be logged in as an administrator.
 {% endtip %}
 
+### API key only
+
+If you want to set up the {% term integration %} without creating a local user, you only need an API key.
+
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+3. Enter a new name for the API key, like "Home Assistant".
+4. Select **Create API Key** and copy the generated key.
+5. When you add the {% term integration %}, select **API key only (limited feature set)** and enter the key.
+
 ### Camera streams
 
 Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSPS</abbr> streams provided by the UniFi Protect public API. Home Assistant reads the streams that are active on each camera and uses the highest-quality one as the default live feed.
@@ -115,6 +158,18 @@ Live camera feeds use the <abbr title="real-time streaming protocol secure">RTSP
 If a camera does not have a stream available yet, Home Assistant creates a repair that can enable one for you in a single step. Until a stream is available, the live feed falls back to repeatedly refreshing camera snapshots, which can put extra load on your UniFi Protect console.
 
 {% include integrations/config_flow.md %}
+
+## Reconfiguration
+
+You can switch between **full access** and **API key only** at any time without removing and re-adding the {% term integration %}:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **UniFi Protect** {% term integration %}, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+3. Choose the connection mode you want to switch to and follow the steps on screen.
+
+{% note %}
+If you switch from full access to API key only, the entities that are no longer supported become unavailable. They become available again if you switch back to full access. See [Connection modes](#connection-modes) to check which entity domains are supported in each mode.
+{% endnote %}
 
 ## Device support
 
@@ -126,6 +181,19 @@ each of the different {% term entity %} platforms.
 write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
 and in many cases, get a read-only sensor instead of an editable switch/select/number {% term entity %}.
 {% endnote %}
+
+The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
+
+| Device type  | Full access |          API key only           |
+| ------------ | :---------: | :-----------------------------: |
+| Camera       |     ✅      | ✅ (streams and snapshots only) |
+| Floodlight   |     ✅      |     ✅ (light entity only)      |
+| Smart sensor |     ✅      |                —                |
+| Viewer       |     ✅      |                —                |
+| Smart chime  |     ✅      |                —                |
+| Relay        |     ✅      |                —                |
+| Siren        |     ✅      |                —                |
+| NVR          |     ✅      |     ✅ (Alarm Manager only)     |
 
 ### UniFi Protect cameras
 
@@ -240,6 +308,10 @@ UniFi Protect automatically switches the Alarm Manager to _Global_ mode when you
 
 A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
 
+{% note %}
+The media source requires the **full access** connection mode. Entries set up with **API key only** do not provide a media source. See [Connection modes](#connection-modes).
+{% endnote %}
+
 ### Media browser
 
 The media source is split into 5 folders/levels:
@@ -272,6 +344,10 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 The {% term integrations %} provides four proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
 
 These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
+
+{% note %}
+These proxy views require the **full access** connection mode. They are not available for entries set up with **API key only**. See [Connection modes](#connection-modes).
+{% endnote %}
 
 Four URLs for proxy API endpoints:
 

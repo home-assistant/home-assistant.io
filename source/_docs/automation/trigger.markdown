@@ -76,15 +76,6 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-### Device triggers
-
-Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
-[MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through autodiscovery.
-
-In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
-To use a device trigger, set up an automation through the browser frontend.
-If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
-
 ### Event trigger
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
@@ -145,57 +136,11 @@ For setup steps, YAML options, and examples for the numeric state trigger, see [
 
 ### Sentence trigger
 
-A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless "Prefer handling commands locally" is enabled in the conversation agent settings.
-
-Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
-
-```yaml
-automation:
-  triggers:
-    - trigger: conversation
-      command:
-        - "[it's ]party time"
-        - "happy (new year|birthday)"
-```
-
-The sentences matched by this trigger will be:
-
-- party time
-- it's party time
-- happy new year
-- happy birthday
-
-Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
-
-#### Related topic
-
-- [Adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation)
+For setup steps, YAML options, and examples of a sentence trigger, see [Sentence triggers](/integrations/conversation/#sentence-triggers).
 
 #### Sentence wildcards
 
-Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. A `slots` object will be [available in the trigger data](/docs/automation/templating#sentence).
-This allows you to match sentences with variable parts, such as album/artist names or a description of a picture.
-
-For example, the sentence `play {album} by {artist}` will match "play the white album by the beatles" and have the following variables available in the action templates:
-
-{% raw %}
-
-- `{{ trigger.slots.album }}` - "the white album"
-- `{{ trigger.slots.artist }}` - "the beatles"
-
-{% endraw %}
-
-Wildcards will match as much text as possible, which may lead to surprises: "play day by day by taken by trees" will match `album` as "day" and `artist` as "day by taken by trees".
-Including extra words in your template can help: `play {album} by artist {artist}` can now correctly match "play day by day by artist taken by trees".
-
-#### Inline number ranges
-
-Number ranges can be matched with ranges like `{0..100:brightness}`. This matches numbers from 0 to 100 and stores the value in a `brightness` slot. This works for digits as well as words, so the sentence `set brightness to {0..100:brightness} percent` will match:
-
-- "set brightness to 50 percent"
-- "set brightness to fifty percent"
-
-In both cases, the value of `{{ trigger.slots.brightness }}` will be 50. If you want to get the words as spoken or written for a response, use `trigger.details`, like `{{ trigger.details.brightness.text }}`.
+For wildcard syntax and examples, see [Sentence wildcards](/integrations/conversation/#sentence-wildcards).
 
 ### State trigger
 
