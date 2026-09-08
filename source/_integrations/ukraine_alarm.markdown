@@ -35,15 +35,6 @@ The service reports a danger level for air alerts, where red is the more severe 
 
 The service can report both levels for a region at the same time, in which case both sensors are on. The service attaches levels to every alert type, but they are only meaningful for air alerts, so the other sensors are not affected by them.
 
-**Air (red)** and **Air (yellow)** carry two extra state attributes:
-
-| Attribute | Description |
-| --------- | ----------- |
-| `reasons` | The reasons reported for the level, for example `Ракетна загроза (червоний рівень)`. A level can have more than one reason, and older alerts are reported without one, so this can be an empty list while the sensor is on. |
-| `created_at` | When the level was raised. This is the start of the level itself, not of the air alert. |
-
-A region can have several air alerts active at the same time, so both attributes are collected across all of them. When a level is reported more than once, `created_at` is the oldest of the reported times.
-
 Siren check interval is set to 10 seconds to avoid overloading the API and still be able to react fast enough.
 
 {% include integrations/config_flow.md %}
