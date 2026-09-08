@@ -16,7 +16,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Collection image** {% term integration %} creates an [image entity](/integrations/image/) based on one or more [media source directory](/integrations/media_source) selected during integration setup. From the selected directories, a single image will be randomly chosen and presented in the image entity.
+The **Collection image** {% term integration %} creates an [image entity](/integrations/image/) based on one or more [media source folders](/integrations/media_source) selected during integration setup. From the selected folders, a single image is randomly chosen and shown in the image entity.
 This image entity can be used to display a dynamic picture in a frontend picture card, or as a dynamic view background.
 
 {% include integrations/config_flow.md %}
