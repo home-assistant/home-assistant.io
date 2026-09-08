@@ -39,13 +39,19 @@ Electricity price interval:
   description: "Select **Hourly** (the default) for electricity prices per hour or **Quarter-hourly** for prices per 15 minutes."
 {% endconfiguration_basic %}
 
-The selected interval applies to today's and tomorrow's electricity prices and the electricity sensors. Changing this option automatically reloads the integration. Gas prices and the polling interval are unaffected.
+The selected interval applies to today's and tomorrow's market and all-in electricity prices and their sensors. Changing this option automatically reloads the integration. Gas prices and the polling interval are unaffected.
 
 The `energyzero.get_energy_prices` action always returns hourly prices, regardless of this option.
 
 ## Use cases
 
-With the [energy dashboard](/energy) you can use the **Current price** electricity sensor or **Current hour** gas sensor to calculate how much the electricity or gas has cost each hour based on the prices from EnergyZero. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+Use the [energy dashboard](/energy) to track costs with these sensors:
+
+- **Current all-in price**: Electricity costs based on EnergyZero's all-in prices
+- **Current market price**: Only the market component of your electricity costs
+- **Current hour**: Gas costs based on the gas market price
+
+To show prices in a dashboard chart, use one of the actions with a [template sensor](#prices-sensor-with-response-data).
 
 ## Data updates
 
@@ -53,28 +59,46 @@ The integration will poll the EnergyZero API every 10 minutes to update the data
 
 ## Known limitations
 
-The prices retrieved via the API are bare prices including VAT, however an energy company also charges other rates such as **energy tax** and **purchase costs**. The integration has no configuration option to add these values, but you could create a [template sensor](#all-in-price-sensor) for this.
+Market prices include VAT but exclude energy tax and purchase costs. Gas sensors provide market prices only.
+
+The all-in electricity sensors use EnergyZero's rates. If your contract uses different rates, you can calculate your own price with a [template sensor](#all-in-price-sensor). There is no option to configure contract rates in the integration.
 
 ## Sensors
 
 The EnergyZero integration creates several sensor entities for both gas and electricity prices.
 
-### Energy market price
+### Electricity market price
 
-Every day around **14:00 UTC time**, the new prices are published for the following day.
+Every day around **14:00 UTC time**, the new electricity prices are published for the following day.
 
-- **Current price** and **Next price** for electricity
-- Average electricity price of the day
-- Lowest energy price
-- Highest energy price
-- Time of day when the price is highest
-- Time of day when the price is at its lowest
-- Percentage of the current price compared to the maximum price
-- **Periods priced equal or lower**
+The market electricity sensors provide:
 
-The **Current price** sensor shows the price for the current electricity price period. The **Next price** sensor shows the price one hour or 15 minutes ahead, depending on the selected **Electricity price interval**.
+- **Current market price** and **Next market price**
+- **Average market price** for the day
+- **Minimum market price** for the day
+- **Maximum market price** for the day
+- **Highest market price time**
+- **Lowest market price time**
+- **Market percentage of maximum**
+- **Market periods priced equal or lower**
 
-The **Periods priced equal or lower** sensor counts today's price periods priced at or below the current electricity price. It reports a count without units. Each period lasts one hour or 15 minutes, depending on the selected **Electricity price interval**.
+The **Current market price** sensor shows the price for the current electricity price period. The **Next market price** sensor shows the price one hour or 15 minutes ahead, depending on the selected **Electricity price interval**.
+
+The **Market periods priced equal or lower** sensor counts today's price periods priced at or below the current market price. It reports a count without units.
+
+Existing market sensors keep their entity IDs, so your automations and templates continue to work with the renamed sensors.
+
+### All-in electricity price
+
+The integration also provides five sensors for the all-in electricity prices from EnergyZero, including VAT:
+
+- **Current all-in price**
+- **Next all-in price**
+- **Average all-in price** for the day
+- **Minimum all-in price** for the day
+- **Maximum all-in price** for the day
+
+The current and next prices follow the same interval as the market sensors. Both sets of sensors appear on the **Electricity price** device.
 
 ### Gas market price
 
@@ -86,7 +110,7 @@ For the dynamic gas prices, only entities are created that display the
 
 ## Templates
 
-Create template sensors to display the prices in a chart or to calculate the all-in electricity price.
+You can optionally create template sensors to display the prices in a chart or to calculate an electricity price using your own contract rates.
 
 ### Prices sensor with response data
 
@@ -113,7 +137,13 @@ template:
 
 ### All-in price sensor
 
-To calculate the all-in electricity price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+For EnergyZero's all-in price, use **Current all-in price** directly. If your contract uses different rates, this optional template adds your energy tax and purchase costs to **Current market price**.
+
+Before using the template:
+
+- Replace both `PUT_HERE_THE_PRICE` values with your rates per kWh, including VAT.
+- Use your **Current market price** entity ID as the base to avoid adding costs twice.
+- Choose a `unique_id` that is not already used by another template sensor.
 
 ```yaml
 template:
