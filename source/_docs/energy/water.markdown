@@ -41,9 +41,9 @@ There are also products for water usage monitoring that are based on existing co
 
 ## Viewing your water usage
 
-Once a compatible water consumption sensor is available in Home Assistant, add it to the Energy dashboard under {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the Energy dashboard to review usage for different periods.
+Once a compatible water consumption sensor is available in Home Assistant, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and add it to the Energy dashboard. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the Energy dashboard to review usage for different periods.
 
-For cumulative water meters, a sensor with the `total_increasing` state class can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.
+For cumulative water meters, a sensor with `state_class: total_increasing` can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.
 
 ## Individual water devices
 
