@@ -62,9 +62,9 @@ Baud rate:
 
 ### Optional input
 
-By default, the receiver uses an 868.95 MHz frequency with a 17.241 kbps data rate. Optionally, you can change the frequency in 5 kHz steps via `frequency`.
- If you have LaCrosse sensors using a different data rate, you can configure the receiver to toggle between them every `toggle_interval` seconds by setting `toggle_mask` and `toggle_interval`.
- The LED of the receiver is off by default. If you want to enable it, select the `led` checkbox.
+By default, the receiver uses an 868.95 MHz frequency with a 17.241 kbps data rate. Optionally, you can change the frequency in 5 kHz steps using **Frequency**.
+If you have LaCrosse sensors using a different data rate, you can configure the receiver to toggle between them every **Toggle interval** seconds by setting **Toggle mask** and **Toggle interval**.
+The LED of the receiver is off by default. If you want to enable it, select **LED**.
 
 {% configuration_basic %}
 LED:
@@ -93,7 +93,7 @@ Type:
 Name:
   description: The name of the sensor.
 Expire after:
-  description: Timeout after which sensors are considered offline if no update telegram was received. If empty the library default of 300s will be used.
+  description: Timeout after which sensors are considered offline if no update telegram was received. If empty, the library default of 300 seconds is used.
 {% endconfiguration_basic %}
 
 ## Reconfiguration and device replacement
