@@ -81,7 +81,7 @@ Controls are available only when **Local mode** is enabled and the active manual
 
 - `Failed to connect`: Confirm the IP address, that the device is powered on, and that it is reachable on your network.
 - `Invalid authentication`: Verify the device password, or remove it if no password is configured.
-- Number controls unavailable: Enable **Local mode** and select or configure a manual schedule that supports the desired parameter.
+- Number controls are unavailable: Enable **Local mode** and select or configure a manual schedule that supports the desired parameter.
 
 ## Removing the integration
 
