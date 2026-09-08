@@ -1124,15 +1124,61 @@ a.material-card:hover {
   }
 
   .livestream-card {
-    display: flex;
+    display: none;
+    position: relative;
+    aspect-ratio: 16/9;
     align-items: flex-end;
     overflow: hidden;
+    background-color: #000000;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     border: unset;
     color: #ffffff;
     text-decoration: none;
+
+    &[data-state="live"],
+    &[data-state="upcoming"],
+    &[data-state="past"] {
+      display: flex;
+    }
+
+    &[data-state="upcoming"] .livestream-card-banner:before {
+      background-color: #f59e0b;
+      animation: none;
+    }
+
+    &[data-state="past"] .livestream-card-banner:before {
+      display: none;
+    }
+
+    &-embed {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-style: none;
+      pointer-events: none;
+      opacity: 0;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: opacity 1s;
+      }
+
+      &--visible {
+        opacity: 1;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+        aspect-ratio: 16/9;
+        border: 0;
+        object-fit: cover;
+      }
+    }
 
     &-banner {
       backdrop-filter: blur(10px);
@@ -1157,10 +1203,16 @@ a.material-card:hover {
 
       div {
         flex-grow: 1;
+        min-width: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
 
       &:before {
         content: '';
+        flex: none;
         background-color: #FF0033;
         display: block;
         border-radius: 50%;
