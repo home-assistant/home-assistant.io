@@ -34,4 +34,10 @@ The **Wyoming** {% term integration %} connects external voice services to Home 
 
 The Wyoming, Piper, and Whisper apps for Home Assistant (formerly known as add-ons) are used to create a fully local voice pipeline. To learn how to do this, follow the procedure on [installing a local voice pipeline](/voice_control/voice_remote_local_assistant/).
 
+### Connecting an external Wyoming service
+
+Wyoming services can run on another device on your local network. This can be useful for resource-intensive services such as Whisper, allowing speech-to-text processing to run on a more powerful computer while Home Assistant runs on another device.
+
+To connect an externally hosted service, add the Wyoming Protocol integration and enter the hostname or IP address and port of the Wyoming service.
+
 {% include integrations/config_flow.md %}
