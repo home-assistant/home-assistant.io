@@ -19,6 +19,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - diagnostics
   - select
   - sensor
@@ -56,6 +57,7 @@ Password:
 | Entity                        | Domain          | Description                                                                                                 |
 | ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
+| Camera                        | `camera`        | Live video stream from the built-in camera, only for Litter-Robot 5 Pro.                                    |
 | Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Sleep mode (per day)          | `switch`        | Enable or disable each day of the week's sleep schedule, only for Litter-Robot 5.                           |
