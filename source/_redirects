@@ -823,6 +823,7 @@ layout: null
 # Renamed entity triggers and conditions (consistent keys)
 /triggers/battery.low /triggers/battery.became_low/ 301
 /triggers/battery.not_low /triggers/battery.no_longer_low/ 301
+/triggers/battery.level_crossed /triggers/battery.level_crossed_threshold/ 301
 /triggers/lawn_mower.docked /triggers/lawn_mower.returned_to_dock/ 301
 /triggers/schedule.turned_off /triggers/schedule.block_ended/ 301
 /triggers/schedule.turned_on /triggers/schedule.block_started/ 301

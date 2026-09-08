@@ -19,12 +19,21 @@ The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar in
 
 ## Supported devices
 
-During setup, the integration reads the inverter's serial number and uses it to automatically detect the inverter model and its register map. It currently recognizes newer-generation Sofar inverters, including:
+The integration supports Sofar inverters that use the current-generation Modbus register map, including HYD hybrid inverters and KTL-X and KTLM PV inverters. During setup, the integration reads the inverter's serial number to detect its type and the registers that apply to it.
 
-- PV-only (grid-tied) inverters.
-- Hybrid inverters with battery storage.
+The current-generation detection recognizes these serial-number prefixes:
 
-If the inverter answers but its serial number isn't recognized, setup fails and you'll need to wait for support for your model to be added.
+- `SP1`, `SP2`, `ZP1`, and `ZP2` for three-phase HYD hybrid models.
+- `SM2E` and `ZM2E` for single-phase HYD hybrid models.
+- `SH1` for HYD5-8KTL-3P hybrid models.
+- `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
+- `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
+
+Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but does not use the supported register map, setup fails.
+
+## Unsupported devices
+
+Older Sofar inverters that use the legacy Modbus register map aren't supported. These devices use different register ranges from the current-generation inverters, even when their serial-number prefix is similar or identical.
 
 ## Prerequisites
 
@@ -72,7 +81,6 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 - This is an early release of the integration, added to Home Assistant one platform at a time. Only sensors are available so far; controls such as number and select entities are planned for future releases.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
-- Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
 ## Troubleshooting
 

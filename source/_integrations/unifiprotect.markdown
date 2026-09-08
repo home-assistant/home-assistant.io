@@ -132,7 +132,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
@@ -146,7 +146,7 @@ Currently, creating an API key requires you to be logged in as an administrator.
 If you want to set up the {% term integration %} without creating a local user, you only need an API key.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. When you add the {% term integration %}, select **API key only (limited feature set)** and enter the key.
@@ -733,7 +733,7 @@ The default settings on the stream integration will give you a 5-15+ second dela
 
 ### Cannot play audio to speakers
 
-Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
+Playing audio to your speakers requires Home Assistant to be able to reach your camera directly on `udp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
 
 ### Liveview options for viewer missing options or out of date
 
