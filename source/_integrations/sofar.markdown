@@ -166,7 +166,7 @@ automation: |
 
 ### Automation: run an appliance on surplus solar
 
-Appliances that don't care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once the inverter has been producing more than the house is using for ten minutes, which is long enough to know it isn't a passing gap in the clouds.
+Appliances that don't care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once the inverter has been producing more than the house is using for 10 minutes, which is long enough to know it isn't a passing gap in the clouds.
 
 - **Trigger**: Template, true while **PV power total** stays more than 1.5 kW above **Active power load system** for 10 minutes
 - **Action**: Turn on switch
@@ -245,13 +245,15 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
 
-Because setup didn't finish, there's nothing to download {% term diagnostics %} data from yet. Include the first ten characters of your inverter's serial number and the model name from its label in the issue report instead. Together, those identify which register map the inverter uses. The rest of the serial number isn't needed.
+Because setup didn't finish, the integration isn't added yet, so the **Download diagnostics** option isn't shown. Include the first 10 characters of your inverter's serial number and the model name from its label in the issue report instead. Together, those identify which register map the inverter uses. The rest of the serial number isn't needed.
 
 ### Entities are missing for your inverter
 
 If the integration set up successfully but entities you expect aren't there, such as battery or EPS/backup sensors on a hybrid inverter, the inverter is reporting that it doesn't serve those registers.
 
 Download the {% term diagnostics %} data and include it in the issue report. It lists which register blocks the inverter reports it supports, which shows whether the model genuinely lacks that hardware or the integration is reading it wrongly.
+
+To download it, go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Download diagnostics**.
 
 ## Removing the integration
 
