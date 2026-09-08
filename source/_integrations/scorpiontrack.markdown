@@ -11,6 +11,7 @@ ha_domain: scorpiontrack
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: hub
@@ -82,6 +83,10 @@ Make sure the shared-location link is still active in ScorpionTrack and that the
 ### No vehicles appear after setup
 
 Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. Home Assistant creates tracker entities for vehicles present in the share when the integration is set up or reloaded. If you add vehicles to the share later, reload or reconfigure the integration.
+
+### Download diagnostics
+
+If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached data and does not make another request to ScorpionTrack. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
 
 ## Removing the integration
 
