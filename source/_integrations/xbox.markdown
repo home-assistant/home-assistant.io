@@ -389,7 +389,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 | **Following**               | Displays the number of people the account is following.                    |
 | **Last online**             | Displays the last time the account was active online.                      |
 | **In party**                | Shows the number of people in the user’s party chat if they are currently in one. |
-| **Party join restrictions** | Shows the join restriction of the party the account is currently in, either Invite-only or Joinable. |
+| **Party join restrictions** | Shows the join restriction of the party the account is currently in, either `Invite-only` or `Joinable`. |
 | **Now playing**             | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
 ### Storage sensors
