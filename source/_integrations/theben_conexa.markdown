@@ -50,7 +50,7 @@ The **Theben Conexa** integration provides the following entities.
 
 ### Sensors
 
-- **Energy Consumed**
+- **Energy consumed**
   - **Description**: The total amount of electrical energy you used from the electricity grid. This should be the same value as your electricity meter shows on its display.
   - **Remarks**: The Conexa SMGW provides a new measurement every 15 minutes.
 
