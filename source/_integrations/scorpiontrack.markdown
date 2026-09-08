@@ -86,7 +86,7 @@ Confirm that the ScorpionTrack share still includes vehicles and that the share 
 
 ### Download diagnostics
 
-If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached share and does not make an additional request. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
+If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached data and does not make another request to ScorpionTrack. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
 
 ## Removing the integration
 
