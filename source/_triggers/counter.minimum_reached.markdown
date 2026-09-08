@@ -30,6 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their minimum value. Default is **Each**.
+  required: false
 For at least:
   description: How long the counter must stay at its minimum before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

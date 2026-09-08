@@ -35,6 +35,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted thermostat is off.
+  required: false
 For at least:
   description: How long the thermostat must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}

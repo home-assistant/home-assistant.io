@@ -12,6 +12,7 @@ ha_category:
   - Humidifier
   - Light
   - Lock
+  - Number
   - Sensor
   - Switch
 ha_release: 0.68
@@ -199,7 +200,8 @@ There is currently support for the following device types (also called *domains*
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
 - Switch (HomeKit switches, outlets and valves)
-- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
+- Number (HomeKit valve duration controls)
+- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide, smoke, low battery, and fault sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air quality

@@ -186,6 +186,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
   - **Description**: Controls the air conditioner appliance.
   - **Availability**: Air conditioner
   - **Controls**:
+    - Target temperature
     - Active program: HVAC modes + preset modes
     - Fan speed mode: fan speed
  
@@ -284,9 +285,12 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Fill quantity**:
   - **Description**: Describes the amount of water (in ml) used in a coffee machine program.
   - **Availability**: Coffee maker
-- **Setpoint temperature**:
+- **Setpoint temperature** (Oven):
   - **Description**: Defines the target cavity temperature, which will be held by the oven.
   - **Availability**: Oven
+- **Setpoint temperature** (Air conditioner):
+  - **Description**: Defines the target temperature, which will be held by the air conditioner.
+  - **Availability**: Air conditioner
 
 {% enddetails %}
 
@@ -313,6 +317,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Espresso**: `consumer_products_coffee_maker_program_beverage_espresso`
 - **Espresso doppio**: `consumer_products_coffee_maker_program_beverage_espresso_doppio`
 - **Coffee**: `consumer_products_coffee_maker_program_beverage_coffee`
+- **Coffee pot**: `consumer_products_coffee_maker_program_beverage_coffee_pot`
 - **XL coffee**: `consumer_products_coffee_maker_program_beverage_x_l_coffee`
 - **Caffe grande**: `consumer_products_coffee_maker_program_beverage_caffe_grande`
 - **Espresso macchiato**: `consumer_products_coffee_maker_program_beverage_espresso_macchiato`
@@ -329,6 +334,8 @@ Both entities can use these options, but the availability of these will depend o
 - **Flat white**: `consumer_products_coffee_maker_program_coffee_world_flat_white`
 - **Cortado**: `consumer_products_coffee_maker_program_coffee_world_cortado`
 - **Cafe cortado**: `consumer_products_coffee_maker_program_coffee_world_cafe_cortado`
+- **Cold brew**: `consumer_products_coffee_maker_program_coffee_world_cold_brew`
+- **Cold brew macchiato**: `consumer_products_coffee_maker_program_coffee_world_cold_brew_macchiato`
 - **Cafe con leche**: `consumer_products_coffee_maker_program_coffee_world_cafe_con_leche`
 - **Cafe au lait**: `consumer_products_coffee_maker_program_coffee_world_cafe_au_lait`
 - **Doppio**: `consumer_products_coffee_maker_program_coffee_world_doppio`
@@ -338,9 +345,32 @@ Both entities can use these options, but the availability of these will depend o
 - **Garoto**: `consumer_products_coffee_maker_program_coffee_world_garoto`
 - **Americano**: `consumer_products_coffee_maker_program_coffee_world_americano`
 - **Red eye**: `consumer_products_coffee_maker_program_coffee_world_red_eye`
+- **Slow brew**: `consumer_products_coffee_maker_program_coffee_world_slow_brew`
 - **Black eye**: `consumer_products_coffee_maker_program_coffee_world_black_eye`
 - **Dead eye**: `consumer_products_coffee_maker_program_coffee_world_dead_eye`
+- **My coffee 1**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_1`
+- **My coffee 2**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_2`
+- **My coffee 3**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_3`
+- **My coffee 4**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_4`
+- **My coffee 5**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_5`
+- **My coffee 6**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_6`
+- **My coffee 7**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_7`
+- **My coffee 8**: `consumer_products_coffee_maker_program_my_coffee_my_coffee_8`
 - **Hot water**: `consumer_products_coffee_maker_program_beverage_hot_water`
+- **Appliance off rinsing**: `consumer_products_coffee_maker_program_cleaning_modes_appliance_off_rinsing`
+- **Appliance on rinsing**: `consumer_products_coffee_maker_program_cleaning_modes_appliance_on_rinsing`
+- **Auto clean**: `consumer_products_coffee_maker_program_cleaning_modes_auto_clean`
+- **Auto descale**: `consumer_products_coffee_maker_program_cleaning_modes_auto_descale`
+- **Calc'N'Clean**: `consumer_products_coffee_maker_program_cleaning_modes_calc_n_clean`
+- **Clean**: `consumer_products_coffee_maker_program_cleaning_modes_clean`
+- **Clean brewing unit manually**: `consumer_products_coffee_maker_program_cleaning_modes_clean_brewing_unit_manually`
+- **Clean brewing unit manually detailed**: `consumer_products_coffee_maker_program_cleaning_modes_clean_brewing_unit_manually_detailed`
+- **Clean outlet manually**: `consumer_products_coffee_maker_program_cleaning_modes_clean_outlet_manually`
+- **Descale**: `consumer_products_coffee_maker_program_cleaning_modes_descale`
+- **Frost protection**: `consumer_products_coffee_maker_program_cleaning_modes_frost_protection`
+- **Remove water filter**: `consumer_products_coffee_maker_program_cleaning_modes_remove_water_filter`
+- **Replace water filter**: `consumer_products_coffee_maker_program_cleaning_modes_replace_water_filter`
+- **Rinse milk system**: `consumer_products_coffee_maker_program_cleaning_modes_rinse_milk_system`
 - **Pre_rinse**: `dishcare_dishwasher_program_pre_rinse`
 - **Auto 1**: `dishcare_dishwasher_program_auto_1`
 - **Auto 2**: `dishcare_dishwasher_program_auto_2`
@@ -351,8 +381,10 @@ Both entities can use these options, but the availability of these will depend o
 - **Normal 65ºC**: `dishcare_dishwasher_program_normal_65`
 - **Glass 40ºC**: `dishcare_dishwasher_program_glas_40`
 - **Glass care**: `dishcare_dishwasher_program_glass_care`
+- **Glass shine**: `dishcare_dishwasher_program_glass_shine`
 - **Night wash**: `dishcare_dishwasher_program_night_wash`
 - **Quick 65ºC**: `dishcare_dishwasher_program_quick_65`
+- **Quick D**: `dishcare_dishwasher_program_quick_d`
 - **Normal 45ºC**: `dishcare_dishwasher_program_normal_45`
 - **Intensive 45ºC**: `dishcare_dishwasher_program_intensiv_45`
 - **Auto half load**: `dishcare_dishwasher_program_auto_half_load`
@@ -364,6 +396,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Intelligent**: `dishcare_dishwasher_program_learning_dishwasher`
 - **Express sparkle 65ºC**: `dishcare_dishwasher_program_express_sparkle_65`
 - **Machine care**: `dishcare_dishwasher_program_machine_care`
+- **Max efficient**: `dishcare_dishwasher_program_max_efficient`
 - **Steam fresh**: `dishcare_dishwasher_program_steam_fresh`
 - **Maximum cleaning**: `dishcare_dishwasher_program_maximum_cleaning`
 - **Mixed load**: `dishcare_dishwasher_program_mixed_load`
@@ -400,12 +433,34 @@ Both entities can use these options, but the availability of these will depend o
 - **Warm (40 min)**: `laundry_care_dryer_program_time_warm_fix_time_warm_40`
 - **Warm (60 min)**: `laundry_care_dryer_program_time_warm_fix_time_warm_60`
 - **Dessous**: `laundry_care_dryer_program_dessous`
+- **Air fluff**: `laundry_care_dryer_program_time_cold_air_fluff`
+- **Bed linens**: `laundry_care_dryer_program_bedlinens`
+- **Business shirts - Easy iron**: `laundry_care_dryer_program_business_shirts_easy_iron`
+- **Cold refresh**: `laundry_care_dryer_program_cold_refresh_cold_refresh_cold_refresh`
+- **Cold refresh - 1 piece**: `laundry_care_dryer_program_cold_refresh_1_piece`
+- **Cold refresh - 5 pieces**: `laundry_care_dryer_program_cold_refresh_5_piece`
+- **Cold refresh - Business**: `laundry_care_dryer_program_cold_refresh_business`
+- **Connected dry**: `laundry_care_dryer_program_connected_dry`
+- **Cotton eco**: `laundry_care_dryer_program_cotton_cotton_eco`
+- **Cotton eco 40/60ºC**: `laundry_care_dryer_program_cotton_eco_4060`
+- **Depth care**: `laundry_care_dryer_program_maintenance_care_2_maintenance_care_2_depth_care`
+- **Easy care**: `laundry_care_dryer_program_easy_care_easy_care`
+- **Quick care**: `laundry_care_dryer_program_maintenance_care_1_maintenance_care_1_quick_care`
+- **Sportswear**: `laundry_care_dryer_program_outdoor_sportswear`
+- **Wool basket**: `laundry_care_dryer_program_in_basket_wool_basket`
+- **Wool finish**: `laundry_care_dryer_program_wool_finish`
 - **Automatic**: `cooking_common_program_hood_automatic`
 - **Venting**: `cooking_common_program_hood_venting`
 - **Delayed shut off**: `cooking_common_program_hood_delayed_shut_off`
+- **Interval**: `cooking_common_program_hood_interval`
+- **Frying sensor mode**: `cooking_hob_program_frying_sensor_mode`
+- **Power level mode**: `cooking_hob_program_power_level_mode`
+- **Power move mode**: `cooking_hob_program_power_move_mode`
+- **2D hot air**: `cooking_oven_program_heating_mode_2_d_hot_air`
 - **3D hot air**: `cooking_oven_program_heating_mode_3_d_hot_air`
 - **Air fry**: `cooking_oven_program_heating_mode_air_fry`
 - **Grill (large area)**: `cooking_oven_program_heating_mode_grill_large_area`
+- **Full surface grill**: `cooking_oven_program_heating_mode_full_surface_grill`
 - **Grill (small area)**: `cooking_oven_program_heating_mode_grill_small_area`
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
@@ -420,11 +475,12 @@ Both entities can use these options, but the availability of these will depend o
 - **Slow cook**: `cooking_oven_program_heating_mode_slow_cook`
 - **Intensive heat**: `cooking_oven_program_heating_mode_intensive_heat`
 - **Keep warm**: `cooking_oven_program_heating_mode_keep_warm`
+- **Let rest**: `cooking_oven_program_heating_mode_let_rest`
 - **Preheat ovenware**: `cooking_oven_program_heating_mode_preheat_ovenware`
 - **Special Heat-Up for frozen products**: `cooking_oven_program_heating_mode_frozen_heatup_special`
 - **Desiccation**: `cooking_oven_program_heating_mode_desiccation`
 - **Defrost**: `cooking_oven_program_heating_mode_defrost`
-- **Dough proving**: `cooking_oven_program_heating_mode_dough_proving`
+- **Dough proving** (heating mode): `cooking_oven_program_heating_mode_dough_proving`
 - **Proof**: `cooking_oven_program_heating_mode_proof`
 - **Hot air + 30 RH**: `cooking_oven_program_heating_mode_hot_air_30_steam`
 - **Hot air + 60 RH**: `cooking_oven_program_heating_mode_hot_air_60_steam`
@@ -440,7 +496,28 @@ Both entities can use these options, but the availability of these will depend o
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
 - **Max**: `cooking_oven_program_microwave_max`
 - **Steam mode**: `cooking_oven_program_steam_modes_steam`
+- **Dough proving** (steam mode): `cooking_oven_program_steam_modes_dough_proving`
+- **Reheat**: `cooking_oven_program_steam_modes_reheat`
 - **Warming drawer**: `cooking_oven_program_heating_mode_warming_drawer`
+- **Draining**: `cooking_oven_program_cleaning_draining`
+- **Drying**: `cooking_oven_program_cleaning_drying`
+- **Ecolysis**: `cooking_oven_program_cleaning_ecolysis`
+- **Auto steam calibration**: `cooking_oven_program_cleaning_modes_auto_steam_calibration`
+- **Pyrolysis**: `cooking_oven_program_cleaning_pyrolysis`
+- **Boneless pork neck joint**: `cooking_oven_program_dish_automatic_conv_steam_boneless_pork_neck_joint`
+- **Poultry defrost**: `cooking_oven_program_dish_automatic_microwave_gefluegelteile_auftauen`
+- **Chicken pieces**: `cooking_oven_program_dish_automatic_microwave_haehnchenteile`
+- **Pommes frites**: `cooking_oven_program_dish_automatic_microwave_pommes_frites`
+- **Goose breast**: `cooking_oven_program_dish_recommendation_conv_meat_probe_goose_breast`
+- **Boneless pork neck joint (recommended)**: `cooking_oven_program_dish_recommendation_conv_steam_meat_probe_boneless_pork_neck_joint`
+- **Turkey breast**: `cooking_oven_program_dish_recommendation_conv_steam_meat_probe_turkey_breast`
+- **Part cooked bread rolls or baguette**: `cooking_oven_program_dish_recommendation_conv_steam_part_cooked_bread_rolls_or_baguette`
+- **Broccoli**: `cooking_oven_program_dish_recommendation_full_steam_broccoli`
+- **Subsequent cooking**: `cooking_oven_program_dish_subsequent_cooking`
+- **Continue cooking**: `cooking_oven_program_subsequent_mode_continue_cooking`
+- **Keep warm (subsequent)**: `cooking_oven_program_subsequent_mode_keep_warm`
+- **Leave to rest**: `cooking_oven_program_subsequent_mode_leave_to_rest`
+- **Microwave (subsequent)**: `cooking_oven_program_subsequent_mode_microwave`
 - **Auto 30ºC**: `laundry_care_washer_program_auto_30`
 - **Auto 40ºC**: `laundry_care_washer_program_auto_40`
 - **Auto 60ºC**: `laundry_care_washer_program_auto_60`
@@ -460,6 +537,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Mix**: `laundry_care_washer_program_mix`
 - **Mix night wash**: `laundry_care_washer_program_mix_night_wash`
 - **Monsoon**: `laundry_care_washer_program_monsoon`
+- **My time**: `laundry_care_washer_program_my_time`
 - **Outdoor**: `laundry_care_washer_program_outdoor`
 - **Plush toy**: `laundry_care_washer_program_plush_toy`
 - **Power speed <59 min**: `laundry_care_washer_program_power_speed_59`
@@ -468,18 +546,29 @@ Both entities can use these options, but the availability of these will depend o
 - **Sensitive**: `laundry_care_washer_program_sensitive`
 - **Shirts blouses**: `laundry_care_washer_program_shirts_blouses`
 - **Spin/drain**: `laundry_care_washer_program_spin_drain`
+- **Steaming**: `laundry_care_washer_program_steaming_steaming`
 - **Sport fitness**: `laundry_care_washer_program_sport_fitness`
+- **Sport shoes**: `laundry_care_washer_program_sport_shoes`
 - **Towels**: `laundry_care_washer_program_towels`
 - **Super 15 min**: `laundry_care_washer_program_super_153045_super_15`
 - **Super 15/30 min**: `laundry_care_washer_program_super_153045_super_1530`
+- **Super 30 min**: `laundry_care_washer_program_super_153045_super_30`
+- **Wash and dry (60 min)**: `laundry_care_washer_program_wash_and_dry_60`
+- **Wash and dry (90 min)**: `laundry_care_washer_program_wash_and_dry_90`
 - **Water proof**: `laundry_care_washer_program_water_proof`
 - **Wool**: `laundry_care_washer_program_wool`
 - **Cotton**: `laundry_care_washer_dryer_program_cotton`
 - **Cotton eco 40/60ºC**: `laundry_care_washer_dryer_program_cotton_eco_4060`
+- **Delicates silk**: `laundry_care_washer_dryer_program_delicates_silk`
+- **Drum care**: `laundry_care_washer_dryer_program_drum_clean_and_dry_drum_care`
 - **Mix**: `laundry_care_washer_dryer_program_mix`
 - **Easy care**: `laundry_care_washer_dryer_program_easy_care`
+- **Rinse**: `laundry_care_washer_dryer_program_rinse`
+- **Sensitive**: `laundry_care_washer_dryer_program_sensitive`
+- **Spin**: `laundry_care_washer_dryer_program_spin`
 - **Wash and dry (60 min)**: `laundry_care_washer_dryer_program_wash_and_dry_60`
 - **Wash and dry (90 min)**: `laundry_care_washer_dryer_program_wash_and_dry_90`
+- **Wool**: `laundry_care_washer_dryer_program_wool`
 
 {% enddetails %}
 
@@ -922,6 +1011,12 @@ All the event sensors will have the following possible values:
 - **Alarm clock elapsed**:
   - **Description**: Event triggered when the alarm clock has elapsed.
   - **Availability**: Cooktop, Oven
+- **Favorite short press**:
+  - **Description**: Event triggered when the user presses the **Favorite** button for a short time.
+  - **Availability**: Cooktop, Hood
+- **Favorite long press**:
+  - **Description**: Event triggered when the user presses the **Favorite** button for a long time.
+  - **Availability**: Cooktop, Hood
 - **Pre-heat finished**:
   - **Description**: Event triggered when **Fast pre-heat** program option is active and the preheating phase is finished.
   - **Availability**: Cooktop, Oven
@@ -931,11 +1026,32 @@ All the event sensors will have the following possible values:
 - **Drying process finished**:
   - **Description**: Event triggered when the drying process is finished.
   - **Availability**: Dryer
+- **Machine care and filter cleaning reminder**:
+  - **Description**: Event triggered when the appliance needs to run a Machine Clean program and clean the filter and the spray arm.
+  - **Availability**: Dishwasher
+- **Machine care and low maintenance filter cleaning reminder**:
+  - **Description**: Event triggered when Machine Clean program is recommended and cleaning the filter and the spray arm is optional.
+  - **Availability**: Dishwasher
+- **Machine care**:
+  - **Description**: Event triggered when the Machine Clean program is required.
+  - **Availability**: Dishwasher
+- **Program blocked - salt lack**:
+  - **Description**: Event triggered when the appliance reports a program blockage due to lack of salt supply.
+  - **Availability**: Dishwasher
+- **Salt lack**:
+  - **Description**: Event triggered when the salt supply is empty.
+  - **Availability**: Dishwasher
 - **Salt nearly empty**:
   - **Description**: Event triggered when the salt supply is running low.
   - **Availability**: Dishwasher
+- **Rinse aid lack**:
+  - **Description**: Event triggered when the rinse aid supply is empty.
+  - **Availability**: Dishwasher
 - **Rinse aid nearly empty**:
   - **Description**: Event triggered when the rinse aid supply is running low.
+  - **Availability**: Dishwasher
+- **Smart filter cleaning reminder**:
+  - **Description**: Event triggered when the filter system may be blocked, so it is recommended to clean the filters.
   - **Availability**: Dishwasher
 - **Bean container empty**:
   - **Description**: Event triggered when the bean container is empty.

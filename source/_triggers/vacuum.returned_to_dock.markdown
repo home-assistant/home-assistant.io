@@ -31,7 +31,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum returns to dock, **First** to fire only on the first dock event, or **All** to fire only after all targeted vacuums have returned to dock.
-  required: true
+  required: false
 For at least:
   description: The time the vacuum must remain docked before the trigger fires.
   required: false
@@ -62,7 +62,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Options: `each` (every time any targeted vacuum docks), `first` (only when the first returns), or `all` (only after all have docked).
-  required: true
+  required: false
   type: string
   default: each
 for:

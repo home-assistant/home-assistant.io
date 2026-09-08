@@ -82,6 +82,12 @@ Supported controller commands include:
 - `GoHome`, `GoBack`
 - `ShowGuideTab`, `ShowGuide`
 
+{% note %}
+
+Any value that does **not** match a supported command will be sent as literal text input. To force sending text that matches a command, prefix it with `text:`, for example `text:A`
+
+{% endnote %}
+
 ## Xbox automation examples
 
 These examples show common ways to use your Xbox media player and remote entities in automations. In these examples, `media_player.xboxone` and `remote.xboxone` are example entity IDs. Replace them with the entity IDs for your Xbox media player and remote entities.
@@ -366,9 +372,9 @@ The **Xbox binary sensor platform** automatically tracks the online status and a
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
-| (*Gamertag* )                    | Shows the online status of your friend. The entity’s attributes provide extra information, including real name and bio. |
-| **In game**                      | Shows if your friend is currently playing a game.                      |
-| **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
+| (*Gamertag* )                    | Shows the account's online status. The entity's attributes provide extra information, including real name and bio. |
+| **In game**                      | Shows whether the account is currently playing a game.                   |
+| **Subscribed to Xbox Game Pass** | Indicates whether the account is currently subscribed to Xbox Game Pass. |
 
 ## Sensor
 
@@ -376,12 +382,12 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 
 | Entity Name      | Description                                                                |
 | ---------------- | -------------------------------------------------------------------------- |
-| **Status**       | Shows the text status of your friend as it appears in your friends list.   |
-| **Gamerscore**   | Friend's Gamerscore.                                                       |
+| **Status**       | Shows the account's text status as it appears on the Xbox Network.          |
+| **Gamerscore**   | Displays the account's Gamerscore.                                         |
 | **Friends**      | Displays the number of mutual friend relationships of the account.         |
 | **Follower**     | Displays the number of people following the account.                       |
-| **Following**    |  Displays the number of people the account is following.                   |
-| **Last online**  | Displays the last time the friend was active online.                       |
+| **Following**    | Displays the number of people the account is following.                    |
+| **Last online**  | Displays the last time the account was active online.                      |
 | **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
@@ -389,7 +395,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 
 These sensors track the storage on your own **Xbox consoles** and connected storage devices.
 
-| Entity Name      | Description                                                                |
+| Entity Name | Description |
 | ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
@@ -400,8 +406,8 @@ For your account and each of your friends, several image entities are available:
 
 | Entity Name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
-| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
-| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friends, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
+| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friends across the Xbox Network. |
 | **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
 
 ## Media source

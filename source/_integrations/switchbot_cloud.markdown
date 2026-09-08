@@ -33,6 +33,7 @@ ha_platforms:
   - image
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum
@@ -68,6 +69,7 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
+- Curtain 4
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
@@ -84,6 +86,7 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 - [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
 - [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
+- Permanent Outdoor Lights
 
 ### Locks
 
@@ -137,6 +140,8 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- Battery Circulator Fan
+- Battery Circulator Fan 2 Pro
 - [Standing Fan](https://www.switch-bot.com/products/switchbot-standing-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
@@ -207,6 +212,15 @@ Features:
 - get calibration state
 
 #### Curtain 3
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Curtain 4
 
 Features:
 - open/close/pause
@@ -384,6 +398,14 @@ Features:
 - turn on or off
 - change brightness
 
+#### Permanent Outdoor Lights
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
 ### Locks
 
 #### Lock
@@ -446,14 +468,15 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan/Standing Fan
+#### Battery Circulator Fan / Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan / Standing Fan]
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
+- set night light, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
 
 
 #### Air Purifier
@@ -507,6 +530,9 @@ Features:
 - get battery
 - switch picture
 - display current picture
+- upload a new picture from a web address, using the [Upload AI Art Frame image](/actions/switchbot_cloud.upload_art_frame_image/) action
+
+{% include integrations/actions.md %}
 
 ## Important considerations
 

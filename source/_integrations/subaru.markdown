@@ -2,6 +2,7 @@
 title: Subaru
 description: Instructions on how to set up your Subaru account with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Lock
   - Presence detection
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - binary_sensor
   - button
   - device_tracker
   - diagnostics
@@ -71,12 +73,66 @@ Available sensors will vary by model, year, and subscription type. The integrati
 
 EV sensors (EV battery level, EV range, EV time to full charge) are only present on PHEV vehicles. The recommended tire pressure sensors are disabled by default and may report `unknown` on older Gen 2 vehicles that do not advertise the underlying tire-pressure recommendation in `vehicle_health`. The vehicle state sensor reports one of `ignition_off`, `ignition_acc` (accessory power), `ignition_on`, or `engine_on_remote_start`; if your vehicle reports a value not in that list, please file a bug and attach the integration's diagnostics download.
 
+## Binary sensors
+
+Binary sensors are added for Gen 2 and newer vehicles. Most are derived from data the vehicle pushes after engine shutdown, so a sensor may show `unknown` until the first push has been received.
+
+### Openings
+
+Each door and window reports open or closed:
+
+- Door front left
+- Door front right
+- Door rear left
+- Door rear right
+- Hood
+- Tailgate
+- Window front left
+- Window front right
+- Window rear left
+- Window rear right
+- Sunroof
+
+### Per-door lock status
+
+Read-only lock state for each door (front left/right, rear left/right, tailgate) — independent of the [controllable lock entity](#lock), which reflects the last command sent rather than the vehicle's actual state.
+
+### EV
+
+PHEV vehicles get two additional binary sensors:
+
+- EV plug: on when the charging cable is connected.
+- Charging (disabled by default): on only while the vehicle is actively drawing charge, distinct from simply being plugged in.
+
+### Vehicle health
+
+The vehicle's warning indicators (Malfunction Indicator Lamps, or MILs) are exposed as diagnostic binary sensors. Vehicle health is enabled by default and reflects the overall rollup. The individual indicators below are disabled by default; enable the ones you want to track. Only indicators your vehicle actually reports are created.
+
+- Airbag
+- AWD
+- ABS
+- Transmission temperature
+- Blind spot / rear cross traffic
+- Check engine
+- Electronic brake force distribution
+- Electric parking brake
+- Engine oil level
+- EyeSight
+- Idle stop & start
+- Oil pressure
+- Electric power steering
+- Reverse automatic braking
+- Steering responsive headlights
+- Telematics
+- Tire pressure
+- Vehicle dynamics control
+- Washer fluid
+
 ## Lock
 
-This integration supports remote locking and unlocking of vehicle doors. If doors are remotely unlocked, they will automatically relock if a door is not opened within a minute. There is no remote notification of this automatic relock.  
-{% note %}
-This integration does not yet support tracking the current lock/unlock state.
-{% endnote %}
+This integration supports remote locking and unlocking of vehicle doors. If doors are remotely unlocked, they will automatically relock if a door is not opened within a minute. There is no remote notification of this automatic relock.
+
+The lock entity's state reflects the last command sent, not necessarily the vehicle's actual state. To see the current lock state of each door, use the [per-door lock status binary sensors](#per-door-lock-status).
 
 ### Unlock specific door
 

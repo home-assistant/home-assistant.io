@@ -52,7 +52,7 @@ The following device classes are supported for sensors:
 - **apparent_power**: Apparent power in mVA, VA or kVA.
 - **aqi**: Air Quality Index (unitless).
 - **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
-- **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi
+- **atmospheric_pressure**: Atmospheric pressure in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
 - **battery**: Percentage of battery that is left in %
 - **blood_glucose_concentration**: Blood glucose concentration in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide (CO₂) concentration in ppm

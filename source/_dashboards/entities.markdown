@@ -90,8 +90,10 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `area`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
-  type: string
+  description: >
+    Show one or more pieces of additional info. Can be either a string with a single item, or a list of strings.
+    Valid values: `entity-id`, `last_changed`, `last_updated`, `area_name`, `floor_name`, `device_name`, `state`, or any attribute of the entity.
+  type: [string, list]
 time_format:
   required: false
   description: "How timestamp states should be formatted. Valid values are: `relative`, `total`, `date`, `time` and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`)."

@@ -5,6 +5,8 @@ ha_category:
   - Button
   - Climate
   - Hub
+  - Light
+  - Number
   - Select
 ha_integration_type: virtual
 ha_supporting_domain: whirlpool
@@ -20,6 +22,8 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - light
+  - number
   - select
   - sensor
 ha_iot_class: Cloud Push

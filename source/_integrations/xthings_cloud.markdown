@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: xthings_cloud
 ha_integration_type: hub
 ha_platforms:
+  - camera
   - light
   - lock
   - switch

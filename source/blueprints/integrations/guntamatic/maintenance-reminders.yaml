@@ -1,0 +1,82 @@
+blueprint:
+  name: Guntamatic maintenance reminder
+  description: >-
+    Send a notification when the time until the next maintenance task on
+    your Guntamatic heater runs low: emptying the ash box or the periodic
+    service.
+  domain: automation
+  input:
+    ash_empty_in_entity:
+      name: Time until ash emptying sensor
+      description: >-
+        The **Time until ash emptying** diagnostic sensor of your heater.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+    ash_threshold:
+      name: Ash emptying threshold
+      description: >-
+        You receive a notification when fewer hours remain than this value.
+        Set it to 0 to disable this reminder.
+      default: 48
+      selector:
+        number:
+          min: 0
+          max: 720
+          unit_of_measurement: h
+    service_date_entity:
+      name: Service date sensor
+      description: >-
+        The **Service date** diagnostic sensor of your heater.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+              device_class: date
+    service_threshold:
+      name: Service threshold
+      description: >-
+        You receive a notification when the service date is fewer days away
+        than this value. Set it to 0 to disable this reminder.
+      default: 14
+      selector:
+        number:
+          min: 0
+          max: 365
+          unit_of_measurement: d
+    notification_action:
+      name: Notification action
+      default: notify.notify
+      selector:
+        action:
+variables:
+  service_date_entity: !input service_date_entity
+  service_threshold: !input service_threshold
+  ash_empty_in_entity: !input ash_empty_in_entity
+mode: parallel
+trigger:
+  - platform: numeric_state
+    id: ash
+    entity_id: !input ash_empty_in_entity
+    below: !input ash_threshold
+  - platform: template
+    id: service
+    value_template: >-
+      {% set svc = states(service_date_entity) %}
+      {% set thr = service_threshold | int(0) %}
+      {{ thr > 0 and svc not in ['unknown', 'unavailable', 'none', '']
+         and (strptime(svc, '%Y-%m-%d') | as_datetime | as_local - now()).days < thr }}
+actions:
+  - action: !input notification_action
+    data:
+      title: >-
+        Guntamatic: {% if trigger.id == 'ash' %}ash box{% else %}service{% endif %} due soon
+      message: >-
+        {% if trigger.id == 'ash' %}
+        Empty the ash box within the next
+        {{ states(ash_empty_in_entity) }} hours.
+        {% else %}
+        Schedule the periodic service for {{ states(service_date_entity) }}
+        (within the next {{ ((strptime(states(service_date_entity), '%Y-%m-%d') | as_datetime | as_local - now()).days) }} days).
+        {% endif %}
