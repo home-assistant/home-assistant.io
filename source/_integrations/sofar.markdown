@@ -234,12 +234,14 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Troubleshooting
 
+If these steps don't help, [open an issue on GitHub](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=Sofar&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Fsofar) and include the details listed for your symptom.
+
 ### Cannot connect to the inverter
 
 1. Make sure the inverter (or the Modbus TCP bridge it's connected through) is powered on and reachable on the network.
 2. Confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
 3. Check that Modbus is enabled on the inverter, if it has a setting for this.
-4. If it still fails, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log in the issue report, together with the host, port, and Modbus unit ID you used.
+4. If it still fails, include the host, port, and Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
 
 ### Inverter isn't recognized
 
