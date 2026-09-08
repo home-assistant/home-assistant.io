@@ -7,7 +7,7 @@ ha_release: '2026.10'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@DaanVervacke'
-ha_domain: dedietrich
+ha_domain: de_dietrich
 ha_platforms:
   - sensor
 ha_config_flow: true
@@ -83,7 +83,7 @@ The integration provides up to 11 read-only sensors:
 
 Temperature readings use degrees Celsius. Home Assistant can display them in your preferred temperature unit. **Flue gas temperature**, **Boiler temperature target**, **Fan speed**, and **Ionization current** are diagnostic sensors.
 
-A heating circuit is a separately controlled part of the heating system. The integration adds each circuit's room-temperature sensor only when the controller reports a room-temperature value for it. If that value becomes available on a later poll, the sensor appears without reloading the integration. A missing room-temperature sensor does not prove the heating circuit is absent.
+A heating circuit is a separately controlled part of the heating system. Each circuit can serve one room or several rooms. The circuit room-temperature sensor shows **Unknown** when the controller does not report a room-temperature value. This can happen when the circuit does not have a room sensor.
 
 Other sensors are created even when the corresponding probe is not fitted. A sensor can show **Unknown** when the controller does not provide a value.
 
@@ -113,7 +113,7 @@ If a group of readings fails to update, its sensors become unavailable while suc
 
 ### A sensor is missing or shows Unknown
 
-Check whether the controller displays that measurement and whether the corresponding probe is fitted. In particular, circuit A and circuit B room-temperature sensors only appear after the controller supplies a room-temperature value. A flue gas sensor that is not fitted can leave **Flue gas temperature** as **Unknown**.
+Check whether the controller displays that measurement and whether the corresponding probe is fitted. A circuit room-temperature sensor can remain **Unknown** when the circuit does not have a room sensor. A flue gas sensor that is not fitted can leave **Flue gas temperature** as **Unknown**.
 
 Compare **Boiler temperature target** with the controller's target, not with the measured **Boiler temperature**. These values describe different things and do not need to match.
 
