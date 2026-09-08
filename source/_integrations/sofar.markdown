@@ -243,7 +243,11 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ### Inverter isn't recognized
 
+#### Description
+
 The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
+
+#### Resolution
 
 Because setup didn't finish, the integration isn't added yet, so the **Download diagnostics** option isn't shown. Include the first 10 characters of your inverter's serial number and the model name from its label in the issue report instead. Together, those identify which register map the inverter uses. The rest of the serial number isn't needed.
 
