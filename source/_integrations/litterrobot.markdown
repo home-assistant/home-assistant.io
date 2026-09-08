@@ -58,7 +58,7 @@ Password:
 | Entity                        | Domain          | Description                                                                                                 |
 | ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
-| Night light                   | `light`         | Control the night light's color, brightness, and on and off state, only for Litter-Robot 5.                 |
+| Night light                   | `light`         | Controls the night light's color, brightness, and on and off state, only for Litter-Robot 5.                 |
 | Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Sleep mode (per day)          | `switch`        | Enable or disable each day of the week's sleep schedule, only for Litter-Robot 5.                           |
