@@ -39,12 +39,6 @@ There are also products for water usage monitoring that are based on existing co
 - [Zigbee](/integrations/zha)
 - [Matter](/integrations/matter)
 
-## Viewing your water usage
-
-Once a compatible water consumption sensor is available in Home Assistant, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and add it to the Energy dashboard. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the Energy dashboard to review usage for different periods.
-
-For cumulative water meters, a sensor with `state_class: total_increasing` can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.
-
 ## Individual water devices
 
 Similar to tracking individual energy devices, Home Assistant supports tracking water usage of individual devices. This feature allows you to monitor water consumption from specific appliances or fixtures in your home, such as washing machines, dishwashers, or individual faucets.
@@ -78,7 +72,7 @@ Maybe you like to build one yourself?
 - [watermeter](https://github.com/nohn/watermeter) running classic OCR and statistical pattern recognition on any system supporting Docker
 - [Muino water meter reader 3-phase](https://muino.nl/product/3-phase-muino-light-sensor-encoder/) Using the 3-phase sensor technique, a battery-powered version can be possible with this sensor.
 - [Read water meter with magnetometer](https://github.com/tronikos/esphome-magnetometer-water-gas-meter) using [QMC5883L](https://esphome.io/components/sensor/qmc5883l/) or [HMC5883L](https://esphome.io/components/sensor/hmc5883l/), common and inexpensive magnetometers. This should be compatible with all the water meters the Flume water sensor is compatible with, which is [compatible](https://help.flumewater.com/articles/1618594) with about 95% of water meters in the United States.
-- Some watermeters use [Wireless M-Bus](https://en.wikipedia.org/wiki/Meter-Bus) for remote metering. [wmbusmeters project](https://github.com/wmbusmeters/wmbusmeters/) can automatically capture, decode, decrypt and convert M-Bus packets to MQTT. It supports several M-Bus receivers, including RTL-SDR using [rtl-wmbus library](https://github.com/xaelsouth/rtl-wmbus). You can also build a WMBus [ESPHome-based receiver](https://github.com/SzczepanLeon/esphome-components). An [app](https://github.com/wmbusmeters/wmbusmeters-ha-addon) for Home Assistant exists for easy installation and configuration. See the [community page](https://community.home-assistant.io/t/add-on-request-wmbusmeter/228988) for more.
+- Some watermeters use [Wireless M-Bus](https://en.wikipedia.org/wiki/Meter-Bus) for remote metering. [wmbusmeters project](https://github.com/wmbusmeters/wmbusmeters) can automatically capture, decode, decrypt and convert M-Bus packets to MQTT. It supports several M-Bus receivers, including RTL-SDR using [rtl-wmbus library](https://github.com/xaelsouth/rtl-wmbus). You can also build a WMBus [ESPHome-based receiver](https://github.com/SzczepanLeon/esphome-components). An [app](https://github.com/wmbusmeters/wmbusmeters-ha-addon) for Home Assistant exists for easy installation and configuration. See the [community page](https://community.home-assistant.io/t/add-on-request-wmbusmeter/228988) for more.
 - Read water (or gas) usage data from the Itron EverBlu Cyble Enhanced RF meters using the RADIAN protocol over 433 MHz [everblu-meters-esp8266/esp32](https://github.com/genestealer/everblu-meters-esp8266-improved), via an ESP32/ESP8266 and a CC1101 transceiver. Used across the UK and Europe. Fully integrates with Home Assistant using MQTT AutoDiscovery. According to available documentation, this method may also work with AnyQuest Cyble Enhanced, EverBlu Cyble, and AnyQuest Cyble Basic, but these remain untested.
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [RESTful](/integrations/rest) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
@@ -88,3 +82,9 @@ For any of the above-listed options, make sure it actually works with the type o
 ### Reading the meter wirelessly via RTL-SDR
 
 {% include energy/rtl_sdr.md %}
+
+## Viewing your water usage
+
+Once a compatible water consumption sensor is available in Home Assistant, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and add it to the **Energy** dashboard. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the **Energy** dashboard to review usage for different periods.
+
+For cumulative water meters, a sensor with `state_class: total_increasing` can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.
