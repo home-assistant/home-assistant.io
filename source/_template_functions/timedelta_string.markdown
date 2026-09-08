@@ -8,7 +8,7 @@ available_as:
 category: datetime
 return_type: string
 limited: false
-since: "2026.6"
+since: "2026.10"
 related_functions:
   - timedelta
   - as_timedelta
