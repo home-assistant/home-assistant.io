@@ -85,9 +85,25 @@ For example, if sunrise is at 06:00 and you set `offset: "-01:00:00"`, the autom
 
 {% tip %}
 
-Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use a [sun elevation trigger](/docs/automation/trigger/#sun-elevation-trigger) instead.
+Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger instead.
 
 {% endtip %}
+
+### Sun elevation triggers
+
+The sun elevation is the angle between the sun and the horizon. To run an automation when the sun reaches a specific angle, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger. To react to every elevation update, use the [Sun elevation changed](/triggers/sun.elevation_changed/) trigger instead.
+
+This is useful for automations around dawn or dusk because the length of twilight changes during the year. A value between `0` degrees and `-6` degrees is often used for twilight. For example, `-4` degrees can be a practical point for turning on outdoor lights.
+
+{% example %}
+trigger: |
+  trigger: sun.elevation_crossed_threshold
+  options:
+    threshold:
+      type: below
+      value:
+        number: -4
+{% endexample %}
 
 ### Maintains entity `sun.sun`
 

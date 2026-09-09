@@ -8,7 +8,6 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: backblaze_b2
 ha_codeowners:
-  - '@hugo-vrijswijk'
   - '@ElCruncharino'
 ha_integration_type: service
 ha_quality_scale: bronze

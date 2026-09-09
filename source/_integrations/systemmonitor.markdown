@@ -63,11 +63,11 @@ This has a severe impact on performance, and it’s useful to distinguish this s
 As such, time spent in this subset of the stall state is tracked separately and exported in the `full` averages.
 
 - Memory Pressure Some/Full 10s, 60s, 300s Average in %
-- Memory Pressure Some/Full Total in accumlated us
+- Memory Pressure Some/Full Total in accumulated us
 - IO Pressure Some/Full 10s, 60s, 300s Average in %
-- IO Pressure Some/Full Total in accumlated us
+- IO Pressure Some/Full Total in accumulated us
 - CPU Pressure Some 10s, 60s, 300s Average in %
-- CPU Pressure Some Total in accumlated us
+- CPU Pressure Some Total in accumulated us
 
 - https://docs.kernel.org/accounting/psi.html
 - https://facebookmicrosites.github.io/psi/docs/overview

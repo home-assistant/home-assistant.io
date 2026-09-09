@@ -522,7 +522,7 @@ Turn on and off Alert, Automation, and Group entities as switches.
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 | `device_class` | Alexa Sensor Type |
 | :------------: | :---------------: |
@@ -531,7 +531,7 @@ Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class
 |   `opening`    |      Contact      |
 |    `window`    |      Contact      |
 |    `motion`    |      Motion       |
-|   `presense`   |      Motion       |
+|   `presence`   |      Motion       |
 
 Ask Alexa for the state of a contact sensor.
 
@@ -1111,7 +1111,7 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 <!-- omit in toc -->
 ### Binary Sensor not available in Routine Trigger
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
