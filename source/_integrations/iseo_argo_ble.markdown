@@ -54,8 +54,8 @@ This requires the lock's **Door Status Advice** setting to be enabled. Setting t
 ## Configuration options
 
 {% configuration_basic %}
-Connect to the lock to read door status:
-  description: "Connect to the lock every 30 seconds and read the door state, in addition to following its broadcasts. Enable this only if the broadcasts do not reach Home Assistant reliably, for example at the edge of Bluetooth range or with no Bluetooth proxy nearby. It wakes the lock on every check, so it is off by default."
+Connect to the lock to read door state:
+  description: "Connect to the lock every 30 seconds and read the door state, in addition to following its broadcasts. Enable this only if the broadcasts do not reach Home Assistant reliably, for example at the edge of Bluetooth range or with no Bluetooth proxy nearby. It wakes the lock on every check, so it is off by default. It does not help with a lock that reports no door state at all: reading over a connection needs **Door Status Advice** just as the broadcasts do."
 {% endconfiguration_basic %}
 
 ## Known limitations
