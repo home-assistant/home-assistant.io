@@ -81,6 +81,10 @@ If the code expires before you finish signing in, select **Submit** to request a
 
 If your authorization expired or was revoked, remove the SpaceXAI integration and add it again to complete a new browser sign-in.
 
+### The selected model is no longer available
+
+If Home Assistant reports that the selected model is no longer available to your account, remove the SpaceXAI integration and add it again. Choose one of the available models during setup. If you use Grok with a voice assistant, check that the assistant has the new Grok conversation agent selected.
+
 ### Grok cannot access an entity
 
 Make sure you selected the Assist API during setup and [exposed the entity to Assist](/voice_control/voice_remote_expose_devices/).
