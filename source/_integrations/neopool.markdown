@@ -164,16 +164,16 @@ If a poll cycle fails (for example, because the Modbus gateway becomes unreachab
 
 ## Winter mode
 
-In colder climates the pool is often closed for the season. The controller is drained, powered down, and sometimes removed entirely and stored indoors until spring. While it is offline, every poll fails, the log fills with connection errors, and the integration keeps retrying reconnects for months. To avoid this, turn off polling for the integration so it stops contacting the controller while it is away:
+In colder climates, the pool is often closed for the season. The controller is drained, powered down, and sometimes removed entirely and stored indoors until spring. While it is offline, every poll fails and the log fills with connection errors. To avoid this, turn off polling so the integration stops contacting the controller while it is away:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the NeoPool integration.
 3. Open the three-dot {% icon "mdi:dots-vertical" %} menu, then select **System options**.
 4. Turn off **Enable polling for updates**, then select **Update**.
 
-   ![Screenshot showing the System Options dialog with the Enable polling for updates toggle](/images/screenshots/custom_polling_01.png)
+   ![Screenshot showing the System options dialog with the Enable polling for updates toggle](/images/screenshots/custom_polling_01.png)
 
-With polling off, the integration stops all Modbus communication and makes no reconnect attempts, so an absent controller is never contacted. All entities report `unavailable` rather than serving stale readings, while the config entry, options, and history stay in place. The last known device data is kept, so the entities survive a Home Assistant restart without any reconfiguration. In spring, turn **Enable polling for updates** back on to resume.
+With polling off, the integration stops all Modbus communication, so an absent controller is never contacted. All entities report `unavailable` rather than serving stale readings, while the config entry, options, and history stay in place. The integration still loads after a Home Assistant restart with no reconfiguration. In spring, turn **Enable polling for updates** back on to resume.
 
 ## Reconfigure
 
