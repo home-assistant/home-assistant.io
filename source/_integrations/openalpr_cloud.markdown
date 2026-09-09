@@ -49,6 +49,16 @@ confidence:
   required: false
   type: integer
   default: 80
+vehicle_details:
+  description: >-
+    Lets the integration request the most likely color, make, and model of
+    the vehicle from OpenALPR. The results are exposed as the `color`,
+    `manufacturer`, and `model` extra state attributes and included in the
+    `image_processing.found_plate` event. Only plates that meet the
+    `confidence` threshold are included.
+  required: false
+  type: boolean
+  default: false
 source:
   description: List of image sources.
   required: true
