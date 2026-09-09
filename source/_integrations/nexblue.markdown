@@ -61,7 +61,7 @@ The integration provides the following charger information:
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
 - **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
 
-### Charging control
+### Switches
 
 The integration provides a charging switch for each charger:
 
