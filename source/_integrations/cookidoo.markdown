@@ -50,13 +50,9 @@ Localization:
 
 ## Discovery
 
-If you own a Thermomix TM7, Home Assistant automatically discovers it on your
-network through SSDP/UPnP and offers to set up the Cookidoo integration for it.
+If you own a Thermomix TM7, Home Assistant automatically discovers it on your network through <abbr title="Simple Service Discovery Protocol">SSDP</abbr> and <abbr title="Universal Plug and Play">UPnP</abbr> and offers to set up the Cookidoo integration.
 
-Because Cookidoo is a cloud account service, discovery cannot configure the
-connection on its own: you still need to sign in with the email address and
-password of the Cookidoo account associated with your Thermomix to complete the
-setup.
+Because Cookidoo is a cloud account service, discovery cannot complete setup on its own. To finish setup, sign in with the email address and password for the Cookidoo account associated with your Thermomix.
 
 ## To-do lists
 
