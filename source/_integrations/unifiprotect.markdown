@@ -300,7 +300,7 @@ Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assis
 - **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
 
 {% note %}
-A key fob that is paired after Home Assistant has already started is not picked up until the integration is reloaded.
+In the **full access** connection mode, a key fob that is paired after Home Assistant has already started is not picked up until the {% term integration %} is reloaded. In **API key only** mode, a newly paired fob is discovered automatically. See [Connection modes](#connection-modes).
 {% endnote %}
 
 ### NVR
