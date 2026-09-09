@@ -59,6 +59,7 @@ entity_id:
 ## Good to know
 
 - Reading the log clears it. Your lock hands over everything recorded since the last read and then never offers those entries again, so a read after a quiet spell can return a long history at once. Only the most recent entry of each kind is reported, so the backlog is not replayed as though it had just happened.
+- The **Access log** entity has to be enabled. Reading empties the log on the lock, so with the entity disabled there would be nothing left to report the entries to; the action refuses instead, and the automatic read after a door opening is skipped.
 - Reading connects to the lock over Bluetooth. Close the Argo app on all phones first, because the lock only accepts one connection at a time.
 - If Home Assistant has already noticed the lock is unreachable, its entity is unavailable and this action quietly does nothing, as actions do for any unavailable entity. If the lock only goes out of range once the read is under way, the action reports an error. Either way the entries stay on the lock and arrive with the next successful read.
 - A read that fails part way through still reports whatever it managed to read. The lock hands over each page only once, so those entries would otherwise be lost.
