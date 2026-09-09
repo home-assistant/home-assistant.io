@@ -30,9 +30,6 @@ To suspend or restore a credential from an automation or a script:
 ### Options in the UI
 
 {% options_ui %}
-Entity:
-  description: The credential, or credentials, you want to change.
-  required: true
 Enabled:
   description: Whether the credential may open the lock. Turn it off to suspend the credential, and on to restore it.
   required: true

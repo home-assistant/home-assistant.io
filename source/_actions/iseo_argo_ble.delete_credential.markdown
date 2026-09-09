@@ -12,7 +12,7 @@ The **Delete credential** action removes one of the credentials enrolled on your
 
 Use it when a credential is gone for good: a lost card you do not expect to find, a tenant who has moved out, or a phone that is no longer in the household.
 
-There is no undo. Home Assistant cannot enrol a credential, so whoever held it has to be enrolled again on the lock with your Master Card. If you only want to stop a credential working for a while, use [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) instead, which leaves it on the lock.
+There is no undo. Home Assistant cannot enroll a credential, so whoever held it has to be enrolled again on the lock with your Master Card. If you only want to stop a credential working for a while, use [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) instead, which leaves it on the lock.
 
 Only Home Assistant administrators can run this action.
 
@@ -27,14 +27,6 @@ To delete a credential from an automation or a script:
 5. From the search box, search for and select **ISEO Argo BLE: Delete credential**.
 6. Select what you want to control. Under **By target**, select the credential you want to remove.
 7. Select **Save**.
-
-### Options in the UI
-
-{% options_ui %}
-Entity:
-  description: The credential, or credentials, you want to remove from the lock.
-  required: true
-{% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
