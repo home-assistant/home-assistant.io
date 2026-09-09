@@ -53,7 +53,7 @@ entity_id:
     The entity ID, or list of entity IDs, of the ISEO locks whose access log
     you want to read.
   required: true
-  type: string
+  type: string | list
 {% endoptions_yaml %}
 
 ## Good to know

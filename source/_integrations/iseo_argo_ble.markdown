@@ -43,7 +43,7 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 ## Supported functionality
 
 - **Lock**: Controls the lock (unlock only). Reflects the current locked/unlocked state.
-- **Access log**: An event entity reporting what your lock recorded in its own access log. It reports three kinds of event:
+- **Access log**: An event entity reporting what your lock recorded in its own access log. It reports three kinds of events:
   - **Opened**: The door was opened, whether from Home Assistant, the Argo app, a card, a PIN, a fingerprint, a mechanical key, the internal handle, or a remote button.
   - **Access denied**: A credential was turned away, for example a wrong PIN or password, an expired or out-of-schedule credential, or a fingerprint that did not match.
   - **Fault**: The lock reported a problem, such as a full memory, a failing backup battery, or a hardware fault.
@@ -58,20 +58,20 @@ The access log tells you not just that your door opened, but who opened it, so y
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Announce who came home
+### Automation: Notify who came home
 
-When the front door is opened, the name the lock recorded is announced on a speaker.
+When the front door is opened, the name the lock recorded is sent as a notification.
 
 - **Trigger**: State of the **Access log** entity changes
 - **Condition**: The event type is `opened`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for announcing who came home" %}
+{% details "YAML example for notifying who came home" %}
 
 {% example %}
 automation: |
-  alias: "Announce who came home"
+  alias: "Notify who came home"
   triggers:
     - trigger: state
       entity_id: event.front_door_access_log
