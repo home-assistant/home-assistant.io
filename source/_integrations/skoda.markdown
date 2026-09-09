@@ -148,7 +148,7 @@ The **API key expiration** sensor is disabled by default. Enable it first if you
 
 The **Škoda** integration {% term polling polls %} the current vehicle status every 5 minutes.
 
-The Škoda public API enforces a rate limit per API key. The **API requests remaining** and **API rate limit reset** diagnostic sensors (disabled by default) let you keep an eye on your remaining quota if you need to.
+The Škoda public API enforces a rate limit per Vehicle Identification Number (VIN). The **API requests remaining** and **API rate limit reset** diagnostic sensors (disabled by default) let you keep an eye on your remaining quota if you need to.
 
 ## Known limitations
 
