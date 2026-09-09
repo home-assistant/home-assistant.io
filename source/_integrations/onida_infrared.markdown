@@ -4,7 +4,7 @@ description: Integration to control Onida air conditioners using an infrared emi
 ha_category:
   - Climate
   - Infrared
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
