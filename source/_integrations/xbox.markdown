@@ -380,16 +380,17 @@ The **Xbox binary sensor platform** automatically tracks the online status and a
 
 Similar to binary sensors, the **Xbox sensor platform** monitors your account and friends, providing detailed information about their activity and achievements.
 
-| Entity Name      | Description                                                                |
-| ---------------- | -------------------------------------------------------------------------- |
-| **Status**       | Shows the account's text status as it appears on the Xbox Network.          |
-| **Gamerscore**   | Displays the account's Gamerscore.                                         |
-| **Friends**      | Displays the number of mutual friend relationships of the account.         |
-| **Follower**     | Displays the number of people following the account.                       |
-| **Following**    | Displays the number of people the account is following.                    |
-| **Last online**  | Displays the last time the account was active online.                      |
-| **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
-| **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+| Entity Name                 | Description                                                                |
+| --------------------------- | -------------------------------------------------------------------------- |
+| **Status**                  | Shows the account's text status as it appears on the Xbox Network.         |
+| **Gamerscore**              | Displays the account's Gamerscore.                                         |
+| **Friends**                 | Displays the number of mutual friend relationships of the account.         |
+| **Follower**                | Displays the number of people following the account.                       |
+| **Following**               | Displays the number of people the account is following.                    |
+| **Last online**             | Displays the last time the account was active online.                      |
+| **In party**                | Shows the number of people in the user’s party chat if they are currently in one. |
+| **Party join restrictions** | Shows the join restriction of the party the account is currently in, either `Invite-only` or `Joinable`. |
+| **Now playing**             | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
 ### Storage sensors
 
