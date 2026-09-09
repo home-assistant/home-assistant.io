@@ -67,7 +67,7 @@ The `weather.get_forecasts` action reads the forecast the integration has alread
 
 ## Known limitations
 
-- The API dates a daily forecast rather than timing it, so each daily entry is reported at midnight UTC.
+- The API dates a daily forecast rather than timing it, so each daily entry is reported at the start of that day in your Home Assistant time zone.
 - The Freemium plan is for non-commercial use only and is provided on a best-effort basis, without a service level agreement or support. Commercial use needs a paid plan.
 - A Freemium key deactivates after 30 days without any requests.
 - The set of available weather products depends on your Foreca plan. See the [pricing page](https://business.foreca.com/weather-api/pricing) for what each plan includes.
