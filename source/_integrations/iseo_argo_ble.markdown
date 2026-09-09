@@ -49,7 +49,7 @@ Enable user management:
 ## Supported functionality
 
 - **Lock**: Controls the lock (unlock only). Reflects the current locked/unlocked state.
-- **Credential sensors**: One sensor per credential enrolled on the lock, such as a card, a PIN, or a phone. Each shows whether that credential may currently open the door. These sensors are only created if you enabled user management during setup.
+- **Credential sensors**: One sensor per credential enrolled on the lock, such as a card, a PIN, or a phone. Each shows whether that credential may currently open the door. These sensors are only created if user management is enabled.
 
 The credential type is part of each sensor's name, because one person often holds several and the lock allows them to share a name. The two identities Home Assistant registered for itself do not get sensors, so you cannot lock yourself out of your own lock.
 
@@ -99,12 +99,16 @@ Home Assistant reads the list of enrolled credentials once, while it sets the lo
 
 To pick up credentials that were added or removed in the Argo app, reload the integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select the lock, and select **Reload** from the three-dot menu.
 
+### Enabling user management later
+
+If you set the lock up without user management, you do not have to remove the integration to add it. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the lock, and choose **Reconfigure** from the three-dot menu. You need your Master Card again: the administrator identity can only be registered during a Master Card scan.
+
 ## Known limitations
 
 - The lock only supports _one active Bluetooth connection_ at a time. Close the Argo app on all phones before unlocking or during setup.
 - The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore not supported.
 - Home Assistant can suspend and remove credentials, but it cannot enrol new ones. Adding a credential needs your Master Card and the Argo app.
-- User management can only be turned on while you set the lock up, because the administrator identity has to be registered during the Master Card scan. If you set your lock up without it, delete the integration and add it again.
+- Turning user management on always needs your Master Card, because the administrator identity has to be registered during a Master Card scan. If you set your lock up without it, you can add it later with **Reconfigure** rather than removing the integration.
 - Credentials added or removed in the Argo app appear after you reload the integration, not straight away. Asking Home Assistant to update a credential sensor does nothing on purpose, because re-reading the list is the operation that upsets the lock's firmware.
 
 ## Removing the integration
