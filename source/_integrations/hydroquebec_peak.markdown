@@ -25,7 +25,7 @@ related:
 
 The **Hydro-Québec Peak Events** {% term integration %} tracks winter peak demand events (_événements de pointe_) published by [Hydro-Québec](https://www.hydroquebec.com/), the electricity utility of Québec, Canada.
 
-During Québec winters (December 1 to March 31), Hydro-Québec announces peak events when electricity demand is high due to cold weather. Customers enrolled in a peak savings offer — such as the Winter Credit Option or Rate Flex D — reduce their consumption during these events and receive bill credits or lower rates in return. This integration exposes the event schedule so your automations can prepare for and react to peak events, for example by preheating your home before an event and lowering thermostats while one is in progress.
+Peak events occur during Québec winters (December 1 to March 31). Hydro-Québec announces them when cold weather drives electricity demand high. Customers enrolled in a peak savings offer, such as the Winter Credit Option or Rate Flex D, reduce their consumption during these events. In return, they receive bill credits or lower rates. This integration exposes the event schedule so your automations can prepare for and react to peak events. For example, you can preheat your home before an event starts and lower thermostats while one is in progress.
 
 The integration uses [Hydro-Québec's public open data](https://www.hydroquebec.com/documents-data/open-data/). It does not connect to your Hydro-Québec account and requires no credentials.
 
