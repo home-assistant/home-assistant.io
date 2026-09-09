@@ -38,9 +38,11 @@ The Bitvis Power Hub and Home Assistant must be on the same network subnet, or y
 {% configuration_basic %}
 Host:
   description: The hostname or IP address of your Bitvis Power Hub on your local network.
-Name:
-  description: A friendly name for this device in Home Assistant.
 {% endconfiguration_basic %}
+
+## Known limitations
+
+The Power Hub protocol is unauthenticated UDP. Any host on the local network can send a datagram using the device's MAC address and inject readings. The integration binds the UDP listener on all interfaces.
 
 ## Sensors
 
