@@ -689,8 +689,8 @@ layout: horizontal
 ## Power sources graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
-  Screenshot of the power Sankey graph card.
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the power sources graph card'>
+  Screenshot of the power sources graph card.
 </p>
 
 The power sources graph shows the power of your grid, solar, and battery sources over the day. By default, it shows today and moves to the new day at midnight. It is not linked to an `energy-date-selection` card on the same dashboard unless both use the same `collection_key`. See [Using multiple collections](#using-multiple-collections).
@@ -818,7 +818,7 @@ type: water-total
 
 ## Using multiple collections
 
-By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
+By default, the energy cards on the current dashboard are linked together, except for the real-time power elements described below. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
 
 The real-time power elements are the exception: the [power flow Sankey graph](#power-flow-sankey-graph), the [power sources graph](#power-sources-graph), and the [power consumption badge](#power-consumption-badge). Without a `collection_key`, they use a real-time collection of their own for the current dashboard. That collection always shows today and moves to the new day at midnight. An `energy-date-selection` card on the same dashboard therefore does not affect them. The power flow Sankey graph and the power consumption badge show current power and never follow a date selection. The power sources graph can follow one: give it and the date selection card the same `collection_key` to show the selected period.
 
