@@ -46,7 +46,7 @@ Password:
   description: "Password or device key of your my-PV device."
 {% endconfiguration_basic %}
 
-Older firmware versions of the my-PV hardware do not require a password, this will be added by upcoming firmware updates. When no custom password is set you have to use the **devicekey** which can be found under the ⓘ info menu of your my-PV device. For the HEA•THOR IoT you can find the **devicekey** on the device label.
+Older firmware versions of my-PV devices may not require authentication. If your device requires authentication and no custom password has been configured, use the **device key** instead. You can find the device key in the ⓘ info menu of your my-PV device. For the HEA•THOR IoT, the device key is printed on the device label.
 
 You can update the password through the web interface of your my-PV device.
 
