@@ -337,7 +337,7 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 
 Most vehicles stream their data to Home Assistant in real time. Streaming has no per-update cost, and the integration sets it up and manages it for you.
 
-Some entities can only get their data by polling. These show as **Polling** in the tables above. Home Assistant creates them only for vehicles where polling costs little or nothing.
+Some entities can only get their data by {% term polling %}. These show as **Polling** in the tables above. Home Assistant creates them only for vehicles where polling costs little or nothing.
 
 A vehicle that streams and is not discounted gets no polling-only entities. Its data comes entirely from the live stream. Home Assistant never polls it, so fetching its data never spends credits. You still see its **Streaming** and **Both** entities.
 
