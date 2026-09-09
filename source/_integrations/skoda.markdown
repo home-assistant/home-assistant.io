@@ -159,7 +159,7 @@ The Škoda public API enforces a rate limit per API key. The **API requests rema
 
 ### Entities become unavailable, or setup fails with a rate-limit error
 
-The Škoda public API enforces a rate limit per API key. If you hit it, requests fail temporarily until the window resets. The integration will automatically retry; no action is needed.
+The Škoda public API enforces a rate limit per Vehicle Identification Number (VIN). If you hit it, requests fail temporarily until the window resets. The integration will automatically retry; no action is needed.
 
 ### Re-authentication is requested
 
