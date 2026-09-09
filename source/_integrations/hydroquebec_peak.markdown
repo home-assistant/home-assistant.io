@@ -53,7 +53,7 @@ For each configured offer, the integration provides the following entities. Even
 
 ### Automation: Preheat the home before a peak event
 
-Preheat the home before a peak event by using the **Event begins** sensor with a time offset:
+Preheat the home before a peak event by using the **Peak event begins** sensor with a time offset:
 
 {% note %}
 This example uses a time trigger with an offset, which requires the YAML editor. The visual automation editor does not support the offset field on time triggers.
@@ -65,7 +65,7 @@ automation: |
   triggers:
     - trigger: time
       at:
-        entity_id: sensor.hydroquebec_peak_cpc_d_event_begins
+        entity_id: sensor.cpc_d_peak_event_begins
         offset: "-03:00:00"
   actions:
     - action: climate.set_temperature
@@ -77,7 +77,7 @@ automation: |
 
 ### Automation: Lower the thermostat when a peak event starts
 
-Lower the thermostat when a peak event begins by using a time trigger directly on the **Event begins** sensor:
+Lower the thermostat when a peak event begins by using a time trigger directly on the **Peak event begins** sensor:
 
 {% example %}
 automation: |
@@ -85,7 +85,7 @@ automation: |
   triggers:
     - trigger: time
       at:
-        entity_id: sensor.hydroquebec_peak_cpc_d_event_begins
+        entity_id: sensor.cpc_d_peak_event_begins
   actions:
     - action: climate.set_temperature
       target:
@@ -96,7 +96,7 @@ automation: |
 
 ### Automation: Restore the temperature when a peak event ends
 
-Restore the thermostat to a normal temperature when a peak event ends by using a time trigger on the **Event ends** sensor:
+Restore the thermostat to a normal temperature when a peak event ends by using a time trigger on the **Peak event ends** sensor:
 
 {% example %}
 automation: |
@@ -104,7 +104,7 @@ automation: |
   triggers:
     - trigger: time
       at:
-        entity_id: sensor.hydroquebec_peak_cpc_d_event_ends
+        entity_id: sensor.cpc_d_peak_event_ends
   actions:
     - action: climate.set_temperature
       target:
