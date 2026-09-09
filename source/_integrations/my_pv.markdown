@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: my_pv
 ha_platforms:
   - water_heater
+  - sensor
 ha_integration_type: device
 ha_config_flow: true
 ha_dhcp: true
