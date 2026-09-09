@@ -88,18 +88,32 @@ like the base `/api/mcp` endpoint.
 
 #### OAuth
 
-The Model Context Protocol supports OAuth for [Authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
+The Model Context Protocol supports OAuth for [authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
 [Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
-Clients that support OAuth can use this to allow you to give the client access
+clients that support OAuth can use this to allow you to give the client access
 to your Home Assistant MCP server.
 
 Home Assistant has adopted [IndieAuth](https://indieauth.spec.indieweb.org/) and does not require you to pre-define
-an OAuth Client ID. Instead, the Client ID is the base URL of the client application making the request.
+an OAuth Client ID. Instead, the Client ID is the base URL of the client application making the request:
 
-- *Client ID*: This is the base URL of the LLM application configuring the connector (for example, `https://claude.ai` for Claude, or `https://chatgpt.com` for ChatGPT). It should **not** be your Home Assistant server's URL.
-- *Client Secret*: This is not used by Home Assistant. If the client strictly requires a value, you can put any random text or leave it blank.
+- **Client ID**: The base URL of the LLM client application configuring the connector (for example, `https://claude.ai` for Claude, or `https://chatgpt.com` for ChatGPT). It must never be your Home Assistant instance URL. Home Assistant's IndieAuth implementation validates that the OAuth `redirect_uri` shares the same scheme and domain with the `client_id`. If you enter your Home Assistant instance URL as the Client ID, authentication fails because the client application's redirect URI does not match.
+- **Client Secret**: This is not used by Home Assistant. If the field is required by the client application, enter any text; if it is optional, leave it blank.
 
-#### Long-Lived Access Tokens
+{% note %}
+Home Assistant implements the [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) specification (`client_id_metadata_document_supported: true`) rather than traditional Dynamic Client Registration (RFC 7591), and does not provide an RFC 7591 `registration_endpoint`.
+
+LLM clients that accept URL-based client IDs work without prior registration. However, any client that strictly mandates RFC 7591 Dynamic Client Registration cannot register with Home Assistant.
+{% endnote %}
+
+{% tip %}
+When accessing Home Assistant remotely through a reverse proxy or tunnel (such as Cloudflare Tunnel), the hostname used by the remote LLM client must match the configured **Internal URL** or **External URL** in Home Assistant ({% my network title="**Settings** > **System** > **Network**" %}).
+
+If an unconfigured hostname or proxy header mismatch is used, Home Assistant cannot resolve the `issuer` in `/.well-known/oauth-authorization-server` and returns relative paths, which causes conforming OAuth clients to reject the metadata.
+
+Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
+{% endtip %}
+
+#### Long-lived access tokens
 
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
@@ -123,9 +137,9 @@ When using a remote custom connector in Claude for Desktop, the connection is br
 3. Select **+** in the **Connectors** pane, and then select **Add Custom Connector**.
 4. Enter the following details:
    - **Name**: "Home Assistant" (or any more descriptive name you prefer)
-   - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp`
+   - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
    - Under advanced settings:
-     - **OAuth Client ID**: `https://claude.ai`
+     - **OAuth Client ID**: `https://claude.ai` (this is the base URL of the Claude application; do not enter your Home Assistant URL)
      - **OAuth Client Secret**: Leave this blank
 5. Select **Add**. Then select **Connect** next to the entry created with the name you provided above.
 6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
@@ -169,11 +183,11 @@ ChatGPT supports connecting to remote Model Context Protocol servers for Plus, P
 2. Navigate to **Workspace settings** (or user settings), select **Apps**, and select **Create**.
 3. Enter the following details:
    - **Name**: "Home Assistant" (or any name you prefer).
-   - **MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp`
-   - Select **OAuth** for the authentication mechanism. ChatGPT will attempt to auto discover OAuth settings. If this does not work you will need to manually enter the settings under **Advanced OAuth Settings** > **User defined oauth client**:
+   - **MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
+   - Select **OAuth** for the authentication mechanism. ChatGPT will attempt to auto-discover OAuth settings. If discovery fails (for example, if ChatGPT attempts Dynamic Client Registration or encounters a tunnel hostname mismatch), enter the settings manually under **Advanced OAuth Settings** > **User defined oauth client**:
      - Under **Client registration**:
-       - **OAuth Client ID**: `https://chatgpt.com`
-       - **OAuth Client Secret**: Enter any random text (it is not used by Home Assistant, but the ChatGPT configuration form may require a value).
+       - **OAuth Client ID**: `https://chatgpt.com` (this is the base URL of the ChatGPT application; do not enter your Home Assistant URL)
+       - **OAuth Client Secret**: Enter any text (it is not used by Home Assistant, but the ChatGPT configuration form requires a value).
        - **Token endpoint auth method**: `client_secret_post`
      - Under **OAuth endpoints**:
        - **Auth URL**: `https://<your_home_assistant_external_url>/auth/authorize`
@@ -379,13 +393,33 @@ To understand the root cause, first check debug logs on the client. For example 
 
 #### Symptom: Unable to access Home Assistant after several failed login attempts
 
-If authentication keeps failing during the OAuth setup flow, the most likely cause is that one or more OAuth details are incorrect, like the client ID, client secret, or Home Assistant URL.
+If authentication keeps failing during the OAuth setup flow, the most likely cause is that one or more OAuth details are incorrect, such as the client ID or the Home Assistant URL.
 
 ##### Resolution
 
-Review the OAuth configuration in your client and enter the details again. Make sure the client ID, client secret, and Home Assistant URL exactly match the values you configured for the MCP server in Home Assistant.
+1. Review the OAuth configuration in your client and verify the details:
+   - Make sure the **Client ID** is the base URL of the LLM client application (for example, `https://claude.ai` for Claude or `https://chatgpt.com` for ChatGPT), and never your Home Assistant instance URL. IndieAuth validates that the redirect URI shares the same scheme and domain with the client ID; setting the client ID to your Home Assistant instance causes the authorization flow to fail.
+   - Home Assistant does not use a client secret. If the field is required by the client application, enter any text; if it is optional, leave it blank.
+   - Make sure the URL used to access Home Assistant matches the configured **Internal URL** or **External URL** in {% my network title="**Settings** > **System** > **Network**" %}.
+2. If you have explicitly enabled IP bans in Home Assistant and repeated failed sign-in attempts caused a ban, check the `ip_bans.yaml` file in your Home Assistant configuration directory. If your computer's IP address or the client's IP address is listed there, remove it, restart Home Assistant, and then try authenticating again.
 
-If you have explicitly enabled IP bans in Home Assistant and repeated failed sign-in attempts caused a ban, check the `ip_bans.yaml` file in your Home Assistant configuration directory. If your computer's IP address or the client's IP address is listed there, remove it, restart Home Assistant, and then try authenticating again.
+#### Symptom: OAuth discovery fails or authorization server metadata is rejected
+
+When connecting an external client (such as ChatGPT or Claude) through a tunnel, reverse proxy, or custom domain, the client fails to complete OAuth discovery or rejects the metadata with an error regarding the `issuer` or registration endpoint.
+
+##### Description
+
+This can occur for two reasons:
+
+- **Hostname or proxy mismatch**: Home Assistant checks incoming requests against its configured internal and external URLs. If the hostname used by the remote LLM client does not match the configured URL, or if reverse-proxy headers (`X-Forwarded-Host`, `X-Forwarded-Proto`) are missing or mismatched, Home Assistant cannot resolve the `issuer` in `/.well-known/oauth-authorization-server` and returns relative paths. Conforming OAuth clients reject this metadata because RFC 8414 requires the `issuer` to match the URL used to discover it.
+- **Unsupported Dynamic Client Registration (RFC 7591)**: Home Assistant uses the `draft-ietf-oauth-client-id-metadata-document` standard (`client_id_metadata_document_supported: true`) rather than RFC 7591 Dynamic Client Registration. LLM clients that strictly require RFC 7591 Dynamic Client Registration cannot register automatically.
+
+##### Resolution
+
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and make sure that the **External URL** (or **Internal URL**) matches the exact hostname and scheme used by the remote LLM client to reach Home Assistant.
+2. If using a reverse proxy or tunnel (such as Cloudflare Tunnel), make sure Home Assistant is configured to trust forwarded headers from the proxy. See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies) for details on configuring **Trust X-Forwarded-For** and **Trusted proxies**.
+3. If the LLM client supports manual OAuth configuration (such as ChatGPT's user-defined OAuth client), enter the authorization and token endpoints manually rather than relying on automatic discovery.
+4. Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
 
 ## Removing the integration
 
