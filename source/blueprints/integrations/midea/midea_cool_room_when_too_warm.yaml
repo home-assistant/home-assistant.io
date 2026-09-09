@@ -7,7 +7,7 @@ blueprint:
   domain: automation
   author: chemelli74
   homeassistant:
-    min_version: 2024.10.0
+    min_version: 2026.8.0
   input:
     temperature_sensor:
       name: Temperature sensor
