@@ -655,8 +655,6 @@ Features:
 
 This is an encrypted device.
 
-Related core PR: [home-assistant/core#176485](https://github.com/home-assistant/core/pull/176485)
-
 Features:
 
 - turn on or off
