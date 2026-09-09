@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: Sun is up**.
+4. From the search box, search for and select **Sun is up**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -50,7 +50,7 @@ When motion is detected at the front door, turn on the porch light, but only whe
 
 - **Trigger**: Motion detected at the front door
 - **Condition**: Not
-  - **Condition**: Sun: sun is up
+  - **Condition**: Sun is up
 - **Action**: Turn on light
   - **Target**: Porch light
 

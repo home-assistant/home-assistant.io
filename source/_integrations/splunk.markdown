@@ -13,7 +13,7 @@ ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_platforms:
   - diagnostics
 ---

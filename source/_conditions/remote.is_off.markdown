@@ -120,7 +120,7 @@ When your morning routine runs, this avoids sending another power-on command if 
 - **Condition**: Remote is off
   - **Target**: Living room remote
   - **For at least**: 00:01:00
-- **Action**: Turn on remote
+- **Action**: Turn on via remote
   - **Target**: Living room remote
 
 {% details "YAML example for a guarded morning power-on" %}

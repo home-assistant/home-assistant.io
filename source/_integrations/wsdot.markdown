@@ -114,7 +114,7 @@ To resolve this issue, try the following steps:
 
 ##### Description
 
-One or more **WSDOT** element content diaplays `unknown`.
+One or more **WSDOT** element content displays `unknown`.
 
 ##### Resolution
 

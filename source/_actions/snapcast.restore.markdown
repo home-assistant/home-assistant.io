@@ -47,14 +47,12 @@ This action has no additional options in YAML.
 
 {% include actions/targets.md domain="media_player" %}
 
-## Good to know
-
-- Restore only works after a [Snapshot](/actions/snapcast.snapshot/) has been taken for the same speaker. See the snapshot page for a full doorbell example.
-
 {% include actions/try_it.md %}
 
-{% include actions/more_examples.md %}
-
 {% include actions/stuck.md %}
+
+## Good to know
+
+- A [Snapshot](/actions/snapcast.snapshot/) must already be taken for the same speaker. See the snapshot page for a full doorbell example.
 
 {% include actions/related.md %}

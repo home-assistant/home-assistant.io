@@ -70,11 +70,11 @@ columns:
   required: false
   description: Number of columns to show. If not specified the number will be set automatically.
   type: integer
-state_color:
+color:
   required: false
-  description: Set to `true` to have icons colored when entity is active.
-  type: boolean
-  default: true
+  description: Set the icon color when the entity is active for all entities in the card. By default, the color is based on the `state`, `domain`, and `device_class` of the entity. To disable coloring, set to `none`. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
+  default: state
 {% endconfiguration %}
 
 ### Options for entities
@@ -108,6 +108,10 @@ show_state:
   description: Show entity state text.
   type: boolean
   default: true
+color:
+  required: false
+  description: Set the icon color when the entity is active, overriding the card's `color` option for this entity. It accepts `state`, `none`, a [color token](/dashboards/tile/#available-colors), or a hex color code.
+  type: string
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).

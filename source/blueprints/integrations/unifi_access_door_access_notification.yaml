@@ -7,7 +7,7 @@ blueprint:
   domain: automation
   author: RaHehl
   homeassistant:
-    min_version: 2026.4.0
+    min_version: 2026.7.0
 
   input:
     access_entity:
@@ -44,14 +44,12 @@ blueprint:
         action:
 
 triggers:
-  - trigger: state
-    entity_id: !input access_entity
-
-conditions:
-  - condition: state
-    entity_id: !input access_entity
-    attribute: event_type
-    state: !input event_type
+  - trigger: event.received
+    target:
+      entity_id: !input access_entity
+    options:
+      event_type:
+        - !input event_type
 
 actions: !input actions
 

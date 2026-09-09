@@ -2,6 +2,7 @@
 title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Hub
   - Light
@@ -16,6 +17,7 @@ ha_codeowners:
 ha_domain: whirlpool
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - light
@@ -70,7 +72,8 @@ Brand:
 
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
-- [Binary Sensor](#binary_sensor)
+- [Binary Sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Light](#light)
 - [Number](#number)
@@ -82,6 +85,12 @@ This {% term integration %} maps appliances to entities in Home Assistant. A sin
 The binary sensor platform provides the following functionality:
 
 - state of the washer/dryer machine door (open/closed)
+
+### Button
+
+The button platform provides the following functionality:
+
+- stop the current cooking program for an oven cavity
 
 ### Climate
 

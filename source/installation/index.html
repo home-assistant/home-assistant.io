@@ -10,22 +10,21 @@ toc: true
   <p class="lead">
     Home Assistant runs on your own hardware, so your smart home keeps
     working even when the internet is down and your data stays at home with
-    you. The easiest way to get started is with
-    <a href="/green/">Home Assistant Green</a>, a plug-and-play hub that is
-    ready to use in about 15 minutes. If you would rather use hardware you
-    already own, Home Assistant runs on a Raspberry Pi, a mini PC, a
-    server, or in a virtual machine. Pick the option below that fits you
-    best.
+    you. The quickest way to start is with
+    <a href="/green/">Home Assistant Green</a>, which comes with Home
+    Assistant already installed. Just add power and your network. You
+    can also build your own hub with Home Assistant Yellow, install on a
+    Raspberry Pi or a computer you already own, or run Home Assistant in a
+    container or virtual machine. Pick the option below that fits you best.
   </p>
 </div>
 
 <div class="installations">
-  <span class="label easiest">Easiest</span>
+  <span class="label">Ready to use out of the box</span>
 
-  <h2>Plug and play with Home Assistant Green</h2>
+  <h2>Start right away with Home Assistant Green</h2>
   <p>
-    The affordable Home Assistant Green is the easiest way to start using
-    Home Assistant. It's plug-and-play and comes with <a href="/installation/#about-installation-types">Home Assistant Operating System</a> already installed.
+    The affordable Home Assistant Green comes with <a href="/installation/#about-installation-types">Home Assistant Operating System</a> already installed. Connect power and your network, and you're up and running. No assembly or flashing required.
   </p>
 
   <div class="installations-card">
@@ -42,6 +41,7 @@ toc: true
               <b>SKILLS REQUIRED</b>
               <ul>
                 <li>Interest in setting up a smart home</li>
+                <li>Setting up a system without a monitor or keyboard</li>
               </ul>
             </div>
             <div>
@@ -67,23 +67,21 @@ toc: true
       </div>
     </div>
   </div>
+</div>
 
-  <span class="label easy">Easy</span>
+<div class="installations second">
+  <span class="label">Install on hardware you already have</span>
 
-  <h2>Install on a Raspberry Pi</h2>
+  <h2>Bring your own hardware</h2>
   <p>
-    The Raspberry Pi, a small and affordable computer, is one of the most popular
-    platforms for running Home Assistant. If you already have one or want to put
-    one to use, this is a great option to get started.
+    Flash <a href="/installation/#about-installation-types">Home Assistant Operating System</a> onto hardware you already own, such as a Raspberry Pi, an Odroid, or an x86-64 machine. This is the recommended installation type for most people who bring their own hardware.
   </p>
 
   <div class="installations-card">
     <div class="material-card text">
       <div class="content-container">
         <div class="image">
-          <img
-            src="/images/installation/rpi.jpg"
-          />
+          <img src="/images/installation/rpi.jpg" alt="Raspberry Pi" />
         </div>
         <div class="content">
           <h3>Install Home Assistant on Raspberry Pi</h3>
@@ -94,6 +92,7 @@ toc: true
               <ul>
                 <li>Assembling a Raspberry Pi setup</li>
                 <li>Flashing a Raspberry Pi</li>
+                <li>Setting up a system without a monitor or keyboard</li>
               </ul>
             </div>
             <div>
@@ -117,152 +116,6 @@ toc: true
       </div>
     </div>
   </div>
-</div>
-
-
- <h2>About installation types</h2>
-  <p>
-    Home Assistant offers two different installation types. Home Assistant Operating System is the recommended installation type.
-  </p>
-  <ul>
-    <li><b>Home Assistant Operating System</b>: An embedded,
-    minimalistic operating system designed to run the Home Assistant ecosystem
-    on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
-    is the most convenient option in terms of installation and maintenance and it supports
-    {% term "apps" %}. Home Assistant Operating System is
-    the recommended installation type for most users.</li>
-    <li>
-      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "apps" %}.
-      <ul>
-        <li>
-          <b>Note</b>: Some integrations, such as <b>Thread</b> and <b>Z-Wave</b>, are controlled by {% term "apps" %}. There is no out-of-the-box support for these on Container installations.
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <div class="compare-installations">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>HA OS<sup>1</sup></th>
-          <th>Container<sup>1</sup></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="/docs/automation" target="_blank">Automations</a></td>
-          <td>{% icon "openmoji:check-mark" %}</td>
-          <td>{% icon "openmoji:check-mark" %}</td>
-        </tr>
-      <tr>
-        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/integrations" target="_blank">Integrations</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/apps" target="_blank">Apps</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:cross-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-      <tr>
-        <td>
-          One-click updates
-        </td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:cross-mark" %}</td>
-      </tr>
-      <tr>
-        <td><a href="/common-tasks/general/#backups" target="_blank">Backups</a></td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-        <td>{% icon "openmoji:check-mark" %}</td>
-      </tr>
-    </table>
-  </div>
-
-  <sub
-    >1: Names are abbreviated. The full names of the installation types are:
-    <ul>
-      <li style="margin-top: 0.4em">Home Assistant Operating System</li>
-      <li style="margin-top: 15px">Home Assistant Container</li>
-    </ul></sub
-  >
-
-<div class="installations second">
-  <span class="label intermediate">Intermediate</span>
-
-  <h2>Extend with Home Assistant Yellow</h2>
-  <p>
-    The extensible Home Assistant Yellow comes with all the ingredients you need
-    to help you build a robust smart home. All you need to do is to bring your
-    own Raspberry Pi Compute Module.
-  </p>
-
-  <div class="installations-card">
-    <div class="material-card text">
-      <div class="content-container">
-        <div class="image">
-          <img src="/images/installation/yellow.jpg" />
-        </div>
-        <div class="content">
-          <h3>Home Assistant Yellow</h3>
-          <p>The powerful way to run Home Assistant</p>
-          <div class="columns">
-            <div>
-              <b>SKILLS REQUIRED</b>
-              <ul>
-                <li>You're comfortable following instructions on:</li>
-                <li>Installing a compute module and a heat sink</li>
-                <li>Flashing a Raspberry Pi</li>
-              </ul>
-            </div>
-            <div>
-              <b>TOOLS REQUIRED</b>
-              <ul>
-                <li>Raspberry Pi Compute Module 4</li>
-                <li>Ethernet connection</li>
-                <li>USB storage drive</li>
-                <li>Screwdriver</li>
-              </ul>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="/yellow" class="button accent"
-              >Get Home Assistant Yellow {% include assets/chevron_right.html
-              %}</a
-            >
-            <a
-              href="https://support.nabucasa.com/hc/categories/24734575925149"
-              class="button"
-              target="_blank"
-              >View tutorial {% include assets/chevron_right.html %}</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <span class="label hard">Hard</span>
-
-  <h2>Install on other hardware</h2>
-  <p>
-    Home Assistant can be repurposed and installed on various hardware, such
-    as an Odroid or a generic x86-64 machine. The Home Assistant Operating System
-    allows you to install Home Assistant on these devices even if you have
-    little to no Linux experience.
-  </p>
 
   <div class="installations-card">
     <div class="material-card text">
@@ -277,9 +130,9 @@ toc: true
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
-                <li>You're comfortable following instructions on:</li>
-                <li>Writing boot images</li>
+                <li>Writing a boot image to an SD card or eMMC</li>
                 <li>Installing an SD card or eMMC</li>
+                <li>Setting up a system without a monitor or keyboard</li>
               </ul>
             </div>
             <div>
@@ -314,8 +167,9 @@ toc: true
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
-                <li>You can use a command line and install a boot medium on your hardware</li>
-                <li>You're comfortable configuring the BIOS based on instructions.</li>
+                <li>Writing a boot image to a USB stick</li>
+                <li>Configuring the BIOS</li>
+                <li>Setting up a system without a monitor or keyboard</li>
               </ul>
             </div>
             <div>
@@ -337,8 +191,18 @@ toc: true
       </div>
     </div>
   </div>
+</div>
 
-  <span class="label expert">Expert</span>
+<div class="installations second">
+  <span class="label">Run in a container or virtual machine</span>
+
+  <h2>Use a container or virtual machine</h2>
+  <p>
+    Run Home Assistant on a system you manage yourself, using Docker or a
+    virtual machine. These options suit people who are comfortable with the
+    command line, containers, or virtualization. Container installations use
+    <a href="/installation/#about-installation-types">Home Assistant Container</a>, which doesn't include {% term "apps" %}.
+  </p>
 
   <div class="installations-card">
     <div class="material-card text">
@@ -432,14 +296,15 @@ toc: true
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
-                <li>Using macOS</li>
-                <li>Using macOS command line</li>
+                <li>Setting up a virtual machine</li>
+                <li>Using the macOS command line</li>
               </ul>
             </div>
             <div>
               <b>TOOLS REQUIRED</b>
               <ul>
                 <li>Machine with macOS installed</li>
+                <li>Virtualization software (for VM)</li>
               </ul>
             </div>
           </div>
@@ -466,15 +331,15 @@ toc: true
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
-                <li>Using Windows</li>
-                <li>Using Windows command line</li>
+                <li>Setting up a virtual machine</li>
+                <li>Using the Windows command line</li>
               </ul>
             </div>
             <div>
               <b>TOOLS REQUIRED</b>
               <ul>
                 <li>Machine with Windows installed</li>
-                <li>VirtualBox (for VM)</li>
+                <li>Virtualization software (for VM)</li>
               </ul>
             </div>
           </div>
@@ -500,16 +365,14 @@ toc: true
             <div>
               <b>SKILLS REQUIRED</b>
               <ul>
-                <li>Know how to find an IP address on your router</li>
-                <li>Using Windows</li>
-                <li>Using Linux command line</li>
+                <li>Setting up a virtual machine or NAS app</li>
+                <li>Finding a device's IP address on your router</li>
               </ul>
             </div>
             <div>
               <b>TOOLS REQUIRED</b>
               <ul>
-                <li>Machine with Windows installed</li>
-                <li>VirtualBox (for VM)</li>
+                <li>A system that can run virtual machines or containers</li>
               </ul>
             </div>
           </div>
@@ -523,3 +386,83 @@ toc: true
     </div>
   </div>
 </div>
+
+
+ <h2>About installation types</h2>
+  <p>
+    Home Assistant offers two different installation types. Home Assistant Operating System is the recommended installation type.
+  </p>
+  <ul>
+    <li><b>Home Assistant Operating System</b>: An embedded,
+    minimalistic operating system designed to run the Home Assistant ecosystem
+    on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
+    is the most convenient option in terms of installation and maintenance and it supports
+    {% term "apps" %}. Home Assistant Operating System is
+    the recommended installation type for most users.</li>
+    <li>
+      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "apps" %}.
+      <ul>
+        <li>
+          <b>Note</b>: Some integrations, such as <b>Thread</b> and <b>Z-Wave</b>, are controlled by {% term "apps" %}. There is no out-of-the-box support for these on Container installations.
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="compare-installations">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>HA OS<sup>1</sup></th>
+          <th>Container<sup>1</sup></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/docs/automation" target="_blank">Automations</a></td>
+          <td>{% icon "openmoji:check-mark" %}</td>
+          <td>{% icon "openmoji:check-mark" %}</td>
+        </tr>
+      <tr>
+        <td><a href="/dashboards" target="_blank">Dashboards</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/integrations" target="_blank">Integrations</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/apps" target="_blank">Apps</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td>
+          One-click updates
+        </td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/common-tasks/general/#backups" target="_blank">Backups</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+    </table>
+  </div>
+
+  <sub
+    >1: Names are abbreviated. The full names of the installation types are:
+    <ul>
+      <li style="margin-top: 0.4em">Home Assistant Operating System</li>
+      <li style="margin-top: 15px">Home Assistant Container</li>
+    </ul></sub
+  >

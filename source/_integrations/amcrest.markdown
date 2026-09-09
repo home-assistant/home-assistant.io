@@ -193,77 +193,7 @@ Once loaded, the Amcrest integration will generate (Home Assistant) {% term even
 
 The event code is sent by Amcrest or Dahua devices in the payload as a "Code" member. To ease event matching in automations, this code is replicated in a more top-level `event` member in `data`.
 
-## Actions
-
-Once loaded, the `amcrest` integration will expose {% term actions %} that can be called to perform various actions. The `entity_id` action attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
-
-Available {% term actions %}:
-`enable_audio`, `disable_audio`,
-`enable_motion_recording`, `disable_motion_recording`,
-`enable_recording`, `disable_recording`,
-`goto_preset`, `set_color_bw`,
-`start_tour`, `stop_tour`, and
-`ptz_control`
-
-### Action: Enable audio / disable audio
-
-The `amcrest.enable_audio` and `amcrest.disable_audio` {% term actions %} allow you to enable or disable the camera's audio stream.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-
-### Action: Enable motion recording / disable motion recording
-
-The `amcrest.enable_motion_recording` and `amcrest.disable_motion_recording` {% term actions %} allow you to enable or disable the camera to record a clip to its configured storage location when motion is detected.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-
-### Action: Enable recording / disable recording
-
-The `amcrest.enable_recording` and `amcrest.disable_recording` actions allow you to enable or disable the camera to continuously record to its configured storage location.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-
-### Action: Go to preset
-
-The `amcrest.goto_preset` action allows you to move the camera to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-| `preset`               | no       | Preset number, starting from 1.                                                                                              |
-
-### Action: Set color BW
-
-The `amcrest.set_color_bw` action allows you to set the color mode of the camera.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-| `color_bw`             | no       | One of `auto`, `bw` or `color`.                                                                                              |
-
-### Action: Start tour / stop tour
-
-The `amcrest.start_tour` and `amcrest.stop_tour` actions allow you to start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-
-### Action: PTZ control
-
-The `amcrest.ptz_control` action allows you to pan, tilt or zoom your camera if your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>.  
-
-| Data attribute | Optional | Description                                                                                                                                        |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.                       |
-| `movement`             | no       | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down` |
-| `travel_time`          | yes      | Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.                                                                     |
+{% include integrations/actions.md %}
 
 ## Notes
 

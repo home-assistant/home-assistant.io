@@ -87,7 +87,8 @@ for:
 
 ## Good to know
 
-- This trigger works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light cleared" is set on the device itself.
+- Use a binary sensor with the light device class.
+- The sensor's threshold for what counts as "light cleared" is set on the device itself.
 - For numeric illuminance readings (in lux), use [Illuminance changed](/triggers/illuminance.changed/) or [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 - Add a small **For at least** delay to avoid firing when a cloud briefly passes over an outdoor sensor.
 

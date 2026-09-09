@@ -64,11 +64,11 @@ A Z-Wave network in Home Assistant includes the following elements:
 - this Z-Wave integration
 - Z-Wave end devices
 
-### Setting up a Z-Wave server in Home Assistant
+### Setting up a Z-Wave server using the Z-Wave JS app
 
 This section shows how to set up a Z-Wave server using the **Z-Wave JS** app in Home Assistant.
 
-For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
+For other ways to set up a Z-Wave server, refer to [Setting up a Z-Wave server without using the Z-Wave JS app](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app).
 
 Once you have set up the Z-Wave server, you can [add devices to the network](#adding-a-new-device-to-the-z-wave-network).
 
@@ -103,7 +103,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Adding a new device to the Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
 3. Check if your device supports SmartStart:
@@ -151,7 +151,7 @@ Do this before using the device with another adapter, or when you don't use the 
 
 Do this when you have a device that is still paired with an adapter, but you don't have access to that adapter anymore. If the device was not excluded from that adapter, you cannot join it to a new network. This process removes the device from the previous adapter's network, allowing you to pair it with a new adapter.
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Select **Options**.
 3. Next to **Remove foreign device**, select **Remove** > **Start exclusion**.
 4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
@@ -193,7 +193,7 @@ There is no easy way to update that device.
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Migrate adapter**, select **Migrate**.
 3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
@@ -332,7 +332,7 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 ### To backup your Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Download backup**, select **Download**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 3. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
@@ -348,7 +348,7 @@ You can restore your Z-Wave network from a backup.
 
 ### Restoring a Z-Wave network from backup
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Restore from backup**, select **Restore**.
    - Select the backup you want to restore from.
    - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
@@ -375,7 +375,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 
 ### To update firmware of a Z-Wave device
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Select **Devices**.
    - Then select the device you want to update.
 3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Update**.
@@ -430,7 +430,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 1. Button to **manually idle notifications**: Any Notification Command Class (CC) values on a device that have an idle state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own. A device can have multiple Notification CC values. For example one for detecting smoke and one for detecting carbon monoxide.
 
-## Using advanced features (UI only)
+## Features only available from the UI
 
 While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (such as entities, states, automations, and actions), there are some features that are only available through the UI.
 
@@ -490,17 +490,15 @@ The following features can be accessed from the device panel of any Z-Wave devic
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (adapters and devices with the Firmware Update Metadata Command Class).
 - **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
 
-{% include integrations/actions.md %}
-
 ## Events
 
-There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
+There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
-Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.
@@ -671,7 +669,9 @@ actions:
 
 {% include integrations/triggers.md %}
 
-## Advanced installation instructions
+{% include integrations/actions.md %}
+
+## Setting up a Z-Wave server without using the Z-Wave JS app
 
 If you are using Home Assistant Container or you do not want to use the built-in Z-Wave JS app, you need to run the Z-Wave JS Server yourself, which the Z-Wave integration will connect to.
 
@@ -688,7 +688,7 @@ The chart below illustrates Options 1 and 3, which are available for Home Assist
 
 _This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
-This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
+This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-server-using-the-z-wave-js-app), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI Docker container**
 
@@ -842,9 +842,9 @@ Many users have reported issues with interference when the adapter was directly 
 
 ### How do I access the Z-Wave logs?
 
-#### The easy way
+#### Enabling and disabling Z-Wave JS logging from the UI
 
-##### Enable Z-Wave JS logging
+To enable Z-Wave JS logging:
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
 2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Enable debug logging**.
@@ -852,21 +852,17 @@ Many users have reported issues with interference when the adapter was directly 
 3. If you want to change the log level, on the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}, select the cogwheel {% icon "mdi:cog-outline" %}.
    - Select the **Logs** tab, then select the log level.
 
-##### Disable Z-Wave JS logging
+To disable Z-Wave JS logging:
 
 1. Go to the Z-Wave integration panel: {% my integration badge domain="zwave_js" %}
 2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable debug logging**.
    - **Result**: The log level will be reset to its previous value for the integration, library, and driver, and the Home Assistant frontend will automatically send you the Z-Wave logs generated during that time period for download.
 
-#### The advanced way
+#### Enabling and disabling Z-Wave JS logging in the configuration file or via an automation
 
-##### Enable Z-Wave JS logging manually, or via an automation
+To enable Z-Wave JS logging, set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. When the integration detects that the log level has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if the level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
 
-Set the log level for `zwave_js_server` to `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. When the integration detects that the log level has been set to `debug`, it will also set the Z-Wave JS logs to `debug` if the level isn't already `verbose`, `debug`, or `silly` and will include those logs in the Home Assistant logs. The Z-Wave JS logs can be found under the logger name `zwave_js_server.server`.
-
-##### Disable Z-Wave JS logging manually, or via an automation
-
-Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
+To disable Z-Wave JS logging, set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
 
 ## Unsupported functionality
 

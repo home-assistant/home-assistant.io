@@ -48,7 +48,7 @@ This trigger has no additional YAML options beyond the target.
 
 - This trigger fires after Home Assistant adds a new item to the targeted to-do list.
 - Changes to `unavailable` or `unknown` do not count as items being added.
-- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can help if you build a more advanced automation later.
+- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can help if you want to build an automation tailored to your needs.
 
 {% include triggers/try_it.md %}
 

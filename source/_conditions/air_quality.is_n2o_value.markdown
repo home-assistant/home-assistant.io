@@ -83,12 +83,12 @@ behavior:
 
 Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, especially on warm nights. This automation runs each morning at sunrise and checks the current reading. If N2O is at or above 500 ppb, the ventilation fan turns on so the air is fresh before you start working. On mornings when levels stayed low, the fan stays off, keeping the greenhouse warm and saving energy.
 
-- **Trigger**: Sun: At sunrise
+- **Trigger**: Sunrise
 - **Condition**: Air Quality: Nitrous oxide value
-- **Target**: Greenhouse N2O sensor
-- **Threshold type**: 500
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on
+  - **Target**: Greenhouse N2O sensor
+  - **Threshold type**: 500
+- **Action**: Turn on fan
+  - **Target**: Greenhouse ventilation
 
 {% details "YAML example for morning greenhouse ventilation on high N2O" %}
 
@@ -96,15 +96,13 @@ Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, es
 automation: |
   alias: "Morning greenhouse ventilation if N2O is high"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: air_quality.is_n2o_value
       target:
         entity_id: sensor.greenhouse_n2o
       options:
         threshold: 500
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

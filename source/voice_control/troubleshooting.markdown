@@ -14,9 +14,9 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 
 ## Test a sentence per language without voice: without executing commands
 
-If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in the **Developer tools**.
+If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in **Tools**.
 
-1. Go to {% my developer_assist title="**Settings** > **Developer tools** > **Assist**" %}.
+1. Go to {% my developer_assist title="**Settings** > **Tools** > **Assist**" %}.
 2. In the sentence parser, select the language and enter the sentence you want to test.
 3. The debug tool shows you the following:
    - The intent triggered.

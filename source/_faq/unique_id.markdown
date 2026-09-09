@@ -1,5 +1,5 @@
 ---
-title: "Why doesn't this entity have a unique ID?"
+title: "Why does this entity not have a unique ID?"
 description: "A unique ID is a permanent identifier (such as a serial number) that some entities don't have. Without one, you can't rename the entity from the UI."
 ha_category: Configuration
 ---

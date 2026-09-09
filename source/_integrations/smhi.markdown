@@ -60,8 +60,8 @@ The following fire sensors are provided (fire sensors are disabled by default):
 
 The SMHI weather service is free under the Creative Commons Attribution 4.0, international license. Weather data will be pulled once every 30 minutes.
 
-Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/metfcst/pmp/introduction).
+Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/metfcst).
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

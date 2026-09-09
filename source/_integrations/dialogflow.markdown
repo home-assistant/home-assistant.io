@@ -20,7 +20,7 @@ To be able to receive messages from Dialogflow, your Home Assistant instance nee
 Dialogflow could be [integrated](https://cloud.google.com/dialogflow/es/docs/integrations) with many popular messaging, virtual assistant and IoT platforms.
 
 {% note %}
-After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integreated with Google Assistant.
+After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integrated with Google Assistant.
 {% endnote %}
 
 Using Dialogflow will be easy to create conversations like:

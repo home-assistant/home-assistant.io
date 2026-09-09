@@ -17,7 +17,7 @@ ha_integration_type: device
 
 This {% term integration %} allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).
 
-### Prerequisites
+## Prerequisites
 
 To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A Naran/Keymitt hub is not required.
 
@@ -29,27 +29,15 @@ The devices cannot remain paired to the MicroBot application for this integratio
 
 {% include integrations/config_flow.md %}
 
-### Supported devices
+## Supported devices
 
 This Integration is for the MicroBot Push only. The Keymitt lock is not supported.
 
-### Action: Calibrate
+{% include integrations/actions.md %}
 
-The `keymitt_ble.calibrate` action locally sets the MicroBot Push depth, duration, and mode.
+## Error codes and troubleshooting
 
-Please note: The push arm will extend or retract (depending on the mode defined) after the action is performed. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
-
-| Data attribute | Required | Description                                                                                   |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
-| `depth`                | yes      | How far (in percent) to extend the push arm.                                                  |
-| `duration`             | yes      | Duration (in seconds) to hold the arm extended.                                               |
-| `mode`                 | yes      |'Normal' - extend and retract the arm.                                                         |
-|                        |          |'Invert' - retract then extend the arm.                                                        |      
-|                        |          |'Toggle' - toggle between extend and retract.                                                  |
-
-### Error codes and troubleshooting
-
-The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth/) integration is enabled and functional.
 
 Due to the device going into deep sleep after extended periods of no activity, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 

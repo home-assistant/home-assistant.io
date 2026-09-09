@@ -12,7 +12,8 @@ ha_codeowners:
 ha_domain: greencell
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Greencell** {% term integration %} lets you connect Greencell EV charging devices to Home Assistant via MQTT. It monitors device status and measures electrical parameters such as voltage, current, and power, exposing real-time telemetry and charging-session data for use in dashboards and automations.

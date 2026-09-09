@@ -36,7 +36,7 @@ Nusach:
   description: The nusach (tradition) to count the Omer in. One of Sfarad, Ashkenaz, Adot Mizrah, or Italian.
   required: true
 Language:
-  description: The language to count the Omer in. Defaults to Hebrew.
+  description: The language to count the Omer in. Supported languages are English, Hebrew, and French. Defaults to Hebrew.
   required: false
 {% endoptions_ui %}
 
@@ -80,7 +80,8 @@ nusach:
   default: sfarad
 language:
   description: >
-    The language to count the Omer in. Defaults to Hebrew.
+    The language to count the Omer in. Supported values are `en`, `he`,
+    and `fr`. Defaults to Hebrew.
   required: false
   type: string
   default: he

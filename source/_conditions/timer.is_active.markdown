@@ -109,9 +109,9 @@ automation: |
 
 ### Automation: keep the porch light on while the arrival timer is active
 
-Run this automation after sunset so the porch light turns on only if your arrival timer is still counting down.
+Run this automation at sunset so the porch light turns on only if your arrival timer is still counting down.
 
-- **Trigger**: Sun: after sunset
+- **Trigger**: Sunset
 - **Condition**: Timer is active
   - **Target**: Arrival timer
 - **Condition passes if**: Any
@@ -123,8 +123,7 @@ Run this automation after sunset so the porch light turns on only if your arriva
 automation: |
   alias: "Keep the porch light on while the arrival timer is active"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: timer.is_active
       target:

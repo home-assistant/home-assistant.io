@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Sun: Sun elevation changed**.
+4. From the search box, search for and select **Sun elevation changed**.
 5. Under **Threshold type**, configure which changes fire the trigger:
    - Select **Any change** to fire on every elevation change, regardless of value.
    - Select **Above** or **Below** and enter an angle in degrees to fire only when the new elevation is above or below that angle.

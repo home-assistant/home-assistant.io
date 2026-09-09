@@ -110,88 +110,23 @@ You can also use supported BCP 47 tags or the 2-2 digit format for your supporte
 | es-es   | es       | es     |
 | es-us   | es       | com    |
 
+## Using Google Translate text-to-speech in automations
 
-## Action: Speak
+To play a message with Google Translate text-to-speech from an automation or a script, use the [**Speak**](/actions/tts.speak/) action and select your Google Translate text-to-speech entity as the target. The entity is named for the language and top-level domain you created it with, for example `tts.google_en_com`.
 
-The `tts.speak` action is the modern way to use Google Translate text-to-speech. Add the `speak` action, select the entity for your Google Translate text-to-speech (it is named for the language you created it with), select the media player entity or group to send the TTS audio to, and enter the message to speak.
+To use this action from an automation or a script:
 
-For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#action-speak) building block page.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your Google Translate text-to-speech entity.
+6. From the actions shown for that target, select **Speak**.
+7. Select the media player, enter the message, and set any other options.
+8. Select **Save**.
 
-In YAML, your action will look like this:
+You can use `language` to set the language for a specific message. You can use `options.tld` to set the Google Translate top-level domain, for example `co.uk` for UK English.
 
-```yaml
-action: tts.speak
-target:
-  entity_id: tts.google_en_com
-data:
-  media_player_entity_id: media_player.giant_tv
-  message: "Hello, can you hear me now?"
-```
-
-## Action: Say (legacy)
-
-{% tip %}
-The `google_translate_say` action can be used when configuring the legacy `google_translate` text-to-speech platform in `configuration.yaml`. We recommend that new users instead set up the integration in the UI and use the `tts.speak` action with the corresponding Google Translate text-to-speech entity as the target.
-{% endtip %}
-
-The `google_translate_say` action supports `language` and also `options` for setting `tld`. You set the text to speak with the `message` option. The action name can be customized with the `service_name` configuration option.
-
-Say to all `media_player` device entities:
-
-```yaml
-# Replace google_translate_say with <platform>_say when you use a different platform.
-action: tts.google_translate_say
-data:
-  entity_id: all
-  message: "May the force be with you."
-```
-
-Say to the `media_player.floor` device entity:
-
-```yaml
-action: tts.google_translate_say
-data:
-  entity_id: media_player.floor
-  message: "May the force be with you."
-```
-
-Say to the `media_player.floor` device entity in French:
-
-```yaml
-action: tts.google_translate_say
-data:
-  entity_id: media_player.floor
-  message: "Que la force soit avec toi."
-  language: "fr"
-```
-
-Say to the `media_player.floor` device entity in UK English:
-
-```yaml
-action: tts.google_translate_say
-data:
-  entity_id: media_player.floor
-  message: "May the force be with you."
-  language: "en-uk"
-```
-
-```yaml
-action: tts.google_translate_say
-data:
-  entity_id: media_player.floor
-  message: "May the force be with you."
-  language: "en"
-  options:
-    tld: co.uk
-```
-
-With a template:
-
-```yaml
-action: tts.google_translate_say
-data:
-  message: "Temperature is {{states('sensor.temperature')}}."
-  cache: false
-```
+If you set up the legacy `google_translate` text-to-speech platform in {% term "configuration.yaml" %}, use the [**Say a TTS message**](/actions/tts.say/) action instead. The legacy action is registered as `tts.google_translate_say` unless you set a custom `service_name` in the platform configuration.
 
 For more information about using text-to-speech with Home Assistant and more details on all the options it provides, see the [TTS documentation](/integrations/tts/).

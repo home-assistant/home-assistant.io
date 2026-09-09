@@ -10,8 +10,8 @@ module Jekyll
 
     TYPES = [
       'action', 'boolean', 'string', 'integer', 'float', 'time', 'template',
-      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any',
-      'selector',
+      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'timedelta',
+      'any', 'selector',
     ]
 
     MIN_DEFAULT_LENGTH = 30
@@ -93,8 +93,8 @@ module Jekyll
         if attr.key? 'default' and not attr['default'].to_s.empty?
           isDefault = true
           defaultValue = converter.convert(attr['default'].to_s)
-        elsif attr['type'].to_s.include? 'boolean'
-          # If the type is a boolean, a default key is required
+        elsif attr['type'].to_s.include?('boolean') && attr['required'] != true
+          # Optional booleans need a documented default to avoid ambiguity
           raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
             " therefore, requires a default."
         end

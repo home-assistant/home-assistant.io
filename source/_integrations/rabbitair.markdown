@@ -15,7 +15,6 @@ ha_platforms:
   - fan
   - sensor
 ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Rabbit Air** {% term integration %} lets you control your air purifier over the local network.

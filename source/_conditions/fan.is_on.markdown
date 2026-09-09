@@ -120,7 +120,9 @@ automation: |
 
 If the office is already warm enough for the fan to be running, you can also lower the blinds when the sun gets strong.
 
-- **Trigger**: Sun: Above horizon
+- **Trigger**: State
+  - **Entity**: Sun
+  - **To**: Above horizon
 - **Condition**: Fan is on
 - **Target**: Office fan
 - **Condition passes if**: Any
@@ -133,8 +135,9 @@ If the office is already warm enough for the fan to be running, you can also low
 automation: |
   alias: "Lower office blinds when fan is already running"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: state
+      entity_id: sun.sun
+      to: above_horizon
   conditions:
     - condition: fan.is_on
       target:

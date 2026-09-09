@@ -59,7 +59,7 @@ This action has no additional YAML options beyond the target.
 
 Tilt a cover closed at sunset, for example to block the low evening sun.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Action**: Close cover tilt
   - **Target**: Living room blind
 
@@ -69,8 +69,7 @@ Tilt a cover closed at sunset, for example to block the low evening sun.
 automation: |
   - alias: "Tilt the living room blind closed at sunset"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: cover.close_cover_tilt
         target:

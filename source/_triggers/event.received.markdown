@@ -60,8 +60,8 @@ event_type:
 
 ## Good to know
 
-- This trigger fires only when the entity receives one of the specified event types. Changes to `unavailable` or `unknown` do not fire the trigger.
-- The available event types depend on the entity. For example, a doorbell might support `ring`, while a remote control might support `short_release` and `long_release`.
+- Use an event entity that supports the event type you want to select.
+- This trigger fires only when the entity receives one of the specified event types. Changes to **Unavailable** or **Unknown** do not fire the trigger.
 - You can select multiple event types in a single trigger to react to any of them.
 - To trigger on any event type from an entity, use the [**State** trigger](/docs/automation/trigger/#state-trigger) instead.
 

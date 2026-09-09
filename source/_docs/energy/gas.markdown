@@ -36,3 +36,9 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 #### Reading the meter wirelessly via RTL-SDR
 
 {% include energy/rtl_sdr.md %}
+
+#### Read the gas meter using a reed switch
+
+Some diaphragm gas meters include a rotating magnet that can be detected externally. If your meter exposes this magnetic pulse, a reed switch or magnetic sensor can be used to count rotations and calculate gas consumption.
+
+Community DIY projects such as [Zigbee Gas Counter for nRF52840](https://github.com/IgnacioHR/ZigbeeGasCounterNCS) use this approach to build a battery-powered Zigbee gas counter that works with Zigbee2MQTT and Home Assistant. The device keeps an internal cumulative counter, which helps avoid data loss if Home Assistant or the Zigbee coordinator is temporarily unavailable.
