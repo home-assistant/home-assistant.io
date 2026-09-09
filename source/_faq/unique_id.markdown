@@ -40,8 +40,8 @@ If your entity has no unique ID, you can still adjust some properties through th
 
 Entities without a unique ID are not stored in the entity registry, so you cannot delete them from the user interface. To remove one, remove or change the configuration that creates the entity.
 
-- If you created the entity manually in YAML, remove its configuration and reload the integration or restart Home Assistant if required.
-- If an integration creates the entity, reconfigure or remove the source that provides it. The available options depend on the integration; check its documentation for details.
+- If you created the entity manually in YAML, remove its configuration. Then go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and reload the affected configuration if it is listed. Otherwise, restart Home Assistant.
+- If an integration creates the entity, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the integration, and reconfigure or remove the source that provides it. The available options depend on the integration, so check its documentation for details.
 
 ### Can I add a unique ID myself?
 
