@@ -4,7 +4,6 @@ description: Instructions on how to integrate Redfish-compatible management cont
 ha_category:
   - Hub
   - Switch
-  - System monitor
 ha_config_flow: true
 ha_release: '2026.10'
 ha_iot_class: Local Polling
