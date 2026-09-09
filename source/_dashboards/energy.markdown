@@ -294,6 +294,11 @@ max_devices:
   description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
   type: integer
   default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -306,6 +311,74 @@ The following example orients the flow from left to right:
 
 ```yaml
 type: water-sankey
+layout: horizontal
+```
+
+## Water flow Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot of the water flow Sankey graph card'>
+  Screenshot of the water flow Sankey graph card.
+</p>
+
+The water flow Sankey graph shows the real-time flow of water in your home. Unlike the water Sankey card, which shows historical water data based on the selected date range, this card displays current flow values and is not affected by the date picker selection.
+
+It visualizes the instantaneous water flow from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-flow-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: water-flow-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: water-flow-sankey
 layout: horizontal
 ```
 
