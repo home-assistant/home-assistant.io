@@ -225,7 +225,7 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch`, `fan`, `climate`, and `valve` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. Valid types for `valve` entities are `faucet`, `shower`, `sprinkler`, and `valve`. For `climate` entities, the type is chosen automatically when you leave this unset.
+              description: Only for `switch`, `fan`, `climate`, and `valve` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch`, and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`. Valid types for `climate` entities are `heater_cooler` and `thermostat`. Valid types for `valve` entities are `faucet`, `shower`, `sprinkler`, and `valve`. For `climate` entities, the type is chosen automatically when you leave this unset.
               required: false
               type: string
               default: "`switch` for `switch` entities, `fan` for `fan` entities, chosen automatically for `climate` entities, and `valve` for `valve` entities"
