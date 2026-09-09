@@ -40,6 +40,14 @@ The **Midea** {% term integration %} lets you control devices with Midea protoco
 
 The integration provides information on connected devices and enables control of the main features.
 
+## Use cases
+
+- Keep a room comfortable automatically by starting your Midea air conditioner or heat pump when the temperature rises, then stopping it once the room has cooled down.
+- Save energy by turning off climate control when a window or door is left open, and turning it back on when the room is closed up again.
+- Hold a target humidity in a basement or bedroom by running your Midea dehumidifier or humidifier on a schedule, or based on the humidity reported by another sensor.
+- Include Midea fans, lights, and the bathroom master in presence- or time-based automations so a room is ready before you walk in.
+- Track diagnostic data such as filter life, water tank level, and energy use, and get notified when a filter needs cleaning or a tank needs emptying.
+
 ## Supported devices
 
 There is support for the following device types within Home Assistant:
@@ -134,10 +142,72 @@ The **Midea** {% term integration %} provides the following entities:
 - Switch
 - Time
 
+## Examples
+
+### Turn off climate control when a window or door opens
+
+Heating or cooling a room while a window is open wastes energy. Use this blueprint to turn off a Midea climate device when a window or door opens, and turn it back on once everything is closed again.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/midea_turn_off_climate_on_window_open.yaml" %}
+
+### Cool a room when it gets too warm
+
+Use this blueprint to start cooling with a Midea air conditioner when a temperature sensor rises above a threshold, and stop again once the room has cooled down.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/midea_cool_room_when_too_warm.yaml" %}
+
 ## Known limitations
 
 This integration requires devices with protocol V1, V2, and V3.
 It is based on **API v1** while some new devices are based on **API v2**.
+
+## Troubleshooting
+
+### Device cannot be set up
+
+#### Symptom
+
+During setup, Home Assistant reports that it is unable to connect to the device.
+
+#### Description
+
+Midea devices typically accept only one local connection at a time, and protocol V3 devices require a valid token and key. Setup fails if another app is already connected, or if the token and key are missing or incorrect.
+
+#### Resolution
+
+1. Close the Midea mobile app, or any other tool that communicates with the device locally, and try again.
+2. When adding the device manually, make sure the token and key match the ones retrieved from the mobile app, and that the protocol version is correct.
+3. Confirm that the device is powered on and reachable on the same network as Home Assistant.
+
+### Device becomes unavailable after some time
+
+#### Symptom
+
+A device that worked before shows as unavailable.
+
+#### Description
+
+The device's IP address has most likely changed after a DHCP lease renewal.
+
+#### Resolution
+
+1. If the device is on the same LAN as Home Assistant, local discovery finds the new address automatically after a minute. Wait, or reload the integration entry from {% my integrations title="**Settings** > **Devices & services**" %}.
+2. If the device is on a separate LAN, discovery broadcasts do not reach it. Update the address manually by reconfiguring the integration entry, and assign a DHCP lease reservation or a fixed IP address to the device so it does not happen again.
+
+### Some entities or features are missing
+
+#### Symptom
+
+The device is set up, but some controls or sensors you expected are not available.
+
+#### Description
+
+The entities that are created depend on the device type, model, and the capabilities the device reports. Devices based on API v2 are only partially supported.
+
+#### Resolution
+
+1. Make sure the device model and subtype entered during setup are correct.
+2. Check the [list of supported devices](#supported-devices) for your device type.
 
 ## Removing the integration
 

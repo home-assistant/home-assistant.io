@@ -1,0 +1,90 @@
+blueprint:
+  name: Cool a room with a Midea air conditioner when it gets too warm
+  description: >
+    Start cooling with a Midea climate device when a temperature sensor rises
+    above an upper threshold, and stop again once the room has cooled down
+    below a lower threshold.
+  domain: automation
+  author: chemelli74
+  homeassistant:
+    min_version: 2024.10.0
+  input:
+    temperature_sensor:
+      name: Temperature sensor
+      description: The sensor used to measure the room temperature.
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+              device_class: temperature
+    climate_target:
+      name: Midea climate device
+      description: The Midea climate entity to control.
+      selector:
+        entity:
+          filter:
+            - integration: midea
+              domain: climate
+    upper_threshold:
+      name: Upper temperature threshold
+      description: Cooling starts when the measured temperature rises above this value.
+      default: 26
+      selector:
+        number:
+          min: 16
+          max: 35
+          step: 0.5
+          unit_of_measurement: "°C"
+    lower_threshold:
+      name: Lower temperature threshold
+      description: Cooling stops when the measured temperature drops below this value.
+      default: 23
+      selector:
+        number:
+          min: 16
+          max: 35
+          step: 0.5
+          unit_of_measurement: "°C"
+    target_temperature:
+      name: Target temperature
+      description: >
+        The temperature the air conditioner is set to when cooling starts.
+      default: 22
+      selector:
+        number:
+          min: 16
+          max: 30
+          step: 0.5
+          unit_of_measurement: "°C"
+
+mode: single
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input temperature_sensor
+    above: !input upper_threshold
+    id: too_warm
+  - trigger: numeric_state
+    entity_id: !input temperature_sensor
+    below: !input lower_threshold
+    id: cool_enough
+
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: too_warm
+        sequence:
+          - action: climate.set_temperature
+            target:
+              entity_id: !input climate_target
+            data:
+              hvac_mode: cool
+              temperature: !input target_temperature
+      - conditions:
+          - condition: trigger
+            id: cool_enough
+        sequence:
+          - action: climate.turn_off
+            target:
+              entity_id: !input climate_target

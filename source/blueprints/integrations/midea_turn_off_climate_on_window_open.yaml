@@ -1,0 +1,88 @@
+blueprint:
+  name: Turn off a Midea climate device when a window or door opens
+  description: >
+    Turn off a Midea air conditioner or heat pump when a window or door is
+    opened, and turn it back on once everything is closed again. This avoids
+    heating or cooling a room that is being aired out.
+  domain: automation
+  author: chemelli74
+  homeassistant:
+    min_version: 2024.10.0
+  input:
+    opening_sensor:
+      name: Window or door sensor
+      description: >
+        The binary sensor that reports whether the window or door is open. You
+        can also select a binary sensor group that combines several openings.
+      selector:
+        entity:
+          filter:
+            - domain: binary_sensor
+              device_class: window
+            - domain: binary_sensor
+              device_class: door
+    climate_target:
+      name: Midea climate device
+      description: The Midea climate entity to control.
+      selector:
+        entity:
+          filter:
+            - integration: midea
+              domain: climate
+    open_delay:
+      name: Open delay
+      description: >
+        How long the window or door must stay open before the climate device
+        is turned off.
+      default: 30
+      selector:
+        number:
+          min: 0
+          max: 600
+          unit_of_measurement: seconds
+          mode: box
+    close_delay:
+      name: Close delay
+      description: >
+        How long the window or door must stay closed before the climate device
+        is turned back on.
+      default: 15
+      selector:
+        number:
+          min: 0
+          max: 600
+          unit_of_measurement: seconds
+          mode: box
+
+mode: restart
+
+triggers:
+  - trigger: state
+    entity_id: !input opening_sensor
+    to: "on"
+    for:
+      seconds: !input open_delay
+    id: opened
+  - trigger: state
+    entity_id: !input opening_sensor
+    to: "off"
+    for:
+      seconds: !input close_delay
+    id: closed
+
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: opened
+        sequence:
+          - action: climate.turn_off
+            target:
+              entity_id: !input climate_target
+      - conditions:
+          - condition: trigger
+            id: closed
+        sequence:
+          - action: climate.turn_on
+            target:
+              entity_id: !input climate_target
