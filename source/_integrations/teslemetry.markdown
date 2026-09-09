@@ -335,9 +335,9 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 
 ### Vehicle data
 
-Most vehicles stream their data to Home Assistant in real time. Streaming has no per-update cost, and the integration sets it up and manages it for you. These vehicles do not get entities parked as **Polling** in the tables above, as that would incur and ongoing command credit cost.
+Most vehicles stream their data to Home Assistant in real time. Streaming has no per-update cost, and the integration sets it up and manages it for you. These vehicles do not get entities parked as **Polling** in the tables above, as that would incur an ongoing command credit cost.
 
-Legacy vehicles that do not supporting streaming gets all entities except those marked as **Streaming** in the tables above. Teslemetry handles the polling of this data in the cloud as part of your subscription, roughly every 15 minutes, or roughly every 90 seconds if the vehicle qualifies for a polling discount from Tesla.
+Legacy vehicles (certain pre-2021 Model S & Model X vehicles) that do not supporting streaming gets all entities except those marked as **Streaming** in the tables above. Teslemetry handles the polling of this data in the cloud as part of your subscription, roughly every 15 minutes, or roughly every 90 seconds if the vehicle qualifies for a polling discount from Tesla.
 
 The integration does not wake a sleeping vehicle to fetch data. Updates pause until the vehicle wakes up on its own or you interact with it.
 
