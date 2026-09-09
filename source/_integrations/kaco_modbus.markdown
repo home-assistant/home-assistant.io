@@ -70,8 +70,8 @@ These sensors are disabled by default:
   of each phase. The line-to-line voltages are not available.
 - **Current L1**, **Current L2**, **Current L3**: The current on each phase.
 
-While the inverter is asleep it stops measuring, so **Temperature**, **Power
-factor**, **Grid frequency** and the phase voltages read as unknown overnight.
+While the inverter is asleep, it stops measuring, so **Temperature**, **Power
+factor**, **Grid frequency**, and the phase voltages read as unknown overnight.
 Readings that genuinely are zero, such as **AC power**, still report zero.
 
 ## Data updates
