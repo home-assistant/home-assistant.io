@@ -4,6 +4,7 @@ description: Integration to control Onida air conditioners using an infrared emi
 ha_category:
   - Climate
   - Infrared
+ha_release: 2026.10
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@Dr-Blank'
@@ -17,7 +18,7 @@ ha_quality_scale: silver
 
 The **Onida Infrared** {% term integration %} lets you control a compatible Onida air conditioner using any infrared emitter previously configured in Home Assistant. It can also keep the climate entity in sync when you have an infrared receiver set up, so the entity follows along when you use the physical Onida remote.
 
-Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the air conditioner but there is no feedback channel to confirm the current state. The integration therefore uses assumed states. It remembers the last state it sent and restores it after a restart.
+Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the air conditioner but there is no feedback channel to confirm the current state. The integration therefore uses assumed states. It remembers the last known state and restores it after a restart.
 
 ## Supported devices
 
@@ -75,7 +76,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 
 ## Known limitations
 
-- The climate entity for the air conditioner uses assumed state. Home Assistant cannot verify the actual state of the unit and instead remembers the last command it sent.
+- The climate entity for the air conditioner uses assumed state. Home Assistant cannot verify the actual state of the unit and instead tracks the last known state.
 - Even with physical remote state tracking enabled, the receiver reports what the remote sent, not what the unit is actually doing, so the two can still drift apart, for example if something blocks the line of sight.
 - Changing the target temperature or the fan speed while the air conditioner is off is remembered rather than sent. It is applied with the next command that turns the unit on.
 - With physical remote state tracking, commands from the remote for a mode you did not select during setup are ignored, so the entity does not switch to a mode it cannot control.
@@ -90,8 +91,10 @@ The Onida protocol sends each command as two IR frames separated by a gap of abo
 
 To fix this, in your existing ESPHome `remote_receiver` configuration, set `idle` to about `25ms` so both frames are captured as a single signal:
 
-    remote_receiver:
-      idle: 25ms
+```yaml
+remote_receiver:
+  idle: 25ms
+```
 
 ## Removing the integration
 
