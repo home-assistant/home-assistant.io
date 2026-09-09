@@ -46,7 +46,7 @@ For each configured offer, the integration provides the following entities. Even
 
 - **Peak event begins**
   - **Description**: Start time of the peak event in progress, or of the next upcoming event. The state is `unknown` when no event is scheduled.
-- **Event ends**
+- **Peak event ends**
   - **Description**: End time of the peak event in progress, or of the next upcoming event. The state is `unknown` when no event is scheduled.
 
 ## Hydro-Québec Peak Events automation examples
