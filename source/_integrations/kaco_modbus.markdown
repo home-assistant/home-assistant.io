@@ -9,6 +9,7 @@ ha_codeowners:
   - '@g4bri3lDev'
 ha_domain: kaco_modbus
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: device
@@ -65,6 +66,12 @@ every 30 seconds.
 
 Only inverters that offer Modbus TCP are supported. KACO inverters that provide
 only the manufacturer's serial protocol can't be used with this integration.
+
+## Diagnostics
+
+The diagnostics download includes the inverter's raw register map, which is
+what a bug report needs to reproduce a problem without the hardware. Serial
+numbers are redacted.
 
 ## Removing the integration
 
