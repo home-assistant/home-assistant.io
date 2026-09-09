@@ -96,6 +96,17 @@ Configuration using our user interface provides a more limited subset of options
 If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
 {% endnote %}
 
+### Creating a template helper from the user interface
+
+You can create state-based template entities from the user interface. To create a helper of a state-based template entity:
+
+1. Follow the manual configuration steps described in [Configuration](#configuration).
+2. Pick the entity platform of the template helper you want to create from the list.
+3. Fill in the **Name** and other fields shown. Each field is described in the **Options in the UI** section of the corresponding platform section further down this page.
+4. Select **Submit** to save the helper.
+
+After creation, a template helper's options can be changed at any time in **Settings > Devices & services > Helpers**, by selecting the helper and then **Settings** {% icon "mdi:cog-outline" %}.
+
 ## YAML configuration
 
 Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
@@ -247,36 +258,51 @@ The template alarm control panel platform allows you to create a alarm control p
 
 Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - alarm_control_panel:
-      - name: "Alarm Control Panel 1"
-        state: "{{ states('input_select.panel_1_state') }}"
-        arm_away:
-          action: script.arm_panel_away
-        arm_home:
-          action: script.arm_panel_home
-        disarm:
-          action: script.disarm_panel
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: input_select.panel_1_state
-    alarm_control_panel:
-      - name: "Alarm Control Panel 1"
-        state: "{{ states('input_select.panel_1_state') }}"
-        arm_away:
-          action: script.arm_panel_away
-        arm_home:
-          action: script.arm_panel_home
-        disarm:
-          action: script.disarm_panel
-```
+{% configuration_basic %}
+Name:
+  description: The name of the alarm control panel.
+  required: true
+State:
+  description: A template for the panel's state. Only `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are recognized.
+  required: false
+Actions on disarm:
+  description: The action or actions run when the panel is disarmed.
+  required: false
+Actions on arm away:
+  description: The action or actions run when the panel is armed to away mode.
+  required: false
+Actions on arm custom bypass:
+  description: The action or actions run when the panel is armed to custom bypass mode.
+  required: false
+Actions on arm home:
+  description: The action or actions run when the panel is armed to home mode.
+  required: false
+Actions on arm night:
+  description: The action or actions run when the panel is armed to night mode.
+  required: false
+Actions on arm vacation:
+  description: The action or actions run when the panel is armed to vacation mode.
+  required: false
+Actions on trigger:
+  description: The action or actions run when the panel is triggered.
+  required: false
+Code arm required:
+  description: Whether a code must be entered to arm the panel.
+  required: false
+Code format:
+  description: Whether a code is expected, and what kind. Accepts **Number**, **Text**, or **No code format**.
+  required: false
+Device:
+  description: An existing device to attach this helper to.
+  required: false
+Availability template:
+  description: A template that gets the available state of the entity.
+  required: false
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration alarm_control_panel %}
 alarm_control_panel:
@@ -343,32 +369,66 @@ alarm_control_panel:
       type: action
 {% endconfiguration %}
 
-## Binary Sensor
-
-The template binary sensor platform allows you to create binary sensors with templates to define the state and attributes.
-
-Binary sensor entities can be created from the frontend in the Helpers section or via YAML.
+### YAML examples
 
 ```yaml
 # Example state-based configuration.yaml entry
 template:
-  - binary_sensor:
-      - name: Sun Up
-        state: >
-          {{ is_state("sun.sun", "above_horizon") }}
+  - alarm_control_panel:
+      - name: "Alarm Control Panel 1"
+        state: "{{ states('input_select.panel_1_state') }}"
+        arm_away:
+          action: script.arm_panel_away
+        arm_home:
+          action: script.arm_panel_home
+        disarm:
+          action: script.disarm_panel
 ```
 
 ```yaml
 # Example trigger-based configuration.yaml entry
 template:
   - triggers:
-    - trigger: state
-      entity_id: sun.sun
-    binary_sensor:
-      - name: Sun Up
-        state: >
-          {{ is_state("sun.sun", "above_horizon") }}
+      - trigger: state
+        entity_id: input_select.panel_1_state
+    alarm_control_panel:
+      - name: "Alarm Control Panel 1"
+        state: "{{ states('input_select.panel_1_state') }}"
+        arm_away:
+          action: script.arm_panel_away
+        arm_home:
+          action: script.arm_panel_home
+        disarm:
+          action: script.disarm_panel
 ```
+
+## Binary Sensor
+
+The template binary sensor platform allows you to create binary sensors with templates to define the state and attributes.
+
+Binary sensor entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the binary sensor.
+  required: true
+State:
+  description: A template that evaluates if values are true or false to determine the sensor's on/off state.
+  required: true
+Device class:
+  description: The [device class](/integrations/binary_sensor/#device-class) used to pick the sensor's on/off wording and icon.
+  required: false
+Device:
+  description: An existing device to attach this helper to.
+  required: false
+Availability template:
+  description: A template that gets the available state of the entity.
+  required: false
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration binary-sensor %}
 binary_sensor:
@@ -408,6 +468,29 @@ binary_sensor:
       type: template
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - binary_sensor:
+      - name: Sun Up
+        state: >
+          {{ is_state("sun.sun", "above_horizon") }}
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+    - trigger: state
+      entity_id: sun.sun
+    binary_sensor:
+      - name: Sun Up
+        state: >
+          {{ is_state("sun.sun", "above_horizon") }}
+```
 
 ### State based binary sensor - Washing Machine Running
 
