@@ -270,3 +270,11 @@ To download it, go to {% my integrations title="**Settings** > **Devices & servi
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+### To remove a battery pack
+
+Battery packs appear as separate devices under the inverter. A pack you physically remove stays listed until you delete its device. Packs the inverter still reports can't be deleted, and a pack you reconnect is added back on the next update. The inverter and its PV strings can't be deleted individually, since PV strings come from the inverter model rather than from a reading.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Sofar** integration card.
+2. From the list of devices, find the battery pack you want to remove.
+3. Next to the battery pack, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
