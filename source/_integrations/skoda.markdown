@@ -111,7 +111,7 @@ Send a notification if charging unexpectedly stops before the vehicle is fully c
 alias: Notify me if charging is interrupted
 triggers:
   - trigger: state
-    entity_id: sensor.your_model_charging_state
+    entity_id: sensor.YOUR_VEHICLE_charging_state
     to: "charging_interrupted"
 actions:
   - action: notify.mobile_app_phone_john_doe
@@ -130,13 +130,16 @@ alias: Notify me before my Škoda API key expires
 triggers:
   - trigger: template
     value_template: >
-      {% set expiration = states('sensor.your_model_api_key_expiration') | as_datetime %}
+         {% set expiration =
+           states('sensor.YOUR_VEHICLE_api_key_expiration') | as_datetime %}
       {{ expiration is not none and now() >= expiration - timedelta(days=7) }}
 actions:
   - action: notify.mobile_app_phone_john_doe
     data:
       title: 🚘 Škoda
-      message: "Your Škoda API key expires in less than a week. Generate a new one in the MyŠkoda app."
+      message: >-
+         Your Škoda API key expires in less than a week. Generate a new one in the
+         MyŠkoda app.
 ```
 {% endraw %}
 
