@@ -35,6 +35,12 @@ The following devices are not supported by the integration:
 - ELWA immersion heater
 - WiFi Meter
 
+### Prerequisites
+
+Older firmware versions of my-PV devices may not require authentication. If your device requires authentication and no custom password has been configured, use the **device key** instead. You can find the device key in the ⓘ info menu of your my-PV device. For the HEA•THOR IoT, the device key is printed on the device label.
+
+You can update the password through the web interface of your my-PV device.
+
 {% include integrations/config_flow.md %}
 
 ### Login to my-PV
@@ -45,10 +51,6 @@ Host:
 Password:
   description: "Password or device key of your my-PV device."
 {% endconfiguration_basic %}
-
-Older firmware versions of my-PV devices may not require authentication. If your device requires authentication and no custom password has been configured, use the **device key** instead. You can find the device key in the ⓘ info menu of your my-PV device. For the HEA•THOR IoT, the device key is printed on the device label.
-
-You can update the password through the web interface of your my-PV device.
 
 ## Data updates
 
