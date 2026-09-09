@@ -33,8 +33,6 @@ You need a reachable Habitron SmartHub (SmartIP or SmartCenter) on your network 
 {% configuration_basic %}
 Host name or IP of SmartHub:
   description: "DNS name or IPv4 address of the SmartHub. Use the literal `local` when Home Assistant runs on the SmartCenter itself."
-Token for WebSocket authentication:
-  description: "Optional. Paste a long-lived access token from your Home Assistant profile here. Only required when Home Assistant runs on a separate host from the SmartHub."
 {% endconfiguration_basic %}
 
 The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home Assistant's guideline that polling intervals are not user-configurable.
