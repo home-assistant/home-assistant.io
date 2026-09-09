@@ -34,21 +34,28 @@ You need a Foreca Weather API key, from either subscription.
 {% configuration_basic %}
 API key:
     description: "The API key from the **My API** page of your Foreca developer account."
+{% endconfiguration_basic %}
+
+Setup asks only for the API key. You then add one or more locations to it, each of which becomes a device with its own weather entity.
+
+{% configuration_basic %}
 Location:
     description: "The location to retrieve weather data for. Defaults to the home location set in your Home Assistant configuration."
 {% endconfiguration_basic %}
+
+To add another location later, select **Add location** on the Foreca entry under **Settings** > **Devices & services**. One API key covers as many locations as its request limit allows.
 
 ## Supported functionality
 
 ### Weather
 
-The integration creates one weather {% term entity %} providing the current conditions, a daily forecast for the next 10 days, and an hourly forecast for the next 48 hours.
+The integration creates one weather {% term entity %} per location, providing the current conditions, a daily forecast for the next 10 days, and an hourly forecast for the next 48 hours.
 
 The current conditions include temperature, apparent temperature, dew point, humidity, air pressure, wind speed, wind gust speed, wind bearing, visibility, cloud coverage, and UV index.
 
 ## Data updates
 
-The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses three requests for one location, around 144 requests per day, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately. Because the integration polls continuously, a Freemium key used this way does not go idle.
+The integration {% term polling polls %} the Foreca Weather API every 30 minutes. Each update uses three requests per location, around 144 requests per day for one location, which stays well inside the Freemium plan's daily limit of 2,000 requests. Every location you add polls separately, so that limit allows around 13 of them. Because the integration polls continuously, a Freemium key used this way does not go idle.
 
 The `weather.get_forecasts` action reads the forecast the integration has already retrieved, so using it in templates and automations costs no extra requests.
 
