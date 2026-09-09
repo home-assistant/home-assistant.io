@@ -25,7 +25,7 @@ related:
     title: Anthropic
   - url: https://claude.ai
     title: Claude
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 The **Anthropic** {% term integrations %} adds a conversation agent powered by [Anthropic](https://www.anthropic.com), such as Claude 3.5 Sonnet, in Home Assistant.

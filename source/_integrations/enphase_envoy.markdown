@@ -14,6 +14,7 @@ ha_codeowners:
   - '@catsmanac'
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - number
   - select
@@ -371,19 +372,70 @@ For each IQ Battery, an Encharge device is created, linked to the Envoy parent d
 
 #### AC-battery data
 
-No individual AC-battery data is available, only aggregated AC-battery data for all AC-batteries.
+Both aggregated AC-battery data (for all AC-batteries combined) and individual AC-battery data are available. An ACB aggregate device holds the combined values and the sleep/wake controls. Each AC-battery also has its own device, nested under the ACB aggregate device.
 
-##### AC-battery sensor entities
+##### Aggregated AC-battery sensor entities
 
-- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current AC-battery state of charge in %
-- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: AC-battery state: charging, idle, discharging
-- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current AC-battery power in W
-- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh
+The ACB aggregate device holds the combined values for all AC-batteries.
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery**: Current aggregated AC-battery state of charge in %
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery state**: Aggregated AC-battery state: charging, idle, discharging, full
+- **ACB <abbr title="Envoy serial number">SN</abbr> Power**: Current aggregated AC-battery power in W
+- **ACB <abbr title="Envoy serial number">SN</abbr> Sleep state**: Aggregated sleep state across all AC-batteries: awake, going to sleep, asleep, waking, or mixed when the batteries report different states
+- **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy**: Current AC-battery energy content in Wh. This aggregate entity is on the Envoy device.
+
+{% note %}
+The **ACB <abbr title="Envoy serial number">SN</abbr> Power** value is not updated in real time and may lag behind the actual power flow in or out of the AC-batteries. If you convert this power into energy, for example with a Riemann sum integral helper, be aware that the result may not accurately reflect the actual energy going in or out of the batteries. For a more accurate view of the stored energy, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Available ACB battery energy** entity, which reports the current AC-battery energy content.
+{% endnote %}
 
 <figure>
   <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery.png" alt="acb battery">
-  <figcaption>Envoy AC-battery sensor entities.</figcaption>
+  <figcaption>Envoy aggregated AC-battery sensor entities.</figcaption>
 </figure>
+
+##### Individual AC-battery sensor entities
+
+For each AC-battery a device is created, nested under the ACB aggregate device. SN is the AC-battery serial number.
+
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> State of charge**: State of charge of the battery in %
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Power**: Power reported by the battery in W
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Charge status**: Battery charge status: charging, discharging, idle, unknown
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep state**: Battery sleep state: awake, going to sleep, asleep, waking
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Temperature**: Maximum cell temperature in degrees C or F, based on your localization. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Last reported**: Time when Envoy last received an update from the battery. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Sleep SOC target**: State of charge band the battery is configured to sleep within. This is a diagnostics entity.
+
+##### Individual AC-battery binary sensor entities
+
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Communicating**: Communication status of the AC-battery, Connected / Disconnected. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Operating**: Operating status of the AC-battery, On / Off. This is a diagnostics entity.
+- **AC Battery <abbr title="AC-battery serial number">SN</abbr> Producing**: Producing status of the AC-battery, On / Off.
+
+##### AC-battery sleep and wake controls
+
+The ACB aggregate device provides controls to put all AC-batteries to sleep or to wake them.
+
+- **ACB <abbr title="Envoy serial number">SN</abbr> Battery sleep SOC target**: The state of charge band, in 5% steps, applied when putting the AC-batteries to sleep. This selection is kept in memory and is not persisted across restarts.
+- **ACB <abbr title="Envoy serial number">SN</abbr> Sleep**: Put all AC-batteries to sleep using the selected sleep SOC target. Pressing the button, in the UI or in an [action](#action-buttonpress), sends the request to the Envoy.
+- **ACB <abbr title="Envoy serial number">SN</abbr> Wake**: Wake all AC-batteries.
+
+{% note %}
+It can take several minutes for the Envoy to reflect a sleep or wake request in the AC-battery states.
+{% endnote %}
+
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_acb_battery_individual.png" alt="acb battery">
+  <figcaption>Envoy individual AC-battery sensor entities.</figcaption>
+</figure>
+
+##### Using sleep and wake to control the AC-battery
+
+The Envoy local API does not expose a storage mode or a direct charge/discharge control for AC-batteries, and the Enphase app offers no AC-battery controls (the Enlighten web interface only offers very limited ones). The sleep and wake controls can be used as a workaround to influence charge and discharge behavior:
+
+- **Charge or discharge to a target level, then hold**: while the AC-batteries are awake, set the **Battery sleep SOC target** to the desired band and press **Sleep**. The batteries charge or discharge toward that state of charge and then go to sleep, holding at that level. If the target is lower than the current state of charge, the batteries discharge at maximum power to reach it, regardless of whether that causes an energy export, unlike self-consumption, which only discharges to match house load.
+- **Return to normal (self-consumption) operation**: press **Wake**. The batteries resume normal operation and discharge only to cover house consumption, maximizing self-consumption. If a solar system is fitted and exporting, they also charge from the excess.
+- **Prevent unwanted discharge**: keeping the AC-batteries asleep until you want them to discharge stops them from discharging when you would rather they did not.
 
 ##### Aggregated IQ and AC battery sensor entities
 
@@ -590,7 +642,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value) and [`select.select_option`](#action-selectselect_option).
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select_option`](#action-selectselect_option) and [`button.press`](#action-buttonpress).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -673,6 +725,24 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
+### Action `button.press`
+
+This action presses the ACB [Sleep or Wake controls](#ac-battery-sleep-and-wake-controls), putting all AC-batteries to sleep (using the selected sleep SOC target) or waking them.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `entity_id` | no | Name(s) of entities. For example, `button.acb_1234_sleep`. |
+
+Example:
+
+```yaml
+action: button.press
+target:
+  entity_id:
+    - button.acb_1234_sleep
+data: {}
+```
+
 ## Envoy replacement
 
 When the physical Envoy needs to be replaced, some preparation is needed to assure data continuation from the old one. This description assumes that the new Envoy replaces the old one in the existing installation and is connected in the same way. The new Envoy will have a different serial number and probably a different IP address.  
@@ -703,7 +773,7 @@ Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. 
 
 Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
 
-When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](/docs/tools/dev-tools/#statistics-tab))
 
 ## Known issues and limitations
 
@@ -735,8 +805,8 @@ Not all firmware versions reset `Energy production today` or `Energy consumption
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value and unexpected spikes have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data or a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, use the individual phase data.
+- Not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value, unexpected spikes, or the same value as the lifetime value have been reported. Use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
+- Not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero data, unexpected values, or the same value as the lifetime value have been reported.
 - `Energy production today` and `Energy consumption today` have been reported not to reset to zero. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
@@ -760,9 +830,11 @@ Entity sensor.envoy_123456789012_energy_consumption_today from integration enpha
 
 If these entries occur frequently and are a nuisance then disable the entity. Its data is at best doubtful.
 
+When using Envoy non-metered with firmware 8.3.5422 or newer, `Energy production today` and `Energy production last seven days` are both zero.
+
 ### Lifetime reset
 
-Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in the [Statistics tab](/docs/tools/dev-tools/#statistics-tab) of **Settings** > **Tools**.
 
 {% details "History example for Envoy Lifetime energy production value reset" %}
 

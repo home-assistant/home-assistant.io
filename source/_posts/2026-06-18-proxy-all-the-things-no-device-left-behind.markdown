@@ -1,5 +1,5 @@
 ---
-layout: crosspost
+layout: post
 title: "Proxy all the things: no device left behind"
 description: "Discover how Open Home Foundation projects can help you give your beloved old devices a new lease of life for a more sustainable smart home."
 date: 2026-06-18 00:00:01

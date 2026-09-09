@@ -41,10 +41,10 @@ In YAML, **Battery is not charging** is referred to as `battery.is_not_charging`
 condition: |
   condition: battery.is_not_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This passes when `sensor.phone_battery` is not charging.
+This passes when `binary_sensor.phone_battery_charging` is not charging.
 
 ### Options in YAML
 
@@ -69,7 +69,7 @@ for:
 
 ## Good to know
 
-- The condition works with sensors and devices that report a charging state, such as devices that expose a battery charging attribute.
+- The target must be a binary sensor with the battery charging device class.
 - Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - A fully charged device with the charger still connected may report as not charging, because the charger has stopped drawing power. If you want to be sure the device is unplugged, combine this condition with [Battery level](/conditions/battery.is_level/).
 - To check the opposite state, use [Battery is charging](/conditions/battery.is_charging/).
@@ -100,7 +100,7 @@ automation: |
   conditions:
     - condition: battery.is_not_charging
       target:
-        entity_id: sensor.phone_battery
+        entity_id: binary_sensor.phone_battery_charging
   actions:
     - action: notify.send_message
       target:

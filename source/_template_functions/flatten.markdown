@@ -99,7 +99,7 @@ Flatten a nested structure and then count the unique values.
 
 {% example %}
 template: |
-  {{ [[1, 2, 3], [2, 3, 4], [4, 5]] | flatten | set | list | count }}
+  {{ [[1, 2, 3], [2, 3, 4], [4, 5]] | flatten | unique | list | count }}
 type: integer
 output: "5"
 {% endexample %}

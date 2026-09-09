@@ -72,9 +72,9 @@ for:
 
 ## Good to know
 
-- This trigger works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as the door closing.
-- The `for` option only fires the automation if the door stays closed for the entire time you set.
+- Use a door contact sensor or door cover that uses the door device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as the door closing.
+- The **For at least** option only fires the automation if the door stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

@@ -341,7 +341,7 @@ automation:
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}
+- Go to: {% my developer_template title="**Settings** > **Tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC

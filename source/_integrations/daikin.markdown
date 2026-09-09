@@ -74,7 +74,7 @@ When your controller supports zone temperature control (AirBase/SKYFi), the inte
 ### Zone climate entities
 
 - Each zone climate entity can set the temperature within a ±2 °C window around the system set point.
-- Turning a zone on or off continues to rely on the existing zone switch entities. The zone climate entity is exclusively for temperature management.
+- Turn a zone on or off from either its zone climate entity or its zone switch entity. Both entities stay synchronized, and neither one changes the power state of the main Daikin climate entity.
 - Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
 - Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities.
 

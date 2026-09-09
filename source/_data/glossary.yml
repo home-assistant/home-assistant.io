@@ -534,7 +534,7 @@
     perform a manual reload, go to **Settings** > **System** > **Restart Home
     Assistant** (top right) > **Quick reload**. More granular reload options
     are available in *YAML configuration reloading* section in **Settings** >
-    **Developer tools** > **YAML**.
+    **Tools** > **YAML**.
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front

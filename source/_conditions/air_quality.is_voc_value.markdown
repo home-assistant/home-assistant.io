@@ -84,11 +84,11 @@ behavior:
 Overnight, off-gassing from furniture, carpets, and cleaning products pushes VOC levels up in a closed room. This automation triggers at wake-up time and checks the living room VOC reading. If the level is at or above 300 μg/m3, the air purifier turns on to clear the air before you start your day. On mornings when the air is already fresh, the purifier stays off and you save energy.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Air Quality: Volatile organic compounds value
-- **Target**: Living room VOC sensor
-- **Threshold type**: 300
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on (air purifier)
+- **Condition**: Volatile organic compounds value
+  - **Target**: Living room VOC sensor
+  - **Threshold type**: 300
+- **Action**: Turn on fan
+  - **Target**: Living room purifier
 
 {% details "YAML example for starting the purifier on high VOCs at wake-up" %}
 
@@ -104,7 +104,6 @@ automation: |
         entity_id: sensor.living_room_voc
       options:
         threshold: 300
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

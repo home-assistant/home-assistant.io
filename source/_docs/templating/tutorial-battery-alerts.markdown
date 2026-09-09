@@ -38,13 +38,13 @@ You need:
 
 - At least one battery-powered device reporting a percentage through Home Assistant. Zigbee, Z-Wave, and Matter devices usually do this automatically.
 - A notification service set up on your phone, usually the [Home Assistant Companion app](/integrations/mobile_app/). The examples below use `notify.send_message`. Replace `my_device` in `notify.my_device` by your own target when you get there.
-- Five minutes with the [Developer tools template editor](/docs/templating/debugging/#the-template-editor) open.
+- Five minutes with the [Template editor](/docs/templating/debugging/#the-template-editor) open.
 
 ## Step 1: See your battery sensors
 
-Before you write a single template, it helps to see what you are working with. Open {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and filter on `battery`.
+Before you write a single template, it helps to see what you are working with. Open {% my developer_states title="**Settings** > **Tools** > **States**" %} and filter on `battery`.
 
-<!-- screenshot placeholder: Developer tools > States filtered to battery sensors -->
+<!-- screenshot placeholder: Tools > States filtered to battery sensors -->
 
 You should see a list of sensors with `device_class: battery` in their attributes and a number (like `85` or `12`) in the state column. Those are the entities this automation will watch.
 
@@ -52,7 +52,7 @@ If you do not see any, your devices might be using the old `binary_sensor` batte
 
 ## Step 2: List the low batteries
 
-Open {% my developer_template title="**Developer tools** > **Template**" %} and paste this in:
+Open {% my developer_template title="**Settings** > **Tools** > **Template**" %} and paste this in:
 
 {% example %}
 template: |

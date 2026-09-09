@@ -377,7 +377,7 @@ The available sensors depend on your specific Compit device configuration. Not a
 
 - **Airing**
   - **Description**: Indicates whether a window is open for airing.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Battery charging**
   - **Description**: Indicates whether the battery is currently charging.
@@ -395,6 +395,10 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Description**: Indicates whether the dust level has exceeded the threshold.
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
+- **Ground Heat Exchanger attached**
+  - **Description**: Indicates whether a ground heat exchanger is connected.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
 - **Has battery**
   - **Description**: Indicates whether the device has a battery installed.
   - **Available for devices**: AF-1 (Anti-freeze system)
@@ -402,6 +406,10 @@ The available sensors depend on your specific Compit device configuration. Not a
 - **Has external power**
   - **Description**: Indicates whether the device is connected to external power.
   - **Available for devices**: AF-1 (Anti-freeze system)
+
+- **Mixer pump**
+  - **Description**: Indicates whether the mixer pump is currently running.
+  - **Available for devices**: R810 (Heating circuit controller)
 
 - **Pump status**
   - **Description**: Indicates whether the pump is currently running.

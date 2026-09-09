@@ -61,7 +61,7 @@ The Xbox media player platform will create media player entities for each consol
 
 To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
 
-You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
+You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
 ## Remote
 
@@ -81,6 +81,12 @@ Supported controller commands include:
 - `Play`, `Pause`, `Next`, `Previous`
 - `GoHome`, `GoBack`
 - `ShowGuideTab`, `ShowGuide`
+
+{% note %}
+
+Any value that does **not** match a supported command will be sent as literal text input. To force sending text that matches a command, prefix it with `text:`, for example `text:A`
+
+{% endnote %}
 
 ## Xbox automation examples
 
@@ -379,7 +385,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 | **Status**       | Shows the text status of your friend as it appears in your friends list.   |
 | **Gamerscore**   | Friend's Gamerscore.                                                       |
 | **Friends**      | Displays the number of mutual friend relationships of the account.         |
-| **Follower**     | Displays the number of people following the account.                       |
+| **Followers**     | Displays the number of people following the account.                       |
 | **Following**    |  Displays the number of people the account is following.                   |
 | **Last online**  | Displays the last time the friend was active online.                       |
 | **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
@@ -389,7 +395,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 
 These sensors track the storage on your own **Xbox consoles** and connected storage devices.
 
-| Entity Name      | Description                                                                |
+| Entity Name | Description |
 | ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |

@@ -70,7 +70,8 @@ for:
 
 ## Good to know
 
-- This condition works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "no light detected" is set on the device itself.
+- The target must be a binary sensor with the light device class.
+- The sensor's threshold for what counts as "no light detected" is set on the device itself.
 - Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
 - To check for the opposite state, use [Light level is detected](/conditions/illuminance.is_detected/).

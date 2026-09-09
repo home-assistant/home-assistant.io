@@ -71,8 +71,8 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger works with binary sensors and covers that use the `window` device class.
 - To react when a window opens instead, use [Window opened](/triggers/window.opened/).
 
 {% include triggers/try_it.md %}
@@ -87,7 +87,9 @@ After you air out a room, it can help to wait until the window is fully closed b
 - **Target**: Bedroom window sensor
 - **Trigger when**: Each
 - **For at least**: 00:02:00
-- **Action**: Climate: Set HVAC mode to heat
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
+  - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
 

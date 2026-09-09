@@ -51,7 +51,7 @@ action: |
     account_name: "@account@instance.online"
 {% endexample %}
 
-To find the `config_entry_id`, go to **Developer tools** > **Actions**, select this action, choose your Mastodon instance, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon instance, and switch to YAML mode.
 
 ### Options in YAML
 

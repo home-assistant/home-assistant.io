@@ -71,8 +71,8 @@ for:
 
 ## Good to know
 
+- The target must be a binary sensor or cover with the window device class.
 - Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
 - To check the opposite state, use [Window is open](/conditions/window.is_open/).
 
 {% include conditions/try_it.md %}
@@ -116,12 +116,13 @@ automation: |
 
 If you use a motorized bedroom window to cool the room naturally, you might only want to turn the bedroom air conditioner back on after the window has been closed for a while.
 
-- **Trigger**: Time pattern: Every 15 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/15`
 - **Condition**: Window is closed
-- **Target**: Bedroom roof window cover
-- **Condition passes if**: Any
-- **For at least**: 00:15:00
-- **Action**: Climate: Turn on the bedroom air conditioner
+  - **Target**: Bedroom roof window cover
+  - **For at least**: 00:15:00
+- **Action**: Turn on thermostat
+  - **Target**: Bedroom air conditioner
 
 {% details "YAML example for restarting the bedroom air conditioner after the window stays closed" %}
 
@@ -136,7 +137,6 @@ automation: |
       target:
         entity_id: cover.bedroom_roof_window
       options:
-        behavior: any
         for: "00:15:00"
   actions:
     - action: climate.turn_on

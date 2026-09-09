@@ -31,7 +31,9 @@ To change how Home Assistant serves its web interface, go to {% my network title
 {% options_ui %}
 Server port:
   description: |
-    The port Home Assistant listens on. The default is `8123`.
+    The port Home Assistant listens on. Starting with Home Assistant 2026.8, the default is `80` for Home Assistant Operating System. For Home Assistant Container, the default remains `8123`. Examples on this page use `8123`; replace it with your configured server port if your installation uses a different port.
+
+    If your installation method lets you set environment variables for Home Assistant, `SETUP_PORT` overrides these defaults at startup.
 
     _Caution_: If you use the
     [Home Assistant Companion app](https://companion.home-assistant.io/), update the Home Assistant URL
@@ -99,7 +101,7 @@ When a network mask is provided, you must use the network address (for example, 
 
 {% note %}
 
-The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel instead of a reverse proxy. These settings have no effect on cloud connections, and you do not need to configure them for remote access.
 
 {% endnote %}
 
@@ -113,7 +115,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) on your {% my profile_security title="**User profile** > **Security**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 
@@ -123,12 +125,12 @@ If you want to apply additional IP filtering and automatically ban brute force a
 
 {% note %}
 
-If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home Assistant sees the source IP address of the remote client. A ban applies only to that IP address and leaves other cloud connections unaffected.
 
 {% endnote %}
 
 ```yaml
-127.0.0.1:
+203.0.113.42:
   banned_at: "2016-11-16T19:20:03"
 ```
 
@@ -293,7 +295,7 @@ For more examples please visit the [HTTP binary sensor](#examples) page.
 
 ### The HTTP server fails to start
 
-If a saved setting prevents the HTTP server from starting, for example if an SSL certificate file is missing or the configured port is already in use, Home Assistant falls back to the last known-good configuration so you can regain access. If no working configuration is available, Home Assistant starts with the default HTTP settings (port `8123`, without SSL).
+If a saved setting prevents the HTTP server from starting, for example if an SSL certificate file is missing or the configured port is already in use, Home Assistant falls back to the last known-good configuration so you can regain access. If no working configuration is available, Home Assistant starts with the default HTTP settings for your installation method, without SSL.
 
 To fix this, check the logs for the underlying error. Then, open the **HTTP server** section under {% my network title="**Settings** > **System** > **Network**" %}, correct the values, and save.
 

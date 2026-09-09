@@ -33,17 +33,10 @@ toc: true
       {%- assign domain_keys = all_actions | map: 'domain' | uniq | sort -%}
       {%- for domain_key in domain_keys -%}
         {%- assign domain_actions = all_actions | where: 'domain', domain_key -%}
-        {%- assign domain_data = site.data.action_domains | where: 'key', domain_key | first -%}
-        {%- if domain_data -%}
-          {%- assign domain_label = domain_data.label -%}
-          {%- assign domain_icon = domain_data.icon -%}
-          {%- assign domain_desc = domain_data.description -%}
-        {%- else -%}
-          {%- assign integration = site.integrations | where: 'ha_domain', domain_key | first -%}
-          {%- assign domain_label = integration.title | default: domain_key -%}
-          {%- assign domain_icon = 'mdi:puzzle-outline' -%}
-          {%- assign domain_desc = nil -%}
-        {%- endif -%}
+        {%- assign domain_entry = site.data.action_domain_lookup[domain_key] -%}
+        {%- assign domain_label = domain_entry.label | default: domain_key -%}
+        {%- assign domain_icon = domain_entry.icon | default: 'mdi:puzzle-outline' -%}
+        {%- assign domain_desc = domain_entry.description -%}
         {%- if domain_actions.size > 0 -%}
         <div class="tf-category" data-category="{{ domain_key }}">
           <h3 id="{{ domain_key }}"><iconify-icon inline icon="{{ domain_icon }}"></iconify-icon> {{ domain_label }}</h3>
