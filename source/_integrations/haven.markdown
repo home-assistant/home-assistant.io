@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_zeroconf: true
 works_with:
   - local
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **HAVEN IAQ** {% term integration %} connects supported HAVEN IAQ air quality monitors to Home Assistant over your local network. Depending on the device, the integration provides indoor air quality and airflow measurements.
