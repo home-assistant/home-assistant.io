@@ -361,15 +361,9 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 
 ### Vehicle data
 
-Most vehicles stream their data to Home Assistant in real time over Server-Sent Events (SSE), with no per-update cost. The integration sets up and manages this streaming configuration for you.
+Most vehicles stream their data to Home Assistant in real time. Streaming has no per-update cost, and the integration sets it up and manages it for you. These vehicles do not get entities parked as **Polling** in the tables above, as that would incur an ongoing command credit cost.
 
-Pre-2021 Model S and Model X vehicles cannot stream. For these vehicles, Teslemetry automatically refreshes their data on its own servers at no cost to you. A non-streaming vehicle is refreshed roughly every 15 minutes, and a vehicle that Tesla marks as discounted is refreshed much more often, roughly every 90 seconds. Both are free.
-
-Credits are only spent on an on-demand fresh full-vehicle-data fetch, which costs 2 credits, or 0.1 credit for a discounted vehicle.
-
-On a streaming vehicle, **Polling** entities read from Teslemetry's cached vehicle data instead of the live stream. Their values are not streamed and do not refresh on their own, which is why many of them are disabled by default. Enabling one is not a switch for Teslemetry's free automatic polling, and Home Assistant never bypasses the cache or forces a refresh on its own.
-
-If your vehicle is unpaired and streams through the safety screen, an enabled polling entity reads the cached vehicle data every 60 seconds while the vehicle is online. Most of those reads are free cache hits. Each time the cached data passes 20 minutes old, the next read becomes a charged fresh fetch at that cost, so it recurs for as long as the vehicle stays online. Streaming updates do not reset this 20-minute window.
+Legacy vehicles (certain pre-2021 Model S & Model X vehicles) that do not support streaming get all entities except those marked as **Streaming** in the tables above. Teslemetry handles the polling of this data in the cloud as part of your subscription, roughly every 15 minutes, or roughly every 90 seconds if the vehicle qualifies for a polling discount from Tesla.
 
 The integration does not wake a sleeping vehicle to fetch data. Updates pause until the vehicle wakes up on its own or you interact with it.
 
