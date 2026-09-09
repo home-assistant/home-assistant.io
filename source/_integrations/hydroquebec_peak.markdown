@@ -115,7 +115,7 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling "polls" %} Hydro-Québec's open data every 15 minutes. The feed is served from a content delivery network and the integration uses conditional requests, so polling is lightweight. Entity states also update at event boundaries and at midnight, independently of polling.
+The integration {% term polling polls %} Hydro-Québec's open data every 15 minutes. Between updates, the sensors also refresh automatically when an event starts or ends, and at midnight, so the information stays current.
 
 ## Known limitations
 
