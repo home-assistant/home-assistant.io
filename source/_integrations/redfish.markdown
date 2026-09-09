@@ -16,7 +16,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-[Redfish](https://www.dmtf.org/standards/redfish) is an open standard for managing servers and other infrastructure. The **Redfish** {% term integration %} connects to a Redfish service on your local network and lets you monitor and control the power state of the ComputerSystem resources it exposes.
+[Redfish](https://www.dmtf.org/standards/redfish) is an open standard for managing servers and other infrastructure. The **Redfish** {% term integration %} connects to a Redfish service on your local network and lets you monitor and control the power state of the ComputerSystem (a Redfish resource type representing a single server or system) resources it exposes.
 
 The integration is vendor-independent and uses the standard Redfish service root and ComputerSystem resources.
 
