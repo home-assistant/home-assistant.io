@@ -74,9 +74,9 @@ Transaction events require either [Home Assistant Cloud](/cloud/) or an external
 
 These blueprints provide reusable automations for moving money between a Monzo account and one of its pots.
 
-{% caution %}
-These blueprints move money automatically. Check that you selected the matching account, pot, and entities, and test the automation with a small amount first.
-{% endcaution %}
+{% important %}
+These blueprints move money automatically. Make sure you have selected the correct account, pot, and entities, and test the automation with a small amount first.
+{% endimportant %}
 
 ### Automation: keep an account at a target balance
 
