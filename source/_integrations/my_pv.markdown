@@ -31,6 +31,7 @@ The following devices are supported by this integration:
 ## Unsupported devices
 
 The following devices are not supported by the integration:
+- AC ELWA-E
 - ELWA immersion heater
 - WiFi Meter
 
