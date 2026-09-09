@@ -69,9 +69,8 @@ only the manufacturer's serial protocol can't be used with this integration.
 
 ## Diagnostics
 
-The diagnostics download includes the inverter's raw register map, which is
-what a bug report needs to reproduce a problem without the hardware. Serial
-numbers are redacted.
+The diagnostics download includes the inverter's raw register map, which can help developers reproduce issues without access to the hardware. The serial number is redacted.
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 
