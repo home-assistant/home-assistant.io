@@ -645,7 +645,7 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, the card uses the real-time collection of the current dashboard page, which always shows today; see [Using multiple collections](#using-multiple-collections)."
   type: string
 title:
   required: false
@@ -693,7 +693,7 @@ layout: horizontal
   Screenshot of the power Sankey graph card.
 </p>
 
-The power sources graph shows historical power data.
+The power sources graph shows the power of your grid, solar, and battery sources over the day. By default it shows today and moves to the new day at midnight. It is not linked to an `energy-date-selection` card on the same dashboard unless both use the same `collection_key`; see [Using multiple collections](#using-multiple-collections).
 
 ### YAML configuration
 
@@ -706,7 +706,7 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, the card uses the real-time collection of the current dashboard page, which always shows today; see [Using multiple collections](#using-multiple-collections)."
   type: string
 title:
   required: false
@@ -748,9 +748,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. If not provided, the badge uses the real-time collection of the current dashboard page, which always shows today; see [Using multiple collections](#using-multiple-collections)."
   type: string
-  default: energy_dashboard
 {% endconfiguration %}
 
 ### Example
@@ -820,6 +819,8 @@ type: water-total
 ## Using multiple collections
 
 By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
+
+The real-time power elements are the exception: the [power flow Sankey graph](#power-flow-sankey-graph), the [power sources graph](#power-sources-graph), and the [power consumption badge](#power-consumption-badge). Without a `collection_key` they use a real-time collection of their own for the current dashboard, which always shows today and moves to the new day at midnight, so an `energy-date-selection` card on the same dashboard does not affect them. To show the power sources graph for the selected period instead, give it and the date selection card the same `collection_key`.
 
 To enable multiple different date selections on the same dashboard, they must be linked to different collections. This is done using the `collection_key` parameter, either in the visual editor or in the card YAML, with a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
 
