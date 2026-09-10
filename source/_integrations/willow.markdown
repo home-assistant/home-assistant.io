@@ -3,7 +3,7 @@ title: Willow
 description: Integrate Willow plant monitoring sensors into Home Assistant.
 ha_category:
   - Sensor
-ha_release: "2026.8"
+ha_release: '2026.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: willow
@@ -89,11 +89,6 @@ The **Willow** integration uses cloud {% term polling %} to retrieve the latest 
 - Historical sensor data stored in the Willow platform is not exposed through this integration.
 - If a Willow sensor goes offline, Home Assistant retains the last successfully retrieved values until new data becomes available.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 
@@ -111,3 +106,9 @@ To resolve this issue, try the following steps:
 2. Confirm the sensor has sufficient battery power.
 3. Verify your Willow account can access the device.
 4. Reload the integration from **Settings** > **Devices & services**.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
