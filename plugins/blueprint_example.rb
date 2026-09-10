@@ -45,7 +45,7 @@ module Jekyll
       configuration_yaml = render_configuration_yaml(blueprint, body, domain)
 
       <<~HTML
-        <p>Use the blueprint to create this #{noun}, or use the YAML below to configure it manually.</p>
+        <p>Use the blueprint, or configure this #{noun} manually with the YAML below.</p>
         #{import_badge}
         #{render_configuration_details(context, details_title, configuration_yaml)}
       HTML
@@ -106,7 +106,9 @@ module Jekyll
 
           Replace the placeholder values with values from your Home Assistant instance.
 
+          {% raw %}
           #{yaml_html}
+          {% endraw %}
 
           {% enddetails %}
         LIQUID
