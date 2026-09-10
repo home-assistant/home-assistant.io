@@ -22,6 +22,8 @@ The **Camera** {% term integration %} allows you to use IP cameras with Home Ass
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is set up, you will be able to stream your cameras in the frontend and on supported media players.
 
+Some camera integrations can combine multiple stream sources, such as separate video and two-way audio sources, into one camera entity. Home Assistant uses the primary source for playback and can apply the appropriate orientation to each source. The camera integration handles these sources automatically; no additional setup is required.
+
 The `Preload stream` option will start the camera feed on Home Assistant startup and continue to keep the stream alive. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` action or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
 
 <p class='img'>
