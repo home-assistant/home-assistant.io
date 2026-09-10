@@ -132,6 +132,7 @@ id:
 - This action returns the schedule's `id` as response data. Use `response_variable` to capture it if you need to modify or remove the schedule later.
 - If you don't provide a schedule `id`, a new schedule is always added, even if an identical one already exists.
 - Your Tesla Developer Application must have the vehicle charging commands scope selected, and the vehicle may need to wake up to receive the schedule, which can take a few seconds.
+- Midnight (`00:00`) is a valid start or end time, but not when it is the only time given. Set both a start time and an end time if either one is midnight.
 
 {% include actions/try_it.md %}
 
