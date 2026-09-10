@@ -165,6 +165,7 @@ google_assistant:
   exposed_domains:
     - switch
     - light
+  expose_by_label: google_assistant
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -213,6 +214,10 @@ exposed_domains:
   description: List of entity domains to expose to Google Assistant if `expose_by_default` is set to true. This has no effect if `expose_by_default` is set to false.
   required: false
   type: list
+expose_by_label:
+  description: Filter entities to be exposed by a specific label. This can be a label on the entity itself or on its parent device. Only entities with this label (and in the `exposed_domains` if set) will be exposed by default.
+  required: false
+  type: string
 entity_config:
   description: Entity specific configuration for Google Assistant
   required: false
