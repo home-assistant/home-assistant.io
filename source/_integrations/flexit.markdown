@@ -4,12 +4,14 @@ description: Instructions on how to integrate a Flexit air handling unit into Ho
 ha_category:
   - Binary sensor
   - Climate
+  - Sensor
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: flexit
 ha_platforms:
   - binary_sensor
   - climate
+  - sensor
 ha_integration_type: device
 ha_quality_scale: legacy
 ha_codeowners:
@@ -69,6 +71,16 @@ The following binary sensors are categorized as diagnostic entities:
 
 - **Filter alarm**: Indicates whether the unit needs a filter replacement.
 - **Electric heater enabled**: Indicates whether the electric heater is enabled.
+
+### Sensors
+
+The following sensors are categorized as diagnostic entities:
+
+- **Air filter operating time**: The number of hours the current air filter has been in use.
+- **Heat exchanger regulation**: The current regulation level of the heat exchanger.
+- **Electric heater regulation**: The current regulation level of the electric heater.
+- **Cooling regulation**: The current regulation level of the cooling function.
+- **Outdoor air temperature**: The temperature of the air entering the unit from outside.
 
 ## Data updates
 
