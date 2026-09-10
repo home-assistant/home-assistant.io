@@ -1,6 +1,6 @@
 ---
 title: Haus-Bus
-description: Integrate HausBus controllers and devices with Home Assistant.
+description: Integrate Haus-Bus controllers and devices with Home Assistant.
 ha_category:
   - Hub
   - Cover
