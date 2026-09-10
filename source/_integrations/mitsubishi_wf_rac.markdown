@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Mitsubishi WF-RAC** {% term integration %} controls Mitsubishi Heavy Industries air conditioners fitted with the WF-RAC wireless LAN module (sold as part number WF-RAC, and marketed with the Smart M-Air app).
+The **Mitsubishi WF-RAC** {% term integration %} controls [Mitsubishi Heavy Industries air conditioners](https://www.mhi-mth.co.jp/en/products/residential-and-commercial-air-conditioners/rac-sr/) fitted with the WF-RAC wireless LAN module (sold as part number WF-RAC, and marketed with the Smart M-Air app).
 
 It talks to the module over your local network, using the same HTTP API the app uses. No account with the manufacturer is needed and the integration makes no outbound internet connection.
 
