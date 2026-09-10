@@ -45,8 +45,8 @@ module Jekyll
       configuration_yaml = render_configuration_yaml(blueprint, body, domain)
 
       <<~HTML
-        <p>Use the blueprint, or configure this #{noun} manually with the YAML below.</p>
         #{import_badge}
+        <p>Prefer to configure this #{noun} manually? Use the YAML below.</p>
         #{render_configuration_details(context, details_title, configuration_yaml)}
       HTML
     rescue Errno::ENOENT
