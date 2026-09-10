@@ -68,6 +68,10 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 - **Grid frequency (Hz)**: The current grid frequency.
 - **Power factor / Power factor L1 / L2 / L3**: The power factor (total and per phase).
 
+### Additional meter values
+
+Smart meters can report values beyond the well-known ones listed above. The integration creates a sensor for every additional OBIS code your meter reports, deriving the sensor type from the reported unit. Cumulative energy registers are recorded as continuously increasing totals, and device metadata such as the meter's serial number is created as diagnostic entities.
+
 ### Diagnostic sensors
 
 The following sensors are created with the diagnostic entity category and are disabled by default:
