@@ -20,6 +20,7 @@ The **Haus-Bus** {% term integration %} lets you connect [HausBus](https://www.h
 
 ## Supported devices
 
+- [Haus-Bus 8-channel Rollomodul](https://www.haus-bus.de/?showProduct=15)
 
 ## Prerequisites
 
