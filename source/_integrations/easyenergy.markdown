@@ -70,15 +70,17 @@ With the [energy dashboard](/energy) you can use the `current hour` price entity
 
 These blueprints use the **Current hour** sensor on the easyEnergy **Energy market price - Usage** device. Set your price threshold in EUR/kWh; the sensor price includes VAT but excludes energy tax and purchase costs. Both blueprints run when the price crosses below the threshold. They do not run immediately if you enable them while the price is already below it. They can also run when price data becomes available again with a value below the threshold.
 
-The blueprint import button is the easiest way to create each automation. If you prefer to work directly with automation YAML, expand the YAML example below the button and replace the placeholder values with entities from your Home Assistant instance.
-
 ### Automation: Send a notification when the energy price is low
 
 Receive a notification when the electricity usage price drops below your chosen threshold. Select your easyEnergy price sensor and a notification entity when creating the automation. The message includes the current price.
 
+Use the blueprint to create this automation in Home Assistant, or expand the YAML example below if you prefer to configure the automation manually.
+
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_notification.yaml" %}
 
 {% details "View automation YAML" %}
+
+Replace the placeholder values with entities from your Home Assistant instance.
 
 {% blueprint_automation "blueprints/integrations/easyenergy_low_price_notification.yaml" %}
 
@@ -88,9 +90,13 @@ Receive a notification when the electricity usage price drops below your chosen 
 
 Turn on a switch when the electricity usage price drops below your chosen threshold. For a dishwasher, choose a switch that starts its program; switching on the power supply alone may not start a cycle. You can also use this blueprint for another device controlled by a switch. The switch remains on when prices rise.
 
+Use the blueprint to create this automation in Home Assistant, or expand the YAML example below if you prefer to configure the automation manually.
+
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_switch.yaml" %}
 
 {% details "View automation YAML" %}
+
+Replace the placeholder values with entities from your Home Assistant instance.
 
 {% blueprint_automation "blueprints/integrations/easyenergy_low_price_switch.yaml" %}
 
