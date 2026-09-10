@@ -116,6 +116,8 @@ You can optionally create template sensors to display the prices in a chart or t
 
 To use the response data from the actions, you can create a template sensor that updates every hour.
 
+The `energyzero.get_energy_prices` action returns one entry per hourly electricity price period, while `energyzero.get_gas_prices` returns one entry per gas day. Each price entry contains `price`, `timestamp`, `start`, and `end`. `start` is inclusive, `end` is exclusive, and `timestamp` is equal to `start` for backwards compatibility.
+
 ```yaml
 template:
   - trigger:
