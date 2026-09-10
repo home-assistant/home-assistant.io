@@ -74,13 +74,13 @@ These blueprints use the **Current hour** sensor on the easyEnergy **Energy mark
 
 Receive a notification when the electricity usage price drops below your chosen threshold. Select your easyEnergy price sensor and a notification entity when creating the automation. The message includes the current price.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_notification.yaml" %}
+{% blueprint_example blueprint="easyenergy/easyenergy_low_price_notification.yaml" %}
 
 ### Automation: Start a dishwasher when the energy price is low
 
 Turn on a switch when the electricity usage price drops below your chosen threshold. For a dishwasher, choose a switch that starts its program; switching on the power supply alone may not start a cycle. You can also use this blueprint for another device controlled by a switch. The switch remains on when prices rise.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_switch.yaml" %}
+{% blueprint_example blueprint="easyenergy/easyenergy_low_price_switch.yaml" %}
 
 ## Templates
 
@@ -113,24 +113,9 @@ template:
 
 ### All-in price sensor
 
-To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+Create an all-in electricity price sensor by adding your energy tax and purchase costs to the current easyEnergy usage price.
 
-```yaml
-template:
-  - sensor:
-      - name: easyEnergy all-in current price
-        unique_id: allin_current_price
-        icon: mdi:cash
-        unit_of_measurement: "€/kWh"
-        state_class: measurement
-        state: >
-          {% set energy_tax = PUT_HERE_THE_PRICE %}
-          {% set purch_costs = PUT_HERE_THE_PRICE %}
-          {% set current_price =
-            states('sensor.easyenergy_today_energy_usage_current_hour_price')
-            | float(0) %}
-          {{ (current_price + energy_tax + purch_costs) | round(2) }}
-```
+{% blueprint_example blueprint="easyenergy/easyenergy_all_in_price_sensor.yaml" %}
 
 ## Data updates
 

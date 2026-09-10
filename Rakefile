@@ -3,6 +3,7 @@ require "bundler/setup"
 require "stringex"
 require 'net/http'
 require 'json'
+require 'time'
 
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
@@ -46,6 +47,8 @@ task :generate do
   abort("Generating WWHA device data failed") unless success
   success = system "rake allowed_referrers_data"
   abort("Generating allowed referrers data failed") unless success
+  success = system "rake meetups_data"
+  abort("Generating community meetups data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -89,6 +92,7 @@ task :preview, :listen do |t, args|
   system "rake alerts_data"
   system "rake wwha_data"
   system "rake allowed_referrers_data"
+  system "rake meetups_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -154,6 +158,62 @@ task :wwha_data do
 
   File.open("#{source_dir}/_data/wwha_devices.json", "w") do |file|
     file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download upcoming community meetups from web-api.openhomefoundation.org"
+task :meetups_data do
+  output_file = "#{source_dir}/_data/meetups_data.json"
+  begin
+    uri = URI('https://web-api.openhomefoundation.org/events/home-assistant-meetups')
+
+    remote_data = JSON.parse(Net::HTTP.get(uri))
+    events = remote_data['events']
+    raise "payload does not contain an events array" unless events.is_a?(Array)
+
+    now = Time.now.utc
+    upcoming = events
+      # Only keep web links: the URL ends up in an href on the community page,
+      # so schemes such as javascript: must never make it into the data file.
+      .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
+      # The map shows a start time for every meetup, so an event without a
+      # usable start is dropped rather than rendered as an epoch date. An
+      # event that has already begun but hasn't ended yet still counts as
+      # upcoming, hence the end date in the comparison.
+      .select do |event|
+        begin
+          Time.parse(event['start'])
+          Time.parse(event['end'] || event['start']).utc >= now
+        rescue StandardError
+          false
+        end
+      end
+      .sort_by { |event| event['start'].to_s }
+      .map do |event|
+        {
+          'summary' => event['summary'],
+          'start' => event['start'],
+          # The map expects a list of address lines; upstream occasionally
+          # sends a single string instead.
+          'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
+            .map { |line| line.to_s.strip }
+            .reject(&:empty?),
+          'url' => event['url'],
+          'latitude' => event['latitude'],
+          'longitude' => event['longitude'],
+        }
+      end
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(upcoming))
+    end
+    puts "## Wrote #{upcoming.length} upcoming community meetups"
+  rescue StandardError => e
+    # Never fail the build over the meetups: fall back to the existing file,
+    # or an empty list if none exists yet. The map section falls back to its
+    # "host a meetup" state when the list is empty.
+    warn "## Downloading community meetups failed, keeping existing file. #{e}"
+    File.write(output_file, "[]") unless File.exist?(output_file)
   end
 end
 

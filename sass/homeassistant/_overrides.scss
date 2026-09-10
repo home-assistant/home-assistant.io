@@ -1251,6 +1251,11 @@ a.material-card:hover {
       }
     }
 
+    &.community-day .caption {
+      background: #0B7874;
+      background: linear-gradient(0deg, #0B7874 0%, rgba(11, 120, 116, 0) 100%);
+    }
+
     &.picture-top {
       padding-top: 0;
       padding-bottom: 33%;
