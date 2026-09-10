@@ -111,9 +111,9 @@ location:
   description: >
     The approximate location the vehicle must be at to use this schedule.
     When not set, this uses your Home Assistant instance's configured
-    location.
+    location. Accepts a mapping with `latitude` and `longitude`.
   required: false
-  type: object
+  type: map
 one_time:
   description: >
     Whether this is a one-time schedule.
