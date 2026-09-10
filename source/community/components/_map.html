@@ -18,7 +18,7 @@
         </div>
 
         {% if has_meetups %}
-        <div id="meetup-map" class="map is-loading" aria-label="Map of Home Assistant community meetups"></div>
+        <div id="meetup-map" class="map is-loading" role="region" aria-label="Map of Home Assistant community meetups"></div>
         <script type="application/json" id="meetup-map-events">{{ meetups | jsonify | replace: "<", "\u003c" }}</script>
         {% endif %}
     </div>
