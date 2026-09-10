@@ -90,7 +90,11 @@ module Jekyll
       when 'automation', 'script'
         "alias: #{yaml_scalar(blueprint.fetch('name'))}\n#{body.strip}\n"
       when 'template'
-        body.strip + "\n"
+        lines = body.strip.lines
+        indented_body = lines.each_with_index.map do |line, index|
+          index.zero? ? "  - #{line}" : "    #{line}"
+        end.join
+        "template:\n#{indented_body}"
       end
     end
 
