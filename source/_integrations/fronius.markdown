@@ -66,6 +66,10 @@ Modbus port:
     description: "The port of the device's Modbus TCP interface. Only used when Modbus is enabled on the device, see [Modbus TCP](#modbus-tcp). The default is `502`."
     required: false
     type: integer
+Revert the AC power limit if Home Assistant stops:
+    description: "Whether the inverter should give up a power limit set by Home Assistant when it stops hearing it, see [Falling back to the inverter's own settings](#falling-back-to-the-inverters-own-settings). Off by default."
+    required: false
+    type: boolean
 {% endconfiguration_basic %}
 
 ## Monitored data
@@ -174,6 +178,14 @@ The inverter decides which control source wins. If **IO control** or **Dynamic p
 Depending on the inverter's firmware, an `AC power limit` below `10 %` may force the inverter into standby, stopping feed-in altogether rather than throttling it.
 
 On a hybrid inverter, the `AC power limit` does not restrict **charging** the battery. Charging is not AC output. Surplus photovoltaic power goes into the battery instead of being wasted, which makes the limit useful for peak shaving. **Discharging** does count against it, because that power leaves the inverter on AC.
+
+#### Falling back to the inverter's own settings
+
+A setpoint stays on the inverter until it is changed, including while Home Assistant is shut down or unreachable. Removing the integration leaves it behind as well, with nothing left to take it back. To have the inverter recover on its own instead, turn on **Revert the AC power limit if Home Assistant stops**. It is offered when the integration is set up, and can be changed later: go to **Settings** > **Devices & services** > **Fronius**, select the three dots menu {% icon "mdi:dots-vertical" %} next to the entry, and choose **Reconfigure**.
+
+The inverter then drops the `AC power limit` an hour after it last received it, and hands control back to its own priority list. Home Assistant sends the limit again every 15 minutes, so the hour only ever runs out once Home Assistant has really stopped - a restart or a short outage has plenty of room. An inverter held at `30 %` runs unrestricted an hour after the Home Assistant host dies.
+
+This applies to the `AC power limit` only. Fronius documents no timeout for the battery setpoints, so those keep their value and switch state whatever happens to Home Assistant.
 
 #### The battery limits are power, not a charge level
 
