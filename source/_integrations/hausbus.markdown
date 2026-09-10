@@ -20,16 +20,6 @@ The **Haus-Bus** {% term integration %} lets you connect [HausBus](https://www.h
 
 ## Supported devices
 
-Currently, the integration provides support for roller shutters (cover entity).
-
-Each shutter channel is exposed as a Home Assistant cover entity.
-
-Supported operations:
-
-- Open cover
-- Close cover
-- Stop cover
-- Set cover position
 
 ## Prerequisites
 
