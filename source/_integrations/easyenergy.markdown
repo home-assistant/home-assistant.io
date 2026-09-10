@@ -78,7 +78,22 @@ Receive a notification when the electricity usage price drops below your chosen 
 
 {% details "View automation YAML" %}
 
-{% blueprint_automation "blueprints/integrations/easyenergy_low_price_notification.yaml" price_sensor="sensor.easyenergy_today_energy_usage_current_hour_price" notification_entity="notify.mobile_app_your_phone" %}
+```yaml
+alias: easyEnergy low price notification
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
+    below: 0.15
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.mobile_app_your_phone
+    data:
+      title: "Low energy price"
+      message: >
+        The current electricity usage price is
+        {{ trigger.to_state.state }} EUR/kWh.
+```
 
 {% enddetails %}
 
@@ -90,7 +105,17 @@ Turn on a switch when the electricity usage price drops below your chosen thresh
 
 {% details "View automation YAML" %}
 
-{% blueprint_automation "blueprints/integrations/easyenergy_low_price_switch.yaml" price_sensor="sensor.easyenergy_today_energy_usage_current_hour_price" switch_entity="switch.dishwasher" %}
+```yaml
+alias: easyEnergy turn on a device at a low price
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.easyenergy_today_energy_usage_current_hour_price
+    below: 0.15
+actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.dishwasher
+```
 
 {% enddetails %}
 
