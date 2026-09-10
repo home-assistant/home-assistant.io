@@ -29,7 +29,7 @@ Android 7.0 as our minimum still reaches 99.2% of active Android devices, accord
 A recap of what’s changing:
 
 - The last Companion app update for Android 6.0 is version 2026.8.4.
-- From version 2026.9.0 onward, the minimum supported version is Android 7.0, also known as Nougat.
+- From version 2026.9.0 onward, the minimum supported version is Android 7.0.
 
 Importantly, this _doesn’t mean_ your Android 6.0 device stops working. The app stays installed and keeps doing what it does today. It simply won’t receive new updates, and the Play Store will keep offering the last compatible version, 2026.8.4, to those devices.
 
