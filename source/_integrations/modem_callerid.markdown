@@ -36,8 +36,38 @@ Devices that did not work:
 
 ## Examples
 
-### Run actions when caller ID is received
+An example automation:
 
-The [Announce incoming phone calls blueprint](https://github.com/home-assistant/home-assistant.io/blob/current/source/blueprints/integrations/modem_callerid/announce-caller.yaml) can run actions when caller ID information is received. Select the Phone Modem incoming call sensor and configure the actions you want to run.
+```yaml
+automation:
+  - alias: "Notify CallerID"
+    triggers:
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
+    actions:
+      - action: notify.notify
+        data:
+          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
 
-The blueprint provides `caller_name` and `caller_number` variables that can be used in templates in those actions. For example, you can use them to send a notification or announce the caller on a media player.
+  - alias: "Notify CallerID webui"
+    triggers:
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
+    actions:
+      - action: persistent_notification.create
+        data:
+          title: "Call from"
+          message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
+
+  - alias: "Say CallerID"
+    triggers:
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
+    actions:
+      - action: tts.google_say
+        data:
+          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
+```
