@@ -17,7 +17,9 @@ ha_integration_type: device
 
 The **Phone Modem** {% term integration %} uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.
 
-When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name, and number.
+When a call is detected, the sensor changes to `ring`. Caller ID information can arrive separately from the ring event. When it is received, the sensor changes to `callerid`, and the available caller ID information is exposed in the `cid_name`, `cid_number`, and `cid_time` attributes. The sensor returns to `idle` once ringing stops.
+
+If you want to trigger an automation using the caller's name or number, trigger on the `callerid` state rather than `ring`, so the caller ID attributes are available to the automation.
 
 This integration also offers a button to pick up and then hang up the call to properly reject it (via ATA and ATH).
 
@@ -34,38 +36,8 @@ Devices that did not work:
 
 ## Examples
 
-An example automation:
+### Run actions when caller ID is received
 
-```yaml
-automation:
-  - alias: "Notify CallerID"
-    triggers:
-      - trigger: state
-        entity_id: sensor.phone_modem
-        to: "callerid"
-    actions:
-      - action: notify.notify
-        data:
-          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
+The [Announce incoming phone calls blueprint](https://github.com/home-assistant/home-assistant.io/blob/current/source/blueprints/integrations/modem_callerid/announce-caller.yaml) can run actions when caller ID information is received. Select the Phone Modem incoming call sensor and configure the actions you want to run.
 
-  - alias: "Notify CallerID webui"
-    triggers:
-      - trigger: state
-        entity_id: sensor.phone_modem
-        to: "callerid"
-    actions:
-      - action: persistent_notification.create
-        data:
-          title: "Call from"
-          message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
-
-  - alias: "Say CallerID"
-    triggers:
-      - trigger: state
-        entity_id: sensor.phone_modem
-        to: "callerid"
-    actions:
-      - action: tts.google_say
-        data:
-          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
-```
+The blueprint provides `caller_name` and `caller_number` variables that can be used in templates in those actions. For example, you can use them to send a notification or announce the caller on a media player.
