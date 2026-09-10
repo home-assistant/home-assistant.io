@@ -77,7 +77,7 @@ Events related to the alarm clock feature.
 | `alert_start`       | Alarm started              |
 | `rescheduled`       | Alarm rescheduled          |
 | `skip_next`         | Alarm skipped              |
-| `snooze_clicked`    | Snoozing                   |
+| `snooze_clicked`    | Snoozing clicked           |
 | `snooze_canceled`   | Snoozing canceled          |
 
 ### Smart wake-up
@@ -123,7 +123,7 @@ Events related to the Lullaby feature.
 Events when entering a new sleep phase.
 
 | Event type    | Description |
-| ------------------- | ----------- |
+| ------------- | ----------- |
 | `awake`       | Woke up     |
 | `deep_sleep`  | Deep sleep  |
 | `light_sleep` | Light sleep |
@@ -138,7 +138,7 @@ Be cautious when automating based on sleep phase events, especially deep and lig
 
 ### Sleep tracking
 
-Events related to sleep tracking feature.
+Events related to the sleep tracking feature.
 
 | Event type | Description      |
 | ---------- | ---------------- |
