@@ -27,9 +27,9 @@ To generate an Airly API key, go to [Airly for developers](https://developer.air
 API key:
     description: "The API key for your Airly account."
 Latitude:
-    description: "The latitude of the location for which to retrieve air quality data. By default, your Home Assistant home location is used."
+    description: "The latitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
 Longitude:
-    description: "The longitude of the location for which to retrieve air quality data. By default, your Home Assistant home location is used."
+    description: "The longitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
 {% endconfiguration_basic %}
 
 {% note %}
