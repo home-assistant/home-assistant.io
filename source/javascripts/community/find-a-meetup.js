@@ -21,7 +21,7 @@
   });
 
   const events = JSON.parse(eventsDataEl.textContent).map((event) => {
-    const address = (event.address || []).map((line) => line.trim()).filter(Boolean);
+    const address = Array.isArray(event.address) ? event.address : [];
     // The first line is the venue and becomes the title, so the place line
     // uses the last two lines, never repeating the title on its own.
     const place = address.slice(Math.max(1, address.length - 2));

@@ -193,7 +193,11 @@ task :meetups_data do
         {
           'summary' => event['summary'],
           'start' => event['start'],
-          'address' => event['address'] || [],
+          # The map expects a list of address lines; upstream occasionally
+          # sends a single string instead.
+          'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
+            .map { |line| line.to_s.strip }
+            .reject(&:empty?),
           'url' => event['url'],
           'latitude' => event['latitude'],
           'longitude' => event['longitude'],
