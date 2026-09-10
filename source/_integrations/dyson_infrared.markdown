@@ -65,7 +65,7 @@ A climate entity is created for each Dyson AM09 Hot+Cool you set up.
 
 - **Dyson Heater/Cooler**
   - **Description**: Represents the Dyson AM09 Hot+Cool and allows you to control it via IR commands.
-  - **Supported features**: Set HVAC mode, set fan mode, set preset mode, and set swing mode. Set target temperature is also available while the unit is in heat mode.
+  - **Supported features**: Set HVAC mode, and, while the unit is running, set fan mode, set preset mode, and set swing mode. Set target temperature is available while the unit is in heat mode.
 
 #### Supported modes
 
@@ -88,8 +88,10 @@ Supported range: 1 °C to 37 °C, or 34 °F to 99 °F, in steps of one degree. W
 
 ## Known limitations
 
-- All entities use **assumed state**, meaning Home Assistant cannot verify the actual state of the device. If the device is also operated with its physical remote, the two can drift apart. Setting the mode or speed again from Home Assistant brings them back in sync.
+- All entities use **assumed state**, meaning Home Assistant cannot verify the actual state of the device. If the device is also operated with its physical remote, the two can drift apart. Commands are only sent when the requested value differs from the assumed one, so reselecting the value Home Assistant already shows sends nothing: to bring the two back in sync, switch to a different value and then back again.
+- The assumed state does not survive a Home Assistant restart. The heater/cooler comes back as off, at the bottom of its temperature range, at fan speed 5, diffused, with oscillation off, and assumes the unit was last cooling; the fan comes back off at 50%. If the unit was in fact left heating, the first mode change after a restart can act on the wrong mode, and corrects itself the next time you change mode.
 - The AM09 has no dedicated off command, only a power toggle. Turning the heater/cooler off therefore sends the same command as turning it on, so if the assumed state does not match the physical unit, the two are inverted until you correct it.
+- The AM09 ignores everything except the power command while it is off, so the fan mode, preset, and swing controls are unavailable until you turn the unit on. Their current values are not shown while it is off either, which means automations cannot read them until it is running.
 - The AM09 has no command for a cooling target temperature, so the target temperature is only available in heat mode. Setting it in another mode fails rather than silently doing nothing.
 - The target temperature is stepped one degree per command in the unit the device itself displays, which is why the temperature unit option has to match your device. If it does not, targets set from Home Assistant end up off by a degree or more.
 - Oscillation on the AM09 is a toggle rather than separate on and off commands, so it is only sent when the requested swing mode differs from the assumed one.
