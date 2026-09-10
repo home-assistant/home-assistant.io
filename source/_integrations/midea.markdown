@@ -38,7 +38,7 @@ ha_quality_scale: bronze
 
 The **Midea** {% term integration %} lets you monitor and control home appliances that use the Midea protocol, communicating with them directly over your local network. Because Midea also manufactures appliances for many other brands, this integration works with rebranded devices that speak the same protocol, not only those sold as "Midea".
 
-All control and status updates happen locally. For protocol V3 devices, the Midea cloud is contacted only once during setup, to retrieve the token and key that secure the local connection, and is never used again afterward.
+All control and status updates happen locally. During setup, you select one of several supported cloud providers, which is only used when needed to obtain the token and key that protocol V3 devices require for their local connection. If you already have these credentials, you can enter them manually and skip the cloud entirely. Once setup is complete, the integration communicates only with the device on your local network.
 
 ## Supported devices
 
