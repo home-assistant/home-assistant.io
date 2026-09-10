@@ -171,7 +171,7 @@ If you need to update the connection details (URL or credentials) of your Gatus 
 
 ### Reauthentication
 
-If the credentials for your Gatus instance become invalid, Home Assistant will prompt you to re-authenticate:
+If the credentials for your Gatus instance become invalid, Home Assistant prompts you to re-authenticate:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select **Reconfigure** on the notification or Gatus integration card.
