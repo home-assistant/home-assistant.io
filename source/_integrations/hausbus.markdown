@@ -97,7 +97,7 @@ If no devices are discovered:
 - Verify that supported shutter channels are configured on the controller.
 - Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
-For more information, visit the [Haus-Bus website](https://www..de/).
+For more information, visit the [Haus-Bus website](https://www.haus-bus.de/).
 
 ## Removing the integration
 
