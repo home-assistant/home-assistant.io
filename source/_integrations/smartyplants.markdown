@@ -30,8 +30,9 @@ Whatever appears in the SmartyPlants app appears here.
 
 ## Prerequisites
 
+- The SmartyPlants app, which is where sensors and plants are set up.
 - A SmartyPlants account with at least one sensor.
-- An API key, created in the SmartyPlants app under **Settings**.
+- An API key, created in the app under **Settings**.
 
 {% include integrations/config_flow.md %}
 
@@ -39,7 +40,7 @@ Whatever appears in the SmartyPlants app appears here.
 API key:
   description: "The API key created in the SmartyPlants app under **Settings**. It identifies your account to Home Assistant."
 Webhook secret:
-  description: "Optional. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Leave it empty to use polling only."
+  description: "Optional, and only set while adding the integration. The signing secret shown by the SmartyPlants app after you add Home Assistant's webhook URL. Home Assistant must be reachable from the internet to receive pushed updates, so leave this empty to use polling only. See [Live updates with a webhook](#live-updates-with-a-webhook)."
 {% endconfiguration_basic %}
 
 ### Live updates with a webhook
@@ -53,6 +54,9 @@ To have readings arrive immediately instead:
 
 Pushed updates are verified against that secret, so an update that is not correctly signed is rejected.
 Polling continues either way as a fallback, so the integration still works if a push is missed.
+
+The secret is set while adding the integration and cannot be changed afterwards.
+To use a different one, remove the integration and add it again.
 
 {% note %}
 Home Assistant must be reachable from the internet for a webhook to be delivered.
@@ -189,6 +193,7 @@ A sensor that the SmartyPlants cloud reports as offline has its entities marked 
 - The integration is read-only. Renaming a plant or assigning a sensor is done in the SmartyPlants app.
 - Sensors are read once when the integration starts. A sensor added in the SmartyPlants app appears after you reload the integration.
 - Plants that have no sensor attached are not shown.
+- The webhook secret cannot be changed once the integration is added.
 
 ## Troubleshooting
 
