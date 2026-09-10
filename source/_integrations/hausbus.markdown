@@ -53,6 +53,7 @@ You can control each shutter with the following actions:
   to fully open.
 
 The {% term entity %}  name comes from the channel name configured on the  hardware.
+
 ## Haus-Bus automation examples
 
 ### Automation: Close the shutters at sunset
