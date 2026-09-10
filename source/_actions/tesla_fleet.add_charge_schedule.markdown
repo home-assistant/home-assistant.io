@@ -119,6 +119,7 @@ one_time:
     Whether this is a one-time schedule.
   required: false
   type: boolean
+  default: false
 id:
   description: >
     The ID of the schedule. Give the ID of an existing schedule to modify
