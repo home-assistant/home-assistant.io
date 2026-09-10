@@ -22,7 +22,7 @@ At Home Assistant, we’re committed to helping you use your devices for the lon
 
 The app is built on [Jetpack](https://developer.android.com/jetpack), Google’s collection of core Android libraries. Google is raising the minimum requirement for many of those libraries from Android 6.0 (API 23, released in 2015) to Android 7.0 (API 24, released in 2016). We heavily depend on Jetpack libraries, so continuing to support Android 6.0 would mean staying on older versions of those libraries and giving up the fixes, features, and security updates that come with them. This is the same reason we [ended support for Android 5.0 and 5.1](/blog/2025/07/23/companion-app-for-android/) last year.
 
-Using Android 7.0 as our minimum requirement still reaches 99.2% of active Android devices, according to Google's device distribution data. Since Android 6.0 accounts for approximately 650 users out of 1.6 million – just 0.04% of our active monthly devices – making this change allows us to continue keeping the app up to date with the libraries we use.
+Using Android 7.0 as our minimum requirement still reaches 99.2% of active Android devices, according to Google's device distribution data. Since Android 6.0 accounts for approximately 650 users out of 1.6 million – just 0.04% of our active monthly devices – making this change allows us to keep the app up to date for the vast majority of our user base.
 
 ## What this means for you
 
