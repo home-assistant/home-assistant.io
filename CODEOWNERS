@@ -1029,6 +1029,7 @@ source/_integrations/solaredge_local.markdown @drobtravels @scheric
 source/_integrations/solarlog.markdown @Ernst79 @dontinelli
 source/_integrations/solarman.markdown @solarmanpv
 source/_integrations/solax.markdown @squishykid @Darsstar
+source/_integrations/solyx_energy.markdown @MartinaeyNL
 source/_integrations/soma.markdown @ratsept
 source/_integrations/somfy.markdown @imicknl
 source/_integrations/somfy_mylink.markdown @sslivins
