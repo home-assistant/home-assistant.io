@@ -47,6 +47,8 @@ module Jekyll
     end
 
     def render_automation_details(context, path)
+      automation_yaml = render_automation_yaml(context, path)
+
       render_liquid(
         context,
         <<~LIQUID
@@ -54,42 +56,18 @@ module Jekyll
 
           Replace the placeholder values with entities from your Home Assistant instance.
 
-          {% blueprint_automation "#{path}" %}
+          #{automation_yaml}
 
           {% enddetails %}
         LIQUID
       )
     end
 
-    def render_liquid(context, source)
-      Liquid::Template.parse(source).render!(
-        context.environments.first || {},
-        registers: context.registers
-      )
-    end
-  end
-
-  class BlueprintAutomationTag < Liquid::Tag
-    SYNTAX = /^(?:"|')(blueprints\/integrations\/[A-Za-z0-9_\/.\-]+\.ya?ml)(?:"|')$/
-
-    def initialize(tag_name, args, tokens)
-      super
-
-      raise SyntaxError, <<~MSG unless args.strip =~ SYNTAX
-        Syntax error in tag 'blueprint_automation'.
-
-        Valid syntax:
-          {% blueprint_automation "blueprints/integrations/example.yaml" %}
-      MSG
-
-      @path = Regexp.last_match(1)
-    end
-
-    def render(context)
+    def render_automation_yaml(context, path)
       site = context.registers[:site]
       source = File.expand_path(site.source)
       blueprint_root = File.join(source, 'blueprints', 'integrations')
-      blueprint_path = File.expand_path(File.join(source, @path))
+      blueprint_path = File.expand_path(File.join(source, path))
 
       unless blueprint_path.start_with?("#{blueprint_root}#{File::SEPARATOR}")
         raise Jekyll::Errors::FatalException, 'Blueprint path must be inside source/blueprints/integrations'
@@ -111,12 +89,10 @@ module Jekyll
         <pre class="language-yaml"><code class="language-yaml">#{CGI.escapeHTML(automation_yaml)}</code></pre>
       HTML
     rescue Errno::ENOENT
-      raise Jekyll::Errors::FatalException, "Blueprint file not found: #{@path}"
-    rescue KeyError, SafeYAML::ParseError => err
-      raise Jekyll::Errors::FatalException, "Unable to render blueprint automation #{@path}: #{err.message}"
+      raise Jekyll::Errors::FatalException, "Blueprint file not found: #{path}"
+    rescue KeyError, Psych::SyntaxError => err
+      raise Jekyll::Errors::FatalException, "Unable to render blueprint automation #{path}: #{err.message}"
     end
-
-    private
 
     def split_blueprint(source_yaml)
       lines = source_yaml.lines
@@ -142,8 +118,14 @@ module Jekyll
     def yaml_scalar(value)
       value.to_yaml.sub(/\A---\s*/, '').strip
     end
+
+    def render_liquid(context, source)
+      Liquid::Template.parse(source).render!(
+        context.environments.first || {},
+        registers: context.registers
+      )
+    end
   end
 end
 
 Liquid::Template.register_tag('blueprint_example', Jekyll::BlueprintExampleTag)
-Liquid::Template.register_tag('blueprint_automation', Jekyll::BlueprintAutomationTag)
