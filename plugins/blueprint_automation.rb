@@ -6,6 +6,11 @@ module Jekyll
     SYNTAX = /^blueprint=(?:"([^"]+)"|'([^']+)')$/
     LOCAL_BLUEPRINT_BASE_URL = 'https://www.home-assistant.io/blueprints/integrations/'
     LOCAL_BLUEPRINT_PATH = /\A[A-Za-z0-9_\/.\-]+\.ya?ml\z/
+    DOMAIN_LABELS = {
+      'automation' => ['automation', 'Automation YAML'],
+      'script' => ['script', 'Script YAML'],
+      'template' => ['template entity', 'Template entity YAML'],
+    }.freeze
 
     def initialize(tag_name, args, tokens)
       super
@@ -31,11 +36,23 @@ module Jekyll
 
       return import_badge unless local_path
 
+      blueprint, body = load_blueprint(context, local_path)
+      domain = blueprint.fetch('domain')
+      noun, details_title = DOMAIN_LABELS.fetch(domain) do
+        raise Jekyll::Errors::FatalException, "Unsupported blueprint domain: #{domain}"
+      end
+
+      configuration_yaml = render_configuration_yaml(blueprint, body, domain)
+
       <<~HTML
-        <p>Use the blueprint to create this automation in Home Assistant. If you prefer to configure it manually, you can also use the automation YAML below.</p>
+        <p>Use the blueprint to create this #{noun} in Home Assistant. If you prefer to configure it manually, you can also use the YAML below.</p>
         #{import_badge}
-        #{render_automation_details(context, local_path)}
+        #{render_configuration_details(context, details_title, configuration_yaml)}
       HTML
+    rescue Errno::ENOENT
+      raise Jekyll::Errors::FatalException, "Blueprint file not found: #{local_path}"
+    rescue KeyError, Psych::SyntaxError => err
+      raise Jekyll::Errors::FatalException, "Unable to render blueprint example #{local_path}: #{err.message}"
     end
 
     private
@@ -46,24 +63,7 @@ module Jekyll
       "blueprints/integrations/#{@blueprint}"
     end
 
-    def render_automation_details(context, path)
-      automation_yaml = render_automation_yaml(context, path)
-
-      render_liquid(
-        context,
-        <<~LIQUID
-          {% details "Automation YAML" %}
-
-          Replace the placeholder values with entities from your Home Assistant instance.
-
-          #{automation_yaml}
-
-          {% enddetails %}
-        LIQUID
-      )
-    end
-
-    def render_automation_yaml(context, path)
+    def load_blueprint(context, path)
       site = context.registers[:site]
       source = File.expand_path(site.source)
       blueprint_root = File.join(source, 'blueprints', 'integrations')
@@ -74,24 +74,43 @@ module Jekyll
       end
 
       source_yaml = File.read(blueprint_path)
-      blueprint_yaml, automation_yaml = split_blueprint(source_yaml)
-      blueprint = SafeYAML.load(blueprint_yaml).fetch('blueprint')
+      blueprint_yaml, body = split_blueprint(source_yaml)
+      [SafeYAML.load(blueprint_yaml).fetch('blueprint'), body]
+    end
+
+    def render_configuration_yaml(blueprint, body, domain)
       substitutions = input_substitutions(blueprint)
 
-      automation_yaml.gsub!(/!input\s+([A-Za-z0-9_]+)/) do
+      body = body.gsub(/!input\s+([A-Za-z0-9_]+)/) do
         input_name = Regexp.last_match(1)
         yaml_scalar(substitutions.fetch(input_name, "YOUR_#{input_name.upcase}"))
       end
 
-      automation_yaml = "alias: #{yaml_scalar(blueprint.fetch('name'))}\n#{automation_yaml.strip}\n"
+      case domain
+      when 'automation', 'script'
+        "alias: #{yaml_scalar(blueprint.fetch('name'))}\n#{body.strip}\n"
+      when 'template'
+        body.strip + "\n"
+      end
+    end
 
-      <<~HTML
-        <pre class="language-yaml"><code class="language-yaml">#{CGI.escapeHTML(automation_yaml)}</code></pre>
+    def render_configuration_details(context, title, configuration_yaml)
+      yaml_html = <<~HTML
+        <pre class="language-yaml"><code class="language-yaml">#{CGI.escapeHTML(configuration_yaml)}</code></pre>
       HTML
-    rescue Errno::ENOENT
-      raise Jekyll::Errors::FatalException, "Blueprint file not found: #{path}"
-    rescue KeyError, Psych::SyntaxError => err
-      raise Jekyll::Errors::FatalException, "Unable to render blueprint automation #{path}: #{err.message}"
+
+      render_liquid(
+        context,
+        <<~LIQUID
+          {% details "#{title}" %}
+
+          Replace the placeholder values with values from your Home Assistant instance.
+
+          #{yaml_html}
+
+          {% enddetails %}
+        LIQUID
+      )
     end
 
     def split_blueprint(source_yaml)
@@ -102,7 +121,7 @@ module Jekyll
       finish = ((start + 1)...lines.length).find do |index|
         lines[index].match?(/^\S[^:]*:\s*(?:#.*)?$/)
       end
-      raise KeyError, 'automation body not found' unless finish
+      raise KeyError, 'blueprint domain schema not found' unless finish
 
       [lines[start...finish].join, lines[finish..].join]
     end
