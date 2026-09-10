@@ -133,6 +133,7 @@ When you select more than one device, the **Trigger when** option controls when 
 - Every Z-Wave node has a node status sensor, and it is a diagnostic entity that is enabled by default. This trigger watches those sensors for you, so you do not need to find their entity IDs.
 - Leaving both **From** and **To** empty fires on any status change, including `asleep` to `awake`, which is noisy for battery-powered nodes. Set **To** when you only care about a node going offline.
 - Setting **From** on its own fires when the node leaves that status for any other one.
+- Momentary `unknown` or `unavailable` states (for example, while Z-Wave JS restarts) don't count as status changes, so they never cause the trigger to fire, even with no **From**/**To** filters set.
 - **For at least** is useful for flaky nodes. A node that drops out and recovers within the duration does not fire the trigger.
 - If you would rather work with the sensor directly, the same changes are visible through the standard [state trigger](/docs/automation/trigger/#state-trigger) on each node status sensor.
 
