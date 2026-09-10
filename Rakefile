@@ -176,8 +176,13 @@ task :meetups_data do
       # Only keep web links: the URL ends up in an href on the community page,
       # so schemes such as javascript: must never make it into the data file.
       .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
+      # The map shows a start time for every meetup, so an event without a
+      # usable start is dropped rather than rendered as an epoch date. An
+      # event that has already begun but hasn't ended yet still counts as
+      # upcoming, hence the end date in the comparison.
       .select do |event|
         begin
+          Time.parse(event['start'])
           Time.parse(event['end'] || event['start']).utc >= now
         rescue StandardError
           false
