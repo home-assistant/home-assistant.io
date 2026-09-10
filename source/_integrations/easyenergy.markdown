@@ -76,11 +76,23 @@ Receive a notification when the electricity usage price drops below your chosen 
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_notification.yaml" %}
 
+{% details "View blueprint YAML" %}
+
+{% blueprint_yaml "blueprints/integrations/easyenergy_low_price_notification.yaml" %}
+
+{% enddetails %}
+
 ### Automation: Start a dishwasher when the energy price is low
 
 Turn on a switch when the electricity usage price drops below your chosen threshold. For a dishwasher, choose a switch that starts its program; switching on the power supply alone may not start a cycle. You can also use this blueprint for another device controlled by a switch. The switch remains on when prices rise.
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_switch.yaml" %}
+
+{% details "View blueprint YAML" %}
+
+{% blueprint_yaml "blueprints/integrations/easyenergy_low_price_switch.yaml" %}
+
+{% enddetails %}
 
 ## Templates
 
