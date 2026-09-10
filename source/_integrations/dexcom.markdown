@@ -43,6 +43,7 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
 
 - Blood glucose value sensor
 - Blood glucose trend sensor
+- Blood glucose reading time sensor, the time Dexcom recorded the reading
 
 ## Example automation
 
