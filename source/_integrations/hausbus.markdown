@@ -45,6 +45,23 @@ During setup, Home Assistant searches your local network for a HausBus controlle
 
 After setup, supported HausBus devices are created automatically.
 
+## Supported functionality
+
+The **Haus-Bus** integration provides the following entities.
+
+### Cover
+
+Each roller shutter channel on the Haus-Bus controller is exposed as a cover {% term entity %} with the shutter device class. The entity reports the current position as a percentage, whether the shutter is open or closed, and whether it is currently opening or closing.
+
+You can control each shutter with the following actions:
+
+- **Open**: Fully opens the shutter.
+- **Close**: Fully closes the shutter.
+- **Stop**: Stops the shutter while it is moving.
+- **Set position**: Moves the shutter to a specific position, from fully closed
+  to fully open.
+
+The {% term entity %}  name comes from the channel name configured on the Haus-Bus hardware.
 ## HausBus automation examples
 
 ### Automation: Close the shutters at sunset
