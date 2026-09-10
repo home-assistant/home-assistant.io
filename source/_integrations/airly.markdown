@@ -23,6 +23,15 @@ To generate an Airly API key, go to [Airly for developers](https://developer.air
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API key:
+    description: "The API key for your Airly account."
+Latitude:
+    description: "The latitude of the location for which to retrieve air quality data. By default, your Home Assistant home location is used."
+Longitude:
+    description: "The longitude of the location for which to retrieve air quality data. By default, your Home Assistant home location is used."
+{% endconfiguration_basic %}
+
 {% note %}
 Airly allows 100 data updates per day. For this reason, the more Airly instances
 configured, the less frequent updates will be. For one configured Airly instance,
