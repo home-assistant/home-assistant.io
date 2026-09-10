@@ -70,12 +70,14 @@ If you still want to use the predefined user, as of FRITZ!OS 7.24, the FRITZ!Box
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Host:
-  description: "The hostname or IP address of your FRITZ!Box router."
+URL:
+  description: "The URL of your FRITZ!Box. For example, `http://192.168.178.1`, or `http://fritz.box`, or `https://abcdef.myfritz.net:48317`."
 Username:
   description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
 Password:
   description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
+Verify SSL:
+  description: "Whether to verify the SSL certificate when SSL encryption is used to connect to your FRITZ!Box."
 {% endconfiguration_basic %}
 
 ## Data fetching and limitations
