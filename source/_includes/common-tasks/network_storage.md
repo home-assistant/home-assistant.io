@@ -22,7 +22,7 @@ You need to update to Home Assistant Operating System 10.2 before you can use th
 ### Add a new network storage
 
 1. Go to **{% my storage title="Settings > System > Storage" %}** in the UI.
-2. Select **Add network storage**.
+2. Select **Add storage**.
 3. Fill out all the information for your network storage.
 4. Select **Connect**.
 
@@ -43,8 +43,8 @@ Usage:
   description: Here, you select how the target should be used. [See usage types below](#usage-types)
 Server:
   description: The IP/hostname of the server running NFS/CIFS.
-"Protocol<sup>3</sup>":
-  description: The service the server is using for the network storage.
+"Type<sup>3</sup>":
+  description: The type of network storage. Select NFS or CIFS.
 "[NFS]<sup>1</sup> Remote share path":
   description: The path used to connect to the remote storage server.
 "[CIFS]<sup>2</sup> Username":
@@ -81,4 +81,56 @@ If you want to change the local network storage that is used to store your backu
 3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change default action location**.
 4. Select your preferred network location and save your changes.
    ![Select default location used for local backup](/images/screenshots/network-storage/backup_select_local_default.png)
-5. Troubleshooting: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.
+5. Troubleshooting: Don't see your external storage location? This list contains only the storage you have added of type **Backup**.
+
+## Local disk storage
+
+You can also add a disk connected to your system, such as an internal drive or a USB drive, and use it for media, shared files, or backups. Home Assistant mounts the disk and reconnects it after a restart.
+
+<!-- TODO: Replace TBD below with the Home Assistant Operating System version that ships local disk storage. -->
+
+{% if page.installation == "os" %}
+
+{% important %}
+You need to update to {% term "Home Assistant Operating System" %} TBD before you can use this feature.
+{% endimportant %}
+
+{% endif %}
+
+The disk needs to be formatted already. These file systems are supported:
+
+- ext4, ext3, and ext2
+- FAT and FAT32, reported as `vfat`
+- exFAT
+- NTFS
+- Btrfs
+- F2FS (requires {% term "Home Assistant Operating System" %} 18.3 or later)
+
+Home Assistant does not format disks for you. If your disk uses a different file system, format it on a computer first.
+
+### Add a local disk
+
+1. Go to **{% my storage title="Settings > System > Storage" %}** in the UI.
+2. Select **Add storage**.
+3. For **Type**, select **Local disk**.
+4. Fill out the rest of the information for your disk.
+5. Select **Connect**.
+
+#### Local disk configuration
+
+{% configuration_basic "hassio.local_disk" %}
+Name:
+  description: This is the name that will be used for the mounted directory on your system.
+Usage:
+  description: Here, you select how the disk should be used. [See usage types above](#usage-types)
+Disk:
+  description: The disk you want to use. Disks that are already in use, or that belong to Home Assistant, are not listed.
+Read-only:
+  description: Home Assistant reads from the disk but never writes to it. A write-protected disk can only be added as read-only. Backup storage cannot be read-only.
+{% endconfiguration_basic %}
+
+### Keep a local disk connected
+
+Home Assistant remembers the disk by its file system identifier, not by a device name such as `/dev/sda1`. Device names can change after a restart or when you move a drive, so your storage keeps working either way.
+
+If the disk is disconnected, or missing when the system starts, Home Assistant creates a repair issue at **{% my repairs title="Settings > System > Repairs" %}**. Anything using the disk's folder while it is disconnected gets an error instead of writing to internal storage. Reconnect the disk and it is mounted again the next time something uses it. The repair issue then clears on its own after a few minutes. If you no longer want to use the disk, select the storage and select **Delete**.
