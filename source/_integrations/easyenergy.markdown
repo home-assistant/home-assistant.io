@@ -74,13 +74,13 @@ These blueprints use the **Current hour** sensor on the easyEnergy **Energy mark
 
 Receive a notification when the electricity usage price drops below your chosen threshold. Select your easyEnergy price sensor and a notification entity when creating the automation. The message includes the current price.
 
-{% blueprint_example blueprint="easyenergy_low_price_notification.yaml" %}
+{% blueprint_example blueprint="easyenergy/easyenergy_low_price_notification.yaml" %}
 
 ### Automation: Start a dishwasher when the energy price is low
 
 Turn on a switch when the electricity usage price drops below your chosen threshold. For a dishwasher, choose a switch that starts its program; switching on the power supply alone may not start a cycle. You can also use this blueprint for another device controlled by a switch. The switch remains on when prices rise.
 
-{% blueprint_example blueprint="easyenergy_low_price_switch.yaml" %}
+{% blueprint_example blueprint="easyenergy/easyenergy_low_price_switch.yaml" %}
 
 ## Templates
 
