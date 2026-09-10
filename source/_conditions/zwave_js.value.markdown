@@ -159,7 +159,7 @@ When you select more than one device, the **Condition passes if** option control
 
 - **Trigger**: Time: 23:00
 - **Condition**: Z-Wave JS value
-  - **Devices**: Front door lock
+  - **Devices**: Garage door lock
   - **Command class**: 98 (Door Lock)
   - **Property**: latchStatus
   - **Value**: closed
