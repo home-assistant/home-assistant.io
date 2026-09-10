@@ -160,6 +160,7 @@ function checkETargets() {
 
     if (active === total) {
         eDone = true;
+        if (typeof window.plausible === "function") window.plausible("Easter Egg");
         console.log(decodeURIComponent(escape(atob('QWxyaWdodCwgSSBsaWVkLCB0aGVyZSB3YXMgYW4gZWFzdGVyIGVnZy4uLiDwn5iF'))));
         confetti({ particleCount: 100, spread: 100, scalar: 1.5, startVelocity: 80, ticks: 100, angle: 50, origin: { y: 1, x: 0 }, colors: ["#00AEF8"] });
         setTimeout(() => {

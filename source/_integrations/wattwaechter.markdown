@@ -4,6 +4,7 @@ description: Instructions on how to integrate WattWächter Plus into Home Assist
 ha_category:
   - Energy
   - Sensor
+  - Update
 ha_release: 2026.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,10 +12,12 @@ ha_codeowners:
   - '@smartcircuits'
 ha_domain: wattwaechter
 ha_platforms:
+  - diagnostics
   - sensor
+  - update
 ha_zeroconf: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: gold
 ---
 
 The **WattWächter Plus** {% term integration %} connects Home Assistant to a [WattWächter Plus](https://wattwächter.de) energy monitoring device by [SmartCircuits GmbH](https://smartcircuits.de). The device reads data from your smart electricity meter via the <abbr title="Smart Message Language">SML</abbr>/<abbr title="Object Identification System">OBIS</abbr> protocol and exposes it over a local HTTP API. All communication stays on your local network. No cloud service is involved.
@@ -72,9 +75,13 @@ The following sensors are created with the diagnostic entity category and are di
 - **Wi-Fi signal (dBm)**: The wireless signal strength of the device.
 - **Wi-Fi SSID**: The wireless network name the device is connected to.
 
+### Firmware updates
+
+The integration adds an update entity that reports the firmware version installed on your WattWächter Plus and whether a newer version is available. When an update is offered, you can review the release notes and install it directly from Home Assistant. The device downloads and applies the firmware itself.
+
 ## Data updates
 
-The integration {% term polling polls %} your WattWächter Plus device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings) and system information.
+The integration {% term polling polls %} your WattWächter Plus device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings), system information, and the firmware update status.
 
 ## Actions
 
@@ -89,6 +96,10 @@ The WattWächter Plus integration provides energy sensors that can be used in th
 Use the **Total consumption** sensor for grid consumption and the **Total feed-in** sensor for energy returned to the grid.
 
 ### Get notified on high power consumption
+
+Run an action, such as sending a notification, when your power consumption stays above a threshold for a set duration:
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/wattwaechter_high_power_alert.yaml" %}
 
 {% details "Example YAML automation" %}
 {% raw %}

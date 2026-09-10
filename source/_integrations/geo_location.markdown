@@ -19,7 +19,7 @@ Entities can have associated geolocation coordinates (latitude and longitude) so
 
 ## Geolocation trigger
 
-The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be used in automations triggered by Geolocation entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
+The geolocation trigger can be used in automations triggered by geolocation entities appearing in or disappearing from zones. One of the source values in the following table must be used as `source` of the trigger depending on which platform is managing the entities.
 
 | Platform                                              | Source                        |
 |-------------------------------------------------------|-------------------------------|
@@ -30,6 +30,20 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | NSW Rural Fire Service Incidents                      | `nsw_rural_fire_service_feed` |
 | Queensland Bushfire Alert                             | `qld_bushfire`                |
 | U.S. Geological Survey Earthquake Hazards Program     | `usgs_earthquakes_feed`       |
+
+Use this trigger for `geo_location` entities, such as weather alerts, fire alerts, or earthquakes. For people and tracked devices, use [zone triggers](/integrations/zone/#list-of-triggers) instead. Geolocation entity IDs are generated from the event data and may change, so use `source` to target the platform that creates the entities.
+
+{% details "YAML example" %}
+
+{% example %}
+trigger: |
+  trigger: geo_location
+  source: nsw_rural_fire_service_feed
+  zone: zone.bushfire_alert_zone
+  event: enter
+{% endexample %}
+
+{% enddetails %}
 
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
