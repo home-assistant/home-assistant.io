@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /d/git/home-assistant.io/source/_integrations/*.markdown)",
+      "Bash(xargs grep:*)",
+      "Bash(git stash:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr:*)",
+      "WebFetch(domain:developers.home-assistant.io)",
+      "Bash(ls:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git branch:*)",
+      "WebFetch(domain:app.netlify.com)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
