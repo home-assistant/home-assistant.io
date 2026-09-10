@@ -23,6 +23,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - time
   - update
 ha_integration_type: hub
 ha_dhcp: true

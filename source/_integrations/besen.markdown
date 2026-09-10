@@ -11,10 +11,12 @@ ha_codeowners:
 ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
+  - number
   - sensor
   - switch
 ha_config_flow: true
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.
@@ -32,18 +34,18 @@ Other Besen chargers using the same `ACP#` Bluetooth protocol may also work.
 ## Prerequisites
 
 - A Besen charger advertising as `ACP#...`.
-- The charger's Bluetooth address and 6-digit PIN.
+- The charger's 6-digit PIN.
 - A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
 
 ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
 
 {% include integrations/config_flow.md %}
 
-Home Assistant can discover chargers that advertise as `ACP#...`. If discovery does not find your charger, add the integration manually and enter the charger's Bluetooth address.
+Home Assistant can discover chargers that advertise as `ACP#...`. If your charger is not discovered automatically, add the integration manually and select it from the list of Besen chargers currently visible over Bluetooth. If no charger is found, follow the [discovery troubleshooting steps](#the-charger-is-not-discovered).
 
 {% configuration_basic %}
-Bluetooth address:
-  description: "The BLE address of the charger. Discovery fills this automatically when Home Assistant sees an ACP# advertisement."
+Device:
+  description: "The discovered Besen charger to set up."
 PIN:
   description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
 {% endconfiguration_basic %}
@@ -55,6 +57,10 @@ PIN:
 The {% term integration %} provides a **Charge** switch to start or stop charging.
 
 The switch state follows the charging state reported by the charger.
+
+### Number
+
+The **Charging current** number sets the maximum current the charger can use. The available range starts at 6&nbsp;A and ends at the maximum reported by the charger. Home Assistant uses 32&nbsp;A if the charger does not report a maximum.
 
 ### Sensors
 
@@ -85,6 +91,7 @@ The integration does not provide custom actions. Use the standard entity actions
 
 - `switch.turn_on` starts charging.
 - `switch.turn_off` stops charging.
+- `number.set_value` sets the charging current.
 
 ## Examples
 
@@ -126,7 +133,7 @@ This is a local push integration. There is no cloud dependency.
 
 The integration does not support:
 
-- Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
+- Changing charger settings such as language, temperature unit, LCD brightness, or device name.
 - Reporting Bluetooth signal strength as an entity.
 - Wi-Fi provisioning.
 - Password reset.
@@ -147,7 +154,7 @@ Home Assistant does not discover the charger automatically.
 
 To resolve this issue, try the following steps:
 
-1. Confirm the charger appears in **Settings** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
+1. Confirm the charger appears in **Settings** > **Connectivity** > **Bluetooth** > **Advertisement monitor** as `ACP#...`.
 2. Move an ESPHome Bluetooth proxy closer to the charger.
 3. Make sure the proxy is added to Home Assistant through the ESPHome integration.
 4. Run an active scan or temporarily place a local Bluetooth adapter near the charger.
@@ -179,7 +186,7 @@ The charge switch becomes unavailable after the integration was set up.
 
 To resolve this issue, try the following steps:
 
-1. Check **Settings** > **Bluetooth** > **Connection monitor**.
+1. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor**.
 2. Verify the proxy has free active connection slots.
 3. Stop any old MQTT bridge or companion process that may still hold the charger's Bluetooth connection.
 4. Prefer Ethernet ESPHome Bluetooth proxies when possible.

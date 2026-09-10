@@ -12,6 +12,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: monzo
 ha_platforms:
+  - diagnostics
   - event
   - sensor
 ha_integration_type: service
