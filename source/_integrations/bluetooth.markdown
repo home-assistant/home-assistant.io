@@ -103,11 +103,55 @@ For most systems, the D-Bus socket is in `/run/dbus`. You need to make the socke
 **What happens without these capabilities:**
 
 If `NET_ADMIN` and `NET_RAW` capabilities are missing:
-- Your Bluetooth will operate in a degraded mode with limited functionality
-- Automatic adapter recovery is unavailable - your adapters cannot be reset when they stop responding
-- Connection parameters and management API commands will fail
-- Raw advertising data will be missing, causing unreliable updates for your devices
-- An error will appear in your logs: "Missing required permissions for Bluetooth management"
+
+- Your Bluetooth will operate in a degraded mode with limited functionality.
+- Automatic adapter recovery is unavailable, so your adapters cannot be reset when they stop responding.
+- Connection parameters and management API commands will fail.
+- Raw advertising data will be missing, causing unreliable updates for your devices.
+- An error will appear in your logs: "Missing required permissions for Bluetooth management".
+
+{% enddetails %}
+
+{% details "Bluetooth connections fail on hosts that use AppArmor" %}
+
+On host systems that use [AppArmor](https://apparmor.net/), such as Ubuntu and Debian, Bluetooth can behave inconsistently: scanning keeps working, but connecting to a device or sending commands to it fails. Even when your container has the correct capabilities and access to the D-Bus socket, the default AppArmor profile that Docker applies can block the container from sending certain D-Bus messages to BlueZ. As a result, device connections and write operations fail while scanning continues to work.
+
+You might see the following symptoms:
+
+- Scanning finds nearby Bluetooth devices, and the adapter is detected.
+- The D-Bus socket is available inside the container.
+- Connecting to a device or sending commands to it fails.
+- An error appears in your logs: "An AppArmor policy prevents this sender from sending this message to this recipient".
+
+To resolve this, run the container without the default AppArmor profile.
+
+**Docker Compose:**
+```yaml
+security_opt:
+  - apparmor=unconfined
+```
+
+**Docker run:**
+```bash
+docker run --security-opt apparmor=unconfined ...
+```
+
+Combined with the required capabilities and the D-Bus socket, a typical configuration for local Bluetooth looks like this:
+
+```yaml
+network_mode: host
+volumes:
+  - /run/dbus:/run/dbus:ro
+cap_add:
+  - NET_ADMIN
+  - NET_RAW
+security_opt:
+  - apparmor=unconfined
+```
+
+{% note %}
+The `apparmor=unconfined` option disables the default AppArmor profile for the whole container, which is broader than allowing only D-Bus communication with BlueZ. If you want to keep AppArmor active, you can create a custom AppArmor profile that permits the container to communicate with BlueZ over D-Bus.
+{% endnote %}
 
 {% enddetails %}
 
