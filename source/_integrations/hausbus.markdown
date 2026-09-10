@@ -98,7 +98,6 @@ If no devices are discovered:
 
 For more information, visit the [HausBus website](https://www..de/).
 
-
 ## Removing the integration
 
 This integration follows standard integration removal.
