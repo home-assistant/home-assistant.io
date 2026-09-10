@@ -49,7 +49,7 @@ The **EARN-E P1 Meter** integration provides the following entities.
 - **Gas consumed**: Total gas consumed (m³)
 - **Wi-Fi RSSI**: Wi-Fi signal strength of the device (dBm)
 
-Home Assistant only creates entities for the values your meter broadcasts. If you have a single-phase meter, the phase 2 and phase 3 sensors are not created. Similarly, if no gas meter is connected to your smart meter, the **Gas consumed** sensor does not appear.
+Home Assistant only creates entities for the values your meter broadcasts. If you have a single-phase meter, the **Voltage phase 2**, **Voltage phase 3**, **Current phase 2**, and **Current phase 3** entities are not created. If no gas meter is connected to your smart meter, the **Gas consumed** entity does not appear.
 
 ## Prerequisites
 
