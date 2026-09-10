@@ -76,9 +76,9 @@ Receive a notification when the electricity usage price drops below your chosen 
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_notification.yaml" %}
 
-{% details "View blueprint YAML" %}
+{% details "View automation YAML" %}
 
-{% blueprint_yaml "blueprints/integrations/easyenergy_low_price_notification.yaml" %}
+{% blueprint_automation "blueprints/integrations/easyenergy_low_price_notification.yaml" price_sensor="sensor.easyenergy_today_energy_usage_current_hour_price" notification_entity="notify.mobile_app_your_phone" %}
 
 {% enddetails %}
 
@@ -88,9 +88,9 @@ Turn on a switch when the electricity usage price drops below your chosen thresh
 
 {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/easyenergy_low_price_switch.yaml" %}
 
-{% details "View blueprint YAML" %}
+{% details "View automation YAML" %}
 
-{% blueprint_yaml "blueprints/integrations/easyenergy_low_price_switch.yaml" %}
+{% blueprint_automation "blueprints/integrations/easyenergy_low_price_switch.yaml" price_sensor="sensor.easyenergy_today_energy_usage_current_hour_price" switch_entity="switch.dishwasher" %}
 
 {% enddetails %}
 
