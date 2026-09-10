@@ -59,7 +59,7 @@ The switch state follows the charging state reported by the charger.
 
 ### Number
 
-The **Charging current** number sets the maximum current the charger can use. The available range starts at 6 A and ends at the maximum reported by the charger. Home Assistant uses 32 A if the charger does not report a maximum.
+The **Charging current** number sets the maximum current the charger can use. The available range starts at 6&nbsp;A and ends at the maximum reported by the charger. Home Assistant uses 32&nbsp;A if the charger does not report a maximum.
 
 ### Sensors
 
