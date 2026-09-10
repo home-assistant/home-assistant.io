@@ -38,11 +38,11 @@ After setup, supported HausBus devices are created automatically.
 
 ## Supported functionality
 
-The **Haus-Bus** integration provides the following entities.
+The **** integration provides the following entities.
 
 ### Cover
 
-Each roller shutter channel on the Haus-Bus controller is exposed as a cover {% term entity %} with the shutter device class. The entity reports the current position as a percentage, whether the shutter is open or closed, and whether it is currently opening or closing.
+Each roller shutter channel on the  controller is exposed as a cover {% term entity %} with the shutter device class. The entity reports the current position as a percentage, whether the shutter is open or closed, and whether it is currently opening or closing.
 
 You can control each shutter with the following actions:
 
@@ -52,7 +52,7 @@ You can control each shutter with the following actions:
 - **Set position**: Moves the shutter to a specific position, from fully closed
   to fully open.
 
-The {% term entity %}  name comes from the channel name configured on the Haus-Bus hardware.
+The {% term entity %}  name comes from the channel name configured on the  hardware.
 ## HausBus automation examples
 
 ### Automation: Close the shutters at sunset
@@ -96,7 +96,7 @@ If no devices are discovered:
 - Verify that supported shutter channels are configured on the controller.
 - Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
-For more information, visit the [HausBus website](https://www.haus-bus.de/).
+For more information, visit the [HausBus website](https://www..de/).
 
 
 ## Removing the integration
