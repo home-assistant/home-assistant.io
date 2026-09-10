@@ -82,7 +82,7 @@ Make sure the shared-location link is still active in ScorpionTrack and that the
 
 ### No vehicles appear after setup
 
-Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. Home Assistant creates tracker entities for vehicles present in the share when the integration is set up or reloaded. If you add vehicles to the share later, reload or reconfigure the integration.
+Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. If you add vehicles to an existing share, Home Assistant creates their entities on the next successful update. You do not need to reload the integration.
 
 ### Download diagnostics
 
