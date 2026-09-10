@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **HausBus** {% term integration %} lets you connect [HausBus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
+The **Haus-Bus** {% term integration %} lets you connect [HausBus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
 
 ## Supported devices
 
