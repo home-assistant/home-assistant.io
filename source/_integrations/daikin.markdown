@@ -2,6 +2,7 @@
 title: Daikin AC
 description: Instructions on how to integrate Daikin AC devices with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Energy
   - Sensor
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: daikin
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - sensor
@@ -28,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Binary sensor](#binary-sensor)
 
 ## Supported hardware
 
@@ -149,6 +152,14 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
 
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
+
+## Binary sensor
+
+When your unit supports demand control, the integration creates a **Demand control** binary sensor. The sensor is **On** when the unit reports `en_demand` as `1`. The sensor attributes expose the raw demand control settings reported by the unit:
+
+- `en_demand`: Whether demand control is enabled. This value determines the binary sensor state.
+- `mode`: The demand control mode reported by the unit. When `mode` is `0` (manual), the `max_pow` attribute is included.
+- `max_pow`: The maximum power limit as a percentage of the unit's nominal power (only present when `mode` is `0`).
 
 ## Region changing
 
