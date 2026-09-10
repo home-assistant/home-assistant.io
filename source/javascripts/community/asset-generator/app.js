@@ -451,6 +451,9 @@ async function exportPng() {
       fontEmbedCSS,
     };
 
+    // html-to-image often drops the font and the embedded SVGs on its first
+    // pass, because those resources are only cached once a render finishes.
+    // Rendering twice and keeping the second result works around that.
     await htmlToImage.toPng(stageEl, options);
     const dataUrl = await htmlToImage.toPng(stageEl, options);
 
