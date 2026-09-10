@@ -43,7 +43,7 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 
 {% configuration_basic %}
 Enable user management:
-  description: "Register a second, administrator identity for Home Assistant, so it can list the people enrolled on your lock and turn each of them on or off. Both identities have to be registered during the same Master Card scan, so this can only be turned on while you set the lock up. Defaults to on."
+  description: "Register a second, administrator identity for Home Assistant, so it can list the people enrolled on your lock and turn each of them on or off. Both identities have to be registered during a Master Card scan. If you turn it off here, you can add it later with **Reconfigure**, which asks for the card again. Defaults to on."
 {% endconfiguration_basic %}
 
 ## Supported functionality
