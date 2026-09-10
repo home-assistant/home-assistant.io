@@ -10,6 +10,7 @@ ha_codeowners:
   - '@rrooggiieerr'
 ha_domain: my_pv
 ha_platforms:
+  - button
   - water_heater
 ha_integration_type: device
 ha_config_flow: true
