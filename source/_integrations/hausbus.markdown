@@ -1,5 +1,5 @@
 ---
-title: HausBus
+title: Haus-Bus
 description: Integrate HausBus controllers and devices with Home Assistant.
 ha_category:
   - Hub
