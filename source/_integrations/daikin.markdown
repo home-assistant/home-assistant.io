@@ -165,3 +165,5 @@ Currently known region codes:
 - TH
 
 If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).
+
+{% include integrations/actions.md %}

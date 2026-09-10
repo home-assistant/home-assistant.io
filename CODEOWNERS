@@ -1387,6 +1387,7 @@ source/_actions/cover.stop_cover.markdown @home-assistant/core
 source/_actions/cover.stop_cover_tilt.markdown @home-assistant/core
 source/_actions/cover.toggle.markdown @home-assistant/core
 source/_actions/cover.toggle_cover_tilt.markdown @home-assistant/core
+source/_actions/daikin.set_demand_control.markdown @fredrike
 source/_actions/date.set_value.markdown @home-assistant/core
 source/_actions/datetime.set_value.markdown @home-assistant/core
 source/_actions/debugpy.start.markdown @frenck
