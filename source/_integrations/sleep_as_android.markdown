@@ -77,7 +77,7 @@ Events related to the alarm clock feature.
 | `alert_start`       | Alarm started              |
 | `rescheduled`       | Alarm rescheduled          |
 | `skip_next`         | Alarm skipped              |
-| `snooze_clicked`    | Snoozing clicked           |
+| `snooze_clicked`    | Snoozing                   |
 | `snooze_canceled`   | Snoozing canceled          |
 
 ### Smart wake-up
