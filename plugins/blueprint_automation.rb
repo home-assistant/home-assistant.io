@@ -3,8 +3,9 @@ require 'safe_yaml'
 
 module Jekyll
   class BlueprintExampleTag < Liquid::Tag
-    SYNTAX = /^blueprint_url=(?:"([^"]+)"|'([^']+)')$/
-    LOCAL_BLUEPRINT_PREFIX = 'https://www.home-assistant.io/blueprints/integrations/'
+    SYNTAX = /^blueprint=(?:"([^"]+)"|'([^']+)')$/
+    LOCAL_BLUEPRINT_BASE_URL = 'https://www.home-assistant.io/blueprints/integrations/'
+    LOCAL_BLUEPRINT_PATH = /\A[A-Za-z0-9_\/.\-]+\.ya?ml\z/
 
     def initialize(tag_name, args, tokens)
       super
@@ -13,19 +14,21 @@ module Jekyll
         Syntax error in tag 'blueprint_example'.
 
         Valid syntax:
-          {% blueprint_example blueprint_url="https://www.home-assistant.io/blueprints/integrations/example.yaml" %}
+          {% blueprint_example blueprint="example.yaml" %}
+          {% blueprint_example blueprint="https://community.home-assistant.io/t/example/123" %}
       MSG
 
-      @blueprint_url = Regexp.last_match(1) || Regexp.last_match(2)
+      @blueprint = Regexp.last_match(1) || Regexp.last_match(2)
     end
 
     def render(context)
+      local_path = local_blueprint_path
+      blueprint_url = local_path ? "#{LOCAL_BLUEPRINT_BASE_URL}#{@blueprint}" : @blueprint
       import_badge = render_liquid(
         context,
-        %({% my blueprint_import badge blueprint_url="#{@blueprint_url}" %})
+        %({% my blueprint_import badge blueprint_url="#{blueprint_url}" %})
       )
 
-      local_path = local_blueprint_path
       return import_badge unless local_path
 
       <<~HTML
@@ -38,12 +41,9 @@ module Jekyll
     private
 
     def local_blueprint_path
-      return unless @blueprint_url.start_with?(LOCAL_BLUEPRINT_PREFIX)
+      return unless @blueprint.match?(LOCAL_BLUEPRINT_PATH)
 
-      relative_path = @blueprint_url.delete_prefix(LOCAL_BLUEPRINT_PREFIX)
-      return unless relative_path.match?(/\A[A-Za-z0-9_\/.\-]+\.ya?ml\z/)
-
-      "blueprints/integrations/#{relative_path}"
+      "blueprints/integrations/#{@blueprint}"
     end
 
     def render_automation_details(context, path)
