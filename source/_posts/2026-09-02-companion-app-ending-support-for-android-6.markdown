@@ -18,7 +18,7 @@ Here’s everything you need to know:
 
 ## Why we’re making the change
 
-At Home Assistant, we’re committed to helping you use your devices for the long haul. The phone or tablet you already own should keep working, which is why we try to keep the Companion app running on older Android versions for as long as we can. Every so often, though, the tools we build with move on without us.
+Helping you use your device for the long run is a commitment we take seriously. Home Assistant should continue to work on the phone or tablet you already own, which is why we try to keep the Companion app running on older Android versions for as long as we can. Every so often, though, the tools we build with move on without us.
 
 The app is built on [Jetpack](https://developer.android.com/jetpack), Google’s collection of core Android libraries. Google is raising the minimum requirement for many of those libraries from Android 6.0 (API 23, released in 2015) to Android 7.0 (API 24, released in 2016). We heavily depend on Jetpack libraries, so continuing to support Android 6.0 would mean staying on older versions of those libraries and giving up the fixes, features, and security updates that come with them. This is the same reason we [ended support for Android 5.0 and 5.1](/blog/2025/07/23/companion-app-for-android/) last year.
 
