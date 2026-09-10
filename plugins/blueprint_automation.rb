@@ -1,7 +1,75 @@
 require 'cgi'
 require 'safe_yaml'
+require 'uri'
 
 module Jekyll
+  class BlueprintExampleTag < Liquid::Tag
+    SYNTAX = /^blueprint_url=(?:"([^"]+)"|'([^']+)')$/
+    LOCAL_BLUEPRINT_PREFIX = 'https://www.home-assistant.io/blueprints/integrations/'
+
+    def initialize(tag_name, args, tokens)
+      super
+
+      raise SyntaxError, <<~MSG unless args.strip =~ SYNTAX
+        Syntax error in tag 'blueprint_example'.
+
+        Valid syntax:
+          {% blueprint_example blueprint_url="https://www.home-assistant.io/blueprints/integrations/example.yaml" %}
+      MSG
+
+      @blueprint_url = Regexp.last_match(1) || Regexp.last_match(2)
+    end
+
+    def render(context)
+      import_badge = render_liquid(
+        context,
+        %({% my blueprint_import badge blueprint_url="#{@blueprint_url}" %})
+      )
+
+      local_path = local_blueprint_path
+      return import_badge unless local_path
+
+      <<~HTML
+        <p>Use the blueprint to create this automation in Home Assistant. If you prefer to configure it manually, you can also use the automation YAML below.</p>
+        #{import_badge}
+        #{render_automation_details(context, local_path)}
+      HTML
+    end
+
+    private
+
+    def local_blueprint_path
+      return unless @blueprint_url.start_with?(LOCAL_BLUEPRINT_PREFIX)
+
+      relative_path = @blueprint_url.delete_prefix(LOCAL_BLUEPRINT_PREFIX)
+      return unless relative_path.match?(/\A[A-Za-z0-9_\/.\-]+\.ya?ml\z/)
+
+      "blueprints/integrations/#{relative_path}"
+    end
+
+    def render_automation_details(context, path)
+      render_liquid(
+        context,
+        <<~LIQUID
+          {% details "Automation YAML" %}
+
+          Replace the placeholder values with entities from your Home Assistant instance.
+
+          {% blueprint_automation "#{path}" %}
+
+          {% enddetails %}
+        LIQUID
+      )
+    end
+
+    def render_liquid(context, source)
+      Liquid::Template.parse(source).render!(
+        context.environments.first || {},
+        registers: context.registers
+      )
+    end
+  end
+
   class BlueprintAutomationTag < Liquid::Tag
     SYNTAX = /^(?:"|')(blueprints\/integrations\/[A-Za-z0-9_\/.\-]+\.ya?ml)(?:"|')$/
 
@@ -25,7 +93,7 @@ module Jekyll
       blueprint_path = File.expand_path(File.join(source, @path))
 
       unless blueprint_path.start_with?("#{blueprint_root}#{File::SEPARATOR}")
-        raise Jekyll::Errors::FatalException, "Blueprint path must be inside source/blueprints/integrations"
+        raise Jekyll::Errors::FatalException, 'Blueprint path must be inside source/blueprints/integrations'
       end
 
       source_yaml = File.read(blueprint_path)
@@ -78,4 +146,5 @@ module Jekyll
   end
 end
 
+Liquid::Template.register_tag('blueprint_example', Jekyll::BlueprintExampleTag)
 Liquid::Template.register_tag('blueprint_automation', Jekyll::BlueprintAutomationTag)
