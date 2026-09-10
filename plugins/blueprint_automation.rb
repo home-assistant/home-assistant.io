@@ -1,6 +1,5 @@
 require 'cgi'
 require 'safe_yaml'
-require 'uri'
 
 module Jekyll
   class BlueprintExampleTag < Liquid::Tag
