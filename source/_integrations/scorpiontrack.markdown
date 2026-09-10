@@ -88,6 +88,16 @@ Confirm that the ScorpionTrack share still includes vehicles and that the share 
 
 If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached data and does not make another request to ScorpionTrack. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
 
+## Removing a vehicle
+
+After removing a vehicle from the ScorpionTrack share, wait for a successful update in Home Assistant. The vehicle's entities become unavailable, but the device is kept until you choose to delete it.
+
+To delete the device, go to {% my integration domain="scorpiontrack" title="**Settings** > **Devices & services** > **ScorpionTrack**" %}, open the vehicle, and select **Delete** from the {% icon "mdi:dots-vertical" %} menu. Deletion is only allowed when the latest update succeeded and the vehicle is no longer in the share. A vehicle that is still shared cannot be deleted, even if its location is unavailable.
+
+Deleting the device also removes its entities from Home Assistant. It does not delete the vehicle from your ScorpionTrack account.
+
+If you later add that vehicle back to the share, reload the integration to create its device and entities again.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
