@@ -39,6 +39,7 @@ Under normal circumstances, Home Assistant automatically discovers your running 
 There is currently support for the following Home Assistant Platforms:
 
 - [Media player](#media-player-entities)
+- [Dashboards](#dashboards)
 - [Button](#favorite-current-song-button)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
@@ -65,6 +66,31 @@ Streaming provider URLs can be obtained from the web interface of the provider.
 
 The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements, and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
 
+### Dashboards
+
+Music Assistant can show dashboards, such as a party queue or a "Now playing" screen, on display devices like a Chromecast running the Music Assistant receiver, a Fully Kiosk browser, or an Apple TV. Each display becomes its own Home Assistant device (a "Dashboard display") with a single media player entity, using the `tv` device class. Displays only show up while their provider is running; a browser tab open on the Music Assistant web interface is not a display device.
+
+To show a dashboard, call `media_player.play_media` with `media_content_type` set to `dashboard` and `media_content_id` set to `party`, `music_quiz`, or `now_playing/<player id>` (using the ID of the Music Assistant player to show). For example:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.kitchen_display
+data:
+  media_content_type: dashboard
+  media_content_id: now_playing/00:00:00:00:00:01
+```
+
+You can also pick a dashboard from the entity's media browser. It lists the dashboards the display supports, with a "Now playing" folder to pick which Music Assistant player to show.
+
+To hide the dashboard again, call `media_player.turn_off`. This is safe to call even when nothing is shown, or when the display has disconnected.
+
+While a dashboard is shown, the entity's state is `playing`, with the dashboard's name and artwork as the media title and image. It returns to `idle` when nothing is shown, and becomes `unavailable` if the display disconnects.
+
+Showing an unknown or unsupported dashboard, or using `now_playing` without a player, returns a clear error message.
+
+This feature requires a recent Music Assistant server.
+
 ### Favorite current song button
 
 The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
@@ -72,10 +98,6 @@ The Music Assistant integration creates a button entity for each player to favor
 ### Player options
 
 If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
-
-### Dashboards
-
-Music Assistant dashboards can be shown on display devices, such as Chromecasts, Fully Kiosk browsers, and open Music Assistant web clients, from an automation. Available dashboards are party, now playing, and music quiz. Use the [Get dashboards](/actions/music_assistant.get_dashboards/) action to list the available display devices, then use the [Show dashboard](/actions/music_assistant.show_dashboard/) and [Hide dashboard](/actions/music_assistant.hide_dashboard/) actions to control what's shown.
 
 {% include integrations/actions.md %}
 
