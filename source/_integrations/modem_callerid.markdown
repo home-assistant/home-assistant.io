@@ -17,9 +17,9 @@ ha_integration_type: device
 
 The **Phone Modem** {% term integration %} uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.
 
-When a call is detected, the sensor changes to `ring`. Caller ID information can arrive separately from the ring event. When it is received, the sensor changes to `callerid`, and the available caller ID information is exposed in the `cid_name`, `cid_number`, and `cid_time` attributes. The sensor returns to `idle` once ringing stops.
+When a call is detected, the sensor changes to `ring`. Caller ID information is reported separately and may not yet be available while the sensor is in the `ring` state. Once caller ID information is received, the sensor changes to `callerid`, and the available information is exposed in the `cid_name`, `cid_number`, and `cid_time` attributes. The sensor returns to `idle` once ringing stops.
 
-If you want to trigger an automation using the caller's name or number, trigger on the `callerid` state rather than `ring`, so the caller ID attributes are available to the automation.
+Automations that use the caller's name or number should therefore trigger on the `callerid` state rather than `ring`.
 
 This integration also offers a button to pick up and then hang up the call to properly reject it (via ATA and ATH).
 
