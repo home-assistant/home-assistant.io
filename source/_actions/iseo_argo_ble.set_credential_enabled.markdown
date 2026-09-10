@@ -31,7 +31,7 @@ To suspend or restore a credential from an automation or a script:
 
 {% options_ui %}
 Enabled:
-  description: Whether the credential may open the lock. Turn it off to suspend the credential, and on to restore it.
+  description: Whether the credential is allowed to open the lock. Turn it off to suspend the credential, and on to restore it along with any validity period it had.
   required: true
 {% endoptions_ui %}
 
@@ -61,8 +61,9 @@ entity_id:
   type: string
 enabled:
   description: >
-    Whether the credential may open the lock. Set it to false to suspend the
-    credential, and true to restore it.
+    Whether the credential is allowed to open the lock. Set it to false to
+    suspend the credential, and true to restore it along with any validity
+    period it had.
   required: true
   type: boolean
 {% endoptions_yaml %}
@@ -72,7 +73,7 @@ enabled:
 - Changing a credential connects to the lock over Bluetooth. Close the Argo app on all phones first, because the lock only accepts one connection at a time.
 - If the lock is out of Bluetooth range, the action reports an error and nothing changes on the lock.
 - Suspending a credential does not remove it. To remove one for good, use the [**Delete credential**](/actions/iseo_argo_ble.delete_credential/) action instead.
-- A credential that is only valid for a period — an invitation, or a guest card with an end date — keeps that period when you restore it. Home Assistant remembers the window it read from the lock and puts it back.
+- A credential that is only valid for a period — an invitation, or a guest card with an end date — keeps that period when you restore it. Home Assistant remembers the window it read from the lock and puts it back. Restoring it does not extend that period, so a credential whose period has already passed still will not open the door.
 - A credential that was already suspended before Home Assistant first read the lock cannot be restored from here, because its original period is no longer on the lock to read. Restore it in the Argo app, which set it that way.
 
 {% include actions/try_it.md %}

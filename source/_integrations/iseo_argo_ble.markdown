@@ -49,9 +49,11 @@ Enable user management:
 ## Supported functionality
 
 - **Lock**: Controls the lock (unlock only). Reflects the current locked/unlocked state.
-- **Credential binary sensors**: One binary sensor per credential enrolled on the lock, such as a card, a PIN, or a phone. Each shows whether that credential may currently open the door. These binary sensors are only created if user management is enabled.
+- **Credential binary sensors**: One binary sensor per credential enrolled on the lock, such as a card, a PIN, or a phone. Each shows whether that credential is suspended: **on** means nobody has suspended it, **off** means someone has. These binary sensors are only created if user management is enabled.
 
 The credential type is part of each binary sensor's name, because one person often holds several and the lock allows them to share a name. The two identities Home Assistant registered for itself do not get binary sensors, so you cannot lock yourself out of your own lock.
+
+A credential can also carry a validity period of its own — an invitation, or a guest card that runs to the end of the month. The lock keeps that separately from the suspension, so a credential whose period has passed still shows as **on**: it is not suspended, it has simply run out. Only the suspension is reported here.
 
 The binary sensors are read-only. To suspend or restore a credential, use the [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) action, and to remove one for good, use [**Delete credential**](/actions/iseo_argo_ble.delete_credential/). Both are limited to Home Assistant administrators.
 

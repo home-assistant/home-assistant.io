@@ -56,6 +56,7 @@ entity_id:
 
 - The credential's sensor is removed from Home Assistant once the lock confirms the deletion, because neither the credential nor the sensor comes back on its own.
 - The two identities Home Assistant enrolled for itself have no sensors, so this action cannot remove Home Assistant's own access to the lock.
+- A gateway enrolled by something else — another home automation system, for instance — does get a sensor, but cannot be deleted from here. The lock only erases a gateway while a Master Card is being scanned on it, which Home Assistant cannot ask for, so the action reports an error. Remove it in the Argo app instead. Suspending it from [**Set credential enabled**](/actions/iseo_argo_ble.set_credential_enabled/) does work.
 - Deleting connects to the lock over Bluetooth. Close the Argo app on all phones first, because the lock only accepts one connection at a time.
 - If the lock is out of Bluetooth range, the action reports an error and nothing is removed.
 
