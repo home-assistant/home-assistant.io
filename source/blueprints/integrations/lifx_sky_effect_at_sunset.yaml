@@ -1,0 +1,71 @@
+blueprint:
+  name: Start the LIFX Sky effect at sunset
+  description: >
+    Start the Sky effect on a LIFX Ceiling, Luna, Tube, or E26 Candle Color
+    light when the sun sets.
+
+    The effect keeps running until you stop it. Use the LIFX **Stop effect**
+    action to return the light to normal control.
+  domain: automation
+  author: Djelibeybi
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    lifx_lights:
+      name: LIFX lights
+      description: >
+        The lights that run the Sky effect. Only LIFX Ceiling, Luna, Tube,
+        and E26 Candle Color lights running firmware 4.0 or later support
+        this effect.
+      selector:
+        target:
+          entity:
+            - integration: lifx
+              domain: light
+
+    sky_type:
+      name: Sky type
+      description: The style of sky to animate.
+      default: Sunset
+      selector:
+        select:
+          options:
+            - Clouds
+            - Sunrise
+            - Sunset
+
+    speed:
+      name: Speed
+      description: >
+        For the Sunrise and Sunset sky types, how long the effect takes to
+        complete. For the Clouds sky type, how fast the clouds move across
+        the light.
+      default: 120
+      selector:
+        number:
+          min: 1
+          max: 3600
+          unit_of_measurement: seconds
+          mode: box
+
+    sunset_offset:
+      name: Sunset offset
+      description: >
+        How long to wait after sunset before the effect starts. Use a
+        negative value, such as -00:30:00, to start the effect before sunset.
+      default: "00:00:00"
+      selector:
+        text:
+
+triggers:
+  - trigger: sun
+    event: sunset
+    offset: !input sunset_offset
+
+actions:
+  - action: lifx.effect_sky
+    target: !input lifx_lights
+    data:
+      sky_type: !input sky_type
+      speed: !input speed

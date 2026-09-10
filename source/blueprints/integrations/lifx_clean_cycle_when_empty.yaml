@@ -1,0 +1,60 @@
+blueprint:
+  name: Run a LIFX Clean cycle when everyone leaves
+  description: >
+    Start a Clean cycle using the HEV LEDs on one or more LIFX Clean lights
+    once the last person leaves the selected zone.
+
+    Only LIFX Clean lights have HEV LEDs. The recommended minimum duration
+    for a Clean cycle is 2 continuous hours.
+  domain: automation
+  author: Djelibeybi
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    zone_entity:
+      name: Zone
+      description: >
+        The zone to watch. The cycle starts when the number of people in this
+        zone drops to zero.
+      default: zone.home
+      selector:
+        entity:
+          filter:
+            - domain: zone
+
+    lifx_lights:
+      name: LIFX Clean lights
+      description: >
+        The LIFX Clean lights that run the cycle.
+      selector:
+        target:
+          entity:
+            - integration: lifx
+              domain: light
+
+    cycle_duration:
+      name: Cycle duration
+      description: The length of time the Clean cycle will run.
+      default: 120
+      selector:
+        number:
+          min: 5
+          max: 240
+          unit_of_measurement: minutes
+          mode: slider
+
+variables:
+  cycle_duration: !input cycle_duration
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input zone_entity
+    below: 1
+
+actions:
+  - action: lifx.set_hev_cycle_state
+    target: !input lifx_lights
+    data:
+      power: true
+      duration: "{{ cycle_duration | int * 60 }}"

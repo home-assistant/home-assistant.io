@@ -1,0 +1,93 @@
+blueprint:
+  name: Flash LIFX lights when something happens
+  description: >
+    Run the LIFX pulse effect on one or more lights when a sensor turns on,
+    such as a doorbell button, a door sensor, or a motion sensor.
+
+    Useful as a visual signal when you can't hear a sound, for example when
+    the doorbell rings or a door is left open.
+  domain: automation
+  author: Djelibeybi
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    trigger_entity:
+      name: Sensor
+      description: >
+        The sensor that starts the effect. The effect runs when this sensor
+        turns on, for example when a doorbell button is pressed.
+      selector:
+        entity:
+          filter:
+            - domain: binary_sensor
+
+    lifx_lights:
+      name: LIFX lights
+      description: >
+        The LIFX lights that run the pulse effect. You can select an area, a
+        device, or individual light entities.
+      selector:
+        target:
+          entity:
+            - integration: lifx
+              domain: light
+
+    effect_mode:
+      name: Mode
+      description: >
+        How the color changes. Breathe fades to the color and back, blink
+        switches straight to it, and strobe turns the light off between
+        color changes.
+      default: breathe
+      selector:
+        select:
+          options:
+            - blink
+            - breathe
+            - ping
+            - strobe
+            - solid
+
+    color_name:
+      name: Color
+      description: >
+        The color to flash. Select one of the listed colors or enter another
+        color name.
+      default: white
+      selector:
+        select:
+          custom_value: true
+          options:
+            - blue
+            - green
+            - orange
+            - pink
+            - purple
+            - red
+            - white
+            - yellow
+
+    cycles:
+      name: Cycles
+      description: How many times the effect runs.
+      default: 3
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: slider
+
+triggers:
+  - trigger: state
+    entity_id: !input trigger_entity
+    from: "off"
+    to: "on"
+
+actions:
+  - action: lifx.effect_pulse
+    target: !input lifx_lights
+    data:
+      mode: !input effect_mode
+      color_name: !input color_name
+      cycles: !input cycles
