@@ -21,6 +21,13 @@ ha_quality_scale: silver
 
 The **HAVEN IAQ** {% term integration %} connects supported [HAVEN IAQ](https://haveniaq.com/) air quality monitors to Home Assistant over your local network. Depending on the device, the integration provides indoor air quality and airflow measurements.
 
+## Supported devices
+
+The integration supports the following HAVEN IAQ products:
+
+- Room Air Monitor
+- Central Air Monitor
+
 ## Prerequisites
 
 - Connect the HAVEN IAQ device and Home Assistant to the same local network.
@@ -38,13 +45,6 @@ Home Assistant discovers compatible devices automatically. If a device is not di
 Host:
   description: "The hostname or IP address of the HAVEN IAQ device."
 {% endconfiguration_basic %}
-
-## Supported devices
-
-The integration supports the following HAVEN IAQ products:
-
-- Room Air Monitor
-- Central Air Monitor
 
 ## Supported functionality
 
