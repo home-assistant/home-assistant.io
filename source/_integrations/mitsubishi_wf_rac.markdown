@@ -3,7 +3,7 @@ title: Mitsubishi WF-RAC
 description: Instructions on how to integrate Mitsubishi Heavy Industries air conditioners with a WF-RAC module into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -13,6 +13,7 @@ ha_platforms:
   - climate
 ha_zeroconf: true
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Mitsubishi WF-RAC** {% term integration %} controls Mitsubishi Heavy Industries air conditioners fitted with the WF-RAC wireless LAN module (sold as part number WF-RAC, and marketed with the Smart M-Air app).
@@ -161,16 +162,16 @@ automation: |
 
 ## Data updates
 
-The integration polls each module every 60 seconds over the local network. A command you send is applied immediately rather than waiting for the next poll.
+The integration {% term polling polls %} each module every 60 seconds over the local network. A command you send is applied immediately rather than waiting for the next poll.
 
 Commands issued together are coalesced into a single frame, because the module accepts one connection at a time and expects about a second between requests. A scene that sets the mode, the temperature and the fan speed at once therefore reaches the unit as one write rather than three. Actions issued one after another, each waiting for its own result, are sent separately.
 
 ## Known limitations
 
-- **The unit briefly goes unavailable about once an hour.** The module reassociates with your Wi-Fi on its own; the integration tolerates three failed polls in a row to ride through it. This is the module's behavior, not a network fault.
-- **Only one controller writes at a time.** The module grants a 60-second exclusive write lease to whoever wrote last. A command sent while somebody else holds it, typically the manufacturer's app, is refused and retried once when the lease lapses.
-- **The current temperature is measured at the return air grille**, above the unit and inside its own airflow, so it reads differently from a thermostat placed in the room.
-- **A limited number of controllers can be registered** on a module at once. Home Assistant occupies one slot.
+- The unit briefly goes unavailable about once an hour. The module reassociates with your Wi-Fi on its own. The integration tolerates three failed polls in a row to ride through it. This is the module's behavior, not a network fault.
+- Only one controller writes at a time. The module grants a 60-second exclusive write lease to whoever wrote last. A command sent while somebody else holds it, typically the manufacturer's app, is refused and retried once when the lease lapses.
+- The current temperature is measured at the return air grille, above the unit and inside its own airflow, so it reads differently from a thermostat placed in the room.
+- A limited number of controllers can be registered on a module at once. Home Assistant occupies one slot.
 
 ## Troubleshooting
 
