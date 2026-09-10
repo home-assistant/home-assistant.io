@@ -173,7 +173,9 @@ task :meetups_data do
 
     now = Time.now.utc
     upcoming = events
-      .select { |event| event['url'].is_a?(String) && !event['url'].empty? }
+      # Only keep web links: the URL ends up in an href on the community page,
+      # so schemes such as javascript: must never make it into the data file.
+      .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
       .select do |event|
         begin
           Time.parse(event['end'] || event['start']).utc >= now
