@@ -4,10 +4,10 @@ description: Integration to control Dyson fans and heater/coolers using an infra
 ha_category:
   - Climate
   - Fan
-ha_release: "2026.8"
+ha_release: '2026.8'
 ha_iot_class: Assumed State
 ha_codeowners:
-  - "@elax46"
+  - '@elax46'
 ha_domain: dyson_infrared
 ha_config_flow: true
 ha_platforms:

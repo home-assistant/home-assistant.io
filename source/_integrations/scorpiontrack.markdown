@@ -11,12 +11,13 @@ ha_domain: scorpiontrack
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: hub
 ha_codeowners:
   - '@Herbertmt978'
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location, speed, and ignition state of vehicles that have been shared through a public ScorpionTrack shared-location link.
@@ -55,7 +56,9 @@ The **ScorpionTrack** integration creates one device for each vehicle included i
 
 - A {% term "device tracker" %} entity that represents the vehicle on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share.
 - A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
+- A **Last reported** diagnostic sensor entity that shows when the vehicle last reported its position through the share.
 - An **Ignition** binary sensor entity that shows the latest ignition state reported through the share.
+- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is disabled by default.
 
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
@@ -79,7 +82,11 @@ Make sure the shared-location link is still active in ScorpionTrack and that the
 
 ### No vehicles appear after setup
 
-Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. Home Assistant creates tracker entities for vehicles present in the share when the integration is set up or reloaded. If you add vehicles to the share later, reload or reconfigure the integration.
+Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. If you add vehicles to an existing share, Home Assistant creates their entities on the next successful update. You do not need to reload the integration.
+
+### Download diagnostics
+
+If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached data and does not make another request to ScorpionTrack. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
 
 ## Removing the integration
 

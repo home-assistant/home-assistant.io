@@ -6,6 +6,7 @@ on:
 
 jobs:
   stale:
+    if: ${{ github.repository_owner == 'home-assistant' }}
     permissions:
       actions: write
       issues: write
@@ -13,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
-        if: ${{ github.repository_owner == 'home-assistant' }}
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-stale: 60

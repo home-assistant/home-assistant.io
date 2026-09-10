@@ -12,8 +12,11 @@ ha_codeowners:
 ha_domain: vizio
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - media_player
   - remote
+  - sensor
 ha_integration_type: device
 ---
 
@@ -186,6 +189,17 @@ data:
 ```
 
 {% include integrations/actions.md %}
+
+### Crave portable speakers
+
+Battery-powered VIZIO Crave portable speakers (Crave Go, Crave 360, and Crave Pro) are supported as speakers. When a speaker is set up, the integration automatically detects whether it is a Crave model — no extra configuration is needed. Speakers that were set up before this detection existed are re-checked the next time the integration loads.
+
+Crave speakers additionally provide two diagnostic entities:
+
+- **Battery**: the current battery level as a percentage.
+- **Charging**: on while the battery is charging. A fully charged speaker is no longer drawing charge and reports off, so use the battery level to tell when it is full.
+
+Both show as `unknown` while the speaker is turned off.
 
 ## VIZIO SmartCast automation examples
 
