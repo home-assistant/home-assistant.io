@@ -16,7 +16,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Haus-Bus** {% term integration %} lets you connect [HausBus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the HausBus controller and automatically discovers supported devices on the bus.
+The **Haus-Bus** {% term integration %} lets you connect [Haus-Bus](https://www.haus-bus.de/) controllers and devices to Home Assistant. It communicates locally with the Haus-Bus controller and automatically discovers supported devices on the bus.
 
 ## Supported devices
 
@@ -26,15 +26,15 @@ The **Haus-Bus** {% term integration %} lets you connect [HausBus](https://www.h
 
 Before setting up the integration:
 
-- A supported HausBus controller must be installed and running on the local network.
+- A supported Haus-Bus controller must be installed and running on the local network.
 - The controller must be reachable from Home Assistant.
-- At least one supported HausBus shutter channel must be configured on the controller.
+- At least one supported Haus-Bus shutter channel must be configured on the controller.
 
 {% include integrations/config_flow.md %}
 
-During setup, Home Assistant searches your local network for a HausBus controller. This can take a moment. If a controller is found, setup completes automatically. If no controller is found within the search period, you can retry the search.
+During setup, Home Assistant searches your local network for a Haus-Bus controller. This can take a moment. If a controller is found, setup completes automatically. If no controller is found within the search period, you can retry the search.
 
-After setup, supported HausBus devices are created automatically.
+After setup, supported Haus-Bus devices are created automatically.
 
 ## Supported functionality
 
@@ -53,7 +53,7 @@ You can control each shutter with the following actions:
   to fully open.
 
 The {% term entity %}  name comes from the channel name configured on the  hardware.
-## HausBus automation examples
+## Haus-Bus automation examples
 
 ### Automation: Close the shutters at sunset
 
@@ -91,12 +91,12 @@ automations:
 
 If no devices are discovered:
 
-- Verify that the HausBus controller is connected to the local network.
+- Verify that the Haus-Bus controller is connected to the local network.
 - Verify that Home Assistant can reach the controller.
 - Verify that supported shutter channels are configured on the controller.
 - Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
-For more information, visit the [HausBus website](https://www..de/).
+For more information, visit the [Haus-Bus website](https://www..de/).
 
 ## Removing the integration
 
@@ -104,4 +104,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-Removing the integration does not modify the configuration of the HausBus controller or connected HausBus devices.
+Removing the integration does not modify the configuration of the Haus-Bus controller or connected Haus-Bus devices.
