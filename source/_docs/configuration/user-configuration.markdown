@@ -63,7 +63,8 @@ User preferences are tied to your account and follow you across the devices you 
 
 1. Go to {% my profile title="**User profile**" %} and, under **Theme**, select the theme you want to use.
 2. Go to {% my profile_preferences title="**User profile** > **Appearance**" %} and, under **Default dashboard**, choose the dashboard that opens when you start Home Assistant.
-3. To change which items appear in the sidebar and in what order, select **Edit** next to **Change the order and hide items from the sidebar**.
+3. Under **Color negative numeric states**, enable the setting to show negative numeric states in red on standard dashboard cards and widgets. The setting is disabled by default.
+4. To change which items appear in the sidebar and in what order, select **Edit** next to **Change the order and hide items from the sidebar**.
 
 #### Changing your localization settings
 
