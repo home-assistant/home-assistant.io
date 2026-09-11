@@ -106,7 +106,7 @@ On every restart, the integration first tries the saved access token and only si
 
 Because `.matrix.conf` starts with a dot, some backup and file copy tools skip it. Include it when you back up, move, or rebuild your installation, so that the integration keeps its session.
 
-#### Homeservers that don't allow password sign-in
+#### Setting up authentication with an access token
 
 Some homeservers don't allow accounts to sign in with a password at all. This is the case, for example, on a homeserver that uses Matrix Authentication Service together with an external single sign-on provider, and has password sign-in turned off.
 
