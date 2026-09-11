@@ -148,7 +148,7 @@ The binary sensors follow the connection to your device's event stream. While th
 
 ## Event
 
-Some Hikvision devices classify what triggered a smart event, so you can tell a person from a passing car. The integration creates an event entity for each of these event types on each channel:
+Some Hikvision devices classify what triggered a smart event, so you can tell a person from a passing car. The integration creates an event entity for each of these kinds of events on each channel:
 
 - Motion
 - Line crossing
