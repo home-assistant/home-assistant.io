@@ -543,6 +543,50 @@ dd {
   box-shadow: inset 0px -5px rgba($white, .5);
 }
 
+// Call-to-action pill in the main menu, matching the homepage hero button.
+// Declared after the .dark hover rules so it wins the equal-specificity tie.
+.menu>li>a.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  // Sits the pill's label on the same line as the other menu items, whose
+  // 29px top padding puts their text centre 2px below the bar's centre.
+  margin: 19px 14px 15px;
+  background: $link-color;
+  border-radius: 32px;
+  color: $white;
+  font-family: $heading-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color .33s;
+
+  &:hover,
+  &:focus {
+    padding: 10px 16px;
+    margin: 19px 14px 15px;
+    background: $primary-color;
+    box-shadow: none;
+    color: $white;
+  }
+
+  // Keep the same pill in the collapsed menu. That menu sets its own width,
+  // padding and margin with !important, so the pill has to answer in kind.
+  @media only screen and (max-width: $menu-collapse) {
+    width: auto;
+    padding: 12px 20px !important;
+    // Symmetric so the pill centres against the search button beside it.
+    margin: 12px 24px !important;
+
+    &:hover,
+    &:focus {
+      background: $primary-color;
+      box-shadow: none;
+      color: $white;
+    }
+  }
+}
+
 .site-header {
   position: relative;
 

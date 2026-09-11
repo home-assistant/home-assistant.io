@@ -32,9 +32,13 @@ body {
 .toggle {
   display: none;
 }
+// Laid out with flexbox rather than floats so the visual order of individual
+// items can differ between the desktop bar and the collapsed menu.
+.menu {
+  display: flex;
+}
 .menu li {
   list-style: none;
-  float: left;
 }
 
 // @media only screen and (max-width: $lap-end){
@@ -70,8 +74,11 @@ body {
     -webkit-user-select: none;
     user-select: none;
   }
+  // A wrapping row rather than a column: items are full width so they each
+  // take a line, which lets the search and call to action opt out and pair up.
   #toggle:checked ~ .menu {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     opacity: 1;
     z-index: 999;
   }
@@ -218,5 +225,34 @@ header .grid {
     top: 0;
     box-shadow: none;
     margin-left: 24px;
+  }
+
+  // Lift search and the call to action to the top of the collapsed menu and
+  // sit them side by side. They share an order value so they keep their
+  // source order relative to each other, and width: auto opts them out of the
+  // full-width rule above so both fit on one line.
+  .menu > .nav-search,
+  .menu > .nav-cta {
+    width: auto;
+    align-self: center;
+  }
+
+  .menu > .nav-search{
+    order: -1;
+  }
+
+  .menu > .nav-cta {
+    order: -2;
+  }
+
+  .menu > .nav-search .docsearch {
+    width: auto;
+  }
+
+  // The DocSearch button carries its own 24px side margins on small screens,
+  // which pushes the icon away from the call to action sitting next to it.
+  .menu > .nav-search .DocSearch-Button {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
