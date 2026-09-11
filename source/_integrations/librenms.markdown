@@ -3,12 +3,14 @@ title: LibreNMS
 description: Instructions on how to integrate a LibreNMS instance into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Sensor
 ha_release: 2026.9
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_domain: librenms
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
@@ -43,6 +45,19 @@ The following {% term binary_sensor %} entities are created.
 | Entity | Description | Default enabled |
 | --- | --- | --- |
 | **Status** | Shows the status if the device is connected or not | ✅ |
+
+## Sensors
+
+The following {% term sensor %} entities are created.
+
+| Entity | Description | Default enabled |
+| --- | --- | --- |
+| **Database version** | Shows the version of the database used by the libreNMS instance | ❌ |
+| **NetSNMP version** | Shows the version of the NetSNMP client used by the libreNMS instance | ❌ |
+| **PHP version** | Shows the version of the PHP used by the libreNMS instance | ❌ |
+| **RRDTool version** | Shows the version of the RRDTool used by the libreNMS instance | ❌ |
+| **Python version** | Shows the version of the Python used by the libreNMS instance | ❌ |
+| **Total device count** | Shows the total count of by the libreNMS instance monitored devices | ✅ |
 
 ## Troubleshooting
 
