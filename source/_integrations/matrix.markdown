@@ -116,6 +116,7 @@ In this case, the integration can't sign in with single sign-on, but it works wi
 
    - On a homeserver that uses [Matrix Authentication Service](https://element-hq.github.io/matrix-authentication-service/), an administrator can create a long-lived compatibility token with the [`mas-cli manage issue-compatibility-token`](https://element-hq.github.io/matrix-authentication-service/reference/cli/manage.html#manage-issue-compatibility-token) command. It takes the local part of the Matrix ID, for example `my_matrix_bot`, and not the full Matrix ID. The token is shown only once, so copy it right away.
    - On a Synapse homeserver without Matrix Authentication Service, an administrator can use the [login as a user](https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#login-as-a-user) admin API. By default, the tokens it returns do not expire.
+
     {% important %}
     
     **Risk of unauthorized account access**
@@ -127,6 +128,7 @@ In this case, the integration can't sign in with single sign-on, but it works wi
     - Store the token as securely as a password.
     - If the token is ever exposed, end that session on your homeserver and create a new token.
     {% endimportant %}
+    
 2. Create or edit the file `.matrix.conf` in your configuration directory. It holds one entry per Matrix ID:
 
    ```json
