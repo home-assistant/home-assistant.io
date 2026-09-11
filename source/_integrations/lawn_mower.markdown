@@ -23,7 +23,7 @@ A lawn mower entity can have the following states:
 - **Mowing**: The lawn mower is currently mowing.
 - **Docked**: The lawn mower is done mowing and is currently docked.
 - **Paused**: The lawn mower was active and is now paused.
-- **Idle**: The lawn mower is stopped, not docked, and does not have any errors.
+- **Idle**: The lawn mower is stopped, not docked, not paused, and does not have any errors.
 - **Returning**: The lawn mower is returning to the dock.
 - **Error**: The lawn mower encountered an error while active and needs assistance.
 - **Unavailable**: The entity is currently unavailable.
