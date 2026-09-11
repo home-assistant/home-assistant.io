@@ -19,6 +19,7 @@ blueprint:
           filter:
             - integration: minecraft_server
               domain: sensor
+              unit_of_measurement: players
 
     actions:
       name: Actions
@@ -34,7 +35,7 @@ blueprint:
             message: |
               Players: {{ trigger.to_state.state }}
               Players list: {{ state_attr(trigger.entity_id, 'players_list') | join(', ') if state_attr(trigger.entity_id, 'players_list') else 'n/a' }}
-            notification_id: "minecraft_server_player_count_changed"
+            notification_id: "minecraft_server_player_count_changed_{{ trigger.entity_id }}"
 
 mode: single
 

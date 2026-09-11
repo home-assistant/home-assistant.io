@@ -17,6 +17,7 @@ blueprint:
           filter:
             - integration: minecraft_server
               domain: sensor
+              unit_of_measurement: ms
 
     latency_threshold:
       name: Latency threshold
@@ -52,7 +53,7 @@ blueprint:
           data:
             title: "Minecraft Server Latency Alert"
             message: "The server latency is too high."
-            notification_id: "minecraft_server_latency_alert"
+            notification_id: "minecraft_server_latency_alert_{{ trigger.entity_id }}"
 
 mode: single
 

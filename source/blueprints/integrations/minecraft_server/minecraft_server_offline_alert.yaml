@@ -41,7 +41,7 @@ blueprint:
           data:
             title: "Minecraft Server Offline Alert"
             message: "The server is no longer responding."
-            notification_id: "minecraft_server_offline_alert"
+            notification_id: "minecraft_server_offline_alert_{{ trigger.entity_id }}"
 
 mode: single
 
