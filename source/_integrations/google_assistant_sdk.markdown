@@ -160,7 +160,7 @@ The `notify.google_assistant_sdk` action allows you to broadcast messages to Goo
 
 | Data attribute | Optional | Description                 | Example                      |
 | ---------------------- | -------- | --------------------------- | ---------------------------- |
-| `message`              | no       | Message to broadcast.       | someone is at the front door |
+| `message`              | no       | Message to broadcast        | someone is at the front door |
 | `target`               | yes      | Rooms (in Google Assistant) | bedroom                      |
 
 Example to broadcast to all speakers:
@@ -199,4 +199,4 @@ Note: due to a bug in the Google Assistant API, not all responses contain text, 
 
 {% include integrations/remove_device_service.md %}
 
-Removing the Google Assistant SDK integration does not remove its [Application Credentials](/integrations/application_credentials/). If you want to use a different OAuth Client ID and Client Secret, delete the existing application credentials before adding the integration again.
+Removing the Google Assistant SDK integration does not remove its [Application Credentials](/integrations/application_credentials/). If you want to use a different OAuth Client ID and Client Secret, go to **Settings** > **Devices & services**, select the three dots menu in the top right, select **Application credentials**, and delete the existing credentials before adding the integration again.
