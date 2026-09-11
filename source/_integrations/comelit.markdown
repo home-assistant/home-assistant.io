@@ -127,7 +127,7 @@ The **Comelit SimpleHome** {% term integration %} provides the following entitie
 ### Comelit Serial Bridge
 
 - Climate
-- Cover
+- Cover - open, close, stop, and set position
 - Dehumidifier
 - Humidifier
 - Light
