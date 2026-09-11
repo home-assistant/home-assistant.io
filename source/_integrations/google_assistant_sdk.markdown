@@ -160,7 +160,7 @@ The `notify.google_assistant_sdk` action allows you to broadcast messages to Goo
 
 | Data attribute | Optional | Description                 | Example                      |
 | ---------------------- | -------- | --------------------------- | ---------------------------- |
-| `message`              | no       | Message to broadcast        | someone is at the front door |
+| `message`              | no       | Message to broadcast.       | someone is at the front door |
 | `target`               | yes      | Rooms (in Google Assistant) | bedroom                      |
 
 Example to broadcast to all speakers:
