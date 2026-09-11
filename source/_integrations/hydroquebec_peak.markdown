@@ -51,67 +51,11 @@ For each configured offer, the integration provides the following entities. Even
 
 ## Hydro-Québec Peak Events automation examples
 
-### Automation: Preheat the home before a peak event
+### Automation: Run actions around a peak event
 
-Preheat the home before a peak event by using the **Peak event begins** sensor with a time offset:
+This blueprint runs actions at three moments: a configurable time before a peak event begins, when the event begins, and when the event ends. For example, the automation can preheat the home ahead of the event, lower the thermostats when it begins, and restore the normal temperature when it ends. Hydro-Québec recommends preheating about two hours before an event begins.
 
-{% note %}
-This example uses a time trigger with an offset, which requires the YAML editor. The visual automation editor does not support the offset field on time triggers.
-{% endnote %}
-
-{% example %}
-automation: |
-  alias: "Preheat before a peak event"
-  triggers:
-    - trigger: time
-      at:
-        entity_id: sensor.cpc_d_peak_event_begins
-        offset: "-03:00:00"
-  actions:
-    - action: climate.set_temperature
-      target:
-        entity_id: climate.living_room
-      data:
-        temperature: 23
-{% endexample %}
-
-### Automation: Lower the thermostat when a peak event starts
-
-Lower the thermostat when a peak event begins by using a time trigger directly on the **Peak event begins** sensor:
-
-{% example %}
-automation: |
-  alias: "Lower the thermostat when a peak event starts"
-  triggers:
-    - trigger: time
-      at:
-        entity_id: sensor.cpc_d_peak_event_begins
-  actions:
-    - action: climate.set_temperature
-      target:
-        entity_id: climate.living_room
-      data:
-        temperature: 18
-{% endexample %}
-
-### Automation: Restore the temperature when a peak event ends
-
-Restore the thermostat to a normal temperature when a peak event ends by using a time trigger on the **Peak event ends** sensor:
-
-{% example %}
-automation: |
-  alias: "Restore the thermostat when a peak event ends"
-  triggers:
-    - trigger: time
-      at:
-        entity_id: sensor.cpc_d_peak_event_ends
-  actions:
-    - action: climate.set_temperature
-      target:
-        entity_id: climate.living_room
-      data:
-        temperature: 21
-{% endexample %}
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/hydroquebec_peak_event_actions.yaml" %}
 
 ## Data updates
 
