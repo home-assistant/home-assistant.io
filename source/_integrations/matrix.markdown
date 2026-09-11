@@ -131,8 +131,13 @@ In this case, the integration can't sign in with single sign-on, but it works wi
 
 4. Restart Home Assistant and send a test message. A full restart is needed, because the integration only reads `.matrix.conf` during startup.
 
-{% important %}
-An access token gives full access to the Matrix account. Treat it like a password. If it is ever exposed, end that session on your homeserver and create a new token.
+{% important title="Risk of unauthorized account access" %}
+The access token grants full access to the Matrix account. If the token is exposed, anyone who obtains it can read and send messages as this account until the token is revoked.
+
+To reduce this risk:
+
+- Store the token as securely as a password.
+- If the token is ever exposed, end that session on your homeserver and create a new token.
 {% endimportant %}
 
 ### Event data
