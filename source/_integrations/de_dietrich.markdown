@@ -15,7 +15,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **De Dietrich** {% term integration %} connects Home Assistant to a Diematic boiler through a network gateway. It reads temperatures, water pressure, and other measurements over your local network. You can use it to follow your heating system's readings.
+The **De Dietrich** {% term integration %} connects Home Assistant to a Diematic boiler through a network gateway. It reads temperatures, water pressure, and other measurements over the local network.
 
 ## Supported devices
 
@@ -51,7 +51,8 @@ Host:
 Port:
   description: "The gateway's TCP port for forwarding Modbus RTU messages. The default is `502`. Match this to the gateway's configured port."
 Modbus unit ID:
-  description: "The boiler's Modbus device address. The default is `10`. Enter a value from `1` through `247` that matches your installation."{% endconfiguration_basic %}
+  description: "The boiler's Modbus device address. The default is `10`. Enter a value from `1` through `247` that matches your installation."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
