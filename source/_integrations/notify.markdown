@@ -34,7 +34,11 @@ In addition, the entity can have the following states:
 
 {% include integrations/actions.md %}
 
-For notifications to a notify entity, use the **Send a notification message** (`notify.send_message`) action and select the notify entity as the target. The **Send a notification** (`notify.notify`) action is legacy shorthand for the first available notifier and is not recommended for general-purpose notifications.
+The notification actions serve different purposes:
+
+- **Send a notification message** (`notify.send_message`): sends a message to one or more notify entities selected as targets. Use this action when the notification destination is available as a notify entity.
+- **Send a persistent notification** (`notify.persistent_notification`): creates a notification in the Home Assistant notifications panel.
+- **Send a notification** (`notify.notify`): shorthand for the first notify action Home Assistant can find. The destination is therefore not explicitly selected and the message might not be sent where you expect. Choose a specific action or notify entity when the destination matters.
 
 ## Companion app notifications
 
