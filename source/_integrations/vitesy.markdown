@@ -57,7 +57,7 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
 ### Sensors
 
 - **Air quality score**
-  - **Description**: Overall air quality score reported by the device, from 0 (poor) to 100 (excellent).
+  - **Description**: Overall air quality score reported by the device (in percent %), from 0 (poor) to 100 (excellent).
 - **Fridge temperature**
   - **Description**: Temperature measured inside the refrigerator.
   - **Available for**: Shelfy
@@ -91,7 +91,7 @@ Here are a few ideas to get you started.
 
 Send a notification to your phone when the air quality score falls below a threshold.
 
-- **Trigger**: When the air quality score drops below 40
+- **Trigger**: When the air quality score drops below 40%
   - **Target**: Air quality score (`sensor.shelfy_air_quality_score`)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
