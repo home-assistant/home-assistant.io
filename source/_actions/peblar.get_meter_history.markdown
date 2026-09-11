@@ -81,8 +81,7 @@ before:
 
 ### Response data
 
-The action returns the charger's own verdict on the log as `corrupted`, and the
-sessions themselves under `sessions`:
+The action returns the charger's own verdict on the log as `corrupted`, and the sessions themselves under `sessions`:
 
 ```yaml
 corrupted: false
@@ -107,23 +106,20 @@ sessions:
     corrupted: false
 ```
 
-The session that is still running has no end yet, so its end time, closing meter
-reading, and energy are all empty.
+The session that is still running has no end yet, so its end time, closing meter reading, and energy are all empty.
 
 ## Good to know
 
 - Only administrators can run this action.
 - The charger keeps this log itself, so it reaches back further than Home Assistant does, and a database purge leaves it alone.
-- A record that no longer matches its own checksum is marked `corrupted`. Do not bill on one.
-- Times come back in UTC. Use the [`as_local`](/docs/configuration/templating/#time) filter to show them in your own time zone. 
+- Times come back in UTC. Use the [`as_local`](/docs/configuration/templating/#time) filter to show them in your own time zone.
 - A record that no longer matches its own checksum is marked `corrupted`. Do not bill on a corrupted record. If the charger returns no checksum outcome for a session, `corrupted` is `null`, not `true` or `false`.
 
 {% include actions/more_examples.md %}
 
 ### Automation: send a daily total for one token
 
-Add up the energy of every finished session that used your neighbor's key fob,
-so you know what to invoice them for.
+Add up the energy of every finished session that used your neighbor's key fob, so you know what to invoice them for.
 
 {% details "YAML example for totalling one token" %}
 
