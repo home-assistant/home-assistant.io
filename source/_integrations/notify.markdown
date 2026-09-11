@@ -34,13 +34,13 @@ In addition, the entity can have the following states:
 
 {% include integrations/actions.md %}
 
+For notifications to a notify entity, use the **Send a notification message** (`notify.send_message`) action and select the notify entity as the target. The **Send a notification** (`notify.notify`) action is legacy shorthand for the first available notifier and is not recommended for general-purpose notifications.
+
 ## Companion app notifications
 
 A common notification integration is via the Home Assistant Companion app for Android or iOS. If your phone is available as a notify entity, use the **Send a notification message** action and select that phone as the target. Some older setups may still provide a phone-specific action such as `notify.mobile_app_your_phone_name`. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for many customization options.
 
 With any of these integrations, the **Message** field in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional **Data** or **Target** information to customize the action. For more details, refer to their integration documentation.
-
-Be aware that the `notify.notify` action is shorthand for the first notify action the system can find. It might not work as intended. Choose a specific action to make sure your message goes to the right place.
 
 Notifications can also be sent using [notify action groups](/integrations/group/#notify-action-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
