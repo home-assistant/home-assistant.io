@@ -35,7 +35,9 @@ The integration was developed and verified against a FlowPLUS. The other models 
 
 ## Unsupported devices
 
-Units without the smart Wi-Fi module, such as models that only offer an RS-485 connection, are not supported, as they do not expose this network protocol.
+Units fitted with the recent control panel, the one managed through the Helty Home app, are not supported here. That panel does not answer on the local network and reports to the manufacturer's cloud instead, so use the [Helty Flow Cloud](/integrations/helty_cloud/) integration for those.
+
+Units without any smart interface, such as models that only offer an RS-485 connection, are not supported, as they do not expose this network protocol.
 
 {% include integrations/config_flow.md %}
 
