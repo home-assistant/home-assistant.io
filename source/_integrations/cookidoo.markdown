@@ -9,6 +9,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 2025.1
 ha_config_flow: true
+ha_ssdp: true
 ha_codeowners:
   - '@miaucl'
 ha_domain: cookidoo
