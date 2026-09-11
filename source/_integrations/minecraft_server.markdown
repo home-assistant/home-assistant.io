@@ -82,11 +82,21 @@ For Bedrock Edition servers, the following sensors are also provided:
 - **Game mode**
 - **Map name**
 
-## Examples
+## Automation Examples
 
-The following examples show how to use the integration in automations.
+The simplest way to create automations is to use the Home Assistant automation editor. For example, to set an automation triggered by an entity state change:
 
-### Automation: Notify when the server goes offline
+1. In the Triggers section of the automation, click on `Add trigger`
+2. Search the `Device` representing your Minecraft server.
+3. Select one of its entities.
+4. Select `State changed`.
+5. Set any conditions and actions to complete your automation.
+
+The following examples show how to use the integration in automations with YAML. Don't forget to replace the entity and device IDs used in these examples with your real ones.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Notify when the server goes offline
 
 ```yaml
 automation:
@@ -98,13 +108,15 @@ automation:
         for:
           minutes: 5
     actions:
-      - action: notify.notify
+      - action: notify.send_message
+        target:
+          device_id: 0123456789
         data:
           title: "Minecraft server offline alert"
           message: "The Minecraft server is no longer responding."
 ```
 
-### Automation: Notify when latency is too high
+### Notify when latency is too high
 
 ```yaml
 automation:
@@ -116,14 +128,15 @@ automation:
         for:
           seconds: 10
     actions:
-      - action: notify.notify
+      - action: notify.send_message
+        target:
+          device_id: 0123456789
         data:
           title: "Minecraft server latency alert"
-          message: >-
-            The Minecraft server latency is {{ states('sensor.minecraft_server_latency') }} ms.
+          message: "The Minecraft server latency is too high."
 ```
 
-### Automation: Notify when someone leaves or joins the server
+### Notify when someone leaves or joins the server
 
 ```yaml
 automation:
@@ -132,13 +145,15 @@ automation:
       - trigger: state
         entity_id: sensor.minecraft_server_players_online
     actions:
-      - action: notify.notify
+      - action: notify.send_message
+        target:
+          device_id: 0123456789
         data:
           title: "Minecraft server update"
           message: >-
             Someone left or joined the server.
             Players online: {{ states('sensor.minecraft_server_players_online') }}
-            Current players: {{ state_attr('sensor.minecraft_server_players_online', 'players') | join(', ') }}
+            Current players: {{ state_attr('sensor.minecraft_server_players_online', 'players_list') | join(', ') }}
 ```
 
 ## Data updates
