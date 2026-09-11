@@ -133,6 +133,7 @@ The **Midea** {% term integration %} provides the following entities:
 - Sensor: Various diagnostic sensors.
 - Switch
 - Time
+- Water heater
 
 ## Known limitations
 

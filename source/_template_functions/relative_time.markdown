@@ -71,7 +71,7 @@ The advantage of [`time_since`](/template-functions/time_since/) is the optional
 template: '{{ time_since(states.binary_sensor.front_door.last_changed, 2) }}'
 title: time_since with precision
 type: string
-output: "2 hours and 30 minutes"
+output: "2 hours 30 minutes"
 {% endexample %}
 
 ## Good to know
