@@ -41,7 +41,7 @@ During setup you will be prompted to select the **edition** and to enter the **a
 
 The **server edition** decides which protocol has to be used to retrieve the status information from the server. Choose one of the following options:
 
-- **Legacy Java Edition**: Java Edition version beta 1.8 till release version 1.6.1
+- **Legacy Java Edition**: Java Edition version beta 1.8 till release version 1.6.4
 - **Java Edition**: Java Edition version 1.7+
 - **Bedrock Edition**: All Bedrock Edition versions
 
