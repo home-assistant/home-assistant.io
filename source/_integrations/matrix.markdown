@@ -118,14 +118,14 @@ In this case, the integration can't sign in with single sign-on, but it works wi
    - On a Synapse homeserver without Matrix Authentication Service, an administrator can use the [login as a user](https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#login-as-a-user) admin API. By default, the tokens it returns do not expire.
     {% important %}
     
-      **Risk of unauthorized account access**
-      
-      The access token grants full access to the Matrix account. If the token is exposed, anyone who obtains it can read and send messages as this account until the token is revoked.
-      
-      To reduce this risk:
-      
-      - Store the token as securely as a password.
-      - If the token is ever exposed, end that session on your homeserver and create a new token.
+    **Risk of unauthorized account access**
+    
+    The access token grants full access to the Matrix account. If the token is exposed, anyone who obtains it can read and send messages as this account until the token is revoked.
+    
+    To reduce this risk:
+    
+    - Store the token as securely as a password.
+    - If the token is ever exposed, end that session on your homeserver and create a new token.
     {% endimportant %}
 2. Create or edit the file `.matrix.conf` in your configuration directory. It holds one entry per Matrix ID:
 
