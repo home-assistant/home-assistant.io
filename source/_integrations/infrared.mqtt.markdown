@@ -384,7 +384,7 @@ schema:
   required: true
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive a [JSON payload](#infrared-signal-schema) with `timings` as required attribute and and `modulation` as optional attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
+  description: "The MQTT topic subscribed to receive a [JSON payload](#infrared-signal-schema) with `timings` as required attribute and `modulation` as optional attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz."
   required: true
   type: string
 unique_id:
