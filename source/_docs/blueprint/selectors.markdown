@@ -751,7 +751,7 @@ enable_millisecond:
   default: false
   required: false
 mode:
-  description: "Whether the duration can be negative. With `positive`, only positive durations can be entered. With `signed`, the field gets a sign picker, which suits values that can go both ways, like a time correction. With `offset`, the user first chooses between **No offset**, **Before**, and **After**, then enters the duration. This suits times relative to an event, like sunrise or the start of a calendar event."
+  description: "Whether the duration can be negative. `positive` only lets you enter positive durations. `signed` provides a picker showing values that can go both ways, like a time correction. `offset` lets you choose between **No offset**, **Before**, and **After**, and then enter the duration. Offset suits times relative to an event, like sunrise or the start of a calendar event."
   type: string
   default: positive
   required: false
