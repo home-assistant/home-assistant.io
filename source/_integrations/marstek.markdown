@@ -19,16 +19,6 @@ ha_quality_scale: bronze
 
 The **Marstek** integration allows you to monitor your Marstek energy storage system directly in Home Assistant. It communicates with the device over your local network using UDP, so no cloud connection or internet access is required.
 
-{% note %}
-This integration **only supports** the following Marstek product models:
-
-- **VENUS E 3.0**
-- **VENUS A**
-- **VENUS D**
-
-Other Marstek models are **not supported**.
-{% endnote %}
-
 ## Supported devices
 
 This integration supports the following Marstek models:
@@ -64,15 +54,15 @@ Host:
 
 The integration provides the following sensors for your device:
 
-- **Battery level** — current state of charge of the battery, in percent.
-- **Grid power** — current power exchanged with the grid, in watts.
-- **Device mode** — current operating mode of the device.
-- **Battery status** — current battery charge/discharge status.
-- **PV power / voltage / current / state** — solar (PV) metrics for each of the four PV inputs (PV1–PV4).
+- **Battery level**: Current state of charge of the battery, in percent.
+- **Battery power**: Current power exchanged with the grid, in watts.
+- **Device mode**: Current operating mode of the device.
+- **Battery status**: Current battery charge/discharge status.
+- **PV power / voltage / current / state**: Solar (PV) metrics for each of the four PV inputs (PV1–PV4), where supported by the device.
 
 ## Data updates
 
-The integration polls the device for new data every 10 seconds.
+The integration {% term polling polls %} the device for new data every 30 seconds.
 
 ## Known limitations
 
