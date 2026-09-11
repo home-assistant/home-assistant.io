@@ -499,11 +499,16 @@ dd {
   a {
     @include box-sizing(border-box);
     display: block;
+    // Space is tightest just above the collapse breakpoint, where the bar has
+    // around 738px to fit roughly 717px of items. The side margin is trimmed
+    // to buy that headroom, and nowrap below stops the longer labels breaking
+    // onto a second line. Both are needed to keep the bar to one line.
     padding: 29px 0px 12px;
-    margin: 0 14px 27px;
+    margin: 0 11px 27px;
     text-decoration: none;
     font-size: 14px;
     line-height: 1;
+    white-space: nowrap;
   }
 
   iconify-icon {
@@ -552,7 +557,7 @@ dd {
   padding: 10px 16px;
   // Sits the pill's label on the same line as the other menu items, whose
   // 29px top padding puts their text centre 2px below the bar's centre.
-  margin: 19px 14px 15px;
+  margin: 19px 11px 15px;
   background: $link-color;
   border-radius: 32px;
   color: $white;
@@ -564,7 +569,7 @@ dd {
   &:hover,
   &:focus {
     padding: 10px 16px;
-    margin: 19px 14px 15px;
+    margin: 19px 11px 15px;
     background: $primary-color;
     box-shadow: none;
     color: $white;

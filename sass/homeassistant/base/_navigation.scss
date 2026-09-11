@@ -227,22 +227,24 @@ header .grid {
     margin-left: 24px;
   }
 
-  // Lift search and the call to action to the top of the collapsed menu and
-  // sit them side by side. They share an order value so they keep their
-  // source order relative to each other, and width: auto opts them out of the
-  // full-width rule above so both fit on one line.
+  // Lift the call to action and search to the top of the collapsed menu and
+  // sit them side by side. Every other item keeps the full width set above, so
+  // it takes a line of its own; width: auto opts these two out of that and
+  // lets them share one line.
   .menu > .nav-search,
   .menu > .nav-cta {
     width: auto;
     align-self: center;
   }
 
-  .menu > .nav-search{
-    order: -1;
-  }
-
+  // Both come before the default order of 0. The call to action leads, with
+  // search beside it, reversing the order they appear in on the desktop bar.
   .menu > .nav-cta {
     order: -2;
+  }
+
+  .menu > .nav-search {
+    order: -1;
   }
 
   .menu > .nav-search .docsearch {
