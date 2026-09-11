@@ -115,7 +115,8 @@ reading, and energy are all empty.
 - Only administrators can run this action.
 - The charger keeps this log itself, so it reaches back further than Home Assistant does, and a database purge leaves it alone.
 - A record that no longer matches its own checksum is marked `corrupted`. Do not bill on one.
-- Times come back in UTC. Use the [`as_local`](/docs/configuration/templating/#time) filter to show them in your own timezone.
+- Times come back in UTC. Use the [`as_local`](/docs/configuration/templating/#time) filter to show them in your own time zone. 
+- A record that no longer matches its own checksum is marked `corrupted`. Do not bill on a corrupted record. If the charger returns no checksum outcome for a session, `corrupted` is `null`, not `true` or `false`.
 
 {% include actions/more_examples.md %}
 
