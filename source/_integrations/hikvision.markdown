@@ -13,6 +13,7 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
   - camera
+  - event
 ha_integration_type: device
 ha_config_flow: true
 ---
