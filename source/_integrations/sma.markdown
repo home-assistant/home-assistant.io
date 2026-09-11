@@ -42,7 +42,7 @@ The integration uses the device's web interface (called webconnect). Before you 
 
 ## Switch
 
-The following is availbe:
+The following switch is available:
 
 - **Inverter enabled**: turn on and off the inverter.
 
