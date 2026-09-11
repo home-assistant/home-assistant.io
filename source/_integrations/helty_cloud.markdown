@@ -3,7 +3,7 @@ title: Helty Flow Cloud
 description: Instructions on how to integrate cloud-connected Helty Flow ventilation units with Home Assistant.
 ha_category:
   - Fan
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
