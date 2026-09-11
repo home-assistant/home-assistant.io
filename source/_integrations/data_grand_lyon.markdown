@@ -259,7 +259,7 @@ Calendars are read once every 15 minutes for calendar triggers, so an automation
 
 - The integration provides up to three upcoming departures per stop. If fewer departures are available, the remaining sensors show as unavailable.
 - There is no estimated data for subways, only theoretical.
-- Some TCL alerts have end dates years in the future — special fare information running to 2100, for instance. A line whose only alert is one of those has a permanently active calendar.
+- Some TCL alerts have end dates that are years in the future. For instance, special fare information running to 2100. A line whose only alert is one of those has a permanently active calendar.
 - Alerts apply to a whole line, not to a specific stop. Adding a transit stop doesn't give you its line's alerts; add the line as well.
 
 ## Troubleshooting
@@ -308,7 +308,7 @@ Make sure the park & ride ID is correct. You can verify it on the [Grand Lyon op
 
 ### Transit line shows no alerts
 
-An empty calendar means the line currently has no published alert, which is the normal state for most lines. If you expect one, check that the line code matches the one TCL shows passengers — the code is case-sensitive and has no spaces.
+An empty calendar means the line currently has no published alert, which is the normal state for most lines. If you expect one, check that the line code matches the one TCL shows passengers. The code is case-sensitive and has no spaces.
 
 ## Removing the integration
 
