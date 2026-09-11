@@ -52,12 +52,12 @@ The following {% term sensor %} entities are created.
 
 | Entity | Description | Default enabled |
 | --- | --- | --- |
-| **Database version** | Shows the version of the database used by the libreNMS instance | ❌ |
-| **NetSNMP version** | Shows the version of the NetSNMP client used by the libreNMS instance | ❌ |
-| **PHP version** | Shows the version of the PHP used by the libreNMS instance | ❌ |
-| **RRDTool version** | Shows the version of the RRDTool used by the libreNMS instance | ❌ |
-| **Python version** | Shows the version of the Python used by the libreNMS instance | ❌ |
-| **Total device count** | Shows the total count of by the libreNMS instance monitored devices | ✅ |
+| **Database version** | Shows the version of the database used by the LibreNMS instance | ❌ |
+| **NetSNMP version** | Shows the version of the NetSNMP client used by the LibreNMS instance | ❌ |
+| **PHP version** | Shows the version of the PHP used by the LibreNMS instance | ❌ |
+| **RRDTool version** | Shows the version of the RRDTool used by the LibreNMS instance | ❌ |
+| **Python version** | Shows the version of the Python used by the LibreNMS instance | ❌ |
+| **Total device count** | Shows the total count of by the LibreNMS instance monitored devices | ✅ |
 
 ## Troubleshooting
 
