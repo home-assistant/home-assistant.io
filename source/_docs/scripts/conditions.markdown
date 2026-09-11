@@ -668,15 +668,17 @@ Within an automation, template conditions also have access to the `trigger` vari
 Be careful when combining `and`/`or` with a value that isn't already a boolean, such as a list, string, or number. In Python and Jinja, `and`/`or` don't always evaluate to a boolean — they return whichever operand determined the result. For example:
 
 ```yaml
-condition: template
-value_template: "{{ some_list is defined and some_list }}"
+conditions:
+  - condition: template
+    value_template: "{{ some_list is defined and some_list }}"
 ```
 
-If `some_list` is a non-empty list like `[255, 0, 0]`, this renders as the list itself (`[255, 0, 0]`), not `true`. Since a template condition only passes when the rendered result is exactly `true`, the condition silently fails even though `some_list` is genuinely defined and non-empty. Force a real boolean with a comparison instead:
+If `some_list` is a non-empty list like `[255, 0, 0]`, this renders as the list itself (`[255, 0, 0]`), not `true`. Since a template condition only passes when the rendered result is the (case-insensitive) string `true`, the condition silently fails even though `some_list` is genuinely defined and non-empty. Force a real boolean with a comparison instead:
 
 ```yaml
-condition: template
-value_template: "{{ some_list is defined and some_list | length > 0 }}"
+conditions:
+  - condition: template
+    value_template: "{{ some_list is defined and some_list | length > 0 }}"
 ```
 {% endnote %}
 
