@@ -109,7 +109,7 @@ Compare **Boiler temperature target** with the controller's target, not with the
 
 ### Sensors become unavailable
 
-Check the connection settings above and look for communication errors under {% my logs title="**Settings** > **System** > **Logs**" %}. If only some sensors are unavailable, a group of readings may have failed while the rest of the boiler still responds. Allow subsequent polls to retry before changing the configuration.
+Check the connection settings above and look for communication errors under {% my logs title="**Settings** > **System** > **Logs**" %}. If only some sensors are unavailable, a group of readings may have failed while the rest of the boiler still responds. Wait a bit to allow subsequent {% term polling polls %} to retry before changing the configuration.
 
 ## Removing the integration
 
