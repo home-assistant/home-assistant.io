@@ -1,7 +1,7 @@
 ---
 title: Marstek
 description: Instructions on how to integrate Marstek energy storage systems into Home Assistant.
-ha_release: 2026.9
+ha_release: '2026.10'
 ha_category:
   - Energy
 ha_iot_class: Local Polling
@@ -14,8 +14,6 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
-
-# Marstek
 
 The **Marstek** integration allows you to monitor your Marstek energy storage system directly in Home Assistant. It communicates with the device over your local network using UDP, so no cloud connection or internet access is required.
 
