@@ -82,79 +82,41 @@ For Bedrock Edition servers, the following sensors are also provided:
 - **Game mode**
 - **Map name**
 
-## Automation Examples
+## Automation examples
 
-The simplest way to create automations is to use the Home Assistant automation editor. For example, to set an automation triggered by an entity state change:
+The easiest way to create automations is to import a ready-made blueprint and adjust it in the UI. The following examples cover common alerts and status updates for your Minecraft server.
 
-1. In the Triggers section of the automation, click on `Add trigger`
-2. Search the `Device` representing your Minecraft server.
-3. Select one of its entities.
-4. Select `State changed`.
-5. Set any conditions and actions to complete your automation.
+If you want to build a custom automation instead:
 
-The following examples show how to use the integration in automations with YAML. Don't forget to replace the entity and device IDs used in these examples with your real ones.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select **Create automation**.
+3. Choose a trigger such as **State** or **Numeric state**.
+4. Select your Minecraft server **device**.
+5. Choose the relevant **entity**.
+6. Add any **conditions** and the **actions** you want to run.
 
-{% include docs/paste_yaml_tip.md %}
+You can also start from a blueprint and customize it after importing it.
 
-### Notify when the server goes offline
+### Offline alert
 
-```yaml
-automation:
-  - alias: "Notify when the Minecraft server is offline"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.minecraft_server_connection
-        to: "off"
-        for:
-          minutes: 5
-    actions:
-      - action: notify.send_message
-        target:
-          device_id: 0123456789
-        data:
-          title: "Minecraft server offline alert"
-          message: "The Minecraft server is no longer responding."
-```
+Performs an action when your Minecraft server stays offline for a chosen duration.
+Includes an editable default action that can be customized or deleted in the UI.
 
-### Notify when latency is too high
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/minecraft_server/minecraft_server_offline_alert.yaml" %}
 
-```yaml
-automation:
-  - alias: "Notify when the Minecraft server latency is too high"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.minecraft_server_latency
-        above: 200
-        for:
-          seconds: 10
-    actions:
-      - action: notify.send_message
-        target:
-          device_id: 0123456789
-        data:
-          title: "Minecraft server latency alert"
-          message: "The Minecraft server latency is too high."
-```
+### Latency alert
 
-### Notify when someone leaves or joins the server
+Performs an action when the Minecraft server latency exceeds a chosen threshold for a selected duration.
+Includes an editable default action that can be customized or deleted in the UI.
 
-```yaml
-automation:
-  - alias: "Notify when someone leaves or joins the Minecraft server"
-    triggers:
-      - trigger: state
-        entity_id: sensor.minecraft_server_players_online
-    actions:
-      - action: notify.send_message
-        target:
-          device_id: 0123456789
-        data:
-          title: "Minecraft server update"
-          message: >-
-            Someone left or joined the server.
-            Players online: {{ states('sensor.minecraft_server_players_online') }}
-            Current players: {{ state_attr('sensor.minecraft_server_players_online', 'players_list') | join(', ') }}
-```
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/minecraft_server/minecraft_server_latency_alert.yaml" %}
+
+### Player count changed
+
+Performs an action when the number of players online changes on your Minecraft server.
+Includes an editable default action that can be customized or deleted in the UI.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/minecraft_server/minecraft_server_player_count_changed.yaml" %}
 
 ## Data updates
 

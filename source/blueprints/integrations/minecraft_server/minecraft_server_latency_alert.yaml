@@ -1,0 +1,65 @@
+blueprint:
+  name: Minecraft Server Latency Alert
+  description: |
+    Performs an action when the Minecraft server latency exceeds a chosen 
+    threshold for a selected duration.
+    Includes an editable default action that can be customized or deleted in 
+    the UI.
+  domain: automation
+  author: elmurato
+
+  input:
+    latency_sensor:
+      name: Latency sensor
+      description: Select the Minecraft Server latency sensor to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: minecraft_server
+              domain: sensor
+
+    latency_threshold:
+      name: Latency threshold
+      description: Trigger when the latency stays above this value.
+      default: 200
+      selector:
+        number:
+          min: 1
+          max: 10000
+          step: 1
+          unit_of_measurement: ms
+          mode: box
+
+    latency_duration:
+      name: Duration
+      description: >
+        How long the latency must stay above the threshold before the action is 
+        performed.
+      default:
+        minutes: 3
+      selector:
+        duration:
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when the latency threshold is exceeded.
+        The default example can be modified or removed in the UI.
+      selector:
+        action: {}
+      default:
+        - action: persistent_notification.create
+          data:
+            title: "Minecraft Server Latency Alert"
+            message: "The server latency is too high."
+            notification_id: "minecraft_server_latency_alert"
+
+mode: single
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input latency_sensor
+    above: !input latency_threshold
+    for: !input latency_duration
+
+actions: !input actions
