@@ -110,7 +110,7 @@ Because `.matrix.conf` starts with a dot, some backup and file copy tools skip i
 
 Some homeservers don't allow accounts to sign in with a password. For example, on a homeserver that uses Matrix Authentication Service together with an external single sign-on provider and has password sign-in turned off.
 
-The integration can't sign in with single sign-on, but it works with an access token that you create yourself:
+In this case, the integration can't sign in with single sign-on, but it works with an access token that you create yourself:
 
 1. On your homeserver, create an access token for the Matrix account that Home Assistant uses. How you do this depends on your homeserver:
 
