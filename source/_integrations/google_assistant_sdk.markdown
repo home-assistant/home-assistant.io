@@ -198,3 +198,5 @@ Note: due to a bug in the Google Assistant API, not all responses contain text, 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
+
+Removing the Google Assistant SDK integration does not remove its [Application Credentials](/integrations/application_credentials/). If you want to use a different OAuth Client ID and Client Secret, delete the existing application credentials before adding the integration again.
