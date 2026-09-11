@@ -73,7 +73,7 @@ Read it left to right:
 1. Create a namespace called `low` with an empty `batteries` list inside.
 2. For each sensor whose `device_class` is `battery`, skipping any that are `unknown` or `unavailable`...
 3. If its state (converted to a number) is below `20`...
-4. Add the name of the **device** that sensor belongs to to `low.batteries`.
+4. Add that sensor's **device** name to `low.batteries`.
 
 Why the device name? With modern Home Assistant naming, a battery sensor's own name is often only "Battery", which is not very helpful in a notification. The [`device_name`](/template-functions/device_name/) function gives you back the friendly name of the device the sensor is attached to (like "Front door lock" or "Motion sensor").
 
