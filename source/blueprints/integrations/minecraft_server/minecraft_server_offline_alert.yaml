@@ -1,0 +1,54 @@
+blueprint:
+  name: Minecraft Server Offline Alert
+  description: |
+    Performs an action when your Minecraft server stays offline for a chosen 
+    duration.
+    Includes an editable default action that can be customized or deleted in 
+    the UI.
+  domain: automation
+  author: elmurato
+
+  input:
+    server_connection_sensor:
+      name: Connection status sensor
+      description: >
+        Select the Minecraft Server connection status sensor to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: minecraft_server
+              domain: binary_sensor
+
+    offline_duration:
+      name: Offline duration
+      description: >
+        How long the Minecraft Server connection sensor must stay off before 
+        the action is performed.
+      default:
+        minutes: 3
+      selector:
+        duration:
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when the Minecraft server is offline.
+        The default example can be modified or removed in the UI.
+      selector:
+        action: {}
+      default:
+        - action: persistent_notification.create
+          data:
+            title: "Minecraft Server Offline Alert"
+            message: "The server is no longer responding."
+            notification_id: "minecraft_server_offline_alert_{{ trigger.entity_id }}"
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input server_connection_sensor
+    to: "off"
+    for: !input offline_duration
+
+actions: !input actions
