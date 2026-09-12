@@ -831,3 +831,4 @@ layout: null
 /triggers/vacuum.docked /triggers/vacuum.returned_to_dock/ 301
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
+/integrations/axle /integrations/axle_energy 301

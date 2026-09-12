@@ -107,6 +107,7 @@ source/_integrations/avosdim.markdown @starkillerOG
 source/_integrations/awair.markdown @ahayworth @ricohageman
 source/_integrations/aws_s3.markdown @tomasbedrich
 source/_integrations/axis.markdown @Kane610
+source/_integrations/axle.markdown @Herbertmt978
 source/_integrations/azure_data_explorer.markdown @kaareseras
 source/_integrations/azure_devops.markdown @timmo001
 source/_integrations/azure_event_hub.markdown @eavanvalkenburg
