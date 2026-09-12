@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Herbertmt978'
-ha_domain: axle
+ha_domain: axle_energy
 ha_platforms:
   - sensor
 ha_integration_type: service
@@ -40,7 +40,7 @@ API key:
 
 ## Supported functionality
 
-The integration creates one service device with three sensor entities:
+Each configured feed creates one service device with three sensor entities:
 
 - **Import / Export** shows whether the published event requests import from or export to the grid.
 - **Event start** shows when the event starts.
@@ -119,7 +119,7 @@ When Axle returns an empty schedule, the sensors show an unknown state. Events y
 
 ## Known limitations
 
-- You can configure one Axle household feed.
+- Each entry uses its own Axle API key. You can add another feed with a different key.
 - The integration reads the event schedule. It does not control your battery or inverter, or change your Axle participation mode.
 - Countdown, event activity, and calendar entities are not provided.
 - The event information depends on Axle's cloud service and may change between updates.
@@ -128,11 +128,11 @@ When Axle returns an empty schedule, the sensors show an unknown state. Events y
 
 ### Authentication fails
 
-Check that you copied the full token from the **Home Assistant** section of your Axle account. Enter only the token in **API key**, without a `Bearer ` prefix. If the token has been revoked, generate a new one in Axle. Open {% my integrations title="**Settings** > **Devices & services**" %}, select the Axle Energy authentication prompt, and enter the replacement token. Home Assistant validates it and reloads the existing entry, preserving your entities and automations.
+Check that you copied the full token from the **Home Assistant** section of your Axle account. Enter only the token in **API key**, without a `Bearer ` prefix. If the token has been revoked, generate a new one in Axle. Remove the affected Axle Energy entry from {% my integrations title="**Settings** > **Devices & services**" %}, then add it again with the new token. Check the entity IDs used in your automations after adding it again.
 
 ### The sensors are unavailable
 
-Check your internet connection and whether you can access your Axle account. The integration retries connection failures automatically. If authentication fails, polling pauses until you provide a valid replacement token. If the problem continues, check {% my logs title="**Settings** > **System** > **Logs**" %} for an Axle error.
+Check your internet connection and whether you can access your Axle account. The integration retries connection failures automatically. If authentication fails, follow the token replacement steps above. If the problem continues, check {% my logs title="**Settings** > **System** > **Logs**" %} for an Axle error.
 
 ### The sensors show an unknown state
 
