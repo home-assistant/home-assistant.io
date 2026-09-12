@@ -750,10 +750,10 @@ enable_millisecond:
   type: boolean
   default: false
   required: false
-allow_negative:
-  description: When `true`, the duration selector will allow for selecting positive or negative values.
-  type: boolean
-  default: false
+mode:
+  description: "Whether the duration can be negative. `positive` only lets you enter positive durations. `signed` provides a picker showing values that can go both ways, like a time correction. `offset` lets you choose between **No offset**, **Before**, and **After**, and then enter the duration. Offset suits times relative to an event, like sunrise or the start of a calendar event."
+  type: string
+  default: positive
   required: false
 {% endconfiguration %}
 
@@ -766,6 +766,16 @@ hours: 12
 minutes: 30
 seconds: 15 # Only when enable_second is set to true (default)
 milliseconds: 500 # Only when enable_millisecond was set to true
+```
+
+With the `signed` and `offset` modes, the time values stay positive. A `negative` key set to `true` means that the duration is negative, or that the offset lies before the event. For a positive duration, or an offset after the event, the key is left out. Choosing **No offset** gives a duration of zero.
+
+```yaml
+# Example output for 30 minutes before the event
+negative: true
+hours: 0
+minutes: 30
+seconds: 0
 ```
 
 ## Entity selector
