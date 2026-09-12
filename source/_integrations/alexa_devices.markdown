@@ -136,7 +136,7 @@ Amazon applies rate limits to these configuration changes. Rate limit warnings m
 
 <img width="346" height="351" alt="configuration_controls" src="/images/integrations/alexa_devices/alexa_devices_configuration_controls.png" />
 
-## Media Players
+## Media players
 
 The integration includes media player support for echo devices and third-party devices that have built-in Alexa. Media player entities are added as typical Home Assistant media players with support for volume control, muting, play/pause, and media selection.
 
