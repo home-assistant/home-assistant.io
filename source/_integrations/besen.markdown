@@ -12,6 +12,7 @@ ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
   - number
+  - select
   - sensor
   - switch
 ha_config_flow: true
@@ -62,6 +63,13 @@ The switch state follows the charging state reported by the charger.
 
 The **Charging current** number sets the maximum current the charger can use. The available range starts at 6&nbsp;A and ends at the maximum reported by the charger. Home Assistant uses 32&nbsp;A if the charger does not report a maximum.
 
+### Select
+
+The integration provides the following configuration select entities:
+
+- **Language**: Changes the language setting stored by the charger for compatible charger apps.
+- **Temperature unit**: Changes the temperature unit setting stored by the charger. This does not change the unit system configured in Home Assistant.
+
 ### Sensors
 
 The following sensors are enabled by default:
@@ -86,6 +94,7 @@ The integration does not provide custom actions. Use the standard entity actions
 - `switch.turn_on` starts charging.
 - `switch.turn_off` stops charging.
 - `number.set_value` sets the charging current.
+- `select.select_option` changes the language or temperature unit.
 
 ## Examples
 
@@ -119,7 +128,7 @@ actions:
 
 The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
 
-Sensor values update when the charger sends status and charging-session notifications. A sensor shows an `unknown` value until the charger reports its corresponding measurement. All charger entities become `unavailable` while the Bluetooth connection is unavailable or authentication is incomplete.
+Sensor values update when the charger sends status and charging-session notifications. Select entities update when the charger reports its settings or accepts a configuration command. An entity shows an `unknown` value until the charger reports its corresponding value. All charger entities become `unavailable` while the Bluetooth connection is unavailable or authentication is incomplete.
 
 This is a local push integration. There is no cloud dependency.
 
@@ -127,7 +136,7 @@ This is a local push integration. There is no cloud dependency.
 
 The integration does not support:
 
-- Changing charger settings such as language, temperature unit, LCD brightness, or device name.
+- Changing charger settings such as LCD brightness or device name.
 - Reporting additional telemetry such as charging status text, charger error details, or Bluetooth signal strength as entities.
 - Wi-Fi provisioning.
 - Password reset.
