@@ -499,11 +499,16 @@ dd {
   a {
     @include box-sizing(border-box);
     display: block;
+    // Space is tightest just above the collapse breakpoint, where the bar has
+    // around 738px to fit roughly 717px of items. The side margin is trimmed
+    // to buy that headroom, and nowrap below stops the longer labels breaking
+    // onto a second line. Both are needed to keep the bar to one line.
     padding: 29px 0px 12px;
-    margin: 0 14px 27px;
+    margin: 0 11px 27px;
     text-decoration: none;
     font-size: 14px;
     line-height: 1;
+    white-space: nowrap;
   }
 
   iconify-icon {
@@ -541,6 +546,50 @@ dd {
 .dark .menu>li>a:hover,
 .dark .menu>li>a:focus {
   box-shadow: inset 0px -5px rgba($white, .5);
+}
+
+// Call-to-action pill in the main menu, matching the homepage hero button.
+// Declared after the .dark hover rules so it wins the equal-specificity tie.
+.menu>li>a.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  // Sits the pill's label on the same line as the other menu items, whose
+  // 29px top padding puts their text centre 2px below the bar's centre.
+  margin: 19px 11px 15px;
+  background: $link-color;
+  border-radius: 32px;
+  color: $white;
+  font-family: $heading-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color .33s;
+
+  &:hover,
+  &:focus {
+    padding: 10px 16px;
+    margin: 19px 11px 15px;
+    background: $primary-color;
+    box-shadow: none;
+    color: $white;
+  }
+
+  // Keep the same pill in the collapsed menu. That menu sets its own width,
+  // padding and margin with !important, so the pill has to answer in kind.
+  @media only screen and (max-width: $menu-collapse) {
+    width: auto;
+    padding: 12px 20px !important;
+    // Symmetric so the pill centres against the search button beside it.
+    margin: 12px 24px !important;
+
+    &:hover,
+    &:focus {
+      background: $primary-color;
+      box-shadow: none;
+      color: $white;
+    }
+  }
 }
 
 .site-header {
