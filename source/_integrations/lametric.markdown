@@ -123,7 +123,7 @@ You can send notifications to your LaMetric device in two ways.
 
 ### Notify entity
 
-Each LaMetric device provides a notify entity that you can use with the [`notify.send_message`](/integrations/notify/#action-notifysend_message) action. This is the recommended way to send notifications.
+Each LaMetric device provides a notify entity that you can use with the [`notify.send_message`](/actions/notify.send_message/) action. This is the recommended way to send notifications.
 
 The entity is named after your device. For example, a device called "My LaMetric" provides the entity `notify.my_lametric`.
 
