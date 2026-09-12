@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: homevolt
 ha_platforms:
   - diagnostics
+  - number
   - select
   - sensor
   - switch
@@ -30,9 +31,9 @@ Configuration needs the device IP address and, if set on the device, a password.
 
 {% configuration_basic %}
 Host:
- description: "The IP address or hostname of your Homevolt device. You can find it in your router or via the device's discovery."
+  description: "The IP address or hostname of your Homevolt device. You can find it in your router or via the device's discovery."
 Password:
- description: "The password for your Homevolt device, if it is password protected. Leave empty if no password is set."
+  description: "The password for your Homevolt device, if it is password protected. Leave empty if no password is set."
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -42,15 +43,15 @@ The {% term integration %} creates sensors reported by the device, including:
 - Power (W) and energy (Wh/kWh)
 - Voltage (V) and current (A)
 - Temperature (°C) and frequency (Hz)
-- Battery/percentage (%)
+- Battery percentage (%)
 - Signal strength (dB)
 - Text, count, or schedule status values
 
 ## Switches
 
-The {% term integration %} creates switches reported by the device, including:
+The {% term integration %} creates the following switch:
 
-- Local mode, enable or disable local control mode
+- **Local mode**: Enable or disable local control mode.
 
 ## Selects
 
@@ -64,10 +65,23 @@ Available modes:
 - Frequency reserve
 - Solar charge
 
+## Numbers
+
+The {% term integration %} provides the following power controls:
+
+- **Power setpoint**: Sets the battery power target.
+- **Grid import limit**: Sets the maximum power imported from the grid.
+- **Grid export limit**: Sets the maximum power exported to the grid.
+
+Each control accepts values from 0 to 11,000 W in 100 W increments.
+
+Controls are available only when **Local mode** is enabled and the active manual schedule supports the corresponding setting. Unsupported controls appear unavailable in Home Assistant.
+
 ## Troubleshooting
 
-- `Failed to connect`: confirm the IP address, device is powered, and reachable on your network.
-- `Invalid authentication`: verify the device password or remove it if none is set.
+- `Failed to connect`: Confirm the IP address, that the device is powered on, and that it is reachable on your network.
+- `Invalid authentication`: Verify the device password, or remove it if no password is configured.
+- Number controls are unavailable: Enable **Local mode** and select or configure a manual schedule that supports the desired parameter.
 
 ## Removing the integration
 
