@@ -35,15 +35,19 @@ ha_quality_scale: silver
 
 {% include integrations/config_flow.md %}
 
-During setup you will be prompted to select the **edition** and to enter the **address** of the server.
+During setup you will be prompted to select the **server edition** and to enter the **server address**.
 
 ### Server edition
 
 The **server edition** decides which protocol has to be used to retrieve the status information from the server. Choose one of the following options:
 
-- **Legacy Java Edition**: Java Edition version beta 1.8 till release version 1.6.4
-- **Java Edition**: Java Edition version 1.7+
+- **Legacy Java Edition**: Java Edition version beta 1.8 through release version 1.6.4
+- **Java Edition**: Java Edition release version 1.7+
 - **Bedrock Edition**: All Bedrock Edition versions
+
+{% note %}
+Default is **Java Edition**.
+{% endnote %}
 
 ### Server address
 
