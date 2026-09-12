@@ -88,6 +88,12 @@ Confirm that the ScorpionTrack share still includes vehicles and that the share 
 
 If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached data and does not make another request to ScorpionTrack. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
 
+## Removing a vehicle
+
+After a successful update confirms that a vehicle is no longer in the ScorpionTrack share, Home Assistant automatically removes its device and entities. Failed updates or missing location data do not remove a shared vehicle.
+
+If you add the vehicle back to the share, Home Assistant creates its device and entities on the next successful update. You do not need to reload the integration.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
