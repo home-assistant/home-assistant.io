@@ -119,7 +119,7 @@ The integration provides an update entity that shows whether a firmware update i
 
 ## Notifications
 
-You can send notifications to your LaMetric device in two ways.
+You can send notifications to your LaMetric device in two ways: using the notify entity (recommended) or the legacy notify action.
 
 ### Notify entity
 
