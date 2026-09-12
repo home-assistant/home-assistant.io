@@ -144,7 +144,7 @@ Currently, Fire Stick, Fire Cube, and other FireTV devices do not include media 
 
 <img width="346" height="167" alt="media_player_entity" src="/images/integrations/alexa_devices/alexa_devices_media_player_entity.png" />
 
-## To-do
+## To-do lists
 
 To-do list support has been added to Alexa Devices. Users can add items to and remove items from their Alexa Shopping List, as well as the Alexa To-do List and any custom lists created by the user. Lists can be accessed from the **To-do lists** tab in the Home Assistant menu bar. Sensor entities are created for each list and appear under the user's account in the Alexa Devices integration page (the same page that includes the user's Alexa Routine buttons). These sensors will show a state of how many items are on the list. Supported features include Create todo item, Delete todo item, and Update todo item.
 
