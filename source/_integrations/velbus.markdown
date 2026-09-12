@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Button
   - Climate
+  - Event
   - Hub
   - Light
   - Sensor
@@ -22,6 +23,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - select
   - sensor
@@ -110,6 +112,10 @@ The pushbutton LEDs of input modules are disabled by default. These can be enabl
 ### Binary sensor
 
 Every input module will be represented as a binary sensor entity in Home Assistant. The binary sensor will be on when the input is active and off when the input is inactive.
+
+### Event
+
+Every physical button of an input module will have an event entity in Home Assistant. The event entity emits a `short_press` or `long_press` event when the button is released.
 
 ### Select
 
