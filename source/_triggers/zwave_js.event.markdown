@@ -16,11 +16,47 @@ This trigger is useful when:
 - You want to react to a node event that is not exposed as an entity state.
 - You need to match a specific event by name and, optionally, by event data.
 
-{% note %}
-This trigger is configured in YAML only. It cannot be added from the automation editor in the UI.
-{% endnote %}
-
 There is strict validation in place based on all known event types. If you come across an event type that is not supported, open a GitHub issue in the [`home-assistant/core`](https://github.com/home-assistant/core/issues) repository.
+
+{% include triggers/ui_header.md %}
+
+To use **Z-Wave JS event received** in an automation:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. Search for **Z-Wave JS event received** and select it.
+5. Under **Event source**, choose whether you are watching a **Controller**, **Driver**, or **Node** event.
+6. Point the trigger at what should emit the event:
+   - For a **Node** event, pick **Devices**, **Entities**, or both.
+   - For a **Controller** or **Driver** event, pick a **Config entry** instead, and leave devices and entities empty.
+7. Under **Event**, enter the event name, for example `interview failed`.
+8. Optionally set **Event data** to match specific fields, and turn on **Partial dictionary match** if you only want to match a subset of a nested mapping.
+9. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Event source:
+  description: |
+    The layer that emits the event:
+
+    - **Controller**: events from the Z-Wave controller, such as inclusion progress.
+    - **Driver**: events from the Z-Wave JS driver itself.
+    - **Node**: events from a specific node.
+Config entry:
+  description: The Z-Wave config entry to watch. Used for **Controller** and **Driver** events instead of devices and entities.
+Devices:
+  description: The Z-Wave devices whose node events to watch. Used for **Node** events.
+Entities:
+  description: Entities whose devices should be watched. Used for **Node** events.
+Event:
+  description: The name of the event to match, for example `value notification`.
+Event data:
+  description: Event data to match against. The trigger only fires when the event data matches.
+Partial dictionary match:
+  description: Match only the listed keys of a nested mapping rather than the whole mapping. The default is off.
+{% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
@@ -80,7 +116,7 @@ partial_dict_match:
 
 - Event names and the structure of event data come from Z-Wave JS. The set of available fields depends on the event.
 - When an event includes nested fields (for example, an `args` mapping inside `event_data`), use `partial_dict_match: true` if you only want to match a subset of those fields.
-- This trigger does not appear in the automation editor in the UI. You can add it by editing the automation in YAML mode.
+- Node events need at least one device or entity. Controller and driver events must not have any, and take a config entry instead.
 
 ### Available trigger data
 
