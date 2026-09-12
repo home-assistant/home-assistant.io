@@ -55,6 +55,8 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 - This is typically an Intel or AMD-based system.
 - The system must be 64-bit capable and be able to boot using UEFI.
   - Most systems produced in the last 10 years support the UEFI boot mode.
+- The boot medium must support 512-byte logical sectors (512n or 512e).
+  - Most drives support this. However, some NVMe SSDs and hard drives use native 4K sectors (4Kn) only. Home Assistant OS cannot boot from these, so avoid them for your boot medium.
 
 <b>Summary</b>
 
