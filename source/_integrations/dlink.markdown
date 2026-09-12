@@ -29,6 +29,7 @@ Password: The default password is the PIN included on the configuration card or 
 Use the legacy protocol in case the D-Link Wi-Fi Smart Plugs does not work. This enables limited support for legacy firmware protocols (Tested with v1.24, v1.26). Data such as power consumption will not be available. The temperature will also show a freezing level.
 
 Attributes:
-- Temperature - Shows a freezing level when using the legacy protocol.
-- Total consumption - total power consumption in kWh
-- Current consumption - current power consumption in W
+
+- `temperature`: Shows a freezing level when using the legacy protocol.
+- `total_consumption`: Total energy consumption in kWh. Not available with the legacy protocol.
+- `current_consumption`: Current power consumption in W. Not available with the legacy protocol.
