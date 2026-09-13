@@ -129,13 +129,14 @@ metadata:
 
 ### Automation: notify about rain in the next hour
 
-This automation checks the short-interval series every 10 minutes and notifies you with the upcoming rates, so you know if rain is about to start without checking the app.
+This automation checks the short-interval series every 10 minutes and, if any of the next hour's rates are above zero, notifies you with the upcoming rates so you know rain is about to start without checking the app.
 
 - **Trigger**: Time pattern (every 10 minutes)
 - **Action**: Get precipitation forecast
   - **Precipitation type**: Rain
   - **Past minutes**: 0
   - **Future minutes**: 60
+- **Condition**: Template
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -155,6 +156,10 @@ automation: |
         past_minutes: 0
         future_minutes: 60
       response_variable: precipitation
+    - condition: template
+      value_template: >
+        {{ precipitation.nowcast | selectattr('rate', 'gt', 0) | list
+        | count > 0 }}
     - action: notify.send_message
       target:
         entity_id: notify.my_device
