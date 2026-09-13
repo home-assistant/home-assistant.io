@@ -56,7 +56,7 @@ In YAML, refer to this action as `environment_canada.get_precipitation_forecast`
 action: |
   action: environment_canada.get_precipitation_forecast
   data:
-    config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+    config_entry_id: YOUR_CONFIG_ENTRY_ID
   response_variable: precipitation
 {% endexample %}
 
@@ -125,6 +125,8 @@ metadata:
   timestamp: "2024-01-01T12:00:00+00:00"
 ```
 
+{% include actions/try_it.md %}
+
 {% include actions/more_examples.md %}
 
 ### Automation: notify about rain in the next hour
@@ -151,7 +153,7 @@ automation: |
   actions:
     - action: environment_canada.get_precipitation_forecast
       data:
-        config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+        config_entry_id: YOUR_CONFIG_ENTRY_ID
         precip_type: rain
         past_minutes: 0
         future_minutes: 60
@@ -191,7 +193,7 @@ automation: |
   actions:
     - action: environment_canada.get_precipitation_forecast
       data:
-        config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+        config_entry_id: YOUR_CONFIG_ENTRY_ID
       response_variable: precipitation
     - action: notify.send_message
       target:
@@ -204,8 +206,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
-
-{% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
 
