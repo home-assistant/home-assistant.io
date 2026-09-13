@@ -77,6 +77,7 @@ apply:
   description: "Save the value to the controller's memory and apply it after the write. Enabled by default."
   required: false
   type: boolean
+  default: true
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
