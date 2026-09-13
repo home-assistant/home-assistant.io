@@ -9,7 +9,7 @@ related_actions:
   - environment_canada.set_radar_type
 ---
 
-Use this action to retrieve the precipitation forecast series for one of your Environment Canada locations: a short-interval series covering the recent past and the next hour or so, and an hourly series covering the next two days. The result is intended for building your own precipitation chart, for example with a template sensor or a custom card.
+Use this action to retrieve the precipitation forecast series for one of your Environment Canada locations: a short-interval series covering the recent past and the next hour or so, and an hourly series covering up to the next two days. The result is intended for building your own precipitation chart, for example with a template sensor or a custom card.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
@@ -125,8 +125,6 @@ metadata:
   timestamp: "2024-01-01T12:00:00+00:00"
 ```
 
-{% include actions/try_it.md %}
-
 {% include actions/more_examples.md %}
 
 ### Automation: notify about rain in the next hour
@@ -134,7 +132,10 @@ metadata:
 This automation checks the short-interval series every 10 minutes and notifies you with the upcoming rates, so you know if rain is about to start without checking the app.
 
 - **Trigger**: Time pattern (every 10 minutes)
-- **Action**: Environment Canada: Get precipitation forecast
+- **Action**: Get precipitation forecast
+  - **Precipitation type**: Rain
+  - **Past minutes**: 0
+  - **Future minutes**: 60
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -150,32 +151,35 @@ automation: |
     - action: environment_canada.get_precipitation_forecast
       data:
         config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+        precip_type: rain
+        past_minutes: 0
+        future_minutes: 60
       response_variable: precipitation
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
         message: >
-          Next-hour precipitation rates: {{ precipitation.nowcast | map(attribute='rate') | list }}
+          Rain expected in the next hour: {{ precipitation.nowcast
+          | map(attribute='rate') | list }}
 {% endexample %}
 
 {% enddetails %}
 
-### Automation: notify about tomorrow's expected rainfall
+### Automation: notify about precipitation in the next 24 hours
 
-This automation runs every evening, retrieves the hourly series for the next day, and notifies you with the total expected amount, so you can plan for tomorrow's commute.
+This automation runs every evening, retrieves the hourly series, and notifies you with the total expected amount, so you can plan for the next day.
 
 - **Trigger**: Time (21:00)
-- **Action**: Environment Canada: Get precipitation forecast
-  - **Hourly hours**: 24
+- **Action**: Get precipitation forecast
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for notifying about tomorrow's expected rainfall" %}
+{% details "YAML example for notifying about precipitation in the next 24 hours" %}
 
 {% example %}
 automation: |
-  alias: "Notify about tomorrow's expected rainfall"
+  alias: "Notify about precipitation in the next 24 hours"
   triggers:
     - trigger: time
       at: "21:00:00"
@@ -183,17 +187,20 @@ automation: |
     - action: environment_canada.get_precipitation_forecast
       data:
         config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
-        hourly_hours: 24
       response_variable: precipitation
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
         message: >
-          Expected rainfall over the next 24 hours: {{ precipitation.hourly | sum(attribute='amount') | round(1) }} mm.
+          Expected precipitation over the next 24 hours: {{
+          precipitation.hourly | sum(attribute='expected_amount')
+          | round(1) }} mm.
 {% endexample %}
 
 {% enddetails %}
+
+{% include actions/try_it.md %}
 
 {% include actions/stuck.md %}
 
