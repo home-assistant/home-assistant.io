@@ -29,7 +29,7 @@ The following trigger-specific variables are available:
 | `trigger.to_state` | New state object of that entity. |
 | `trigger.for` | Timedelta object of how long the trigger criteria was met, if applicable. |
 
-For example, use `{{ trigger.to_state.name }}` in an action to include the name of the entity that caused the trigger in a notification.
+For example, use {% raw %}`{{ trigger.to_state.name }}`{% endraw %} in an action to include the name of the entity that caused the trigger in a notification.
 
 The `trigger` variable describes the entity that caused the trigger to fire; it does not contain all entities resolved from the configured target.
 {% endif %}
