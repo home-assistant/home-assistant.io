@@ -127,6 +127,74 @@ metadata:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: notify about rain in the next hour
+
+This automation checks the short-interval series every 10 minutes and notifies you with the upcoming rates, so you know if rain is about to start without checking the app.
+
+- **Trigger**: Time pattern (every 10 minutes)
+- **Action**: Environment Canada: Get precipitation forecast
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for notifying about rain in the next hour" %}
+
+{% example %}
+automation: |
+  alias: "Notify about rain in the next hour"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/10"
+  actions:
+    - action: environment_canada.get_precipitation_forecast
+      data:
+        config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+      response_variable: precipitation
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          Next-hour precipitation rates: {{ precipitation.nowcast | map(attribute='rate') | list }}
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: notify about tomorrow's expected rainfall
+
+This automation runs every evening, retrieves the hourly series for the next day, and notifies you with the total expected amount, so you can plan for tomorrow's commute.
+
+- **Trigger**: Time (21:00)
+- **Action**: Environment Canada: Get precipitation forecast
+  - **Hourly hours**: 24
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for notifying about tomorrow's expected rainfall" %}
+
+{% example %}
+automation: |
+  alias: "Notify about tomorrow's expected rainfall"
+  triggers:
+    - trigger: time
+      at: "21:00:00"
+  actions:
+    - action: environment_canada.get_precipitation_forecast
+      data:
+        config_entry_id: 1b4ba1c4d8f5e3a29c6e7d2f0a3b8c91
+        hourly_hours: 24
+      response_variable: precipitation
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          Expected rainfall over the next 24 hours: {{ precipitation.hourly | sum(attribute='amount') | round(1) }} mm.
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
