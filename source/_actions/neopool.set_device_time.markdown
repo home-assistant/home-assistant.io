@@ -31,6 +31,7 @@ To set the device time from an automation or a script:
 {% options_ui %}
 Device:
   description: The NeoPool controller to update. Optional when only one controller is configured.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

@@ -31,10 +31,13 @@ To read a register from an automation or a script:
 {% options_ui %}
 Device:
   description: The NeoPool controller to read. Optional when only one controller is configured.
+  required: false
 Register address:
   description: "Modbus register address in decimal or hexadecimal, such as `258` or `0x0102`."
+  required: true
 Count:
   description: "Number of consecutive registers to read, from 1 to 31."
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

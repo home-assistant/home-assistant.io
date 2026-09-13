@@ -32,16 +32,22 @@ To set a timer from an automation or a script:
 {% options_ui %}
 Device:
   description: The NeoPool controller to target. Optional when only one controller is configured.
+  required: false
 Timer name:
   description: "The timer identifier, such as `filtration1` or `filtration2`."
+  required: true
 Start time:
   description: "Start time in `HH:MM` format, such as `08:00`."
+  required: false
 Stop time:
   description: "Stop time in `HH:MM` format, such as `16:00`."
+  required: false
 Repeat interval:
   description: "Repeat interval in seconds for auxiliary and light timers, such as `86400` for once a day. Not used for filtration timers."
+  required: false
 Enable:
   description: "Timer mode, from 0 to 4 (0 disabled, 1 auto, 2 auto linked, 3 on, 4 off)."
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}

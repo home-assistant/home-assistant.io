@@ -36,12 +36,16 @@ To write a register from an automation or a script:
 {% options_ui %}
 Device:
   description: The NeoPool controller to target. Optional when only one controller is configured.
+  required: false
 Register address:
   description: "Modbus register address in decimal or hexadecimal, such as `1539` or `0x0603`."
+  required: true
 Value:
   description: "Value to write, from 0 to 65535, in decimal or hexadecimal."
+  required: true
 Apply:
   description: "Save the value to the controller's memory and apply it after the write. Enabled by default."
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
