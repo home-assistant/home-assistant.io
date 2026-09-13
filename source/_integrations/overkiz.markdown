@@ -163,11 +163,11 @@ Overkiz climate devices can expose heating and cooling controls in Home Assistan
 
 Supported climate features can include:
 
-* Setting the target temperature.
-* Selecting the operating mode.
-* Selecting a preset mode, such as **comfort**, **eco**, or **away**, when supported by the device.
-* Using the device's absence mode when supported.
-* Controlling heating and cooling profiles independently on devices that support both modes.
+- Setting the target temperature.
+- Selecting the operating mode.
+- Selecting a preset mode, such as **comfort**, **eco**, or **away**, when supported by the device.
+- Using the device's absence mode when supported.
+- Controlling heating and cooling profiles independently on devices that support both modes.
 
 The available features and preset modes depend on the device and the Overkiz API capabilities reported by the gateway. Home Assistant only exposes features supported by the device.
 
