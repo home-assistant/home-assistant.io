@@ -31,6 +31,8 @@ It is free as long as you stay under 10,000 requests per month.
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 The integration fetches:
@@ -43,9 +45,13 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 
 The `weather.get_forecasts` action uses the cached forecast data and will not issue any additional API calls to Google. You can use this action safely in templates or automations without affecting your quota usage.
 
+The `google_weather.get_minute_forecast` action works differently: it is not cached, and every call sends a new request to Google that counts toward your quota. With one location configured, about 5,500 of the 10,000 free monthly requests are left for it, which is roughly one call every 8 minutes. Call it on a schedule you control, such as a time pattern, rather than from a template that re-renders on its own.
+
+
 ## Known limitations
 
 - Weather forecast information isn't currently available in South Korea and Japan. Refer to the [Google Help Center](https://support.google.com/websearch/answer/13687874).
+- Google offers the precipitation nowcast used by the `google_weather.get_minute_forecast` action as an experimental, pre-general-availability feature. Its segments are 2 or 15 minutes long depending on the location, and its availability in your area can change.
 
 
 ## Troubleshooting
