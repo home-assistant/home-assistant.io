@@ -238,8 +238,6 @@ action: |
     config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
     status: "A media toot from Home Assistant"
     visibility: unlisted
-    media: /config/www/funny_meme.png
-    media_description: "A funny meme"
     media:
     - media_source:
         media_content_id: media-source://media_source/local/funny_meme.png
