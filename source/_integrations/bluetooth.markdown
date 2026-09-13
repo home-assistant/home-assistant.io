@@ -257,7 +257,7 @@ These adapters do not have a reset pin. When they stop responding, there is curr
 
 {% enddetails %}
 
-- UGREEEN CM749 (Barrot chipset) 📶 - No driver available yet for USB ID `33fa:0010`
+- UGREEN CM749 (Barrot chipset) 📶 - No driver available yet for USB ID `33fa:0010`
 
 📶 Denotes external antenna
 
