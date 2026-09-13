@@ -85,7 +85,7 @@ automation: |
       response_variable: pool_time
     - if:
         - condition: template
-          value_template: "{{ pool_time.drift_seconds | abs > 60 }}"
+          value_template: "{{ pool_time.drift_seconds | abs > 120 }}"
       then:
         - action: neopool.set_device_time
           data:
@@ -94,7 +94,7 @@ automation: |
 
 {% enddetails %}
 
-Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `60` in the template to change how much drift you tolerate before the clock is corrected.
+Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `120` in the template to change how much drift you tolerate before the clock is corrected.
 
 {% include actions/stuck.md %}
 

@@ -93,6 +93,7 @@ enable:
 
 - The action updates only the fields you provide and leaves the rest unchanged, so you must provide at least one of **Start time**, **Stop time**, **Repeat interval**, or **Enable**.
 - A **Stop time** always needs a **Start time**, so provide both when you set the schedule.
+- Each change is saved to the controller's memory, which has a limited number of write cycles. Avoid running this action on a fixed schedule or in a loop.
 
 {% include actions/try_it.md %}
 

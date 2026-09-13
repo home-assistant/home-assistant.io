@@ -80,6 +80,10 @@ apply:
   default: true
 {% endoptions_yaml %}
 
+## Good to know
+
+- With **Apply** enabled, the value is saved to the controller's memory, which has a limited number of write cycles. Avoid running this action on a fixed schedule or in a loop.
+
 {% include actions/try_it.md %}
 
 {% include actions/stuck.md %}

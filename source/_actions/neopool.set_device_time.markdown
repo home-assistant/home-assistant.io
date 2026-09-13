@@ -56,31 +56,42 @@ device_id:
 
 ## Good to know
 
-- To decide when to correct the clock instead of overwriting it on a fixed schedule, use the [Get device time](/actions/neopool.get_device_time/) action to read the drift first and only set the time when it exceeds a threshold you choose.
+- Each write wears the controller's memory, which has a limited number of write cycles. Only set the time when the clock has actually drifted, rather than on a fixed schedule.
+- To decide when to correct the clock, use the [Get device time](/actions/neopool.get_device_time/) action to read the drift first and only set the time when it exceeds a threshold you choose.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Set the clock daily
+### Keep the controller clock in sync
 
-This automation writes the Home Assistant time to the controller every day at 3:00.
+The controller's real-time clock can drift over time. Instead of a fixed daily overwrite, this automation checks the drift once an hour and only corrects the clock when it exceeds a threshold you choose. This also avoids unnecessary writes to the controller's memory.
 
-{% details "YAML example for a daily clock set" %}
+{% details "YAML example for keeping the clock in sync" %}
 
 {% example %}
 automation: |
-  alias: "NeoPool - set the controller clock daily"
+  alias: "NeoPool - keep the controller clock in sync"
   triggers:
-    - trigger: time
-      at: "03:00:00"
+    - trigger: time_pattern
+      hours: "/1"
   actions:
-    - action: neopool.set_device_time
+    - action: neopool.get_device_time
       data:
         device_id: abc123device456
+      response_variable: pool_time
+    - if:
+        - condition: template
+          value_template: "{{ pool_time.drift_seconds | abs > 120 }}"
+      then:
+        - action: neopool.set_device_time
+          data:
+            device_id: abc123device456
 {% endexample %}
 
 {% enddetails %}
+
+Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `120` in the template to change how much drift you tolerate before the clock is corrected.
 
 {% include actions/stuck.md %}
 
