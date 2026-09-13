@@ -156,90 +156,43 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
 - **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
 
-## Actions
-
-The integration provides actions for tasks that do not map to a persistent entity, such as reading the controller's clock or writing raw Modbus registers. When you have more than one NeoPool controller configured, select the target device. With a single controller, the device is optional and the action targets it automatically.
+{% include integrations/actions.md %}
 
 The actions that change the controller (**Set timer**, **Set device time**, and **Write register**) require a Home Assistant administrator account. The read-only actions (**Get device time** and **Read register**) are available to any user.
 
-### Action: Get device time
+## NeoPool automation examples
 
-The `neopool.get_device_time` action reads the wall-clock time from the controller's real-time clock and reports how far it has drifted from Home Assistant. It reads the clock directly from the controller when you call it, so the drift is accurate regardless of the polling interval. It returns a response and does not change the controller.
+The actions let you keep the controller in step with Home Assistant. Here is an example to get you started.
 
-- **Device**: The NeoPool controller to target. Optional when only one is configured.
+{% include docs/paste_yaml_tip.md %}
 
-The response contains:
-
-- `device_time`: the controller's clock as an ISO 8601 timestamp.
-- `ha_time`: the Home Assistant time the reading was compared against, rounded to whole seconds.
-- `drift_seconds`: the difference in seconds, positive when the controller is ahead of Home Assistant.
-
-### Action: Set device time
-
-The `neopool.set_device_time` action writes the current Home Assistant time to the controller's real-time clock. Use it to correct a controller whose clock has drifted.
-
-- **Device**: The NeoPool controller to target. Optional when only one is configured.
-
-### Action: Set timer
-
-The `neopool.set_timer` action sets or updates one of the controller's timers, such as a filtration or auxiliary-relay schedule.
-
-- **Device**: The NeoPool controller to target. Optional when only one is configured.
-- **Timer name** (required): The timer identifier, such as `filtration1` or `filtration2`.
-- **Start time**: Start time in `HH:MM` format, such as `08:00`.
-- **Stop time**: Stop time in `HH:MM` format, such as `16:00`.
-- **Repeat interval**: Repeat interval in seconds for auxiliary and light timers, such as `86400` for once a day. Not used for filtration timers.
-- **Enable**: Timer mode, from `0` to `4` (`0` disabled, `1` auto, `2` auto linked, `3` on, `4` off).
-
-The action updates only the fields you provide and leaves the rest unchanged, so you must provide at least one of **Start time**, **Stop time**, **Repeat interval**, or **Enable**. A **Stop time** always needs a **Start time**, so provide both when you set the schedule.
-
-### Action: Read register
-
-The `neopool.read_register` action reads one or more Modbus registers and returns their raw 16-bit values. It is intended for diagnostics and for values the integration does not expose as entities.
-
-- **Device**: The NeoPool controller to target. Optional when only one is configured.
-- **Register address** (required): Modbus register address in decimal or hexadecimal, such as `258` or `0x0102`.
-- **Count**: Number of consecutive registers to read, from `1` to `31`.
-
-The response contains the `address`, the `count`, and a `values` list. When `count` is `1`, a single `value` is also returned for convenience.
-
-### Action: Write register
-
-The `neopool.write_register` action writes a value to a Modbus holding register and reads it back to verify the write.
-
-{% warning %}
-Writing raw registers can put the controller into an unexpected state. Only use this action when you know what a register does.
-{% endwarning %}
-
-- **Device**: The NeoPool controller to target. Optional when only one is configured.
-- **Register address** (required): Modbus register address in decimal or hexadecimal, such as `1539` or `0x0603`.
-- **Value** (required): Value to write, from `0` to `65535`, in decimal or hexadecimal.
-- **Apply**: Save the value to the controller's memory and apply it after the write. Enabled by default.
-
-## Examples
-
-### Keep the controller's clock in sync
+### Automation: Keep the controller clock in sync
 
 The controller's real-time clock can drift over time. Instead of a fixed daily overwrite, this automation checks the drift once an hour and only corrects the clock when it exceeds a threshold you choose. The `neopool.get_device_time` action returns the drift, and the automation acts on it.
 
-```yaml
-alias: NeoPool - keep the controller clock in sync
-triggers:
-  - trigger: time_pattern
-    hours: "/1"
-actions:
-  - action: neopool.get_device_time
-    data:
-      device_id: abc123device456
-    response_variable: pool_time
-  - if:
-      - condition: template
-        value_template: "{{ pool_time.drift_seconds | abs > 60 }}"
-    then:
-      - action: neopool.set_device_time
-        data:
-          device_id: abc123device456
-```
+{% details "YAML example for keeping the clock in sync" %}
+
+{% example %}
+automation: |
+  alias: "NeoPool - keep the controller clock in sync"
+  triggers:
+    - trigger: time_pattern
+      hours: "/1"
+  actions:
+    - action: neopool.get_device_time
+      data:
+        device_id: abc123device456
+      response_variable: pool_time
+    - if:
+        - condition: template
+          value_template: "{{ pool_time.drift_seconds | abs > 60 }}"
+      then:
+        - action: neopool.set_device_time
+          data:
+            device_id: abc123device456
+{% endexample %}
+
+{% enddetails %}
 
 Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `60` in the template to change how much drift you tolerate before the clock is corrected.
 
