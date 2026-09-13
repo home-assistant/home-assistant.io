@@ -105,6 +105,12 @@ To do this, navigate to **Access Control** in the Homematic IP app and enable th
 
 Currently, you can only use the HmIP-DLD in Home Assistant without a PIN. Make sure no PIN is set for the device in the Homematic IP app.
 
+## Use HmIP-FLC and HmIP-FDC door openers in Home Assistant
+
+The door opener of the HmIP-FLC and HmIP-FDC is a button entity. As with the HmIP-DLD, the Home Assistant access point must be allowed to control it under **Access Control** in the Homematic IP app.
+
+If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` action with its `pin` field. The button itself cannot pass a PIN.
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
@@ -133,6 +139,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 
 - Wall-mounted garage door controller (`HmIP-WGC`)
 - Full Flush Lock Controller door opener (`HmIP-FLC`)
+- Full Flush Door Controller door opener (`HmIP-FDC`)
 
 ### Climate
 
