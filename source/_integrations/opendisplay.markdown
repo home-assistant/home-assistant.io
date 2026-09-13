@@ -18,10 +18,23 @@ ha_platforms:
   - event
   - sensor
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
+related:
+  - docs: /integrations/bluetooth/
+    title: Bluetooth integration
+  - url: https://opendisplay.org/
+    title: OpenDisplay project
 ---
 
 The **OpenDisplay** {% term integration %} lets you use [OpenDisplay](https://opendisplay.org/) e-paper displays with Home Assistant over Bluetooth Low Energy.
+
+## Use cases
+
+With the OpenDisplay integration, you can:
+
+- Show a calendar, weather overview, or dashboard snapshot on an e-paper display, updated on a schedule. Because e-paper screens only draw power when the image changes, battery-powered displays can run for a long time between charges.
+- Create a digital art frame that shows a new artwork or photo from your media library every day.
+- Use the physical buttons on OpenDisplay Flex devices to trigger any Home Assistant automation.
 
 ## Supported devices
 
@@ -61,111 +74,128 @@ If the encryption key changes after the device has been set up, Home Assistant w
 
 The **OpenDisplay** integration provides the following entities.
 
-### Sensors
-
-- **Temperature**: Chip temperature
-- **Battery Voltage**: (Only if the device has a battery configured) Shows the current voltage of the attached battery
-
-### Button events
-
-OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
-
-- `button_down`: Fires when the button is pressed.
-- `button_up`: Fires when the button is released.
-
-{% note %}
-Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
-{% endnote %}
-
-{% details "Turn on a light when a button is pressed" %}
-
-```yaml
-triggers:
-  - trigger: state
-    entity_id: event.opendisplay_1234_button_1
-    attribute: event_type
-    to: button_down
-actions:
-  - action: light.turn_on
-    target:
-      entity_id: light.my_light
-```
-{% enddetails %}
-
 ### Binary sensors
 
-- **Connectivity**: Reports whether the device is currently connected to Home Assistant and can receive commands.
+- **Connectivity**
+  - **Description**: Indicates whether Bluetooth advertisements from the device are currently being received. It only reflects that the device is in range and broadcasting — it does not mean an active connection is open or that the device is ready to receive commands.
+  - **Available for devices**: all
+  - **Remarks**: This is a diagnostic entity.
+
+### Events
+
+- **Button** (one {% term event %} {% term entity %} per configured physical button)
+  - **Description**: Fires a `button_down` event when the button is pressed and a `button_up` event when it is released.
+  - **Available for devices**: OpenDisplay Flex devices with configured physical inputs.
+  - **Remarks**: Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
+
+### Sensors
+
+- **Battery**
+  - **Description**: Estimated battery charge percentage, calculated from the measured battery voltage.
+  - **Available for devices**: devices running in battery or solar power mode.
+  - **Remarks**: This is a diagnostic entity.
+
+- **Battery voltage**
+  - **Description**: The measured voltage of the attached battery, in millivolts.
+  - **Available for devices**: devices running in battery or solar power mode.
+  - **Remarks**: This is a diagnostic entity and is disabled by default. You can enable it from the entity settings if needed.
+
+- **Temperature**
+  - **Description**: The internal chip temperature of the device.
+  - **Available for devices**: all
+  - **Remarks**: This is a diagnostic entity and is disabled by default. You can enable it from the entity settings if needed.
 
 {% include integrations/actions.md %}
 
-## Examples
+## OpenDisplay automation examples
 
-### Uploading an image
+Here are a few ideas to get you started.
 
-{% details "Upload an image from local media" %}
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-action: opendisplay.upload_image
-data:
-  device_id: "your_device_id"
-  image:
-    media_content_id: "media-source://media_source/local/photo.png"
-    media_content_type: "image/png"
-```
+### Automation: Show an image when a button is pressed
+
+Use a physical button on an OpenDisplay Flex device to put a specific image on the display, for example to switch a room sign to "Do not disturb".
+
+- **Trigger**: Event entity: `button_down`
+- **Action**: OpenDisplay: Upload image
+  - **Device**: Your OpenDisplay device
+  - **Image**: The image to show
+
+{% details "YAML example for showing an image on button press" %}
+
+{% example %}
+automation: |
+  alias: "Show do-not-disturb sign on button press"
+  triggers:
+    - trigger: state
+      entity_id: event.opendisplay_1234_button_1
+      attribute: event_type
+      to: button_down
+  actions:
+    - action: opendisplay.upload_image
+      data:
+        device_id: "your_device_id"
+        image:
+          media_content_id: "media-source://media_source/local/do_not_disturb.png"
+          media_content_type: "image/png"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn on a light when a button is pressed
+
+The buttons on an OpenDisplay Flex device can trigger any Home Assistant automation, for example turning on a light.
+
+- **Trigger**: Event entity: `button_down`
+- **Action**: Turn on light
+
+{% details "YAML example for turning on a light on button press" %}
+
+{% example %}
+automation: |
+  alias: "Turn on a light on button press"
+  triggers:
+    - trigger: state
+      entity_id: event.opendisplay_1234_button_1
+      attribute: event_type
+      to: button_down
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.my_light
+{% endexample %}
 
 {% enddetails %}
 
-### Updating the display on a schedule
+## Data updates
 
-You can use an {% term automation %} to refresh the display at a set time each day.
+The **OpenDisplay** integration receives all state updates passively from the Bluetooth Low Energy advertisements that the device broadcasts. The device is not {% term polling polled %} and there is no configurable update interval — sensors, button events, and the connectivity status update as soon as a new advertisement is received.
 
-{% details "Update display daily at 8:00 AM" %}
-
-```yaml
-triggers:
-  - trigger: time
-    at: "08:00:00"
-actions:
-  - action: opendisplay.upload_image
-    data:
-      device_id: "your_device_id"
-      image:
-        media_content_id: "media-source://media_source/local/daily.png"
-        media_content_type: "image/png"
-```
-
-{% enddetails %}
+The `opendisplay.upload_image` action opens an active Bluetooth connection on demand to transfer the image. Starting a new upload cancels an upload that is already in progress.
 
 ## Known limitations
 
 - BLE range is limited. Displays far from a Bluetooth adapter may experience unreliable transfers.
-- Starting a new upload while one is already in progress cancels the ongoing transfer.
+- Only one image transfer per device can be in progress at a time.
 
 ## Troubleshooting
 
-{% details "Device is not discovered" %}
+### Device is not discovered
 
 Check that the [Bluetooth](/integrations/bluetooth) integration is set up and working, then confirm your OpenDisplay device is powered on and in range of your Home Assistant host or a Bluetooth proxy.
 
-{% enddetails %}
-
-{% details "Authentication failed" %}
+### Authentication failed
 
 This means the encryption key stored in Home Assistant no longer matches the key configured on the device. Go to {% my integration domain="opendisplay" title="**Settings** > **Devices & services** > **OpenDisplay**" %} and select **Re-authenticate** to enter the correct key.
 
-{% enddetails %}
-
-{% details "Upload fails with a connection error" %}
+### Upload fails with a connection error
 
 BLE connections can drop at longer ranges. Try moving the display closer to your Bluetooth adapter. If you are using an ESPHome proxy, check that it has a stable Wi-Fi connection.
 
-{% enddetails %}
-
-{% details "Image appears rotated or upside down" %}
+### Image appears rotated or upside down
 
 The integration applies EXIF orientation automatically. If the result is still rotated, use the `rotation` parameter in the **Upload image** action to correct it manually.
-
-{% enddetails %}
 
 ## Removing the integration
 
