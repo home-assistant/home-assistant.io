@@ -509,7 +509,7 @@ Only enable the KNX API on agents you are willing to give write access to your i
 
 ### Available tools
 
-The API provides 22 tools in four groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
+The API provides 21 tools in four groups. If a tool cannot run, it reports the reason back to the agent, for example that no ETS project is loaded or that the telegram store is unavailable.
 
 #### Telegram history
 
@@ -517,7 +517,7 @@ The API provides 22 tools in four groups. If a tool cannot run, it reports the r
 
 #### ETS project
 
-`get_project_info`, `list_group_addresses`, `describe_group_address`, `list_devices`, `list_communication_objects`, `list_functions`, `describe_function`, `get_topology`, and `list_locations` answer questions about your installation: group addresses and their names, devices and their communication objects, functional blocks, the area and line topology, and the building structure. They require a project file uploaded in the KNX panel.
+`get_project_info`, `list_group_addresses`, `describe_group_address`, `list_devices`, `list_communication_objects`, `list_functions`, `describe_function`, and `get_topology` answer questions about your installation: group addresses and their names, devices and their communication objects, functional blocks, and the area and line topology. They require a project file uploaded in the KNX panel.
 
 #### Data point types
 
