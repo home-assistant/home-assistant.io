@@ -125,6 +125,11 @@ metadata:
   timestamp: "2024-01-01T12:00:00+00:00"
 ```
 
+## Good to know
+
+- Unlike the weather and radar camera entities in this integration, this action is not backed by a coordinator: each call queries Environment Canada directly, so the response reflects the latest available radar and model data at the time of the call.
+- Repeated calls with the same location and options within a few minutes can reuse a very recent result instead of triggering a new query.
+
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
