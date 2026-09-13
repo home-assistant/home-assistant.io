@@ -239,7 +239,6 @@ actions:
       - action: neopool.set_device_time
         data:
           device_id: abc123device456
-mode: single
 ```
 
 Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `60` in the template to change how much drift you tolerate before the clock is corrected.
