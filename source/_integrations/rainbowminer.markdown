@@ -46,10 +46,8 @@ The RainbowMiner integration provides the following entities.
 The following sensors are always available:
 
 - **Active miners**: The number of currently running miners.
-- **Active pools**: A comma-separated list of pools used by the running miners.
 - **Power**: The total power draw of all running miners, in watts.
-- **Uptime**: How long RainbowMiner has been running, in seconds. Includes a formatted string attribute with a human-readable duration.
-- **Version**: The installed RainbowMiner software version.
+- **Uptime**: The date and time RainbowMiner was started.
 
 #### Earnings in mBTC
 
