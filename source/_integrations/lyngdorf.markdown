@@ -113,6 +113,7 @@ Diagnostic sensors report what the device is receiving and playing:
 - **Audio information** and **Video information**: The incoming signal formats.
 - **Streaming source**: The active streaming service.
 - **Zone B audio input** and **Zone B streaming source**: The same for Zone B, where present.
+- **Maximum volume**: The highest volume allowed by the device, set in its own menu. Commands to raise the volume above this limit have no effect. This sensor is only created on models that report a maximum. It is disabled by default.
 
 ## Use cases
 
