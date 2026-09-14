@@ -195,4 +195,10 @@ Enabling **Update Audyssey settings** in the integration's options makes **Refer
 
 {% include integrations/actions.md %}
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
 [Denon]: /integrations/denon
