@@ -166,7 +166,7 @@ automation: |
 
 ### Automation: run an appliance on surplus solar
 
-Appliances that don't care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once the inverter has been producing more than the house is using for ten minutes, which is long enough to know it isn't a passing gap in the clouds.
+Appliances that don't care when they run are the cheapest way to use your own production instead of selling it. This automation starts the dishwasher once the inverter has been producing more than the house is using for 10 minutes, which is long enough to know it isn't a passing gap in the clouds.
 
 - **Trigger**: Template, true while **PV power total** stays more than 1.5 kW above **Active power load system** for 10 minutes
 - **Action**: Turn on switch
@@ -229,24 +229,52 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- This is an early release of the integration, added to Home Assistant one platform at a time.
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
 - Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
 ## Troubleshooting
+
+If these steps don't help, [open an issue on GitHub](https://github.com/home-assistant/core/issues/new?template=bug_report.yml&integration_name=Sofar&integration_link=https%3A%2F%2Fwww.home-assistant.io%2Fintegrations%2Fsofar) and include the details listed for your symptom.
 
 ### Cannot connect to the inverter
 
 1. Make sure the inverter (or the Modbus TCP bridge it's connected through) is powered on and reachable on the network.
 2. Confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
 3. Check that Modbus is enabled on the inverter, if it has a setting for this.
+4. If it still fails, include the host, port, and Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
 
 ### Inverter isn't recognized
 
+#### Description
+
 The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
+
+#### Resolution
+
+Because setup didn't finish, the integration isn't added yet, so the **Download diagnostics** option isn't shown. Include the first 10 characters of your inverter's serial number and the model name from its label in the issue report instead. Together, those identify which register map the inverter uses. The rest of the serial number isn't needed.
+
+### Entities are missing for your inverter
+
+#### Description
+
+If the integration set up successfully but entities you expect aren't there, such as battery or EPS/backup sensors on a hybrid inverter, the inverter is reporting that it doesn't serve those registers.
+
+#### Resolution
+
+Download the {% term diagnostics %} data and include it in the issue report. It lists which register blocks the inverter reports it supports, which shows whether the model genuinely lacks that hardware or the integration is reading it wrongly.
+
+To download it, go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Download diagnostics**.
 
 ## Removing the integration
 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+### To remove a battery pack
+
+Battery packs appear as separate devices under the inverter. A pack you physically remove stays listed until you delete its device. Packs the inverter still reports can't be deleted, and a pack you reconnect is added back on the next update. The inverter and its PV strings can't be deleted individually, since PV strings come from the inverter model rather than from a reading.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Sofar** integration card.
+2. From the list of devices, find the battery pack you want to remove.
+3. Next to the battery pack, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Delete**.
