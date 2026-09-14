@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
-The **KACO RS485** {% term integration %} connects Home Assistant to [KACO new energy](https://kaco-newenergy.com/) Powador solar inverters over their RS485 serial bus, and shows what they are producing. These inverters have no network port and no cloud service, so the serial bus is the only way to read them.
+The **KACO RS485** {% term integration %} connects Home Assistant to [KACO new energy](https://kaco-newenergy.com/) Powador solar inverters over their RS485 serial bus and shows what they are producing. These inverters have no network port and no cloud service, so the serial bus is the only way to read them.
 
 Up to 32 inverters can share one bus, and they're all set up together.
 
