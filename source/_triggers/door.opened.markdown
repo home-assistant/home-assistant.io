@@ -28,10 +28,11 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted door opens, **First** to fire only when the first targeted door opens, or **All** to fire only after every targeted door is open.
+  description: When multiple doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted door opens, **First** to fire only when the first targeted door opens, or **All** to fire only after every targeted door is open. Default: **Each**.
   required: false
 For at least:
   description: How long the door must stay open before the trigger fires. Set it to zero to fire immediately.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
