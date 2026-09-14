@@ -13,6 +13,8 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - media_player
+  - select
+  - switch
 ha_integration_type: device
 ---
 
@@ -154,6 +156,42 @@ A few notes:
 - Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
 - Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+
+## Select
+
+The `denonavr` integration will create the following [Select](/integrations/select/) entities for Audyssey and device settings. Audyssey ones are only available for receivers whose Audyssey processing exposes them; not every model or firmware supports all of them.
+
+- **Reference level offset**
+  - **Description**: Offset applied to the reference level used by Dynamic EQ. Only available while the **Dynamic EQ** switch is on.
+  - **Options**: `0dB`, `+5dB`, `+10dB`, `+15dB`
+- **Dynamic volume**
+  - **Description**: Audyssey Dynamic Volume compression level.
+  - **Options**: `Off`, `Light`, `Medium`, `Heavy`
+- **Multi-EQ**
+  - **Description**: Audyssey MultEQ room correction mode.
+  - **Options**: `Off`, `Flat`, `L/R Bypass`, `Reference`, `Manual`
+- **Eco mode**
+  - **Description**: The receiver's power-saving mode.
+  - **Options**: `On`, `Auto`, `Off`
+- **Dimmer**
+  - **Description**: Front-panel display brightness.
+  - **Options**: `Off`, `Dark`, `Dim`, `Bright`
+- **Auto standby**
+  - **Description**: Idle time before the receiver automatically powers off.
+  - **Options**: `OFF`, `15M`, `30M`, `60M`, `2H`, `4H`, `8H`
+
+These entities read and write directly through the receiver's own settings, so a change made on the receiver itself (or its app) is reflected in Home Assistant, and vice versa.
+
+## Switch
+
+The `denonavr` integration will create the following [Switch](/integrations/switch/) entity. It's only available for receivers whose Audyssey processing exposes it.
+
+- **Dynamic EQ**
+  - **Description**: Enables Audyssey Dynamic EQ, which adjusts the frequency response to compensate for listening at low volumes. Turning this off also disables the **Reference level offset** select above, since that setting only applies while Dynamic EQ is on.
+
+{% note %}
+Enabling **Update Audyssey settings** in the integration's options makes the entities above poll the receiver on a schedule, in addition to updating immediately after you change them here. Some receivers reportedly take several seconds to respond to an Audyssey settings request, which is why this polling is opt-in rather than on by default.
+{% endnote %}
 
 {% include integrations/actions.md %}
 
