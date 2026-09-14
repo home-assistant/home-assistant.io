@@ -4,7 +4,9 @@ title: "Enabling a wake word"
 
 This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it.
 
-To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). Note that the Home Assistant Voice Preview does not currently support custom wake words.
+To *use* the wake word, you need a voice satellite with a microphone. The microphone does not connect directly to openWakeWord; it is part of the voice satellite that provides audio to Assist.
+
+A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). If you want to use a microphone connected to a Linux computer or directly to the Home Assistant OS host, see the [voice satellite options](/voice_control/#expand-and-experiment), including the experimental Linux-Voice-Assistant and Assist Satellite app. Note that the Home Assistant Voice Preview does not currently support custom wake words.
 
 ## To enable a wake word
 
