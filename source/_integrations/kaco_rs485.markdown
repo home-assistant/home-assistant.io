@@ -17,7 +17,7 @@ ha_quality_scale: silver
 
 The **KACO RS485** {% term integration %} connects Home Assistant to [KACO new energy](https://kaco-newenergy.com/) Powador solar inverters over their RS485 serial bus, and shows what they are producing. These inverters have no network port and no cloud service, so the serial bus is the only way to read them.
 
-Up to 32 inverters share one bus and one Home Assistant config entry.
+Up to 32 inverters can share one bus, and they're all set up together.
 
 ## Use cases
 
@@ -27,15 +27,15 @@ Powador inverters of this generation predate network connectivity. Without the s
 
 KACO Powador inverters that use the KACO serial protocol, which covers the xi range, including the Powador 6400xi and 8000xi.
 
-Newer KACO inverters, including the blueplanet, TL3 and NX3 families, speak a different protocol on the same wire. They are not supported here; use the [KACO Modbus](/integrations/kaco_modbus/) integration instead. If nothing but these answers during setup, Home Assistant reports which addresses they are. If they share a bus with supported inverters, they are skipped without comment.
+Newer KACO inverters, including the blueplanet, TL3, and NX3 families, speak a different protocol on the same wire. They aren't supported here; use the [KACO Modbus](/integrations/kaco_modbus/) integration instead. If nothing but these answers during setup, Home Assistant reports which addresses they are. If they share a bus with supported inverters, they are skipped without comment.
 
 ## Prerequisites
 
 - An RS485 connection between the inverters and Home Assistant. This can be a USB RS485 adapter plugged into the machine running Home Assistant, or an [ESPHome](/integrations/esphome/) device configured as a serial proxy, which lets the inverters be somewhere else on your network.
 - Every inverter needs its own address in the range 1 to 32. The address is set on the inverter itself, in its display menu under **Inverter address**.
   - On inverters offering both RS232 and RS485, the **Interface** menu entry must be set to RS485 first.
-  - Do not confuse this with the **Sym-Bus** address, which is a separate setting in the same menu, also numbered 1 to 32, used for phase balancing between inverters. Setting that one has no effect here.
-- Nothing else may be polling the bus. RS485 allows a single master, and a second one corrupts everyone's traffic. If a KACO data logger, such as a Powador-proLOG, is attached, disconnect it first.
+  - Don't confuse this with the **Sym-Bus** address, which is a separate setting in the same menu, also numbered 1 to 32, used for phase balancing between inverters. Setting that one has no effect here.
+- Nothing else may be polling the bus. RS485 allows a single controller, and a second one corrupts everyone's traffic. If a KACO data logger, such as a Powador-proLOG, is attached, disconnect it first.
 
 {% include integrations/config_flow.md %}
 
@@ -59,17 +59,13 @@ Each inverter on the bus becomes its own device, named for the model it reports 
 ### Sensors
 
 - **AC power**: The power the inverter is currently feeding into the grid.
-- **Daily yield**: Energy produced since midnight, in watt-hours. This is the one to add to the [Energy dashboard](/docs/energy/); see [Energy dashboard](#energy-dashboard) below.
+- **Daily yield**: Energy produced since midnight, in watt-hours. This is the one to add to the [Energy dashboard](/docs/energy/); see [Add production to the Energy dashboard](#add-production-to-the-energy-dashboard) below.
 - **Total yield**: The inverter's lifetime energy counter, in kilowatt-hours.
 - **Status**: What the inverter is currently doing, such as MPP tracking, waiting, or one of its fault conditions.
 
-## Data updates
+## Examples
 
-The **KACO RS485** {% term integration %} {% term polling polls %} every inverter on the bus every 30 seconds.
-
-Requests are spaced one second apart, including between inverters. The hardware requires this: transmitting while a slow reply is still on the wire corrupts the request that follows it. Each inverter therefore costs about two seconds of every cycle, so disabling one you do not need shortens the cycle for the rest.
-
-## Energy dashboard
+### Add production to the Energy dashboard
 
 Add each inverter's **Daily yield** as a solar production source, following [integrating your solar panels](/docs/energy/solar-panels/).
 
@@ -77,31 +73,37 @@ Use **Daily yield** rather than **Total yield**. Both are energy counters read f
 
 Total yield does survive Home Assistant being down, where a daily counter loses any day Home Assistant missed. If that matters more to you than intraday resolution, use Total yield instead.
 
+## Data updates
+
+The **KACO RS485** {% term integration %} {% term polling polls %} every inverter on the bus every 30 seconds.
+
+Requests are spaced one second apart, including between inverters. The hardware requires this: transmitting while a slow reply is still on the wire corrupts the request that follows it. Each inverter therefore costs about two seconds of every cycle, so disabling one you don't need shortens the cycle for the rest.
+
+## Known limitations
+
+These inverters don't report a serial number, so Home Assistant identifies the bus by its serial port. This means:
+
+- The same port can only be added once.
+- If the adapter or proxy changes, you have to remove the integration and add it again. Local USB adapters are stored by their stable `/dev/serial/by-id` path, so replugging one into a different socket is fine.
+
+Inverter settings can't be changed from Home Assistant. The integration only reads.
+
 ## Troubleshooting
 
 ### No inverters answered during setup
 
 1. Check the time of day. These inverters go completely silent after dusk and answer nothing until the sun is back on the panels.
-2. Check that the A and B wires are not swapped, which is the most common wiring fault and produces the same silence.
+2. Check that the A and B wires aren't swapped, which is the most common wiring fault and produces the same silence.
 3. Check each inverter has an address set, in its display menu.
-4. Disconnect any data logger on the same bus. Two masters cannot share it.
+4. Disconnect any data logger on the same bus. Two controllers can't share it.
 
 ### An inverter is unavailable while the others are fine
 
 The inverter stopped answering its polls. Overnight this is expected and it comes back by itself in the morning. During the day, check that its address is still set and unique: two inverters sharing an address answer over each other and neither can be read reliably.
 
-### The port cannot be opened
+### The port can't be opened
 
-For a USB adapter, check it is still plugged in. For an ESPHome serial proxy, check the device is online.
-
-## Known limitations
-
-These inverters do not report a serial number, so Home Assistant identifies the bus by its serial port. This means:
-
-- The same port can only be added once.
-- If the adapter or proxy changes, the config entry has to be removed and added again. Local USB adapters are stored by their stable `/dev/serial/by-id` path, so replugging one into a different socket is fine.
-
-Inverter settings cannot be changed from Home Assistant. The integration only reads.
+For a USB adapter, check it's still plugged in. For an ESPHome serial proxy, check the device is online.
 
 ## Removing the integration
 
