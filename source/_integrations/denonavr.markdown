@@ -180,7 +180,7 @@ The `denonavr` integration will create the following [Select](/integrations/sele
   - **Description**: Idle time before the receiver automatically powers off.
   - **Options**: `OFF`, `15M`, `30M`, `60M`, `2H`, `4H`, `8H`
 
-These entities read and write directly through the receiver's own settings, so a change made on the receiver itself (or its app) is reflected in Home Assistant, and vice versa.
+These entities read and write directly through the receiver's own settings. Home Assistant sends your changes immediately. A change made on the receiver itself or in its app is picked up automatically for **Eco mode**, **Dimmer**, and **Auto standby**. For **Reference level offset**, **Dynamic volume**, and **Multi-EQ**, that only happens automatically when **Update Audyssey settings** is enabled, as explained in the note below.
 
 ## Switch
 
@@ -190,7 +190,7 @@ The `denonavr` integration will create the following [Switch](/integrations/swit
   - **Description**: Enables Audyssey Dynamic EQ, which adjusts the frequency response to compensate for listening at low volumes. Turning this off also disables the **Reference level offset** select above, since that setting only applies while Dynamic EQ is on.
 
 {% note %}
-Enabling **Update Audyssey settings** in the integration's options makes the entities above poll the receiver on a schedule, in addition to updating immediately after you change them here. Some receivers reportedly take several seconds to respond to an Audyssey settings request, which is why this polling is opt-in rather than on by default.
+Enabling **Update Audyssey settings** in the integration's options makes **Reference level offset**, **Dynamic volume**, **Multi-EQ**, and **Dynamic EQ** poll the receiver on a schedule, in addition to updating immediately after you change them here. Some receivers reportedly take several seconds to respond to an Audyssey settings request, which is why this polling is opt-in rather than on by default.
 {% endnote %}
 
 {% include integrations/actions.md %}
