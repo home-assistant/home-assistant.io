@@ -101,11 +101,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 You can create state-based template entities from the user interface. To create a helper of a state-based template entity:
 
 1. Follow the manual configuration steps described in [Configuration](#configuration).
-2. Pick the entity platform of the template helper you want to create from the list.
-3. Fill in the **Name** and other fields shown. Each field is described in the **Options in the UI** section of the corresponding platform section further down this page.
+2. Select the entity platform of the template helper you want to create from the list.
+3. Enter the **Name** and any other options. For details, see the **Options in the UI** section for that platform further down this page.
 4. Select **Submit** to save the helper.
 
-After creation, a template helper's options can be changed at any time in **Settings > Devices & services > Helpers**, by selecting the helper and then **Settings** {% icon "mdi:cog-outline" %}.
+After you create a template helper, you can change its options at any time in **{% my helpers title="Settings > Devices & services > Helpers" %}**. Select the helper, and then select **Settings** {% icon "mdi:cog-outline" %}.
 
 ## YAML configuration
 
