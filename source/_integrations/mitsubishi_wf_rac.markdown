@@ -50,10 +50,10 @@ Ignore duplicate IP address:
 
 The integration creates one device per air conditioner with a climate entity that offers:
 
-- **Modes**: off, cool, heat, dry, fan only, and auto where the unit supports it.
-- **Target temperature**, within the range the unit itself reports for the mode it is in.
+- **Modes**: off, cool, heat, dry, fan only and auto.
+- **Target temperature**, held to the range the model allows for the mode it is in.
 - **Fan speed**, including the unit's quiet step.
-- **Vertical and horizontal swing**, including the unit's 3D auto mode where fitted.
+- **Vertical swing**, plus horizontal swing and the unit's own 3D auto mode on the models that have a left/right vane.
 - **Away preset**, which switches the unit into its own Home Leave mode.
 
 The current temperature shown is the unit's own return-air reading.
