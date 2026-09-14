@@ -108,5 +108,7 @@ If the validation failed, a new one-time password will be sent again.
 {% note %}
 The Notify MFA module can't tell if the one-time password was delivered successfully. If you don't get the notification, you won't be able to log in.
 
-You can disable the Notify MFA module by editing or removing the file `[your_config_dir]/.storage/auth_module.notify`.
+To disable Notify MFA for your account, go to your {% my profile title="**User profile**" %}, select the **Security** tab, and select **Disable** under **Notify one-time password**.
+
+To remove the Notify MFA module from Home Assistant, remove its entry from `auth_mfa_modules` in `configuration.yaml`, then restart Home Assistant.
 {% endnote %}
