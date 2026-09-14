@@ -5,9 +5,6 @@ domain: neopool
 description: "Writes the current Home Assistant time to the controller's real-time clock."
 related_actions:
   - neopool.get_device_time
-  - neopool.set_timer
-  - neopool.read_register
-  - neopool.write_register
 ---
 
 Use this action to write the current Home Assistant time to the controller's real-time clock. Use it to correct a controller whose clock has drifted.

@@ -158,7 +158,7 @@ Only entities backed by a detected hardware module or an enabled controller opti
 
 {% include integrations/actions.md %}
 
-The actions that change the controller (**Set timer**, **Set device time**, and **Write register**) require a Home Assistant administrator account. The read-only actions (**Get device time** and **Read register**) are available to any user.
+The action that changes the controller (**Set device time**) requires a Home Assistant administrator account. The read-only action (**Get device time**) is available to any user.
 
 ## NeoPool automation examples
 

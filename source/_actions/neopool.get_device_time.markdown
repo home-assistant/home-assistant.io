@@ -5,9 +5,6 @@ domain: neopool
 description: "Reads the controller's real-time clock and reports its drift from Home Assistant."
 related_actions:
   - neopool.set_device_time
-  - neopool.set_timer
-  - neopool.read_register
-  - neopool.write_register
 ---
 
 Use this action to read the wall-clock time from the controller's real-time clock and see how far it has drifted from Home Assistant. It reads the clock directly from the controller when you call it, so the drift is accurate regardless of the polling interval. The action returns a response and does not change the controller.
