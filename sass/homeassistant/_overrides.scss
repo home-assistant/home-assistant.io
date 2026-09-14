@@ -554,7 +554,7 @@ dd {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 16px;
+  padding: 12px 16px 10px;
   // Sits the pill's label on the same line as the other menu items, whose
   // 29px top padding puts their text centre 2px below the bar's centre.
   margin: 19px 11px 15px;
@@ -565,6 +565,10 @@ dd {
   font-weight: 700;
   text-transform: uppercase;
   transition: background-color .33s;
+
+  iconify-icon{
+    margin-right: -4px;
+  }
 
   &:hover,
   &:focus {
