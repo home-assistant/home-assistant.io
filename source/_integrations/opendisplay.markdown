@@ -151,29 +151,41 @@ automation: |
 
 ## Troubleshooting
 
-{% details "Device is not discovered" %}
+### Device is not discovered
+
+#### Resolution
 
 Check that the [Bluetooth](/integrations/bluetooth) integration is set up and working. Then, confirm that your OpenDisplay device is powered on and within range of your Home Assistant host or an ESPHome Bluetooth proxy.
 
-{% enddetails %}
+### Authentication fails
 
-{% details "Authentication failed" %}
+#### Description
 
-The encryption key stored in Home Assistant no longer matches the key on the device. Go to {% my integration domain="opendisplay" title="**Settings** > **Devices & services** > **OpenDisplay**" %}, and select **Re-authenticate** to enter the correct key.
+The encryption key stored in Home Assistant no longer matches the key on the device.
 
-{% enddetails %}
+#### Resolution
 
-{% details "Image upload fails with a connection error" %}
+Go to {% my integration domain="opendisplay" title="**Settings** > **Devices & services** > **OpenDisplay**" %}, and select **Re-authenticate** to enter the correct key.
 
-Bluetooth Low Energy connections can drop at longer ranges. Move the display closer to your Bluetooth adapter. If you use an ESPHome Bluetooth proxy, check that it has a stable Wi-Fi connection.
+### Image upload fails with a connection error
 
-{% enddetails %}
+#### Description
 
-{% details "Image appears rotated or upside down" %}
+Bluetooth Low Energy connections can drop at longer ranges.
 
-The integration applies EXIF orientation automatically. If the image is still rotated, use the **Rotation** option in the **Upload image** action to correct it.
+#### Resolution
 
-{% enddetails %}
+Move the display closer to your Bluetooth adapter. If you use an ESPHome Bluetooth proxy, check that it has a stable Wi-Fi connection.
+
+### Image appears rotated or upside down
+
+#### Description
+
+Home Assistant applies EXIF orientation automatically before processing the image.
+
+#### Resolution
+
+If the image is still rotated, use the **Rotation** option in the **Upload image** action to correct it.
 
 ## Removing the integration
 
