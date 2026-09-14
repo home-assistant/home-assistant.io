@@ -21,7 +21,7 @@ Up to 32 inverters can share one bus, and they're all set up together.
 
 ## Use cases
 
-Powador inverters of this generation predate network connectivity. Without the serial bus, the only way to see what they are producing is to walk up to each one and read its display. Reading the bus puts that on the [Energy dashboard](/docs/energy/), lets you run appliances while there is surplus, and tells you the same day when an inverter stops producing.
+Powador inverters of this generation predate network connectivity. Without the serial bus, the only way to see what they are producing is to walk up to each one and read its display. The KACO RS485 integration reads the bus for you: it puts each inverter's production on the Energy dashboard, lets you run appliances while there is surplus, and tells you the same day when an inverter stops producing.
 
 ## Supported devices
 
