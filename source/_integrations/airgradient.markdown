@@ -112,7 +112,7 @@ To install the update, the device needs to be rebooted.
 
 This integration uses local {% term polling %}, meaning it checks for changes to all entities by regularly communicating with the AirGradient device.
 
-On devices with a **Measurement interval** setting, it controls how often the device takes measurements. Home Assistant continues to retrieve the latest measurements every minute regardless of this setting.
+The **Measurement interval** setting controls how often the device takes measurements. Home Assistant continues to retrieve the latest measurements every minute regardless of this setting.
 
 The integration will retrieve data from the device every minute.
 
