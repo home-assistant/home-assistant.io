@@ -41,7 +41,7 @@ Electricity price interval:
 
 The selected interval applies to today's and tomorrow's market and all-in electricity prices and their sensors. Changing this option automatically reloads the integration. Gas prices and the polling interval are unaffected.
 
-The `energyzero.get_energy_prices` action always returns hourly prices, regardless of this option.
+The [Get energy prices action](/actions/energyzero.get_energy_prices/) has its own **Price type** and **Interval** options. It defaults to hourly market prices, regardless of the interval selected here.
 
 ## Use cases
 
