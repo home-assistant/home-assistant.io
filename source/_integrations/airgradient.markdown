@@ -114,7 +114,6 @@ The following entities are supported:
 - CO2 automatic baseline calibration days
 - NOx learning offset
 - Total volatile organic compounds learning offset
-- Measurement interval
 - GPS mode
 - Front LED brightness
 - Back LED brightness
@@ -134,8 +133,6 @@ To install the update, the device needs to be rebooted.
 This integration uses local {% term polling %}, meaning it checks for changes to all entities by regularly communicating with the AirGradient device.
 
 The integration will retrieve data from the device every minute.
-
-On devices with a **Measurement interval** setting, it controls how often the device takes measurements. Home Assistant continues to retrieve the latest measurements every minute regardless of this setting.
 
 The integration checks for firmware updates every hour.
 
