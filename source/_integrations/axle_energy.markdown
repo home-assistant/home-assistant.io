@@ -42,7 +42,7 @@ API key:
 
 Each configured feed creates one service device with three sensor entities:
 
-- **Import / Export** shows whether the published event requests import from or export to the grid.
+- **Type of Event:** shows whether the published event requests import from or export to the grid.
 - **Event start** shows when the event starts.
 - **Event end** shows when the event ends.
 
@@ -59,7 +59,7 @@ Use the event timestamps to schedule notifications from the latest event informa
 This example creates a notification in Home Assistant when the scheduled export event starts.
 
 - **Trigger**: Time, using the Axle Energy **Event start** sensor
-- **Condition**: State, with the Axle Energy **Import / Export** sensor set to `export`
+- **Condition**: State, with the Axle Energy **Type of Event:** sensor set to `export`
 - **Action**: Create persistent notification
   - **Message**: Your Axle export event is starting.
 
@@ -75,7 +75,7 @@ automation: |
       at: sensor.axle_energy_event_start
   conditions:
     - condition: state
-      entity_id: sensor.axle_energy_import_export
+      entity_id: sensor.axle_energy_type_of_event
       state: "export"
   actions:
     - action: persistent_notification.create
