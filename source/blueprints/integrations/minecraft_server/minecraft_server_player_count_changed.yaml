@@ -1,0 +1,54 @@
+blueprint:
+  name: Minecraft Server Player Count Changed
+  description: |
+    Performs an action when the number of players online changes on your
+    Minecraft server.
+    Includes an editable default action that can be customized or deleted in
+    the UI.
+  domain: automation
+  author: elmurato
+
+  input:
+    players_sensor:
+      name: Players online sensor
+      description: >
+        Select the Minecraft Server sensor that tracks the number of online
+        players.
+      selector:
+        entity:
+          filter:
+            - integration: minecraft_server
+              domain: sensor
+              unit_of_measurement: players
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when the player count changes. The default example
+        can be modified or removed in the UI.
+      selector:
+        action: {}
+      default:
+        - action: persistent_notification.create
+          data:
+            title: "Minecraft Server Player Count Changed"
+            message: |
+              Players: {{ trigger.to_state.state }}
+              Players list: {{ state_attr(trigger.entity_id, 'players_list') | join(', ') if state_attr(trigger.entity_id, 'players_list') else 'n/a' }}
+            notification_id: "minecraft_server_player_count_changed_{{ trigger.entity_id }}"
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input players_sensor
+
+conditions:
+  - condition: template
+    value_template: >
+      {{ trigger.from_state is not none and
+         trigger.to_state is not none and
+         is_number(trigger.from_state.state) and
+         is_number(trigger.to_state.state) }}
+
+actions: !input actions
