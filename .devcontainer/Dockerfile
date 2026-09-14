@@ -1,5 +1,7 @@
-ARG VARIANT=2
-FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
+# Pinned to an exact image definition version so a rebuild of the floating
+# "3.4" tag cannot change the Ruby install layout underneath us.
+# Dependabot keeps this up to date.
+FROM mcr.microsoft.com/devcontainers/ruby:4.1.1-3.4-trixie
 
 ARG NODE_VERSION="lts/*"
 
@@ -7,7 +9,6 @@ ARG NODE_VERSION="lts/*"
 # This prevents 'apt-get update' from failing due to the missing GPG key.
 RUN rm -f /etc/apt/sources.list.d/yarn.list
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"
-RUN su vscode -c "/usr/local/rvm/bin/rvm fix-permissions"
 
 # Locale env vars
 ENV \
