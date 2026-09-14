@@ -112,6 +112,16 @@ Once paired, Home Assistant stores your Powerwall's address and password and sen
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
 
+### Updating your Powerwall's address or password
+
+If your Powerwall's local network address or Wi-Fi password changes, you can update it without removing the energy site:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
+2. Next to the energy site, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure energy site**.
+3. On the **Connect to your Powerwall system** step, confirm or edit the local network address, and enter your Powerwall's Wi-Fi password in the **Password** field.
+
+Home Assistant checks the new details with your Powerwall, saves them, and reloads the integration. If Home Assistant's access key is no longer approved on your Powerwall, you'll see the **Approve the local access key** step first, just like during setup.
+
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
