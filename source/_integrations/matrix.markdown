@@ -48,8 +48,12 @@ username:
   required: true
   type: string
 password:
-  description: The password for your Matrix account.
-  required: true
+  description: "The password for your Matrix account. Use this or `access_token`, but not both."
+  required: exclusive
+  type: string
+access_token:
+  description: "An access token for your Matrix account, as an alternative to a password. Use this if your homeserver does not allow signing in with a password. See [Signing in with an access token](#signing-in-with-an-access-token)."
+  required: exclusive
   type: string
 homeserver:
   description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is 'https://matrix.org'."
@@ -97,6 +101,34 @@ commands:
 {% warning %}
 To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
+
+### Signing in with an access token
+
+Some homeservers don't allow accounts to sign in with a password at all. This is the case, for example, on a homeserver that uses Matrix Authentication Service together with an external single sign-on provider, and has password sign-in turned off.
+
+The integration can't sign in with single sign-on, but you can give it an access token instead of a password:
+
+1. On your homeserver, create an access token for the Matrix account that Home Assistant uses. How you do this depends on your homeserver:
+
+   - On a homeserver that uses [Matrix Authentication Service](https://element-hq.github.io/matrix-authentication-service/), an administrator can create a long-lived compatibility token with the [`mas-cli manage issue-compatibility-token`](https://element-hq.github.io/matrix-authentication-service/reference/cli/manage.html#manage-issue-compatibility-token) command. It takes the local part of the Matrix ID, for example `my_matrix_bot`, and not the full Matrix ID. The token is shown only once, so copy it right away.
+   - On a Synapse homeserver without Matrix Authentication Service, an administrator can use the [login as a user](https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#login-as-a-user) admin API. By default, the tokens it returns do not expire.
+
+2. Add the token to your {% term "`configuration.yaml`" %} file instead of the password, and restart Home Assistant:
+
+   ```yaml
+   matrix:
+     homeserver: https://matrix.org
+     username: "@my_matrix_bot:matrix.org"
+     access_token: !secret matrix_access_token
+     rooms:
+       - "#hasstest:matrix.org"
+   ```
+
+{% important %}
+An access token gives full access to the Matrix account. Treat it like a password, and keep it in your [`secrets.yaml`](/docs/configuration/secrets/) file. If it is ever exposed, end that session on your homeserver and create a new token.
+{% endimportant %}
+
+When you sign in with a password, Home Assistant saves the access token it receives to a file named `.matrix.conf` in your configuration directory and reuses it on the next restart. When you configure `access_token` yourself, that file is not used and not written: the token you configured is the one that counts, and you manage it on your homeserver.
 
 ### Event data
 
