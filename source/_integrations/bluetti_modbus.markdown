@@ -65,8 +65,7 @@ Your power station is added as a single device.
 
 - **Battery voltage**, **Total battery voltage**: The battery's voltage.
 - **Total battery current**: The battery's current.
-- **Battery SoC**, **Total battery SoC**: The battery's present charge level.
-- **Battery SoH**, **Total battery SoH**: The battery's state of health.
+- **Battery SoC**: The battery's present charge level.
 - **Average battery temperature**: The battery's temperature.
 - **Total battery charged energy**, **Total battery discharged energy**: Lifetime battery energy counters.
 - **AC output power**, **Total AC output energy**: What the device is feeding to AC loads.
@@ -75,13 +74,11 @@ Your power station is added as a single device.
 - **Grid frequency**, **Grid input power**: What the device reads from the grid.
 - **Total grid import energy**, **Total grid export energy**: Lifetime grid energy counters, where the device reports them.
 - **Inverter status**: The inverter's current status.
-- **Total inverter power**, **Inverter count**: Inverter-level totals.
+- **Total inverter power**: The inverter's total power.
 
-The following are added as diagnostic entities: **Battery type**, **Inverter type**, **Cell count**, **Battery cycle count**, **Temperature sensor count**, **Number of battery packs**.
+The following are added as diagnostic entities: **Battery SoH**, **Battery type**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter type**, **Inverter count**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
-
-**Total battery SoC** and **Total battery SoH** read `0%` on a device with no expansion battery pack attached, which is expected rather than a fault.
 
 The serial number appears on the device's info page too, alongside the ARM and DSP firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
 
@@ -94,6 +91,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 ## Known limitations
 
 - Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
+- The battery pack summary (charge level and state of health across all packs, and the pack count) is not available yet.
 - There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
