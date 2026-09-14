@@ -88,9 +88,9 @@ Ventilation units are displayed as fans and enable the change of speed and use o
 
 Represents the domestic hot water controls of your device.
 
-{% note %}
-It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
-{% endnote %}
+On devices that support it, you can set the domestic hot water operation mode directly from this {% term entity %}. Both the entity's state and its available modes mirror your device's own operating modes, such as `dhw`, `heating`, `dhw_and_heating`, or `standby`, rather than a simple on/off. Modes that include domestic hot water (for example `dhw` or `dhw_and_heating`) don't disable space heating on devices that also heat your home.
+
+If your device has a circulation pump, its weekly schedule is available as the `circulation_schedule` attribute of this {% term entity %}. Use the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action to change it.
 
 ### Sensor
 
@@ -118,7 +118,7 @@ Quickmodes are mutually exclusive. Turn the active one off before turning anothe
 
 ## Climate and water heater control
 
-The ViCare integration also provides the standard [climate](/integrations/climate/) and [water_heater](/integrations/water_heater/) actions. The ViCare integration provides `set_temperature`, `set_hvac_mode`, and `set_preset_mode` for climate entities, and `set_temperature` for the water heater. A few of these behave in ViCare-specific ways.
+The ViCare integration also provides the standard [climate](/integrations/climate/) and [water_heater](/integrations/water_heater/) actions. The ViCare integration provides `set_temperature`, `set_hvac_mode`, and `set_preset_mode` for climate entities, and `set_temperature` and, on devices that support it, `set_operation_mode` for the water heater. A few of these behave in ViCare-specific ways.
 
 ### Setting the temperature
 
@@ -135,6 +135,10 @@ The ViCare integration maps the Home Assistant HVAC modes to Viessmann operation
 ### Setting the preset mode
 
 The `climate.set_preset_mode` action supports the *eco* and *comfort* preset modes. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours. Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Consult your heating device manual for more information.
+
+### Setting the water heater operation mode
+
+On devices that support it, the `water_heater.set_operation_mode` action sets the mode to one of the values listed in the entity's `operation_list`, which mirrors your device's own operating modes (for example `dhw`, `heating`, `dhw_and_heating`, or `standby`) rather than a simple on/off. Which modes are available depends on your device's circuit; on a device that also heats your home, use a mode like `dhw_and_heating` to keep both running, or `heating` to run space heating without domestic hot water.
 
 ## Troubleshooting
 
