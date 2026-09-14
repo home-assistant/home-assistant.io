@@ -200,7 +200,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 Unforeseen conditions may occur on the NAS, resulting in a "Transmission failed" error. In most cases, this error can be resolved by restarting the NAS.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

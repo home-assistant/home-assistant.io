@@ -13,6 +13,9 @@ ha_platforms:
   - climate
 ha_integration_type: hub
 ha_quality_scale: legacy
+ha_codeowners:
+  - '@crhan'
+ha_config_flow: true
 ---
 
 The **ZhongHong** {% term integration %} lets you control the air conditioners behind a ZhongHong HVAC gateway from Home Assistant.

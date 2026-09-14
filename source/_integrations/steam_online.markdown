@@ -3,16 +3,17 @@ title: Steam
 description: Instructions on how to set up Steam in Home Assistant.
 ha_category:
   - Gaming
-  - Social
   - Image
+  - Social
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
 ha_platforms:
-  - sensor
   - image
+  - sensor
 ha_codeowners:
+  - '@tr4nt0r'
   - '@tkdrob'
 ha_integration_type: service
 ---
