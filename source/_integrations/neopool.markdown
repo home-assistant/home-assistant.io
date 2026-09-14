@@ -176,7 +176,7 @@ If a poll cycle fails (for example, because the Modbus gateway becomes unreachab
 
 ## Winter mode
 
-In colder climates, the pool is often closed for the season. The controller is drained, powered down, and sometimes removed entirely and stored indoors until spring. While it is offline, every poll fails and the log fills with connection errors. To avoid this, turn off polling so the integration stops contacting the controller while it is away:
+In colder climates, the pool is often closed for the season. The controller is drained, powered down, and sometimes removed entirely and stored indoors until spring. While the controller is offline, every poll fails and the Home Assistant logs fill with connection errors. To avoid this, turn off polling so the integration stops contacting the controller while it is offline:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the NeoPool integration.
