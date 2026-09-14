@@ -289,6 +289,20 @@ Each UniFi Protect siren is added as a separate device in Home Assistant, linked
 
 - **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
 
+### UniFi Protect key fobs
+
+Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assistant, linked to the NVR. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
+
+- **Button**: An event entity that fires when a button on the fob is pressed. The pressed button is reported as the event type. See [Key Fob Button Event](#key-fob-button-event).
+- **Battery**: A diagnostic sensor with the remaining battery percentage.
+- **Battery low**: A diagnostic binary sensor that turns on when the fob reports a low battery.
+- **Signal strength**: A diagnostic sensor with the fob's signal strength in dBm. Disabled by default.
+- **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
+
+{% note %}
+In the **full access** connection mode, a key fob that is paired after Home Assistant has already started is not picked up until the {% term integration %} is reloaded. In **API key only** mode, a newly paired fob is discovered automatically. See [Connection modes](#connection-modes).
+{% endnote %}
+
 ### NVR
 
 Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device also gets several entities that can be used for tracking and controlling your UniFi Protect system:
@@ -727,6 +741,44 @@ automation: |
   - **event_id**: A unique ID that identifies the detection event.
   - **smart_detect_types**: The full set of sound types detected during the event.
 - **Description**: This event fires for each sound a camera with audio detection detects. As with smart detection, each type fires once across the lifecycle of an event, so an audio alarm that UniFi Protect reports partway through an event surfaces reliably.
+
+### Key Fob Button Event
+
+- **Event Name**: Button
+- **Event Attributes**:
+  - **event_type**: The pressed button, one of `arm`, `disarm`, `night`, `panic`, `function`, `left`, `right`, `input1`, `input2`, or `alarm_hub_button`.
+  - **event_id**: A unique ID that identifies the button press event.
+- **Description**: This event is triggered when a button on a UniFi Protect key fob (USL-FOB) is pressed. Each fob has a single **Button** entity, and the button that was pressed is reported as the event type.
+
+{% note %}
+A key fob does not report which buttons it physically has, so every fob exposes the full list of button types above. Only the buttons your fob actually has can fire.
+{% endnote %}
+
+#### Example Key Fob Panic Button Automation
+
+```yaml
+alias: Key Fob Panic Button Automation
+description: Automation that triggers when the panic button on a key fob is pressed
+triggers:
+  - trigger: state
+    entity_id:
+      - event.front_door_fob_button # Replace with your key fob entity
+    not_from:
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.front_door_fob_button # Replace with your key fob entity
+    attribute: event_type
+    state: "panic"
+actions:
+  - action: notify.mobile_app_your_device # Replace with your notification target
+    data:
+      message: Panic button pressed on the key fob!
+      title: Key Fob Alert
+mode: single
+```
+
+The `not_from` option keeps the automation from running during startup or power-cycle state restoration, when the entity temporarily transitions out of the `unavailable` state.
 
 ## Troubleshooting
 
