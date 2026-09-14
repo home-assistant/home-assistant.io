@@ -204,7 +204,7 @@ Configurable time-of-day settings, such as:
 
 #### Updates
 
-The **Venus OS firmware** update entity shows the installed and latest available firmware versions for your GX device. When a newer version is available, you can install it from Home Assistant and monitor the installation progress.
+The **Venus OS firmware** update entity shows the installed and available firmware versions for your GX device. When an update is available, you can install it from Home Assistant and monitor the installation progress.
 
 ## Known limitations
 
