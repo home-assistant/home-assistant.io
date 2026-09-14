@@ -257,6 +257,10 @@ These adapters do not have a reset pin. When they stop responding, there is curr
 
 {% enddetails %}
 
+📶 Denotes external antenna
+
+#### Other adapters
+
 - UGREEN CM749 (Barrot chipset, USB ID `33fa:0010`) 📶
 
 📶 Denotes external antenna
