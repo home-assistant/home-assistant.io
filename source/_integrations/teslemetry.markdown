@@ -58,16 +58,16 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 ### Requirements
 
 - A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
-- The vehicle must be awake and within Bluetooth range of that adapter while you set up pairing.
+- The vehicle must be within Bluetooth range of that adapter while you set up pairing.
 
 ### Setting up Bluetooth control
 
 Bluetooth control is opt-in and set up per vehicle. You add each vehicle you want to control locally from the Teslemetry integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
-2. Select **Add Bluetooth vehicle**.
+2. Select **Add local vehicle**.
 3. Choose the account vehicle you want to control over Bluetooth, then select **Submit**.
-4. Home Assistant looks for the vehicle over Bluetooth. Make sure the vehicle is awake and within range, then continue.
+4. Home Assistant looks for the vehicle over Bluetooth. Make sure the vehicle is within range and that fewer than three phone keys are nearby, then continue.
 5. When prompted, select **Submit**, then approve Home Assistant's virtual key by placing your key card against the center console card reader of the vehicle.
 
 You only need to do this once per vehicle.
