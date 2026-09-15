@@ -3,8 +3,10 @@ title: Silla Prism
 description: Instructions on how to integrate your Silla Prism EV wallbox with Home Assistant.
 ha_category:
   - Car
+  - Select
   - Sensor
 ha_platforms:
+  - select
   - sensor
 ha_iot_class: Local Push
 ha_codeowners:
@@ -56,13 +58,22 @@ The integration creates a single device with the following entities.
 - **Temperature**: Internal temperature of the Prism.
 - **Grid power**: Power drawn from the grid. Positive values are imports, negative values are exports.
 
+### Selects
+
+- **Charging mode**: The operating mode of the port:
+  - **Solar**: Charges only with the surplus power available.
+  - **Normal**: Charges at the maximum current set on the wallbox itself.
+  - **Paused**: Suspends charging without disconnecting the vehicle.
+
+The Prism can also pause charging on its own when load balancing runs out of available power. That mode cannot be set from Home Assistant, so the charging mode is `unknown` for as long as it lasts. The status sensor still reports the port as paused.
+
 ## Data updates
 
 The Prism pushes an MQTT message whenever a value changes, so entities update in real time. Status topics are retained on the broker, so Home Assistant restores the current values immediately after a restart. The session time is the exception: the Prism publishes it without the retain flag, about once a minute, so the session start sensor stays unknown for up to a couple of minutes after a restart.
 
 ## Known limitations
 
-- The integration currently provides read-only sensors. Setting the charging current and changing the charging mode are not available yet.
+- Setting the charging current is not available yet.
 - Only the first charging port is supported. On a Prism DUO, the second cable is not exposed.
 - The current limit used for custom load balancing, the night schedule, and charge authorization are not exposed yet.
 - Solar and home power flows are only meaningful when a Powerwall or compatible meter is configured on the Prism; otherwise they report `0`.
