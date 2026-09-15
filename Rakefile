@@ -51,6 +51,10 @@ task :generate do
   abort("Generating community meetups data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
+  success = system({ "ASTRO_TELEMETRY_DISABLED" => "1" }, "npm --prefix astro ci")
+  abort("Installing Astro dependencies failed") unless success
+  success = system({ "ASTRO_TELEMETRY_DISABLED" => "1" }, "npm --prefix astro run build")
+  abort("Generating Astro site failed") unless success
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
       f.write "User-agent: *\n"

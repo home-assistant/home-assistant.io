@@ -6,9 +6,10 @@ Astro incrementally: both stacks build the site during the migration,
 and pages move over section by section.
 
 **Nothing in this directory is served on www.home-assistant.io yet.**
-The Astro build runs in CI alongside the existing setup, but the
-deployed site is still produced by Jekyll. Serving logic (routing
-individual pages to their Astro version) lands in a later change.
+Both stacks build on every deploy (`rake generate` runs the Astro
+build after the Jekyll build) and in CI, but the deployed site is
+still produced by Jekyll. Serving logic (routing individual pages to
+their Astro version) lands in a later change.
 
 ## How it works
 
