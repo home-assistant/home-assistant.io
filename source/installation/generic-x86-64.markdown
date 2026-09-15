@@ -1,6 +1,6 @@
 ---
 title: "Generic x86-64"
-description: "Install Home Assistant on Generic x86-64 systems (e.g. Intel NUC)"
+description: "Install Home Assistant on Generic x86-64 systems such as the Intel NUC"
 installation_type: generic-x86-64
 ---
 {% comment %}

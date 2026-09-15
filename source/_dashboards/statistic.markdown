@@ -34,7 +34,7 @@ type:
   type: string
 entity:
   required: true
-  description: "A entity ID of a sensor with statistics, or an external statistic id"
+  description: "An entity ID of a sensor with statistics, or an external statistic id"
   type: string
 stat_type:
   required: true

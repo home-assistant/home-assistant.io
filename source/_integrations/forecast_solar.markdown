@@ -16,122 +16,130 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The [Forecast.Solar](https://forecast.solar/) service provides solar production
-forecasting for your solar panel system, based on historic averages combined
-with weather forecasting.
+The **Forecast.Solar** {% term integration %} estimates how much energy your solar panels will produce, using the [Forecast.Solar](https://forecast.solar/) service. The forecast combines the location, orientation, and size of your panels with historic averages and weather data, so you can plan ahead and use your own solar energy as efficiently as possible.
 
-This integration provides an estimated forecast on how much energy your solar
-panels are going to produce, allowing you to plan ahead on how you spend your
-produced energy most efficiently.
-
-As an example automation idea, you could determine if:
-
-- You are going to produce enough solar power energy for the washing machine to
-  run the next hour.
-- You have an electric vehicle: to determine if you will produce enough solar
-  energy tomorrow to charge your vehicle; or if not, charge it (partly)
-  overnight at low tariffs instead.
+For example, you could use the forecast to decide whether you will produce enough solar energy in the next hour to run the washing machine, or whether to charge your electric vehicle from the sun tomorrow instead of from the grid overnight.
 
 ## Prerequisites
 
-Forecast.Solar relies on data provided by the [EU Photovoltaic geographical information system](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html) and your solar panels must be in a location that is covered by this tool. Data is available for almost the entire world. 
+Forecast.Solar uses data from the [EU Photovoltaic Geographical Information System](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html), which covers almost the entire world. Your panels need to be in a location that this tool covers.
 
-To use the Forecast.Solar integration, it will need some information about your
-solar panel system: **latitude**, **longitude**, **declination**, **azimuth**
-and **total modules power**.
+To create a forecast, the integration needs a few details about your solar setup:
 
-It needs the specific location (defined by **latitude** and **longitude**),
-which by default is taken from your Home Assistant configured "home" location.
-
-The **declination** angle (tilt) of your solar planes (in degrees);
-Is the angle between your solar panels and the earth's surface. A value of
-`0` means they horizontal and flat on the earth's surface, while a value
-of `90` means your panels are standing up vertically.
-
-The **azimuth** (in degrees on a 360° scale);
-Is the direction in which the front surface of your solar panels are facing
-towards. As a full circle is 360°, a value of  `0` is facing North, `90` East,
-`180` South and `270` is facing West (or any value in between).
-
-The **total modules power** (in Watt peak);
-Each solar panel, in a solar panel system, has a maximum power peak production
-value. In order to deliver matching estimations for you system, Forecast.Solar
-needs to be aware of the total maximum peak power your system can produce.
-Add up the maximum peak power (in Watts!) of all your panels for this
-value.
+- **Location**: The latitude and longitude of your panels. By default, this is taken from the home location set in your Home Assistant settings.
+- **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright.
+- **Azimuth**: The compass direction the panels face, on a 360 degree scale. `0` is north, `90` is east, `180` is south, and `270` is west.
+- **Total Watt peak power**: The combined maximum power of all your panels, in Watt peak. Add up the peak power of every panel in the group to get this value.
 
 {% include integrations/config_flow.md %}
 
-If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use [template sensors](/integrations/template/) to combine the data, e.g. adding up production on different planes into one value to base your planning on.
+{% configuration_basic %}
+Latitude:
+  description: "The latitude of your solar panels. Defaults to your Home Assistant home location."
+Longitude:
+  description: "The longitude of your solar panels. Defaults to your Home Assistant home location."
+Declination (0 = Horizontal, 90 = Vertical):
+  description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright)."
+Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West):
+  description: "The direction your panels face on a 360 degree scale."
+Total Watt peak power of your solar modules:
+  description: "The combined maximum power of all panels in this group, in Watt peak."
+{% endconfiguration_basic %}
 
-## Sensors
+## Configuration options
 
-The Forecast.Solar integration mainly provides sensors that you can use in your
-automations.
+After setup, you can fine-tune the forecast. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**).
 
-- Estimated Energy Production - Today (in kWh)
-- Estimated Energy Production - Remaining Today (in kWh)
-- Estimated Energy Production - Tomorrow (in kWh)
-- Estimated Energy Production - This Hour (in kWh)
-- Estimated Energy Production - Next Hour (in kWh)
-- Estimated Power Production - Now (in Watt)
+{% configuration_basic %}
+API key:
+  description: "The API key for your Forecast.Solar account. An account is only needed for more frequent updates or more than one plane. See [Using a Forecast.Solar account](#using-a-forecastsolar-account)."
+Damping factor (morning):
+  description: "Lower the forecast for the morning. See [Tweaking the estimations](#tweaking-the-estimations)."
+Damping factor (evening):
+  description: "Lower the forecast for the evening. See [Tweaking the estimations](#tweaking-the-estimations)."
+Inverter size (Watt):
+  description: "The maximum power of your inverter. See [Tweaking the estimations](#tweaking-the-estimations)."
+{% endconfiguration_basic %}
 
-It also provides sensors that will tell you at which date & time your peak
-production will be (for today and tomorrow):
+## Adding multiple planes
 
-- Highest Power Peak Time - Today
-- Highest Power Peak Time - Tomorrow
+A plane is a group of panels that share the same orientation. If your setup has panels facing different directions, such as an east-west roof, you can add each orientation as a separate plane within the same integration.
 
-There are some additionally, less common sensors, that are disabled by
-default. Enable those entities in the user interface if you like to use these:
+Adding more than one plane requires a paid Forecast.Solar account. See [Using a Forecast.Solar account](#using-a-forecastsolar-account). You can configure up to four planes, and the integration combines their data into a single set of sensors, taking your inverter size into account if you set one.
 
-- Estimated Power Production - Next Hour (in Watt)
-- Estimated Power Production - Next 12 Hours (in Watt)
-- Estimated Power Production - Next 24 Hours (in Watt)
+To add a plane:
 
-## Using your Forecast.Solar account
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
+2. Select **Add plane**.
 
-The [Forecast.Solar](https://forecast.solar/) public plan can be used for free, but
-the resolution of the data used is more limited and thus, there are less
-details for this integration to work with.
+## Using a Forecast.Solar account
 
-If you like the Forecast.Solar service, or are interested in more frequent data
-updates (based on a higher data resolution), you could [sign up for one
-of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
+You can use the public [Forecast.Solar](https://forecast.solar/) service for free, but the data has a lower resolution, the forecast updates less often, and you can configure only a single plane.
 
-To enable the use of the API key with this integration, go to {% my integrations %}. 
-Select the Forecast.Solar integration, then select **Configure**. Enter the
-API key for your account.
+If you would like more frequent updates or want to add multiple planes, you can [sign up for one of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans). The Personal Plus tier and above let you configure up to four planes.
+
+To use your account, add the API key in the integration's configuration options, as described under [Configuration options](#configuration-options).
 
 ## Tweaking the estimations
 
-The estimation can be tweaked and tuned to match your solar setup better.
-There are many factors that can cause the estimations to be slightly off
-(but don't forget, it will always remain a forecast based on, e.g., weather
-and historical data - not actual power produced).
+A forecast will never perfectly match what your panels produce, because it is based on weather and historical data rather than the power you actually generate. Even so, you can make it more accurate for your situation in a few ways:
 
-Luckily, there are controls to make them more accurate for your situation,
-for example, by slightly adjusting the azimuth or declination. If your panels
-catch a bit of shadow in the morning/evening, you could consider damping
-the results a bit.
+- Fine-tune the **azimuth** and **declination** if the real orientation of your panels differs slightly from what you first entered. To change these, reconfigure the plane from the integration page.
+- Set a damping factor for the morning and the evening if your panels catch some shade early or late in the day. Damping lowers the forecast at those times, making it less optimistic and closer to your reality.
+- Set the inverter size if your inverter can deliver less power than your panels can produce together, so the forecast does not exceed what your inverter can handle.
 
-The **damping** factor allows you to adjust and "damp" the results of your solar
-predictions in the morning and evening a bit and is a great method to make
-results less optimistic and more tuned to your reality. More details on damping can
-be found [here](https://doc.forecast.solar/damping).
+You can change the damping factors and inverter size at any time under [Configuration options](#configuration-options). For more background on damping, see the [Forecast.Solar damping documentation](https://doc.forecast.solar/damping).
 
-The **inverter** size can be used in a situation where the maximum power of your
-inverter is lower than the total power of all your solar panels (as entered under
-"total modules power") together. As a result, the forecast takes into account that
-the maximum solar power cannot exceed what your inverter can handle, giving you
-a more realistic forecast graph.
+## Supported functionality
 
-[Read more about the damping factor in the Forecast.Solar documentation](https://doc.forecast.solar/doku.php?id=damping&s[]=damping).
+The integration provides sensors that you can show on a dashboard or use in automations.
 
-To adjust the configuration settings for your Forecast.Solar integration
-instance:
+The following sensors are enabled by default:
 
-1. Browse to your Home Assistant instance.
-2. Go to **{% my integrations title="Settings > Devices & services" %}**.
-3. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
-4. Select **Configure**.
+- **Estimated energy production - today**: Total estimated production for today, in kWh.
+- **Estimated energy production - remaining today**: Estimated production still to come today, in kWh.
+- **Estimated energy production - tomorrow**: Total estimated production for tomorrow, in kWh.
+- **Estimated energy production - this hour**: Estimated production for the current hour, in kWh.
+- **Estimated energy production - next hour**: Estimated production for the next hour, in kWh.
+- **Estimated power production - now**: Estimated power being produced right now, in Watt.
+- **Highest power peak time - today**: The time of the highest expected power peak today.
+- **Highest power peak time - tomorrow**: The time of the highest expected power peak tomorrow.
+
+The following sensors are disabled by default. Enable them in the user interface if you want to use them:
+
+- **Estimated power production - in 1 hour**: Estimated power production one hour from now, in Watt.
+- **Estimated power production - in 12 hours**: Estimated power production twelve hours from now, in Watt.
+- **Estimated power production - in 24 hours**: Estimated power production twenty-four hours from now, in Watt.
+
+## Using the forecast in the Energy dashboard
+
+If you track your solar panels in the [Energy dashboard](/docs/energy/solar-panels/), you can pair them with Forecast.Solar. The solar production graph then shows the forecasted production alongside what your panels actually generate, so you can see at a glance whether the day is living up to its prediction.
+
+To add the forecast:
+
+1. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Under **Solar panels**, select your solar production entry. If you have not set one up yet, see [integrating your solar panels](/docs/energy/solar-panels/) first.
+3. Turn on the solar production forecast option and select **Forecast.Solar**.
+4. Save your changes.
+
+The Energy dashboard now overlays the expected production on your solar graph.
+
+## Data updates
+
+How often the forecast {% term polling updates %} depends on your Forecast.Solar account:
+
+- Free accounts update every hour.
+- Accounts with an API key update every 30 minutes.
+
+The forecast always remains an estimate based on weather and historical data, not a measurement of the power your panels actually produce.
+
+## Known limitations
+
+- The free service offers a lower data resolution, updates less often, and supports only a single plane. More frequent updates and multiple planes require a paid Forecast.Solar account.
+- Your panel location must be covered by the EU Photovoltaic Geographical Information System.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

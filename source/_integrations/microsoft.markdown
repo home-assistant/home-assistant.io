@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `microsoft` text-to-speech {% term integration %} uses the [TTS engine of the Microsoft Speech Service](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
+The **Microsoft text-to-speech** {% term integration %} uses the [TTS engine of the Microsoft Speech Service](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
 
 ## Configuration
 

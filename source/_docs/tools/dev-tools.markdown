@@ -1,13 +1,13 @@
 ---
-title: "Developer tools"
-description: "Description of the developer tools."
+title: "Tools"
+description: "Description of the Home Assistant tools."
 ---
 
-The dashboard contains a section called **Developer tools**.
+Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
 
 <p class='img'>
-<img src='/images/screenshots/developer-tools.png' />
-Screenshot of Home Assistant's developer tools.
+<img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
+Screenshot of Home Assistant's tools.
 </p>
 
 | Section    | Description                                                         |
@@ -20,9 +20,9 @@ Screenshot of Home Assistant's developer tools.
 | Statistics | Shows a list of long-term statistic entities                        |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
-## What can I do with Developer Tools?
+## What can I do with Home Assistant's Tools?
 
-The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+The available tools are meant for _all_ (not just for the developers) to quickly try out things, such as performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
 
 ## YAML tab
 
@@ -34,7 +34,7 @@ It is almost the same as the option under **Settings** > three dots {% icon "mdi
 
 For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in {% term "`configuration.yaml`" %} without needing to restart Home Assistant.
 
-1. Go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-bar/) anywhere in the UI and search for "reload").
+1. Go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and scroll down to the **YAML configuration reloading** section. Alternatively, select the **C** key from anywhere in the UI to open the command palette of the [quick search](/docs/tools/quick-search/) and then search for `reload`.
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
@@ -46,13 +46,13 @@ For configuration changes to become effective, the configuration must be reloade
 
 ## States tab
 
-This section shows all the available entities, their corresponding state and the attribute values. The state and the attribute information is what Home Assistant sees at run time. To update the entity with a new state, or a new attribute value, click on the entity, scroll to the top, and modify the values, and click on “SET STATE” button.
+This section shows all the available entities, their corresponding state and the attribute values. The state and the attribute information is what Home Assistant sees at run time. To update the entity with a new state, or a new attribute value, select the entity, scroll to the top, and modify the values, and select the **SET STATE** button.
 
 Note that this is the state representation of a device within Home Assistant. That means, it is what Home Assistant sees, and it does not communicate with the actual device in any manner. The updated information can still be used to trigger events, and state changes. To communicate with the actual device, it is recommended to perform actions in the **Actions** section above, instead of updating state.
 
-For example, changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden (the refresh icon can be used to retrieve the latest information that Home Assistant has). In other words, the changes that are made through the “States” section are temporary, and are recommended to use for testing purposes only.
+For example, changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden (the refresh icon can be used to retrieve the latest information that Home Assistant has). In other words, the changes that are made through the **States** section are temporary, and are recommended to use for testing purposes only.
 
-The table containing all entities can be filtered for each column. The used search is a wildcard search meaning that if you input "office" in the entity column filter, every entity whose ID matches "\*office\*" will be shown. You can also add your own wildcards in the search input (e.g., "office\*light").
+The table containing all entities can be filtered for each column. The used search is a wildcard search meaning that if you input "office" in the entity column filter, every entity whose ID matches "\*office\*" will be shown. You can also add your own wildcards in the search input (such as "office\*light").
 The attribute filter supports separate filters for attribute names and values, separated by a colon ":". So the filter "location:3" will result in the table showing all entities that have an attribute name that contains "location" and whose attribute value contains "3".
 
 ## Actions tab
@@ -83,9 +83,9 @@ rgb_color: [255, 0, 0]
 
 The template editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
 
-By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the "Reset to Demo Template" button beneath the code editor.
+By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/configuration/templating).
+For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
 
 ## Events tab
 
@@ -115,7 +115,7 @@ If there is an automation that handles that event, it will be automatically trig
 
 ### Subscribe to an event
 
-To subscribe to an event, enter the event event type under "Listen to events" and click "Start listening". Some events types are listed in the Events section under "Active listeners". You can usually find information about event types for a particular integration in its documentation. You can then examine the event data JSON to find the correct parameters for your automations.
+To subscribe to an event, enter the event type under **Listen to events** and select **Start listening**. Some events types are listed in the **Events** section under **Active listeners**. You can usually find information about event types for a particular integration in its documentation. You can then examine the event data JSON to find the correct parameters for your automations.
 
 For example, subscribing to the event type `shelly.click` of the Shelly integration, returns event data JSON similar to the following on a button press.
 
@@ -141,21 +141,23 @@ Event 0 fired 9:53 AM:
 
 ## Statistics tab
 
-The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix Issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
+The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
 
 ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
 
-Another use of the {% my developer_statistics title="statistics developer tool" %} is to correct any measurements. Select the
+Another use of the {% my developer_statistics title="statistics tool" %} is to correct any measurements. Select the
 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
-icon. Use date & time to search for the incorrect data point and adjust the value.
+icon. Use the date and time fields to search for the incorrect data point and select it to adjust the value.
 
-![Screenshot showing adjusting the long-term statistic history value](/images/docs/developer-tools/adjust-statistics.png)
+![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
+
+![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
 
 ## Assist tab
 
 The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
 
 - Assist found a matching intent: *HassGetState*.
 - It found entities matching the domain: *lights*.
@@ -163,4 +165,4 @@ If no matching intent is found, then Assist is unable to interpret the sentence.
 - The lights are in the area *office*.
 - The targets are the narrowed-down entities in scope.
 
-![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
+![Example use of assist tools](/images/docs/developer-tools/Assist.png)

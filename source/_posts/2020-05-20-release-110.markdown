@@ -162,7 +162,7 @@ setting, which could lead to conflicting or impossible settings.
 
 It often resulted in broken TTS, streaming issues for camera's or issues with
 casting. This release addresses this issue by introducing two new settings in
-**Configuration** -> **General**.
+**Configuration** > **General**.
 
 <p class='img'>
 <img src='/images/blog/2020-05-0.110/urls.png' alt='Screenshot of the URLs configuration'></a>
@@ -347,7 +347,7 @@ The following integrations are now available via the Home Assistant UI:
 
 ## If you need help...
 
-...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant).
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
 

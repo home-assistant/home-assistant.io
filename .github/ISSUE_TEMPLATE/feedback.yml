@@ -38,7 +38,7 @@ body:
       label: Version
       placeholder: "e.g., 2022.7.0"
       description: >
-        Latest stable version version of Home Assistant available
+        Latest stable version of Home Assistant available
         (which does not have to match the version you are using).
   - type: textarea
     attributes:

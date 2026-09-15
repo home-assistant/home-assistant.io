@@ -517,7 +517,7 @@ light:
 [zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [#8290]: https://github.com/home-assistant/home-assistant/pull/8290
 [#8302]: https://github.com/home-assistant/home-assistant/pull/8302
 [#8311]: https://github.com/home-assistant/home-assistant/pull/8311

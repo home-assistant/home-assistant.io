@@ -10,6 +10,10 @@ related:
     title: Dashboard cards
   - docs: /dashboards/naming/
     title: Card naming
+  - docs: /integrations/weather/
+    title: Weather integration
+  - docs: /integrations/#weather
+    title: List of weather integrations
 ---
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
@@ -31,7 +35,7 @@ Name:
 Show Forecast:
   description: Check this if you would like to show the upcoming forecast under the current weather.
 Forecast type:
-  description: Select the forecast to display between "Daily", "Hourly" and "Twice daily".
+  description: Select the forecast to display between **Daily**, **Hourly**, and **Twice daily**.
 Secondary Info Attribute:
   description: Here you can specify a secondary attribute to show under the current temperature. Ex. Extrema, Precipitation, Humidity. If not set, it will default to Extrema (High/Low) if available, if not available then Precipitation and if precipitation isn't available then Humidity.
 Round temperature:
@@ -117,7 +121,7 @@ entity: weather.openweathermap
 forecast_type: daily
 ```
 
-### Advanced
+### Using icons
 
 #### Themeable icons
 

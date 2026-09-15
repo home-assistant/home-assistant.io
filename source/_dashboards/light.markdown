@@ -21,9 +21,9 @@ The light card allows you to change the brightness of a light.
 Screenshot of the light card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

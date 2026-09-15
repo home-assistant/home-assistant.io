@@ -6,6 +6,7 @@ ha_category:
   - Light
   - Number
   - Switch
+  - Update
 ha_release: 0.66
 ha_domain: cosori
 ha_integration_type: virtual
@@ -31,6 +32,7 @@ ha_platforms:
   - switch
   - update
 ha_iot_class: Cloud Polling
+ha_dhcp: true
 ---
 
 {% include integrations/supported_brand.md %}

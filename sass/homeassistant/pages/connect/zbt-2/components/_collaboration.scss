@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#collaboration {
     &[data-dsap] {
         &[data-dsap-seen] {

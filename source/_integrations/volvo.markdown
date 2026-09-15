@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Car
+  - Device tracker
   - Lock
   - Sensor
 ha_platforms:
@@ -23,7 +25,7 @@ ha_platforms:
 ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
-    title: Volvo developers portal
+    title: Volvo developer portal
 ---
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
@@ -60,7 +62,7 @@ Features available depend on model, year and location.
 3. Go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications).
 4. Create an **API application** and give it a meaningful name.
 
-It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
+To avoid hitting request limits, **create one API application per vehicle** you want to add. Each API application has a maximum number of requests per day. The primary and secondary API keys shown in Volvo's developer portal both belong to the same API application, and both count toward the same daily limit.
 
 {% note %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
@@ -71,7 +73,8 @@ Read the "**Using custom application credentials**"-section if you have the [clo
 {% details "Using custom application credentials" icon="mdi:account-key" %}
 
 {% important %}
-Custom Volvo application credentials have a 6-day grant period, which means you'll need to re-authenticate with Volvo every 6 days.
+Custom Volvo application credentials have a limited grant period, which means you'll need to re-authenticate with Volvo after each period.
+The exact timing is mentioned on the developer portal in the [Refresh the access token](https://developer.volvocars.com/apis/docs/authorisation/) section.
 Data updates will stop working once the grant expires until you re-authenticate.
 
 For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
@@ -83,6 +86,8 @@ For a better user experience, it's recommended to use the default Nabu Casa acco
    - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
 3. Click **View summary** and **confirm**.
 4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
+
+For this to work, you'll need to configure [My Home Assistant](https://my.home-assistant.io/) to let it point to your local Home Assistant instance. Check the [FAQ](https://my.home-assistant.io/faq/) for more information about this feature.
 
 {% enddetails %}
 
@@ -159,7 +164,7 @@ The **Volvo** integration provides the following entities.
 - **Lock reduced guard**: Locks the vehicle with reduced guard.
 
 {% important %}
-Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
+The **Honk** and **Flash** controls have caused 12&nbsp;V battery drain issues in the past.
 Use them with care!
 {% endimportant %}
 
@@ -225,17 +230,16 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 ### Notify if doors are left open
 
 Send a notification to your mobile phone if at least one door is open for 5 minutes.
 
-{% raw %}
-
 ```yaml
 alias: Notify me if doors are left open for 5 minutes
-description: ""
 triggers:
   - trigger: state
     entity_id:
@@ -246,21 +250,15 @@ triggers:
       - binary_sensor.volvo_YOUR_MODEL_tailgate
     to: "on"
     for:
-      hours: 0
       minutes: 5
-      seconds: 0
-conditions: []
 actions:
-  - data:
+  - action: notify.mobile_app_phone_john_doe
+    data:
       data:
         url: /lovelace/volvo
       title: 🚘 Volvo
-      message: You've left some doors open. Don't give thiefs a chance!
-    action: notify.mobile_app_phone_john_doe
-mode: single
+      message: "You've left some doors open."
 ```
-
-{% endraw %}
 
 ### Estimated charging finish time
 
@@ -269,7 +267,8 @@ The Volvo API only provides an estimated charging time (in minutes). To calculat
 {% raw %}
 
 ```jinja2
-{% set charging_time = states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
+{% set charging_time =
+  states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
 {% if charging_time > 0 -%}
   {% set new_time = now() + timedelta(minutes=charging_time) %}
   {{ new_time }}
@@ -286,9 +285,9 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 
 The **Volvo** integration fetches data from the API at different intervals:
 
-- **Every 60 minutes**: diagnostics, odometer, and statistics.
-- **Every 15 minutes**: car connectivity, fuel status, and location.
-- **Every 2 minutes**: energy data (for battery cars).
+- **Every 30 minutes**: car connectivity, diagnostics, tyres, and warnings.
+- **Every 15 minutes**: brakes, engine warnings, location, and odometer.
+- **Every 2 minutes**: energy data, engine status, fuel status, and statistics.
 - **Every minute**: doors, lock, and windows status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
@@ -305,16 +304,15 @@ The official Volvo app has access to a more feature-rich API. As a result, this 
 - Some models will report `fault` if there is no power from the charger (for example, because the charger was paused) while being connected.
 - This field is poorly documented in the API, and therefore, we need to learn the possible values along the way. If an unknown value is detected, the entity will become `unavailable` and a warning will be logged. Please [open a ticket](https://github.com/home-assistant/core/issues/new?template=bug_report.yml) - if no one else has - with the value mentioned in the log.
 
-### Recharge API
+### API availability
 
 #### Symptoms
 
-The **Volvo** {% term integration %} does not show recharge entities, or they are unavailable.
-This happens because sometimes the Volvo recharge API does not respond properly.
+Entities from the **Volvo** {% term integration %} can become unavailable when one or more Volvo API endpoints do not respond properly.
 
 #### Resolution
 
-The integration will automatically re-enable the recharge entities once the API becomes available again.
+The integration will automatically re-enable affected entities once the API becomes available again.
 
 ## Removing the integration
 
@@ -322,4 +320,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+After deleting the integration, go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications) on Volvo's developer portal and delete the app you use for the Home Assistant integration.

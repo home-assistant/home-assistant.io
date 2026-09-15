@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `lacrosse` sensor {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
+The **LaCrosse** {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
 
 ## Tested devices
 
@@ -110,7 +110,7 @@ sensor:
 
 ## Examples
 
-To setup a LaCrosse sensor with multiple sensors, add the following to your {% term "`configuration.yaml`" %} file:
+To set up a LaCrosse sensor with multiple sensors, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

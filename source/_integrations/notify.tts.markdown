@@ -11,7 +11,7 @@ ha_domain: notify
 
 The notify TTS platform lets you use the TTS integration [speak](/integrations/tts/#action-speak) or legacy [say](/integrations/tts/#action-say-legacy) action and a [media_player](/integrations/media_player) to alert you of important events. This integration provides a simple interface to use in your automations and alerts.
 
-In order to use this integration, you must already have a TTS platform installed and configured, and a media_player working with the TTS platform.
+To use this integration, you must already have a TTS platform installed and configured, and a media_player working with the TTS platform.
 
 To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`.
 

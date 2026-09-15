@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `facebook` notification {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
+The **Facebook Messenger** {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
 
 To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

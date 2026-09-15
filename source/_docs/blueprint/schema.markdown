@@ -94,7 +94,7 @@ input:
 A blueprint can accept one or multiple inputs from the user, but does not require any input.
 
 These inputs can be of any type (string, boolean, list, map). They can have
-a default value and also provide a [selector](/docs/blueprint/selectors/) that
+a default value and provide a [selector](/docs/blueprint/selectors/) that
 ensures a matching input field in the user interface.
 
 A blueprint input has the following configuration:
@@ -193,7 +193,6 @@ input:
 {% endconfiguration %}
 
 
-
 The following example shows a *blueprint schema* with some inputs in a section:
 
 ```yaml
@@ -218,7 +217,7 @@ blueprint:
 
 The inputs are available as custom YAML tags, but not as template variables.
 To use a blueprint input in a template, it first needs to be exposed as either
-a [script level variable](/integrations/script/#configuration-variables) or in
+a [script level variable](/integrations/script/#variables) or in
 a [variable script step](/docs/scripts/#variables).
 
 ```yaml

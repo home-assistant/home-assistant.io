@@ -2,15 +2,15 @@
 title: "Enabling a wake word"
 ---
 
-This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it. 
+This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it.
 
-To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). Note that the Home Assistant Voice Preview does not currently support custom wake words.
+To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). Note that the Home Assistant Voice Preview does not currently support custom wake words.
 
 ## To enable a wake word
 
 Enabling a wake word consists of 2 steps:
 
-1. Installing the openWakeWord add-on.
+1. Installing the **openWakeWord** app (formerly known as an add-on).
 2. Enabling the wake word for a specific voice assistant.
 
 ### Prerequisites
@@ -18,14 +18,14 @@ Enabling a wake word consists of 2 steps:
 - Home Assistant version 2023.10 or later, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 
-### Installing the openWakeWord add-on
+### Installing the openWakeWord app
 
-1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
-2. **Start** the add-on.
-3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Apps** > **openWakeWord**" %} and select **Install**.
+2. **Start** the app.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** component of the **Wyoming** integration.
    - Select **Configure** and **Submit**.
-   - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
+   - Result: You have successfully installed the **openWakeWord** app and **Wyoming** integration.
 
 ### Enabling wake word for your voice assistant
 
@@ -39,12 +39,14 @@ Enabling a wake word consists of 2 steps:
    - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
 5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
 6. To define the wake word engine, in the top-right corner of the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Add streaming wake word**.
-   - **Troubleshooting**: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & Services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.
-   - **Result**: on the bottom of the page, you now see a new section **Streaming wake word engine**.
+   - Troubleshooting: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.
+   - Result: On the bottom of the page, you now see a new section **Streaming wake word engine**.
+   - Troubleshooting: If you don't see the three dots {% icon "mdi:dots-vertical" %} menu, go to {% my integrations title="**Settings** > **Devices & services**" %} and make sure the **openWakeWord** component of the **Wyoming** integration is added.
+   - Result: On the bottom of the page, you now see a new section **Streaming wake word engine**.
    - Select **openwakeword**, then select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
-   - **Result**: You now have a voice assistant that listens to a wake word.
+   - Result: You now have a voice assistant that listens to a wake word.
 7. For the first run, it is recommended to use **ok nabu**, just to test the setup.
    - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/).
 
@@ -59,7 +61,7 @@ Enabling a wake word consists of 2 steps:
 
 ### Extra hardware to use wake word
 
-- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
+- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit)
   - [Tutorial: $13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
-- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt)
+- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html)
   - [Tutorial: ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)

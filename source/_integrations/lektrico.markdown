@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Lektrico Charging Station** integration integrates your [Lektrico Charging Station](https://lektri.co) into your Home Assistant and allows you to monitor it.
+The **Lektrico Charging Station** {% term integration %} integrates your [Lektrico Charging Station](https://lektri.co) into your Home Assistant and allows you to monitor it.
 
 The Lektrico Charging Station device will be added as a sensor in Home Assistant.
 
@@ -151,13 +151,13 @@ Switches available in the library:
 
 | Switch              | Description                             |
 | :------------------ | :-------------------------------------- |
-| authentication      | Allows to select if the charger will automatically start to charge or if it needs authentication. |
-| lock                | Allows to select if the charger is locked or not. When the charger is locked, no charging is possible.|
+| authentication      | Allows you to select if the charger will automatically start to charge or if it needs authentication. |
+| lock                | Allows you to select if the charger is locked or not. When the charger is locked, no charging is possible.|
 
 ### Three-phase charger
 
 | Switch              | Description                             |
 | :------------------ | :-------------------------------------- |
-| authentication      | Allows to select if the charger will automatically start to charge or if it needs authentication. |
-| lock                | Allows to select if the charger is locked or not. When the charger is locked, no charging is possible.|
-| force_single_phase  | Allows to put the three-phase charger in single-phase mode or three-phase mode. |
+| authentication      | Allows you to select if the charger will automatically start to charge or if it needs authentication. |
+| lock                | Allows you to select if the charger is locked or not. When the charger is locked, no charging is possible.|
+| force_single_phase  | Allows you to put the three-phase charger in single-phase mode or three-phase mode. |

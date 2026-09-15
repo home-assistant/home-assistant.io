@@ -22,10 +22,10 @@ ha_platforms:
   - scene
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
+The **Nexia/American Standard/Trane** {% term integration %} allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -59,6 +59,12 @@ The following sensors are added for each thermostat zone:
 - Zone Temperature
 - Zone Setpoint Status
 - Zone Status
+
+The following sensors are added for each RoomIQ sensor in zones that contain more than one RoomIQ sensor (if your device supports [RoomIQ](https://support.asairhome.com/hc/en-us/articles/360045784651-RoomIQ-Overview-and-Usage)). These sensors are disabled by default because enabling them also fetches current RoomIQ sensor states during each Nexia data refresh, which can add 5–40 seconds of latency and additional network traffic. You can [enable them in the entity settings](/docs/configuration/customizing-devices/).
+
+- Temperature
+- Humidity
+- Battery level (if the RoomIQ sensor is battery-powered)
 
 ### Climate
 
@@ -102,21 +108,4 @@ It usually takes 10–15 seconds to complete, depending on the web service.
 At least one sensor must be selected.
 If you exclude all sensors, the switches will revert to show the zone's settings.
 
-### Action `nexia.set_aircleaner_mode`
-
-Sets the air cleaner mode. Options include 'auto', 'quick', and 
-'allergy'. This setting will affect all zones on the same thermostat.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `aircleaner_mode` | no | 'auto', 'quick', or 'allergy'
-
-### Action `nexia.set_humidify_setpoint`
-
-Sets the humidify setpoint. This setting will affect all zones on the same thermostat.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `humidity` | no | Humidify setpoint level, from 35 to 65.
+{% include integrations/actions.md %}

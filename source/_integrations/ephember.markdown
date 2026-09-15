@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ephember` {% term integration %} lets you control [EPH Controls](https://emberapp.ephcontrols.com/) thermostats. The module only works if you have a Wi-Fi gateway to control your EPH system and an account on the EMBER app.
+The **EPH Controls** {% term integration %} lets you control [EPH Controls](https://emberapp.ephcontrols.com/) thermostats. The module only works if you have a Wi-Fi gateway to control your EPH system and an account on the EMBER app.
 
 To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 {% include integrations/restart_ha_after_config_inclusion.md %}

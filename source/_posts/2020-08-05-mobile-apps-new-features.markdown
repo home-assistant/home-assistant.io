@@ -4,7 +4,9 @@ description: "What's new and what's in the works with the companion apps"
 date: 2020-08-05 00:00:00
 date_formatted: "August 5, 2020"
 comments: true
-author: Daniel Shokouhi & Tom Brien
+author:
+  - Daniel Shokouhi
+  - Tom Brien
 author_twitter: tbrien88
 categories: Release-Notes
 og_image: /images/blog/2020-08-05-mobile-apps-new-features/Companion-new-upcoming.png

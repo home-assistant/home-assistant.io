@@ -28,5 +28,11 @@ Airly allows 100 data updates per day. For this reason, the more Airly instances
 configured, the less frequent updates will be. For one configured Airly instance,
 data will be updated every 15 minutes, for two configured instances, data will
 be updated every 30 minutes, for three configured instances, data will be 
-updated every 45 minutes, etc.
+updated every 45 minutes, and so on.
 {% endnote %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

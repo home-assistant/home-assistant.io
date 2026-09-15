@@ -15,11 +15,11 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `haveibeenpwned` sensor {% term integration %} creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
+The **HaveIBeenPwned** {% term integration %} creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
 
 ## Configuration
 
-In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
+To use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
 
 ## Configuration
 

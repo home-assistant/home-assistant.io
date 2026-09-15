@@ -3,12 +3,14 @@ title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Fan
   - Humidifier
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -27,22 +29,26 @@ works_with:
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
+  - event
   - fan
   - humidifier
   - light
   - lock
+  - number
+  - select
   - sensor
   - switch
   - vacuum
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: gold
 ---
 
-The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
+The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, and hubs.
 
 ## How you can use this integration
 
@@ -50,7 +56,7 @@ The SwitchBot integration lets you do many things, such as switching devices on 
 
 ## Prerequisites
 
-In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
+To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
 
 If you have multiple devices of the same type, you need to get the BTLE MAC address of your device to tell your devices apart. You can find the address for your device using the following steps:
 
@@ -59,11 +65,28 @@ If you have multiple devices of the same type, you need to get the BTLE MAC addr
 3. Click on "Device Info".
 4. Write down the BTLE MAC address of your device.
 
-Please note, device names configured in the SwitchBot app are not transferred into Home Assistant.
+Device names configured in the SwitchBot app are not transferred into Home Assistant.
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
+### Add mode
 
+Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth adapter is set to **Active** or **Passive** mode in the Bluetooth integration configuration.
+
+- To open the Bluetooth integration settings, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Integrations**, then find and open the **Bluetooth** integration to check the adapter mode.
+
+- Active mode
+  - Devices are normally discovered automatically.
+  - If a device is not discovered automatically:
+    - For devices with a physical button, press and hold the button to enter pairing mode.
+    - For devices without a button, power-cycle the device to trigger pairing mode.
+    - If the device still cannot be discovered, try syncing devices from your SwitchBot account by selecting  the **SwitchBot** integration and signing in.
+
+- Passive mode
+  - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
+  - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
+
+If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
 ### Adding encrypted SwitchBot devices
 
@@ -84,7 +107,7 @@ Password:
 {% endconfiguration_basic %}
 
 {% important %}
-This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
+This integration doesn't support SSO accounts (such as Login with Google) only username and password accounts.
 {% endimportant %}
 
 #### Enter the lock encryption key manually
@@ -131,6 +154,9 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBICWW Light Bars
+- [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
@@ -138,6 +164,9 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
+- Lock Vision
+- Lock Vision Pro
+- Lock Pro Wifi
 
 ### Humidifiers
 
@@ -157,6 +186,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- [Weather Station](https://www.switch-bot.com/products/switchbot-outdoor-weather-station) (currently only supports retrieving sensor data)
 
 ### Hubs
 
@@ -185,6 +215,15 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Climates
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Buttons
+
+- [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
+
+### Keypad Visions
+
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
 
 ## Works with Home Assistant
 
@@ -223,7 +262,7 @@ Switch entities are added for Bot, Plug Mini, and Relay Switch.
 
 #### Bot
 
-Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
+Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password to add it to the integrations.
 
 Features:
 
@@ -310,6 +349,14 @@ Features:
 - get light level
 - get battery level
 - get calibration state
+- set curtain movement speed
+
+Curtain movement speed is configured from the device options. Curtain movement speed is primarily designed for Curtain 3 models. Older Curtain models may ignore the setting.
+
+1. To set **Curtain movement speed**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the SwitchBot integration and select the curtain device you want to configure.
+3. Select **Configure** for that device.
+4. In the **Options** dialog, set **Curtain movement speed** to a number between 0-255. The default is 255.
 
 #### Blind Tilt
 
@@ -335,8 +382,6 @@ The close button will close the blinds to the closest closed position (either 0%
 ##### Simple cover template entity
 
 Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -368,8 +413,6 @@ cover:
             entity_id: cover.example_blinds
 ```
 
-{% endraw %}
-
 #### Roller Shade
 The Roller Shade is exposed as a cover entity with control of the position only:
 
@@ -384,6 +427,24 @@ Features:
 - set position
 - get position
 - get battery level
+- select motor speed
+
+The Roller Shade supports two motor speeds, which can be selected each time the shade is opened, closed, or moved to a position:
+
+| Speed         | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| `performance` | Moves the shade at full speed. This is the default.  |
+| `quiet`       | Reduces motor noise, at the cost of slower movement. |
+
+To use a speed other than the default, set the **Speed** option on the [Open cover](/actions/cover.open_cover/), [Close cover](/actions/cover.close_cover/), or [Set cover position](/actions/cover.set_cover_position/) action:
+
+```yaml
+action: cover.close_cover
+target:
+  entity_id: cover.roller_shade
+data:
+  speed: quiet
+```
 
 #### Garage Door Opener
 
@@ -393,7 +454,7 @@ Features:
 
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button and climate panel.
+Sensor entities are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button, and climate panel.
 
 #### Meter
 
@@ -435,6 +496,36 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+- set display time format (12h/24h)
+- set display time offset
+- sync the device date and time with Home Assistant
+
+{% details "Setting display time offset" %} 
+
+**Display time offset** entity shifts the time shown on the device display without altering the device's internal timekeeping. The offset can be negative and it is applied independently: for example, pressing the **Sync date and time** button will update the internal clock to match Home Assistant but will not change or reset your custom offset. This allows you to maintain a specific time offset while still using automations to prevent hardware time drift.
+
+{% enddetails %}
+
+{% details "Syncing the device date and time with Home Assistant automatically" %} 
+
+The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. That helps to mitigate the time drift on the device. Here's a simple example for `configuration.yaml`:
+
+```yaml
+automation:
+  - alias: "Daily SwitchBot CO2 Time Sync"
+    description: "Sync date and time sync for the Meter Pro CO2 every night."
+    trigger:
+    triggers:
+      - trigger: time
+        # Ensures the time is in sync after a DST (summer/winter) time change.
+        at: "03:00:00"
+    actions:
+      - action: button.press
+        target:
+          # Replace with your actual entity ID
+          entity_id: button.<your_device_name>_sync_date_and_time
+```
+{% enddetails %}
 
 #### Contact Sensor
 
@@ -486,6 +577,19 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+
+#### Keypad Vision (Pro)
+
+This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
+
+Note: Users need to bind the device to the lock before the doorbell event can be triggered.
+
+Features:
+- get battery
+- get tamper alarm
+- get doorbell event
+
+This device supports the [Add password](/actions/switchbot.add_password/) action.
 
 ### Lights
 
@@ -565,6 +669,39 @@ Features:
 - change color
 - set effect
 
+#### RGBICWW Light Bars
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### Permanent Outdoor Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### Candle Warmer Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+
 ### Locks
 
 Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
@@ -587,7 +724,7 @@ Options:
 2. Under **Integration entries**, find the lock and select **Configure**.
 3. In the **Options** dialog, configure the nightlatch operation mode.
 
-#### Lock Pro
+#### Lock Pro (Wifi)
 
 This is an encrypted device.
 
@@ -609,7 +746,7 @@ Options:
 
 #### Lock Ultra
 
-This is an encrypted device.
+This is an encrypted device. Half-lock is supported only on European Union (EU) models. To use it, you need to enable nightlatch operation mode. See the Options section below.
 
 Features:
 
@@ -618,6 +755,7 @@ Features:
 - auto-lock paused state
 - calibration state
 - get battery level
+- half-lock
 
 Options:
 
@@ -634,6 +772,40 @@ Features:
 - Lock or unlock
 - calibration state
 - get battery level
+
+#### Lock Vision
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+#### Lock Vision Pro
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 ### Hubs
 
@@ -683,13 +855,24 @@ Fan entities are added for Air Purifier, and Air Purifier Table.
 
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
+Note: Air purifiers are available as a US model and a JP model. When the light sensor is activated, turning the light on or off deactivates it.
+
+#### Air Purifier
+
 This is an encrypted device.
 
 Features:
 
-- turn on
-- turn off
-- set mode
+- turn on/off device
+- turn on/off LED
+- turn on/off child lock
+- turn on/off light sensor
+- set fan mode
+- set fan speed
+- set LED RGB
+- set LED brightness
+- get air quality level
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
 
@@ -697,9 +880,17 @@ This is an encrypted device.
 
 Features:
 
-- turn on
-- turn off
-- set mode
+- turn on/off device
+- turn on/off LED
+- turn on/off child lock
+- turn on/off wireless charging
+- turn on/off light sensor
+- set fan mode
+- set fan speed
+- set LED RGB
+- set LED brightness
+- get air quality level
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
 
@@ -740,7 +931,7 @@ Features:
 
 climate entities are added for smart radiator thermostat
 
-This is an encryed device.
+This is an encrypted device.
 
 Features:
 
@@ -749,9 +940,23 @@ Features:
 - set mode
 - set target temperature
 
+### Buttons
+
+button entities are added for art frame.
+
+This is an encrypted device.
+
+Note: Users need to preset images in the app.
+
+Features:
+- next image
+- previous image
+
+{% include integrations/actions.md %}
+
 ## Data updates
 
-SwitchBot devices utilize a [​​local push](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers)​​ strategy to maintain real-time status updates. When devices detect state changes, they actively push updates to Home Assistant for immediate synchronization. For user-initiated actions through Home Assistant (for example, when turning a device on/off), the integration performs an additional proactive status fetch to ensure instant confirmation of the new state.
+SwitchBot devices use a [​​local push](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers)​​ strategy to maintain real-time status updates. When devices detect state changes, they actively push updates to Home Assistant for immediate synchronization. For user-initiated actions through Home Assistant (for example, when turning a device on/off), the integration performs an additional proactive status fetch to ensure instant confirmation of the new state.
 The integration connects locally to the devices without going via the SwitchBot Cloud.
 
 ## Known limitations

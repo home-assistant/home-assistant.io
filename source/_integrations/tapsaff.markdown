@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `tapsaff` binary sensor {% term integration %} provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).
+The **Taps Aff** {% term integration %} provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).
 
 ## Configuration
 

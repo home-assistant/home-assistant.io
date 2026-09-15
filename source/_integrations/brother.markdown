@@ -97,7 +97,7 @@ The Brother integration provides the following entities.
   - **Description**: Remaining lifetime percentage of the fuser unit
 - **Laser remaining lifetime**
   - **Description**: Remaining lifetime percentage of the laser unit
-- **Last restart**
+- **Uptime**
   - **Description**: Date and time of the last printer restart
   - **Remarks**: This entity is disabled by default
 - **Magenta drum page counter**
@@ -146,7 +146,6 @@ By default, the integration {% term polling polls %} data from the device every 
 You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows. First, add the following to {% term "`configuration.yaml`" %} under the `template:` section.
 Replace `sensor.hl_l2340d_status` with the actual name of your sensor.
 
-{% raw %}
 
 ```yaml
 template:
@@ -161,7 +160,6 @@ template:
         {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```
 
-{% endraw %}
 
 Then, add this under the `alert:` section:
 

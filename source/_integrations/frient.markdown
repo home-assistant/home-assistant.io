@@ -25,3 +25,7 @@ ha_brand: true
 ---
 
 {% include integrations/wwha.md url="https://www.frient.com/" %}
+
+## Supported devices
+
+{% include integrations/device_list.html brand="frient" %}

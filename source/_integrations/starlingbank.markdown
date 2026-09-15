@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The Starling Bank sensor {% term integration %} allows you to monitor your account balance data as sensors in Home Assistant.
+The **Starling Bank** {% term integration %} allows you to monitor your account balance data as sensors in Home Assistant.
 
 - Turn off the lights when money's tight?
 - Play a song when you reach a savings goal?

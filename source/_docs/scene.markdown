@@ -32,7 +32,7 @@ In the scene you define in your {% term YAML %} files, please ensure you use
 all required parameters as listed below.
 
 {% configuration %}
-name: 
+name:
   description: Friendly name of the scene.
   required: true
   type: string

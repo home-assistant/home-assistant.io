@@ -19,9 +19,9 @@ The alarm panel card allows you to arm and disarm your [alarm control panel](/in
 Screenshot of the alarm panel card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

@@ -1,0 +1,29 @@
+{% include asides/template_function_meta.html %}
+
+{%- if page.related_functions -%}
+  {%- assign all_functions = site.template_functions -%}
+  {%- assign has_related = false -%}
+  {%- for func_name in page.related_functions -%}
+    {%- assign func = all_functions | where: "function_name", func_name | first -%}
+    {%- if func -%}{%- assign has_related = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if has_related -%}
+  <section class="aside-module grid__item one-whole lap-one-half">
+    <div class='section'>
+      <h2 class="h1 title epsilon">{% icon "mdi:link-variant" %} Related functions</h2>
+      <ul class='divided'>
+        {%- for func_name in page.related_functions -%}
+          {%- assign func = all_functions | where: "function_name", func_name | first -%}
+          {%- if func -%}
+          <li>
+            <a href="{{ func.url }}">{{ func.title }}</a>
+          </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+  {%- endif -%}
+{%- endif -%}
+
+{% include asides/template_function_categories.html %}

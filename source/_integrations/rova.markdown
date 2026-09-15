@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: rova
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. This **ROVA** integration uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this into your Home Assistant installation.

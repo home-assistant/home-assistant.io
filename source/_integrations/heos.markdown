@@ -18,7 +18,7 @@ ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
-The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
+The **Denon HEOS** {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
 that allows you to stream music to HEOS Built-in products from [Denon](https://www.denon.com/en-us/category/heos/) and [Marantz](https://www.marantz.com/en/world-of-marantz/heos-built-in.html).
 
 Add this integration to automate playback and group configuration of HEOS-capable products. For example, when a scene is activated, set the volume and play a specific Playlist on your receiver.
@@ -42,7 +42,7 @@ Add this integration to automate playback and group configuration of HEOS-capabl
 {% include integrations/config_flow.md %}
 
 {% note %}
-A single instance of the integration adds all devices in the HEOS system to Home Assistant. When setup through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
+A single instance of the integration adds all devices in the HEOS system to Home Assistant. When set up through discovery, it will automatically select the best {% term host %}. The integration will automatically reconnect and fail over to other hosts in the HEOS system if the configured host goes offline.
 {% endnote %}
 
 {% configuration_basic %}
@@ -54,23 +54,23 @@ Host:
 
 The integration provides the following configuration options. By entering your HEOS Account login information, the integration will be able to access streaming services, playlists, favorites, and other features. The integration will validate and sign in to your HEOS Account when credentials are entered or updated, and will ensure the HEOS System remains logged in while the credentials remain valid. Clearing the credentials will sign the HEOS System out of your account.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Select **Configure**.
 3. Enter or clear your HEOS Account credentials.
 4. Select **Submit** to save the options.
 
 {% configuration_basic %}
 Username:
-  description: "The username or e-mail address of your HEOS Account."
+  description: "The username or email address of your HEOS Account."
 Password:
   description: "The password to your HEOS Account."
 {% endconfiguration_basic %}
 
 ## Reconfiguration
 
-Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
+Once set up, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Enter a new [host name or IP address](/integrations/heos/#host).
 4. Click Submit to complete the reconfiguration.
@@ -79,95 +79,12 @@ Once setup, the host name or IP address used to access the HEOS System can be ch
 
 This integration follows standard integration removal. No extra steps are required.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
-## Actions
+In addition to the standard [media player actions](/integrations/media_player/#actions), the HEOS integration provides actions to control group volume and to manage a player's queue.
 
-In addition to the standard [Media Player actions](/integrations/media_player#actions), the HEOS integration provides the following {% term actions %}:
-
-Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
-
-Queue actions: `heos.get_queue`, `heos.move_queue_item`, and `heos.remove_from_queue` to manage a player's queue items.
-
-### Action `heos.group_volume_set`
-
-Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
-
-| Data attribute | Optional | Description                                      |
-|------------------------|----------|------------------------------------------------------------------|
-| `entity_id`            |      yes | A media player entity that is joined to a group.                  |
-| `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
-
-### Action `heos.get_queue`
-
-Returns the items in the player's queue. This can be used to inspect the current play queue of target players.
-
-| Data attribute | Optional | Description                                      |
-|------------------------|----------|------------------------------------------------------------------|
-| `entity_id`            | no      | `entity_id` of the player(s)                                     |
-
-Example response:
-
-```yaml
-media_player.office:
-  queue:
-    - queue_id: 1
-      song: Alone Again
-      album: After Hours
-      artist: The Weeknd
-      image_url: >-
-        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
-      media_id: "134788274"
-      album_id: "134788273"
-    - queue_id: 2
-      song: Too Late
-      album: After Hours
-      artist: The Weeknd
-      image_url: >-
-        http://resources.wimpmusic.com/images/22f72311/8e9e/461e/a100/d9cfd4ddc2fa/640x640.jpg
-      media_id: "134788275"
-      album_id: "134788273"
-```
-
-### Action `heos.move_queue_item`
-
-Move one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` service.
-
-Example action data payload that moves the second item to the top of the play queue:
-
-```yaml
-action: heos.move_queue_item
-target:
-  entity_id: media_player.family_room_receiver
-data:
-  queue_ids:
-    - 2
-  destination_position: 1
-```
-
-| Data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | ------------------------------------------------------- |
-| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to move.    |
-| `destination_position` | no       | The destination position in the queue (starting at 1).  |
-
-### Action `heos.remove_from_queue`
-
-Removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` service. Example action data payload:
-
-```yaml
-action: heos.remove_from_queue
-target:
-  entity_id: media_player.family_room_receiver
-data:
-  queue_ids:
-    - 1
-    - 3
-```
-
-| Data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | ------------------------------------------------------- |
-| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to remove.   |
+{% include integrations/actions.md %}
 
 ## Examples
 

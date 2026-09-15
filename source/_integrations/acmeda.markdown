@@ -35,4 +35,4 @@ If the IP address for the hub changes, you will need to re-register it with Home
 The integration has the following limitations:
 
 - Covers with position as well as tilt are not supported.
-- The integration doesn't make use of rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.
+- The integration doesn't use rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.

@@ -10,8 +10,9 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_domain: libre_hardware_monitor
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: silver
 ---
 
@@ -21,9 +22,10 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 
 ## Prerequisites
 
-- Libre Hardware Monitor is installed on the system (host) you want to monitor.
+- Libre Hardware Monitor version 0.9.5 or later is installed on the system (host) you want to monitor. Earlier versions are not supported. You can download the latest release from the [Libre Hardware Monitor releases page](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases).
 - Libre Hardware Monitor must be running during setup.
-- In Libre Hardware Monitor, make sure **Remote web server** is active.
+- In Libre Hardware Monitor, make sure **Options** > **Remote web server** > **Run** is active.
+  - Optionally, set up authentication for the web server. You might have to restart the server for this to take effect.
 - Make sure to open the inbound port (8085 by default) on the host system's firewall.
 - In Libre Hardware Monitor, go to **File** > **Hardware** and check the devices you want to monitor.
 
@@ -41,19 +43,28 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-host:
+Host:
   description: IP address or hostname of the system where Libre Hardware Monitor is running. This is the system you want to monitor.
-port:
+Port:
   description: The port of your Libre Hardware Monitor API. Defaults to 8085.
 {% endconfiguration_basic %}
 
 ## Configuration options
 
-All sensors will be grouped by the device they belong to. If you do not want all sensors for a device, you can disable entities via the UI after setup.
+The integration provides the following configuration options only if authentication is required:
 
-## Known limitations
+{% configuration_basic %}
+Username:
+  description: The username used to access the Libre Hardware Monitor server. Note that this is **not** your Windows username.
+Password:
+  description: The password used to access the Libre Hardware Monitor server. Note that this is **not** your Windows password.
+{% endconfiguration_basic %}
 
-Currently, setting up authentication for the Libre Hardware Monitor remote web server is not supported.
+## Supported devices
+
+Any device that is detected by Libre Hardware Monitor is supported.
+All sensors will be grouped by the device they belong to.
+If you do not want all sensors for a device, you can disable entities via the UI after setup.
 
 ## Troubleshooting
 
@@ -62,6 +73,22 @@ Currently, setting up authentication for the Libre Hardware Monitor remote web s
 Check if the Libre Hardware Monitor remote web server is running and accessible.
 On a device that is **not** the device running Libre Hardware Monitor (a smartphone is sufficient), open a browser and navigate to `http://<IP address>:<Port>`.
 Make sure you can see and refresh the data there.
+
+### Libre Hardware Monitor version is not supported
+
+During integration setup, the form might show this message:
+
+> Your version of Libre Hardware Monitor is no longer supported. Please update to version 0.9.5 or later.
+
+Note that Libre Hardware Monitor versions before 0.9.5 do not provide stable sensor data. The integration does not support these versions.
+
+#### Resolution
+
+1. Download version 0.9.5 or later from the [Libre Hardware Monitor releases page](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases).
+2. On the system you want to monitor, close Libre Hardware Monitor.
+3. Install or extract the new version, then start Libre Hardware Monitor again.
+4. Check that **Options** > **Remote web server** > **Run** is still active. You might have to enable it again.
+5. In Home Assistant, set up the integration again. If it was set up before, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Libre Hardware Monitor**, and select **Reload**.
 
 ### Sensors change to `unavailable` status
 

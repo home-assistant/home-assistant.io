@@ -3,11 +3,13 @@ title: FrankEver
 description: Connect and control your FrankEver devices using the Shelly integration
 ha_category:
   - Binary sensor
+  - Camera
   - Climate
   - Cover
   - Energy
   - Event
   - Light
+  - Media player
   - Number
   - Select
   - Sensor
@@ -29,11 +31,13 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor

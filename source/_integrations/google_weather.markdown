@@ -10,8 +10,9 @@ ha_domain: google_weather
 ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
   - weather
 ---
@@ -40,6 +41,8 @@ The integration fetches:
 
 This results in 4,464 requests per month, meaning you could have up to 2 locations and still stay under the 10,000 free usage cap.
 
+The `weather.get_forecasts` action uses the cached forecast data and will not issue any additional API calls to Google. You can use this action safely in templates or automations without affecting your quota usage.
+
 ## Known limitations
 
 - Weather forecast information isn't currently available in South Korea and Japan. Refer to the [Google Help Center](https://support.google.com/websearch/answer/13687874).
@@ -47,7 +50,7 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 
 ## Troubleshooting
 
-- [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
+- [Enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
 
 
 ## Removing the integration

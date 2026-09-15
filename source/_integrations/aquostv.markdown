@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
+The **Sharp Aquos TV** {% term integration %} allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 

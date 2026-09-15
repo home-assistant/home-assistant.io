@@ -33,4 +33,4 @@ For Home Assistant Yellow, the easiest way is to follow the [steps for reinstall
 [installation]: /installation/
 [onboarding]: /getting-started/onboarding/
 [data-disk]: /common-tasks/general/#external-data-disk
-[yellow-rpiboot]: https://support.nabucasa.com/hc/en-us/articles/25485061432093-Reinstall-the-Home-Assistant-Operating-System-on-Raspberry-Pi-CM5
+[yellow-rpiboot]: https://support.nabucasa.com/hc/articles/25485061432093

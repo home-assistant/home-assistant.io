@@ -1,6 +1,6 @@
 ---
 title: Backup
-description: Allow creating backups of container and core installations.
+description: Create and restore backups of your Home Assistant installation.
 ha_category:
   - Event
   - Other
@@ -24,74 +24,16 @@ related:
   - docs: /getting-started/onboarding/
     title: Recover from backup during onboarding
   - docs: /more-info/backup-emergency-kit/
-    title: backup emergency kit
+    title: Backup emergency kit
 ---
 
-The **Backup** {% term integration %} is used by all [installation types](/installation/#about-installation-methods) to create and restore backups.
+The **Backup** {% term integration %} creates and restores backups across all [installation types](/installation/#about-installation-types).
 
 To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
 
-## Actions
+You no longer need to create your own automation to make backups. You can [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process) instead. If you do want to trigger a backup yourself, the integration provides actions for it.
 
-The **Backup** integration exposes actions that can be used to automate the backup
-process.
-
-However, it is no longer needed to create your own automation. Follow these steps to [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process).
-
-### Action backup.create_automatic
-
-The {% my developer_call_service service="backup.create_automatic" %} action can be used
-to create a backup of your Home Assistant instance.
-
-The automation editor does not show a UI editor because the action uses the same settings you defined under {% my backup title="**Settings** > **System** > **Backups**" %}, under **Backup settings**. For a more detailed description, refer to the documentation on [automatic backups](/common-tasks/general/#setting-up-an-automatic-backup-process).
-
-This action can be called to create backups with pre-defined settings at a more flexible
-schedule than the schedule which can be configured for automatic backups.
-
-The action has no additional options or parameters.
-
-Example action:
-
-```yaml
-action: backup.create_automatic
-```
-
-### Action backup.create
-
-The {% my developer_call_service service="backup.create" %} action can be used
-to create a backup of your Home Assistant instance.
-
-- This action is only available in [core and container installations](/installation/#about-installation-methods).
-- The action has no additional options or parameters.
-- The backup will only be saved on the local storage.
-- The backup created with `backup.create` always includes the database.
-- The backup will be created without a password.
-
-Example action:
-
-```yaml
-action: backup.create
-```
-
-### Example: Backing up every night at 3:00 AM
-
-This is a YAML example for an automation that initiate a backup every night
-at 3 AM:
-
-{% raw %}
-
-```yaml
-automation:
-  - alias: "Backup Home Assistant every night at 3 AM"
-    triggers:
-      - trigger: time
-        at: "03:00:00"
-    actions:
-      - alias: "Create backup now"
-        action: backup.create
-```
-
-{% endraw %}
+{% include integrations/actions.md %}
 
 ## Restoring a backup
 
@@ -99,22 +41,20 @@ To restore a backup, follow the steps described in [Restoring a backup](/common-
 
 ## Event entity
 
-The **Backup** {% term integration %} provides an {% term "Event entity" %} which represents the state of the last automatic backup (_completed, in progress, failed_). It also provides several event attributes which can be used in automations.
+The **Backup** {% term integration %} provides an {% term "Event entity" %} that represents the state of the last automatic backup (_completed_, _in progress_, or _failed_). It also provides several event attributes you can use in automations.
 
 | Attribute | Description |
 | --- | --- |
-| `event_type` | The translated state of the last automatic backup task (_possible states: completed, in progress, failed_)
-| `backup_stage` | The current automatic backup stage (_is `None` when `event_type` is not in progress_) |
-| `failed_reason` | The reason for a failed automatic backup (_is `None` when `event_type` is completed or in progress_) |
+| `event_type` | The translated state of the last automatic backup task (_possible states: completed, in progress, failed_). |
+| `backup_stage` | The current automatic backup stage (_is `None` when `event_type` is not in progress_). |
+| `failed_reason` | The reason for a failed automatic backup (_is `None` when `event_type` is completed or in progress_). |
 
 ### Usage examples
 
-Send notification to mobile app, when an automatic backup failed.
-
-{% raw %}
+Send a notification to the mobile app when an automatic backup fails:
 
 ```yaml
-alias: Backup failed
+alias: "Backup failed"
 triggers:
   - trigger: state
     entity_id:
@@ -125,20 +65,22 @@ conditions:
     attribute: event_type
     state: failed
 actions:
-  - data:
-      title: Automatic backup failed
-      message: The last automatic backup failed due to {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}
-    action: notify.mobile-app
-mode: single
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: "Automatic backup failed"
+      message: >-
+        The last automatic backup failed due to
+        {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}
 ```
 
-{% endraw %}
 
 ## Sensors
 
 The **Backup** {% term integration %} provides several sensors.
 
-### Backup Manager State
+### Backup manager state
 
 The current state of the backup system. Possible states are:
 

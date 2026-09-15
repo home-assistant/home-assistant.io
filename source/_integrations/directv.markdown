@@ -12,10 +12,10 @@ ha_ssdp: true
 ha_platforms:
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
+The **DirecTV** {% term integration %} allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
 
 ## Requirements
 
@@ -29,25 +29,33 @@ This is done via series of settings found via **Menu** > **Settings & Help** > *
 
 {% include integrations/config_flow.md %}
 
-## Actions
-
-### Media control actions
-
-Available {% term actions %}: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
-
-#### Action `media_player.play_media`
-
-| Data attribute | Optional | Description                                                                                                                                                            |
-| -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            |      yes | Target a specific media player. Defaults to all.                                                                                                                       |
-| `media_content_id`     |       no | The channel number to change to.                   |
-| `media_content_type`   |       no | A media type. Has to be `channel`.
-
 ## Remote
 
 The DirecTV remote platform allows you to send remote control buttons to a DirecTV receiver. It is automatically set up when a DirecTV receiver is configured.
 
-At the moment, the following buttons are supported:
+### Changing channels in automations
+
+To change the channel on a DirecTV receiver, use the [**Play specified media**](/actions/media_player.play_media/) action and select the DirecTV media player as the target. Enter the channel number as the **Media content ID** and use `channel` as the **Media content type**.
+
+### Sending remote commands in automations
+
+To send remote control button commands to a DirecTV receiver, use the [**Send remote command**](/actions/remote.send_command/) action and select the DirecTV remote as the target.
+
+A typical action for pressing several buttons looks like this:
+
+```yaml
+action: remote.send_command
+target:
+  entity_id: remote.directv_receiver
+data:
+  command:
+    - left
+    - left
+    - menu
+    - select
+```
+
+The commands available to you depend on the DirecTV receiver. Supported commands include:
 
 - `power`
 - `poweron`
@@ -92,17 +100,3 @@ At the moment, the following buttons are supported:
 - `9`
 - `dash`
 - `enter`
-
-A typical action for pressing several buttons looks like this.
-
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.directv_entity
-data:
-  command:
-    - left
-    - left
-    - menu
-    - select
-```

@@ -33,7 +33,7 @@ keyboard_remote:
 
 {% configuration %}
 type:
-  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.  This can be a list of types.
+  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events. This can be a list of types.
   required: true
   type: string
 emulate_key_hold:

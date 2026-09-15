@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ffmpeg` {% term integration %} allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
+The **FFmpeg Noise** {% term integration %} allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
 
 {% note %}
 

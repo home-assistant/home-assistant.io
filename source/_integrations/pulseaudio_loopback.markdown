@@ -17,7 +17,7 @@ ha_quality_scale: legacy
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).
 
-For example, for a system with a 7.1 surround sound card, and 3 instances of [MPD](https://www.musicpd.org/) running, it is possible to quickly route the output of any MPD instance to any of the 8 possible (4 stereo) channels on the sound card, by loading/unloading a loopback module. This loading/unloading functionality is provided by this integration. When the switch is `on`, the loopback module is loaded.  When the switch is `off`, the module is not loaded.
+For example, for a system with a 7.1 surround sound card, and 3 instances of [MPD](https://www.musicpd.org/) running, it is possible to quickly route the output of any MPD instance to any of the 8 possible (4 stereo) channels on the sound card, by loading/unloading a loopback module. This loading/unloading functionality is provided by this integration. When the switch is `on`, the loopback module is loaded. When the switch is `off`, the module is not loaded.
 
 The benefit of this approach is that this audio routing can occur without modifying the design-time configuration of MPD or PulseAudio.
 

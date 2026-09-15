@@ -1,6 +1,6 @@
 ## Network storage
 
-You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and add-ons.
+You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and apps.
 To list all your currently connected network storages, go to **{% my storage title="Settings > System > Storage" %}** in the UI.
 
 {% if page.installation == "os" %}
@@ -65,9 +65,9 @@ Server:
 Backup:
   description: This will become a target. You can use it when creating an automatic or manual backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-local-backup-location).
 Media:
-  description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and add-ons.
+  description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and apps.
 Share:
-  description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and add-ons.
+  description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and apps.
 {% endconfiguration_basic %}
 
 ### Change default local backup location
@@ -81,4 +81,4 @@ If you want to change the local network storage that is used to store your backu
 3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change default action location**.
 4. Select your preferred network location and save your changes.
    ![Select default location used for local backup](/images/screenshots/network-storage/backup_select_local_default.png)
-5. **Troubleshooting**: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.
+5. Troubleshooting: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.

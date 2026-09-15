@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `sesame` {% term integration %} allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.
+The **Sesame Smart Lock** {% term integration %} allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.
 
 ## Sesame Smart Lock Versions
 

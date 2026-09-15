@@ -878,7 +878,7 @@ The naming of MQTT entities has been changed to be aligned with the
 
 The Dynalite configuration panel, which previously was on the Home Assistant
 sidebar, has moved. It can now be accessed via the integration page in
-**Settings** -> **Device & services** -> **Dynalite** -> **Configure**.
+{% my integrations title="**Settings** > **Device & services**" %} > **Dynalite** > **Configure**.
 
 ([@frenck] - [#95920]) ([documentation](/integrations/dynalite))
 

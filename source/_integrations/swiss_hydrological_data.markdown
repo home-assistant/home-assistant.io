@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `swiss_hydrological_data` {% term integration %} will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
+The **Swiss Hydrological Data** {% term integration %} will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
 
 ## Setup
 

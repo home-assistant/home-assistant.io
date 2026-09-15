@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
+This {% term integration %} discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
 
 Devices discovered are stored with 'BLE_' as the prefix for device mac addresses in `known_devices.yaml`.
 
@@ -46,9 +46,9 @@ track_battery:
   default: false
   type: boolean
 track_battery_interval:
-  description: Minimum interval to ask the device for its battery status. The battery status will be checked at most once every interval. If `track_battery` is false, this will be ignored.
+  description: "Minimum interval between battery status checks for tracked devices. The battery status is checked at most once per interval. Ignored if `track_battery` is `false`. Accepts a time period, for example, `\"01:00:00\"` for one hour, or a mapping nested under `track_battery_interval`, for example `track_battery_interval:` followed by `days: 1` on the next indented line."
   required: false
-  default: 1 day
+  default: "24:00:00"
   type: time
 interval_seconds:
   description: Seconds between each scan for new devices.
@@ -58,7 +58,7 @@ interval_seconds:
 {% endconfiguration %}
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
-Some BTLE devices (e.g., fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
+Some BTLE devices, such as fitness trackers, are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
 Enabling the battery tracking might slightly decrease the duration of the battery, but since this is only done at most once a day, this shouldn't be noticeable. Not all devices offer battery status information; if the information is not available, the integration will only try once at startup.
 

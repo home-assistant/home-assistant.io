@@ -17,7 +17,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The [Sisyphus](https://sisyphus-industries.com/) integration for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.
+The [Sisyphus](https://sisyphus-industries.com/) {% term integration %} for Home Assistant allows you to observe and control your Sisyphus Kinetic Art Table.
 
 There is currently support for the following device types within Home Assistant:
 

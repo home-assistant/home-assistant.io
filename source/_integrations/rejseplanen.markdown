@@ -15,7 +15,7 @@ related:
     title: Rejseplanen Labs
 ---
 
-The `rejseplanen` {% term integration %} will provide you with travel details for Danish public transport, using multi-departure board data from [Rejseplanen](https://www.rejseplanen.dk/).
+The **Rejseplanen** {% term integration %} will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
 {% important %}
 As part of conforming to Home Assistant standards, all extra attributes previously available on sensors have been removed. In a future release, the integration will provide an {% term action %} to retrieve the full list of departures with all details. This will allow for more flexible data access while maintaining proper entity standards.

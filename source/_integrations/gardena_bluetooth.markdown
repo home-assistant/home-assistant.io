@@ -3,9 +3,14 @@ title: Gardena Bluetooth
 description: Instructions on how to integrate Gardena Bluetooth devices within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
+  - Image
   - Number
+  - Select
   - Sensor
   - Switch
+  - Text
+  - Valve
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -15,18 +20,27 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - image
   - number
+  - select
   - sensor
   - switch
+  - text
   - valve
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Gardena Bluetooth integration allows users to integrate their Gardena Bluetooth devices into Home Assistant.
+The **Gardena Bluetooth** {% term integration %} allows users to integrate their Gardena Bluetooth devices into Home Assistant.
 
-See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps)
+See the device sections for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps), [pressure tank units](#pressure-tank-units), [aqua contours](#aqua-contours).
 
 {% include integrations/config_flow.md %}
+
+## Pairing
+
+Gardena devices remember previously paired Bluetooth adapters, up to 10, and only allow connections from those adapters. If you replace your adapter or use multiple Bluetooth proxies, the device must be paired with that proxy or adapter before it will connect. Otherwise, the device silently ignores the connection attempt. In Home Assistant, this usually appears as timeout errors.
+
+If you have connection issues, put the device back into pairing mode so it can learn the new proxy or Bluetooth adapter. For some devices, such as the water control, a factory reset is required first.
 
 ## Water control
 
@@ -63,9 +77,23 @@ Gardena Bluetooth lawn mowers are currently not supported due to custom protocol
 
 ## Gard Pumps
 
-- Garden Pump ([9058-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6300-silentcomfort/970645401/))
-- Garden Pump ([9059-61](https://www.gardena.com/de/produkte/bewasserung/pumpen/gartenpumpe-6500-silentcomfort/970645601/))
+- Garden Pump ([9058-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6300-silentcomfort/970645301.html))
+- Garden Pump ([9059-61](https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-6500-silentcomfort/970645501.html))
+
+## Pressure tank units
+
+- Pressure Tank Unit 5600 SilentComfort ([9067-20](https://www.gardena.com/int/products/pumps/domestic-water-supply-pumps/pressure-tank-unit-5600-silentcomfort/970646301.html))
+- Pressure Tank Unit 6300 SilentComfort ([9068-20](https://www.gardena.com/int/products/pumps/domestic-water-supply-pumps/pressure-tank-unit-6300-silentcomfort/970646501.html))
+
+In addition to the pump controls, pressure tank units provide sensors for the current tank pressure and water temperature.
+
+## Aqua Contours
+
+- Aqua Precise Overground ([16000-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-irrigation-system/970746801.html))
+- Aqua Precise Underground ([16001-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-pipeline-irrigation-system/970746901.html))
+
+For these devices, the integration provides diagnostic sensors for flow and lets you configure positions and names. Watering contours are exposed as image entities.
 
 ### Limitations
 
-Irrigation valves are currently untested, but expected to work.
+Configuration of contours is not supported and must be set up using the official application.

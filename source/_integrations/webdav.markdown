@@ -1,6 +1,6 @@
 ---
 title: WebDAV
-description: Instructions on how to setup a WebDAV location to be used with backups.
+description: Instructions on how to set up a WebDAV location to be used with backups.
 ha_release: 2025.3
 ha_category:
   - Backup
@@ -16,7 +16,7 @@ related:
 ha_quality_scale: bronze
 ---
 
-This integration allows you to use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV) compatible location for [Home Assistant Backups](/common-tasks/general/#backups).
+This {% term integration %} allows you to use a [WebDAV](https://en.wikipedia.org/wiki/WebDAV) compatible location for [Home Assistant Backups](/common-tasks/general/#backups).
 
 ## Installation
 

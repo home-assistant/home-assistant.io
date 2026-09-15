@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.
+The **Harman Kardon AVR** {% term integration %} allows you to control Harman Kardon Network Receivers from Home Assistant.
 
 Supported devices:
 
@@ -52,4 +52,4 @@ port:
 A few notes:
 
 - The newest firmware automatically shuts down the AVR after a certain amount of time. The AVR is then not available on the network anymore, so the 'on' command will not work.
-- The AVR has no endpoints to determine the volume, muted, playing etc., so if the remote control is used, HA will not know the new states of the device.
+- The AVR has no endpoints to determine the volume, muted, or playing, so if the remote control is used, HA will not know the new states of the device.

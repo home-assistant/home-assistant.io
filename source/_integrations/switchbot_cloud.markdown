@@ -30,8 +30,10 @@ ha_platforms:
   - cover
   - fan
   - humidifier
+  - image
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum
@@ -39,13 +41,13 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
+The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
 
 ## Prerequisites
 
-In order to use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **Developer Options**. If **Developer Options** is not present in preferences, tap the App Version (e.g. 6.24) several times (5~15 times) in succession to open the **Developer Options**. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
+To use this integration, you will need at least a SwitchBot Hub and a SwitchBot account to get a token and secret key from the SwitchBot mobile app in **Profiles** > **Preferences** > **About** > **Developer Options**. If you don't see developer options, tap the version number 10 times. See also [SwitchBot's blog](https://blog.switch-bot.com/switchbot-x-home-assistant-the-official-setup-tips-guide-you-asked-for-3/#cloud-integration) for more information specific to the app.
 
-Please note, device names configured in the SwitchBot app are transferred into Home Assistant.
+Device names configured in the SwitchBot app are transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -67,6 +69,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
+- Curtain 4
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
@@ -77,13 +80,24 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
-- RGBICWW Floor Lamp
-- RGBICWW Strip Light
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
+- [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
+- [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
+- Permanent Outdoor Lights
 
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [Lock Ultra Max](https://www.switch-bot.com/products/switchbot-lock-ultra-max)
+- [Lock Vision](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-combo)
+- [Lock Vision Pro](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-pro-combo)
 
 ### Sensors
 
@@ -97,6 +111,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
+- Weather Station
 
 ### Hubs
 
@@ -126,12 +141,19 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- Battery Circulator Fan
+- Battery Circulator Fan 2 Pro
+- [Standing Fan](https://www.switch-bot.com/products/switchbot-standing-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ### Water heater
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Image
+
+- [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Supported functionality
 
@@ -191,6 +213,15 @@ Features:
 - get calibration state
 
 #### Curtain 3
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Curtain 4
 
 Features:
 - open/close/pause
@@ -281,6 +312,7 @@ Features:
 
 Features:
 - get motion detection state
+- get light level
 - get battery level
 
 #### Water Leak Detector
@@ -297,6 +329,13 @@ Features:
 - get battery level
 - light detect
 - motion detect
+
+#### Weather Station
+
+Features:
+- get temperature
+- get humidity
+- get battery level
 
 ### Lights
 
@@ -330,6 +369,42 @@ Features:
 Features:
 - turn on or off
 - change brightness
+- change color
+
+#### Ceiling Light / Ceiling Light Pro
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+
+#### RGBICWW Floor Lamp / RGBICWW Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+- change color temperature
+
+#### RGBIC Neon Rope Light / RGBIC Neon Wire Rope Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+#### Candle Warmer Lamp
+
+Features:
+- turn on or off
+- change brightness
+
+#### Permanent Outdoor Lights
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
 - change color
 
 ### Locks
@@ -394,14 +469,15 @@ Features:
 
 ### Fans
 
-#### Battery Circulator Fan/Circulator Fan
+#### Battery Circulator Fan / Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro
 
 Features:
 - turn on
 - turn off
 - set speed, only applicable for [direct mode]
 - set mode
-- get battery, only applicable for [Battery Circulator Fan]
+- get battery, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
+- set night light, only applicable for [Battery Circulator Fan / Standing Fan / Battery Circulator Fan 2 Pro]
 
 
 #### Air Purifier
@@ -446,6 +522,19 @@ Features:
 - set mode
 - get battery
 
+
+### Image
+
+#### AI Art Frame
+
+Features:
+- get battery
+- switch picture
+- display current picture
+- upload a new picture from a web address, using the [Upload AI Art Frame image](/actions/switchbot_cloud.upload_art_frame_image/) action
+
+{% include integrations/actions.md %}
+
 ## Important considerations
 
 {% note %}
@@ -458,7 +547,12 @@ For IR Appliances, the state is inferred from previous commands in Home Assistan
 
 ## Webhook support
 
-For vacuums, the states are updated from SwitchBot's cloud.
+SwitchBot's cloud pushes state updates to Home Assistant through a webhook. This is how vacuums, along with the water leak, contact, motion, and presence sensors, receive their state updates. For SwitchBot's cloud to deliver this webhook, your Home Assistant instance must be reachable from the internet, which requires one of the following:
+
+- A publicly reachable [`external_url`](/integrations/homeassistant/), or
+- A [Home Assistant Cloud](/integrations/cloud/) subscription, in which case the webhook is delivered automatically through a cloudhook.
+
+On a local-only installation with neither of these, SwitchBot's cloud cannot deliver the webhook, and these devices do not receive updates.
 
 {% warning %}
 Only ONE webhook URL seems to be accepted by the SwitchBot's cloud. So, if you want several applications notified,  you need to use a “proxy” to re-dispatch the message to the other applications.

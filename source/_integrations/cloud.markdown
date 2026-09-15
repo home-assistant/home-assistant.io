@@ -18,7 +18,7 @@ ha_platforms:
   - tts
 ha_integration_type: system
 related:
-  - url: https://support.nabucasa.com/hc/en-us/categories/24734619902749-Home-Assistant-Cloud
+  - url: https://support.nabucasa.com/hc/categories/24734619902749
     title: Home Assistant Cloud user documentation
   - docs: /voice_control/voice_remote_cloud_assistant/
     title: Setting up a voice Assistant with Home Assistant Cloud
@@ -26,14 +26,14 @@ related:
 
 The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
 
-- [Amazon Alexa](https://support.nabucasa.com/hc/en-us/articles/25619363899677)
-- [Google Assistant](https://support.nabucasa.com/hc/en-us/articles/25619376817053)
-- [Secure remote access](https://support.nabucasa.com/hc/en-us/sections/26496346499997)
-- [Speech-to-text](https://support.nabucasa.com/hc/en-us/articles/29718084245149)
-- [Text-to-speech](https://support.nabucasa.com/hc/en-us/articles/25619386304541)
-- [Offsite backup location](https://support.nabucasa.com/hc/en-us/sections/26353804834973)
-- [Webhooks support](https://support.nabucasa.com/hc/en-us/articles/25619382358685)
-- [Better WebRTC](https://support.nabucasa.com/hc/en-us/articles/25619464018461) for camera streaming
+- [Amazon Alexa](https://support.nabucasa.com/hc/articles/25619363899677)
+- [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053)
+- [Secure remote access](https://support.nabucasa.com/hc/sections/26496346499997)
+- [Speech-to-text](https://support.nabucasa.com/hc/articles/29718084245149)
+- [Text-to-speech](https://support.nabucasa.com/hc/articles/25619386304541)
+- [Offsite backup location](https://support.nabucasa.com/hc/sections/26353804834973)
+- [Webhooks support](https://support.nabucasa.com/hc/articles/25619382358685)
+- [Better WebRTC](https://support.nabucasa.com/hc/articles/25619464018461) for camera streaming
 
 ## Configuration
 

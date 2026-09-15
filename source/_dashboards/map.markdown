@@ -10,7 +10,7 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /docs/configuration/basic/#editing-the-general-settings
+  - docs: /docs/configuration/basic/#editing-the-home-information
     title: Edit your home location
   - docs: /getting-started/presence-detection/
     title: Getting started tutorial on presence detection
@@ -23,7 +23,7 @@ The map card allows you to display your home zone, entities, and other predefine
 Screenshot of the map card.
 </p>
 
-## Adding the map card to your dashboard
+## Adding the map card to a dashboard
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
@@ -33,7 +33,7 @@ Screenshot of the map card.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 2. [Add the map card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.
 3. By default, you see the house {% icon "mdi:house" %} icon on your map. It represents your [home zone](/integrations/zone/#about-the-home-zone).
-   - To change the location of your home, you need to [edit your home's location in the general settings](/docs/configuration/basic/#editing-the-general-settings).
+   - To change the location of your home, you need to [edit your home's location in the home information](/docs/configuration/basic/#editing-the-home-information).
 
     ![Edit map card settings](/images/dashboards/map_card_config.png)
 4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
@@ -92,6 +92,11 @@ default_zoom:
   description: The default zoom level of the map. Use a lower number to zoom out and a higher number to zoom in.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
+scale_ruler:
+  required: false
+  description: Shows a ruler that indicates the current scale of the map.
+  type: boolean
+  default: false
 theme_mode:
   required: false
   description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
@@ -107,6 +112,10 @@ cluster:
   description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
   type: boolean
   default: true
+conditions:
+  required: false
+  description: List of conditions to check for entity visibility. See [description](#conditions-options).
+  type: list
 {% endconfiguration %}
 
 {% important %}
@@ -118,6 +127,23 @@ The `default_zoom` value will be ignored if it is set higher than the current zo
 after fitting all visible entity markers in the map window. In other words, this can only
 be used to zoom the map _out_ by default.
 {% endnote %}
+
+## Conditions options
+
+You can specify one or more `conditions`, in which case every selected entity will be tested against each condition and shown if it passes every condition. See [available conditions](/dashboards/conditional/#conditions-options). For conditions which accept an `entity` id, this will be automatically set to the entity being tested.
+
+### Examples
+
+Map all locatable entities, except hiding those that have a state of `home`.
+
+```yaml
+type: map
+auto_fit: true
+show_all: true
+conditions:
+  - condition: state
+    state_not: home
+```
 
 ## Options for entities
 
@@ -152,7 +178,7 @@ focus:
   type: boolean
 {% endconfiguration %}
 
-## Options for geolocation sources:
+## Options for geolocation sources
 
 If you define geolocation sources as objects instead of strings (by adding `source:` before the ID), you can add more customization and configuration.
 
@@ -164,7 +190,7 @@ source:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name.
   type: string
 attribute:
   required: false

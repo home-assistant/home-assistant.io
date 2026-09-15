@@ -39,10 +39,9 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_integration_type: device
 ha_dhcp: true
-works_with:
-  - local
 ha_quality_scale: platinum
 ---
 
@@ -68,9 +67,9 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
 
-If you're looking for pre-built solutions, the [Voice PE](https://www.home-assistant.io/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
+If you're looking for pre-built solutions, the [Voice PE](/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
 
 For detailed information on configuring unsupported or custom devices, consult the official [ESPHome documentation](https://esphome.io/), which provides in-depth guides on expanding and customizing your setup beyond the pre-configured devices.
 
@@ -147,6 +146,16 @@ ESPHome devices can call any [Home Assistant Action](https://esphome.io/componen
 
 The [Native API Component](https://esphome.io/components/api/) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api/#homeassistanttag_scanned-action) for more information.
 
+### Bluetooth proxy scanning mode
+
+For ESPHome devices running the [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/) on a recent firmware, you can choose how the proxy scans for Bluetooth devices. The default is **Auto**, which is recommended for most setups. To change it, open the device in {% my integrations title="**Settings** > **Devices & services**" %}, select **Configure**, and pick a **Bluetooth scanning mode**:
+
+- **Auto**: Listens passively most of the time and only briefly switches to active scanning when a device or integration needs more details. Compared to running continuously active, this saves around 95 to 96 percent of the scan-related battery drain on your Bluetooth devices while still discovering devices and updates quickly.
+- **Active**: Continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you.
+- **Passive**: Only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work.
+
+The first time Home Assistant connects to a proxy, the device's YAML mode is honored if it was set to passive; otherwise the proxy starts in **Auto**. After that, the choice saved in Home Assistant takes ownership of the running mode and changing `bluetooth_proxy:` `mode:` in the device YAML no longer affects the running mode.
+
 ## Entity naming and IDs
 
 - Entity name is a combination of the friendly name (or name if unset) and component name
@@ -195,11 +204,11 @@ The entity will be named `Hálószoba klíma Árvíztűrő tükörfúrógép` an
 
 ### Viewing live logs
 
-To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
+To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
 
-#### Using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
+#### Using the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
 
-1. In the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) add-on, find the device you're working with.
+1. In the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) app, find the device you're working with.
 2. Click the **LOGS** button to open the log view.
 
 #### Using the **ESPHome CLI**
@@ -215,7 +224,7 @@ If you want the device to send logs without requiring you to be actively monitor
 
 2. To adjust the logging level, there are two options:
     - enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics),
-    - or use the [Developer Tools](/docs/tools/dev-tools/#actions-tab) to call the [`logger.set_level`](/integrations/logger/#action-set_level) action to specify the desired level:
+    - or use the [Actions tab](/docs/tools/dev-tools/#actions-tab) in **Settings** > **Tools** to call the [`logger.set_level`](/integrations/logger/#action-set-level) action to specify the desired level:
 
       ```yaml
       action: logger.set_level
@@ -264,9 +273,9 @@ You can trigger Name Conflict Resolution in several ways:
 
 ## Known limitations
 
-Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon). It's also crucial for **DHCP discovery** if mDNS is not available.
+Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) app. It's also crucial for **DHCP discovery** if mDNS is not available.
 
-Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the add-on.
+Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the app for Home Assistant (formerly known as add-on).
 
 ## Removing the integration
 

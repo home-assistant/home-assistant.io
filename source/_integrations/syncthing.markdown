@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: syncthing
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [Syncthing](https://syncthing.net/) is a continuous file synchronization program. It synchronizes files between two or more computers 

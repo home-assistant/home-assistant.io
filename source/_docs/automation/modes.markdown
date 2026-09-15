@@ -1,16 +1,16 @@
 ---
 title: "Automation modes"
-description: "How to use and configure automation modes."
+description: "Automation modes define how an automation behaves when it is triggered while still running from a previous trigger. Home Assistant has single, restart, queued, and parallel modes."
 ---
 
-An {% term automation %} can be triggered while it is already running.
+Sometimes an automation gets triggered again before it has finished running from the previous time. The mode setting tells Home Assistant what to do in that situation: ignore the new trigger, start over, queue it up, or run another copy in parallel.
 
-The automation's `mode` configuration option controls what happens when the automation is triggered while the {% term actions %} are still running from a previous {% term trigger %}.
+Most of the time, the default `single` mode is exactly what you want. The other modes are there for special cases, like a notification automation that should run a fresh copy for every event, or a long-running sequence that should restart from the top whenever something changes.
 
 Mode | Description
 -|-
 `single` | (Default) Do not start a new run. Issue a warning.
-`restart` | Start a new run after first stopping the previous run. The automation only restarts if the conditions are met. 
+`restart` | Start a new run after first stopping the previous run. The automation only restarts if the conditions are met.
 `queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. Note that subsequent queued automations will only join the queue if any conditions it may have are met at the time it is triggered.
 `parallel` | Start a new, independent run in parallel with previous runs.
 

@@ -25,7 +25,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Freedompro](https://freedompro.eu/), a company specialized in home automation, designs and manufactures products to make domotics affordable for everyone, installers and enthusiasts. [Freedompro Products](https://freedompro.eu/collections/easykon) are designed to be easy to use and practical and fast to install.
@@ -42,7 +42,7 @@ You will need to obtain an API key from Freedompro's app to use this integration
 2. Register and create your first home.
 3. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
 4. Switch to the **Profile** tab (bottom right corner).
-5. Scroll down to the **Developer tools** and tap **Api Key**.
+5. Scroll down to the **Tools** and tap **Api Key**.
 6. Generate an API key.
 
 {% include integrations/config_flow.md %}

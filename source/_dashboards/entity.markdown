@@ -65,6 +65,18 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 footer:
   required: false
   description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).

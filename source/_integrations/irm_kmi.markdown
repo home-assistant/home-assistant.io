@@ -9,7 +9,7 @@ ha_codeowners:
 ha_domain: irm_kmi
 ha_integration_type: service
 related:
-  - url: https://community.home-assistant.io/t/belgium-weather-provider-irm-kmi-meteo-be/660421
+  - url: https://community.home-assistant.io/t/660421
     title: Community forum thread
 ha_category: []
 ha_quality_scale: bronze
@@ -40,7 +40,7 @@ Language:
 
 ## Supported features
 
-The integration provides a weather entity along with [weather forecast services](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts).
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
 ## Limitations
 

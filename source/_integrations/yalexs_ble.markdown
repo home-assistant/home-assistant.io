@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Yale Access](https://www.yalehome.com/us/en/products/smart-technology/yale-access) Bluetooth devices into Home Assistant.

@@ -1,6 +1,6 @@
 ---
 title: Baidu
-description: Instructions on how to setup Baidu TTS with Home Assistant.
+description: Instructions on how to set up Baidu TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_iot_class: Cloud Push
@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
+The **Baidu** {% term integration %} uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
 
 ## Configuration
 

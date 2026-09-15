@@ -1,0 +1,9 @@
+<li>{% active_link /docs/automation/condition/ About conditions %}</li>
+<li>{% active_link /docs/automation/ About automations %}</li>
+{%- assign current_domain = site.data.condition_domains | where: "key", page.domain | first -%}
+{%- if current_domain.learn_more -%}
+  {%- for item in current_domain.learn_more -%}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  {%- endfor -%}
+{%- endif -%}
+<li>{% active_link /conditions/ All conditions %}</li>

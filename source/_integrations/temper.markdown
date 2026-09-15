@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-This `temper` sensor {% term integration %} allows you to get the current temperature from a TEMPer device.
+This **TEMPer** {% term integration %} allows you to get the current temperature from a TEMPer device.
 
 ## Configuration
 

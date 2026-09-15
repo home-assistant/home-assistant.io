@@ -9,12 +9,13 @@ ha_release: 2022.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
+  - '@tengfeili-qingping'
 ha_domain: qingping
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Qingping](https://qingping.co/) devices into Home Assistant.

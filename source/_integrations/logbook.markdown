@@ -16,7 +16,7 @@ related:
 
 <img src='/images/screenshots/activity-panel.png' style='margin-left:10px; float: right;' height="100" />
 
-The activity {% term integration %} provides a different perspective on the history of your
+The **Activity** {% term integration %} provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
 the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the
@@ -174,7 +174,6 @@ script:
           domain: light
 ```
 
-
 {% important %}
 When calling the `logbook.log` action without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your **Activity** panel.
 {% endimportant %}
@@ -182,3 +181,5 @@ When calling the `logbook.log` action without a `domain` or `entity_id`, entries
 {% note %}
 Sensor entities that have been assigned units (for example, have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from activity tracking.
 {% endnote %}
+
+{% include integrations/actions.md %}

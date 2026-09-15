@@ -9,6 +9,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Water heater
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -26,6 +27,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -34,9 +36,9 @@ ha_quality_scale: platinum
 
 This integration supports one or multiple Plugwise Gateways connected to your network. You can connect to these gateways using your browser, the Plugwise App, or Home Assistant. There are 4 [supported](#supported-devices) types of gateways:
 
-- Full zonecontrol using the [Adam](https://www.plugwise.com/en_US/zonecontrol) using [additional devices](#adam) such as zone thermostats, smart valves and smart-plugs.
-- A stand-alone smart thermostat called [Anna](https://www.plugwise.com/en_US/products/anna).
-- For power and gas-usage monitoring there is a device simply called the [P1](https://www.plugwise.com/en_US/products/smile-p1).
+- Full zonecontrol using the [Adam](https://www.plugwise.com/zone-control/) using [additional devices](#adam) such as zone thermostats, smart valves and smart-plugs.
+- A stand-alone smart thermostat called [Anna](https://www.plugwise.com/product/anna/).
+- For power and gas-usage monitoring there is a device simply called the [P1](https://www.plugwise.com/smile-p1).
 - Although no longer sold, there also is support for Stretch, a gateway to create network connectivity for their older power products.
 
 ## Pre-requisites
@@ -47,7 +49,7 @@ Plugwise gateways on your network are automatically discovered and displayed on 
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. In the Plugwise App, to locate a specific device, select **Gateways** on the main screen, choose your desired gateway, and then follow the previous instructions. Normally, the gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
+  description: "The hostname or IP address of your gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) > **System** > **Network**. In the Plugwise App, to locate a specific device, select **Gateways** on the main screen, choose your desired gateway, and then follow the previous instructions. Normally, the gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
 Username:
   description: "Username to log in to the gateway. This should be 'smile' for most devices, or 'stretch' for a Stretch."
 Password:
@@ -56,12 +58,15 @@ Password:
 
 ### Schedule Management
 
-1. **Initial Setup**: First, activate a schedule using the Plugwise App or browser.
-2. **Control via Home Assistant**:
-   - Use the climate card to activate/deactivate schedules.
-   - 'Auto' mode indicates the schedule is active.
-   - 'Heat', 'Cool' or 'Heat_cool' modes signify the schedule is inactive.
-3. **Changing Schedules**: Use the thermostat [select](#change-climate-schedule) entity.
+1. **Initial Setup**: First, use the Plugwise app or the local web interface to create a schedule, and then activate it for one or more thermostats.
+2. **Changing schedules**: Use the **Thermostat schedule** select entity (see [Selects](#selects)):
+    - The select shows the available schedule names plus the **Off** option.
+    - To deactivate the schedule for a thermostat, select **Off**.
+    - If you haven't created any schedules yet, only **Off** is available.
+3. **Control via Home Assistant**:
+    - Use the climate card to activate/deactivate schedules.
+    - **Auto** mode indicates the schedule is active.
+    - **Heat**, **Cool** or **Heat/Cool** modes signify the schedule is inactive.
 
 {% note %}
 Only schedules with two or more schedule points will appear as options.
@@ -73,7 +78,7 @@ This integration displays all Plugwise devices in your configuration, including 
 
 For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual devices. The heating/cooling device connected to your gateway will be shown as 'OpenTherm' or 'OnOff', depending on how the gateway communicates with the device. If you have Plugs (as in, pluggable switches connecting to an Adam) or Aqara Smart Plugs, those will be shown as devices as well.
 
-Each device will list entities such as `binary sensors`, `sensors`, etc., depending on its capabilities: for instance, centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
+Each device will list entities such as `binary sensors` or `sensors`, depending on its capabilities: for instance, centralized measurements such as `power` for a P1, `outdoor_temperature` on Anna or Adam will be assigned to your gateway device. Heating/cooling device measurements such as `boiler_temperature` will be assigned to the OpenTherm/OnOff device.
 
 ### Climate entities
 
@@ -86,16 +91,16 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 - **DHW State**
   - **Description**: Indicates active heating of domestic hot water.
 - **Flame State** 
-  - **Description**: If gas is being consumed by your heater, i.e., firing for space or DHW-heating.
+  - **Description**: If gas is being consumed by your heater, that is, firing for space or DHW-heating.
 
 #### Numbers
 
 Modifying specific number-based settings allows you to fine-tune your setup.
 
 - **Maximum boiler temperature setpoint**
-  - **Description**: Adjust the maximum temperature for secondary heater.
+  - **Description**: Adjust the temperature setpoint for the space heating function.
 - **Domestic hot water setpoint**
-  - **Description**: Adjust the temperature for your domestic hot water.
+  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 - **Temperature offset**
   - **Description**: Fine-tune the perceived temperature.
 
@@ -114,9 +119,17 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 #### Selects
 
+- **DHW mode**
+  - **Description**: Select from available DHW modes.
+- **Gateway mode**
+  - **Description**: Select from available Adam gateway modes.
+- **Regulation mode**
+  - **Description**: Select from available Adam regulation modes.
 - **Thermostat schedule**
-  - **Description**: Select between available schedules, generic (Anna) or for the current zone (Adam).
+  - **Description**: Select from available schedules, generic (Anna) or for the current zone (Adam).
   - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
+- **Zone profile**
+  - **Description**: Select for the available Adam zone profiles.
 
 #### Switches
 
@@ -124,6 +137,11 @@ A generous number of sensors is provided for your climate setup. Examples includ
   - **Description**: Toggle if cooling should be enabled.
 - **DHW Comfort Mode**
   - **Description**: Toggle comfort mode for domestic hot water.
+
+#### Water heaters
+
+- **Domestic hot water**
+  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 
 ### Power and gas entities
 
@@ -138,7 +156,7 @@ A generous number of sensors is provided. Examples include:
   - **Description**: The gas consumed since the last interval.
   - **Gateways**: P1.
 - **P1 Net Electricity Point**
-  - **Description**: Your netto electricity use at this time, can be negative when producing energy, i.e. though solar panels.
+  - **Description**: Your netto electricity use at this time, can be negative when producing energy, for example, through solar panels.
   - **Gateways**: P1.
 - **P1 Electricity Produced off-peak cumulative**
   - **Description**: The total produced electricity during off-peak.
@@ -164,7 +182,7 @@ The interval at which the integration fetches data from the gateway depends on t
 
 ### Climate control actions
 
-For information on how to use the available actions, please refer to the [climate](/integrations/climate#climate-control-actions) integration.
+For information on how to use the available actions, please refer to the [climate](/integrations/climate#list-of-actions) integration.
 
 Available actions to all climate gateways: `climate.set_temperature`, `climate.set_hvac_mode`, and `climate.set_preset_mode`.
 
@@ -223,13 +241,13 @@ For best results, ensure your schedules and presets are appropriately configured
 
 ### Energy-Based Automations
 
-A great example of automating charging your car from the energy data the P1 provides can be found in the [Energy Management System for Car Charging](https://community.home-assistant.io/t/energy-management-system-for-car-charging-surplus-trip-calendar/744069) blueprint.
+A great example of automating charging your car from the energy data the P1 provides can be found in the [Energy Management System for Car Charging](https://community.home-assistant.io/t/744069) blueprint.
 
 ### Climate-Based Automations
 
 When using smart zone controls or thermostats, relying heavily on additional automations may interfere with their ability to accurately predict warm-up or cool-down times. Instead, leverage their preset modes to optimize energy efficiency and reduce environmental impact, as well as your energy bills. Below are some examples to help you get started.
 
-For advanced customization and full manual control, consider using a blueprint like [Advanced Heating Control](https://community.home-assistant.io/t/advanced-heating-control/469873/1). If you choose this route, we recommend disabling your Plugwise schedules to ensure the blueprint takes full control.
+For advanced customization and full manual control, consider using a blueprint like [Advanced Heating Control](https://community.home-assistant.io/t/469873). If you choose this route, we recommend disabling your Plugwise schedules to ensure the blueprint takes full control.
 
 #### Presence-based preset mode
 
@@ -305,7 +323,7 @@ automation:
 
 ### Adam
 
-A complete zone control system also known as [Adam HA](https://www.plugwise.com/en_US/zonecontrol), supporting:
+A complete zone control system also known as [Adam HA](https://www.plugwise.com/zone-control), supporting:
 
 - On/Off, OpenTherm heating and cooling support.
 - Running firmwares v3.x or v2.3.
@@ -321,18 +339,18 @@ You can also use the Adam SA (Stand-alone, no Zigbee stick present) to make your
 
 ### Anna
 
-A [smart thermostat](https://www.plugwise.com/en_US/products/anna), supporting:
+A [smart thermostat](https://www.plugwise.com/product/anna/), supporting:
 
 - On/Off, OpenTherm heating and cooling support.
 - Running firmware v4.x, v3.x or v1.x.
 
 ### P1 (DSMR)
 
-A [P1](https://www.plugwise.com/en_US/products/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
+A [P1](https://www.plugwise.com/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
 
 #### Anna P1
 
-A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
+A smart thermostat [combined](https://www.plugwise.com/product/anna-p1/) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 ### Stretch (end-of-sale)
 
@@ -362,7 +380,7 @@ If you need to configure the gateway directly, without using the Plugwise App, y
 
 ### Adjusting the update interval
 
-Please note that the [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your gateway(s) resulting in unexpected results or missing data.
+The [default intervals](#data-updates) are considered best practice and according to how Plugwise normally updates their data. Updating too frequently may induce considerable load on your gateway(s) resulting in unexpected results or missing data.
 
 {% include common-tasks/define_custom_polling.md %}
 

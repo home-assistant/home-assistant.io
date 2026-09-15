@@ -12,10 +12,10 @@ ha_platforms:
   - notify
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The **RESTful** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 [RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary Sensor](/integrations/binary_sensor.rest) can also be set up as platforms if there is only a single sensor per endpoint.
 
@@ -135,7 +135,7 @@ verify_ssl:
   description: Whether to verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 ssl_cipher_list:
   description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
   required: false

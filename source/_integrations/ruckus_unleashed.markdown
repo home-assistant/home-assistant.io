@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-This platform allows you to connect to [Ruckus](https://www.ruckusnetworks.com/) access points.
+The **Ruckus** {% term integration %} allows you to connect to [Ruckus](https://www.ruckusnetworks.com/) access points.
 
 [Ruckus Unleashed](https://www.ruckusnetworks.com/products/network-control-and-management/controller-less/),
 [Ruckus ZoneDirector](https://support.ruckuswireless.com/products/73),
@@ -33,7 +33,6 @@ create a `device_tracker` for each discovered device.
 
 - **IP address / hostname**, **Username** and **Password** which you use to connect
     to your Ruckus controller's web dashboard.
-
 
 ### Ruckus Unleashed
 
@@ -52,10 +51,16 @@ your Token **Client ID** as the Username & your Token **Shared Secret** as the P
 
 {% include integrations/config_flow.md %}
 
-## Limitations
+{% include integrations/option_flow.md %}
 
-This integration is not currently suitable for large multi-venue SmartZone or Ruckus One networks: there
-is no way to filter devices by Venue or Zone.
+{% configuration_basic %}
+Clients to track:
+  description: "Select specific clients to track. If none are selected, all clients are tracked. Previously selected clients that are currently offline remain in the list."
+{% endconfiguration_basic %}
+
+## Known limitations
+
+You can filter which clients are tracked using the integration options. However, there is currently no way to filter by Venue or Zone, so this integration may not be suitable for large multi-venue SmartZone or Ruckus One networks.
 
 If you've configured your access points with an extended Client Inactivity Timeout, then this is how long
 you'll need to wait for devices to be detected as `not_home`.

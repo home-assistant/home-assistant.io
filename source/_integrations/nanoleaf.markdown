@@ -8,6 +8,9 @@ ha_category:
 ha_codeowners:
   - '@milanmeu'
   - '@joostlek'
+  - '@loebi-ch'
+  - '@JaspervRijbroek'
+  - '@jonathanrobichaud4'
 ha_config_flow: true
 ha_homekit: true
 ha_iot_class: Local Push
@@ -20,7 +23,7 @@ ha_platforms:
   - light
 ha_zeroconf: true
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Nanoleaf** {% term integration %} allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.

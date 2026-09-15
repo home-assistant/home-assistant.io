@@ -15,12 +15,12 @@ ha_bluetooth: true
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
-[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides a number of different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
+[Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides several different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
 
 Requires Airthings hardware and a compatible Bluetooth dongle.
 
@@ -54,3 +54,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - VOC
 - Co2
 - Battery
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
