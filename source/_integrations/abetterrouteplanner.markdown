@@ -4,7 +4,7 @@ description: Instructions on how to integrate A Better Routeplanner with Home As
 ha_category:
   - Car
   - Sensor
-ha_release: 2026.6
+ha_release: 2026.11
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
