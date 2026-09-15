@@ -12,7 +12,7 @@ ha_domain: anylist
 ha_integration_type: service
 ha_platforms:
   - todo
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
