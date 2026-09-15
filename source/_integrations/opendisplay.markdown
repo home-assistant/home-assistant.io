@@ -63,7 +63,7 @@ The **OpenDisplay** integration provides the following entities.
 
 ### Sensors
 
-OpenDisplay devices provide the following diagnostic sensors:
+OpenDisplay Flex devices provide the following diagnostic sensors:
 
 - **Temperature**: The device chip temperature. Disabled by default.
 - **Battery voltage**: The voltage of the attached battery. Available when the device uses battery or solar power. Disabled by default.
@@ -71,7 +71,7 @@ OpenDisplay devices provide the following diagnostic sensors:
 
 ### Button events
 
-OpenDisplay devices with configured physical inputs provide {% term event %} entities. Home Assistant creates one event entity for each physical button.
+OpenDisplay Flex devices with configured physical inputs provide {% term event %} entities. Home Assistant creates one event entity for each physical button.
 
 - `button_down`: The button was pressed.
 - `button_up`: The button was released.
