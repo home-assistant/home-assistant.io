@@ -136,6 +136,7 @@ Depending on the word, training a model on your own wake word may take a few ite
       - Under **M5Stack ATOM Echo**, select **1 device**.
    - Under **Configuration**, make sure **Use wake word** is enabled.
    - Select the assistant with your wake word.
+
      ![Select the assistant with your wake word](/images/assist/wake_word_select_assistant.png)
 7. Test your new wake word.
    - Speak your wake word followed by a command, such as "Turn on the lights in the kitchen".
