@@ -63,10 +63,10 @@ The **OpenDisplay** integration provides the following entities.
 
 ### Sensors
 
-OpenDisplay devices provide the following diagnostic sensors, which are disabled by default:
+OpenDisplay devices provide the following diagnostic sensors:
 
-- **Temperature**: The device chip temperature.
-- **Battery voltage**: The voltage of the attached battery. Available when the device uses battery or solar power.
+- **Temperature**: The device chip temperature. Disabled by default.
+- **Battery voltage**: The voltage of the attached battery. Available when the device uses battery or solar power. Disabled by default.
 - **Battery**: The battery charge as a percentage. Available when the device uses battery or solar power.
 
 ### Button events
