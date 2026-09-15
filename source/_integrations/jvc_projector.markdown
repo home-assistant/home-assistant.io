@@ -119,7 +119,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: all supported models
 
 - **Colorimetry**
-  - **Description**: The color space metadata (e.g., BT.709, BT.2020).
+  - **Description**: The color space metadata, such as BT.709 and BT.2020.
   - **Available for models**: selected 2017-present models
 
 - **Link Rate**
