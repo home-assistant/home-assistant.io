@@ -163,7 +163,7 @@ It may take 30-60 minutes for the run to complete. This is expected behavior.
 
 Things you can try if the execution is very slow:
 
-1. Free of charge solution: This environment has worked for all the wake word models that were trained to create and test this procedure. There is a good chance that it will work for you. If it does not, try training your model another time. Maybe many people use it right now.
+1. Free of charge solution: This environment has worked for all the wake word models that were trained to create and test this procedure. There is a good chance that it will work for you. If it does not, try training your model another time. Maybe many people are using it right now.
 2. You can pay for more computing resources: In the top right corner, select the RAM | Disk icon.
    - Select the link to **Upgrade to Colab Pro**.
    - Select your price plan and follow the instructions on screen.
