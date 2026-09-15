@@ -8,6 +8,7 @@ ha_category:
   - Scene
   - Select
   - Sensor
+  - Switch
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
 ha_iot_class: Local Polling
@@ -25,6 +26,7 @@ ha_platforms:
   - scene
   - select
   - sensor
+  - switch
 ha_zeroconf: true
 ha_dhcp: true
 ha_integration_type: hub
@@ -40,6 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Select
 - Sensor
+- Switch
 
 {% include integrations/config_flow.md %}
 
@@ -217,6 +220,16 @@ Gen 3 Only.
 {% endimportant %}
 
 Velocity controls the speed of the shade. The default speed from Hunter Douglas is 0; setting this higher will increase the speed of the shade.
+
+## Switch entities
+
+### Schedule
+
+{% important %}
+Gen 1 and Gen 2 Only.
+{% endimportant %}
+
+Allows toggling of schedule state. Schedule details available on extended attributes of the switch entity.
 
 ## Example Automations
 
