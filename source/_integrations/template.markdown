@@ -406,7 +406,7 @@ Device class:
   description: The [device class](/integrations/binary_sensor/#device-class) used to pick the sensor's on/off wording and icon.
 Device:
   description: An existing device to attach this helper to.
-Availability template:
+Availability:
   description: A template that gets the available state of the entity.
 {% endconfiguration_basic %}
 
@@ -596,6 +596,8 @@ Device class:
   description: The [device class](/integrations/button/#device-class) used to pick the button's wording and icon.
 Device:
   description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
 {% endoptions_ui %}
 
 ### Options in YAML
@@ -731,6 +733,8 @@ cover:
 
 {% endconfiguration %}
 
+### YAML examples
+
 ```yaml
 # Example state-based configuration.yaml entry
 template:
@@ -745,8 +749,6 @@ template:
         stop_cover:
           action: script.stop_garage_door
 ```
-
-### YAML examples
 
 ```yaml
 # Example trigger-based configuration.yaml entry
@@ -2033,6 +2035,8 @@ Actions on set value:
   description: The action run when the number is changed.
 Device:
   description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
 {% endconfiguration_basic %}
 
 ### Options in YAML
