@@ -92,7 +92,7 @@ The JVC Projector device information includes the projector model and firmware v
 
 ## Sensor
 
-The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. Some may not be available for your model.
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are disabled by default. Some sensors may not be available for your model.
 
 - **Status**
   - **Description**: The power status of the projector.
@@ -116,19 +116,19 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
 
 - **Resolution**
   - **Description**: The current input resolution.
-  - **Available for models**: all
+  - **Available for models**: all supported models
 
 - **Colorimetry**
   - **Description**: The color space metadata (e.g., BT.709, BT.2020).
-  - **Available for models**: all
+  - **Available for models**: selected 2017-present models
 
 - **Link Rate**
   - **Description**: The HDMI link rate and lane configuration.
-  - **Available for models**: all
+  - **Available for models**: selected 2022-present models
 
 ## Select
 
-The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some may not be available for your model.
+The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some are disabled by default, and some may not be available for your model.
 
 - **Input**
   - **Description**: The HDMI input source.
@@ -155,7 +155,7 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
-- **Motion Enhance**
+- **Motion enhance** (disabled by default)
   - **Description**: The motion enhancement setting.
   - **Options**: high, low, off
   - **Available for models**: 2021-present
