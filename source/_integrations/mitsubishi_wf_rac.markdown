@@ -172,6 +172,7 @@ Commands issued together are coalesced into a single frame, because the module a
 - Only one controller writes at a time. The module grants a 60-second exclusive write lease to whoever wrote last. A command sent while somebody else holds it, typically the manufacturer's app, is refused and retried once when the lease lapses.
 - The current temperature is measured at the return air grille, above the unit and inside its own airflow, so it reads differently from a thermostat placed in the room.
 - A limited number of controllers can be registered on a module at once. Home Assistant occupies one slot.
+- The module presents a self-signed certificate, and the connection does not verify it. If you want it verified, capture the certificate once and save it as `ac_cert.pem` in your Home Assistant configuration directory. The connection is then pinned to that unit; without the file, everything works the same way, unverified.
 
 ## Troubleshooting
 
