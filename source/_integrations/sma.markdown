@@ -3,6 +3,7 @@ title: SMA Solar
 description: Instructions on how to connect your SMA Solar Inverter to Home Assistant.
 ha_category:
   - Energy
+  - Switch
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.36
@@ -14,6 +15,7 @@ ha_domain: sma
 ha_platforms:
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: device
 ha_dhcp: true
 ---
@@ -38,6 +40,12 @@ When Home Assistant discovers a new SMA device, or when you manually add one, th
 Not all inverters, energy meters and batteries from SMA are supported.
 
 The integration uses the device's web interface (called webconnect). Before you start, make sure you can connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (like the Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager) are not supported.
+
+## Switch
+
+The following switch is available:
+
+- **Inverter enabled**: turn on and off the inverter.
 
 ## Sensors
 
