@@ -158,7 +158,7 @@ The JVC Projector select platform will create the following [Select](/integratio
 - **Motion enhance** (disabled by default)
   - **Description**: The motion enhancement setting.
   - **Options**: high, low, off
-  - **Available for models**: 2021-present
+  - **Available for models**: selected 2016-present models
 
 - **Anamorphic**
   - **Description**: The anamorphic setting.
