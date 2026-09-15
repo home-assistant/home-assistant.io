@@ -1,5 +1,5 @@
 ---
-title: "Upload an image"
+title: "Upload image"
 action: opendisplay.upload_image
 domain: opendisplay
 description: "Uploads an image to an OpenDisplay device."
