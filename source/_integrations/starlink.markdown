@@ -24,7 +24,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Starlink** {% term integration %} allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
+The **Starlink** {% term integration %} allows you to integrate your [Starlink](https://www.starlink.com/) user terminal (Dishy) into Home Assistant.
 
 **Important:** If your Starlink is in bypass mode, you will need to open a route to it so that the local API can be accessed. Otherwise this integration will not work.
 
@@ -34,6 +34,8 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Ping - The ping that Starlink has measured, in ms
 - Ping drop rate - The percentage of failed ping requests (aka "dropped"). This is the inverse of "Uptime" in the Starlink app.
+- Obstruction - The percentage of Dishy's field of view that is obstructed.
+- GPS satellites - The number of GPS satellites used by Dishy. This diagnostic sensor is disabled by default.
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
 - Last restart - The time Starlink was last turned on
