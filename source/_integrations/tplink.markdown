@@ -80,6 +80,16 @@ Camera account password:
 
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+
+Use HD stream for still images:
+  description: |
+    Checkbox for Tapo cameras with live view enabled. When enabled, still images (thumbnails and the camera's `camera_proxy`) and the MJPEG fallback use the same high-definition stream that live view uses, instead of the lower-resolution stream used by default. This uses more bandwidth, so it is off by default to keep existing setups unaffected on metered or slow networks. Toggling this option reloads the integration automatically; no restart is required.
+
+{% endconfiguration_basic %}
+
 ## Supported Devices
 
 See [Supported Devices in python-kasa](https://python-kasa.readthedocs.io/en/stable/SUPPORTED.html) for an up to date list that includes hardware and firmware versions.
