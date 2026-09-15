@@ -18,6 +18,8 @@ In this tutorial, you will build a daily notification that tells you which devic
 
 This is one of the most popular templates in the Home Assistant community, and it is a great first real-world template. You will learn how to loop over a collection of sensors, filter by state, build up a list, and format a message. All of these skills carry over to many other templates you will write later.
 
+If you only want an overview of your battery status, open the {% my maintenance title="**Maintenance** dashboard" %}. It shows which batteries need attention without requiring an automation.
+
 ## What you will build
 
 A notification that arrives each morning with a message like this:
@@ -46,7 +48,7 @@ Before you write a single template, it helps to see what you are working with. O
 
 <!-- screenshot placeholder: Tools > States filtered to battery sensors -->
 
-You should see a list of sensors with `device_class: battery` in their attributes and a number (like `85` or `12`) in the state column. Those are the entities this automation will watch.
+You should see battery entities with `device_class: battery` in their attributes. Numeric `sensor` entities show a number (like `85` or `12`) in the state column. These are the entities used by the main template below. If no battery entities appear, your devices do not expose battery information with the `battery` device class.
 
 Some devices expose battery status through a `binary_sensor` with the `battery` device class instead. These entities report `on` when the battery is low and `off` when it is not. This tutorial focuses on numeric `sensor` entities, but the [Going further](#going-further) section shows how to include low-battery binary sensors as well.
 
@@ -206,7 +208,8 @@ template: |
      | selectattr('state', 'eq', 'on') %}
     {% set device = device_name(binary_sensor.entity_id) %}
     {% set area = area_name(binary_sensor.entity_id) %}
-    {% set label = device ~ (' in ' ~ area if area else '') ~ ' (Low)' %}
+    {% set label = device ~ (' in ' ~ area if area else '')
+       ~ ' (Low)' %}
     {% set low.batteries = low.batteries + [label] %}
   {% endfor %}
 {% endexample %}
@@ -217,18 +220,20 @@ The `on` state means the battery is low, so only binary sensors that need attent
 
 If a battery entity should not be part of the notification, create a list of entity IDs to exclude before the loops:
 
-```jinja
-{% set excluded_sensors = [
-  'sensor.garage_battery',
-  'binary_sensor.attic_low_battery'
-] %}
-```
+{% example %}
+template: |
+  {% set excluded_entities = [
+    'sensor.garage_battery',
+    'binary_sensor.attic_low_battery'
+  ] %}
+{% endexample %}
 
 Then add this filter to each battery loop after the `device_class` filter:
 
-```jinja
-| rejectattr('entity_id', 'in', excluded_sensors)
-```
+{% example %}
+template: |
+  | rejectattr('entity_id', 'in', excluded_entities)
+{% endexample %}
 
 This keeps the template generic while letting you ignore battery entities that do not represent replaceable device batteries.
 
