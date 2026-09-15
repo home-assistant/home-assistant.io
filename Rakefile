@@ -4,6 +4,7 @@ require "stringex"
 require 'net/http'
 require 'json'
 require 'time'
+require 'fileutils'
 
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
@@ -55,6 +56,12 @@ task :generate do
   abort("Installing Astro dependencies failed") unless success
   success = system({ "ASTRO_TELEMETRY_DISABLED" => "1" }, "npm --prefix astro run build")
   abort("Generating Astro site failed") unless success
+  if ENV["CONTEXT"] != 'production'
+    # Deploy previews only: make the (unpublished) Astro output
+    # browsable for review at <deploy-preview-url>/astro-preview/.
+    FileUtils.rm_rf("#{public_dir}astro-preview")
+    FileUtils.cp_r("astro/dist", "#{public_dir}astro-preview")
+  end
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
       f.write "User-agent: *\n"

@@ -11,6 +11,11 @@ build after the Jekyll build) and in CI, but the deployed site is
 still produced by Jekyll. Serving logic (routing individual pages to
 their Astro version) lands in a later change.
 
+On Netlify deploy previews (never in production), the Astro output is
+browsable at `<deploy-preview-url>/astro-preview/` — for example,
+`/astro-preview/help/`. Internal links on those pages point at the
+site root, so following them leads back to the Jekyll-built pages.
+
 ## How it works
 
 - Content is shared with Jekyll. Collections read the existing
