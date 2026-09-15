@@ -49,6 +49,7 @@ conditions:
       {{ trigger.from_state is not none and
          trigger.to_state is not none and
          is_number(trigger.from_state.state) and
-         is_number(trigger.to_state.state) }}
+         is_number(trigger.to_state.state) and
+         trigger.from_state.state != trigger.to_state.state }}
 
 actions: !input actions

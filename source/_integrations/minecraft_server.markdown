@@ -25,7 +25,7 @@ ha_quality_scale: silver
 
 - Monitor whether a Minecraft server is online and responding.
 - Track player counts and server capacity.
-- Check whether a server is running the latest version.
+- Check which version a server is running.
 - Trigger automations when a server goes offline or when a player joins or leaves.
 
 ## Prerequisites
@@ -83,9 +83,8 @@ If you want to build a custom automation instead:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create automation**.
 3. Choose a trigger such as **State** or **Numeric state**.
-4. Select your Minecraft server **device**.
-5. Choose the relevant **entity**.
-6. Add any **conditions** and the **actions** you want to run.
+4. Choose the relevant Minecraft server **entity**.
+5. Add any **conditions** and the **actions** you want to run.
 
 You can also start from a blueprint and customize it after importing it.
 
@@ -94,21 +93,21 @@ You can also start from a blueprint and customize it after importing it.
 Performs an action when your Minecraft server stays offline for a chosen duration.
 Includes an editable default action that can be customized or deleted in the UI.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/minecraft_server/minecraft_server_offline_alert.yaml" %}
+{% blueprint_example blueprint="minecraft_server/minecraft_server_offline_alert.yaml" %}
 
 ### Latency alert
 
 Performs an action when the Minecraft server latency exceeds a chosen threshold for a selected duration.
 Includes an editable default action that can be customized or deleted in the UI.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/minecraft_server/minecraft_server_latency_alert.yaml" %}
+{% blueprint_example blueprint="minecraft_server/minecraft_server_latency_alert.yaml" %}
 
 ### Player count changed
 
 Performs an action when the number of players online changes on your Minecraft server.
 Includes an editable default action that can be customized or deleted in the UI.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/minecraft_server/minecraft_server_player_count_changed.yaml" %}
+{% blueprint_example blueprint="minecraft_server/minecraft_server_player_count_changed.yaml" %}
 
 ## Data updates
 
