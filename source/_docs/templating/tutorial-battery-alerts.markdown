@@ -228,12 +228,7 @@ template: |
   ] %}
 {% endexample %}
 
-Then add this filter to each battery loop after the `device_class` filter:
-
-{% example %}
-template: |
-  | rejectattr('entity_id', 'in', excluded_entities)
-{% endexample %}
+Then add `| rejectattr('entity_id', 'in', excluded_entities)` after the `device_class` filter in each battery loop.
 
 This keeps the template generic while letting you ignore battery entities that do not represent replaceable device batteries.
 
