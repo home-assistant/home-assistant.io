@@ -168,6 +168,46 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
 - **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
 
+{% include integrations/actions.md %}
+
+The action that changes the controller (**Set device time**) requires a Home Assistant administrator account. The read-only action (**Get device time**) is available to any user.
+
+## NeoPool automation examples
+
+The actions let you keep the controller in step with Home Assistant. Here is an example to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Keep the controller clock in sync
+
+The controller's real-time clock can drift over time. Instead of a fixed daily overwrite, this automation checks the drift once an hour and only corrects the clock when it exceeds a threshold you choose. The `neopool.get_device_time` action returns the drift, and the automation acts on it.
+
+{% details "YAML example for keeping the clock in sync" %}
+
+{% example %}
+automation: |
+  alias: "NeoPool - keep the controller clock in sync"
+  triggers:
+    - trigger: time_pattern
+      hours: "/1"
+  actions:
+    - action: neopool.get_device_time
+      data:
+        device_id: abc123device456
+      response_variable: pool_time
+    - if:
+        - condition: template
+          value_template: "{{ pool_time.drift_seconds | abs > 120 }}"
+      then:
+        - action: neopool.set_device_time
+          data:
+            device_id: abc123device456
+{% endexample %}
+
+{% enddetails %}
+
+Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `120` in the template to change how much drift you tolerate before the clock is corrected.
+
 ## Data updates
 
 The integration {% term polling polls %} the controller over Modbus TCP at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
