@@ -4,11 +4,11 @@
     "dockerfile": "./Dockerfile",
     "context": "..",
     "args": {
-      "NODE_VERSION": "20"
+      "NODE_VERSION": "22"
     }
   },
   "appPort": [4000],
-  "onCreateCommand": "bundle install && npm install",
+  "onCreateCommand": "bundle install && npm install && npm --prefix astro ci",
   "containerEnv": { 
     "DEVCONTAINER": "true",
     "BUNDLE_PATH": "vendor/bundle"

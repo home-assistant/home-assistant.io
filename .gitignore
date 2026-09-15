@@ -19,6 +19,8 @@ source/stylesheets/screen.css
 source/.jekyll-cache/
 vendor
 node_modules
+astro/dist/
+astro/.astro/
 source/.jekyll-metadata
 *.iml
 .idea/
