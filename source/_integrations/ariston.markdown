@@ -2,9 +2,16 @@
 title: Ariston
 description: Connect and control your Ariston devices using the Midea integration
 ha_category:
+  - Binary sensor
+  - Button
   - Climate
+  - Fan
   - Humidifier
-ha_release: 2026.9
+  - Light
+  - Number
+  - Select
+  - Switch
+ha_release: 2026.8
 ha_domain: ariston
 ha_integration_type: virtual
 ha_supporting_domain: midea
@@ -15,9 +22,17 @@ ha_codeowners:
   - '@caibinqing'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - button
   - climate
+  - fan
   - humidifier
-ha_iot_class: Local Polling
+  - light
+  - number
+  - select
+  - switch
+  - time
+ha_iot_class: Local Push
 ---
 
 {% include integrations/supported_brand.md %}

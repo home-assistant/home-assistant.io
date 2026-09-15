@@ -21,6 +21,7 @@ ha_platforms:
   - event
   - sensor
   - switch
+  - update
 ha_integration_type: service
 ha_quality_scale: platinum
 ---

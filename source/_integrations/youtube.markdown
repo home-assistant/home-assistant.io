@@ -13,9 +13,8 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-google_dev_console_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 api: YouTube Data API v3
-api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com?project=home-assistant-17698
+api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 ---
 
 The **YouTube** {% term integration %} allows you to connect YouTube channels to Home Assistant.

@@ -187,7 +187,7 @@ The connection check confirms that Home Assistant can reach the server and sign 
 
 ## Basic configuration
 
-To use the various platforms offered by the KNX integration, you will need to set them up via the KNX panel or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange YAML parts in dedicated files.
+To use the various platforms offered by the KNX integration, you will need to set them up via the KNX panel, which you can open from **Settings** > **Connectivity** > **KNX**, or add the corresponding configuration yaml to your {% term "`configuration.yaml`" %}. See [Splitting up the configuration](/docs/configuration/splitting_configuration/) if you like to arrange YAML parts in dedicated files.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

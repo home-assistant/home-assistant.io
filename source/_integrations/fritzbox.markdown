@@ -70,12 +70,14 @@ If you still want to use the predefined user, as of FRITZ!OS 7.24, the FRITZ!Box
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Host:
-  description: "The hostname or IP address of your FRITZ!Box router."
+URL:
+  description: "The URL of your FRITZ!Box. For example, `http://192.168.178.1`, or `http://fritz.box`, or `https://abcdef.myfritz.net:48317`."
 Username:
   description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
 Password:
   description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
+Verify SSL:
+  description: "Whether to verify the SSL certificate when SSL encryption is used to connect to your FRITZ!Box."
 {% endconfiguration_basic %}
 
 ## Data fetching and limitations
@@ -246,7 +248,7 @@ actions:
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

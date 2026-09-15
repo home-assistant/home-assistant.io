@@ -48,6 +48,6 @@ This service is reliant on an internet connection and that the chosen **resolver
 - Manually test to resolve the hostname using any command line tools or websites available.
 - Manually reload the integration.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

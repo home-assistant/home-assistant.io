@@ -14,8 +14,11 @@ ha_platforms:
   - button
   - diagnostics
   - light
+  - number
+  - select
   - sensor
   - switch
+  - update
 ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
@@ -75,15 +78,44 @@ The integration creates a light entity for each Elgato Light device. You can con
   - **Description**: Restarts the Elgato Light device.
   - **Entity category**: Configuration
 
+### Numbers
+
+- **Power-on brightness**
+  - **Description**: The brightness the light uses when it powers on, as a percentage. Only applied when **Power-on behavior** is set to **Use defaults**.
+  - **Entity category**: Configuration
+
+- **Power-on color temperature**
+  - **Description**: The color temperature the light uses when it powers on. Only applied when **Power-on behavior** is set to **Use defaults**. Shows as unknown on a light configured to power on to a color instead of a color temperature.
+  - **Entity category**: Configuration
+
+### Selects
+
+- **Power-on behavior**
+  - **Description**: What the light does when it regains power. **Restore last state** returns it to how it was before it lost power. **Use defaults** applies the stored power-on brightness and color temperature instead.
+
 ### Sensors
 
 - **Battery**
   - **Description**: The current battery level of your Elgato Key Light Mini, as a percentage. Only available on Key Light Mini.
 
+- **Wi-Fi signal strength**
+  - **Description**: How good the connection to your Wi-Fi network is, as a percentage. Useful for tracking down a device that keeps becoming unavailable.
+  - **Entity category**: Diagnostic
+
+- **Wi-Fi RSSI**
+  - **Description**: The same signal in dBm, the unit the device itself reports. Disabled by default.
+  - **Entity category**: Diagnostic
+
 ### Switches
 
 - **Studio mode**
   - **Description**: Toggles studio mode on the Key Light Mini. When studio mode is enabled, the device bypasses the battery and runs directly from the power adapter. Only available on Key Light Mini.
+
+### Updates
+
+- **Firmware**
+  - **Description**: The firmware on your Elgato Light, and whichever version Elgato currently ships for it. Installing takes about a minute, during which the light restarts.
+  - **Entity category**: Configuration
 
 {% include integrations/actions.md %}
 
@@ -136,6 +168,8 @@ The integration polls the Elgato Light device every 10 seconds over the local ne
 - The integration communicates with the Elgato Light device over the local network. If the device is not reachable, its entities become unavailable.
 - Color control is only available on devices that support it, such as the Light Strip. Color temperature and brightness are available on all supported models.
 - The battery level sensor and studio mode switch are only available on the Key Light Mini, as other models do not have a built-in battery.
+- The power-on settings are stored on the device itself, so they also apply when the light is switched on at the wall rather than through Home Assistant.
+- Elgato does not publish firmware separately; it ships inside the Elgato Control Center application. Home Assistant reads the firmware from the copy Elgato publishes, so checking for updates needs an internet connection. Everything else in this integration works entirely on your local network.
 
 ## Troubleshooting
 

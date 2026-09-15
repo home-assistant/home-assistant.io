@@ -25,7 +25,7 @@ related:
     title: Anthropic
   - url: https://claude.ai
     title: Claude
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 The **Anthropic** {% term integrations %} adds a conversation agent powered by [Anthropic](https://www.anthropic.com), such as Claude 3.5 Sonnet, in Home Assistant.
@@ -172,7 +172,7 @@ Set up and configure Claude as a conversation agent in an [Assist pipeline](/int
 
 ### Home Assistant interface
 
-You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my config_ai_task title="**Settings** > **System** > **AI tasks**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
+You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my config_ai title="**Settings** > **System** > **AI**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
 
 ### Automation
 
