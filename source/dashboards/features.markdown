@@ -725,7 +725,7 @@ type:
 
 ## Light color hue
 
-Widget that displays a slider to select the color hue for a [light](/integrations/light). The slider handle shows the current color of the light. Moving the slider changes only the hue and keeps the saturation of a light that already shows a color. A light that is off, shows white, or shows a color temperature switches to a fully saturated color.
+Widget that displays a slider to select the color hue for a [light](/integrations/light). The slider handle shows the current color of the light and is hidden while the light shows a color temperature. Moving the slider changes only the hue and keeps the saturation of a light that already shows a color. A light that is off, shows white, or shows a color temperature switches to a fully saturated color.
 
 <p class='img'>
   <img src='/images/dashboards/features/light_color_hue.png' alt='Screenshot of the tile card with the light color hue feature'>
