@@ -100,7 +100,7 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 You can create state-based template entities from the user interface. To create a helper of a state-based template entity:
 
-1. Follow the manual configuration steps described in [Configuration](#configuration).
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
 2. Select the entity platform of the template helper you want to create from the list.
 3. Enter the **Name** and any other options. For details, see the **Options in the UI** section for that platform further down this page.
 4. Select **Submit** to save the helper.
