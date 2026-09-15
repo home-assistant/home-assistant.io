@@ -50,6 +50,18 @@ Share URL or token:
   description: "Paste the full ScorpionTrack shared-location URL or only the token from that URL."
 {% endconfiguration_basic %}
 
+## Reconfigure the share
+
+To check or update the link for an existing share:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **ScorpionTrack**, then open the {% icon "mdi:dots-vertical" %} menu for the share.
+3. Select **Reconfigure** and enter the share URL or token.
+
+Home Assistant checks the link before saving it and reloads the existing integration entry. The link must identify the same share. To use a different share, add it as a new integration entry.
+
+Reconfiguration does not renew or restore a share in ScorpionTrack.
+
 ## Supported functionality
 
 The **ScorpionTrack** integration creates one device for each vehicle included in the share. Each device provides:
