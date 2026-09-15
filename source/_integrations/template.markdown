@@ -1392,11 +1392,11 @@ Brightness level:
 Actions on set level:
   description: The action or actions run when a brightness change is requested.
 HS color:
-  description: A template that gets the light's color (hue and saturation), in mireds.
+  description: A template that gets the light's color (hue and saturation).
 Actions on set HS color:
   description: The action or actions run when a light's color change is requested.
 Color temperature:
-  description: A template that gets the light's color temperature (HS/RGB/RGBW/RGBWW/XY, depending on what your light needs).
+  description: A template that gets the light's color temperature in mireds.
 Actions on set color temperature:
   description: The action or actions run when a color temperature change is requested.
 Device:
@@ -1826,7 +1826,7 @@ Actions on lock:
 Actions on unlock:
   description: The action or actions run when the lock is unlocked.
 Code format:
-  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock** or **Action on unlock** run.
+  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock** or **Actions on unlock** run.
 Actions on open:
   description: The action or actions run when the lock is opened.
 Device:
