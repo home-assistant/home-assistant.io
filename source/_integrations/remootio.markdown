@@ -17,23 +17,23 @@ ha_quality_scale: bronze
 
 The **Remootio** {% term integration %} is used to integrate [Remootio](https://www.remootio.com) garage door and gate controllers with Home Assistant. Remootio devices are Wi-Fi and Bluetooth enabled access controllers that attach to an existing door or gate opener.
 
-Home Assistant talks to the device on your local network over the websocket API. The device pushes state changes as they happen. No cloud account is required.
+Home Assistant talks to the device on your local network over the WebSocket API. The device pushes state changes as they happen. No cloud account is required.
 
 ## Supported devices
 
 - Remootio 2
 - Remootio 3
 
-The websocket API must be enabled in the Remootio app before the device can be added to Home Assistant.
+The WebSocket API must be enabled in the Remootio app before the device can be added to Home Assistant.
 
 ## Prerequisites
 
 1. Install the Remootio app and add your device.
-2. Enable the websocket API in the Remootio app:
+2. Enable the WebSocket API in the Remootio app:
    1. Open the device.
    2. In the bottom-right corner, select the settings icon.
-   3. Scroll down and select **Websocket API**.
-   4. Select **Enable websocket API**, then **Enable websocket API with logging**.
+   3. Scroll down and select **WebSocket API**.
+   4. Select **Enable WebSocket API**, then **Enable WebSocket API with logging**.
    5. Select **Copy API Keys** to copy the IP address, **API Secret Key**, and **API Auth Key**.
 3. Give the device a <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> reservation (or a static IP) so the IP address does not change.
 
@@ -52,7 +52,20 @@ You can add more than one Remootio. Repeat the setup for each device.
 
 To change the IP address later, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Remootio {% term integration %}, and select **Reconfigure**.
 
-Disabling and then re-enabling the websocket API on the device creates a new **API Secret Key** and **API Auth Key**. The keys stored in Home Assistant stop working. In the Remootio app, open **Websocket API**, copy the new keys, and enter them in Home Assistant when it asks you to reauthenticate. You can also update them from {% my integrations title="**Settings** > **Devices & services**" %} with **Reconfigure**.
+Disabling and then re-enabling the WebSocket API on the device creates a new **API Secret Key** and **API Auth Key**. The keys stored in Home Assistant stop working. In the Remootio app, open **WebSocket API**, copy the new keys, and enter them in Home Assistant when it asks you to reauthenticate. You can also update them from {% my integrations title="**Settings** > **Devices & services**" %} with **Reconfigure**.
+
+## Supported functionality
+
+### Entities
+
+The **Remootio** {% term integration %} provides the following entities.
+
+#### Covers
+
+- **Garage door**
+  - **Description**: One garage or gate {% term cover %} per device. You can **Open** and **Close** it. With a status sensor it reports **Open** or **Closed**. Without a sensor it stays **Unknown**.
+  - **Device class**: Garage
+  - **Remarks**: **Open** and **Close** always send a command. Directional wiring uses separate open and close outputs. Impulse wiring without a sensor pulses the same output for both. See **Status sensor** below.
 
 ## Status sensor
 
@@ -69,4 +82,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, open the Remootio app, go to **Websocket API**, and select **Disable Websocket API**. That turns off local API access on the device.
+After deleting the integration, open the Remootio app, go to **WebSocket API**, and select **Disable WebSocket API**. That turns off local API access on the device.
