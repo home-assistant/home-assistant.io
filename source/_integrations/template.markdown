@@ -588,7 +588,7 @@ Button entities can be created from the frontend in the Helpers section or via Y
 
 ### Options in the UI
 
-{% options_ui %}
+{% configuration_basic %}
 Name:
   description: The name of the button.
 Actions on press:
@@ -599,7 +599,7 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
-{% endoptions_ui %}
+{% endconfiguration_basic %}
 
 ### Options in YAML
 
@@ -645,7 +645,7 @@ The template cover platform allows you to create covers with templates to define
 
 ### Options in the UI
 
-{% options_ui %}
+{% configuration_basic %}
 Name:
   description: The name of the cover.
 State:
@@ -666,7 +666,7 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
-{% endoptions_ui %}
+{% endconfiguration_basic %}
 
 ### Options in YAML
 
