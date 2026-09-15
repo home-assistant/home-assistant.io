@@ -658,6 +658,7 @@ layout: null
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
 /integrations/plum_lightpad /more-info/removed-integration 301
+/integrations/portlandgeneral /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
 /integrations/permobil /more-info/removed-integration 301
@@ -709,6 +710,7 @@ layout: null
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/vlc /more-info/removed-integration 301
 /integrations/voice_assistant /integrations/assist_pipeline/ 301
 /integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301

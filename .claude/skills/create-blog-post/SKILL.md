@@ -245,7 +245,7 @@ A crosspost is a short blog entry that does not host the full article. Instead, 
 
 Unlike a standard blog post, a crosspost has no draft file and no local images to process:
 
-- The `crosspost` layout redirects visitors to the `external_url`.
+- A crosspost uses the normal `post` layout. It renders as a regular blog page showing the teaser, then redirects visitors to the `external_url` on page load with a small JavaScript redirect. The page also sets its canonical URL to the `external_url`, and comments are automatically disabled while an `external_url` is present.
 - The Open Graph image is handled automatically. The `crosspost_og` plugin derives `og_image` from the `external_url` using the Open Home Foundation dynamic Open Graph endpoint (`https://assets.openhomefoundation.org/opengraph?url=<external_url>`). This shows the social image and the blog archive thumbnail immediately — even before the source article is live — and it auto-updates once the article publishes, without a rebuild. Do not set `og_image` by hand unless you need to override it with a specific image.
 
 ### 1. Collect the details with a wizard
@@ -279,7 +279,7 @@ Create `source/_posts/YYYY-MM-DD-slug.markdown` with this front matter and body:
 
 ```markdown
 ---
-layout: crosspost
+layout: post
 title: "Your crosspost title"
 description: "Your Social/OpenGraph description."
 date: YYYY-MM-DD 00:00:01
@@ -303,6 +303,7 @@ Notes:
 - `date_formatted` is the human-readable date, such as `"June 18, 2026"`.
 - `author` is the key from `people.yml`, not the display name.
 - The body is only the opening teaser paragraph followed immediately by `<!--more-->`. Do not add the full article text — the reader is redirected to the source.
+- Keep `comments: false` in the front matter. Comments are also disabled automatically whenever an `external_url` is set, but keeping the field makes the intent explicit.
 - Apply the same prose rules as standard posts (curly apostrophes and quotes in body text, sentence-style capitalization for the title).
 - Do not add an `og_image` field in the normal case. The `crosspost_og` plugin derives it from `external_url` automatically. Add `og_image` only when the user wants to override the generated image with a specific URL — an explicit value always wins over the generated one.
 

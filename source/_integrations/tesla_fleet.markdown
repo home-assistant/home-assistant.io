@@ -93,25 +93,26 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 {% include integrations/config_flow.md %}
 
 1. Add application credentials
-   - Enter your application Client ID and Client Secret from your Tesla Developer Application
-   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured
+   - Enter your application Client ID and Client Secret from your Tesla Developer Application.
+   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured.
 
 2. Authenticate with Tesla:
-   - You'll be redirected to Tesla's login page
-   - Enter your Tesla account credentials
-   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected
+   - You'll be redirected to Tesla's login page.
+   - Enter your Tesla account credentials.
+   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected.
 
 3. Redirect to Home Assistant:
-   - Confirm you want to **Link account to Home Assistant**
+   - Confirm you want to **Link account to Home Assistant**.
 
-4. Enter domain
-   - Enter the domain name you intend to host your public key on
+4. Select region:
+   - Home Assistant detects the region for your Tesla account and selects it for you, so most people can just select **Submit**.
+   - If your vehicles or energy sites are registered in a different region, select the correct region from the list before continuing.
+5. Enter domain:
+   - Enter the domain name you intend to host your public key on.
    - This domain should be the same or a subdomain of your origin domain, and must use a valid SSL certificate.
-
-5. Register public key
-   - Upload the public key shown to the domain you entered in step 4 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
-
-6. Install Virtual Key
+6. Register public key:
+   - Upload the public key shown to the domain you entered in step 5 at `.well-known/appspecific/com.tesla.3p.public-key.pem`.
+7. Install virtual key:
    - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
    - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
 

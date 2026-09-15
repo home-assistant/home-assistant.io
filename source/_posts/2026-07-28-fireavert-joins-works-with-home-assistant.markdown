@@ -17,7 +17,7 @@ Sound the alarm, because Works with Home Assistant just welcomed our newest part
 
 ## Where there’s smoke, there’s FireAvert
 
-As ex-firefighter Peter Thorpe knows too well, a moment of forgetfulness is all it takes for a kitchen to end up in flames. And after close to twenty years of service witnessing the same devastating scenario repeat itself, he knew something had to be done. So he founded FireAvert, launching with the <a href="https://fireavert.com/products/auto-stove-shutoff" target="_blank" rel="noopener">Auto Stove Shutoff</a> for electric stovetops.
+As ex-firefighter Peter Thorpe knows too well, a moment of forgetfulness is all it takes for a kitchen to end up in flames. And after close to twenty years of service witnessing the same devastating scenario repeat itself, he knew something had to be done. So he founded FireAvert, launching with the Auto Stove Shutoff for electric stovetops.
 
 The device was already gaining momentum before <a href="https://www.youtube.com/watch?v=-g9Xt_IYACU" target="_blank" rel="noopener">FireAvert’s pitch</a> caught the attention of <a href="https://www.sharktankblog.com/business/fireavert/" target="_blank" rel="noopener">Shark Tank</a>, and for good reason. They say there’s no smoke without fire, but years on the job taught Thorpe that in the kitchen, that isn’t always the case. Smoke can build well before a flame takes hold – and that’s the window FireAvert’s shutoff works in. By listening for your standard smoke alarm, the device automatically shuts off your stove when the alarm sounds – cutting the heat at the source before a fire can catch.
 

@@ -401,7 +401,7 @@ value_template:
 
 The signal data schema is derived from the commands that are provided via the [infrared protocols](https://github.com/home-assistant-libs/infrared-protocols) library.
 
-By default, an infrared receiver entity expects a JSON payload that has a required `timings` and `modulation` attribute. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz.
+By default, an infrared receiver entity expects a JSON payload that includes required `timings` and optional `modulation` attributes. The `timings` attribute must hold a list of integers representing the on and off timings in microseconds the infrared emitter was on (positive) or off (negative). The `modulation` of the infrared signal in Hz, typical 38 kHz.
 
 An example message to receive:
 
@@ -418,7 +418,7 @@ An example message to receive:
 
 The message should contain the `timings` attribute and optional the `modulation` attribute, any other attributes in the JSON message will be ignored.
 
-The message will silently be ignored if `null` or `None` is received instead.
+The message will silently be ignored if `null`, `None` or an empty string is received instead.
 
 An example message that is sent when a command is issued:
 
@@ -479,7 +479,7 @@ Example automation, to turn on learning mode for Tuya IR blasters via Zigbee2MQT
 {% raw %}
 
 ```yaml
-alias: IR Learnmode
+alias: Activate infrared learning mode
 description: ""
 triggers:
   - trigger: time_pattern
@@ -491,10 +491,10 @@ triggers:
       value_template: "{{ iif(value_json.learned_ir_timings, true, false) }}"
 conditions: []
 actions:
-  - action: switch.turn_on
+  - action: button.press
     metadata: {}
     target:
-      entity_id: switch.irhub_learn_ir_code
+      entity_id: button.irhub_switch_learn_ir_code
     data: {}
 mode: single
 ```

@@ -296,3 +296,7 @@ template:
           None
         {% endif %}
 ```
+
+{% caution %}
+Don't add a sensor like `Daily Energy Total` above to the Energy dashboard. Because the two underlying utility meter sensors may not reset at the exact same moment, summing them can briefly record a false value in your long-term statistics that requires manual correction. Add each utility meter sensor to the dashboard separately instead. See the [Energy dashboard FAQ](/docs/energy/faq/#why-is-my-energy-dashboard-showing-inflated-totals) for details.
+{% endcaution %}
