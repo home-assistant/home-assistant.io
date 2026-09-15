@@ -54,13 +54,13 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 {% include integrations/config_flow.md %}
 
-During setup, you sign in to ABRP and select which vehicles you want to add to Home Assistant. Home Assistant handles authentication for you, so you do not need API credentials or a developer app.
+During setup, you sign in to ABRP and every vehicle in your ABRP garage is added to Home Assistant. Home Assistant handles authentication for you, so you do not need API credentials or a developer app.
 
 To monitor vehicles from more than one ABRP account, add the integration once for each account.
 
 ## Supported functionality
 
-Each selected vehicle is added as one Home Assistant device.
+Each vehicle in your ABRP garage is added as one Home Assistant device.
 
 Telemetry entities are added as data becomes available. If ABRP has not received a specific metric yet, that entity appears after the first update.
 
@@ -87,14 +87,6 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 - **Calibrated ref cons**: ABRP's calibrated [reference consumption](https://abrp.featurebase.app/articles/3305478-reference-consumption) for the vehicle, in energy per distance. A steady-state baseline tuned from live data, not real-time consumption.
 - **State of health**: Estimated battery health percentage.
 - **Battery capacity**: Estimated usable battery capacity.
-
-### Update behavior
-
-Some telemetry, like power and voltage, updates only while your vehicle is actively reporting data, usually while driving or charging.
-
-When your vehicle is parked and not reporting, Home Assistant keeps the last known value instead of marking the entity unavailable.
-
-For troubleshooting, entity attributes include `last_reported_at` and `provider`, so you can verify how recent the value is and where ABRP received it from.
 
 ### Controls
 
@@ -158,26 +150,16 @@ automation:
 
 Telemetry is pushed from ABRP in near real time when ABRP receives vehicle updates. If the live stream connection drops, the integration reconnects automatically.
 
+Each sensor shows the newest value ABRP has for your vehicle. Some telemetry, like power and voltage, only changes while your vehicle is actively reporting, usually while driving or charging.
+
 Your ABRP garage list is read when you set up the integration. To pick up vehicles you add, remove, or rename in ABRP, reload the integration.
 
 ## Known limitations
 
-- The integration is read-only and does not control your vehicle.
+- The integration is read-only and does not control your vehicle. To send commands like start or stop charging, climate control, or lock and unlock, use the manufacturer integration for your vehicle, such as [Tesla Fleet](/integrations/tesla_fleet/), [Volvo](/integrations/volvo/), [Renault](/integrations/renault/), [Nissan Leaf](/integrations/nissan_leaf/), or [Subaru](/integrations/subaru/).
 - Data freshness depends on ABRP and your vehicle manufacturer data source.
 - Some entities appear only after the first value is received.
 - Route planning details, like destinations and charging stops, are not exposed.
-
-## Related integrations
-
-This integration is telemetry-only. To send commands to your vehicle (start or stop charging, climate control, lock or unlock), use the manufacturer or service integration for your vehicle:
-
-- [Tesla Fleet](/integrations/tesla_fleet/)
-- [Volvo](/integrations/volvo/)
-- [Renault](/integrations/renault/)
-- [Nissan Leaf](/integrations/nissan_leaf/)
-- [Subaru](/integrations/subaru/)
-
-A Better Routeplanner pairs well with these integrations: keep ABRP for multi-brand telemetry, and use the manufacturer integration for vehicle controls.
 
 ## Troubleshooting
 
@@ -191,20 +173,22 @@ To resolve this issue:
 2. Wait for ABRP to receive fresh telemetry.
 3. Check Home Assistant again. New entities are added automatically.
 
-### Authentication errors during setup
+### Authentication errors
 
-If your ABRP session expires, Home Assistant shows a notification asking you to reauthenticate. Select it and sign in to ABRP again to restore the connection.
+If your ABRP session expires, the integration can no longer connect and its entities become unavailable.
 
-If reauthentication fails repeatedly:
+To resolve this issue:
 
 1. Confirm you can log in to your account at the [A Better Routeplanner](https://abetterrouteplanner.com/) website.
 2. Remove the integration and add it again.
 
 ### Sensor states appear stale
 
-This is expected when a vehicle is parked and not reporting data.
+This is expected when a vehicle is parked and not reporting data. Each sensor keeps showing the newest value ABRP has.
 
-To check when ABRP last received telemetry, open the sensor and look at its `last_reported_at` attribute.
+To check when ABRP last received telemetry and where it came from, open the sensor and look at its `last_reported_at` and `provider` attributes.
+
+Home Assistant shows the same data as the A Better Routeplanner app and website, so you can compare them. If the value looks just as old in ABRP, your vehicle has not sent fresh telemetry yet and there is nothing to fix in Home Assistant.
 
 ### The integration shows as unavailable
 
