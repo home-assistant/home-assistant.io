@@ -27,8 +27,8 @@ To get a minute forecast from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Google Weather: Get minute forecast**.
-6. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Google Weather weather entity you want the forecast for.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the Google Weather weather entity you want the forecast for. You can also select an area, a device, or a label.
+6. From the actions shown for that target, select **Google Weather: Get minute forecast**.
 7. In the **Response variable** field, enter a name to store the data in, such as `nowcast`.
 8. Select **Save**.
 
@@ -122,14 +122,26 @@ template:
         unit_of_measurement: min
         state: >
           {% raw %}
-          {% set segments = nowcast['weather.home']['segments'] %}
-          {% set wet = segments | rejectattr('type', 'eq', 'NONE') | list %}
-          {% if wet %}
-            {{ ((as_timestamp(wet[0]['timeFrame']['startTime'])
-                 - now().timestamp()) / 60) | round | int }}
+          {% set ns = namespace(starts_in=none) %}
+          {% for segment in nowcast['weather.home']['segments']
+             if ns.starts_in is none %}
+            {% if segment['type'] != 'NONE'
+                  and as_timestamp(segment['timeFrame']['endTime'])
+                      > now().timestamp() %}
+              {% set minutes = (as_timestamp(segment['timeFrame']['startTime'])
+                                - now().timestamp()) / 60 %}
+              {% set ns.starts_in = [minutes, 0] | max %}
+            {% endif %}
+          {% endfor %}
+          {% if ns.starts_in is not none %}
+            {{ ns.starts_in | round | int }}
           {% endif %}
           {% endraw %}
 ```
+
+The loop skips segments that have already ended, so the sensor never reports a negative countdown. A state of `0` means precipitation is falling now, and `unknown` means none is expected in the next 6 hours.
+
+This example refreshes every 15 minutes, which adds about 2,900 calls per month. That fits alongside one configured location, but not two. Check the arithmetic above against your own setup before copying the cadence.
 
 ## Good to know
 
@@ -145,13 +157,15 @@ template:
 
 ### Automation: get a heads-up before rain starts
 
-Check the nowcast every 15 minutes, and send a notification when precipitation is expected to begin within the next half hour.
+Check the nowcast every 15 minutes, and send a notification when precipitation is expected to begin within the next half hour. It only looks at segments that haven't started yet, so it stays quiet once the rain has arrived.
+
+At this cadence the automation adds about 2,900 calls per month, which fits alongside one configured location but not two.
 
 - **Trigger**: Time pattern, every 15 minutes
 - **Action**: Google Weather: Get minute forecast
   - **Target**: Home (`weather.home`)
   - **Response variable**: `nowcast`
-- **Condition**: Template, the first wet segment starts within 30 minutes
+- **Condition**: Template, the next precipitation starts within 30 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -169,21 +183,29 @@ automation: |
         entity_id: weather.home
       response_variable: nowcast
     - variables:
-        wet: >
-          {{ nowcast['weather.home']['segments']
-             | rejectattr('type', 'eq', 'NONE') | list }}
+        upcoming: >
+          {% set ns = namespace(segment=none) %}
+          {% for segment in nowcast['weather.home']['segments']
+             if ns.segment is none %}
+            {% if segment['type'] != 'NONE'
+                  and as_timestamp(segment['timeFrame']['startTime'])
+                      > now().timestamp() %}
+              {% set ns.segment = segment %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.segment }}
     - condition: template
       value_template: >
-        {{ wet | count > 0 and
-           as_timestamp(wet[0]['timeFrame']['startTime'])
-           - now().timestamp() < 1800 }}
+        {{ upcoming is not none
+           and as_timestamp(upcoming['timeFrame']['startTime'])
+               - now().timestamp() < 1800 }}
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
         message: >
-          {{ wet[0]['type'] | lower }} expected in about
-          {{ ((as_timestamp(wet[0]['timeFrame']['startTime'])
+          {{ upcoming['type'] | lower }} expected in about
+          {{ ((as_timestamp(upcoming['timeFrame']['startTime'])
                - now().timestamp()) / 60) | round | int }} minutes.
 {% endexample %}
 
