@@ -113,10 +113,12 @@ The Notify MFA module can't tell if the one-time password was delivered successf
 
 Disabling MFA notify only affects your Home Assistant user account. Other users on the same Home Assistant instance are unaffected.
 
-To disable Notify MFA for your account, go to your {% my profile title="**User profile**" %}, select the **Security** tab, and select **Disable** under **Notify one-time password**.
+1. Make sure you can still sign in with your password and any other MFA method that will remain enabled for your account.
+2. Go to your {% my profile title="**User profile**" %}, select the **Security** tab, and select **Disable** under **Notify one-time password**.
 
 #### Removing MFA notify
 
 Removing MFA notify makes this MFA option unavailable to all users on the Home Assistant instance.
 
-To remove the Notify MFA module from Home Assistant, remove its entry from `auth_mfa_modules` in `configuration.yaml`, then restart Home Assistant.
+1. Make sure all affected users can still sign in with their password and any other MFA method that will remain enabled for their account.
+2. Remove the Notify MFA entry from `auth_mfa_modules` in `configuration.yaml`, then restart Home Assistant.
