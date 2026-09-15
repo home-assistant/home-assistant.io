@@ -115,7 +115,7 @@ automation: |
 
 The integration {% term polling polls %} Axle every 10 minutes. All three sensors use the same update. Changes to the published schedule appear after the next successful update.
 
-When Axle returns an empty schedule, the sensors show an unknown state. Events you have opted out of are excluded. If the event request fails, the sensors become unavailable and recover after a successful update.
+When Axle returns an empty schedule, the sensors show an unknown state. Events you have opted out of are excluded. If a request fails because of a temporary connection or service error, the sensors become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
 
 ## Known limitations
 
