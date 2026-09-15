@@ -214,7 +214,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
-- **Events** - Cameras with Smart Detections expose event {% term entity %} entities for momentary detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
+- **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
@@ -288,6 +288,20 @@ Relay input channels are not yet supported.
 Each UniFi Protect siren is added as a separate device in Home Assistant, linked to the <abbr title="Network Video Recorder">NVR</abbr>.
 
 - **Siren**: A siren entity to trigger and stop the siren. You can also set the volume level and the duration before triggering. The default duration is 5 seconds. Running the siren indefinitely is not supported.
+
+### UniFi Protect key fobs
+
+Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assistant, linked to the NVR. This requires UniFi Protect 7.1 or later. See [Public API features](#public-api-features).
+
+- **Button**: An event entity that fires when a button on the fob is pressed. The pressed button is reported as the event type. See [Key Fob Button Event](#key-fob-button-event).
+- **Battery**: A diagnostic sensor with the remaining battery percentage.
+- **Battery low**: A diagnostic binary sensor that turns on when the fob reports a low battery.
+- **Signal strength**: A diagnostic sensor with the fob's signal strength in dBm. Disabled by default.
+- **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
+
+{% note %}
+In the **full access** connection mode, a key fob that is paired after Home Assistant has already started is not picked up until the {% term integration %} is reloaded. In **API key only** mode, a newly paired fob is discovered automatically. See [Connection modes](#connection-modes).
+{% endnote %}
 
 ### NVR
 
@@ -676,11 +690,18 @@ License Plate Recognition can be triggered by various sources, including images 
 - **Event Name**: Smart detection
 - **Event Attributes**:
   - **event_type**: The detected object type, such as `person`, `vehicle`, `animal`, `package`, `license_plate`, `face`, `car`, or `pet`. New types are surfaced automatically as UniFi Protect adds support for them.
+  - **event_source**: The raw Protect event type: `smartDetectZone`, `smartDetectLine`, or `smartDetectLoiterZone`.
   - **event_id**: A unique ID that identifies the detection event.
   - **smart_detect_types**: The full set of object types detected during the event.
-- **Description**: This event fires for each object type a Smart Detection camera detects, including types that do not have their own sensor. Each detected type fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
+- **Description**: This event fires for each object type and event source a Smart Detection camera detects, including types that do not have their own sensor. Each object and source pair fires once across the lifecycle of an event (start, update, and end), so a type that UniFi Protect only reports partway through an event still surfaces reliably.
 
 {% note %}
+This is a behavior change. An existing automation that does not filter `event_source` can run multiple times for the same `event_id` and object type when Protect emits overlapping sources. Automations that should react only to line crossings must filter for `smartDetectLine`.
+
+The Package event entity exposes the same `event_source` attribute and can likewise fire once for each distinct source.
+
+Line-crossing event data does not identify which configured line was crossed or the crossing direction. Home Assistant can therefore distinguish a line crossing from zone and loitering detections, but it cannot provide a line name, line ID, or direction.
+
 The Smart detection event reports _which_ type was detected, not the richer recognized metadata behind it. The UniFi Protect public API does not currently expose details such as the recognized license plate text, vehicle color and type, or detection confidence on this event. For the recognized license plate and vehicle attributes, use the dedicated [Vehicle Detection Event](#vehicle-detection-event), which still sources that data from the private API.
 {% endnote %}
 
@@ -720,6 +741,44 @@ automation: |
   - **event_id**: A unique ID that identifies the detection event.
   - **smart_detect_types**: The full set of sound types detected during the event.
 - **Description**: This event fires for each sound a camera with audio detection detects. As with smart detection, each type fires once across the lifecycle of an event, so an audio alarm that UniFi Protect reports partway through an event surfaces reliably.
+
+### Key Fob Button Event
+
+- **Event Name**: Button
+- **Event Attributes**:
+  - **event_type**: The pressed button, one of `arm`, `disarm`, `night`, `panic`, `function`, `left`, `right`, `input1`, `input2`, or `alarm_hub_button`.
+  - **event_id**: A unique ID that identifies the button press event.
+- **Description**: This event is triggered when a button on a UniFi Protect key fob (USL-FOB) is pressed. Each fob has a single **Button** entity, and the button that was pressed is reported as the event type.
+
+{% note %}
+A key fob does not report which buttons it physically has, so every fob exposes the full list of button types above. Only the buttons your fob actually has can fire.
+{% endnote %}
+
+#### Example Key Fob Panic Button Automation
+
+```yaml
+alias: Key Fob Panic Button Automation
+description: Automation that triggers when the panic button on a key fob is pressed
+triggers:
+  - trigger: state
+    entity_id:
+      - event.front_door_fob_button # Replace with your key fob entity
+    not_from:
+      - unavailable
+conditions:
+  - condition: state
+    entity_id: event.front_door_fob_button # Replace with your key fob entity
+    attribute: event_type
+    state: "panic"
+actions:
+  - action: notify.mobile_app_your_device # Replace with your notification target
+    data:
+      message: Panic button pressed on the key fob!
+      title: Key Fob Alert
+mode: single
+```
+
+The `not_from` option keeps the automation from running during startup or power-cycle state restoration, when the entity temporarily transitions out of the `unavailable` state.
 
 ## Troubleshooting
 
