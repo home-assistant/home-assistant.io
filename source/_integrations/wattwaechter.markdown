@@ -73,7 +73,7 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 
 ### Additional meter values
 
-Smart meters can report values beyond the well-known ones listed above. The integration creates a sensor for every additional OBIS code your meter reports, deriving the sensor type from the reported unit. Cumulative energy registers are recorded as continuously increasing totals, and device metadata such as the meter's serial number is created as diagnostic entities. These additional sensors are disabled by default; enable the ones you need from the device page.
+Smart meters can report values beyond the well-known ones listed above. The integration creates a sensor for every additional OBIS code your meter reports, deriving the sensor type from the reported unit. Cumulative energy registers are recorded as continuously increasing totals. These additional sensors are disabled by default; enable the ones you need from the device page. Device metadata registers, such as the meter's serial number, do not create sensors.
 
 ### Diagnostic sensors
 
