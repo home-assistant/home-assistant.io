@@ -1,7 +1,0 @@
-# The Astro build is not the published Home Assistant website yet.
-# Deny all crawling so that standalone deploys of this build (such as
-# the Astro preview site) are never indexed as duplicate content.
-# Replace with the website's real robots.txt when Astro becomes the
-# published site.
-User-agent: *
-Disallow: /
