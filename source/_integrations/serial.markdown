@@ -97,19 +97,17 @@ The identifier that Home Assistant uses to address a serial port, such as `/dev/
 
 For local serial ports, always use the `/dev/serial/by-id/...` link instead of paths like `/dev/ttyUSB0` and `/dev/ttyACM0`. The `by-id` link is stable and will not change even when you move ports around or move HA OS to another device. The `/dev/tty` links are not stable and can be renumbered.
 
-### USB-to-serial adapter
-
-A device that adds a serial port to your system over USB. It is the most common way to connect a device with a serial port to the system that runs Home Assistant.
-
-"Serial" is a broad label that can mean RS-232, RS-422, RS-485, or TTL-serial. An adapter for a device with an <abbr title="Recommended Standard 232">RS-232</abbr> port is also sold as a USB-to-RS-232 adapter.
-
-Use a USB-to-serial adapter when the end device is close enough to cable directly to your Home Assistant system. If it isn't, use a serial proxy instead.
-
 ### Serial proxy
 
 A device that shares one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The serial port that it shares is what you select in Home Assistant. Serial proxies are provided by [ESPHome](/integrations/esphome/) devices that use the [serial proxy](https://esphome.io/components/serial_proxy/) component.
 
-Use a serial proxy when the end device is too far from your Home Assistant system to connect with a cable. Prefer a wired network connection to the proxy.
+Use a serial proxy to place the serial port close to the end device, no matter where it is located. Prefer a wired network connection to the proxy.
+
+### USB-to-serial adapter
+
+A device that adds a serial port to your system over USB. Use a USB-to-serial adapter when the end device is close enough to cable directly to your Home Assistant system. If it isn't, use a serial proxy instead.
+
+"Serial" is a broad label that can mean RS-232, RS-422, RS-485, or TTL-serial. An adapter for a device with an <abbr title="Recommended Standard 232">RS-232</abbr> port is also sold as a USB-to-RS-232 adapter.
 
 ### Baud rate
 
