@@ -105,7 +105,7 @@ Use a USB-to-serial adapter when the end device is close enough to cable directl
 
 ### Serial proxy
 
-A device that shares one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The proxy is the device. The serial port that it shares is what you select in Home Assistant. Serial proxies are provided by [ESPHome](/integrations/esphome/) devices that use the [serial proxy](https://esphome.io/components/serial_proxy/) component.
+A device that shares one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The serial port that it shares is what you select in Home Assistant. Serial proxies are provided by [ESPHome](/integrations/esphome/) devices that use the [serial proxy](https://esphome.io/components/serial_proxy/) component.
 
 Use a serial proxy when the end device is too far from your Home Assistant system to connect with a cable. Prefer a wired network connection to the proxy.
 
