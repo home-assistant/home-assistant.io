@@ -56,16 +56,17 @@ jobs:
       - name: Setting up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: 22
+          node-version: 26
+          cache: "npm"
       - name: Install dependencies
-        run: corepack pnpm install --frozen-lockfile
-        working-directory: astro
+        run: npm ci
         env:
           CI: true
-          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
+      - name: Install Astro dependencies
+        run: npx pnpm install --frozen-lockfile
+        working-directory: astro
       - name: Build Astro site
-        run: corepack pnpm run build
+        run: npx pnpm run build
         working-directory: astro
         env:
           ASTRO_TELEMETRY_DISABLED: "1"
-          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"

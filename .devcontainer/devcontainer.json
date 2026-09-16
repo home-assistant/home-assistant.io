@@ -4,15 +4,14 @@
     "dockerfile": "./Dockerfile",
     "context": "..",
     "args": {
-      "NODE_VERSION": "22"
+      "NODE_VERSION": "26"
     }
   },
   "appPort": [4000, 4321],
-  "onCreateCommand": "bundle install && npm install && corepack enable && cd astro && pnpm install",
+  "onCreateCommand": "bundle install && npm install && npx pnpm --dir astro install",
   "containerEnv": {
     "DEVCONTAINER": "true",
-    "BUNDLE_PATH": "vendor/bundle",
-    "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0"
+    "BUNDLE_PATH": "vendor/bundle"
   },
   "customizations": {
     "vscode": {
