@@ -5,14 +5,15 @@ Home Assistant website. The website is being migrated from Jekyll to
 Astro incrementally: both stacks build the site during the migration,
 and pages move over section by section.
 
-**No routes are served from this directory on www.home-assistant.io
-yet.** Both stacks build on every deploy (`rake generate` runs the
-Astro build after the Jekyll build) and in CI, but every page on the
-website is still produced by Jekyll. A failed Astro build fails
-deploy previews and CI; on production deploys it only warns, so it
-cannot block publishing the Jekyll site. Serving logic (routing
-individual pages to their Astro version) lands in a later change and
-makes the build fatal everywhere.
+**Every page on www.home-assistant.io is still produced by Jekyll.**
+Both stacks build on every deploy (`rake generate` runs the Astro
+build after the Jekyll build) and in CI, but the Astro output appears
+only under the `/astro-preview/` path described below — no website
+route is served from it. A failed Astro build fails deploy previews
+and CI; on production deploys it only warns, so it cannot block
+publishing the Jekyll site. Serving logic (routing individual pages
+to their Astro version) lands in a later change and makes the build
+fatal everywhere.
 
 The Astro output is browsable on every deploy, production included,
 at `/astro-preview/` — for example,

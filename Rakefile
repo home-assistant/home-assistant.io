@@ -53,11 +53,12 @@ task :generate do
   success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy so both stacks stay buildable
-  # (see astro/README.md). No routes are served from it yet: previews
-  # and CI abort on failure (that is what gates merges), while
-  # production deploys only warn, so a failed Astro build cannot block
-  # publishing the Jekyll site. Make production fatal again once Astro
-  # serves real routes in production.
+  # (see astro/README.md). Every website route is still produced by
+  # Jekyll; the Astro output appears only under the unlinked,
+  # noindexed /astro-preview/ path. Previews and CI abort on failure
+  # (that is what gates merges), while production deploys only warn,
+  # so a failed Astro build cannot block publishing the Jekyll site.
+  # Make production fatal again once Astro serves real routes.
   # pnpm comes from the root devDependencies (npx resolves it there),
   # since Node.js 25+ no longer bundles Corepack.
   astro_env = { "ASTRO_TELEMETRY_DISABLED" => "1" }
