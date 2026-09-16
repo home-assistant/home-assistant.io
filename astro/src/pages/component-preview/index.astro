@@ -1,36 +1,17 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { getComponentPreviews } from "../../lib/component-previews.mjs";
 
 // Tiled browser for the Astro components built during the migration.
 // Every src/components/**/<Name>.fixtures.mjs file is discovered
 // automatically and rendered as a tile, one demo per variant, using
-// the sibling <Name>.astro component. Fixtures are pure data (see
-// astro/README.md) so the same variants can drive the Jekyll/Astro
-// golden-output parity tests later.
+// the sibling <Name>.astro component (see src/lib/component-previews.mjs
+// and astro/README.md). Each tile links to a full-screen stage where
+// the variants render at true viewport width.
 // This page is a development aid: it is only reachable through
 // /astro-preview/ and is excluded from the Jekyll/Astro route parity
 // checks.
-const fixtureModules = import.meta.glob("../../components/**/*.fixtures.mjs", {
-  eager: true,
-});
-const componentModules = import.meta.glob("../../components/**/*.astro", {
-  eager: true,
-});
-
-const entries = Object.entries(fixtureModules)
-  .map(([path, mod]) => {
-    const data = mod.default ?? {};
-    const componentPath = path.replace(/\.fixtures\.mjs$/, ".astro");
-    return {
-      name:
-        data.title ?? path.split("/").pop().replace(".fixtures.mjs", ""),
-      description: data.description,
-      variants: data.variants ?? [],
-      Component: componentModules[componentPath]?.default,
-      path: componentPath.replace("../../", "src/"),
-    };
-  })
-  .sort((a, b) => a.name.localeCompare(b.name));
+const entries = getComponentPreviews();
 ---
 
 <Base title="Component preview" wide>
@@ -47,10 +28,12 @@ const entries = Object.entries(fixtureModules)
       </p>
     ) : (
       <div class="tiles">
-        {entries.map(({ name, description, variants, Component, path }) => (
+        {entries.map(({ slug, name, description, variants, Component, path }) => (
           <section class="tile">
             <header>
-              <h2>{name}</h2>
+              <h2>
+                <a href={`${slug}/`}>{name}</a>
+              </h2>
               {description && <p>{description}</p>}
             </header>
             {Component ? (
@@ -72,6 +55,7 @@ const entries = Object.entries(fixtureModules)
             )}
             <footer>
               <code>{path}</code>
+              <a href={`${slug}/`}>Full screen ↗</a>
             </footer>
           </section>
         ))}
@@ -138,7 +122,17 @@ const entries = Object.entries(fixtureModules)
   .tile footer {
     border-top: 1px solid #d1d5db;
     color: #4b5563;
+    display: flex;
     font-size: 0.75rem;
+    gap: 0.75rem;
+    justify-content: space-between;
     padding: 0.35rem 0.75rem;
+  }
+  .tile header h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .tile header h2 a:hover {
+    text-decoration: underline;
   }
 </style>

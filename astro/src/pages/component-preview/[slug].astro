@@ -1,0 +1,108 @@
+---
+// Full-screen stage for one component: every fixture variant renders
+// edge-to-edge at true viewport width, which is how full-width
+// components such as the header and footer need to be reviewed.
+// Deliberately no Base layout: the stage stays chrome-less apart from
+// a slim toolbar, so nothing constrains or restyles the component.
+import { getComponentPreviews } from "../../lib/component-previews.mjs";
+
+export function getStaticPaths() {
+  return getComponentPreviews().map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { name, description, variants, Component, path } = entry;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Development aid inside the Astro build preview: never index. -->
+    <meta name="robots" content="noindex" />
+    <title>{name} — component preview</title>
+  </head>
+  <body>
+    <nav class="toolbar">
+      <a href="../">← All components</a>
+      <strong>{name}</strong>
+      {description && <span class="description">{description}</span>}
+      <code>{path}</code>
+    </nav>
+    {
+      Component ? (
+        variants.map((variant) => (
+          <section>
+            <div class="variant-label">{variant.name}</div>
+            <div class="stage">
+              <Component {...(variant.props ?? {})}>
+                {variant.slot && <Fragment set:html={variant.slot} />}
+              </Component>
+            </div>
+          </section>
+        ))
+      ) : (
+        <p class="error">
+          No component found next to this fixtures file.
+        </p>
+      )
+    }
+  </body>
+</html>
+
+<style>
+  body {
+    background: #fff;
+    color: #1d2126;
+    font-family:
+      -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+      sans-serif;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .toolbar {
+    align-items: baseline;
+    background: #eef7fb;
+    border-bottom: 1px solid #c8e4f2;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    gap: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+  .toolbar a {
+    color: #0b7ab0;
+  }
+  .toolbar .description {
+    color: #33566b;
+  }
+  .toolbar code {
+    color: #33566b;
+    font-size: 0.75rem;
+    margin-left: auto;
+  }
+  .variant-label {
+    background: #f6f8fa;
+    border-bottom: 1px solid #e5e7eb;
+    border-top: 1px solid #e5e7eb;
+    color: #4b5563;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 1rem;
+    text-transform: uppercase;
+  }
+  .stage {
+    /* No padding on purpose: components render at full viewport
+       width, exactly as they would on a real page. */
+    padding: 0;
+  }
+  .error {
+    color: #b91c1c;
+    padding: 1rem;
+  }
+</style>
