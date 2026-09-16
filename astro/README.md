@@ -19,6 +19,13 @@ browsable at `<deploy-preview-url>/astro-preview/` — for example,
 `/astro-preview/help/`. Internal links on those pages point at the
 site root, so following them leads back to the Jekyll-built pages.
 
+There is also a standalone Netlify site that builds and serves only
+the Astro output, with no Jekyll involved:
+<https://home-assistant-astro.netlify.app>. It serves `astro/dist`
+as its site root, so only the sections built by Astro exist there —
+for example, [/help/](https://home-assistant-astro.netlify.app/help/).
+The site root returns a 404 until the home page is migrated.
+
 Every deploy of the Astro build stays out of search engines until it
 becomes the published website: deploy previews already serve a
 deny-all `robots.txt`, and `astro/public/` ships its own deny-all
