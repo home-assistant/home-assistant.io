@@ -7,7 +7,7 @@
       "NODE_VERSION": "22"
     }
   },
-  "appPort": [4000],
+  "appPort": [4000, 4321],
   "onCreateCommand": "bundle install && npm install && corepack enable && cd astro && pnpm install",
   "containerEnv": {
     "DEVCONTAINER": "true",
