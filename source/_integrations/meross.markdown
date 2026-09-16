@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: device
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_quality_scale: bronze
 ---
 
