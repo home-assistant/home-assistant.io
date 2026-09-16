@@ -101,9 +101,24 @@ If you do not use the Mosquitto broker app, run a single Mosquitto broker that a
 ```text
 listener 1883
 allow_anonymous true
+password_file /mosquitto/config/passwd
+acl_file /mosquitto/config/acl
 persistence true
 persistence_location /mosquitto/data/
 ```
+
+`acl`:
+
+```text
+# Anonymous clients may only use the thermostat topics
+topic readwrite 01/#
+
+# Home Assistant has full access
+user homeassistant
+topic readwrite #
+```
+
+Create the Home Assistant user with `mosquitto_passwd -c /mosquitto/config/passwd homeassistant`, and use that username and password in the MQTT integration.
 
 #### Security notes
 
@@ -189,7 +204,7 @@ The thermostat did not answer on the broker within a few seconds. Check, in this
 
 1. The thermostat is on your Wi-Fi network: it shows the Wi-Fi symbol steadily, and your router lists it.
 2. The thermostat reaches the anonymous broker. Subscribe to `01/#` on that broker, for example with `mosquitto_sub -h BROKER_IP -t '01/#' -v`. Messages appear when the thermostat connects and then from time to time. If nothing appears, reconfigure the thermostat with the setup tool and check that you used the anonymous broker's IP address.
-3. The messages also arrive on the broker Home Assistant uses. With the bridge from option 1, subscribe on the Mosquitto broker app with a valid user. If nothing arrives there, check the bridge settings, the bridge user's password, and the apps's log.
+3. The messages also arrive on the broker Home Assistant uses. With the bridge from option 1, subscribe on the Mosquitto broker app with a valid user. If nothing arrives there, check the bridge settings, the bridge user's password, and the app's log.
 4. The MAC address you entered is the one from the topics.
 
 ### The thermostat becomes unavailable
