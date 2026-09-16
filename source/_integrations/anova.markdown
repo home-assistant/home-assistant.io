@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: anova
 ha_integration_type: hub
 ha_platforms:
+  - number
   - sensor
+  - switch
 ---
 
 The **Anova** {% term integration %} allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.
@@ -46,3 +48,22 @@ You can do this via the [Anova password reset page](https://anovaculinary.io/ali
 - Heater Temperature - The current temperature of the heater.
 - Triac Temperature - The current temperature of the triac.
 - Water Temperature - The current temperature of the water.
+
+## Switch
+
+This integration provides the following switch.
+
+- **Cook**: Starts and stops a cook. When turned on, a cook is started using
+  the current target temperature and timer values. When turned off, the
+  current cook is stopped.
+
+## Number
+
+This integration provides the following numbers.
+
+- **Target temperature**: The temperature the water is heated to. Used to start
+  a cook and adjustable while a cook is running.
+  - Range: 0-100 °C
+- **Timer**: The length of the cook in minutes. Used to start a cook and
+  adjustable while a cook is running.
+  - Range: 0-4,320 minutes (up to 72 hours)
