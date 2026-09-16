@@ -103,7 +103,7 @@ You can see all the serial ports on your system in one place from the **Serial**
      - **Disconnected**: ports that an integration or app uses, but that are currently not connected.
 
    {% tip %}
-   Serial ports that are only used by serial sensors configured in your {% term "`configuration.yaml`" %} are not tracked as consumers, so they appear in the **Available** section rather than **Connected** section.
+   Serial ports that are only used by serial sensors configured in your {% term "`configuration.yaml`" %} are not tracked as consumers, so they appear in the **Available** rather than the **Connected** section.
    {% endtip %}
 2. To view more details about a port, select **Port information** {% icon "mdi:information-outline" %} next to it. The **Port information** dialog shows the device path, together with details such as the description, manufacturer, and serial number of the device.
    - To use the port with a serial sensor, copy the value of the **Device** field and use it as the `serial_port` option. For example, `/dev/ttyAMA0`.
