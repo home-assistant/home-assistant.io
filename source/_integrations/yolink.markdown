@@ -36,6 +36,26 @@ Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+## Authentication methods
+
+The integration supports two ways to authenticate:
+
+- **YoLink account (OAuth2)**: sign in with your YoLink account. This only gives access to the account's default home and is limited to a single entry.
+- **User Access Credentials (UAC)**: per home credentials created in the YoLink app. Each home becomes its own integration entry, so this is the way to add more than one home.
+
+If you only have one home, signing in with your account is the simplest option. If you have several homes, or already added your default home and want to add another one, use UAC.
+
+### Creating User Access Credentials
+
+1. Open the **YoLink app** on your phone.
+2. Go to **Settings** > **Account** > **Advanced Settings** > **User Access Credentials**.
+3. Tap **+** to create a new UAC.
+4. Select the **home** this UAC should give access to.
+5. Copy the **UAID** and **Secret Key** and enter them in the integration setup form.
+6. Repeat for each home you want to add to Home Assistant.
+
+The same home cannot be added through both authentication methods, the integration detects it and rejects the second entry.
+
 {% details "Using custom application credentials" %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, this service is provided for free and does not require a Nabu Casa subscription. The steps below are thus not required.
 If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
@@ -113,4 +133,4 @@ The integration is tested and verified for the following devices from YoLink:
 
 1. This integration requires an MQTT connection to be established via port 8003. If you are using a firewall, please allow communication via port 8003 in the firewall settings.
 2. If you use a network proxy, such as a VPN, the integration may not be able to update the device status. Turn off the VPN.
-3. Please do not use UAC as credentials for the Home Assistant YoLink integration.
+3. Do not enter UAC credentials as custom application credentials for the OAuth2 sign-in. To use UAC, pick **Use UAC credentials** when adding the integration.
