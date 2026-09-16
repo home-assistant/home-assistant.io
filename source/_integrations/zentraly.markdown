@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_zeroconf: true
 ha_codeowners:
-  - '@diazmanuel'
+  - '@zentralySAU'
 ha_domain: zentraly
 ha_integration_type: hub
 ha_platforms:
@@ -16,7 +16,7 @@ ha_platforms:
 ha_quality_scale: bronze
 ---
 
-The **Zentraly** {% term integration %} allows you to integrate supported Zentraly devices with Home Assistant.
+The **Zentraly** {% term integration %} lets you control supported thermostats from [Zentraly](https://zentraly.com), a manufacturer of smart home devices for heating, lighting, and electrical control.
 
 The integration communicates directly with Zentraly devices over the local network using a WebSocket connection and does not require a cloud service.
 
@@ -33,15 +33,27 @@ Before setting up the integration:
 5. Make sure the Zentraly device is reachable from the Home Assistant host.
 6. Get the device password from the **About device** section in the Zentraly app. You need this password during setup.
 
-{% include integrations/config_flow.md %}
+## Configuration
 
-Manual configuration is not currently supported.
+Home Assistant discovers the thermostat automatically on your local network. To finish setting it up:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**.
+3. Enter the device password from the **About device** section in the Zentraly app.
+4. Submit the form. Home Assistant verifies the connection and password before adding the thermostat.
+
+{% configuration_basic %}
+Password:
+  description: "The device password shown in the Zentraly app. This is not your Zentraly account password."
+{% endconfiguration_basic %}
+
+The thermostat must be discovered before you can add it. Adding a thermostat manually by entering its IP address is not supported. If it does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network.
 
 ## Supported devices
 
 The integration currently supports the following Zentraly devices:
 
-- ZTTIN thermostat
+- ZTTIN wireless Wi-Fi thermostat
 
 ## Supported functionality
 
@@ -62,7 +74,7 @@ The integration supports:
 
 Changing the target temperature from Home Assistant puts the thermostat into manual mode.
 
-When the Away preset is selected, Home Assistant displays the Away temperature configured on the thermostat. The Away temperature itself cannot be changed from Home Assistant.
+When the Away preset is selected, Home Assistant displays the Away temperature configured on the thermostat. The climate entity does not provide a control for changing the configured Away temperature.
 
 ## Zentraly automation examples
 
@@ -72,29 +84,33 @@ You can use the Zentraly climate entity in Home Assistant automations. For examp
 
 ### Automation: Set the target temperature at night
 
-This example sets the target temperature of a Zentraly thermostat to 18 °C every day at 22:00.
+This example sets the target temperature of a Zentraly thermostat to 18 °C every day at 22:00. In the automation editor, use a time trigger and the **Set thermostat target temperature** action, selecting your thermostat as the target. Setting the target temperature selects manual mode.
+
+For the YAML example, replace `climate.example` with your thermostat entity ID.
 
 {% details "YAML example for setting the target temperature" %}
+
 {% example %}
-automation:
-  - alias: "Set Zentraly temperature at night"
-    triggers:
-      - trigger: time
-        at: "22:00:00"
-    actions:
-      - action: climate.set_temperature
-        target:
-          entity_id: climate.example
-        data:
-          temperature: 18
+automation: |
+  alias: "Set Zentraly temperature at night"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.example
+      data:
+        temperature: 18
 {% endexample %}
+
 {% enddetails %}
 
 ## Data updates
 
 Zentraly uses a local WebSocket connection to receive state updates reported by the device.
 
-Home Assistant also periodically reads the device state as a synchronization fallback.
+Home Assistant also reads the device state every five minutes as a synchronization fallback.
 
 All communication between Home Assistant and the Zentraly device takes place over the local network.
 
