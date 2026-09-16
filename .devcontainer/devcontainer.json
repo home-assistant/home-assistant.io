@@ -9,9 +9,10 @@
   },
   "appPort": [4000],
   "onCreateCommand": "bundle install && npm install && corepack enable && cd astro && pnpm install",
-  "containerEnv": { 
+  "containerEnv": {
     "DEVCONTAINER": "true",
-    "BUNDLE_PATH": "vendor/bundle"
+    "BUNDLE_PATH": "vendor/bundle",
+    "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0"
   },
   "customizations": {
     "vscode": {
