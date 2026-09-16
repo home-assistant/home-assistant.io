@@ -45,6 +45,8 @@ Integration time:
   description: SI unit of time to integrate over.
 Max sub-interval:
   description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
+Device class:
+  description: Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible.
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -99,9 +101,16 @@ max_sub_interval:
   required: false
   type: time
   default: 0
+device_class:
+  description: "Optional device class hint to apply for the created sensor. If this is provided, the supplied class will be applied if the integral sensor unit and state class are compatible."
+  required: false
+  default: None
+  type: string
 {% endconfiguration %}
 
-The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
+The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product. For example, a source in `W` with prefix `k` and time `h` results in `kWh`. Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation.
+
+For some device classes, the integral sensor can determine its own device class automatically. For example, a source with the `power` device class will automatically apply the `energy` device class to the integral sensor. However, there are many cases where this is not possible. For example, the integral of a `volume_flow_rate` sensor could be `water` or `gas`, so it cannot be determined automatically. To set the device class, specify a `device_class` hint for the integral sensor. If the unit and state class are compatible, Home Assistant applies the hint.
 
 ## Data updates
 
@@ -129,17 +138,17 @@ The `right` method follows the [Right rule](https://en.wikipedia.org/wiki/Rieman
 
 An integration sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 
-If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
+If you have a sensor that provides you with power readings in Watts (uses `W` as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being consumed. Take the next manual YAML configuration as an example:
 
 ```yaml
 sensor:
   - platform: integration
     source: sensor.current_power
-    name: energy_spent
+    name: energy_consumed
     unit_prefix: k
     round: 2
     max_sub_interval:
       minutes: 5
 ```
 
-This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.
+This configuration will provide you with `sensor.energy_consumed` which will have your energy in `kWh`, as a `device_class` of `energy`.
