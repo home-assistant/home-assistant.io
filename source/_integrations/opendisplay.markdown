@@ -70,8 +70,8 @@ The **OpenDisplay** integration provides the following entities.
 
 OpenDisplay Flex devices with configured physical inputs show up as {% term event %} {% term entities %} in Home Assistant. One {% term event %} {% term entity %} is created for each physical button.
 
-- `button_down`: Fires when the button is pressed.
-- `button_up`: Fires when the button is released.
+- `press_start`: Fires when the button is pressed.
+- `press_end`: Fires when the button is released.
 
 {% note %}
 Events are detected by comparing consecutive BLE advertisements, so no active Bluetooth connection is needed. A very fast press-and-release between two advertisements may not be observed.
@@ -81,10 +81,12 @@ Events are detected by comparing consecutive BLE advertisements, so no active Bl
 
 ```yaml
 triggers:
-  - trigger: state
-    entity_id: event.opendisplay_1234_button_1
-    attribute: event_type
-    to: button_down
+  - trigger: event.received
+    target:
+      entity_id: event.opendisplay_1234_button_1
+    options:
+      event_type:
+        - press_start
 actions:
   - action: light.turn_on
     target:
