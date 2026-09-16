@@ -1,6 +1,6 @@
 ---
 title: De Dietrich
-description: Instructions on how to monitor a De Dietrich Diematic boiler in Home Assistant using Modbus RTU over TCP.
+description: Instructions on how to monitor and control a De Dietrich Diematic boiler in Home Assistant using Modbus RTU over TCP.
 ha_category:
   - Sensor
 ha_release: '2026.10'
@@ -10,12 +10,13 @@ ha_codeowners:
 ha_domain: de_dietrich
 ha_platforms:
   - sensor
+  - water_heater
 ha_config_flow: true
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **De Dietrich** {% term integration %} connects Home Assistant to a Diematic boiler through a network gateway. It reads temperatures, water pressure, and other measurements over the local network.
+The **De Dietrich** {% term integration %} connects Home Assistant to a Diematic boiler through a network gateway. It reads temperatures, water pressure, and other measurements over the local network, and exposes controls for the boiler's hot-water bundle.
 
 ## Supported devices
 
@@ -35,7 +36,9 @@ Diematic Delta is not supported.
 
 {% important %}
 The gateway must forward Modbus RTU messages unchanged over TCP.
+
 This is often called transparent mode or RTU over TCP.
+
 A gateway configured to translate requests to standard Modbus TCP is not compatible with this integration.
 {% endimportant %}
 
@@ -68,15 +71,24 @@ The integration provides up to 11 read-only sensors:
 - **Boiler temperature target**: The boiler's calculated temperature target, not a measured temperature or an editable setting.
 - **Fan speed**: The reported fan speed, in revolutions per minute.
 - **Ionization current**: The flame-sensing current, in microamperes.
-- **Hot water temperature**: The domestic hot-water temperature.
 - **Circuit A room temperature**: The room temperature reported for heating circuit A.
 - **Circuit B room temperature**: The room temperature reported for heating circuit B.
+- **Circuit C room temperature**: The room temperature reported for heating circuit C. Only available on iSystem installations.
 
-Temperature readings use degrees Celsius. Home Assistant can display them in your preferred temperature unit. **Flue gas temperature**, **Boiler temperature target**, **Fan speed**, and **Ionization current** are diagnostic sensors.
+Temperature readings use degrees Celsius. Home Assistant can display them in your preferred temperature unit. **Flue gas temperature**, **Boiler temperature target**, **Fan speed**, and **Ionization current** are diagnostic sensors that are disabled by default. Enable them from the entity's settings if you need them.
 
-A heating circuit is a separately controlled part of the heating system. Each circuit can serve one room or several rooms. The circuit room-temperature sensor shows **Unknown** when the controller does not report a room-temperature value. This can happen when the circuit does not have a room sensor.
+A heating circuit is a separately controlled part of the heating system. Each circuit can serve one room or several rooms. The circuit room-temperature sensors only appear when the boiler reports a room-temperature value for that circuit. A circuit without a room sensor fitted, or one the boiler has not been configured to report on, does not get a sensor.
 
 Other sensors are created even when the corresponding probe is not fitted. A sensor can show **Unknown** when the controller does not provide a value.
+
+### Water heater
+
+When the boiler has a hot-water bundle, the integration creates a single **Hot water** water heater entity for the bundle. It exposes the tank temperature and lets you change the operating mode and the day-mode target temperature.
+
+- **Operating modes**: **Eco** matches the boiler's automatic mode, **Performance** matches the temporary comfort mode, and **High demand** matches the permanent comfort mode.
+- **Target temperature**: 10 to 80 °C, in 1 °C steps. The integration writes the value to the boiler's day-mode setpoint. The boiler stores a separate night-mode setpoint that can only be changed on the boiler's panel.
+
+If the boiler does not have a hot-water bundle, no water heater entity is created.
 
 ## Data updates
 
@@ -86,11 +98,86 @@ If a group of readings fails to update, its sensors become unavailable while suc
 
 ## Known limitations
 
-- The integration only monitors readings. It does not provide climate controls or actions to change temperatures, heating modes, schedules, or the boiler clock.
+- The integration does not control heating circuits, heating modes, heating curves, weekly schedules, the boiler clock, the burner, or the pump. The only controls it exposes are the hot-water operating mode and the day-mode target temperature, both on the water heater entity.
 - Circuit C, burner and pump status, fault codes, energy consumption, and the library's other readings are not exposed as entities.
 - Only RTU framing over a TCP connection is supported. Standard Modbus TCP framing and direct serial connections are not supported.
 - The official De Dietrich Modbus communication gateway ([Modbus communication gateway for CTM and BMS](https://www.dedietrich-heating.com/products/product_ranges/control_panels/modbus_communication_gateway_for_ctm_and_bms)) has not been tested with this integration and might not work. The integration was tested with third-party RS485-to-TCP gateways.
 - The integration has no additional settings or **Reconfigure** option. To change the host, port, or unit ID, remove the integration entry and add it again. Check any automations or dashboards that reference its entities afterward.
+
+## De Dietrich automation examples
+
+The hot-water entity makes the most useful control surface for automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Run the hot water in Performance mode during the morning
+
+If your morning routine needs hot water fast, switch the boiler to **Performance** mode for a short window and back to **Eco** afterwards.
+
+- **Trigger**: Time: at 06:30:00
+  - **Target**: None
+- **Condition**: None
+- **Action**: Set the water heater operating mode to **Performance**, wait, then set it back to **Eco**
+
+{% details "YAML example for a timed hot-water boost" %}
+
+{% example %}
+automation:
+  alias: "Hot water boost in the morning"
+  triggers:
+    - trigger: time
+      at: "06:30:00"
+  actions:
+    - action: water_heater.set_operation_mode
+      target:
+        entity_id: water_heater.hot_water
+      data:
+        operation_mode: performance
+    - delay:
+        minutes: 30
+    - action: water_heater.set_operation_mode
+      target:
+        entity_id: water_heater.hot_water
+      data:
+        operation_mode: eco
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Lower the day-mode target on weekdays
+
+If your household uses less hot water during working hours, lower the day-mode target while you are away and raise it again in the evening.
+
+- **Trigger**: Time pattern: every hour
+  - **Target**: None
+- **Condition**: Time: weekday, between 09:00 and 17:00
+- **Action**: Set the water heater target temperature to a lower value
+
+{% details "YAML example for a weekday day-mode target" %}
+
+{% example %}
+automation:
+  alias: "Lower hot-water target on weekday mornings"
+  triggers:
+    - trigger: time_pattern
+      hours: "9"
+  conditions:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  actions:
+    - action: water_heater.set_temperature
+      target:
+        entity_id: water_heater.hot_water
+      data:
+        temperature: 45
+{% endexample %}
+
+{% enddetails %}
 
 ## Troubleshooting
 
@@ -104,9 +191,13 @@ If a group of readings fails to update, its sensors become unavailable while suc
 
 ### A sensor is missing or shows Unknown
 
-Check whether the controller displays that measurement and whether the corresponding probe is fitted. A circuit room-temperature sensor can remain **Unknown** when the circuit does not have a room sensor. A flue gas sensor that is not fitted can leave **Flue gas temperature** as **Unknown**.
+Check whether the controller displays that measurement and whether the corresponding probe is fitted. In particular, circuit room-temperature sensors only appear when the controller supplies a room-temperature value for that circuit. A flue gas sensor that is not fitted can leave **Flue gas temperature** as **Unknown**.
 
 Compare **Boiler temperature target** with the controller's target, not with the measured **Boiler temperature**. These values describe different things and do not need to match.
+
+### Diagnostic sensors are not visible
+
+**Flue gas temperature**, **Boiler temperature target**, **Fan speed**, and **Ionization current** are added to the device, but they are disabled by default so they do not appear under the device's entities. Open the entity's settings page and enable it if you need its readings.
 
 ### Sensors become unavailable
 
