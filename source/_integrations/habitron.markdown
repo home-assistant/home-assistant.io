@@ -39,7 +39,14 @@ The coordinator's heartbeat interval is fixed at 10 seconds, in line with Home A
 
 ## Supported functionality
 
-- **Sensor**: Temperature, humidity, illuminance, air quality, wind, ekey identifier and finger, logic counters, hub diagnostics, channel currents/voltages/timeouts, hub status, frequencies, and percentages.
+The **Habitron** integration provides the following entities.
+
+### Sensors
+
+- Temperature, humidity, illuminance, air quality and wind readings of the bus modules.
+- The ekey identifier and finger of a fingerprint reader, and a module's logic counters.
+- Channel currents, voltages and timeouts of the router.
+- Status, frequency and percentage readings of the SmartHub itself.
 
 ## Data updates
 
@@ -47,8 +54,8 @@ Every 10 seconds the coordinator pulls the compact system status from the SmartH
 
 ## Known limitations
 
-- **Module discovery is configuration-time**, not bus-side hot-plug. New modules must first be registered in the SmartHub web UI; afterwards, reloading the integration picks them up. Stale modules are removed from the device registry automatically on the next setup pass.
-- **No re-authentication flow.** The SmartHub does not push authentication-failure states back into Home Assistant.
+- Module discovery happens at configuration time, not as bus-side hot-plug. New modules must first be registered in the SmartHub web UI; afterwards, reloading the integration picks them up. Stale modules are removed from the device registry automatically on the next setup pass.
+- There is no re-authentication flow. The SmartHub does not push authentication-failure states back into Home Assistant.
 
 ## Troubleshooting
 
@@ -72,4 +79,6 @@ logger:
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
