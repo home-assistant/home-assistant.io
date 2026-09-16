@@ -52,11 +52,19 @@ task :generate do
   abort("Generating community meetups data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
-  success = system({ "ASTRO_TELEMETRY_DISABLED" => "1" }, "npm --prefix astro ci")
-  abort("Installing Astro dependencies failed") unless success
-  success = system({ "ASTRO_TELEMETRY_DISABLED" => "1" }, "npm --prefix astro run build")
-  abort("Generating Astro site failed") unless success
-  if ENV["CONTEXT"] != 'production'
+  # The Astro build runs on every deploy so both stacks stay buildable
+  # (see astro/README.md). Its output is not published yet: previews
+  # and CI abort on failure (that is what gates merges), while
+  # production deploys only warn, so an unused build step cannot block
+  # publishing the Jekyll site. Make production fatal again once Astro
+  # output is served in production.
+  astro_env = { "ASTRO_TELEMETRY_DISABLED" => "1" }
+  astro_success = system(astro_env, "npm --prefix astro ci") &&
+                  system(astro_env, "npm --prefix astro run build")
+  if ENV["CONTEXT"] == 'production'
+    puts "## WARNING: Astro build failed, continuing" unless astro_success
+  else
+    abort("Generating Astro site failed") unless astro_success
     # Deploy previews only: make the (unpublished) Astro output
     # browsable for review at <deploy-preview-url>/astro-preview/.
     FileUtils.rm_rf("#{public_dir}astro-preview")

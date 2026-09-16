@@ -8,8 +8,11 @@ and pages move over section by section.
 **Nothing in this directory is served on www.home-assistant.io yet.**
 Both stacks build on every deploy (`rake generate` runs the Astro
 build after the Jekyll build) and in CI, but the deployed site is
-still produced by Jekyll. Serving logic (routing individual pages to
-their Astro version) lands in a later change.
+still produced by Jekyll. A failed Astro build fails deploy previews
+and CI; on production deploys it only warns, so it cannot block
+publishing the Jekyll site while the Astro output is unused. Serving
+logic (routing individual pages to their Astro version) lands in a
+later change and makes the build fatal everywhere.
 
 On Netlify deploy previews (never in production), the Astro output is
 browsable at `<deploy-preview-url>/astro-preview/` — for example,
