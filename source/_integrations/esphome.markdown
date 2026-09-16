@@ -6,7 +6,7 @@ ha_category:
   - Alarm
   - DIY
   - Infrared
-  - Radio Frequency
+  - Radio frequency
   - Update
 ha_release: 0.85
 ha_iot_class: Local Push
