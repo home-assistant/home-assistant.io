@@ -4,6 +4,7 @@ require "stringex"
 require 'net/http'
 require 'json'
 require 'time'
+require 'fileutils'
 
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
@@ -51,6 +52,27 @@ task :generate do
   abort("Generating community meetups data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
+  # The Astro build runs on every deploy so both stacks stay buildable
+  # (see astro/README.md). Its output is not published yet: previews
+  # and CI abort on failure (that is what gates merges), while
+  # production deploys only warn, so an unused build step cannot block
+  # publishing the Jekyll site. Make production fatal again once Astro
+  # output is served in production.
+  astro_env = {
+    "ASTRO_TELEMETRY_DISABLED" => "1",
+    "COREPACK_ENABLE_DOWNLOAD_PROMPT" => "0"
+  }
+  astro_success = system(astro_env, "corepack pnpm install --frozen-lockfile", chdir: "astro") &&
+                  system(astro_env, "corepack pnpm run build", chdir: "astro")
+  if ENV["CONTEXT"] == 'production'
+    puts "## WARNING: Astro build failed, continuing" unless astro_success
+  else
+    abort("Generating Astro site failed") unless astro_success
+    # Deploy previews only: make the (unpublished) Astro output
+    # browsable for review at <deploy-preview-url>/astro-preview/.
+    FileUtils.rm_rf("#{public_dir}astro-preview")
+    FileUtils.cp_r("astro/dist", "#{public_dir}astro-preview")
+  end
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
       f.write "User-agent: *\n"

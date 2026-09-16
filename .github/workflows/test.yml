@@ -47,3 +47,25 @@ jobs:
           CI: true
       - name: Run textlint
         run: npm run textlint
+  astro-build:
+    name: Build Astro site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out files from GitHub
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setting up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: corepack pnpm install --frozen-lockfile
+        working-directory: astro
+        env:
+          CI: true
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
+      - name: Build Astro site
+        run: corepack pnpm run build
+        working-directory: astro
+        env:
+          ASTRO_TELEMETRY_DISABLED: "1"
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
