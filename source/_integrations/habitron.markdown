@@ -16,7 +16,9 @@ ha_ssdp: true
 ha_quality_scale: bronze
 ---
 
-The **Habitron** {% term integration %} connects Home Assistant to a [Habitron](https://www.habitron.de/) SmartHub and the modules on its Smart-X bus. This initial version exposes the Habitron measured values (temperature, humidity, illuminance, air quality, wind, logic counters, and hub diagnostics) as sensor entities; further entity types are being added in follow-up releases. Values are refreshed by a coordinator-driven heartbeat that also detects when the SmartHub becomes unreachable.
+The **Habitron** {% term integration %} connects Home Assistant to a [Habitron](https://www.habitron.de/) building automation system through its SmartHub. It brings the readings from the modules on your Smart-X bus, such as temperature, humidity, light level, air quality, and wind, into Home Assistant as sensors.
+
+You can use these sensors to keep an eye on your home's climate and surroundings, show them on a dashboard, and use them in automations, for example, to react to a room getting too warm, close blinds when it's bright outside, or respond to strong wind.
 
 ## Supported devices
 
