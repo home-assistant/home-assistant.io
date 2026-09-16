@@ -723,7 +723,7 @@ cover:
       required: false
       type: template
     target_humidity_step:
-      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be a integer between `1` and `100`.
+      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be an integer between `1` and `100`.
       required: false
       type: integer
     target_temperature:
