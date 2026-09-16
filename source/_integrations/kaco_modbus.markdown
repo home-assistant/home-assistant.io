@@ -45,6 +45,8 @@ Modbus unit ID:
   description: "The inverter's Modbus unit ID, also called its device address. Leave this at `1` unless the inverter is reached through an RS485-to-TCP gateway, which needs the address configured on that gateway."
 {% endconfiguration_basic %}
 
+If the inverter's Modbus unit ID changes, go to {% my integrations title="**Settings** > **Devices & services**" %}, open the three dots menu {% icon "mdi:dots-vertical" %} on the integration card, and select **Reconfigure**.
+
 ## Supported functionality
 
 ### Sensors
