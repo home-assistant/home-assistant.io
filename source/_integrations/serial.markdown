@@ -83,6 +83,34 @@ value_template:
   type: template
 {% endconfiguration %}
 
+## About serial terminology
+
+This section explains some of the key terms that the Home Assistant documentation uses to describe serial connections.
+
+### Serial port
+
+A connection that sends data one bit at a time over a single line. A serial port can be built into your system, added with a USB-to-serial adapter, or shared over your network by a serial proxy.
+
+### Device path
+
+The identifier that Home Assistant uses to address a serial port, such as `/dev/ttyACM0`. This is the value you enter for the `serial_port` option. A serial port that is reached over the network is addressed with a URL instead of a device path, such as `socket://192.168.1.10:4001` for a port that you expose with `ser2net`. The URL of a port that is shared by a serial proxy starts with `esphome-hass://`.
+
+### USB-to-serial adapter
+
+A device that adds a serial port to your system over USB. It is the most common way to connect a device with a serial port to the system that runs Home Assistant.
+
+### Serial proxy
+
+A device that shares one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The proxy is the device. The serial port that it shares is what you select in Home Assistant. Serial proxies are provided by [ESPHome](/integrations/esphome/) devices that use the [serial proxy](https://esphome.io/components/serial_proxy/) component.
+
+### Baud rate
+
+The speed of a serial connection, in bits per second. Home Assistant and the connected device must use the same baud rate, otherwise the data arrives unreadable. Common values are 9600 and 115200. Check the documentation of your device for the value that it uses.
+
+### RS-232
+
+A standard for serial connections that is common on devices such as receivers, projectors, and TVs. To use a device with an <abbr title="Recommended Standard 232">RS-232</abbr> port, you typically connect it with a USB-to-serial adapter or a serial proxy.
+
 ## `value_template` for Template sensor
 
 ### TMP36
