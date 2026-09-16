@@ -69,13 +69,6 @@ This is a coordinator timeout—the SmartHub is no longer responding. Power-cycl
 
 To capture more detail, [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for the integration to reproduce the problem, then download the log.
 
-```yaml
-logger:
-  logs:
-    homeassistant.components.habitron: debug
-    homeassistant.helpers.update_coordinator: debug
-```
-
 
 ## Removing the integration
 
