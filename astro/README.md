@@ -42,17 +42,17 @@ header. Remove that file at cutover.
 
 ## Commands
 
-The Astro workspace uses [pnpm](https://pnpm.io), pinned by the
-`packageManager` field in `package.json` and provided through
-Corepack — run `corepack enable` once if `pnpm` is not on your path.
-Run these from the `astro/` directory (requires Node.js >= 22.12):
+The Astro workspace uses [pnpm](https://pnpm.io), pinned in the
+repository root's `devDependencies` (Node.js no longer bundles
+Corepack) — run `npm install` in the repository root once to get it.
+Run these from the `astro/` directory:
 
-| Command                           | Action                                   |
-| --------------------------------- | ---------------------------------------- |
-| `pnpm install`                    | Install dependencies                     |
-| `pnpm run dev`                    | Start the dev server at `localhost:4321` |
-| `pnpm run build`                  | Build the site to `astro/dist/`          |
-| `pnpm run preview`                | Serve the built site locally             |
+| Command                | Action                                   |
+| ---------------------- | ---------------------------------------- |
+| `npx pnpm install`     | Install dependencies                     |
+| `npx pnpm run dev`     | Start the dev server at `localhost:4321` |
+| `npx pnpm run build`   | Build the site to `astro/dist/`          |
+| `npx pnpm run preview` | Serve the built site locally             |
 
 ## Ground rules
 

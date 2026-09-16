@@ -58,12 +58,11 @@ task :generate do
   # production deploys only warn, so a failed Astro build cannot block
   # publishing the Jekyll site. Make production fatal again once Astro
   # serves real routes in production.
-  astro_env = {
-    "ASTRO_TELEMETRY_DISABLED" => "1",
-    "COREPACK_ENABLE_DOWNLOAD_PROMPT" => "0"
-  }
-  astro_success = system(astro_env, "corepack pnpm install --frozen-lockfile", chdir: "astro") &&
-                  system(astro_env, "corepack pnpm run build", chdir: "astro")
+  # pnpm comes from the root devDependencies (npx resolves it there),
+  # since Node.js 25+ no longer bundles Corepack.
+  astro_env = { "ASTRO_TELEMETRY_DISABLED" => "1" }
+  astro_success = system(astro_env, "npx pnpm install --frozen-lockfile", chdir: "astro") &&
+                  system(astro_env, "npx pnpm run build", chdir: "astro")
   if ENV["CONTEXT"] == 'production'
     puts "## WARNING: Astro build failed, continuing" unless astro_success
   else
