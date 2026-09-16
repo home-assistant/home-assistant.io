@@ -5,6 +5,8 @@ featured: true
 ha_category:
   - Alarm
   - DIY
+  - Infrared
+  - Radio Frequency
   - Update
 ha_release: 0.85
 ha_iot_class: Local Push
@@ -28,10 +30,12 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - media_player
   - number
+  - radio_frequency
   - select
   - sensor
   - switch

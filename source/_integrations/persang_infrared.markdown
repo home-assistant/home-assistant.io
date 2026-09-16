@@ -3,7 +3,7 @@ title: Persang Infrared
 description: Integration to control Persang speakers using an infrared transmitter.
 ha_category:
   - Button
-  - Infrared
+  - Infrared-controlled
   - Media player
 ha_release: '2026.10'
 ha_iot_class: Assumed State
@@ -17,6 +17,8 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
+
+{% include integrations/infrared_controlled.md %}
 
 The **Persang Infrared** {% term integration %} lets you control a Persang Bluetooth speaker using any infrared transmitter previously configured in Home Assistant.
 

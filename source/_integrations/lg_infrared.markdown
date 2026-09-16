@@ -4,7 +4,7 @@ description: Integration to control LG TVs and LG split air conditioners using a
 ha_category:
   - Climate
   - Event
-  - Infrared
+  - Infrared-controlled
   - Media player
   - Switch
 ha_release: 2026.4
@@ -23,6 +23,8 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: silver
 ---
+
+{% include integrations/infrared_controlled.md %}
 
 The **LG Infrared** {% term integration %} lets you control an LG TV or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 

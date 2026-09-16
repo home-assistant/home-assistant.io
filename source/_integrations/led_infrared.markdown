@@ -4,7 +4,7 @@ description: Integration to control LED infrared lights using an infrared emitte
 ha_category:
   - Button
   - Event
-  - Infrared
+  - Infrared-controlled
   - Light
 ha_release: 2026.8
 ha_iot_class: Assumed State
@@ -20,6 +20,8 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: platinum
 ---
+
+{% include integrations/infrared_controlled.md %}
 
 The **LED Infrared** {% term integration %} lets you control lights with any infrared emitter that has been previously configured in Home Assistant. It can also receive commands from a remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 

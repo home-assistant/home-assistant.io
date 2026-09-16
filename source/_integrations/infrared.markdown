@@ -11,7 +11,9 @@ ha_codeowners:
 ha_integration_type: entity
 related:
   - docs: /integrations/#infrared
-    title: Integrations supporting infrared
+    title: Integrations that provide infrared entities
+  - docs: /integrations/#infrared-controlled
+    title: Integrations for infrared-controlled devices
   - url: https://esphome.io/projects/?type=irrf
     title: ESPHome infrared and radio frequency proxy projects
   - url: https://esphome.io/components/ir_rf_proxy/
@@ -45,7 +47,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
 - Administrator rights in Home Assistant.
 - An infrared-controlled device, such as a TV, air conditioner, amplifier, or soundbar.
 - An infrared remote adapter. If you're unsure what to get:
-  - Find integrations that support infrared: In the documentation, search for the [infrared category](/integrations/#infrared).
+  - Find integrations that provide infrared entities: In the documentation, browse the [Infrared category](/integrations/#infrared).
   - You could also follow an example from the [ESPHome infrared and radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
 
 ### To set up infrared control in Home Assistant
@@ -53,7 +55,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
 1. Place the infrared remote adapter within line-of-sight of the infrared-controlled device. Infrared signals do not pass through walls or other objects. For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
 2. In Home Assistant, add the integration for your infrared remote adapter. Home Assistant creates a separate infrared {% term entity %} for each emitter and receiver it provides.
    - To add the integration, follow the steps in the integration documentation.
-3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
+3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/). To find all of them, browse the [Infrared-controlled category](/integrations/#infrared-controlled).
    - To add the integration, follow the steps in the integration documentation.
    - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
 4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
@@ -98,6 +100,8 @@ It has the following characteristics:
 - The infrared remote adapter contains one or more emitters, and sometimes a receiver.
 - Each emitter and receiver is shown as a separate {% term entity %} in Home Assistant.
 
+Integrations that provide infrared entities for a remote adapter are listed in the [Infrared category](/integrations/#infrared).
+
 #### Infrared emitter
 
 The component of your remote adapter that sends out IR signals. This is the same kind of signal a physical remote sends. An emitter is what actually controls a device. In Home Assistant, each emitter appears as an infrared {% term entity %} that other integrations can use.
@@ -108,7 +112,7 @@ The component of your remote adapter that catches IR signals sent by a device li
 
 ### Infrared-controlled device
 
-The appliance you want to control, such as a TV, air conditioner, amplifier, or soundbar. It listens for IR signals but does not connect to your network.
+The appliance you want to control, such as a TV, air conditioner, amplifier, or soundbar. It listens for IR signals but does not connect to your network. Integrations for these devices are listed in the [Infrared-controlled category](/integrations/#infrared-controlled).
 
 ### Infrared entity
 

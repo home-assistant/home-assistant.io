@@ -3,6 +3,7 @@ title: KlikAanKlikUit
 description: Instructions on how to integrate KlikAanKlikUit and compatible devices into Home Assistant.
 ha_category:
   - Switch
+  - Radio frequency-controlled
 ha_release: 2026.7
 ha_iot_class: Assumed State
 ha_config_flow: true
@@ -14,6 +15,8 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
+
+{% include integrations/radio_frequency_controlled.md %}
 
 The **KlikAanKlikUit** {% term integration %} lets you control self-learning KlikAanKlikUit 433.92 MHz RF devices from Home Assistant.
 

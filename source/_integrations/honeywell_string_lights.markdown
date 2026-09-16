@@ -3,6 +3,7 @@ title: Honeywell String Lights
 description: Instructions on how to integrate Honeywell String Lights into Home Assistant.
 ha_category:
   - Light
+  - Radio frequency-controlled
 ha_release: 2026.5
 ha_iot_class: Assumed State
 ha_config_flow: true
@@ -14,6 +15,8 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
+
+{% include integrations/radio_frequency_controlled.md %}
 
 The **Honeywell String Lights** {% term integration %} lets you control a Honeywell radio frequency (RF) remote-controlled string light set from Home Assistant.
 
