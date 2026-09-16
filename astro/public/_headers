@@ -1,0 +1,7 @@
+# Netlify headers, applied when astro/dist is a site's publish
+# directory (the standalone Astro preview site). Keeps every response
+# out of search engines while the Astro build is not the published
+# website. Remove when Astro becomes the published site, and never
+# copy this file over the Jekyll site's _headers when merging output.
+/*
+  X-Robots-Tag: noindex

@@ -19,6 +19,13 @@ browsable at `<deploy-preview-url>/astro-preview/` — for example,
 `/astro-preview/help/`. Internal links on those pages point at the
 site root, so following them leads back to the Jekyll-built pages.
 
+Every deploy of the Astro build stays out of search engines until it
+becomes the published website: deploy previews already serve a
+deny-all `robots.txt`, and `astro/public/` ships its own deny-all
+`robots.txt` plus a noindex `_headers` file so that standalone
+deploys of `astro/dist` (such as the Astro preview site) are covered
+too. Remove both at cutover.
+
 ## How it works
 
 - Content is shared with Jekyll. Collections read the existing

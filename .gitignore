@@ -3,7 +3,7 @@
 .sass-cache
 .gist-cache
 .pygments-cache
-public
+/public
 source/_data/analytics_data.json
 source/_data/blueprint_exchange_data.json
 source/_data/version_data.json
