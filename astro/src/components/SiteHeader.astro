@@ -22,8 +22,11 @@
 //     makes it `position: fixed` so content scrolls underneath; that
 //     belongs to the page layout, not to the header.
 import "../styles/tokens.scss";
-import logoUrl from "../../../source/images/home-assistant-logo.svg?url";
-import logoInverseUrl from "../../../source/images/home-assistant-logo-white.svg?url";
+// Both logos come from the Open Home Foundation brand assets API and
+// are downloaded into src/assets/brands/ when the build starts (see
+// integrations/brand-assets.mjs and the list in astro.config.mjs).
+import logoUrl from "../assets/brands/home-assistant-lockup-color-light.svg?url";
+import logoInverseUrl from "../assets/brands/home-assistant-lockup-monochrome-dark.svg?url";
 
 const {
   pathname = "",

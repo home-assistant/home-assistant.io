@@ -59,6 +59,19 @@ Run these from the `astro/` directory:
 | `npx pnpm run build`   | Build the site to `astro/dist/`          |
 | `npx pnpm run preview` | Serve the built site locally             |
 
+## Brand assets
+
+Logos come from the [Open Home Foundation brand assets
+API](https://ohf-brands.netlify.app/api/), the stable, CI-validated
+source for every Open Home Foundation mark. Pages never link the API
+directly: `integrations/brand-assets.mjs` downloads the marks listed
+in `astro.config.mjs` into `src/assets/brands/` (gitignored) when the
+build or the dev server starts, and components import them from there
+like any other local file. To use another mark, add its API endpoint
+to that list and import the file. If the API cannot be reached, the
+build keeps the copy from the previous build and warns; with no copy
+to fall back on, it fails rather than ship broken images.
+
 ## Component previews
 
 Components live in `src/components/`. To make a component show up in
