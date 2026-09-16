@@ -290,6 +290,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor        | Solar generated                | Yes     |
 | Sensor        | Solar power                    | Yes     |
 | Sensor        | Total pack energy              | No      |
+| Sensor        | Version                        | Yes     |
 | Sensor        | VPP backup reserve             | Yes     |
 | Switch        | Allow charging from grid       | Yes     |
 | Switch        | Storm watch                    | Yes     |
