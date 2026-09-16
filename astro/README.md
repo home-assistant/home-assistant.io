@@ -21,7 +21,11 @@ at `/astro-preview/` — for example,
 It is not linked from anywhere, and the website's `_headers` file
 marks the whole path `noindex` so it never appears in search engines.
 Internal links on those pages point at the site root, so following
-them leads back to the Jekyll-built pages.
+them leads back to the Jekyll-built pages. The build's bundled
+stylesheets, scripts and images are the one exception: pages link
+them at the root-absolute `/_astro/` path, so the deploy also
+publishes that directory at the site root (content-hashed file
+names, no clash with Jekyll's output).
 
 Standalone deploys of `astro/dist` as a site root are covered by
 their own noindex rule: `astro/public/` ships a `_headers` file that
