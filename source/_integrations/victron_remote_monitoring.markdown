@@ -26,7 +26,7 @@ The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statis
 
 ## Prerequisites
 
-- <abbr title="Victron Remote Monitoring">VRM</abbr> access token (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
+- <abbr title="Victron Remote Monitoring">VRM</abbr> access token (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/profile/integrations).
 - Access to your site(s) with the account used to create the token.
 
 ### Forecast requirements
@@ -111,7 +111,7 @@ This usually means that the token used is invalid or expired.
 
 Verify that you're logged in with the correct <abbr title="Victron Remote Monitoring">VRM</abbr> account, then try the following steps:
 
-1. Log in to the VRM portal and under **Preferences** > **Integrations** > **Access tokens** (or use [this link](https://vrm.victronenergy.com/access-tokens)), remove the current token if present.
+1. Log in to the VRM portal and under **Preferences** > **Integrations** > **Access tokens** (or use [this link](https://vrm.victronenergy.com/profile/integrations)), remove the current token if present.
 2. Generate a new token by selecting **Add** on the same page, enter the token name, leave the expiry date empty, and select **Create token**.
 3. Copy and paste the newly generated token into Home Assistant. Follow the setup instructions.
 
