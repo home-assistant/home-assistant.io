@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: device
+ha_release: 2026.10
 ha_quality_scale: bronze
 ---
 
@@ -30,7 +31,9 @@ You can also add a device manually: go to {% my integrations title="**Settings**
 - MS420 water leak sensor (battery sensor in the initial release)
 - MS700 temperature and humidity sensor
 
-## Sensors
+## Supported functionality
+
+### Sensors
 
 Available sensors depend on the device model:
 
