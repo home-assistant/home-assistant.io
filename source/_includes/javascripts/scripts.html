@@ -11,11 +11,17 @@
     indexName: 'home-assistant',
     apiKey: "{{ site.algolia.api_key }}",
   });
+  {%- unless page.ux_test %}
   document.querySelector('.site-title').addEventListener('contextmenu', function (ev) {
     ev.preventDefault();
     document.location.assign("https://design.home-assistant.io/#brand/logo")
   });
+  {%- endunless %}
 </script>
+
+{% if page.ux_test %}
+{% include javascripts/ux_test.html %}
+{% endif %}
 
 
 {% if page.hero_unit %}

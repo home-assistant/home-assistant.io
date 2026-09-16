@@ -293,7 +293,9 @@ If you are running an older Windows version or have a stricter network configura
 
 After downloading, decompress the image. If the image comes in a ZIP file, for example, unzip it.
 
+{% unless page.installation_type == 'linux' %}
 Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, install Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
+{% endunless %}
 
 {% if page.installation_type == 'macos' %}
 
@@ -323,8 +325,9 @@ Minimum recommended assignments:
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter (i.e. `en0:Wi-Fi`).  
+    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter{% if page.installation_type == 'linux' %} which is `ens18` for this test{% else %} (i.e. `en0:Wi-Fi`){% endif %}.  
     6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
+{% unless page.installation_type == 'linux' %}
 
     {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
     free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
@@ -335,8 +338,9 @@ Minimum recommended assignments:
     ```
 
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
+{% endunless %}
 
-{% unless page.installation_type == 'macos' %}
+{% unless page.installation_type == 'macos' or page.installation_type == 'linux' %}
 
 - title: Unraid
   content: |

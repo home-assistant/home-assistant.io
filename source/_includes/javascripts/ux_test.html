@@ -1,0 +1,18 @@
+<script type="text/javascript">
+  {
+    // Usability test build: site chrome stays visible and hoverable, but does not navigate.
+    const blockedRegions = "header.site-header, #toc-bar, #sidebar, .page-content > footer";
+
+    const block = (ev) => {
+      const target = ev.target instanceof Element ? ev.target : null;
+      if (target && target.closest(blockedRegions)) {
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
+    };
+
+    document.addEventListener("click", block, true);
+    // auxclick covers middle-click, which would otherwise open links in a new tab.
+    document.addEventListener("auxclick", block, true);
+  }
+</script>
