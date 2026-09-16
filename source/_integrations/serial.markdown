@@ -97,10 +97,10 @@ You can see all the serial ports on your system in one place from the **Serial**
 
 1. Go to **Settings** > **Connectivity** > **Serial**.
    - At the top, a status summary shows how many of your connected ports are in use, and whether any ports are disconnected.
-2. The ports are grouped into three lists:
-   - **Connected**: ports that are used by at least one integration or {% term app %}.
-   - **Available**: ports that are connected, but not used by any integration or app.
-   - **Disconnected**: ports that an integration or app uses, but that are currently not connected.
+   - The ports are grouped into three lists:
+     - **Connected**: ports that are used by at least one integration or {% term app %}.
+     - **Available**: ports that are connected, but not used by any integration or app.
+     - **Disconnected**: ports that an integration or app uses, but that are currently not connected.
 
    {% tip %}
    Serial ports that are only used by serial sensors configured in your {% term "`configuration.yaml`" %} are not tracked as consumers, so they appear in the **Available** section rather than **Connected** section.
