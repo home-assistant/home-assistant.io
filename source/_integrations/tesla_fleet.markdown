@@ -320,7 +320,7 @@ When configuring **Client Details** in the Tesla Developer Dashboard, selecting 
 
 #### Resolution
 
-Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses a `ddns.net` hostname, use a domain outside `ddns.net` instead. If you do not have another suitable domain, use an external hosting service such as [FleetKey](https://fleetkey.net).
+Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses `ddns.net`, use a different hostname that does not end in `ddns.net`, or use an external hosting service such as [FleetKey](https://fleetkey.net).
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
