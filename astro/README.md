@@ -28,10 +28,11 @@ The site root returns a 404 until the home page is migrated.
 
 Every deploy of the Astro build stays out of search engines until it
 becomes the published website: deploy previews already serve a
-deny-all `robots.txt`, and `astro/public/` ships its own deny-all
-`robots.txt` plus a noindex `_headers` file so that standalone
-deploys of `astro/dist` (such as the Astro preview site) are covered
-too. Remove both at cutover.
+deny-all `robots.txt`, and `astro/public/` ships a `_headers` file
+that sends `X-Robots-Tag: noindex` on every response, covering
+standalone deploys of `astro/dist` (such as the Astro preview site).
+Crawling is deliberately not blocked there, so crawlers fetch each
+page and see the header. Remove the `_headers` file at cutover.
 
 ## How it works
 
