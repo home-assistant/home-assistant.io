@@ -16,11 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-{% include integrations/radio_frequency_controlled.md %}
-
 The **KlikAanKlikUit** {% term integration %} lets you control self-learning KlikAanKlikUit 433.92 MHz RF devices from Home Assistant.
-
-The integration uses the [Radio Frequency](/integrations/radio_frequency/) {% term entity %} platform to send RF commands. That means you first need a compatible RF transmitter in Home Assistant, such as an ESPHome device with 433.92 MHz OOK transmit support.
 
 ## Use cases
 
@@ -44,15 +40,15 @@ IT-1500, IT-2300, ITDL-1000, ITDM-250, ITL-1000, ITL-230, ITL-250, ITL-300, ITL-
 
 ## Prerequisites
 
-Before adding the integration, make sure:
+{% include integrations/radio_frequency_controlled.md %}
 
-1. You have a working RF transmitter in Home Assistant.
-2. The transmitter supports 433.92 MHz OOK.
-3. You know the device's values you want to use:
-   - Device ID
-   - Channel (unit number)
-   - Whether you use a group command
+The transmitter must support 433.92 MHz OOK transmissions. For example, you can use an ESPHome device with an OOK transmitter.
 
+You also need to know the following values for the device you want to control:
+
+- Device ID
+- Channel (unit number)
+- Whether you use a group command
 
 {% include integrations/config_flow.md %}
 

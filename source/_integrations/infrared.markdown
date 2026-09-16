@@ -1,8 +1,7 @@
 ---
 title: Infrared
 description: Instructions on how to use infrared entities in Home Assistant.
-ha_category:
-  - Infrared
+ha_category: []
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_domain: infrared

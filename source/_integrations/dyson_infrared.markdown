@@ -16,15 +16,15 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-{% include integrations/infrared_controlled.md %}
-
 The **Dyson Infrared** {% term integration %} lets you control a Dyson device using any infrared transmitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state of the device. The integration therefore uses assumed states.
 
 ## Prerequisites
 
-Before setting up the Dyson Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Dyson device.
+{% include integrations/infrared_controlled.md %}
+
+For example, you can use an ESPHome device with an IR LED pointed at your Dyson device.
 
 {% include integrations/config_flow.md %}
 

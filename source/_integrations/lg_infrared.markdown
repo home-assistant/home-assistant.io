@@ -24,8 +24,6 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-{% include integrations/infrared_controlled.md %}
-
 The **LG Infrared** {% term integration %} lets you control an LG TV or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
@@ -39,7 +37,9 @@ The integration supports:
 
 ## Prerequisites
 
-Before setting up the LG Infrared integration, you need a working infrared emitter, an infrared receiver, or both, already set up in Home Assistant. Each must expose an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your LG device to send commands, and an IR receiver module to capture commands from your LG remote.
+{% include integrations/infrared_controlled.md %}
+
+To send commands, you need an infrared emitter. To capture commands from your LG remote, you also need an infrared receiver. For example, you can use an ESPHome device with an IR LED pointed at your LG device to send commands, and an IR receiver module to capture commands from your remote.
 
 For an air conditioner, an infrared emitter is required. The **Air conditioner** option only appears once you have at least one infrared emitter available.
 

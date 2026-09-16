@@ -18,15 +18,15 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-{% include integrations/infrared_controlled.md %}
-
 The **Edifier Infrared** {% term integration %} lets you control an Edifier speaker using any infrared transmitter previously configured in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the speaker but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
 
 ## Prerequisites
 
-Before setting up the Edifier Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Edifier speaker.
+{% include integrations/infrared_controlled.md %}
+
+For example, you can use an ESPHome device with an IR LED pointed at your Edifier speaker.
 
 {% include integrations/config_flow.md %}
 
