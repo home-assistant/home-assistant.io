@@ -1440,6 +1440,10 @@ fields:
   type: map
   required: false
   keys:
+    default:
+      description: The default value applied to the field's selector.
+      required: false
+      type: any
     label:
       description: The label of the field
       required: false
