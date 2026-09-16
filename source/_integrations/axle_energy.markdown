@@ -133,7 +133,7 @@ Check that you copied the full token from the **Home Assistant** section of your
 If Axle rejects the token for an existing feed, Home Assistant asks you to authenticate again:
 
 1. Open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant) and select **Generate Token**.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and open the authentication prompt for the affected Axle Energy entry.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Reconfigure** on the authentication notification for the affected Axle Energy entry.
 3. Enter the new token in **API key** and submit the form.
 
 Home Assistant validates the token and resumes updates. Your existing sensors and their entity IDs are preserved, so automations can continue using them. Each configured feed needs its own token.
