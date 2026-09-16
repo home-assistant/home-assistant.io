@@ -55,6 +55,43 @@ Run these from the `astro/` directory:
 | `npx pnpm run build`   | Build the site to `astro/dist/`          |
 | `npx pnpm run preview` | Serve the built site locally             |
 
+## Component previews
+
+Components live in `src/components/`. To make a component show up in
+the tiled component browser at
+[`/astro-preview/component-preview/`](https://www.home-assistant.io/astro-preview/component-preview/),
+add a `<Name>.fixtures.mjs` file next to it that describes the
+component's representative states as data:
+
+```js
+// src/components/Note.fixtures.mjs
+export default {
+  title: "Note",
+  description: "Admonition box for notes.",
+  variants: [
+    {
+      name: "plain",
+      slot: "A note with <a href='#'>a link</a>.",
+      liquid: "{% note %}\nA note with [a link](#).\n{% endnote %}",
+    },
+    {
+      name: "warning",
+      props: { type: "warning" },
+      slot: "Careful now.",
+      liquid: "{% warning %}\nCareful now.\n{% endwarning %}",
+    },
+  ],
+};
+```
+
+The browser discovers fixture files automatically and renders every
+variant using the sibling `<Name>.astro` component — there is no
+registry to update. Fixtures are pure data on purpose (no `.astro`
+imports): the optional `liquid` field holds the equivalent Jekyll
+source, so the same variants can drive the Jekyll/Astro golden-output
+parity tests. The browser page is a development aid and is excluded
+from the Jekyll/Astro route parity checks.
+
 ## Ground rules
 
 - Keep dependencies to a minimum. Feeds, the sitemap, and the

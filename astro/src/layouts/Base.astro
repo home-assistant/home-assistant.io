@@ -1,9 +1,9 @@
 ---
-// Placeholder layout for the migration scaffold. The real page chrome
-// (header, navigation, footer, styles ported from `sass/`) lands in a
-// follow-up change; nothing rendered with this layout is served on the
-// website yet.
-const { title, description } = Astro.props;
+// Placeholder layout for the migration scaffold, with deliberately
+// minimal styling so preview pages are comfortable to read. The real
+// page chrome (header, navigation, footer, styles ported from
+// `sass/`) lands in a later change and replaces all of this.
+const { title, description, wide = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,9 +20,87 @@ const { title, description } = Astro.props;
     {description && <meta name="description" content={description} />}
   </head>
   <body>
-    <main>
+    <div class="preview-notice">
+      Astro build preview — this is not the live version of this page.
+    </div>
+    <main class={wide ? "wide" : undefined}>
       <h1>{title}</h1>
       <slot />
     </main>
   </body>
 </html>
+
+<style is:global>
+  body {
+    background: #fff;
+    color: #1d2126;
+    font-family:
+      -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+      sans-serif;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .preview-notice {
+    background: #eef7fb;
+    border-bottom: 1px solid #c8e4f2;
+    color: #33566b;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    text-align: center;
+  }
+  main {
+    margin: 0 auto;
+    max-width: 46rem;
+    padding: 1.5rem 1rem 4rem;
+  }
+  main.wide {
+    max-width: 80rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.25;
+    margin: 1.6em 0 0.5em;
+  }
+  h1 {
+    font-size: 1.9rem;
+    margin-top: 0.5em;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+  a {
+    color: #0b7ab0;
+  }
+  code {
+    background: #f1f4f6;
+    border-radius: 3px;
+    font-size: 0.9em;
+    padding: 0.1em 0.35em;
+  }
+  pre {
+    background: #f1f4f6;
+    border-radius: 6px;
+    overflow-x: auto;
+    padding: 0.75rem 1rem;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+  }
+  img {
+    max-width: 100%;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 1px solid #d7dde2;
+    padding: 0.35rem 0.6rem;
+  }
+</style>
