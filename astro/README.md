@@ -86,11 +86,15 @@ export default {
 
 The browser discovers fixture files automatically and renders every
 variant using the sibling `<Name>.astro` component — there is no
-registry to update. Fixtures are pure data on purpose (no `.astro`
-imports): the optional `liquid` field holds the equivalent Jekyll
-source, so the same variants can drive the Jekyll/Astro golden-output
-parity tests. The browser page is a development aid and is excluded
-from the Jekyll/Astro route parity checks.
+registry to update. Each tile links to a full-screen stage
+(`/astro-preview/component-preview/<name>/` on the deployed site)
+where the variants render at true viewport width, which is how
+full-width components such as the header and footer are best
+reviewed. Fixtures are pure data on purpose (no
+`.astro` imports): the optional `liquid` field holds the equivalent
+Jekyll source, so the same variants can drive the Jekyll/Astro
+golden-output parity tests. The browser pages are a development aid
+and are excluded from the Jekyll/Astro route parity checks.
 
 ## Ground rules
 
