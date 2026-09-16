@@ -554,10 +554,9 @@ button:
       type: action
 {% endconfiguration %}
 
-
 ## Climate
 
-The template climate platform allows you to create a climate with templates to define the state and scripts to define each actions.
+The template climate platform allows you to create a climate with templates to define the state and scripts to define each action.
 
 Climate entities can be created from the frontend in the Helpers section or via YAML.
 
@@ -599,9 +598,9 @@ Availability template:
 
 ### Options in YAML
 
-{% configuration cover %}
+{% configuration climate %}
 cover:
-  description: Characteristics of a cover
+  description: Characteristics of a climate
   type: map
   keys:
     attributes:
@@ -645,23 +644,23 @@ cover:
       required: true
       type: template
     max_humidity:
-      description: The climates max humidity.
+      description: The climate's maximum humidity.
       required: false
-      type: int
+      type: integer
     max_temperature:
-      description: The climates max temperature. Unit is defined with `temperature_unit`.
+      description: The climate's maximum temperature. Unit is defined with `temperature_unit`.
       required: false
       type: float
     min_humidity:
-      description: The climates min humidity.
+      description: The climate's minimum humidity.
       required: false
-      type: int
+      type: integer
     min_temperature:
-      description: The climates min temperature. Unit is defined with `temperature_unit`.
+      description: The climate's minimum temperature. Unit is defined with `temperature_unit`.
       required: false
       type: float
     precision:
-      description: The climates temperature precision. Only `0.5`, `0.1`, and `1` are recognized.
+      description: The climate's temperature precision. Only `0.5`, `0.1`, and `1` are recognized.
       required: false
       type: float
     preset_mode:
@@ -678,23 +677,23 @@ cover:
       required: inclusive
       type: action
     set_humidity:
-      description: Defines an action or actions to set the target humidity. Receives variable `fan_mode`. If `target_humidity_step` is specified, `humidity` is rounded to the nearest `target_humidity_step`.
+      description: Defines an action or actions to set the target humidity. Receives variable `humidity`. If `target_humidity_step` is specified, `humidity` is rounded to the nearest `target_humidity_step`.
       required: inclusive
       type: action
     set_hvac_mode:
-      description: Defines an action or actions to set the HVAC mode. Receives variable `hvac_mode`. 
-      required: required
+      description: Defines an action or actions to set the HVAC mode. Receives variable `hvac_mode`.
+      required: true
       type: action
     set_preset_mode:
-      description: Defines an action or actions to set the fan mode. Receives variable `preset_mode`. If `set_preset_mode` is specified, `preset_modes` must also be specified.
+      description: Defines an action or actions to set the preset mode. Receives variable `preset_mode`. If `set_preset_mode` is specified, `preset_modes` must also be specified.
       required: inclusive
       type: action
     set_swing_horizontal_mode:
-      description: Defines an action or actions to set the fan mode. Receives variable `swing_horizontal_mode`. If `set_swing_horizontal_mode` is specified, `swing_horizontal_modes` must also be specified.
+      description: Defines an action or actions to set the horizontal swing mode. Receives variable `swing_horizontal_mode`. If `set_swing_horizontal_mode` is specified, `swing_horizontal_modes` must also be specified.
       required: inclusive
       type: action
     set_swing_mode:
-      description: Defines an action or actions to set the fan mode. Receives variable `swing_mode`. If `set_fan_mode` is specified, `swing_modes` must also be specified.
+      description: Defines an action or actions to set the swing mode. Receives variable `swing_mode`. If `set_fan_mode` is specified, `swing_modes` must also be specified.
       required: inclusive
       type: action
     set_temperature:
@@ -702,21 +701,21 @@ cover:
       required: inclusive
       type: action
     swing_horizontal_mode:
-      description: Defines a template to get the fan mode of the climate. Must render a value in `swing_horizontal_modes`. If `swing_horizontal_mode` is specified, `swing_horizontal_modes` and `set_swing_horizontal_mode` must also be specified.
+      description: Defines a template to get the horizontal swing mode of the climate. Must render a value in `swing_horizontal_modes`. If `swing_horizontal_mode` is specified, `swing_horizontal_modes` and `set_swing_horizontal_mode` must also be specified.
       required: false
       type: template
       default: optimistic
     swing_horizontal_modes:
-      description: Defines a template to get the list of supported fan modes. Must render a list. If `swing_horizontal_modes` is specified, `set_swing_horizontal_mode` must also be specified.
+      description: Defines a template to get the list of supported horizontal swing modes. Must render a list. If `swing_horizontal_modes` is specified, `set_swing_horizontal_mode` must also be specified.
       required: inclusive
       type: template
     swing_mode:
-      description: Defines a template to get the fan mode of the climate. Must render a value in `swing_modes`. If `swing_mode` is specified, `swing_modes` and `set_swing_mode` must also be specified.
+      description: Defines a template to get the swing mode of the climate. Must render a value in `swing_modes`. If `swing_mode` is specified, `swing_modes` and `set_swing_mode` must also be specified.
       required: false
       type: template
       default: optimistic
     swing_modes:
-      description: Defines a template to get the list of supported fan modes. Must render a list. If `swing_modes` is specified, `set_swing_mode` must also be specified.
+      description: Defines a template to get the list of supported swing modes. Must render a list. If `swing_modes` is specified, `set_swing_mode` must also be specified.
       required: inclusive
       type: template
     target_humidity:
@@ -726,7 +725,7 @@ cover:
     target_humidity_step:
       description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be a integer between `1` and `100`.
       required: false
-      type: int
+      type: integer
     target_temperature:
       description: Defines a template to get the target temperature of the climate. If `target_temperature` is specified, `set_temperature` must also be specified.
       required: inclusive
@@ -771,7 +770,7 @@ template:
         hvac_modes: "{{ ['off', 'heat'] }}"
         current_temperature: "{{ states('sensor.living_room_temperature') }}"
         set_hvac_mode:
-          - action: switch.{{ 'on' if hvac_mode == 'heat' else 'off' }}
+          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
             target:
               entity_id: switch.living_room_heat
 ```
@@ -786,8 +785,8 @@ template:
         trigger: state
         entity_id: sensor.living_room_temperature
         not_to:
-        - unknown
-        - unavailable
+          - unknown
+          - unavailable
     actions:
       - if: "{{ trigger.id == 'temperature' }}" 
         then:
@@ -817,7 +816,7 @@ template:
         hvac_modes: "{{ ['off', 'heat'] }}"
         current_temperature: "{{ states('sensor.living_room_temperature') }}"
         set_hvac_mode:
-          - action: switch.{{ 'on' if hvac_mode == 'heat' else 'off' }}
+          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
             target:
               entity_id: switch.living_room_heat
 ```
