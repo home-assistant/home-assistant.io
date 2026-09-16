@@ -74,7 +74,9 @@ const { title, description, wide = false } = Astro.props;
     padding: 1.5rem 1rem 4rem;
   }
   main.wide {
-    max-width: 80rem;
+    /* The component browser: tiles track the window width so that
+       components laid out with viewport media queries fit. */
+    max-width: none;
   }
   h1,
   h2,

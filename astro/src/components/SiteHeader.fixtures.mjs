@@ -7,6 +7,8 @@
 // layout makes it `position: fixed` so content scrolls underneath.
 export default {
   title: "Site header",
+  // Full-width component: give it a whole row in the component browser.
+  wide: true,
   description:
     "Logo, version badge, main navigation, search mount point and the " +
     "\u201cGet started\u201d call to action. Collapses into a menu panel below 1140px.",

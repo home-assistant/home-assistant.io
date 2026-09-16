@@ -90,7 +90,10 @@ registry to update. Each tile links to a full-screen stage
 (`/astro-preview/component-preview/<name>/` on the deployed site)
 where the variants render at true viewport width, which is how
 full-width components such as the header and footer are best
-reviewed. Fixtures are pure data on purpose (no
+reviewed. Mark such a fixture `wide: true` so its tile spans a whole
+row of the browser and the demo comes close to the width of the
+window, which its media queries are written for. Fixtures are pure
+data on purpose (no
 `.astro` imports): the optional `liquid` field holds the equivalent
 Jekyll source, so the same variants can drive the Jekyll/Astro
 golden-output parity tests. The browser pages are a development aid
