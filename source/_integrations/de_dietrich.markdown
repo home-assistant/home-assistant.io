@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **De Dietrich** {% term integration %} connects Home Assistant to a Diematic boiler through a network gateway. It reads temperatures, water pressure, and other measurements over the local network, and exposes controls for the boiler's hot-water bundle.
+The **De Dietrich** {% term integration %} connects Home Assistant to a Diematic boiler through a network gateway. It reads temperatures, water pressure, and other measurements over the local network, and exposes controls for the boiler's hot water.
 
 ## Supported devices
 
@@ -83,12 +83,12 @@ Other sensors are created even when the corresponding probe is not fitted. A sen
 
 ### Water heater
 
-When the boiler has a hot-water bundle, the integration creates a single **Hot water** water heater entity for the bundle. It exposes the tank temperature and lets you change the operating mode and the day-mode target temperature.
+When the boiler supports hot water, the integration creates a single **Hot water** water heater entity. It exposes the tank temperature and lets you change the operating mode and the day-mode target temperature.
 
 - **Operating modes**: **Eco** matches the boiler's automatic mode, **Performance** matches the temporary comfort mode, and **High demand** matches the permanent comfort mode.
 - **Target temperature**: 10 to 80 °C, in 1 °C steps. The integration writes the value to the boiler's day-mode setpoint. The boiler stores a separate night-mode setpoint that can only be changed on the boiler's panel.
 
-If the boiler does not have a hot-water bundle, no water heater entity is created.
+If the boiler does not support hot water, no water heater entity is created.
 
 ## Data updates
 
