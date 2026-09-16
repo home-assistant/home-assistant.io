@@ -1,19 +1,17 @@
 ---
 title: AWS Route53
-description: Automatically update your AWS Route53 DNS records.
+description: Keep your AWS Route53 DNS records in sync with your public IP address.
 ha_category:
   - Network
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_release: 0.81
 ha_domain: route53
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
-With the **AWS Route53** {% term integration %} can you keep your AWS Route53 DNS records up to date.
+The **AWS Route53** {% term integration %} keeps DNS records in your AWS Route53 hosted zone pointed at your current public IP address, acting as a dynamic DNS updater.
 
 The integration will run every hour, but can also be started manually by using the `route53.update_records` action.
 
@@ -31,82 +29,74 @@ On the AWS side, you need to do the following;
 
 2. Once created, write down the Hosted Zone ID value for the domain. This is needed for the plugin and IAM configuration.
 
-3. Create an IAM Policy that provides update and query access to this domain explicitly and has no other permissions to the AWS account.
+3. Create an IAM policy that only grants what the integration actually uses: permission to look up the hosted zone during setup, and permission to upsert `A` records within that zone.
 
-Here is an IAM Policy sample, don't forget to update your Zone ID on the Resource line.
+Here is an IAM policy sample, don't forget to update your Zone ID on the Resource lines.
 
 ```json
 {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
+            "Sid": "AllowGetHostedZone",
             "Effect": "Allow",
-            "Action": [
-                "route53:GetHostedZone",
-                "route53:ChangeResourceRecordSets",
-                "route53:ListResourceRecordSets"
-            ],
+            "Action": "route53:GetHostedZone",
             "Resource": "arn:aws:route53:::hostedzone/YOURZONEIDGOESHERE"
         },
         {
-            "Sid": "VisualEditor1",
+            "Sid": "AllowUpsertARecords",
             "Effect": "Allow",
-            "Action": "route53:TestDNSAnswer",
-            "Resource": "*"
+            "Action": "route53:ChangeResourceRecordSets",
+            "Resource": "arn:aws:route53:::hostedzone/YOURZONEIDGOESHERE",
+            "Condition": {
+                "ForAllValues:StringEquals": {
+                    "route53:ChangeResourceRecordSetsActions": ["UPSERT"],
+                    "route53:ChangeResourceRecordSetsRecordTypes": ["A"]
+                }
+            }
         }
     ]
 }
 ```
 
-4. Once this has been done, create a new user called `homeassistant` and add the IAM policy to the user, allowing it to manage this DNS resource.
+{% note %}
+Older versions of this sample policy also granted `route53:ListResourceRecordSets` and `route53:TestDNSAnswer`. The integration doesn't call either of these, so they've been dropped in favor of the narrower policy above.
+{% endnote %}
 
-5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the integration definition YAML.
+4. Once this has been done, create a new user called `homeassistant` and add the IAM policy to the user, allowing it to manage this DNS resource. Don't set up console access or a password for this user; it only needs programmatic access.
+
+5. Under the security credentials tab for the `homeassistant` user, create a set of access keys to enter during setup of the integration. AWS generally recommends using short-lived credentials via an IAM role instead of a long-term access key, but that isn't an option for an application running outside AWS like Home Assistant; this is one of the cases where a dedicated IAM user with an access key is the accepted pattern. Treat the key as a secret, and periodically check the user's [access key last used information](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) to confirm it's still only being used the way you expect, rotating it if you ever suspect it's been exposed.
 
 ## Configuration
 
-To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-route53:
-  aws_access_key_id: ABC123
-  aws_secret_access_key: DEF456
-  zone: ZONEID678
-  domain: yourdomain.com
-  records:
-    - vpn
-    - hassio
-    - home
-```
+You will be asked for the following information during setup:
 
-{% configuration route53 %}
-aws_access_key_id:
-  description: The AWS access key ID for the account that has IAM access to the domain.
-  required: true
-  type: string
-aws_secret_access_key:
-  description: The AWS secret access key for the account that has IAM access to the domain.
-  required: true
-  type: string
-zone:
-  description: The AWS zone ID for the domain in Route53.
-  required: true
-  type: string
-domain:
-  description: The domain name for the domain in Route53.
-  required: true
-  type: string
-records:
-  description: A list of records you want to update. Use `.` to update the default record ie. *yourdomain.com*.
-  required: true
-  type: list
-ttl:
-  description: The TTL value for the DNS records.
-  required: false
-  type: integer
-  default: 300
-{% endconfiguration %}
+- **AWS Access Key ID** and **AWS Secret Access Key**: The access keys for the `homeassistant` IAM user created above.
+- **Zone**: The Hosted Zone ID for the domain in Route53.
+- **Domain**: The domain name you want to update, for example `home.yourdomain.com`.
+- **Records**: One or more records to update. Use `.` to update the domain itself instead of a subdomain.
+- **TTL**: The TTL, in seconds, to use for the DNS records. Defaults to 300 seconds.
+
+## Migrating from YAML configuration
+
+
+If you previously configured AWS Route53 using YAML in your `configuration.yaml` file, your configuration is automatically imported into the UI. To complete the migration:
+
+1. Remove the `route53` configuration from your `configuration.yaml` file.
+2. Restart Home Assistant.
+
+The integration will continue to work using the imported configuration. If the import fails, for example because of invalid AWS credentials, Home Assistant creates a repair issue guiding you to set up the integration manually.
 
 {% include integrations/actions.md %}
+
+## Known limitations
+
+The integration only manages IPv4 `A` records. The public address is looked up over IPv4, and record changes are always submitted as `A` records, so `AAAA` records for IPv6 addresses are neither created nor updated.
+
+## Removing the integration
+
+This integration follows the standard integration removal process. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
