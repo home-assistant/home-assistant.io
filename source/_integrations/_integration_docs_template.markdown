@@ -202,8 +202,6 @@ The integration does not provide the ability to reboot, which can instead be don
 
 This means the device is not currently reachable for local communication.
 
-To resolve the issue:
-
 1. Make sure your device is powered on.
 2. Make sure your device is connected to the network.
 3. Make sure local communication is enabled on the device.
@@ -216,7 +214,7 @@ To resolve the issue:
 
 1. Verify that the device appears in the manufacturer's app.
 2. Check that the device is linked to the same account or hub used during setup.
-3. Reload the integration and verify whether the device appears.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **My integration** integration, then select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**. Verify whether the device appears.
 
 {% enddetails %}
 
