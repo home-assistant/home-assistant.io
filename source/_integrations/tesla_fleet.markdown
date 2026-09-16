@@ -176,8 +176,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Binary sensor  | Preconditioning                            | No      |
 | Binary sensor  | Rear driver door                           | Yes     |
 | Binary sensor  | Rear driver window                         | Yes     |
-| Binary sensor  | Rear passenger door                        | Yes     |
-| Binary sensor  | Rear passenger window                      | Yes     |
+| Binary sensor  | Rear passenger door                       | Yes     |
+| Binary sensor  | Rear passenger window                     | Yes     |
 | Binary sensor  | Scheduled charging pending                 | No      |
 | Binary sensor  | Status                                     | Yes     |
 | Binary sensor  | Tire pressure warning front left           | No      |
@@ -262,7 +262,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Binary sensor | Grid services enabled          | Yes     |
 | Binary sensor | Storm watch active             | Yes     |
 | Number        | Backup reserve                 | Yes     |
-| Number        | Off grid reserve               | Yes     |
+| Number        | Off grid reserve               | No      |
 | Select        | Allow export                   | Yes     |
 | Select        | Operation mode                 | Yes     |
 | Sensor        | Battery power                  | Yes     |
@@ -312,15 +312,15 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 
 ## Troubleshooting
 
-### Tesla Developer Portal does not continue after selecting Next
+### Tesla Developer Dashboard does not continue after selecting **Next**
 
 #### Symptom
 
-When configuring **Client Details** in the Tesla Developer Portal, selecting **Next** does not continue to the next step and no validation error is shown.
+When configuring **Client Details** in the Tesla Developer Dashboard, selecting **Next** does not continue to the next step and no validation error is shown.
 
 #### Resolution
 
-Tesla may reject the configured origin domain without displaying a validation error. Try a different origin domain or an external hosting service such as [FleetKey.net](https://fleetkey.net).
+Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses a `ddns.net` hostname, use a domain outside `ddns.net` instead. If you do not have another suitable domain, use an external hosting service such as [FleetKey](https://fleetkey.net).
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
