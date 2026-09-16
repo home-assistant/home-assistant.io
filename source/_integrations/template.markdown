@@ -308,7 +308,7 @@ alarm_control_panel:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `code_format`, `changed_by`, and `code_arm_required`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -379,7 +379,7 @@ binary_sensor:
     attributes:
       description: Defines templates for attributes of the entity.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -542,7 +542,7 @@ button:
     attributes:
       description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -553,6 +553,273 @@ button:
       required: true
       type: action
 {% endconfiguration %}
+
+## Climate
+
+The template climate platform allows you to create a climate with templates to define the state and scripts to define each action.
+
+Climate entities can be created from the frontend in the Helpers section or via YAML.
+
+{% configuration_basic %}
+Name:
+  description: The name of the climate.
+  required: true
+Current temperature:
+  description: A template for the climate's current temperature.
+  required: false
+HVAC action:
+  description: A template for the climate's current HVAC action. Only `cooling`, `defrosting`, `drying`, `fan`, `heating`, `idle`, `off`, and `preheating` are recognized.
+  required: false
+HVAC mode:
+  description: A template for the climate's state. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized.
+  required: false
+HVAC modes:
+  description: A template for the climate's available HVAC modes. The template expects a list of HVAC modes. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list.
+  required: false
+Actions on set HVAC mode:
+  description: The action or actions run when a climate's HVAC mode change is requested.
+  required: false
+Actions on temperature:
+  description: The action or actions run when a climate's target temperature change is requested.
+  required: false
+Target temperature:
+  description: A template for the climate's target temperature.
+  required: false
+Temperature unit:
+  description: The unit the target temperature template's output is in. One of **°C**, **°F**, or **K**.
+  required: false
+Device:
+  description: An existing device to attach this helper to.
+  required: false
+Availability template:
+  description: A template that gets the available state of the entity.
+  required: false
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration climate %}
+cover:
+  description: Characteristics of a climate
+  type: map
+  keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `current_humidity`, `current_temperature`, `fan_mode`, `fan_modes`, `humidity`, `hvac_action`, `hvac_modes`, `max_humidity`, `max_temp`, `min_humidity`, `min_temp`, `preset_mode`, `preset_modes`, `swing_horizontal_mode`, `swing_horizontal_modes`, `swing_mode`, `swing_modes`, `target_humidity_step`, `target_temp_high`, `target_temp_low`, `target_temp_step` and `temperature`,.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    current_humidity:
+      description: Defines a template to get the current humidity of the climate.
+      required: false
+      type: template
+    current_temperature:
+      description: Defines a template to get the current temperature of the climate.
+      required: false
+      type: template
+    fan_mode:
+      description: Defines a template to get the fan mode of the climate. Must render a value in `fan_modes`. If `fan_mode` is specified, `fan_modes` and `set_fan_mode` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    fan_modes:
+      description: Defines a template to get the list of supported fan modes. Must render a list. If `fan_modes` is specified, `set_fan_mode` must also be specified.
+      required: inclusive
+      type: template
+    hvac_action:
+      description: Defines a template to get the HVAC action of the climate. Only `cooling`, `defrosting`, `drying`, `fan`, `heating`, `idle`, `off`, and `preheating` are recognized.
+      required: false
+      type: template
+    hvac_mode:
+      description: Defines a template to get the HVAC mode of the climate. Must render a value in `fan_modes`. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list. Result must be an option in `hvac_modes`.
+      required: false
+      type: template
+      default: optimistic
+    hvac_modes:
+      description: Defines a template to get the list of supported HVAC modes. The template expects a list of HVAC modes. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list.
+      required: true
+      type: template
+    max_humidity:
+      description: The climate's maximum humidity.
+      required: false
+      type: integer
+    max_temperature:
+      description: The climate's maximum temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    min_humidity:
+      description: The climate's minimum humidity.
+      required: false
+      type: integer
+    min_temperature:
+      description: The climate's minimum temperature. Unit is defined with `temperature_unit`.
+      required: false
+      type: float
+    precision:
+      description: The climate's temperature precision. Only `0.5`, `0.1`, and `1` are recognized.
+      required: false
+      type: float
+    preset_mode:
+      description: Defines a template to get the preset mode of the climate. Must render a value in `preset_modes`. If `preset_mode` is specified, `preset_modes` and `set_preset_mode` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    preset_modes:
+      description: Defines a template to get the list of supported preset modes. Must render a list. If `preset_modes` is specified, `set_preset_mode` must also be specified.
+      required: inclusive
+      type: template
+    set_fan_mode:
+      description: Defines an action or actions to set the fan mode. Receives variable `fan_mode`. If `set_fan_mode` is specified, `fan_modes` must also be specified.
+      required: inclusive
+      type: action
+    set_humidity:
+      description: Defines an action or actions to set the target humidity. Receives variable `humidity`. If `target_humidity_step` is specified, `humidity` is rounded to the nearest `target_humidity_step`.
+      required: inclusive
+      type: action
+    set_hvac_mode:
+      description: Defines an action or actions to set the HVAC mode. Receives variable `hvac_mode`.
+      required: true
+      type: action
+    set_preset_mode:
+      description: Defines an action or actions to set the preset mode. Receives variable `preset_mode`. If `set_preset_mode` is specified, `preset_modes` must also be specified.
+      required: inclusive
+      type: action
+    set_swing_horizontal_mode:
+      description: Defines an action or actions to set the horizontal swing mode. Receives variable `swing_horizontal_mode`. If `set_swing_horizontal_mode` is specified, `swing_horizontal_modes` must also be specified.
+      required: inclusive
+      type: action
+    set_swing_mode:
+      description: Defines an action or actions to set the swing mode. Receives variable `swing_mode`. If `set_fan_mode` is specified, `swing_modes` must also be specified.
+      required: inclusive
+      type: action
+    set_temperature:
+      description: Defines an action or actions to set the target temperatures. Receives variables `temperature`, `target_temp_high` and `target_temp_low` when enabled. If `target_temperature_step` is specified, `temperature`, `target_temp_high` and `target_temp_low` are rounded to the nearest `target_temperature_step`.
+      required: inclusive
+      type: action
+    swing_horizontal_mode:
+      description: Defines a template to get the horizontal swing mode of the climate. Must render a value in `swing_horizontal_modes`. If `swing_horizontal_mode` is specified, `swing_horizontal_modes` and `set_swing_horizontal_mode` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    swing_horizontal_modes:
+      description: Defines a template to get the list of supported horizontal swing modes. Must render a list. If `swing_horizontal_modes` is specified, `set_swing_horizontal_mode` must also be specified.
+      required: inclusive
+      type: template
+    swing_mode:
+      description: Defines a template to get the swing mode of the climate. Must render a value in `swing_modes`. If `swing_mode` is specified, `swing_modes` and `set_swing_mode` must also be specified.
+      required: false
+      type: template
+      default: optimistic
+    swing_modes:
+      description: Defines a template to get the list of supported swing modes. Must render a list. If `swing_modes` is specified, `set_swing_mode` must also be specified.
+      required: inclusive
+      type: template
+    target_humidity:
+      description: Defines a template to get the target humidity of the climate. If `target_humidity` is specified, `set_humidity` must also be specified.
+      required: false
+      type: template
+    target_humidity_step:
+      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be an integer between `1` and `100`.
+      required: false
+      type: integer
+    target_temperature:
+      description: Defines a template to get the target temperature of the climate. If `target_temperature` is specified, `set_temperature` must also be specified.
+      required: inclusive
+      type: template
+    target_temperature_high:
+      description: Defines a template to get the high target temperature of the climate. If `target_temperature_high` is specified, `target_temperature_low` and `set_temperature` must also be specified.
+      required: inclusive
+      type: template
+    target_temperature_low:
+      description: Defines a template to get the low target temperature of the climate. If `target_temperature_low` is specified, `target_temperature_high` and `set_temperature` must also be specified.
+      required: inclusive
+      type: template
+    target_temperature_step:
+      description: Round the `target_temperature`, `target_temperature_high` and `target_temperature_low` to the nearest `target_temperature_step`. Must be a number above `0.1`.
+      required: false
+      type: float
+    temperature_unit:
+      description: Unit for `current_temperature`, `target_temperature`, `target_temperature_high` and `target_temperature_low` output. Valid options are `°C`, `°F`, and `K`.
+      required: false
+      type: string
+{% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - climate:
+      - name: Living Room Thermostat
+        hvac_action: >
+          {% if is_state('switch.living_room_heat', 'on') %}
+            heating
+          {% else %}
+            off
+          {% endif %}
+        hvac_mode: >
+          {% if is_state('switch.living_room_heat', 'on') %}
+            heat
+          {% else %}
+            off
+          {% endif %}
+        hvac_modes: "{{ ['off', 'heat'] }}"
+        current_temperature: "{{ states('sensor.living_room_temperature') }}"
+        set_hvac_mode:
+          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
+            target:
+              entity_id: switch.living_room_heat
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: switch.living_room_heat
+      - id: temperature
+        trigger: state
+        entity_id: sensor.living_room_temperature
+        not_to:
+          - unknown
+          - unavailable
+    actions:
+      - if: "{{ trigger.id == 'temperature' }}" 
+        then:
+          - if: "{{ trigger.to_state.state | float < 20 }}"
+            then:
+              - action: switch.turn_on
+                target:
+                  entity_id: switch.living_room_heat
+            else:
+              - action: switch.turn_off
+                target:
+                  entity_id: switch.living_room_heat
+    climate:
+      - name: Living Room Thermostat
+        hvac_action: >
+          {% if is_state('switch.living_room_heat', 'on') %}
+            heating
+          {% else %}
+            off
+          {% endif %}
+        hvac_mode: >
+          {% if is_state('switch.living_room_heat', 'on') %}
+            heat
+          {% else %}
+            off
+          {% endif %}
+        hvac_modes: "{{ ['off', 'heat'] }}"
+        current_temperature: "{{ states('sensor.living_room_temperature') }}"
+        set_hvac_mode:
+          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
+            target:
+              entity_id: switch.living_room_heat
+```
 
 ## Cover
 
@@ -600,7 +867,7 @@ cover:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -768,7 +1035,7 @@ device_tracker:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `tracking_type`, `source_type`, `in_zones`, `latitude`, `longitude`, and `gps_accuracy`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -940,7 +1207,7 @@ fan:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1148,7 +1415,7 @@ image:
     attributes:
       description: Defines templates for attributes of the entity. The `access_token` attribute is not allow inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1338,7 +1605,7 @@ light:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1626,7 +1893,7 @@ lock:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `changed_by` and `code_format`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1801,7 +2068,7 @@ number:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -1912,7 +2179,7 @@ select:
     attributes:
       description: Defines templates for attributes of the entity. The `options` attribute is not allow inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2005,7 +2272,7 @@ sensor:
     attributes:
       description: Defines templates for attributes of the entity.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2079,6 +2346,44 @@ template:
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_up_speed') | float * 1024 }}"
         availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
+```
+
+### State based sensor - Reduce attribute template repetition
+
+To avoid repeating the same template in multiple attributes, you can template the entire `attributes` field.
+
+#### Before
+
+```yaml
+template:
+  - sensor:
+      - name: "Light Diagnostics"
+        state: "{{ states.light | count }}"
+        attributes:
+          outside_lights: >
+            {{ states.light | map(attribute='entity_id') | match('search', '*outside') | list }}
+          lights_on: >
+            {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'on') | list }}
+          lights_off: >
+            {{ states.light | map(attribute='entity_id') | match('search', '*outside') | select('is_state', 'off') | list }}
+```
+
+#### After
+
+```yaml
+template:
+  - sensor:
+      - name: "Light Diagnostics"
+        state: "{{ states.light | count }}"
+        attributes: >
+          {% set lights = states.light | map(attribute='entity_id') | match('search', '*outside') | list %}
+          {{
+            {
+              "outside_lights": lights,
+              "lights_on": lights | select('is_state', 'on') | list,
+              "lights_off": lights | select('is_state', 'off') | list,
+            }
+          }}
 ```
 
 ### Trigger based sensor - Using conditions to control updates
@@ -2171,7 +2476,7 @@ switch:
     attributes:
       description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2315,7 +2620,7 @@ update:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `auto_update`, `display_precision`, `installed_version`, `in_progress`, `latest_version`, `release_summary`, `release_url`, `skipped_version`, `title`, `update_percentage`, and `device_class`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2427,7 +2732,7 @@ vacuum:
     attributes:
       description: Defines templates for attributes of the entity.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.
@@ -2598,7 +2903,7 @@ weather:
       description: >
         Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `temperature`, `apparent_temperature`, `dew_point`, `temperature_unit`, `humidity`, `ozone`, `cloud_coverage`, `uv_index`, `pressure`, `pressure_unit`, `wind_bearing`, `wind_gust_speed`, `wind_speed`, `wind_speed_unit`, `visibility`, `visibility_unit`, and `precipitation_unit`.
       required: false
-      type: map
+      type: [map, template]
       keys:
         "attribute: template":
           description: The attribute and corresponding template.

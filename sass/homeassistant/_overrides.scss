@@ -693,6 +693,15 @@ header .breadcrumbs {
       }
     }
 
+    .analytics-notice {
+      max-width: 30rem;
+      text-wrap: balance;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
     ul {
       margin: 0;
       list-style: none;

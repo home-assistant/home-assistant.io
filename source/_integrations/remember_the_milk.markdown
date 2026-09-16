@@ -2,6 +2,7 @@
 title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
 ha_category:
+  - Calendar
   - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 0.57
@@ -11,6 +12,8 @@ ha_config_flow: true
 ha_platforms:
   - todo
 ha_quality_scale: legacy
+ha_platforms:
+  - todo
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation

@@ -33,6 +33,7 @@ ha_platforms:
   - image
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum

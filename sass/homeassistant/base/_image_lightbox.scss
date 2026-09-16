@@ -21,6 +21,23 @@ article.post {
   outline-offset: -3px;
 }
 
+.pswp__caption {
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 0.95rem;
+  inset: auto 0 0;
+  line-height: 1.5;
+  padding: 2rem 1rem 1rem;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.pswp__caption[hidden] {
+  display: none;
+}
+
 .pswp--click-to-zoom.pswp--zoomed-in .pswp__img,
 .pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
   cursor: zoom-out;

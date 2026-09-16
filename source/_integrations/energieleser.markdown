@@ -15,13 +15,14 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
 ---
 
-The energieleser {% term integration %} fetches real-time consumption data reported by energieleser devices, such as stromleser.one, gasleser, wasserleser, and wärmeleser, using local HTTP API.
+The energieleser {% term integration %} fetches real-time consumption data reported by energieleser devices, such as stromleser.one, gasleser, gasleser.pulse, wasserleser, and wärmeleser, using local HTTP API.
 
 [energieleser](https://energieleser.de/) is a brand by nineti GmbH, a German company offering smart readers for utility meters.
 
@@ -31,6 +32,7 @@ The integration supports the following energieleser devices:
 
 - **stromleser.one** (electricity meter reader)
 - **gasleser** (gas meter reader)
+- **gasleser.pulse** (gas meter reader, pulse-counting variant)
 - **wasserleser** (water meter reader)
 - **wärmeleser** (heat meter reader)
 
@@ -61,6 +63,15 @@ The energieleser integration primarily provides the following features based on 
 - **Phase power**: Current active power for Phase 1, Phase 2, and Phase 3 (W)
 
 ### gasleser
+
+- **Total gas**: Total gas volume measured by the meter (m³)
+- **Gas flow rate**: Current gas flow rate (m³/h)
+
+#### Diagnostic sensors
+
+- **Pulse count**: Total number of pulses detected by the meter.
+
+### gasleser.pulse
 
 - **Total gas**: Total gas volume measured by the meter (m³)
 - **Gas flow rate**: Current gas flow rate (m³/h)

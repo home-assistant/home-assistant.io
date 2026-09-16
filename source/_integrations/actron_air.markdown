@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 2025.11
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@kclif9'

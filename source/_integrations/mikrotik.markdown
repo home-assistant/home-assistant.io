@@ -13,6 +13,7 @@ ha_category:
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
+  - '@chemelli74'
 ha_config_flow: true
 ha_domain: mikrotik
 ha_iot_class: Local Polling
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - button
   - device_tracker
+  - diagnostics
   - select
   - sensor
   - switch
