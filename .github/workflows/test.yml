@@ -57,15 +57,15 @@ jobs:
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
-          cache: "npm"
-          cache-dependency-path: astro/package-lock.json
       - name: Install dependencies
-        run: npm ci
+        run: corepack pnpm install --frozen-lockfile
         working-directory: astro
         env:
           CI: true
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
       - name: Build Astro site
-        run: npm run build
+        run: corepack pnpm run build
         working-directory: astro
         env:
           ASTRO_TELEMETRY_DISABLED: "1"
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"

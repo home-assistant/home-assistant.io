@@ -47,14 +47,17 @@ too. Remove both at cutover.
 
 ## Commands
 
+The Astro workspace uses [pnpm](https://pnpm.io), pinned by the
+`packageManager` field in `package.json` and provided through
+Corepack — run `corepack enable` once if `pnpm` is not on your path.
 Run these from the `astro/` directory (requires Node.js >= 22.12):
 
-| Command           | Action                                       |
-| ----------------- | -------------------------------------------- |
-| `npm ci`          | Install dependencies                         |
-| `npm run dev`     | Start the dev server at `localhost:4321`     |
-| `npm run build`   | Build the site to `astro/dist/`              |
-| `npm run preview` | Serve the built site locally                 |
+| Command                           | Action                                   |
+| --------------------------------- | ---------------------------------------- |
+| `pnpm install`                    | Install dependencies                     |
+| `pnpm run dev`                    | Start the dev server at `localhost:4321` |
+| `pnpm run build`                  | Build the site to `astro/dist/`          |
+| `pnpm run preview`                | Serve the built site locally             |
 
 ## Ground rules
 

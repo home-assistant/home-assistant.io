@@ -8,7 +8,7 @@
     }
   },
   "appPort": [4000],
-  "onCreateCommand": "bundle install && npm install && npm --prefix astro ci",
+  "onCreateCommand": "bundle install && npm install && corepack enable && cd astro && pnpm install",
   "containerEnv": { 
     "DEVCONTAINER": "true",
     "BUNDLE_PATH": "vendor/bundle"
