@@ -170,9 +170,9 @@ The integration creates one device per thermostat with a single {% term entity %
 ### Climate
 
 - **Current temperature**: the room temperature measured by the thermostat.
-- **Target temperature**: the setpoint, from 8 °C to 28 °C in steps of 0.5 °C.
+- **Target temperature**: the setpoint, from 8°C to 28°C in steps of 0.5°C.
 - **HVAC modes**:
-  - **Heat**: the thermostat regulates to the target temperature. Turning the thermostat on restores the last target temperature it was heating to, or 20 °C if none is known yet.
+  - **Heat**: the thermostat regulates to the target temperature. Turning the thermostat on restores the last target temperature it was heating to, or 16°C if none is known yet.
   - **Off**: the valve is closed.
 
 Setting a target temperature while the thermostat is off turns it on.
