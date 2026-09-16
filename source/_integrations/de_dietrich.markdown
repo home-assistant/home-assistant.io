@@ -77,7 +77,7 @@ The integration provides up to 11 read-only sensors:
 
 Temperature readings use degrees Celsius. Home Assistant can display them in your preferred temperature unit. **Flue gas temperature**, **Boiler temperature target**, **Fan speed**, and **Ionization current** are diagnostic sensors that are disabled by default. Enable them from the entity's settings if you need them.
 
-A heating circuit is a separately controlled part of the heating system. Each circuit can serve one room or several rooms. The circuit room-temperature sensors only appear when the boiler reports a room-temperature value for that circuit. A circuit without a room sensor fitted, or one the boiler has not been configured to report on, does not get a sensor.
+A heating circuit is a separately controlled part of the heating system. Each circuit can serve one room or several rooms. The circuit room-temperature sensor only appears when the boiler reports at least one live reading for that circuit. A circuit with no readings configured on the boiler does not get a sensor.
 
 Other sensors are created even when the corresponding probe is not fitted. A sensor can show **Unknown** when the controller does not provide a value.
 
