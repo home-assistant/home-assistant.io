@@ -176,8 +176,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Binary sensor  | Preconditioning                            | No      |
 | Binary sensor  | Rear driver door                           | Yes     |
 | Binary sensor  | Rear driver window                         | Yes     |
-| Binary sensor  | Rear passenger door                       | Yes     |
-| Binary sensor  | Rear passenger window                     | Yes     |
+| Binary sensor  | Rear passenger door                        | Yes     |
+| Binary sensor  | Rear passenger window                      | Yes     |
 | Binary sensor  | Scheduled charging pending                 | No      |
 | Binary sensor  | Status                                     | Yes     |
 | Binary sensor  | Tire pressure warning front left           | No      |
@@ -262,7 +262,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Binary sensor | Grid services enabled          | Yes     |
 | Binary sensor | Storm watch active             | Yes     |
 | Number        | Backup reserve                 | Yes     |
-| Number        | Off grid reserve               | No      |
+| Number        | Off grid reserve               | Yes     |
 | Select        | Allow export                   | Yes     |
 | Select        | Operation mode                 | Yes     |
 | Sensor        | Battery power                  | Yes     |
