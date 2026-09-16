@@ -28,7 +28,7 @@ You can use this {% term integration %} to control your thermostats and read the
 Read this before you buy or reconfigure anything:
 
 - **The thermostats need your own MQTT broker.** Out of the box they only talk to the manufacturer's cloud. Each thermostat has to be reconfigured once, with the [`comet-wifi-communicator`](https://pypi.org/project/comet-wifi-communicator/) setup tool, to use a broker in your network instead. See [Setting up the thermostats](#setting-up-the-thermostats).
-- **The Mosquitto broker add-on cannot accept the thermostats directly.** The thermostats connect anonymously, without a username or password, and the add-on refuses anonymous clients by design. You need separate broker that allows for anonymous connections. It can be bridged into the add-on, so Home Assistant keeps using its existing broker. See [Setting up the broker](#setting-up-the-broker).
+- **The Mosquitto broker app cannot accept the thermostats directly.** The thermostats connect anonymously, without a username or password, and the app refuses anonymous clients by design. You need a separate broker that allows for anonymous connections. It can be bridged into the app, so Home Assistant keeps using its existing broker. See [Setting up the broker](#setting-up-the-broker).
 - **A reconfigured thermostat no longer works with the Eurotronic Smart Living app.** Schedules made in the app are lost. To go back to the app, reset the thermostat and set it up with the app again.
 {% endimportant %}
 
@@ -39,21 +39,21 @@ Read this before you buy or reconfigure anything:
 ## Prerequisites
 
 1. The [MQTT](/integrations/mqtt/) integration is set up and connected to a broker.
-2. A broker that allows for anonymous connection, reachable from Home Assistant's broker. See [Setting up the broker](#setting-up-the-broker).
+2. A broker that allows for anonymous connections, reachable from Home Assistant's broker. See [Setting up the broker](#setting-up-the-broker).
 3. Each thermostat is reconfigured with the [`comet-wifi-communicator`](https://pypi.org/project/comet-wifi-communicator/) setup tool. See [Setting up the thermostats](#setting-up-the-thermostats).
 4. The MAC address of each thermostat. Either see the output of the setup tool or look it up in your router after the thermostat is connected.
 
 ### Setting up the broker
 
-The thermostats cannot authenticate, so they need a broker that accepts anonymous connections. Unfortunately, the Mosquitto broker add-on does not allow this by design. There are two ways to solve this. Be aware of the security implications!
+The thermostats cannot authenticate, so they need a broker that accepts anonymous connections. Unfortunately, the Mosquitto broker app does not allow this by design. There are two ways to solve this. Be aware of the security implications.
 
-#### Option 1: Bridge a second broker into the Mosquitto add-on (recommended)
+#### Option 1: Bridge a second broker into the Mosquitto app (recommended)
 
-Keep the Mosquitto broker add-on for Home Assistant and everything else, and run a second, minimal Mosquitto broker for the thermostats only. That broker forwards the thermostat topics (`01/#`) to the add-on in both directions, as a **bridge**. Home Assistant and your other MQTT devices stay untouched.
+Keep the Mosquitto broker app for Home Assistant and everything else, and run a second, minimal Mosquitto broker for the thermostats only. That broker forwards the thermostat topics (`01/#`) to the app in both directions, as a **bridge**. Home Assistant and your other MQTT devices stay untouched.
 
 The second broker has to run somewhere in your network: a Docker container on a NAS or any always-on computer, or a separate small board like a Raspberry Pi Zero. Home Assistant OS cannot run it itself.
 
-1. Setup the Home Assistant Mosquitto Add-on (**{% my supervisor_apps title="Settings > Apps" %}**).
+1. Set up the Home Assistant Mosquitto app (**{% my supervisor_apps title="Settings > Apps" %}**).
 2. Go to **{% my supervisor_apps title="Settings > Apps" %}**, select the Mosquitto broker and go to Configuration. Under logins, add another login, for example `comet_bridge`.
 3. On the second broker (the one running on another device) the exact configuration depends on the choice of broker and installation method. For the Docker version of mosquitto, create a folder with the following two config files:
 
@@ -94,23 +94,15 @@ The second broker has to run somewhere in your network: a Docker container on a 
 
 #### Option 2: Use one anonymous broker for everything
 
-If you do not use the Mosquitto broker add-on, run a single Mosquitto broker that accepts the thermostats anonymously, and point the [MQTT](/integrations/mqtt/) integration at it.
+If you do not use the Mosquitto broker app, run a single Mosquitto broker that accepts the thermostats anonymously, and point the [MQTT](/integrations/mqtt/) integration at it.
 
 `mosquitto.conf`:
 
 ```text
 listener 1883
 allow_anonymous true
-acl_file /mosquitto/config/acl
 persistence true
 persistence_location /mosquitto/data/
-```
-
-`acl`:
-
-```text
-# Anonymous clients may only use the thermostat topics
-topic readwrite 01/#
 ```
 
 #### Security notes
@@ -132,7 +124,7 @@ Reconfiguring the thermostat is not a documented function of the device, and a r
 1. Run the setup tool once to fetch it with internet connection:
 
    ```bash
-   pipx run comet-wifi-communicator setup --
+   pipx run comet-wifi-communicator setup --help
    ```
 
 2. Reset the thermostat. This erases everything stored on it, including schedules.
@@ -196,8 +188,8 @@ The integration relies on the [MQTT](/integrations/mqtt/) integration for the co
 The thermostat did not answer on the broker within a few seconds. Check, in this order:
 
 1. The thermostat is on your Wi-Fi network: it shows the Wi-Fi symbol steadily, and your router lists it.
-2. The thermostat reaches the anonymous broker. Subscribe to `01/#` on that broker, for example with `mosquitto_sub -h BROKER_IP -t '01/#' -v`. Messages on appear when the thermostat connects and then from time to time. If nothing appears, reconfigure the thermostat with the setup tool and check that you used the anonymous broker's IP address.
-3. The messages also arrive on the broker Home Assistant uses. With the bridge from option 1, subscribe on the Mosquitto add-on with a Home Assistant user. If nothing arrives there, check the bridge settings, the bridge user's password, and the add-on's log.
+2. The thermostat reaches the anonymous broker. Subscribe to `01/#` on that broker, for example with `mosquitto_sub -h BROKER_IP -t '01/#' -v`. Messages appear when the thermostat connects and then from time to time. If nothing appears, reconfigure the thermostat with the setup tool and check that you used the anonymous broker's IP address.
+3. The messages also arrive on the broker Home Assistant uses. With the bridge from option 1, subscribe on the Mosquitto broker app with a valid user. If nothing arrives there, check the bridge settings, the bridge user's password, and the apps's log.
 4. The MAC address you entered is the one from the topics.
 
 ### The thermostat becomes unavailable
