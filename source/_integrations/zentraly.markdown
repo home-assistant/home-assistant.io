@@ -3,14 +3,14 @@ title: Zentraly
 description: Instructions on how to integrate Zentraly devices with Home Assistant.
 ha_category:
   - Climate
-ha_release: 2026.10
+ha_release: "2026.10"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_zeroconf: true
 ha_codeowners:
   - '@zentralySAU'
 ha_domain: zentraly
-ha_integration_type: hub
+ha_integration_type: device
 ha_platforms:
   - climate
 ha_quality_scale: bronze
@@ -33,21 +33,18 @@ Before setting up the integration:
 5. Make sure the Zentraly device is reachable from the Home Assistant host.
 6. Get the device password from the **About device** section in the Zentraly app. You need this password during setup.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Home Assistant discovers the thermostat automatically on your local network. To finish setting it up:
+{% note %}
+Zentraly requires automatic discovery before setup. The manual configuration steps above cannot add an undiscovered thermostat, and entering an IP address is not supported. If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network.
+{% endnote %}
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**.
-3. Enter the device password from the **About device** section in the Zentraly app.
-4. Submit the form. Home Assistant verifies the connection and password before adding the thermostat.
+Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**. Enter the device password from the **About device** section in the Zentraly app and submit the form. Home Assistant verifies the connection and password before adding the thermostat.
 
 {% configuration_basic %}
 Password:
   description: "The device password shown in the Zentraly app. This is not your Zentraly account password."
 {% endconfiguration_basic %}
-
-The thermostat must be discovered before you can add it. Adding a thermostat manually by entering its IP address is not supported. If it does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network.
 
 ## Supported devices
 
