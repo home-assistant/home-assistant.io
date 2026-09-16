@@ -67,7 +67,7 @@ The SmartHub host name does not resolve, or the SmartHub port is unreachable. Sw
 
 This is a coordinator timeout—the SmartHub is no longer responding. Power-cycle the SmartHub and reload the integration. If it recovers within the next 10-second heartbeat, no further action is needed.
 
-To capture more detail, enable debug logging from the integration entry's menu, or add the following to your {% term "`configuration.yaml`" %} file:
+To capture more detail, [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for the integration to reproduce the problem, then download the log.
 
 ```yaml
 logger:
