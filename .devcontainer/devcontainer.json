@@ -13,6 +13,9 @@
     "DEVCONTAINER": "true",
     "BUNDLE_PATH": "vendor/bundle"
   },
+  "remoteEnv": {
+    "PATH": "${containerWorkspaceFolder}/node_modules/.bin:${containerEnv:PATH}"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
