@@ -5,34 +5,28 @@ Home Assistant website. The website is being migrated from Jekyll to
 Astro incrementally: both stacks build the site during the migration,
 and pages move over section by section.
 
-**Nothing in this directory is served on www.home-assistant.io yet.**
-Both stacks build on every deploy (`rake generate` runs the Astro
-build after the Jekyll build) and in CI, but the deployed site is
-still produced by Jekyll. A failed Astro build fails deploy previews
-and CI; on production deploys it only warns, so it cannot block
-publishing the Jekyll site while the Astro output is unused. Serving
-logic (routing individual pages to their Astro version) lands in a
-later change and makes the build fatal everywhere.
+**No routes are served from this directory on www.home-assistant.io
+yet.** Both stacks build on every deploy (`rake generate` runs the
+Astro build after the Jekyll build) and in CI, but every page on the
+website is still produced by Jekyll. A failed Astro build fails
+deploy previews and CI; on production deploys it only warns, so it
+cannot block publishing the Jekyll site. Serving logic (routing
+individual pages to their Astro version) lands in a later change and
+makes the build fatal everywhere.
 
-On Netlify deploy previews (never in production), the Astro output is
-browsable at `<deploy-preview-url>/astro-preview/` — for example,
-`/astro-preview/help/`. Internal links on those pages point at the
-site root, so following them leads back to the Jekyll-built pages.
+The Astro output is browsable on every deploy, production included,
+at `/astro-preview/` — for example,
+[www.home-assistant.io/astro-preview/help/](https://www.home-assistant.io/astro-preview/help/).
+It is not linked from anywhere, and the website's `_headers` file
+marks the whole path `noindex` so it never appears in search engines.
+Internal links on those pages point at the site root, so following
+them leads back to the Jekyll-built pages.
 
-There is also a standalone Netlify site that builds and serves only
-the Astro output, with no Jekyll involved:
-<https://home-assistant-astro.netlify.app>. It serves `astro/dist`
-as its site root, so only the sections built by Astro exist there —
-for example, [/help/](https://home-assistant-astro.netlify.app/help/).
-The site root returns a 404 until the home page is migrated.
-
-Every deploy of the Astro build stays out of search engines until it
-becomes the published website: deploy previews already serve a
-deny-all `robots.txt`, and `astro/public/` ships a `_headers` file
-that sends `X-Robots-Tag: noindex` on every response, covering
-standalone deploys of `astro/dist` (such as the Astro preview site).
-Crawling is deliberately not blocked there, so crawlers fetch each
-page and see the header. Remove the `_headers` file at cutover.
+Standalone deploys of `astro/dist` as a site root are covered by
+their own noindex rule: `astro/public/` ships a `_headers` file that
+sends `X-Robots-Tag: noindex` on every response. Crawling is
+deliberately not blocked, so crawlers fetch each page and see the
+header. Remove that file at cutover.
 
 ## How it works
 
