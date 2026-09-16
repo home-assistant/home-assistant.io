@@ -1,0 +1,28 @@
+---
+// Placeholder layout for the migration scaffold. The real page chrome
+// (header, navigation, footer, styles ported from `sass/`) lands in a
+// follow-up change; nothing rendered with this layout is served on the
+// website yet.
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The Astro build is not the published website yet: keep every
+         page out of search engines regardless of where it is served.
+         Remove (or make conditional) at cutover, together with the
+         noindex rules in _headers. -->
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <main>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </body>
+</html>
