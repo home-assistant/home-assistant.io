@@ -72,7 +72,7 @@ The integration supports:
 - Off mode
 - Away preset
 
-Changing the target temperature from Home Assistant puts the thermostat into manual mode.
+Changing the target temperature from Home Assistant puts the thermostat into manual mode. If a `climate.set_temperature` action also specifies `hvac_mode`, the integration applies that mode after setting the temperature.
 
 When the Away preset is selected, the thermostat reports its configured Away temperature as the target temperature, which Home Assistant displays. The climate entity does not provide a control for changing the configured Away temperature.
 
