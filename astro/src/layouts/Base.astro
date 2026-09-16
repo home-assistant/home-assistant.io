@@ -16,6 +16,18 @@ const { title, description, wide = false } = Astro.props;
          Remove (or make conditional) at cutover, together with the
          noindex rules in _headers. -->
     <meta name="robots" content="noindex" />
+    <script is:inline>
+      // Netlify serves directory pages with and without a trailing
+      // slash. Relative links only resolve correctly with one, so
+      // normalize the address without a reload.
+      if (!location.pathname.endsWith("/")) {
+        history.replaceState(
+          null,
+          "",
+          `${location.pathname}/${location.search}${location.hash}`,
+        );
+      }
+    </script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
   </head>

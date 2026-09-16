@@ -24,6 +24,18 @@ const { name, description, variants, Component, path } = entry;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Development aid inside the Astro build preview: never index. -->
     <meta name="robots" content="noindex" />
+    <script is:inline>
+      // Netlify serves directory pages with and without a trailing
+      // slash. Relative links (the "All components" link above) only
+      // resolve correctly with one, so normalize without a reload.
+      if (!location.pathname.endsWith("/")) {
+        history.replaceState(
+          null,
+          "",
+          `${location.pathname}/${location.search}${location.hash}`,
+        );
+      }
+    </script>
     <title>{name} — component preview</title>
   </head>
   <body>
