@@ -290,7 +290,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor        | Solar generated                | Yes     |
 | Sensor        | Solar power                    | Yes     |
 | Sensor        | Total pack energy              | No      |
-| Sensor        | Version                        | Yes     |
 | Sensor        | VPP backup reserve             | Yes     |
 | Switch        | Allow charging from grid       | Yes     |
 | Switch        | Storm watch                    | Yes     |
@@ -318,6 +317,7 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 
 ## Troubleshooting
 
+- **Tesla Developer Portal does not continue after selecting Next**: Tesla may reject the configured origin domain without displaying a validation error. Try a different origin domain or an external hosting service such as [FleetKey.net](https://fleetkey.net).
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
 - **{% term Integration %} stopped working**: Use the reconfigure option in {% my integrations title="**Settings** > **Devices & services**" %} > **Tesla Fleet**
