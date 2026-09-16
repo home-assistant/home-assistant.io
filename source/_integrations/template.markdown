@@ -2358,8 +2358,8 @@ template:
       - trigger: state
         entity_id: sensor.outside_temperature
         not_to:
-        - unknown
-        - unavailable
+          - unknown
+          - unavailable
     sensor:
       - name: Outside Temperature
         device_class: temperature
@@ -2510,7 +2510,6 @@ Actions on turn on:
   description: The action or actions run when the switch is turned on.
 Actions on turn off:
   description: The action or actions run when the switch is turned off.
-  required: true
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -2682,7 +2681,7 @@ Name:
 Installed version:
   description: A template that gets the currently installed version.
 Latest version:
-  description: A template that gets the latest available version. When it differs from the installed version, the entity's state turns on.
+  description: A template that gets the latest available version. When it is newer than the installed version, the entity's state turns on.
 Actions on install:
   description: The action or actions run when the update is installed. Receives `specific_version` and `backup` when those are enabled.
 In progress:
@@ -2696,9 +2695,9 @@ Title:
 Update percentage:
   description: A template that gets the update completion percentage.
 Backup:
-  description: Enables or disables the automatic backup before an update.
+  description: Enables or disables the automatic backup before an update. Defaults to disabled.
 Specific version:
-  description: Enables or disables using a specific version (`specific_version`) in the installation actions **Actions on install**.
+  description: Enables or disables using a specific version (`specific_version`) in the installation actions **Actions on install**. Defaults to disabled.
 Device class:
   description: The [device class](/integrations/update/#device-class) used to pick the frontend state and icon.
 Device:
