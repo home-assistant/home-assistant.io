@@ -96,7 +96,7 @@ An interface that sends data sequentially, one bit at a time. A serial port can 
 
 The identifier that Home Assistant uses to address a serial port. This is the value you enter for the `serial_port` option.
 
-For a serial port exposed over USB, use the `/dev/serial/by-id/...` path when available. This path stays the same if you move the adapter to another USB port or move your Home Assistant installation to another system. Avoid paths like `/dev/ttyUSB0` and `/dev/ttyACM0` because they can change. If there is no `by-id` link (for example, for a built-in port), use a path like `/dev/ttyS0`. A serial port that is reached over the network is addressed with a URL instead, such as `socket://192.168.1.10:4001` for a port that you expose with `ser2net`. The URL of a port that is shared by a serial proxy starts with `esphome-hass://`.
+For a serial port exposed via USB, use the `/dev/serial/by-id/...` path when available. This path stays the same as you move the device to another USB port or move your Home Assistant installation to another system. Avoid paths like `/dev/ttyUSB0` and `/dev/ttyACM0` because their mappings can change; in other words, which device appears as `ttyACM0` will vary. If there is no `by-id` link (for example, for a built-in port), use a path like `/dev/ttyS0`. A serial port connected over the network is identified by a URL instead, such as `socket://192.168.1.10:4001` for a port that you expose with `ser2net`. The URL of a port that is shared by a serial proxy starts with `esphome-hass://`.
 
 ### Serial proxy
 
