@@ -5,6 +5,7 @@ ha_category:
   - Alarm Control Panel
   - Binary sensor
   - Button
+  - Climate
   - Cover
   - Device Tracker
   - Event
@@ -31,6 +32,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - button
+  - climate
   - cover
   - device_tracker
   - event
@@ -69,6 +71,7 @@ There is currently support for the following device types within Home Assistant:
 - [Alarm control panel](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Device Tracker](#device-tracker)
 - [Event](#event)
@@ -641,9 +644,11 @@ template:
 
 ## Climate
 
-The template climate platform allows you to create a climate with templates to define the state and scripts to define each action.
+The template climate platform allows you to create a climate entity with templates to define the state and scripts to define each action.
 
 Climate entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
 
 {% configuration_basic %}
 Name:
