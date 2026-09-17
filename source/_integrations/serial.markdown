@@ -35,30 +35,31 @@ sensor:
 
 {% configuration %}
 serial_port:
-  description: Local serial port where the sensor is connected and access is granted.
+  description: "The [device path](#device-path) of the serial port to read from, such as `/dev/ttyACM0`. For a port that Home Assistant reaches over your network, use its URL instead, such as `socket://192.168.1.10:4001`."
   required: true
   type: string
 name:
-  description: Friendly name to use for the frontend. Default to "Serial sensor".
+  description: Name of the sensor.
   required: false
+  default: Serial Sensor
   type: string
 baudrate:
-  description: Baudrate of the serial port.
+  description: "The [baud rate](#baud-rate) of the serial port, in bits per second."
   required: false
-  default: 9600 Bps
+  default: 9600
   type: integer
 bytesize:
-  description: "Number of data bits. Possible values: `5=FIVEBITS`, `6=SIXBITS`, `7=SEVENBITS`, `8=EIGHTBITS`."
+  description: "Number of data bits. Possible values: `5`, `6`, `7`, `8`."
   required: false
   default: 8
   type: integer
 parity:
-  description: "Enable parity checking. Possible values: `N=PARITY_NONE`, `E=PARITY_EVEN`, `O=PARITY_ODD`, `M=PARITY_MARK`, `S=PARITY_SPACE`."
+  description: "Parity checking. Possible values: `N` (none), `E` (even), `O` (odd), `M` (mark), `S` (space)."
   required: false
   default: "N"
   type: string
 stopbits:
-  description: "Number of stop bits. Possible values: `1=STOPBITS_ONE`, `1.5=STOPBITS_ONE_POINT_FIVE`, `2=STOPBITS_TWO`."
+  description: "Number of stop bits. Possible values: `1`, `1.5`, `2`."
   required: false
   default: 1
   type: float
