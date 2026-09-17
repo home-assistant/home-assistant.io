@@ -13,11 +13,13 @@
 //
 // Deliberate differences from the Jekyll rendering, all agreed:
 //   - The skyline is part of the footer, in normal flow on the page
-//     background, and scales down on narrow screens instead of being
-//     clipped. Jekyll positions it absolutely above the footer and
+//     background. Jekyll positions it absolutely above the footer and
 //     reserves room with a 194px top margin on the footer; here a layout
 //     just places <SiteFooter /> and adds whatever margin it wants
-//     between the content and the footer.
+//     between the content and the footer. As on the live site, it keeps
+//     its drawn size and is clipped on narrow screens: the house in it
+//     is proportioned to the wordmark below, and the two form the
+//     footer's branding.
 //   - The contact, analytics and hosting notices are small, muted text.
 //     Jekyll styles them under a `.social-media` class the markup never
 //     had, so visitors see body text; the intended treatment wins.
@@ -314,17 +316,19 @@ const icons = {
   }
 
   /* Skyline artwork on the page background, right above the surface.
-     It renders at its drawn size and scales down on narrow screens. */
+     The house in it is drawn in proportion to the wordmark below, so
+     the two read as one lockup: the skyline keeps its drawn size at
+     every width and is clipped on narrow screens rather than scaled. */
 
   .skyline {
     margin: 0 auto;
     max-width: var(--layout-max-width);
+    overflow: hidden;
     padding: 0 var(--layout-gutter);
 
     img {
       display: block;
-      height: auto;
-      max-width: 100%;
+      max-width: none;
     }
   }
 
