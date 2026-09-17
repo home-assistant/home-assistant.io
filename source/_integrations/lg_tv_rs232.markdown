@@ -3,6 +3,7 @@ title: LG TV via Serial
 description: Instructions on how to integrate LG TVs via their RS-232 serial port into Home Assistant.
 ha_category:
   - Media player
+  - Serial
 ha_iot_class: Local Polling
 ha_release: 2026.6
 ha_codeowners:
@@ -35,7 +36,9 @@ Most LG TVs sold starting roughly 2008, as well as LG commercial signage display
 
 ## Prerequisites
 
-- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial (RS-232) cable, a USB-to-serial adapter, or an [ESPHome](/integrations/esphome/)-based serial proxy.
+{% include integrations/serial_connected.md %}
+
+- LG TVs connect over RS-232. Use a direct serial cable, a USB-to-serial adapter, or a serial proxy.
 - LG TVs use a null-modem (cross-over) cable: the TX and RX lines must be swapped.
 - **RS-232C Control** must be enabled on the TV. On many LG models this option lives in a hidden service (`InStart`) menu. Consult your TV's documentation.
 
@@ -43,7 +46,7 @@ Most LG TVs sold starting roughly 2008, as well as LG commercial signage display
 
 {% configuration_basic %}
 Port:
-    description: "The serial port the TV is connected to. This can be a local device path or a remote serial proxy URL. For example, `/dev/ttyUSB0` (USB adapter), `socket://192.168.1.100:2000` (network proxy), or `socket://esphome-device.local:6638` (ESPHome)."
+    description: "The serial port the TV is connected to. Select it from the list of ports that Home Assistant found, which includes the ports shared by your serial proxies. For a port on another system, select **Enter manually** and enter its URL, such as `socket://192.168.1.100:2000`."
 Set ID:
     description: "The set ID configured on the TV (1-99). Leave this at the default of `1` for a single TV. When multiple TVs are daisy-chained on the same RS-232 bus, give each set a unique ID and add a separate entry for each."
 {% endconfiguration_basic %}
