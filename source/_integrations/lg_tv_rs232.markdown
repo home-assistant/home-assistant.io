@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **LG TV via Serial** {% term integration %} lets you control LG TVs by connecting to their RS-232 serial port. By connecting the TV to your Home Assistant server using a serial (RS-232) cable, an ESPHome-based serial proxy, or a USB-to-serial adapter, you get local control of the TV.
+The **LG TV via Serial** {% term integration %} lets you control LG TVs by connecting to their RS-232 serial port. Because Home Assistant talks straight to the TV, control is local, fast, and works on TVs without smart features or a network connection.
 
 Controlling a TV via RS-232 is more reliable and responsive than using the TV's network or IR interfaces, and it works even when the TV is in standby. It also allows you to control TVs that do not have smart features or network connectivity.
 
@@ -38,7 +38,6 @@ Most LG TVs sold starting roughly 2008, as well as LG commercial signage display
 
 {% include integrations/serial_connected.md %}
 
-- LG TVs connect over RS-232. Use a direct serial cable, a USB-to-serial adapter, or a serial proxy.
 - LG TVs use a null-modem (cross-over) cable: the TX and RX lines must be swapped.
 - **RS-232C Control** must be enabled on the TV. On many LG models this option lives in a hidden service (`InStart`) menu. Consult your TV's documentation.
 

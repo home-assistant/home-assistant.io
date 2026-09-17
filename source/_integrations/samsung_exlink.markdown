@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). By connecting the TV to your Home Assistant server using a serial cable, an ESPHome-based serial proxy, or a USB-to-serial adapter, you get local control of the TV.
+The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). Because Home Assistant talks straight to the TV, control is local and fast, and it also works on TVs that lack smart features or a network connection.
 
 Controlling a TV over ExLink is more reliable and responsive than using the TV's network or IR interfaces. It also allows you to control TVs that do not have smart features or network connectivity.
 
