@@ -110,7 +110,7 @@ A device that adds a serial port to your system over USB. Use a USB-to-serial ad
 
 "Serial" is a broad label that can mean RS-232, RS-422, RS-485, or TTL-serial. An adapter for a device with an <abbr title="Recommended Standard 232">RS-232</abbr> port is also sold as a USB-to-RS-232 adapter.
 
-### device connected via serial
+### Device connected via serial
 
 The device you want to use with Home Assistant, such as an AV receiver, a projector, or a smart meter with a P1 port. It communicates over a serial connection instead of over your network, so Home Assistant reaches it through a [serial port](#serial-port).
 
