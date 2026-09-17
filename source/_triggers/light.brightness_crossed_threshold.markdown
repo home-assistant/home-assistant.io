@@ -2,7 +2,7 @@
 title: "Light brightness crossed threshold"
 trigger: light.brightness_crossed_threshold
 domain: light
-description: "Triggers after the brightness of one or more lights crosses a threshold."
+description: "Triggers when the brightness of one or more lights crosses a threshold."
 related_triggers:
   - light.brightness_changed
   - light.turned_on
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light brightness crossed threshold**.
+4. From the search box, search for and select **Light brightness crossed threshold**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set the brightness percentage you want the trigger to watch for.
 7. Under **Trigger when**, pick **Each**, **First**, or **All** to control how multiple targets interact.
@@ -32,6 +32,7 @@ Threshold type:
   description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted lights have crossed the threshold.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -90,7 +91,7 @@ When you dim the ceiling light below 40% in the evening, turn on the accent ligh
 - **Trigger when**: Each
 - **Condition**: Sun is below horizon
 - **Condition**: Ceiling light brightness is below 40%
-- **Action**: Light: Turn on (accent lights)
+- **Action**: Turn on light (accent lights)
 
 {% details "YAML example for mood lighting on dim" %}
 

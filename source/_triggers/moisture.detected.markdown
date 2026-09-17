@@ -2,7 +2,7 @@
 title: "Moisture detected"
 trigger: moisture.detected
 domain: moisture
-description: "Triggers after one or more moisture sensors start detecting moisture."
+description: "Triggers when one or more moisture sensors start detecting moisture."
 related_triggers:
   - moisture.cleared
   - moisture.changed

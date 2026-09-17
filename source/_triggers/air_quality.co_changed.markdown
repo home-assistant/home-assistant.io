@@ -2,7 +2,7 @@
 title: "Carbon monoxide level changed"
 trigger: air_quality.co_changed
 domain: air_quality
-description: "Triggers after one or more carbon monoxide levels change."
+description: "Triggers when one or more carbon monoxide levels change."
 related_triggers:
   - air_quality.co_crossed_threshold
 ---

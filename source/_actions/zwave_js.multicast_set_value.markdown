@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to change the same value on several Z-Wave devices at once using multicast, so all targeted devices receive the message simultaneously. This is handy for keeping a group of devices in sync, for example setting the same level on multiple dimmers at the exact same moment.
 
-Correctly using this action requires advanced knowledge of Z-Wave. It performs minimal validation and passes your input straight to the Z-Wave JS API. For a single device, use the [Set a value](/actions/zwave_js.set_value/) action instead.
+Correctly using this action requires specific knowledge of Z-Wave, such as the value addressing model of a Z-Wave device and the Z-Wave multicast mechanism. The action performs minimal validation and passes your input straight to the Z-Wave JS API. For a single device, use the [Set a value](/actions/zwave_js.set_value/) action instead.
 
 {% include actions/ui_header.md %}
 

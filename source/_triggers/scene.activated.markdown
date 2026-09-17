@@ -2,7 +2,7 @@
 title: "Scene activated"
 trigger: scene.activated
 domain: scene
-description: "Runs when a scene is activated."
+description: "Triggers when one or more scenes are activated."
 ---
 
 Use this trigger when you want an automation to run every time a scene is activated. This is useful when activating a scene should also kick off follow-up actions, such as sending a notification, starting media playback, or adjusting devices that are not part of the scene itself.

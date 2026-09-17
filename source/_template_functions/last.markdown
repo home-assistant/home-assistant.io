@@ -62,7 +62,7 @@ Sort temperature sensors in ascending order and pick the last (highest) one.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | sort(attribute="state")
     | map(attribute="entity_id")
     | last
@@ -78,7 +78,7 @@ Sort entities by their last changed time and pick the last one.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | sort(attribute="last_changed")
     | map(attribute="entity_id")
     | last

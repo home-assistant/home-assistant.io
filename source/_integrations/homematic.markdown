@@ -289,155 +289,9 @@ To get the `homematic.keypress` event for some Homematic IP devices like WRC2 / 
 8. When your channel is working now, you can edit it to select the other channels one by one
 9. At the end, you can delete this program from the CCU
 
-### Actions
+{% include integrations/actions.md %}
 
-- *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
-- *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
-- *homematic.set_variable_value*: Set the value of a system variable.
-- *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
-- *homematic.put_paramset*: Manually change a device's paramset (even devices without support). Equivalent to putParamset-method from XML-RPC.
-
-#### Examples
-
-Simulate a button being pressed:
-
-```yaml
-...
-actions:
-  - action: homematic.virtualkey
-    data:
-      address: "BidCoS-RF"
-      channel: 1
-      param: PRESS_LONG
-```
-
-Open KeyMatic:
-
-```yaml
-...
-actions:
-  - action: homematic.virtualkey
-    data:
-      address: "LEQ1234567"
-      channel: 1
-      param: OPEN
-```
-
-Set boolean variable to true:
-
-```yaml
-...
-actions:
-  - action: homematic.set_variable_value
-    target:
-      entity_id: homematic.ccu2
-    data:
-      name: "Variablename"
-      value: true
-```
-
-#### Advanced examples
-
-If you are familiar with the internals of Homematic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
-Using this action provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above, `rf`, `wired`, and `ip` would be valid values.
-
-Manually turn on a switch actor:
-
-```yaml
-...
-actions:
-  - action: homematic.set_device_value
-    data:
-      address: "LEQ1234567"
-      channel: 1
-      param: STATE
-      value: true
-```
-
-Manually set temperature on thermostat:
-
-```yaml
-...
-actions:
-  - action: homematic.set_device_value
-    data:
-      address: "LEQ1234567"
-      channel: 4
-      param: SET_TEMPERATURE
-      value: 23.0
-```
-
-Manually set the active profile on thermostat:
-
-```yaml
-...
-actions:
-  - action: homematic.set_device_value
-    data:
-      address: "LEQ1234567"
-      channel: 1
-      param: ACTIVE_PROFILE
-      value: 1
-      value_type: int
-```
-
-Set the week program of a wall thermostat:
-
-```yaml
-...
-actions:
-  - action: homematic.put_paramset
-    data:
-      interface: wireless
-      address: "LEQ1234567"
-      paramset_key: MASTER
-      paramset:
-        WEEK_PROGRAM_POINTER: 1
-```
-
-Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF only):
-
-```yaml
-...
-actions:
-  - action: homematic.put_paramset
-    data:
-      interface: wireless
-      address: "LEQ1234567"
-      paramset_key: MASTER
-      rx_mode: WAKEUP
-      paramset:
-        WEEK_PROGRAM_POINTER: 1
-```
-
-BidCos-RF devices have an optional parameter for put_paramset which defines the way the configuration data is sent to the device.
-
-`rx_mode` `BURST`, which is the default value, will wake up every device when submitting the configuration data and hence makes all devices use some battery. It is instant, that is, the data is sent almost immediately.
-
-`rx_mode` `WAKEUP` will send the configuration data only after a device submitted updated values to CCU, which usually happens every 3 minutes. It will not wake up every device and thus saves devices battery.
-
-Manually set lock on KeyMatic devices:
-
-```yaml
-...
-actions:
-  - action: lock.lock
-    target:
-      entity_id: lock.leq1234567
-```
-
-Manually set unlock on KeyMatic devices:
-
-```yaml
-...
-actions:
-  - action: lock.unlock
-    target:
-      entity_id: lock.leq1234567
-```
-
-
-#### Integrating HMIP-DLD
+## Integrating HMIP-DLD
 
 There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomematic` implementation.
 A workaround is to define a template lock in your configuration:
@@ -464,7 +318,7 @@ lock:
         value: 1
 ```
 
-#### Detecting lost connections
+## Detecting lost connections
 
 When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, to detect connection losses. This can be done in several ways through an automation:
 

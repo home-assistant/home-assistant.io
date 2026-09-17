@@ -2,7 +2,7 @@
 title: Satellite became idle
 trigger: assist_satellite.idle
 domain: assist_satellite
-description: Triggers after one or more Assist satellites return to the idle state.
+description: "Triggers when one or more Assist satellites become idle after having processed a command."
 related_triggers:
   - assist_satellite.started_listening
   - assist_satellite.started_processing

@@ -4,6 +4,7 @@ description: Instructions on how to integrate Novy cooker hoods into Home Assist
 ha_category:
   - Fan
   - Light
+  - Radio frequency-controlled
 ha_release: 2026.5
 ha_iot_class: Assumed State
 ha_config_flow: true
@@ -49,8 +50,11 @@ The **Novy Cooker Hood** integration provides the following entities. State is a
 
 ## Prerequisites
 
-1. Set up a hardware integration (for example, [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/)) that provides a [Radio Frequency](/integrations/radio_frequency/) {% term entity %} supporting 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr> transmissions.
-2. Identify the pairing code of your hood. New hoods are paired with code 1; if yours was changed, follow the button combination in your Novy manual to read it back. The remote's green LED flashes once for code 1, twice for code 2, and so on up to 10.
+{% include integrations/radio_frequency_controlled.md %}
+
+The transmitter must support 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr> transmissions. For example, you can use an [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/) device.
+
+You also need the pairing code of your hood. New hoods are paired with code 1; if yours was changed, follow the button combination in your Novy manual to read it back. The remote's green LED flashes once for code 1, twice for code 2, and so on up to 10.
 
 {% include integrations/config_flow.md %}
 

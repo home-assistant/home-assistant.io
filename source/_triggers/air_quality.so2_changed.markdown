@@ -2,7 +2,7 @@
 title: "Sulphur dioxide level changed"
 trigger: air_quality.so2_changed
 domain: air_quality
-description: "Triggers after one or more sulphur dioxide levels change."
+description: "Triggers when one or more sulphur dioxide levels change."
 related_triggers:
   - air_quality.so2_crossed_threshold
 ---

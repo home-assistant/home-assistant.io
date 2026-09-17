@@ -2,7 +2,7 @@
 title: "PM10 level crossed threshold"
 trigger: air_quality.pm10_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM10 levels cross a threshold."
+description: "Triggers when one or more PM10 levels cross a threshold."
 related_triggers:
   - air_quality.pm10_changed
 ---
@@ -32,6 +32,8 @@ Threshold type:
   description: The PM10 concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -65,7 +67,7 @@ threshold:
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

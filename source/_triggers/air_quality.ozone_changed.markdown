@@ -2,7 +2,7 @@
 title: "Ozone level changed"
 trigger: air_quality.ozone_changed
 domain: air_quality
-description: "Triggers after one or more ozone levels change."
+description: "Triggers when one or more ozone levels change."
 related_triggers:
   - air_quality.ozone_crossed_threshold
 ---

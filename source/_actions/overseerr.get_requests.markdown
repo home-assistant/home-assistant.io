@@ -20,7 +20,7 @@ To get media requests from an automation or a script:
 5. From the search box, search for and select **Seerr: Get requests**.
 6. Select the **Seerr instance** and, if needed, set the **Request status**, **Sort order**, and **Requested by** filters.
 7. In the **Response variable** field, enter a name to store the data in, such as `requests`.
-8. Select **Save**.```
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 

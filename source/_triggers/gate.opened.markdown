@@ -2,7 +2,7 @@
 title: "Gate opened"
 trigger: gate.opened
 domain: gate
-description: "Triggers after one or more gates open."
+description: "Triggers when one or more gates open."
 related_triggers:
   - gate.closed
 ---
@@ -29,6 +29,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple gates are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted gate opens, **First** to fire only when the first targeted gate opens, or **All** to fire only after every targeted gate is open.
+  required: false
 For at least:
   description: How long the gate must stay open before the trigger fires. Set it to zero to fire immediately.
 {% endoptions_ui %}
@@ -72,9 +73,9 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `gate` device class.
-- If a gate comes back from `unavailable` or `unknown`, that recovery does not count as the gate opening.
-- The `for` option only fires the automation if the gate stays open for the entire time you set.
+- Use a cover entity with the gate device class.
+- If a gate comes back from **Unavailable** or **Unknown**, that recovery does not count as the gate opening.
+- The **For at least** option only fires the automation if the gate stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 
@@ -86,7 +87,7 @@ If you come home after sunset, this automation turns on the driveway lights as s
 
 - **Trigger**: Gate opened
    - **Target**: Driveway gate
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 
 {% details "YAML example for driveway lights when the gate opens" %}
 

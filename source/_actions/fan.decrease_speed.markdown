@@ -98,7 +98,9 @@ automation: |
 
 Once the day cools down, you may only need a softer airflow.
 
-- **Trigger**: Sun: Below horizon
+- **Trigger**: State
+  - **Entity**: Sun
+  - **To**: Below horizon
 - **Action**: Decrease fan speed
 - **Target**: Living room fan
 - **Decrement**: 20
@@ -109,8 +111,9 @@ Once the day cools down, you may only need a softer airflow.
 automation: |
   alias: "Decrease living room fan after sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: state
+      entity_id: sun.sun
+      to: below_horizon
   actions:
     - action: fan.decrease_speed
       target:

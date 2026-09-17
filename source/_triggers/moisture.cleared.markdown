@@ -2,7 +2,7 @@
 title: "Moisture cleared"
 trigger: moisture.cleared
 domain: moisture
-description: "Triggers after one or more moisture sensors stop detecting moisture."
+description: "Triggers when one or more moisture sensors stop detecting moisture."
 related_triggers:
   - moisture.detected
   - moisture.changed

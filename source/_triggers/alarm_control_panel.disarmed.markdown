@@ -2,7 +2,7 @@
 title: "Alarm disarmed"
 trigger: alarm_control_panel.disarmed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become disarmed."
+description: "Triggers when one or more alarms become disarmed."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.triggered
@@ -28,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel disarms, **First** to fire only when the first panel in a group disarms, or **All** to fire only after every targeted panel is disarmed.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay disarmed before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}

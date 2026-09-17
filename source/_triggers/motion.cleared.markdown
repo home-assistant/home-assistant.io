@@ -2,7 +2,7 @@
 title: "Motion cleared"
 trigger: motion.cleared
 domain: motion
-description: "Triggers after one or more motion sensors stop detecting motion."
+description: "Triggers when one or more motion sensors stop detecting motion."
 related_triggers:
   - motion.detected
 ---

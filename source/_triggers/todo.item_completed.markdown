@@ -2,7 +2,7 @@
 title: "To-do item completed"
 trigger: todo.item_completed
 domain: todo
-description: "Triggers when a to-do item is marked as done."
+description: "Triggers when one or more to-do items are marked as done."
 related_triggers:
   - todo.item_added
   - todo.item_removed

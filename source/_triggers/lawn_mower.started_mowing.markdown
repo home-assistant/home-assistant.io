@@ -2,7 +2,7 @@
 title: "Lawn mower started mowing"
 trigger: lawn_mower.started_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers start mowing."
+description: "Triggers when one or more lawn mowers start mowing."
 ---
 
 The **Lawn mower started mowing** trigger fires when a mower begins a mowing run.
@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower starts mowing, **First** to fire only when the first targeted mower starts mowing, or **All** to fire only after every targeted mower has started mowing.
+  required: false
 For at least:
   description: How long the mower must stay in the mowing state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}

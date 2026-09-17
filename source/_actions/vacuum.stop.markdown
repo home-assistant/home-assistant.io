@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Create or edit an automation.
-3. Add an action and search for **Vacuum: Stop vacuum cleaner**.
+3. Add an action and search for **Stop vacuum cleaner**.
 4. Select the target vacuum, area, or group.
 5. Save your automation.
 

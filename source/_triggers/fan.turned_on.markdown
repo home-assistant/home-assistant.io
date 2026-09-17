@@ -2,7 +2,7 @@
 title: "Fan turned on"
 trigger: fan.turned_on
 domain: fan
-description: "Triggers after one or more fans turn on."
+description: "Triggers when one or more fans turn on."
 related_triggers:
   - fan.turned_off
 ---

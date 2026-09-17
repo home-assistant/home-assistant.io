@@ -2,7 +2,7 @@
 title: "Alarm triggered"
 trigger: alarm_control_panel.triggered
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become triggered."
+description: "Triggers when one or more alarms become triggered."
 related_triggers:
   - alarm_control_panel.disarmed
   - alarm_control_panel.armed
@@ -28,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel triggers, **First** to fire only when the first panel in a group triggers, or **All** to fire only after every targeted panel is triggered.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay triggered before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}

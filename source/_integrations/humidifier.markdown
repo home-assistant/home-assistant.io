@@ -46,8 +46,4 @@ The following device classes are supported for humidifiers:
 - **Humidifier**: Adds humidity to the air around it.
 - **Dehumidifier**: Removes humidity from the air around it.
 
-{% include integrations/actions.md %}
-
-{% include integrations/triggers.md %}
-
-{% include integrations/conditions.md %}
+{% include integrations/triggers_conditions_actions.md %}

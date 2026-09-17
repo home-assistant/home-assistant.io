@@ -37,6 +37,12 @@ In addition to the state, the person will have the state attributes `latitude`, 
 
 You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %} or via YAML in your {% term "`configuration.yaml`" %} file.
 
+## Triggers
+
+Person entities work with the [Zone entered](/triggers/zone.entered/) and [Zone left](/triggers/zone.left/) triggers, so you can run automations when a person enters or leaves a zone. This is useful for presence automations such as turning on lights when you arrive home or sending a notification when someone leaves a place.
+
+You can also use a [state trigger](/triggers/state/) to react to the state of a person entity, such as `home`, `not_home`, or the name of a zone.
+
 ## Adding a person to Home Assistant
 
 If you have administrator rights, you can add other persons to Home Assistant and create user accounts for them. Depending on the rights you give them, they can then use Home Assistant on their own devices, have their own dashboards, and be included in automations.
@@ -60,6 +66,15 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - Select **Create** to create the user account and return to the person dialog.
 6. If you have already set up devices for [presence detection](/getting-started/presence-detection/), select the devices that belong to this person.
 7. To save the person, select **Add**.
+
+### Adding a device tracker to an existing person
+
+If you set up a new presence detection integration after creating a person, add the new device tracker to that person.
+
+1. Go to {% my people title="**Settings** > **People**" %} and select the person.
+2. Under **Select the devices that belong to this person**, select **Add entity**.
+3. Select the device tracker entity you want to add.
+4. Select **Save**.
 
 ### Customizing the picture for a person
 

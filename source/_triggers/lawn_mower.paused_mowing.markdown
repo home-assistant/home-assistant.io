@@ -2,7 +2,7 @@
 title: "Lawn mower paused mowing"
 trigger: lawn_mower.paused_mowing
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers pause mowing."
+description: "Triggers when one or more lawn mowers pause mowing."
 ---
 
 The **Lawn mower paused mowing** trigger fires when a mower stops in the middle of a run without docking.
@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower pauses, **First** to fire only when the first targeted mower pauses, or **All** to fire only after every targeted mower has paused.
+  required: false
 For at least:
   description: How long the mower must stay paused before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}

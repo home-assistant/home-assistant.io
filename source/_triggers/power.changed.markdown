@@ -2,7 +2,7 @@
 title: "Power changed"
 trigger: power.changed
 domain: power
-description: "Triggers after one or more power values change."
+description: "Triggers when one or more power values change."
 related_triggers:
   - power.crossed_threshold
 ---

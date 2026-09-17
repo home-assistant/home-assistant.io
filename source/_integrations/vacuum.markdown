@@ -58,7 +58,7 @@ Once you have the areas mapped, you can send your vacuum to clean specific areas
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create automation**.
 3. Set up your trigger. For example, you can use a time trigger to have the vacuum clean every day at 2 PM.
-4. In the **Then do** section, select **Add action**, and from the list, select the **Vacuum: Clean area with vacuum cleaner** action.
+4. In the **Then do** section, select **Add action**, and from the list, select the **Clean area with vacuum cleaner** action.
 5. Under **Targets**, select your vacuum entity.
 6. Under **Areas**, select the area to clean. You can select multiple areas.
 7. Give your automation a name and select **Save**.

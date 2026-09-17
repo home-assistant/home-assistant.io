@@ -2,7 +2,7 @@
 title: "Thermostat target temperature changed"
 trigger: climate.target_temperature_changed
 domain: climate
-description: "Triggers after the temperature setpoint of one or more thermostats changes."
+description: "Triggers when the temperature setpoint of one or more thermostats changes."
 related_triggers:
   - climate.target_temperature_crossed_threshold
   - climate.target_humidity_changed
@@ -123,11 +123,11 @@ threshold:
 
 ## Good to know
 
+- Use a climate entity that exposes a target temperature attribute.
 - This trigger monitors the target temperature setpoint (what you want the thermostat to maintain), not the current room temperature (the actual measured temperature). To react to changes in measured room temperature, use [Temperature changed](/triggers/temperature.changed/) instead.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target temperature first crosses a specific level, use [Thermostat target temperature crossed threshold](/triggers/climate.target_temperature_crossed_threshold/) instead.
-- The trigger works with [climate](/integrations/climate/) entities that expose a target temperature attribute.
 - All temperature values are automatically converted to the unit you specify. For example, if your thermostat reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}

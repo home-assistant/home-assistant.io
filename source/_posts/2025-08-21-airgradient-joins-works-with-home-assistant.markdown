@@ -12,7 +12,7 @@ og_image: /images/blog/2025-08-airgradient/art.jpg
 
 <img src='/images/blog/2025-08-airgradient/art.jpg' style='border: 0;box-shadow: none;' alt="AirGradient joins Works with Home Assistant">
 
-We're excited to announce that [AirGradient](https://www.airgradient.com/) is the latest manufacturer to join the fast-growing [Works With Home Assistant](https://works-with.home-assistant.io/) program! They bring their air quality monitors to the program, with both indoor and outdoor models.
+We're excited to announce that [AirGradient](https://www.airgradient.com/) is the latest manufacturer to join the fast-growing [Works with Home Assistant](https://works-with.home-assistant.io/) program! They bring their air quality monitors to the program, with both indoor and outdoor models.
 
 AirGradient is the first partner in the program focused on building advanced indoor and outdoor air quality monitors. They are also well known within our community for their powerful tech, and for their focus on open source and dedication to local air quality projects around the world.
 
@@ -24,7 +24,7 @@ AirGradient is the first partner to join that operates out of Thailand, and they
 
 <p class='img'><img src='/images/blog/2025-08-airgradient/outdoors.webp' style='border: 0;box-shadow: none;' alt="An Open Air Monitor mounted outdoors in Vietnam">An Open Air Monitor in Vietnam</p>
 
-Community is central to our work with AirGradient. Their hardware and software are open source, just like our own. Plus, they’ve taken an active role in integrating into Home Assistant, bringing [their local Wi-Fi integration](/integrations/airgradient/) up to not just the gold, but the platinum tier on our [integration quality scale.](/docs/quality_scale/) Like all of our _Works With_ partners, the devices work completely locally with no need for a cloud connection. What’s more, they really embrace the DIY aspect of the smart home, with their devices available fully assembled or as a build-it-yourself kit!
+Community is central to our work with AirGradient. Their hardware and software are open source, just like our own. Plus, they’ve taken an active role in integrating into Home Assistant, bringing [their local Wi-Fi integration](/integrations/airgradient/) up to not just the gold, but the platinum tier on our [integration quality scale.](/docs/quality_scale/) Like all of our _Works with_ partners, the devices work completely locally with no need for a cloud connection. What’s more, they really embrace the DIY aspect of the smart home, with their devices available fully assembled or as a build-it-yourself kit!
 
 AirGradient’s open approach even extends to the data collected by their community of users. Whilst completely optional, users can share their air quality readings with the world (which they [visualize into an amazing map](https://www.airgradient.com/map/?zoom=1\&lat=49.2125578\&long=16.62662018\&org=ag\&meas=rco2)). This helpful air quality map grows every time a user opts to share their data, and is a fantastic open resource for climate researchers, students, or anyone concerned about air quality in their local area. If your area is a blank spot on this map, that is all the more reason to buy an AirGradient outdoor monitor.
 
@@ -33,13 +33,13 @@ AirGradient’s open approach even extends to the data collected by their commun
 Each kit comes with a screwdriver and is designed for easy repair. Broken sensor? Swap it out. Firmware update needed? Flash it yourself. Sustainability is one of the core guiding principles of the Open Home Foundation, and we love that repairability is built in. AirGradient also donates at least 1% of annual sales to non-profits and community direct donations. In fact, they asked us to include in this blog an open invitation to our community: If you have a local project that you think would benefit from open source air quality monitors, get in touch through [this link](https://www.airgradient.com/support/).
 
 <div class="alert">
-    <p>"We're excited to join the Works With Home Assistant program because it aligns perfectly with our open-source philosophy. Home Assistant represents the same values we believe in - local control, privacy, and community-driven innovation. Together, we're proving that open systems don't just work better for users, they create better outcomes for the planet."</p>
+    <p>"We're excited to join the Works with Home Assistant program because it aligns perfectly with our open-source philosophy. Home Assistant represents the same values we believe in - local control, privacy, and community-driven innovation. Together, we're proving that open systems don't just work better for users, they create better outcomes for the planet."</p>
 <em style="text-align: right; display: block;">- Achim Haug, Founder and CEO of AirGradient</em>
 </div>
 
 ## Certified Devices
 
-In case you’re new to [Works With Home Assistant](https://works-with.home-assistant.io/), unlike some certification programs, it’s not just a badge. We rigorously test items in-house and provide feedback to the manufacturers to ensure that products work easily out of the box and provide a seamless experience. The Works With program is operated by the [Open Home Foundation](https://www.openhomefoundation.org/) and funded by the support of [Home Assistant Cloud](/cloud/) Subscribers.
+In case you’re new to [Works with Home Assistant](https://works-with.home-assistant.io/), unlike some certification programs, it’s not just a badge. We rigorously test items in-house and provide feedback to the manufacturers to ensure that products work easily out of the box and provide a seamless experience. The Works with program is operated by the [Open Home Foundation](https://www.openhomefoundation.org/) and funded by the support of [Home Assistant Cloud](/cloud/) Subscribers.
 
 AirGradient has certified the following devices with us:  
 
@@ -59,11 +59,11 @@ We’re so excited to be partnered with AirGradient. Their mission is important,
 
 ## FAQs
 
-**Q: If I have a device that is not listed under Works With Home Assistant, does this mean it’s not supported?**
+**Q: If I have a device that is not listed under Works with Home Assistant, does this mean it’s not supported?**
 
 A: No! It just means that it hasn’t gone through a testing schedule with our team or doesn’t fit the requirements of the program. It might function perfectly well, but be added to the testing schedule later down the road, or it might work under a different connectivity type that we don’t currently test under the program.
 
-**Q: Ok, so what’s the point of the Works With program?**
+**Q: Ok, so what’s the point of the Works with program?**
 
 A: It highlights the devices we know work well with Home Assistant and the brands that make a long-term commitment to keeping support for these devices going. The certification agreement specifies that the devices must have full functionality within Home Assistant, operate locally without the need for cloud and will continue to do so long-term.
 

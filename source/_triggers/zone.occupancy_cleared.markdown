@@ -2,7 +2,7 @@
 title: "Zone occupancy cleared"
 trigger: zone.occupancy_cleared
 domain: zone
-description: "Triggers when a zone changes from occupied to empty."
+description: "Triggers when one or more zones transition from occupied to unoccupied."
 related_triggers:
   - zone.occupancy_detected
   - zone.left

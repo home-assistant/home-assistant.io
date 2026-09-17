@@ -2,7 +2,7 @@
 title: "Occupancy cleared"
 trigger: occupancy.cleared
 domain: occupancy
-description: "Triggers after one or more occupancy sensors report that a space is no longer occupied."
+description: "Triggers when one or more occupancy sensors stop detecting occupancy."
 related_triggers:
   - occupancy.detected
 ---

@@ -191,7 +191,7 @@ All data is received and processed by the Home Assistant Analytics Receiver. The
 
 When your installation sends a payload, that payload includes a unique identifier. This identifier is used only to make sure that your installation is counted once and that repeat submissions do not inflate the totals.
 
-Your data is stored in [Cloudflare's Key-Value store](https://www.cloudflare.com/products/workers-kv/) for a maximum of 60 days since the last update. If your installation stops sending data, the entry is automatically removed after this period.
+Your data is stored in [Cloudflare's Key-Value store](https://www.cloudflare.com/products/kv/) for a maximum of 60 days since the last update. If your installation stops sending data, the entry is automatically removed after this period.
 
 Only aggregated and anonymized totals are made publicly available at [analytics.home-assistant.io](https://analytics.home-assistant.io). The raw per-installation payloads are never published.
 

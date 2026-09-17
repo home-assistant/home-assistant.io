@@ -9,11 +9,11 @@ Home Assistant allows you to track your gas usage and easily compare it against 
 
 ## Hardware
 
-Home Assistant will need to know the amount of gas that is being consumed.
+Home Assistant needs a source that measures the amount of gas being consumed. How this is measured depends on your installation. For homes connected to a gas grid, the gas meter is usually the best source for this data. For off-grid setups, such as gas supplied from a tank or cylinders, this can be a different measurement source.
 
 ### Connect to your meter
 
-The best way to get this data is directly from your gas meter that sits between your house and the grid. In certain countries these meters contain standardized ways of reading out the information locally or provide this information via the electricity meter.
+If your home is connected to a gas grid, the best way to get this data is usually directly from the gas meter that sits between your house and the grid. In certain countries, these meters support standardized local readout methods or provide gas consumption information via the electricity meter.
 
 #### Connect using a P1 port
 
@@ -36,3 +36,9 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 #### Reading the meter wirelessly via RTL-SDR
 
 {% include energy/rtl_sdr.md %}
+
+#### Read the gas meter using a reed switch
+
+Some diaphragm gas meters include a rotating magnet that can be detected externally. If your meter exposes this magnetic pulse, a reed switch or magnetic sensor can be used to count rotations and calculate gas consumption.
+
+Community DIY projects such as [Zigbee Gas Counter for nRF52840](https://github.com/IgnacioHR/ZigbeeGasCounterNCS) use this approach to build a battery-powered Zigbee gas counter that works with Zigbee2MQTT and Home Assistant. The device keeps an internal cumulative counter, which helps avoid data loss if Home Assistant or the Zigbee coordinator is temporarily unavailable.

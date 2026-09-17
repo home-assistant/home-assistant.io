@@ -2,12 +2,16 @@
 title: "Remove device"
 action: xiaomi_aqara.remove_device
 domain: xiaomi_aqara
-description: "Removes a specific device from a Xiaomi Aqara Gateway."
+description: "Removes a paired device from a Xiaomi Aqara Gateway."
 related_actions:
   - xiaomi_aqara.add_device
+  - xiaomi_aqara.play_ringtone
+  - xiaomi_aqara.stop_ringtone
 ---
 
-The **Remove device** action removes a specific device from a Xiaomi Aqara Gateway. Removing a device is required before you can pair it with another gateway.
+The **Remove device** action removes a specific device from a Xiaomi Aqara Gateway.
+
+This is useful when you want to pair a device with another gateway, which first requires removing it from the current one.
 
 {% include actions/ui_header.md %}
 
@@ -18,16 +22,16 @@ To remove a device from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Xiaomi Gateway (Aqara): Remove device**.
-6. Enter the **Gateway MAC** and the **Device ID** of the device to remove.
+6. Enter the **Gateway MAC** and the **Device ID**.
 7. Select **Save**.
 
-This action does not support targets. In the UI, use the **Gateway MAC** field to choose which gateway the device is removed from.
+This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
 ### Options in the UI
 
 {% options_ui %}
 Gateway MAC:
-  description: The MAC address of the Xiaomi Aqara Gateway.
+  description: The MAC address of the gateway. When you have a single gateway, it is selected automatically.
   required: true
 Device ID:
   description: The hardware address of the device to remove.
@@ -42,17 +46,15 @@ In YAML, refer to this action as `xiaomi_aqara.remove_device`. A basic example l
 action: |
   action: xiaomi_aqara.remove_device
   data:
-    gw_mac: xxxxxxxxxxxx
-    device_id: "158d0000000000"
+    gw_mac: aa:bb:cc:dd:ee:ff
+    device_id: 158d000xxxxxc2
 {% endexample %}
-
-This removes the device with the given hardware address from the gateway.
 
 ### Options in YAML
 
 {% options_yaml %}
 gw_mac:
-  description: The MAC address of the Xiaomi Aqara Gateway.
+  description: The MAC address of the gateway. When you have a single gateway, it is used automatically.
   required: true
   type: string
 device_id:

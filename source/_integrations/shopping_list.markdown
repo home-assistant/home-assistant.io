@@ -28,11 +28,18 @@ A `shopping_list_updated` event is triggered when items in the list are modified
 
 | Data payload attribute | Description                                                                                                                                            |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `action`               | What action was taken on the item. Either `add` for a new item being added, `update` for an item being updated, or `remove` for an item being removed. |
+| `action`               | What action was taken on the item. See below for possible values. |
 | `item`                 | A dictionary containing details of the item that was updated.                                                                                          |
 | `item.id`              | A unique ID for this item                                                                                                                              |
 | `item.name`            | The text attached to the item, for example `Milk`                                                                                                      |
 | `item.complete`        | A boolean indicated whether the item has been marked as complete.                                                                                      |
+
+The possible values for `action` here are as follows.
+
+- `add`: A new item being added.
+- `update`: An item being updated (unless using the `shopping_list.complete_item` action, or one of the whole list actions).
+- `complete`: An item being completed (via the `shopping_list.complete_item` action only).
+- `remove`: An item being removed.
 
 ```yaml
 alias: "Notify on new shopping list item"
@@ -55,6 +62,6 @@ You can also trigger an automation when a `shopping_list_updated` event was trig
 - `clear`: A completed item was cleared from the list.
 - `sorted`: The items in the list were sorted by name.
 - `reorder`: An item has been reordered in the list.
-- `update_list`: All items have been updated.
+- `update_list`: All items have been updated, such as via the `shopping_list.complete_all` or `shopping_list.incomplete_all` actions.
 
 In these cases, the event does not return a list item.

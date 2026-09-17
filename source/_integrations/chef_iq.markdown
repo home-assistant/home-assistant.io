@@ -11,7 +11,6 @@ ha_codeowners:
 ha_domain: chef_iq
 ha_integration_type: device
 ha_platforms:
-  - diagnostics
   - sensor
 ha_bluetooth: true
 ha_quality_scale: bronze

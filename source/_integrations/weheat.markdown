@@ -55,7 +55,8 @@ The Weheat integration provides the following sensors:
 - **Electricity used cooling**: Total electricity used in kWh during cooling mode
 - **Electricity used defrost**: Total electricity used in kWh during defrost mode
 - **Electricity used standby**: Total electricity used in kWh during standby mode
-- **Electricity used**: Total electricity used in kWh
+- **Electricity used**: Total electricity used in kWh for the outdoor unit
+- **Electricity used indoor unit**: Total electricity used in kWh for the indoor unit
 - **Energy output heating**: Total output generated in kWh during central heating mode
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
 - **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
@@ -65,6 +66,9 @@ The Weheat integration provides the following sensors:
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
 - **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
 - **DHW pump flow**: The flow volume of the DHW pump (optional)
+- **DHW control method**: The DHW control method that is currently used
+- **DHW target temperature**: The DHW target temperature
+- **Air outlet temperature**: The air outlet temperature
 - **Compressor RPM**: The rpm of the compressor fan.
 - **Compressor percentage**: The percentage of the compressor fan. Can exceed 100% for some models.
 
@@ -75,6 +79,32 @@ Depending on the model/installation, states for the Indoor Unit states are avail
 - **Indoor unit DHW valve or water pump**
 - **Indoor unit gas boiler heating allowed** - Note: This may be True even when no gas boiler is installed or active.
 - **Indoor unit electric heater**
+
+If the heat pump supports cooling, the following sensors are available:
+
+- **Cooling state**: What the heat pump is doing about cooling, such as **Cooling**, **Waiting to start**, or **Checking water temperature**.
+- **Cooling blocked by**: The first start condition that is not met, such as **Outside temperature too low**. While the heat pump is cooling, this shows **Not blocked**.
+- **Cooling conditions met**: How many of the nine start conditions are met, shown as 8 of 9, matching the Weheat portal. This is not reported while the heat pump is cooling.
+- **Cooling wait until**: When the restart delay after the last cooling cycle expires. This is only set while that delay is running.
+- **Last cooling**: The last completed cooling cycle. The heat pump does not update this while it is cooling, so during a cycle it refers to the previous one.
+- **Cooling pause reason**: Why the last cooling cycle paused, such as **Water temperature colder than setpoint**.
+- **Cooling stop reason**: Why the last cooling cycle stopped, such as **Stopped by control method**.
+
+The heat pump checks a set of conditions before it starts cooling, and each one is available as a diagnostic binary sensor. These entities are disabled by default. You can [enable them in the entity settings](/docs/configuration/customizing-devices/).
+
+- **Cooling allowed by control method**
+- **No cooling-related faults**
+- **Cooling outside temperature high enough**
+- **Cooling room warmer than desired**
+- **Cooling indoor unit connected**
+- **Cooling air warmer than system water**
+- **Demand for cooling from cooling curve**
+- **Water warmer than cooling curve**
+- **Cooling contact not blocking**
+- **No cooling back-off waiting time**
+- **No heating in the last 24 hours**
+
+**Cooling allowed by control method** and **Cooling contact not blocking** are settings rather than conditions the heat pump waits for, which is why **Cooling conditions met** counts nine conditions and not eleven.
 
 ## Data updates
 

@@ -2,7 +2,7 @@
 title: "Lock jammed"
 trigger: lock.jammed
 domain: lock
-description: "Triggers after one or more locks jam."
+description: "Triggers when one or more locks jam."
 related_triggers:
   - lock.locked
 ---

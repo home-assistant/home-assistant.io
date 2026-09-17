@@ -85,7 +85,7 @@ If the dock is in a darker part of the yard, this automation checks whether the 
 - **Condition**: Lawn mower is returning
   - **Target**: Backyard mower
   - **For at least**: 00:00:30
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for keeping the path lit" %}
@@ -102,8 +102,7 @@ automation: |
         entity_id: lawn_mower.backyard
       options:
         for: "00:00:30"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

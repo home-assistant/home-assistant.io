@@ -2,7 +2,7 @@
 title: "Lawn mower encountered an error"
 trigger: lawn_mower.errored
 domain: lawn_mower
-description: "Triggers after one or more lawn mowers encounter an error."
+description: "Triggers when one or more lawn mowers encounter an error."
 ---
 
 The **Lawn mower encountered an error** trigger fires when a mower reports a problem while it is working.
@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower reports an error, **First** to fire only when the first targeted mower reports an error, or **All** to fire only after every targeted mower reports an error.
+  required: false
 For at least:
   description: How long the mower must stay in the error state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -115,7 +116,7 @@ If the mower reports an error after dark, turn on the porch light so you can see
 - **Trigger**: Lawn mower encountered an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:15
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the yard on error" %}
@@ -130,8 +131,7 @@ automation: |
       options:
         for: "00:00:15"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

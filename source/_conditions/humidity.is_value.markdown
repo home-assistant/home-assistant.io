@@ -2,7 +2,7 @@
 title: "Relative humidity"
 condition: humidity.is_value
 domain: humidity
-description: "Tests if a relative humidity value is above a threshold, below a threshold, or in a range of values."
+description: "Tests the relative humidity of one or more entities."
 ---
 
 The **Relative humidity** condition passes when a humidity reading meets a threshold you define. You can check that humidity is above, below, or within a specific range. The condition works with humidity sensors, climate devices, humidifiers, and weather entities. Use it to run an automation only when the bedroom feels too damp, or only when the air is dry enough to need attention.
@@ -126,7 +126,7 @@ This passes when the bedroom humidity sensor reads above the number helper´s va
 
 ## Good to know
 
-- The condition works with humidity sensors, climate entities (using the current humidity reading), humidifier entities (using the current humidity reading), and weather entities.
+- The target must be a humidity sensor, or a climate, humidifier, or weather entity that provides a current humidity reading.
 - Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - Humidity is expressed as a percentage. Indoor comfort is generally between 40% and 60%. Below 30% often feels dry and can irritate airways. Above 65% can encourage mold and dust mites.
 - This condition checks the entity's _current_ humidity reading, not its target setpoint. To check a humidifier's target setpoint instead, use the [Humidifier target humidity](/conditions/humidifier.is_target_humidity/) condition.

@@ -33,7 +33,22 @@ UPnP or NAT-PMP needs to be enabled on your router for this {% term integration 
 
 Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid data or no data at all. A configuration option is provided to fall back to polling of all data for the sensors. Please try this when you feel not all sensors which should be working are working.
 
-## Debugging integration
+## Troubleshooting
+
+### Traffic counters not handling rollover properly
+
+Routers keep a running total of the data passing through them. This total is stored in a counter that has a maximum value. Once the total reaches that maximum, the counter resets to zero and starts counting again. This reset is called a _rollover_. The **Download speed**, **Upload speed**, **Packet download speed**, and **Packet upload speed** sensors correct for it so the speed stays accurate when a counter wraps.
+
+Some routers don't report these counters correctly, and the correction can misfire, causing a sudden, large spike. If you see these spikes, switch to the matching sensors that skip the correction and instead report `unavailable` when a rollover is detected:
+
+- **Download speed (no rollover handling)**
+- **Upload speed (no rollover handling)**
+- **Packet download speed (no rollover handling)**
+- **Packet upload speed (no rollover handling)**
+
+These sensors are disabled by default. Enable them from the integration's device page, and optionally disable the original speed sensors.
+
+### Debugging the integration
 
 If you have problems with this {% term integration %} you can add debug prints to the log.
 

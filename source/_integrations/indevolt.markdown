@@ -43,7 +43,10 @@ Beyond basic monitoring, the Indevolt integration enables advanced energy manage
 The integration supports the following devices:
 
 - BK1600 / BK1600 Ultra
-- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 1200
+- SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 3000 / PowerFlex 3000
+- SolidFlex 3600 / PowerFlex 3600
 
 ## Prerequisites
 
@@ -60,6 +63,10 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
+
+By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the [update entity](/actions/homeassistant.update_entity/) action to define your own update frequency.
+
+{% include common-tasks/define_custom_polling.md %}
 
 ## Supported functionality
 
@@ -121,6 +128,7 @@ The following button entity allows triggering device actions directly from Home 
 - Grid frequency (Hz)
 - Equivalent full cycles
 - Transformer temperature (°C)
+- Remaining charging / discharging time (min)
 - Main battery serial number
 - Main battery cycle count
 - Main battery SOC (%)
@@ -164,7 +172,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ## Data updates
 
-The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
+The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds, unless custom polling has been enabled (see the [configuration](/integrations/indevolt/#configuration) section). If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 

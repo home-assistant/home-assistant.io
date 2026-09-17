@@ -63,7 +63,7 @@ Sort temperature sensors and pick the first (lowest) one.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | sort(attribute="state")
     | map(attribute="entity_id")
     | first
@@ -79,7 +79,7 @@ Find the first light that is currently on.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="entity_id")
     | first

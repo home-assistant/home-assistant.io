@@ -2,7 +2,7 @@
 title: "Switch turned off"
 trigger: switch.turned_off
 domain: switch
-description: "Triggers after one or more switches turn off."
+description: "Triggers when one or more switches turn off."
 related_triggers:
   - switch.turned_on
 ---

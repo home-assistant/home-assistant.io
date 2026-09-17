@@ -2,7 +2,7 @@
 title: "Blind closed"
 trigger: cover.blind_closed
 domain: cover
-description: "Triggers after one or more blinds close."
+description: "Triggers when one or more blinds close."
 related_triggers:
   - cover.blind_opened
 ---
@@ -56,10 +56,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple blinds are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the blind must stay closed before the trigger fires.
@@ -75,9 +75,9 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `blind` device class.
-- If a blind comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
-- The `for` option fires the automation only if the blind stays closed for the entire time you set.
+- Use a cover entity with the blind device class.
+- If a blind comes back from **Unavailable** or **Unknown**, that recovery does not count as the closing.
+- The **For at least** option fires the automation only if the blind stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

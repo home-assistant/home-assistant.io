@@ -2,7 +2,7 @@
 title: "Door opened"
 trigger: door.opened
 domain: door
-description: "Triggers after one or more doors open."
+description: "Triggers when one or more doors open."
 related_triggers:
   - door.closed
 ---
@@ -28,9 +28,11 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted door opens, **First** to fire only when the first targeted door opens, or **All** to fire only after every targeted door is open.
+  description: When multiple doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted door opens, **First** to fire only when the first targeted door opens, or **All** to fire only after every targeted door is open. Default is **Each**.
+  required: false
 For at least:
   description: How long the door must stay open before the trigger fires. Set it to zero to fire immediately.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -72,9 +74,9 @@ for:
 
 ## Good to know
 
-- This trigger works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- If an entity comes back from `unavailable` or `unknown`, that recovery does not count as opening the door.
-- The `for` option only fires the automation if the door stays open for the entire time you set.
+- Use a door contact sensor or door cover that uses the door device class.
+- If an entity comes back from **Unavailable** or **Unknown**, that recovery does not count as opening the door.
+- The **For at least** option only fires the automation if the door stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 
@@ -86,7 +88,7 @@ If someone comes home after sunset, this automation turns on the entry light as 
 
 - **Trigger**: Door opened
 - **Target**: Front door sensor
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for entry lighting on arrival" %}
 

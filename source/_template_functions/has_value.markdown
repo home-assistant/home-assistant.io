@@ -67,7 +67,7 @@ entity_id:
 
 {% tip %}
 
-You can check if an entity is `unavailable` or `unknown` by looking it up in {% my developer_states title="**Developer Tools** > **States**" %}. The state column shows the current value.
+You can check if an entity is `unavailable` or `unknown` by looking it up in {% my developer_states title="**Settings** > **Tools** > **States**" %}. The state column shows the current value.
 
 {% endtip %}
 

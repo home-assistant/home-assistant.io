@@ -20,8 +20,6 @@ The **Moon** {% term integration %} adds a sensor to Home Assistant that tells y
 
 It works out the phase on your own system from the current date, so it needs no account, no API key, and no internet connection. Show the moon phase on a dashboard, or use it as a condition in your automations, for example to only run a garden light scene on the night of a full moon.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 There is nothing to set up. The Moon integration has no options, and you can add it only once.
@@ -48,6 +46,10 @@ The sensor shows a matching moon icon for each phase, so you can recognize the c
 The more info dialog showing the current moon phase.
 </p>
 
+{% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
+
 ## Data updates
 
 The phase is calculated on your own system from the current date, so no data is fetched from the internet. Home Assistant recalculates it as the date advances, so the sensor changes at most once per day.
@@ -55,6 +57,7 @@ The phase is calculated on your own system from the current date, so no data is 
 ## Known limitations
 
 - The phase is based on the date only. The sensor does not report the exact percentage of illumination, moonrise and moonset times, or how the moon looks from your specific location or hemisphere.
+- The triggers and conditions are also based only on the phase. They do not react to moonrise, moonset, the moon's elevation, or the exact percentage of illumination.
 
 ## Removing the integration
 

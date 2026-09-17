@@ -119,9 +119,10 @@ for:
 
 ## Good to know
 
+- The target water heater entity must expose a target temperature attribute.
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 - This condition checks the target temperature setpoint, not the current measured water temperature.
 - With **Any**, unavailable and unknown water heaters are skipped. With **All**, they make the condition fail.
-- The threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
 - To check the current measured temperature instead of the setpoint, use [Temperature value](/conditions/temperature.is_value/).
 
 {% include conditions/try_it.md %}

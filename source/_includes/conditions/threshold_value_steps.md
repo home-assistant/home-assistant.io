@@ -1,7 +1,7 @@
 {% comment %}
 Reusable "To use ... in an automation" steps for entity conditions that test a
 reading against the threshold-mapping schema (above/below/in range/outside
-range). Used by humidity.is_value; reusable by climate.target_humidity,
+range). Used by humidity.is_value; reusable by climate.is_target_humidity,
 light.is_brightness, counter.is_value, and similar.
 
 Parameters:

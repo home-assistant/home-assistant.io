@@ -117,7 +117,7 @@ See [Types and conversion](/docs/templating/types/#iterables-look-like-lists-but
 **How to fix it.**
 
 - Use `states('sensor.temperature')` instead. The function version returns the text `'unknown'` for missing entities instead of raising an error, which is safer.
-- Verify the entity ID in {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
+- Verify the entity ID in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 ## No first item, sequence was empty
 

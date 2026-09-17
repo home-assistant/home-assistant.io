@@ -2,7 +2,7 @@
 title: "Thermostat started drying"
 trigger: climate.started_drying
 domain: climate
-description: "Triggers after one or more thermostats start drying."
+description: "Triggers when one or more thermostats start drying."
 related_triggers:
   - climate.started_heating
   - climate.started_cooling
@@ -36,6 +36,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat starts drying.
     - **First**: fires only when the first of a group starts drying.
     - **All**: fires only after every targeted thermostat is drying.
+  required: false
 For at least:
   description: How long the thermostat must stay in the drying state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}

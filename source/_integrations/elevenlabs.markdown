@@ -44,25 +44,11 @@ An overview of supported languages is available at [complete list of supported l
 
 List of models and their capabilities can be determined at [models documentation](https://elevenlabs.io/docs/capabilities/speech-to-text#models).
 
-## Action speak
+## Using ElevenLabs text-to-speech in automations
 
-The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the entity for your ElevenLabs TTS (it's named ElevenLabs by default), select the media player entity or group to send the TTS audio to, and enter the message to speak.
+To use ElevenLabs text-to-speech from an automation or a script, use the [**Speak**](/actions/tts.speak/) action and select your ElevenLabs text-to-speech entity as the target. The entity is named ElevenLabs by default.
 
-For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
-
-In YAML, your action will look like this:
-
-```yaml
-action: tts.speak
-target:
-  entity_id: tts.elevenlabs
-data:
-  media_player_entity_id: media_player.giant_tv
-  message: Hello, can you hear me now?
-  options:
-    voice: <voice-id>
-    model: <model-id>
-```
+You can set ElevenLabs-specific `voice` and `model` options in the action's **Options** field. For supported options, see [Configuration](#configuration).
 
 ### Configuration
 

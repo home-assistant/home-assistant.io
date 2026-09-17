@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@ctalkington'
 ha_platforms:
+  - calendar
   - sensor
 ha_integration_type: service
 ---
@@ -24,6 +25,10 @@ URL:
 API Key:
   description: Your Sonarr API key. To find it, open your Sonarr web interface and navigate to **Settings** > **General**. The API key is listed under the **Security** section.
 {% endconfiguration_basic %}
+
+## Calendar
+
+A {% term calendar %} entity is created that shows your upcoming episodes. Each event is titled with the series name, the season and episode number, and the episode title, such as `Bob's Burgers - S04E11 - Easy Com-mercial, Easy Go-mercial`. Events are timed using the episode's air time and the series runtime.
 
 ## Sensors
 

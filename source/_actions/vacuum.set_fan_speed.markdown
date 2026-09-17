@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Set vacuum cleaner fan speed**.
+3. Add an action and search for **Set vacuum cleaner fan speed**.
 4. Choose the target vacuum, then select or enter the desired fan speed/power.
 5. Save the automation.
 

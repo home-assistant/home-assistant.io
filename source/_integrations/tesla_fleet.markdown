@@ -93,25 +93,26 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 {% include integrations/config_flow.md %}
 
 1. Add application credentials
-   - Enter your application Client ID and Client Secret from your Tesla Developer Application
-   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured
+   - Enter your application Client ID and Client Secret from your Tesla Developer Application.
+   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured.
 
 2. Authenticate with Tesla:
-   - You'll be redirected to Tesla's login page
-   - Enter your Tesla account credentials
-   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected
+   - You'll be redirected to Tesla's login page.
+   - Enter your Tesla account credentials.
+   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected.
 
 3. Redirect to Home Assistant:
-   - Confirm you want to **Link account to Home Assistant**
+   - Confirm you want to **Link account to Home Assistant**.
 
-4. Enter domain
-   - Enter the domain name you intend to host your public key on
+4. Select region:
+   - Home Assistant detects the region for your Tesla account and selects it for you, so most people can just select **Submit**.
+   - If your vehicles or energy sites are registered in a different region, select the correct region from the list before continuing.
+5. Enter domain:
+   - Enter the domain name you intend to host your public key on.
    - This domain should be the same or a subdomain of your origin domain, and must use a valid SSL certificate.
-
-5. Register public key
-   - Upload the public key shown to the domain you entered in step 4 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
-
-6. Install Virtual Key
+6. Register public key:
+   - Upload the public key shown to the domain you entered in step 5 at `.well-known/appspecific/com.tesla.3p.public-key.pem`.
+7. Install virtual key:
    - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
    - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
 
@@ -309,13 +310,17 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 
 {% note %} Vehicles manufactured outside of those mentioned above have no issues with prevented sleep. {% endnote %}
 
-## Removing the integration
-
-{% include integrations/remove_device_service.md %}
-
-- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.
-
 ## Troubleshooting
+
+### Tesla Developer Dashboard does not continue after selecting **Next**
+
+#### Symptom
+
+When configuring **Client Details** in the Tesla Developer Dashboard, selecting **Next** does not continue to the next step and no validation error is shown.
+
+#### Resolution
+
+Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses `ddns.net`, use a different hostname that does not end in `ddns.net`, or use an external hosting service such as [FleetKey](https://fleetkey.net).
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
@@ -323,3 +328,9 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 - **Access to this resource is not authorized**: Check your [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) to ensure you haven't exceeded your usage limits and add billing information if required. In certain countries, the *Fart* (remote boombox) command will also throw this error where its usage is illegal.
 
 If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.

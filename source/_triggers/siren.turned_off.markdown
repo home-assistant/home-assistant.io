@@ -2,7 +2,7 @@
 title: "Siren turned off"
 trigger: siren.turned_off
 domain: siren
-description: "Triggers after one or more sirens turn off."
+description: "Triggers when one or more sirens turn off."
 related_triggers:
   - siren.turned_on
 ---
@@ -27,6 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sirens are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted siren turns off, **First** to fire only when the first targeted siren turns off, or **All** to fire only after every targeted siren has turned off.
+  required: false
 For at least:
   description: How long the siren must stay off before the trigger fires. Set to zero to fire right away.
 {% endoptions_ui %}

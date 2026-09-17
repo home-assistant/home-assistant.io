@@ -2,7 +2,7 @@
 title: "Humidifier turned off"
 trigger: humidifier.turned_off
 domain: humidifier
-description: "Triggers after one or more humidifiers turn off."
+description: "Triggers when one or more humidifiers turn off."
 related_triggers:
   - humidifier.turned_on
   - humidifier.started_humidifying
@@ -36,6 +36,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted humidifier is off.
+  required: false
 For at least:
   description: How long the humidifier must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -136,7 +137,8 @@ When all humidifiers in the house turn off, turn off the ventilation fan as well
   - **Target**: All humidifiers (by label)
   - **Trigger when**: All
   - **For at least**: 00:00:00
-- **Action**: Fan: Turn off
+- **Action**: Turn off fan
+  - **Target**: Ventilation
 
 {% details "YAML example for turning off the fan when all humidifiers stop" %}
 

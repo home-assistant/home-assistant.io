@@ -1,5 +1,5 @@
 ---
-title: Vacuum is encountering an error
+title: Vacuum cleaner is encountering an error
 condition: vacuum.is_encountering_an_error
 domain: vacuum
 description: "Passes when the vacuum cleaner is in an error state."
@@ -16,7 +16,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner is encountering an error**.
+4. From the search box, search for and select **Vacuum cleaner is encountering an error**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the vacuum must remain in the error state before the condition passes.
@@ -87,7 +87,7 @@ for:
 This automation checks every evening whether the upstairs vacuum is still in an error state. If it is, Home Assistant sends a reminder so the problem does not go unnoticed until the next cleaning run.
 
 - **Trigger**: Time: 18:00
-- **Condition**: Vacuum is encountering an error
+- **Condition**: Vacuum cleaner is encountering an error
   - **Target**: Upstairs vacuum
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

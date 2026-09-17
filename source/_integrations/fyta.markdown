@@ -24,11 +24,11 @@ The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta
 
 ## Supported devices
 
-The integration should work with any [FYTA Beam](https://fyta.de/collections/all/products/single-beam).
+The integration should work with any [FYTA Sensor](https://fyta.de/en/pages/fyta-system).
 
 ## Prerequisites
 
-For the integration to work you need a [FYTA Beam](https://fyta.de/collections/all/products/single-beam) and a FYTA account.
+For the integration to work, you need a [FYTA Sensor](https://fyta.de/en/pages/fyta-system) and a FYTA account.
 
 {% include integrations/config_flow.md %}
 
@@ -78,6 +78,7 @@ The following sensors are currently available per plant:
 | nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
+| last_update           | date   | Date when the sensor last sent an update to the FYTA hub |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|

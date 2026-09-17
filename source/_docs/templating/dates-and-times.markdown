@@ -197,6 +197,15 @@ template: |
 output: "15 minutes ago"
 {% endexample %}
 
+If you already have a timedelta object and want to display it in a readable format, use [`timedelta_string`](/template-functions/timedelta_string/):
+
+{% example %}
+template: |
+  {% set open_for = trigger.to_state.last_changed - trigger.from_state.last_changed %}
+  Open for {{ timedelta_string(open_for, 2) }}
+output: "Open for 15 minutes 30 seconds"
+{% endexample %}
+
 ### Is it more than X minutes?
 
 A common pattern: trigger an alert when something has been in a state too long.
@@ -223,7 +232,7 @@ output: "Christmas: 8 months"
 
 ## Time zones
 
-Home Assistant stores state timestamps (`last_changed`, `last_updated`) in your configured time zone. `now()` also returns your local time zone. `utcnow()` returns UTC.
+Home Assistant stores state timestamps (`last_changed`, `last_updated`) in UTC. `now()` returns the current time in your configured time zone, while `utcnow()` returns it in UTC.
 
 If you need to compare datetimes, both sides need to be in the same time zone. [`as_datetime`](/template-functions/as_datetime/) and [`strptime`](/template-functions/strptime/) return datetimes without a time zone by default. Apply the matching conversion before comparing, or stick to [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) which handle this for you.
 

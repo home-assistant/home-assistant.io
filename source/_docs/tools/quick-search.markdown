@@ -42,7 +42,7 @@ Similar to {% my entities title="**Settings** > **Devices & services** > **Entit
 
 Once launched, start typing your entity ID (or ["bits and pieces" of your entity ID](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Selecting an entity (or hitting `enter` when the desired entity is highlighted) will open the **More info** dialog for that entity.
 
-This is helpful when, for example, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer tools.
+This is helpful when, for example, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to **Settings** > **Tools**.
 
 ## Device filter
 
@@ -92,7 +92,7 @@ Learn more about [voice assistants](/voice_control).
 
 ## Disabling shortcuts
 
-You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and selecting the **Keyboard shortcuts** toggle button.
+You can enable or disable all of Home Assistant's keyboard shortcuts by going to {% my profile_browser title="**User profile** > **This browser**" %} and turning off **Keyboard shortcuts**.
 
 <p class='img'>
   <img src='/images/docs/quick-search/disable-shortcuts-toggle.png' alt='Toggle for enabling or disabling keyboard shortcuts'>
@@ -135,7 +135,7 @@ There are a few possible reasons why the **Quick search** dialog won't launch:
 
 1. Your user is not an admin.
 2. The application lost focus. Try selecting the main content area of the application and typing the shortcut again.
-3. You have disabled keyboard shortcuts in your User Profile settings.
+3. You have disabled **Keyboard shortcuts** in {% my profile_browser title="**User profile** > **This browser**" %}.
 4. Shortcut is marked by browser as non-overridable. Firefox does this with some shortcuts, for example. But this shouldn't be a problem with single-key shortcuts currently used by the **Quick search**.
 5. Some other application or browser extension is using or overriding the shortcut. Try disabling the extension.
 

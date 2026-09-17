@@ -1,6 +1,6 @@
 ---
 title: Homevolt
-description: Connect Homevolt batteries locally to expose sensors in Home Assistant.
+description: Connect Homevolt batteries locally to expose sensors and controls in Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: homevolt
 ha_platforms:
   - diagnostics
+  - select
   - sensor
   - switch
 ha_config_flow: true
@@ -25,7 +26,7 @@ The **Homevolt** {% term integration %} lets Home Assistant read local data from
 {% include integrations/config_flow.md %}
 
 API access must be explicitly enabled on the Homevolt device; contact Tibber Customer Support to activate the API.
-Configuration needs the device IP address and, if set on the device, a password. 
+Configuration needs the device IP address and, if set on the device, a password.
 
 {% configuration_basic %}
 Host:
@@ -49,7 +50,19 @@ The {% term integration %} creates sensors reported by the device, including:
 
 The {% term integration %} creates switches reported by the device, including:
 
-- Local mode, enable or disable loacal control mode
+- Local mode, enable or disable local control mode
+
+## Selects
+
+The **Battery mode** select changes the battery's operating mode. It is available when the **Local mode** switch is enabled.
+
+Available modes:
+
+- Idle
+- Inverter charge
+- Inverter discharge
+- Frequency reserve
+- Solar charge
 
 ## Troubleshooting
 

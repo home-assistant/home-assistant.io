@@ -29,8 +29,6 @@ An HVAC entity can have the following states, depending on the specific climate 
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-{% include integrations/actions.md %}
-
 ## Attributes
 
 The climate entity has extra attributes to represent the state of the thermostat.
@@ -42,6 +40,4 @@ The climate entity has extra attributes to represent the state of the thermostat
 
 It depends on the thermostat you are using which states are available.
 
-{% include integrations/triggers.md %}
-
-{% include integrations/conditions.md %}
+{% include integrations/triggers_conditions_actions.md %}

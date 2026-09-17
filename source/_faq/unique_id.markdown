@@ -1,5 +1,5 @@
 ---
-title: "Why doesn't this entity have a unique ID?"
+title: "Why does this entity not have a unique ID?"
 description: "A unique ID is a permanent identifier (such as a serial number) that some entities don't have. Without one, you can't rename the entity from the UI."
 ha_category: Configuration
 ---
@@ -35,6 +35,13 @@ You will typically see this on entities you created manually in YAML, or on enti
 - Entity without a unique ID: the entity ID is treated as a fixed identifier and cannot be changed.
 
 If your entity has no unique ID, you can still adjust some properties through the [manual customization options](/docs/configuration/customizing-devices) in YAML.
+
+### How do I remove an entity without a unique ID?
+
+Entities without a unique ID are not stored in the entity registry, so you cannot delete them from the user interface. To remove one, remove or change the configuration that creates the entity.
+
+- If you created the entity manually in YAML, remove its configuration. Then go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and reload the affected configuration if it is listed. Otherwise, restart Home Assistant.
+- If an integration creates the entity, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the integration, and reconfigure or remove the source that provides it. The available options depend on the integration, so check its documentation for details.
 
 ### Can I add a unique ID myself?
 

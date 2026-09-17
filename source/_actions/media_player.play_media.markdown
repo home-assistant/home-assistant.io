@@ -1,5 +1,5 @@
 ---
-title: "Play media"
+title: "Play specified media"
 action: media_player.play_media
 domain: media_player
 description: "Plays specific media on a media player."
@@ -20,7 +20,7 @@ To play media from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the media player you want to control.
-6. From the actions shown for that target, select **Play media**.
+6. From the actions shown for that target, select **Play specified media**.
 7. Select the **Media** you want to play, and set the other options if you need them.
 8. Select **Save**.
 

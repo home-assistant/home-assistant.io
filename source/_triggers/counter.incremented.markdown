@@ -2,7 +2,7 @@
 title: "Counter incremented"
 trigger: counter.incremented
 domain: counter
-description: "Triggers after one or more counters increment."
+description: "Triggers when one or more counters increment."
 related_triggers:
   - counter.decremented
   - counter.maximum_reached

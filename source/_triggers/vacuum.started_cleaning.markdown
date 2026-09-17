@@ -1,11 +1,11 @@
 ---
-title: "Vacuum started cleaning"
+title: "Vacuum cleaner started cleaning"
 trigger: vacuum.started_cleaning
 domain: vacuum
-description: "Triggers when a vacuum cleaner begins a cleaning task."
+description: "Triggers when one or more vacuum cleaners start cleaning."
 related_triggers:
   - vacuum.paused_cleaning
-  - vacuum.docked
+  - vacuum.returned_to_dock
 ---
 
 The **Vacuum cleaner started cleaning** trigger fires when the vacuum begins a new cleaning run. Use it for automations that need to respond when cleaning starts, like announcements, status changes, or notifications.
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
 3. In the **When** section, select **Add trigger**.
-4. Search for **Vacuum: Vacuum cleaner started cleaning**.
+4. Search for **Vacuum cleaner started cleaning**.
 5. Select targets (area, floor, or vacuums).
 6. Pick **Trigger when**: **Each**, **First**, or **All** as needed.
 7. Under **For at least**, enter how long the vacuum must keep cleaning before the trigger fires.
@@ -30,7 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: If targeting multiple vacuums, determines when the trigger fires. Pick **Each** to fire every time any targeted vacuum starts cleaning, **First** to fire only on the first start event, or **All** to fire only after all targeted vacuums have started cleaning.
-  required: true
+  required: false
 For at least:
   description: The time the vacuum must keep cleaning before the trigger fires.
   required: false
@@ -59,7 +59,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -87,7 +87,7 @@ for:
 
 When the downstairs vacuum starts, turn on a helper that other automations can use to avoid interrupting the cleaning run.
 
-- **Trigger**: Vacuum started cleaning
+- **Trigger**: Vacuum cleaner started cleaning
 - **Target**: Downstairs vacuum
 - **Action**: Turn on input boolean
 

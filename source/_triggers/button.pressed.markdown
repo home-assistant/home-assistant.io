@@ -2,10 +2,10 @@
 title: "Button pressed"
 trigger: button.pressed
 domain: button
-description: "Runs when a button entity is pressed."
+description: "Triggers when one or more buttons are pressed."
 ---
 
-Use this trigger when you want an automation to run every time a button entity is pressed. This is useful when a button starts a task on a device and you also want Home Assistant to take a follow-up action.
+Use this trigger when you want an automation to run every time a button {% term entity %} is pressed. It works with both button entities provided by your devices and integrations, and with [button helpers](/integrations/input_button/) you create yourself. This is useful when a button starts a task on a device and you also want Home Assistant to take a follow-up action, or when you want to start an automation from a button on your dashboard.
 
 {% include triggers/ui_header.md %}
 
@@ -14,7 +14,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to monitor.
+4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), select the button entity or button helper you want to monitor. You can also select an area, a floor, a device, or a label.
 5. From the triggers shown for that target, select **Button pressed**.
 6. Select **Save**.
 
@@ -43,6 +43,7 @@ This trigger has no additional YAML options beyond the target.
 
 ## Good to know
 
+- This trigger works with both button entities provided by your devices and integrations (domain `button`) and [button helpers](/integrations/input_button/) you create yourself (domain `input_button`).
 - This trigger fires when Home Assistant detects a button press from the button entity.
 - Changes to `unavailable` or `unknown` do not count as button presses.
 - If you only need to press a button from an automation, use the related [**Press button**](/actions/button.press/) action instead.
@@ -85,7 +86,7 @@ Use this automation when a button helps you locate a device and you want a nearb
 
 - **Trigger**: Button pressed
   - **Target**: Front door camera identify button
-- **Action**: Light: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for turning on a light from an identify button" %}
 
