@@ -132,9 +132,9 @@ You can see all the serial ports on your system in one place from the **Serial**
 1. Go to **Settings** > **Connectivity** > **Serial**.
    - At the top, a status summary shows how many of your connected ports are in use, and whether any ports are disconnected.
    - The ports are grouped into three lists:
-     - **Connected**: ports that are used by at least one integration or {% term app %}.
-     - **Available**: ports that are connected, but not used by any integration or app.
-     - **Disconnected**: ports that an integration or app uses, but that are currently not connected.
+      - **Connected**: ports that are used by at least one integration or {% term app %}.
+      - **Available**: ports that are connected, but not used by any integration or {% term app %}.
+      - **Disconnected**: ports that an integration or {% term app %} uses, but that are currently not connected.
    - If Home Assistant did not find any serial ports, the panel shows **No serial ports found** instead.
    - To look for ports again, for example after plugging in a USB-to-serial adapter, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 
