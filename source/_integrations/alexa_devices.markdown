@@ -284,7 +284,7 @@ automation:
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every five minutes by default.
+This integration {% term polling polls %} device data every five minutes by default. To-do and shopping list changes, voice interaction history, media state, and volume changes are received through push events and are reflected in Home Assistant without waiting for the polling interval.
 
 ## Known limitations
 

@@ -33,3 +33,4 @@ Each `account` is set up as a device in Home Assistant and contain the following
 |-------|---------------|
 |Balance|Account balance|
 |Age| This sensor shows when the data was retrieved by Monarch's back end |
+|Owner|Shows the institution owner in Monarch Money|
