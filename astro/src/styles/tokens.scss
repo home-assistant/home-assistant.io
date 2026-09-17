@@ -6,6 +6,7 @@
 
 :root {
 	--color-text: #222;
+	--color-text-muted: #555;
 	--color-text-inverse: #fff;
 	--color-link: #007fa8;
 	--color-highlight: #1abcf2;
@@ -14,6 +15,7 @@
 	--color-page: #fbfbfb;
 	--color-surface: #fff;
 	--color-surface-subtle: #e8edf0;
+	--color-footer-surface: #f2f4f9;
 	--color-header-surface: rgb(251 251 251 / 80%);
 	--color-hover-wash: rgb(26 188 242 / 10%);
 	--color-hover-wash-inverse: rgb(255 255 255 / 15%);
@@ -25,10 +27,13 @@
 	--font-size-small: 0.75rem;
 	--font-size-medium: 0.875rem;
 	--font-size-large: 1rem;
+	--font-size-xlarge: 1.25rem;
 
 	--space-small: 0.5rem;
 	--space-medium: 0.75rem;
 	--space-large: 1rem;
+	--space-xlarge: 1.5rem;
+	--space-xxlarge: 2.5rem;
 
 	--radius-small: 0.5rem;
 	--radius-pill: 62.5rem;
