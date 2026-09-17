@@ -3,7 +3,7 @@ title: Gree Infrared
 description: Integration to control Gree air conditioners using an infrared emitter and to receive commands from a Gree remote using an infrared receiver.
 ha_category:
   - Climate
-  - Infrared
+  - Infrared-controlled
 ha_release: '2026.10'
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -28,9 +28,7 @@ Gree manufactures air conditioners sold under many brand names. Units branded On
 
 ## Prerequisites
 
-Before setting up the Gree Infrared integration, you need a working infrared emitter already set up in Home Assistant. It must expose an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your air conditioner to send commands.
-
-Optionally, you can also set up an infrared receiver, such as an IR receiver module, to capture commands from your Gree remote and keep the climate entity in sync.
+{% include integrations/infrared_controlled.md %}
 
 {% include integrations/config_flow.md %}
 
