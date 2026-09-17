@@ -14,6 +14,8 @@ body:
     id: issue-type
     attributes:
       label: Type of issue
+      description: >-
+        If more than one type applies, choose the most relevant one.
       options:
         - Grammatical error or typo
         - Documentation not according to HA style guide
@@ -21,8 +23,6 @@ body:
         - Missing information
         - Unclear or confusing information
         - Other (issue in content formatting, broken link or image, non-working widget)
-    description: >-
-      If more than one type applies, choose the most relevant one.
     validations:
       required: true
   - type: textarea
