@@ -75,7 +75,7 @@ A selected sensor is never replaced by a fixed value. If the sensor doesn't exis
 - During setup, the integration shows the error as the reason it is retrying, and it keeps retrying.
 - After setup, the forecast entities become unavailable, and the error is logged.
 
-As soon as the sensor changes again, the forecast refreshes right away, without waiting for the next scheduled update.
+After setup, as soon as one of the plane sensors changes, the forecast refreshes right away, without waiting for the next scheduled update. During setup, Home Assistant keeps retrying on its own schedule instead.
 
 If you rename a sensor's entity ID, the plane keeps using it automatically. If you delete the sensor, forecast updates fail as described above until you reconfigure the plane with another sensor or a fixed value.
 
@@ -184,7 +184,7 @@ How often the forecast {% term polling updates %} depends on your Forecast.Solar
 - Free accounts update every hour.
 - Accounts with an API key update every 30 minutes.
 
-Because Forecast.Solar limits how often the forecast can be requested, the integration reads your declination and azimuth sensors and your Home Assistant home location at each scheduled update, not the moment they change. The only exception is when a sensor couldn't be used: as soon as that sensor changes again, the forecast refreshes right away. See [When a sensor can't be used](#when-a-sensor-cant-be-used).
+Because Forecast.Solar limits how often the forecast can be requested, the integration reads your declination and azimuth sensors and your Home Assistant home location at each scheduled update, not the moment they change. The only exception is when a sensor couldn't be used after setup: as soon as one of the plane sensors changes, the forecast refreshes right away. See [When a sensor can't be used](#when-a-sensor-cant-be-used).
 
 The forecast always remains an estimate based on weather and historical data, not a measurement of the power your panels actually produce.
 
