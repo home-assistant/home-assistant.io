@@ -99,16 +99,28 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ### Switches
 
-When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
+When the cloud API reports that the toggle is supported for a device, the integration exposes switch entities.
 
-- **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
-- **Audio recording**: Toggle audio recording on supported cameras.
-- **Human detection**: Toggle human detection on supported cameras.
-- **Indicator light**: Toggle the device status indicator LED on supported models.
-- **Motion detection**: Toggle motion detection on supported cameras.
+Primary controls:
+
 - **Plug switch**: Control the main power relay on supported IoT socket devices.
 - **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **White light**: Manually toggle the camera white LED illuminator on supported models.
+
+Device settings (**Configuration** category):
+
+- **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
+- **Alarm-linked siren**: Link the device siren to alarm events on supported models.
+- **Alarm-linked white light**: Link the white light to alarm events on supported models.
+- **Audio recording**: Toggle audio recording on supported cameras.
+- **Flip image**: Flip the camera image vertically on supported models.
+- **Human detection**: Toggle human detection on supported cameras.
+- **Indicator light**: Toggle the device status indicator LED on supported models.
+- **Motion detection**: Toggle motion detection on supported cameras.
+- **Pet detection**: Toggle pet detection on supported cameras.
+- **Prompt sound**: Toggle prompt sounds on supported models.
+- **Smart tracking**: Toggle smart tracking on supported cameras.
+- **Wide dynamic range**: Toggle wide dynamic range on supported cameras.
 
 ### Selects
 
