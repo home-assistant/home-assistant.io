@@ -1,6 +1,6 @@
 ---
 title: Zodiac
-description: Instructions on how to setup the zodiac integration within Home Assistant.
+description: Instructions on how to set up the zodiac integration within Home Assistant.
 ha_category:
   - Environment
 ha_iot_class: Calculated

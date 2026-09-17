@@ -140,6 +140,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-40DX600
 - TX-40DX700B
 - TX-42AS650
+- TX-48JZ980E
 - TX-49DX650B
 - TX-49FXW654
 - TX-50DX700B
@@ -161,8 +162,9 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-65FX720W
 - TX-65GZ1000E
 - TX-L42ET50
+- TX-L42EW6 (can't power on)
 - TX-L47ET60E (can't power on)
-- TX LF37E30 (can't power on)
+- TX-LF37E30 (can't power on)
 - TX-P42STW50
 - TX-P42VT30E
 - TX-P50GT30Y

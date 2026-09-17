@@ -12,7 +12,7 @@ ha_integration_type: service
 ha_config_flow: true
 ---
 
-The **AfterShip** {% term integration %} allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Pro plan is required. 
+The **AfterShip** {% term integration %} allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Pro plan is required.
 
 The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 
@@ -26,24 +26,7 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 
 {% include integrations/config_flow.md %}
 
-## Action `add_tracking`
-
- You can use the `aftership.add_tracking` action to add trackings to AfterShip.
-
-| Data attribute | Required | Type | Description |
-| ---------------------- | -------- | -------- | ----------- |
-| `tracking_number` | `True` | string | Tracking number
-| `slug` | `False` | string | Carrier e.g.,  `fedex`
-| `title` | `False` | string | Friendly name of package
-
-## Action `remove_tracking`
-
- You can use the `aftership.remove_tracking` action to remove trackings from AfterShip.
-
-| Data attribute | Required | Type | Description |
-| ---------------------- | -------- | -------- | ----------- |
-| `tracking_number` | `True` | string | Tracking number
-| `slug` | `True` | string | Carrier e.g.,  `fedex`
+{% include integrations/actions.md %}
 
 {% note %}
 This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.

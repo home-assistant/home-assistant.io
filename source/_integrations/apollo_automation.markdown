@@ -60,3 +60,7 @@ The following devices are known to be supported by the integration. They are cer
 - [MTR-1 Multi-Target Radar Multisensor (LD2450)](https://apolloautomation.com/products/mtr-1) - A tiny, but powerful radar-based (mmWave) presence sensor that can pack in many other sensors.
 - [MSR-2 mmWave Multisensor (LD2410B)](https://apolloautomation.com/products/msr-2) - An even smaller multisensor that is the successor of the initial community feedback-driven design.
 - [AIR-1 Air Quality Sensor](https://apolloautomation.com/products/air-1) - A small air quality multisensor that can be extended to incorporate a huge variety of sensors.
+- [LED-1 Controller](https://apolloautomation.com/products/led-1-led-controller) - A versatile LED controller designed for advanced lighting projects.
+- [BTN-1 Macro Deck](https://apolloautomation.com/products/btn-1-macro-deck) - A four keycap button deck with LEDs.
+- [R PRO-1 PoE dual mmWave Multisensor](https://apolloautomation.com/products/r-pro-1) - An advanced presence sensor.
+- [PLT-1 / PLT-1B Plant Sensor](https://apolloautomation.com/products/plt-1) - An indoor plant multisensor.

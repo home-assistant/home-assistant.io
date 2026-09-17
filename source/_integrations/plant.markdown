@@ -1,6 +1,6 @@
 ---
 title: Plant Monitor
-description: Instructions on how to setup plant monitoring with Home Assistant.
+description: Instructions on how to set up plant monitoring with Home Assistant.
 ha_category:
   - Environment
 ha_release: 0.44
@@ -124,8 +124,6 @@ The main sources of the data will usually be a [MiFlora sensor](/integrations/mi
 
 If you want to get the data via a PlantGateway, this is a typical configuration for the MQTT sensors:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 plant:
@@ -169,7 +167,5 @@ sensor:
     value_template: "{{ value_json.brightness | int }}"
     unit_of_measurement: "Lux"
 ```
-
-{% endraw %}
 
 You have to replace the `state_topic` with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.

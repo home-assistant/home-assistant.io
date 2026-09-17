@@ -10,14 +10,38 @@ layout: default
       <div class="breadcrumbs">
         <a href="/">Home</a>
         {% for crumb in crumbs offset: 1 %}
-          {% if forloop.last %}
-            ▸ 
-          {% else %}
+          {% unless forloop.last %}
             {% assign crumb_limit = forloop.index | plus: 1 %}
             ▸ <a href="{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'docs','documentation' | replace:'-',' ' | replace:'_',' ' | capitalize }}</a>
-          {% endif %}
+          {% endunless %}
         {% endfor %}
       </div>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          }{% assign position = 1 %}{% for crumb in crumbs offset: 1 %}{% unless forloop.last %}{% assign position = position | plus: 1 %}{% assign crumb_limit = forloop.index | plus: 1 %},
+          {
+            "@type": "ListItem",
+            "position": {{ position }},
+            "name": "{{ crumb | replace:'docs','Documentation' | replace:'-',' ' | replace:'_',' ' | capitalize }}",
+            "item": "{{ site.url }}{% for c in crumbs limit: crumb_limit %}{{ c | append: '/' }}{% endfor %}"
+          }{% endunless %}{% endfor %},
+          {
+            "@type": "ListItem",
+            "position": {{ position | plus: 1 }},
+            "name": {{ page.title | jsonify }},
+            "item": "{{ site.url }}{{ page.url }}"
+          }
+        ]
+      }
+      </script>
     {% endif %}
     <h1 class="title indent">
       {% if page.title contains "Category:" %}

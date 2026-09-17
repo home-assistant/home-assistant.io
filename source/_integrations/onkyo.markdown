@@ -40,7 +40,7 @@ The above settings can also be adjusted later. To change **Host** or **Volume Re
 
 {% configuration_basic %}
 Max Volume:
-  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, i.e., if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
+  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, that is, if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
 Input sources:
   description: Mappings of input sources to their names.
 Listening modes:
@@ -57,45 +57,16 @@ If your receiver has a second or third zone available, they are displayed as add
 
 If your receiver supports channel muting, the integration creates a switch for each speaker channel. Turning a switch on mutes that channel, and turning it off unmutes it. This lets you mute individual channels independently of the main volume.
 
-## Actions
+{% include integrations/actions.md %}
 
-### Action `onkyo_select_hdmi_output`
+## Examples
 
-Changes HDMI output of your receiver
+### Play a radio preset
 
-| Data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------- |
-| `entity_id`            | no       | String or list of a single `entity_id` that will change output. |
-| `hdmi_output`          | no       | The desired output code.                                        |
-
-Accepted values are:
-'no', 'analog', 'yes', 'out', 'out-sub', 'sub', 'hdbaset', 'both', 'up'
-which one to use seems to vary depending on model so you will have to try them out.
-( For model TX-NR676E it seems to be 'out' for main, 'out-sub' for sub, and 'sub' for both )
-
-### Example `onkyo_select_hdmi_output` script
-
-```yaml
-# Example onkyo_select_hdmi_output script
-#
-script:
-  hdmi_sub:
-    alias: "Hdmi out projector"
-    sequence:
-      - action: media_player.onkyo_select_hdmi_output
-        data:
-          entity_id: media_player.onkyo
-          hdmi_output: out-sub
-```
-
-### Example `play_media` script
-
-The `play_media` function can be used in script to play radio station by preset number.
-Not working for NET radio.
+You can use the `media_player.play_media` action in a script to play a radio station by its preset number. This does not work for NET radio.
 
 ```yaml
 # Example play_media script
-#
 script:
   radio1:
     alias: "Radio 1"

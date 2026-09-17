@@ -69,8 +69,6 @@ Get started with this automation example to create an Uptime Kuma warning light 
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 actions:
   - choose:
@@ -121,8 +119,6 @@ triggers:
       - sensor.uptime_kuma_my_service
 ```
 
-{% endraw %}
-
 {% enddetails %}
 
 ## Examples
@@ -165,7 +161,7 @@ This integration retrieves data from your Uptime Kuma instance every 30 seconds.
 
 ## Known limitations
 
-- When using Uptime Kuma versions prior to v2.0.0, Uptime Kuma's API does not expose unique identifiers for monitors. Because of this, using the same name for multiple monitors will cause only one of them to appear in Home Assistant. Renaming a monitor will result in new entities being created, while the old (stale) entities will remain unless manually removed.
+- When using Uptime Kuma versions before v2.0.0, Uptime Kuma's API does not expose unique identifiers for monitors. Because of this, using the same name for multiple monitors will cause only one of them to appear in Home Assistant. Renaming a monitor will result in new entities being created, while the old (stale) entities will remain unless manually removed.
 - Paused monitors are not exposed by the API, so Home Assistant cannot distinguish between a deleted monitor and a paused one. As a result, if you delete an Uptime Kuma monitor, the corresponding device entry in Home Assistant must be removed manually.
 
 {% note %}

@@ -8,6 +8,9 @@ ha_category:
 ha_codeowners:
   - '@milanmeu'
   - '@joostlek'
+  - '@loebi-ch'
+  - '@JaspervRijbroek'
+  - '@jonathanrobichaud4'
 ha_config_flow: true
 ha_homekit: true
 ha_iot_class: Local Push

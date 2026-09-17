@@ -45,7 +45,7 @@ travel_time:
 ## Supported functionality
 
 {% note %}
-**WSDOT** does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available on this platform.
+**WSDOT** does provide information about ferry schedules, mountain passes, and tolls, but so far only Travel Time data is available on this platform.
 {% endnote %}
 
 ## Examples
@@ -114,7 +114,7 @@ To resolve this issue, try the following steps:
 
 ##### Description
 
-One or more **WSDOT** element content diaplays `unknown`.
+One or more **WSDOT** element content displays `unknown`.
 
 ##### Resolution
 

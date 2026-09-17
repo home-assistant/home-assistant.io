@@ -17,7 +17,7 @@ ha_quality_scale: legacy
 
 The **Google Wifi** {% term integration %} is displaying the exposed status of a Google Wifi (or OnHub) router.
 
-The {% term integration %} is able to report network status, up-time, current IP address and firmware versions.
+The {% term integration %} can report network status, up-time, current IP address and firmware versions.
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -49,8 +49,6 @@ monitored_conditions:
     new_version:
       description: Latest available firmware version. If router is up-to-date, this value shows to `Latest`.
     uptime:
-      description: Days since router has been turned on.
-    last_restart:
       description: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
     local_ip:
       description: Local public IP address.

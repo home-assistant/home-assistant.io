@@ -8,7 +8,6 @@ ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@rdfurman'
   - '@mkmer'
 ha_domain: honeywell
 ha_platforms:
@@ -94,7 +93,7 @@ This integration will add Home Assistant sensors for the following:
 
 ## Switch
 
-The switch entity integrates the emergency heat option for each device.  If the thermostat supports emergency heat, the switch entity will be created.
+The switch entity integrates the emergency heat option for each device. If the thermostat supports emergency heat, the switch entity will be created.
 
 This integration will add a switch for the following:
 |Switch|Value|

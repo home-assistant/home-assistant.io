@@ -44,12 +44,12 @@ One sensor per discovered network interface will be created
 
 - **IPv4 address**: The IPv4 address assigned to the network interface
 - **IPv6 address**: The IPv6 address assigned to the network interface
-- **Network in**: Total bytes received on the network interface
-- **Network out**: Total bytes sent from the network interface
+- **Network in**: Total data received on the network interface (MiB)
+- **Network out**: Total data sent from the network interface (MiB)
 - **Packets in**: Number of packets received on the network interface
 - **Packets out**: Number of packets sent from the network interface
-- **Network throughput in**: Current inbound network speed (bytes per second)
-- **Network throughput out**: Current outbound network speed (bytes per second)
+- **Network throughput in**: Current inbound network speed (MB/s)
+- **Network throughput out**: Current outbound network speed (MB/s)
 
 ### Pressure Stall Information (PSI)
 
@@ -63,11 +63,11 @@ This has a severe impact on performance, and it’s useful to distinguish this s
 As such, time spent in this subset of the stall state is tracked separately and exported in the `full` averages.
 
 - Memory Pressure Some/Full 10s, 60s, 300s Average in %
-- Memory Pressure Some/Full Total in accumlated us
+- Memory Pressure Some/Full Total in accumulated us
 - IO Pressure Some/Full 10s, 60s, 300s Average in %
-- IO Pressure Some/Full Total in accumlated us
+- IO Pressure Some/Full Total in accumulated us
 - CPU Pressure Some 10s, 60s, 300s Average in %
-- CPU Pressure Some Total in accumlated us
+- CPU Pressure Some Total in accumulated us
 
 - https://docs.kernel.org/accounting/psi.html
 - https://facebookmicrosites.github.io/psi/docs/overview
@@ -78,7 +78,6 @@ As such, time spent in this subset of the stall state is tracked separately and 
 - **Battery empty**: Expected time when the battery is empty if not plugged in
 - **Charging**: Battery is charging (binary sensor)
 - **Fan speed**: Built-in fan speeds
-- **Last boot**: The date and time when the system was last started
 - **Load (1 min)**: System load average over the last 1 minute
 - **Load (5 min)**: System load average over the last 5 minutes
 - **Load (15 min)**: System load average over the last 15 minutes
@@ -90,6 +89,7 @@ As such, time spent in this subset of the stall state is tracked separately and 
 - **Swap free**: Amount of available swap memory
 - **Swap use**: Amount of used swap memory
 - **Swap usage (%)**: Percentage of swap memory used
+- **Uptime**: The date and time when the system was last started
 
 ## Add `process` binary sensor
 
@@ -122,4 +122,4 @@ tmpfs           934M     0  934M   0% /dev/shm
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
 - The unit of measurement (Celsius vs. Fahrenheit) will be chosen based on the system configuration.
-- Only the very first processor related hardware sensor is read, i.e. no individual core temperatures are available (even if the hardware sensor provides that level of detail).
+- Only the very first processor related hardware sensor is read, that is, no individual core temperatures are available (even if the hardware sensor provides that level of detail).

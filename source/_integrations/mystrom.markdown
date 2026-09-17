@@ -21,6 +21,7 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_dhcp: true
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -54,7 +55,7 @@ Two HA sensors are available for motion sensors:
 
 {%include integrations/config_flow.md %}
 
-Check if you are able to access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
+Check if you can access the light located at `IP_ADRRESS`. The details about your light is provided as a JSON response.
 
 ```bash
 $ curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]

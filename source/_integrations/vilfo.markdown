@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: vilfo
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Vilfo Router** {% term integration %} allows you to observe the state of your [Vilfo Router](https://www.vilfo.com) from Home Assistant.

@@ -42,6 +42,10 @@ task :generate do
   abort("Generating language scores data failed") unless success
   success = system "rake codeowners_data"
   abort("Extracting codeowners") unless success
+  success = system "rake wwha_data"
+  abort("Generating WWHA device data failed") unless success
+  success = system "rake allowed_referrers_data"
+  abort("Generating allowed referrers data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -83,6 +87,8 @@ task :preview, :listen do |t, args|
   system "rake language_scores_data"
   system "rake codeowners_data"
   system "rake alerts_data"
+  system "rake wwha_data"
+  system "rake allowed_referrers_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -137,6 +143,42 @@ task :language_scores_data do
 
   File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
     file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download device data from works-with.home-assistant.io"
+task :wwha_data do
+  uri = URI('https://works-with.home-assistant.io/devices.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/wwha_devices.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download referrer allow list from openhomefoundation.org"
+task :allowed_referrers_data do
+  output_file = "#{source_dir}/_data/allowed_referrers.json"
+  begin
+    uri = URI('https://www.openhomefoundation.org/allowed-referrers.json')
+
+    remote_data = JSON.parse(Net::HTTP.get(uri))
+    raise "payload is not an array of strings" unless remote_data.is_a?(Array) && remote_data.all? { |d| d.is_a?(String) }
+
+    referrers = remote_data
+      .map { |d| d.strip.downcase.delete_suffix('.') }
+      .reject(&:empty?)
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(referrers))
+    end
+    puts "## Wrote #{referrers.length} allowed referrer domains"
+  rescue StandardError => e
+    # Never fail the build over the allow list: fall back to the existing
+    # file, or an empty list if none exists yet.
+    warn "## Downloading allowed referrers failed, keeping existing file. #{e}"
+    File.write(output_file, "[]") unless File.exist?(output_file)
   end
 end
 

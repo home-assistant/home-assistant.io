@@ -1,6 +1,6 @@
 ---
 title: Binary sensor
-description: Instructions on how-to setup binary sensors with Home Assistant.
+description: Instructions on how-to set up binary sensors with Home Assistant.
 ha_category:
   - Binary sensor
 ha_release: 0.9
@@ -61,6 +61,7 @@ The following device classes are supported for binary sensors:
 - **door**: `on` means open, `off` means closed
 - **garage_door**: `on` means open, `off` means closed
 - **gas**: `on` means gas detected, `off` means no gas (clear)
+- **glass_break**: `on` means glass break detected, `off` means no glass break (clear)
 - **heat**: `on` means hot, `off` means normal
 - **light**: `on` means light detected, `off` means no light
 - **lock**: `on` means open (unlocked), `off` means closed (locked)
@@ -82,4 +83,4 @@ The following device classes are supported for binary sensors:
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
-For comparison, here are the [device classes](https://www.home-assistant.io/integrations/sensor#device-class) for analog sensors.
+For comparison, here are the [device classes](/integrations/sensor#device-class) for analog sensors.

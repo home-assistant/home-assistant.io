@@ -8,8 +8,9 @@ ha_release: 0.8
 ha_domain: orvibo
 ha_platforms:
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 {% caution %}

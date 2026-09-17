@@ -77,7 +77,7 @@ dark_mode_filter:
 
 ## Elements
 
-Elements are the active components (icons, badges, buttons, text, etc.) that overlay the image.
+Elements are the active components (icons, badges, buttons, text, and more) that overlay the image.
 
 There are several different element types that can be added to a Picture Elements card:
 
@@ -266,7 +266,7 @@ type:
   type: string
 icon:
   required: true
-  description: "Icon to display (e.g., `mdi:home`)."
+  description: "Icon to display, for example `mdi:home`."
   type: string
 title:
   required: false
@@ -402,7 +402,7 @@ for more information.
 {% configuration %}
 type:
   required: true
-  description: 'Card name with `custom:` prefix (e.g., `custom:my-custom-card`).'
+  description: 'Card name with `custom:` prefix, for example `custom:my-custom-card`.'
   type: string
 style:
   required: true
@@ -502,7 +502,7 @@ elements:
       left: 60%
     action: homeassistant.turn_off
     target:
-      entity_id: group.all_lights
+      entity_id: light.home_lights
   - type: icon
     icon: mdi:home
     tap_action:

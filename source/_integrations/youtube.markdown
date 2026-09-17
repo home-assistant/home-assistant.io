@@ -13,9 +13,8 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-google_dev_console_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 api: YouTube Data API v3
-api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com?project=home-assistant-17698
+api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 ---
 
 The **YouTube** {% term integration %} allows you to connect YouTube channels to Home Assistant.
@@ -24,7 +23,10 @@ For every channel you add, it will create sensors for:
 
 - Views count
 - Subscriber count
-- The latest uploaded video
+- Video count
+- The latest upload (videos and Shorts)
+- The latest uploaded Short
+- The latest uploaded video (excludes Shorts)
 
 ## Prerequisites
 

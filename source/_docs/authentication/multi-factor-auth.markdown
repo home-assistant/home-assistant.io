@@ -37,7 +37,7 @@ If no `auth_mfa_modules` configuration section is defined in `configuration.yaml
 You will need an authenticator app on your phone. We recommend either [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/). Both are available for iOS or Android.
 
 1. Restart Home Assistant.
-2. Go to your {% my profile title="**User profile**" %} and select the **Security** tab.
+2. Go to your {% my profile_security title="**User profile** > **Security**" %}.
 3. In the **Multi-factor authentication modules** section, select **Enable** and a new secret key will be generated.
 4. Go to your phone app and enter the key, either by scanning the QR code or typing in the key below the QR code manually.
 
@@ -48,11 +48,11 @@ You will need an authenticator app on your phone. We recommend either [Google Au
     {% endcaution %}
 
 5. Your phone app will now start generating a different six-digit code every thirty seconds or so. Enter one of these into Home Assistant under the QR code where it asks for a **Code**.
-   - **Result**: Home Assistant and your phone app are now in sync and you can now use the code displayed in the app to log in.
+   - Result: Home Assistant and your phone app are now in sync and you can now use the code displayed in the app to log in.
 
 #### Using TOTP
 
-Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in. 
+Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in.
 
 {% note %}
 TOTP is _time based_ so it relies on your Home Assistant clock being accurate. If the verification keeps failing, make sure the clock on Home Assistant is correct.
@@ -99,7 +99,7 @@ homeassistant:
       message: "I almost forget, to get into my clubhouse, you need to say {}"
 ```
 
-After restarting Home Assistant, go to {% my profile title="**User profile**" %} and select the **Security** tab. In the **Multi-factor authentication modules** section. Under **Notify one-time password**, select **Enable**.
+After restarting Home Assistant, go to {% my profile_security title="**User profile** > **Security**" %}. In the **Multi-factor authentication modules** section, under **Notify one-time password**, select **Enable**.
 
 Try logging out, then logging in again. You will be asked for the six-digit one-time password that was sent to your notify entity. Enter the password to log in.
 

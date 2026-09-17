@@ -58,7 +58,7 @@ You can also change the camera options should you need to access a high or low r
 
 - Example: If you set the **Request Timeout** to 30 seconds (default option), Home Assistant will wait up to 30 seconds for a response from the EZVIZ API before timing out.
 
-- Please note this only works on the main EZVIZ cloud entity.
+- This only works on the main EZVIZ cloud entity.
 
 `Arguments passed to ffmpeg for cameras`:
 
@@ -70,67 +70,7 @@ You can also change the camera options should you need to access a high or low r
 
 - Cameras typically default to the main stream if this is invalid or not specified.
 
-- Please note this only works on the camera entities.
-
-### Action `ezviz.alarm_sound`
-
-If your EZVIZ camera supports warning sounds, you can use this action to set the intensity.
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `level`                | Set the sound level to 0 for Soft, 1 for Intensive or 2 to disable                                   |
-
-### Action `ezviz.ptz`
-
-If your EZVIZ camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan or tilt your camera.
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `direction`            | Direction of the movement. Allowed values: `up`, `down`, `left`, `right`                             |
-| `speed`                | (Optional) Speed to in which to move the camera. Allowed values: int from 1 to 9. Default: 5         |
-
-### Action `ezviz.set_alarm_detection_sensibility`
-
-If your EZVIZ camera supports motion detection, you will be able to set the sensitivity level using this action.
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `level`                | Sensibility level (1-6) for type 0 (Normal camera) or (1-100) for type 3 (PIR sensor camera).        |
-| `type_value`           | Type of detection. Options : 0 - Camera or 3 - PIR Sensor Camera.                                    |
-
-### Action `ezviz.sound_alarm`
-
-If your EZVIZ camera has a built-in siren, you can use this action to make a noise.
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-| `enable`               | Sound the alarm by setting this to 1 or stop the siren by setting this to 0.                         |
-
-### Action `ezviz.wake_device`
-
-If you have "sleep" mode enabled on your camera, you can use this action to wake it. Especially useful for battery cameras.
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-
-To enable/disable motion detection, use the Home Assistant built in actions. 
-
-### Action `camera.enable_motion_detection`
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
-
-### Action `camera.disable_motion_detection`
-
-| Data attribute | Description                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+- This only works on the camera entities.
 
 ### Alarm control panel entity
 
@@ -176,6 +116,8 @@ A light entity will be added to cameras + light combos. You can turn it on/off a
 ### Image entity
 
 The image entity represents the last detected event from a camera and visually represents the event within Home Assistant.
+
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 

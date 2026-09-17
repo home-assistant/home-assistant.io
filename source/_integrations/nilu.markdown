@@ -142,7 +142,7 @@ Example where the sensors are also added to the map.
 # Additionally adds the sensors to the map.
 air_quality:
   - platform: nilu
-    show_on_map: True
+    show_on_map: true
 ```
 
 Example of a specific station.

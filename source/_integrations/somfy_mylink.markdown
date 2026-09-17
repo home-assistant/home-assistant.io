@@ -11,7 +11,9 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - cover
-ha_integration_type: integration
+ha_integration_type: hub
+ha_codeowners:
+  - '@sslivins'
 ---
 
 The **Somfy MyLink** {% term integration %} is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It allows the addition of covers from the Somfy MyLink platform to Home Assistant.

@@ -144,7 +144,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Button
 
-A writable property which has only two states that can be toggled is represented as a binary sensor platform.
+A writable property that triggers an action, like starting or pausing a program, is represented as a button platform.
 
 | Device |Property |Action |
 | ------ |-------- | ------ |
@@ -162,7 +162,7 @@ The properties for controlling both the temperature and wind strength of the app
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device in **Settings** > **Tools**.
 
 | Device | Property | Notification codes |
 | ------ | -------- | ---------- |
@@ -300,11 +300,9 @@ A read-only property which has states is represented as a sensor platform.
 
 ### Notification, error event
 
-> - Guide: [Automating on event](https://www.home-assistant.io/integrations/event/#automating-on-a-button-press)
+> - Guide: [Automating on event](/integrations/event/#automating-on-a-button-press)
 > - Important: guide's step 3, 4
 > - You can select the state change you want to act as trigger in step 4
-
-{% raw %}
 
 ```yaml
 alias: lack of water example
@@ -323,8 +321,6 @@ actions:
     entity_id: xxxxxxxx
     domain: switch
 ```
-
-{% endraw %}
 
 ## Troubleshooting
 

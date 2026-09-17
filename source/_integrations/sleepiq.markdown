@@ -26,7 +26,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **SleepIQ** {% term integration %} lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).

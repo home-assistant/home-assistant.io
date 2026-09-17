@@ -30,42 +30,13 @@ Please ensure you are using Agent DVR v2.6.1.0 +
 
 Reports on the current alarm status and can be used to arm and disarm the system.
 
-## Actions
+{% include integrations/actions.md %}
 
-Once loaded, the `agent_dvr` integration will expose actions that can be used. The `entity_id` action attribute can specify one or more specific cameras.
-
-Available actions:
-`enable_alerts`, `disable_alerts`,
-`start_recording`, `stop_recording`,
-`turn_on`, `turn_off`, `toggle`, `enable_motion_detection`,`disable_motion_detection`
-
-### Action: Enable alerts / disable alerts
-
-The `agent_dvr.enable_alerts` and `agent_dvr.disable_alerts` actions are used to enable or disable the device's alert events within Agent DVR.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
-
-### Action: Start recording / stop recording
-
-The `agent_dvr.start_recording` and `agent_dvr.stop_recording` actions are used to start or stop the device recording.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
-
-### Action: Turn on / turn off / toggle
-
-The `agent_dvr.turn_on`, `agent_dvr.turn_off`, and `agent_dvr.toggle` actions are used to turn on, off or toggle the device enabled state within Agent DVR.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+The Agent DVR cameras also support the standard [camera actions](/integrations/camera/#list-of-actions), such as turning the camera on or off and toggling motion detection.
 
 ## Iframe
 
-- Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to <https://www.ispyconnect.com/app/>
+- Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to [the Agent DVR web app](https://www.ispyconnect.com/app/)
 
 <p class='img'>
 <img src='/images/screenshots/agent_dvr.jpg' />

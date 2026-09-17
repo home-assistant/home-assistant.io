@@ -41,7 +41,7 @@ stopid:
   required: true
   type: string
 route:
-  description: The ID of the bus route to get information for. This is the same as the bus number, e.g., `A3641`.
+  description: The ID of the bus route to get information for. This is the same as the bus number, for example, `A3641`.
   required: true
   type: string
 name:

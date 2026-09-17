@@ -107,7 +107,7 @@ max_sub_interval:
 For example, you have a temperature sensor `sensor.temperature` that outputs a value every few seconds, but rounds to the nearest half number.
 That means that two consecutive output values might be the same (so the derivative is `Δy/Δx=0` because `Δy=0` !)
 However, the temperature might actually be changing over time.
-In order to capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
+To capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
 An example YAML configuration that uses `time_window` is
 
 ```yaml

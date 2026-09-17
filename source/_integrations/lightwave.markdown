@@ -129,5 +129,5 @@ lightwave:
       trvs:
         R1Dh:                       # The ID of the TRV.
           name: Bedroom TRV
-          serial: E84902            # Serial number of the TRV - found in the Lightwave App, or web site
+          serial: E84902            # Serial number of the TRV - found in the Lightwave App, or website
 ```

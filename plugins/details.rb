@@ -30,6 +30,11 @@ module Jekyll
       end
       title = title.to_s.delete("\"")
 
+      # Render inline Markdown (e.g., backtick code) in the title
+      site = context.registers[:site]
+      converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
+      title = converter.convert(title).gsub(%r{</?p>\n?}, "")
+
       idx = context["details_idx"]
       idx = 0 if idx.nil?
       context["details_idx"] = idx + 1

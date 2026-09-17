@@ -1,6 +1,6 @@
 ---
 title: OneDrive for Business
-description: Instructions on how to setup OneDrive for Business to be used with backups.
+description: Instructions on how to set up OneDrive for Business to be used with backups.
 ha_release: 2026.3
 ha_category:
   - Backup
@@ -13,12 +13,13 @@ ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 
-The **OneDrive for Business** {% term integration %} allows you to use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+The **OneDrive for Business** {% term integration %} allows you to use [OneDrive for Business](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
 
 Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
 
@@ -49,7 +50,7 @@ The integration will request the following permissions on your OneDrive for the 
 
 ## Getting application credentials
 
-You'll need to follow [this guide by Microsoft on registering an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
+You'll need to follow [this guide by Microsoft on registering an application](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
 Make sure to configure the following settings on the app registration:
 

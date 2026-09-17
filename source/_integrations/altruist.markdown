@@ -1,6 +1,6 @@
 ---
 title: Altruist
-description: Instructions on how to setup Altruist Sensors in Home Assistant.
+description: Instructions on how to set up Altruist Sensors in Home Assistant.
 ha_category:
   - Health
   - Sensor

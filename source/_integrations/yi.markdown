@@ -14,7 +14,7 @@ ha_integration_type: device
 ha_quality_scale: legacy
 ---
 
-The **Yi Home Cameras** {% term integration %} allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
+The **Yi Home Cameras** {% term integration %} allows you to use [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
 - Yi Home 17CN / 27US / 47US
 - Yi 1080p Home
@@ -27,7 +27,7 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### Installing alternative firmware
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
+To integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
 If you have a 2019/2020 version camera use [yi-hack-MStar GitHub project](https://github.com/roleoroleo/yi-hack-MStar) or [yi-hack-Allwinner GitHub project](https://github.com/roleoroleo/yi-hack-Allwinner). In this case configure the cam as ONVIF and read the wiki for further details.
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
@@ -45,7 +45,7 @@ Raspbian users: don't forget to install FFmpeg support on your platform, otherwi
 {% endimportant %}
 
 {% tip %}
-Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
+Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. To maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
 {% endtip %}
 
 ### Changing the FTP password

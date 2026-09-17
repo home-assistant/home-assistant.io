@@ -1,6 +1,6 @@
 ---
-title: "Common tasks - Container"
-description: "Common tasks for Home Assistant Container"
+title: "Common tasks - Home Assistant Container"
+description: "Tasks specific to Home Assistant Container installations, including updating the container image and managing the underlying Docker environment."
 installation: container
 ---
 

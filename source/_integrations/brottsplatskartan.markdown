@@ -23,7 +23,7 @@ The **Brottsplatskartan** {% term integration %} allows one to track reported in
 
 ### Area
 
-Brottsplatskartan captures all incidents in a region, e.g Stockholms län. If area parameter is defined, any latitude and longitude parameters are ignored.
+Brottsplatskartan captures all incidents in a region, for example, Stockholms län. If the area parameter is defined, any latitude and longitude parameters are ignored.
 
 ### Latitude and Longitude
 

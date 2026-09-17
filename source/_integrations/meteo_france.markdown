@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Weather
 ha_codeowners:
-  - '@hacf-fr'
+  - '@hacf-fr/reviewers'
   - '@oncleben31'
   - '@Quentame'
 ha_config_flow: true
@@ -61,7 +61,7 @@ To enable an entity disabled by default, go in {% my integrations title="**Setti
 
 ### About `next_rain` condition sensor
 
-The attributes allow to have a forecast of the rain type by 5 to 10 minutes intervals:
+The attributes allow you to have a forecast of the rain type by 5 to 10 minutes intervals:
 
 - `forecast_time_ref` give a timestamp in ISO format UTC, corresponding to the start of the
   forecast.

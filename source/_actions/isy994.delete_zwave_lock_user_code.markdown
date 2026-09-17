@@ -1,0 +1,62 @@
+---
+title: Delete Z-Wave lock user code
+action: isy994.delete_zwave_lock_user_code
+domain: isy994
+description: "Deletes a user code from a Z-Wave lock through the ISY."
+related_actions:
+  - isy994.set_zwave_lock_user_code
+---
+
+With this action, you can delete a user code from a Z-Wave lock through the ISY. You remove the code by its numbered user slot.
+
+{% include actions/ui_header.md %}
+
+To use this action in an automation or script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the ISY Z-Wave lock you want to update.
+6. From the actions shown for that target, select **ISY: Delete Z-Wave lock user code**.
+7. In the **User slot number** field, enter the slot you want to clear.
+8. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+User slot number:
+  description: The user slot number to delete the code from on the lock.
+{% endoptions_ui %}
+
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `isy994.delete_zwave_lock_user_code`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: isy994.delete_zwave_lock_user_code
+  target:
+    entity_id: lock.front_door
+  data:
+    user_num: 8
+{% endexample %}
+
+This deletes the code in user slot 8 on the `lock.front_door` lock.
+
+### Options in YAML
+
+{% options_yaml %}
+user_num:
+  description: The user slot number to delete the code from on the lock.
+  required: true
+  type: integer
+{% endoptions_yaml %}
+
+{% include actions/targets.md domain="lock" %}
+
+{% include actions/try_it.md %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

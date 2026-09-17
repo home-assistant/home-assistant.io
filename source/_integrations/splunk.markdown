@@ -9,11 +9,13 @@ ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
   - '@Bre77'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_quality_scale: silver
+ha_platforms:
+  - diagnostics
 ---
 
 [Splunk](https://www.splunk.com/) is a data platform for searching, monitoring, and analyzing machine-generated data. The **Splunk** {% term integration %} sends all Home Assistant state changes to a Splunk instance using the [HTTP Event Collector (HEC)](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) feature.
@@ -31,12 +33,12 @@ ha_quality_scale: legacy
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Token:
-  description: "The HTTP Event Collector (HEC) token created in your Splunk instance."
+  description: "The HTTP Event Collector (HEC) token configured in your Splunk instance."
 Host:
   description: "The hostname or IP address of your Splunk instance."
 Port:
   description: "The port of the HTTP Event Collector on your Splunk instance."
-Use SSL:
+Uses an SSL certificate:
   description: "Whether to use HTTPS to connect to your Splunk instance."
 Verify SSL certificate:
   description: "Whether to verify the SSL certificate of your Splunk instance."

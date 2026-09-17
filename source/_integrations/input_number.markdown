@@ -12,12 +12,16 @@ ha_domain: input_number
 ha_integration_type: helper
 ---
 
-The **Input number** {% term integration %} allows you to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+The **Input number** {% term integration %} lets you create a number {% term helper %}: an entity that stores a numeric value you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable setting for your automations, scripts, and dashboards. For example, you can create a number helper for a target temperature, a brightness level, or a delay in minutes, then read or change that value from anywhere in Home Assistant.
 
-The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
+On a dashboard, a number helper appears as a slider or a numeric input box, so you can adjust the value directly. Each time the value changes, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the value, which makes a number helper a convenient way to share a setting between the UI and your automations.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
+## Creating a number helper
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_number" title="Number" %}**.
+
+## YAML configuration
 
 Input numbers can also be configured via {% term "`configuration.yaml`" %}:
 
@@ -82,23 +86,13 @@ input_number:
         type: icon
 {% endconfiguration %}
 
-### Actions
+{% include integrations/actions.md %}
 
-This integration provides the following actions to modify the state of the `input_number` and an action to reload the
-configuration without restarting Home Assistant itself.
+## Restore state
 
-| Service     | Data                                      | Description                                                       |
-| ----------- | ----------------------------------------- | ----------------------------------------------------------------- |
-| `decrement` | `entity_id(s)`<br>`area_id(s)`            | Decrement the value of specific `input_number` entities by `step` |
-| `increment` | `entity_id(s)`<br>`area_id(s)`            | Increment the value of specific `input_number` entities by `step` |
-| `reload`    |                                           | Reload `input_number` configuration                               |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities                 |
+If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had before Home Assistant stopping. `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
 
-### Restore state
-
-If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping. Please note that `initial` is only available in a YAML configuration and not via the Home Assistant user interface.
-
-### Scenes
+## Scenes
 
 To set the value of an input_number in a [Scene](/integrations/scene/):
 
@@ -113,8 +107,6 @@ scene:
 ## Automation examples
 
 Here's an example of `input_number` being used as a trigger in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a trigger in an automation
@@ -139,11 +131,7 @@ automation:
           brightness: "{{ trigger.to_state.state | int }}"
 ```
 
-{% endraw %}
-
 Another code example using `input_number`, this time being used in an action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
@@ -181,11 +169,7 @@ automation:
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
 
-{% endraw %}
-
 Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' in an action in an automation
@@ -226,11 +210,7 @@ automation:
           payload: "{{ states('input_number.target_temp') | int }}"
 ```
 
-{% endraw %}
-
 Here's an example of `input_number` being used as a delay in an automation.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry using 'input_number' as a delay in an automation
@@ -264,4 +244,20 @@ automation:
           entity_id: switch.something
 ```
 
-{% endraw %}
+## Troubleshooting
+
+### The Number helper option is missing from the user interface
+
+#### Symptom
+
+When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Number** option is not listed.
+
+#### Description
+
+Number helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_number:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your number helpers from the user interface.

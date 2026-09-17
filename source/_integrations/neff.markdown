@@ -4,7 +4,10 @@ description: Connect and control your Neff devices using the Home Connect integr
 ha_category:
   - Binary sensor
   - Button
+  - Climate
+  - Fan
   - Hub
+  - Image
   - Light
   - Number
   - Select
@@ -23,7 +26,10 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
+  - fan
+  - image
   - light
   - number
   - select

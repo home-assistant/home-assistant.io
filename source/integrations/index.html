@@ -1,6 +1,6 @@
 ---
-title: "Integrations"
-description: "List of the built-in integrations of Home Assistant."
+title: "Integrations - devices and services that work with Home Assistant"
+description: "Browse the list of devices and services Home Assistant works with. Home Assistant supports thousands of brands across more than a hundred categories, including Z-Wave, Zigbee, Matter, and Thread."
 sidebar: false
 is_homepage: true
 feedback: false
@@ -364,7 +364,7 @@ join: ',' | split: ',' -%}
           if (key === 'search') {
             if (
               integration[key].indexOf(query[key]) === -1
-              && integration.cat.find((c) => c.includes(query[key])) == undefined
+              && integration.cat.find((c) => c === query[key]) == undefined
             ) {
               return false;
             }

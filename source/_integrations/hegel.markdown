@@ -244,4 +244,3 @@ Debug logs show:
 - `TX: <command>` - Commands sent to amplifier
 - `RX (push): <response>` - Real-time updates from amplifier
 - `Connection attempt failed: <error> — retrying in X.Xs` - Temporary connection loss with automatic retry
-

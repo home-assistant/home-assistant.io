@@ -28,7 +28,7 @@ For more complete Home Assistant support based on MQTT autodiscovery, consider s
 
 {% important %}
 
-The Supla Cloud MQTT broker requires [changing the default MQTT protocol setting](https://www.home-assistant.io/integrations/mqtt/#broker-configuration) at version 3.1.
+The Supla Cloud MQTT broker requires [changing the default MQTT protocol setting](/integrations/mqtt/#broker-configuration) at version 3.1.
 
 {% endimportant %}
 

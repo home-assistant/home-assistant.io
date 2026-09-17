@@ -23,6 +23,7 @@ Additionally the following brands have been reported to also work with this inte
 
 - [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
+- [Avosdim](https://avosdim.com)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
@@ -71,12 +72,13 @@ The following bridges are reported to work with this integration:
 - Dreamhub Pro 191726
 - Dreamhub mini 191717
 - Kaiser Nienhaus Smart Stick
+- Box maison connectée 005313 AvosDim
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
-The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
+The 16 character API key needed to set up the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
 In that app the key can often be found by clicking multiple times on specific places on the "About" page.
 
 ### Motionblinds app
@@ -85,7 +87,7 @@ The Motionblinds API uses a 16 character key that can be retrieved from the offi
 
 Open the app, click the 3 dots in the top right corner, go to "settings", go to "Motion APP About", Please quickly tap this "Motion APP About" page 5 times, a popup will appear that gives you the key.
 
-Please note that "-" characters need to be included in the key when providing it to Home Assistant. The key needs to be similar to `12ab345c-d67e-8f`
+"-" characters need to be included in the key when providing it to Home Assistant. The key needs to be similar to `12ab345c-d67e-8f`
 
 <p class='img'>
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />
@@ -118,6 +120,10 @@ In the Blindsgalore AMP app go to the home screen, go to settings (three bars in
   3. Tap the screen 5 times while being on the **About** page. 
       - This opens a window with the API key.
 
+### Avosdim app
+
+In the Avosdim mobile app, go to **Settings** (three bars in the upper-left corner > gear icon), select **About** at the bottom, quickly tap the connected shutter icon in the center of the screen 5 times, and a pop-up with the key will appear.
+
 ## Favorite position
 
 A **Go to favorite position** button entity allows you to move the blind to its favorite position. For this entity to show up, you first need to set the blind's favorite position in the mobile app, using a remote or physical buttons on the blind. Refer to the manual of your specific blind for instructions.
@@ -133,14 +139,14 @@ Controlling the two bars can be done through three different entities that will 
 ### Top entity
 
 - 'Up/Open' will move the Top bar to the top of the window (absolute position 100).
-- 'Down/Close' will move the Top bar to the position of the Bottom bar, therefore, making the part of the window that is covered as small as possible, but the two bars will be at the position of the Bottom bar (not at the top of the window). When the bars are moved completly together, the Top bar will not accept another "Down" command. First the Top bar needs to be moved up, even if the Bottom bar already moved further down.
+- 'Down/Close' will move the Top bar to the position of the Bottom bar, therefore, making the part of the window that is covered as small as possible, but the two bars will be at the position of the Bottom bar (not at the top of the window). When the bars are moved completely together, the Top bar will not accept another "Down" command. First the Top bar needs to be moved up, even if the Bottom bar already moved further down.
 - 'Position' is the relative position in which the Top bar can move, so from the top of the window (100) to the position of the Bottom bar (0), note that the position will therefore change if the Bottom bar is moved, since the space in which the Top bar is allowed to move changes.
 - 'Absolute position' is the position of the Top bar with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the Bottom bar.
 - 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
 
 ### Bottom entity
 
-- 'Up/Open' will move the Bottom bar to the position of the Top bar. When the bars are moved completly together, the Bottom bar will not accept another "Up" command. First the Bottom bar needs to be moved down, even if the Top bar already moved further up.
+- 'Up/Open' will move the Bottom bar to the position of the Top bar. When the bars are moved completely together, the Bottom bar will not accept another "Up" command. First the Bottom bar needs to be moved down, even if the Top bar already moved further up.
 - 'Down/Close' will move the Top bar to the bottom of the window (absolute position 0).
 - 'Position' is the relative position in which the Bottom bar can move, so from the position of the Top bar (100) to the bottom of the window (0), note that the position will therefore change if the Top bar is moved, since the space in which the Bottom bar is allowed to move changes.
 - 'Absolute position' is the position of the Bottom bar with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the Top bar.
@@ -166,25 +172,7 @@ When the `motion_blinds.set_absolute_position` action is used with values that w
 
 Therefore it is always safe to use any of the actions in Home Assistant with the TDBU blinds.
 
-## Action `motion_blinds.set_absolute_position`
-
-For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` action.
-
-### TDBU blinds
-
-For TDBU blinds `motion_blinds.set_absolute_position` will set the absolute position relative to the window itself.
-The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
-
-### Tilt capable blinds
-
-For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
-
-| Data attribute | Optional | Description                                                                                       |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Name of the Motionblinds cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
-| `absolute_position`    | no       | Absolute position to move to. For example 70                                                      |
-| `tilt_position`        | yes      | Tilt position to move to. For example 50                                                          |
-| `width`                | yes      | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
+{% include integrations/actions.md %}
 
 ## Troubleshooting
 

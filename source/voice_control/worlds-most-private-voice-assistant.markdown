@@ -111,7 +111,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 ### The Voice over IP integration no longer works
 
 **Symptom**
-You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played. 
+You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played.
 The [debug information](/voice_control/troubleshooting#view-debug-information) shows no runs.
 
 **Potential remedy**

@@ -88,7 +88,7 @@ automation:
     actions:
       - action: homeassistant.turn_on
         target:
-          entity_id: group.lights_livingroom
+          entity_id: light.living_room
 ```
 
 Event data:
@@ -99,8 +99,6 @@ Event data:
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
 
 To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/integrations/html5). Visit the [notification integration page](/integrations/notify/) for more information on setting up notifications.
-
-{% raw %}
 
 ```yaml
 automation:
@@ -114,8 +112,6 @@ automation:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
 ```
-
-{% endraw %}
 
 ### Ignoring click types
 

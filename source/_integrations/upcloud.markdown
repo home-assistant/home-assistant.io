@@ -14,7 +14,7 @@ ha_domain: upcloud
 ha_platforms:
   - binary_sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **UpCloud** {% term integration %} allows you to access the information about your [UpCloud](https://upcloud.com/) servers from Home Assistant.

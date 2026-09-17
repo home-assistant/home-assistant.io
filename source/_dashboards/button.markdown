@@ -23,9 +23,9 @@ The button card allows you to add buttons to perform tasks.
 Screenshot of three button cards.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## Card settings
 

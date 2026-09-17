@@ -22,8 +22,8 @@ If you are looking for a way to create a similar entity, please take a look at t
 The state of a time {% term entity %} is a timestamp in the format HH:MM:SS.
 
 <p class='img'>
-<img src='/images/integrations/time/state_time.png' alt='Screenshot showing the state of a time entity in the developer tools' />
-Screenshot showing the state of a time entity in the developer tools.
+<img src='/images/integrations/time/state_time.png' alt='Screenshot showing the state of a time entity in the States tab of Tools.' />
+Screenshot showing the state of a time entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -31,17 +31,4 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Actions
-
-### Time actions
-
-Available actions: `time.set_value`
-
-### Action: Set value
-
-The `time.set_value` action sets a new value for the time entity.
-
-| Data attribute | Optional | Description                                                                |
-| -------------- | -------- | -------------------------------------------------------------------------- |
-| `entity_id`    | no       | String or list of strings that point at `entity_id`'s of times to control. |
-| `time`         | no       | New time value to set.                                                     |
+{% include integrations/actions.md %}

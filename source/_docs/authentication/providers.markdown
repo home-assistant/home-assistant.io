@@ -6,48 +6,74 @@ related:
     title: configuration.yaml file
 ---
 
-{% caution %}
-  This is an advanced feature.
-{% endcaution %}
+An authentication provider is the method Home Assistant uses to verify your identity when you log in. It determines _how_ you prove who you are: by entering a username and password, by connecting from a trusted network, or by using an external command.
 
-When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
+Home Assistant comes with a built-in authentication provider enabled by default. Most people never need to change this. You only need to configure `auth_providers` manually if you want to use an additional method, such as skipping the login prompt on your home network.
 
-## Configuring auth providers
+## Configuring authentication providers
 
-{% warning %}
+If you want to use more than one authentication provider, or want to use specific ones, you can change the configuration.
 
-Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your {% term "`configuration.yaml`" %} file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
+{% important %}
+**Risk of being locked out due to missing authentication provider**
 
-If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider` with `type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
+Adding `auth_providers` to `configuration.yaml` disables every provider not listed. A typo or missing entry can block all access to Home Assistant. There is no way to recover through the UI. You need direct file system access to the `configuration.yaml` to fix it.
 
-{% endwarning %}
+To avoid being locked out due to missing authentication provider:
 
-Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block. 
-If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
+Always include `type: homeassistant` as a fallback in your `auth_providers` list.
+{% endimportant %}
 
+{% important %}
+**Risk of unauthenticated access on your local network due to missing authentication provider**
 
-You can supply more than one, for example:
+Using only `trusted_networks` without `type: homeassistant` as a fallback means anyone on your trusted network can log in by selecting a username. No password is required.
 
-```yaml
-homeassistant:
-  auth_providers:
-    - type: homeassistant
-    - type: trusted_networks
-      trusted_networks:
-        - 192.168.0.0/24
-```
+To avoid unauthenticated access on your local network due to missing authentication provider:
 
-## Available auth providers
+Always include `type: homeassistant` as a fallback authentication provider.
+{% endimportant %}
 
-### Home Assistant auth provider
+### To configure authentication providers
 
-This is the default auth provider. The first user created is designated as the _owner_ and can create other users.
+1. Open your {% term "`configuration.yaml`" %} file.
+   - For information on how to access and edit the configuration file, see [Editing configuration.yaml](/docs/configuration/#editing-configurationyaml).
+2. Under `homeassistant:`, add an `auth_providers` block and list every authentication provider you want to use.
+   - Any provider not listed will be disabled.
+   - See [List of available authentication providers](#list-of-available-authentication-providers).
+3. Important: to avoid unauthenticated access on your local network and to keep password-based login available, always include `type: homeassistant`.
+   - Example:
 
-User details are stored in the `[your config]/.storage`  directory. All passwords are stored hashed and with a salt, making it almost impossible for an attacker to figure out the password even if they have access to the file.
+      ```yaml
+      homeassistant:
+        auth_providers:
+          - type: homeassistant
+          - type: trusted_networks
+            trusted_networks:
+              - 192.168.0.0/24
+      ```
+
+4. If you are moving configuration to packages, keep the `auth_providers` configuration in `configuration.yaml`. It cannot be moved to a package file.
+5. Restart Home Assistant to apply the changes.
+
+<a id="available-auth-providers"></a>
+## List of available authentication providers
+
+Home Assistant has three built-in authentication providers:
+
+- [Home Assistant](#home-assistant-authentication-provider): the default provider, using a username and password stored locally.
+- [Trusted networks](#trusted-networks): skips the login prompt for connections from specified IP addresses.
+- [Command line](#command-line): delegates authentication to an external shell command.
+
+### Home Assistant authentication provider
+
+This is the default authentication provider. The first user created is designated as the _owner_ and can create other users.
+
+User details are stored in the `[your config]/.storage` directory. All passwords are stored hashed and with a salt, making it almost impossible for an attacker to figure out the password even if they have access to the file.
 
 Users can be managed in Home Assistant by the owner. Select {% my users title="**Settings** > **People**" %} and open the **Users** tab.
 
-This is the entry in {% term "`configuration.yaml`" %} for Home Assistant auth:
+This is the entry in {% term "`configuration.yaml`" %} for the Home Assistant authentication provider:
 
 ```yaml
 homeassistant:
@@ -59,12 +85,12 @@ If you don't specify any `auth_providers` section in the {% term "`configuration
 
 ### Trusted networks
 
-The trusted networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
+The trusted networks authentication provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
 {% note %}
-The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
+The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this authentication provider.
 {% endnote %}
 
 {% important %}
@@ -138,7 +164,7 @@ Specially, you can use `group: GROUP_ID` to assign all users in certain `user gr
 
 #### Skip login page examples
 
-This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
+This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form.
 
 If you allow bypass login then your cookie will not be stored and every time you refresh the page in Home Assistant a new login will be created. This is because bypassing the login does not give you the option to save the login.
 
@@ -155,16 +181,16 @@ homeassistant:
     - type: homeassistant
 ```
 
-Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
+Assuming you only created the owner during the onboarding process and have not created any other users, this configuration lets you directly access the Home Assistant main page from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, you can use the Home Assistant authentication provider to log in when accessing your Home Assistant instance from outside your network.
 
 {% note %}
-The order of `auth_providers` is critical as providers are evaluated top to bottom.
+The order of `auth_providers` is critical as authentication providers are evaluated top to bottom.
 To enable skip login as intended, the `trusted_networks` provider must be listed before the `homeassistant` provider. If `type: homeassistant` is configured first, Home Assistant will immediately present the login page and the skip login logic will never be reached, even if the client is on a trusted network.
 {% endnote %}
 
 ### Command line
 
-The command line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
+The command line authentication provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
 This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS.
 
@@ -181,7 +207,7 @@ homeassistant:
       #meta: true
 ```
 
-When `meta: true` is set in the auth provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
+When `meta: true` is set in the authentication provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
 
 ```txt
 name = John Doe

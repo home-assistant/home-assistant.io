@@ -48,7 +48,7 @@ ssl:
   description: Use HTTPS when connecting to gateway. New firmware may require HTTPS while older may require this to be False.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

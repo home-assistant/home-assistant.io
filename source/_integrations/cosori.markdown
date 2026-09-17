@@ -32,6 +32,7 @@ ha_platforms:
   - switch
   - update
 ha_iot_class: Cloud Polling
+ha_dhcp: true
 ---
 
 {% include integrations/supported_brand.md %}

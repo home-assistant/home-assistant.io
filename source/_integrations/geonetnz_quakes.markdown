@@ -66,7 +66,7 @@ the standard ones:
 | locality    | Distance and direction to the nearest locality. |
 | quality     | The quality of this information: best, good, caution, deleted. |
 
-Please note that the reported MMI may be lower than the minimum requested MMI. 
+The reported MMI may be lower than the minimum requested MMI. 
 This integration is passing the requested MMI value to the feed source and 
 displays all entries retrieved without further filtering by MMI.
 

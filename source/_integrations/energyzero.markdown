@@ -18,7 +18,7 @@ ha_integration_type: service
 The **EnergyZero** {% term integration %} integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
 
 The integration makes it possible to retrieve the dynamic energy/gas prices
-from EnergyZero in order to gain insight into the price trend of the day and
+from EnergyZero to gain insight into the price trend of the day and
 to adjust your consumption accordingly.
 
 Partners who are a reseller from EnergyZero:
@@ -32,9 +32,26 @@ Partners who are a reseller from EnergyZero:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Electricity price interval:
+  description: "Select **Hourly** (the default) for electricity prices per hour or **Quarter-hourly** for prices per 15 minutes."
+{% endconfiguration_basic %}
+
+The selected interval applies to today's and tomorrow's market and all-in electricity prices and their sensors. Changing this option automatically reloads the integration. Gas prices and the polling interval are unaffected.
+
+The [Get energy prices action](/actions/energyzero.get_energy_prices/) has its own **Price type** and **Interval** options. It defaults to hourly market prices, regardless of the interval selected here.
+
 ## Use cases
 
-With the [energy dashboard](/energy) you can use the `current hour` price entity to calculate how much the electricity or gas has cost each hour based on the prices from EnergyZero. Or use one of the actions in combination with a [template sensor](#prices-sensor-with-response-data) to show the prices for the next 24 hours in a chart on your dashboard.
+Use the [energy dashboard](/energy) to track costs with these sensors:
+
+- **Current all-in price**: Electricity costs based on EnergyZero's all-in prices
+- **Current market price**: Only the market component of your electricity costs
+- **Current hour**: Gas costs based on the gas market price
+
+To show prices in a dashboard chart, use one of the actions with a [template sensor](#prices-sensor-with-response-data).
 
 ## Data updates
 
@@ -42,23 +59,46 @@ The integration will poll the EnergyZero API every 10 minutes to update the data
 
 ## Known limitations
 
-The prices retrieved via the API are bare prices including VAT, however an energy company also charges other rates such as **energy tax** and **purchase costs**. The integration has no configuration option to add these values, but you could create a [template sensor](#all-in-price-sensor) for this.
+Market prices include VAT but exclude energy tax and purchase costs. Gas sensors provide market prices only.
+
+The all-in electricity sensors use EnergyZero's rates. If your contract uses different rates, you can calculate your own price with a [template sensor](#all-in-price-sensor). There is no option to configure contract rates in the integration.
 
 ## Sensors
 
-The EnergyZero integration creates a number of sensor entities for both gas and electricity prices.
+The EnergyZero integration creates several sensor entities for both gas and electricity prices.
 
-### Energy market price
+### Electricity market price
 
-Every day around **14:00 UTC time**, the new prices are published for the following day.
+Every day around **14:00 UTC time**, the new electricity prices are published for the following day.
 
-- The `current` and `next hour` electricity market price
-- Average electricity price of the day
-- Lowest energy price
-- Highest energy price
-- Time of day when the price is highest
-- Time of day when the price is at its lowest
-- Percentage of the current price compared to the maximum price
+The market electricity sensors provide:
+
+- **Current market price** and **Next market price**
+- **Average market price** for the day
+- **Minimum market price** for the day
+- **Maximum market price** for the day
+- **Highest market price time**
+- **Lowest market price time**
+- **Market percentage of maximum**
+- **Market periods priced equal or lower**
+
+The **Current market price** sensor shows the price for the current electricity price period. The **Next market price** sensor shows the price one hour or 15 minutes ahead, depending on the selected **Electricity price interval**.
+
+The **Market periods priced equal or lower** sensor counts today's price periods priced at or below the current market price. It reports a count without units.
+
+Existing market sensors keep their entity IDs, so your automations and templates continue to work with the renamed sensors.
+
+### All-in electricity price
+
+The integration also provides five sensors for the all-in electricity prices from EnergyZero, including VAT:
+
+- **Current all-in price**
+- **Next all-in price**
+- **Average all-in price** for the day
+- **Minimum all-in price** for the day
+- **Maximum all-in price** for the day
+
+The current and next prices follow the same interval as the market sensors. Both sets of sensors appear on the **Electricity price** device.
 
 ### Gas market price
 
@@ -66,96 +106,19 @@ For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
 
-## Actions
-
-The energy and gas prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
-
-### Action: Get gas prices
-
-The `energyzero.get_gas_prices` action allows you to fetch the gas prices. The `config_entry` value be found using the **Actions** tab in the **Developer tools**, selecting the desired entity and then switching to YAML.
-
-| Data attribute | Optional | Description                                          | Example                          |
-| -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
-| `config_entry` | no       | Config entry ID to use.                              | 1b4a46c6cba0677bbfb5a8c53e8618b0 |
-| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | false                            |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
-| `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
-
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the EnergyZero actions and view the YAML.
-{% endtip %}
-
-#### Response data
-
-The response data is a dictionary with the gas timestamps and prices as string and float values.
-
-{% raw %}
-
-```json
-{
-  "prices": [
-    {
-      "timestamp": "2023-09-25 03:00:00+00:00",
-      "price": 1.1
-    },
-    {
-      "timestamp": "2023-09-25 04:00:00+00:00",
-      "price": 1.05
-    }
-  ]
-}
-
-```
-
-{% endraw %}
-
-### Action: Get energy prices
-
-The `energyzero.get_energy_prices` action allows you to fetch the energy prices. The `config_entry` value be found using the **Actions** tab in the **Developer tools**, selecting the desired entity and then switching to YAML.
-
-| Data attribute | Optional | Description                                          | Example                          |
-| -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
-| `config_entry` | no       | Config entry ID to use.                              | 1b4a46c6cba0677bbfb5a8c53e8618b0 |
-| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | false                            |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
-| `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
-
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the EnergyZero actions and view the YAML.
-{% endtip %}
-
-#### Response data
-
-The response data is a dictionary with the energy timestamps and prices as string and float values.
-
-{% raw %}
-
-```json
-{
-  "prices": [
-    {
-      "timestamp": "2023-09-25 03:00:00+00:00",
-      "price": 0.05
-    },
-    {
-      "timestamp": "2023-09-25 04:00:00+00:00",
-      "price": 0.12
-    }
-  ]
-}
-```
-
-{% endraw %}
+{% include integrations/actions.md %}
 
 ## Templates
 
-Create template sensors to display the prices in a chart or to calculate the all-in hour price.
+You can optionally create template sensors to display the prices in a chart or to calculate an electricity price using your own contract rates.
 
 ### Prices sensor with response data
 
 To use the response data from the actions, you can create a template sensor that updates every hour.
 
-{% raw %}
+The `energyzero.get_energy_prices` action returns one entry per hourly electricity price period. The `energyzero.get_gas_prices` action returns one entry for each 24-hour gas price period.
+
+Each price entry contains `price`, `timestamp`, `start`, and `end`. `start` is inclusive and `end` is exclusive. For backwards compatibility, `timestamp` is equal to `start`.
 
 ```yaml
 template:
@@ -176,13 +139,15 @@ template:
           prices: '{{ prices }}'
 ```
 
-{% endraw %}
-
 ### All-in price sensor
 
-To calculate the all-in hour price, you can create a template sensor that calculates the price based on the current price, energy tax, and purchase costs.
+For EnergyZero's all-in price, use **Current all-in price** directly. If your contract uses different rates, this optional template adds your energy tax and purchase costs to **Current market price**.
 
-{% raw %}
+Before using the template:
+
+- Replace both `PUT_HERE_THE_PRICE` values with your rates per kWh, including VAT.
+- Use your **Current market price** entity ID as the base to avoid adding costs twice.
+- Choose a `unique_id` that is not already used by another template sensor.
 
 ```yaml
 template:
@@ -198,8 +163,6 @@ template:
           {% set current_price = states('sensor.energyzero_today_energy_current_hour_price') | float(0) %}
           {{ (current_price + energy_tax + purch_costs) | round(2) }}
 ```
-
-{% endraw %}
 
 ## Removing the integration
 

@@ -20,9 +20,9 @@ Screenshot of the shopping list card.
 
 Setup of the [shopping list integration](/integrations/shopping_list/) is required.
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

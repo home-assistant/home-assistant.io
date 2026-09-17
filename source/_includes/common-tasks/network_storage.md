@@ -81,4 +81,4 @@ If you want to change the local network storage that is used to store your backu
 3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change default action location**.
 4. Select your preferred network location and save your changes.
    ![Select default location used for local backup](/images/screenshots/network-storage/backup_select_local_default.png)
-5. **Troubleshooting**: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.
+5. Troubleshooting: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.

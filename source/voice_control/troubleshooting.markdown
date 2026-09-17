@@ -14,9 +14,9 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 
 ## Test a sentence per language without voice: without executing commands
 
-If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in the **Developer tools**.
+If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in **Tools**.
 
-1. Go to {% my developer_assist title="**Settings** > **Developer tools** > **Assist**" %}.
+1. Go to {% my developer_assist title="**Settings** > **Tools** > **Assist**" %}.
 2. In the sentence parser, select the language and enter the sentence you want to test.
 3. The debug tool shows you the following:
    - The intent triggered.
@@ -98,9 +98,8 @@ If you have a complex network setup, or if you changed this setting in the past,
 
 To fix the URL, follow these steps:
 
-1. In {% my profile title="your user profile" %}, enable **Advanced Mode**.
-2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-3. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
   - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 

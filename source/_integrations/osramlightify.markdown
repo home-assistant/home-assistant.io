@@ -75,7 +75,7 @@ as expected. Shorter `scan_interval` may improve synchronization speed between i
 groups. For example, if you turn on a group, all its lights may be updated to `on` immediately,
 without querying the bridge.
 
-Please note that to update all light statuses, only one query to the bridge is actually needed.
+To update all light statuses, only one query to the bridge is actually needed.
 
 If a group has associated scenes, they will be imported as light effects and visible in `Effect`
 dropdown on UI. You can apply a scene by clicking an item from the dropdown or by calling

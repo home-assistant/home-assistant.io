@@ -76,11 +76,11 @@ children:
   required: false
   type: list
 active_child_template:
-  description: "A [template](/docs/configuration/templating/) that will allow to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
+  description: "A [template](/docs/templating/) that will allow you to select (override) active child. Must return the `entity_id` of the child selected as active, or `None` to use the default behavior."
   required: false
   type: template
 state_template:
-  description: "A [template](/docs/configuration/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
+  description: "A [template](/docs/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
   required: false
   type: template
 commands:
@@ -115,7 +115,7 @@ It is also recommended that the command `volume_up`, the command `volume_down`, 
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
-When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/docs/configuration/templating/#time) section in the template documentation.
+When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/template-functions/now/) section in the template documentation.
 
 The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
 
@@ -126,8 +126,6 @@ The `browse_media_entity` parameter allows you to specify which media player wil
 In this example, a switch is available to control the power to the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other {% term entity %} in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
-
-{% raw %}
 
 ```yaml
 media_player:
@@ -178,8 +176,6 @@ media_player:
     source_list: media_player.receiver|source_list
 ```
 
-{% endraw %}
-
 ### Kodi CEC-TV control
 
 In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi add-on installed, it can turn on and off the attached TV.
@@ -189,8 +185,6 @@ We store the state of the attached TV in an [input boolean](/integrations/input_
 Because the input boolean used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.
 
 The complete configuration is:
-
-{% raw %}
 
 ```yaml
 homeassistant:
@@ -282,13 +276,9 @@ automation:
           entity_id: media_player.kodi_tv
 ```
 
-{% endraw %}
-
 ### Harmony remote example
 
 The complete configuration is:
-
-{% raw %}
 
 ```yaml
 media_player:
@@ -331,8 +321,6 @@ media_player:
     unique_id: media_room_harmony_hub
 ```
 
-{% endraw %}
-
 ### Denon AVR & HEOS
 
 This media player combines the media players provided by the [Denon AVR](/integrations/denonavr/) and [HEOS](/integrations/heos/) integrations. 
@@ -344,8 +332,6 @@ Features:
 - Album art & Metadata via HEOS entity (not provided by Denon media player)
 
 The complete configuration is:
-
-{% raw %}
 
 ```yaml
 media_player:
@@ -386,13 +372,9 @@ media_player:
       sound_mode_list: media_player.denon_avr_x2700h|sound_mode_list
 ```
 
-{% endraw %}
-
 ### Override active children
 
 This example shows how you can use `active_child_template`:
-
-{% raw %}
 
 ```yaml
 media_player:
@@ -409,5 +391,3 @@ media_player:
          media_player.sony_tv_cast
       {% endif %}
 ```
-
-{% endraw %}

@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@azogue'
+  - '@chiro79'
 ha_domain: pvpc_hourly_pricing
 ha_platforms:
   - sensor
@@ -18,9 +19,7 @@ This {% term integration %} uses the official API to get the hourly price of ele
 
 Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, which is the energy term hourly price applied in the consumers' electrical bill with a contracted power not exceeding 15 kW and which are under the PVPC (Voluntary Price for Small Consumer).
 
-It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes. The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone, except for the cities of Ceuta and Melilla, where they are slightly different.
-
-<iframe src="https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc" width="100%" height="608"></iframe>
+It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes. The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone, except for the cities of Ceuta and Melilla, where they are slightly different. Check the data in [active energy invoicing price](https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc).
 
 More information available at <https://www.cnmc.es/en/> and <https://www.omie.es/en/>
 
@@ -28,8 +27,7 @@ More information available at <https://www.cnmc.es/en/> and <https://www.omie.es
 
 To configure PVPC Hourly Pricing, set it up via the integrations panel in the configuration screen.
 
-Set a name for the price sensor (default is `sensor.pvpc`), and select one of the two available tariffs,
-according to your geographic position in Spain:
+During setup, select one of the two available tariffs, according to your geographic position in Spain:
 
 - `2.0TD`, for the Peninsula, the Balearic Islands and the Canary Islands.
 - `2.0TD (Ceuta/Melilla)`, for the cities of Ceuta and Melilla.

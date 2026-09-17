@@ -11,22 +11,25 @@ ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
 ha_quality_scale: platinum
-google_dev_console_link: https://console.developers.google.com/start/api?id=drive
 api: Google Drive API
-api_link: https://console.developers.google.com/start/api?id=drive
+api_link: https://console.cloud.google.com/apis/library/drive.googleapis.com
 related:
   - docs: /common-tasks/general/#backups
     title: Creating backups in Home Assistant
   - url: https://drive.google.com
     title: Google Drive
-  - url: https://console.developers.google.com/start/api?id=drive
-    title: Google Developer Console
+  - url: https://console.cloud.google.com/apis/library/drive.googleapis.com
+    title: Google Cloud console
 ha_platforms:
   - diagnostics
   - sensor
 ---
 
-This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with [Home Assistant Backups](/common-tasks/general/#backups).
+
+When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. A separate folder is created for each of your Home Assistant instances. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+
+To open the backup folder, go to **Settings** > **Devices & services** > **Google Drive**, and select **Visit**.
 
 For a video walkthrough of the setup instructions, see this video from 13:50 to 19:20
 <lite-youtube videoid="pZlYu9bN72U" videoStartAt="830" videotitle="Automate Your Home Assistant Backups Like A Pro!" posterquality="maxresdefault"></lite-youtube>
@@ -64,9 +67,7 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 
 {% details "Example YAML configuration" %}
 
-Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & Services** > **Entities**) and replace `notify.mobile_app_your_device` with your actual notifier.
-
-{% raw %}
+Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & services** > **Entities**) and replace `notify.my_device` with your actual notifier.
 
 ```yaml
 alias: Alert when Google Account is close to storage limit
@@ -78,26 +79,26 @@ triggers:
       {% set total = states('sensor.your_email_gmail_com_total_available_storage') | float(0) %}
       {{ used > (total * 0.9) }}
 actions:
-  - action: notify.mobile_app_your_device
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: Google Account is almost full!
       message: >
         Google Account has used up {{ states('sensor.your_email_gmail_com_used_storage') }}GB of {{
         states('sensor.your_email_gmail_com_total_available_storage') | float }}GB.
 ```
-
-{% endraw %}
 {% enddetails %}
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
-- If you remove the integration, the Home Assistant folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
+- If you remove the integration, the backup folder in Google Drive is not automatically deleted. You have to manually delete it in Google Drive.
 
 ## Known limitations
 
-- The integration can only access files that it creates in the Home Assistant folder. It cannot access or modify any other files in your Google Drive.
+- The integration can only access files that it creates in the backup folder. It cannot access or modify any other files in your Google Drive.
 
 ## Troubleshooting
 

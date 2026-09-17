@@ -1,13 +1,13 @@
 ---
-title: "Developer tools"
-description: "Description of the developer tools."
+title: "Tools"
+description: "Description of the Home Assistant tools."
 ---
 
-The dashboard contains a section called **Developer tools**.
+Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
 
 <p class='img'>
-<img src='/images/screenshots/developer-tools.png' />
-Screenshot of Home Assistant's developer tools.
+<img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
+Screenshot of Home Assistant's tools.
 </p>
 
 | Section    | Description                                                         |
@@ -20,9 +20,9 @@ Screenshot of Home Assistant's developer tools.
 | Statistics | Shows a list of long-term statistic entities                        |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
-## What can I do with Developer tools?
+## What can I do with Home Assistant's Tools?
 
-The Developer tools is meant for **all** (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+The available tools are meant for _all_ (not just for the developers) to quickly try out things, such as performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
 
 ## YAML tab
 
@@ -34,7 +34,7 @@ It is almost the same as the option under **Settings** > three dots {% icon "mdi
 
 For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in {% term "`configuration.yaml`" %} without needing to restart Home Assistant.
 
-1. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-search/) anywhere in the UI and search for "reload").
+1. Go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and scroll down to the **YAML configuration reloading** section. Alternatively, select the **C** key from anywhere in the UI to open the command palette of the [quick search](/docs/tools/quick-search/) and then search for `reload`.
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
@@ -85,7 +85,7 @@ The template editor provides a way to quickly test templates prior to placing th
 
 By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/configuration/templating).
+For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
 
 ## Events tab
 
@@ -145,17 +145,19 @@ The **Statistics** tab shows a list of long-term statistic entities. If the long
 
 ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
 
-Another use of the {% my developer_statistics title="statistics developer tool" %} is to correct any measurements. Select the
+Another use of the {% my developer_statistics title="statistics tool" %} is to correct any measurements. Select the
 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
-icon. Use date & time to search for the incorrect data point and adjust the value.
+icon. Use the date and time fields to search for the incorrect data point and select it to adjust the value.
 
-![Screenshot showing adjusting the long-term statistic history value](/images/docs/developer-tools/adjust-statistics.png)
+![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
+
+![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
 
 ## Assist tab
 
 The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*. 
+If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
 
 - Assist found a matching intent: *HassGetState*.
 - It found entities matching the domain: *lights*.
@@ -163,4 +165,4 @@ If no matching intent is found, then Assist is unable to interpret the sentence.
 - The lights are in the area *office*.
 - The targets are the narrowed-down entities in scope.
 
-![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
+![Example use of assist tools](/images/docs/developer-tools/Assist.png)

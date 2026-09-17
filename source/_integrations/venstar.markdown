@@ -16,7 +16,7 @@ ha_codeowners:
   - '@garbled1'
   - '@jhollowe'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Venstar** {% term integration %} allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.
@@ -78,14 +78,18 @@ If the local API is successfully enabled on the thermostat, you should see some 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-host:
-  description: Address of your thermostat, e.g., `192.168.1.32`.
-username:
-  description: Username for the thermostat.
-password:
-  description:  Password for the thermostat.
-pin:
-  description: Pin for Lockscreen (required if lock screen enabled)
-ssl:
-  description: Whether to use SSL or not when communicating.
+Host:
+  description: "The IP address of your thermostat, for example, `192.168.1.32`."
+Username:
+  description: "Username for the thermostat. Only supported on ColorTouch models."
+Password:
+  description: "Password for the thermostat. Only supported on ColorTouch models."
+PIN:
+  description: "The lock screen PIN, if you have enabled the lock screen on the thermostat."
+SSL:
+  description: "Whether to use HTTPS when communicating with the thermostat. Only supported on ColorTouch models."
 {% endconfiguration_basic %}
+
+{% note %}
+HTTPS, username, and password authentication are only available on ColorTouch thermostats. Other models, such as the Explorer Mini and Explorer IAQ, only support unencrypted HTTP connections with no authentication.
+{% endnote %}
