@@ -113,7 +113,7 @@ Subscribe to logs from the device:
 
 The ESPHome {% term integration %} works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api/). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
 
-## Proxies and remote adapters
+## About ESPHome remote adapters (proxies)
 
 An ESPHome device can act as a remote adapter, also called a proxy. It picks up a signal or a connection where your device is, and makes it available to Home Assistant over your network. This way, you can use devices that are nowhere near the system that runs Home Assistant.
 
