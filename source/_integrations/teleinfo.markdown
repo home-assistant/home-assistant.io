@@ -38,7 +38,6 @@ You can also manually configure any serial adapter connected to the meter's TIC 
 
 ## Prerequisites
 
-{% include integrations/serial_connected.md %}
 
 Before setting up this integration, make sure you have the following:
 
