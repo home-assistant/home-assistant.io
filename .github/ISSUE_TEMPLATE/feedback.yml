@@ -16,11 +16,13 @@ body:
       label: Type of issue
       options:
         - Grammatical error or typo
-        - Documentation not according to HA documentation style guide
+        - Documentation not according to HA style guide
         - Outdated or incorrect information
         - Missing information
         - Unclear or confusing information
         - Other (issue in content formatting, broken link or image, non-working widget)
+    description: >-
+      If more than one type applies, choose the most relevant one.
     validations:
       required: true
   - type: textarea
@@ -65,11 +67,11 @@ body:
         If applicable, link a source PR, code, the configuration that reproduces the issue,
         release notes, or describe your own test. This lets the writer verify
         without redoing your research.
-      placeholder: "Examples: Tested on HA Core 2026.9.1, config: ..., see home-assistant/core#XXXXX"
+      placeholder: "For example: Tested on HA Core 2026.9.1, config: ..., see home-assistant/core#XXXXX"
   - type: textarea
     attributes:
       label: Additional information
       description: >
         If you have any additional information for us, use the field below.
-        Please note, you can attach screenshots or screen recordings here, by
+        You can attach screenshots or screen recordings here by
         dragging and dropping files in the field below.
