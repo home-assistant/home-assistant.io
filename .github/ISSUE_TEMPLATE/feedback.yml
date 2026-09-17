@@ -10,15 +10,31 @@ body:
         Those bugs should be reported in the [Home Assistant Core issue tracker][core].
 
         [core]: https://github.com/home-assistant/core/issues
-  - type: textarea
+  - type: dropdown
+    id: issue-type
     attributes:
-      label: Feedback
-      description: >-
-        Please be sure to provide feedback as clear as possible. Describe what
-        you think is incorrect or can be improved, and try to provide a
-        suggestion on how you think it can be improved or fixed.
+      label: Type of issue
+      options:
+        - Grammatical error, typo or documentation not according to our [documentation style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide/)
+        - Outdated or incorrect information
+        - Missing information
+        - Unclear or confusing information
+        - Other (issue in content formatting, broken link or image, non-working widget)
     validations:
       required: true
+  - type: textarea
+    attributes:
+      label: Description of the problem
+      description: >-
+        Describe as clear as possible what is wrong, missing, or unclear in the documentation.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Suggested solution
+      description: >-
+        If you have found a solution, write the correct information as concretely as possible.
+        If you know the correct value or behavior, state it directly (for example: "step X should say Y, not Z").
   - type: markdown
     attributes:
       value: |
@@ -36,10 +52,19 @@ body:
     id: version
     attributes:
       label: Version
-      placeholder: "e.g., 2022.7.0"
+      placeholder: "For example: 2022.7.0"
       description: >
         Latest stable version of Home Assistant available
         (which does not have to match the version you are using).
+  - type: textarea
+    id: evidence
+    attributes:
+      label: How have you found the solution?
+      description: >
+        If applicable, link a source PR, code, the configuration that reproduces the issue,
+        release notes, or describe your own test. This lets the writer verify
+        without redoing your research.
+      placeholder: "For example: Tested on HA Core 2026.9.1, config: ..., see home-assistant/core#XXXXX"
   - type: textarea
     attributes:
       label: Additional information
