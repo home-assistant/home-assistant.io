@@ -23,7 +23,9 @@ await page.waitForTimeout(1000);
 
 const rows = await page.evaluate((selectors) => {
   const origin = document.querySelector(selectors[0]);
-  const top = origin ? origin.getBoundingClientRect().top + scrollY : 0;
+  const originBox = origin ? origin.getBoundingClientRect() : { top: 0, left: 0 };
+  const top = originBox.top + scrollY;
+  const left = originBox.left + scrollX;
   return selectors.map((selector) => {
     const el = document.querySelector(selector);
     if (!el) return [selector, null];
@@ -32,7 +34,7 @@ const rows = await page.evaluate((selectors) => {
     return [
       selector,
       {
-        x: r.x,
+        x: r.left + scrollX - left,
         y: r.top + scrollY - top,
         w: r.width,
         h: r.height,

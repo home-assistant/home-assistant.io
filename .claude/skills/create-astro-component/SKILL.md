@@ -239,9 +239,11 @@ npx playwright install chromium
 # Chromium needs system libraries the container lacks:
 sudo -n env PATH="$PATH" npx playwright install-deps chromium
 export PLAYWRIGHT_DIR="$SCRATCHPAD/playwright"
+cd -  # back to the repository
 ```
 
-Then, with `SK=.claude/skills/create-astro-component/scripts`:
+Then, from the repository root, with
+`SK=.claude/skills/create-astro-component/scripts`:
 
 - `node $SK/screenshot.mjs <url> <out.png> <width> [selector]
   [space-above]` captures a page, or one element with some page above
