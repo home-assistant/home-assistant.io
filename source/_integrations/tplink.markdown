@@ -276,3 +276,5 @@ Remember to disable debug logging after troubleshooting to prevent excessive log
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
