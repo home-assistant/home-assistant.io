@@ -32,7 +32,7 @@ The integration is known to work with the AT-500, but should work with other Ton
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Serial port:
+Port:
   description: >-
     The serial port the receiver is connected to, for example, `/dev/ttyUSB0`.
     The list shows the serial ports detected by Home Assistant, including
