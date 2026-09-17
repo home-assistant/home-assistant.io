@@ -26,7 +26,7 @@ Forecast.Solar uses data from the [EU Photovoltaic Geographical Information Syst
 
 To create a forecast, the integration needs a few details about your solar setup:
 
-- **Location**: The latitude and longitude of your panels. You can enter fixed coordinates, or let the integration follow your Home Assistant home location, so the forecast keeps up if that location changes, such as for a solar setup on a camper, RV, or boat.
+- **Location**: The latitude and longitude of your panels. You can enter fixed coordinates, or let the integration follow your Home Assistant home location, so the forecast keeps up if that location changes, such as for a solar setup on a camper van, motorhome, or boat.
 - **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright. You can enter a fixed tilt or select a sensor that reports it.
 - **Azimuth**: The compass direction the panels face, on a 360-degree scale. `0` is north, `90` is east, `180` is south, and `270` is west. You can enter a fixed direction or select a sensor that reports it, such as a compass.
 - **Total Watt peak power**: The combined maximum power of all your panels, in Watt peak. Add up the peak power of every panel in the group to get this value.
