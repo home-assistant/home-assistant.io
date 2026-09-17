@@ -375,12 +375,21 @@ const versionTitle =
     }
   }
 
-  /* Search and call to action lead the panel, side by side. */
+  /* Search and call to action lead the panel, side by side. The call
+     to action goes first, with search beside it, reversing their
+     desktop-bar DOM order — same as the live site. */
 
   .nav-cta,
   .nav-search {
-    order: -1;
     width: auto;
+  }
+
+  .nav-cta {
+    order: -2;
+  }
+
+  .nav-search {
+    order: -1;
   }
 
   .nav-cta a {
