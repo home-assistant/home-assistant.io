@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
-  - select  
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -62,6 +62,7 @@ The V2C integration currently exposes the following sensors:
 The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
+- voltage_installation: installation voltage
 
 ## Select
 

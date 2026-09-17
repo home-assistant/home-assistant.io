@@ -35,6 +35,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 [Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
@@ -102,7 +103,7 @@ The `netatmo` cover platform provides support for Bubendorff shutters.
 
 ## Fan
 
-The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
+The `netatmo` fan platform provides support for Legrand centralized ventilation control.
 
 ## Light
 
@@ -264,7 +265,7 @@ During the process you have to choose the new Application Credentials name.
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Light
 

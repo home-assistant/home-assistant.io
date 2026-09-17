@@ -84,7 +84,7 @@ The [Template syntax](/docs/templating/syntax/) page explains these markers in d
 
 Home Assistant has a built-in **Template editor** that shows the result of a template while you type. It is the fastest way to experiment.
 
-Open it from {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}. Try pasting this in:
+Open it from {% my developer_template title="**Settings** > **Tools** > **Template**" %}. Try pasting this in:
 
 {% example %}
 template: |

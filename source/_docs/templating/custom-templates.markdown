@@ -33,7 +33,7 @@ Each file must be under 5 MiB. Home Assistant loads everything in this folder at
 When you edit a file in `custom_templates`, Home Assistant does not pick up the change automatically. You need to tell it to reload in one of two ways:
 
 - Call the {% my developer_call_service service="homeassistant.reload_custom_templates" %} action.
-- Go to {% my developer_services title="**Developer tools** > **Actions**" %} and run the `homeassistant.reload_custom_templates` action.
+- Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %} and run the `homeassistant.reload_custom_templates` action.
 
 Home Assistant does not need a restart for custom template changes.
 

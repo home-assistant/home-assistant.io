@@ -8,7 +8,7 @@ ha_release: 2022.8
 ha_domain: bluetooth
 ha_quality_scale: internal
 ha_codeowners:
-  - '@bdraco'
+  - "@bdraco"
 ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
@@ -46,7 +46,7 @@ bluetooth:
 
 You can see all your Bluetooth adapters and proxies in one place from the **Bluetooth** configuration panel. Together, local adapters and proxies are known as scanners, because both receive Bluetooth signals for Home Assistant.
 
-1. Go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+1. Go to {% my config_bluetooth title="**Settings** > **Connectivity** > **Bluetooth**" %}.
    - At the top, a status summary shows how many Bluetooth connections are currently active.
 2. Under **My network**, you can see an overview of your Bluetooth setup, split into adapters, connections, and advertisements.
    - To open the network map, select **Show map**. The map shows how your Bluetooth devices connect to Home Assistant through your scanners. A legend distinguishes between Home Assistant, scanners, known devices, and unknown devices. Select a device to highlight its connections, or use the search box to find a specific device.
@@ -83,6 +83,7 @@ Home Assistant Container requires specific configuration to access Bluetooth ada
 Add the following Linux capabilities to your container configuration to enable full Bluetooth management:
 
 **Docker Compose:**
+
 ```yaml
 cap_add:
   - NET_ADMIN
@@ -92,6 +93,7 @@ volumes:
 ```
 
 **Docker run:**
+
 ```bash
 docker run --cap-add=NET_ADMIN --cap-add=NET_RAW -v /run/dbus:/run/dbus:ro ...
 ```
@@ -103,6 +105,7 @@ For most systems, the D-Bus socket is in `/run/dbus`. You need to make the socke
 **What happens without these capabilities:**
 
 If `NET_ADMIN` and `NET_RAW` capabilities are missing:
+
 - Your Bluetooth will operate in a degraded mode with limited functionality
 - Automatic adapter recovery is unavailable - your adapters cannot be reset when they stop responding
 - Connection parameters and management API commands will fail
@@ -170,12 +173,12 @@ These adapters generally offer the fastest connect times and do not require addi
 
 {% warning %}
 These adapters may require additional patch files available at <a href="https://github.com/winterheart/broadcom-bt-firmware">https://github.com/winterheart/broadcom-bt-firmware</a> for stable operation.
-  
+
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
 {% endwarning %}
 
 {% details "Broadcom (BCM) based adapters" %}
-  
+
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
 - GMYLE 3340 (BCM20702A0)
@@ -256,6 +259,12 @@ These adapters do not have a reset pin. When they stop responding, there is curr
 
 📶 Denotes external antenna
 
+#### Other adapters
+
+- UGREEN CM749 (Barrot chipset, USB ID `33fa:0010`) 📶
+
+📶 Denotes external antenna
+
 ### Unsupported adapters
 
 {% details "Unsupported adapters" %}
@@ -272,7 +281,6 @@ These adapters do not have a reset pin. When they stop responding, there is curr
 - TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - UGREEEN CM591 (ATS2851) - No driver available yet for USB ID `10d7:b012`
-- UGREEEN CM749 (Barrot chipset) 📶 - No driver available yet for USB ID `33fa:0010`
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 - CSR 4.0 clones with USB ID `0a12:0001` - Unrecoverable driver failure: These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
@@ -310,7 +318,7 @@ Auto and Passive both require an adapter that supports passive scanning. On Linu
 
 ## Configuration options
 
-1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Bluetooth**" %}.
+1. In Home Assistant, go to {% my config_bluetooth title="**Settings** > **Connectivity** > **Bluetooth**" %}.
 2. Select **Adapters**.
 3. On the adapter of interest, select the {% icon "mdi:cog-outline" %} cogwheel icon, then select your options.
    - Not all adapters have configuration options. If you don't see a cogwheel icon, your adapter does not support configuration options.
@@ -325,8 +333,8 @@ When adding multiple remote adapters to increase range or available connection s
 For development and testing of Bluetooth proxies, the Home Assistant Bluetooth integration team primarily uses the [Olimex ESP32-POE-ISO-EA](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE-ISO/open-source-hardware) together with the [Olimex BOX-ESP32-POE-ISO-EA-F](https://www.olimex.com/Products/IoT/ESP32/BOX-ESP32-POE-ISO/). These devices are compatible with [ESPHome ready-made projects](https://esphome.io/projects/).
 
 {% tip %}
-- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.  
-- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.  
+- The `-EA` variant offers significantly better RF performance compared to the standard non-`EA` model.
+- If the `ESP32-POE-ISO-EA` is out of stock, the `ESP32-POE-ISO-EA-IND` is a good alternative.
 - The `ESP32-POE-ISO-WROVER-EA` model is **not recommended**, as it uses a different pin configuration and is not compatible with ESPHome ready-made projects.
 {% endtip %}
 
@@ -362,7 +370,7 @@ Once Bluetooth is configured, the {% my bluetooth_connection_monitor %} will all
 
 ### Improving connection times
 
-Connection time and performance vary greatly depending on the Bluetooth adapter and interference. 
+Connection time and performance vary greatly depending on the Bluetooth adapter and interference.
 
 {% warning %}
 When switching to an adapter with better performance, disable the old, less performant adapters. The best signal and available connection slots are considered when making connections, and performance will be limited to the worst-performing adapter with the best signal to reach the remote device.
@@ -433,50 +441,50 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
 
 The following integrations are automatically discovered by the Bluetooth integration:
 
- - [Acaia](/integrations/acaia/)
- - [Airthings BLE](/integrations/airthings_ble/)
- - [Aranet](/integrations/aranet/)
- - [BlueMaestro](/integrations/bluemaestro/)
- - [BTHome](/integrations/bthome/)
- - [Dormakaba dKey](/integrations/dormakaba_dkey/)
- - [eQ-3 Bluetooth Smart Thermostats](/integrations/eq3btsmart/)
- - [EufyLife](/integrations/eufylife_ble/)
- - [Fjäråskupan](/integrations/fjaraskupan/)
- - [Gardena Bluetooth](/integrations/gardena_bluetooth/)
- - [Govee Bluetooth](/integrations/govee_ble/)
- - [HomeKit Device](/integrations/homekit_controller/)
- - [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/)
- - [iBeacon Tracker](/integrations/ibeacon/)
- - [IKEA Idasen Desk](/integrations/idasen_desk/)
- - [Improv via BLE](/integrations/improv_ble/)
- - [INKBIRD](/integrations/inkbird/)
- - [IronOS](/integrations/iron_os/)
- - [Kegtron](/integrations/kegtron/)
- - [Keymitt MicroBot Push](/integrations/keymitt_ble/)
- - [Kuler Sky](/integrations/kulersky/)
- - [La Marzocco](/integrations/lamarzocco/)
- - [LD2410 BLE](/integrations/ld2410_ble/)
- - [LED BLE](/integrations/led_ble/)
- - [Medcom Bluetooth](/integrations/medcom_ble/)
- - [Melnor Bluetooth](/integrations/melnor/)
- - [Moat](/integrations/moat/)
- - [Mopeka](/integrations/mopeka/)
- - [Motionblinds Bluetooth](/integrations/motionblinds_ble/)
- - [Oral-B](/integrations/oralb/)
- - [Probe Plus](/integrations/probe_plus/)
- - [Qingping](/integrations/qingping/)
- - [RAPT Bluetooth](/integrations/rapt_ble/)
- - [Ruuvi BLE](/integrations/ruuvitag_ble/)
- - [Sensirion BLE](/integrations/sensirion_ble/)
- - [SensorPro](/integrations/sensorpro/)
- - [SensorPush](/integrations/sensorpush/)
- - [Snooz](/integrations/snooz/)
- - [SwitchBot Bluetooth](/integrations/switchbot/)
- - [ThermoBeacon](/integrations/thermobeacon/)
- - [ThermoPro](/integrations/thermopro/)
- - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
- - [Xiaomi BLE](/integrations/xiaomi_ble/)
- - [Yale Access Bluetooth](/integrations/yalexs_ble/)
+- [Acaia](/integrations/acaia/)
+- [Airthings BLE](/integrations/airthings_ble/)
+- [Aranet](/integrations/aranet/)
+- [BlueMaestro](/integrations/bluemaestro/)
+- [BTHome](/integrations/bthome/)
+- [Dormakaba dKey](/integrations/dormakaba_dkey/)
+- [eQ-3 Bluetooth Smart Thermostats](/integrations/eq3btsmart/)
+- [EufyLife](/integrations/eufylife_ble/)
+- [Fjäråskupan](/integrations/fjaraskupan/)
+- [Gardena Bluetooth](/integrations/gardena_bluetooth/)
+- [Govee Bluetooth](/integrations/govee_ble/)
+- [HomeKit Device](/integrations/homekit_controller/)
+- [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/)
+- [iBeacon Tracker](/integrations/ibeacon/)
+- [IKEA Idasen Desk](/integrations/idasen_desk/)
+- [Improv via BLE](/integrations/improv_ble/)
+- [INKBIRD](/integrations/inkbird/)
+- [IronOS](/integrations/iron_os/)
+- [Kegtron](/integrations/kegtron/)
+- [Keymitt MicroBot Push](/integrations/keymitt_ble/)
+- [Kuler Sky](/integrations/kulersky/)
+- [La Marzocco](/integrations/lamarzocco/)
+- [LD2410 BLE](/integrations/ld2410_ble/)
+- [LED BLE](/integrations/led_ble/)
+- [Medcom Bluetooth](/integrations/medcom_ble/)
+- [Melnor Bluetooth](/integrations/melnor/)
+- [Moat](/integrations/moat/)
+- [Mopeka](/integrations/mopeka/)
+- [Motionblinds Bluetooth](/integrations/motionblinds_ble/)
+- [Oral-B](/integrations/oralb/)
+- [Probe Plus](/integrations/probe_plus/)
+- [Qingping](/integrations/qingping/)
+- [RAPT Bluetooth](/integrations/rapt_ble/)
+- [Ruuvi BLE](/integrations/ruuvitag_ble/)
+- [Sensirion BLE](/integrations/sensirion_ble/)
+- [SensorPro](/integrations/sensorpro/)
+- [SensorPush](/integrations/sensorpush/)
+- [Snooz](/integrations/snooz/)
+- [SwitchBot Bluetooth](/integrations/switchbot/)
+- [ThermoBeacon](/integrations/thermobeacon/)
+- [ThermoPro](/integrations/thermopro/)
+- [Tilt Hydrometer BLE](/integrations/tilt_ble/)
+- [Xiaomi BLE](/integrations/xiaomi_ble/)
+- [Yale Access Bluetooth](/integrations/yalexs_ble/)
 
 ## About Bluetooth terminology
 

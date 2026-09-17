@@ -103,7 +103,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Adding a new device to the Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
 3. Check if your device supports SmartStart:
@@ -151,7 +151,7 @@ Do this before using the device with another adapter, or when you don't use the 
 
 Do this when you have a device that is still paired with an adapter, but you don't have access to that adapter anymore. If the device was not excluded from that adapter, you cannot join it to a new network. This process removes the device from the previous adapter's network, allowing you to pair it with a new adapter.
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Select **Options**.
 3. Next to **Remove foreign device**, select **Remove** > **Start exclusion**.
 4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
@@ -193,7 +193,7 @@ There is no easy way to update that device.
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Migrate adapter**, select **Migrate**.
 3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
@@ -332,7 +332,7 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 ### To backup your Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Download backup**, select **Download**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
 3. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
@@ -348,7 +348,7 @@ You can restore your Z-Wave network from a backup.
 
 ### Restoring a Z-Wave network from backup
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Restore from backup**, select **Restore**.
    - Select the backup you want to restore from.
    - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
@@ -375,7 +375,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 
 ### To update firmware of a Z-Wave device
 
-1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Select **Devices**.
    - Then select the device you want to update.
 3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Update**.
@@ -492,13 +492,13 @@ The following features can be accessed from the device panel of any Z-Wave devic
 
 ## Events
 
-There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
+There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
-Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.
@@ -617,7 +617,7 @@ Value Notification example:
 
 ### Value updated events
 
-Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
 
 The following devices currently support this event:
 
@@ -668,6 +668,8 @@ actions:
 <a id="zwave_jsevent-trigger"></a>
 
 {% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 {% include integrations/actions.md %}
 

@@ -32,7 +32,6 @@ During the setup, it will ask for the following:
 | ---- | ----------- | ------- |
 | `Host` | The IP or domain name of your Pi-hole. | 192.168.1.1 |
 | `Port` | Port used to get to the admin page, typically `80` for `http` connections and `443` for `https` connections. | 80 |
-| `Name` | Name for this Pi-hole. | Pi-hole |
 | `Location` | The path to the admin page. This is ignored for the Pi-hole version 6 API. | /admin |
 | `App password or API key` | The credential used to authenticate with Pi-hole. See below for details on where to find it for Pi-hole v6 and for older versions. | `585a2fe...` |
 | `Uses an SSL certificate` | Whether your Pi-hole uses a certificate, typically true for `https` connections and false for `http`. | {% icon "openmoji:check-mark" %} |

@@ -23,7 +23,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
+The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} to find the devices that have been identified.
 
 {% include integrations/config_flow.md %}
 
@@ -474,7 +474,13 @@ The following actuator types are supported:
 | ------- | ------------------------------------------------ |
 | S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS] |
 
-All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
+### MySensors version 2.4 and higher
+
+| S_TYPE  | V_TYPE                                                      |
+| ------- | ----------------------------------------------------------- |
+| S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS], [V_TILT] |
+
+For MySensors version 2.4 and higher, `V_UP`, `V_DOWN`, `V_STOP`, and either `V_PERCENTAGE` or `V_STATUS` are required. `V_TILT` is optional for covers that support tilt position. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent. Use V_STATUS (or V_LIGHT) if you don't.
 
 ### Cover example sketch
 

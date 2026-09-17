@@ -61,7 +61,7 @@ The Xbox media player platform will create media player entities for each consol
 
 To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
 
-You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
+You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
 ## Remote
 
@@ -81,6 +81,12 @@ Supported controller commands include:
 - `Play`, `Pause`, `Next`, `Previous`
 - `GoHome`, `GoBack`
 - `ShowGuideTab`, `ShowGuide`
+
+{% note %}
+
+Any value that does **not** match a supported command will be sent as literal text input. To force sending text that matches a command, prefix it with `text:`, for example `text:A`
+
+{% endnote %}
 
 ## Xbox automation examples
 
@@ -366,30 +372,31 @@ The **Xbox binary sensor platform** automatically tracks the online status and a
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
-| (*Gamertag* )                    | Shows the online status of your friend. The entity’s attributes provide extra information, including real name and bio. |
-| **In game**                      | Shows if your friend is currently playing a game.                      |
-| **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
+| (*Gamertag* )                    | Shows the account's online status. The entity's attributes provide extra information, including real name and bio. |
+| **In game**                      | Shows whether the account is currently playing a game.                   |
+| **Subscribed to Xbox Game Pass** | Indicates whether the account is currently subscribed to Xbox Game Pass. |
 
 ## Sensor
 
 Similar to binary sensors, the **Xbox sensor platform** monitors your account and friends, providing detailed information about their activity and achievements.
 
-| Entity Name      | Description                                                                |
-| ---------------- | -------------------------------------------------------------------------- |
-| **Status**       | Shows the text status of your friend as it appears in your friends list.   |
-| **Gamerscore**   | Friend's Gamerscore.                                                       |
-| **Friends**      | Displays the number of mutual friend relationships of the account.         |
-| **Follower**     | Displays the number of people following the account.                       |
-| **Following**    |  Displays the number of people the account is following.                   |
-| **Last online**  | Displays the last time the friend was active online.                       |
-| **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
-| **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+| Entity Name                 | Description                                                                |
+| --------------------------- | -------------------------------------------------------------------------- |
+| **Status**                  | Shows the account's text status as it appears on the Xbox Network.         |
+| **Gamerscore**              | Displays the account's Gamerscore.                                         |
+| **Friends**                 | Displays the number of mutual friend relationships of the account.         |
+| **Followers**               | Displays the number of people following the account.                       |
+| **Following**               | Displays the number of people the account is following.                    |
+| **Last online**             | Displays the last time the account was active online.                      |
+| **In party**                | Shows the number of people in the user’s party chat if they are currently in one. |
+| **Party join restrictions** | Shows the join restriction of the party the account is currently in, either `Invite-only` or `Joinable`. |
+| **Now playing**             | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
 ### Storage sensors
 
 These sensors track the storage on your own **Xbox consoles** and connected storage devices.
 
-| Entity Name      | Description                                                                |
+| Entity Name | Description |
 | ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
@@ -400,8 +407,8 @@ For your account and each of your friends, several image entities are available:
 
 | Entity Name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
-| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
-| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friends, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
+| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friends across the Xbox Network. |
 | **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
 
 ## Media source

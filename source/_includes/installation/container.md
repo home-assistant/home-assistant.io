@@ -41,7 +41,7 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 If you change the configuration, you have to restart the server. To do that you have 3 options.
 
 1. In your Home Assistant UI, go to {% my config title="**Settings** > **System**" %} and in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Restart Home Assistant**.
-2. Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, select `homeassistant.restart` and select **Perform action**.
+2. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select `homeassistant.restart` and select **Perform action**.
 3. Restart it from a terminal.
 
 {% tabbed_block %}
@@ -61,6 +61,44 @@ If you change the configuration, you have to restart the server. To do that you 
     ```
 
 {% endtabbed_block %}
+
+### Allow time for a clean shutdown
+
+When the container is stopped or restarted, Docker sends `SIGTERM` and then forcibly stops the container after a timeout, which is 10 seconds by default. Home Assistant can need longer than that to close its database. If it is stopped before it has finished, the next start logs warnings such as:
+
+```txt
+Ended unfinished session
+The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
+```
+
+To give the shutdown more time, increase the timeout:
+
+{% tabbed_block %}
+
+- title: Docker CLI
+  content: |
+
+    ```bash
+    docker run ... --stop-timeout 60 ...
+    ```
+
+- title: Docker Compose
+  content: |
+
+    ```yaml
+    services:
+      homeassistant:
+        ...
+        stop_grace_period: 60s
+    ```
+
+{% endtabbed_block %}
+
+The timeout is an upper limit, not a delay: Docker continues as soon as Home Assistant has exited.
+
+{% note %}
+This setting is applied when the container is created, so restarting an existing container keeps the timeout it was created with. After changing the value in `compose.yaml`, `docker compose up -d` recreates the container, because its configuration has changed. If the container is not recreated, use `docker compose up -d --force-recreate`. With the Docker CLI, remove the container and run it again with the new option.
+{% endnote %}
 
 ### Docker compose
 

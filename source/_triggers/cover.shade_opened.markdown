@@ -56,10 +56,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple shades are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the shade must stay open before the trigger fires.
@@ -75,9 +75,9 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `shade` device class.
-- If a shade comes back from `unavailable` or `unknown`, that recovery does not count as the opening.
-- The `for` option fires the automation only if the shade stays open for the entire time you set.
+- Use a cover entity with the shade device class.
+- If a shade comes back from **Unavailable** or **Unknown**, that recovery does not count as the opening.
+- The **For at least** option fires the automation only if the shade stays open for the entire time you set.
 
 {% include triggers/try_it.md %}
 

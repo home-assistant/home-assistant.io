@@ -6,6 +6,8 @@ description: "Get the Mealie meal plan for a specified date range."
 related_actions:
   - mealie.set_mealplan
   - mealie.set_random_mealplan
+  - mealie.update_mealplan
+  - mealie.delete_mealplan
   - mealie.get_recipe
 ---
 

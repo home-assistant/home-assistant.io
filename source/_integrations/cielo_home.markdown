@@ -3,7 +3,7 @@ title: Cielo Home
 description: Instructions on how to integrate Cielo smart thermostats in Home Assistant.
 ha_category:
   - Climate
-  - Sensor  
+  - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 2026.6
 ha_config_flow: true

@@ -66,7 +66,7 @@ Allow unreachable bulbs to report their state correctly:
 
 ## Hue remotes and switches
 
-Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have an on/off state like regular entities in Home Assistant. Instead, these devices emit the event `hue_event` when a button is pressed. You can test what events come in by going to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} and subscribing to `hue_event`. Once you know what the event data looks like, you can use it to create automations.
+Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have an on/off state like regular entities in Home Assistant. Instead, these devices emit the event `hue_event` when a button is pressed. You can test what events come in by going to {% my developer_events title="**Settings** > **Tools** > **Events**" %} and subscribing to `hue_event`. Once you know what the event data looks like, you can use it to create automations.
 
 {% note %}
 The Hue API limits each device to one event per second. This means that button events are rate-limited to one per second.
