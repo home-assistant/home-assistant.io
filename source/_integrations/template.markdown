@@ -588,7 +588,7 @@ Button entities can be created from the frontend in the Helpers section or via Y
 
 ### Options in the UI
 
-{% options_ui %}
+{% configuration_basic %}
 Name:
   description: The name of the button.
 Actions on press:
@@ -599,7 +599,7 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
-{% endoptions_ui %}
+{% endconfiguration_basic %}
 
 ### Options in YAML
 
@@ -645,7 +645,7 @@ The template cover platform allows you to create covers with templates to define
 
 ### Options in the UI
 
-{% options_ui %}
+{% configuration_basic %}
 Name:
   description: The name of the cover.
 State:
@@ -666,7 +666,7 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
-{% endoptions_ui %}
+{% endconfiguration_basic %}
 
 ### Options in YAML
 
@@ -2163,35 +2163,24 @@ The template select platform allows you to create select entities with templates
 
 Select entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - select:
-      - name: Camera Day-Night Mode
-        state: "{{ state_attr('camera.porch', 'day_night_mode') }}"
-        options: "{{ ['off', 'on', 'auto'] }}"
-        select_option:
-          - action: script.porch_camera_day_night_mode
-            data:
-              day_night_mode: "{{ option }}"
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: camera.porch
-        attribute: day_night_mode
-    select:
-      - name: Camera Day-Night Mode
-        state: "{{ state_attr('camera.porch', 'day_night_mode') }}"
-        options: "{{ ['off', 'on', 'auto'] }}"
-        select_option:
-          - action: script.porch_camera_day_night_mode
-            data:
-              day_night_mode: "{{ option }}"
-```
+{% configuration_basic %}
+Name:
+  description: The name of the select entity.
+State:
+  description: A template that gets the currently selected option.
+Available options:
+  description: A template that produces the list of options the select offers.
+Actions on select:
+  description: The action or actions run when an option is selected. It receives the chosen option as `option`.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration select %}
 select:
@@ -2228,6 +2217,38 @@ select:
       default: optimistic
 {% endconfiguration %}
 
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - select:
+      - name: Camera Day-Night Mode
+        state: "{{ state_attr('camera.porch', 'day_night_mode') }}"
+        options: "{{ ['off', 'on', 'auto'] }}"
+        select_option:
+          - action: script.porch_camera_day_night_mode
+            data:
+              day_night_mode: "{{ option }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: camera.porch
+        attribute: day_night_mode
+    select:
+      - name: Camera Day-Night Mode
+        state: "{{ state_attr('camera.porch', 'day_night_mode') }}"
+        options: "{{ ['off', 'on', 'auto'] }}"
+        select_option:
+          - action: script.porch_camera_day_night_mode
+            data:
+              day_night_mode: "{{ option }}"
+```
+
 ### State based select - Control Day/Night mode of a camera
 
 This show how a state based template select can be used to perform an action.
@@ -2253,38 +2274,26 @@ The template sensor platform allows you to create sensors with templates to defi
 
 Sensor entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - sensor:
-      - name: "Kettle"
-        state: >
-          {% if is_state('switch.kettle', 'off') %}
-            off
-          {% elif state_attr('switch.kettle', 'W') | float < 1000 %}
-            standby
-          {% elif is_state('switch.kettle', 'on') %}
-            on
-          {% else %}
-            failed
-          {% endif %}
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: sensor.outside_temperature
-        not_to:
-        - unknown
-        - unavailable
-    sensor:
-      - name: Outside Temperature
-        device_class: temperature
-        unit_of_measurement: °C
-        state: "{{ (states('sensor.outside_temperature') | float - 32) * 5/9 }}"
-```
+{% configuration_basic %}
+Name:
+  description: The name of the sensor.
+State:
+  description: A template that gets the sensor's value.
+Unit of measurement:
+  description: The unit of measurement for the sensor, if any.
+Device class:
+  description: The [device class](/integrations/sensor/#device-class) used to pick display formatting and the icon.
+State class:
+  description: The [state class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes), which controls number formatting and whether the sensor's history is kept as long-term statistics.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration sensor %}
 sensor:
@@ -2322,6 +2331,41 @@ sensor:
       default: None
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - sensor:
+      - name: "Kettle"
+        state: >
+          {% if is_state('switch.kettle', 'off') %}
+            off
+          {% elif state_attr('switch.kettle', 'W') | float < 1000 %}
+            standby
+          {% elif is_state('switch.kettle', 'on') %}
+            on
+          {% else %}
+            failed
+          {% endif %}
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.outside_temperature
+        not_to:
+          - unknown
+          - unavailable
+    sensor:
+      - name: Outside Temperature
+        device_class: temperature
+        unit_of_measurement: °C
+        state: "{{ (states('sensor.outside_temperature') | float - 32) * 5/9 }}"
+```
 
 ### State based sensor - Exposing sun angle
 
@@ -2455,40 +2499,24 @@ The template switch platform allows you to create switches with templates to def
 
 Switch entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - switch:
-      - name: Skylight
-        state: "{{ is_state('binary_sensor.skylight', 'on') }}"
-        turn_on:
-          action: switch.turn_on
-          target:
-            entity_id: switch.skylight_open
-        turn_off:
-          action: switch.turn_off
-          target:
-            entity_id: switch.skylight_close
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: binary_sensor.skylight
-    switch:
-      - name: Skylight
-        state: "{{ is_state('binary_sensor.skylight', 'on') }}"
-        turn_on:
-          action: switch.turn_on
-          target:
-            entity_id: switch.skylight_open
-        turn_off:
-          action: switch.turn_off
-          target:
-            entity_id: switch.skylight_close
-```
+{% configuration_basic %}
+Name:
+  description: The name of the switch.
+State:
+  description: A template that sets if the switch is on or off. If left blank, the switch assumes commands succeed (optimistic mode).
+Actions on turn on:
+  description: The action or actions run when the switch is turned on.
+Actions on turn off:
+  description: The action or actions run when the switch is turned off.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration switch %}
 switch:
@@ -2525,6 +2553,43 @@ switch:
       type: action
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - switch:
+      - name: Skylight
+        state: "{{ is_state('binary_sensor.skylight', 'on') }}"
+        turn_on:
+          action: switch.turn_on
+          target:
+            entity_id: switch.skylight_open
+        turn_off:
+          action: switch.turn_off
+          target:
+            entity_id: switch.skylight_close
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: binary_sensor.skylight
+    switch:
+      - name: Skylight
+        state: "{{ is_state('binary_sensor.skylight', 'on') }}"
+        turn_on:
+          action: switch.turn_on
+          target:
+            entity_id: switch.skylight_open
+        turn_off:
+          action: switch.turn_off
+          target:
+            entity_id: switch.skylight_close
+```
 
 ### State based switch - Invert a Switch
 
@@ -2608,30 +2673,40 @@ The template update platform allows you to create update entities with templates
 
 Update entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - update:
-      - name: Frigate
-        installed_version: "{{ states('sensor.installed_version') }}"
-        latest_version: "{{ states('sensor.latest_version') }}"
-        install:
-          action: script.update_frigate
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: time
-        at: "00:00:00"
-    update:
-      - name: Frigate
-        installed_version: "{{ states('sensor.installed_version') }}"
-        latest_version: "{{ states('sensor.latest_version') }}"
-        install:
-          action: script.update_frigate
-```
+{% configuration_basic %}
+Name:
+  description: The name of the update entity.
+Installed version:
+  description: A template that gets the currently installed version.
+Latest version:
+  description: A template that gets the latest available version. When it is newer than the installed version, the entity's state turns on.
+Actions on install:
+  description: The action or actions run when the update is installed. Receives `specific_version` and `backup` when those are enabled.
+In progress:
+  description: A template that gets the in-progress state.
+Release summary:
+  description: A template that gets the release summary.
+Release URL:
+  description: A template that gets the release URL.
+Title:
+  description: A template that gets the update title.
+Update percentage:
+  description: A template that gets the update completion percentage.
+Backup:
+  description: Enables or disables the automatic backup before an update. Defaults to disabled.
+Specific version:
+  description: Enables or disables using a specific version (`specific_version`) in the installation actions **Actions on install**. Defaults to disabled.
+Device class:
+  description: The [device class](/integrations/update/#device-class) used to pick the frontend state and icon.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration update %}
 update:
@@ -2698,53 +2773,71 @@ update:
       type: template
 {% endconfiguration %}
 
-## Vacuum
-
-The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
-
-Vacuum entities can be created from the frontend in the Helpers section or via YAML.
+### YAML examples
 
 ```yaml
 # Example state-based configuration.yaml entry
 template:
-  - vacuum:
-      - name: Living Room Vacuum
-        start:
-          action: script.vacuum_start
+  - update:
+      - name: Frigate
+        installed_version: "{{ states('sensor.installed_version') }}"
+        latest_version: "{{ states('sensor.latest_version') }}"
+        install:
+          action: script.update_frigate
 ```
 
 ```yaml
 # Example trigger-based configuration.yaml entry
 template:
   - triggers:
-      - trigger: state
-        entity_id: sensor.living_room_vacuum_state
-    vacuum:
-      - name: Living Room Vacuum
-        state: "{{ states('sensor.living_room_vacuum_state') }}"
-        start:
-          action: script.vacuum_start
+      - trigger: time
+        at: "00:00:00"
+    update:
+      - name: Frigate
+        installed_version: "{{ states('sensor.installed_version') }}"
+        latest_version: "{{ states('sensor.latest_version') }}"
+        install:
+          action: script.update_frigate
 ```
 
-```yaml
-# Example state-based configuration.yaml entry with segment cleaning
-template:
-  - vacuum:
-      - name: Living Room Vacuum
-        clean_segments:
-          action: script.vacuum_start
-          data:
-            segment_ids: "{{ segment_ids }}"
-        segments: >-
-          {{ [
-            {'id': '1', 'name': 'Kitchen'},
-            {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
-          ] }}
-        start:
-          action: script.vacuum_start
-        unique_id: living_room_vacuum
+## Vacuum
 
-```
+The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
+
+Vacuum entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the vacuum.
+State:
+  description: A template that gets the vacuum's state.
+Actions on start:
+  description: The action or actions run when the vacuum is started.
+Fan speed:
+  description: A template that gets the vacuum's current fan speed.
+Fan speeds:
+  description: The list of fan speeds the vacuum supports.
+Actions on set fan speed:
+  description: The action or actions run when the fan speed is changed.
+Actions on stop:
+  description: The action or actions run when the vacuum is stopped.
+Actions on pause:
+  description: The action or actions run when the vacuum is paused.
+Actions on return to dock:
+  description: The action or actions run when the vacuum is sent to dock.
+Actions on clean spot:
+  description: The action or actions run for a spot-clean command.
+Actions locate:
+  description: The action or actions run for a locate command.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration vacuum %}
 vacuum:
@@ -2821,6 +2914,50 @@ vacuum:
       type: action
 {% endconfiguration %}
 
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - vacuum:
+      - name: Living Room Vacuum
+        start:
+          action: script.vacuum_start
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.living_room_vacuum_state
+    vacuum:
+      - name: Living Room Vacuum
+        state: "{{ states('sensor.living_room_vacuum_state') }}"
+        start:
+          action: script.vacuum_start
+```
+
+```yaml
+# Example state-based configuration.yaml entry with segment cleaning
+template:
+  - vacuum:
+      - name: Living Room Vacuum
+        clean_segments:
+          action: script.vacuum_start
+          data:
+            segment_ids: "{{ segment_ids }}"
+        segments: >-
+          {{ [
+            {'id': '1', 'name': 'Kitchen'},
+            {'id': '2', 'name': 'Living room', 'group': 'Upstairs'},
+          ] }}
+        start:
+          action: script.vacuum_start
+        unique_id: living_room_vacuum
+
+```
+
 ### State based vacuum - Control vacuum with Harmony Hub
 
 This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
@@ -2882,35 +3019,30 @@ The template weather platform allows you to create weather entities with templat
 
 State-based templates of weather entities can be created from the frontend in the helpers section or using YAML. Trigger-based weather templates can only be created via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - weather:
-      - name: "My Weather Station"
-        condition: "{{ states('weather.my_region') }}"
-        temperature: "{{ states('sensor.temperature') | float }}"
-        temperature_unit: "°C"
-        humidity: "{{ states('sensor.humidity') | float }}"
-        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id:
-          - weather.my_region
-          - sensor.temperature
-          - sensor.humidity
-    weather:
-      - name: "My Weather Station"
-        condition: "{{ states('weather.my_region') }}"
-        temperature: "{{ states('sensor.temperature') | float }}"
-        temperature_unit: "°C"
-        humidity: "{{ states('sensor.humidity') | float }}"
-        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
-```
+{% configuration_basic %}
+Name:
+  description: The name of the weather entity.
+Condition:
+  description: A template that gets the current weather condition. It must resolve to one of Home Assistant's [recognized weather conditions](/integrations/weather/#condition-mapping), otherwise the state becomes `unknown` and won't display on a dashboard.
+Humidity:
+  description: A template that gets the current humidity.
+Temperature:
+  description: A template that gets the current temperature.
+Temperature unit:
+  description: The unit the temperature template's output is in. One of **°C**, **°F**, or **K**.
+Forecast daily:
+  description: A template that gets the [daily forecast data](/integrations/template/#daily-weather-forecast).
+Forecast hourly:
+  description: A template that gets the [hourly forecast data](/integrations/template/#hourly-weather-forecast).
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration weather %}
 weather:
@@ -3014,6 +3146,38 @@ weather:
       type: template
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - weather:
+      - name: "My Weather Station"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
+        temperature_unit: "°C"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id:
+          - weather.my_region
+          - sensor.temperature
+          - sensor.humidity
+    weather:
+      - name: "My Weather Station"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
+        temperature_unit: "°C"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+```
 
 ### Condition
 
