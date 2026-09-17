@@ -101,28 +101,16 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ### Switches
 
-When the cloud API reports that the toggle is supported for a device, the integration exposes switch entities.
-
-Primary controls:
-
-- **Plug switch**: Control the main power relay on supported IoT socket devices.
-- **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
-- **White light**: Manually toggle the camera white LED illuminator on supported models.
-
-Device settings (**Configuration** category):
+When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
 
 - **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
-- **Alarm-linked siren**: Link the device siren to alarm events on supported models.
-- **Alarm-linked white light**: Link the white light to alarm events on supported models.
 - **Audio recording**: Toggle audio recording on supported cameras.
-- **Flip image**: Flip the camera image vertically on supported models.
 - **Human detection**: Toggle human detection on supported cameras.
 - **Indicator light**: Toggle the device status indicator LED on supported models.
 - **Motion detection**: Toggle motion detection on supported cameras.
-- **Pet detection**: Toggle pet detection on supported cameras.
-- **Prompt sound**: Toggle prompt sounds on supported models.
-- **Smart tracking**: Toggle smart tracking on supported cameras.
-- **Wide dynamic range**: Toggle wide dynamic range on supported cameras.
+- **Plug switch**: Control the main power relay on supported IoT socket devices.
+- **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
+- **White light**: Manually toggle the camera white LED illuminator on supported models.
 
 ### Alarm control panel
 
@@ -166,21 +154,6 @@ Battery, storage used, and status sensors are shown under **Diagnostic** on the 
 ## Data updates
 
 The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
-
-Entity states refresh during each poll. Commands you send (such as turning on a switch or arming the panel) go to the Imou cloud immediately; the UI updates on the next successful poll unless the integration refreshes after the command.
-
-## Use cases
-
-- View cloud live streams and snapshots from Imou cameras on dashboards.
-- Monitor battery, temperature, or power data from supported sensors and IoT sockets.
-- Control motion detection, privacy mode, and night vision settings from Home Assistant.
-
-## Known limitations
-
-- The integration uses Imou Open Platform cloud APIs only; there is no local-only mode.
-- Entities appear only when the cloud API reports that your device supports them. Two cameras of the same model can still expose different entities.
-- Live view uses Imou cloud streaming, not a direct LAN RTSP URL from this integration.
-- Alarm pictures, push webhooks, and cloud clip recording are not part of this integration.
 
 ## Security and privacy considerations
 
