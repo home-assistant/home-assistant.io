@@ -15,7 +15,8 @@ body:
     attributes:
       label: Type of issue
       options:
-        - Grammatical error, typo or documentation not according to our [documentation style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide/)
+        - Grammatical error or typo
+        - Documentation not according to HA documentation style guide
         - Outdated or incorrect information
         - Missing information
         - Unclear or confusing information
@@ -64,7 +65,7 @@ body:
         If applicable, link a source PR, code, the configuration that reproduces the issue,
         release notes, or describe your own test. This lets the writer verify
         without redoing your research.
-      placeholder: "For example: Tested on HA Core 2026.9.1, config: ..., see home-assistant/core#XXXXX"
+      placeholder: "Examples: Tested on HA Core 2026.9.1, config: ..., see home-assistant/core#XXXXX"
   - type: textarea
     attributes:
       label: Additional information
