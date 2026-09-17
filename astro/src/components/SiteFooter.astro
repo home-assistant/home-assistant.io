@@ -275,8 +275,13 @@ const icons = {
           <p>
             Website powered by <a href="https://astro.build/">Astro</a>
           </p>
-          <a href="https://www.netlify.com">
-            <img src={netlifyBadgeUrl} alt="Deploys by Netlify" />
+          <a class="badge" href="https://www.netlify.com">
+            <img
+              src={netlifyBadgeUrl}
+              alt="Deploys by Netlify"
+              width="114"
+              height="51"
+            />
           </a>
         </div>
       </div>
@@ -410,8 +415,14 @@ const icons = {
       margin-bottom: var(--space-large);
     }
 
-    img {
+    /* The link is only as wide as the badge it wraps. */
+    .badge {
       display: block;
+      width: fit-content;
+
+      img {
+        display: block;
+      }
     }
   }
 
