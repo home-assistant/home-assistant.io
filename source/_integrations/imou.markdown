@@ -169,14 +169,6 @@ The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refr
 
 Entity states refresh during each poll. Commands you send (such as turning on a switch or arming the panel) go to the Imou cloud immediately; the UI updates on the next successful poll unless the integration refreshes after the command.
 
-## Examples
-
-You can use Imou entities in automations like any other integration. For example:
-
-- Turn on a light when a **Door** binary sensor reports open.
-- Set **Arming** to **Away** when everyone leaves home (supported gateway or hub required).
-- Notify yourself when a camera **Status** sensor changes to `offline`.
-
 ## Use cases
 
 - View cloud live streams and snapshots from Imou cameras on dashboards.
