@@ -3,7 +3,7 @@ title: OSRAM Infrared
 description: Instructions on how to control OSRAM and LEDVANCE RGB lights using an infrared emitter.
 ha_category:
   - Light
-ha_release: 2026.7
+ha_release: '2026.10'
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@freeDom-'
