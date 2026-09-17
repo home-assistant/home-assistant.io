@@ -6,7 +6,7 @@ ha_category:
 ha_bluetooth: true
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@ashionky'
+  - '@zhoulinyue'
 ha_domain: meross
 ha_config_flow: true
 ha_platforms:
