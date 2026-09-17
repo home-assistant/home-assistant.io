@@ -53,8 +53,8 @@ Keep the Mosquitto broker app for Home Assistant and everything else, and run a 
 
 The second broker has to run somewhere in your network: a Docker container on a NAS or any always-on computer, or a separate small board like a Raspberry Pi Zero. Home Assistant OS cannot run it itself.
 
-1. Set up the Home Assistant Mosquitto app (**{% my supervisor_apps title="Settings > Apps" %}**).
-2. Go to **{% my supervisor_apps title="Settings > Apps" %}**, select the Mosquitto broker and go to Configuration. Under logins, add another login, for example `comet_bridge`.
+1. Set up the Home Assistant Mosquitto app ({% my supervisor title="**Settings** > **Apps**" %}).
+2. Go to {% my supervisor title="**Settings** > **Apps**" %}, select the Mosquitto broker and go to Configuration. Under logins, add another login, for example `comet_bridge`.
 3. On the second broker (the one running on another device) the exact configuration depends on the choice of broker and installation method. For the Docker version of mosquitto, create a folder with the following two config files:
 
    `mosquitto.conf`:
@@ -122,7 +122,7 @@ Create the Home Assistant user with `mosquitto_passwd -c /mosquitto/config/passw
 
 #### Security notes
 
-Anyone who can reach the anonymous broker can read the room temperatures and change the setpoints of all thermostats, the thermostats cannot be given credentials, so the ACL is all that limits an unknown client. Therefore:
+Anyone who can reach the anonymous broker can read the room temperatures and change the setpoints of all thermostats. The thermostats cannot be given credentials, so the ACL is all that limits an unknown client. Therefore:
 
 - Never expose the anonymous broker to the internet. No port forwarding for port 1883.
 - Prefer a dedicated IoT network or VLAN for the thermostats and the broker, and restrict the broker's port to the thermostats and Home Assistant with a firewall.
@@ -136,7 +136,7 @@ Every thermostat has to be reconfigured once with the [`comet-wifi-communicator`
 Reconfiguring the thermostat is not a documented function of the device, and a reconfigured thermostat cannot be used with the manufacturer's app anymore until it is reset. Proceed at your own risk.
 {% endwarning %}
 
-1. Run the setup tool once to fetch it with internet connection:
+1. Run the setup tool once to fetch it with internet connection (for other usage methods see the [`comet-wifi-communicator` documentation](https://pypi.org/project/comet-wifi-communicator/)):
 
    ```bash
    pipx run comet-wifi-communicator setup --help
@@ -174,8 +174,6 @@ The integration creates one device per thermostat with a single {% term entity %
 - **HVAC modes**:
   - **Heat**: the thermostat regulates to the target temperature. Turning the thermostat on restores the last target temperature it was heating to, or 16°C if none is known yet.
   - **Off**: the valve is closed.
-
-Setting a target temperature while the thermostat is off turns it on.
 
 ## Data updates
 
