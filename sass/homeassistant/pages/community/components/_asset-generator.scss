@@ -1,0 +1,295 @@
+@use '../mixins' as *;
+
+html.has-open-dialog {
+    overflow: hidden;
+}
+
+#asset-generator {
+    --ag-ink: #002332;
+    --ag-muted: #4f606e;
+    --ag-border: #e3e7ea;
+
+    --ag-tray: #f6f5f1;
+    --ag-card-radius: 20px;
+
+    position: fixed;
+    border: 0;
+    padding: 16px;
+
+    max-width: min(952px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    width: 100%;
+    border-radius: 28px;
+    background: var(--ag-tray);
+    color: var(--ag-ink);
+    overflow: hidden;
+
+    font-family: var(--typography-base-font);
+    font-size: 16px;
+    line-height: 1.5;
+
+    @include bp(tablet) {
+        padding: 24px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::backdrop {
+        background: rgba(0, 35, 50, 0.55);
+    }
+
+    &[open] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &:not([open]) {
+        display: none;
+    }
+
+    h2,
+    h3,
+    p {
+        margin: 0;
+        line-height: inherit;
+    }
+
+    .asset-generator-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        z-index: 1;
+        appearance: none;
+        border: 0;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border-radius: 999px;
+        background: var(--ag-ink);
+        color: #ffffff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+        }
+
+        &:hover {
+            background: var(--color-primary);
+        }
+    }
+
+    .asset-generator-eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ag-muted);
+        margin: 0 0 16px;
+    }
+
+    .asset-generator-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+
+        align-items: start;
+        overflow: auto;
+        flex: 1 1 auto;
+        min-height: 0;
+
+        @include bp(tablet) {
+            grid-template-columns: 360px 1fr;
+            gap: 24px;
+        }
+
+        @include bp(desktop) {
+            grid-template-columns: 1fr auto;
+        }
+    }
+
+    .asset-generator-panel,
+    .asset-generator-preview {
+        background: #ffffff;
+        border-radius: var(--ag-card-radius);
+        padding: 20px;
+        min-width: 0;
+        border: 1px solid var(--ag-border);
+
+        @include bp(tablet) {
+            padding: 24px;
+        }
+    }
+
+    .ag-field {
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .ag-field-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+
+    .ag-field input,
+    .ag-field select {
+        width: 100%;
+        padding: 12px 14px;
+        font: inherit;
+        font-size: 15px;
+        color: var(--ag-ink);
+        border: 1px solid var(--ag-border);
+        border-radius: 10px;
+        outline: none;
+        background: #ffffff;
+        box-shadow: none;
+
+        &::placeholder {
+            color: #98a4ac;
+        }
+
+        &:focus {
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(22, 243, 190, 0.25);
+        }
+
+        &:disabled {
+            background: #f1f3f4;
+            color: #9aa4ab;
+            cursor: not-allowed;
+        }
+    }
+
+    .ag-field select {
+        padding: 12px;
+    }
+
+    .ag-toggle {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+
+        input {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--color-secondary);
+            cursor: pointer;
+        }
+    }
+
+    .asset-generator-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        padding-top: 8px;
+
+        .button[disabled] {
+            opacity: 0.6;
+            cursor: default;
+        }
+    }
+
+    .asset-generator-status {
+        font-size: 13px;
+        color: var(--ag-muted);
+    }
+
+    .asset-generator-preview {
+        order: -1;
+
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        max-width: 540px;
+        margin-inline: auto;
+
+        @include bp(tablet) {
+            order: 0;
+        }
+
+        @include bp(desktop) {
+            width: 540px;
+        }
+    }
+
+    .asset-generator-canvas {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex: 1 1 auto;
+
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .asset-generator-loading {
+        position: absolute;
+        margin: 0;
+        font-size: 13px;
+        color: var(--ag-muted);
+    }
+
+    .asset-generator-scaler {
+        position: relative;
+    }
+
+    .asset-generator-stage {
+        position: relative;
+        overflow: hidden;
+        transform-origin: top left;
+
+        pointer-events: none;
+        user-select: none;
+
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        .ag-layer-image {
+            position: absolute;
+            display: block;
+            max-width: none;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .ag-layer-text {
+            position: absolute;
+            white-space: pre-wrap;
+        }
+
+        .ag-layer-row {
+            position: absolute;
+            display: inline-flex;
+            flex-direction: row;
+            width: max-content;
+            white-space: nowrap;
+        }
+
+        .ag-layer-row .ag-seg {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .ag-layer-row .ag-layer-image {
+            position: static;
+        }
+    }
+}
