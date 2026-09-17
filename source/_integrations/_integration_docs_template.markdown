@@ -202,11 +202,11 @@ The integration does not provide the ability to reboot, which can instead be don
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
-### Description
+#### Description
 
 This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
 
-### Resolution
+#### Resolution
 
 1. Make sure your device is powered up (LEDs are on).
 2. Make sure your device is connected to the internet:
@@ -221,7 +221,13 @@ This means the settings on the device are incorrect, since the device needs to b
 
 ### Symptom: The devices do not appear in Home Assistant
 
-### Resolution
+After setting up the integration, the devices are visible and controllable in the manufacturer's app, but they do not appear in Home Assistant.
+
+#### Description
+
+Home Assistant can only add devices that are available to the account or hub used during setup.
+
+#### Resolution
 
 Make sure the devices are visible and controllable via the manufacturer's app.
 If they are not, check the device's power and network connection.
@@ -232,7 +238,7 @@ If they are not, check the device's power and network connection.
 
 ### Symptom: The device becomes unavailable after a day
 
-### Resolution
+#### Resolution
 
 Make sure you turned off the device's power-saving mode.
 
