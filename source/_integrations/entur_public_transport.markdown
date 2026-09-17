@@ -15,17 +15,46 @@ ha_integration_type: service
 ha_quality_scale: legacy
 ---
 
-The **Entur** {% term integration %} gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
+The **Entur** {% term integration %} provides real-time departure information for bus stops, ferry quays, train stations, airports, and passenger ferry quays in Norway.
 
-For each stop place given in the configuration, a sensor will be mounted for that stop place. It will give remaining minutes until the nearest departure in the state, but also next departures in the attributes. Information about if the departure is monitored in real-time or is from scheduled times, and how many minutes there is in delays, are included as well.
+Set up Entur from the Home Assistant user interface. You can search for a stop place by name, select the routes and platforms you want to monitor, and verify the selection in Entur before saving it.
 
-Real-time data is fetched from [Entur](https://www.entur.no). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
+For each configured stop place, Home Assistant creates a sensor that shows the minutes until the next departure. Sensor attributes include upcoming departures, whether information is real-time or scheduled, and delay information.
+
+Real-time data is fetched from [Entur](https://www.entur.no). Entur collects and delivers information about public transport in Norway under an [open source license](https://data.norge.no/nlod/no).
 
 {% note %}
-Note that the underlying API is rate limited and to avoid getting your instance blocked from Entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
+The underlying API is rate limited. To avoid blocking your instance, Entur sensors fetch new information only every 45 seconds. Do not schedule updates more often than this.
 {% endnote %}
 
-## Configuration
+## Set up from the user interface
+
+To add Entur:
+
+1. Go to **Settings** > **Devices & services**.
+2. Select **Add integration**, then select **Entur**.
+3. Search for the stop place by name and select the matching result. The result includes the locality and transport modes to help distinguish similar names.
+4. Select routes returned by Entur. Leave the route selection empty to show all routes, or enter exact Entur line IDs manually when a route is not listed.
+5. Select the platform detail:
+   - **Stop place only** creates one sensor and is the recommended choice for most stops.
+   - **All active platforms** also creates a sensor for every active platform.
+   - **Selected platforms** creates sensors only for the platforms you select.
+6. Optionally enable **Show on map** to add the stop location to the sensor attributes for use in Home Assistant maps.
+7. Review the canonical Entur ID and use the link to Entur to verify the stop place before selecting **Submit**.
+
+## Manage stop places
+
+The Entur integration page lists every configured stop place, including its route summary and stop type.
+
+- To add another stop place, select **Add a stop place**.
+- To change a stop place, select **Configure** next to it. The maintenance page shows the current route filter, platform detail, and map setting. You can edit those settings without searching for the stop again, or explicitly choose to replace the stop place.
+- To remove an entire stop place, use its three-dot menu on the integration page.
+
+## YAML configuration
+
+{% note %}
+For new setups, use the user interface. YAML configuration remains supported for existing setups and when you need it.
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,16 +81,16 @@ expand_platforms:
   type: boolean
   default: true
 show_on_map:
-  description: If platform locations should be added to the sensor, and the map.
+  description: Whether stop and platform locations should be added to the sensor attributes and map.
   required: false
   type: boolean
   default: false
 line_whitelist:
-  description: List of lines that should be whitelisted in the resulting sensors, and will only show when the defined lines are expected to leave the platform or station. All lines that you want on any of the sensors should be included in the list.
+  description: List of lines to show in the resulting sensors. A line is shown only when it is expected to leave the platform or station. Include every line you want to show for every configured stop.
   required: false
   type: list
 omit_non_boarding:
-  description: If the sensors should remove resulting departures that doesn't take new passengers, or is at last stop.
+  description: Whether to remove departures that do not take new passengers or are at the last stop.
   required: false
   type: boolean
   default: true
@@ -92,7 +121,7 @@ sensor:
       - 'NSR:Quay:48550'      # Fiskepiren bus stop platform 1
 ```
 
-Example with whitelisting of one line on each stop place.
+Example with whitelisting lines for a YAML configuration. The YAML whitelist applies to all configured stops. In the user interface, route selections apply only to the individual stop place.
 
 ```yaml
 # Example configuration.yaml entry
@@ -108,30 +137,30 @@ sensor:
       - 'NSB:Line:59'
 ```
 
-## Obtaining a stop id
+## Obtaining a stop ID for YAML
 
-[Entur's travel planer](https://entur.no) has a map of all stops used in Norway. Use the map to find the stops you're interested in. When you have found one of your stops, click on it.
+[Entur's trip planner](https://entur.no) has a map of all stops used in Norway. Use the map to find the stops you're interested in. When you have found one of your stops, select it.
 
 Now the web browser should contain a URL with the id in it. Such as this:
 
 `https://entur.no/nearby-stop-place-detail?id=NSR:StopPlace:32376`
 
-The stop id is the content after `id=` parameter in the URL. Copy paste this into the configuration.
+The stop ID is the text after the `id=` parameter in the URL. Copy it into the configuration.
 
 ## FAQ - Troubleshooting
 
-**Q:** I have multiple stop ids and have added whitelisting of a line. Now some of the stop places are showing `unknown`.
+**Q:** I have multiple stop IDs in YAML and have added whitelisting of a line. Now some of the stop places are showing `unknown`.
 
-**A:** A whitelisting of lines takes affect on all of the stops. So you have to whitelist all lines you are interested in on all stop places.
+**A:** A YAML line whitelist applies to all configured stops. Include all lines that you want to show on all stop places. Route selections made in the user interface apply only to the selected stop place.
 
 ---
 
 **Q:** I have added whitelisting of lines, and everything has worked as fine before, but now it has stopped updating all of a sudden.
 
-**A:** Some transport companies, such as Kolumbus in Rogaland, have running numbers on the end of their line ids. These gets periodically updated and will make the whitelisting invalid. The new line ids needs to be added again. Most of the time it iterates by one.
+**A:** Some transport companies, such as Kolumbus in Rogaland, include running numbers at the end of their line IDs. These are periodically updated and can make the whitelist invalid. Add the new line IDs again; in many cases the running number increments by one.
 
 ---
 
-**Q:** Where do I find a line id to add to the whitelisting?
+**Q:** Where do I find a line ID to add to the whitelist?
 
-**A:** The sensor will show the line id, and is the recommended way to find it, while we wait for 'Nasjonalt Stoppestedregister' to become public. It is also possible to see the line ids by using the developer tool in the browser while looking at the traffic in [Entur's travel planer](https://en-tur.no).
+**A:** The user interface lists routes returned by Entur and also accepts exact line IDs entered manually. The sensor attributes include the line ID for upcoming departures. You can also inspect traffic in [Entur's trip planner](https://entur.no).
