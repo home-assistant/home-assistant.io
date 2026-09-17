@@ -26,7 +26,7 @@ Before setting up the integration, make sure you meet the following requirements
 
 - Your Home Assistant instance runs on a Linux-based system (Home Assistant OS, or Home Assistant Container on Linux).
 - The input device you want to use is connected to your system and recognized by Linux. For Bluetooth devices, pair them first using your operating system's Bluetooth settings.
-- The Home Assistant process has read and write access to the device files under `/dev/input/`. On Home Assistant OS, this is handled automatically. For Home Assistant Container, see the [Containers](#running-in-a-container) troubleshooting section below.
+- The Home Assistant process has read and write access to the device files under `/dev/input/`. On [Home Assistant Operating System](#running-on-home-assistant-operating-system) this is handled for you. For [Home Assistant Container](#running-in-a-container) you have to pass the devices in yourself.
 
 {% include integrations/config_flow.md %}
 
@@ -64,21 +64,23 @@ The `keyboard_remote_command_received`event is fired whenever a key event occurs
 
 - `key_code` — The numeric key code (evdev) for the key involved in the event
 - `type` — The event type: `key_up`, `key_down`, or `key_hold`
-- `device_descriptor` — The `/dev/input/` path of the device
+- `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
+
+For a device set up through the UI, `device_descriptor` is the `/dev/input/by-id/` path you selected, not a bare `/dev/input/event*` path. A bare path appears only for a YAML configuration that was imported by device name. Copy the exact value from **Developer tools** > **Events** when matching on it in an automation.
 
 ### Keyboard remote connected
 
 The `keyboard_remote_connected` event is fired when a configured device is detected or reconnected. This is useful for Bluetooth devices that turn off automatically to save battery.
 
-- `device_descriptor` — The `/dev/input/` path of the device
+- `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
 
 ### Keyboard remote disconnected
 
 The `keyboard_remote_disconnected` event is fired when a configured device is disconnected or removed.
 
-- `device_descriptor` — The `/dev/input/` path of the device
+- `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
 
 ## Automation examples
@@ -94,8 +96,8 @@ automation:
       - trigger: event
         event_type: keyboard_remote_command_received
         event_data:
-          # Target a specific device by its path
-          device_descriptor: "/dev/input/event0"
+          # Target a specific device by its path, as shown in the event data
+          device_descriptor: "/dev/input/by-id/usb-Example_Keyboard-event-kbd"
           # Find your key code via Developer Tools > Events
           key_code: 107
           # Only trigger on key released events
@@ -200,6 +202,10 @@ If the device dropdown during setup is empty or does not include your device, tr
 2. Check that the device appears under `/dev/input/by-id/`. You can verify this by running `ls /dev/input/by-id/` on your host system.
 3. Restart the setup flow after connecting the device.
 
+udev creates the `/dev/input/by-id/` directory along with the symlinks inside it, so on a system with no input device connected the directory does not exist at all. Setup reports that no devices were found in both cases, whether the directory is missing or simply holds no matching device.
+
+Note that not every input device gets a `by-id` symlink. Devices connected over USB or Bluetooth do, while some built-in devices, such as PS/2 keyboards, do not, and those cannot be selected during setup.
+
 ### Permission denied errors
 
 If the integration fails to access the device, the Home Assistant process may not have read and write permissions on the input device file. You can grant permissions with:
@@ -221,6 +227,10 @@ You can verify the current permissions with:
 ```bash
 getfacl /dev/input/event*
 ```
+
+### Running on Home Assistant Operating System
+
+Home Assistant Operating System needs no additional configuration. The host `/dev` is already available to Home Assistant, including the `/dev/input/by-id/` symlinks this integration uses, and devices that are connected or disconnected while Home Assistant is running are picked up without a restart.
 
 ### Running in a container
 
