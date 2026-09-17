@@ -219,9 +219,9 @@ This means the settings on the device are incorrect, since the device needs to b
 
 {% details "I can't see my devices" %}
 
-#### Symptom: The devices do not appear in Home Assistant
+### Symptom: The devices do not appear in Home Assistant
 
-##### Resolution
+### Resolution
 
 Make sure the devices are visible and controllable via the manufacturer's app.
 If they are not, check the device's power and network connection.
