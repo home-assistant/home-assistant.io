@@ -50,7 +50,7 @@ Samsung TVs expose ExLink in one of two ways:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Serial port:
+Port:
     description: "The serial port the TV is connected to. Select it from the list of ports that Home Assistant found, which includes the ports shared by your serial proxies. For a port on another system, select **Enter manually** and enter its URL, such as `socket://192.168.1.10:4001`."
 TV generation:
     description: "Optional. Select your TV's generation so Home Assistant can translate the active input back into a named source (for example, `HDMI 1`). Samsung encodes this read-back value differently per generation. Leave it empty if your model is not listed; you can still switch sources, but the currently active input is then tracked only from the commands Home Assistant sends."
