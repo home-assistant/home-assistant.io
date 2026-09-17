@@ -16,7 +16,7 @@ ha_release: '2026.9'
 ha_quality_scale: silver
 ---
 
-The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection via a USB-to-serial adapter or with an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy.
+The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection.
 
 ## Supported devices
 
