@@ -3,6 +3,8 @@
 // minimal styling so preview pages are comfortable to read. The real
 // page chrome (header, navigation, footer, styles ported from
 // `sass/`) lands in a later change and replaces all of this.
+import "../styles/tokens.scss";
+
 const { title, description, wide = false } = Astro.props;
 ---
 
@@ -30,6 +32,12 @@ const { title, description, wide = false } = Astro.props;
     </script>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Sans:ital,wdth,wght@0,99,400..700;1,99,400..700&display=swap"
+    />
   </head>
   <body>
     <div class="preview-notice">
@@ -66,7 +74,9 @@ const { title, description, wide = false } = Astro.props;
     padding: 1.5rem 1rem 4rem;
   }
   main.wide {
-    max-width: 80rem;
+    /* The component browser: tiles track the window width so that
+       components laid out with viewport media queries fit. */
+    max-width: none;
   }
   h1,
   h2,
