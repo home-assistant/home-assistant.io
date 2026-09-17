@@ -1,0 +1,1 @@
+This integration requires a serial connection to your device. You can connect the device to the system that runs Home Assistant with a USB-to-serial adapter, or reach it over your network with an [ESPHome](/integrations/esphome/) serial proxy. For more details, refer to [setting up a serial connection](/integrations/serial/#setting-up-a-serial-connection-in-home-assistant).

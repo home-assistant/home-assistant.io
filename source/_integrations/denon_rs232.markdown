@@ -3,6 +3,7 @@ title: Denon RS-232
 description: Instructions on how to integrate Denon receivers via their RS-232 serial port into Home Assistant.
 ha_category:
   - Media player
+  - Serial
 ha_iot_class: Local Push
 ha_release: 2026.5
 ha_codeowners:
@@ -19,8 +20,9 @@ The **Denon RS-232** {% term integration %} lets you control Denon receivers by 
 
 ## Prerequisites
 
+{% include integrations/serial_connected.md %}
+
 - A Denon receiver that supports control over its RS-232 serial port.
-- A physical serial connection between your receiver and the system running Home Assistant, or ESPHome-based serial proxy.
 
 {% include integrations/config_flow.md %}
 
