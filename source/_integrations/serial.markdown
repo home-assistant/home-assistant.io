@@ -125,6 +125,33 @@ A standard for serial connections that is common on devices such as receivers, p
 "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
 
+## Viewing your serial ports
+
+You can see all the serial ports on your system in one place from the **Serial** configuration panel. This is also where you look up the device path to use in your configuration.
+
+1. Go to **Settings** > **Connectivity** > **Serial**.
+   - At the top, a status summary shows how many of your connected ports are in use, and whether any ports are disconnected.
+   - The ports are grouped into three lists:
+     - **Connected**: ports that are used by at least one integration or {% term app %}.
+     - **Available**: ports that are connected, but not used by any integration or app.
+     - **Disconnected**: ports that an integration or app uses, but that are currently not connected.
+
+   {% tip %}
+   Serial ports that are only used by serial sensors configured in your {% term "`configuration.yaml`" %} are not tracked as consumers, so they appear in the **Available** rather than the **Connected** section.
+   {% endtip %}
+2. To view more details about a port, select **Port information** {% icon "mdi:information-outline" %} next to it. The **Port information** dialog shows the device path, together with details such as the description, manufacturer, and serial number of the device.
+   - To use the port with a serial sensor, copy the value of the **Device** field and use it as the `serial_port` option. For example, `/dev/ttyAMA0`.
+
+### About the serial ports panel
+
+The **Serial** panel under **Settings** > **Connectivity** lists the following kinds of serial ports:
+
+- **USB**: a device that is connected to a USB port, such as a USB-to-serial adapter.
+- **Built-in**: a serial port that is part of your system's hardware. For example, the Zigbee radio on [Home Assistant Yellow](/yellow/).
+- **Serial proxies**: a serial port that an [ESPHome](/integrations/esphome/) device shares over your network. These ports are listed alongside the ports that are connected to your system, so you can use them the same way.
+- **Integration-provided**: a serial port that is addressed with a URL instead of a device path, such as a port on a remote system that you expose with `ser2net` or `socat`.
+- **Other**: a serial port that Home Assistant cannot identify any further.
+
 ## Examples
 
 ### Arduino
