@@ -126,7 +126,7 @@ Device settings (**Configuration** category):
 
 ### Alarm control panel
 
-On supported gateways and hubs, the integration exposes an **Arming** alarm control panel entity with **Home**, **Away**, and **Disarm** when the cloud API reports those modes for the device.
+On supported gateways and hubs, the integration exposes an **Arming** alarm control panel entity. In the UI, use **Arm home**, **Arm away**, and **Disarm** when the cloud API reports those actions for the device. The entity state shows armed home, armed away, or disarmed accordingly.
 
 ### Selects
 
