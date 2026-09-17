@@ -23,7 +23,7 @@ sudo minicom -D /dev/ttyACM0
 
 ## Setting up a serial connection in Home Assistant
 
-You can connect a [serial-connected device](#serial-connected-device) to the system that runs Home Assistant, or reach it over your network with a serial proxy.
+You can connect a [device connected via serial](#device-connected-via-serial) to the system running Home Assistant, or access it over your network with a serial proxy.
 
 ### Prerequisites
 
