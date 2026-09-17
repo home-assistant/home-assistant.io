@@ -4,13 +4,14 @@ description: Instructions on how to integrate a video feed (via FFmpeg) as a cam
 ha_category:
   - Camera
   - Presence detection
+ha_config_flow: true
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: xiaomi
 ha_platforms:
   - camera
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -139,33 +140,25 @@ camera:
 
 The **Xiaomi** router integration offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
 
-### Configuration
+{% include integrations/config_flow.md %}
 
-To use an Xiaomi router in your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: xiaomi
-    host: YOUR_ROUTER_IP
-    password: YOUR_ADMIN_PASSWORD
-```
-
-{% configuration %}
-host:
+{% configuration_basic %}
+Host:
   description: "The IP address of your router, e.g., `192.168.0.1`."
-  required: true
-  type: string
-username:
-  description: The admin username.
-  required: false
-  default: admin
-  type: string
-password:
-  description: The password for the admin account.
-  required: true
-  type: string
-{% endconfiguration %}
+Username:
+  description: "The admin username (default: admin)."
+Password:
+  description: "The password for the admin account."
+{% endconfiguration_basic %}
+
+## Migrating from YAML configuration
+
+If you previously configured the integration through your {% term "`configuration.yaml`" %} file, the configuration is imported automatically at startup, so your existing setup keeps working without any changes.
+
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} is created to guide you through the migration:
+
+1. Remove the `xiaomi` entry under `device_tracker:` from your {% term "`configuration.yaml`" %} file.
+2. Restart Home Assistant.
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
