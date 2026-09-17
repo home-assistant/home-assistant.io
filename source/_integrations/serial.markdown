@@ -150,7 +150,7 @@ You can see all the serial ports on your system in one place from the **Serial**
 
 ### About the serial ports panel
 
-The **Serial** panel under **Settings** > **Connectivity** can list the following kinds of serial ports:
+The **Serial** panel under **Settings** > **Connectivity** can list the following types of serial ports:
 
 - **USB**: a device that is connected to a USB port, such as a USB-to-serial adapter.
 - **Built-in**: a serial port that is part of your system's hardware. For example, the Zigbee radio on [Home Assistant Yellow](/yellow/).
