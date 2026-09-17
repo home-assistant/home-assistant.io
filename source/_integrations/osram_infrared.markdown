@@ -55,8 +55,7 @@ Infrared receiver:
 The integration creates a light entity with the following functionality:
 
 - Turn the light on and off.
-- Set an assumed brightness level by sending relative brightness-up or brightness-down commands.
-- Select white mode or a color from the color wheel. The requested color is mapped to the closest supported preset of the physical remote.
+- Select a color from the color wheel. The requested color is mapped to the closest supported preset of the physical remote.
 - Select the **Flash**, **Strobe**, or **Smooth** effect.
 
 ## Data updates
@@ -68,7 +67,7 @@ If you configure an infrared receiver, the integration also updates the assumed 
 ## Known limitations
 
 - Infrared communication does not provide confirmation that the light received a transmitted command. The reported state can differ from the actual state if a signal is missed.
-- Brightness control is relative. The integration tracks an assumed brightness level based on commands sent or received, but it cannot read the actual brightness from the light.
+- Brightness control is currently not supported.
 - The color wheel maps colors to the discrete presets available on the physical remote. The selected color can therefore differ slightly from the requested color.
 - Commands sent with the physical remote update the Home Assistant state only when an infrared receiver is configured and successfully captures the signal.
 
