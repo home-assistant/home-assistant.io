@@ -29,6 +29,8 @@ Because infrared is a one-way signal, Home Assistant cannot confirm whether the 
 
 The integration supports OSRAM and LEDVANCE RGB lights that use the supported infrared remote command set. The supported remote has 24 buttons and includes controls for power, brightness, preset colors and effects and a mode button.
 
+![Supported remote control](/source/images/integrations/osram_infrared/supported_remote.png)
+
 ## Prerequisites
 
 Before setting up the OSRAM Infrared integration, you need a working infrared emitter already set up in Home Assistant. The emitter must expose an [Infrared](/integrations/infrared/) entity and be positioned so that its infrared LED can reach the light.
