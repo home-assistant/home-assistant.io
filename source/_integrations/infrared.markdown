@@ -56,6 +56,7 @@ The **Infrared** {% term integration %} is a building block that other integrati
 3. Add the integration for your infrared-controlled device, such as [LG Infrared](/integrations/lg_infrared/).
    - To add the integration, follow the steps in the integration documentation.
    - During integration setup, when you are asked which infrared emitter to use, select the emitter from your infrared remote adapter.
+   - If no device-specific integration is available for your infrared-controlled device, check the documentation for your infrared remote adapter integration for other supported ways to control it. For example, the [Broadlink integration](/integrations/broadlink/#remote) provides a `remote` entity that can learn and send infrared commands using the `remote.learn_command` and `remote.send_command` actions.
 4. If you have infrared-controlled devices in different rooms, place multiple infrared remote adapters around your home.
    - During setup of the infrared-controlled device, select the remote adapter closest to that device.
 

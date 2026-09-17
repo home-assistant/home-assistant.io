@@ -77,6 +77,22 @@ amount:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: keep an account at a target balance
+
+Use the target-balance blueprint to deposit excess money into a pot and withdraw money when the account is below its target. It reacts when the account balance changes and checks the balance every 15 minutes as a fallback.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/monzo_keep_account_at_target.yaml" %}
+
+### Automation: reimburse purchases from a pot by merchant
+
+Use the merchant reimbursement blueprint to withdraw the value of a matching debit transaction from a selected pot. For example, after a Netflix payment, it can move the same amount from a subscriptions pot back into the account.
+
+The blueprint requires a separately created **Input text** {% term helper %} with its maximum length set to 255 characters. It uses the helper to remember recent transaction IDs and guard against processing a repeated webhook twice.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/monzo_reimburse_merchant_from_pot.yaml" %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

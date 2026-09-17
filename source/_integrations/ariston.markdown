@@ -36,3 +36,7 @@ ha_iot_class: Local Push
 ---
 
 {% include integrations/supported_brand.md %}
+
+{% note %}
+This page covers Ariston-branded air conditioners that use the Midea protocol. It does not support Ariston NET heating products such as Nimbus heat pumps, Alteas boilers, or Velis water heaters.
+{% endnote %}
