@@ -198,15 +198,15 @@ The integration does not provide the ability to reboot, which can instead be don
 
 {% details "Can’t set up the device" %}
 
-#### Symptom: “This device can’t be reached”
+### Symptom: “This device can’t be reached”
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
-##### Description
+### Description
 
 This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
 
-##### Resolution
+### Resolution
 
 1. Make sure your device is powered up (LEDs are on).
 2. Make sure your device is connected to the internet:
@@ -230,9 +230,9 @@ If they are not, check the device's power and network connection.
 
 {% details "The device goes unavailable after a day" %}
 
-#### Symptom: The device becomes unavailable after a day
+### Symptom: The device becomes unavailable after a day
 
-##### Resolution
+### Resolution
 
 Make sure you turned off the device's power-saving mode.
 
