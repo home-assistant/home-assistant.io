@@ -5,8 +5,8 @@ ha_category:
   - Alarm Control Panel
   - Binary sensor
   - Button
-  - Cover
   - Climate
+  - Cover
   - Device Tracker
   - Event
   - Fan
