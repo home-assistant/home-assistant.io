@@ -11,6 +11,7 @@ export default defineConfig({
   build: {
     format: "directory",
   },
+  trailingSlash: "ignore",
   integrations: [
     jekyllMarkdown(),
     // Logos from the Open Home Foundation brand assets API, downloaded
