@@ -210,6 +210,22 @@ The entities that are created depend on the device type, model, and the capabili
 1. Make sure the device model and subtype entered during setup are correct.
 2. Check the [list of supported devices](#supported-devices) for your device type.
 
+### AC power or energy values look incorrect
+
+#### Symptom
+
+Air conditioner power or energy sensors look incorrect or implausible.
+
+#### Description
+
+Some Midea AC models report power and energy counters using a different number encoding method.
+
+#### Resolution
+
+1. Open {% my integrations title="**Settings** > **Devices & services**" %} and select your Midea integration entry.
+2. Select the cogwheel {% icon "mdi:cog-outline" %} next to the affected device, then change **Power/Energy decode method**.
+3. Compare sensor values and keep the method that matches your device.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
