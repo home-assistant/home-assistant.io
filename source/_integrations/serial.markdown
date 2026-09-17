@@ -28,7 +28,7 @@ You can connect a [serial-connected device](#serial-connected-device) to the sys
 ### Prerequisites
 
 - Administrator rights in Home Assistant.
-- A [serial-connected device](#serial-connected-device), such as an AV receiver, a projector, or a smart meter with a P1 port.
+- A serial-connected device, such as an AV receiver, a projector, or a smart meter with a P1 port.
 - An {% term integration %} for that device. In the documentation, search the [integrations](/integrations/) for your device or its brand.
   - If no integration is available for your device, you can read the raw data from the port with the [Serial sensor](#serial-sensor) instead.
 - A way for Home Assistant to reach the serial port of that device:
