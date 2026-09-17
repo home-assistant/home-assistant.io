@@ -196,25 +196,45 @@ The integration does not provide the ability to reboot, which can instead be don
 
 ## Troubleshooting
 
-{% details "Connection error during setup" %}
+{% details "Can’t set up the device" %}
 
-**Symptom:** Setup shows the message **This device can't be reached**.
+#### Symptom: “This device can’t be reached”
 
-This means the device is not currently reachable for local communication.
+When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
-1. Make sure your device is powered on.
-2. Make sure your device is connected to the network.
-3. Make sure local communication is enabled on the device.
+##### Description
+
+This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
+
+##### Resolution
+
+1. Make sure your device is powered up (LEDs are on).
+2. Make sure your device is connected to the internet:
+   - Make sure the app of the manufacturer can see the device.
+3. Make sure the device has the local communication enabled:
+   - Check the device’s settings.
+   - Check the device’s manual.
 
 {% enddetails %}
 
-{% details "Device does not appear after setup" %}
+{% details "I can't see my devices" %}
 
-**Symptom:** Setup completes, but no device appears in Home Assistant.
+#### Symptom: The devices do not appear in Home Assistant
 
-1. Verify that the device appears in the manufacturer's app.
-2. Check that the device is linked to the same account or hub used during setup.
-3. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **My integration** integration, then select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**. Verify whether the device appears.
+##### Resolution
+
+Make sure the devices are visible and controllable via the manufacturer's app.
+If they are not, check the device's power and network connection.
+
+{% enddetails %}
+
+{% details "The device goes unavailable after a day" %}
+
+#### Symptom: The device becomes unavailable after a day
+
+##### Resolution
+
+Make sure you turned off the device's power-saving mode.
 
 {% enddetails %}
 
