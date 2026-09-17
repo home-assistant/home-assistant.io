@@ -29,7 +29,7 @@ body:
     attributes:
       label: Problem description
       description: >-
-        Describe as clear as possible what is wrong, missing, or unclear in the documentation.
+        Clearly describe what is wrong, missing, or unclear in the documentation.
     validations:
       required: true
   - type: textarea
