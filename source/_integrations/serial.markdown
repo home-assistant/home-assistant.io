@@ -94,21 +94,25 @@ An interface that sends data sequentially, one bit at a time. A serial port can 
 
 ### Device path
 
-The identifier that Home Assistant uses to address a serial port, such as `/dev/ttyACM0`. This is the value you enter for the `serial_port` option. A serial port that is reached over the network is addressed with a URL instead of a device path, such as `socket://192.168.1.10:4001` for a port that you expose with `ser2net`. The URL of a port that is shared by a serial proxy starts with `esphome-hass://`.
+The identifier that Home Assistant uses to address a serial port. This is the value you enter for the `serial_port` option.
 
-For local serial ports, always use the `/dev/serial/by-id/...` link instead of paths like `/dev/ttyUSB0` and `/dev/ttyACM0`. The `by-id` link is stable and will not change even when you move ports around or move HA OS to another device. The `/dev/tty` links are not stable and can be renumbered.
+For a serial port exposed via USB, use the `/dev/serial/by-id/...` path when available. This path stays the same as you move the device to another USB port or move your Home Assistant installation to another system. Avoid paths like `/dev/ttyUSB0` and `/dev/ttyACM0` because their mappings can change; in other words, which device appears as `ttyACM0` will vary. If there is no `by-id` link (for example, for a built-in port), use a path like `/dev/ttyS0`. A serial port connected over the network is identified by a URL instead, such as `socket://192.168.1.10:4001` for a port that you expose with `ser2net`. The URL of a port that is shared by a serial proxy starts with `esphome-hass://`.
 
 ### Serial proxy
 
-The recommended way to connect a serial device to Home Assistant. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The serial port that it shares is what you select in Home Assistant.
+The recommended way to connect a [device connected via serial](#serial-connected-device) to Home Assistant. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The serial port that it shares is what you select in Home Assistant.
 
-Because the proxy connects over the network, you can place it close to the end device, no matter where it is located. Prefer a wired network connection to the proxy.
+Because the proxy connects over the network, you can place it close to the device connected via serial, no matter where it is located. Prefer a wired network connection to the proxy.
 
 ### USB-to-serial adapter
 
-A device that adds a serial port to your system over USB. Use a USB-to-serial adapter when the end device is close enough to cable directly to the system that runs Home Assistant. If it isn't, use a serial proxy instead.
+A device that adds a serial port to your system over USB. Use a USB-to-serial adapter when the [device connected via serial](#serial-connected-device) is close enough to cable directly to the system that runs Home Assistant. If it isn't, use a serial proxy instead.
 
 "Serial" is a broad label that can mean RS-232, RS-422, RS-485, or TTL-serial. An adapter for a device with an <abbr title="Recommended Standard 232">RS-232</abbr> port is also sold as a USB-to-RS-232 adapter.
+
+### Device connected via serial
+
+The device you want to use with Home Assistant, such as an AV receiver, a projector, or a smart meter with a P1 port. It communicates over a serial connection instead of over your network, so Home Assistant reaches it through a [serial port](#serial-port).
 
 ### Baud rate
 
