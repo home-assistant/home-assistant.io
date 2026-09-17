@@ -58,9 +58,10 @@ reliable reference. Work from:
 - The `sass/` and `plugins/`/`_includes/` sources are still useful as
   a cross-check for intent (and for finding all usage sites), just
   never as the sole source of truth.
-- Screenshot the original with Playwright (Chromium is preinstalled)
-  at desktop and mobile widths before writing code, so there is a
-  reference to compare against.
+- Screenshot the original at desktop and mobile widths before writing
+  code, so there is a reference to compare against, and measure the
+  boxes and computed styles of its key elements. Use the scripts in
+  `scripts/` (see "Screenshots and measurements" below).
 
 ## Two kinds of components — different fidelity contracts
 
@@ -138,6 +139,31 @@ CSS.
   include, or markup) and let the variations found there define the
   API. Do not invent options nothing uses.
 - Keep vendor prefixes out; the build targets modern browsers.
+- **Sub-pixel typography is noise.** Letter spacing such as `0.005em`
+  (0.07px at 14px) and the third or fourth line-height ratio in a
+  component cannot be seen. Drop them; a component needs one body
+  line height and at most one for headings.
+- **A negative margin that cancels another margin is an override.**
+  Give the preceding element the smaller margin it should have had
+  instead. Negative margins are only for deliberate overlaps.
+- **Spacing that is off the scale goes.** A `4px` list-item padding
+  or a `16px` bottom margin that fights a `24px` one above it is a
+  leftover, not a design. Snap to a token or remove the rule and let
+  line height do the work.
+- **Decorative artwork scales, it does not clip.** An `overflow:
+  hidden` wrapper with a fixed-size image reproduces a mobile quirk.
+  Give the `<img>` its `width` and `height` attributes, `max-width:
+  100%` and `height: auto`, and let it shrink with the viewport.
+- **Images get `width` and `height` attributes** so the layout does
+  not shift while they load. An SVG that only has a `viewBox` renders
+  at 300×150 without them.
+- **A block image inside an inline link stretches the link across the
+  line.** Make the link a shrink-to-fit block (`display: block; width:
+  fit-content`) so the clickable area is the image, not the column.
+- **No element resets inside the root selector.** Astro's scoping adds
+  an attribute to every selector, so `.root h3, .root ul { margin: 0 }`
+  outranks a later plain `ul { margin-bottom: … }` and silently wins.
+  Set each element's full margin once, where it is styled.
 
 ## When to stop and ask
 
@@ -173,10 +199,16 @@ Every component ships as a set:
    component must render correctly in the component browser
    (`/component-preview/`) and its full-screen stage
    (`/component-preview/<name>/`).
-4. Verification screenshots: the Jekyll original next to the Astro
-   stage (Playwright, desktop ~1280px and mobile ~400px widths), sent
-   to the user so match-or-improve is their judgment on evidence, not
-   a claim.
+4. Comparison images for the pull request: the Jekyll original next
+   to the Astro stage, one image per width, at desktop (1280px) and
+   mobile (400px), plus the lap width (800px) when the component's
+   layout changes there. Build them with `scripts/compare.mjs` and
+   save them as `<name>-compare-<width>.png` in the scratchpad
+   directory. Hand the paths to the user in the final message: they
+   go into the pull request description (a human opens the pull
+   request, per the AI policy), and they are the evidence on which
+   match-or-improve is judged. Look at them yourself first and fix
+   what does not match before presenting them.
 
 ## Suggested workflow
 
@@ -189,5 +221,40 @@ Every component ships as a set:
 5. Collect the oddities (weird values, Astro conflicts) and ask about
    them in one batch.
 6. Build the component and fixtures to the standards above.
-7. Build, view in the component browser and stage, screenshot, and
-   present the comparison.
+7. Build, view in the component browser and stage, screenshot the
+   stage at the same widths as the original, compose the comparison
+   images and present them with their paths.
+
+## Screenshots and measurements
+
+The scripts in `scripts/` do the screenshot work. They need
+Playwright, which is **not** part of the repository or the
+development container. Install it once per session into the
+scratchpad directory, never into the repository:
+
+```bash
+mkdir -p "$SCRATCHPAD/playwright" && cd "$SCRATCHPAD/playwright"
+npm init -y >/dev/null && npm i playwright
+npx playwright install chromium
+# Chromium needs system libraries the container lacks:
+sudo -n env PATH="$PATH" npx playwright install-deps chromium
+export PLAYWRIGHT_DIR="$SCRATCHPAD/playwright"
+```
+
+Then, with `SK=.claude/skills/create-astro-component/scripts`:
+
+- `node $SK/screenshot.mjs <url> <out.png> <width> [selector]
+  [space-above]` captures a page, or one element with some page above
+  it (useful when artwork leads into the component). Take the Jekyll
+  original from the live site and the Astro version from the
+  component stage (`npx pnpm run preview` in `astro/`, then
+  `/component-preview/<name>/`).
+- `node $SK/measure.mjs <url> <width> <selector>...` prints each
+  element's box and the computed font, color, margins and padding,
+  positioned relative to the first selector. Run it on both versions
+  with equivalent selectors to check a match in numbers, not by eye.
+- `node $SK/compare.mjs <out.png> <width> <jekyll.png> <astro.png>`
+  puts the two screenshots side by side with captions.
+
+Capture at least 1280px and 400px, and 800px when the layout has a
+middle state. Use the same widths for both sides.
