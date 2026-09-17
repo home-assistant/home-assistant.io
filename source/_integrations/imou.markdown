@@ -2,6 +2,7 @@
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
 ha_category:
+  - Alarm control panel
   - Binary sensor
   - Button
   - Camera
@@ -16,6 +17,7 @@ ha_domain: imou
 ha_codeowners:
   - '@Imou-OpenPlatform'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -28,7 +30,7 @@ ha_quality_scale: silver
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
 
-Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Supported devices
 
@@ -99,16 +101,32 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ### Switches
 
-When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
+When the cloud API reports that the toggle is supported for a device, the integration exposes switch entities.
 
-- **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
-- **Audio recording**: Toggle audio recording on supported cameras.
-- **Human detection**: Toggle human detection on supported cameras.
-- **Indicator light**: Toggle the device status indicator LED on supported models.
-- **Motion detection**: Toggle motion detection on supported cameras.
+Primary controls:
+
 - **Plug switch**: Control the main power relay on supported IoT socket devices.
 - **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **White light**: Manually toggle the camera white LED illuminator on supported models.
+
+Device settings (**Configuration** category):
+
+- **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
+- **Alarm-linked siren**: Link the device siren to alarm events on supported models.
+- **Alarm-linked white light**: Link the white light to alarm events on supported models.
+- **Audio recording**: Toggle audio recording on supported cameras.
+- **Flip image**: Flip the camera image vertically on supported models.
+- **Human detection**: Toggle human detection on supported cameras.
+- **Indicator light**: Toggle the device status indicator LED on supported models.
+- **Motion detection**: Toggle motion detection on supported cameras.
+- **Pet detection**: Toggle pet detection on supported cameras.
+- **Prompt sound**: Toggle prompt sounds on supported models.
+- **Smart tracking**: Toggle smart tracking on supported cameras.
+- **Wide dynamic range**: Toggle wide dynamic range on supported cameras.
+
+### Alarm control panel
+
+On supported gateways and hubs, the integration exposes an **Arming** alarm control panel entity with **Home**, **Away**, and **Disarm** when the cloud API reports those modes for the device.
 
 ### Selects
 
@@ -149,6 +167,29 @@ Battery, storage used, and status sensors are shown under **Diagnostic** on the 
 
 The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
 
+Entity states refresh during each poll. Commands you send (such as turning on a switch or arming the panel) go to the Imou cloud immediately; the UI updates on the next successful poll unless the integration refreshes after the command.
+
+## Examples
+
+You can use Imou entities in automations like any other integration. For example:
+
+- Turn on a light when a **Door** binary sensor reports open.
+- Set **Arming** to **Away** when everyone leaves home (supported gateway or hub required).
+- Notify yourself when a camera **Status** sensor changes to `offline`.
+
+## Use cases
+
+- View cloud live streams and snapshots from Imou cameras on dashboards.
+- Monitor battery, temperature, or power data from supported sensors and IoT sockets.
+- Control motion detection, privacy mode, and night vision settings from Home Assistant.
+
+## Known limitations
+
+- The integration uses Imou Open Platform cloud APIs only; there is no local-only mode.
+- Entities appear only when the cloud API reports that your device supports them. Two cameras of the same model can still expose different entities.
+- Live view uses Imou cloud streaming, not a direct LAN RTSP URL from this integration.
+- Alarm pictures, push webhooks, and cloud clip recording are not part of this integration.
+
 ## Security and privacy considerations
 
 This integration communicates with Imou cloud services. Device control commands are sent through Imou servers. Review Imou's [privacy policy](https://open.imoulife.com/book/http/privacy.html) and terms of service before proceeding.
@@ -186,6 +227,10 @@ Binary sensors are unavailable when a device is offline or no longer on your acc
 Most sensors are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
 
 The **Status** sensor is an exception: it stays available when the device is offline and reports `offline` instead of becoming unavailable.
+
+### An alarm control panel is unavailable
+
+The **Arming** entity is unavailable when the device is offline or no longer on your account. Ensure the gateway or hub appears online in the Imou app.
 
 ## Removing the integration
 
