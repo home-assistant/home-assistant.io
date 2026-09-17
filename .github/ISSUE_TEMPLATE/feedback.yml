@@ -26,6 +26,7 @@ body:
     validations:
       required: true
   - type: textarea
+    id: problem-description
     attributes:
       label: Problem description
       description: >-
@@ -33,6 +34,7 @@ body:
     validations:
       required: true
   - type: textarea
+    id: suggested-solution
     attributes:
       label: Suggested solution
       description: >-
