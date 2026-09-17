@@ -100,17 +100,17 @@ For a serial port exposed over USB, use the `/dev/serial/by-id/...` path when av
 
 ### Serial proxy
 
-The recommended way to connect a [serial-connected device](#serial-connected-device) to Home Assistant. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The serial port that it shares is what you select in Home Assistant.
+The recommended way to connect a [device connected via serial](#serial-connected-device) to Home Assistant. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one of its serial ports over your network, so that Home Assistant can use that port as if it were connected to your system. The serial port that it shares is what you select in Home Assistant.
 
-Because the proxy connects over the network, you can place it close to the serial-connected device, no matter where it is located. Prefer a wired network connection to the proxy.
+Because the proxy connects over the network, you can place it close to the device connected via serial, no matter where it is located. Prefer a wired network connection to the proxy.
 
 ### USB-to-serial adapter
 
-A device that adds a serial port to your system over USB. Use a USB-to-serial adapter when the [serial-connected device](#serial-connected-device) is close enough to cable directly to the system that runs Home Assistant. If it isn't, use a serial proxy instead.
+A device that adds a serial port to your system over USB. Use a USB-to-serial adapter when the [device connected via serial](#serial-connected-device) is close enough to cable directly to the system that runs Home Assistant. If it isn't, use a serial proxy instead.
 
 "Serial" is a broad label that can mean RS-232, RS-422, RS-485, or TTL-serial. An adapter for a device with an <abbr title="Recommended Standard 232">RS-232</abbr> port is also sold as a USB-to-RS-232 adapter.
 
-### Serial-connected device
+### device connected via serial
 
 The device you want to use with Home Assistant, such as an AV receiver, a projector, or a smart meter with a P1 port. It communicates over a serial connection instead of over your network, so Home Assistant reaches it through a [serial port](#serial-port).
 
