@@ -150,10 +150,12 @@ CSS.
   or a `16px` bottom margin that fights a `24px` one above it is a
   leftover, not a design. Snap to a token or remove the rule and let
   line height do the work.
-- **Decorative artwork scales, it does not clip.** An `overflow:
-  hidden` wrapper with a fixed-size image reproduces a mobile quirk.
-  Give the `<img>` its `width` and `height` attributes, `max-width:
-  100%` and `height: auto`, and let it shrink with the viewport.
+- **Fixed-size artwork that gets clipped may be deliberate.** The
+  footer skyline keeps its drawn size on phones and is cut off at the
+  edge because the house in it is proportioned to the wordmark below:
+  they form one lockup, and scaling the skyline breaks it. Before
+  making clipped artwork responsive, check whether it is sized in
+  relation to something else on the page, and ask when unsure.
 - **Images get `width` and `height` attributes** so the layout does
   not shift while they load. An SVG that only has a `viewBox` renders
   at 300×150 without them.
