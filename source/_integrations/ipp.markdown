@@ -18,7 +18,7 @@ ha_integration_type: device
 
 The **Internet Printing Protocol (IPP)** {% term integration %} allows you to read current data from your networked printer that supports the [Internet Printing Protocol](https://www.pwg.org/ipp/everywhere.html).
 
-It provides information about the printer's state, remaining ink levels, and page counters.
+It provides information about the printer's state, remaining ink or toner levels, and page counters.
 
 {% include integrations/config_flow.md %}
 
@@ -26,7 +26,7 @@ It provides information about the printer's state, remaining ink levels, and pag
 
 ### Sensors
 
-In addition to the printer state and the ink or toner levels, the integration provides the following diagnostic sensors. Each sensor is only created when the printer reports the corresponding IPP page counter, so printers without page counters get no additional entities.
+In addition to the printer state and the ink or toner levels, the integration provides the following diagnostic sensors. Home Assistant adds each sensor only if your printer reports the corresponding IPP counter. If your printer does not report these counters, you will not see these sensors.
 
 - **Pages completed**: Total number of pages printed.
 - **Impressions completed**: Total number of impressions printed. An impression is one side of a sheet.
