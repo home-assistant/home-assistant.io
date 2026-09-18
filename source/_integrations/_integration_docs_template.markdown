@@ -217,20 +217,25 @@ This means the settings on the device are incorrect, since the device needs to b
 
 {% enddetails %}
 
-{% details "I can't see my devices" %}
+{% details "Pairing a Thread device fails" %}
 
-### Symptom: The devices do not appear in Home Assistant
+### Symptom: the device is in pairing mode, but commissioning does not complete
 
-After setting up the integration, the devices are visible and controllable in the manufacturer's app, but they do not appear in Home Assistant.
+You are trying to add a Thread device through the Home Assistant Companion app, but the process fails or times out.
 
 #### Description
 
-Home Assistant can only add devices that are available to the account or hub used during setup.
+Pairing a Thread device involves multiple steps that happen automatically: your phone connects to the device over Bluetooth Low Energy (BLE), shares the Thread network credentials, and then the device joins the Thread mesh and gets commissioned into Home Assistant. A failure at any of these steps can cause pairing to fail.
 
 #### Resolution
 
-Make sure the devices are visible and controllable via the manufacturer's app.
-If they are not, check the device's power and network connection.
+First, make sure you have followed all the prerequisites for adding a Matter device, including phone setup and Bluetooth requirements. Refer to the [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant) procedure for the full checklist.
+
+If pairing still fails after verifying the prerequisites, check the following:
+
+- The device is still in pairing mode. Most devices only stay in pairing mode for a limited time. If it expires, reset the device to pairing mode and try again.
+- Restart your phone. If commissioning fails or stalls, a full restart of your phone can clear stale Bluetooth state or stale Thread routes and often resolves the issue.
+- Mesh Wi-Fi access points are not blocking multicast. Some mesh Wi-Fi systems aggressively filter multicast traffic on Wi-Fi. This can prevent your phone from discovering the border router via mDNS. If you suspect this, check your mesh system's settings for options related to multicast, IGMP snooping, or mDNS.
 
 {% enddetails %}
 
