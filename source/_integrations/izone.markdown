@@ -64,30 +64,29 @@ For connectivity, Home Assistant must be able to send outbound UDP discovery pac
 
 ## Master controller
 
-Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the 'iSave' system, which vents in external air into the house, this is available as 'eco' mode.
+Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the iSave system, which vents external air into the house, this is available as the **Eco** preset.
 
 The entity exposes a `supply_temperature` attribute. Use the **Supply temperature** sensor entity (below) instead.
 
-## Zones
+### Zone control mode
 
-Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
+When zones that have a temperature sensor are available, the unit can be put into zone control mode as a system setting. In this mode each individual zone has a temperature target, and the device chooses the zone furthest from its setpoint to control the air conditioner. Home Assistant mirrors that choice on the controller climate entity:
 
-## Control zone
+- The controller’s current temperature follows the controlling zone’s room sensor.
+- The `control_zone_source` attribute is the climate entity ID of the controlling zone when a zone is driving the unit.
+- Set the temperature target on the individual zone climate entities.
 
-When your system has climate-controlled zones (zones where auto mode is available), the device chooses the zone furthest from its setpoint to control the air conditioner. Home Assistant mirrors that choice on the controller climate entity:
+Because the controlling zone can change, the controller’s current temperature can jump when the selection changes.
 
-- The current and target temperature follow the controlling zone while a zone is in charge, or the unit’s own sensor and setpoint when the unit is in charge.
-- The `control_zone_source` attribute is the climate entity ID of the controlling zone when a zone is driving the unit. The attribute is absent when the unit’s own sensor is in charge.
+### Return air sensor mode
 
-Because the controlling zone can change, the controller’s current and target temperature can have discontinuous jumps as the controlling zone shifts.
-
-You set temperatures on each zone climate entity when zones are in control. You set the target on the controller climate entity when the unit’s own sensor is in charge (for example return-air control).
+Without automatic zones, or with certain system settings, the device targets the return air sensor. In this mode the controller is used to set the target temperature, and the current temperature reported is equal to the return air sensor. The `control_zone_source` attribute is not present on the controller climate entity in this mode.
 
 ### Legacy attributes
 
-The controller climate entity exposes older attributes such as `control_zone`, `control_zone_name`, and `control_zone_setpoint`. Prefer `control_zone_source` and the climate current/target values above. Those legacy attributes will be removed in a future release.
+The controller climate entity exposes older attributes such as `control_zone`, `control_zone_name`, and `control_zone_setpoint`. Prefer `control_zone_source` and the controller’s current temperature, and set targets on the zone or controller climate entity as above. Those legacy attributes will be removed in a future release.
 
-## Sensors
+### Sensors
 
 The integration creates the following {% term sensor %} entities for each controller:
 
@@ -95,6 +94,10 @@ The integration creates the following {% term sensor %} entities for each contro
 - **Return temperature**: (diagnostic) The temperature of the air returning to the indoor unit.
 
 These sensors always report the unit duct temperatures. They do not change when a different zone is controlling the system.
+
+## Zones
+
+Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
 
 ## Diagnostics
 
