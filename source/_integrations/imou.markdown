@@ -2,7 +2,7 @@
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
 ha_category:
-  - Alarm control panel
+  - Alarm
   - Binary sensor
   - Button
   - Camera
