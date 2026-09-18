@@ -18,6 +18,8 @@ In this tutorial, you will build a daily notification that tells you which devic
 
 This is one of the most popular templates in the Home Assistant community, and it is a great first real-world template. You will learn how to loop over a collection of sensors, filter by state, build up a list, and format a message. All of these skills carry over to many other templates you will write later.
 
+If you only want an overview of your battery status, open the {% my maintenance title="**Maintenance** dashboard" %}. It shows which batteries need attention without requiring an automation.
+
 ## What you will build
 
 A notification that arrives each morning with a message like this:
@@ -46,9 +48,9 @@ Before you write a single template, it helps to see what you are working with. O
 
 <!-- screenshot placeholder: Tools > States filtered to battery sensors -->
 
-You should see a list of sensors with `device_class: battery` in their attributes and a number (like `85` or `12`) in the state column. Those are the entities this automation will watch.
+You should see battery entities with `device_class: battery` in their attributes. Numeric `sensor` entities show a number (like `85` or `12`) in the state column. These are the entities used by the main template below. If no battery entities appear, your devices do not expose battery information with the `battery` device class.
 
-If you do not see any, your devices might be using the old `binary_sensor` battery class (which reports `on`/`off` instead of a percentage) or they do not report battery at all. This tutorial focuses on the numeric `sensor` kind.
+Some devices expose battery status through a `binary_sensor` with the `battery` device class instead. These entities report `on` when the battery is low and `off` when it is not. This tutorial focuses on numeric `sensor` entities, but the [Going further](#going-further) section shows how to include low-battery binary sensors as well.
 
 ## Step 2: List the low batteries
 
@@ -73,7 +75,7 @@ Read it left to right:
 1. Create a namespace called `low` with an empty `batteries` list inside.
 2. For each sensor whose `device_class` is `battery`, skipping any that are `unknown` or `unavailable`...
 3. If its state (converted to a number) is below `20`...
-4. Add the name of the **device** that sensor belongs to to `low.batteries`.
+4. Add that sensor's **device** name to `low.batteries`.
 
 Why the device name? With modern Home Assistant naming, a battery sensor's own name is often only "Battery", which is not very helpful in a notification. The [`device_name`](/template-functions/device_name/) function gives you back the friendly name of the device the sensor is attached to (like "Front door lock" or "Motion sensor").
 
@@ -194,6 +196,41 @@ A few ways to take this further:
 - **Weekly instead of daily**. Change the time trigger to a more specific schedule like "every Monday at 9am".
 - **Include unavailable devices**. The current template skips sensors that are `unknown` or `unavailable`, but those might indicate a completely dead battery. You can add a second list for offline devices and mention them in the message.
 - **Sort by percentage**. If you have many devices, sort the list with the most-drained device first so you know what to replace first.
+
+### Include low-battery binary sensors
+
+Some devices report only whether their battery is low. To include `binary_sensor` entities with the `battery` device class, add this loop after the numeric battery sensor loop and before the final message formatting:
+
+{% example %}
+template: |
+  {% for binary_sensor in states.binary_sensor
+     | selectattr('attributes.device_class', 'eq', 'battery')
+     | selectattr('state', 'eq', 'on') %}
+    {% set device = device_name(binary_sensor.entity_id) %}
+    {% set area = area_name(binary_sensor.entity_id) %}
+    {% set label = device ~ (' in ' ~ area if area else '')
+       ~ ' (Low)' %}
+    {% set low.batteries = low.batteries + [label] %}
+  {% endfor %}
+{% endexample %}
+
+The `on` state means the battery is low, so only binary sensors that need attention are added to the existing `low.batteries` list.
+
+### Exclude specific battery entities
+
+If a battery entity should not be part of the notification, create a list of entity IDs to exclude before the loops:
+
+{% example %}
+template: |
+  {% set excluded_entities = [
+    'sensor.garage_battery',
+    'binary_sensor.attic_low_battery'
+  ] %}
+{% endexample %}
+
+Then add `| rejectattr('entity_id', 'in', excluded_entities)` after the `device_class` filter in each battery loop.
+
+This keeps the template generic while letting you ignore battery entities that do not represent replaceable device batteries.
 
 ## Next steps
 

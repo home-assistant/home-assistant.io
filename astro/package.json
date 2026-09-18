@@ -1,0 +1,18 @@
+{
+  "name": "home-assistant-io-astro",
+  "description": "Astro build of the Home Assistant website (migration in progress)",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "7.3.2"
+  }
+}

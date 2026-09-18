@@ -103,8 +103,10 @@ The table below shows which {% term entity %} domains are available in each mode
 | Select              |     ✅      |                —                |
 | Sensor              |     ✅      |                —                |
 | Siren               |     ✅      |                —                |
-| Switch              |     ✅      |                —                |
+| Switch              |     ✅      |  ✅ (public API settings only)  |
 | Text                |     ✅      |                —                |
+
+In API key only mode, switches are limited to the settings the public API can change: the camera status light, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
 {% note %}
 This table reflects the entities currently supported by this {% term integration %}. The UniFi Protect public Integration API is actively growing, and this {% term integration %} is being incrementally migrated to use it, so expect more domains to become available in API key only mode over time.
@@ -132,7 +134,7 @@ use has.
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
@@ -146,7 +148,7 @@ Currently, creating an API key requires you to be logged in as an administrator.
 If you want to set up the {% term integration %} without creating a local user, you only need an API key.
 
 1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
-2. Go to **Settings** > **Control Plane** > **Integrations** or go to `https://[IP address]/network/default/integrations/` (for example `https://192.168.1.1/network/default/integrations/`).
+2. Open **UniFi Protect** and go to **Integrations**, or go directly to `https://[IP address]/protect/integrations/` (for example `https://192.168.1.1/protect/integrations/`).
 3. Enter a new name for the API key, like "Home Assistant".
 4. Select **Create API Key** and copy the generated key.
 5. When you add the {% term integration %}, select **API key only (limited feature set)** and enter the key.
@@ -184,16 +186,16 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
 
-| Device type  | Full access |          API key only           |
-| ------------ | :---------: | :-----------------------------: |
-| Camera       |     ✅      | ✅ (streams and snapshots only) |
-| Floodlight   |     ✅      |     ✅ (light entity only)      |
-| Smart sensor |     ✅      |                —                |
-| Viewer       |     ✅      |                —                |
-| Smart chime  |     ✅      |                —                |
-| Relay        |     ✅      |                —                |
-| Siren        |     ✅      |                —                |
-| NVR          |     ✅      |     ✅ (Alarm Manager only)     |
+| Device type  | Full access |           API key only            |
+| ------------ | :---------: | :-------------------------------: |
+| Camera       |     ✅      | ✅ (streams, snapshots, switches) |
+| Floodlight   |     ✅      |      ✅ (light and switches)      |
+| Smart sensor |     ✅      |        ✅ (switches only)         |
+| Viewer       |     ✅      |                 —                 |
+| Smart chime  |     ✅      |                 —                 |
+| Relay        |     ✅      |                ✅                 |
+| Siren        |     ✅      |                 —                 |
+| NVR          |     ✅      |      ✅ (Alarm Manager only)      |
 
 ### UniFi Protect cameras
 
@@ -242,6 +244,8 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
 UniFi Protect reports each sensor's capabilities, and entities are only created for the functions the device actually supports. This enables proper support for newer sensor models: for example, an entry sensor (USL Entry) gets contact and tamper entities, an environmental sensor (USL Environmental) gets temperature, humidity, light level, and leak entities, and a glass break sensor (USL GlassBreak) gets motion and tamper entities.
+
+The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode; set it back to _Local_ for the alarm entities to appear. See [NVR](#nvr).
 
 - **Sensors** - A sensor is provided for each major function of the smart sensor device:
   - **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
@@ -790,7 +794,7 @@ The default settings on the stream integration will give you a 5-15+ second dela
 
 ### Cannot play audio to speakers
 
-Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
+Playing audio to your speakers requires Home Assistant to be able to reach your camera directly on `udp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
 
 ### Liveview options for viewer missing options or out of date
 

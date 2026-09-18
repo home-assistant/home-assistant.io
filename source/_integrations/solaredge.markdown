@@ -32,9 +32,11 @@ You can configure either feature individually or both at the same time for the s
 
 To get sensors for your installation, you need your installation's site ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://monitoring.solaredge.com/). Note: if your portal is not in English, the labels will be different.
 
-- Click on Admin and scroll down to API Access
-- Click on "Generate key"
-- Click on Save
+1. Go to **Admin** > **Site Access** > **Access Control** > **API Access**.
+2. Select **Generate key**.
+3. Select **Save**.
+
+Access to **API Access** depends on the permissions assigned to your SolarEdge account. If **Admin** is not available, contact your installer or SolarEdge site administrator to obtain access or the API key.
 
 Sensor data is updated every 15 minutes to stay within the daily rate limit of 300 requests per day.
 

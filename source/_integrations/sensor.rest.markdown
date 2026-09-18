@@ -312,7 +312,7 @@ rest:
         value_template: "{{ value_json.milliseconds_since_epoch }}"
 ```
 
-[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find this [XML to JSON Converter](https://www.freeformatter.com/xml-to-json-converter.html) helpful for testing how your XML converts to JSON.
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find this [XML to JSON Converter](https://xmlable.com/json/) helpful for testing how your XML converts to JSON.
 
 ```yaml
 sensor:
