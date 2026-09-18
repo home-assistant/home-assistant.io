@@ -106,6 +106,10 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 
 ## Timers
 
+Timers created with Assist are voice timers. They are separate from [Timer helper entities](/integrations/timer/) and do not create `timer.*` entities that you can use in dashboards, scripts, or automations.
+
+A voice timer belongs to the Assist device where you start it. The device must support handling timer events. If it does not, Assist responds that the device does not support timers.
+
 ### Starting
 
 - *set a timer for 5 minutes*

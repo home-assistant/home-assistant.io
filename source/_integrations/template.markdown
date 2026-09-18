@@ -5,6 +5,7 @@ ha_category:
   - Alarm Control Panel
   - Binary sensor
   - Button
+  - Climate
   - Cover
   - Device Tracker
   - Event
@@ -31,6 +32,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - button
+  - climate
   - cover
   - device_tracker
   - event
@@ -69,6 +71,7 @@ There is currently support for the following device types within Home Assistant:
 - [Alarm control panel](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Device Tracker](#device-tracker)
 - [Event](#event)
@@ -95,6 +98,18 @@ Configuration using our user interface provides a more limited subset of options
 
 If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
 {% endnote %}
+
+### Creating a template helper from the user interface
+
+You can create state-based template entities from the user interface. To create a helper of a state-based template entity:
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Search for and select **Template** from the list.
+3. In the **Template helper** dialog, select the entity platform of the template helper you want to create.
+4. Enter the **Name** and any other options. For details, see the **Options in the UI** section for that platform further down this page.
+5. Select **Submit** to save the helper.
+
+After you create a template helper, you can change its options at any time in **{% my helpers title="Settings > Devices & services > Helpers" %}**. Select the helper, and then select **Settings** {% icon "mdi:cog-outline" %}.
 
 ## YAML configuration
 
@@ -247,36 +262,38 @@ The template alarm control panel platform allows you to create a alarm control p
 
 Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - alarm_control_panel:
-      - name: "Alarm Control Panel 1"
-        state: "{{ states('input_select.panel_1_state') }}"
-        arm_away:
-          action: script.arm_panel_away
-        arm_home:
-          action: script.arm_panel_home
-        disarm:
-          action: script.disarm_panel
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: input_select.panel_1_state
-    alarm_control_panel:
-      - name: "Alarm Control Panel 1"
-        state: "{{ states('input_select.panel_1_state') }}"
-        arm_away:
-          action: script.arm_panel_away
-        arm_home:
-          action: script.arm_panel_home
-        disarm:
-          action: script.disarm_panel
-```
+{% configuration_basic %}
+Name:
+  description: The name of the alarm control panel.
+State:
+  description: A template for the panel's state. Only `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are recognized.
+Actions on disarm:
+  description: The action or actions run when the panel is disarmed.
+Actions on arm away:
+  description: The action or actions run when the panel is armed to away mode.
+Actions on arm custom bypass:
+  description: The action or actions run when the panel is armed to custom bypass mode.
+Actions on arm home:
+  description: The action or actions run when the panel is armed to home mode.
+Actions on arm night:
+  description: The action or actions run when the panel is armed to night mode.
+Actions on arm vacation:
+  description: The action or actions run when the panel is armed to vacation mode.
+Actions on trigger:
+  description: The action or actions run when the panel is triggered.
+Code arm required:
+  description: Whether a code must be entered to arm the panel.
+Code format:
+  description: Whether a code is expected, and what kind. Accepts **Number**, **Text**, or **No code format**.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration alarm_control_panel %}
 alarm_control_panel:
@@ -343,32 +360,61 @@ alarm_control_panel:
       type: action
 {% endconfiguration %}
 
-## Binary Sensor
-
-The template binary sensor platform allows you to create binary sensors with templates to define the state and attributes.
-
-Binary sensor entities can be created from the frontend in the Helpers section or via YAML.
+### YAML examples
 
 ```yaml
 # Example state-based configuration.yaml entry
 template:
-  - binary_sensor:
-      - name: Sun Up
-        state: >
-          {{ is_state("sun.sun", "above_horizon") }}
+  - alarm_control_panel:
+      - name: "Alarm Control Panel 1"
+        state: "{{ states('input_select.panel_1_state') }}"
+        arm_away:
+          action: script.arm_panel_away
+        arm_home:
+          action: script.arm_panel_home
+        disarm:
+          action: script.disarm_panel
 ```
 
 ```yaml
 # Example trigger-based configuration.yaml entry
 template:
   - triggers:
-    - trigger: state
-      entity_id: sun.sun
-    binary_sensor:
-      - name: Sun Up
-        state: >
-          {{ is_state("sun.sun", "above_horizon") }}
+      - trigger: state
+        entity_id: input_select.panel_1_state
+    alarm_control_panel:
+      - name: "Alarm Control Panel 1"
+        state: "{{ states('input_select.panel_1_state') }}"
+        arm_away:
+          action: script.arm_panel_away
+        arm_home:
+          action: script.arm_panel_home
+        disarm:
+          action: script.disarm_panel
 ```
+
+## Binary Sensor
+
+The template binary sensor platform allows you to create binary sensors with templates to define the state and attributes.
+
+Binary sensor entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the binary sensor.
+State:
+  description: A template that evaluates if values are true or false to determine the sensor's on/off state.
+Device class:
+  description: The [device class](/integrations/binary_sensor/#device-class) used to pick the sensor's on/off wording and icon.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration binary-sensor %}
 binary_sensor:
@@ -408,6 +454,29 @@ binary_sensor:
       type: template
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - binary_sensor:
+      - name: Sun Up
+        state: >
+          {{ is_state("sun.sun", "above_horizon") }}
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+    - trigger: state
+      entity_id: sun.sun
+    binary_sensor:
+      - name: Sun Up
+        state: >
+          {{ is_state("sun.sun", "above_horizon") }}
+```
 
 ### State based binary sensor - Washing Machine Running
 
@@ -520,18 +589,22 @@ The template button platform allows you to create button entities with scripts t
 
 Button entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example configuration.yaml entry
-template:
-  - button:
-      - name: Fast Forward
-        press:
-          action: remote.send_command
-          target:
-            entity_id: remote.living_room
-          data:
-            command: fast_forward
-```
+### Options in the UI
+
+{% options_ui %}
+Name:
+  description: The name of the button.
+Actions on press:
+  description: The action or actions run when the button is pressed.
+Device class:
+  description: The [device class](/integrations/button/#device-class) used to pick the button's wording and icon.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endoptions_ui %}
+
+### Options in YAML
 
 {% configuration button %}
 button:
@@ -554,11 +627,28 @@ button:
       type: action
 {% endconfiguration %}
 
+### YAML examples
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - button:
+      - name: Fast Forward
+        press:
+          action: remote.send_command
+          target:
+            entity_id: remote.living_room
+          data:
+            command: fast_forward
+```
+
 ## Climate
 
-The template climate platform allows you to create a climate with templates to define the state and scripts to define each action.
+The template climate platform allows you to create a climate entity with templates to define the state and scripts to define each action.
 
 Climate entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
 
 {% configuration_basic %}
 Name:
@@ -825,38 +915,32 @@ template:
 
 The template cover platform allows you to create covers with templates to define the state and scripts to define each action.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - cover:
-      - name: Garage Door
-        state: "{{ states('sensor.garage_door') | float > 0 }}"
-        device_class: garage
-        open_cover:
-          action: script.open_garage_door
-        close_cover:
-          action: script.close_garage_door
-        stop_cover:
-          action: script.stop_garage_door
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: sensor.garage_door
-    cover:
-      - name: Garage Door
-        state: "{{ trigger.to_state.state | float(0) > 0 }}"
-        device_class: garage
-        open_cover:
-          action: script.open_garage_door
-        close_cover:
-          action: script.close_garage_door
-        stop_cover:
-          action: script.stop_garage_door
-```
+{% options_ui %}
+Name:
+  description: The name of the cover.
+State:
+  description: A template that gets the cover's state. Only `open`, `opening`, `closing`, and `closed` are recognized.
+Actions on open:
+  description: The action or actions run when the cover is open.
+Actions on close:
+  description: The action or actions run when the cover is closed.
+Actions on stop:
+  description: The action or actions run when the cover stops.
+Position:
+  description: A template that gets the position of the cover.
+Actions on set position:
+  description: The action or actions run when a position is set.
+Device class:
+  description: The [device class](/integrations/cover/#device-class) used to pick the cover's state wording and icon.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endoptions_ui %}
+
+### Options in YAML
 
 {% configuration cover %}
 cover:
@@ -921,6 +1005,41 @@ cover:
       default: false
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - cover:
+      - name: Garage Door
+        state: "{{ states('sensor.garage_door') | float > 0 }}"
+        device_class: garage
+        open_cover:
+          action: script.open_garage_door
+        close_cover:
+          action: script.close_garage_door
+        stop_cover:
+          action: script.stop_garage_door
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.garage_door
+    cover:
+      - name: Garage Door
+        state: "{{ trigger.to_state.state | float(0) > 0 }}"
+        device_class: garage
+        open_cover:
+          action: script.open_garage_door
+        close_cover:
+          action: script.close_garage_door
+        stop_cover:
+          action: script.stop_garage_door
+```
 
 ### Cover Optimistic Mode
 
@@ -1003,27 +1122,26 @@ template:
 
 The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - device_tracker:
-      - name: Car Location
-        latitude: "{{ states('sensor.latitude') }}"
-        longitude: "{{ states('sensor.longitude') }}"
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-    - trigger: webhook
-      webhook_id: my_car_location
-    device_tracker:
-      - name: Car Location
-        latitude: "{{ trigger.json.latitude }}"
-        longitude: "{{ trigger.json.longitude }}"
-        location_accuracy: "{{ trigger.json.resolution }}"
-```
+{% configuration_basic %}
+Name:
+  description: The name of the device tracker.
+Zones:
+  description: A template that returns a list of zones the device tracker is currently in.
+Latitude:
+  description: A template that gets the latitude of the device tracker.
+Longitude:
+  description: A template that gets the longitude of the device tracker.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+Location accuracy:
+  description: A template that gets the accuracy of the device tracker's location, with the margin on error expressed in meters.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration device_tracker %}
 device_tracker:
@@ -1060,9 +1178,75 @@ device_tracker:
 
 {% endconfiguration %}
 
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - device_tracker:
+      - name: Car Location
+        latitude: "{{ states('sensor.latitude') }}"
+        longitude: "{{ states('sensor.longitude') }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+    - trigger: webhook
+      webhook_id: my_car_location
+    device_tracker:
+      - name: Car Location
+        latitude: "{{ trigger.json.latitude }}"
+        longitude: "{{ trigger.json.longitude }}"
+        location_accuracy: "{{ trigger.json.resolution }}"
+```
+
 ## Event
 
 The template event platform allows you to create events with templates to define the state.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the event.
+Last fired event type:
+  description: A template that gets the type of the last fired event.
+Event types:
+  description: A template that gets the list of available event types.
+Device class:
+  description: The [device class](/integrations/event/#device-class) used to pick the event's wording and icon. One of **Button**, **Doorbell** or **Motion**.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration event %}
+event:
+  description: List of events
+  required: true
+  type: map
+  keys:
+    device_class:
+      description: Sets the [class of the device](/integrations/event/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: string
+    event_type:
+      description: Template for the event's last fired event type.
+      required: true
+      type: template
+    event_types:
+      description: Template for the event's available event types.
+      required: true
+      type: template
+
+{% endconfiguration %}
+
+### YAML examples
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1088,32 +1272,116 @@ template:
         event_types: "{{ ['Keypad lock operation', 'Keypad unlock operation'] }}"
 ```
 
-{% configuration event %}
-event:
-  description: List of events
-  required: true
-  type: map
-  keys:
-    device_class:
-      description: Sets the [class of the device](/integrations/event/), changing the device state and icon that is displayed on the frontend.
-      required: false
-      type: string
-    event_type:
-      description: Template for the event's last fired event type.
-      required: true
-      type: template
-    event_types:
-      description: Template for the event's available event types.
-      required: true
-      type: template
-
-{% endconfiguration %}
-
 ## Fan
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
 Fan entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the fan.
+State:
+  description: A template that evaluates if values are true or false to determine the fan's on or off state.
+Actions on turn on:
+  description: The action or actions run when the fan is turned on.
+Actions on turn off:
+  description: The action or actions run when the fan is turned off.
+Percentage:
+  description: A template that gets the current speed percentage of the fan.
+Actions on set percentage:
+  description: The action or actions run when a speed percentage is requested.
+Speed count:
+  description: The number of discrete speeds the fan supports, used to size percentage steps for increase/decrease speed.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration fan %}
+fan:
+  description: List of fans
+  required: true
+  type: map
+  keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    direction:
+      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
+      required: false
+      type: template
+    optimistic:
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan updates only when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+    oscillating:
+      description: "Defines a template to get the oscillation state of the fan. The fan is oscillating if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is not oscillating if the template evaluates to `0`, `false`, `no`, `off`, or `disable`."
+      required: false
+      type: template
+    percentage:
+      description: Defines a template to get the speed percentage of the fan.
+      required: false
+      type: template
+    preset_mode:
+      description: Defines a template to get the preset mode of the fan.
+      required: false
+      type: template
+    preset_modes:
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
+      required: false
+      type: [string, list]
+      default: []
+    set_percentage:
+      description: Defines an action to run when the fan is given a speed percentage command.
+      required: false
+      type: action
+    set_preset_mode:
+      description: Defines an action to run when the fan is given a preset command.
+      required: false
+      type: action
+    set_oscillating:
+      description: Defines an action to run when the fan is given an oscillation state command.
+      required: false
+      type: action
+    set_direction:
+      description: Defines an action to run when the fan is given a direction command.
+      required: false
+      type: action
+    speed_count:
+      description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
+      required: false
+      type: integer
+      default: 100
+    state:
+      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`."
+      required: true
+      type: template
+    turn_on:
+      description: Defines an action to run when the fan is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the fan is turned off.
+      required: true
+      type: action
+
+{% endconfiguration %}
+
+### YAML examples
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1196,84 +1464,6 @@ template:
           - 'smart'
           - 'whoosh'
 ```
-
-{% configuration fan %}
-fan:
-  description: List of fans
-  required: true
-  type: map
-  keys:
-    attributes:
-      description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `preset_mode`, `preset_modes`, `direction`, `oscillating`, `percentage`, and `percentage_step`.
-      required: false
-      type: [map, template]
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
-    direction:
-      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
-      required: false
-      type: template
-    optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan updates only when the `state` template returns a new value.
-      required: false
-      type: boolean
-      default: false
-    oscillating:
-      description: "Defines a template to get the oscillation state of the fan. The fan is oscillating if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is not oscillating if the template evaluates to `0`, `false`, `no`, `off`, or `disable`."
-      required: false
-      type: template
-    percentage:
-      description: Defines a template to get the speed percentage of the fan.
-      required: false
-      type: template
-    preset_mode:
-      description: Defines a template to get the preset mode of the fan.
-      required: false
-      type: template
-    preset_modes:
-      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
-      required: false
-      type: [string, list]
-      default: []
-    set_percentage:
-      description: Defines an action to run when the fan is given a speed percentage command.
-      required: false
-      type: action
-    set_preset_mode:
-      description: Defines an action to run when the fan is given a preset command.
-      required: false
-      type: action
-    set_oscillating:
-      description: Defines an action to run when the fan is given an oscillation state command.
-      required: false
-      type: action
-    set_direction:
-      description: Defines an action to run when the fan is given a direction command.
-      required: false
-      type: action
-    speed_count:
-      description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
-      required: false
-      type: integer
-      default: 100
-    state:
-      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`."
-      required: true
-      type: template
-    turn_on:
-      description: Defines an action to run when the fan is turned on.
-      required: true
-      type: action
-    turn_off:
-      description: Defines an action to run when the fan is turned off.
-      required: true
-      type: action
-
-{% endconfiguration %}
 
 ### Converting from speeds to percentage
 
@@ -1381,30 +1571,22 @@ The template image platform allows you to create image entities with templates t
 
 Image entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - image:
-      - name: "My Image"
-        url: "http://example.com/image.jpg"
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id:
-          - input_boolean.state
-    image:
-      - name: "My Image"
-        url: >
-          {% if is_state('input_boolean.state', 'on') %}
-            http://example.com/image_on.jpg
-          {% else %}
-            http://example.com/image_off.jpg
-          {% endif %}
-```
+{% configuration_basic %}
+Name:
+  description: The name of the image entity.
+URL:
+  description: A template that gets the URL the image is served from.
+Verify SSL certificate:
+  description: Whether to verify the SSL certificate of the URL.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration image %}
 image:
@@ -1432,16 +1614,204 @@ image:
       default: true
 {% endconfiguration %}
 
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - image:
+      - name: "My Image"
+        url: "http://example.com/image.jpg"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id:
+          - input_boolean.state
+    image:
+      - name: "My Image"
+        url: >
+          {% if is_state('input_boolean.state', 'on') %}
+            http://example.com/image_on.jpg
+          {% else %}
+            http://example.com/image_off.jpg
+          {% endif %}
+```
+
 ### Using locally hosted images
 
 You can also use images hosted locally in the `www` folder (see [Hosting files](/integrations/http/#hosting-files)). The `url` value must be a full URL (it needs to start with `http://` or `https://`), so `/local/...` on its own is not supported. For example, if your image is stored at `/config/www/test.png`, set `url` to `http://homeassistant.local:8123/local/test.png` or `http://192.168.1.10:8123/local/test.png`, depending on how Home Assistant is configured and the local IP address.
-
 
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
 
 Light entities can be created from the frontend in the Helpers section or via YAML.
+
+### Options in the UI
+
+{% configuration_basic %}
+Name:
+  description: The name of the light.
+State:
+  description: A template that defines how to determine whether the light is currently on or off.
+Actions on turn on:
+  description: The action or actions run when the light is turned on.
+Actions on turn off:
+  description: The action run when the light is turned off.
+Brightness level:
+  description: A template for the light's brightness.
+Actions on set level:
+  description: The action or actions run when a brightness change is requested.
+HS color:
+  description: A template that gets the light's color (hue and saturation).
+Actions on set HS color:
+  description: The action or actions run when a light's color change is requested.
+Color temperature:
+  description: A template that gets the light's color temperature in mireds.
+Actions on set color temperature:
+  description: The action or actions run when a color temperature change is requested.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
+
+{% configuration light %}
+light:
+  description: List of your lights.
+  required: true
+  type: map
+  keys:
+    attributes:
+      description: >
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    effect:
+      description: Defines a template to get the effect of the light.
+      required: inclusive
+      type: template
+      default: optimistic
+    effect_list:
+      description: Defines a template to get the list of supported effects. Must render a list.
+      required: inclusive
+      type: template
+      default: optimistic
+    hs:
+      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
+      required: false
+      type: template
+      default: optimistic
+    level:
+      description: Defines a template to get the brightness of the light.
+      required: false
+      type: template
+      default: optimistic
+    min_mireds:
+      description: Defines a template to get the minimum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    max_mireds:
+      description: Defines a template to get the maximum mired value of the light.
+      required: false
+      type: template
+      default: optimistic
+    optimistic:
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light updates only when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+    rgb:
+      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
+      required: false
+      type: template
+      default: optimistic
+    rgbw:
+      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
+      required: false
+      type: template
+      default: optimistic
+    rgbww:
+      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
+      required: false
+      type: template
+      default: optimistic
+    set_effect:
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
+      required: inclusive
+      type: action
+    set_level:
+      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), `brightness_pct` (a value between 0 and 100), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
+      required: false
+      type: action
+    set_temperature:
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_hs:
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_rgb:
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgb_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_rgbw:
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_rgbww:
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    set_xy:
+      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
+      required: false
+      type: action
+    state:
+      description: Defines a template to set the state of the light. If not defined, the light optimistically assumes all commands are successful. The light is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The light is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The light is `unknown` if the template evaluates as `None`.
+      required: false
+      type: template
+      default: optimistic
+    supports_transition:
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call is passed as a named parameter `transition` in either of the scripts.
+      required: false
+      type: template
+      default: false
+    temperature:
+      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
+      required: true
+      type: action
+    xy:
+      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
+      required: false
+      type: template
+      default: optimistic
+
+{% endconfiguration %}
+
+### YAML examples
 
 ```yaml
 # Example state-based configuration.yaml entry
@@ -1595,135 +1965,6 @@ template:
             option: "{{ effect }}"
 ```
 
-{% configuration light %}
-light:
-  description: List of your lights.
-  required: true
-  type: map
-  keys:
-    attributes:
-      description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min_color_temp_kelvin`, `max_color_temp_kelvin`, `effect_list`, `effect`, `supported_color_modes`, `color_mode`, `brightness`, `color_temp_kelvin`, `hs_color`, `rgb_color`, `xy_color`, `rgbw_color`, and `rgbww_color`.
-      required: false
-      type: [map, template]
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
-    effect:
-      description: Defines a template to get the effect of the light.
-      required: inclusive
-      type: template
-      default: optimistic
-    effect_list:
-      description: Defines a template to get the list of supported effects. Must render a list.
-      required: inclusive
-      type: template
-      default: optimistic
-    hs:
-      description: Defines a template to get the HS color of the light. Must render a tuple (hue, saturation).
-      required: false
-      type: template
-      default: optimistic
-    level:
-      description: Defines a template to get the brightness of the light.
-      required: false
-      type: template
-      default: optimistic
-    min_mireds:
-      description: Defines a template to get the minimum mired value of the light.
-      required: false
-      type: template
-      default: optimistic
-    max_mireds:
-      description: Defines a template to get the maximum mired value of the light.
-      required: false
-      type: template
-      default: optimistic
-    optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light updates only when the `state` template returns a new value.
-      required: false
-      type: boolean
-      default: false
-    rgb:
-      description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
-      required: false
-      type: template
-      default: optimistic
-    rgbw:
-      description: Defines a template to get the RGBW color of the light. Must render a tuple or a list (red, green, blue, white).
-      required: false
-      type: template
-      default: optimistic
-    rgbww:
-      description: Defines a template to get the RGBWW color of the light. Must render a tuple or a list (red, green, blue, cold white, warm white).
-      required: false
-      type: template
-      default: optimistic
-    set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
-      required: inclusive
-      type: action
-    set_level:
-      description: "Defines a set of actions (script) to run when the light is asked to change its brightness. This script runs only when `light.turn_on` is called with a brightness value (`brightness` or `brightness_pct`) and no color, color temperature, or effect parameter. When it runs, it receives the variable `brightness` (a value between 0 and 255), `brightness_pct` (a value between 0 and 100), and also `transition` if that was part of the call and `supports_transition` is `true`. If brightness is combined with a color, color temperature, or effect, the matching color, temperature, or effect script runs instead and receives the brightness value as a variable."
-      required: false
-      type: action
-    set_temperature:
-      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
-      required: false
-      type: action
-    set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness`, `brightness_pct`, and/or `transition`.
-      required: false
-      type: action
-    set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgb_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
-      required: false
-      type: action
-    set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
-      required: false
-      type: action
-    set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
-      required: false
-      type: action
-    set_xy:
-      description: Defines a set of actions (script) to run when the light is given an XY color command. The script executes only if the light is turned on with an `xy_color`.  The script receives the variables `xy` as a tuple, `x` and `y`, and may also receive `brightness`, `brightness_pct`, and/or `transition`.
-      required: false
-      type: action
-    state:
-      description: Defines a template to set the state of the light. If not defined, the light optimistically assumes all commands are successful. The light is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The light is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The light is `unknown` if the template evaluates as `None`.
-      required: false
-      type: template
-      default: optimistic
-    supports_transition:
-      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call is passed as a named parameter `transition` in either of the scripts.
-      required: false
-      type: template
-      default: false
-    temperature:
-      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
-      required: false
-      type: template
-      default: optimistic
-    turn_on:
-      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
-      required: true
-      type: action
-    turn_off:
-      description: Defines an action to run when the light is turned off. May receive the variable `transition`.
-      required: true
-      type: action
-    xy:
-      description: Defines a template to get the XY color of the light. Must render a tuple or a list (X, Y).
-      required: false
-      type: template
-      default: optimistic
-
-{% endconfiguration %}
-
 ### Light considerations
 
 When `light.turn_on` is called, Home Assistant selects exactly one script to run based on the parameters included in the call. The first match in the following order wins:
@@ -1848,40 +2089,28 @@ The template lock platform allows you to create locks with templates to define t
 
 Lock entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - lock:
-      - name: Garage door
-        state: "{{ is_state('sensor.door', 'on') }}"
-        lock:
-          action: switch.turn_on
-          target:
-            entity_id: switch.door
-        unlock:
-          action: switch.turn_off
-          target:
-            entity_id: switch.door
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: sensor.door
-    lock:
-      - name: Garage door
-        state: "{{ trigger.to_state.state == 'on' }}"
-        lock:
-          action: switch.turn_on
-          target:
-            entity_id: switch.door
-        unlock:
-          action: switch.turn_off
-          target:
-            entity_id: switch.door
-```
+{% configuration_basic %}
+Name:
+  description: The name of the lock.
+State:
+  description: A template that defines how to determine whether the lock is locked or unlocked.
+Actions on lock:
+  description: The action or actions run when the lock is locked.
+Actions on unlock:
+  description: The action or actions run when the lock is unlocked.
+Code format:
+  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock** or **Actions on unlock** run.
+Actions on open:
+  description: The action or actions run when the lock is opened.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration lock %}
 lock:
@@ -1927,6 +2156,43 @@ lock:
       required: true
       type: action
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - lock:
+      - name: Garage door
+        state: "{{ is_state('sensor.door', 'on') }}"
+        lock:
+          action: switch.turn_on
+          target:
+            entity_id: switch.door
+        unlock:
+          action: switch.turn_off
+          target:
+            entity_id: switch.door
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.door
+    lock:
+      - name: Garage door
+        state: "{{ trigger.to_state.state == 'on' }}"
+        lock:
+          action: switch.turn_on
+          target:
+            entity_id: switch.door
+        unlock:
+          action: switch.turn_off
+          target:
+            entity_id: switch.door
+```
 
 ### State based lock - Lock from a switch
 
@@ -2021,42 +2287,32 @@ The template number platform allows you to create number entities with templates
 
 Number entities can be created from the frontend in the Helpers section or via YAML.
 
-```yaml
-# Example state-based configuration.yaml entry
-template:
-  - number:
-      - name: Desk Height
-        unit_of_measurement: "in"
-        state: "{{ states('sensor.desk_height') }}"
-        set_value:
-          - action: script.set_desk_height
-            data:
-              value: "{{ value }}"
-        step: 0.5
-        min: 1
-        max: 24
-        icon: mdi:ruler
-```
+### Options in the UI
 
-```yaml
-# Example trigger-based configuration.yaml entry
-template:
-  - triggers:
-      - trigger: state
-        entity_id: sensor.desk_height
-    number:
-      - name: Desk Height
-        unit_of_measurement: "in"
-        state: "{{ states('sensor.desk_height') }}"
-        set_value:
-          - action: script.set_desk_height
-            data:
-              value: "{{ value }}"
-        step: 0.5
-        min: 1
-        max: 24
-        icon: mdi:ruler
-```
+{% configuration_basic %}
+Name:
+  description: The name of the number entity.
+Device class:
+  description: The [device class](/integrations/number/#device-class) used to pick the number's wording and icon.
+State:
+  description: A template that gets the number's current value.
+Minimum value:
+  description: The number's minimum allowed value.
+Maximum value:
+  description: The number's maximum allowed value.
+Step value:
+  description: The increment or decrement step size.
+Unit of measurement:
+  description: The unit shown alongside the value.
+Actions on set value:
+  description: The action run when the number is changed.
+Device:
+  description: An existing device to attach this helper to.
+Availability:
+  description: A template that gets the available state of the entity.
+{% endconfiguration_basic %}
+
+### Options in YAML
 
 {% configuration number %}
 number:
@@ -2110,6 +2366,45 @@ number:
       default: 1.0
 
 {% endconfiguration %}
+
+### YAML examples
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - number:
+      - name: Desk Height
+        unit_of_measurement: "in"
+        state: "{{ states('sensor.desk_height') }}"
+        set_value:
+          - action: script.set_desk_height
+            data:
+              value: "{{ value }}"
+        step: 0.5
+        min: 1
+        max: 24
+        icon: mdi:ruler
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.desk_height
+    number:
+      - name: Desk Height
+        unit_of_measurement: "in"
+        state: "{{ states('sensor.desk_height') }}"
+        set_value:
+          - action: script.set_desk_height
+            data:
+              value: "{{ value }}"
+        step: 0.5
+        min: 1
+        max: 24
+        icon: mdi:ruler
+```
 
 ### State based number - Changing the unit of measurement of another number
 

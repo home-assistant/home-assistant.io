@@ -1,8 +1,7 @@
 ---
 title: Radio frequency
 description: Instructions on how to use radio frequency entities in Home Assistant.
-ha_category:
-  - Radio Frequency
+ha_category: []
 ha_release: 2026.5
 ha_quality_scale: internal
 ha_domain: radio_frequency
@@ -11,7 +10,9 @@ ha_codeowners:
 ha_integration_type: entity
 related:
   - docs: /integrations/#radio-frequency
-    title: Integrations supporting radio frequency
+    title: Integrations that provide radio frequency entities
+  - docs: /integrations/#radio-frequency-controlled
+    title: Integrations for radio frequency-controlled devices
   - url: https://esphome.io/projects/?type=irrf
     title: ESPHome radio frequency proxy projects
   - url: https://esphome.io/components/ir_rf_proxy/
@@ -45,7 +46,7 @@ The **Radio Frequency** {% term integration %} is a building block that other in
 - Administrator rights in Home Assistant.
 - A radio frequency-controlled device, such as a remote outlet, garage door, or string lights.
 - A radio frequency remote adapter. If you're unsure what to get:
-  - Find integrations that support radio frequency: In the documentation, search for the [radio frequency category](/integrations/#radio-frequency).
+  - Find integrations that provide radio frequency entities: In the documentation, browse the [Radio Frequency category](/integrations/#radio-frequency).
   - You could also follow an example from the [ESPHome radio frequency proxy projects](https://esphome.io/projects/?type=irrf).
   - Make sure the remote adapter supports the frequency and modulation that your device uses, such as 433.92&nbsp;MHz <abbr title="On-Off Keying">OOK</abbr>.
 
@@ -54,7 +55,7 @@ The **Radio Frequency** {% term integration %} is a building block that other in
 1. Place the radio frequency remote adapter within range of the radio frequency-controlled device. For more details, refer to [About device placement and coverage](#about-device-placement-and-coverage).
 2. In Home Assistant, add the integration for your radio frequency remote adapter. Home Assistant creates a separate radio frequency {% term entity %} for each transmitter it provides.
    - To add the integration, follow the steps in the integration documentation.
-3. Add the integration for your radio frequency-controlled device, such as [Honeywell String Lights](/integrations/honeywell_string_lights/).
+3. Add the integration for your radio frequency-controlled device, such as [Honeywell String Lights](/integrations/honeywell_string_lights/). To find all of them, browse the [Radio frequency-controlled category](/integrations/#radio-frequency-controlled).
    - To add the integration, follow the steps in the integration documentation.
    - During integration setup, when you are asked which radio frequency transmitter to use, select the transmitter from your radio frequency remote adapter.
 4. If some radio frequency-controlled devices are out of range or respond unreliably, place additional radio frequency remote adapters closer to them.
@@ -98,13 +99,15 @@ It has the following characteristics:
 - The radio frequency remote adapter contains one or more transmitters.
 - Each transmitter is shown as a separate {% term entity %} in Home Assistant.
 
+Integrations that provide radio frequency entities for a remote adapter are listed in the [Radio Frequency category](/integrations/#radio-frequency).
+
 #### Radio frequency transmitter
 
 The component of your remote adapter that sends out RF signals. This is the same kind of signal a physical remote sends. A transmitter is what actually controls a device. In Home Assistant, each transmitter appears as a radio frequency {% term entity %} that other integrations can use.
 
 ### Radio frequency-controlled device
 
-The appliance you want to control, such as a remote outlet, garage door, or string lights. It listens for RF signals but does not connect to your network.
+The appliance you want to control, such as a remote outlet, garage door, or string lights. It listens for RF signals but does not connect to your network. Integrations for these devices are listed in the [Radio frequency-controlled category](/integrations/#radio-frequency-controlled).
 
 ### Radio frequency entity
 
