@@ -50,7 +50,7 @@ You can connect a [device connected via serial](#device-connected-via-serial) to
    - To add the integration, follow the steps in the integration documentation.
    - When you are asked which serial port to use, select the port that your device is connected to. Local ports and serial proxy ports are listed together, grouped by type. Ports that suit the integration you are setting up are listed first, under **Recommended for** the integration. When you select a port, Home Assistant stores the most stable identifier that is available for it.
    - A port that is shared by a serial proxy is listed under **Serial proxies**, together with the name of the ESPHome device that shares it.
-   - If you enter a local device path yourself, use the `/dev/serial/by-id/...` link rather than a path like `/dev/ttyUSB0` or `/dev/ttyACM0`, because the `/dev/tty` paths can be renumbered. To look up the link, select **Port information** for that port in the **Serial** panel, and copy the **Device** field.
+   - If you enter a local device path yourself, use the `/dev/serial/by-id/...` link rather than a path like `/dev/ttyUSB0` or `/dev/ttyACM0`, because their mappings can change; in other words, which device appears as `ttyACM0` will vary. To look up the link, select **Port information** for that port in the **Serial** panel, and copy the **Device** field.
    - The list shows the ports that Home Assistant found on your system and on your serial proxies. A port on another system, such as one that you expose with [`ser2net`](https://ser2net.sourceforge.net/) or [`socat`](http://www.dest-unreach.org/socat/), is not found automatically. To use such a port, select **Enter manually** and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
 
 ## Serial sensor
@@ -69,7 +69,7 @@ sensor:
 
 {% configuration %}
 serial_port:
-  description: "The [device path](#device-path) of the serial port to read from. Use the `/dev/serial/by-id/...` link where one is available, because paths like `/dev/ttyUSB0` and `/dev/ttyACM0` can be renumbered. For a port that Home Assistant reaches over your network, use its URL instead, such as `socket://192.168.1.10:4001`."
+  description: "The [device path](#device-path) of the serial port to read from. Use the `/dev/serial/by-id/...` link where one is available. Avoid paths like `/dev/ttyUSB0` and `/dev/ttyACM0` because their mappings can change; in other words, which device appears as `ttyACM0` will vary. For a port that Home Assistant reaches over your network, use its URL instead, such as `socket://192.168.1.10:4001`."
   required: true
   type: string
 name:
