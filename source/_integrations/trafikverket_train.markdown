@@ -1,6 +1,6 @@
 ---
 title: Trafikverket Train
-description: Instructions how to integrate Trafikverket Train within Home Assistant.
+description: Instructions on how to integrate Trafikverket Train within Home Assistant.
 ha_category:
   - Sensor
   - Transport
@@ -20,7 +20,7 @@ Retrieve train departure information from [Trafikverket](https://www.trafikverke
 ## Use cases
 
 - Retrieve the next departure between two stations.
-- Retrieve information for specific departure time between two stations.
+- Retrieve information for a specific departure time between two stations.
 - Set up an alert or perform actions if your train is delayed or canceled.
 
 ## Retrieved data
@@ -42,7 +42,7 @@ You can filter based on product descriptions such as `SJ Regionaltåg` to only s
 
 ## Prerequisites
 
-Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
+Please click [here](https://data.trafikverket.se/) and register to obtain the API key.
 
 {% include integrations/config_flow.md %}
 
