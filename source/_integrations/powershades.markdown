@@ -16,13 +16,13 @@ ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The **PowerShades** {% term integration %} allows you to control [PowerShades](https://powershades.com) motorized shades. It communicates with the shade controller directly over your local network using UDP, so no cloud connection is required.
+The **PowerShades** {% term integration %} allows you to control [PowerShades](https://powershades.com) motorized shades. It communicates with the shade directly over your local network using UDP, so no cloud connection is required.
 
-This integration is tested with PoE and Wi-Fi PowerShades controllers. Support for the RF hub may be limited or non-existent. If you have RF shades, it is recommended to use a [Bond](/integrations/bond/) bridge to connect them to Home Assistant instead. If you already have a PowerShades RF hub and would like to help test this integration with it, please [open an issue](https://github.com/home-assistant/core/issues).
+This integration is tested with PoE PowerShades. Support for the RF hub may be limited or non-existent. If you have RF shades, it is recommended to use a [Bond](/integrations/bond/) bridge to connect them to Home Assistant instead. If you already have a PowerShades RF hub and would like to help test this integration with it, please [open an issue](https://github.com/home-assistant/core/issues).
 
 ## Supported devices
 
-Any PoE or Wi-Fi PowerShades shade with UDP communication enabled, and on the same local network as Home Assistant.
+Any PoE PowerShades shade with UDP communication enabled, and on the same local network as Home Assistant.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ All communication is local with this integration, and does not require an intern
 - This also affects other hubs that communicate over UDP (for example, Control4) but solely rely on push data, since they will have an outdated status of the shade if Home Assistant or any other source controls it.
 - The shade's reported state (opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for more info.
 - The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
-- Only PoE and Wi-Fi shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge for full support. If you have the PowerShades RF hub, it would be helpful to tell the integration owner your experience using it with this integration, and help make it compatible with this integration.
+- Only PoE shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge for full support. If you have the PowerShades RF hub, it would be helpful to tell the integration owner your experience using it with this integration, and help make it compatible with this integration.
 - Your shade may randomly go unavailable for anywhere between 10-120 seconds. This is normal behavior.
 
 ## Troubleshooting
