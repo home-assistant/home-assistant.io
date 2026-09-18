@@ -79,7 +79,7 @@ Make sure that an infrared emitter entity is already available in Home Assistant
 
 ### The light does not react to commands
 
-Make sure that the infrared LED is positioned within range and pointed toward the light. If the emitter is unavailable, verify the hardware integration that provides the infrared entity.
+Make sure that the infrared emitter is positioned within range and pointed toward the light. If the emitter is unavailable, verify the hardware integration that provides the infrared entity.
 
 ### Commands from the physical remote do not update the light state
 
