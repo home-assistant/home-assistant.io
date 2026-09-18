@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Light
   - Number
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -17,6 +18,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
+  - select
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
@@ -69,14 +71,22 @@ The **Hot Spring** integration provides the following entities:
 
 ### Light
 
-- **Light zone 1**
-  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
+- **Light zone**
+  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone, for example, **Light zone 1**). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
 
 ### Number
 
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
   - **Range**: 80 °F to 104 °F
+
+### Select
+
+- **Jet**
+  - **Description**: Controls the jet pump speed (one entity is created per enabled jet pump, for example, **Jet 1**). Supports turning the pump off or setting it to low or high speed on dual-speed jets, and off or high speed on single-speed jets.
+- **Heating mode**
+  - **Description**: Controls the heating operating mode of the spa heater (such as heat saver, heat with boost, auto saver, auto with boost, and chill).
+  - **Availability**: Available when the spa hardware supports heating mode selection.
 
 ### Sensor
 
