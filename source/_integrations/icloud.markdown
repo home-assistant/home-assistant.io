@@ -39,7 +39,7 @@ To prevent excessive battery drainage, a dynamic interval is used for each indiv
 
 ## Two-factor authentication
 
-Use your regular Apple Account password when setting up the integration. If Apple requires two-factor authentication, Home Assistant asks you to enter the verification code you receive from Apple.
+Use your regular Apple Account password when setting up the integration. If Apple requires two-factor authentication, Home Assistant asks you to enter the six-digit verification code displayed on one of your trusted Apple devices or sent to your trusted phone number.
 
 If you do not receive a verification code, select **Request a new verification code** in the verification step to ask Apple to send another code.
 
