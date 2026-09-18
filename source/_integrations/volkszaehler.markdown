@@ -10,6 +10,7 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
