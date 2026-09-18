@@ -2,6 +2,7 @@
 title: NexBlue
 description: Instructions for integrating NexBlue EV chargers with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Energy
   - Sensor
@@ -67,7 +68,7 @@ The integration provides the following charger information:
 The integration provides the following binary sensors:
 
 - **Cable lock state**: Whether the charging cable is locked by the charger.
-- **Availability**: Whether charging is enabled on the charger.
+- **Charging enabled**: Whether charging is enabled on the charger.
 
 ### Switches
 
