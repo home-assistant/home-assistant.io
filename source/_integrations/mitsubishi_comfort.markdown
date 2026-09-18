@@ -23,7 +23,7 @@ This integration provides climate control for indoor units. It can also discover
 {% important %}
 Mitsubishi has removed information required for local control from its API responses for new Mitsubishi Comfort accounts. If your account does not provide these credentials, your indoor units use cloud control, which requires an internet connection and access to Mitsubishi's service. Kumo Station devices still require local-control credentials.
 
-Existing installations can continue to use local control if Home Assistant has cached the required credentials or your account still provides them. Avoid removing a working integration, as you may lose the ability to control your devices locally. See [the issue discussion](https://github.com/home-assistant/core/issues/181213) for details.
+Existing installations can continue to use local control if Home Assistant has cached the required credentials or your account still provides them. Avoid removing a working integration, as you may lose the ability to control your devices locally.
 {% endimportant %}
 
 ## Supported devices
