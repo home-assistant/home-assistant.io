@@ -21,11 +21,11 @@ The following configuration options are available:
 
 {% configuration_basic %}
 Host:
-description: The IP address or hostname of the Volkszaehler server. The default is `localhost`.
+  description: The IP address or hostname of the Volkszaehler server. The default is `localhost`.
 Port:
-description: The port number of the Volkszaehler server. The default is `80`.
+  description: The port number of the Volkszaehler server. The default is `80`.
 UUID:
-description: The UUID of the channel to monitor. In the Volkszaehler Web UI, select the information icon next to the channel to find it.
+  description: The UUID of the channel to monitor. In the Volkszaehler Web UI, select the information icon next to the channel to find it.
 {% endconfiguration_basic %}
 
 Each channel adds sensors for average power, consumption, maximum power, and minimum power. To monitor another channel, add it as a subentry of the Volkszaehler integration.
