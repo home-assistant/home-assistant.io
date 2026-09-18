@@ -43,7 +43,7 @@ icon:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` to keep a constant icon color that does not reflect the entity state, which is useful for entities that do not report a meaningful state.
   type: string
   default: state
 show_entity_picture:
@@ -158,3 +158,5 @@ features:
 ## Available colors
 
 The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).
+
+The special value `none` keeps the icon color constant instead of reflecting the entity state.
