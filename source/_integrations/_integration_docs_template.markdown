@@ -239,16 +239,6 @@ If pairing still fails after verifying the prerequisites, check the following:
 
 {% enddetails %}
 
-{% details "The device goes unavailable after a day" %}
-
-### Symptom: The device becomes unavailable after a day
-
-#### Resolution
-
-Make sure you turned off the device's power-saving mode.
-
-{% enddetails %}
-
 ## Removing the integration
 
 This integration follows standard integration removal.
