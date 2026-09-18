@@ -21,7 +21,7 @@ The following configuration options are available:
 
 {% configuration_basic %}
 Host:
-  description: The IP address or hostname of the Volkszaehler server. For example, `localhost`.
+  description: The IP address or hostname of the Volkszaehler server. For example, `192.168.1.100` or `volkszaehler.local`.
 Port:
   description: The port number of the Volkszaehler server. The default is `80`.
 UUID:
