@@ -19,6 +19,14 @@ The **Marantz RS-232** {% term integration %} lets you control a Marantz receive
 
 _This integration currently only supports the 2007 Marantz protocol._
 
+## Tested models
+
+The integration has been tested with the following models:
+
+- Marantz SR7002
+
+Other receivers using the 2007 Marantz protocol may also work but have not been tested.
+
 ## Prerequisites
 
 - A Marantz receiver with an RS-232 port.
@@ -35,8 +43,6 @@ Port:
 There are no additional configuration options after setup.
 
 ## Supported functionality
-
-Initial testing was performed with a Marantz SR7002.
 
 Home Assistant adds a media player {% term entity %} for the main zone and another for the multi-room output when it responds during setup.
 
