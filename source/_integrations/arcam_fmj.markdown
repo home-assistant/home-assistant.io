@@ -3,6 +3,7 @@ title: Arcam FMJ Receivers
 description: Instructions on how to integrate Arcam FMJ Receivers into Home Assistant.
 ha_category:
   - Media player
+  - Select
 ha_release: 0.96
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - media_player
+  - select
   - sensor
 ha_integration_type: device
 ---
