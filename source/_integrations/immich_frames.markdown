@@ -36,6 +36,8 @@ During setup, select the existing Immich account and choose a source. Home Assis
 
 The frame's options let you choose the pairing mode, image orientation, rolling time range, pairing window, output shape, and **Photo fitting**. The initial defaults are **All photos**, **Single photos only**, **Mixed orientations**, **All time**, a 2-day pairing window, **Landscape (1280 × 800)**, and **Show full photo**. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
 
+Immich reports capture times as local wall-clock values. Immich Frames preserves those values for time-range filtering, ordering, and portrait pairing, and uses Home Assistant's configured local clock when excluding future captures. Keep the Immich server and Home Assistant time zones aligned for the most predictable rolling time ranges.
+
 {% include integrations/option_flow.md %}
 
 ## Entities
