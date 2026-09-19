@@ -1,0 +1,99 @@
+blueprint:
+  name: Put a Mitsubishi WF-RAC airco into Home Leave while nobody is in
+  description: >
+    Home Leave holds the room within a wide band instead of letting it drift,
+    so the unit does not have to pull it all the way back on your return. It is
+    offered as the `away` preset, and it needs the unit to be cooling or
+    heating already: that is what tells it which direction to hold. This leaves
+    a unit that is off, in dry, auto or fan-only alone.
+  domain: automation
+  author: blues-sechseck
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    airco:
+      name: Airco
+      description: >
+        The Mitsubishi WF-RAC unit to put into Home Leave. Only units that
+        report the capability offer the preset.
+      selector:
+        entity:
+          filter:
+            - integration: mitsubishi_wf_rac
+              domain: climate
+
+    presence:
+      name: Presence
+      description: A person, device tracker or group that says whether anybody is in.
+      selector:
+        entity:
+          filter:
+            - domain: person
+            - domain: device_tracker
+            - domain: group
+
+    away_delay:
+      name: Away for
+      description: How long everybody has to be gone before the unit falls back.
+      default:
+        minutes: 30
+      selector:
+        duration:
+
+    resume:
+      name: Leave Home Leave on return
+      description: >
+        Restores a normal setpoint the moment presence comes back. The unit
+        does not remember what was set before Home Leave, so it lands on a
+        plain 21 °C rather than on your previous setting.
+      default: true
+      selector:
+        boolean:
+
+variables:
+  resume: !input resume
+
+triggers:
+  - trigger: state
+    entity_id: !input presence
+    to: "not_home"
+    for: !input away_delay
+    id: away
+  - trigger: state
+    entity_id: !input presence
+    to: "home"
+    id: home
+
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: away
+          # Cooling or heating only: any other mode has no direction to hold,
+          # and the preset is refused there.
+          - condition: state
+            entity_id: !input airco
+            state:
+              - cool
+              - heat
+        sequence:
+          - action: climate.set_preset_mode
+            target:
+              entity_id: !input airco
+            data:
+              preset_mode: away
+      - conditions:
+          - condition: trigger
+            id: home
+          - "{{ resume }}"
+          - condition: state
+            entity_id: !input airco
+            attribute: preset_mode
+            state: away
+        sequence:
+          - action: climate.set_preset_mode
+            target:
+              entity_id: !input airco
+            data:
+              preset_mode: none
