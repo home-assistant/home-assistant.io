@@ -3,6 +3,7 @@ title: Bryant Evolution
 description: Instructions for how to integrate a Bryant Evolution HVAC system using a System Access Module.
 ha_category:
   - Climate
+  - Serial
 featured: false
 ha_release: 2024.8
 ha_iot_class: Local Polling
@@ -18,6 +19,8 @@ ha_codeowners:
 The **Bryant Evolution** {% term integration %} lets you control Bryant Evolution HVAC systems.
 
 ## Prerequisites
+
+{% include integrations/serial_connected.md %}
 
 - It requires that a System Access Module be connected to the HVAC system (for example, a Bryant SYSTXBBRCT01).
 
