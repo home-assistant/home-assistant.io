@@ -19,13 +19,13 @@ The **Marantz RS-232** {% term integration %} lets you control a Marantz SR7002 
 
 ## Supported devices
 
-This integration supports the **Marantz SR7002**, using its 2007-generation serial protocol. Other Marantz models and protocol generations are not supported.
+This integration supports the Marantz SR7002, using its 2007-generation serial protocol. Other Marantz models and protocol generations are not supported.
 
 ## Prerequisites
 
 - A Marantz SR7002 receiver with its RS-232 port connected to the system running Home Assistant.
 - A compatible RS-232 cable and serial port, USB-to-RS-232 adapter, or remote serial proxy.
-- For a remote serial proxy, configure the receiver connection for **9600 baud, 8 data bits, no parity, and 1 stop bit**.
+- For a remote serial proxy, configure the receiver connection for 9600 baud, 8 data bits, no parity, and 1 stop bit.
 - Turn the receiver on for the initial setup.
 
 {% include integrations/config_flow.md %}
@@ -34,6 +34,8 @@ This integration supports the **Marantz SR7002**, using its 2007-generation seri
 Port:
     description: "The serial port connected to your SR7002. Select a local adapter or a configured remote serial proxy."
 {% endconfiguration_basic %}
+
+There are no additional configuration options after setup.
 
 ## Supported functionality
 
@@ -45,6 +47,20 @@ Both entities support:
 - Setting the volume and stepping it up or down.
 - Muting and unmuting.
 - Selecting an input source supported by the SR7002.
+
+## Use cases
+
+- Include the receiver in a movie-night scene that selects the TV input and sets the listening volume.
+- Control the multi-room output independently from the main listening area.
+- Put an output in standby at bedtime to avoid leaving it on overnight.
+
+## Marantz RS-232 automation examples
+
+### Automation: Put an output in standby at a set time
+
+Use this blueprint to turn off the main zone or multi-room output at a time you choose each day. Create a separate automation for each output if you want different schedules.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/marantz_rs232_scheduled_standby.yaml" %}
 
 ## Data updates
 
