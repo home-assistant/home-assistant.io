@@ -53,14 +53,6 @@ Both entities support:
 - Control the multi-room output independently from the main listening area.
 - Put an output in standby at bedtime to avoid leaving it on overnight.
 
-## Marantz RS-232 automation examples
-
-### Automation: Put an output in standby at a set time
-
-Use this blueprint to turn off the main zone or multi-room output at a time you choose each day. Create a separate automation for each output if you want different schedules.
-
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/marantz_rs232_scheduled_standby.yaml" %}
-
 ## Data updates
 
 The integration enables automatic status feedback when it connects. Changes made with the receiver's remote control or front panel are pushed to Home Assistant over the serial connection, without regular {% term polling %}.
