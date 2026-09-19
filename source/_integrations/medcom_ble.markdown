@@ -13,7 +13,7 @@ ha_bluetooth: true
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates International Medcom Bluetooth-enabled radiation monitors into Home Assistant.

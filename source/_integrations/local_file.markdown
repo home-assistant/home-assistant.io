@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 The **Local file** camera {% term integration %} allows you to integrate an image file from disk into Home Assistant as a camera. If the image is updated on the file system, the image displayed in Home Assistant will also be updated. The `local_file.update_file_path` action can be used to update the image using an automation.
@@ -24,11 +25,4 @@ The file path must be added to [allowlist_external_dirs](/integrations/homeassis
 
 {% include integrations/config_flow.md %}
 
-### Action `local_file.update_file_path`
-
-Use this action to change the file displayed by the camera.
-
-| Data attribute | Description                                          |
-| ---------------------- | ---------------------------------------------------- |
-| `entity_id`            | String of the `entity_id` of the camera to update.   |
-| `file_path`            | The full path to the new image file to be displayed. |
+{% include integrations/actions.md %}

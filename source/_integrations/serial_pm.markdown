@@ -9,6 +9,7 @@ ha_domain: serial_pm
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Particulate matter sensors measure the amount of very small particles in the air.

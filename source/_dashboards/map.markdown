@@ -10,7 +10,7 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /docs/configuration/basic/#editing-the-general-settings
+  - docs: /docs/configuration/basic/#editing-the-home-information
     title: Edit your home location
   - docs: /getting-started/presence-detection/
     title: Getting started tutorial on presence detection
@@ -19,11 +19,16 @@ related:
 The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
-<img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
+<img src='/images/dashboards/map_card.webp' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
-## Adding the map card to your dashboard
+The two buttons below the zoom controls let you manage the markers and map viewport:
+
+- **Toggle grouping** enables or disables clustering of nearby markers.
+- **Reset focus** adjusts the map view to fit the displayed entities.
+
+## Adding the map card to a dashboard
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
@@ -33,7 +38,7 @@ Screenshot of the map card.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 2. [Add the map card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.
 3. By default, you see the house {% icon "mdi:house" %} icon on your map. It represents your [home zone](/integrations/zone/#about-the-home-zone).
-   - To change the location of your home, you need to [edit your home's location in the general settings](/docs/configuration/basic/#editing-the-general-settings).
+   - To change the location of your home, you need to [edit your home's location in the home information](/docs/configuration/basic/#editing-the-home-information).
 
     ![Edit map card settings](/images/dashboards/map_card_config.png)
 4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
@@ -57,13 +62,18 @@ type:
   description: "`map`"
   type: string
 entities:
-  required: true
-  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this or the `geo_location_sources` configuration option is required.
+  required: false
+  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this, `show_all`, or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
-  required: true
-  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
+  required: false
+  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
+show_all:
+  required: false
+  description: Automatically add all entities with coordinates to the map card. (Default behavior of Map panel)
+  type: boolean
+  default: false
 auto_fit:
   required: false
   description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated.
@@ -87,6 +97,11 @@ default_zoom:
   description: The default zoom level of the map. Use a lower number to zoom out and a higher number to zoom in.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
+scale_ruler:
+  required: false
+  description: Shows a ruler that indicates the current scale of the map.
+  type: boolean
+  default: false
 theme_mode:
   required: false
   description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
@@ -97,6 +112,15 @@ hours_to_show:
   description: Shows a path of previous locations. Hours to show as path on the map.
   type: integer
   default: 0
+cluster:
+  required: false
+  description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
+  type: boolean
+  default: true
+conditions:
+  required: false
+  description: List of conditions to check for entity visibility. See [description](#conditions-options).
+  type: list
 {% endconfiguration %}
 
 {% important %}
@@ -108,6 +132,23 @@ The `default_zoom` value will be ignored if it is set higher than the current zo
 after fitting all visible entity markers in the map window. In other words, this can only
 be used to zoom the map _out_ by default.
 {% endnote %}
+
+## Conditions options
+
+You can specify one or more `conditions`, in which case every selected entity will be tested against each condition and shown if it passes every condition. See [available conditions](/dashboards/conditional/#conditions-options). For conditions which accept an `entity` id, this will be automatically set to the entity being tested.
+
+### Examples
+
+Map all locatable entities, except hiding those that have a state of `home`.
+
+```yaml
+type: map
+auto_fit: true
+show_all: true
+conditions:
+  - condition: state
+    state_not: home
+```
 
 ## Options for entities
 
@@ -125,7 +166,15 @@ name:
 label_mode:
   required: false
   default: name
-  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+attribute:
+  required: false
+  description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false
@@ -134,7 +183,7 @@ focus:
   type: boolean
 {% endconfiguration %}
 
-## Options for geolocation sources:
+## Options for geolocation sources
 
 If you define geolocation sources as objects instead of strings (by adding `source:` before the ID), you can add more customization and configuration.
 
@@ -142,6 +191,19 @@ If you define geolocation sources as objects instead of strings (by adding `sour
 source:
   required: true
   description: Name of a geolocation source, or `all`.
+  type: string
+label_mode:
+  required: false
+  default: name
+  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name.
+  type: string
+attribute:
+  required: false
+  description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false
@@ -171,6 +233,8 @@ geo_location_sources:
 entities:
   - zone.home
 ```
+
+The `sensor.gas_station_gas_price` entity in the following example is a placeholder. Replace it with an existing entity that has numeric `latitude` and `longitude` attributes.
 
 ```yaml
 type: map

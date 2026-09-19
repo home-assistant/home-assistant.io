@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
@@ -66,7 +67,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., 192.168.1.1.
+  description: The IP address of your router, for example, `192.168.1.1`.
   required: true
   type: string
 username:

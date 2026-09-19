@@ -15,10 +15,10 @@ ha_platforms:
   - button
   - cover
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The OpenGarage integration lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
+The **OpenGarage** {% term integration %} lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
 
 {% include integrations/config_flow.md %}

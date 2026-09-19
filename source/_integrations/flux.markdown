@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `flux` switch {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
+The **Flux** {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
 
 The {% term integration %} will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 
@@ -84,7 +84,7 @@ disable_brightness_adjust:
   type: boolean
   default: false
 mode:
-  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
+  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` (alias to kelvin) and `rgb`.
   required: false
   default: xy
   type: string

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Trenitalia ViaggiaTreno** {% term integration %} will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.

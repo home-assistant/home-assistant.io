@@ -13,7 +13,8 @@ ha_domain: autarco
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Autarco** {% term integration %} allows you to gather data from the cloud API of [Autarco](https://www.autarco.com) and use it in Home Assistant.
@@ -22,7 +23,25 @@ Autarco is a Dutch company that provides solar panels, inverters and batteries. 
 
 {% include integrations/config_flow.md %}
 
-## Sensors
+### Configuration parameters
+
+{% configuration_basic %}
+Email:
+  description: The email address of your Autarco account.
+Password:
+  description: The password of your Autarco account.
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration will update its information by polling Autarco every
+5 minutes. This ensures the data in Home Assistant is up to date.
+
+## Actions
+
+This integration does not provide additional actions.
+
+## Supported functionality
 
 The Autarco platform mainly provides sensors that you can use in your [energy dashboard](/energy).
 
@@ -54,3 +73,17 @@ If you have a battery connected to your system, you can monitor the battery stat
 - Charged energy today (kWh)
 - Charged energy this month (kWh)
 - Charged energy total (kWh)
+
+## Known limitations
+
+The integration does not show data about your self-sufficiency or CO2 savings.
+
+## Troubleshooting
+
+There are no commonly known issues with this integration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

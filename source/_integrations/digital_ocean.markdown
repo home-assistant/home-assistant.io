@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Digital Ocean** {% term integration %} allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.

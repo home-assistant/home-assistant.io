@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `opple` light {% term integration %} allows you to control the state of your Opple smart light.
+The **Opple** {% term integration %} allows you to control the state of your Opple smart light.
 
 The platform supports all Opple lights with Wi-Fi support or lights that can be controlled by the App.
 

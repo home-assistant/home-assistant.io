@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `ripple` sensor {% term integration %} displays Ripple wallet balances from [Ripple.com](https://ripple.com).
+The **Ripple** {% term integration %} displays Ripple wallet balances from [Ripple.com](https://ripple.com).
 
 To add the Ripple {% term integration %} to your installation, specify a ripple address to watch in the {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

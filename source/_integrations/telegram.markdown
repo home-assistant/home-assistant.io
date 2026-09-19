@@ -12,9 +12,17 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `telegram` {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+{% warning %}
+
+The **Telegram** integration has been marked for deprecation and will be removed in the future.
+Please use the [Telegram bot integration](/integrations/telegram_bot) instead.
+
+{% endwarning %}
+
+The **Telegram** {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
 ## Setup example
 
@@ -30,19 +38,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
    - Then, enter `/start`. 
    - The bot will return your chat ID and the username.
-3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
-   - Paste this into your [configuration file](/docs/configuration/):
-   - Replace the `api_key` and the `allowed_chat_ids` with your data.
-  
-      ```yaml
-      # Telegram Bot
-      telegram_bot:
-        - platform: polling
-          api_key: "1117774004:EABQulCACdgkQOTN3hS_5HZwSwxDlekCixr"
-          allowed_chat_ids:
-            - 44441111
-      ```
-
+3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot).
 4. Create a notifier:
    - Paste this into your configuration file: 
    - Replace the `name` and the `chat_id` with your data.
@@ -59,7 +55,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 5. From the conversation with BotFather, select the link to open a chat with your new bot.
 6. In the chat with the new bot, enter `/start`.
 7. Test the action:
-   - Go to [**Developer tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+   - Go to [**Settings** > **Tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
    - Paste this into the YAML file:
    - Replace the `service` and the `message` with your data.
   
@@ -223,7 +219,7 @@ actions:
           - file: /tmp/picture.jpg
             caption: "Picture Title xy"
           - url: http://somebla.ie/video.png
-            caption: "i.e., for a Title"
+            caption: "For example, a title"
 ```
 
 {% configuration %}
@@ -299,7 +295,7 @@ actions:
           - file: /tmp/video.mp4
             caption: "Video Title xy"
           - url: http://somebla.ie/video.mp4
-            caption: "i.e., for a Title"
+            caption: "For example, a title"
 ```
 
 {% configuration %}
@@ -451,8 +447,9 @@ actions:
       data:
         parse_mode: html
         message_tag: "example_tag"
-        disable_notification: True
-        disable_web_page_preview: True
+        disable_notification: true
+        disable_web_page_preview: true
+        message_thread_id: 123
 ```
 
 {% configuration %}
@@ -467,10 +464,15 @@ disable_notification:
   type: boolean
 disable_web_page_preview:
   description: True/false to display a webpage preview.
+  required: false
   default: false
   type: boolean
 message_tag:
   description: Tag for sent message.
   required: false
   type: string
+message_thread_id:
+  description: Send the message to a specific topic or thread.
+  required: false
+  type: integer
 {% endconfiguration %}

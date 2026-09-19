@@ -9,9 +9,10 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `twitter` notification platform uses [X](https://twitter.com) to deliver notifications from Home Assistant.
+The **X** {% term integration %} uses [X](https://twitter.com) to deliver notifications from Home Assistant.
 
 ## Setup
 

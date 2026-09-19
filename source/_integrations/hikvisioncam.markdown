@@ -14,9 +14,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This `hikvisioncam` switch {% term integration %} allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.
+This **Hikvision** {% term integration %} allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.
 
 {% important %}
 Currently works using default HTTPS port only.

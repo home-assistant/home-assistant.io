@@ -1,6 +1,6 @@
 ---
 title: Smappee
-description: Instructions on how to setup Smappee within Home Assistant.
+description: Instructions on how to set up Smappee within Home Assistant.
 ha_category:
   - Binary sensor
   - Energy
@@ -18,13 +18,13 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The Smappee {% term integration %} will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local option.
+The **Smappee** {% term integration %} will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local option.
 
 ## Smappee monitors
 
@@ -74,7 +74,7 @@ smappee:
 
 Once Home Assistant restarted, go to **Settings** > **Devices & services** and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
-Using the Smappee cloud integration allows you to access your Smappee monitor and other shared devices from outside your local network. Additionally a number of (binary) sensor entities become available as well.
+Using the Smappee cloud integration allows you to access your Smappee monitor and other shared devices from outside your local network. Additionally, several (binary) sensor entities become available as well.
 
 ### Sensor
 

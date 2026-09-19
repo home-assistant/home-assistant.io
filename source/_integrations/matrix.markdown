@@ -15,6 +15,7 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This {% term integration %} allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -47,7 +48,7 @@ username:
   required: true
   type: string
 password:
-  description: The password for your Matrix account.
+  description: "The password for your Matrix account. It is only used when there is no valid access token stored yet. See [Authentication](#authentication)."
   required: true
   type: string
 homeserver:
@@ -71,11 +72,15 @@ commands:
   default: empty
   keys:
     word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with '!my_command'."
+      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will handle any message starting with '!my_command'."
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will handle any message that matches the regular expression."
+      required: false
+      type: string
+    reaction:
+      description: "Specifies an emoji reaction that the bot should listen to. The bot will handle any message that is reacted to with this emoji."
       required: false
       type: string
     name:
@@ -90,20 +95,62 @@ commands:
 {% endconfiguration %}
 
 {% warning %}
-In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
+
+### Authentication
+
+The integration signs in with the username and password from your configuration. After a successful sign-in, it saves the access token that the homeserver returned to a file named `.matrix.conf` in your configuration directory, next to your {% term "`configuration.yaml`" %} file.
+
+On every restart, the integration first tries the saved access token and only signs in with the password if the homeserver rejects that token. The file is only created after the first successful sign-in, so it is normal that it is not there yet on a new installation.
+
+Because `.matrix.conf` starts with a dot, some backup and file copy tools skip it. Include it when you back up, move, or rebuild your installation, so that the integration keeps its session.
+
+#### Setting up authentication with an access token
+
+Some homeservers don't allow accounts to sign in with a password. For example, on a homeserver that uses Matrix Authentication Service together with an external single sign-on provider and has password sign-in turned off.
+
+In this case, the integration can't sign in with single sign-on, but it works with an access token that you create yourself:
+
+{% important %}
+
+**Risk of unauthorized account access**
+
+The access token grants full access to the Matrix account. If the token is exposed, anyone who obtains it can read and send messages as this account until the token is revoked.
+
+To reduce this risk:
+
+- Store the token as securely as a password.
+- If the token is ever exposed, end that session on your homeserver and create a new token.
+{% endimportant %}
+1. On your homeserver, create an access token for the Matrix account that Home Assistant uses. How you do this depends on your homeserver:
+
+   - On a homeserver that uses [Matrix Authentication Service](https://element-hq.github.io/matrix-authentication-service/), an administrator can create a long-lived compatibility token with the [`mas-cli manage issue-compatibility-token`](https://element-hq.github.io/matrix-authentication-service/reference/cli/manage.html#manage-issue-compatibility-token) command. It takes the local part of the Matrix ID, for example `my_matrix_bot`, and not the full Matrix ID. The token is shown only once, so copy it right away.
+   - On a Synapse homeserver without Matrix Authentication Service, an administrator can use the [login as a user](https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#login-as-a-user) admin API. By default, the tokens it returns do not expire.
+    
+2. Create or edit the file `.matrix.conf` in your configuration directory. It holds one entry per Matrix ID:
+
+   ```json
+   {
+     "@my_matrix_bot:example.com": "YOUR_ACCESS_TOKEN"
+   }
+   ```
+
+   If the file already exists, change only the value that belongs to your Matrix ID and leave the rest of the file as it is. Make sure Home Assistant can read the file.
+
+3. Keep the `password` option in your configuration. It is required, but it is not used while the access token works. If the account has no password, you can enter any text as its value.
+
+4. Restart Home Assistant and send a test message. A full restart is needed, because the integration only reads `.matrix.conf` during startup.
 
 ### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
-If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
+If the command is a word command, the `data` field contains a list of the command's arguments, that is, everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
 ### Comprehensive Configuration Example
 
 This example also uses the [matrix `notify` platform](#notifications).
-
-{% raw %}
 
 ```yaml
 # The Matrix integration
@@ -121,6 +168,8 @@ matrix:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
       name: introduction
+    - reaction: 👍
+      name: thumbsup
 
 notify:
   - name: matrix_notify
@@ -128,7 +177,7 @@ notify:
     default_room: "#hasstest:matrix.org"
 
 automation:
-  - alias: "React to !testword"
+  - alias: "Respond to !testword"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -139,7 +188,7 @@ automation:
         data:
           message: "It looks like you wrote !testword"
 
-  - alias: "React to an introduction"
+  - alias: "Respond to an introduction"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -149,14 +198,39 @@ automation:
       - action: notify.matrix_notify
         data:
           message: "Hello {{trigger.event.data.args['name']}}"
-```
 
-{% endraw %}
+  - alias: "Respond to a reaction in a thread"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: thumbsup
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "I saw that {{trigger.event.data.args['reaction']}} -- glad you appreciated this!"
+          data:
+            thread_id: "{{trigger.event.data.thread_parent}}"
+
+  - alias: "React to a command"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
+    actions:
+      - action: matrix.react
+        data:
+          reaction: "✅"
+          room: "{{trigger.event.data.room}}"
+          message_id: "{{trigger.event.data.event_id}}"
+```
 
 This configuration will:
 
-- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
+- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel and also place a ✅ reaction on the original message.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
+- Listen in both rooms for messages reacted to with 👍 and answer in a thread with "I saw that 👍 -- glad you appreciated this!"
 
 ## Notifications
 
@@ -187,7 +261,6 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
 
 ### Message formats
 
@@ -231,4 +304,48 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 ```
+
 {% endimportant %}
+
+### Replying in threads
+
+The `matrix_command` event will contain an `event_id` field that represents the message identifier for the received message.
+It will also contain a `thread_parent` field that contains the message identifier for the parent message of the thread.
+If the message was inside of a thread, `thread_parent` will be the identifier of the root message of the thread. If it
+is not inside of a thread, `thread_parent` will be the same as `event_id`.
+
+To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
+a reply message. For example:
+
+```yaml
+action: notify.matrix_notify
+data:
+  message: "Reply message goes here"
+  data:
+    thread_id: "{{ trigger.event.data.thread_parent }}"
+```
+
+{% include integrations/actions.md %}
+
+## Troubleshooting
+
+### Home Assistant stopped sending Matrix messages
+
+#### Symptom: "Login failed, both token and username/password are invalid"
+
+Messages are no longer delivered to your Matrix rooms, and {% my logs title="**Settings** > **System** > **Logs**" %} shows the message `Login failed, both token and username/password are invalid`.
+
+#### Description
+
+The homeserver rejected the saved access token, and signing in with the password did not work either. The saved access token stops working when one of the following happens:
+
+- The session or the device of the Matrix account was ended on the homeserver, for example by signing the account out everywhere.
+- The file `.matrix.conf` was deleted.
+- The homeserver ends sessions that were inactive for a long time.
+
+Normally, the integration then signs in again with the password. On a homeserver that doesn't allow password sign-in, that is not possible, so the integration stays signed out until you provide a new access token.
+
+#### Resolution
+
+- If your homeserver allows password sign-in, check the `username` and `password` options in your {% term "`configuration.yaml`" %} file, then restart Home Assistant.
+- If your homeserver doesn't allow password sign-in, create a new access token and save it in `.matrix.conf`, as described in [Homeservers that don't allow password sign-in](#homeservers-that-dont-allow-password-sign-in).

@@ -7,8 +7,6 @@ ha_category:
   - Presence detection
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_codeowners:
-  - '@ludeeus'
 ha_domain: traccar_server
 ha_platforms:
   - binary_sensor
@@ -21,7 +19,7 @@ ha_integration_type: integration
 Traccar uses GPS for tracking and has support for over 1500 different types of devices. You can use the Traccar Server integration to communicate with your own [Traccar Server](https://www.traccar.org/server/), which is also available as [Home Assistant add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_traccar).
 
 {% tip %}
-Looking for documentation on how to setup the Traccar Client with webhooks in Home Assistant? See the [Traccar Client](/integrations/traccar/) integration documentation.
+Looking for documentation on how to set up the Traccar Client with webhooks in Home Assistant? See the [Traccar Client](/integrations/traccar/) integration documentation.
 {% endtip %}
 
 {% include integrations/config_flow.md %}
@@ -40,7 +38,6 @@ Examples:
 All events will also have the following data:
 
 {% configuration_basic %}
-
 Device ID:
   description: (`device_traccar_id`) This will be the device ID that the event is related to.
 Device name:
@@ -51,7 +48,6 @@ Server time:
   description: (`serverTime`) This will be the time the event was received by the Traccar Server.
 Attributes:
   description: (`attributes`) This will be a dictionary of attributes related to the event.
-
 {% endconfiguration_basic %}
 
 {% details "Example" %}
@@ -276,7 +272,7 @@ actions:
 
 {% enddetails %}
 
-#### Do something when a device are speeding
+#### Do something when a device is speeding
 
 The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 

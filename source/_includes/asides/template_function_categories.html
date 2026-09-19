@@ -1,0 +1,15 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h2 class="h1 title epsilon">{% icon "mdi:category" %} Categories</h2>
+    <ul class='divided'>
+      {%- for cat in site.data.template_function_categories -%}
+        {%- assign cat_count = site.template_functions | where: 'category', cat.key | size -%}
+        {%- if cat_count > 0 -%}
+        <li{% if cat.key == page.category %} class="active"{% endif %}>
+          <a href='/template-functions/#{{ cat.key }}'><iconify-icon inline icon='{{ cat.icon }}'></iconify-icon> {{ cat.label }}</a>
+        </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>

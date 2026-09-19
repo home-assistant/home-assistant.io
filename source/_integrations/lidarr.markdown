@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Lidarr integration pulls data from a specified [Lidarr](https://lidarr.audio/) instance.
+The **Lidarr** {% term integration %} pulls data from a specified [Lidarr](https://lidarr.audio/) instance.
 
 {% include integrations/config_flow.md %}
 

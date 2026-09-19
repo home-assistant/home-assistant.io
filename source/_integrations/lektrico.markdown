@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: lektrico
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - button
   - number
   - select
@@ -19,7 +20,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **Lektrico Charging Station** integration integrates your [Lektrico Charging Station](https://lektri.co) into your Home Assistant and allows you to monitor it.
+The **Lektrico Charging Station** {% term integration %} integrates your [Lektrico Charging Station](https://lektri.co) into your Home Assistant and allows you to monitor it.
 
 The Lektrico Charging Station device will be added as a sensor in Home Assistant.
 
@@ -108,11 +109,12 @@ Buttons available in the library:
 
 ### Chargers
 
-| Button              | Description                        |
-| :------------------ | :--------------------------------- |
-| charge_start        | Command charger to start charging. |
-| charge_stop         | Command charger to stop charging.  |
-| reboot              | Reboot charger.                    |
+| Button                     | Description                        |
+| :------------------------- | :--------------------------------- |
+| charge_start               | Command charger to start charging. |
+| charge_stop                | Command charger to stop charging.  |
+| charging_schedule_override | Command charger to override the charging schedule for the next charging session. |
+| reboot                     | Reboot charger.                    |
 
 ### Energy meters
 
@@ -149,13 +151,13 @@ Switches available in the library:
 
 | Switch              | Description                             |
 | :------------------ | :-------------------------------------- |
-| authentication      | Allows to select if the charger will automatically start to charge or if it needs authentication. |
-| lock                | Allows to select if the charger is locked or not. When the charger is locked, no charging is possible.|
+| authentication      | Allows you to select if the charger will automatically start to charge or if it needs authentication. |
+| lock                | Allows you to select if the charger is locked or not. When the charger is locked, no charging is possible.|
 
 ### Three-phase charger
 
 | Switch              | Description                             |
 | :------------------ | :-------------------------------------- |
-| authentication      | Allows to select if the charger will automatically start to charge or if it needs authentication. |
-| lock                | Allows to select if the charger is locked or not. When the charger is locked, no charging is possible.|
-| force_single_phase  | Allows to put the three-phase charger in single-phase mode or three-phase mode. |
+| authentication      | Allows you to select if the charger will automatically start to charge or if it needs authentication. |
+| lock                | Allows you to select if the charger is locked or not. When the charger is locked, no charging is possible.|
+| force_single_phase  | Allows you to put the three-phase charger in single-phase mode or three-phase mode. |

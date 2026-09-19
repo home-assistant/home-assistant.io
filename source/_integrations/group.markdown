@@ -1,6 +1,6 @@
 ---
 title: Group
-description: Instructions on how to setup groups within Home Assistant.
+description: Instructions on how to set up groups within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -15,6 +15,7 @@ ha_category:
   - Organization
   - Sensor
   - Switch
+  - Valve
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -34,10 +35,11 @@ ha_platforms:
   - notify
   - sensor
   - switch
+  - valve
 ha_integration_type: helper
 ---
 
-The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
+The **Group** {% term integration %} lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
 
 This can be useful, for example, in cases where you want to control multiple bulbs in a light fixture as a single light in Home Assistant. You also have the option of hiding the individual member entities in a group.
 
@@ -46,13 +48,17 @@ The following entities can be grouped:
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
 - [cover (covers)](/integrations/cover/)
-- [fan (fans)](/integrations/fan/)
-- [switch (switches)](/integrations/switch/)
-- [lock (locks)](/integrations/lock/)
-- [light (lights)](/integrations/light/)
 - [event (events)](/integrations/event/)
+- [fan (fans)](/integrations/fan/)
+- [input_number (input_numbers)](/integrations/input_number/)
+- [light (lights)](/integrations/light/)
+- [lock (locks)](/integrations/lock/)
 - [media player (media players)](/integrations/media_player/)
 - [notify (notifications)](/integrations/notify/)
+- [number (numbers)](/integrations/number/)
+- [sensor (sensors)](/integrations/sensor/)
+- [switch (switches)](/integrations/switch/)
+- [valve (valves)](/integrations/valve/)
 
 {% include integrations/config_flow.md %}
 
@@ -79,6 +85,10 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
 
+{% note %}
+For light groups using HS color mode: When a light group contains two or more lights, whose colors are evenly spaced (180° apart for two, 120° apart for three, and so on), the light group's average color *may* default to either 0° (red) or 180° (light blue). This occurs because averaging opposite hues on the color wheel can mathematically result in unexpected colors due to how hue values wrap around. To avoid this, consider using RGB color mode for your lights, or avoid grouping lights with perfectly opposite colors.
+{% endnote %}
+
 ### Button groups
 
 The group state is the last time the grouped button was pressed.
@@ -86,8 +96,8 @@ The group state is the last time the grouped button was pressed.
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
 
-### Cover groups
-In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
+### Cover and valve groups
+In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
@@ -115,10 +125,12 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `jammed` if at least one group member is `jammed`.
+- Otherwise, the group state is `opening` if at least one group member is `opening`.
 - Otherwise, the group state is `locking` if at least one group member is `locking`.
+- Otherwise, the group state is `open` if at least one group member is `open`.
 - Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
-- Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
-- Otherwise, the group state is `locked`.
+- Otherwise, the group state is `locked` if all group members are `locked`.
+- Otherwise, the group state is `unlocked`.
 
 ### Notify entity groups
 
@@ -136,16 +148,23 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
 - Otherwise, the group state is `off`.
 
-### Sensor groups
+### Sensor, number, and input_number groups
 
-- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), first available, mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
-- The group state is `unavailable` if all group members are `unavailable`.
-- If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
+- The group state is `unavailable` if all group members are either `unavailable` or missing
+- The configuration variable `ignore_non_numeric` controls the behavior of the group when the group is not `unavailable`:
+   - When set to `false` (the default), the group state is calculated as follows:
+      - if all members are in the state machine and have a numeric state: calculated according to the `type` 
+      - otherwise: set to `unknown` 
+   - When set to `true`, the group state is calculated as follows:
+      - if at least one member has a numeric state: calculated according to the `type`
+      - otherwise: set to `unknown`
+- The variable `ignore_non_numeric` can be combined with the type `first_available` to always take the first available numeric state from a group.
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
@@ -188,7 +207,6 @@ Example YAML configuration of a button group:
 button:
   - platform: group
     name: "Restart all ESPHome devices"
-    device_class: opening
     entities:
       - button.device_1_restart
       - button.device_2_restart
@@ -293,6 +311,18 @@ switch:
       - switch.soundbar
 ```
 
+Example YAML configuration of a valve group:
+
+```yaml
+# Example configuration.yaml entry
+valve:
+  - platform: group
+    name: "Garden Valves"
+    entities:
+      - valve.front_garden
+      - valve.back_garden
+```
+
 {% configuration %}
 entities:
   description: A list of entities to be included in the group.
@@ -312,11 +342,11 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `first_available`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:
-  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  description: Only available for `sensor` group. Controls how the [state is calculated when group members have non-numeric state](#sensor-number-and-input_number-groups).
   type: boolean
   required: false
   default: false
@@ -325,7 +355,7 @@ unit_of_measurement:
   type: string
   required: false
 device_class:
-  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](/integrations/sensor/#device-class).
+  description: Only available for `binary-sensor` or `sensor` group. Set the device class according to available options for [binary sensors](/integrations/binary_sensor/#device-class) or [sensors](/integrations/sensor/#device-class) respectively.
   type: string
   required: false
 state_class:
@@ -334,11 +364,11 @@ state_class:
   required: false
 {% endconfiguration %}
 
-## Notify groups
+## Notify action groups
 
-This group is a special case of groups currently only available via YAML configuration.
+Notify action groups are used to combine multiple notification actions into a single one. This allows you to send a notification to multiple devices by performing a single action.
 
-Notify groups are used to combine multiple notification actions into a single action. This allows you to send notification to multiple devices by performing a single action.
+Groups of notify actions are not to be confused with [groups of notify entities](/integrations/group/#notify-entity-groups). Notify entity groups can be created through the UI using a **Notify group** {% term helper %}, while notify action groups are currently only available through YAML configuration.
 
 ```yaml
 # Example configuration.yaml entry
@@ -349,7 +379,7 @@ notify:
       - action: html5
         data:
           target: "macbook"
-      - action: html5_nexus
+      - action: mobile_app_pauluus
 ```
 
 {% configuration %}
@@ -468,7 +498,7 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+These groups can still be in templates with the [`expand()`](/template-functions/expand/) function, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, and so on.
 
 ### Attributes
 
@@ -480,18 +510,4 @@ These are the attributes available for an old-style group.
 | `order`                              | Integer representing the order in which the entity was created, starting with `0`.                           |
 | `auto`                               | Boolean that will always be set to `true`. Only appears in groups that were created with the `set` action.   |
 
-### Actions
-
-This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
-
-| Action   | Data              | Description                                                                   |
-| -------- | ----------------- | ----------------------------------------------------------------------------- |
-| `set`    | `Object ID`       | Group id and part of entity id.                                               |
-|          | `Name`            | Name of the group.                                                            |
-|          | `Icon`            | Name of the icon for the group.                                               |
-|          | `Entities`        | List of all members in the group. Not compatible with **delta**.              |
-|          | `Add Entities`    | List of members that will change on group listening.                          |
-|          | `Remove Entities` | List of members that will be removed from group listening.                    |
-|          | `All`             | Enable this option if the group should only turn on when all entities are on. |
-| `remove` | `Object ID`       | Group id and part of entity id.                                               |
-| `reload` | `Object ID`       | Group id and part of entity id.                                               |
+{% include integrations/actions.md %}

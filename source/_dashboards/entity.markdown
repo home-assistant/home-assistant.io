@@ -10,6 +10,8 @@ related:
     title: Card header and footer
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The entity card gives you a quick overview of your entity's state.
@@ -38,8 +40,8 @@ entity:
   type: string
 name:
   required: false
-  description: Name of entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name.
 icon:
   required: false
@@ -63,6 +65,18 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 footer:
   required: false
   description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).

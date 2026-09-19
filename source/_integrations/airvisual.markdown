@@ -15,23 +15,23 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.
+The **AirVisual Cloud** integration queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.
 
 ## Using the AirVisual Cloud API
 
-AirVisual API keys can be obtained [here](https://www.iqair.com/dashboard/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+AirVisual API keys can be obtained [here](https://dashboard.iqair.com/personal/api-keys). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
 {% note %}
 
-The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
+The "Community" API key is limited to 10,000 calls per month. To accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
 
 For example:
 
 - One instance of the integration: API calls every 5 minutes
 - Two instances of the integration: API calls every 10 minutes
-- etc.
+- And so on.
 
 {% endnote %}
 

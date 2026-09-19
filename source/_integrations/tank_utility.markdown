@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.

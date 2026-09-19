@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for [Cisco](https://www.cisco.com) Mobility Express wireless controllers.
@@ -32,7 +33,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your controller, e.g., 192.168.10.150.
+  description: The IP address of your controller, for example, `192.168.10.150`.
   required: true
   type: string
 username:

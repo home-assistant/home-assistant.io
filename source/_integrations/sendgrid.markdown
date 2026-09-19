@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `sendgrid` notification {% term integration %} sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
+The **SendGrid** {% term integration %} sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
 
 ## Setup
 

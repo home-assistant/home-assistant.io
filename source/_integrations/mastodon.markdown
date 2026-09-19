@@ -1,8 +1,9 @@
 ---
 title: Mastodon
-description: Instructions on how to add Mastodon notifications to Home Assistant.
+description: Instructions on how to add Mastodon posts and account statistics to Home Assistant.
 ha_category:
   - Notifications
+  - Sensor
 ha_release: 0.67
 ha_codeowners:
   - '@fabaff'
@@ -10,92 +11,211 @@ ha_codeowners:
 ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
+  - binary_sensor
   - diagnostics
-  - notify
   - sensor
 ha_integration_type: service
 ha_config_flow: true
+ha_quality_scale: gold
 ---
 
-The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
+The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates, get account statistics, and mute accounts.
 
-### Setup
+## Use cases
+
+- Posting your local weather station details to your Mastodon account.
+- Displaying a count of your followers on your Home Assistant dashboard.
+- Receiving a notification when an account you follow publishes a new status.
+- Muting accounts when you are busy or away to reduce your timeline.
+
+## Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
-If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
+
+Select at a minimum the following scopes: **read:accounts**, **write:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
+
+Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+Client key:
+  description: The client key for the application created within your Mastodon account web interface.
+Client secret:
+  description: The client secret for the application created within your Mastodon account web interface.
+Access token:
+  description: The access token for the application created within your Mastodon account web interface.
+{% endconfiguration_basic %}
+
 ## Sensors
 
-The integration will create sensors for the Mastodon account showing total followers, following, and posts. Sensors are updated once an hour.
+The integration will create the following sensors for the Mastodon account:
 
-## Notifications
+- **Followers**: The total number of accounts that follow this account.
+- **Following**: The total number of accounts this account follows.
+- **Posts**: The total number of posts published by the account.
+- **Last post**: When the last post was published
+- **Username**: Displays the account username and avatar, plus attributes like display name, bio, and creation date.
 
-The integration will create a `notify` action matching the name of the integration entry.
+Sensors are updated once an hour.
 
-### Action usage
+## Binary sensors
 
-Mastodon is a notify platform, and can be used by calling notify action as described in the [notify documentation](/integrations/notify/). It will toot messages using 
-your account. An optional **target** parameter can be given to specify whether your toot will be public, private, unlisted, or direct. 
+- **Bot**: Indicates whether the account performs automated actions, is not actively monitored, or identifies as a bot.
+- **Discoverable**: Indicates whether the account is discoverable. Public posts and the profile may be featured or recommended across Mastodon.
+- **Indexable**: Indicates whether public posts may appear in search results on Mastodon.
+- **Limited**: Indicates whether the account has been [limited](https://docs.joinmastodon.org/admin/moderation/#limit-user) by moderators. Limited accounts are hidden from users on the instance, and their content is not publicly visible.
+- **Moved**: Indicates that the account is inactive because the user has moved to a new account.
+- **Suspended**: Indicates whether the account has been suspended.
+- **Memorial**: Indicates whether the account is marked as a memorial.
 
-| Data attribute         | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `target`               |      yes | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. 
-| `data`                 |      yes | See below for extended functionality. 
+{% include integrations/actions.md %}
 
-### Action data
+## Examples
 
-The following attributes can be placed inside `data` for extended functionality. 
+{% details "Example status post action" %}
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `media`                |      yes | Attach an image or video to the message.
-| `media_warning`        |      yes | If an image or video is attached, `True`: will marked the media as sensitive. `False` is default.
-| `content_warning`      |      yes | Text will be be shown as a warning before the text of the status. If not used, no warning will be displayed.
-
-### Example action
-
-This will post a message to Mastodon. Visibility will default to your account's setting. 
+Example post action that will post a status using your account's default visibility:
 
 ```yaml
-- action: notify.mastodon
-  message: "A toot from Home Assistant"
-```
-
-### Example action - private
-
-This will post a message to Mastodon, but visibility is marked as `private` so only followers will see it.
-
-```yaml
-- action: notify.mastodon
-  message: "A private toot from Home Assistant"
-  target: private
-```
-
-### Example action - with media
-
-This will post a message to Mastodon that includes an image.
-
-```yaml
-- action: notify.mastodon
-  message: "A media toot from Home Assistant"
+- action: mastodon.post
   data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A toot from Home Assistant"
+```
+
+{% enddetails %}
+
+{% details "Example private post action" %}
+
+This will post a status to Mastodon, but visibility is marked as `private` so only followers will see it.
+
+```yaml
+- action: mastodon.post
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A private toot from Home Assistant"
+    visibility: private
+```
+
+{% enddetails %}
+
+{% details "Example status post action avoiding recent duplication" %}
+
+Example post action that will post a status, but ensure that the same status is not posted more than once within one hour. This check is performed by your Mastodon instance.
+
+```yaml
+actions:
+  - variables:
+      toot: A toot from Home Assistant
+  - action: mastodon.post
+    data:
+      config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+      status: "{{ toot }}"
+      idempotency_key: {{ toot | md5 }}
+```
+
+{% enddetails %}
+
+{% details "Example media post action" %}
+
+This will post a status to Mastodon that includes an image.
+
+```yaml
+- action: mastodon.post
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A media toot from Home Assistant"
     media: /config/www/funny_meme.png
 ```
 
-### Example action - with media and content warning to hide post behind a warning
+{% enddetails %}
 
-This will post a message to Mastodon that includes an image and a target of `unlisted`, so it doesn't show in the public timeline.
+{% details "Example post with media and a content warning that will not be visible in the public timeline" %}
+
+This will post a status to Mastodon that includes an image, with a description, a content warning, and a visibility of `unlisted`, so it doesn't show in the public timeline.
 
 ```yaml
-- action: notify.mastodon
-  message: "A media toot from Home Assistant"
-  target: unlisted
+- action: mastodon.post
   data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A media toot from Home Assistant"
+    visibility: unlisted
     media: /config/www/funny_meme.png
+    media_description: "A funny meme"
     content_warning: "This might not be funny enough"
 ```
 
+{% enddetails %}
+
+{% details "Example of muting an account you follow while you are on holiday" %}
+
+This automation will look for an event in your calendar and mute the specified account while the event is active, and unmute at the end of the event.
+
+```yaml
+alias: Mastodon mute example
+description: "Mute a Mastodon account while a calendar event is active"
+triggers:
+  - trigger: calendar.event_started
+    target:
+      entity_id: calendar.YOUR_CALENDAR
+    id: start
+  - trigger: calendar.event_ended
+    target:
+      entity_id: calendar.YOUR_CALENDAR
+    id: end
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - start
+        sequence:
+          - action: mastodon.mute_account
+            data:
+              config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+              account_name: "@commute-news@mytown.online"
+      - conditions:
+          - condition: trigger
+            id:
+              - end
+        sequence:
+          - action: mastodon.unmute_account
+            data:
+              config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+              account_name: "@commute-news@mytown.online"
+```
+
+{% enddetails %}
+
 For more on how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
+
+## Known limitations
+
+The integration does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+Mastodon account details only show the date of the last status you posted, not the time. If you use the `mastodon.get_account` action to monitor new posts, you should instead watch the `statuses_count` field in the action response for changes.
+
+## Troubleshooting
+
+### Unable to use actions
+
+#### Symptom: “Errors appear in the log when using an action”
+
+When using actions errors relating to permissions are shown in the logs.
+
+#### Description
+
+Actions require specific permissions within your Mastodon account to read or write data.
+
+#### Resolution
+
+Ensure that you have set these appropriately within your Mastodon account, please see the [setup instructions](#setup).
+
+## Removing the integration
+
+This integration follows standard integration removal, once the integration is removed you can remove the application registration (assuming it was only used by this integration) from your Mastodon account by going to **Preferences** in the Mastodon web interface, then to **Development** and deleting the application you created for Home Assistant.
+
+{% include integrations/remove_device_service.md %}

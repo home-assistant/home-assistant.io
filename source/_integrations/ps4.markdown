@@ -2,6 +2,7 @@
 title: Sony PlayStation 4
 description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
 ha_category:
+  - Gaming
   - Media player
 ha_release: 0.89
 ha_config_flow: true
@@ -11,16 +12,16 @@ ha_codeowners:
 ha_domain: ps4
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `ps4` integration allows you to control a
-[Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
+The **Sony PlayStation 4** {% term integration %} allows you to control a
+[Sony PlayStation 4 console](https://www.playstation.com/ps4/).
 
 ## Requirements
 
 - Android or iOS device
-- PS4 Second Screen App for [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen&hl=en_US) or [iOS](https://itunes.apple.com/us/app/ps4-second-screen/id1201372796?mt=8) installed on device.
+- PS4 Second Screen App for [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen) or [iOS](https://apps.apple.com/app/id1201372796) installed on device.
 
 ## Set up
 
@@ -50,62 +51,6 @@ Do not run your <b>Home Assistant Core</b> instance itself as <b>root</b> or wit
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter*, which runs your Home Assistant instance, needs access to the mentioned ports.
 
-{% note %}
-Additional configuration is only required for Home Assistant Core users **not** running on Docker.
-{% endnote %}
-
-### Debian-based
-
-Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
-
-- Debian
-- Raspbian
-- Armbian
-- Ubuntu
-
-In terminal run the following command:
-
-```bash
-sudo setcap 'cap_net_bind_service=+ep' <python>
-```
-
-Replace `<python>` with your **system path** to Python that is running Home Assistant and/or your virtual environment if used. The path **should not** be a **symlink** or be **inside of a virtual environment**.
-
-Example:
-
-```bash
-sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
-```
-
-To find your system Python path:
-
-- Add the [System Health](/integrations/system_health/) integration to your {% term "`configuration.yaml`" %}. In a web browser, access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box, locate the item **python_version** and note the value that is displayed. Then in a terminal run:
-
-  ```bash
-  whereis python<version>
-  ```
-
-  Replace `<version>` with the value for `python_version` that is shown in the System Health box.
-
-  Example:
-  ```bash
-  whereis python3.5.3
-  ```
-
-  The output which has the directory `/bin/` is likely your system Python path which should look like this `/usr/bin/python3.5`
-
-- If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root/top directory of your environment and run:
-
-  ```bash
-  readlink -f bin/python3
-  ```
-  or
-  ```bash
-  readlink -f bin/python
-  ```
-
-  The output will be your system Python path.
-
 ### Docker
 
 When running Home Assistant using Docker, make sure that the Home Assistant container is discoverable by the PS4. This can be achieved by ensuring that the Home Assistant container uses the `host` network driver (by passing `--net=host` to the container when creating, or adding `network_mode: "host"` to your compose file when using `docker-compose`).
@@ -118,10 +63,10 @@ The PlayStation 4 integration does not use entries from `configuration.yaml`. Yo
 
 ## Regions
 
-Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found.
+Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found.
 
 {% important %}
-The following regions have no database and can not be used by the integration:
+The following regions have no database and cannot be used by the integration:
 China, Philippines, Serbia, Vietnam.
 {% endimportant %}
 
@@ -173,41 +118,13 @@ Backup a copy of your `.ps4-games.json` file before continuing. If there are err
 
 To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
 
-## Actions
+{% include integrations/actions.md %}
 
-### Action `select_source`
+## Switching games and apps
 
-Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
+To open a different game or app and close the one currently running, use the `media_player.select_source` action. The game or app must be in the entity's source list. Games are added automatically when you open them normally on the console.
 
-| Data attribute | Optional | Example                    | Description                                                                                                 |
-| ---------------------- | -------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4.                                                                       |
-| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable. |
-
-### Action `send_command`
-
-Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
-
-| Data attribute | Optional | Example            | Description                           |
-| ---------------------- | -------- | ------------------ | ------------------------------------- |
-| `entity_id`            | No       | `media_player.ps4` | The entity id for your PlayStation 4. |
-| `command`              | No       | `ps`               | The command you want to send.         |
-
-#### Available Commands
-
-Full list of supported commands.
-
-| Command   | Button Emulated    |
-| --------- | ------------------ |
-| `ps`      | PS (PlayStation)   |
-| `ps_hold` | PS Hold/Long Press |
-| `option`  | Option             |
-| `enter`   | Enter              |
-| `back`    | Back               |
-| `up`      | Swipe Up           |
-| `down`    | Swipe Down         |
-| `left`    | Swipe Left         |
-| `right`   | Swipe Right        |
+You can select a source by its title or by its SKU ID, such as `CUSA00123`. Using the SKU ID is the most reliable.
 
 ## Troubleshooting
 

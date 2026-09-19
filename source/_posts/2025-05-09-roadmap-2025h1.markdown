@@ -1,0 +1,139 @@
+---
+layout: post
+title: "Roadmap 2025: A Truly Smart Home through Collective Intelligence"
+description: "Having achieved the goals of our first-year roadmap, we're now introducing an ambitious new project."
+date: 2025-05-09 00:00:01
+date_formatted: "May 9, 2025"
+author: Madelena Mak
+comments: true
+categories: Announcements Roadmap
+og_image: /images/blog/2025-05-roadmap-2025h1/art.jpg
+---
+<img alt="Devices, Automations, Dashboards, Voice & Music, Frontend" src="/images/blog/2025-05-roadmap-2025h1/roadmap-2025-cover.png" class='no-shadow'/>
+
+It's been a year since we launched [our first roadmap](/blog/2024/06/12/roadmap-2024h1/) for Home Assistant, which means it's time to launch this year's first update! In 2025, we're building on our direction to make Home Assistant easier to use for everyone in your household, and taking it to the next level by making smart homes more intuitive, proactive, and user-friendly. 🚀
+
+This centers on helping Home Assistant understand devices in their context, and cataloging every device that works with Home Assistant through a new project, Device Database. And we will do this the Home Assistant way --- through the power of our community and our collective intelligence. (...but that's not all! The roadmap also covers many product areas we are aiming to work on from automation to voice to dashboard [and more](#and-thats-not-all-for-this-year)!)
+
+If you're new to our roadmaps or curious about how they guide the development of Home Assistant, be sure to check out [our introduction](/blog/2024/06/12/roadmap-introduction/) to Home Assistant roadmaps. As always, your feedback is incredibly valuable, so please give us your thoughts in the comments.
+<!-- TOC -->
+
+- [One year on the road](#one-year-on-the-road)
+- [The smart home administrator as an inventor](#the-smart-home-administrator-as-an-inventor)
+- [From shared wisdom to collective intelligence](#from-shared-wisdom-to-collective-intelligence)
+- [Putting Devices in Context](#putting-devices-in-context)
+- [Introducing the Device Database](#introducing-the-device-database)
+- [And that's not all for this year!](#and-thats-not-all-for-this-year)
+- [Laying the Groundwork for a Truly Smart Home](#laying-the-groundwork-for-a-truly-smart-home)
+
+<!-- /TOC -->
+<!--more-->
+## One year on the road
+
+Last year, we introduced [our very first roadmap](/blog/2024/06/12/roadmap-2024h1/)---and it wasn't just plans on paper. It marked a new chapter for Home Assistant: one where we made our direction clear, set ambitious goals, and invited the whole community along for the ride.
+
+In [2024](/blog/2024/06/12/roadmap-2024h1/), we focused on building a smart home that has a high Home Approval Factor: helping both the maintainer and residents of the smart home unlock more value from Home Assistant without needing to be an expert. This was done by improving the touchpoints that all members of the household will interact with, such as automations, dashboards, and voice interactions, while maintaining the power and depth of the platform for our power users and admins.
+
+The real challenge lay in building a roadmap from scratch. That meant not only poring through and prioritizing every single feature request, but also increasing transparency and building trust in the roadmap within our organization and our community as a beacon that can help guide the development of the project. Thanks to the feedback, energy, and contributions from our global community, we've made huge strides. In the past year, we tackled some of the biggest pain points, such as drag-and-drop dashboard improvements, automation grouping, standard voice assistant hardware, better automated backups, and more.
+
+Now, in 2025, we are ready to lay the groundwork for the next big step forward: Making Home Assistant *truly smart* through our collective effort and intelligence.
+
+## The smart home administrator as an inventor
+
+Home Approval Factor means that a successful smart home isn't just great for the person who set it up, but for everyone who lives there. Whether it's your partner, kids, or roommates, we want Home Assistant to feel intuitive and supportive for the whole household.
+
+In some ways, being a smart home administrator is like being an inventor (or, as we would say, a product manager). To be a great inventor, you need to understand your users. What are their needs? What solutions can you invent to solve their problems? How do you know you solved their problems? Can you improve upon the solution?
+
+Home Assistant provides all the building blocks for our administrators to build whatever they want and let their imaginations run wild, and better yet, it's easier than ever with the improvements we made last year! However, that's also the curse of a blank slate. Inventing fun and hyper-personalized solutions for niche problems is a major appeal of Home Assistant, but sometimes, maintenance of a smart home can be a chore --- not every single problem requires reinventing the wheel.
+
+The reality today is that, according to our [community survey](/blog/2025/04/16/state-of-the-open-home-recap/#research), just 46% of partners and only 27% of children of long-time Home Assistant users are directly interacting with Home Assistant. That's a big gap, and it highlights a broader challenge: Even the most experienced smart home administrators don't always have the complete picture of their household's needs. They may not realize what would help until something goes wrong. And it's unreasonable to expect everyone to be an expert in everything --- from automations to dashboards to onboarding new users.
+
+## From shared wisdom to collective intelligence
+
+<p class='img'><img alt="wisdom spread across social, chats, and videos" src="/images/blog/2025-05-roadmap-2025h1/shared-wisdom.jpg"/></p>
+
+Right now, if a smart home admin wants to improve their setup, they have to go hunting---through our community forums, GitHub repos, Reddit threads, YouTube videos, Discord chats... you name it---trying to find tips and tricks that apply to their specific case. You share incredible wisdom with each other every day, but much of it is scattered, short-lived, or hard to apply without lots of customization.
+
+We believe it's time for a smarter system.
+
+What if Home Assistant could learn from our community's best ideas and use that knowledge to proactively suggest improvements? What if it could guide users based on what others have done in similar situations? That's the vision we're working toward: using collective intelligence to power a truly smart home.
+
+<p class='img'><img alt="organized shared wisdom is collective intelligence" src="/images/blog/2025-05-roadmap-2025h1/collective-intelligence.jpg"/></p>
+
+To get there, Home Assistant needs to *understand* what's in the home. Inside each home, there are the people, the spaces, and the devices. This year, we will start with helping Home Assistant understand devices in terms of (1) **context**: what each device is and how it is used, and (2) **information**: every device that works with Home Assistant and how it is supported.
+
+## Putting Devices in Context
+
+Today, most devices in Home Assistant show up as a bundle of entities: a temperature sensor here, a switch there. This is by design --- we want to provide the ultimate flexibility in configuring your system, and will continue to do so. However, it is not without disadvantages.
+
+<p class='img'><img alt="Fridge as a series of entities" src="/images/blog/2025-05-roadmap-2025h1/devices-without-context.jpg"/></p>
+
+For example, we don't always know that those entities together form, say, a fridge, which is essentially a mini house of its own: It may have temperature sensors, a door sensor, a light, and so on, but Home Assistant cannot assume them as any other sensors or lights within a room. Without that context, Home Assistant can't do much beyond letting users build their own dashboards and automations from scratch.
+
+As you add more devices, entities pile up, and Home Assistant starts to lose the thread of what's actually in the home. Your smart home should become more powerful as you add more devices, but at the cost of the difficulty of maintaining them also increasing exponentially.
+
+When we **put devices in context**, everything changes. A fridge becomes more than a list of entities --- it becomes an actual device that can have a dedicated dashboard, default automations, and contextual voice commands.
+
+<p class='img'><img alt="Dashboards, Automation and Voice in context" src="/images/blog/2025-05-roadmap-2025h1/device-context.jpg"/></p>
+
+Here's how context unlocks a more streamlined experience across the platform:
+
+- **Voice:** Assist can currently source the right sensor if it knows the area of the device. In the future, we can also intelligently exclude irrelevant sensors from a voice query. For example, "What's the temperature in the kitchen?" shouldn't return the freezer's internal temperature.
+- **Dashboards:** Integrations can provide customized cards and dashboards right from the start, providing a much more streamlined experience. For example, we can provide a fridge dashboard. It works with other devices, too. Imagine a car dashboard or a 3D printer dashboard.
+- **Automations:** By understanding what devices a user has and how they are commonly used, we can intelligently suggest automations created by our community. For example, "fridge door left open" or "fridge water leakage" alerts can be provided without building them manually from scratch.
+
+This will be a core architectural change that will be proposed and discussed in the coming months. We're building on what our contributors already share in integrations: knowledge about how devices are structured and how they should behave. My hope is that this will provide the framework for our contributors to contribute dashboards and automation blueprints to our code in exciting new ways.
+
+## Introducing the Device Database
+
+To make all this work, we also need a centralized, structured place to store and share device knowledge. That's where the Device Database---a brand new project from the Open Home Foundation---comes in.
+
+Think of it as a source of truth created, curated, and validated by the community. A place where we gather everything from metadata (like power usage or infrared codes) to factual information (setup instructions such as how to add or reset a device) to real-world setup insights and community creations (such as automation examples). It will contain information users intentionally submit to the database, nothing will be collected automatically without your explicit consent.
+
+It's more than just having all device documentation in one place. We want to universalize all our collective experiences about devices in one place, which is more accessible, centralized, and structured than online websites and chat rooms.
+
+With the Device Database, users both old and new can easily make well-informed choices and pick the best Home Assistant-compatible devices for them based on real usage experiences, allowing them to easily make decisions based on open home values --- privacy, choice, and sustainability.
+
+The data will be used and cross-referenced in Home Assistant and other Open Home Foundation projects, and acts as the backbone of their integrations. For example, a future infrared integration can hypothetically benefit from having access to readily available infrared codes from the database.
+
+<p class='img'><img alt="Protocols, device database, feeding choice" src="/images/blog/2025-05-roadmap-2025h1/working-together.png"/></p>
+
+This isn't something we can build alone. We're relying on the strength of our global community to turn this vision into reality, and we're backing it up with our infrastructure, engineering efforts, and partnerships:
+
+- The [Open Home Foundation](https://www.openhomefoundation.org/) is here to provide the framework to help us collect and collaborate on knowledge easily and safely.
+- We're working with [Nabu Casa](https://www.nabucasa.com/)---our commercial partner---to create the most reliable hardware antennas that support more open protocols, such as Z-Wave, Zigbee, Bluetooth, and more, to expand the Home Assistant ecosystem.
+- The [Works with Home Assistant program](https://works-with.home-assistant.io/) is being strengthened to make it easier to find trusted, high-quality devices for the platform, as you may have witnessed with the [numerous new partners](/blog/categories/works-with-home-assistant/) joining in the past few months.
+
+The result? A system where no admin has to figure everything out in isolation on their own. Home Assistant can suggest, guide, adapt, and point users in the right direction, by drawing from the collective intelligence of the community (instead of scraping user data involuntarily like what Big Tech does).
+
+## And that's not all for this year!
+
+<p class='img'><img alt="Devices, Automations, Dashboards, Voice & Music, Frontend" src="/images/blog/2025-05-roadmap-2025h1/roadmap-2025.png"/></p>
+
+While device context and the Device Database are the major themes of this year's roadmap, it doesn't mean that we are dropping everything else that does not fit. We're continuing work on other parts of the product experience:
+
+- A complete revamp of our automation triggers and conditions to make them both easier to use and more powerful.
+- A navigation and design system overhaul to improve feature discovery.
+- Continued improvements to make dashboards easier to use out of the box, including a new default dashboard and more.
+- Enhanced privacy controls for users, guests, and public access (Yes, I am aware of that.)
+- Easier setup for Music Assistant.
+- Make Assist more conversational, such as the ability to confirm and clarify a query.
+- Continued explorations in using LLMs to improve the overall user experience beyond voice.
+
+In the meantime, we are working on making our roadmap more publicly accessible, so that you can discuss and track our progress with us! Stay tuned.
+
+## Laying the Groundwork for a Truly Smart Home
+
+This roadmap isn't about the flashy latest tech fad (what is it now anyway?) or abstract features. It's about creating the enduring foundation to allow our community to build something greater than all of us together: a smart home platform that learns, grows, and adapts --- with full respect for privacy, choice, and sustainability.
+
+The central theme of the roadmap is that making Home Assistant smarter starts with understanding context, such as knowing what devices are and how they're used, and we will use this collective intelligence to supercharge the main pillars of the user experience --- automations, voice, and dashboards.
+
+We're making maintenance of a smart home easier, by making it less like a mandatory chore while still keeping the fun of tinkering (say, you wanna go wild on YAML), and by creating tools to help admins solve problems they don't even know they have yet. We believe that, as our advanced users continue to tinker with their systems, their creations and discoveries will also benefit and elevate every user's smart home.
+
+We can't wait to work on these initiatives for the rest of this year! Let's build it together! 🚀👩🏻‍🚀👩🏼‍🚀👨🏼‍🚀
+
+\- [Madelena], [JLo], & [Laura]
+
+[Madelena]: https://github.com/Madelena
+[JLo]: https://github.com/jlpouffier
+[Laura]: https://github.com/laupalombi

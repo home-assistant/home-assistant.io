@@ -10,8 +10,9 @@ ha_domain: trafikverket_weatherstation
 ha_codeowners:
   - '@gjohansson-ST'
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

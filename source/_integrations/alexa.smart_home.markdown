@@ -60,6 +60,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close/Raise/Lower](#opencloseraiselower)
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
+    - [Stop the Covers operation](#stop-the-covers-operation)
     - [Garage doors](#garage-doors)
   - [Event entities](#event-entities)
     - [Doorbell events](#doorbell-events)
@@ -149,14 +150,15 @@ The first thing you need to do after signing into the [AWS console](https://cons
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
-  - **US East (N.Virginia)** region for English (US) or English (CA) skills
+**IMPORTANT - Alexa Skills are only supported in specific AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server from the list below ([reference](https://developer.amazon.com/en-US/docs/alexa/smarthome/develop-smart-home-skills-in-multiple-languages.html#deploy)) based on your Amazon account's locale, not your physical location. **Alexa Lambda functions created in other regions will not work properly and may prevent account linking! For example, if your locale is set to English (US) and you live in California, you must use US East (N.Virginia), not US West (Oregon). While the setup process will complete with an incorrect region, the skill will not function, and there will be no clear error messages indicating the cause.**
+  - **US East (N.Virginia)** region for English (US), English (CA) or Portuguese (BR) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
 
 - Click `Functions` in the left navigation bar, to display the list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.9*, *Python 3.8* or *Python 3.7* as `Runtime`.
+- Select `Python 3.x` as the `Runtime` (choose the latest available Python 3 version).
+- Optional: Choose `arm64` as `Architecture` (slightly better performance).
 - Expand the `Change default execution role` dropdown and make sure to select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
 - Click `Create function`, then you can configure the details of Lambda function.
 - Expand the `Function overview` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add an Alexa Smart Home trigger to your Lambda function.
@@ -216,7 +218,7 @@ This test event is a `Discovery` directive, your Home Assistant instance will re
 
 Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-You can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
+You can log in to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 
@@ -231,7 +233,7 @@ Now remove the long-lived access token (if you want), copy the ARN of your Lambd
 
 ## Account linking
 
-Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests can access your home's devices. To link the account, you have to make sure your Home Assistant can be accessed from Internet.
 
 - Return to the [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
@@ -255,7 +257,7 @@ Self signed certificates will not work, but you can use a free Let's Encrypt cer
 {% endimportant %}
 
 - `Client ID`:
-  - `https://pitangui.amazon.com/` if you are in US
+  - `https://pitangui.amazon.com/` if you are in US or BR
   - `https://layla.amazon.com/` if you are in EU
   - `https://alexa.amazon.co.jp/` if you are in JP and AU (not verified yet)
 
@@ -322,7 +324,7 @@ alexa:
       type: map
       keys:
         locale:
-          description: The locale of your Alexa devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`. See [Alexa Locale](#alexa-locale) for additional information.
+          description: The locale of your Alexa devices. Supported locales are `de-DE`,  `en-AU`, `en-CA`, `en-GB`, `en-IN`, `en-US`, `es-ES`, `es-MX`, `es-US`,`fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `nl-NL`, and `pt-BR`. See [Alexa Locale](#alexa-locale) for additional information.
           required: false
           type: string
           default: en-US
@@ -395,7 +397,8 @@ alexa:
                   type: string
 {% endconfiguration %}
 
-### Alexa locale <!-- omit in toc -->
+<!-- omit in toc -->
+### Alexa locale
 
 The `locale` should match the location and language used for your Amazon echo devices.
 
@@ -415,19 +418,22 @@ The supported locales are:
 - `hi-IN`
 - `it-IT`
 - `ja-JP`
+- `nl-NL`
 - `pt-BR`
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
-### Proactive events <!-- omit in toc -->
+<!-- omit in toc -->
+### Proactive events
 
-The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (that is, "Send Alexa Events" enabled). Note the following if you want to enable proactive mode:
 
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
-### Configure filter <!-- omit in toc -->
+<!-- omit in toc -->
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
@@ -449,7 +455,8 @@ alexa:
 
 See the [troubleshooting](#troubleshooting) if you're experiencing issues setting up the integration.
 
-### Alexa Display Categories <!-- omit in toc -->
+<!-- omit in toc -->
+### Alexa Display Categories
 
 Configure a display category to override the display category and iconography each entity is shown in the Alexa app. This makes it easier to find and monitor devices.
 
@@ -486,7 +493,7 @@ The alarm control panel state must be in the `disarmed` state before arming. Ale
 The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
 {% note %}
-Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
+Alexa does not support arming with voice PIN. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
 The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
 {% endnote %}
 
@@ -515,7 +522,7 @@ Turn on and off Alert, Automation, and Group entities as switches.
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 | `device_class` | Alexa Sensor Type |
 | :------------: | :---------------: |
@@ -524,7 +531,7 @@ Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class
 |   `opening`    |      Contact      |
 |    `window`    |      Contact      |
 |    `motion`    |      Motion       |
-|   `presense`   |      Motion       |
+|   `presence`   |      Motion       |
 
 Ask Alexa for the state of a contact sensor.
 
@@ -551,7 +558,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered when Buttons and Input Buttons are pressed.
 
-In order to enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
+To enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_button_trigger.png' target='_blank'>
@@ -710,6 +717,16 @@ Covers that support tilt position can be controlled using percentages.
 | `en-US` | _"tilt"_, _"angle"_, _"direction"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the Covers operation
+
+To stop the covers operation, say:
+
+- _"Alexa, stop [entity name]."_
+
+If your cover supports the `STOP` feature, this will stop the cover operation.
+If your cover supports the `STOP_TILT` feature, this will stop the cover tilt operation.
+If both features are enabled, both the cover and the cover tilt will be stopped.
 
 #### Garage doors
 
@@ -962,14 +979,14 @@ Alexa does not allow the following words to be used as activity names:
 
 ### Scene
 
-Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes at this time.
+Activate scenes with scene name, or _"turn on"_ utterance. Home Assistant does not support deactivate or _"turn off"_ for scenes.
 
 - _"Alexa, Party Time."_
 - _"Alexa, turn on Party Time."_
 
 ### Script
 
-Run script with script name, or _"turn on"_ utterance.  Deactivate a running script with _"turn off"_ utterance.
+Run script with script name, or _"turn on"_ utterance. Deactivate a running script with _"turn off"_ utterance.
 
 - _"Alexa, Party Time."_
 - _"Alexa, turn on Party Time."_
@@ -979,7 +996,7 @@ Run script with script name, or _"turn on"_ utterance.  Deactivate a running scr
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Only temperature sensors are configured at this time.
+Only temperature sensors are configured.
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_
@@ -997,7 +1014,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered when Switches and Input Booleans change state.
 
-In order to enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
+To enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_switch_trigger.png' target='_blank'>
@@ -1059,7 +1076,7 @@ Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
 #### Stop the valve
 
-Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
+Valves that support `stop` closing or opening will have an extra toggle control that allows you to stop the valve closing or opening operation.
 
 ### Water heater
 
@@ -1091,13 +1108,15 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 
 ## Troubleshooting
 
-### Binary Sensor not available in Routine Trigger <!-- omit in toc -->
+<!-- omit in toc -->
+### Binary Sensor not available in Routine Trigger
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
-### Token Invalid and no Refresh Token Available <!-- omit in toc -->
+<!-- omit in toc -->
+### Token Invalid and no Refresh Token Available
 
 Disable and re-enable the skill using the Alexa App; then restart Home Assistant.
 

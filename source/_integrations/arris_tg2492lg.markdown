@@ -14,9 +14,10 @@ ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.
+This {% term integration %} allows you to detect presence by looking at connected devices to an Arris TG2492LG router.
 
 This is one of the routers provided by:
 

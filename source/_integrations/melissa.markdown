@@ -15,9 +15,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `melissa` {% term integration %} is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
+The **Melissa** {% term integration %} is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
 
 There is currently support for the following device types within Home Assistant:
 

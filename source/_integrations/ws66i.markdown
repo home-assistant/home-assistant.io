@@ -6,13 +6,12 @@ ha_category:
 ha_release: 2022.6
 ha_config_flow: true
 ha_iot_class: Local Polling
-ha_quality_scale: silver
 ha_codeowners:
   - '@ssaenger'
 ha_domain: ws66i
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Soundavo WS66i 6-Zone Amplifier** {% term integration %} allows you to control the [Soundavo Whole-Home Audio Amplifier](https://www.soundavo.com/products/ws-66i) via the local network. This amplifier is an upgrade of the amplifier sold by [Monoprice](https://www.monoprice.com/product?p_id=10761) that adds 2 built-in wireless streamers and an Ethernet port for control over LAN.

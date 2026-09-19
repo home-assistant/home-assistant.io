@@ -1,0 +1,59 @@
+{% assign social_title = post.title | default: page.title | default: site.title %}
+{% assign social_description = page.description | default: site.description | strip_html | truncate: 200 %}
+
+{% if page.ha_domain %}
+{% assign og_default = page.url | canonical_url | url_encode | prepend: "https://assets.openhomefoundation.org/opengraph?url=" %}
+{% capture domain %}{{ page.ha_supporting_domain | default: page.ha_domain }}{% endcapture %}
+{% assign active_installations = site.data.analytics_data.integrations[domain] %}
+{% if page.og_image %}
+{% assign social_image = page.og_image | prepend: site.url %}
+{% else %}
+{% assign social_image = og_default %}
+{% endif %}
+{% else %}
+{% assign og_raw = page.og_image | default: "/images/default-social.png" %}
+{% if og_raw contains "://" %}
+{% assign social_image = og_raw %}
+{% else %}
+{% assign social_image = og_raw | prepend: site.url %}
+{% endif %}
+{% endif %}
+
+<meta property="fb:app_id" content="{{ site.social.facebook.app_id | escape_once }}">
+<meta property="og:title" content="{{ social_title | escape_once }}">
+<meta property="og:site_name" content="{{ site.title | escape_once }}">
+{% if page.external_url %}
+<meta property="og:url" content="{{ page.external_url | escape_once }}">
+{% else %}
+<meta property="og:url" content="{{ page.url | canonical_url | escape_once }}">
+{% endif %}
+<meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
+<meta property="og:description" content="{{ social_description | escape_once }}">
+<meta property="og:image" content="{{ social_image | escape_once }}">
+
+{% if active_installations %}
+{% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
+<meta property="og:image:installs" content="{% if percentage < 1 %}{{ active_installations }}{% else %}{{ percentage | remove: '.0' }}%{% endif %}">
+{% endif %}
+{% if page.ha_codeowners %}
+<meta property="og:image:codeowners" content="{{ page.ha_codeowners | join: ', ' | escape_once }}">
+{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{ site.social.twitter.account | escape_once }}">
+{% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter | escape_once }}">{% endif %}
+<meta name="twitter:title" content="{{ social_title | escape_once }}">
+<meta name="twitter:description" content="{{ social_description | escape_once }}">
+<meta name="twitter:image" content="{{ social_image | escape_once }}">
+
+{% if layout.is_post %}
+{% assign words = page.content | strip_html | number_of_words %}
+{% assign reading_time = words | divided_by: 200 %}
+{% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
+<meta name="twitter:label1" value="Reading time">
+<meta name="twitter:data1" value="~{{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}">
+<meta name="twitter:label2" value="Written by">
+<meta name="twitter:data2" value="{% if page.author.first %}{{ page.author | join: ", " | escape_once }}{% else %}{{ page.author | default: site.author | escape_once }}{% endif %}">
+{% endif %}
+
+{% if site.social.mastodon.account %}<link rel="me" href="{{ site.social.mastodon.account | escape_once }}">{% endif %}

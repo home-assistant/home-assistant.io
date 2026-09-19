@@ -30,14 +30,14 @@ This is a fully event-based integration. Any {% term event %} sent by the AlarmD
 
 {% include integrations/config_flow.md %}
 
-You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
+You will be prompted to select a protocol (for example, `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
 
 - **socket**:
   - **host** - The hostname or IP address of AlarDecoder device that is connected to your alarm panel.
-  - **port** - The port that AlarmDecoder is accessible on (i.e. `10000`).
+  - **port** - The port that AlarmDecoder is accessible on (for example, `10000`).
 - **serial**:
-  - **path** - The path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`).
-  - **baud rate** - The baud rate of the AlarmDecoder device (i.e. `115200`).
+  - **path** - The path to the AlarmDecoder device (for example, `/dev/ttyUSB0`).
+  - **baud rate** - The baud rate of the AlarmDecoder device (for example, `115200`).
 
 ## Settings
 
@@ -55,13 +55,13 @@ There are currently 3 arming settings for AlarmDecoder (shown below).
 
 Zones can be added, edited, and removed through the option forms.
 
-Each {% term zone %} that's added to AlarmDecoder will have its own [binary sensor](https://www.home-assistant.io/integrations/binary_sensor/) created.
+Each {% term zone %} that's added to AlarmDecoder will have its own [binary sensor](/integrations/binary_sensor/) created.
 
 #### Adding a new zone
 
 When prompted, enter the number of the {% term zone %} you'd like to add. Select _Submit_ to move to the next screen, where you'll be prompted for the [zone settings](#zone-settings). Select _Submit_ again to save.
 
-**Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created in order to easily edit the zone settings at a later time.
+**Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created to easily edit the zone settings at a later time.
 
 #### Editing an existing zone
 
@@ -76,7 +76,7 @@ When prompted, enter the number of the {% term zone %} you'd like to remove. Sel
 The settings for {% term zone %} are described below:
 
 - **Zone Name** - a name for the zone
-- **Zone Type** - the type of sensor (see [Device Classes](https://www.home-assistant.io/integrations/binary_sensor/#device-class))
+- **Zone Type** - the type of sensor (see [Device Classes](/integrations/binary_sensor/#device-class))
 - **RF Serial** - (optional) The RF serial-number associated with wireless RF zones. Providing this field allows Home Assistant to associate raw sensor data to a given zone, allowing direct monitoring of the state, battery, and supervision status.
 - **RF Loop** - (optional) The loop number associated with RF zones (1, 2, 3, or 4). Providing this field allows Home Assistant to read open/closed status from the raw sensor data in addition to from the panel display, meaning it can correctly show a bypassed RF zone as open or closed when the alarm is armed. (This is an alternative to relayaddr/relaychan below for RF zones.)
 - **Relay Address** - (optional) Address of the relay or zone expander board to associate with the zone. (ex: 12, 13, 14, or 15). Typically used in cases where a panel will not send bypassed zones such as motion during an armed home state, the Vista 20P is an example of this. AlarmDecoder can emulate a zone expander board and the panel can be programmed to push zone events to this virtual expander. This allows the bypassed zone binary sensors to be utilized. One example is using bypassed motion sensors at night for motion-based automated lights while the system is armed with the motion sensor bypassed.
@@ -98,28 +98,19 @@ There are several attributes available on the alarm panel to give you more infor
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
 - `code_arm_required`: Set to the value specified in your AlarmDecoder options.
 
-## Actions
+{% include integrations/actions.md %}
 
-The **Alarm Decoder** {% term integration %} gives you access to several {% term actions %} for you to control your alarm with.
-
-- `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
-- `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
-- `alarm_arm_night`: Arms the alarm according to the `Alternative Night Mode` option.
-- `alarm_disarm`: Disarms the alarm from any state.
-- `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
-- `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
+Alongside these, the **AlarmDecoder** {% term integration %} supports the standard alarm control panel actions to control your alarm: arm away, arm home, arm night, and disarm.
 
 {% note %}
-`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the actions list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
+`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the actions list in Home Assistant, are not currently implemented in the AlarmDecoder platform.
 {% endnote %}
 
-### Examples
-
-Using a combination of the available {% term actions %} and attributes, you can create switch templates.
+## Examples
 
 ### Chime status and control
 
-{% raw %}
+Using a combination of the available {% term actions %} and attributes, you can create switch templates.
 
 ```yaml
 - platform: template
@@ -131,7 +122,7 @@ Using a combination of the available {% term actions %} and attributes, you can 
         - condition: state
           entity_id: alarm_control_panel.alarm_panel
           attribute: chime
-          state: False
+          state: false
         - action: alarmdecoder.alarm_toggle_chime
           target:
             entity_id: alarm_control_panel.alarm_panel
@@ -141,7 +132,7 @@ Using a combination of the available {% term actions %} and attributes, you can 
         - condition: state
           entity_id: alarm_control_panel.alarm_panel
           attribute: chime
-          state: True
+          state: true
         - action: alarmdecoder.alarm_toggle_chime
           target:
             entity_id: alarm_control_panel.alarm_panel
@@ -155,7 +146,6 @@ Using a combination of the available {% term actions %} and attributes, you can 
         {% endif %}
 ```
 
-{% endraw %}
 
 ## Arming key sequences
 

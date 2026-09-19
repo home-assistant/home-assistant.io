@@ -12,10 +12,10 @@ ha_domain: rapt_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-Integrates [RAPT Pill](https://www.kegland.com.au/rapt-pill-hydrometer-thermometer-wifi-bluetooth.html) hydrometers into Home Assistant.
+Integrates [RAPT Pill](https://kegland.com.au/products/yellow-rapt-pill-hydrometer-thermometer-wifi-bluetooth) hydrometers into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -23,4 +23,4 @@ The RAPT Pill BLE integration will automatically discover devices once the [Blue
 
 ## Supported devices
 
-- [RAPT Pill Hydrometer & Thermometer](https://www.kegland.com.au/rapt-pill-hydrometer-thermometer-wifi-bluetooth.html)
+- [RAPT Pill Hydrometer & Thermometer](https://kegland.com.au/products/yellow-rapt-pill-hydrometer-thermometer-wifi-bluetooth)

@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `synology_chat` notification {% term integration %} allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.
+The **Synology Chat** {% term integration %} allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.
 
 To configure a Synology Chat bot, first you must create a [Synology Chat Integration Incoming Webhook](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Collaboration/How_to_configure_webhooks_and_slash_commands_in_Chat_Integration#t2.1). After this is complete, you will have a Webhook URL. This is what will be required in the Home Assistant configuration.
 
@@ -35,7 +36,7 @@ name:
   required: true
   type: string
 verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.).
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs).
   required: false
   type: boolean
   default: true

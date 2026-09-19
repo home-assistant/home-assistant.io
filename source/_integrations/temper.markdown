@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This `temper` sensor {% term integration %} allows you to get the current temperature from a TEMPer device.
+This **TEMPer** {% term integration %} allows you to get the current temperature from a TEMPer device.
 
 ## Configuration
 

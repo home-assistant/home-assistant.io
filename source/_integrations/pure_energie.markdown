@@ -12,12 +12,11 @@ ha_domain: pure_energie
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Pure Energie integration integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)
+The **Pure Energie** {% term integration %} integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)
 device with Home Assistant.
 
 The Pure Energie meter is a product that allows you to read the data

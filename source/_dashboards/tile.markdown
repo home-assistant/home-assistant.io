@@ -2,21 +2,24 @@
 type: card
 title: "Tile card"
 sidebar_label: Tile
-description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
+description: "The tile card gives you a quick overview of an entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 related:
   - docs: /dashboards/actions/
     title: Card actions
+  - docs: /dashboards/naming/
+    title: Card naming
   - docs:  /dashboards/features/
     title: Card features
   - docs: /dashboards/cards/
     title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
+The tile card gives you a quick overview of an {% term entity %}. The card allows you to add tap actions, and features to control the entity. You can also select the {% term entity %} to open the **More info** dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
-  Screenshot of tile cards.
+  <img src='/images/dashboards/tile_card_tap_action.webp' alt='Screenshot of tile cards'>
+  The circular background behind an icon indicates that there is a tap action.
+  The "Downstairs" and "Upstairs" climate entities have a badge and a feature that is bottom-aligned.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
@@ -32,8 +35,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites the entity icon.
@@ -63,6 +66,11 @@ state_content:
   description: >
     Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
+time_format:
+  required: false
+  description: >
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -91,6 +99,12 @@ features:
   required: false
   description: Additional widgets to control your entity. See [available features](/dashboards/features).
   type: list
+features_position:
+  required: false
+  description: Position of the features on the tile card. Can be `bottom` or `inline`. When set to `inline`, the first feature is displayed next to the name and any remaining features are displayed below it, two per row. A feature that is alone on a row takes the full width. `inline` is not compatible with the `vertical` option.
+  type: string
+  default: bottom
+
 {% endconfiguration %}
 
 ## Examples
@@ -125,7 +139,7 @@ hide_state: true
 ```yaml
 type: tile
 entity: light.living_room
-state_content: 
+state_content:
   - state
   - brightness
   - last-changed
@@ -143,17 +157,4 @@ features:
 
 ## Available colors
 
-You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
-
-## Reordering features
-
-Some features of the tile card, such as the presets or the HVAC modes of a
-thermostat, can show many buttons. While you can limit the buttons you’d
-like to see, they may not be in the desired order.
-
-For your thermostat, that means you can reorder the HVAC modes or presets.
-
-<p class='img'>
-    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt=" Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card."/>
-    You can now reorder the features of the tile card.
-</p>
+The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).

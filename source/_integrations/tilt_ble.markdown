@@ -12,7 +12,7 @@ ha_domain: tilt_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Tilt Hydrometer](https://tilthydrometer.com/) BLE devices into Home Assistant.

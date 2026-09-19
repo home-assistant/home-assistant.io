@@ -16,8 +16,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ---
 
-The System monitor integration allows you to monitor disk usage,
-memory usage, CPU usage, and running processes. 
+The **System monitor** {% term integration %} allows you to monitor disk usage, memory usage, network usage, CPU usage, and running processes on which Home Assistant is running.
 
 {% include integrations/config_flow.md %}
 
@@ -25,7 +24,7 @@ memory usage, CPU usage, and running processes.
 
 {% note %}
 
-All entities are disabled by default, you need to enable the entities that you wish to use.
+All entities are disabled by default, you need to [enable the entities](/common-tasks/general/#enabling-or-disabling-entities) that you wish to use.
 
 All sensors are also marked as diagnostic and won't be automatically added to automatic dashboards.
 
@@ -33,59 +32,94 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 ### Disks
 
-- Disk free - (One per disk/mount point)
-- Disk use - (One per disk/mount point)
-- Disk usage (percent) - (One per disk/mount point)
+One sensor per discovered disk/mount point will be created
+
+- **Disk free**: Amount of free space on the disk
+- **Disk use**: Amount of used space on the disk
+- **Disk usage (%)**: Percentage of disk space used
 
 ### Network
 
-- IPv4 address - (One per network interface)
-- IPv6 address - (One per network interface)
-- Network in - (One per network interface)
-- Network out - (One per network interface)
-- Packets in - (One per network interface)
-- Packets out - (One per network interface)
-- Network throughput in - (One per network interface)
-- Network throughput out - (One per network interface)
+One sensor per discovered network interface will be created
+
+- **IPv4 address**: The IPv4 address assigned to the network interface
+- **IPv6 address**: The IPv6 address assigned to the network interface
+- **Network in**: Total data received on the network interface (MiB)
+- **Network out**: Total data sent from the network interface (MiB)
+- **Packets in**: Number of packets received on the network interface
+- **Packets out**: Number of packets sent from the network interface
+- **Network throughput in**: Current inbound network speed (MB/s)
+- **Network throughput out**: Current outbound network speed (MB/s)
+
+### Pressure Stall Information (PSI)
+
+PSI can tell you if your system is limited by CPU, memory or IO.
+Unlike memory utilization, PSI can actually tell you if your system doesn't have enough memory.
+
+The `some` line indicates the share of time in which at least some tasks are stalled on a given resource.
+The `full` line indicates the share of time in which all non-idle tasks are stalled on a given resource simultaneously.
+In this state, actual CPU cycles are wasted, and a workload that spends extended time in this state is considered to be thrashing.
+This has a severe impact on performance, and it’s useful to distinguish this situation from a state where some tasks are stalled, but the CPU is still doing productive work.
+As such, time spent in this subset of the stall state is tracked separately and exported in the `full` averages.
+
+- Memory Pressure Some/Full 10s, 60s, 300s Average in %
+- Memory Pressure Some/Full Total in accumulated us
+- IO Pressure Some/Full 10s, 60s, 300s Average in %
+- IO Pressure Some/Full Total in accumulated us
+- CPU Pressure Some 10s, 60s, 300s Average in %
+- CPU Pressure Some Total in accumulated us
+
+- https://docs.kernel.org/accounting/psi.html
+- https://facebookmicrosites.github.io/psi/docs/overview
 
 ### Other
 
-- Last boot
-- Load (15m)
-- Load (5m)
-- Load (1m)
-- Memory free
-- Memory use
-- Memory usage (percent)
-- Processor use
-- Processor temperature
-- Swap free
-- Swap use
-- Swap usage (percent)
+- **Battery**: Percentage of battery remaining
+- **Battery empty**: Expected time when the battery is empty if not plugged in
+- **Charging**: Battery is charging (binary sensor)
+- **Fan speed**: Built-in fan speeds
+- **Load (1 min)**: System load average over the last 1 minute
+- **Load (5 min)**: System load average over the last 5 minutes
+- **Load (15 min)**: System load average over the last 15 minutes
+- **Memory free**: Amount of available system memory
+- **Memory use**: Amount of system memory used
+- **Memory usage (%)**: Percentage of system memory used
+- **Processor use**: Percentage of CPU usage
+- **Processor temperature**: Current temperature of the processor
+- **Swap free**: Amount of available swap memory
+- **Swap use**: Amount of used swap memory
+- **Swap usage (%)**: Percentage of swap memory used
+- **Uptime**: The date and time when the system was last started
 
 ## Add `process` binary sensor
 
-The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and select **Configure**.
+
+You can select from the pre-populated list (current running processes) or manually enter the process name, to which a binary sensor will be created per selected `process`.
 
 ## Disk usage
 
 {% note %}
 
-The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only concerned with "disks" (more specifically mount points on Linux).
+The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only targeting "disks" (more specifically mount points on Linux).
 
 {% endnote %}
 
+**Example output from the Linux `df -H` command**
+
 ```bash
+
 $ df -H
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        29G   12G   16G  42% /
 devtmpfs        805M     0  805M   0% /dev
 tmpfs           934M     0  934M   0% /dev/shm
 /dev/mmcblk0p1  253M   54M  199M  22% /boot
+
 ```
 
 ## Processor temperature
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
 - The unit of measurement (Celsius vs. Fahrenheit) will be chosen based on the system configuration.
-- Only the very first processor related hardware sensor is read, i.e. no individual core temperatures are available (even if the hardware sensor provides that level of detail).
+- Only the very first processor related hardware sensor is read, that is, no individual core temperatures are available (even if the hardware sensor provides that level of detail).

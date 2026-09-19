@@ -10,9 +10,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-With the `no_ip` {% term integration %} you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
+With the **No-IP.com** {% term integration %} you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
 
 Note that it does not confirm your hostname (as is required periodically for free domain names); you will still need to do that manually.
 

@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The gauge card is a basic card that allows visually seeing sensor data.
@@ -22,9 +24,9 @@ Screenshot of the gauge card.
 Screenshot of the gauge card in needle mode.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -39,10 +41,14 @@ entity:
   required: true
   description: Entity ID to show.
   type: string
+attribute:
+  required: false
+  description: Attribute from the selected entity to display
+  type: string
 name:
   required: false
-  description: Name of gauge entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name
 unit:
   required: false
@@ -113,7 +119,7 @@ hold_action:
 double_tap_action:
   required: false
   description: Action taken on card double tap. See [action documentation](/dashboards/actions/#double-tap-action).
-  type: map      
+  type: map
 {% endconfiguration %}
 
 ### Examples
@@ -198,3 +204,14 @@ segments:
   - from: 65
     color: var(--error-color)
 ```
+
+Display attribute of an entity instead of its state:
+
+```yaml
+type: gauge
+entity: sensor.back_door_info
+attribute: battery_level
+unit: '%'
+max: 100
+```
+In this example, the card displays the `battery_level` attribute of the `sensor.back_door_info` entity.

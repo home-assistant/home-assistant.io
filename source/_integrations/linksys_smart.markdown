@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `linksys_smart` {% term integration %} offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.
+The **Linksys Smart Wi-Fi** {% term integration %} offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.
 
 Tested routers:
 

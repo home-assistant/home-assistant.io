@@ -22,6 +22,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/sites/default/files/2024-02/dsmr_5.0.2_p1_companion_standard.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
+- For official information about the E.ON Hungary variant refer to: [E.ON Hungary P1 port specification](https://www.eon.hu/content/dam/eon/eon-hungary/documents/Lakossagi/aram/muszaki-ugyek/P1_port_felhasznaloi_interfesz_felhasznaloi_tajekoztato_%2020240702.pdf)
 - Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
 
 <p class='img'>
@@ -35,10 +36,11 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For Luxembourg meters, choose DSMR version `5L`
 - For Swedish meters, choose DSMR version `5S`
 - For EasyMeter Q3D, choose DSMR version `Q3D`
+- For E-ON Hungary meters (and for most of other Hungarian meters), choose DSMR version `5EONHU`
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to {% my integrations title="**Settings** > **Devices & services**" %} and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -54,16 +56,20 @@ This integration is known to work for:
 
 - Iskra ME382 / MT382 (DSMR 2.2)
 - ISKRA AM550 (DSMR 5.0)
-- Landis+Gyr E350 (DMSR 4)
+- Landis+Gyr E350 (DSMR 4)
+- Landis+Gyr E360 (DSMR 5)*
 - Landis+Gyr ZCF110 / ZM F110 (DSMR 4.2)
 - Kaifa E0026
 - Kaifa MA304C (DSMR 4.2)
 - Kamstrup 382JxC (DSMR 2.2)
 - Sagemcom XS210 ESMR5
-- Sagemcom T211 
+- Sagemcom T211
+- Sagemcom MA304
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
 
+Remarks:  
+\* The E360 requires a special P1 cable, various webstores sell these specific to the E360.
 ### M-Bus support
 
 A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.
@@ -96,10 +102,10 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [Smart Gateways NL](https://smartgateways.nl/)
 
 DIY solutions (ESP8266 based):
-
 - [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter) (parse on ESP8266 publish to MQTT)
 - [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
 - [p1-esp8266 (DavyLandman)](https://github.com/DavyLandman/p1-esp8266) (turn ESP8266 into a serial forwarder)
+- [Simple DSMR P1 Meter (maximevince)](https://github.com/maximevince/Simple-DSMR-P1-meter)
 
 
 {% include integrations/config_flow.md %}
@@ -150,4 +156,4 @@ Smart meters in Belgium, Luxembourg and Sweden provided telegrams with largely t
 
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
-Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+Another loop (DSMR class) is set up which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.

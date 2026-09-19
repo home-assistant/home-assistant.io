@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `recswitch` switch {% term integration %} allows you to control the Ankuoo REC Switch devices.
+The **Ankuoo REC Switch** {% term integration %} allows you to control the Ankuoo REC Switch devices.
 
 Supported devices (tested):
 

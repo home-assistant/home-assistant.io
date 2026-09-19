@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `KIWI` {% term integration %} allows you to open your KIWI Smart Locks and Smart Entry Devices.
+The **KIWI** {% term integration %} allows you to open your KIWI Smart Locks and Smart Entry Devices.
 All you need to get started is a KIWI account. Register at [the KIWI website](https://kiwi.ki/login/).
 
 ## Configuration

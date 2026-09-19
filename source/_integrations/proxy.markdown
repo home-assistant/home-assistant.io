@@ -11,9 +11,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `proxy` camera {% term integration %} allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.
+The **Camera Proxy** {% term integration %} allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.
 
 The current post-processing supports resizing and/or cropping the image/MJPEG as well as limiting the maximum refresh rate.
 
@@ -21,7 +22,7 @@ The current proxy capabilities are intended to reduce the camera bandwidth for s
 
 ## Configuration
 
-To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant.  Next, add the following to your {% term "`configuration.yaml`" %} file.
+To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant. Next, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

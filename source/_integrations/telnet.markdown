@@ -12,14 +12,13 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `telnet` switch {% term integration %} allows you to control devices with telnet commands.
+The **Telnet** {% term integration %} allows you to control devices with telnet commands.
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,8 +34,6 @@ switch:
         value_template: '{{ value == "PWR=01" }}'
         timeout: 0.9
 ```
-
-{% endraw %}
 
 {% configuration %}
 switches:

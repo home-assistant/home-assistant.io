@@ -4,15 +4,17 @@
     "dockerfile": "./Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "3.1",
-      "NODE_VERSION": "20"
+      "NODE_VERSION": "26"
     }
   },
-  "appPort": [4000],
-  "onCreateCommand": "bundle install && npm install",
-  "containerEnv": { 
+  "appPort": [4000, 4321],
+  "onCreateCommand": "bundle install && npm install && npx pnpm --dir astro install",
+  "containerEnv": {
     "DEVCONTAINER": "true",
     "BUNDLE_PATH": "vendor/bundle"
+  },
+  "remoteEnv": {
+    "PATH": "${containerWorkspaceFolder}/node_modules/.bin:${containerEnv:PATH}"
   },
   "customizations": {
     "vscode": {
@@ -22,7 +24,7 @@
         "GitHub.vscode-pull-request-github",
         "mrmlnc.vscode-scss",
         "streetsidesoftware.code-spell-checker",
-        "taichi.vscode-textlint",
+        "3w36zj6.textlint",
         "yzhang.markdown-all-in-one"
       ],
       "settings": {

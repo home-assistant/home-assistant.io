@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -125,7 +126,7 @@ pins:
           required: false
           type: string
         value_template:
-          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: template
 monitored_variables:
@@ -147,7 +148,7 @@ monitored_variables:
           required: false
           type: string
         value_template:
-          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: template
 {% endconfiguration %}

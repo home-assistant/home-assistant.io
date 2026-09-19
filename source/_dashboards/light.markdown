@@ -2,7 +2,7 @@
 type: card
 title: "Light card"
 sidebar_label: Light
-description: "The light card allows you to change the brightness of the light."
+description: "The light card allows you to change the brightness of a light."
 related:
   - docs: /dashboards/actions/
     title: Card actions
@@ -10,18 +10,20 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
-The light card allows you to change the brightness of the light.
+The light card allows you to change the brightness of a light.
 
 <p class='img'>
 <img src='/images/dashboards/light_card.png' alt='Screenshot of the Light card'>
 Screenshot of the light card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -38,8 +40,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Name of entity
 icon:
   required: false

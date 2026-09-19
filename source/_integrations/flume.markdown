@@ -16,13 +16,13 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The Flume {% term integration %} will show you the current [Flume](https://flumewater.com/) status for the given Device ID.
+The **Flume** {% term integration %} will show you the current [Flume](https://flumewater.com/) status for the given Device ID.
 
 Flume monitors the real-time status of your home water meter. Allowing the end-user to detect small leaks, gain real-time information on household water consumption, set water goals and budgets, and receive push notifications when suspicious water activities occur. 
 
@@ -30,22 +30,20 @@ Flume monitors the real-time status of your home water meter. Allowing the end-u
 
 You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumewater.com/#settings).
 
-To add `Flume` to your installation, go to **Settings** -> **Devices & services** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
+To add `Flume` to your installation, go to {% my integrations title="**Settings** > **Devices & services**" %} in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
 
 ## Notifications
 
 Flume notifications are fetched every 5 minutes and are available via the `flume.list_notifications` action. Some notifications are available via the following binary sensors:
 
-- Bridge disconnected
 - High flow
 - Leak detected
-- Low battery
 
-To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications](https://portal.flumewater.com/notifications) and clear the notification in question.
+To clear these notifications, use your Flume app or the [Flume notifications portal](https://portal.flumewater.com/notifications). The **High flow** and **Leak detected** sensors stay on until you do.
+
+The **Battery** and **Connectivity** sensors do not use notifications. They report what your Flume device reports directly and are checked every hour. After you replace the batteries, the battery status updates on its own, with nothing for you to clear. The **Low battery** notification stays in your Flume app, and in the `flume.list_notifications` response, until you clear it.
 
 Example of an automation that sends a Home Assistant notification of the most recent usage alert:
-
-{% raw %}
 
 ```yaml
 alias: "Notify: flume"
@@ -77,13 +75,9 @@ actions:
             {{ usage_alert.title }}
 ```
 
-{% endraw %}
-
 ## Configuration for binary sensor
 
 The following YAML creates a binary sensor. This requires the default sensor to be configured successfully.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,5 +87,3 @@ template:
       state: >-
         {{ states('sensor.flume_sensor') != "0" }}
 ```
-
-{% endraw %}

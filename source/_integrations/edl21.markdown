@@ -8,18 +8,19 @@ ha_release: 0.107
 ha_domain: edl21
 ha_platforms:
   - sensor
-ha_integration_type: hub
+ha_integration_type: device
 ha_config_flow: true
 ---
 
-The `edl21` integration lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.
+The **EDL21** {% term integration %} lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.
 
-In order to connect to the smart meter, an infrared transceiver is required.
+To connect to the smart meter, an infrared transceiver is required.
 
 Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
+- [Wattwächter](https://www.smartcircuits.de)
 
 Tested smart meters:
 
@@ -29,6 +30,7 @@ Tested smart meters:
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
 - efr SGM-C4 (enable InF as described in manual to retrieve full data)
 - easymeter Q3 ([Link](https://www.easymeter.com/products/zaehler/q3a))
+- EBZ DD3 (tested version: DD3 2R06 DTA - SMZ1)
 
 {% include integrations/config_flow.md %}
 
@@ -54,3 +56,19 @@ To use this integration with a remote transceiver you could use [ser2net](https:
 Example `ser2net.conf` configuration file:
 
 > 2001:raw:0:/dev/ttyUSB0:9600 8DATABITS NONE 1STOPBIT
+
+Example `ser2net.yaml` (`ser2net` version 4.3.3) configuration entry:
+
+```yaml
+connection: &con2001
+  enable: on
+  accepter: tcp,2001
+  options:
+    telnet-brk-on-sync: false
+    kickolduser: true
+  connector: serialdev,/dev/ttyUSB0,9600n81,local
+```
+
+Use `socket://<ip-of-host>:2001` when adding the Smart Meter and asked for a "USB device path".
+
+This trick also works for RS485-based reading heads connected over a Waveshare RS485-to-Ethernet converter if you need to place reading heads at a remote location.

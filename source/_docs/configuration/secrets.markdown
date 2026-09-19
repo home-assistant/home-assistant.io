@@ -1,6 +1,6 @@
 ---
-title: "Storing secrets"
-description: "Storing secrets outside of your configuration.yaml."
+title: "Storing secrets in YAML"
+description: "Keep passwords, API keys, and other sensitive values out of your configuration.yaml by storing them in a separate secrets.yaml file."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -51,9 +51,9 @@ When you start splitting your configuration into multiple files, you might end u
 - A `secrets.yaml` located in the same folder as the {% term YAML %} file referencing the secret,
 - next, parent folders will be searched for a `secrets.yaml` file with the secret, stopping at the folder with the main {% term "`configuration.yaml`" %}.
 
-To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script. The latter is only available for {% term "Home Assistant Core" %} installations given it's available through [`hass`](/docs/tools/hass/).
+To see where secrets are being loaded from, you can add an option to your `secrets.yaml` file.
 
-*Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
+Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
 
 ```yaml
 logger: debug
@@ -61,10 +61,22 @@ logger: debug
 
 This will not print the actual secret's value to the log.
 
-*Option 2*: For Home Assistant Core installations, you can also view where secrets are retrieved from and the contents of all `secrets.yaml` files using the [`check_config` script](/docs/tools/check_config/) from the command line:
+## Secrets in automations and scripts
 
-```bash
-hass --script check_config --secrets
+Using secrets is not supported in the Home Assistant UI YAML editor for automations and scripts. If `!secret` is used in `automations.yaml` or `scripts.yaml`, you will not be able to edit or view **any** YAML automations or scripts in the UI.
+ 
+You can however split automations or scripts using secrets into a separate yaml file, as described in [splitting configuration](/docs/configuration/splitting_configuration/#top-level-keys). These will be read-only in the frontend, and allow the rest of your automations to still be editable normally.
+
+Example `configuration.yaml`:
+
+```yaml
+# The main automations editable in the UI
+automation ui: !include automations.yaml
+
+# These automations may contain secrets, and will be read-only in the UI
+automation secret: !include automations-secret.yaml
 ```
+{% caution %}
+Secrets used in automations will expose their secret value to administrators when viewed in the UI, such as in the YAML source viewer and the trace viewer.
+{% endcaution %}
 
-This will print all your secrets.

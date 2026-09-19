@@ -14,6 +14,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The **Danfoss Air** {% term integration %} allows you to access information from your Danfoss Air HRV unit.

@@ -570,4 +570,4 @@ automation:
 [fan.dyson docs]: /integrations/dyson#fan
 [remote.itach docs]: /integrations/itach
 [sensor.dyson docs]: /integrations/dyson#sensor
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

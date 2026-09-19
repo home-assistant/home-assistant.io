@@ -6,7 +6,9 @@ date: 2024-08-08 00:00:01
 date_formatted: "August 8, 2024"
 author: Guy Sie
 comments: true
-categories: Announcements
+categories:
+  - Announcements
+  - Works-with-Home-Assistant
 og_image: /images/blog/2024-08-wwha-update/art.jpg
 ---
 <p class='img'><img src='/images/blog/2024-08-wwha-update/art.jpg' style='border: 0;box-shadow: none;' alt="Works with Home Assistant becomes part of the Open Home Foundation">Art by Clelia Rella</p>
