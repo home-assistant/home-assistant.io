@@ -102,7 +102,7 @@ The table below shows which {% term entity %} domains are available in each mode
 | Number              |     ✅      |                —                |
 | Select              |     ✅      |                —                |
 | Sensor              |     ✅      |                —                |
-| Siren               |     ✅      |                —                |
+| Siren               |     ✅      |               ✅                |
 | Switch              |     ✅      |  ✅ (public API settings only)  |
 | Text                |     ✅      |                —                |
 
@@ -194,7 +194,7 @@ The table below shows, per device type, which connection mode is required. See [
 | Viewer       |     ✅      |                 —                 |
 | Smart chime  |     ✅      |                 —                 |
 | Relay        |     ✅      |                ✅                 |
-| Siren        |     ✅      |                 —                 |
+| Siren        |     ✅      |                ✅                 |
 | NVR          |     ✅      |      ✅ (Alarm Manager only)      |
 
 ### UniFi Protect cameras
