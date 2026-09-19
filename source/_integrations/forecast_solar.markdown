@@ -26,25 +26,67 @@ Forecast.Solar uses data from the [EU Photovoltaic Geographical Information Syst
 
 To create a forecast, the integration needs a few details about your solar setup:
 
-- **Location**: The latitude and longitude of your panels. By default, this is taken from the home location set in your Home Assistant settings.
-- **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright.
-- **Azimuth**: The compass direction the panels face, on a 360 degree scale. `0` is north, `90` is east, `180` is south, and `270` is west.
+- **Location**: The latitude and longitude of your panels. You can enter fixed coordinates, or let the integration follow your Home Assistant home location, so the forecast keeps up if that location changes, such as for a solar setup on a camper van, motorhome, or boat.
+- **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright. You can enter a fixed tilt or select a sensor that reports it.
+- **Azimuth**: The compass direction the panels face, on a 360-degree scale. `0` is north, `90` is east, `180` is south, and `270` is west. You can enter a fixed direction or select a sensor that reports it, such as a compass.
 - **Total Watt peak power**: The combined maximum power of all your panels, in Watt peak. Add up the peak power of every panel in the group to get this value.
 
 {% include integrations/config_flow.md %}
 
+Setup has two steps. In the first step, you choose where the location and the panel angles come from:
+
+- **Location**:
+  - **Enter fixed coordinates**: You enter the latitude and longitude of your panels. The forecast uses these coordinates, even if your Home Assistant home location changes.
+  - **Follow the Home Assistant location, for homes that move such as campers or boats**: The forecast uses your Home Assistant home location and follows it when that location changes. You don't need to enter any coordinates.
+- **Declination**:
+  - **Enter a fixed tilt**
+  - **Read the tilt from a sensor**
+- **Azimuth**:
+  - **Enter a fixed direction**
+  - **Read the direction from a sensor, such as a compass**
+
+The second step asks only for what you chose in the first step. For each angle, you enter either a fixed value or a sensor, never both.
+
 {% configuration_basic %}
 Latitude:
-  description: "The latitude of your solar panels. Defaults to your Home Assistant home location."
+  description: "The latitude of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
 Longitude:
-  description: "The longitude of your solar panels. Defaults to your Home Assistant home location."
+  description: "The longitude of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
 Declination (0 = Horizontal, 90 = Vertical):
-  description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright)."
+  description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright). Only asked for if you selected **Enter a fixed tilt**."
+Declination sensor:
+  description: "A sensor that reports the tilt of your panels. Only asked for if you selected **Read the tilt from a sensor**. The sensor must report a value from 0 to 90 degrees."
 Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West):
-  description: "The direction your panels face on a 360 degree scale."
+  description: "The direction your panels face on a 360-degree scale. Only asked for if you selected **Enter a fixed direction**."
+Azimuth sensor:
+  description: "A sensor that reports the direction your panels face. Only asked for if you selected **Read the direction from a sensor, such as a compass**. The sensor can report a value from 0 to 360 degrees or from -180 to 180 degrees. Both are accepted."
 Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
+
+You can select any sensor entity, not only sensors that report in degrees.
+
+Sensor values and your Home Assistant home location are read at each scheduled forecast update, not the moment they change. That is every 30 minutes with a Forecast.Solar API key, and every hour without one. See [Data updates](#data-updates).
+
+### When a sensor can't be used
+
+A selected sensor is never replaced by a fixed value. If the sensor doesn't exist, is `unavailable` or `unknown`, reports something that isn't a number, or reports a value that is out of range, the forecast update fails with an error that names the sensor:
+
+- During setup, the integration shows the error as the reason it is retrying, and it keeps retrying.
+- After setup, the forecast entities become unavailable, and the error is logged.
+
+After setup, as soon as one of the plane sensors changes, the forecast refreshes right away, without waiting for the next scheduled update. During setup, Home Assistant keeps retrying on its own schedule instead.
+
+If you rename a sensor's entity ID, the plane keeps using it automatically. If you delete the sensor, forecast updates fail as described above until you reconfigure the plane with another sensor or a fixed value.
+
+### Changing the location
+
+Reconfiguring the integration only changes the location. To change it, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and select **Reconfigure**. Then select one of the following:
+
+- **Follow the Home Assistant location, for homes that move such as campers or boats**: Applies immediately.
+- **Enter fixed coordinates**: Shows the latitude and longitude, pre-filled with the current coordinates, so you can change them.
+
+To change the angles or power of a plane, reconfigure the plane instead. See [Reconfiguring a plane](#reconfiguring-a-plane).
 
 ## Configuration options
 
@@ -67,10 +109,21 @@ A plane is a group of panels that share the same orientation. If your setup has 
 
 Adding more than one plane requires a paid Forecast.Solar account. See [Using a Forecast.Solar account](#using-a-forecastsolar-account). You can configure up to four planes, and the integration combines their data into a single set of sensors, taking your inverter size into account if you set one.
 
+Adding a plane uses the same two steps as setup, without the **Location** choice. When a plane uses a sensor, its title shows the sensor's name followed by "(sensor)", for example `30° / Roof azimuth (sensor) / 5100W`.
+
 To add a plane:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
 2. Select **Add plane**.
+
+### Reconfiguring a plane
+
+Reconfiguring a plane also uses the same two steps, without the **Location** choice. It starts with the plane's current choices selected and its current values filled in. This is also how you switch an angle between a fixed value and a sensor.
+
+To reconfigure a plane:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
+2. Next to the plane, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
 
 ## Using a Forecast.Solar account
 
@@ -84,7 +137,7 @@ To use your account, add the API key in the integration's configuration options,
 
 A forecast will never perfectly match what your panels produce, because it is based on weather and historical data rather than the power you actually generate. Even so, you can make it more accurate for your situation in a few ways:
 
-- Fine-tune the **azimuth** and **declination** if the real orientation of your panels differs slightly from what you first entered. To change these, reconfigure the plane from the integration page.
+- Fine-tune the **Azimuth** and **Declination** if the real orientation of your panels differs slightly from what you first entered, or select a sensor for either so it follows a moving or adjustable mount. To change these, [reconfigure the plane](#reconfiguring-a-plane).
 - Set a damping factor for the morning and the evening if your panels catch some shade early or late in the day. Damping lowers the forecast at those times, making it less optimistic and closer to your reality.
 - Set the inverter size if your inverter can deliver less power than your panels can produce together, so the forecast does not exceed what your inverter can handle.
 
@@ -130,6 +183,8 @@ How often the forecast {% term polling updates %} depends on your Forecast.Solar
 
 - Free accounts update every hour.
 - Accounts with an API key update every 30 minutes.
+
+Because Forecast.Solar limits how often the forecast can be requested, the integration reads your declination and azimuth sensors and your Home Assistant home location at each scheduled update, not the moment they change. The only exception is when a sensor couldn't be used after setup: as soon as one of the plane sensors changes, the forecast refreshes right away. See [When a sensor can't be used](#when-a-sensor-cant-be-used).
 
 The forecast always remains an estimate based on weather and historical data, not a measurement of the power your panels actually produce.
 
