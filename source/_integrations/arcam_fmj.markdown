@@ -89,6 +89,18 @@ The integration provides diagnostic sensors for monitoring the incoming audio an
 - **Incoming audio sample rate**
   - **Description**: The sample rate of the incoming audio signal, in Hz.
 
+### Room EQ
+
+On compatible receivers with Dirac room correction, the integration provides a Room EQ select entity for each zone.
+
+The selector allows you to:
+
+- Turn Room EQ off.
+- Select one of the configured Dirac profiles.
+- Use the receiver's configured profile names when available.
+
+If profile names cannot be read, the profiles are shown as `EQ1`, `EQ2`, and `EQ3`.
+
 ## Power state
 
 Arcam receivers turn off their network port when in standby, the integration will try to reconnect to the receiver every 5 seconds. This means powering on the first zone is not possible over the built-in network connection. 
