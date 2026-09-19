@@ -82,75 +82,40 @@ If UDP discovery traffic is blocked, you can still set up a controller by choosi
 
 ## Master controller
 
-Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the 'iSave' system, which vents in external air into the house, this is available as 'eco' mode.
+Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the iSave system, which vents external air into the house, this is available as the **Eco** preset.
 
 The entity exposes a `supply_temperature` attribute. Use the **Supply temperature** sensor entity (below) instead.
 
-## Zones
+### Zone control mode
 
-Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
+When zones that have a temperature sensor are available, the unit can be put into zone control mode as a system setting. In this mode each individual zone has a temperature target, and the device chooses the zone furthest from its setpoint to control the air conditioner. Home Assistant mirrors that choice on the controller climate entity:
 
-## Sensors
+- The controller’s current temperature follows the controlling zone’s room sensor.
+- The `control_zone_source` attribute is the climate entity ID of the controlling zone when a zone is driving the unit.
+- Set the temperature target on the individual zone climate entities.
+
+Because the controlling zone can change, the controller’s current temperature can jump when the selection changes.
+
+### Return air sensor mode
+
+Without automatic zones, or with certain system settings, the device targets the return air sensor. In this mode the controller is used to set the target temperature, and the current temperature reported is equal to the return air sensor. The `control_zone_source` attribute is not present on the controller climate entity in this mode.
+
+### Legacy attributes
+
+The controller climate entity exposes older attributes such as `control_zone`, `control_zone_name`, and `control_zone_setpoint`. Prefer `control_zone_source` and the controller’s current temperature, and set targets on the zone or controller climate entity as above. Those legacy attributes will be removed in a future release.
+
+### Sensors
 
 The integration creates the following {% term sensor %} entities for each controller:
 
 - **Supply temperature**: (diagnostic) The temperature of the air leaving the indoor unit into the ductwork.
 - **Return temperature**: (diagnostic) The temperature of the air returning to the indoor unit.
 
-## Control zone (climate control mode)
+These sensors always report the unit duct temperatures. They do not change when a different zone is controlling the system.
 
-When your iZone system has multiple climate-controlled zones, the target temperature behavior depends on your system configuration:
+## Zones
 
-### When you can set the controller's target temperature
-
-You can set the target temperature directly on the controller in these situations:
-
-- Your system is in RAS mode (return air sensor mode, not master/slave mode)
-- Your system is in master mode, but the control zone is set to zone 13 (the master unit itself) or an invalid zone number
-- Any of your zones don't have a temperature sensor installed
-
-In these cases, you can set the target temperature on the controller entity just like any other climate entity.
-
-### When you set temperatures on individual zones
-
-When your system is in master mode with a valid control zone (and all zones have temperature sensors), you set the target temperature for each individual zone instead of the controller.
-
-The climate controller automatically selects the zone that is furthest from its target temperature and uses that zone's current and target temperatures to control the air conditioner unit, closing zones that have already reached their target.
-
-In this mode, the controller entity reports:
-
-- The current control zone that has been selected
-- The target temperature for that zone (read-only on the controller; set it via the individual zone entities)
-- The current temperature of the control zone
-
-You can configure template sensors to read the control zone values (in {% term "`configuration.yaml`" %}; use the ID of your unit). Prefer the native **Supply temperature** sensor for supply air readings:
-
-```yaml
-# Example configuration.yaml entry to create sensors
-# from the izone controller state attributes
-template:
-  - sensor:
-    - name: "Control zone"
-      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
-    - name: "Target temperature"
-      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
-      unit_of_measurement: "°C"
-```
-
-And then graph them on a dashboard, along with the supply temperature sensor and the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
-snippet into the code editor:
-
-```yaml
-# Example snippet for dashboard card configuration (code editor)
-entities:
-  - entity: sensor.control_zone
-  - entity: sensor.target_temperature
-  - entity: sensor.izone_controller_0000XXXXX_supply_temperature
-  - entity: climate.izone_controller_0000XXXXX
-hours_to_show: 24
-refresh_interval: 0
-type: history-graph
-```
+Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
 
 ## Diagnostics
 
