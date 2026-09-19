@@ -2,10 +2,7 @@
 title: Immich Frames
 description: Instructions on how to integrate Immich photo frames into Home Assistant.
 ha_category:
-  - Button
   - Image
-  - Sensor
-  - Switch
 ha_iot_class: Local Polling
 ha_release: 2026.10
 ha_domain: immich_frames
@@ -13,11 +10,8 @@ ha_codeowners:
   - '@jtenniswood'
 ha_config_flow: true
 ha_platforms:
-  - button
   - diagnostics
   - image
-  - sensor
-  - switch
 ha_integration_type: service
 ha_quality_scale: bronze
 ---
@@ -40,13 +34,13 @@ During setup, select the existing Immich account, give the frame a name, and cho
 - **Albums** lets you choose one or more Immich albums.
 - **Keywords** uses Immich Smart Search.
 
-The frame's options let you choose the portrait pairing mode, image orientation, rolling time range, portrait pairing window, output shape, photo fitting, and rotation interval. The initial defaults are All photos, Single portrait photos only, Mixed orientations, all time, a 2-day pairing window, Landscape (1280 × 800), Show full photo, and a 30-second rotation interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
+The frame's options let you choose the portrait pairing mode, image orientation, rolling time range, portrait pairing window, output shape, and photo fitting. The initial defaults are All photos, Single portrait photos only, Mixed orientations, all time, a 2-day pairing window, Landscape (1280 × 800), and Show full photo. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
 
 {% include integrations/option_flow.md %}
 
 ## Entities
 
-Each frame creates one device with the following entities:
+Each frame creates one device with one image entity:
 
 ### Image
 
@@ -54,26 +48,11 @@ The **Image** entity contains the rendered frame image. Its state is the timesta
 
 The image entity includes an **Open in Immich** link for the primary displayed asset when that link is available.
 
-### Buttons
-
-- **Next photo** selects and renders another photo.
-- **Previous photo** returns to the previous rendered photo when history is available.
-- **Refresh photo** requests an immediate update.
-- **Clear cache** removes the locally stored frame image. The next successful update creates a new cache.
-
-### Switch
-
-The **Slideshow** switch pauses or resumes automatic rotation.
-
-### Sensors
-
-The integration provides **Photo date**, **Photo location**, **Photo people**, **Matching photos**, and **Frame status** sensors. Photo date, Photo location, and Photo people are disabled by default and can be enabled from the entity registry when they are useful for a particular dashboard or automation. Matching photos and Frame status are enabled by default.
-
 ## Data updates and offline behavior
 
-The frame polls Immich at the configured rotation interval. A successful update selects eligible assets, downloads the required preview, renders the configured output dimensions, and stores an atomic cache entry.
+The frame polls Immich every 30 seconds. A successful update selects eligible assets, downloads the required preview, renders the configured output dimensions, and stores an atomic cache entry.
 
-The cache is tied to the Immich account, frame settings, output shape, and photo-fitting mode. A frame does not show an image from a different account or incompatible configuration. Authentication failures require the Immich integration to be repaired. After a network update fails, the coordinator keeps the last cached image available and reports the failure through the Frame status sensor.
+The cache is tied to the Immich account, frame settings, output shape, and photo-fitting mode. A frame does not show an image from a different account or incompatible configuration. Authentication failures start reauthentication for the parent Immich integration. After a network update fails, the coordinator keeps the last verified image in the local cache.
 
 ## Supported displays and image behavior
 
@@ -87,26 +66,6 @@ The integration renders these exact output sizes:
 
 Photos can be cropped to fill the frame or shown in full with padding. Portrait photos can be displayed individually or paired side by side according to the selected mode and pairing window. The integration requests Immich's preview asset for rendering.
 
-## Automation examples
-
-Pause a frame while a room is occupied:
-
-```yaml
-action: switch.turn_off
-target:
-  entity_id: switch.living_room_slideshow
-```
-
-Show another image from an automation:
-
-```yaml
-action: button.press
-target:
-  entity_id: button.living_room_next_photo
-```
-
-Entity IDs depend on the frame name chosen during setup. Use the entity picker in the automation editor to select the generated entity.
-
 ## Troubleshooting
 
 Enable debug logging for `homeassistant.components.immich_frames` and `aioimmich`, reproduce the problem, then disable debug logging again. Download the integration diagnostics and include them in an issue report. Diagnostics redact the API key and do not include image bytes.
@@ -117,7 +76,7 @@ Check that the selected Immich account has image assets matching the source, ori
 
 ### The frame shows an old image
 
-The last cached image is intentionally retained while Immich is unavailable. Check the parent Immich integration for authentication or connectivity errors, then use **Refresh** after the connection is restored.
+The last cached image is intentionally retained while Immich is unavailable. Check the parent Immich integration for authentication or connectivity errors; the image refreshes automatically after the connection is restored.
 
 ### The image dimensions are unexpected
 
