@@ -243,13 +243,13 @@ The available conditions are:
 
 For information about each condition, refer to the [Fan conditions](/integrations/fan/#list-of-conditions).
 
-### Generic conditions
+The following generic conditions can be used across different entity domains.
 
-#### Device conditions
+### Device conditions
 
 Set of conditions provided by a device.
 
-#### Numeric state condition
+### Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
 
@@ -313,7 +313,7 @@ conditions:
     below: input_number.temperature_threshold_high
 ```
 
-#### State condition
+### State condition
 
 Tests if an entity has a specified state.
 
