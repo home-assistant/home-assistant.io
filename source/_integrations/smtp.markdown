@@ -16,7 +16,7 @@ The **SMTP** {% term integration %} allows you to deliver notifications from Hom
 
 ## About SMTP
 
-<abbr title="Simple Mail Transfer Protocol">SMTP is a standard protocol used to send email messages between mail servers and email clients. An SMTP server is provided by your email service and handles the delivery of outgoing email messages.
+<abbr title="Simple Mail Transfer Protocol">SMTP</abbr> is a standard protocol used to send email messages between mail servers and email clients. An SMTP server is provided by your email service and handles the delivery of outgoing email messages.
 
 ## How you can use the integration
 
