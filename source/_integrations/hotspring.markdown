@@ -85,7 +85,7 @@ The **Hot Spring** integration provides the following entities:
 - **Jet**
   - **Description**: Controls the jet pump speed (one entity is created per enabled jet pump, for example, **Jet 1**). Supports **Off**, **Low**, and **High** on dual-speed jets, and **Off** and **High** on single-speed jets.
 - **Heating mode**
-  - **Description**: Controls the heating operating mode of the spa heater (**Heat saver**, **Heat with boost**, **Auto saver**, **Auto with boost**, and **Chill**).
+  - **Description**: Controls the heating operating mode of the spa heater (**Heat saver**, **Heat with boost**, **Auto saver**, **Auto with boost**, and **Chill** (available when a CoolZone heat pump is installed)).
   - **Availability**: Available when the spa hardware supports heating mode selection.
 
 ### Sensor
