@@ -34,7 +34,7 @@ During setup, select the existing Immich account and choose a source. Home Assis
 - **Albums** lets you choose one or more Immich albums.
 - **Keywords** uses Immich Smart Search.
 
-The frame's options let you choose the pairing mode, image orientation, rolling time range, pairing window, output shape, and photo fitting. The initial defaults are All photos, Single photos only, Mixed orientations, all time, a 2-day pairing window, Landscape (1280 × 800), and Show full photo. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
+The frame's options let you choose the pairing mode, image orientation, rolling time range, pairing window, output shape, and **Photo fitting**. The initial defaults are **All photos**, **Single photos only**, **Mixed orientations**, **All time**, a 2-day pairing window, **Landscape (1280 × 800)**, and **Show full photo**. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
 
 {% include integrations/option_flow.md %}
 
@@ -44,7 +44,7 @@ Each frame creates one device with one image entity:
 
 ### Image
 
-The **Image** entity contains the rendered frame image. Its state is the timestamp of the last rendered image. When Immich is temporarily unavailable, the last verified image remains available from the local cache.
+The **Image** entity contains the rendered frame image. Its state is the timestamp of the last rendered image. When Immich is temporarily unavailable, the entity becomes unavailable while the last verified image remains available from the local cache for recovery.
 
 The image entity includes an **Open in Immich** link for the primary displayed asset when that link is available.
 
@@ -52,7 +52,7 @@ The image entity includes an **Open in Immich** link for the primary displayed a
 
 The frame polls Immich every 30 seconds. A successful update selects eligible assets, downloads the required preview, and renders the configured output dimensions. The durable atomic cache is refreshed at most every five minutes to limit storage writes while keeping the current image in memory. Each source query currently examines at most the first 2,000 matching assets; this bound keeps polling predictable for large libraries.
 
-The cache is tied to the Immich account, frame settings, output shape, and photo-fitting mode. A frame does not show an image from a different account or incompatible configuration. Authentication failures start reauthentication for the parent Immich integration. After a network update fails, the coordinator keeps the last verified image in the local cache.
+The cache is tied to the Immich account, frame settings, output shape, and photo-fitting mode. A frame does not show an image from a different account or incompatible configuration. Authentication failures start reauthentication for the parent Immich integration. After a network update fails, the coordinator keeps the last verified image in the local cache while the entity reports unavailable until recovery.
 
 ## Supported displays and image behavior
 
@@ -68,7 +68,7 @@ Photos can be cropped to fill the frame or shown in full with padding. Portrait 
 
 ## Troubleshooting
 
-Enable debug logging for `homeassistant.components.immich_frames` and `aioimmich`, reproduce the problem, then disable debug logging again. Download the integration diagnostics and include them in an issue report. Diagnostics redact the API key and do not include image bytes.
+Enable debug logging for `homeassistant.components.immich_frames` and `aioimmich`, reproduce the problem, then disable debug logging again. Download the integration diagnostics and include them in an issue report. Diagnostics redact credentials, account and frame identifiers, frame names, Smart Search queries, and do not include image bytes.
 
 ### No photos are displayed
 
