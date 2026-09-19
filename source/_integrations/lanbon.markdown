@@ -17,46 +17,48 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **LANBON** {% term integration %} connects Home Assistant to a LANBON panel on your LAN. Control uses the panel's local HTTP and WebSocket API on port **8765**.
-
-This first Core release provides **switch** entities only.
-
-The device **Open Integration** setting is the only master switch. Home Assistant does not add a separate enable control.
+The **LANBON** {% term integration %} connects Home Assistant to a LANBON panel on your local network. You can turn its switches on and off, view their current state, and use them in automations.
 
 ## Prerequisites
 
 - A LANBON panel with **Open Integration** enabled, on the same network as Home Assistant
-- The Bearer token shown on the device screen after Open Integration is enabled
-
-Token is **not** advertised in mDNS TXT.
-
-## Configuration
+- The token shown on the device screen after **Open Integration** is enabled
 
 {% include integrations/config_flow.md %}
 
-| Field | Description |
-| --- | --- |
-| Host | LAN IP of the panel |
-| Port | Local API port (default `8765`) |
-| Token | Bearer token from the device screen |
+{% configuration_basic %}
+Host:
+  description: "The local IP address of the LANBON panel, not the Home Assistant address."
+Port:
+  description: "The local API port of the panel. The default is `8765`."
+Token:
+  description: "The token shown on the device screen after **Open Integration** is enabled. Copy this token from the panel."
+{% endconfiguration_basic %}
 
-### Zeroconf discovery
+### Automatic discovery
 
-If Home Assistant and the panel share a working mDNS path, a discovery notification appears for `_lanbon._tcp`. Confirm it and paste the token from the device. A `token=` field in TXT, if present, is ignored.
+If Home Assistant discovers the panel on your local network, select the discovered device and enter the token shown on the panel. If the panel is not discovered, add the integration manually using its IP address.
 
-## Entities
+## Supported functionality
 
-This release creates **Switch** entities for LOIP components with type `switch`. Other device types are not part of this release.
+The **LANBON** integration provides the following entities.
+
+### Switches
+
+- **Panel switches**
+  - **Name**: Each switch uses the name reported by the panel. If no name is provided, the component ID is used instead. The names and number of switches depend on the panel configuration.
+  - **Description**: One entity is created for each switch component that supports on/off control. It shows the current on/off state and lets you turn that switch on or off from Home Assistant or an automation.
+  - **Availability**: A switch is unavailable when its device is offline, its component is disabled, or Home Assistant cannot communicate with the panel.
+
+## Troubleshooting
+
+- **Cannot connect**: Enable **Open Integration** on the panel and confirm port `8765` is reachable on the local network.
+- **Invalid token**: Enter the current token from the device screen.
+- **Open Integration is off**: Enable it on the panel, then retry. This setting controls access for the integration; Home Assistant does not provide a separate enable switch.
+- **No discovery**: Add the integration manually by IP address. Check that your network allows multicast discovery between Home Assistant and the panel, especially when using Docker, WSL2, or VLANs.
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
 Turning off **Open Integration** on the device stops discovery and control. No factory reset is required.
-
-## Troubleshooting
-
-- **Cannot connect**: enable Open Integration on the panel and confirm port `8765` is reachable on the LAN
-- **Invalid token**: paste the current token from the device screen
-- **Open Integration is off**: enable it on the panel, then retry
-- **No discovery**: add the integration manually by IP; Docker, WSL2, and VLANs often block mDNS
