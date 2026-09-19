@@ -28,13 +28,13 @@ This integration works with the existing [Immich integration](/integrations/immi
 
 {% include integrations/config_flow.md %}
 
-During setup, select the existing Immich account, give the frame a name, and choose a source:
+During setup, select the existing Immich account and choose a source. Home Assistant names the entry **Immich Frames**; you can rename it later from the integration settings:
 
 - **All photos** uses the account's image library.
 - **Albums** lets you choose one or more Immich albums.
 - **Keywords** uses Immich Smart Search.
 
-The frame's options let you choose the portrait pairing mode, image orientation, rolling time range, portrait pairing window, output shape, and photo fitting. The initial defaults are All photos, Single portrait photos only, Mixed orientations, all time, a 2-day pairing window, Landscape (1280 × 800), and Show full photo. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
+The frame's options let you choose the pairing mode, image orientation, rolling time range, pairing window, output shape, and photo fitting. The initial defaults are All photos, Single photos only, Mixed orientations, all time, a 2-day pairing window, Landscape (1280 × 800), and Show full photo. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
 
 {% include integrations/option_flow.md %}
 
@@ -50,7 +50,7 @@ The image entity includes an **Open in Immich** link for the primary displayed a
 
 ## Data updates and offline behavior
 
-The frame polls Immich every 30 seconds. A successful update selects eligible assets, downloads the required preview, renders the configured output dimensions, and stores an atomic cache entry.
+The frame polls Immich every 30 seconds. A successful update selects eligible assets, downloads the required preview, renders the configured output dimensions, and stores an atomic cache entry. Each source query currently examines at most the first 2,000 matching assets; this bound keeps polling predictable for large libraries.
 
 The cache is tied to the Immich account, frame settings, output shape, and photo-fitting mode. A frame does not show an image from a different account or incompatible configuration. Authentication failures start reauthentication for the parent Immich integration. After a network update fails, the coordinator keeps the last verified image in the local cache.
 
@@ -76,7 +76,7 @@ Check that the selected Immich account has image assets matching the source, ori
 
 ### The frame shows an old image
 
-The last cached image is intentionally retained while Immich is unavailable. Check the parent Immich integration for authentication or connectivity errors; the image refreshes automatically after the connection is restored.
+The last cached image is intentionally retained while Immich is unavailable, but the image entity is marked unavailable until a connection is restored. Check the parent Immich integration for authentication or connectivity errors; the image refreshes automatically after the connection is restored.
 
 ### The image dimensions are unexpected
 
@@ -84,4 +84,4 @@ Check the frame's **Screen shape** and **Photo fitting** options. The rendered o
 
 ## Removing the integration
 
-Remove the Immich Frames config entry from **Settings** > **Devices & services**. This removes the frame's entities and device. The separate Immich account entry is not removed. The cached image is no longer used by Home Assistant and can be removed from the Home Assistant storage directory if manual cleanup is required.
+Remove the Immich Frames config entry from **Settings** > **Devices & services**. This removes the frame's entities and device, and deletes its private cached image. The separate Immich account entry is not removed.
