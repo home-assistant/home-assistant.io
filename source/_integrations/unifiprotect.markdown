@@ -93,7 +93,7 @@ The table below shows which {% term entity %} domains are available in each mode
 | Domain              | Full access |          API key only           |
 | ------------------- | :---------: | :-----------------------------: |
 | Alarm control panel |     ✅      |               ✅                |
-| Binary sensor       |     ✅      |                —                |
+| Binary sensor       |     ✅      |   ✅ (public API values only)   |
 | Button              |     ✅      |                —                |
 | Camera              |     ✅      | ✅ (streams and snapshots only) |
 | Event               |     ✅      |                —                |
@@ -107,6 +107,8 @@ The table below shows which {% term entity %} domains are available in each mode
 | Text                |     ✅      |                —                |
 
 In API key only mode, switches are limited to the settings the public API can change: the camera status light, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
+
+In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %} and not available in this mode; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper and low battery. The doorbell chime binary sensor and the read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
 {% note %}
 This table reflects the entities currently supported by this {% term integration %}. The UniFi Protect public Integration API is actively growing, and this {% term integration %} is being incrementally migrated to use it, so expect more domains to become available in API key only mode over time.
@@ -186,16 +188,16 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
 
-| Device type  | Full access |           API key only            |
-| ------------ | :---------: | :-------------------------------: |
-| Camera       |     ✅      | ✅ (streams, snapshots, switches) |
-| Floodlight   |     ✅      |      ✅ (light and switches)      |
-| Smart sensor |     ✅      |        ✅ (switches only)         |
-| Viewer       |     ✅      |                 —                 |
-| Smart chime  |     ✅      |                 —                 |
-| Relay        |     ✅      |                ✅                 |
-| Siren        |     ✅      |                 —                 |
-| NVR          |     ✅      |      ✅ (Alarm Manager only)      |
+| Device type  | Full access |                   API key only                    |
+| ------------ | :---------: | :-----------------------------------------------: |
+| Camera       |     ✅      | ✅ (streams, snapshots, switches, binary sensors) |
+| Floodlight   |     ✅      |       ✅ (light, switches, binary sensors)        |
+| Smart sensor |     ✅      |         ✅ (switches and binary sensors)          |
+| Viewer       |     ✅      |                         —                         |
+| Smart chime  |     ✅      |                         —                         |
+| Relay        |     ✅      |                        ✅                         |
+| Siren        |     ✅      |                         —                         |
+| NVR          |     ✅      |              ✅ (Alarm Manager only)              |
 
 ### UniFi Protect cameras
 
