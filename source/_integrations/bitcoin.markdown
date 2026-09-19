@@ -27,15 +27,11 @@ Currency:
   description: "The currency the Bitcoin exchange rate is shown in. The list only offers currencies that blockchain.com quotes, and defaults to `USD`."
 {% endconfiguration_basic %}
 
-To change the currency later:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the **Bitcoin** integration.
-2. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Reconfigure**.
-3. Select the new currency, and then select **Submit**.
+To change the currency later, remove the integration and add it again with the new currency.
 
 ## Supported functionality
 
-The **Bitcoin** integration provides the following entities. All of them are created, so if you only want a few, hide or disable the rest in the entity settings. They are all filled from the same two API calls, so hiding an entity does not change how often Home Assistant contacts blockchain.com.
+The **Bitcoin** integration provides the following entities. All of them are created and filled from the same two API calls.
 
 ### Sensors
 
@@ -135,9 +131,9 @@ To resolve this issue, try the following steps:
 3. If a second issue says the import did not succeed, it also says why:
    - Home Assistant could not reach blockchain.com. Restart Home Assistant later to try again.
    - The currency in your YAML file is not one that blockchain.com quotes. Correct it and restart, or remove the YAML and add the integration from the UI.
-   - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then select **Reconfigure** on the integration to pick the currency you want.
+   - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then remove the integration and add it again with the currency you want.
 
-Your existing sensors keep the entity IDs they already had, so dashboards and automations that use them keep working. You do get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created. Hide or disable the ones you do not want in the entity settings.
+Your existing sensors keep the entity IDs they already had, so dashboards and automations that use them keep working. You do get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
 
 ## Removing the integration
 
