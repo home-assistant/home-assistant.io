@@ -26,8 +26,8 @@ Port:
   description: The port number of the Volkszaehler server. The default is `80`.
 UUID:
   description: The UUID of the channel to monitor. In the Volkszaehler Web UI, select the information icon next to the channel to find it.
-Middleware:
-  description: Whether to use `middleware.php` in the URL. Enable this option if your Volkszaehler instance uses `middleware.php` in the URL, which is the standard setup. Disable it for Docker setups or custom endpoints without `middleware.php`. The default is enabled.
+Use middleware.php:
+  description: Enabled by default. Turn this off if your Volkszaehler endpoint does not include `middleware.php` in the URL, such as some Docker installations or custom endpoints.
 {% endconfiguration_basic %}
 
 Each channel adds sensors for average power, consumption, maximum power, and minimum power. To monitor another channel, select **Add channel** to add it as a subentry of the Volkszaehler integration.
