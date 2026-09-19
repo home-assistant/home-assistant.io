@@ -65,6 +65,7 @@ The integration enables automatic status feedback when it connects. Changes made
 
 ## Known limitations
 
+- The input list includes all sources defined by the 2007 protocol. Some inputs may not be available on your receiver, and their names may differ.
 - Tuner presets, surround-mode selection, and other advanced receiver settings are not exposed.
 - At the receiver's minimum volume setting, Home Assistant may not show a numeric volume level.
 
