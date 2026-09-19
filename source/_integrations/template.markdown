@@ -444,7 +444,7 @@ binary_sensor:
       required: false
       type: time
     device_class:
-      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      description: Sets the [device class](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
       type: device_class
       default: None
@@ -962,7 +962,7 @@ cover:
       required: inclusive
       type: action
     device_class:
-      description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+      description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
       type: string
     open_cover:
@@ -1232,7 +1232,7 @@ event:
   type: map
   keys:
     device_class:
-      description: Sets the [class of the device](/integrations/event/), changing the device state and icon that is displayed on the frontend.
+      description: Sets the [class of the device](/integrations/event/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
       type: string
     event_type:
@@ -2582,6 +2582,11 @@ sensor:
           description: The attribute and corresponding template.
           required: true
           type: template
+    device_class:
+      description: Sets the [device class](/integrations/sensor/#device-class), which is used to pick display formatting and the icon in the UI. It does not set the `unit_of_measurement`.
+      required: false
+      type: string
+      default: None
     last_reset:
       description: "Defines a template that describes when the state of the sensor was last reset. Must render to a valid `datetime`. Only available when `state_class` is set to `total`"
       required: false
@@ -3002,7 +3007,7 @@ update:
       required: false
       type: boolean
     device_class:
-      description: Sets the class of the device, changing the device state and icon that is displayed on the UI.
+      description: Sets the [device class](/integrations/update/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
       type: device_class
       default: None
