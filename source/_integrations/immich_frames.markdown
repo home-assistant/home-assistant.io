@@ -50,7 +50,7 @@ The image entity includes an **Open in Immich** link for the primary displayed a
 
 ## Data updates and offline behavior
 
-The frame polls Immich every 30 seconds. A successful update selects eligible assets, downloads the required preview, renders the configured output dimensions, and stores an atomic cache entry. Each source query currently examines at most the first 2,000 matching assets; this bound keeps polling predictable for large libraries.
+The frame polls Immich every 30 seconds. A successful update selects eligible assets, downloads the required preview, and renders the configured output dimensions. The durable atomic cache is refreshed at most every five minutes to limit storage writes while keeping the current image in memory. Each source query currently examines at most the first 2,000 matching assets; this bound keeps polling predictable for large libraries.
 
 The cache is tied to the Immich account, frame settings, output shape, and photo-fitting mode. A frame does not show an image from a different account or incompatible configuration. Authentication failures start reauthentication for the parent Immich integration. After a network update fails, the coordinator keeps the last verified image in the local cache.
 
