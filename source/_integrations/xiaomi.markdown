@@ -144,7 +144,7 @@ The **Xiaomi** router integration offers presence detection by looking at connec
 
 {% configuration_basic %}
 Host:
-  description: "The IP address of your router, e.g., `192.168.0.1`."
+  description: "The IP address of your router, for example `192.168.0.1`."
 Username:
   description: "The admin username (default: admin)."
 Password:
