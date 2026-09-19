@@ -1,5 +1,5 @@
 blueprint:
-  name: "Marantz SR7002 scheduled standby"
+  name: "Marantz RS-232 scheduled standby"
   description: >
     Turn off the main zone or multi-room output at a chosen time each day.
   domain: automation
