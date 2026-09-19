@@ -5,6 +5,8 @@ ha_category:
   - Button
   - Media player
   - Remote
+  - Number
+  - Select
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -17,6 +19,8 @@ ha_platforms:
   - diagnostics
   - media_player
   - remote
+  - number
+  - select
 ha_ssdp: true
 ha_integration_type: device
 ---
@@ -295,3 +299,9 @@ This behavior can be caused not only by the integration, but also by some applic
 ### For TVs older than 2013
 
 Users of TVs older than 2013 can control their devices using [HDMI-CEC](/integrations/hdmi_cec/), [Broadlink](/integrations/broadlink/) or [Kodi](/integrations/kodi/) integrations.
+
+### Picture controls only populate when the TV is on
+
+Conforming with normal Home Assistant behaviour, the picture controls are unavailable when the TV is off. This causes a slight delay, where turning the TV on does not immediately allow you to modify these settings. They will be exposed at the next poll.
+
+N.B. Picture controls are not universal for the TV and saved separately for each source, so if you set a brightness for HDMI 1, this will change when you switch to HDMI 2. This is normal behaviour for this TV. Changing them only applies to the currently selected source.
