@@ -243,6 +243,8 @@ The available conditions are:
 
 For information about each condition, refer to the [Fan conditions](/integrations/fan/#list-of-conditions).
 
+The following generic conditions can be used across different entity domains.
+
 ### Device conditions
 
 Set of conditions provided by a device.
