@@ -237,6 +237,12 @@ Get entities reporting uptime per network client or UniFi Network device.
 
 Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
 
+### UPS sensors
+
+Compatible UniFi UPS devices provide sensors for battery level, remaining battery runtime, output power, output current, output voltage, and output power factor.
+
+Depending on the device, Home Assistant also provides either an input voltage sensor or a bypass voltage sensor.
+
 ### Device temperature sensor
 
 Get entities reporting the general temperature of a UniFi Network device.
