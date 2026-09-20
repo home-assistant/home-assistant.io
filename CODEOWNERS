@@ -1424,6 +1424,7 @@ source/_actions/energyzero.get_energy_prices.markdown @klaasnicolaas
 source/_actions/energyzero.get_gas_prices.markdown @klaasnicolaas
 source/_actions/environment_canada.get_alerts.markdown @gwww @michaeldavie
 source/_actions/environment_canada.get_forecasts.markdown @gwww @michaeldavie
+source/_actions/environment_canada.get_precipitation_forecast.markdown @gwww @michaeldavie
 source/_actions/environment_canada.set_radar_type.markdown @gwww @michaeldavie
 source/_actions/eurotronic_cometblue.get_schedule.markdown @rikroe
 source/_actions/eurotronic_cometblue.set_holiday.markdown @rikroe
