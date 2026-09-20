@@ -10,7 +10,6 @@ ha_codeowners:
   - '@shirok1'
 ha_domain: xiaomi_weather
 ha_platforms:
-  - diagnostics
   - weather
 ha_integration_type: service
 related:
