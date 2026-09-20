@@ -36,6 +36,31 @@ During setup, select the existing Immich account and choose a source. Home Assis
 
 The frame's options let you choose the pairing mode, image orientation, rolling time range, pairing window, output shape, and **Photo fitting**. The initial defaults are **All photos**, **Single photos only**, **Mixed orientations**, **All time**, a 2-day pairing window, **Landscape (1280 × 800)**, and **Show full photo**. The integration polls at a fixed 30-second interval. The output shapes are exact dimensions: 1280 × 800 landscape, 800 × 1280 portrait, or 720 × 720 square.
 
+### Installation parameters
+
+The config flow asks for these installation parameters:
+
+| Parameter | Description |
+| --- | --- |
+| Immich account | An existing, loaded Home Assistant Immich config entry. |
+| Photo source | All photos, one or more albums, or Immich Smart Search keywords. |
+
+The frame does not ask for the Immich URL, API key, or a frame name. The URL and API key remain owned by the existing Immich integration, and the entry name can be changed from Home Assistant after setup.
+
+### Configuration parameters
+
+The options flow provides these frame settings:
+
+| Parameter | Description |
+| --- | --- |
+| Mode | Show individual photos, allow a portrait pair, or require a portrait pair. |
+| Orientation | Use mixed, landscape, portrait, or square photos. |
+| Time range | Restrict candidates to a rolling range from one month to ten years, or all time. |
+| Pairing window | Maximum capture-time difference between portrait companions, in days. |
+| Screen shape | Render exactly 1280 × 800, 800 × 1280, or 720 × 720. |
+| Photo fitting | Crop photos to fill the frame or show the complete photo with padding. |
+| Photo source | Change the library, selected albums, or Smart Search query used by the frame. |
+
 Immich reports capture times as local wall-clock values. Immich Frames preserves those values for time-range filtering, ordering, and portrait pairing, and uses Home Assistant's configured local clock when excluding future captures. Keep the Immich server and Home Assistant time zones aligned for the most predictable rolling time ranges.
 
 {% include integrations/option_flow.md %}
@@ -49,6 +74,29 @@ Each frame creates one device with one image entity:
 The **Image** entity contains the rendered frame image. Its state is the timestamp of the last rendered image. When Immich is temporarily unavailable, the entity becomes unavailable while the last verified image remains available from the local cache for recovery.
 
 The image entity includes an **Open in Immich** link for the primary displayed asset when that link is available.
+
+## Use cases
+
+- Create separate frame entries for different albums, such as family photos, travel photos, or a shared household album.
+- Use the same Immich account for several wall displays while giving each frame its own orientation, output shape, and filtering settings.
+- Use the image entity in a Home Assistant dashboard or another client that supports Home Assistant image entities.
+
+## Automation example
+
+The frame refreshes automatically every 30 seconds. You can also request an immediate refresh from an automation with Home Assistant's generic `homeassistant.update_entity` action:
+
+```yaml
+alias: Refresh the Immich frame every hour
+triggers:
+  - trigger: time_pattern
+    hours: "/1"
+actions:
+  - action: homeassistant.update_entity
+    target:
+      entity_id: image.immich_frames_image
+```
+
+Replace `image.immich_frames_image` with the entity ID of your configured frame.
 
 ## Data updates and offline behavior
 
@@ -67,6 +115,15 @@ The integration renders these exact output sizes:
 | Square | 720 × 720 |
 
 Photos can be cropped to fill the frame or shown in full with padding. Portrait photos can be displayed individually or paired side by side according to the selected mode and pairing window. The integration requests Immich's preview asset for rendering.
+
+The integration supports any Home Assistant dashboard, wall-display application, or other client that can display an `image` entity. It does not directly drive a physical display or provide a device-specific network protocol. The exact output dimensions describe the generated image; the receiving display may scale it to its own panel.
+
+## Known limitations
+
+- Each source query currently examines at most the first 2,000 matching assets. This protects Home Assistant from unbounded polling work while the shared `aioimmich` client gains released support for following all pages.
+- Immich Memories are not available because the shared client does not currently expose that API.
+- The initial Core contribution provides one image entity per frame. Dedicated next, previous, slideshow, metadata, and status controls are not included.
+- Rolling time ranges use Immich's local capture-clock values. Keeping the Immich server and Home Assistant time zones aligned gives the most predictable results.
 
 ## Troubleshooting
 
