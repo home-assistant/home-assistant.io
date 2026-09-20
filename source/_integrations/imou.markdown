@@ -114,7 +114,7 @@ When the cloud API reports that the toggle is supported for a device, the integr
 
 ### Alarm control panel
 
-On supported gateways and hubs, the integration exposes an **Arming** alarm control panel entity. In the UI, use **Arm home**, **Arm away**, and **Disarm** when the cloud API reports those actions for the device. The entity state shows armed home, armed away, or disarmed accordingly.
+On supported gateways and hubs, the integration exposes an alarm control panel entity named after the device. In the UI, use **Arm home**, **Arm away**, and **Disarm** when the cloud API reports those actions for the device. The entity state shows armed home, armed away, or disarmed accordingly.
 
 ### Selects
 
@@ -195,7 +195,7 @@ The **Status** sensor is an exception: it stays available when the device is off
 
 ### An alarm control panel is unavailable
 
-The **Arming** entity is unavailable when the device is offline or no longer on your account. Ensure the gateway or hub appears online in the Imou app.
+The alarm control panel is unavailable when the device is offline or no longer on your account. Ensure the gateway or hub appears online in the Imou app.
 
 ## Removing the integration
 
