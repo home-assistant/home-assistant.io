@@ -37,11 +37,13 @@ Each `account` is set up as a device in Home Assistant and contain the following
 
 ### Budgets
 
-Each budget category appears as a service device in Home Assistant with three sensors for the current month:
+Each `budget` category is set up as a service device in Home Assistant and contains the following sensors for the current month:
 
-- **Budget actual**: The actual amount recorded for the category.
-- **Budget planned**: The amount budgeted for the category.
-- **Budget remaining**: The remaining amount reported by Monarch Money, including rollover from previous months.
+| Sensor | Description |
+|--------|-------------|
+| Budget actual | The actual amount recorded for the category. |
+| Budget planned | The amount budgeted for the category. |
+| Budget remaining | The remaining amount reported by Monarch Money, including rollover from previous months. |
 
 Budget data updates every four hours. New categories appear after the next update.
 
