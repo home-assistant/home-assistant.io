@@ -405,7 +405,7 @@ These sensors track the storage on your own **Xbox consoles** and connected stor
 
 Image entities provide artwork for the Xbox account or the game the account is currently playing. Game-related image entities are only available while a game is actively being played.
 
-| Entity Name      | Description                                                                            |
+| Entity name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
 | **Avatar**       | Shows the classic Xbox avatar for you or your friends, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
 | **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friends across the Xbox Network. |
