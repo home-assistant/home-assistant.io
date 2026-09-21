@@ -42,7 +42,7 @@ Password:
 
 If you previously configured the integration through your {% term "`configuration.yaml`" %} file, the configuration is imported automatically at startup, so your existing setup keeps working without any changes.
 
-A repair issue in {% my integrations title="** Settings ** > ** Devices & services **" %} is created to guide you through the migration:
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} is created to guide you through the migration:
 
 1. Remove the `arris_tg2492lg` entry under `device_tracker:` from your {% term "`configuration.yaml`" %} file.
 2. Restart Home Assistant.
