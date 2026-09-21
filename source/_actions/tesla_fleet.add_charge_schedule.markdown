@@ -73,7 +73,7 @@ action: |
   response_variable: schedule
 {% endexample %}
 
-This adds a new schedule that charges the vehicle between 1:00 AM and 5:00 AM on Monday, Wednesday, and Friday, and returns the ID of the new schedule in the `schedule` variable.
+This adds a new schedule that charges the vehicle between 1:00 AM and 5:00 AM on Monday, Wednesday, and Friday. The new schedule's ID is available afterwards as `schedule.id`.
 
 ### Options in YAML
 

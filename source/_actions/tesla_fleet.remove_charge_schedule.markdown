@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to remove a charging schedule from a Tesla vehicle by its schedule ID.
 
-You can get the schedule ID from the response of [Add charge schedule](/actions/tesla_fleet.add_charge_schedule/), or from the **Schedules** attribute of the vehicle's charge schedules {% term sensor %}.
+You can get the schedule ID from the `id` field of the response of [Add charge schedule](/actions/tesla_fleet.add_charge_schedule/), or from the `schedules` attribute of the vehicle's charge schedules {% term sensor %}.
 
 {% include actions/ui_header.md %}
 
