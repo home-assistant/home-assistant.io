@@ -25,7 +25,7 @@ The **Nissan Leaf** {% term integration %} offers integration with the [NissanCo
 {% important %}
 The `nissan_leaf` {% term integration %} only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
 
-Nissan discontinued the NissanConnect EV service in Europe on March 30, 2026, for the vehicles supported by this integration. As a result, this integration no longer works with European NissanConnect EV accounts.
+Nissan discontinued the NissanConnect EV service in the UK and Europe on March 30, 2026, for the vehicles supported by this integration. As a result, this integration no longer works with NissanConnect EV accounts in the UK and Europe.
 {% endimportant %}
 
 The {% term integration %} offers:
