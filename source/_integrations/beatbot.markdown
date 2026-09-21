@@ -4,7 +4,7 @@ description: Instructions on how to integrate Beatbot pool cleaning devices with
 ha_category:
   - Sensor
 ha_iot_class: Cloud Push
-ha_release: 2026.8
+ha_release: 2026.10
 ha_config_flow: true
 ha_codeowners:
   - '@dddddl'
