@@ -67,7 +67,7 @@ value:
 
 {% tip %}
 
-To find the exact attribute names and values for an entity, go to {% my developer_states title="**Developer Tools** > **States**" %} and select the entity.
+To find the exact attribute names and values for an entity, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and select the entity.
 
 {% endtip %}
 

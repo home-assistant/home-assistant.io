@@ -86,7 +86,7 @@ When you press a button on a dashboard, only forward a media command if the livi
 - **Trigger**: State: Dashboard button pressed
 - **Condition**: Remote is on
   - **Target**: Living room remote
-- **Action**: Send a remote command
+- **Action**: Send remote command
 
 {% details "YAML example for a guarded media command" %}
 

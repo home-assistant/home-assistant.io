@@ -89,10 +89,10 @@ Ultra-fine particles from cooking, candles, or the heating system linger in a cl
 
 - **Trigger**: Time: 22:00
 - **Condition**: Air Quality: PM1 value
-- **Target**: Bedroom PM1 sensor
-- **Threshold type**: 25
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on (air purifier)
+  - **Target**: Bedroom PM1 sensor
+  - **Threshold type**: 25
+- **Action**: Turn on fan
+  - **Target**: Bedroom purifier
 
 {% details "YAML example for starting the purifier at bedtime on high PM1" %}
 
@@ -108,7 +108,6 @@ automation: |
         entity_id: sensor.bedroom_pm1
       options:
         threshold: 25
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

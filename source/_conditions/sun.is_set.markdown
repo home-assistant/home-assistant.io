@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: Sun is set**.
+4. From the search box, search for and select **Sun is set**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -49,7 +49,7 @@ This passes while the sun is below the horizon.
 When motion is detected in the living room after the sun has set, close the blinds for the evening.
 
 - **Trigger**: Motion detected in the living room
-- **Condition**: Sun: sun is set
+- **Condition**: Sun is set
 - **Action**: Close cover
   - **Target**: Living room blinds
 

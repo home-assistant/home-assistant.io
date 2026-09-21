@@ -3,8 +3,10 @@ title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Fan
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 2021.7
@@ -16,15 +18,17 @@ ha_domain: modern_forms
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - fan
   - light
+  - number
   - sensor
   - switch
 ha_integration_type: integration
 ---
 
-[Modern Forms](https://modernforms.com/) has a line of smart Wi-Fi-connected fans that allow for cloud or local control of the fan and light. There is support for individual sleep timers for the fan and light that can be set and cleared independently.
+[Modern Forms](https://modernforms.com/) has a line of smart Wi-Fi-connected fans that allow for cloud or local control of the fan and light. On fan models that support sleep timers, individual timers for the fan and light can be set and cleared independently.
 
 {% include integrations/config_flow.md %}
 
@@ -36,23 +40,45 @@ If the Modern Forms fan does not have a light unit installed, then the Light ent
 
 The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer actions for the fan.
 
+Fan models with breeze hardware also support the **Breeze** preset mode, which varies the fan speed for a more natural airflow. Select **Normal** to return to a steady fan speed. Turning the fan off does not clear the preset mode. If **Breeze** was active, it resumes the next time you turn the fan on. This preset mode is not available on fan models without breeze hardware.
+
 ## Lights
 
-The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer actions for the light.
+The Modern Forms integration supports the fan's light, including brightness and sleep timer actions.
+
+Some fan models have more than one light fixture, such as a separate uplight and downlight. Each fixture gets its own light entity that you can control independently, using the name you gave it in the Modern Forms app.
+
+Light fixtures that support a range of color temperatures let you adjust the color temperature from the light entity, alongside the brightness.
 
 ## Binary sensors
 
-The Modern Forms integration provides binary sensors for the following information:
+On fan models that support sleep timers, the Modern Forms integration provides binary sensors for the following information:
 
 - Fan sleep timer active status
 - Light sleep timer active status
 
+These entities are not available on fan models without sleep timer support.
+
+## Buttons
+
+The Modern Forms integration provides a **Restart** button to reboot the fan.
+
+## Numbers
+
+On fan models with breeze hardware, the Modern Forms integration provides a number entity to configure the following setting:
+
+- Breeze intensity - how much the fan speed fluctuates while the breeze preset is active. Range: 1-3.
+
+This entity is not available on fan models without breeze hardware.
+
 ## Sensors
 
-The Modern Forms integration provides sensors for the following information:
+On fan models that support sleep timers, the Modern Forms integration provides sensors for the following information:
 
 - Fan sleep timer time expiring
 - Light sleep timer time expiring
+
+These entities are not available on fan models without sleep timer support.
   
 ## Switches
 
@@ -61,32 +87,14 @@ The Modern Forms integration provides support for the following toggleable attri
 - Away mode - to allow the fan simulate someone being home.
 - Adaptive learning - for allow learning for away mode.
 
-## Actions
+The adaptive learning switch is not available on fan models without adaptive learning support.
 
-### Action `modern_forms.clear_fan_sleep_timer`
-
-This action will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
-
-### Action `modern_forms.clear_light_sleep_timer`
-
-This action will clear the sleep timer for the light if it has been set. It will not turn off the light when the timer is cleared.
-
-### Action `modern_forms.set_fan_sleep_timer`
-
-This action will set a sleep timer for the fan. When the sleep timer is expired it will turn off the fan.
-
-| Data attribute | Required | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day). |
-
-### Action `modern_forms.set_light_sleep_timer`
-
-This action will set a sleep timer for the light. When the sleep timer is expired it will turn off the light.
-
-| Data attribute | Required | Description                                        |
-| ---------------------- | -------- | -------------------------------------------------- |
-| `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day).|
+{% include integrations/actions.md %}
 
 {% note %}
-Modern Forms Fans use NTP to pool.ntp.org to set its internal clock and check of sleep timers have expired. Sleep timers will only work if the Modern Forms Fans have internet NTP access. You can block off cloud access for the fan and only leave NTP (UDP port 123) outbound working for the sleep timers.
+Modern Forms fans use NTP (via `pool.ntp.org`) to set their internal clock and check whether sleep timers have expired. Sleep timers only work if your fan can reach an NTP server on the internet. You can block cloud access for the fan and allow only outbound NTP (UDP port 123) so sleep timers keep working.
 {% endnote %}
+
+## Troubleshooting
+
+On rare occasions, a fan can report a status that doesn't match reality, such as showing as off while still running. If a fan seems unresponsive or its state doesn't match what you see, select the **Restart** button and give the fan a minute or two to reconnect rather than assuming it's back right away. If that doesn't help, power-cycling the fan at the breaker or switch usually does.

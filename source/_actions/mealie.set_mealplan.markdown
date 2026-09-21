@@ -6,6 +6,8 @@ description: "Plan a recipe or a meal note on a specific date in Mealie."
 related_actions:
   - mealie.set_random_mealplan
   - mealie.get_mealplan
+  - mealie.delete_mealplan
+  - mealie.update_mealplan
   - mealie.get_recipes
 ---
 

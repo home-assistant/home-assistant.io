@@ -15,7 +15,26 @@ related:
     title: SQL integration
 ---
 
-The **Recorder** {% term integration %} is by default enabled as dependency of the [`history`](/integrations/history/) integration.
+The **Recorder** {% term integration %} stores the history of your Home Assistant entities in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database. It can also store events that happen on your system, which makes it possible to look back in time and see what happened in your home.
+
+Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Activity**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
+
+The flow of data looks like this:
+
+1. Something in your home changes, such as a device turning on or a sensor reporting a new value.
+2. Home Assistant registers this as a state change or an event.
+3. The recorder writes the change to the database.
+4. Features like history, activity, dashboard graphs, and statistics read from that database to show you what happened over time.
+
+The chart illustrates how data flows from a change in your home, through the recorder, into the database, and back out to the features that show you what happened over time.
+
+<p class='img'><img class='invertDark' src='/images/integrations/recorder/recorder-overview.png' alt="Diagram showing how the Recorder integration writes state changes and events to a database that history, activity, dashboard graphs, and statistics read from.">
+How the Recorder integration writes state changes and events to a database that other features read from.
+</p>
+
+## Supported databases
+
+The **Recorder** integration is enabled by default as a dependency of the [**History**](/integrations/history/) integration.
 
 {% important %}
 This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
@@ -24,6 +43,7 @@ This integration constantly saves data. If you use the default configuration, th
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use several database solutions.
 
 The supported database solutions are:
+
 - [MariaDB](https://mariadb.org/) ≥ 10.3
 - [MySQL](https://www.mysql.com/) ≥ 8.0
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
@@ -43,7 +63,7 @@ A bare minimum requirement is to have at least as much free temporary space avai
 
 For example, if your database is 1.5&nbsp;GiB on disk, you must always have at least 1.5&nbsp;GiB free.
 
-## Advanced configuration
+## Customizing the recorder configuration
 
 To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -88,7 +108,7 @@ recorder:
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the activity and history will not lag, because the changes are streamed to them immediatelly). If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the activity and history will not lag, because the changes are streamed to them immediately). If this is set to `0` (zero), commits are made as soon as possible after an event is processed.
       required: false
       default: 5
       type: integer

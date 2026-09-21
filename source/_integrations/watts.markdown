@@ -132,12 +132,10 @@ This integration enables you to:
 alias: "Eco mode when away"
 description: "Set all thermostats to eco mode when house is empty"
 triggers:
-  - platform: state
-    entity_id: group.family
-    from: "home"
-    to: "not_home"
-    for:
-      minutes: 10
+  - trigger: zone.occupancy_cleared
+    options:
+      zone: zone.home
+      for: "00:10:00"
 actions:
   - action: climate.set_hvac_mode
     target:

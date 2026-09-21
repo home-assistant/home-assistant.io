@@ -51,13 +51,7 @@ Currently, there is no support for altering zone schedules, although entities ca
 
 There are limitations due to the differences between the Genius Hub and Home Assistant schemas (for example, Home Assistant has no **Footprint** mode) - use the actions below, for this functionality.
 
-### Action handlers
-
-Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific actions:
-
-- `set_switch_override`: change the switches on time _for a specified duration_ (up to 24h),
-- `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
-- `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
+Not all Genius Hub functionality is available through the standard Home Assistant controls, so some of it is exposed through integration-specific actions. These let you change a zone's mode (including **Footprint** mode), override a zone's setpoint for a set duration, and override a switch for a set duration. For details, see the list of actions below.
 
 ### Climate and water heater entities
 
@@ -128,6 +122,8 @@ This alert may be useful to see if the CH is being turned on while you're on a h
           {{ trigger.to_state.attributes.friendly_name }} has changed
           from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
+
+{% include integrations/actions.md %}
 
 ## State attributes
 

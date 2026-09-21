@@ -23,7 +23,7 @@ This is extremely useful when you want to organize {% term entities %} by a shar
 
 {% template_function_usage %}
 filter: |
-  {% for state, entities in expand("group.all_lights") | groupby("state") %}
+  {% for state, entities in expand("light.home_lights") | groupby("state") %}
     {{ state }}: {{ entities | map(attribute="entity_id") | join(", ") }}
   {% endfor %}
 type: string
@@ -70,7 +70,7 @@ Use dotted notation to group by nested attributes.
 
 {% example %}
 template: |
-  {% for device_class, entities in expand("group.all_sensors")
+  {% for device_class, entities in expand("sensor.home_sensors")
     | groupby("attributes.device_class") %}
     {{ device_class }}: {{ entities | length }} sensors
   {% endfor %}
@@ -87,7 +87,7 @@ Use the `default` parameter to include items that lack the grouping attribute.
 
 {% example %}
 template: |
-  {% for area, entities in expand("group.all_lights")
+  {% for area, entities in expand("light.home_lights")
     | groupby("attributes.area", default="Unknown") %}
     {{ area }}: {{ entities | map(attribute="entity_id") | join(", ") }}
   {% endfor %}
@@ -114,7 +114,7 @@ Group all entities in a group by their current state value.
 
 {% example %}
 template: |
-  {% for state, entities in expand("group.all_lights") | groupby("state") %}
+  {% for state, entities in expand("light.home_lights") | groupby("state") %}
     {{ state | upper }}: {{ entities | map(attribute="name") | join(", ") }}
   {% endfor %}
 type: string
@@ -129,7 +129,7 @@ Show a summary of how many entities are in each group.
 
 {% example %}
 template: |
-  {% for state, entities in expand("group.all_lights") | groupby("state") %}
+  {% for state, entities in expand("light.home_lights") | groupby("state") %}
     {{ entities | length }} light(s) are {{ state }}
   {% endfor %}
 type: string
@@ -144,7 +144,7 @@ Group temperature sensors by their area and calculate the average for each.
 
 {% example %}
 template: |
-  {% for area, sensors in expand("group.temperature_sensors")
+  {% for area, sensors in expand("sensor.temperature_sensors")
     | groupby("attributes.area") %}
     {{ area }}: {{ sensors | map(attribute="state") | map("float")
        | average | round(1) }}°C

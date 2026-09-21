@@ -42,7 +42,7 @@ Performing an action can be done in various ways. For all the different possibil
 - alias: "Bedroom lights on"
   action: light.turn_on
   target:
-    entity_id: group.bedroom
+    entity_id: light.bedroom
   data:
     brightness: 100
 ```
@@ -142,7 +142,7 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
-  conditions:
+  condition:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"

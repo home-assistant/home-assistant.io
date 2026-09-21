@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light brightness changed**.
+4. From the search box, search for and select **Light brightness changed**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set how much the brightness has to change before the trigger fires.
 7. Select **Save**.
@@ -77,7 +77,9 @@ When you dim the ceiling light down, slow the fan down too. A classic "scene moo
 - **Trigger**: Light brightness changed
 - **Target**: Living room ceiling light
 - **Threshold type**: 10
-- **Action**: Fan: Set speed
+- **Action**: Set fan speed
+  - **Target**: Living room fan
+  - **Percentage**: `20`%
 
 {% details "YAML example for a ceiling-light-linked fan" %}
 
@@ -95,7 +97,7 @@ automation: |
       target:
         entity_id: fan.living_room
       data:
-        percentage: "{{ state_attr('light.living_room_ceiling', 'brightness_pct') | int }}"
+        percentage: 20
 {% endexample %}
 
 {% enddetails %}

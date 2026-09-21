@@ -51,8 +51,9 @@ To edit an imported blueprint, follow these steps:
 
 1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Select the blueprint from the list.
-3. Select the {% icon "mdi:dots-vertical" %} and select **Take control**.
-4. A preview of the automation is shown.
+3. Fill in all required fields, and any optional ones you plan to use.
+4. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Take control**.
+5. A preview of the automation is shown.
    - **Info**: By taking control, the blueprint is converted into an automation. You won't be able to convert this back into a blueprint.
    - To convert it into an automation and take control, select **Yes**.
    - If you change your mind and want to keep the blueprint, select **No**.

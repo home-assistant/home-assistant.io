@@ -38,6 +38,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier changes mode.
     - **First**: fires only on the first mode change.
     - **All**: fires only after every targeted humidifier changes mode.
+  required: false
 For at least:
   description: How long the humidifier must remain in the new mode before the trigger fires. Useful to ignore brief transitional modes some devices cycle through during startup. If you set a short delay of a few seconds, it prevents your automation from firing on that momentary blip. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -101,6 +102,7 @@ for:
 
 ## Good to know
 
+- The target humidifier entity must support the mode you want to use.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the Home Assistant entity's attributes to see which modes are supported.
 - If you filter by mode, the trigger only fires when the humidifier _enters_ that mode, not when it leaves it.
 - To check whether the humidifier is currently in a specific mode during a condition step, use the **Humidifier is in mode** condition.
@@ -117,7 +119,7 @@ When the bedroom humidifier switches to sleep mode, dim the lights and activate 
   - **Target**: Bedroom humidifier
   - **Mode**: sleep
   - **Trigger when**: Each
-- **Action**: Light: Turn on (night scene)
+- **Action**: Turn on light (night scene)
 
 {% details "YAML example for a sleep-mode scene" %}
 

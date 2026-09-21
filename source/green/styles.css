@@ -579,6 +579,10 @@ button,
   top: 0;
 }
 
+.section:target {
+  display: block;
+}
+
 .section.overflow {
   width: 100%;
   overflow: hidden;
@@ -1084,6 +1088,13 @@ h4.heading-small {
 .text-gray-light {
   color: rgba(29, 33, 38, 0.66);
   font-weight: 400;
+}
+
+.disclaimer-copy {
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 1.5rem;
+  text-align: right;
 }
 
 .overflow-wrapper {
@@ -1840,6 +1851,13 @@ section#collaboration .card .card-inner p {
   display: flex;
   position: relative;
   overflow: hidden;
+}
+
+.currency-symbol {
+  bottom: 0;
+  align-self: flex-end;
+  line-height: 1;
+  font-size: 70%;
 }
 
 .heading-wrapper-min {
@@ -3892,4 +3910,23 @@ article.page .card-flex h2 {
   .section-spacer--last {
     padding-bottom: 0;
   }
+}
+
+#press.press-cards--green {
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: block;
+  box-sizing: border-box;
+}
+
+#press.press-cards--green .sub-title,
+#press.press-cards--green .sub-title+p {
+  margin: 0 !important;
+}
+
+#press.press-cards--green .masonry {
+  margin-top: 2rem !important;
 }

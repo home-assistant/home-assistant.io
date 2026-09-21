@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: Sun elevation**.
+4. From the search box, search for and select **Sun elevation**.
 5. Under **Threshold type**, choose how the elevation is compared:
    - Select **Above** or **Below** and enter an angle in degrees.
    - Select **In range** and enter a lower and upper angle.
@@ -90,7 +90,7 @@ threshold:
 When the patio is occupied, close the west-facing blinds, but only while the sun sits low in the sky (below 15° of elevation), where it causes the most glare.
 
 - **Trigger**: Patio occupancy detected
-- **Condition**: Sun: Sun elevation (below 15°)
+- **Condition**: Sun elevation (below 15°)
 - **Action**: Close cover
   - **Target**: West-facing blinds
 

@@ -49,6 +49,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
+| `trigger.calendar_event.status`      | The status of the calendar event, either `confirmed` or `tentative`, if available.
 | `trigger.offset`                     | Timedelta object with offset to the event, if any.
 
 ### Device

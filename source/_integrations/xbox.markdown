@@ -3,6 +3,7 @@ title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
   - Binary sensor
+  - Gaming
   - Media player
   - Media source
   - Remote
@@ -58,74 +59,171 @@ Once added, a new device will appear with the same set of entities available for
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Action: Play media
+To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
 
-The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
-
-You can find Product IDs using the {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
-
-| Data attribute         | Description                           |
-| ---------------------- | --------------------------------------|
-| `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`     | "Home"/{product_id}                   |
-| `media_content_type`   | Any Value                             |
-
-#### Examples
-
-```yaml
-entity_id: media_player.xboxone
-media_content_type: ""
-media_content_id: "Home"
-```
-
-```yaml
-entity_id: media_player.xboxone
-media_content_type: ""
-media_content_id: "9WZDNCRFJ3TJ" # Netflix
-```
+You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
 ## Remote
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Action: Send command
+To send controller commands or text input to the Xbox console, use the **Send remote command** action and select your Xbox remote as the target.
 
-The `send_command` action sends controller commands or text input to the Xbox console.
+Supported controller commands include:
 
-| Data attribute | Optional | Description                                                       |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the Xbox remote.                           |
-| `command`              | no       | List of the controller commands or text input to be sent. |
-| `num_repeats`          | yes      | Number of times to repeat the commands.                   |
-| `delay_secs`           | yes      | Interval in seconds between one send and another.         |
+- `A`, `B`, `X`, `Y`
+- `Up`, `Down`, `Left`, `Right`
+- `Menu`
+- `View`
+- `Nexus`
+- `WakeUp`, `TurnOff`, `Reboot`
+- `Mute`, `Unmute`
+- `Play`, `Pause`, `Next`, `Previous`
+- `GoHome`, `GoBack`
+- `ShowGuideTab`, `ShowGuide`
 
-**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`,`GoHome`, `GoBack`, `ShowGuideTab`, `ShowGuide`
+{% note %}
 
-#### Examples
+Any value that does **not** match a supported command will be sent as literal text input. To force sending text that matches a command, prefix it with `text:`, for example `text:A`
 
-```yaml
-entity_id: remote.xboxone
-command: "A"
-```
+{% endnote %}
 
-```yaml
-entity_id: remote.xboxone
-command: "A"
-num_repeats: 20
-```
+## Xbox automation examples
 
-```yaml
-entity_id: remote.xboxone
-command:
-  - Right
-  - Right
-  - A
-delay_sec: 0.1
-```
+These examples show common ways to use your Xbox media player and remote entities in automations. In these examples, `media_player.xboxone` and `remote.xboxone` are example entity IDs. Replace them with the entity IDs for your Xbox media player and remote entities.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Return to the Xbox dashboard at night
+
+This automation returns the Xbox to the dashboard every night at 11:00 PM.
+
+- **Trigger**: Time
+  - **At time**: `23:00:00`
+- **Action**: Play specified media
+  - **Target**: Xbox One (`media_player.xboxone`)
+  - **Media content ID**: `Home`
+  - **Media content type**: `app`
+
+{% details "YAML example for returning to the Xbox dashboard at night" %}
+
+{% example %}
+automation: |
+  alias: "Return to the Xbox dashboard at night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.xboxone
+      data:
+        media_content_id: "Home"
+        media_content_type: app
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Launch an app at a set time
+
+This automation launches Netflix on the Xbox every Friday evening. Replace the example product ID with the product ID for the app you want to launch.
+
+- **Trigger**: Time
+  - **At time**: `19:30:00`
+- **Condition**: Time
+  - **Weekday**: Friday
+- **Action**: Play specified media
+  - **Target**: Xbox One (`media_player.xboxone`)
+  - **Media content ID**: `9WZDNCRFJ3TJ`
+  - **Media content type**: `app`
+
+{% details "YAML example for launching an app at a set time" %}
+
+{% example %}
+automation: |
+  alias: "Launch Netflix on Friday evening"
+  triggers:
+    - trigger: time
+      at: "19:30:00"
+  conditions:
+    - condition: time
+      weekday:
+        - fri
+  actions:
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.xboxone
+      data:
+        media_content_id: "9WZDNCRFJ3TJ"
+        media_content_type: app
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Send a controller button press
+
+This automation sends the **A** button command to the Xbox at a set time.
+
+- **Trigger**: Time
+  - **At time**: `20:00:00`
+- **Action**: Send remote command
+  - **Target**: Xbox One (`remote.xboxone`)
+  - **Command**: `A`
+
+{% details "YAML example for sending a controller button press" %}
+
+{% example %}
+automation: |
+  alias: "Send the A button command to the Xbox"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: remote.send_command
+      target:
+        entity_id: remote.xboxone
+      data:
+        command: "A"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Send multiple controller button presses
+
+This automation sends a short sequence of controller commands to the Xbox. You can adjust the commands to match what you want the console to do.
+
+- **Trigger**: Time
+  - **At time**: `20:05:00`
+- **Action**: Send remote command
+  - **Target**: Xbox One (`remote.xboxone`)
+  - **Command**: `Right`, `Right`, `A`
+  - **Delay seconds**: `0.1`
+
+{% details "YAML example for sending multiple controller button presses" %}
+
+{% example %}
+automation: |
+  alias: "Send multiple controller commands to the Xbox"
+  triggers:
+    - trigger: time
+      at: "20:05:00"
+  actions:
+    - action: remote.send_command
+      target:
+        entity_id: remote.xboxone
+      data:
+        command:
+          - Right
+          - Right
+          - "A"
+        delay_secs: 0.1
+{% endexample %}
+
+{% enddetails %}
 
 ### Picture elements card
 
-Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It uses the **Send remote command** action. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities. Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
   <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
@@ -274,30 +372,30 @@ The **Xbox binary sensor platform** automatically tracks the online status and a
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
-| (*Gamertag* )                    | Shows the online status of your friend. The entity’s attributes provide extra information, including real name and bio. |
-| **In game**                      | Shows if your friend is currently playing a game.                      |
-| **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
+| (*Gamertag* )                    | Shows the account's online status. The entity's attributes provide extra information, including real name and bio. |
+| **In game**                      | Shows whether the account is currently playing a game.                   |
 
 ## Sensor
 
 Similar to binary sensors, the **Xbox sensor platform** monitors your account and friends, providing detailed information about their activity and achievements.
 
-| Entity Name      | Description                                                                |
-| ---------------- | -------------------------------------------------------------------------- |
-| **Status**       | Shows the text status of your friend as it appears in your friends list.   |
-| **Gamerscore**   | Friend's Gamerscore.                                                       |
-| **Friends**      | Displays the number of mutual friend relationships of the account.         |
-| **Follower**     | Displays the number of people following the account.                       |
-| **Following**    |  Displays the number of people the account is following.                   |
-| **Last online**  | Displays the last time the friend was active online.                       |
-| **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
-| **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+| Entity Name                 | Description                                                                |
+| --------------------------- | -------------------------------------------------------------------------- |
+| **Status**                  | Shows the account's text status as it appears on the Xbox Network.         |
+| **Gamerscore**              | Displays the account's Gamerscore.                                         |
+| **Friends**                 | Displays the number of mutual friend relationships of the account.         |
+| **Followers**               | Displays the number of people following the account.                       |
+| **Following**               | Displays the number of people the account is following.                    |
+| **Last online**             | Displays the last time the account was active online.                      |
+| **In party**                | Shows the number of people in the user’s party chat if they are currently in one. |
+| **Party join restrictions** | Shows the join restriction of the party the account is currently in, either `Invite-only` or `Joinable`. |
+| **Now playing**             | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
 ### Storage sensors
 
 These sensors track the storage on your own **Xbox consoles** and connected storage devices.
 
-| Entity Name      | Description                                                                |
+| Entity Name | Description |
 | ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
@@ -308,8 +406,8 @@ For your account and each of your friends, several image entities are available:
 
 | Entity Name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
-| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
-| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friends, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
+| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friends across the Xbox Network. |
 | **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
 
 ## Media source

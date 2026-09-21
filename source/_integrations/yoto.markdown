@@ -19,6 +19,7 @@ ha_codeowners:
 ha_domain: yoto
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - number
   - select
@@ -29,7 +30,7 @@ ha_integration_type: hub
 ha_dhcp: true
 ---
 
-The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what is loaded in the card slot, and its current day or night mode.
+The **Yoto** {% term integration %} lets you control your [Yoto](https://yotoplay.com) audio players from Home Assistant. You can play and pause cards, change the volume, skip tracks, seek within a track, see what is currently playing, and browse your card library to start a specific card, chapter, or track. You can also monitor each player's battery level, what content source it is playing from, and its current day or night mode.
 
 The integration talks to the official Yoto cloud over OAuth2 and receives playback updates over MQTT, so changes that happen on a player, including when it goes online or offline, show up in Home Assistant almost immediately.
 
@@ -42,34 +43,6 @@ Any Yoto player that is linked to your Yoto family in the Yoto app is supported.
 ## Prerequisites
 
 To use the integration, you need a Yoto account with at least one player linked in the Yoto app.
-
-{% note %}
-Home Assistant uses account linking provided by Nabu Casa for authenticating with Yoto. This service is free, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
-
-See the **Using custom application credentials** section below if you have the [cloud integration](/integrations/cloud) disabled.
-{% endnote %}
-
-{% details "Using custom application credentials" icon="mdi:account-key" %}
-
-1. Sign in to the [Yoto developer dashboard](https://dashboard.yoto.dev/) with your Yoto account.
-2. Create a new application. Pick any **Name** you like, for example `Home Assistant`.
-3. For **Application Type**, select **Confidential Client**. Home Assistant runs as a server and stores the refresh token on your behalf.
-4. Under **Allowed Callback URLs**, enter `https://my.home-assistant.io/redirect/oauth`.
-5. Under **Scopes**, select all of the following:
-    - `offline_access`
-    - `family:view`
-    - `family:devices:view`
-    - `family:devices:control`
-    - `family:devices:manage`
-    - `family:library:view`
-    - `user:content:view`
-    - `user:icons:manage`
-6. Accept the **Terms and Conditions** and **Data Privacy** statements, then select **Create Application**.
-7. Open the application you just created and note the **Client ID** and **Client secret**. Add them as [Application Credentials](/integrations/application_credentials/) before starting the integration setup.
-
-For more details, see the [Yoto Developers documentation](https://yoto.dev/get-started/start-here/).
-
-{% enddetails %}
 
 {% include integrations/config_flow.md %}
 
@@ -154,7 +127,7 @@ Each Yoto player also provides several binary sensors:
 Each Yoto player also provides several sensors:
 
 - **Battery**: the player's battery charge.
-- **Card slot**: what is loaded in the player, such as a physical card or streaming content.
+- **Content source**: what the player is playing from, such as a physical card, the app, or streaming content.
 - **Day mode**: the player's current mode (day or night).
 
 ## Examples
@@ -252,6 +225,30 @@ Access to your Yoto account can expire or be revoked, for example if you change 
 ### Playback controls do not respond
 
 Yoto players cannot be powered on remotely, so playback actions have no effect while a player is off or disconnected. Wake the player by pressing a button on it or inserting a card, then try again.
+
+## Development and testing with your own client ID
+
+Only follow these steps if you need to use your own OAuth application, like when you are developing or testing the integration.
+
+{% details "Set up your own client ID" icon="mdi:account-key" %}
+
+To set up the integration with your own development credentials, create a **Confidential Client** application in the [Yoto developer dashboard](https://dashboard.yoto.dev/) with the following settings:
+
+1. Under **Allowed Callback URLs**, enter `https://my.home-assistant.io/redirect/oauth`.
+2. Under **Scopes**, select:
+   - `offline_access`
+   - `family:view`
+   - `family:devices:view`
+   - `family:devices:control`
+   - `family:devices:manage`
+   - `family:library:view`
+   - `user:content:view`
+   - `user:icons:manage`
+3. Copy the **Client ID** and **Client secret**, and add them as [Application Credentials](/integrations/application_credentials/) before starting the integration setup.
+
+For more details, see the [Yoto Developers documentation](https://yoto.dev/get-started/start-here/).
+
+{% enddetails %}
 
 ## Removing the integration
 

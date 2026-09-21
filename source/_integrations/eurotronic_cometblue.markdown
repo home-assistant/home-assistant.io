@@ -24,7 +24,7 @@ ha_platforms:
 
 The **Eurotronic Comet Blue** {% term integration %} allows you to integrate Eurotronic Comet Blue (and similar) thermostats.
 
-You can use this integration to read thermostat status and adjust temperatures in Home Assistant.
+You can use this integration to read thermostat status, adjust temperatures, and manage schedule-related settings in Home Assistant.
 
 ## Supported devices
 
@@ -58,6 +58,8 @@ This integration provides climate control and thermostat configuration entities.
 Comet Blue devices run on an internal schedule and can be manually controlled temporarily. When the schedule is active, the thermostat switches between low and high target temperatures based on that schedule.
 
 If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule on the next schedule change.
+
+You can read and adjust the schedule from Home Assistant via the provided {% term actions %}.
 
 ### Climate
 
@@ -97,10 +99,11 @@ The device reports its current battery level, but the reading may not be very ac
 
 The integration {% term polling polls %} data from the thermostat every 5 minutes by default.
 
+{% include integrations/actions.md %}
+
 ## Known limitations
 
-- Holiday mode/away preset can only be set on the device itself.
-- The devices only support temperature steps of 0.5°C and time steps of 15 minutes.
+- The devices only support temperature steps of 0.5°C and time steps of 10 minutes.
 - If you manually change the target temperature or use presets, the thermostat returns to its programmed schedule at the next schedule change.
 - If the thermostat is in holiday mode, you cannot reset it from Home Assistant. To reset it, press the `MENU` button on the thermostat until it resets.
 

@@ -98,7 +98,7 @@ Sum the state values from multiple energy sensors.
 {% example %}
 template: |
   {{
-    expand("group.energy_meters")
+    expand("sensor.energy_meters")
     | map(attribute="state")
     | map("float")
     | sum
@@ -115,7 +115,7 @@ Sum the brightness attribute across active lights.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="attributes.brightness")
     | sum
@@ -132,7 +132,7 @@ Multiply each sensor's consumption by a rate and sum the results.
 template: |
   {% set rate = 0.25 %}
   {{
-    expand("group.energy_meters")
+    expand("sensor.energy_meters")
     | map(attribute="state")
     | map("float")
     | sum

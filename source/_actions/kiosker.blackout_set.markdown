@@ -213,7 +213,8 @@ action: |
 
 When everyone leaves, cover the screen so the display is not showing anything while the house is empty.
 
-- **Trigger**: All people: Away
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
 - **Action**: Kiosker: Set blackout
 - **Device**: Living room kiosk
 - **Visible**: on
@@ -225,9 +226,9 @@ When everyone leaves, cover the screen so the display is not showing anything wh
 automation: |
   alias: "Black out display when no one is home"
   triggers:
-    - trigger: state
-      entity_id: group.all_persons
-      to: "not_home"
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: kiosker.blackout_set
       data:
@@ -242,7 +243,8 @@ automation: |
 
 When the first person gets home, remove the overlay and restore the normal display.
 
-- **Trigger**: Person: Arrives home
+- **Trigger**: Zone occupancy detected
+  - **Zone**: Home (`zone.home`)
 - **Action**: Kiosker: Set blackout
 - **Device**: Living room kiosk
 - **Visible**: off
@@ -253,9 +255,9 @@ When the first person gets home, remove the overlay and restore the normal displ
 automation: |
   alias: "Clear kiosk blackout on arrival"
   triggers:
-    - trigger: state
-      entity_id: group.all_persons
-      to: "home"
+    - trigger: zone.occupancy_detected
+      options:
+        zone: zone.home
   actions:
     - action: kiosker.blackout_set
       data:

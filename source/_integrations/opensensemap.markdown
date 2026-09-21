@@ -12,7 +12,7 @@ ha_platforms:
   - air_quality
   - sensor
 ha_integration_type: service
-ha_quality_scale: legacy
+ha_quality_scale: bronze
 ha_codeowners:
   - '@AlCalzone'
 ---
