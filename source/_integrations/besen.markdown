@@ -207,7 +207,7 @@ During setup, Home Assistant reports that the charger rejected the PIN. If the P
 #### Resolution
 
 - During setup, enter the current 6-digit PIN.
-- If Home Assistant asks you to reauthenticate, select **Reconfigure** on the integration's notification and enter the current 6-digit PIN. Home Assistant checks the PIN with the charger and reloads the integration without removing your entities or automations.
+- If Home Assistant asks you to reauthenticate, follow the reauthentication notification and enter the current 6-digit PIN. Home Assistant checks the PIN with the charger and reloads the integration without removing your entities or automations.
 
 ## Removing the integration
 
