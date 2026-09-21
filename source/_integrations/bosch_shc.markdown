@@ -72,7 +72,7 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Camera Eyes
 - Camera 360
 
-A Motion Detector II also gets a **Pet immunity** switch. A thermostat that supports silent operation also gets a **Whisper mode** switch. A Thermostat Gen2 or Room Thermostat 2 that supports this feature also includes a **Humidity warning** switch. A Smart Plug or Smart Plug Compact that supports energy-saving mode also includes an **Energy-saving mode** switch. A Twinguard that supports this feature also includes a **Heartbeat** switch, which enables or disables its nightly self-test notification. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls.
+A Motion Detector II also gets a **Pet immunity** switch. A Shutter Contact II also gets two **Break function** switches: one to exclude the contact from the intrusion alarm, and one to make that exclusion never expire automatically. A Smoke Detector II gets an **Intrusion alarm** switch to sound or clear its own alarm. A thermostat that supports silent operation also gets a **Whisper mode** switch. A Thermostat Gen2 or Room Thermostat 2 that supports this feature also includes a **Humidity warning** switch. A Smart Plug or Smart Plug Compact that supports energy-saving mode also includes an **Energy-saving mode** switch. A Twinguard that supports this feature also includes a **Heartbeat** switch, which enables or disables its nightly self-test notification. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls.
 
 ### Valve
 
