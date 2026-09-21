@@ -241,7 +241,10 @@ Get entities reporting the power utilization for outlets that support metrics (s
 
 Compatible UniFi UPS devices provide sensors for battery level, remaining battery runtime, output power, output current, output voltage, and output power factor.
 
-Depending on the device, Home Assistant also provides either an input voltage sensor or a bypass voltage sensor.
+Home Assistant also provides an additional voltage sensor that depends on your UPS model:
+
+- **UniFi UPS 2U**: a bypass voltage sensor.
+- **UniFi UPS 2U Pro**: an input voltage sensor.
 
 ### Device temperature sensor
 
