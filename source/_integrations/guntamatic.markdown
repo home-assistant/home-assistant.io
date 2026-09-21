@@ -24,7 +24,7 @@ This integration has been tested with the Guntamatic BMK 20 kW running firmware 
 
 To check whether your heater provides this interface:
 
-1. Open `http://<ip>/daqdata.cgi` in a web browser, replacing `<ip>` with the IP address of your heater.
+1. In a web browser, open `http://<ip>/daqdata.cgi`, and replace `<ip>` with the IP address of your heater.
 2. Confirm that the response contains the current values reported by the heater.
 
 The exact data points and their names can vary depending on the heater model and firmware version.
