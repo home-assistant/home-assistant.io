@@ -14,11 +14,18 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - light
+  - lock
   - sensor
 ha_integration_type: device
 ---
 
 The **OpenGarage** {% term integration %} lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
+
+## Administration
+
+The {% term integration %} supports an administrator only action to reset the WiFi of an OpenGarage device.
+**Warning**: the device _will go offline immediately_, and remain offline until it's WiFi is reconfigured.
 
 
 {% include integrations/config_flow.md %}
