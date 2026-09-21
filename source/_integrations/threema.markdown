@@ -13,7 +13,6 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ha_codeowners:
   - '@LukasQ'
-ha_quality_scale: silver
 ---
 
 The **Threema** {% term integration %} allows you to send end-to-end encrypted text messages from Home Assistant to [Threema](https://threema.ch) users via the [Threema Gateway](https://gateway.threema.ch) service. This integration is designed for the **E2E (end-to-end) encryption mode** of Threema Gateway, where messages are encrypted locally before being sent. If no private key is configured, the integration falls back to **basic mode** (server-side encryption).
