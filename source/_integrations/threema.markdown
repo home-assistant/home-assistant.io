@@ -52,7 +52,7 @@ API secret:
 Private key:
   description: "Optional for basic mode, required for end-to-end encryption mode."
 Public key:
-  description: "Optional for basic mode, required for end-to-end encryption mode."
+  description: "Optional. Used once to verify it matches the private key; it is never stored."
 {% endconfiguration_basic %}
 
 ## Recipients
