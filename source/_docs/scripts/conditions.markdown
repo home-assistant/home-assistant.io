@@ -234,6 +234,10 @@ For the full list of available conditions and its details, refer to the [Counter
 
 For the full list of available conditions and its details, refer to the [Cover conditions](/integrations/cover/#list-of-conditions).
 
+### Device conditions
+
+Set of conditions provided by a device.
+
 ### Fan conditions
 
 The available conditions are:
@@ -243,13 +247,88 @@ The available conditions are:
 
 For information about each condition, refer to the [Fan conditions](/integrations/fan/#list-of-conditions).
 
-### Generic conditions
+### Garage door conditions
 
-#### Device conditions
+For the full list of available conditions and details, refer to the [Garage door conditions](/integrations/garage_door/#list-of-conditions).
 
-Set of conditions provided by a device.
+### Humidifier conditions
 
-#### Numeric state condition
+Some of the available conditions are:
+
+- Humidifier is on (`humidifier.is_on`).
+- Humidifier is off (`humidifier.is_off`).
+- Humidifier is humidifying (`humidifier.is_humidifying`).
+- Humidifier is drying (`humidifier.is_drying`).
+
+For the full list of available conditions and its details, refer to [Humidifier conditions](/integrations/humidifier/#list-of-conditions).
+
+### Humidity conditions
+
+For the full list of available conditions and its details, refer to the [Humidity conditions](/integrations/humidity/#list-of-conditions).
+
+### Lawn mower conditions
+
+The available conditions are:
+
+- Lawn mower is mowing (`lawn_mower.is_mowing`).
+- Lawn mower is docked (`lawn_mower.is_docked`).
+- Lawn mower is paused (`lawn_mower.is_paused`).
+- Lawn mower is returning (`lawn_mower.is_returning`).
+- Lawn mower is encountering an error (`lawn_mower.is_encountering_an_error`).
+
+For information about each condition, refer to the [Lawn mower conditions](/integrations/lawn_mower/#list-of-conditions).
+
+### Light conditions
+
+The available conditions are:
+
+- Light is on (`light.is_on`).
+- Light is off (`light.is_off`).
+- Light is off (`light.is_brightness`).
+
+For information about each condition, refer to the [Light conditions](/integrations/light/#list-of-conditions).
+
+#### Example: Continue only if the living room light is on
+
+```yaml
+conditions:
+  - condition: light.is_on
+    target:
+      entity_id: light.living_room
+```
+
+### Lock conditions
+
+The available conditions are:
+
+- Lock is locked (`lock.is_locked`).
+- Lock is unlocked (`lock.is_unlocked`).
+- Lock is open (`lock.is_open`).
+- Lock is jammed (`lock.is_jammed`).
+
+For information about each condition, refer to the [Lock conditions](/integrations/lock/#list-of-conditions).
+
+### Media player conditions
+
+Some of the available conditions are:
+
+- Media player is on (`media_player.is_on`).
+- Media player is off (`media_player.is_off`).
+- Media player is playing (`media_player.is_playing`).
+- Media player is paused (`media_player.is_paused`).
+- Media player is not playing (`media_player.is_not_playing`).
+
+For information about each condition, refer to the [Media player conditions](/integrations/media_player/#list-of-conditions).
+
+### Moisture conditions
+
+For the full list of available conditions and its details, refer to the [Moisture conditions](/integrations/moisture/#list-of-conditions).
+
+### Motion conditions
+
+For the full list of available conditions and its details, refer to the [Motion conditions](/integrations/motion/#list-of-conditions).
+
+### Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
 
@@ -313,7 +392,36 @@ conditions:
     below: input_number.temperature_threshold_high
 ```
 
-#### State condition
+### Power condition
+
+The available condition is: Power value (`power.is_value`).
+
+For details, refer to the [Power value](/conditions/power.is_value) condition page.
+
+### Remote conditions
+
+For the full list of available conditions and its details, refer to the [Remote conditions](/integrations/remote/#list-of-conditions).
+
+### Schedule conditions
+
+For the full list of available conditions and its details, refer to the [Schedule conditions](/integrations/schedule/#list-of-conditions).
+
+### Select condition
+
+The available condition is: Dropdown option is selected (`select.is_option_selected`).
+
+For details, refer to the [Dropdown option is selected](/conditions/select.is_option_selected) condition page.
+
+### Siren conditions
+
+The available conditions are:
+
+- Siren is on (`siren.is_on`).
+- Siren is off (`siren.is_off`).
+
+For information about each condition, refer to [Siren conditions](/integrations/siren/#list-of-conditions).
+
+### State condition
 
 Tests if an entity has a specified state.
 
@@ -439,116 +547,6 @@ conditions:
 ```
 
 The `for` template(s) will be evaluated when the condition is tested.
-
-### Garage door conditions
-
-For the full list of available conditions and details, refer to the [Garage door conditions](/integrations/garage_door/#list-of-conditions).
-
-### Humidifier conditions
-
-Some of the available conditions are:
-
-- Humidifier is on (`humidifier.is_on`).
-- Humidifier is off (`humidifier.is_off`).
-- Humidifier is humidifying (`humidifier.is_humidifying`).
-- Humidifier is drying (`humidifier.is_drying`).
-
-For the full list of available conditions and its details, refer to [Humidifier conditions](/integrations/humidifier/#list-of-conditions).
-
-### Humidity conditions
-
-For the full list of available conditions and its details, refer to the [Humidity conditions](/integrations/humidity/#list-of-conditions).
-
-### Lawn mower conditions
-
-The available conditions are:
-
-- Lawn mower is mowing (`lawn_mower.is_mowing`).
-- Lawn mower is docked (`lawn_mower.is_docked`).
-- Lawn mower is paused (`lawn_mower.is_paused`).
-- Lawn mower is returning (`lawn_mower.is_returning`).
-- Lawn mower is encountering an error (`lawn_mower.is_encountering_an_error`).
-
-For information about each condition, refer to the [Lawn mower conditions](/integrations/lawn_mower/#list-of-conditions).
-
-### Light conditions
-
-The available conditions are:
-
-- Light is on (`light.is_on`).
-- Light is off (`light.is_off`).
-- Light is off (`light.is_brightness`).
-
-For information about each condition, refer to the [Light conditions](/integrations/light/#list-of-conditions).
-
-#### Example: Continue only if the living room light is on
-
-```yaml
-conditions:
-  - condition: light.is_on
-    target:
-      entity_id: light.living_room
-```
-
-### Lock conditions
-
-The available conditions are:
-
-- Lock is locked (`lock.is_locked`).
-- Lock is unlocked (`lock.is_unlocked`).
-- Lock is open (`lock.is_open`).
-- Lock is jammed (`lock.is_jammed`).
-
-For information about each condition, refer to the [Lock conditions](/integrations/lock/#list-of-conditions).
-
-### Media player conditions
-
-Some of the available conditions are:
-
-- Media player is on (`media_player.is_on`).
-- Media player is off (`media_player.is_off`).
-- Media player is playing (`media_player.is_playing`).
-- Media player is paused (`media_player.is_paused`).
-- Media player is not playing (`media_player.is_not_playing`).
-
-For information about each condition, refer to the [Media player conditions](/integrations/media_player/#list-of-conditions).
-
-### Moisture conditions
-
-For the full list of available conditions and its details, refer to the [Moisture conditions](/integrations/moisture/#list-of-conditions).
-
-### Motion conditions
-
-For the full list of available conditions and its details, refer to the [Motion conditions](/integrations/motion/#list-of-conditions).
-
-### Power condition
-
-The available condition is: Power value (`power.is_value`).
-
-For details, refer to the [Power value](/conditions/power.is_value) condition page.
-
-### Remote conditions
-
-For the full list of available conditions and its details, refer to the [Remote conditions](/integrations/remote/#list-of-conditions).
-
-### Schedule conditions
-
-For the full list of available conditions and its details, refer to the [Schedule conditions](/integrations/schedule/#list-of-conditions).
-
-### Select condition
-
-The available condition is: Dropdown option is selected (`select.is_option_selected`).
-
-For details, refer to the [Dropdown option is selected](/conditions/select.is_option_selected) condition page.
-
-### Siren conditions
-
-The available conditions are:
-
-- Siren is on (`siren.is_on`).
-- Siren is off (`siren.is_off`).
-
-For information about each condition, refer to [Siren conditions](/integrations/siren/#list-of-conditions).
 
 ### Sun conditions
 
