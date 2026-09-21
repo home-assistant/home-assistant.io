@@ -40,6 +40,14 @@ During setup, you can choose between two options:
 
 If you leave the private key empty, the integration uses **basic mode** instead, sending messages via the Gateway without local end-to-end encryption.
 
+{% details "How the encryption works" %}
+
+Threema Gateway's end-to-end mode uses the same NaCl "box" construction as Threema's apps, built on Curve25519. To encrypt a message, your private key is combined with the recipient's public key in an Elliptic Curve Diffie-Hellman exchange to derive a shared secret. That secret encrypts the message with XSalsa20 and authenticates it with Poly1305. The recipient does the same operation in reverse: their private key combined with your public key yields the identical shared secret, since Diffie-Hellman on an elliptic curve gives the same result regardless of which side's keys are used.
+
+This is why the config flow only ever asks for a public key to double-check what you pasted: your private key is what does the actual encrypting, so it is the one that gets stored, while a public key you enter is only used once, locally, to confirm it matches that private key.
+
+{% enddetails %}
+
 Should your API secret later be revoked or changed on the Threema Gateway side, Home Assistant will prompt you to re-authenticate instead of requiring you to remove and re-add the integration. See [Troubleshooting](#troubleshooting).
 
 {% include integrations/config_flow.md %}
@@ -63,13 +71,11 @@ After setting up the gateway, add recipients as **subentries**. Go to **Settings
 
 Each recipient subentry creates its own **device**, named after the recipient (e.g., "Dad (AB1CD2EF)" or just the Threema ID if no name was given). The device hosts a single notify entity used to send messages to that recipient.
 
-### Supported functionality
-
-The **Threema** integration provides the following entities.
+## Entities
 
 ### Notify
 
-Each recipient device has one notify entity, with an entity ID of the form `notify.threema_<gateway_id>_<recipient_id>` (or `notify.threema_<gateway_id>_<name>_<recipient_id>` if a display name was set), for example `notify.threema_abcd123_ab1cd2ef` or `notify.threema_abcd123_dad_ab1cd2ef`. You can find the exact entity ID under **Settings** > **Devices & services** > **Threema** > **Entities**.
+Each recipient device has one notify entity. Its entity ID is derived from the recipient's device name: if you gave the recipient a display name, that's `notify.<name>_<recipient_id>` (for example `notify.dad_ab1cd2ef`); otherwise it's just `notify.<recipient_id>` (for example `notify.ab1cd2ef`). You can find the exact entity ID under **Settings** > **Devices & services** > **Threema** > **Entities**.
 
 ## Actions
 
@@ -89,7 +95,7 @@ Send a text message to a Threema recipient via its notify entity.
 ```yaml
 action: notify.send_message
 target:
-  entity_id: notify.threema_YOUR_GATEWAY_ID_YOUR_THREEMA_ID
+  entity_id: notify.dad_ab1cd2ef
 data:
   message: "The front door was just opened!"
 ```
@@ -99,7 +105,7 @@ data:
 ```yaml
 action: notify.send_message
 target:
-  entity_id: notify.threema_YOUR_GATEWAY_ID_YOUR_THREEMA_ID
+  entity_id: notify.dad_ab1cd2ef
 data:
   title: "Security Alert"
   message: "Motion detected in the backyard."
@@ -116,7 +122,7 @@ triggers:
 actions:
   - action: notify.send_message
     target:
-      entity_id: notify.threema_YOUR_GATEWAY_ID_YOUR_THREEMA_ID
+      entity_id: notify.dad_ab1cd2ef
     data:
       message: "Front door opened!"
 ```
@@ -128,7 +134,7 @@ actions:
 ```yaml
 action: notify.send_message
 target:
-  entity_id: notify.threema_YOUR_GATEWAY_ID_YOUR_THREEMA_ID
+  entity_id: notify.dad_ab1cd2ef
 data:
   message: "Temperature is {{ states('sensor.temperature') }}°C"
 ```
