@@ -102,11 +102,11 @@ The table below shows which {% term entity %} domains are available in each mode
 | Number              |     ✅      |  ✅ (public API settings only)  |
 | Select              |     ✅      |  ✅ (public API settings only)  |
 | Sensor              |     ✅      |   ✅ (public API values only)   |
-| Siren               |     ✅      |                —                |
+| Siren               |     ✅      |               ✅                |
 | Switch              |     ✅      |  ✅ (public API settings only)  |
 | Text                |     ✅      |                —                |
 
-In API key only mode, switches are limited to the settings the public API can change: the camera status light, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
+In API key only mode, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
 Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, and the smart sensor motion sensitivity.
 
@@ -200,7 +200,7 @@ The table below shows, per device type, which connection mode is required. See [
 | Viewer       |     ✅      |                          —                          |
 | Smart chime  |     ✅      |                          —                          |
 | Relay        |     ✅      |                         ✅                          |
-| Siren        |     ✅      |                          —                          |
+| Siren        |     ✅      |                         ✅                          |
 | NVR          |     ✅      |               ✅ (Alarm Manager only)               |
 
 ### UniFi Protect cameras

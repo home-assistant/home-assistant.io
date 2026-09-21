@@ -374,7 +374,6 @@ The **Xbox binary sensor platform** automatically tracks the online status and a
 | -------------------------------- | ---------------------------------------------------------------------- |
 | (*Gamertag* )                    | Shows the account's online status. The entity's attributes provide extra information, including real name and bio. |
 | **In game**                      | Shows whether the account is currently playing a game.                   |
-| **Subscribed to Xbox Game Pass** | Indicates whether the account is currently subscribed to Xbox Game Pass. |
 
 ## Sensor
 
