@@ -121,7 +121,7 @@ The Brother integration provides the following entities.
 - **PF Kit MP remaining lifetime**
   - **Description**: Remaining lifetime percentage of multipurpose tray feed kit
 - **Printer status**
-  - **Description**: Current printer status or condition
+ - **Description**: Current printer status as a normalized value (`idle`, `printing`, `warmup`, or `other`)
 - **Status**
 - **Description**: Raw printer status text reported by the device
   - **Remarks**: This entity is disabled by default. Replaced by **Printer status**, which reports a fixed set of states
