@@ -53,7 +53,7 @@ There are currently 3 arming settings for AlarmDecoder (shown below).
 
 ### Zones
 
-To add, edit, or remove a zone, select **Options** on the **AlarmDecoder** integration, then select **Zones**.
+To add, edit, or remove a zone, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **AlarmDecoder**, select **Options**, then select **Zones**.
 
 Each {% term zone %} that's added to AlarmDecoder will have its own [binary sensor](/integrations/binary_sensor/) created.
 
