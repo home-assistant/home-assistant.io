@@ -20,7 +20,9 @@ The Guntamatic integration allows you to monitor your [Guntamatic](https://www.g
 
 ## Supported devices
 
-This integration has been tested with the Guntamatic BMK 20 kW running firmware 32a. It should work with other Guntamatic heaters that support the same web interface. (http://`<ip>`/daqdata.cgi)
+This integration has been tested with the Guntamatic BMK 20 kW running firmware 32a. Other Guntamatic heaters may work if they provide the same local web interface.
+
+To check whether your heater provides this interface, open `http://<ip>/daqdata.cgi` in a browser, replacing `<ip>` with the IP address of your heater. The response should contain the current values reported by the heater. The exact data points and their names can vary depending on the heater model and firmware version.
 
 ## Prerequisites
 
