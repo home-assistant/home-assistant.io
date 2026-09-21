@@ -155,7 +155,7 @@ This means the integration could not reach the Threema Gateway when Home Assista
 
 ## Known limitations
 
-- **Text messages only** — images, files, and other media are not supported.
+- Text messages only: images, files, and other media are not supported.
 - **No group messaging** — only 1-to-1 messages are supported.
 - **Send only** — receiving messages is not supported.
 - **No credit balance sensor** — check your remaining Gateway credits on the [Threema Gateway dashboard](https://gateway.threema.ch).
