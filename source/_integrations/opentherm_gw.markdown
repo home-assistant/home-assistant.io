@@ -87,13 +87,13 @@ The restart button on the `OpenTherm Gateway` device can be used to restart the 
 
 ### Number
 
-#### Control Setpoint {1,2} Override
+#### Control setpoint 1 override - Control setpoint 2 override
 
 {% warning %}
-Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using this entity.
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using these entities.
 {% endwarning %}
-This number entity, which can be found on the `OpenTherm Gateway` device, allows you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set it to `0` to return control to the thermostat.
-This entity is disabled by default.
+These number entities, which can be found on the `OpenTherm Gateway` device, allow you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set to `0` to return control to the thermostat.
+These entities are disabled by default.
 
 ### Select
 
