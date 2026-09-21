@@ -36,7 +36,7 @@ Setting up Threema Gateway is a two-step process:
 
 During setup, you can choose between two options:
 
-- **Add existing Gateway ID**: Enter your Gateway ID, API secret, and the private key generated for it. You can optionally also paste the public key you registered at [gateway.threema.ch](https://gateway.threema.ch) — it is only used once, to verify it matches the private key, and is never stored.
+- **Add existing Gateway ID**: Enter your Gateway ID, API secret, and the private key generated for it. You can optionally also paste the public key you registered at [gateway.threema.ch](https://gateway.threema.ch). The key is only used once to verify it matches the private key and is never stored.
 - **Generate new encryption keys**: The integration generates an encryption key pair and displays them. Save the keys — they cannot be recovered later. Then register a new Gateway ID at [gateway.threema.ch](https://gateway.threema.ch) using the generated public key, and complete setup with your Gateway credentials.
 
 If you leave the private key empty, the integration uses **basic mode** instead, sending messages via the Gateway without local end-to-end encryption.
