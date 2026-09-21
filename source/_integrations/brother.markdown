@@ -97,7 +97,7 @@ The Brother integration provides the following entities.
   - **Description**: Total number of pages printed using the duplex unit
 - **Fuser remaining lifetime**
   - **Description**: Remaining lifetime percentage of the fuser unit
-- **Ink capture box remaining life**
+- **Ink capture box remaining lifetime**
   - **Description**: Remaining lifetime percentage of the ink capture box
 - **Laser remaining lifetime**
   - **Description**: Remaining lifetime percentage of the laser unit
