@@ -73,11 +73,6 @@ Floor Temperature:
 
 The integration adds the following buttons to your Home Assistant instance:
 
-#### Cancel Control Setpoint {1,2} Override
-
-Pressing this button, which can be found on the `OpenTherm Boiler` device, cancels an active control setpoint override on the respective central heating circuit. Note that it does not change the control setpoint, it only returns control to the thermostat.
-This entity is disabled by default.
-
 #### Cancel Room Setpoint Override
 
 Pressing this button, which can be found on the `OpenTherm Thermostat` device, cancels an active room setpoint override. Note that it does not change the target temperature, it only returns control to the thermostat.
@@ -92,12 +87,12 @@ The restart button on the `OpenTherm Gateway` device can be used to restart the 
 
 ### Number
 
-#### Control Setpoint {1,2}
+#### Control Setpoint {1,2} Override
 
 {% warning %}
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using this entity.
 {% endwarning %}
-This number entity, which can be found on the `OpenTherm Boiler` device, allows you to control the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set it to `0` or use the [related buttons](#cancel-control-setpoint-12-override) to return control to the thermostat.
+This number entity, which can be found on the `OpenTherm Gateway` device, allows you to override the control setpoint for the respective central heating circuit. When active, the OpenTherm Gateway overrides the control setpoint determined by the thermostat. Set it to `0` to return control to the thermostat.
 This entity is disabled by default.
 
 ### Select
