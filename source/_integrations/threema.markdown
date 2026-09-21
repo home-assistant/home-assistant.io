@@ -63,7 +63,9 @@ After setting up the gateway, add recipients as **subentries**. Go to **Settings
 
 Each recipient subentry creates its own **device**, named after the recipient (e.g., "Dad (AB1CD2EF)" or just the Threema ID if no name was given). The device hosts a single notify entity used to send messages to that recipient.
 
-## Entities
+### Supported functionality
+
+The **Threema** integration provides the following entities.
 
 ### Notify
 
