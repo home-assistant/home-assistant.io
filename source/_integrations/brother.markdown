@@ -123,8 +123,8 @@ The Brother integration provides the following entities.
 - **Printer status**
   - **Description**: Current printer status or condition
 - **Status**
-  - **Description**: Current printer status or condition
-  - **Remarks**: This entity is disabled by default
+- **Description**: Raw printer status text reported by the device
+  - **Remarks**: This entity is disabled by default. Replaced by **Printer status**, which reports a fixed set of states
 - **Yellow drum page counter**
   - **Description**: Total number of pages printed with the yellow drum
 - **Yellow drum remaining lifetime**
