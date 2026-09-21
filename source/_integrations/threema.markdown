@@ -41,7 +41,7 @@ During setup, you can choose between two options:
 
 If you leave the private key empty, the integration uses **basic mode** instead, sending messages via the Gateway without local end-to-end encryption.
 
-Should your API secret later be revoked or changed on the Threema Gateway side, Home Assistant will prompt you to re-authenticate instead of requiring you to remove and re-add the integration — see [Troubleshooting](#troubleshooting).
+Should your API secret later be revoked or changed on the Threema Gateway side, Home Assistant will prompt you to re-authenticate instead of requiring you to remove and re-add the integration. See [Troubleshooting](#troubleshooting).
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
