@@ -54,6 +54,7 @@ To select a scene:
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Philips Hue**.
 2. Open the device for the room or zone you want to control.
 3. Use the **Scene** dropdown to choose a scene.
+   - The **Scene** dropdown is a select entity, so you can add it to a dashboard to select scenes directly from there.
 
 ## Configuration options
 
