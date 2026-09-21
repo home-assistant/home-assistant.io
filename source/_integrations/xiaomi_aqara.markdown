@@ -111,7 +111,7 @@ The light entity allows you to control the internal light of the Xiaomi gateway.
 - Set the brightness.
 - Set the color using HS or RGB color coding.
 
-The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).
+The requirement is that you have set up [Xiaomi aqara](/integrations/xiaomi_aqara/).
 
 ### Locks
 
@@ -315,9 +315,9 @@ List of supported binary sensors, including the following properties (if availab
       from: "off"
       to: "on"
   conditions:
-    - condition: state
-      entity_id: group.family
-      state: "not_home"
+    - condition: zone.occupancy_is_not_detected
+      options:
+        zone: zone.home
   actions:
     - action: notify.notify_person
       data:
@@ -347,8 +347,6 @@ List of supported binary sensors, including the following properties (if availab
 
 #### Gas
 
-{% raw %}
-
 ```yaml
 - alias: "Send notification on gas alarm"
   triggers:
@@ -362,8 +360,6 @@ List of supported binary sensors, including the following properties (if availab
         title: "Gas alarm!"
         message: "Gas with a density of {{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }} detected."
 ```
-
-{% endraw %}
 
 #### Xiaomi Wireless Button
 
@@ -488,8 +484,6 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
-{% raw %}
-
 ```yaml
 - alias: "Decrease brightness of the gateway light"
   triggers:
@@ -550,8 +544,6 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
         entity_id: light.gateway_light_34xxxxxxxx13
 ```
 
-{% endraw %}
-
 #### Vibration sensor
 
 This automation toggles the living room lamp on vibration/tilt.
@@ -602,74 +594,7 @@ The following sensor types are supported:
 
 The switch entity allows you to get data from your [Xiaomi aqara](https://www.mi.com/en/) switches and to switch between states.
 
-## Actions
-
-The gateway provides the following actions:
-
-### Action: Play ringtone
-
-The `xiaomi_aqara.play_ringtone` action plays a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
-
-| Data attribute | Optional | Description                             |
-| -------------- | -------- | --------------------------------------- |
-| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
-| `ringtone_id`  | no       | One of the allowed ringtone ids         |
-| `ringtone_vol` | yes      | The volume in percent                   |
-
-Allowed values of the `ringtone_id` are:
-
-- Alarms
-  - 0 - Police car 1
-  - 1 - Police car 2
-  - 2 - Accident
-  - 3 - Countdown
-  - 4 - Ghost
-  - 5 - Sniper rifle
-  - 6 - Battle
-  - 7 - Air raid
-  - 8 - Bark
-- Doorbells
-  - 10 - Doorbell
-  - 11 - Knock at a door
-  - 12 - Amuse
-  - 13 - Alarm clock
-- Alarm clock
-  - 20 - MiMix
-  - 21 - Enthusiastic
-  - 22 - GuitarClassic
-  - 23 - IceWorldPiano
-  - 24 - LeisureTime
-  - 25 - ChildHood
-  - 26 - MorningStreamLiet
-  - 27 - MusicBox
-  - 28 - Orange
-  - 29 - Thinker
-- Custom ringtones (uploaded by the Mi Home app) starting from 10001
-
-### Action: Stop ringtone
-
-The `xiaomi_aqara.stop_ringtone` action stops a playing ringtone immediately.
-
-| Data attribute | Optional | Description                             |
-| -------------- | -------- | --------------------------------------- |
-| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
-
-### Action: Add device
-
-The `xiaomi_aqara.add_device` action enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
-
-| Data attribute | Optional | Description                             |
-| -------------- | -------- | --------------------------------------- |
-| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
-
-### Action: Remove device
-
-The `xiaomi_aqara.remove_device` action removes a specific device. The removal is required if a device shall be paired with another gateway.
-
-| Data attribute | Optional | Description                              |
-| -------------- | -------- | ---------------------------------------- |
-| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway  |
-| `device_id`    | no       | Hardware address of the device to remove |
+{% include integrations/actions.md %}
 
 ## Examples
 

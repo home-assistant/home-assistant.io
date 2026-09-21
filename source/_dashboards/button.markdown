@@ -23,9 +23,9 @@ The button card allows you to add buttons to perform tasks.
 Screenshot of three button cards.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## Card settings
 
@@ -39,7 +39,7 @@ Icon:
 Icon Height:
   description: The height of the icon, in pixels.
 Color:
-  description: The color of the icon.
+  description: The color of the icon when the entity is active. When the entity is inactive, the icon uses the inactive state color instead.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 Show Name:
@@ -99,7 +99,7 @@ icon_height:
   default: auto
 color:
   required: false
-  description: Set the color for the icon. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
+  description: Set the color for the icon when the entity is active. When the entity is inactive, the icon uses its inactive state color instead. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
   type: string
   default: state
 tap_action:

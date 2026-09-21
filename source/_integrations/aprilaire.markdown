@@ -25,7 +25,7 @@ This integration supports AprilAire [8800-series Home Automation Wi-Fi Thermosta
 
 ## Prerequisites
 
-In order to connect to the thermostat, you will need to enable automation mode. This involves going into the Contractor Menu on your thermostat and changing the Connection Type to Automation. As the specific instructions can vary per model, consult the manual for your specific model.
+To connect to the thermostat, you will need to enable automation mode. This involves going into the Contractor Menu on your thermostat and changing the Connection Type to Automation. As the specific instructions can vary per model, consult the manual for your specific model.
 
 {% include integrations/config_flow.md %}
 

@@ -22,7 +22,7 @@ ha_integration_type: service
 
 The **Workday** {% term integration %} indicates whether the current day is a workday or not.
 
-It allows specifying which days of the week will count as workdays and also uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays.
+It allows specifying which days of the week will count as workdays and also uses the Python module [holidays library](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays.
 
 This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
 
@@ -30,56 +30,37 @@ The `workday` {% term integration %} also provides a {% term calendar %} entity 
 
 ## Setup
 
-Check the [country list](https://github.com/vacanza/holidays#available-countries) for available provinces (and other subdivisions, like states and territories) for each country.
+Check the [country list](https://github.com/vacanza/holidays#available-countries) for available subdivisions (such as provinces, states and territories) for each country.
 
 {% include integrations/config_flow.md %}
 
-The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
+{% configuration_basic %}
+Country:
+  description: The country whose public holidays you want to use. Leave it empty to start with an empty set of holidays.
+Days to include::
+  description: The weekdays that are workdays.
+Days to exclude:
+  description: The days that are not workdays. Note below the important information regarding the **Holidays** keyword.
+Offset:
+  description: Days offset from current day. It can be used to see if future days are workdays. For example, enter `1` to see today if tomorrow is a workday.
+Add holidays:
+  description: Provide dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` to add them as holidays.
+Remove holidays:
+  description: Provide dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, (for example, `christmas` will find `Christmas Day`) to remove them from the list of holidays.
+Language for named holidays:
+  description: The language that will be used in the configuration of the holidays exclusion.
+Subdivision of country:
+  description: The subdivision of the chosen country, if any or wanted.
+  required: false
+Additional category:
+  description: Additional holiday categories to include. Check the supported categories for each country in the [holidays library webpage](https://pypi.org/project/holidays/).
+{% endconfiguration_basic %}
 
 {% important %}
-Take note of the "Holidays" keyword. Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
+The **Holidays** keyword represents the list of holidays imported from the holidays library and the holidays added in the **Add holidays** configuration option. When you select **Holidays** in the configuration option **Days to exclude**, the days that are in the holidays list are excluded from the workdays list. This means that if a holiday falls on a weekday defined as workday, that day does not count as workday (the workday sensor will have the **Off** state).
 {% endimportant %}
 
-## Specific field information
-
-Country code must be given according to [holidays](https://pypi.org/project/holidays/) notation. The country can also be set to `None` to start with an empty set of holidays. This is useful in conjunction with the add holidays field.
-
-Subdivision code must be given according to [holidays](https://pypi.org/project/holidays/) notation.
-
-Add holidays will only take dates formatted with `YYYY-MM-DD` or a date range formatted with `YYYY-MM-DD,YYYY-MM-DD`.
-
-Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range formatted with `YYYY-MM-DD,YYYY-MM-DD` or partial of name, for example, `christmas` will exclude `Christmas Day`.
-
-The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
-
-Additional categories can be added through the configuration to include optional holidays according to the lists provided in the [python-holidays library](https://github.com/vacanza/python-holidays?tab=readme-ov-file#available-countries)
-
-## Action `workday.check_date`
-
-
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-providing feedback if the date is a workday or not.
-
-| Data attribute | Required | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `check_date` | yes | Date to test if workday or not. | 2022-03-10
-
-{% raw %}
-```yaml
-action: workday.check_date
-target:
-  entity_id: binary_sensor.workday
-data:
-  check_date: "2023-12-25"
-response_variable: check_date
-```
-{% endraw %}
-
-The response data field `check_date` is providing:
-
-| Response data | Description | Example |
-| ---------------------- | ----------- | -------- |
-| `workday` | Is date a workday. | True
+{% include integrations/actions.md %}
 
 ## Automation example
 
@@ -100,3 +81,21 @@ automation:
       target:
         entity_id: switch.heater
 ```
+
+## Data fetching and limitations
+
+Data is loaded completely offline from the [holidays library](https://pypi.org/project/holidays/) and there is no data fetching.
+
+Newly created holidays or other configuration options are completely based on the releases of the [holidays library](https://pypi.org/project/holidays/)
+
+## Troubleshooting
+
+The integration completely relies on the information provided by the [holidays library](https://pypi.org/project/holidays/).
+
+Check the [holidays repository](https://github.com/vacanza/python-holidays) if you are missing a certain holiday.
+Some holidays in your country may not be actual official holidays and are therefore set in a special category that needs to be selected.
+Missing holidays or incorrect days need to be raised directly in the [holidays repository](https://github.com/vacanza/python-holidays).
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

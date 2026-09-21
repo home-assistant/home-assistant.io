@@ -1,0 +1,40 @@
+blueprint:
+  name: Play a WiiM preset on a schedule
+  description: Play a selected WiiM preset every day at a configured time.
+  domain: automation
+  author: Linkplay2020
+  homeassistant:
+    min_version: 2026.4.0
+  input:
+    wiim_player:
+      name: WiiM media player
+      description: The WiiM media player that should play the preset.
+      selector:
+        entity:
+          filter:
+            - integration: wiim
+              domain: media_player
+    preset_id:
+      name: Preset ID
+      description: The numeric ID of the WiiM preset to play.
+      selector:
+        text:
+    play_time:
+      name: Play time
+      description: The time at which the preset should start each day.
+      selector:
+        time:
+
+mode: single
+
+trigger:
+  - trigger: time
+    at: !input play_time
+
+action:
+  - action: media_player.play_media
+    target:
+      entity_id: !input wiim_player
+    data:
+      media_content_type: music
+      media_content_id: !input preset_id

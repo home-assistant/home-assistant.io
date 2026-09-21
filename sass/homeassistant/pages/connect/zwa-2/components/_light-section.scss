@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 div#light-wrapper{
     .light{
         border-radius: 20px;

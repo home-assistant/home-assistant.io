@@ -19,7 +19,7 @@ Home Assistant also has integrations build into the platform that connect with e
 
 ## Home Assistant integrations
 
-Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own. 
+Home Assistant will need to know the amount of water that is being consumed to be able to track usage. Several [water metering (fluid flow rate sensor device)](https://en.wikipedia.org/wiki/Water_metering) hardware options are available to do this. Depending on your setup, the required hardware is provided by your public water utility company, or you may need to buy your own.
 
 Some hardware with water meters may also provide additional practical functions or sensors, such as [valve](/integrations/valve), for example, for controlling water shutoff, or temperature and pressure (to enable freeze alarms).
 
@@ -82,3 +82,9 @@ For any of the above-listed options, make sure it actually works with the type o
 ### Reading the meter wirelessly via RTL-SDR
 
 {% include energy/rtl_sdr.md %}
+
+## Viewing your water usage
+
+Once a compatible water consumption sensor is available in Home Assistant, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and add it to the **Energy** dashboard. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the **Energy** dashboard to review usage for different periods.
+
+For cumulative water meters, a sensor with `state_class: total_increasing` can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.

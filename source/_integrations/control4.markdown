@@ -4,6 +4,7 @@ description: Instructions on adding a Control4 system to Home Assistant.
 ha_release: '0.114'
 ha_category:
   - Climate
+  - Cover
   - Light
   - Media Player
 ha_iot_class: Local Polling
@@ -15,12 +16,13 @@ ha_domain: control4
 ha_ssdp: true
 ha_platforms:
   - climate
+  - cover
   - light
   - media_player
 ha_integration_type: hub
 ---
 
-The **Control4** {% term integration %} allows you to control and monitor lights, Room Media, and climate devices from your local Control4 system. Your Control4 controller must be running OS 3.0+.
+The **Control4** {% term integration %} allows you to control and monitor lights, Room Media, cover, and climate devices from your local Control4 system. Your Control4 controller must be running OS 3.0+.
 
 ## Prerequisites
 

@@ -62,7 +62,7 @@ button_events:
   default: TOGGLE,SCENE EXE,LEVEL
   type: string
 switches:
-  description: A list of device QS_id's that should be switches, and not lights (i.e., `['@0dev01', '@0dev02']`)
+  description: A list of device QS_id's that should be switches, and not lights (for example, `['@0dev01', '@0dev02']`)
   required: false
   type: list
 sensors:
@@ -104,7 +104,7 @@ sensors:
 
 ### QwikSwitch Events
 
-QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
+QwikSwitch devices (that is, transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
 
 ```yaml
 automation:

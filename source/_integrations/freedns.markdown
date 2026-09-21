@@ -16,7 +16,7 @@ With the **FreeDNS** {% term integration %} you can keep your [FreeDNS](https://
 
 You need to determine your update URL or your access token.
 
-1. Head over to the [FreeDNS](https://freedns.afraid.org) website and login to your account.
+1. Head over to the [FreeDNS](https://freedns.afraid.org) website and log in to your account.
 2. Select the menu "Dynamic DNS"
 3. You should now see your update candidates in a table at the bottom of the page.
 4. Copy the link target of the "Direct URL".
@@ -38,7 +38,7 @@ freedns:
 
 You need to determine your update URL or your access token.
 
-1. Head over to the [FreeDNS](https://freedns.afraid.org) website and login to your account.
+1. Head over to the [FreeDNS](https://freedns.afraid.org) website and log in to your account.
 2. Select the menu "Dynamic DNS"
 3. You should now see your update candidates in a table at the bottom of the page.
 4. Head over to page [Version 2](https://freedns.afraid.org/dynamic/v2/), and enable the candidate.

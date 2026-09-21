@@ -1,6 +1,6 @@
 ---
-title: "Actions"
-description: "Define what an object does when interacted with."
+title: "Dashboard actions"
+description: "Define what happens when you tap, hold, or double-tap a card on your dashboard, from toggling a device to opening another dashboard."
 related:
   - docs: /dashboards/button/
     title: Button card
@@ -29,10 +29,12 @@ Actions can be enabled on the following cards:
 - [Gauge](/dashboards/gauge/)
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
+- [Markdown](/dashboards/markdown/)
 - [Picture](/dashboards/picture/)
 - [Picture element](/dashboards/picture-elements/)
 - [Picture entity](/dashboards/picture-entity/)
 - [Picture glance](/dashboards/picture-glance/)
+- [Shortcut](/dashboards/shortcut/)
 - [Tile](/dashboards/tile/)
 - [Weather forecast](/dashboards/weather-forecast/)
 
@@ -63,7 +65,7 @@ tap_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -135,7 +137,7 @@ hold_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -207,7 +209,7 @@ double_tap_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:

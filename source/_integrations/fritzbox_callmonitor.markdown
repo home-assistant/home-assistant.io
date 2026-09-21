@@ -32,7 +32,7 @@ You also need network access from HA to your FRITZ!Box on port `tcp/1012` for th
 
 ## Setup
 
-To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
+To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it. When using a DECT phone, the phone must not be connected via a DECT-Repeater, it must be directly connected to your FRITZ!Box.
 
 {% include integrations/config_flow.md %}
 
@@ -43,8 +43,6 @@ If you want Home Assistant to resolve numbers to names based on your FRITZ!Box p
 ### Send notifications on state change
 
 This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
-
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry.
@@ -61,12 +59,10 @@ automation:
             {% if is_state("sensor.phone", "idle") %}
               Phone is idle
             {% elif is_state("sensor.phone", "dialing") %}
-              Calling {{ state_attr('sensor.phone', 'to_name') }} ({{ state_attr('sensor.phone', 'to') }})
+              Calling {{ state_attr('sensor.phone', 'to_name') }} \({{ state_attr('sensor.phone', 'to') }}\)
             {% elif is_state("sensor.phone", "ringing") %}
-              Incoming call from {{ state_attr('sensor.phone', 'from_name') }} ({{ state_attr('sensor.phone', 'from') }})
+              Incoming call from {{ state_attr('sensor.phone', 'from_name') }} \({{ state_attr('sensor.phone', 'from') }}\)
             {% else %}
-              Talking to {{ state_attr('sensor.phone', 'with_name') }} ({{ state_attr('sensor.phone', 'with') }})
+              Talking to {{ state_attr('sensor.phone', 'with_name') }} \({{ state_attr('sensor.phone', 'with') }}\)
             {% endif %}
 ```
-
-{% endraw %}

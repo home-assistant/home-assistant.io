@@ -1,0 +1,11 @@
+{%- if include.type == "boolean" -%}{% term boolean %}
+{%- elsif include.type == "float" -%}{% term float %}
+{%- elsif include.type == "integer" -%}{% term integer %}
+{%- elsif include.type == "string" -%}{% term string %}
+{%- elsif include.type == "list" -%}{% term list %}
+{%- elsif include.type == "iterable" -%}{% term iterable %}
+{%- elsif include.type == "datetime" -%}{% term datetime %}
+{%- elsif include.type == "any" -%}{% term any %}
+{%- elsif include.type == "list of strings" -%}{% term list %} of {% term string strings %}
+{%- else -%}{{ include.type }}
+{%- endif -%}

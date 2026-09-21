@@ -10,17 +10,40 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system
+related:
+  - docs: /integrations/sql/
+    title: SQL integration
 ---
 
-The **Recorder** {% term integration %} is by default enabled as dependency of the [`history`](/integrations/history/) integration.
+The **Recorder** {% term integration %} stores the history of your Home Assistant entities in a database. Every time an {% term entity %} changes state, such as a light turning on, a sensor reporting a new temperature, or a door being opened, the recorder writes that change to the database. It can also store events that happen on your system, which makes it possible to look back in time and see what happened in your home.
+
+Many parts of Home Assistant rely on this stored data. The [**History**](/integrations/history/) and [**Activity**](/integrations/logbook/) panels, the graphs shown on dashboard cards, and long-term statistics all read from the database that the recorder maintains. Without the recorder, Home Assistant would still show the current state of your home, but it would not keep this history for those features.
+
+The flow of data looks like this:
+
+1. Something in your home changes, such as a device turning on or a sensor reporting a new value.
+2. Home Assistant registers this as a state change or an event.
+3. The recorder writes the change to the database.
+4. Features like history, activity, dashboard graphs, and statistics read from that database to show you what happened over time.
+
+The chart illustrates how data flows from a change in your home, through the recorder, into the database, and back out to the features that show you what happened over time.
+
+<p class='img'><img class='invertDark' src='/images/integrations/recorder/recorder-overview.png' alt="Diagram showing how the Recorder integration writes state changes and events to a database that history, activity, dashboard graphs, and statistics read from.">
+How the Recorder integration writes state changes and events to a database that other features read from.
+</p>
+
+## Supported databases
+
+The **Recorder** integration is enabled by default as a dependency of the [**History**](/integrations/history/) integration.
 
 {% important %}
 This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
 {% endimportant %}
 
-Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use a number of database solutions.
+Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use several database solutions.
 
 The supported database solutions are:
+
 - [MariaDB](https://mariadb.org/) ≥ 10.3
 - [MySQL](https://www.mysql.com/) ≥ 8.0
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
@@ -40,7 +63,7 @@ A bare minimum requirement is to have at least as much free temporary space avai
 
 For example, if your database is 1.5&nbsp;GiB on disk, you must always have at least 1.5&nbsp;GiB free.
 
-## Advanced configuration
+## Customizing the recorder configuration
 
 To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -85,7 +108,7 @@ recorder:
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the activity and history will not lag, because the changes are streamed to them immediatelly). If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the activity and history will not lag, because the changes are streamed to them immediately). If this is set to `0` (zero), commits are made as soon as possible after an event is processed.
       required: false
       default: 5
       type: integer
@@ -153,7 +176,7 @@ If you only want to hide events from your **Activity** panel, take a look at the
 
 #### Common filtering examples
 
-Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
+Defining domains and entities to `exclude` (that is, blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -175,7 +198,7 @@ recorder:
       - my_custom_event
 ```
 
-Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
+Defining domains and entities to record by using the `include` configuration (that is, allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include
@@ -205,89 +228,7 @@ recorder:
       - sensor.weather_*
 ```
 
-## Actions
-
-### Action: Purge
-
-The `recorder.purge` action starts a purge task which deletes events and states older than x days, according to `keep_days` action data. Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
-
-| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                                                                                                                                   |
-| `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
-| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
-
-### Action: Purge entities
-
-The `recorder.purge_entities` action starts a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
-
-| Data attribute | Optional | Description                                                                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database.                                                |
-| `domains`              | yes      | A list of domains that should be purged from the recorder database.                                                   |
-| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database.                             |
-| `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
-
-#### Example automation to remove data rows for specific entities
-
-The below automation will remove history for `sensor.power_sensor_0` older than 5 days at `04:15:00` every day.
-
-```yaml
-alias: "Purge noisy power sensors"
-triggers:
-  - trigger: time
-    at: "04:15:00"
-actions:
-  - action: recorder.purge_entities
-    data:
-      keep_days: 5
-      entity_id: sensor.power_sensor_0
-```
-
-### Action: Disable
-
-The `recorder.disable` action stops saving events and states to the database.
-
-### Action: Enable
-
-The `recorder.enable` action starts again saving events and states to the database. This is the opposite of `recorder.disable`.
-
-### Action: Get statistics
-
-The `recorder.get_statistics` action retrieves statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
-
-{% note %}
-Statistics are only available for entities that store {% term "Long-term statistics" %}
-{% endnote %}
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `statistic_ids`| no      | The entity IDs or statistic IDs to get statistics for. |
-| `start_time`   | no      | The start time for the statistics query. |
-| `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
-| `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
-| `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
-| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
-
-#### Example using get_statistics
-
-```yaml
-action: recorder.get_statistics
-data:
-  statistic_ids:
-    - sensor.energy_meter
-    - sensor.water_usage
-  start_time: "2025-06-10 00:00:00"
-  end_time: "2025-06-11 23:00:00"
-  period: hour
-  types:
-    - sum
-    - mean
-  units:
-    energy: kWh
-    volume: L
-response_variable: consumption_stats
-```
+{% include integrations/actions.md %}
 
 ## Handling disk corruption and hardware failures
 
@@ -315,7 +256,7 @@ MariaDB (omit pymysql):
     `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
 MariaDB (omit pymysql, using TLS encryption):
   description: >
-    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4&ssl_mode=REQUIRED`
 MariaDB (omit pymysql, Socket):
   description: >
     `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
@@ -324,7 +265,7 @@ MySQL:
     `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`
 MySQL (using TLS encryption):
   description: >
-    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4;ssl=true`
+    `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4&ssl_mode=REQUIRED`
 MySQL (Socket):
   description: >
     `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`
@@ -356,7 +297,7 @@ When using the official Docker image, the C MySQL library will always be availab
 {% endnote %}
 
 {% tip %}
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (that is, `localhost`).
 {% endtip %}
 
 {% note %}

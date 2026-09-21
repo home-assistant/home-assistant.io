@@ -103,7 +103,7 @@ area:
         type: boolean
         default: true
 file_out:
-    description: A [template](/docs/configuration/templating/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
+    description: A [template](/docs/templating/where-to-use/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
     required: false
     type: list
 labels:
@@ -158,7 +158,6 @@ Both detectors `default` and `tensorflow` use the labels in [this file](https://
 
 ## Sample configuration
 
-{% raw %}
 
 ```yaml
 # Example advanced configuration.yaml entry
@@ -197,11 +196,10 @@ image_processing:
       - truck
 ```
 
-{% endraw %}
 
 ## Optimizing resources
 
-The [Image processing integration](/components/image_processing/) processes the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds) and then call the `image_processing.scan` action when you actually want to perform processing.
+The [Image processing integration](/integrations/image_processing/) processes the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds) and then call the `image_processing.scan` action when you actually want to perform processing.
 
 ```yaml
 # Example advanced configuration.yaml entry

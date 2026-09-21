@@ -66,7 +66,7 @@ Below is a complete overview of the entities this integration provides.
 
 ### Select
 
-- Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
+- Operation Mode (Controls the device Operation Mode, such as Splitter or Matrix)
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
 
@@ -122,8 +122,6 @@ These examples are just a starting point, and you can use them as inspiration to
 
 The following example switches the HDFury input to the correct source when the media player powers on.
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Switch HDFury input to Nvidia SHIELD when powered on"
@@ -143,8 +141,6 @@ automation:
         data:
           option: 1
 ```
-
-{% endraw %}
 
 ## Known limitations
 

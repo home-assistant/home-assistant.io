@@ -13,6 +13,8 @@ ha_config_flow: true
 ha_integration_type: device
 ha_codeowners:
   - '@kvanzuijlen'
+  - '@mhuiskes'
+ha_quality_scale: bronze
 ---
 
 The **Zeversolar** {% term integration %} uses the local device IP to get information like the current power and

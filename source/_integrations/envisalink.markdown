@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based integration. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported. It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options as required.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -139,17 +139,9 @@ partitions:
       type: string
 {% endconfiguration %}
 
-## Actions
+{% include integrations/actions.md %}
 
-The following actions are supported by Envisalink and can be used to script or automate the alarm.
-
-- **alarm_disarm**: Disarms the alarm with the user code provided, or the code specified in the configuration.
-- **alarm_arm_home**: Arms the alarm in home mode.
-- **alarm_arm_away**: Arms the alarm in standard away mode.
-- **alarm_arm_night**: Arms the alarm in night mode.
-- **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
-- **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *Works with DSC panels, and confirmed to work with Honeywell Vista-20P (aka First Alert FA-168)*
-- **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*
+Envisalink alarm control panel entities also support the standard [alarm control panel actions](/integrations/alarm_control_panel/), such as arming, disarming, and triggering the alarm. For example, you can use the alarm trigger action to integrate a newer Z-Wave or Zigbee sensor into a legacy alarm system through a Home Assistant automation.
 
 ## Attributes
 

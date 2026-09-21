@@ -20,7 +20,7 @@ To be able to receive messages from Dialogflow, your Home Assistant instance nee
 Dialogflow could be [integrated](https://cloud.google.com/dialogflow/es/docs/integrations) with many popular messaging, virtual assistant and IoT platforms.
 
 {% note %}
-After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integreated with Google Assistant.
+After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integrated with Google Assistant.
 {% endnote %}
 
 Using Dialogflow will be easy to create conversations like:
@@ -48,11 +48,11 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196)) and time zone.
 - Click "Save".
 - Now go to "Fulfillment" (in the left menu).
-- Enable Webhook and set your Dialogflow webhook URL as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
+- Enable Webhook and set your Dialogflow webhook URL as the endpoint, for example, `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save".
 - Create a new intent.
-- Below "User says" type one phrase that you, the user, will say to Dialogflow, e.g., `What is the temperature at home?`.
-- In "Action" enter an action name. This should match the name of an IntentScript within your Home Assistant configuration, e.g., in the example below "Temperature".
+- Below "User says" type one phrase that you, the user, will say to Dialogflow, for example, `What is the temperature at home?`.
+- In "Action" enter an action name. This should match the name of an IntentScript within your Home Assistant configuration. In the example below, it is `Temperature`.
 - In "Response" enter "Cannot connect to Home Assistant or it is taking to long" (fall back response).
 - At the bottom of the page, expand "Fulfillment" and check "Use webhook".
 - Click "Save".
@@ -73,7 +73,6 @@ When activated, the [`alexa` integration](/integrations/alexa/) will have Home A
 
 Download [this zip](https://github.com/home-assistant/home-assistant.io/blob/current/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** > **Export and Import**) for examples intents to use with this configuration:
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,5 +120,3 @@ intent_script:
         target:
           entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
-
-{% endraw %}

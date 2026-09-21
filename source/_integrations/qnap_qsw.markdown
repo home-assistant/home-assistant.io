@@ -91,6 +91,12 @@ The following *sensors* are created for each port (or LACP):
 | :------------------ | :--------------------------------- |
 | firmware_update     | Firmware update status.            |
 
+## Known limitations
+
+The QNAP QSW firmware allows only one authenticated session at a time. Because this integration maintains a persistent session to poll the switch, you cannot sign in to the switch's web management console (QSS) while the integration is active. Attempting to do so results in a "Duplicate login detected" error.
+
+To access the switch's web console, temporarily disable the integration under {% my integrations title="**Settings** > **Devices & services**" %}, then re-enable it when you are done.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

@@ -13,7 +13,8 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_category: []
+ha_category:
+  - Gaming
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
@@ -85,8 +86,9 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Device class**: `duration`
 
 #### Switch
+
 - **Suspend software**
-  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
+  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits.
 
 #### Time
 
@@ -95,31 +97,14 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 - **Bedtime end time**
   - **Description**: The time that bedtime should end. Set to 00:00 to disable. Accepts values between 05:00 and 09:00 for the bedtime end time.
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Add bonus time
-
-The `nintendo_parental_controls.add_bonus_time` action adds additional bonus screen time to a specified device, which is granted outside of the maximum allowed screentime.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the config entry containing the device to grant bonus time.
-  - **Optional**: No
-- **Data attribute**: `device_id`
-  - **Description**: The ID of the device to grant bonus time.
-  - **Optional**: No
-- **Data attribute**: `bonus_time`
-  - **Description**: The amount of time in minutes to grant (minimum of 5, maximum of 30).
-  - **Optional**: No
+{% include integrations/actions.md %}
 
 ## Known limitations
 
-The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
-
-Further, this integration relies on the cloud and cannot make a local connection to your Switch.
-
-The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
+- A cloud connection is required as it is not possible to make a local connection to your Switch.
+- The range used for bonus time is set by Nintendo and therefore cannot be changed.
+- When changing the PIN, Nintendo will send you an email automatically. This cannot be disabled in the integration. The email does not contain the PIN itself.
 
 ## Troubleshooting
 

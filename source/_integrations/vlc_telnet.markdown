@@ -30,7 +30,7 @@ Consider to set the locale to `en_US` before starting VLC.
 
 When using the `media_player.play_media` action, only the "music" media type is supported for now.
 
-## Home Assistant add-on
+## VLC app for Home Assistant
 
-You can run a VLC Media Player on your Home Assistant installation using the official [VLC add-on](https://github.com/home-assistant/addons/blob/master/vlc/DOCS.md).
+You can run a VLC Media Player on your Home Assistant installation using the official [VLC app](https://github.com/home-assistant/addons/blob/master/vlc/DOCS.md).
 Using it you can play files on the local network, Internet or files and playlist locally saved to the `/share` and `/media` folder of your Home Assistant installation.

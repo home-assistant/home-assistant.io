@@ -117,9 +117,9 @@ observations:
 
 A fundamental concept in Bayes' Rule is the distinction between the probability of an *event given an observation* and the probability of an *observation given an event*. These two probabilities are not interchangeable and must be considered separately. While they may be similar in some cases — for example, when motion sensors are accurate, the probability that someone is in the room *given* that motion is detected is often close to the probability that motion is detected *given* someone is in the room.
 
-Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (e.g. 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (e.g 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
+Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (for example, 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (for example, 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
 
-When configuring these conditional probabilities, define the probability of the sensor observation (e.g motion detected) *given* the thing you are trying to estimate (e.g human-occupancy of the room).
+When configuring these conditional probabilities, define the probability of the sensor observation (for example, motion detected) *given* the thing you are trying to estimate (for example, human-occupancy of the room).
 
 ## Estimating probabilities
 
@@ -134,7 +134,7 @@ When configuring these conditional probabilities, define the probability of the 
 
 ## Full examples
 
-These are a number of worked examples which you may find helpful for each of the observation types. Whilst these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
+These are several worked examples which you may find helpful for each of the observation types. While these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
 
 ### State
 
@@ -147,7 +147,7 @@ binary_sensor:
   name: "in_bed"
   unique_id: "172b6ef1-e37e-4f04-8d64-891e84c02b43" # generated on https://www.uuidgenerator.net/
   prior: 0.25 # I spend 6 hours a day in bed 6hr/24hr is 0.25 
-  probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to to activate when I am sure
+  probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to activate when I am sure
   observations:
     - platform: "state"
       entity_id: "sensor.living_room_motion"
@@ -167,7 +167,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sun.sun"
       prob_given_true: 0.7 # If I am in bed then there is a good chance the sun will be down, but in the summer mornings I may still be in bed
-      prob_given_false: 0.45 # If I am am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
+      prob_given_false: 0.45 # If I am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
       to_state: "below_horizon"
     - platform: "state"
       entity_id: "sensor.android_charger_type"
@@ -200,7 +200,6 @@ binary_sensor:
 
 Here's an example for `template` observations, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` has not been seen in the last 5 minutes.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -218,7 +217,6 @@ binary_sensor:
       prob_given_false: 0.99
 ```
 
-{% endraw %}
 
 ### Multiple state and numeric entries per entity
 

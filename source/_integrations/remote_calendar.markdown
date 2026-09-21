@@ -21,7 +21,7 @@ The **Remote calendar** {% term integration %} allows you to read a calendar in 
 
 ## Known limitations
 
-The integration does not provide the ability to connect to a resource that requires authentication or special headers.
+The integration supports HTTP Basic Authentication but does not provide the ability to connect to a resource that requires other special headers.
 
 ## Installation instructions
 
@@ -37,6 +37,15 @@ Calendar URL:
     description: "The URL of the remote calendar. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
 Verify SSL certificate:
   description: "Enable SSL certificate verification when connecting via HTTPS."
+{% endconfiguration_basic %}
+
+If the calendar URL requires authentication, you will be prompted for a username and password in an additional setup step.
+
+{% configuration_basic %}
+Username:
+    description: "The username for HTTP Basic Authentication."
+Password:
+    description: "The password for HTTP Basic Authentication."
 {% endconfiguration_basic %}
 
 ## Data updates

@@ -1,13 +1,13 @@
 ---
 title: "Automating Home Assistant"
-description: "Steps to help you get automation setup in Home Assistant."
+description: "Build automations for your smart home with the visual editor, no coding required."
 ---
 
-Home Assistant contains information about all your {% term devices %} and {% term services %}. This information is available to you in the dashboard and it can be used to trigger {% term automations %}. And that's fun!
+Automations are how you make your home work for you. They let Home Assistant automatically respond to things that happen, such as turning the lights on at sunset or pausing the music when you receive a call.
 
-Automations in Home Assistant allow you to automatically respond to things that happen. You can turn the lights on at sunset or pause the music when you receive a call.
+You build automations in Home Assistant with the visual automation editor, so no coding is required. Home Assistant already knows about all your {% term devices %} and {% term services %}, so you can pick from them directly when you decide what should trigger an automation and what should happen as a result.
 
-If you are just starting out, we recommend that you start with blueprint automations. These are ready-made automations by the community that you only need to configure.
+If you are just starting out, we recommend that you start with blueprint automations. These are ready-made automations from the community that you only need to configure.
 
 ### [Learn about automation blueprints &raquo;](/docs/automation/using_blueprints/)
 

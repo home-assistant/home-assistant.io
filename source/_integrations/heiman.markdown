@@ -21,10 +21,4 @@ ha_brand: true
 
 ## Supported devices
 
-- [Smart Smoke Alarm (USA)](https://www.heimantech.com/product/?type=detail&id=127)
-- [Smart Smoke Alarm (EU and China)](https://www.heimantech.com/product/?type=detail&id=3)
-- [Smart Carbon Monoxide Alarm (USA)](https://www.heimantech.com/product/?type=detail&id=122)
-- [Smart Carbon Monoxide Alarm (EU and China)](https://www.heimantech.com/product/?type=detail&id=137)
-- [Motion Sensor](https://www.heimantech.com/product/smart-human-infrared-detector-m1-series)
-- [Water Leak Sensor](https://www.heimantech.com/product/smart-water-leakage-detector-l1-series)
-- [Humidity and Temperature Sensor](https://www.heimantech.com/product/smart-temperature-and-humidity-detector-h1-series)
+{% include integrations/device_list.html brand="heiman" %}

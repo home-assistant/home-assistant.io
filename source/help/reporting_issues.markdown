@@ -6,6 +6,8 @@ related:
     title: Configuration.yaml file
   - docs: /docs/configuration/troubleshooting/
     title: Enable debug logging
+  - docs: /more-info/system-information/
+    title: System information
   - url: https://community.home-assistant.io/
     title: Forum
   - docs: /help/
@@ -14,9 +16,17 @@ related:
 
 If you have an installation, a setup or a configuration issue, please use our [Forum](https://community.home-assistant.io/) to get help. We have a big community which will help you if they can.
 
-If you found a bug, then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see, is there to render your entry in a nice format after submitting. It's just [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+If you found a bug, please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers identify the issue quickly, please fill out the provided template.
 
-To see the version information, refer to the {% my info title="**Settings** > **About**" %} page.
+## Finding system information
+
+Many issue reports require details about your Home Assistant installation. To find this information:
+
+1. Go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
+2. From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**.
+   - This [system information dialog](/more-info/system-health/) shows your Home Assistant version, installation type, operating system, and other system details.
+3. To copy the system information, at the bottom of the dialog, select the **Copy** button. 
+   
 
 ## Description of the problem
 
@@ -26,15 +36,15 @@ There are integrations which require additional steps (installing third-party to
 
 ## First Home Assistant version with the issue
 
-Please provide the version which contains the issue. You can find the version information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
+Please provide the version that contains the issue. See [Finding system information](#finding-system-information) for instructions on finding the version.
 
 ## Last working Home Assistant release (if known)
 
-If possible, provide the latest release of which you know that the integration or platform was working. Home Assistant is evolving very fast and issues may already be addressed or be introduced by a recent change. You can find the detailed information about your system under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}
+If possible, provide the latest release that you know was working. Home Assistant is evolving very fast and issues may already be addressed or be introduced by a recent change. See [Finding system information](#finding-system-information) for instructions on finding the version.
 
 ## Operating environment
 
-There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System or Home Assistant Container in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
+There are many different ways to run Home Assistant. In this section, please mention which you are using: {% term "Home Assistant Operating System" %} or {% term "Home Assistant Container" %} in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. See [Finding system information](#finding-system-information) for instructions on how to find this information.
 
 ## Integration
 
@@ -47,7 +57,6 @@ Please add the link to the documentation of the integration in question. For exa
 
 Consider uploading [the diagnostics file](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) along with your issue report to allow faster triaging and pinpointing the issue.
 The information contained in the generated diagnostics file is redacted to avoid any sensitive information while still remaining useful for developers to fix the issue.
-
 
 ### Problem-relevant `configuration.yaml` entries
 

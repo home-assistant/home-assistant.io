@@ -2,6 +2,7 @@
 title: One-Time Password (OTP)
 description: Instructions on how to add One-Time Password (OTP) sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
@@ -11,7 +12,7 @@ ha_domain: otp
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file

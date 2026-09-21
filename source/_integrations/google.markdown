@@ -13,7 +13,6 @@ ha_platforms:
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: service
-google_dev_console_link: https://console.developers.google.com/apis/credentials
 api: Google Calendar API
 api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
@@ -80,46 +79,7 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
-### Action: Create event
-
-The `google.create_event` action allows you to create a new calendar event in a calendar.
-
-{% details "Create event action details" %}
-
-{% note %}
-This will only be available if you have given Home Assistant `read-write` access in configuration options.
-{% endnote %}
-
-A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
-
-| Data attribute | Optional | Description                                         | Example             |
-| ---------------------- | -------- | --------------------------------------------------- | ------------------- |
-| `summary`              | no       | Acts as the title of the event.                     | Bowling             |
-| `description`          | yes      | The description of the event.                       | Birthday bowling    |
-| `start_date_time`      | yes      | The date and time the event should start.           | 2019-03-10 20:00:00 |
-| `end_date_time`        | yes      | The date and time the event should end.             | 2019-03-10 23:00:00 |
-| `start_date`           | yes      | The date the whole day event should start.          | 2019-03-10          |
-| `end_date`             | yes      | The date the whole day event should end.            | 2019-03-11          |
-| `in`                   | yes      | Days or weeks that you want to create the event in. | "days": 2           |
-| `location`             | yes      | The location of the event.                          | Bowling center      |
-
-{% important %}
-You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-{% endimportant %}
-
-This is a full example of an action in YAML:
-
-```yaml
-action: google.create_event
-target:
-  entity_id: calendar.device_automation_schedules
-data:
-  summary: "Example"
-  start_date: "2022-10-1"
-  end_date: "2022-10-2"
-```
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 ## More configuration
 

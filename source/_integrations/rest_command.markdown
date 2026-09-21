@@ -131,8 +131,6 @@ This response can be accessed in automations using [`response_variable`](/docs/s
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 
-{% raw %}
-
 ```yaml
 # Create a ToDo notification based on file contents
 automation:
@@ -156,12 +154,16 @@ automation:
               got_errors: "{{ router_errors|length > 0 }}"
           - if: "{{ got_errors }}"
             then:
-              - action: notify.mobile_app_iphone
+              - action: notify.send_message
+                target:
+                  entity_id: notify.my_device
                 data:
                   title: "Traefik errors"
                   message: "{{ router_errors }}"
         else:
-          - action: notify.mobile_app_iphone
+          - action: notify.send_message
+            target:
+              entity_id: notify.my_device
             data:
               title: "Could not reach Traefik"
               message: "HTTP code: {{ traefik_response['returncode'] }}"
@@ -172,15 +174,11 @@ rest_command:
     method: GET
 ```
 
-{% endraw %}
-
 ### Using templates to change the payload based on entities
 
 The commands can be dynamic, using templates to insert values of other entities. Actions support variables for doing things with templates.
 
-In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
-
-{% raw %}
+This example uses [templates](/docs/templating/) for dynamic parameters.
 
 ```yaml
 # Example configuration.yaml entry
@@ -197,11 +195,9 @@ rest_command:
     verify_ssl: true
 ```
 
-{% endraw %}
-
 ### How to test your new REST command
 
-Call the new action from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
+Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
 ```json
 {

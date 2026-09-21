@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#buy {
     isolation: isolate;
     max-height: 1000px;
@@ -125,7 +126,6 @@ section#buy {
         sub {
             vertical-align: initial;
             bottom: 0;
-            margin-right: 6px;
         }
     }
 

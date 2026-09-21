@@ -82,7 +82,7 @@ name:
   type: string
 accesspoint:
   required: true
-  description: This is the access point ID (SGTIN).
+  description: This is the access point ID (Serialized Global Trade Item Number, or SGTIN).
   type: string
 authtoken:
   required: true
@@ -90,281 +90,218 @@ authtoken:
   type: string
 {% endconfiguration %}
 
-## Adding and removing devices and group via native HomematicIP APP
+## Adding and removing devices and groups via the Homematic IP app
 
-Devices and groups are instantly removed from Home Assistant when removed in the native HomematicIP APP.
-Groups are instantly created in Home Assistant when created in the native HomematicIP APP.
-Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
-Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
+Devices and groups you add or remove in the Homematic IP app are mirrored into Home Assistant:
+
+- Groups appear and disappear immediately.
+- Devices appear with a delay of about 30 seconds, and disappear immediately. Within this delay, finish naming the device in the Homematic IP app; otherwise Home Assistant uses a default name based on the device type. You can rename the device later in the entity registry.
 
 ## Use HmIP-DLD Door Lock Drive in Home Assistant
 
-If you are unable to control the **HmIP-DLD** device via Home Assistant, you may need to allow the Home Assistant device to control the **HmIP-DLD** in the HomematicIP app.
+If you are unable to control the HmIP-DLD device via Home Assistant, you might need to allow the Home Assistant access point to control the lock in the Homematic IP app.
 
-To do this, navigate to the **Access Control** section in your HomematicIP app and enable the necessary permissions.
+To do this, navigate to **Access Control** in the Homematic IP app and enable the necessary permissions.
 
-Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. Ensure that no PIN is set for the device in the HomematicIP app.
+Currently, you can only use the HmIP-DLD in Home Assistant without a PIN. Make sure no PIN is set for the device in the Homematic IP app.
 
-## Implemented and tested devices
+## Supported devices
 
-- homematicip_cloud.alarm_control_panel
-  - Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
+The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
 
-- homematicip_cloud.binary_sensor
-  - Access Point Cloud Connection (*HmIP-HAP, HmIP-HAP-B1*)
-  - Acceleration Sensor (*HMIP-SAM*)
-  - Inclination and vibration Sensor (*HMIP-STV*)
-  - Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
-  - Contact Interface flush-mount – 1x channel (*HmIP-FCI1*)
-  - Contact Interface flush-mount – 6x channels (*HmIP-FCI6*)
-  - Contact Interface (*HmIP-SCI*)
-  - Window Rotary Handle Sensor (*HmIP-SRH*)
-  - Smoke sensor and alarm (*HmIP-SWSD*)
-  - Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
-  - Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
-  - Presence Sensor – indoor (*HmIP-SPI*)
-  - Rain Sensor (*HmIP-SRD*)
-  - Water Sensor (*HmIP-SWD*)
-  - Remote Control - 8x buttons (*HmIP-RC8*) (battery only)
-  - Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*) (battery only)
-  - Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*) (battery only)
-  - Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*) (battery only)
-  - Key Ring Remote Control - 4x buttons (*HmIP-KRC4*) (battery only)
-  - Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
-  - Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
-  - Remote Control for brand switches – 2x buttons (*HmIP-BRC2*) (battery only)
-  - Pluggable Power Supply Monitoring (*HmIP-PMFS*)
-  - Wired Inbound module – 32x channels (*HMIPW-DRI32*)
+### Alarm control panel
 
-- homematicip_cloud.button
-  - Wall Mounted Garage Door Controller (*HmIP-WGC*)
+- Combined alarm control panel with internal and external security zones (`HmIP-SecurityZone`)
 
-- homematicip_cloud.climate
-  - Climate group (*HmIP-HeatingGroup*)
-  - This includes temperature/humidity measures for climate devices of a room delivered by:
-    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B, HmIP-WTH-1*)
-    - Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
-    - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
-    - Temperature and humidity sensor (*HmIP-STH*)
-    - Temperature and humidity Sensor with display (*HmIP-STHD*)
-    - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
-    - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
-  - There is no need to directly support the following devices by Home Assistant, because their integration is done by the required wall thermostats:
-    - Floor Heating Actuator – 6x channels, 230V (*HMIP-FAL230-C6*)
-    - Floor Heating Actuator – 10x channels, 230V (*HMIP-FAL230-C10*)
-    - Floor Heating Actuator – 6x channels, 24V (*HMIP-FAL24-C6*)
-    - Floor Heating Actuator – 10x channels, 24V (*HMIP-FAL24-C10*)
-    - Floor Heating Actuator – 12x channels, motorized (*HMIP-FALMOT-C12*)
+### Binary sensors
 
-- homematicip_cloud.cover
-  - Shutter actuator for brand-mount (*HmIP-BROLL*)
-  - Shutter actuator for flush-mount (*HmIP-FROLL*)
-  - Blind Actuator for brand switches (*HmIP-BBL*)
-  - Blind Actuator for DIN rail mount – 4x channels (*HMIP-DRBLI4*)
-  - Blind Actuator for flush-mount (*HmIP-FBL*)
-  - Garage door module for Tormatic (*HmIP-MOD_TM*)
-  - Module for Hoermann drives (*HMIP-MOD-HO*)
-  - Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
+- Access point cloud connection (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
+- Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
+- Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
+- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMI55`, `HmIP-SMO`, `HmIP-SMO-A`, `HmIP-SMO230`, `HmIP-SPI`)
+- Acceleration and tilt sensors (`HmIP-SAM`, `HmIP-STV`)
+- Rain sensor (`HmIP-SRD`)
+- Water sensor (`HmIP-SWD`)
+- Alarm sirens (`HmIP-ASIR`, `HmIP-ASIR-O`, `HmIP-ASIR-B1`)
+- Pluggable power supply monitoring (`HmIP-PMFS`)
+- Wired input module – 32 channels (`HmIPW-DRI32`)
+- Battery sensors on remote controls (`HmIP-RC8`, `HmIP-WRC2`, `HmIP-WRCC2`, `HmIP-WRC6`, `HmIP-WRC6-230`, `HmIPW-WRC6`, `HmIP-KRC4`, `HmIP-KRCA`, `HmIP-BRC2`, `HmIP-MOD-RC8`)
+- Full Flush Lock Controller glass-break and lock state sensors (`HmIP-FLC`)
 
-- homematicip_cloud.event
-  - Doorbell Event for devices *HmIP-DSD-PCB* and others where ChannelRole equals DOOR_BELL_INPUT 
+### Buttons
 
-- homematicip_cloud.light
-  - Switch actuator and meter for brand switches (*HmIP-BSM*)
-  - Dimming actuator for brand switches (*HmIP-BDT*)
-  - Dimming actuator flush-mount (*HmIP-FDT*)
-  - Pluggable Dimmer – trailing edge (*HmIP-PDT*)
-  - Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
-  - Wired Dimmer module – 3x channels (*HMIPW-DRD3*)
+- Wall-mounted garage door controller (`HmIP-WGC`)
+- Full Flush Lock Controller door opener (`HmIP-FLC`)
 
-- homematicip_cloud.lock
-  - Door Lock Drive - currently, usage just without a pin is possible (*HmIP-DLD*)
+### Climate
 
-- homematicip_cloud.sensor
-  - Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)
-  - Wall Mounted Thermostat (*HmIP-WTH, HmIP-WTH2, HmIP-WTH-B*)
-  - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
-  - Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
-  - Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
-  - Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
-  - Temperature sensor with external probes - 2-way (*HmIP-STE2-PCB*)
-  - Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
-  - Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
-  - Presence Sensor – indoor (*HmIP-SPI*)
-  - Light Sensor - outdoor (*HmIP-SLO*)
-  - Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
-  - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
-  - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
-  - Floor Heating Actuator – 12x channels, motorized - Valve positions (*HmIP-FALMOT-C12*)
+The integration creates one climate entity per room as a Homematic IP heating group (`HmIP-HeatingGroup`). The group reads temperature and humidity from any of the following devices in that room and drives the floor heating or radiator actuators behind it:
 
-- homematicip_cloud.switch
-  - Pluggable Switch (*HmIP-PS*)
-  - Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, HmIP-PSM-IT, HmIP-PSM-UK, HmIP-PSM-PE*)
-  - Switch Actuator and Meter – flush-mount (*HmIP-FSM, HmIP-FSM16*)
-  - Switch Actuator with Push-button Input – flush-mount (*HmIP-FSI16*)
-  - Open Collector Module Receiver - 8x channels (*HmIP-MOD-OC8*)
-  - Multi IO Box - 2x (*HmIP-MIOB*)
-  - Switch Circuit Board - 1x channels (*HmIP-PCBS*)
-  - Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
-  - Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
-  - Switch Actuator for heating systems – 2x channels (*HmIP-WHS2*)
-  - Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
-  - Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
-  - Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
-  - Switch Actuator - 2x channels (*HmIP-BS2*)
+- Wall thermostats (`HmIP-WTH`, `HmIP-WTH-1`, `HmIP-WTH-2`, `HmIP-WTH-B`, `HmIP-BWTH`, `HmIP-BWTH-24`, `ALPHA-IP-RBG`, `ALPHA-IP-RBGa`)
+- Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-2-UK`, `HmIP-eTRV-2-B`, `HmIP-eTRV-2-B1`, `HmIP-eTRV-C`, `HmIP-eTRV-E`)
+- Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`)
 
-- homematicip_cloud.valve
-  - Smart Watering Actuator (*ELV-SH-WSM*)
+Floor heating actuators are operated through the climate group and don't need their own entity (`HMIP-FAL230-C6`, `HMIP-FAL230-C10`, `HMIP-FAL24-C6`, `HMIP-FAL24-C10`, `HMIP-FALMOT-C12`).
 
-- homematicip_cloud.weather
-  - Weather Sensor – basic (*HmIP-SWO-B*)
-  - Weather Sensor – plus (*HmIP-SWO-PL*)
-  - Weather Sensor – pro (*HmIP-SWO-PR*)
-  
-## What to do, if a device is missing in Home Assistant
+### Covers
 
-In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/hahn-th/homematicip-rest-api) GitHub repository.
+- Shutter actuators (`HmIP-BROLL`, `HmIP-FROLL`)
+- Blind actuators (`HmIP-BBL`, `HmIP-FBL`, `HMIP-DRBLI4`)
+- Garage door modules (`HmIP-MOD-TM`, `HMIP-MOD-HO`)
+- Hunter Douglas and Erfal window blinds (`HMIP-HDM1`)
 
-1. Create a dump of your access point configuration in Home Assistant:
-  {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" %} > Select `homematicip_cloud.dump_hap_config` > **Execute**. 
-  The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
-2. Create a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
+### Events
 
-Please be patient, wait for the implementation and a new release of the upstream library.
-Afterward, this device can be implemented into Home Assistant.
-  
-## Actions
+- Doorbell events for devices that expose a `DOOR_BELL_INPUT` channel, like `HmIP-DSD-PCB`.
 
-Executable by all users:
-- `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode with duration.
-- `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode with period.
-- `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
-- `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
-- `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
-- `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
-- `homematicip_cloud.set_home_cooling_mode`: Enable or disable cooling for the home.
+### Lights
 
-Executable by administrators or within the context of an automation:
-- `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
-- `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
+- Dimming actuators (`HmIP-BDT`, `HmIP-FDT`, `HmIP-PDT`)
+- Switch actuators with signal lamp or meter (`HmIP-BSL`, `HmIP-BSM`)
+- Wired dimmer module – 3 channels (`HmIPW-DRD3`)
 
-### Action examples
+### Locks
 
-`accesspoint_id` (SGTIN) is optional for all actions and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, the action will be performed for all configured Homematic IP Access Points.
-The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
+- Door lock drive – currently usable without a PIN only (`HmIP-DLD`)
+- Full Flush Lock Controller (`HmIP-FLC`)
 
-Activate eco mode with duration. 
+### Sensors
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.activate_eco_mode_with_duration
-    data:
-      duration: 60
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+- Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Wall thermostats (`HmIP-WTH`, `HmIP-WTH-1`, `HmIP-WTH-2`, `HmIP-WTH-B`, `ALPHA-IP-RBG`, `ALPHA-IP-RBGa`)
+- Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-C`, `HmIP-eTRV-E`)
+- Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`)
+- External temperature sensors with two probes (`HmIP-STE2-PCB`, `ELV-SH-PTI2`)
+- Light sensor – outdoor (`HmIP-SLO`)
+- Motion and presence sensors (`HmIP-SMI`, `HmIP-SMO`, `HmIP-SPI`)
+- Passage sensor with direction recognition (`HmIP-SPDR`)
+- Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
+- Fine dust sensor (`HmIP-SFD`)
+- Soil moisture sensor (`ELV-SH-SMSI`)
+- Door lock pad (`HmIP-DLP`)
+- Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
 
-Activate eco mode with period. 
+### Switches
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.activate_eco_mode_with_period
-    data:
-      endtime: 2019-09-17 18:00
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+- Pluggable switches and meters (`HmIP-PS`, `HmIP-PSM`, `HmIP-PSM-CH`, `HmIP-PSM-IT`, `HmIP-PSM-UK`, `HmIP-PSM-PE`)
+- Flush-mount switch actuators and meters (`HmIP-FSM`, `HmIP-FSM16`)
+- Switch actuator with push-button input – flush-mount (`HmIP-FSI16`)
+- Open collector module receiver – 8 channels (`HmIP-MOD-OC8`)
+- Multi-IO box (`HmIP-MIOB`)
+- Switch circuit boards (`HmIP-PCBS`, `HmIP-PCBS2`, `HmIP-PCBS-BAT`)
+- Switch actuator for heating systems – 2 channels (`HmIP-WHS2`)
+- Wired switch actuator – 8 channels (`HmIPW-DRS8`)
+- DIN rail switch actuators (`HMIP-DRSI1`, `HMIP-DRSI4`)
+- Switch actuator – 2 channels (`HmIP-BS2`)
+- Switchable power supply – 25 W (`ELV-SH-SPS25`)
 
-Activates the vacation mode until the given time.
+### Valves
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.activate_vacation
-    data:
-      endtime: 2019-09-17 18:00
-      temperature: 18.5
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+- Smart watering actuator (`ELV-SH-WSM`)
 
-Deactivates the eco mode immediately.
+### Weather
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.deactivate_eco_mode
-    data:
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+- Weather sensors – basic, plus, and pro (`HmIP-SWO-B`, `HmIP-SWO-PL`, `HmIP-SWO-PR`)
 
-Deactivates the vacation mode immediately.
+## My device isn't recognized
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.deactivate_vacation
-    data:
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+If your device shows up in the Homematic IP app but Home Assistant doesn't pick it up, the device family is most likely not yet implemented in the [Python library](https://github.com/hahn-th/homematicip-rest-api) that this integration uses. Each device family has to be added there first.
 
-Set the active climate profile index.
+Here is how you can help getting it added:
 
-The index of the climate profile is 1-based. 
-You can get the required index from the native Homematic IP App.
+1. Download diagnostics for your access point:
+    - Go to {% my integrations title="**Settings** > **Devices & services**" %}, open the **HomematicIP Cloud** integration, and select **Download diagnostics**.
+    - Result: Home Assistant downloads an anonymized JSON file.
+    - Device IDs, labels, location, and the refresh token are replaced with placeholders, so you can share the file publicly without exposing your home layout.
+2. Open an issue on the library repository. File a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) describing what the device does (model number, what you use it for), and attach the diagnostics file.
+3. Wait for the device to land. Adding a new device runs through several steps: library pull request, library release on PyPI, Home Assistant integration update, and finally a Home Assistant release. Each step usually takes a few days to a few weeks. You can follow progress on the library issue and on the linked pull requests.
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.set_active_climate_profile
-    target:
-      entity_id: climate.livingroom
-    data:
-      climate_profile_index: 1
-```
+While you wait, you can often expose the device through the Homematic IP app's own automations. The effects on devices that Home Assistant already supports will then show up there.
 
-Dump the configuration of the Homematic IP Access Point(s).
+{% note %}
+All actions that operate on the access point accept an optional `accesspoint_id` parameter (Serialized Global Trade Item Number, or SGTIN). If your installation has only one access point, you can leave this out. With multiple access points, you can find the ID at the top of the integration page or printed on the back of the access point.
+{% endnote %}
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.dump_hap_config
-    data:
-      anonymize: True
-```
+{% include integrations/actions.md %}
 
-Reset energy counter of measuring actuators.
+## Button events
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.reset_energy_counter
-    target:
-      entity_id: switch.livingroom
-```
+Devices with physical buttons expose an event entity per button channel. You can use these to trigger automations on a short release, a long press, or a long release.
 
-Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode will revert to Heating.
+{% important %}
+If a button is directly paired to an actuator inside the Homematic IP app (*Direct Device Connection*, called *Direktverknüpfung* in the German app), the cloud doesn't see the press, so Home Assistant can't react to it either. To use the button in Home Assistant, either remove the direct pairing in the Homematic IP app, or add an automation in the Homematic IP app that references the button. The cloud then forwards the press to Home Assistant.
+{% endimportant %}
 
-```yaml
-...
-actions:
-  - action: homematicip_cloud.set_home_cooling_mode
-    data:
-      cooling: True
-      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
-```
+{% note %}
+The cloud doesn't deliver a dedicated double-press event. A double-press arrives as two consecutive `short_release` events, so double-press automations are built on top of the same event entity, as shown below.
+{% endnote %}
 
-## Additional info
+### Trigger an action on a short release
 
-Push button devices are only available with a battery sensor. This is due to a limitation of the vendor API (eq3).
-It's not possible to detect a key press event on these devices at the moment.
+{% example %}
+automation:
+  - alias: "Toggle living room light on button 3 short release"
+    triggers:
+      - trigger: state
+        entity_id: event.wandtaster_6_fach_button_3
+        attribute: event_type
+        to: short_release
+    actions:
+      - action: light.toggle
+        target:
+          entity_id: light.living_room
+{% endexample %}
 
-  - Remote Control - 8x buttons (*HmIP-RC8*)
-  - Wall-mount Remote Control for brand switches - 2x buttons (*HmIP-BRC2*)
-  - Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
-  - Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*)
-  - Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*)
-  - Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*)
-  - Key Ring Remote Control - 4x buttons (*HmIP-KRC4*)
-  - Key Ring Remote Control - alarm  (*HmIP-KRCA*)
-  - Wall-mount Remote Control – flat (*HmIP-WRCC2*)
-  - Rotary Button (*HmIP-WRCR*)
+### Trigger an action on a double press
+
+The cloud delivers a double press as two consecutive `short_release` events. Use `wait_for_trigger` with a short timeout to detect the second press:
+
+{% example %}
+automation:
+  - alias: "Activate movie scene on button 3 double press"
+    triggers:
+      - trigger: state
+        entity_id: event.wandtaster_6_fach_button_3
+        attribute: event_type
+        to: short_release
+    actions:
+      - wait_for_trigger:
+          - trigger: state
+            entity_id: event.wandtaster_6_fach_button_3
+            attribute: event_type
+            to: short_release
+        timeout: "00:00:00.500"
+        continue_on_timeout: false
+      - action: scene.turn_on
+        target:
+          entity_id: scene.movie_night
+{% endexample %}
+
+### Dim a light while holding a button
+
+The button reports `long_press` when held and `long_release` when released. Use a `repeat` loop that keeps dimming until the release event fires:
+
+{% example %}
+automation:
+  - alias: "Dim living room while holding button 3"
+    triggers:
+      - trigger: state
+        entity_id: event.wandtaster_6_fach_button_3
+        attribute: event_type
+        to: long_press
+    actions:
+      - repeat:
+          sequence:
+            - action: light.turn_on
+              target:
+                entity_id: light.living_room
+              data:
+                brightness_step_pct: -5
+            - delay: "00:00:00.200"
+          while:
+            - condition: state
+              entity_id: event.wandtaster_6_fach_button_3
+              attribute: event_type
+              state: long_press
+{% endexample %}

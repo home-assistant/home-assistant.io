@@ -12,11 +12,12 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: trmnl
 ha_platforms:
+  - diagnostics
   - sensor
   - switch
   - time
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **TRMNL** {% term integration %} allows you to monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. TRMNL devices are low-power e-ink displays that show content such as calendars, weather, and custom dashboards at a glance.
@@ -82,7 +83,9 @@ triggers:
     entity_id: sensor.your_trmnl_battery
     below: 20
 actions:
-  - action: notify.mobile_app_your_phone
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       title: "TRMNL battery low"
       message: "Your TRMNL battery is below 20%. Time to charge it."

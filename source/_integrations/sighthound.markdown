@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-Detect people in camera images using [Sighthound Cloud](https://www.sighthound.com/products/cloud). The Sighthound Developer tier (free for non-commercial use) allows 5000 images to be processed per month. If you need more processing per month you will need to sign up for a production account (i.e., a Basic or Pro account).
+Detect people in camera images using [Sighthound Cloud](https://www.sighthound.com/products/cloud). The Sighthound Developer tier (free for non-commercial use) allows 5000 images to be processed per month. If you need more processing per month you will need to sign up for a production account (for example, a Basic or Pro account).
 
 This {% term integration %} adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person.
 
@@ -103,7 +103,9 @@ An example using two automations:
     - trigger: event
       event_type: sighthound.vehicle_detected
   actions:
-    - action: notify.mobile_app_my_iphone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Somebody has just arrived by car."
 ```

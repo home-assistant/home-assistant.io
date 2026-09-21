@@ -75,6 +75,12 @@ The integration creates a climate entity for each thermostat device in your Watt
   - **Heat**: Manual comfort or eco mode
   - **Off**: Turn off heating for the zone
   - **Auto**: Follow programmed schedule
+- **HVAC action**: Reports the current activity of the thermostat (heating, cooling, idle, or off)
+- **Preset modes**: Switch between the native Watts Vision + thermostat modes:
+  - **Comfort**: Standard comfort temperature
+  - **Eco**: Reduced setpoint to save energy
+  - **Defrost**: Frost protection
+  - **Timer**: Temporary boost mode
 - **Temperature range**: The min/max temperature limits configured for the device
 
 #### Climate entity attributes
@@ -122,18 +128,14 @@ This integration enables you to:
 
 {% details "Lower temperature when nobody is home" %}
 
-{% raw %}
-
 ```yaml
 alias: "Eco mode when away"
 description: "Set all thermostats to eco mode when house is empty"
 triggers:
-  - platform: state
-    entity_id: group.family
-    from: "home"
-    to: "not_home"
-    for:
-      minutes: 10
+  - trigger: zone.occupancy_cleared
+    options:
+      zone: zone.home
+      for: "00:10:00"
 actions:
   - action: climate.set_hvac_mode
     target:
@@ -153,9 +155,16 @@ actions:
       temperature: 18
 ```
 
-{% endraw %}
-
 {% enddetails %}
+
+{% include integrations/actions.md %}
+
+## Known limitations
+
+- **BRT-WR02-RF devices paired as heaters** are not exposed as separate switch entities in Home Assistant.
+- When a BRT-WR02-RF is paired as a heater on the gateway, the firmware merges it with the thermostat into a single heater entity. Only BRT-WR02-RF devices paired as standalone switches on the gateway appear as switch entities.
+
+Control these devices indirectly by adjusting the thermostat setpoint or mode through automations, for example, based on solar panel production or an external thermostat. The thermostat then manages the `on`/`off` state of the BRT-WR02-RF. This allows the built-in regulation algorithm to manage the temperature effectively.
 
 ## Troubleshooting
 

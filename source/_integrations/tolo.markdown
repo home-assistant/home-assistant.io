@@ -25,7 +25,7 @@ ha_dhcp: true
 ha_integration_type: device
 ---
 
-The **TOLO Sauna** {% term integration %} allows to control [Steamtec TOLO](https://www.tolosauna.com/) devices with Home Assistant.
+The **TOLO Sauna** {% term integration %} allows you to control [Steamtec TOLO](https://www.tolosauna.com/) devices with Home Assistant.
 
 
 ## Prerequisites
@@ -72,7 +72,7 @@ If no humidity sensor is present, steam production will only depend on the tempe
 
 ### Light control
 
-The TOLO system allows to connect RGB LEDs, which can be controlled by the TOLO integration.
+The TOLO system allows you to connect RGB LEDs, which can be controlled by the TOLO integration.
 The TOLO system provides two modes for LED operation, *manual* and *automatic*.
 
   - *Manual*: When turned on, the RGB LEDs will stick to the same color until it is manually changed by pressing the *Next color* button.
@@ -81,21 +81,21 @@ The TOLO system provides two modes for LED operation, *manual* and *automatic*.
 
 ### Fan control
 
-The TOLO system allows to connect a fan, which can be used to reduce the humidity after the steam generation has been turned off.
+The TOLO system allows you to connect a fan, which can be used to reduce the humidity after the steam generation has been turned off.
 Once activated, the fan will automatically turn off between 1 and 60 minutes, depending on the *Fan timer* setting.
 
 
 ### Aroma therapy
 
-The TOLO system allows to connect an aroma oil injector with slots for either one or two aroma flavors.
+The TOLO system allows you to connect an aroma oil injector with slots for either one or two aroma flavors.
 When enabled, the aroma pump will work every 5 minutes for 5 seconds each.
-Unfortunately, the TOLO system does not allow to change these intervals.
+Unfortunately, the TOLO system does not allow you to change these intervals.
 For shorter intervals between pump activations, the TOLO manual suggests to manually disable and enable *Aroma therapy*.
 
 
 ### Salt bath
 
-The TOLO system allows to connect a sole nebulizer, which can be used to inject salt spray in your sauna or steam bath room to allow for a salt bath.
+The TOLO system allows you to connect a sole nebulizer, which can be used to inject salt spray in your sauna or steam bath room to allow for a salt bath.
 Using the *Salt bath timer*, the salt bath feature can be configured to run indefinitely (set *Salt bath timer* to 0) or for a pre-defined time between 1 and 60 minutes.
 
 

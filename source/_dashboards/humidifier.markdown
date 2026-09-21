@@ -19,9 +19,9 @@ The humidifier card lets you control and monitor humidifiers, dehumidifiers, and
   Screenshot of the humidifier card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

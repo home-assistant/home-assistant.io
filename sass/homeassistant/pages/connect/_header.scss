@@ -1,3 +1,4 @@
+@use 'mixins' as *;
 .ha-connect {
     --header-height-large: 120px;
     --header-height-small: 80px;

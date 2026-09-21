@@ -37,7 +37,7 @@ stopid:
   required: true
   type: string
 route:
-  description: Only show a single bus route at the stop. This is the same as the bus number, e.g., `83`.
+  description: Only show a single bus route at the stop. This is the same as the bus number, for example, `83`.
   required: false
   type: string
 name:

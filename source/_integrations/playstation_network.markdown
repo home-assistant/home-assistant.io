@@ -3,6 +3,7 @@ title: PlayStation Network
 description: Instructions on enabling PlayStation Network support for your Home Assistant
 ha_category:
   - Binary sensor
+  - Gaming
   - Media player
   - Sensor
 ha_release: 2025.7
@@ -53,7 +54,7 @@ It is recommended, especially if you have configured multiple PlayStation accoun
 
 {% include integrations/config_flow.md %}
 
-### Login to PlayStation Network
+### Log in to PlayStation Network
 
 {% configuration_basic %}
 "NPSSO Token":

@@ -1,7 +1,7 @@
 {% assign posts_to_show = include.posts | default: 5 %}
 
 <section class="recent-posts aside-module grid__item one-whole lap-one-half">
-  <h1 class="title epsilon">{% icon "mdi:newspaper-variant-multiple" %} Recent Posts</h1>
+  <h2 class="h1 title epsilon">{% icon "mdi:newspaper-variant-multiple" %} Recent Posts</h2>
   <ul class="divided">
     {% for post in site.posts limit: posts_to_show %}
       {% if post.url != page.url  %}

@@ -1,6 +1,7 @@
 ---
 title: "Automation conditions"
 description: "Automations can test conditions when invoked."
+toc: false
 ---
 
 Conditions are an optional part of an automation rule. They can be used to prevent the automation's actions from being run. After a {% term trigger %} occurred, all conditions will be checked. The automation will be executed if all conditions return `true`. If any of the conditions returns `false`, the automation won't start.
@@ -11,7 +12,6 @@ The available conditions for an automation are the same as for the script syntax
 
 Example of using condition:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -35,11 +35,9 @@ automation:
           entity_id: scene.office_lights
 ```
 
-{% endraw %}
 
 The `condition` option of an automation, also accepts a single condition template directly. For example:
 
-{% raw %}
 
 ```yaml
 automation:
@@ -55,4 +53,3 @@ automation:
           entity_id: scene.office_lights
 ```
 
-{% endraw %}

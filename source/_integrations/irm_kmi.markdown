@@ -40,7 +40,7 @@ Language:
 
 ## Supported features
 
-The integration provides a weather entity along with [weather forecast services](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts).
+The integration provides a weather entity along with [weather forecast services](/integrations/weather/#action-weatherget_forecasts).
 
 ## Limitations
 

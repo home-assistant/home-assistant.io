@@ -31,7 +31,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., `192.168.1.1`.
+  description: The IP address of your router, for example, `192.168.1.1`.
   required: true
   type: string
 username:
@@ -48,7 +48,7 @@ ssl:
   type: boolean
   default: false
 verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  description: Disables SSL/TLS verification for HTTPS resources, for example, for self-signed certificates.
   required: false
   type: boolean
   default: true

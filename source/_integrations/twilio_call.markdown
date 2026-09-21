@@ -15,7 +15,7 @@ ha_quality_scale: legacy
 The **Twilio Call** {% term integration %} enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
 Passed message will be read by Text-to-speech service.
 
-The requirement is that you have setup [Twilio](/integrations/twilio/).
+The requirement is that you have set up [Twilio](/integrations/twilio/).
 
 ## Configuration
 

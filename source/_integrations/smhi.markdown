@@ -14,7 +14,7 @@ ha_platforms:
   - weather
 ha_codeowners:
   - '@gjohansson-ST'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **SMHI** {% term integration %} adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
@@ -42,7 +42,7 @@ The following weather sensors are provided (cloud sensors are disabled by defaul
 - **Low cloud coverage** (%): Mean value of low-level cloud cover
 - **Medium cloud coverage** (%): Mean value of medium-level cloud cover
 - **High cloud coverage** (%): Mean value of high-level cloud cover
-- **Precipitation category**: Precipitation category can be any of the following: No precipitation, Snow, Snow and rain, Rain, Drizzle, Freezing rain, or Freezing drizzle
+- **Precipitation category**: Precipitation category can be any of the following: No precipitation, Rain, Thunderstorm, Freezing rain, Mixed/ice, Snow, Wet snow, Mixture of rain and snow, Ice pellets, Graupel, Hail, Drizzle and Freezing drizzle
 - **Frozen precipitation** (%): Percent of precipitation in frozen form
 
 The following fire sensors are provided (fire sensors are disabled by default):
@@ -60,8 +60,8 @@ The following fire sensors are provided (fire sensors are disabled by default):
 
 The SMHI weather service is free under the Creative Commons Attribution 4.0, international license. Weather data will be pulled once every 30 minutes.
 
-Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/metfcst/pmp/introduction).
+Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/metfcst).
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

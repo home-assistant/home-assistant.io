@@ -73,7 +73,7 @@ digits:
   default: -1
   type: integer
 extra_arguments:
-  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, `make_mono`, etc.
+  description: Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, or `make_mono`.
   required: false
   type: string
 source:
@@ -124,8 +124,6 @@ image_processing:
 
 With the help of a [template sensor](/integrations/template), the value can be shown as badge.
 
-{% raw %}
-
 ```yaml
 sensor:
   - platform: template
@@ -135,5 +133,3 @@ sensor:
         friendly_name: "Ampere"
         unit_of_measurement: "A"
 ```
-
-{% endraw %}

@@ -1,6 +1,6 @@
 ---
 title: WebDAV
-description: Instructions on how to setup a WebDAV location to be used with backups.
+description: Instructions on how to set up a WebDAV location to be used with backups.
 ha_release: 2025.3
 ha_category:
   - Backup

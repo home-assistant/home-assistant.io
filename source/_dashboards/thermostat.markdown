@@ -19,9 +19,9 @@ The thermostat card gives control of your [climate](/integrations/#climate) {% t
   Screenshot of the thermostat card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

@@ -25,7 +25,7 @@ The OwnTone integration requires an OwnTone server built with libwebsockets enab
 
 ## Outputs
 
-Once the OwnTone integration is set up, outputs will automatically be loaded from the server and added to HA in real-time.
+Once the OwnTone integration is set up, outputs will automatically be loaded from the server and added to Home Assistant in real-time.
 
 ## Pipes
 

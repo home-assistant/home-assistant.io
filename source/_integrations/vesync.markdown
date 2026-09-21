@@ -87,6 +87,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- OasisMist 1000S Smart Ultrasonic Cool Mist Tower Humidifier (LUH-M101S-WUS)
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers
@@ -107,11 +108,7 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-## Actions
-
-| Action | Description |
-|---------|-------------|
-| `update_devices` | Poll Vesync server to find and add any new devices |
+{% include integrations/actions.md %}
 
 ## Power & energy sensors
 
@@ -204,13 +201,11 @@ Sensors and settings exposed by VeSync Air Fryers.
 
 ## Extracting attribute data
 
-In order to get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
+To get the attributes readings from supported devices, such as voltage from outlets or fan attributes, you'll have to create a [template sensor](/integrations/template#state-based-template-sensors/).
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 
-Adapted from the [TP-Link integration](https://www.home-assistant.io/integrations/tplink/#plugs).
-
-{% raw %}
+Adapted from the [TP-Link integration](/integrations/tplink/#plugs).
 
 ```yaml
 template:
@@ -219,5 +214,3 @@ template:
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
 ```
-
-{% endraw %}

@@ -23,7 +23,11 @@ of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
 The integration sensors are updated whenever the source changes and, optionally, based on a predefined
-time interval. Source sensors with higher sampling frequency provide more accurate results.
+time interval.  Source sensors with higher sampling frequency provide more accurate results.
+
+{% note %}
+The integral sensor keeps its value across Home Assistant restarts.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -42,7 +46,6 @@ Integration time:
 Max sub-interval:
   description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
 {% endconfiguration_basic %}
-
 
 ## YAML configuration
 
@@ -99,6 +102,10 @@ max_sub_interval:
 {% endconfiguration %}
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
+
+## Data updates
+
+The integral sensor keeps its accumulated value when Home Assistant restarts. After a restart, it picks up where it left off and continues integrating from the restored value as soon as the source sensor starts providing new readings.
 
 ## Integration method
 

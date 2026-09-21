@@ -25,7 +25,6 @@
           data-close="⨉"
         ></label>
         <ul class="menu pull-right">
-          <li><a {% if root == 'getting-started' or root == 'installation' %}class="active"{% endif %} href="/installation/">Getting started</a></li>
           <li>
             <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
             <ul>
@@ -35,7 +34,8 @@
               <li><a href="/voice_control/">{% icon "mdi:comment-processing-outline" %} Voice assistants</a></li>
               <li><a href="/docs/organizing/">{% icon "mdi:view-grid" %} Device organization</a></li>
               <li><a href="/docs/energy/">{% icon "mdi:solar-power-variant" %} Energy management</a></li>
-              <li><a href="/docs/configuration/">{% icon "mdi:cog" %} Advanced configuration</a></li>
+              <li><a href="/docs/templating/">{% icon "mdi:code-braces" %} Templating</a></li>
+              <li><a href="/docs/configuration/">{% icon "mdi:cog" %} Configuration using the YAML file</a></li>
             </ul>
           </li>
           <li>
@@ -50,9 +50,10 @@
           <li><a {% if root == 'integrations' %}class="active"{% endif %} href="/integrations/">Integrations</a></li>
           <li><a {% if root == 'blog' %}class="active"{% endif %} href="/blog/">Blog</a></li>
           <li><a {% if root == 'help' %}class="active"{% endif %} href="/help/">Need help?</a></li>
-          <li>
+          <li class="nav-search">
             <div class="docsearch" id="docsearch"></div>
           </li>
+          <li class="nav-cta"><a class="primary{% if root == 'getting-started' or root == 'installation' %} active{% endif %}" href="/installation/">Get started {% icon "mdi:arrow-right" %}</a></li>
         </ul>
       </nav>
     </div>

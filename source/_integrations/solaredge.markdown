@@ -21,7 +21,7 @@ ha_integration_type: device
 The **SolarEdge** {% term integration %} allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 It provides two main features:
 
-1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. This requires a site ID and an API key.
+1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. If your site includes one or more SolarEdge batteries, additional sensors for battery state of charge, power, and daily charge/discharge energy are also created. This requires a site ID and an API key.
 2.  Module-level statistics: Retrieves energy production data per inverter, string, and module, and inserts it into Home Assistant statistics. This is useful for identifying underperforming modules. This requires a site ID, username, and password.
 
 You can configure either feature individually or both at the same time for the same site.
@@ -32,9 +32,11 @@ You can configure either feature individually or both at the same time for the s
 
 To get sensors for your installation, you need your installation's site ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://monitoring.solaredge.com/). Note: if your portal is not in English, the labels will be different.
 
-- Click on Admin and scroll down to API Access
-- Click on "Generate key"
-- Click on Save
+1. Go to **Admin** > **Site Access** > **Access Control** > **API Access**.
+2. Select **Generate key**.
+3. Select **Save**.
+
+Access to **API Access** depends on the permissions assigned to your SolarEdge account. If **Admin** is not available, contact your installer or SolarEdge site administrator to obtain access or the API key.
 
 Sensor data is updated every 15 minutes to stay within the daily rate limit of 300 requests per day.
 
@@ -46,7 +48,7 @@ To get detailed per-module production data, you need:
 
 The integration fetches energy production for the past 7 days every 12 hours and inserts the data into statistics.
 
-You can find the created statistics under {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**" %}, searching for `solaredge:`.
+You can find the created statistics under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}, searching for `solaredge:`.
 
 You can show them in the UI using the [`Statistic card`](/dashboards/statistic/) or [`Statistics graph card`](/dashboards/statistics-graph/).
 You can use them in automations using the [`SQL`](/integrations/sql/) integration.
@@ -174,7 +176,6 @@ Finally, create an automation that updates the sensors and notifies you. Example
 Update the SQL sensor entity IDs to match your setup.
 {% endnote %}
 
-{% raw %}
 ```yaml
 alias: "Notify: Low solar production modules"
 triggers:
@@ -205,15 +206,13 @@ actions:
           notification_id: solaredge_modules_low_production_alert
 mode: single
 ```
-{% endraw %}
 
 ## Known limitations
 
 Specifically for the module statistics:
 
 - The integration intentionally doesn't create any entities/sensors for module data. All data is only available in statistics. This is because data is often delayed by a couple of hours.
-- The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-homeassistantreload_config_entry) action from an automation.
-- The API provides data at a 15-minute interval, but Home Assistant long-term statistics are limited to a 1-hour interval. The integration aggregates the 15-minute data into hourly statistics.
+- The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-reload-config-entry) action from an automation.
 
 ## Removing the integration
 

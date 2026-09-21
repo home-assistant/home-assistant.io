@@ -1,3 +1,6 @@
+@use '../mixins' as *;
+@use "sass:list";
+
 section#join {
     isolation: isolate;
 
@@ -95,7 +98,7 @@ section#join {
             $list: 21,31,76,0,35,70,100,95,50,6,30,26;
             @for $i from 1 through 12 {                
                 &:nth-child(#{$i}) {
-                    $offset: nth($list, $i);
+                    $offset: list.nth($list, $i);
                     transform: translateY(calc(#{$offset} * 1%));
                     opacity: 1;
                     transition-delay: #{0.2 + ($i * 0.05)}s;

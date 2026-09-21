@@ -1,0 +1,39 @@
+---
+// Throwaway component that exercises the component browser at
+// /component-preview/ (props, slot content, variants). Delete it,
+// together with TestCard.fixtures.mjs, once real components exist.
+const { tone = "neutral", heading } = Astro.props;
+---
+
+<article class={`test-card test-card--${tone}`}>
+  {heading && <h4>{heading}</h4>}
+  <div class="content"><slot /></div>
+</article>
+
+<style>
+  .test-card {
+    border: 1px solid #d1d5db;
+    border-left: 4px solid #6b7280;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+  }
+  .test-card--info {
+    border-left-color: #0e90cb;
+  }
+  .test-card--warning {
+    border-left-color: #b45309;
+  }
+  .test-card h4 {
+    font-size: 0.95rem;
+    margin: 0 0 0.35rem;
+  }
+  .test-card .content {
+    font-size: 0.9rem;
+  }
+  .test-card .content > :first-child {
+    margin-top: 0;
+  }
+  .test-card .content > :last-child {
+    margin-bottom: 0;
+  }
+</style>

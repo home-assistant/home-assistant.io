@@ -62,8 +62,78 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-07-31: Companion app (Android) forwards NFC/QR tag scans to Home Assistant without user confirmation, allowing silent automation execution by untrusted callers**  
+Severity: _High (CVSS: 7.1)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-2xqv-hwrf-983f)_  
+Assigned CVE: _[CVE-2026-66060](https://nvd.nist.gov/vuln/detail/CVE-2026-66060)_  
+Discovered by: _[briansongdev](https://github.com/briansongdev)_  
+Fixed in: _Home Assistant for Android 2026.5.3_
+
+**2026-07-31: Companion app (iOS) forwards NFC/QR tag scans to Home Assistant without user confirmation, allowing silent automation execution by untrusted callers**  
+Severity: _High (CVSS: 7.1)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-j23v-9672-677j)_  
+Assigned CVE: _[CVE-2026-66061](https://nvd.nist.gov/vuln/detail/CVE-2026-66061)_  
+Discovered by: _[briansongdev](https://github.com/briansongdev)_  
+Fixed in: _Home Assistant for iOS 2026.5.0_
+
+**2026-07-26: Home Assistant Companion (Android) `homeassistant://invite` Deep Link Credential Phishing**  
+Severity: _Moderate (CVSS: 4.3)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-68f4-97mf-f68w)_  
+Assigned CVE: _[CVE-2026-59717](https://nvd.nist.gov/vuln/detail/CVE-2026-59717)_  
+Discovered by: _[Akokonunes](https://github.com/Akokonunes)_  
+Fixed in: _Home Assistant for Android 2026.6.1_
+
+**2026-06-25: iOS Companion App ignores internal SSID allowlist – possible leak of access token and sensor data**  
+Severity: _High (CVSS: 7.5)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-cm5v-547m-qh5h)_  
+Assigned CVE: _[CVE-2026-55844](https://nvd.nist.gov/vuln/detail/CVE-2026-55844)_  
+Discovered by: _[kaueraal](https://github.com/kaueraal)_  
+Fixed in: _Home Assistant for iOS 2025.5.0_
+
+**2026-06-18: Konnected alarm-panel switch state and zone topology disclosed to unauthenticated actors on the LAN**  
+Severity: _High (CVSS: 7.6)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-x84v-g949-293w)_  
+Assigned CVE: _[CVE-2026-54317](https://nvd.nist.gov/vuln/detail/CVE-2026-54317)_  
+Discovered by: _[Har1sh-k](https://github.com/Har1sh-k)_  
+Fixed in: _Home Assistant Core 2026.6.0_
+
+**2026-06-17: Exported BroadcastReceiver allows local apps to spoof device location**  
+Severity: _High (CVSS: 7.1)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-77r5-pw5w-mgj3)_  
+Assigned CVE: _[CVE-2026-54318](https://nvd.nist.gov/vuln/detail/CVE-2026-54318)_  
+Discovered by: _[waihankan](https://github.com/waihankan)_  
+Fixed in: _Home Assistant for Android 2026.5.3_
+
+**2026-05-11: Cross-origin iframe access token exfiltration via WebView JS bridge callback injection**  
+Severity: _High (CVSS: 8.3)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-7jp2-p2fw-mgvf)_  
+Assigned CVE: _[CVE-2026-44698](https://nvd.nist.gov/vuln/detail/CVE-2026-44698)_  
+Discovered by: _[Kwstubbs](https://github.com/Kwstubbs)_  
+Fixed in: _Home Assistant for Android 2026.4.4 and iOS 2026.4.1_
+
+**2026-03-27: Stored XSS in map card through malicious device name**  
+Severity: _Moderate_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-r584-6283-p7xc)_  
+Assigned CVE: _[CVE-2026-33044](https://nvd.nist.gov/vuln/detail/CVE-2026-33044)_  
+Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
+Fixed in: _Home Assistant Core 2026.1.2_
+
+**2026-03-27: Stored XSS in history graph card**  
+Severity: _Moderate_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-46j8-vpx8-6p72)_  
+Assigned CVE: _[CVE-2026-33045](https://nvd.nist.gov/vuln/detail/CVE-2026-33045)_  
+Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
+Fixed in: _Home Assistant Core 2026.1.2_
+
+**2026-03-27: Unauthenticated app (add-on) endpoints exposed to local network via host network mode**
+Severity: _Critical (CVSS: 9.7)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-gh5m-4m97-c95h)_  
+Assigned CVE: _[CVE-2026-34205](https://nvd.nist.gov/vuln/detail/CVE-2026-34205)_  
+Discovered by: _[arturpragacz](https://github.com/arturpragacz)_  
+Fixed in: _Home Assistant Supervisor 2026.03.2_  
+
 **2025-10-14: Stored XSS in graph tooltip from entity name**  
-Severity: _High (CVSS: 8.0)_  
+Severity: _High (CVSS: 8.5)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-mq77-rv97-285m)_  
 Assigned CVE: _[CVE-2025-62172](https://nvd.nist.gov/vuln/detail/CVE-2025-62172)_  
 Discovered by: _[pwnpanda](https://github.com/pwnpanda)_  
