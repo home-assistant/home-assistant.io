@@ -17,7 +17,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
@@ -84,9 +84,11 @@ The integration reads the serial number again and only accepts the new settings 
 
 The **Sofar** integration provides the following entities.
 
+The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
+
 ### Binary sensors
 
-- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which leaves the limit itself stored but unused while this is off. Disabled by default.
+- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
 - **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are disabled by default, since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
@@ -94,7 +96,7 @@ The **Sofar** integration provides the following entities.
 - **RTC sync**: Writes the current date and time to the inverter's clock.
 - **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
 
-### Select
+### Selects
 
 - **Charger use mode**: The battery charger's operating mode, such as self use, time of use, or feed-in priority. Only shown for inverters with battery storage.
 - **EPS mode**: Turns the EPS/backup output off and on, and whether it's allowed to cold-start from battery power alone. Only shown for inverters wired for EPS/backup power.
@@ -114,13 +116,11 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
-The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
+The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
 
-### Switch
+### Switches
 
 The integration adds one switch, named after the inverter itself, that stops and resumes its operation remotely. Turning it off puts the inverter into its waiting state rather than cutting power to it.
-
-The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
 {% include integrations/actions.md %}
 
