@@ -27,7 +27,7 @@ There are two common representations for encoding an IRK - base64 encoding or he
 
 ## Changing a device's IRK
 
-A device's IRK changes when it is reset, when you sign out of its Apple Account and back in, or when you move to a new phone. Give the existing device its new IRK instead of removing and re-adding it, which keeps its entity IDs, history, automations and dashboards.
+A device's Identity Resolving Key (IRK) changes when you reset it, sign out of its Apple Account and sign back in, or move it to a new phone. Give the existing device its new IRK instead of removing and re-adding it, which keeps its entity IDs, history, automations, and dashboards.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Private BLE Device** integration card.
 2. Next to the device, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
