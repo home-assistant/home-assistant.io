@@ -153,22 +153,15 @@ If your API secret is changed or revoked on the Threema Gateway side, Home Assis
 
 This means the integration could not reach the Threema Gateway when Home Assistant started, for example due to a network issue or a temporary Threema Gateway outage. Home Assistant retries automatically; if the problem persists, check your internet connection, then try reloading the integration from **Settings** > **Devices & services** > **Threema**.
 
-## Removing the integration
-
-This integration follows standard integration removal, no additional steps are required after removing it.
-
 ## Known limitations
 
 - **Text messages only** — images, files, and other media are not supported.
 - **No group messaging** — only 1-to-1 messages are supported.
 - **Send only** — receiving messages is not supported.
-<<<<<<< HEAD
 - **No credit balance sensor** — check your remaining Gateway credits on the [Threema Gateway dashboard](https://gateway.threema.ch).
-=======
 
 ## Removing the integration
 
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
->>>>>>> 1e753df19800d82f6fd288001a57a1791783d697
