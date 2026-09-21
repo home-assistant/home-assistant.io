@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
+ha_quality_scale: legacy
 ---
 
 The **Linksys Smart Wi-Fi** {% term integration %} tracks devices connected to a Linksys Smart Wi-Fi router, so you can use device presence in your automations and dashboards.
@@ -36,7 +37,7 @@ The following routers are known to work with this integration:
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Linksys router, for example `192.168.1.1`. If your router was discovered automatically, this is pre-filled."
+  description: "The hostname or IP address of your Linksys router, for example `192.168.1.1`."
 Username:
   description: "The admin username for your Linksys router. This field is optional on many router models where it defaults to `admin`."
 Password:
