@@ -102,11 +102,11 @@ The table below shows which {% term entity %} domains are available in each mode
 | Number              |     ✅      |                —                |
 | Select              |     ✅      |                —                |
 | Sensor              |     ✅      |                —                |
-| Siren               |     ✅      |                —                |
+| Siren               |     ✅      |               ✅                |
 | Switch              |     ✅      |  ✅ (public API settings only)  |
 | Text                |     ✅      |                —                |
 
-In API key only mode, switches are limited to the settings the public API can change: the camera status light, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
+In API key only mode, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
 In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %} and not available in this mode; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper and low battery. The doorbell chime binary sensor and the read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
@@ -196,7 +196,7 @@ The table below shows, per device type, which connection mode is required. See [
 | Viewer       |     ✅      |                         —                         |
 | Smart chime  |     ✅      |                         —                         |
 | Relay        |     ✅      |                        ✅                         |
-| Siren        |     ✅      |                         —                         |
+| Siren        |     ✅      |                        ✅                         |
 | NVR          |     ✅      |              ✅ (Alarm Manager only)              |
 
 ### UniFi Protect cameras
