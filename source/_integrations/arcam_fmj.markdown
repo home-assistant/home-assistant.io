@@ -61,6 +61,13 @@ The integration provides the following diagnostic binary sensors, one for each z
 - **Zone incoming video interlaced**
   - **Description**: Indicates whether the incoming video signal is using interlaced scanning. It is `on` when the signal is interlaced, `off` when it is progressive, and `unknown` when video parameters are not available.
 
+### Selects
+
+The integration provides the following select entities, one for each zone. 
+
+- **Room equalization**
+  - **Description**: On compatible receivers with Dirac room correction, selects the active room-EQ profile for the zone. Available options are `Off`, the profile names configured on the receiver (shown as `EQ1`, `EQ2`, and `EQ3` when the names cannot be read), and `Not calculated` when a profile has not been computed yet.
+
 ### Sensors
 
 The integration provides diagnostic sensors for monitoring the incoming audio and video stream properties of each zone. All sensors are disabled by default and can be enabled from the device page.
@@ -90,18 +97,6 @@ The integration provides diagnostic sensors for monitoring the incoming audio an
   - **Options**: Mono, Mono + LFE, Dual mono, Dual mono + LFE, Stereo only, Stereo only Lo/Ro, Stereo only Lo/Ro + LFE, Stereo + LFE, Stereo downmix, Stereo downmix + LFE, Stereo center, Stereo center + LFE, Stereo surround mono, Stereo surround mono + LFE, Stereo surround L/R, Stereo surround L/R + LFE, Stereo surround L/R back mono, Stereo surround L/R back mono + LFE, Stereo surround L/R back matrix, Stereo surround L/R back matrix + LFE, Stereo surround L/R back L/R, Stereo surround L/R back L/R + LFE, Stereo center surround mono, Stereo center surround mono + LFE, Stereo center surround L/R, Stereo center surround L/R + LFE, Stereo center surround L/R back mono, Stereo center surround L/R back mono + LFE, Stereo center surround L/R back matrix, Stereo center surround L/R back matrix + LFE, Stereo center surround L/R back L/R, Stereo center surround L/R back L/R + LFE, Auro quad, Auro 2.2.2, Auro 5.0, Auro 5.1, Auro 8.0, Auro 9.1, Auro 10.1, Auro 11.1, Auro 13.1, Undetected, Unknown
 - **Incoming audio sample rate**
   - **Description**: The sample rate of the incoming audio signal, in Hz.
-
-### Room EQ
-
-On compatible receivers with Dirac room correction, the integration provides a Room EQ select entity for each zone.
-
-The selector allows you to:
-
-- Turn Room EQ off.
-- Select one of the configured Dirac profiles.
-- Use the receiver's configured profile names when available.
-
-If profile names cannot be read, the profiles are shown as `EQ1`, `EQ2`, and `EQ3`.
 
 ## Power state
 
