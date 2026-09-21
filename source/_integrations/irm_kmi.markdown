@@ -55,7 +55,7 @@ The integration provides a weather entity along with [weather forecast services]
 The integration {% term polling polls %} weather data every 7 minutes by default.
 
 When a poll cannot reach the API, the entities keep showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entities unavailable, until a poll succeeds again.
-
+When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
 ## Removing the integration
 
 This integration follows standard integration removal.
