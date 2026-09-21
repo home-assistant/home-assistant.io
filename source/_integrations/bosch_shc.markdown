@@ -57,6 +57,8 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Smart Plug
 - Smart Plug Compact
 
+In addition, a single **Open doors and windows** sensor is added for the controller itself. Its state is the total number of currently open doors, windows, and other openings across the whole home, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` attributes.
+
 ### Switch
 
 The switch platform allows you to control your outlets, light switches, and select camera functions. Switches are added for each of the following devices:
