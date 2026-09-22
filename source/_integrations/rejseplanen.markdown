@@ -66,11 +66,11 @@ The stop subentry is how you configure individual public transport stops to moni
 ### Setting up a stop subentry
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
-2. Select **Create Entry** and choose **Add stop**.
+2. Select **Add stop**.
 3. Enter the stop ID for the location you want to monitor (see [Finding your stop ID](#finding-your-stop-id) below).
 4. Optionally, give the stop a friendly name.
 5. Optionally, filter by direction or transportation type.
-6. Select **Create Entry**.
+6. Select **Submit**.
 
 Once created, the integration will immediately start monitoring that stop and create sensor entities for the next departure.
 
