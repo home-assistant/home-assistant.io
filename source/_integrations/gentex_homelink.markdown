@@ -24,8 +24,6 @@ HomeLink is only compatible with HomeLink devices accessible via the HomeLink Ap
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
 {% configuration_basic %}
 Email:
     description: "The email for your HomeLink account."

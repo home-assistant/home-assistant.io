@@ -19,10 +19,10 @@ Only users with administrator privileges can run this action.
 To use this action in an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation or script, or select **Create** to start a new one.
-3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **deCONZ: Remove orphaned entries**.
+5. Search for and select **Remove orphaned entries**.
 6. Fill in the options you want to use.
 7. Select **Save**.
 

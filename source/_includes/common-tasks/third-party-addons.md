@@ -14,7 +14,7 @@ To add an app repository, follow these steps:
    - If you are interested in app development, refer to our [Home Assistant app development documentation](https://developers.home-assistant.io/docs/apps/).
 
         ```text
-        https://github.com/home-assistant/hassio-addons-example
+        https://github.com/home-assistant/hassio-apps-example
         ```
 2. Go to {% my supervisor title="**Settings** > **Apps**" %} and select **Install app**.
    ![Screenshot of the Home Assistant app store](/images/getting-started/app-store.png)

@@ -313,13 +313,17 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 
 {% note %} Vehicles manufactured outside of those mentioned above have no issues with prevented sleep. {% endnote %}
 
-## Removing the integration
-
-{% include integrations/remove_device_service.md %}
-
-- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.
-
 ## Troubleshooting
+
+### Tesla Developer Dashboard does not continue after selecting **Next**
+
+#### Symptom
+
+When configuring **Client Details** in the Tesla Developer Dashboard, selecting **Next** does not continue to the next step and no validation error is shown.
+
+#### Resolution
+
+Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses `ddns.net`, use a different hostname that does not end in `ddns.net`, or use an external hosting service such as [FleetKey](https://fleetkey.net).
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
@@ -327,3 +331,9 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 - **Access to this resource is not authorized**: Check your [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) to ensure you haven't exceeded your usage limits and add billing information if required. In certain countries, the *Fart* (remote boombox) command will also throw this error where its usage is illegal.
 
 If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.

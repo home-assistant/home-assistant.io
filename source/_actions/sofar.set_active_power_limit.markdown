@@ -36,7 +36,7 @@ Inverter:
   description: The Sofar inverter to send this to.
   required: true
 Enabled:
-  description: Whether the inverter applies the limit. Turning this off leaves the last limit in place, unused.
+  description: Whether the inverter applies the limit. Limit is required either way, because turning this off still writes it, but the inverter ignores it until it's enabled again.
   required: true
 Limit:
   description: The output ceiling, as a percentage of rated power.
@@ -68,8 +68,9 @@ config_entry_id:
   type: string
 enabled:
   description: >
-    Whether the inverter applies the limit. Turning this off leaves the
-    last limit in place, unused.
+    Whether the inverter applies the limit. Limit is required either way,
+    because turning this off still writes it, but the inverter ignores it
+    until it's enabled again.
   required: true
   type: boolean
 limit:

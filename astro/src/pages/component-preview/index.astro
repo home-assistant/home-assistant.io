@@ -1,0 +1,138 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getComponentPreviews } from "../../lib/component-previews.mjs";
+
+// Tiled browser for the Astro components built during the migration.
+// Every src/components/**/<Name>.fixtures.mjs file is discovered
+// automatically and rendered as a tile, one demo per variant, using
+// the sibling <Name>.astro component (see src/lib/component-previews.mjs
+// and astro/README.md). Each tile links to a full-screen stage where
+// the variants render at true viewport width.
+// This page is a development aid: it is only reachable through
+// /astro-preview/ and is excluded from the Jekyll/Astro route parity
+// checks.
+const entries = getComponentPreviews();
+---
+
+<Base title="Component preview" wide>
+  <p>
+    Every component in <code>astro/src/components/</code> with a
+    <code>.fixtures.mjs</code> file next to it shows up here
+    automatically, one demo per variant.
+  </p>
+  {
+    entries.length === 0 ? (
+      <p class="empty">
+        No component fixtures yet. Add a component together with a
+        <code>&lt;Name&gt;.fixtures.mjs</code> file to see it here.
+      </p>
+    ) : (
+      <div class="tiles">
+        {entries.map(({ slug, name, description, variants, Component, path }) => (
+          <section class="tile">
+            <header>
+              <h2>
+                <a href={`${slug}/`}>{name}</a>
+              </h2>
+              {description && <p>{description}</p>}
+            </header>
+            {Component ? (
+              variants.map((variant) => (
+                <div class="variant">
+                  <h3>{variant.name}</h3>
+                  <div class="demo">
+                    <Component {...(variant.props ?? {})}>
+                      {variant.slot && <Fragment set:html={variant.slot} />}
+                    </Component>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p class="error">
+                No <code>{path.split("/").pop()}</code> component found
+                next to this fixtures file.
+              </p>
+            )}
+            <footer>
+              <code>{path}</code>
+              <a href={`${slug}/`}>Full screen ↗</a>
+            </footer>
+          </section>
+        ))}
+      </div>
+    )
+  }
+</Base>
+
+<style>
+  .empty {
+    border: 1px dashed #9ca3af;
+    border-radius: 6px;
+    color: #4b5563;
+    padding: 2rem;
+    text-align: center;
+  }
+  .error {
+    color: #b91c1c;
+    padding: 0.5rem 0.75rem;
+  }
+  .tiles {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+  .tile {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tile header {
+    border-bottom: 1px solid #d1d5db;
+    padding: 0.5rem 0.75rem;
+  }
+  .tile header h2 {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .tile header p {
+    color: #4b5563;
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0;
+  }
+  .variant {
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .variant:last-of-type {
+    border-bottom: 0;
+    flex: 1;
+  }
+  .variant h3 {
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 0;
+    padding: 0.5rem 0.75rem 0;
+    text-transform: uppercase;
+  }
+  .variant .demo {
+    padding: 0.75rem;
+  }
+  .tile footer {
+    border-top: 1px solid #d1d5db;
+    color: #4b5563;
+    display: flex;
+    font-size: 0.75rem;
+    gap: 0.75rem;
+    justify-content: space-between;
+    padding: 0.35rem 0.75rem;
+  }
+  .tile header h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .tile header h2 a:hover {
+    text-decoration: underline;
+  }
+</style>

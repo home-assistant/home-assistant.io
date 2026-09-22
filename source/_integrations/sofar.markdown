@@ -17,7 +17,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
@@ -35,12 +35,21 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 
 ## Supported devices
 
-During setup, the integration reads the inverter's serial number and uses it to automatically detect the inverter model and its register map. It currently recognizes newer-generation Sofar inverters, including:
+The integration supports Sofar inverters that use the current-generation Modbus register map, including HYD hybrid inverters and KTL-X and KTLM PV inverters. During setup, the integration reads the inverter's serial number to detect its type and the registers that apply to it.
 
-- PV-only (grid-tied) inverters.
-- Hybrid inverters with battery storage.
+The current-generation detection recognizes these serial-number prefixes:
 
-If the inverter answers but its serial number isn't recognized, setup fails and you'll need to wait for support for your model to be added.
+- `SP1`, `SP2`, `ZP1`, and `ZP2` for three-phase HYD hybrid models.
+- `SM2E` and `ZM2E` for single-phase HYD hybrid models.
+- `SH1` for HYD5-8KTL-3P hybrid models.
+- `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
+- `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
+
+Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but does not use the supported register map, setup fails.
+
+## Unsupported devices
+
+Older Sofar inverters that use the legacy Modbus register map aren't supported. These devices use different register ranges from the current-generation inverters, even when their serial-number prefix is similar or identical.
 
 ## Prerequisites
 
@@ -75,9 +84,11 @@ The integration reads the serial number again and only accepts the new settings 
 
 The **Sofar** integration provides the following entities.
 
+The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
+
 ### Binary sensors
 
-- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which leaves the limit itself stored but unused while this is off. Disabled by default.
+- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
 - **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are disabled by default, since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
@@ -85,7 +96,7 @@ The **Sofar** integration provides the following entities.
 - **RTC sync**: Writes the current date and time to the inverter's clock.
 - **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
 
-### Select
+### Selects
 
 - **Charger use mode**: The battery charger's operating mode, such as self use, time of use, or feed-in priority. Only shown for inverters with battery storage.
 - **EPS mode**: Turns the EPS/backup output off and on, and whether it's allowed to cold-start from battery power alone. Only shown for inverters wired for EPS/backup power.
@@ -105,13 +116,11 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
-The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
+The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
 
-### Switch
+### Switches
 
 The integration adds one switch, named after the inverter itself, that stops and resumes its operation remotely. Turning it off puts the inverter into its waiting state rather than cutting power to it.
-
-The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
 {% include integrations/actions.md %}
 
@@ -230,7 +239,6 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 ## Known limitations
 
 - Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
-- Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
 
 ## Troubleshooting
 

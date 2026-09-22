@@ -18,6 +18,7 @@ ha_platforms:
   - event
   - light
   - scene
+  - select
   - sensor
   - switch
 ha_zeroconf: true
@@ -43,6 +44,17 @@ Home Assistant creates lights for each Hue zone and room automatically but disab
 You can create, edit, and delete Hue scenes from the official Hue app on iOS and Android. Each room and zone can have its own scenes, and there is a large library of preset scenes for specific moods. These Hue scenes are automatically imported into Home Assistant and available as scene entities. Creating or editing Hue scenes in Home Assistant is not supported.
 
 Using Hue scenes is recommended when you want to control multiple lights at once. If you control multiple lights individually or use Home Assistant scenes, each command is sent to each light one by one. A Hue scene sends commands to all lights at once in an optimized way, resulting in a smoother experience.
+
+### Scene selection
+
+On V2 Hue bridges (square shape), each room and zone has a **Scene** dropdown. It shows the active scene and lets you choose a regular scene or smart scene.
+
+To select a scene:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Philips Hue**.
+2. Open the device for the room or zone you want to control.
+3. Use the **Scene** dropdown to choose a scene.
+   - The **Scene** dropdown is a select entity, so you can add it to a dashboard to select scenes directly from there.
 
 ## Configuration options
 
