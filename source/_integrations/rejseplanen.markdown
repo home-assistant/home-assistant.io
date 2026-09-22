@@ -101,6 +101,8 @@ https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_
 
 The response includes stops matching your search:
 
+{% details "Example XML response" %}
+
 ```xml
 <LocationList
   xmlns="http://hacon.de/hafas/proxy/hafas-proxy"
@@ -136,6 +138,8 @@ The response includes stops matching your search:
 </LocationList>
 ```
 
+{% enddetails %}
+
 In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
 
 To search by coordinates:
@@ -158,6 +162,8 @@ https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=12.088367&or
 ```
 
 Result:
+
+{% details "Example XML response" %}
 
 ```xml
 <LocationList
@@ -204,6 +210,8 @@ Result:
   </StopLocation>
 </LocationList>
 ```
+
+{% enddetails %}
 
 Find the stop you want in the list and use the `extId` attribute as your stop ID. In this example, you can see two stops: `8651617` and `8650617`.
 
