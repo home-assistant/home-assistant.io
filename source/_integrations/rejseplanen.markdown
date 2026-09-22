@@ -114,37 +114,41 @@ https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_
 The response will include stops matching your search:
 
 ```xml
-<LocationList xmlns="http://hacon.de/hafas/proxy/hafas-proxy" serverVersion="2.49.1" dialectVersion="2.45-Rejseplanen" requestId="r2gm7s2iiist82wg">
+<LocationList
+  xmlns="http://hacon.de/hafas/proxy/hafas-proxy"
+  serverVersion="2.49.1"
+  dialectVersion="2.45-Rejseplanen"
+  requestId="r2gm7s2iiist82wg">
   <TechnicalMessages>
     <TechnicalMessage key="requestTime">
       2025-06-16 11:53:58
     </TechnicalMessage>
     <TechnicalMessage key="backendInfo">
-      ttp=16601#16676 plancode0=72z27 planid=1749820065 
-      planid0=1749820065 planid_adr=1746438686 plancode_adr=52iz0 
-      planid_poi=1746518115 plancode_poi=538ad 
-      srvv=5.45.Rejseplanen.17.3.12 (customer/hcudk/release/2025.2.0.3) 
-      [2025-04-21] tlibv=TRFVER: rel/dk/11.00.8 2025-02-10 16:37:34 
+      ttp=16601#16676 plancode0=72z27 planid=1749820065
+      planid0=1749820065 planid_adr=1746438686 plancode_adr=52iz0
+      planid_poi=1746518115 plancode_poi=538ad
+      srvv=5.45.Rejseplanen.17.3.12 (customer/hcudk/release/2025.2.0.3)
+      [2025-04-21] tlibv=TRFVER: rel/dk/11.00.8 2025-02-10 16:37:34
       +0100 Rejsekort v11.0.8 jno=1
     </TechnicalMessage>
-    </TechnicalMessages>
-    <StopLocation 
-    id="A=1@O=Roskilde St.@X=12088550@Y=55639093@U=86@L=8600617@B=1@p=1749820065@" 
-    extId="8600617" 
-    isMainMast="true" 
-    name="Roskilde St." 
-    lon="12.08855" 
-    lat="55.639093" 
-    weight="22212" 
-    products="239" 
+  </TechnicalMessages>
+  <StopLocation
+    id="A=1@O=Roskilde St.@X=12088550@Y=55639093@U=86@L=8600617@..."
+    extId="8600617"
+    isMainMast="true"
+    name="Roskilde St."
+    lon="12.08855"
+    lat="55.639093"
+    weight="22212"
+    products="239"
     minimumChangeDuration="PT5M">
     ...
-    </StopLocation>
-    ...
-  </LocationList>
-  ```
+  </StopLocation>
+  ...
+</LocationList>
+```
 
-  In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
+In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
 
 
 #### Search by coordinates
