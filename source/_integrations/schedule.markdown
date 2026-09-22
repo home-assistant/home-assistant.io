@@ -144,12 +144,17 @@ When two time blocks on the same day touch (for example, one block from `07:00` 
 - The `data` attributes are replaced with the new block's data at the moment of the transition.
 - An automation triggering on the state changing to `off` does not fire at a boundary between two touching blocks.
 - A **Schedule block started** trigger fires when each new block starts, including at a boundary between two touching blocks.
-- A **Schedule block ended** trigger does not fire at a boundary between two touching blocks because the schedule remains `on`.
+- A **Schedule block ended** trigger does not fire at a boundary between two touching blocks because the schedule does not become inactive (`off`).
 - An automation triggering on an attribute change (for example, a new setpoint) fires once, with the new block's data.
 
 Overlapping time blocks on the same day are not allowed and are rejected during configuration validation.
 
-A time block cannot cross midnight. To keep a schedule active across midnight, create two touching blocks on consecutive days. For example, for a schedule from 22:00 to 05:00, create a block from 22:00 to 24:00 on the first day and a block from 00:00 to 05:00 on the following day. The schedule stays `on` across midnight when these blocks touch.
+A time block cannot cross midnight. To keep a schedule active across midnight, create two touching blocks on consecutive days. For example, for a schedule from `22:00` to `05:00`:
+
+1. Create a block from `22:00` to `24:00` on the first day.
+2. Create a block from `00:00` to `05:00` on the following day.
+
+The schedule stays `on` across midnight when these blocks touch.
 
 {% include integrations/triggers.md %}
 
