@@ -19,81 +19,69 @@ related:
 
 The **Rejseplanen** {% term integration %} provides you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
+When you set it up, the integration creates a hidden service device that handles communication with the Rejseplanen cloud API. You then add one device per stop that you want to monitor, and each stop device provides sensor entities for the next departure.
+
 {% important %}
-As part of conforming to Home Assistant standards, all extra attributes previously available on sensors have been removed. In a future release, the integration will provide an {% term action %} to retrieve the full list of departures with all details. This will allow for more flexible data access while maintaining proper entity standards.
+Extra attributes that were previously available on the sensors have been removed to conform to Home Assistant standards. A future release will add an {% term action %} to retrieve the full list of departures with all details.
 {% endimportant %}
 
-## Setup
+## Prerequisites
 
-The Rejseplanen {% term integration %} has moved from {% term platform %} setup to a friendlier UI setup. It consists of two main configurable types. The first is the service device, a hidden coordinator that handles communication with the Rejseplanen cloud API and stores the data it returns. The second is a set of sub-entries called "stops", each shown as a device with entities that display the next departure.
-
-{% term platform "Platform" %} setup for this {% term integration %} has been deprecated and should be removed from the configuration file.
-
-[Read more about _configuration file_](https://www.home-assistant.io/docs/configuration/)
-
-### Main entry (Coordinator)
-
-The main entry is the central coordinator for the Rejseplanen integration. It handles all communication with the Rejseplanen API and manages the data for all your configured stops. You only need to create one main entry regardless of how many stops you want to monitor.
-
-When you set up the integration for the first time, you'll create the main entry by providing your Rejseplanen API key. All stop subentries you add later will automatically use this coordinator to fetch departure data.
-
-{% configuration %}
-api_key:
-  description: The API key provided by Rejseplanen.dk for accessing their API. This key is used to authenticate all API requests and determine your access level and rate limits (50,000 calls/month for private keys).
-  required: true
-  type: string
-{% endconfiguration %}
-
-{% note %}
-The integration is configured as a singleton, meaning you can only have one main entry per Home Assistant instance. If you need to use a different API key, you'll need to remove and reconfigure the integration.
-{% endnote %}
-
-## Obtain API key
-
-To use the Rejseplanen integration, you must obtain an API key from Rejseplanen.dk:
+To use this integration, you need a Rejseplanen API key:
 
 1. Visit the [Rejseplanen API request form](https://labs.rejseplanen.dk/hc/da/requests/new).
 2. Select **Private user** when applying.
 3. Fill out the form and submit your request.
-4. You'll receive your API key via email.
+4. You'll receive your API key by email.
 
-Keep in mind that private API keys allow for 50,000 API calls per month, which is sufficient for monitoring multiple stops with regular polling.
+Private API keys allow up to 50,000 API calls per month, which is enough to monitor multiple stops with regular polling.
 
-## Stop subentry
+{% include integrations/config_flow.md %}
 
-The stop subentry is how you configure individual public transport stops to monitor in Home Assistant. Once you've set up the main coordinator entry with your API key, you can add as many stop subentries as you need—one for each stop or station you want to track.
+During setup, you're asked for the following:
 
-### Setting up a stop subentry
+{% configuration_basic %}
+API key:
+  description: The API key provided by Rejseplanen.dk. It authenticates all API requests and determines your access level and rate limits.
+{% endconfiguration_basic %}
+
+{% note %}
+Rejseplanen supports a single integration entry. To use a different API key, remove the integration and set it up again.
+{% endnote %}
+
+Previously, this integration was set up in your {% term "`configuration.yaml`" %} file. This method is deprecated. If you still have Rejseplanen in your configuration file, remove it and set up the integration through the UI instead.
+
+### Add a stop
+
+Each stop you want to monitor is added as a separate device. After you set up the integration with your API key, add one stop for each location you want to track:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
 2. Select **Add stop**.
-3. Enter the stop ID for the location you want to monitor (see [Finding your stop ID](#finding-your-stop-id) below).
-4. Optionally, give the stop a friendly name.
-5. Optionally, filter by direction or transportation type.
+3. Enter the stop ID for the location you want to monitor (see [Finding a stop ID](#finding-a-stop-id)).
+4. Optionally, give the stop a name.
+5. Optionally, filter by direction or departure type.
 6. Select **Submit**.
 
-Once created, the integration will immediately start monitoring that stop and create sensor entities for the next departure.
-
-### Stop subentry configuration options
+The integration immediately starts monitoring the stop and creates sensor entities for the next departure.
 
 {% configuration_basic %}
 Stop ID:
-    description: The unique identifier for the public transport stop or station you want to monitor. See [Finding your stop ID](#finding-your-stop-id) for instructions on how to obtain this value.
+    description: The unique identifier for the stop or station you want to monitor. See [Finding a stop ID](#finding-a-stop-id) for how to obtain this value.
 Name:
-    description: A friendly name for this stop (for example, "Home Station" or "Work Stop"). This name will be used in the entity names and device name. If not provided, a default name will be generated based on the stop ID.
+    description: An optional name for this stop. The name is used in the device and entity names. If you leave it empty, a name is generated from the stop ID.
 Direction:
-    description: Optional filter to only show departures to a specific destination or direction. Leave empty to show all departures. You can add multiple directions, and each value must match exactly what is returned by the Rejseplanen API (case-sensitive). See [Finding direction values](#finding-direction-values) for how to discover available directions for your stop.
-Transportation type:
-    description: Optional filter to only show specific types of transport (for example, S-trains, buses, metro). You can select multiple types. Leave empty to show all transportation types available at this stop. See the [Transportation types](#transportation-types) table for all available options.
+    description: An optional filter that only shows departures toward a specific destination. Leave it empty to show all departures. You can add multiple directions, and each value must match exactly what the Rejseplanen API returns (case-sensitive). See [Finding direction values](#finding-direction-values).
+Departure type:
+    description: An optional filter that only shows specific types of departures, such as S-trains, buses, or metro. You can select multiple types. Leave it empty to show all departure types available at the stop. See [Departure types](#departure-types) for all options.
 {% endconfiguration_basic %}
 
-### Finding your stop ID
+If you don't set any filters, the integration shows all departures from the stop.
+
+#### Finding a stop ID
 
 The stop ID is a unique identifier for each public transport stop or station. You can find it using either a text search or coordinates.
 
-#### Search by name or location
-
-The easiest way to find your stop ID is to search for the stop by name:
+To search by name or location:
 
 1. Open a web browser and visit the following URL:
 
@@ -111,7 +99,7 @@ For example, searching for "Roskilde St." would look like:
 https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_API_KEY
 ```
 
-The response will include stops matching your search:
+The response includes stops matching your search:
 
 ```xml
 <LocationList
@@ -150,13 +138,10 @@ The response will include stops matching your search:
 
 In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
 
-
-#### Search by coordinates
-
-If you prefer to search by location coordinates:
+To search by coordinates:
 
 1. Find your location on [OpenStreetMap](https://www.openstreetmap.org).
-2. The URL will show the coordinates (for example: `#map=18/56.15756/10.20674`).
+2. The URL shows the coordinates (for example: `#map=18/56.15756/10.20674`).
 3. Visit the following URL:
 
    ```text
@@ -164,7 +149,7 @@ If you prefer to search by location coordinates:
    ```
 
 4. Replace the coordinates and API key with your values.
-5. The response will show the 10 nearest stops to your location. Find the one you want and use its `extId` as the stop ID.
+5. The response shows the 10 nearest stops to your location. Find the one you want and use its `extId` as the stop ID.
 
 Example search for nearby stops in Copenhagen:
 
@@ -222,20 +207,11 @@ Result:
 
 Find the stop you want in the list and use the `extId` attribute as your stop ID. In this example, you can see two stops: `8651617` and `8650617`.
 
-### Filtering departures
-
-When creating a stop subentry, you can optionally filter departures by:
-
-- **Direction**: Only show departures going to a specific destination (for example, "Downtown" or "Airport")
-- **Transportation type**: Only show specific types of transport (buses, trains, metro, and similar)
-
-If you don't set any filters, the integration will show all departures from that stop.
-
 #### Finding direction values
 
-To find the exact direction values to use for filtering, you need to check what directions are available from your stop. The direction values come from the `direction` attribute in the API response.
+To filter by direction, you need the exact direction values available from your stop. These values come from the `direction` attribute in the API response.
 
-You can find available directions by making a test API call:
+You can find the available directions by making a test API call:
 
 ```text
 https://www.rejseplanen.dk/api/departureBoard?id=<YOUR_STOP_ID>&accessId=<YOUR_API_KEY>
@@ -251,21 +227,17 @@ Example response showing the direction attribute:
 </DepartureBoard>
 ```
 
-Use the exact text from the `direction` attribute when configuring your direction filter. For example, if you only want departures going to "Nørrebro St.", enter `Nørrebro St.` (case-sensitive) in the direction filter field when creating the stop subentry.
+Use the exact text from the `direction` attribute in the direction filter. For example, to only show departures toward "Nørrebro St.", enter `Nørrebro St.` (case-sensitive). The direction of the next departure is exposed through the **Towards** sensor.
 
-{% note %}
-You set direction filtering when you add a stop subentry. The direction of the next departure is exposed through the **Towards** sensor entity.
-{% endnote %}
+### Departure types
 
-### Transportation types
-
-You can filter by the following transportation types:
+You can filter a stop by the following departure types:
 
 - **City buses** (`bus`): Regular city bus services
 - **Express buses** (`express_bus`): Long-distance or high-speed bus services
 - **Ferry** (`ferry`): Ferry services
-- **Flexible transport** (`flexible_bus`): On-demand or flexible routing bus services
-- **Flight** (`flight`): Flight services, where available
+- **Flexible transport** (`flexible_bus`): On-demand or flexible bus services
+- **Flight** (`flight`): Flights, where available
 - **InterCity trains** (`ic`): IC and IB long-distance trains
 - **InterCity Lyn trains** (`icl`): Fast trains (ICL, ICL-X, ICL+)
 - **Light rail** (`letbane`): Light rail or tram services (Letbanen)
@@ -275,9 +247,11 @@ You can filter by the following transportation types:
 - **S-trains** (`s_tog`): S-trains (Copenhagen suburban rail)
 - **Long distance trains** (`tog`): EC, IR, ICE, SJ, and other long-distance trains
 
-### Sensor entities
+## Supported functionality
 
-Once you've created a stop subentry, the integration creates a sensor entity for each of the following, based on the next departure:
+### Sensors
+
+After you add a stop, the integration creates the following sensor entities, based on the next departure:
 
 - **Line** (`sensor.<stop_name>_line`): The line number or name of the next departure
 - **Departing in** (`sensor.<stop_name>_departing_in`): The timestamp of the next departure
@@ -286,27 +260,15 @@ Once you've created a stop subentry, the integration creates a sensor entity for
 - **Departing from track** (`sensor.<stop_name>_departing_from_track`): The track or platform number, if available
 - **Number of departures** (`sensor.<stop_name>_number_of_departures`): The number of upcoming departures that match your filters
 
-The sensors do not add extra state attributes.
+The sensors don't add extra state attributes.
 
-## Advanced usage
+## Rejseplanen automation examples
 
-### Custom polling intervals with automations
+The integration polls departure data every 5 minutes by default. You can use automations to update the sensors more often at specific times. Before you do, turn off automatic updates so the default polling doesn't run in addition to your automation (see [Data updates](#data-updates)).
 
-The integration polls data every 5 minutes by default to respect API rate limits. If you want to manage the polling intervals yourself or update sensors at different frequencies for different times of day, you can use automations with the `homeassistant.update_entity` action.
+### Automation: More frequent updates during peak hours
 
-Before you set up manual polling, turn off the integration's automatic updates. Otherwise, the default 5-minute polling continues in addition to your own updates and uses more of your monthly API quota. To turn off automatic updates:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
-2. Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then **System options**.
-3. Turn off **Enable polling for changes**.
-
-{% note %}
-Automations provide more flexibility than integration polling configuration. For example, you can poll more frequently during peak hours and reduce updates at night, or even combine polling with conditions like geofencing or calendar triggers. Learn more about this approach in the Home Assistant documentation on [defining a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
-{% endnote %}
-
-#### Example: More frequent updates during peak hours
-
-This automation updates the sensor every 2 minutes during morning rush hour (7:00-9:00) and every minute during the last 5 minutes before a typical commute time:
+This automation updates the sensors every 2 minutes during the morning rush hour (7:00–9:00) and every minute during the last 5 minutes before a typical commute time:
 
 ```yaml
 automation:
@@ -337,9 +299,9 @@ automation:
             - sensor.my_station_delay
 ```
 
-#### Example: Update on-demand via button
+### Automation: Update on demand with a button
 
-Create a manual update button on your dashboard that users can press to refresh departure data immediately:
+This automation refreshes the departure data whenever you press a dashboard button. The button is a {% term helper %} that you create separately:
 
 ```yaml
 input_button:
@@ -363,10 +325,28 @@ automation:
 ```
 
 {% important %}
-When using custom polling intervals, be mindful of the API rate limit (50,000 calls/month for private keys). Frequent updates across multiple stops can quickly consume your allocation. Monitor your usage and adjust intervals accordingly.
+Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates across multiple stops can quickly use up your allocation. Monitor your usage and adjust your intervals.
 {% endimportant %}
+
+## Data updates
+
+The integration {% term polling polls %} departure data from the Rejseplanen API every 5 minutes by default.
+
+To manage polling yourself—for example, to update sensors at different frequencies during the day—turn off automatic updates first. Otherwise, the default 5-minute polling continues in addition to your own updates and uses more of your monthly API quota:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
+2. Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then **System options**.
+3. Turn off **Enable polling for changes**.
+
+For more on updating entities on your own schedule, see [defining a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Known limitations
 
-- The integration currently displays only the next departure in the sensor entities. To see additional upcoming departures, you can check the `number_of_departures` sensor which indicates how many departures are available.
-- Full departure lists with all details will be available through an {% term action %} in a future release, allowing you to retrieve and display multiple departures in dashboards or automations.
+- The sensor entities show only the next departure. To see how many upcoming departures match your filters, check the **Number of departures** sensor.
+- Full departure lists with all details will be available through an {% term action %} in a future release, so you can retrieve and display multiple departures in dashboards or automations.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
