@@ -1,7 +1,7 @@
 ---
 title: "Rejseplanen"
 description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
-ha_release: "2026.10"
+ha_release: 0.88
 ha_category:
   - Transport
 ha_iot_class: "Cloud Polling"
@@ -77,7 +77,7 @@ Each stop you want to monitor is added as a separate device. After you set up th
     Stop ID:
         description: The unique identifier for the stop or station you want to monitor. See [Finding a stop ID](#finding-a-stop-id) for how to obtain this value.
     Name:
-        description: An optional name for this stop. The name is used in the device and entity names. If you leave it empty, a name is generated from the stop ID.
+        description: An optional name for this stop. The name is used in the device and entity names. It defaults to **Unknown stop**, so give each stop its own name to keep your devices and entities easy to tell apart.
     Direction:
         description: An optional filter that only shows departures toward a specific destination. Leave it empty to show all departures. You can add multiple directions, and each value must match exactly what the Rejseplanen API returns (case-sensitive). See [Finding direction values](#finding-direction-values).
     Departure type:
