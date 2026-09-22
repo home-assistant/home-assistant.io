@@ -227,6 +227,8 @@ https://www.rejseplanen.dk/api/departureBoard?id=<YOUR_STOP_ID>&accessId=<YOUR_A
 
 Example response showing the direction attribute:
 
+{% details "Example XML response" %}
+
 ```xml
 <DepartureBoard>
   <Departure name="1A" type="BUS" direction="Nørrebro St." ... />
@@ -234,6 +236,8 @@ Example response showing the direction attribute:
   <Departure name="S" type="S" direction="København H" ... />
 </DepartureBoard>
 ```
+
+{% enddetails %}
 
 Use the exact text from the `direction` attribute in the direction filter. For example, to only show departures toward "Nørrebro St.", enter `Nørrebro St.` (case-sensitive). The direction of the next departure is exposed through the **Towards** sensor.
 
@@ -276,7 +280,12 @@ The integration polls departure data every 5 minutes by default. You can use aut
 
 ### Automation: More frequent updates during peak hours
 
-This automation updates the sensors every 2 minutes during the morning rush hour (7:00–9:00) and every minute during the last 5 minutes before a typical commute time:
+This example updates the sensors every 2 minutes during the morning rush hour (7:00–9:00) and every minute during the last 5 minutes before a typical commute time.
+
+- **Triggers**: Every 2 minutes between 7:00 and 9:00, and every minute in the final 5 minutes
+- **Action**: Refresh the departure sensors
+
+{% details "YAML example: more frequent updates during peak hours" %}
 
 ```yaml
 automation:
@@ -307,9 +316,16 @@ automation:
             - sensor.my_station_delay
 ```
 
+{% enddetails %}
+
 ### Automation: Update on demand with a button
 
-This automation refreshes the departure data whenever you press a dashboard button. The button is a {% term helper %} that you create separately:
+This example refreshes the departure data whenever you press a dashboard button. The button is a {% term helper %} that you create separately.
+
+- **Trigger**: The dashboard button is pressed
+- **Action**: Refresh the departure sensors
+
+{% details "YAML example: update on demand with a button" %}
 
 ```yaml
 input_button:
@@ -331,6 +347,8 @@ automation:
             - sensor.my_station_delay
             - sensor.my_station_direction
 ```
+
+{% enddetails %}
 
 {% important %}
 Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates across multiple stops can quickly use up your allocation. Monitor your usage and adjust your intervals.
