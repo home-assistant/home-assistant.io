@@ -1,15 +1,17 @@
 ---
 title: "Rejseplanen"
 description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
-ha_release: "2026.1"
+ha_release: "2026.10"
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ha_config_flow: true
 ha_codeowners:
   - '@Jawar19'
 ha_domain: rejseplanen
-ha_integration_type: hub
+ha_integration_type: service
+ha_platforms:
+  - sensor
 related:
   - url: https://labs.rejseplanen.dk/hc/en-us/articles/21553113674909-Adgang-til-data-fra-Labs
     title: Rejseplanen Labs
@@ -80,7 +82,7 @@ Stop ID:
 Name:
     description: A friendly name for this stop (for example, "Home Station" or "Work Stop"). This name will be used in the entity names and device name. If not provided, a default name will be generated based on the stop ID.
 Direction:
-    description: Optional filter to only show departures to a specific destination or direction. Leave empty to show all departures. Multiple directions can be separated by commas. Direction values must match exactly what is returned by the Rejseplanen API (case-sensitive). See [Finding direction values](#finding-direction-values) for how to discover available directions for your stop.
+    description: Optional filter to only show departures to a specific destination or direction. Leave empty to show all departures. You can add multiple directions, and each value must match exactly what is returned by the Rejseplanen API (case-sensitive). See [Finding direction values](#finding-direction-values) for how to discover available directions for your stop.
 Transportation type:
     description: Optional filter to only show specific types of transport (for example, S-trains, buses, metro). You can select multiple types. Leave empty to show all transportation types available at this stop. See the [Transportation types](#transportation-types) table for all available options.
 {% endconfiguration_basic %}
@@ -232,7 +234,7 @@ Example response showing the direction attribute:
 Use the exact text from the `direction` attribute when configuring your direction filter. For example, if you only want departures going to "Nørrebro St.", enter `Nørrebro St.` (case-sensitive) in the direction filter field when creating the stop subentry.
 
 {% note %}
-Direction filtering is currently only available during stop subentry setup via the configuration UI. The direction values are not displayed in the Home Assistant frontend entities yet, but you can see them in the sensor attributes.
+You set direction filtering when you add a stop subentry. The direction of the next departure is exposed through the **Towards** sensor entity.
 {% endnote %}
 
 ### Transportation types
@@ -261,20 +263,26 @@ Once you've created a stop subentry, the integration creates several sensor enti
 
 | Entity | Description |
 |--------|-------------|
-| `sensor.<stop_name>_line` | The line number or name of the next departure |
-| `sensor.<stop_name>_departure_time` | The timestamp of the next departure |
-| `sensor.<stop_name>_delay` | Minutes delayed (0 if on time) |
-| `sensor.<stop_name>_direction` | The destination or direction of the next departure |
-| `sensor.<stop_name>_track` | The track or platform number (if available) |
-| `sensor.<stop_name>_number_of_departures` | Total number of upcoming departures matching your filters |
+| **Line** (`sensor.<stop_name>_line`) | The line number or name of the next departure |
+| **Departing in** (`sensor.<stop_name>_departing_in`) | The timestamp of the next departure |
+| **Delayed by** (`sensor.<stop_name>_delayed_by`) | Minutes delayed (0 if on time) |
+| **Towards** (`sensor.<stop_name>_towards`) | The destination or direction of the next departure |
+| **Departing from track** (`sensor.<stop_name>_departing_from_track`) | The track or platform number, if available |
+| **Number of departures** (`sensor.<stop_name>_number_of_departures`) | Total number of upcoming departures matching your filters |
 
-Each sensor includes detailed attributes with additional information such as planned vs. real-time times, cancellation status, and operator information.
+Each value is exposed through its own sensor entity. The sensors do not add extra state attributes.
 
 ## Advanced usage
 
 ### Custom polling intervals with automations
 
 The integration polls data every 5 minutes by default to respect API rate limits. If you want to manage the polling intervals yourself or update sensors at different frequencies for different times of day, you can use automations with the `homeassistant.update_entity` action.
+
+Before you set up manual polling, turn off the integration's automatic updates. Otherwise, the default 5-minute polling continues in addition to your own updates and uses more of your monthly API quota. To turn off automatic updates:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
+2. Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then **System options**.
+3. Turn off **Enable polling for changes**.
 
 {% note %}
 Automations provide more flexibility than integration polling configuration. For example, you can poll more frequently during peak hours and reduce updates at night, or even combine polling with conditions like geofencing or calendar triggers. Learn more about this approach in the Home Assistant documentation on [defining a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
