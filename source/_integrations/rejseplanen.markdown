@@ -52,10 +52,10 @@ The integration is configured as a singleton, meaning you can only have one main
 
 To use the Rejseplanen integration, you must obtain an API key from Rejseplanen.dk:
 
-1. Visit the [Rejseplanen API request form](https://labs.rejseplanen.dk/hc/da/requests/new)
-2. Select **Private user** when applying
-3. Fill out the form and submit your request
-4. You'll receive your API key via email
+1. Visit the [Rejseplanen API request form](https://labs.rejseplanen.dk/hc/da/requests/new).
+2. Select **Private user** when applying.
+3. Fill out the form and submit your request.
+4. You'll receive your API key via email.
 
 Keep in mind that private API keys allow for 50,000 API calls per month, which is sufficient for monitoring multiple stops with regular polling.
 
