@@ -32,9 +32,11 @@ You can configure either feature individually or both at the same time for the s
 
 To get sensors for your installation, you need your installation's site ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://monitoring.solaredge.com/). Note: if your portal is not in English, the labels will be different.
 
-- Click on Admin and scroll down to API Access
-- Click on "Generate key"
-- Click on Save
+1. Go to **Admin** > **Site Access** > **Access Control** > **API Access**.
+2. Select **Generate key**.
+3. Select **Save**.
+
+Access to **API Access** depends on the permissions assigned to your SolarEdge account. If **Admin** is not available, contact your installer or SolarEdge site administrator to obtain access or the API key.
 
 Sensor data is updated every 15 minutes to stay within the daily rate limit of 300 requests per day.
 
@@ -211,7 +213,6 @@ Specifically for the module statistics:
 
 - The integration intentionally doesn't create any entities/sensors for module data. All data is only available in statistics. This is because data is often delayed by a couple of hours.
 - The statistics are intentionally updated infrequently (every 12 hours). If you want more frequent updates, you can call the [`homeassistant.reload_config_entry`](/integrations/homeassistant/#action-reload-config-entry) action from an automation.
-- The API provides data at a 15-minute interval, but Home Assistant long-term statistics are limited to a 1-hour interval. The integration aggregates the 15-minute data into hourly statistics.
 
 ## Removing the integration
 

@@ -36,12 +36,17 @@ Host:
 
 ## Data updates
 
-The integration polls the Guntamatic heater every 30 seconds. The heater does not support push updates.
+The integration polls the Guntamatic heater every 30 seconds. The heater does not support push updates. All sensors, including those of the heating circuit devices, are refreshed in this single poll.
+
+The heater exposes a small embedded web interface that may also serve other tools or dashboards. Polling the same endpoints from multiple clients at once can affect response times, so avoid adding additional integrations or scripts that read these endpoints at a high rate.
+
+## Devices
+
+The heater itself is represented as one device. Each connected heating circuit is represented as an additional device ("Heating circuit N"), so its entities can easily be assigned to the area of the room it heats. Only heating circuits that report data are created.
 
 ## Sensors
 
-The integration creates a sensor for each data point provided by the heater. The available sensors depend on the heater model and firmware version. Example sensors include boiler temperature, outside temperature, buffer load, and heating circuit programs. Note that sensors with a value of `-20.00 °C` or `-9.00 °C` are not returned.
-
+The integration creates a sensor for each data point provided by the heater. The available sensors depend on the heater model and firmware version. Example sensors include boiler temperature, outside temperature, and buffer load. Note that sensors with a value of `-20.00 °C` or `-9.00 °C` are not returned.
 
 The following sensors are available for a Guntamatic BMK 20 heater:
 
@@ -90,26 +95,43 @@ The following sensors are available for a Guntamatic BMK 20 heater:
     - Timer
   - **Unit**: None
 
-- **Room 0 temperature**:
-  - **Description**: Room temperature sensor reading for heating circuit 0
-  - **Example value**: 60.00
-  - **Unit**: °C
-
-- **Room 1 temperature**:
-  - **Description**: Room temperature sensor reading for heating circuit 1
-  - **Example value**: 24.68
-  - **Unit**: °C
-
-- **Room 2 temperature**:
-  - **Description**: Room temperature sensor reading for heating circuit 2
-  - **Example value**: 21.77
-  - **Unit**: °C
-
 - **Status**:
-  - **Description**: Current operating state of the system
+  - **Description**: Current operating state of the system.
   - **Example value**: Service Ign.
   - **Unit**: None
 
+### Heating circuit devices
+
+Each connected heating circuit device provides the following sensors:
+
+- **Room temperature**:
+  - **Description**: Room temperature sensor reading for this heating circuit.
+  - **Unit**: °C
+
+- **Flow temperature** (diagnostic):
+  - **Description**: Temperature of the water flowing towards this circuit.
+  - **Unit**: °C
+
+- **Pump** (diagnostic):
+  - **Description**: Operating mode of the circulation pump.
+  - **Possible values**: Auto, Non-stop, Off
+
+- **Program**:
+  - **Description**: Active program of this heating circuit.
+  - **Possible values**: Off, Timer, Heat, Setback mode, Setback mode until
+
+### Additional sensors
+
+Additional sensors are disabled by default and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
+
+## Examples
+
+The following blueprints help you get started with common automations for your heater:
+
+- [Guntamatic low buffer load](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/low-buffer-load.yaml): get a notification when the buffer load drops below a chosen percentage, so you know it is time to refuel.
+- [Guntamatic maintenance reminder](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/maintenance-reminders.yaml): get a notification when the ash box needs emptying or the periodic service is due soon.
+
+Import them from the blueprint folder and select your Guntamatic sensors when setting up the automation.
 
 ## Removing the integration
 

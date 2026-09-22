@@ -52,6 +52,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat crosses the threshold.
     - **First**: fires only on the first threshold crossing.
     - **All**: fires only after every targeted thermostat crosses the threshold.
+  required: false
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -142,11 +143,11 @@ for:
 
 ## Good to know
 
+- Use a climate entity that exposes a target humidity attribute.
 - This trigger monitors the target humidity setpoint (what you want the thermostat to maintain), not the current room humidity (the actual measured humidity). To react to changes in measured room humidity, use [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) instead.
 - The threshold type controls the direction of the crossing. **Above** and **Below** fire when crossing in one direction through a single value, while **In range** and **Outside range** fire when crossing the boundary of a range.
 - The trigger fires only at the moment of crossing, not while the setpoint stays beyond the threshold.
 - To react to any change that lands at a particular value, use [Thermostat target humidity changed](/triggers/climate.target_humidity_changed/) instead.
-- The trigger only works with [climate](/integrations/climate/) entities that expose a target humidity attribute. Not all thermostats support humidity control.
 - Humidity values are expressed as percentages (0-100%).
 
 {% include triggers/try_it.md %}

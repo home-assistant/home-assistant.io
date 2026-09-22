@@ -23,10 +23,10 @@ To enable this {% term integration %} in your installation, add the following to
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: neurio_energy
-  api_key: "CLIENT_ID"
-  api_secret: "CLIENT_SECRET"
-  sensor_id: "SENSOR_ID"
+  - platform: neurio_energy
+    api_key: "CLIENT_ID"
+    api_secret: "CLIENT_SECRET"
+    sensor_id: "SENSOR_ID"
 ```
 
 Four sensors will be created with the following names:

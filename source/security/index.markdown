@@ -62,6 +62,20 @@ As an open source project, Home Assistant cannot offer bounties for security vul
 
 The following is a list of past security advisories that have been published by the Home Assistant project.
 
+**2026-07-31: Companion app (Android) forwards NFC/QR tag scans to Home Assistant without user confirmation, allowing silent automation execution by untrusted callers**  
+Severity: _High (CVSS: 7.1)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-2xqv-hwrf-983f)_  
+Assigned CVE: _[CVE-2026-66060](https://nvd.nist.gov/vuln/detail/CVE-2026-66060)_  
+Discovered by: _[briansongdev](https://github.com/briansongdev)_  
+Fixed in: _Home Assistant for Android 2026.5.3_
+
+**2026-07-31: Companion app (iOS) forwards NFC/QR tag scans to Home Assistant without user confirmation, allowing silent automation execution by untrusted callers**  
+Severity: _High (CVSS: 7.1)_  
+Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-j23v-9672-677j)_  
+Assigned CVE: _[CVE-2026-66061](https://nvd.nist.gov/vuln/detail/CVE-2026-66061)_  
+Discovered by: _[briansongdev](https://github.com/briansongdev)_  
+Fixed in: _Home Assistant for iOS 2026.5.0_
+
 **2026-07-26: Home Assistant Companion (Android) `homeassistant://invite` Deep Link Credential Phishing**  
 Severity: _Moderate (CVSS: 4.3)_  
 Detailed information: _[Security advisory](https://github.com/home-assistant/core/security/advisories/GHSA-68f4-97mf-f68w)_  

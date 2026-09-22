@@ -15,9 +15,8 @@ ha_quality_scale: gold
 ha_platforms:
   - diagnostics
   - notify
-google_dev_console_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 api: Google Assistant API
-api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
+api_link: https://console.cloud.google.com/apis/library/embeddedassistant.googleapis.com
 ---
 
 The **Google Assistant SDK** {% term integration %} allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
@@ -84,7 +83,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Create credentials" %}
 
-1. Navigate to [Google Developers Console > Credentials](https://console.cloud.google.com/apis/credentials).
+1. Navigate to [Google Cloud console > Credentials](https://console.cloud.google.com/apis/credentials).
 2. Select the project you created earlier from the dropdown menu in the upper left corner.
 3. Select **Create credentials** (at the top of the screen), then select **OAuth client ID**.
 4. Set the Application type to **Desktop app** and give this credential set a name (like "Home Assistant Desktop Credentials").
@@ -199,3 +198,5 @@ Note: due to a bug in the Google Assistant API, not all responses contain text, 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
+
+Removing the Google Assistant SDK integration does not remove its [Application Credentials](/integrations/application_credentials/). If you want to use a different OAuth Client ID and Client Secret, go to **Settings** > **Devices & services**, select the three dots menu in the top right, select **Application credentials**, and delete the existing credentials before adding the integration again.

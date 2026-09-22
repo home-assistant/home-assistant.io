@@ -75,10 +75,6 @@ fields:
         description:
           description: A description of this script parameter.
           type: string
-        advanced:
-          description: Marks this field as an advanced parameter.
-          type: boolean
-          default: false
         required:
           description: Marks this field as required. This is a UI-only feature.
           type: boolean
@@ -169,10 +165,9 @@ Aside from the automation editor UI, you can pass variables to scripts within th
 # Example configuration.yaml entry
 automation:
   triggers:
-    - trigger: state
-      entity_id: light.bedroom
-      from: "off"
-      to: "on"
+    - trigger: light.turned_on
+      target:
+        entity_id: light.bedroom
   actions:
     - action: script.notify_pushover
       data:
@@ -186,10 +181,9 @@ This example shows how to use the `script.turn_on` action:
 # Example configuration.yaml entry
 automation:
   triggers:
-    - trigger: state
-      entity_id: light.bedroom
-      from: "off"
-      to: "on"
+    - trigger: light.turned_on
+      target:
+        entity_id: light.bedroom
   actions:
     - action: script.turn_on
       target:
@@ -284,6 +278,8 @@ script:
         target:
           entity_id: "{{ turn_on_entity }}"
 ```
+
+{% include integrations/actions.md %}
 
 ## Video tutorial
 

@@ -13,7 +13,6 @@ ha_platforms:
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: service
-google_dev_console_link: https://console.cloud.google.com/apis/library/gmail.googleapis.com
 api: Gmail API
 api_link: https://console.cloud.google.com/apis/library/gmail.googleapis.com
 ---

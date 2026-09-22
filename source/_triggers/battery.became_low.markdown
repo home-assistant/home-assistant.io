@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first targeted sensor reports a low battery.
     - **All**: fires only after every targeted sensor reports a low battery.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must remain reporting low battery before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
@@ -93,8 +94,9 @@ for:
 
 ## Good to know
 
-- This trigger works with `binary_sensor` entities that have the `battery` device class. These are separate from battery percentage sensors (`sensor` entities with the `battery` device class). If your device only exposes a percentage sensor, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
+- Use a binary sensor entity with the battery device class.
 - Use a label to group battery-powered devices across different areas, and target that label to monitor them all from a single automation.
+- For battery percentage sensors, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.
 - Combine this trigger with a notification action to get a push notification on your phone the moment any sensor runs low.
 
 {% include triggers/try_it.md %}

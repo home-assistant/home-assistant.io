@@ -6,7 +6,7 @@ ha_category:
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - "@MTrab"
+  - '@MTrab'
 ha_domain: fuelprices_dk
 ha_config_flow: true
 ha_integration_type: hub

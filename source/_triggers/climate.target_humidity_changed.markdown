@@ -114,11 +114,11 @@ threshold:
 
 ## Good to know
 
+- Use a climate entity that exposes a target humidity attribute.
 - This trigger monitors the target humidity setpoint (what you want the thermostat to maintain), not the current room humidity (the actual measured humidity). To react to changes in measured room humidity, use [Relative humidity changed](/triggers/humidity.changed/) instead.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target humidity first crosses a specific level, use [Thermostat target humidity crossed threshold](/triggers/climate.target_humidity_crossed_threshold/) instead.
-- The trigger only works with [climate](/integrations/climate/) entities that expose a target humidity attribute. Not all thermostats support humidity control.
 - Humidity values are expressed as percentages (0-100%).
 
 {% include triggers/try_it.md %}

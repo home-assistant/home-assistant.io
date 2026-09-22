@@ -73,7 +73,9 @@ behavior:
 
 If carbon monoxide built up while the family was out, the first person home needs a warning before walking inside. This automation triggers when someone enters the home zone and checks whether the hallway CO sensor is still detecting carbon monoxide. If it is, an urgent notification tells them to stay outside and call emergency services.
 
-- **Trigger**: Zone: Person enters home zone
+- **Trigger**: Zone entered
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Air Quality: Carbon monoxide detected
   - **Target**: Hallway CO sensor
   - **Condition passes if**: Any
@@ -86,10 +88,11 @@ If carbon monoxide built up while the family was out, the first person home need
 automation: |
   alias: "CO warning on arrival home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: air_quality.is_co_detected
       target:

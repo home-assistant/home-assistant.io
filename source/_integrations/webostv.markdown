@@ -4,6 +4,7 @@ description: Instructions on how to integrate a LG webOS TV within Home Assistan
 ha_category:
   - Media player
   - Notifications
+  - Switch
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - notify
+  - switch
 ha_integration_type: device
 ha_quality_scale: platinum
 ---
@@ -25,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Media player](/integrations/media_player/)
 - [Notifications](/integrations/notify/)
+- [Switch](/integrations/switch/)
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
@@ -47,6 +50,22 @@ Sources:
 ## Supported devices
 
 LG webOS TV devices running webOS 2.0 and above.
+
+## Supported functionality
+
+The **LG webOS TV** integration provides the following entities.
+
+### Media players
+
+- **TV media player**
+  - **Description**: Controls your TV. Use it to turn the TV off, change the volume, switch the source or channel, and control playback.
+  - **Remarks**: This entity takes the name of your TV.
+
+### Switches
+
+- **Screen** (disabled by default)
+  - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again. You have to [enable this entity](/common-tasks/general/#to-enable-or-disable-a-single-entity) before you can use it.
+  - **Remarks**: This entity is unavailable when the TV is off, even if the TV media player remains available (for example, because you use the [**Device is requested to turn on**](/triggers/webostv.turn_on/) trigger). Not all TVs support turning the screen on or off. If your TV doesn't support it, you'll see an error the first time you use the switch, and the entity becomes unavailable from then on.
 
 {% include integrations/triggers.md %}
 
@@ -185,6 +204,7 @@ Make sure to enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 - If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.
 - Most newer TV firmware does not allow passing the `icon` parameter to the `notify` command, the TV will ignore the icon and only display the message.
+- On some TV firmware versions, passing the `icon` parameter to the `notify` command can prevent the notification from being shown.
 
 ## Removing the integration
 

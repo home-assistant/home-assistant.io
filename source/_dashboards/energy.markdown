@@ -131,6 +131,11 @@ show_legend:
   description: Show or hide the legend. You can select items in the legend to show or hide components in the graph, like solar and battery, so you can focus on grid usage more clearly.
   type: boolean
   default: true
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Example
@@ -248,7 +253,7 @@ type: energy-water-graph
   Screenshot of the water sankey graph card.
 </p>
 
-The water Sankey graph shows the flow of water consumption in your home. It visualizes how water flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured.
+The water Sankey graph shows the flow of water consumption in your home. It visualizes how water flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
 This card displays historical water data based on the selected date range from the energy date picker.
 
@@ -284,6 +289,16 @@ group_by_floor:
   description: Whether to group the devices by floor
   type: boolean
   default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -296,6 +311,74 @@ The following example orients the flow from left to right:
 
 ```yaml
 type: water-sankey
+layout: horizontal
+```
+
+## Water flow Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot of the water flow Sankey graph card'>
+  Screenshot of the water flow Sankey graph card.
+</p>
+
+The water flow Sankey graph shows the real-time flow of water in your home. Unlike the water Sankey card, which shows historical water data based on the selected date range, this card displays current flow values and is not affected by the date picker selection.
+
+It visualizes the instantaneous water flow from sources to the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-flow-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: water-flow-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: water-flow-sankey
 layout: horizontal
 ```
 
@@ -486,6 +569,11 @@ hide_compound_stats:
   description: Hide upstream energy devices like breakers. These are devices that are set as `included_in_stat` of another device.
   type: boolean
   default: false
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. This applies to the pie chart, where a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -510,7 +598,33 @@ max_devices: 5
 
 The **Detail devices energy graph** card is similar to the **Devices energy graph** card, but shows the individual usage on a time scale.
 
-By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-devices-detail-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+max_devices:
+  required: false
+  description: By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+  type: integer
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items, which can hide entries such as untracked consumption.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Examples
 
@@ -532,7 +646,7 @@ max_devices: 5
   Screenshot of the sankey energy graph card.
 </p>
 
-The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured.
+The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
 ### YAML configuration
 
@@ -562,6 +676,16 @@ group_by_floor:
   description: Whether to group the devices by floor
   type: boolean
   default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -586,7 +710,7 @@ layout: vertical
 
 The power Sankey graph shows the real-time flow of power in your home. Unlike the energy Sankey card, which shows historical energy data based on the selected date range, this card displays current power values and is not affected by the date picker selection.
 
-It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured.
+It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured. Devices combined into the **Other** node are not part of any floor or area.
 
 ### YAML configuration
 
@@ -620,6 +744,16 @@ group_by_floor:
   description: Whether to group the devices by floor
   type: boolean
   default: true
+max_devices:
+  required: false
+  description: Maximum number of devices shown under your home and under each upstream device. Devices beyond the limit are combined into a single **Other** node, smallest first, so their totals are still included. On the devices energy graph, `max_devices` hides the extra devices instead. The limit applies per upstream device, not per floor or area.
+  type: integer
+  default: 20
+show_values:
+  required: false
+  description: Whether to show the numeric values on each node.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples
@@ -666,6 +800,11 @@ show_legend:
   description: Show or hide the legend
   type: boolean
   default: true
+expand_legend:
+  required: false
+  description: Show all legend items when the card loads. By default, a long legend is collapsed and you select **More** to see the remaining items.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples

@@ -8,7 +8,7 @@ related_actions:
   - music_assistant.transfer_queue
 ---
 
-Use this action to play an announcement on a Music Assistant player from a URL, for example a doorbell sound when motion is detected. To announce spoken text instead, use a Home Assistant [text-to-speech](/integrations/tts/) action.
+Use this action to play an announcement on a Music Assistant player, either as a sound or as spoken text. For a sound, set the URL, for example a doorbell sound when motion is detected. For spoken text, set the message together with the [text-to-speech](/integrations/tts/) entity that speaks it. Set a URL or a message, never both.
 
 {% include actions/ui_header.md %}
 
@@ -26,8 +26,12 @@ To play an announcement from an automation or a script:
 ### Options in the UI
 
 {% options_ui %}
+Message:
+  description: The text to announce. Set a text-to-speech entity as well, and leave the URL empty.
+Text-to-speech entity:
+  description: The text-to-speech entity that speaks the message. Required when you set a message.
 URL:
-  description: The URL to the notification sound.
+  description: The URL to the notification sound. Set this instead of a message.
 Use pre-announce:
   description: When enabled, a pre-announcement sound plays before the announcement.
 Pre-announce URL:
@@ -49,12 +53,32 @@ action: |
     url: http://example.com/doorbell.mp3
 {% endexample %}
 
+To announce spoken text, provide a message and the text-to-speech entity that speaks it:
+
+{% example %}
+action: |
+  action: music_assistant.play_announcement
+  target:
+    entity_id: media_player.kitchen_speaker
+  data:
+    message: Dinner is ready!
+    tts_entity_id: tts.piper
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
+message:
+  description: The text to announce, spoken by the entity set in `tts_entity_id`. Set a `message` or a `url`, never both.
+  required: false
+  type: string
+tts_entity_id:
+  description: The text-to-speech entity that speaks the message. Required when `message` is set.
+  required: false
+  type: string
 url:
-  description: The URL to the notification sound.
-  required: true
+  description: The URL to the notification sound. Set a `message` or a `url`, never both.
+  required: false
   type: string
 use_pre_announce:
   description: When set to `true`, a pre-announcement sound plays before the announcement.

@@ -66,6 +66,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Horizontal vane**: Auto, Swing, Left, Left centre, Centre, Right centre, Right
 - **Target temperature**
 - **Current room temperature**
+- **Outdoor temperature**
 
 #### Air-to-Water (ATW) units
 
@@ -89,7 +90,7 @@ The following extra sensors are only applicable for the Air-to-Water units:
 
 ### Number
 
-Thw following controls are available:
+The following controls are available:
 
 - **Frost protection**: minimum and maximum temperatures for the frost protection, if the enabled.
 - **Overheat protection**: minimum and maximum temperatures for the overheaet protection, if the enabled.
