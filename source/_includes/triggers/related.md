@@ -8,7 +8,7 @@
 {% if has_related %}
 ## Related triggers
 
-These triggers work well alongside this one:
+Explore related triggers:
 
 {% for trigger_name in page.related_triggers %}
   {% assign trg = all_triggers | where: "trigger", trigger_name | first %}

@@ -8,7 +8,7 @@
 {% if has_related %}
 ## Related actions
 
-These actions work well alongside this one:
+Explore related actions:
 
 {% for action_name in page.related_actions %}
   {% assign act = all_actions | where: "action", action_name | first %}
