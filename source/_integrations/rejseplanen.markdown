@@ -51,7 +51,7 @@ Rejseplanen supports a single integration entry. To use a different API key, rem
 
 Previously, this integration was set up in your {% term "`configuration.yaml`" %} file. This method is deprecated. If you still have Rejseplanen in your configuration file, remove it and set up the integration through the UI instead.
 
-### Add a stop
+### Adding a stop
 
 Each stop you want to monitor is added as a separate device. After you set up the integration with your API key, add one stop for each location you want to track:
 
