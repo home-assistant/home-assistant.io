@@ -23,6 +23,8 @@ The **Trimlight** {% term integration %} lets you control Trimlight Edge Pro per
 
 The integration supports **Trimlight Edge Pro** controllers.
 
+## Unsupported devices
+
 Earlier Trimlight Edge controllers are not supported.
 
 ## Prerequisites
@@ -33,7 +35,7 @@ Set up your Trimlight Edge Pro controller using the Trimlight app. Make sure the
 
 Trimlight controllers are configured through automatic network discovery. Manual configuration is not supported.
 
-1. Go to {% my integrations title="Settings > Devices & services" %}.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Under **Discovered**, find your Trimlight controller and select **Add**.
 3. Follow the instructions on screen to complete the setup.
 
@@ -48,6 +50,37 @@ You can:
 - Set a static color.
 
 Available color and white-channel controls depend on the controller's configured LED type.
+
+## Trimlight automation examples
+
+### Automation: Turn on the lights at sunset
+
+This example turns on the lights at 50% brightness with a static orange color at sunset. Replace the entity ID with your Trimlight light's entity ID.
+
+{% include docs/paste_yaml_tip.md %}
+
+{% details "YAML example for turning on the lights at sunset" %}
+
+{% example %}
+automation: |
+  alias: "Turn on Trimlight lights at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.trimlight_edge_pro
+      data:
+        brightness_pct: 50
+        rgb_color: [255, 128, 0]
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+The integration polls each controller every 30 seconds. Commands from Home Assistant update the displayed light state immediately; the next successful poll checks the controller's actual state and corrects any differences.
 
 ## Known limitations
 
