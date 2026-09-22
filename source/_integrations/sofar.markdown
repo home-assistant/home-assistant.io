@@ -85,16 +85,15 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 
 ## Reconfiguration
 
-If the inverter becomes reachable somewhere else, for example after a DHCP lease change, when you replace the Modbus TCP bridge it's connected through, or when you rewire it to another serial port, you can update the connection settings without removing and re-adding the integration:
+If the inverter becomes reachable somewhere else, for example after a DHCP lease change, when you replace the Modbus TCP bridge it's connected through, when you rewire it to another serial port, or when you move it between a network and a serial connection, you can update the connection settings without removing and re-adding the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Update the connection settings as needed. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**.
-4. Select **Submit** to save the new settings.
+3. Choose how the inverter is reached from now on: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**.
+4. Enter the connection settings. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**. If you keep the same connection type, the current settings are filled in for you.
+5. Select **Submit** to save the new settings.
 
 The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
-
-Reconfiguring keeps the connection type you chose during setup. To switch between a network and a serial connection, remove the integration and add it again with the other connection type.
 
 ## Supported functionality
 
@@ -254,7 +253,6 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- Switching an existing entry between a network and a serial connection isn't possible through reconfiguration. Remove the integration and add it again instead.
 - Serial connections use 8 data bits, no parity, and 1 stop bit (8N1), which is what Sofar inverters use on their RS485 port. Only the baud rate can be changed.
 
 ## Troubleshooting
