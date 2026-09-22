@@ -218,27 +218,30 @@ Find the stop you want in the list and use the `extId` attribute as your stop ID
 
 To filter by direction, you need the exact direction values available from your stop. These values come from the `direction` attribute in the API response.
 
-You can find the available directions by making a test API call:
+1. Open a web browser and visit the following URL:
 
-```text
-https://www.rejseplanen.dk/api/departureBoard?id=<YOUR_STOP_ID>&accessId=<YOUR_API_KEY>
-```
+   ```text
+   https://www.rejseplanen.dk/api/departureBoard?id=<YOUR_STOP_ID>&accessId=<YOUR_API_KEY>
+   ```
 
-Example response showing the direction attribute:
+2. Replace `<YOUR_STOP_ID>` with your stop ID (see [Finding a stop ID](#finding-a-stop-id)).
+3. Replace `<YOUR_API_KEY>` with your Rejseplanen API key.
+4. In the XML response, find the `direction` attribute on each `Departure` element. These are the available direction values for your stop.
 
-{% details "Example XML response" %}
+   {% details "Example XML response" %}
 
-```xml
-<DepartureBoard>
-  <Departure name="1A" type="BUS" direction="Nørrebro St." ... />
-  <Departure name="2C" type="BUS" direction="Airport" ... />
-  <Departure name="S" type="S" direction="København H" ... />
-</DepartureBoard>
-```
+   ```xml
+   <DepartureBoard>
+     <Departure name="1A" type="BUS" direction="Nørrebro St." ... />
+     <Departure name="2C" type="BUS" direction="Airport" ... />
+     <Departure name="S" type="S" direction="København H" ... />
+   </DepartureBoard>
+   ```
 
-{% enddetails %}
+   {% enddetails %}
 
-Use the exact text from the `direction` attribute in the direction filter. For example, to only show departures toward "Nørrebro St.", enter `Nørrebro St.` (case-sensitive). The direction of the next departure is exposed through the **Towards** sensor.
+5. Use the exact text from the `direction` attribute in the direction filter. For example, to only show departures toward "Nørrebro St.", enter `Nørrebro St.` (case-sensitive).
+   - After setup, the direction of the next departure is exposed through the **Towards** sensor.
 
 ### Departure types
 
