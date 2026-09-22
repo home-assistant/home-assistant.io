@@ -7,6 +7,7 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+  - Valve
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - cover
   - sensor
   - switch
+  - valve
 ha_zeroconf: true
 ha_integration_type: hub
 ---
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Cover](#cover)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Valve](#valve)
 
 {% include integrations/config_flow.md %}
 
@@ -49,7 +52,7 @@ The cover platform allows you to control your covers. Cover devices are added fo
 
 ### Sensor
 
-The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve tappet sensors. Sensor devices are added for each of the following devices:
+The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
 
 - Thermostat
 - Wall Thermostat
@@ -68,6 +71,10 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Smart Plug Compact
 - Camera Eyes
 - Camera 360
+
+### Valve
+
+The valve platform shows the position of your thermostat's valve. A valve entity is added for each Thermostat.
 
 ## Client registration
 
