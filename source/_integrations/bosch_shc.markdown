@@ -57,7 +57,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Smart Plug
 - Smart Plug Compact
 
-In addition, a single **Open doors and windows** sensor is added for the controller itself. Its state is the total number of currently open doors, windows, and other openings across the whole home, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` attributes.
+In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
 ### Switch
 
@@ -138,7 +138,7 @@ automation: |
 
 The Bosch Smart Home Controller pushes state changes to Home Assistant as they happen, over a persistent local connection. This means entities update in near real time and Home Assistant doesn't need to regularly check in with the controller for most of them.
 
-Camera-related switches are the exception: they're checked periodically instead, since the controller doesn't push their state changes.
+Camera-related switches and the **Open doors and windows** sensor are the exception: they're checked periodically instead, since the controller doesn't push their state changes.
 
 If the connection to the controller drops, for example because of a network hiccup or a controller restart, Home Assistant reconnects automatically once the controller is reachable again.
 
