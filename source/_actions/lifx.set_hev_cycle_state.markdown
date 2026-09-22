@@ -75,7 +75,7 @@ duration:
 - Home Assistant creates a **Clean cycle** {% term entity %} for every bulb that has HEV LEDs. It tells you whether a cycle is currently running, which is handy as a condition so you don't start a second cycle or stop one that was never running.
 - The **Clean cycle** entity is refreshed every 10 seconds to keep network traffic low, so it may take a moment to catch up after you start or stop a cycle.
 - Stopping a cycle returns the bulb to the color and brightness it had before the cycle started. To set it to something else instead, follow up with the [Set state](/actions/lifx.set_state/) action.
-- This action only works on lights provided by the LIFX integration. If none of the targets is a LIFX light, Home Assistant returns an error.
+- This action only works on lights provided by the LIFX integration. Other lights in the target are left alone, and if you name a light that is not a LIFX light, Home Assistant logs a warning instead of returning an error.
 
 {% include actions/try_it.md %}
 

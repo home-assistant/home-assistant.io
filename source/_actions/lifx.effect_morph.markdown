@@ -12,7 +12,7 @@ related_actions:
 
 Use this action to start the firmware-based Morph effect on a matrix LIFX light, such as the LIFX Tile or Candle. The effect drifts soft blobs of color across the light, so it works well as ambient lighting for a living room, a home office, or a party.
 
-You choose the colors in one of two ways: pick one of the predefined themes, which match the themes in the LIFX smartphone app, or supply your own palette of 2 to 16 colors. You can't use both at once. The Morph effect runs on the light itself, so it keeps going even if Home Assistant restarts. To stop it, use [Stop effect](/actions/lifx.effect_stop/).
+You choose the colors in one of two ways: pick one of the [predefined themes](/integrations/lifx/#themes), or supply your own palette of 2 to 16 colors. You can't use both at once. The Morph effect runs on the light itself, so it keeps going even if Home Assistant restarts. To stop it, use [Stop effect](/actions/lifx.effect_stop/).
 
 {% include actions/ui_header.md %}
 
@@ -86,74 +86,16 @@ power_on:
 
 ## Available themes
 
-The following themes are available:
-
-- `arctic`
-- `aurora_borealis`
-- `autumn`
-- `bias_lighting`
-- `blissful`
-- `calaveras`
-- `cheerful`
-- `cherry_blossom`
-- `christmas`
-- `coral_reef`
-- `cyberpunk`
-- `deep_sea`
-- `desert`
-- `dream`
-- `earth`
-- `energizing`
-- `epic`
-- `evening`
-- `exciting`
-- `fantasy`
-- `fire`
-- `focusing`
-- `forest`
-- `galaxy`
-- `gentle`
-- `halloween`
-- `hanukkah`
-- `holly`
-- `hygge`
-- `independence`
-- `intense`
-- `kwanzaa`
-- `love`
-- `mellow`
-- `neon`
-- `party`
-- `peaceful`
-- `powerful`
-- `proud`
-- `pumpkin`
-- `relaxing`
-- `romance`
-- `santa`
-- `serene`
-- `shamrock`
-- `soothing`
-- `spacey`
-- `sports`
-- `spring`
-- `stardust`
-- `thanksgiving`
-- `tranquil`
-- `tropical`
-- `vaporwave`
-- `warming`
-- `water`
-- `zombie`
+The [Themes](/integrations/lifx/#themes) section of the LIFX integration page lists every theme by category, along with the renamed and retired themes and their replacements.
 
 {% include actions/targets.md domain="light" %}
 
 ## Good to know
 
 - Only matrix lights run the Morph effect. That means the LIFX Tile, Candle, Path, Spot, Tube, Luna, Mirror, and Ceiling. If your target also covers other LIFX lights, those lights are skipped and the rest of the action still runs.
-- If the target contains no LIFX light at all, the action fails with the message "The targets of action lifx.effect_morph include no LIFX light".
+- When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_morph include no LIFX light". If they include LIFX lights but no matrix light, it fails with "The targets of action lifx.effect_morph include no LIFX matrix light". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
 - **Palette** and **Theme** are mutually exclusive. Setting both is rejected. If you set neither, the `exciting` theme is used.
-- Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors.
+- Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - **Power on** is on by default, so a light that is off is turned on before the effect starts.
 - To stop the animation, use [Stop effect](/actions/lifx.effect_stop/).
 - You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_morph`.

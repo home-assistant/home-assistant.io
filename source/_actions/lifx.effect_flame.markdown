@@ -73,7 +73,7 @@ power_on:
 ## Good to know
 
 - Only matrix lights run the Flame effect. That means the LIFX Tile, Candle, Path, Spot, Tube, Luna, Mirror, and Ceiling. If your target also covers other LIFX lights, those lights are skipped and the rest of the action still runs.
-- If the target contains no LIFX light at all, the action fails with the message "The targets of action lifx.effect_flame include no LIFX light".
+- When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_flame include no LIFX light". If they include LIFX lights but no matrix light, it fails with "The targets of action lifx.effect_flame include no LIFX matrix light". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
 - The Flame effect uses its own built-in colors, so it has no theme or palette option. If you want to choose the colors yourself, use [Morph effect](/actions/lifx.effect_morph/) instead.
 - **Power on** is on by default, so a light that is off is turned on before the effect starts.
 - To stop the animation, use [Stop effect](/actions/lifx.effect_stop/).

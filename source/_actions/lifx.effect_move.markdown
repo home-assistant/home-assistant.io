@@ -86,72 +86,14 @@ power_on:
 
 ## Available themes
 
-The following themes are available:
-
-- `arctic`
-- `aurora_borealis`
-- `autumn`
-- `bias_lighting`
-- `blissful`
-- `calaveras`
-- `cheerful`
-- `cherry_blossom`
-- `christmas`
-- `coral_reef`
-- `cyberpunk`
-- `deep_sea`
-- `desert`
-- `dream`
-- `earth`
-- `energizing`
-- `epic`
-- `evening`
-- `exciting`
-- `fantasy`
-- `fire`
-- `focusing`
-- `forest`
-- `galaxy`
-- `gentle`
-- `halloween`
-- `hanukkah`
-- `holly`
-- `hygge`
-- `independence`
-- `intense`
-- `kwanzaa`
-- `love`
-- `mellow`
-- `neon`
-- `party`
-- `peaceful`
-- `powerful`
-- `proud`
-- `pumpkin`
-- `relaxing`
-- `romance`
-- `santa`
-- `serene`
-- `shamrock`
-- `soothing`
-- `spacey`
-- `sports`
-- `spring`
-- `stardust`
-- `thanksgiving`
-- `tranquil`
-- `tropical`
-- `vaporwave`
-- `warming`
-- `water`
-- `zombie`
+The [Themes](/integrations/lifx/#themes) section of the LIFX integration page lists every theme by category, along with the renamed and retired themes and their replacements.
 
 {% include actions/targets.md domain="light" %}
 
 ## Good to know
 
 - Only multizone lights run the Move effect. That means the LIFX Z, Lightstrip, Beam, Neon, Outdoor Neon, String, and Permanent Outdoor. If your target also covers other LIFX lights, those lights are skipped and the rest of the action still runs.
-- If the target contains no LIFX light at all, the action fails with the message "The targets of action lifx.effect_move include no LIFX light".
+- When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_move include no LIFX light". If they include LIFX lights but no multizone light, it fails with "The targets of action lifx.effect_move include no LIFX multizone light". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
 - **Theme** is optional and Home Assistant applies no theme when you leave it out, so the light keeps whatever colors it already shows. Pick a theme when you want a known starting point.
 - The effect is invisible when every zone on the light is the same color. Use [Paint theme](/actions/lifx.paint_theme/) or [Set state](/actions/lifx.set_state/) to give the light a mix of colors first, or choose a theme in this action.
 - You can change the colors while the effect is running. The animation continues with the new colors.

@@ -94,22 +94,37 @@ brightness_pct:
   type: float
 color_name:
   description: >
-    A human-readable color name for the temporary color, such as `red` or `green`. Cannot be combined with `rgb_color`.
+    A human-readable color name for the temporary color, such as `red` or `green`. Use only one of `color_name`, `rgb_color`, `hs_color`, `xy_color`, or `color_temp_kelvin`.
   required: false
   type: string
 rgb_color:
   description: >
-    The temporary color in RGB format, as a list of three numbers from 0 to 255. Cannot be combined with `color_name`.
+    The temporary color in RGB format, as a list of three numbers from 0 to 255. Use only one of `color_name`, `rgb_color`, `hs_color`, `xy_color`, or `color_temp_kelvin`.
   required: false
   type: list
+hs_color:
+  description: >
+    The temporary color as a hue (0 to 360) and a saturation (0 to 100). Use only one of `color_name`, `rgb_color`, `hs_color`, `xy_color`, or `color_temp_kelvin`.
+  required: false
+  type: list
+xy_color:
+  description: >
+    The temporary color as CIE 1931 x and y coordinates, each from 0 to 1. Use only one of `color_name`, `rgb_color`, `hs_color`, `xy_color`, or `color_temp_kelvin`.
+  required: false
+  type: list
+color_temp_kelvin:
+  description: >
+    The temporary color as a white color temperature, from 1500 to 9000 Kelvin. Use only one of `color_name`, `rgb_color`, `hs_color`, `xy_color`, or `color_temp_kelvin`.
+  required: false
+  type: integer
 period:
   description: >
-    How long a single flash takes, in seconds. Accepts 0.05 to 60 seconds, in steps of 0.05. If you leave it out, the `strobe` mode uses 0.1 seconds and every other mode uses 1 second.
+    How long a single flash takes, in seconds, from 0.05 seconds up. The UI offers up to 60 seconds, in steps of 0.05. If you leave it out, the `strobe` mode uses 0.1 seconds and every other mode uses 1 second.
   required: false
   type: float
 cycles:
   description: >
-    How many times the effect runs, from 1 to 10000. If you leave it out, the `strobe` mode runs 10 cycles and every other mode runs 1 cycle.
+    How many times the effect runs, from 1 up. The UI offers up to 10000. If you leave it out, the `strobe` mode runs 10 cycles and every other mode runs 1 cycle.
   required: false
   type: float
 power_on:
@@ -124,7 +139,7 @@ power_on:
 
 ## Good to know
 
-- This action only works on lights that belong to the LIFX {% term integration %}. If your target contains no LIFX light, Home Assistant reports an error: "The targets of action lifx.effect_pulse include no LIFX light".
+- This action only works on lights that belong to the LIFX {% term integration %}. When you target lights by entity and none of them is a LIFX light, Home Assistant reports an error: "The targets of action lifx.effect_pulse include no LIFX light". When you target an area, floor, device, or label that holds no LIFX light, nothing happens and no error is returned.
 - The pulse effect works on every LIFX light, including white-only models such as the LIFX White and Mini White.
 - If you don't set a color, each light flashes using its own current color, so the flash is only visible when you change the brightness or the mode.
 - Because this is a software effect, Home Assistant sends each color change over your network. Very short periods across many lights can look less even than a firmware effect such as [Move effect](/actions/lifx.effect_move/).

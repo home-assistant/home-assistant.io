@@ -136,7 +136,7 @@ power_on:
 
 ## Good to know
 
-- This action only works on lights that belong to the LIFX {% term integration %}. If your target contains no LIFX light, Home Assistant reports an error: "The targets of action lifx.effect_colorloop include no LIFX light".
+- This action only works on lights that belong to the LIFX {% term integration %}. When you target lights by entity and none of them is a LIFX light, Home Assistant reports an error: "The targets of action lifx.effect_colorloop include no LIFX light". When you target an area, floor, device, or label that holds no LIFX light, nothing happens and no error is returned.
 - The effect needs color-capable lights. White-only LIFX lights can run [Pulse effect](/actions/lifx.effect_pulse/) instead.
 - The color loop runs until something stops it. Use [Stop effect](/actions/lifx.effect_stop/) to end it, or turn the lights off.
 - If you set the minimum saturation higher than the maximum, Home Assistant swaps the two values for you, so you only need to set one of them.

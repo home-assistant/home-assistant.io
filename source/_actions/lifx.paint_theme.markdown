@@ -10,7 +10,7 @@ related_actions:
   - lifx.effect_stop
 ---
 
-Use this action to paint a set of colors across one or more LIFX lights in a single step. You pick one of the predefined themes, which match the themes in the LIFX smartphone app, or supply your own palette of 2 to 16 colors. Unlike the effect actions, this paints a still arrangement of colors rather than an animation, so the lights hold the result until something else changes them.
+Use this action to paint a set of colors across one or more LIFX lights in a single step. You pick one of the [predefined themes](/integrations/lifx/#themes), or supply your own palette of 2 to 16 colors. Unlike the effect actions, it paints a still arrangement of colors, and the lights hold it until something else changes them.
 
 This works well for setting a mood in a room, decorating for a holiday, or giving a group of lights a coordinated look without picking a color for each one. Lights that have several zones, such as LIFX Z, Lightstrip, Beam, Tile, and Candle, show the most of a theme, because the colors are spread across the zones of the light.
 
@@ -37,7 +37,7 @@ Theme:
   description: A predefined color theme to paint. Use this instead of a palette, not alongside one. Defaults to `exciting`.
   required: false
 Transition:
-  description: How long the change takes, in seconds. Accepts a whole number between 1 and 3600, and defaults to 1.
+  description: How long the change takes, in seconds. Accepts a whole number between 0 and 3600, and defaults to 1.
   required: false
 Power on:
   description: Turn the lights on before the theme is painted. This is on by default. Turn it off to leave lights that are already off untouched.
@@ -73,7 +73,7 @@ theme:
   type: string
   default: exciting
 transition:
-  description: How long the change takes, in seconds. Accepts a whole number between 1 and 3600.
+  description: How long the change takes, in seconds. Accepts a whole number between 0 and 3600.
   required: false
   type: integer
   default: 1
@@ -86,76 +86,18 @@ power_on:
 
 ## Available themes
 
-The following themes are available:
-
-- `arctic`
-- `aurora_borealis`
-- `autumn`
-- `bias_lighting`
-- `blissful`
-- `calaveras`
-- `cheerful`
-- `cherry_blossom`
-- `christmas`
-- `coral_reef`
-- `cyberpunk`
-- `deep_sea`
-- `desert`
-- `dream`
-- `earth`
-- `energizing`
-- `epic`
-- `evening`
-- `exciting`
-- `fantasy`
-- `fire`
-- `focusing`
-- `forest`
-- `galaxy`
-- `gentle`
-- `halloween`
-- `hanukkah`
-- `holly`
-- `hygge`
-- `independence`
-- `intense`
-- `kwanzaa`
-- `love`
-- `mellow`
-- `neon`
-- `party`
-- `peaceful`
-- `powerful`
-- `proud`
-- `pumpkin`
-- `relaxing`
-- `romance`
-- `santa`
-- `serene`
-- `shamrock`
-- `soothing`
-- `spacey`
-- `sports`
-- `spring`
-- `stardust`
-- `thanksgiving`
-- `tranquil`
-- `tropical`
-- `vaporwave`
-- `warming`
-- `water`
-- `zombie`
+The [Themes](/integrations/lifx/#themes) section of the LIFX integration page lists every theme by category, along with the renamed and retired themes and their replacements.
 
 {% include actions/targets.md domain="light" %}
 
 ## Good to know
 
-- This action works with every LIFX light, not just the ones that support firmware effects. If the target contains no LIFX light at all, the action fails with the message "The targets of action lifx.paint_theme include no LIFX light".
+- This action works with every LIFX light, not just the ones that support firmware effects. When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.paint_theme include no LIFX light". When you target an area, floor, device, or label that holds no LIFX light, nothing happens and no error is returned.
 - **Palette** and **Theme** are mutually exclusive. Setting both is rejected. If you set neither, the `exciting` theme is used.
-- Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors.
+- Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A palette needs at least 2 and at most 16 colors. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - Painting a theme is not an animation, so there is nothing to stop afterwards. To clear a running firmware effect first, use the [Stop effect](/actions/lifx.effect_stop/) action.
+- Every paint arranges the colors at random, even when you paint the same theme again. If you repaint a theme over and over with a long transition, the light drifts slowly from one arrangement to the next and looks animated. The action returns as soon as the colors are sent, so wait for the transition to finish before painting again. For an example, refer to [slowly drift through a theme](#automation-slowly-drift-through-a-theme-in-the-evening).
 - The same themes are also available on the [Move effect](/actions/lifx.effect_move/) and the [Morph effect](/actions/lifx.effect_morph/), and from the theme selector on the device page.
-- Home Assistant checks the state of your LIFX lights every 10 seconds, so the light's color in the interface can take a few seconds to catch up after you paint a theme.
 
 {% include actions/try_it.md %}
 
@@ -220,6 +162,44 @@ automation: |
         message: >
           Welcome home. The hallway lights are on.
 {% endexample %}
+
+### Automation: slowly drift through a theme in the evening
+
+At sunset, repaint the `tranquil` theme across the living room strip every minute with a one-minute transition, until the strip is turned off. Each paint arranges the colors differently, so the strip drifts slowly from one arrangement to the next.
+
+- **Trigger**: Sun: sunset
+- **Action**: Repeat while the strip is on
+  - **Action**: Paint theme
+    - **Target**: Living room strip (`light.living_room_strip`)
+    - **Theme**: tranquil
+    - **Transition**: 60
+  - **Action**: Delay of 60 seconds
+
+{% example %}
+automation: |
+  alias: "Drift through a theme on the living room strip"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - repeat:
+        while:
+          - condition: state
+            entity_id: light.living_room_strip
+            state: "on"
+        sequence:
+          - action: lifx.paint_theme
+            target:
+              entity_id: light.living_room_strip
+            data:
+              theme: tranquil
+              transition: 60
+              power_on: false
+          - delay:
+              seconds: 60
+{% endexample %}
+
+Setting **Power on** to `false` means the loop never switches the strip back on after someone turns it off, and the next check ends the loop.
 
 {% include actions/stuck.md %}
 

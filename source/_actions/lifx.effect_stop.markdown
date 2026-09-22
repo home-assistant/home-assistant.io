@@ -54,7 +54,7 @@ This action has no options. All you provide is the target.
 
 ## Good to know
 
-- This action only works on lights that belong to the LIFX {% term integration %}. If your target contains no LIFX light, Home Assistant reports an error: "The targets of action lifx.effect_stop include no LIFX light".
+- This action only works on lights that belong to the LIFX {% term integration %}. When you target lights by entity and none of them is a LIFX light, Home Assistant reports an error: "The targets of action lifx.effect_stop include no LIFX light". When you target an area, floor, device, or label that holds no LIFX light, nothing happens and no error is returned.
 - Whichever effect you stop, each light goes back to the color and power state it had before the effect started. Home Assistant restores that state for the software effects, Pulse and Color loop, and the light restores it itself for the firmware effects, Move, Flame, Morph, and Sky.
 - This can turn a light off. A light that was off when the effect started with **Power on** enabled is turned back off when you stop the effect.
 - Starting Pulse or Color loop on a light ends the other software effect that's already running there, but it doesn't clear a firmware effect such as Move, Flame, Morph, or Sky. Use this action first when you want to swap a firmware effect for a software one, or whenever you want a light to stop animating without starting something new.

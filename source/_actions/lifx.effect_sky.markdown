@@ -14,7 +14,7 @@ Use this action to animate a sky scene across a LIFX Ceiling, Luna, Mirror, E26 
 
 The LIFX app presents these as three separate effects. In Home Assistant, they are one action, and you pick between them with the **Sky type** option.
 
-This is a good way to start the day with a slow sunrise in the bedroom, wind down with a sunset in the evening, or keep a gentle cloud animation running in the background. If your target includes LIFX lights that don't support the Sky effect, those lights are left as they are.
+This is a good way to start the day with a slow sunrise in the bedroom, wind down with a sunset in the evening, or keep a gentle cloud animation running in the background. If your target includes LIFX lights that are not matrix lights, those lights are left as they are.
 
 {% include actions/ui_header.md %}
 
@@ -106,21 +106,21 @@ palette:
 
 ## Good to know
 
-- The Sky effect needs a matrix light running firmware 4 or later. The LIFX Ceiling, Luna, Mirror, E26 Candle, and E26 Tube ship with it. Matrix lights still on firmware 3, such as the E12 Candle, do not support the effect. Any other LIFX light in the same target is skipped without an error, so you can safely point this action at a whole area.
+- The Sky effect needs a matrix light running firmware 4 or later. The LIFX Ceiling, Luna, Mirror, E26 Candle, and E26 Tube ship with it. Matrix lights still on firmware 3, such as the E12 Candle, do not support the effect. LIFX lights that are not matrix lights are skipped without an error, so you can point this action at an area that also holds other lights. A matrix light on firmware 3, however, makes the whole action fail, so leave those lights out of the target.
 - How much detail you see depends on the light. The **Clouds** sky type spreads a pattern across the pixels, so it looks most detailed on a light with many of them, like the Ceiling. On a light with only a handful of zones, such as the Path, you still get a blue sky with lighter shapes drifting past, just a coarser one. The **Sunrise** and **Sunset** sky types shift color over time instead, so they look much the same on any supported light.
 - In the **Effect** option of the [Turn on a light](/actions/light.turn_on/) action, Sky is currently offered on LIFX Ceiling lights only. On the other supported lights, use this action instead.
-- If the target contains no LIFX light at all, the action fails with the message "The targets of action lifx.effect_sky include no LIFX light".
-- The palette is shared between all three sky types. To use a custom palette, provide all six colors in this order:
+- When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_sky include no LIFX light". If they include LIFX lights but no matrix light, it fails with "The targets of action lifx.effect_sky include no LIFX matrix light". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
+- The palette is shared between all three sky types. It takes 1 to 6 colors, which are used in this order:
   1. Sky: the background sky color for the **Clouds** sky type.
   2. Night sky: the starting or finishing color of the sky when no sun is visible, for the **Sunrise** and **Sunset** sky types.
   3. Dawn sky: the color of the sky just as the sun appears.
   4. Dawn sun: the color of the sun just as it appears.
   5. Full sun: the color of the sun as it covers the whole light.
   6. Final sun: the color of the full sun at the end of the effect.
+- Each palette color is a list of four numbers in the order hue, saturation, brightness, Kelvin. A saturation or brightness of 1 or less is read as a fraction, so `0.5` and `50` both mean 50%, and `1` means 100%, not 1%.
 - To stop the animation, use the [Stop effect](/actions/lifx.effect_stop/) action. The light goes back to the color and power state it had before the effect started.
 - Because the effect runs in the light's firmware, it keeps running until you stop it, turn the light off, or start a different effect.
 - You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_sky`.
-- Home Assistant checks the state of your LIFX lights every 10 seconds, so the light's state in the interface can take a few seconds to catch up after you start the effect.
 
 {% include actions/try_it.md %}
 
