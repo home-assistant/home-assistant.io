@@ -63,20 +63,20 @@ Each stop you want to monitor is added as a separate device. After you set up th
 5. Optionally, filter by direction or departure type.
 6. Select **Submit**.
 
-The integration immediately starts monitoring the stop and creates sensor entities for the next departure.
+   - Result: The integration immediately starts monitoring the stop and creates sensor entities for the next departure.
 
-{% configuration_basic %}
-Stop ID:
-    description: The unique identifier for the stop or station you want to monitor. See [Finding a stop ID](#finding-a-stop-id) for how to obtain this value.
-Name:
-    description: An optional name for this stop. The name is used in the device and entity names. If you leave it empty, a name is generated from the stop ID.
-Direction:
-    description: An optional filter that only shows departures toward a specific destination. Leave it empty to show all departures. You can add multiple directions, and each value must match exactly what the Rejseplanen API returns (case-sensitive). See [Finding direction values](#finding-direction-values).
-Departure type:
-    description: An optional filter that only shows specific types of departures, such as S-trains, buses, or metro. You can select multiple types. Leave it empty to show all departure types available at the stop. See [Departure types](#departure-types) for all options.
-{% endconfiguration_basic %}
+    {% configuration_basic %}
+    Stop ID:
+        description: The unique identifier for the stop or station you want to monitor. See [Finding a stop ID](#finding-a-stop-id) for how to obtain this value.
+    Name:
+        description: An optional name for this stop. The name is used in the device and entity names. If you leave it empty, a name is generated from the stop ID.
+    Direction:
+        description: An optional filter that only shows departures toward a specific destination. Leave it empty to show all departures. You can add multiple directions, and each value must match exactly what the Rejseplanen API returns (case-sensitive). See [Finding direction values](#finding-direction-values).
+    Departure type:
+        description: An optional filter that only shows specific types of departures, such as S-trains, buses, or metro. You can select multiple types. Leave it empty to show all departure types available at the stop. See [Departure types](#departure-types) for all options.
+    {% endconfiguration_basic %}
 
-If you don't set any filters, the integration shows all departures from the stop.
+   - If you don't set any filters, the integration shows all departures from the stop.
 
 ## Finding a stop ID
 
