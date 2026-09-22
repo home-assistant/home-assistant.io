@@ -17,7 +17,7 @@ related:
     title: Rejseplanen Labs
 ---
 
-The **Rejseplanen** {% term integration %} will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
+The **Rejseplanen** {% term integration %} provides you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
 {% important %}
 As part of conforming to Home Assistant standards, all extra attributes previously available on sensors have been removed. In a future release, the integration will provide an {% term action %} to retrieve the full list of departures with all details. This will allow for more flexible data access while maintaining proper entity standards.
@@ -25,7 +25,7 @@ As part of conforming to Home Assistant standards, all extra attributes previous
 
 ## Setup
 
-The Rejseplanen {% term integration %} has moved from {% term platform %} setup to a more friendly UI setup. The {% term integration %} consists of two main configurable types. Firstly the Service device, a hidden coordinator that handles the communication with the Rejseplanen cloud API and stores the data from the aforementioned API. Secondly a number of sub-entries called "stops" that sorts and displays the data of the next departure to the user as a device with entities.
+The Rejseplanen {% term integration %} has moved from {% term platform %} setup to a friendlier UI setup. It consists of two main configurable types. The first is the service device, a hidden coordinator that handles communication with the Rejseplanen cloud API and stores the data it returns. The second is a set of sub-entries called "stops", each shown as a device with entities that display the next departure.
 
 {% term platform "Platform" %} setup for this {% term integration %} has been deprecated and should be removed from the configuration file.
 
@@ -65,7 +65,7 @@ The stop subentry is how you configure individual public transport stops to moni
 
 ### Setting up a stop subentry
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select **Rejseplanen**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
 2. Select **Create Entry** and choose **Add stop**.
 3. Enter the stop ID for the location you want to monitor (see [Finding your stop ID](#finding-your-stop-id) below).
 4. Optionally, give the stop a friendly name.
@@ -239,38 +239,34 @@ You set direction filtering when you add a stop subentry. The direction of the n
 
 ### Transportation types
 
-The following table shows all available transportation types you can filter by:
+You can filter by the following transportation types:
 
-| Type | Label | Description |
-|------|-------|-------------|
-| bus | City buses | Regular city bus services |
-| express_bus | Express buses | Long-distance or high-speed bus services |
-| ferry | Ferry | Ferry services |
-| flexible_bus | Flexible transport | On-demand or flexible routing bus services |
-| flight | Flight | Flight services (where available) |
-| ic | InterCity trains | IC and IB long-distance trains |
-| icl | InterCity Lyn trains | Fast trains (ICL, ICL-X, ICL+) |
-| letbane | Light rail | Light rail or tram services (Letbanen) |
-| metro | Metro | Metro/subway services |
-| night_bus | Night & special buses | Night bus and other special bus services |
-| re | Regional trains | Regional trains (Re, RA, RX) |
-| s_tog | S-trains | S-trains (Copenhagen suburban rail) |
-| tog | Long distance trains | EC, IR, ICE, SJ, and other long-distance trains |
+- **City buses** (`bus`): Regular city bus services
+- **Express buses** (`express_bus`): Long-distance or high-speed bus services
+- **Ferry** (`ferry`): Ferry services
+- **Flexible transport** (`flexible_bus`): On-demand or flexible routing bus services
+- **Flight** (`flight`): Flight services, where available
+- **InterCity trains** (`ic`): IC and IB long-distance trains
+- **InterCity Lyn trains** (`icl`): Fast trains (ICL, ICL-X, ICL+)
+- **Light rail** (`letbane`): Light rail or tram services (Letbanen)
+- **Metro** (`metro`): Metro or subway services
+- **Night & special buses** (`night_bus`): Night bus and other special bus services
+- **Regional trains** (`re`): Regional trains (Re, RA, RX)
+- **S-trains** (`s_tog`): S-trains (Copenhagen suburban rail)
+- **Long distance trains** (`tog`): EC, IR, ICE, SJ, and other long-distance trains
 
 ### Sensor entities
 
-Once you've created a stop subentry, the integration creates several sensor entities to display information about the next departure:
+Once you've created a stop subentry, the integration creates a sensor entity for each of the following, based on the next departure:
 
-| Entity | Description |
-|--------|-------------|
-| **Line** (`sensor.<stop_name>_line`) | The line number or name of the next departure |
-| **Departing in** (`sensor.<stop_name>_departing_in`) | The timestamp of the next departure |
-| **Delayed by** (`sensor.<stop_name>_delayed_by`) | Minutes delayed (0 if on time) |
-| **Towards** (`sensor.<stop_name>_towards`) | The destination or direction of the next departure |
-| **Departing from track** (`sensor.<stop_name>_departing_from_track`) | The track or platform number, if available |
-| **Number of departures** (`sensor.<stop_name>_number_of_departures`) | Total number of upcoming departures matching your filters |
+- **Line** (`sensor.<stop_name>_line`): The line number or name of the next departure
+- **Departing in** (`sensor.<stop_name>_departing_in`): The timestamp of the next departure
+- **Delayed by** (`sensor.<stop_name>_delayed_by`): The number of minutes the departure is delayed, or 0 if it is on time
+- **Towards** (`sensor.<stop_name>_towards`): The destination or direction of the next departure
+- **Departing from track** (`sensor.<stop_name>_departing_from_track`): The track or platform number, if available
+- **Number of departures** (`sensor.<stop_name>_number_of_departures`): The number of upcoming departures that match your filters
 
-Each value is exposed through its own sensor entity. The sensors do not add extra state attributes.
+The sensors do not add extra state attributes.
 
 ## Advanced usage
 
