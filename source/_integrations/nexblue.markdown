@@ -2,9 +2,11 @@
 title: NexBlue
 description: Instructions for integrating NexBlue EV chargers with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Energy
   - Sensor
+  - Switch
 ha_release: 2026.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -12,7 +14,9 @@ ha_codeowners:
   - '@nexblue-maintainer'
 ha_domain: nexblue
 ha_platforms:
+  - binary_sensor
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -44,7 +48,7 @@ Password:
 
 ## Supported functionality
 
-The NexBlue integration currently provides read-only sensor entities for each charger in your account.
+The NexBlue integration provides sensor entities, binary sensor entities, and a charging switch for each charger in your account.
 
 ### Sensors
 
@@ -57,7 +61,23 @@ The integration provides the following charger information:
 - **Current and voltage**: Measurements for L1, L2, and L3 when reported by the charger.
 - **Current limit**: The configured charging current limit.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
-- **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
+- **Charger diagnostics**: Cable lock mode, access level, charging phase, network status, and LED brightness.
+
+### Binary sensors
+
+The integration provides the following binary sensors:
+
+- **Cable lock state**: Whether the charging cable is locked by the charger.
+- **Charging enabled**: Whether charging is enabled on the charger.
+
+### Switches
+
+The integration provides a charging switch for each charger:
+
+- Turn the switch on to start charging.
+- Turn the switch off to stop charging.
+
+If the charger is offline or rejects a command, Home Assistant reports the command failure.
 
 ## NexBlue and automations
 
@@ -70,8 +90,7 @@ The NexBlue integration uses cloud {% term polling %} and updates charger data e
 ## Known limitations
 
 - The integration requires an internet connection between Home Assistant and the NexBlue cloud service.
-- This initial version is read-only. Starting or stopping charging is not currently available through Home Assistant.
-- A charger that is offline remains visible, but its entities show an unknown state until the charger can be reached again.
+- A charger that is offline remains visible, but its entities become unavailable until the charger can be reached again.
 
 ## Troubleshooting
 

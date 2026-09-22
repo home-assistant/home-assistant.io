@@ -3,6 +3,7 @@ title: Besen
 description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
 ha_category:
   - Car
+  - Energy
 ha_release: 2026.9
 ha_iot_class: Local Push
 ha_codeowners:
@@ -10,6 +11,9 @@ ha_codeowners:
 ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
+  - number
+  - select
+  - sensor
   - switch
 ha_config_flow: true
 ha_integration_type: device
@@ -31,27 +35,60 @@ Other Besen chargers using the same `ACP#` Bluetooth protocol may also work.
 ## Prerequisites
 
 - A Besen charger advertising as `ACP#...`.
-- The charger's Bluetooth address and 6-digit PIN.
+- The charger's 6-digit PIN.
 - A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
 
 ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
 
 {% include integrations/config_flow.md %}
 
-Home Assistant can discover chargers that advertise as `ACP#...`. If discovery does not find your charger, add the integration manually and enter the charger's Bluetooth address.
+Home Assistant can discover chargers that advertise as `ACP#...`. If your charger is not discovered automatically, add the integration manually and select it from the list of Besen chargers currently visible over Bluetooth. If no charger is found, follow the [discovery troubleshooting steps](#the-charger-is-not-discovered).
 
 {% configuration_basic %}
-Bluetooth address:
-  description: "The BLE address of the charger. Discovery fills this automatically when Home Assistant sees an ACP# advertisement."
+Device:
+  description: "The discovered Besen charger to set up."
 PIN:
   description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-The {% term integration %} provides a switch to start or stop charging.
+### Switch
+
+The {% term integration %} provides a **Charge** switch to start or stop charging.
 
 The switch state follows the charging state reported by the charger.
+
+### Number
+
+The **Charging current** number sets the maximum current the charger can use. The available range starts at 6&nbsp;A and ends at the maximum reported by the charger. Home Assistant uses 32&nbsp;A if the charger does not report a maximum.
+
+### Select
+
+The **Temperature unit** select sets the temperature display on the charger's screen to **Celsius** or **Fahrenheit**. This setting does not change the unit system or temperature sensor display units in Home Assistant.
+
+### Sensors
+
+The following sensors are enabled by default:
+
+- **Charging power**: Current charging power reported by the charger in watts (W).
+- **Total energy**: Lifetime energy reported by the charger in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
+- **Session energy**: Energy delivered during the current or most recently completed charging session in kilowatt-hours (kWh). This value can reset when a new session starts, so it is not recommended for the Energy dashboard.
+- **Internal temperature**: Temperature measured inside the charger in degrees Celsius (°C).
+- **Charging status**: High-level charging state reported by the charger.
+- **Charging message**: Additional guidance reported for the current charging state.
+
+The following diagnostic sensors are disabled by default:
+
+- **External temperature**: External temperature reported by the charger in degrees Celsius (°C).
+- **Error state**: Detailed charger fault state.
+- **Plug state**: Connection and lock state reported for the charging plug.
+- **Output state**: Low-level state of the charger output.
+- **Current state**: Low-level operating state reported by the charger.
+- **L1 voltage** and **L1 current**: Voltage and current reported for phase L1.
+- **L2 voltage**, **L2 current**, **L3 voltage**, and **L3 current**: Voltage and current reported for phases L2 and L3. These sensors are created only for three-phase chargers.
+
+To use an entity that is disabled by default, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
 
 ## Actions
 
@@ -59,6 +96,8 @@ The integration does not provide custom actions. Use the standard entity actions
 
 - `switch.turn_on` starts charging.
 - `switch.turn_off` stops charging.
+- `number.set_value` sets the charging current.
+- `select.select_option` changes the temperature unit shown on the charger's screen.
 
 ## Examples
 
@@ -92,14 +131,16 @@ actions:
 
 The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
 
+Sensor values update when the charger sends status and charging-session notifications. The temperature unit select updates after a command is sent successfully and when the charger reports the setting. An entity shows an `unknown` value until the charger reports its corresponding value. All charger entities become `unavailable` while the Bluetooth connection is unavailable or authentication is incomplete.
+
 This is a local push integration. There is no cloud dependency.
 
 ## Known limitations
 
 The integration does not support:
 
-- Changing charger settings such as charge current, language, temperature unit, LCD brightness, or device name.
-- Reporting detailed charger telemetry as Home Assistant sensor entities.
+- Changing charger settings such as language, LCD brightness, or device name.
+- Reporting Bluetooth signal strength as an entity.
 - Wi-Fi provisioning.
 - Password reset.
 - Device reset.

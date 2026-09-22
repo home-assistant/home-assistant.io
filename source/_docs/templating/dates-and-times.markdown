@@ -197,6 +197,15 @@ template: |
 output: "15 minutes ago"
 {% endexample %}
 
+If you already have a timedelta object and want to display it in a readable format, use [`timedelta_string`](/template-functions/timedelta_string/):
+
+{% example %}
+template: |
+  {% set open_for = trigger.to_state.last_changed - trigger.from_state.last_changed %}
+  Open for {{ timedelta_string(open_for, 2) }}
+output: "Open for 15 minutes 30 seconds"
+{% endexample %}
+
 ### Is it more than X minutes?
 
 A common pattern: trigger an alert when something has been in a state too long.
