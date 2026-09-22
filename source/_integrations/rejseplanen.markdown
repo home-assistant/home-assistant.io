@@ -20,7 +20,7 @@ related:
 
 The **Rejseplanen** {% term integration %} provides you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
-When you set it up, the integration creates a hidden service device that handles communication with the Rejseplanen cloud API. You then add one device per stop that you want to monitor, and each stop device provides sensor entities for the next departure.
+When you set it up, the integration connects to the Rejseplanen cloud API with your API key. You then add one device per stop that you want to monitor, and each stop device provides sensor entities for the next departure.
 
 {% important %}
 Extra attributes that were previously available on the sensors have been removed to conform to Home Assistant standards.
@@ -288,6 +288,8 @@ The sensors don't add extra state attributes.
 
 The integration polls departure data every 5 minutes by default. You can use automations to update the sensors more often at specific times. Before you do, turn off automatic updates so the default polling doesn't run in addition to your automation (see [Data updates](#data-updates)).
 
+The integration fetches the departures for all your stops in a single request, so refreshing one sensor refreshes every stop. The examples below therefore update a single sensor.
+
 ### Automation: More frequent updates during peak hours
 
 This example updates the sensors every 2 minutes during the morning rush hour (7:00–9:00) and every minute during the last 5 minutes before a typical commute time.
@@ -304,6 +306,13 @@ automation:
     triggers:
       - trigger: time_pattern
         minutes: "/2"
+      - trigger: time
+        at:
+          - "08:55:00"
+          - "08:56:00"
+          - "08:57:00"
+          - "08:58:00"
+          - "08:59:00"
     conditions:
       - condition: time
         after: "07:00:00"
@@ -312,26 +321,7 @@ automation:
       - action: homeassistant.update_entity
         data:
           entity_id:
-            - sensor.my_station_line
             - sensor.my_station_departing_in
-            - sensor.my_station_delayed_by
-
-  - alias: "Final countdown departure update"
-    triggers:
-      - trigger: time
-        at:
-          - "08:55:00"
-          - "08:56:00"
-          - "08:57:00"
-          - "08:58:00"
-          - "08:59:00"
-    actions:
-      - action: homeassistant.update_entity
-        data:
-          entity_id:
-            - sensor.my_station_line
-            - sensor.my_station_departing_in
-            - sensor.my_station_delayed_by
 ```
 
 {% enddetails %}
@@ -355,10 +345,7 @@ automation:
       - action: homeassistant.update_entity
         data:
           entity_id:
-            - sensor.my_station_line
             - sensor.my_station_departing_in
-            - sensor.my_station_delayed_by
-            - sensor.my_station_towards
 ```
 
 {% enddetails %}
