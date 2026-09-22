@@ -21,9 +21,43 @@ To check what kind of data is arriving at your serial port, use a serial termina
 sudo minicom -D /dev/ttyACM0
 ```
 
-## Configuration
+## Setting up a serial connection in Home Assistant
 
-To set up a serial sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+You can connect a [device connected via serial](#device-connected-via-serial) to the system running Home Assistant, or access it over your network with a serial proxy.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant.
+- A serial-connected device, such as an AV receiver, a projector, or a smart meter with a P1 port.
+- An {% term integration %} for that device. In the documentation, search the [integrations](/integrations/) for your device or its brand.
+  - If no integration is available for your device, you can read the raw data from the port with the [Serial sensor](#serial-sensor) instead.
+- A way for Home Assistant to reach the serial port of that device:
+  - A [USB-to-serial adapter](#usb-to-serial-adapter), if the device is close enough to cable it to the system that runs Home Assistant.
+  - A [serial proxy](#serial-proxy), if it is not. Because the proxy connects over your network, you can place it next to the device.
+- The connection settings that your device expects, such as the [baud rate](#baud-rate). Check the documentation of your device.
+
+### To set up a serial connection in Home Assistant
+
+1. Connect your device to a serial port that Home Assistant can reach.
+   - **USB-to-serial adapter**: connect your device to the adapter, then plug the adapter into the system that runs Home Assistant.
+   - **Serial proxy**: connect your device to one of the serial ports of the ESPHome device. Then, add the [ESPHome](/integrations/esphome/) {% term integration %}. The serial ports that the ESPHome device shares become available to Home Assistant.
+2. Optional: check if Home Assistant sees the port. Go to **Settings** > **Connectivity** > **Serial**.
+   - A port is listed as soon as its adapter or serial proxy is available, whether or not your device is wired to it yet.
+   - A port that a serial proxy shares is listed only while the ESPHome device is online.
+   - If your port is not listed, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
+   - For more details, refer to [Viewing your serial ports](#viewing-your-serial-ports).
+3. Add the {% term integration %} for your device, such as [Denon RS-232](/integrations/denon_rs232/).
+   - To add the integration, follow the steps in the integration documentation.
+   - When you are asked which serial port to use, select the port that your device is connected to. Local ports and serial proxy ports are listed together, grouped by type. Ports that suit the integration you are setting up are listed first, under **Recommended for** the integration. When you select a port, Home Assistant stores the most stable identifier that is available for it.
+   - A port that is shared by a serial proxy is listed under **Serial proxies**, together with the name of the ESPHome device that shares it.
+   - If you enter a local device path yourself, use the `/dev/serial/by-id/...` link rather than a path like `/dev/ttyUSB0` or `/dev/ttyACM0`, because their mappings can change; in other words, which device appears as `ttyACM0` will vary. To look up the link, select **Port information** for that port in the **Serial** panel, and copy the **Device** field.
+   - The list shows the ports that Home Assistant found on your system and on your serial proxies. A port on another system, such as one that you expose with [`ser2net`](https://ser2net.sourceforge.net/) or [`socat`](http://www.dest-unreach.org/socat/), is not found automatically. To use such a port, select **Enter manually** and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
+
+## Serial sensor
+
+The **Serial** sensor reads the raw data from a serial port and makes it available as a sensor {% term entity %}. Use it when no integration is available for your device.
+
+To add a serial sensor, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -35,7 +69,7 @@ sensor:
 
 {% configuration %}
 serial_port:
-  description: "The [device path](#device-path) of the serial port to read from, such as `/dev/ttyACM0`. For a port that Home Assistant reaches over your network, use its URL instead, such as `socket://192.168.1.10:4001`."
+  description: "The [device path](#device-path) of the serial port to read from. Use the `/dev/serial/by-id/...` link where one is available. Avoid paths like `/dev/ttyUSB0` and `/dev/ttyACM0` because their mappings can change; in other words, which device appears as `ttyACM0` will vary. For a port that Home Assistant reaches over your network, use its URL instead, such as `socket://192.168.1.10:4001`."
   required: true
   type: string
 name:
