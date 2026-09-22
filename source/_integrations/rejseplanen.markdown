@@ -50,6 +50,16 @@ API key:
 Rejseplanen supports a single integration entry. To use a different API key, remove the integration and set it up again.
 {% endnote %}
 
+## Migrating from YAML configuration
+
+If you previously configured Rejseplanen through {% term "`configuration.yaml`" %}, it can't be imported automatically. Rejseplanen now requires an API key, which the YAML configuration didn't provide.
+
+1. Set up the integration through the UI to provide your API key, then [add a stop](#adding-a-stop) for each location you want to monitor.
+2. Remove the `rejseplanen` entry under `sensor:` from your {% term "`configuration.yaml`" %} file.
+3. [Restart Home Assistant](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the change.
+
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} will guide you through the same steps.
+
 ## Adding a stop
 
 Each stop you want to monitor is added as a separate device. After you set up the integration with your API key, add one stop for each location you want to track:
@@ -258,16 +268,6 @@ You can filter a stop by the following departure types:
 - **Regional trains** (`re`): Regional trains (Re, RA, RX)
 - **S-trains** (`s_tog`): S-trains (Copenhagen suburban rail)
 - **Long distance trains** (`tog`): EC, IR, ICE, SJ, and other long-distance trains
-
-## Migrating from YAML configuration
-
-If you previously configured Rejseplanen through {% term "`configuration.yaml`" %}, it can't be imported automatically. Rejseplanen now requires an API key, which the YAML configuration didn't provide.
-
-1. Set up the integration through the UI to provide your API key, then add a stop for each location you want to monitor.
-2. Remove the `rejseplanen` entry under `sensor:` from your {% term "`configuration.yaml`" %} file.
-3. [Restart Home Assistant](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the change.
-
-A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} will guide you through the same steps.
 
 ## Supported functionality
 
