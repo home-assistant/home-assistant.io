@@ -72,6 +72,8 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Camera Eyes
 - Camera 360
 
+A Motion Detector II also gets a **Pet immunity** switch.
+
 ### Valve
 
 The valve platform shows the position of your thermostat's valve. A valve entity is added for each Thermostat.
