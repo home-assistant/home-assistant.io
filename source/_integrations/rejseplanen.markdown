@@ -95,14 +95,21 @@ The stop ID is a unique identifier for each public transport stop or station. Yo
 
 The easiest way to find your stop ID is to search for the stop by name:
 
-1. Open a web browser and visit: <https://www.rejseplanen.dk/api/location.name?input=><search_term>&accessId=<YOUR_API_KEY>
+1. Open a web browser and visit the following URL:
+
+   ```text
+   https://www.rejseplanen.dk/api/location.name?input=<search_term>&accessId=<YOUR_API_KEY>
+   ```
+
 2. Replace `<search_term>` with the name of your stop (for example, "Roskilde St." or "Copenhagen Airport").
 3. Replace `<YOUR_API_KEY>` with your Rejseplanen API key.
 4. Look for your stop in the XML response and find the `extId` attribute—this is your stop ID.
 
 For example, searching for "Roskilde St." would look like:
 
-<https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_API_KEY>
+```text
+https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_API_KEY
+```
 
 The response will include stops matching your search:
 
@@ -146,13 +153,20 @@ If you prefer to search by location coordinates:
 
 1. Find your location on [OpenStreetMap](https://www.openstreetmap.org).
 2. The URL will show the coordinates (for example: `#map=18/56.15756/10.20674`).
-3. Visit: <https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=<longitude>&originCoordLat=<latitude>&maxNo=10&accessId=<YOUR_API_KEY>>
+3. Visit the following URL:
+
+   ```text
+   https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=<longitude>&originCoordLat=<latitude>&maxNo=10&accessId=<YOUR_API_KEY>
+   ```
+
 4. Replace the coordinates and API key with your values.
 5. The response will show the 10 nearest stops to your location. Find the one you want and use its `extId` as the stop ID.
 
 Example search for nearby stops in Copenhagen:
 
-<https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=12.088367&originCoordLat=55.637912&maxNo=10&accessId=YOUR_API_KEY>
+```text
+https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=12.088367&originCoordLat=55.637912&maxNo=10&accessId=YOUR_API_KEY
+```
 
 Result:
 
@@ -219,7 +233,9 @@ To find the exact direction values to use for filtering, you need to check what 
 
 You can find available directions by making a test API call:
 
-<https://www.rejseplanen.dk/api/departureBoard?id=<YOUR_STOP_ID>&accessId=<YOUR_API_KEY>>
+```text
+https://www.rejseplanen.dk/api/departureBoard?id=<YOUR_STOP_ID>&accessId=<YOUR_API_KEY>
+```
 
 Example response showing the direction attribute:
 
