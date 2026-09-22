@@ -2,7 +2,8 @@
 title: "Rejseplanen"
 description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
 ha_release: "2026.10"
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: "Cloud Polling"
 ha_quality_scale: legacy
 ha_config_flow: true
@@ -91,7 +92,7 @@ To search by name or location:
 
 2. Replace `<search_term>` with the name of your stop (for example, "Roskilde St." or "Copenhagen Airport").
 3. Replace `<YOUR_API_KEY>` with your Rejseplanen API key.
-4. Look for your stop in the XML response and find the `extId` attribute—this is your stop ID.
+4. Look for your stop in the XML response and find the `extId` attribute. This is your stop ID.
 
 For example, searching for "Roskilde St." would look like:
 
@@ -241,7 +242,7 @@ Example response showing the direction attribute:
 
 Use the exact text from the `direction` attribute in the direction filter. For example, to only show departures toward "Nørrebro St.", enter `Nørrebro St.` (case-sensitive). The direction of the next departure is exposed through the **Towards** sensor.
 
-### Departure types
+#### Departure types
 
 You can filter a stop by the following departure types:
 
@@ -282,8 +283,9 @@ The integration polls departure data every 5 minutes by default. You can use aut
 
 This example updates the sensors every 2 minutes during the morning rush hour (7:00–9:00) and every minute during the last 5 minutes before a typical commute time.
 
-- **Triggers**: Every 2 minutes between 7:00 and 9:00, and every minute in the final 5 minutes
-- **Action**: Refresh the departure sensors
+- **Triggers**: Time pattern, every 2 minutes; and time, at 08:55, 08:56, 08:57, 08:58, and 08:59
+- **Condition**: Time, between 07:00 and 09:00
+- **Action**: Update entity
 
 {% details "YAML example: more frequent updates during peak hours" %}
 
@@ -327,19 +329,14 @@ automation:
 
 ### Automation: Update on demand with a button
 
-This example refreshes the departure data whenever you press a dashboard button. The button is a {% term helper %} that you create separately.
+This example refreshes the departure data whenever you press a dashboard button. The button is an input button {% term helper %} that you create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. This example uses a helper with the entity ID `input_button.refresh_departures`.
 
 - **Trigger**: The dashboard button is pressed
-- **Action**: Refresh the departure sensors
+- **Action**: Update entity
 
 {% details "YAML example: update on demand with a button" %}
 
 ```yaml
-input_button:
-  refresh_departures:
-    name: "Refresh departures"
-    icon: mdi:refresh
-
 automation:
   - alias: "Refresh departures on button press"
     triggers:
