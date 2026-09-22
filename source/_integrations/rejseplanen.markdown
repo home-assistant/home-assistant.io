@@ -23,7 +23,7 @@ The **Rejseplanen** {% term integration %} provides you with travel details for 
 When you set it up, the integration creates a hidden service device that handles communication with the Rejseplanen cloud API. You then add one device per stop that you want to monitor, and each stop device provides sensor entities for the next departure.
 
 {% important %}
-Extra attributes that were previously available on the sensors have been removed to conform to Home Assistant standards. A future release will add an {% term action %} to retrieve the full list of departures with all details.
+Extra attributes that were previously available on the sensors have been removed to conform to Home Assistant standards.
 {% endimportant %}
 
 ## Prerequisites
@@ -362,18 +362,17 @@ Be mindful of the API rate limit (50,000 calls per month for private keys). Freq
 
 The integration {% term polling polls %} departure data from the Rejseplanen API every 5 minutes by default.
 
-To manage polling yourself—for example, to update sensors at different frequencies during the day—turn off automatic updates first. Otherwise, the default 5-minute polling continues in addition to your own updates and uses more of your monthly API quota:
+To manage polling yourself, for example to update sensors at different frequencies during the day, turn off automatic updates first. Otherwise, the default 5-minute polling continues in addition to your own updates and uses more of your monthly API quota:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
 2. Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then **System options**.
 3. Turn off **Enable polling for changes**.
 
-For more on updating entities on your own schedule, see [defining a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
+For more on updating entities on your own schedule, see [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Known limitations
 
-- The sensor entities show only the next departure. To see how many upcoming departures match your filters, check the **Number of departures** sensor.
-- Full departure lists with all details will be available through an {% term action %} in a future release, so you can retrieve and display multiple departures in dashboards or automations.
+- The sensor entities show only the next departure. The full list of upcoming departures with all their details isn't available. To see how many upcoming departures match your filters, check the **Number of departures** sensor.
 
 ## Removing the integration
 
