@@ -58,7 +58,7 @@ If you previously configured Rejseplanen through {% term "`configuration.yaml`" 
 2. Remove the `rejseplanen` entry under `sensor:` from your {% term "`configuration.yaml`" %} file.
 3. [Restart Home Assistant](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the change.
 
-A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} will guide you through the same steps.
+A repair issue under {% my repairs title="**Settings** > **System** > **Repairs**" %} reminds you to remove the YAML configuration.
 
 ## Adding a stop
 
