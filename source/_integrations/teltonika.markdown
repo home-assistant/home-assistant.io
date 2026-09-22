@@ -36,7 +36,7 @@ Most Teltonika routers running RutOS are supported, including:
 - The IP address of your router.
 - Login credentials for your router's web interface.
 
-For better security, you can create a dedicated user and user group in RutOS for Home Assistant instead of using a privileged account. The group needs read permissions for device, system, and modem information. If data is missing, check the group's read permissions in RutOS. Additional permissions may be needed if the integration supports more router functionality in the future.
+To improve security, create a dedicated user and user group in RutOS for Home Assistant instead of using an account with broad access. The group needs read permissions for device, system, and modem information. If some sensors are missing, check the group's read permissions in RutOS.
 
 {% include integrations/config_flow.md %}
 
