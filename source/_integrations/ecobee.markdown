@@ -81,6 +81,35 @@ data:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
+## Binary sensors
+
+### Occupancy
+
+For each remote sensor connected to an ecobee thermostat that reports occupancy, a `binary_sensor` entity with device class `occupancy` is created. This reflects whether the sensor currently detects motion.
+
+### Maintenance reminders
+
+For each enabled equipment maintenance reminder configured on an ecobee thermostat, a `binary_sensor` entity with device class `problem` is created. The sensor turns on when the reminder is actively firing (for example, when it is time to change a filter) and turns off otherwise.
+
+The following reminder types are supported:
+
+| Reminder             | Description                                          |
+| -------------------- | ---------------------------------------------------- |
+| Furnace filter       | Furnace filter needs replacing                       |
+| Humidifier filter    | Humidifier filter needs replacing                    |
+| Dehumidifier filter  | Dehumidifier filter needs replacing                  |
+| Ventilator           | Ventilator needs maintenance                         |
+| Economizer           | Economizer needs maintenance                         |
+| UV lamp              | UV lamp needs replacing                              |
+| AC maintenance       | Air conditioner needs maintenance                    |
+| Air filter           | Air filter needs replacing                           |
+| Air cleaner          | Air cleaner needs maintenance                        |
+| HVAC maintenance     | HVAC system needs maintenance                        |
+
+When a reminder is actively firing, the entity includes extra state attributes: `date`, `time`, `text`, `alert_type`, and `severity`.
+
+Reminders are configured on the ecobee thermostat itself or through the ecobee app. Only enabled reminders create entities in Home Assistant.
+
 ## Thermostat
 
 ### Concepts
