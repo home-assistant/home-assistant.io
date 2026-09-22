@@ -85,7 +85,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ### Occupancy
 
-For each remote sensor connected to an ecobee thermostat that reports occupancy, a `binary_sensor` entity with device class `occupancy` is created. This reflects whether the sensor currently detects motion.
+For each remote sensor connected to an ecobee thermostat that reports occupancy, a `binary_sensor` entity with device class `occupancy` is created. The sensor turns on when the ecobee sensor reports the area as occupied and turns off when unoccupied. Ecobee sensors determine occupancy using a passive infrared (PIR) motion detector and may remain in the "occupied" state for several minutes after the last detected motion.
 
 ### Maintenance reminders
 
@@ -96,8 +96,8 @@ The following reminder types are supported:
 | Reminder             | Description                                          |
 | -------------------- | ---------------------------------------------------- |
 | Furnace filter       | Furnace filter needs replacing                       |
-| Humidifier filter    | Humidifier filter needs replacing                    |
-| Dehumidifier filter  | Dehumidifier filter needs replacing                  |
+| Humidifier filter    | Humidifier pad needs replacing                       |
+| Dehumidifier filter  | Dehumidifier pad needs replacing                     |
 | Ventilator           | Ventilator needs maintenance                         |
 | Economizer           | Economizer needs maintenance                         |
 | UV lamp              | UV lamp needs replacing                              |
@@ -106,7 +106,15 @@ The following reminder types are supported:
 | Air cleaner          | Air cleaner needs maintenance                        |
 | HVAC maintenance     | HVAC system needs maintenance                        |
 
-When a reminder is actively firing, the entity includes extra state attributes: `date`, `time`, `text`, `alert_type`, and `severity`.
+When a reminder is actively firing, the entity includes the following extra state attributes:
+
+| Attribute    | Description                                                      |
+| ------------ | ---------------------------------------------------------------- |
+| `date`       | Date the reminder fired, in `YYYY-MM-DD` format.                |
+| `time`       | Time the reminder fired, in `HH:MM:SS` format.                  |
+| `text`       | Reminder message text from the ecobee thermostat.                |
+| `alert_type` | Type of alert (for example, `reminder`).                         |
+| `severity`   | Severity level reported by the thermostat (for example, `low`).  |
 
 Reminders are configured on the ecobee thermostat itself or through the ecobee app. Only enabled reminders create entities in Home Assistant.
 
