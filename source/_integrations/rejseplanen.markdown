@@ -100,7 +100,7 @@ The stop ID is a unique identifier for each public transport stop or station. Yo
 https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_API_KEY
 ```
 
-The response includes stops matching your search:
+The response includes stops matching your search. In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
 
 {% details "Example XML response" %}
 
@@ -140,8 +140,6 @@ The response includes stops matching your search:
 ```
 
 {% enddetails %}
-
-In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
 
 ### To search by coordinates
 
