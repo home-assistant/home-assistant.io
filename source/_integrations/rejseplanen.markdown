@@ -292,28 +292,35 @@ automation:
   - alias: "Peak hour frequent departure updates"
     triggers:
       - trigger: time_pattern
-        hours: "7-8"
         minutes: "/2"
+    conditions:
+      - condition: time
+        after: "07:00:00"
+        before: "09:00:00"
     actions:
       - action: homeassistant.update_entity
-        target:
+        data:
           entity_id:
             - sensor.my_station_line
-            - sensor.my_station_departure_time
-            - sensor.my_station_delay
+            - sensor.my_station_departing_in
+            - sensor.my_station_delayed_by
 
   - alias: "Final countdown departure update"
     triggers:
-      - trigger: time_pattern
-        hours: "8"
-        minutes: "55-59"
+      - trigger: time
+        at:
+          - "08:55:00"
+          - "08:56:00"
+          - "08:57:00"
+          - "08:58:00"
+          - "08:59:00"
     actions:
       - action: homeassistant.update_entity
-        target:
+        data:
           entity_id:
             - sensor.my_station_line
-            - sensor.my_station_departure_time
-            - sensor.my_station_delay
+            - sensor.my_station_departing_in
+            - sensor.my_station_delayed_by
 ```
 
 {% enddetails %}
@@ -340,12 +347,12 @@ automation:
         entity_id: input_button.refresh_departures
     actions:
       - action: homeassistant.update_entity
-        target:
+        data:
           entity_id:
             - sensor.my_station_line
-            - sensor.my_station_departure_time
-            - sensor.my_station_delay
-            - sensor.my_station_direction
+            - sensor.my_station_departing_in
+            - sensor.my_station_delayed_by
+            - sensor.my_station_towards
 ```
 
 {% enddetails %}
