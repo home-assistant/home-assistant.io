@@ -95,12 +95,12 @@ Conversation and AI Task subentries have the following configuration options. Av
 
 {% configuration_basic %}
 Instructions:
-  description: Instructions for how the AI should respond. Conversation instructions support [Home Assistant templating](/docs/templating/).
+  description: (Conversation Only) Instructions for how the AI should respond. Instructions support [Home Assistant templating](/docs/templating/).
 Control Home Assistant:
   description: Allows the model to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-Recommended settings:
+Recommended model settings:
   description: Uses recommended request settings for the declared model family. The deployment name and model family are still required.
-Maximum tokens to return in response:
+Maximum output tokens to return in response:
   description: Maximum number of tokens available for internal reasoning and visible response output.
 {% endconfiguration_basic %}
 
@@ -126,7 +126,7 @@ Web search and Code interpreter cannot be enabled when **Reasoning effort** is s
 
 #### Web search location
 
-When **Include home location** is enabled, Home Assistant asks the configured Azure chat deployment to convert the Home zone coordinates into an approximate city and region. The integration also includes the Home Assistant country and time zone. This approximate location is sent with web search requests.
+When **Use home location for web search** is enabled, Home Assistant asks the configured Azure chat deployment to convert the Home zone coordinates into an approximate city and region. The integration also includes the Home Assistant country and time zone. This approximate location is sent with web search requests.
 
 #### Code interpreter
 
@@ -140,7 +140,7 @@ Conversation and data-generation responses are not stored as retrievable Respons
 
 ## Speech-to-text
 
-Speech-to-text subentries require the Azure deployment name and the underlying Azure model. The integration uses the model to select the request path and API version. It has built-in profiles for `whisper` and `gpt-4o-transcribe`, and accepts custom model values.
+Speech-to-text subentries require the Azure deployment name and the underlying Azure model. The selected model identifies the model behind the deployment; requests always use Azure's classic per-deployment endpoint and the configured API version. The built-in model suggestions are `whisper` and `gpt-4o-transcribe`, and custom model values are accepted.
 
 {% configuration_basic %}
 Azure deployment name:
