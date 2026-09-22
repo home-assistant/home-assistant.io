@@ -38,6 +38,7 @@ The following devices are not supported by the integration:
 ## Prerequisites
 
 To use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant.
+Shelly Bluetooth Proxies are not supported with this integration.
 
 ## Configuration
 
