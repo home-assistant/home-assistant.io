@@ -20,8 +20,6 @@ The **Zentraly** {% term integration %} lets you control supported thermostats f
 
 The integration communicates directly with Zentraly devices over the local network using a WebSocket connection and does not require a cloud service.
 
-Zentraly devices are automatically discovered on the local network using Zeroconf.
-
 ## Prerequisites
 
 Before setting up the integration:
@@ -33,13 +31,17 @@ Before setting up the integration:
 5. Make sure the Zentraly device is reachable from the Home Assistant host.
 6. Get the device password from the **About device** section in the Zentraly app. You need this password during setup.
 
-{% include integrations/config_flow.md %}
+## Configuration
 
-{% note %}
-Zentraly requires automatic discovery before setup. The manual configuration steps above cannot add an undiscovered thermostat, and entering an IP address is not supported. If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network.
-{% endnote %}
+Zentraly thermostats must be discovered automatically before they can be added to Home Assistant.
 
-Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**. Enter the device password from the **About device** section in the Zentraly app and submit the form. Home Assistant verifies the connection and password before adding the thermostat.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
+2. Under **Discovered**, find the Zentraly thermostat with your device ID and select **Configure**.
+3. Enter the device password from the **About device** section in the Zentraly app and submit the form.
+
+Home Assistant verifies the connection and password before adding the thermostat.
+
+If the thermostat does not appear, check that third-party connections are enabled and that Home Assistant and the thermostat are on the same local network. Adding an undiscovered thermostat manually or entering its IP address is not supported.
 
 {% configuration_basic %}
 Password:
@@ -54,7 +56,7 @@ The integration currently supports the following Zentraly devices:
 
 ## Supported functionality
 
-### ZTTIN thermostat
+### Climate
 
 The ZTTIN thermostat is represented as a climate entity.
 
