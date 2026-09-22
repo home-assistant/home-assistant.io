@@ -215,7 +215,7 @@ Some themes have been renamed or retired to match the LIFX app. The old names st
 
 {% include integrations/actions.md %}
 
-## Examples
+## LIFX automation examples
 
 Here are a few automation examples that use the actions provided by the LIFX integration:
 
@@ -351,9 +351,9 @@ A device that supports HAP and has not been added to native HomeKit is discovere
 
 The LIFX Switch is not supported by this integration. You have two other ways to add it to Home Assistant.
 
-The LIFX Switch supports Matter over Wi-Fi, so you can add it with the [Matter](/integrations/matter) integration. If the switch is already paired with another ecosystem, such as Apple Home or Google Home, use that app to generate a new pairing code before you add it to Home Assistant.
+A LIFX Switch running [firmware 4.100](https://support.lifx.com/hc/en-us/articles/34857864915095-Matter-Firmware-Updates-for-LIFX-Devices) or higher supports Matter over Wi-Fi, so you can add it with the [Matter](/integrations/matter) integration. If the switch is already paired with another ecosystem, such as Apple Home or Google Home, use that app to generate a new pairing code before you add it to Home Assistant.
 
-You can also use the [HomeKit Controller](/integrations/homekit_controller) integration for a [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX documentation to get a HomeKit code first, because you need it during setup. If you do not use Apple Home, this option keeps the switch entirely within Home Assistant.
+You can also use the [HomeKit Controller](/integrations/homekit_controller) integration for a [LIFX Switch running firmware 3.90](https://support.lifx.com/hc/en-us/articles/14509330704663-Switch-3-90-Update-Legacy-Non-Matter-Firmware) or higher. Follow the LIFX documentation to get a HomeKit code first, because you need it during setup. If you do not use Apple Home, this option keeps the switch entirely within Home Assistant.
 
 When you use HomeKit Controller, each button on the switch is discovered as a [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and does not appear as an entity in Home Assistant. Relays that are configured as wired to non-LIFX devices appear as normal switches.
 
@@ -380,7 +380,7 @@ A LIFX Switch only advertises its HomeKit support for 15 minutes after it starts
 
 #### Resolution
 
-[Reboot your LIFX Switch](https://support.lifx.com/troubleshooting-switch-Hk6RWujLd), then start setup again within 15 minutes.
+[Reboot your LIFX Switch](https://support.lifx.com/hc/en-us/articles/14509114093335-Troubleshooting-Switch), then start setup again within 15 minutes.
 
 ## Removing the integration
 

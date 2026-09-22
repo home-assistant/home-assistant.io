@@ -31,16 +31,16 @@ To start the Move effect from an automation or a script:
 
 {% options_ui %}
 Speed:
-  description: How long, in seconds, the effect takes to move across the length of the light. Choose a value between 0.1 and 60.
+  description: How long, in seconds, the effect takes to move across the length of the light. Choose a value between 0.1 and 60. Defaults to 3 seconds.
   required: false
 Direction:
-  description: "The direction the colors move along the light. Select either `right` or `left`."
+  description: "The direction the colors move along the light. Select either `right` or `left`. Defaults to `right`."
   required: false
 Theme:
   description: A predefined color theme to set on the light before the effect starts. Leave this empty to animate the colors the light already shows.
   required: false
 Power on:
-  description: Turn this off to leave lights that are currently off untouched.
+  description: Turn this off to leave lights that are currently off untouched. On by default.
   required: false
 {% endoptions_ui %}
 

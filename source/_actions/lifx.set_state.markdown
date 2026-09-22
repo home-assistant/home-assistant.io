@@ -43,7 +43,7 @@ Infrared:
   required: false
 {% endoptions_ui %}
 
-You can also set any color and brightness option that the [**Turn on**](/actions/light.turn_on/) action offers, such as **Color name**, **Brightness**, **Color temperature**, or **Effect**.
+You can also set any color and brightness option that the [**Turn on light**](/actions/light.turn_on/) action offers, such as **Color name**, **Brightness**, **Color temperature**, or **Effect**.
 
 {% important %}
 

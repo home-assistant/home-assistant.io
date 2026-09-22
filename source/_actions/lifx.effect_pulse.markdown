@@ -31,7 +31,7 @@ To run the pulse effect from an automation or a script:
 
 {% options_ui %}
 Mode:
-  description: "Decides how colors are changed. One of: `blink` (switch straight to the new color), `breathe` (fade to the new color and back), `ping` (a short pulse of the new color), `strobe` (the light turns off between color changes), or `solid` (the light stays at the new color between cycles)."
+  description: "Decides how colors are changed. One of: `blink` (switch straight to the new color), `breathe` (fade to the new color and back), `ping` (a short pulse of the new color), `strobe` (the light turns off between color changes), or `solid` (the light stays at the new color between cycles). Defaults to `blink`."
   required: false
 Brightness value:
   description: How bright the temporary color is, where 1 is the minimum brightness and 255 is the maximum brightness the light supports. Leave it out to keep the current brightness.
@@ -46,13 +46,13 @@ RGB color:
   description: The temporary color in RGB format, as a list of three numbers from 0 to 255. Use either this or the color name, not both.
   required: false
 Period:
-  description: How long a single flash takes, in seconds. Accepts 0.05 to 60 seconds.
+  description: How long a single flash takes, in seconds. Accepts 0.05 to 60 seconds. If you leave it empty, the `strobe` mode uses 0.1 seconds and every other mode uses 1 second.
   required: false
 Cycles:
-  description: How many times the effect runs, from 1 to 10000.
+  description: How many times the effect runs, from 1 to 10000. If you leave it empty, the `strobe` mode runs 10 cycles and every other mode runs 1 cycle.
   required: false
 Power on:
-  description: Turn this off to skip lights that are currently off. When it's on, those lights are temporarily turned on for the effect.
+  description: Turn this off to skip lights that are currently off. When it's on, those lights are temporarily turned on for the effect. On by default.
   required: false
 {% endoptions_ui %}
 

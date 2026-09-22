@@ -38,25 +38,25 @@ Brightness:
   description: An alternative to the brightness value, as a percentage from 0 to 100. Use either this or the brightness value, not both.
   required: false
 Minimum saturation:
-  description: The lower bound for how vivid the colors are, as a percentage from 1 to 100. The effect uses the midpoint between the minimum and the maximum as a steady saturation, so lower values make the colors look paler.
+  description: The lower bound for how vivid the colors are, as a percentage from 1 to 100. The effect uses the midpoint between the minimum and the maximum as a steady saturation, so lower values make the colors look paler. Defaults to 80.
   required: false
 Maximum saturation:
-  description: The upper bound for how vivid the colors are, as a percentage from 1 to 100. Higher values make the colors look more vivid.
+  description: The upper bound for how vivid the colors are, as a percentage from 1 to 100. Higher values make the colors look more vivid. Defaults to 100.
   required: false
 Transition:
   description: Accepted for compatibility with the other effects. It has no effect on the color loop, which fades continuously.
   required: false
 Period:
-  description: How long one full trip around the color wheel takes, in seconds. Accepts 0.05 to 3600 seconds. Shorter periods make the colors move faster.
+  description: How long one full trip around the color wheel takes, in seconds. Accepts 0.05 to 3600 seconds. Shorter periods make the colors move faster. Defaults to 60 seconds.
   required: false
 Change:
-  description: How many degrees of the color wheel each update covers, from 0 to 360. Smaller values send more updates per loop. The effect always sends at least 20 updates per second, so on longer periods this option makes no visible difference.
+  description: How many degrees of the color wheel each update covers, from 0 to 360. Smaller values send more updates per loop. The effect always sends at least 20 updates per second, so on longer periods this option makes no visible difference. Defaults to 20.
   required: false
 Spread:
-  description: How far apart the colors of your lights are, in degrees on a color wheel from 0 to 360. Each additional light is offset by this much. Use 0 to keep every light on the same color.
+  description: How far apart the colors of your lights are, in degrees on a color wheel from 0 to 360. Each additional light is offset by this much. Use 0 to keep every light on the same color. Defaults to 30.
   required: false
 Power on:
-  description: Turn this off to skip lights that are currently off. When it's on, those lights are temporarily turned on for the effect.
+  description: Turn this off to skip lights that are currently off. When it's on, those lights are temporarily turned on for the effect. On by default.
   required: false
 {% endoptions_ui %}
 

@@ -31,16 +31,16 @@ To start the Morph effect from an automation or a script:
 
 {% options_ui %}
 Speed:
-  description: How long, in seconds, one complete animation cycle takes. Choose a whole number between 1 and 25.
+  description: How long, in seconds, one complete animation cycle takes. Choose a whole number between 1 and 25. Defaults to 3 seconds.
   required: false
 Palette:
   description: Your own list of 2 to 16 colors, each defined as hue (0 to 360), saturation (0 to 100), brightness (0 to 100), and Kelvin (1500 to 9000). Use this instead of a theme, not alongside one.
   required: false
 Theme:
-  description: A predefined color theme to use for the effect. Use this instead of a palette, not alongside one.
+  description: A predefined color theme to use for the effect. Use this instead of a palette, not alongside one. If you leave both empty, the `exciting` theme is used.
   required: false
 Power on:
-  description: Turn this off to leave lights that are currently off untouched.
+  description: Turn this off to leave lights that are currently off untouched. On by default.
   required: false
 {% endoptions_ui %}
 

@@ -31,10 +31,10 @@ To start the Flame effect from an automation or a script:
 
 {% options_ui %}
 Speed:
-  description: How long, in seconds, one complete animation cycle takes. Choose a whole number between 1 and 25.
+  description: How long, in seconds, one complete animation cycle takes. Choose a whole number between 1 and 25. Defaults to 3 seconds.
   required: false
 Power on:
-  description: Turn this off to leave lights that are currently off untouched.
+  description: Turn this off to leave lights that are currently off untouched. On by default.
   required: false
 {% endoptions_ui %}
 
