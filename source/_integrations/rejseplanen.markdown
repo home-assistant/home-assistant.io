@@ -52,7 +52,7 @@ Rejseplanen supports a single integration entry. To use a different API key, rem
 
 Previously, this integration was set up in your {% term "`configuration.yaml`" %} file. This method is deprecated. If you still have Rejseplanen in your configuration file, remove it and set up the integration through the UI instead.
 
-### Adding a stop
+## Adding a stop
 
 Each stop you want to monitor is added as a separate device. After you set up the integration with your API key, add one stop for each location you want to track:
 
@@ -78,11 +78,11 @@ Departure type:
 
 If you don't set any filters, the integration shows all departures from the stop.
 
-#### Finding a stop ID
+## Finding a stop ID
 
 The stop ID is a unique identifier for each public transport stop or station. You can find it using either a text search or coordinates.
 
-To search by name or location:
+### To search by name or location
 
 1. Open a web browser and visit the following URL:
 
@@ -94,7 +94,7 @@ To search by name or location:
 3. Replace `<YOUR_API_KEY>` with your Rejseplanen API key.
 4. Look for your stop in the XML response and find the `extId` attribute. This is your stop ID.
 
-For example, searching for "Roskilde St." would look like:
+#### Example search for "Roskilde St."
 
 ```text
 https://www.rejseplanen.dk/api/location.name?input=Roskilde%20St.&accessId=YOUR_API_KEY
@@ -143,7 +143,7 @@ The response includes stops matching your search:
 
 In this example, the stop ID is `8600617`. You can see it in the `extId` attribute of the `StopLocation` element.
 
-To search by coordinates:
+### To search by coordinates
 
 1. Find your location on [OpenStreetMap](https://www.openstreetmap.org).
 2. The URL shows the coordinates (for example: `#map=18/56.15756/10.20674`).
@@ -156,7 +156,7 @@ To search by coordinates:
 4. Replace the coordinates and API key with your values.
 5. The response shows the 10 nearest stops to your location. Find the one you want and use its `extId` as the stop ID.
 
-Example search for nearby stops in Copenhagen:
+#### Example search for nearby stops in Copenhagen
 
 ```text
 https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=12.088367&originCoordLat=55.637912&maxNo=10&accessId=YOUR_API_KEY
@@ -216,7 +216,7 @@ Result:
 
 Find the stop you want in the list and use the `extId` attribute as your stop ID. In this example, you can see two stops: `8651617` and `8650617`.
 
-#### Finding direction values
+## Finding direction values
 
 To filter by direction, you need the exact direction values available from your stop. These values come from the `direction` attribute in the API response.
 
@@ -242,7 +242,7 @@ Example response showing the direction attribute:
 
 Use the exact text from the `direction` attribute in the direction filter. For example, to only show departures toward "Nørrebro St.", enter `Nørrebro St.` (case-sensitive). The direction of the next departure is exposed through the **Towards** sensor.
 
-#### Departure types
+### Departure types
 
 You can filter a stop by the following departure types:
 
