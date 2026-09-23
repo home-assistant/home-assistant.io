@@ -20,8 +20,6 @@ The **Bryant Evolution** {% term integration %} lets you control Bryant Evolutio
 
 ## Prerequisites
 
-{% include integrations/serial_connected.md %}
-
 - It requires that a System Access Module be connected to the HVAC system (for example, a Bryant SYSTXBBRCT01).
 
 To install:
