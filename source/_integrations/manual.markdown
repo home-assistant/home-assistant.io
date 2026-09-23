@@ -43,7 +43,7 @@ code:
   description: >
     If defined, specifies the code or codes that enable or disable the alarm in the frontend.
     A single code can be given as a string, several codes as a list of strings or as a mapping of a name to a code.
-    Any of the configured codes is accepted, and the name or list index of the used code is reported by the [`manual_alarm_code_used`](#event-manual-alarm-code-used) event.
+    Any of the configured codes is accepted, and the name or list index of the used code is reported by the [`manual_alarm_code_used`](#event-manual-alarm-code-used) event, so the codes must be unique.
     Only one of **code** and **code_template** can be specified.
   required: exclusive
   type: [string, list, map]
