@@ -6,7 +6,7 @@ date_formatted: "January 07, 2022"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
-og_image: /images/blog/2022-01-android-quest/quest_sensors.png
+og_image: /images/blog/2022-01-android/quest_sensors.png
 ---
 
 
