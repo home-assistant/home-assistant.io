@@ -55,13 +55,11 @@
     &:focus-within {
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       transform: translateY(-2px);
-
-      .hardware-tile-cta {
-        text-decoration: underline;
-      }
     }
 
-    &:focus-within {
+    // Outline the tile only when the card link itself has keyboard focus;
+    // the buy button shows its own focus ring.
+    &:has(.hardware-tile-link:focus-visible) {
       outline: 2px solid $link-color;
       outline-offset: 2px;
     }
@@ -122,6 +120,11 @@
       font-size: 15px;
       line-height: 1.5;
     }
+
+    // The description, which always follows the product name.
+    h3 + p {
+      margin-bottom: 20px;
+    }
   }
 
   // Keeps model numbers such as "ZBT-2" from breaking at the hyphen.
@@ -149,14 +152,43 @@
     }
   }
 
-  .hardware-tile-body p.hardware-tile-note {
-    margin-top: 8px;
-    font-size: 13px;
-    color: rgba(0, 0, 0, 0.6);
+  // Sits above the stretched card link, so it opens the product's buy dialog
+  // instead of the product page.
+  a.hardware-tile-buy {
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    // Pushes the button to the bottom so buttons line up across a row.
+    margin-top: auto;
+    padding: 10px 24px 8px;
+    border-radius: 32px;
+    background: #34b155;
+    color: $white;
+    font-family: $heading-font;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #2a9146;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $link-color;
+      outline-offset: 2px;
+    }
   }
 
-  // margin-top: auto keeps every call to action on the same line across a row.
-  .hardware-tile-cta,
+  .hardware-tile-body p.hardware-tile-status {
+    margin-top: auto;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
   .hardware-byo-cta {
     display: inline-flex;
     align-items: center;
@@ -172,11 +204,6 @@
       height: 18px;
       fill: currentColor;
     }
-  }
-
-  .hardware-tile-cta {
-    margin-top: auto;
-    padding-top: 20px;
   }
 
   .hardware-byo {
