@@ -298,3 +298,96 @@ template:
 ### Digispark USB Development Board
 
 This [blog post](/blog/2017/10/23/simple-analog-sensor/) describes the setup with a Digispark USB Development Board.
+
+## Troubleshooting
+
+{% details "A serial port is missing from the list of ports" %}
+
+### Symptom: the port of your device is not listed
+
+You look for the port that your device is connected to, but it is not listed. This can happen in the **Serial** panel under **Settings** > **Connectivity** > **Serial**, or in the list of ports when you set up an integration.
+
+#### Description
+
+Home Assistant lists a port only while it can find it. A port that no {% term integration %} uses is not listed while it is unavailable. How Home Assistant finds a port depends on how it is connected:
+
+- A port on a [USB-to-serial adapter](#usb-to-serial-adapter) is found when the adapter is plugged in.
+- A port that a [serial proxy](#serial-proxy) shares is found only while the ESPHome device is online.
+- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. If such a port is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, it is not listed at all. This is different from a local port, which is listed under **Available** in that case.
+
+#### Resolution
+
+1. To look for ports again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner of the **Serial** panel.
+2. If you use a USB-to-serial adapter, make sure it is plugged in. Then, select **Refresh** again.
+3. If you use a serial proxy, make sure the ESPHome device is powered on and connected to your network.
+4. If you use a serial device server, you do not need the port to be listed. Select **Enter manually** during integration setup and enter the URL of the port, such as `socket://192.168.1.10:4001`.
+
+{% enddetails %}
+
+{% details "An integration that uses a serial device server fails to set up" %}
+
+### Symptom: the integration fails to set up, but the port is listed under Connected
+
+An integration uses a port on a [serial device server](#serial-device-server). What you see depends on the integration. For example:
+
+- Under {% my integrations title="**Settings** > **Devices & services**" %}, the integration shows **Failed setup, will retry**.
+- The entities of the integration are unavailable.
+
+At the same time, the **Serial** panel lists the port under **Connected**.
+
+#### Description
+
+Home Assistant cannot check whether a serial device server is reachable. As long as an integration uses the port, Home Assistant lists it under **Connected**, even while the device server is offline. When the device server is offline or cannot be reached, the integration cannot connect to your device.
+
+#### Resolution
+
+1. Make sure the device server is powered on and connected to your network.
+2. Make sure the URL that the integration uses matches the IP address and TCP port of the device server.
+3. Make sure your device is wired to the serial port that the device server shares on that TCP port.
+
+{% enddetails %}
+
+{% details "Your device does not respond through a serial device server" %}
+
+### Symptom: the device does not respond, or its data is unreadable
+
+The serial device server is reachable, but your device does not seem to respond. What you see depends on the integration. For example:
+
+- Setting up the integration fails with an error, such as **Failed to connect**, or a message that your device did not respond.
+- The state of a [Serial sensor](#serial-sensor) stays empty, or shows unreadable characters.
+
+#### Description
+
+With a `socket://` URL, Home Assistant sends and receives only data. The [baud rate](#baud-rate) and the other connection settings that you set in the integration are not passed on to the device server. If the device server uses different settings than your device, the data does not come through correctly.
+
+#### Resolution
+
+1. Check the documentation of your device for the connection settings it expects, such as the baud rate.
+2. On the device server, set the port to the same settings.
+3. If your device server supports <abbr title="Request for Comments">RFC</abbr> 2217, you can use an `rfc2217://` URL instead, such as `rfc2217://192.168.1.10:4001`. Home Assistant then passes the connection settings of the integration on to the device server.
+
+{% enddetails %}
+
+{% details "An integration stops working after a restart or after moving the adapter" %}
+
+### Symptom: the integration fails to set up after a restart or after moving the adapter
+
+An integration worked before, but after you restarted your system or plugged the USB-to-serial adapter into another USB port, it stopped working. What you see depends on the integration. For example:
+
+- Under {% my integrations title="**Settings** > **Devices & services**" %}, the integration shows **Failed setup, will retry**.
+- The entities of the integration are unavailable.
+
+At the same time, the **Serial** panel lists the port that the integration uses under **Disconnected**.
+
+#### Description
+
+A path like `/dev/ttyUSB0` or `/dev/ttyACM0` is assigned when the adapter is detected, so it can change. After a restart, or when you connect adapters in a different order, your adapter can get another path, and the integration can no longer find it under the old one. The `/dev/serial/by-id/...` link of an adapter stays the same. For more details, refer to [Device path](#device-path).
+
+#### Resolution
+
+1. Go to **Settings** > **Connectivity** > **Serial**, and find the port of your adapter under **Available**.
+2. Change the serial port of the integration to that port. How you change it depends on the integration. Refer to the documentation of the integration.
+   - Select the port from the list rather than entering a path like `/dev/ttyUSB0`. Home Assistant then stores the most stable identifier that is available for the port.
+   - If you enter the path yourself, use the `/dev/serial/by-id/...` link. To look it up, select **Port information** {% icon "mdi:information-outline" %} for that port in the **Serial** panel, and copy the **Device** field.
+
+{% enddetails %}
