@@ -43,6 +43,7 @@ You can connect a [device connected via serial](#device-connected-via-serial) to
 - A way for Home Assistant to reach the serial port of that device:
   - A [USB-to-serial adapter](#usb-to-serial-adapter), if the device is close enough to cable it to the system that runs Home Assistant.
   - A [serial proxy](#serial-proxy), if it is not. Because the proxy connects over your network, you can place it next to the device. To choose one and prepare it, refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy).
+  - A [serial device server](#serial-device-server), if you already have one on your network.
 - The connection settings that your device expects, such as the [baud rate](#baud-rate). Check the documentation of your device.
 
 ### To set up a serial connection in Home Assistant
@@ -50,6 +51,7 @@ You can connect a [device connected via serial](#device-connected-via-serial) to
 1. Connect your device to a serial port that Home Assistant can reach.
    - **USB-to-serial adapter**: connect your device to the adapter, then plug the adapter into the system that runs Home Assistant.
    - **Serial proxy**: connect your device to one of the serial ports of the ESPHome device. Then, add the [ESPHome](/integrations/esphome/) {% term integration %}. The serial ports that the ESPHome device shares become available to Home Assistant. If you do not have a serial proxy yet, first refer to [Setting up an ESPHome serial proxy](#setting-up-an-esphome-serial-proxy).
+   - **Serial device server**: connect your device to one of the serial ports of the device server. On the device server, share that port on a TCP port, and set the [baud rate](#baud-rate) and the other connection settings that your device expects. The URL of the port is made of the IP address of the device server and that TCP port, such as `socket://192.168.1.10:4001`. You need this URL in step 3. The port is not listed in the **Serial** panel before then, so you can skip step 2.
 2. Optional: check if Home Assistant sees the port. Go to **Settings** > **Connectivity** > **Serial**.
    - A port is listed as soon as its adapter or serial proxy is available, whether or not your device is wired to it yet.
    - A port that a serial proxy shares is listed only while the ESPHome device is online.
