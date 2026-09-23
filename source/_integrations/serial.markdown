@@ -151,7 +151,7 @@ This section explains some of the key terms that the Home Assistant documentatio
 
 ### Serial port
 
-An interface that sends data sequentially, one bit at a time. A serial port can be built into your system, added with a USB-to-serial adapter, or shared over your network by a serial proxy.
+An interface that sends data sequentially, one bit at a time. A serial port can be built into your system, added with a [USB-to-serial adapter](#usb-to-serial-adapter), or shared over your network by a [serial proxy](#serial-proxy) or a [serial device server](#serial-device-server).
 
 ### Device path
 
