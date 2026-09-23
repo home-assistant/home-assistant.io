@@ -79,6 +79,51 @@ Missing measurements or unusable forecast periods are omitted. The number of for
 
 Use the standard [**Get weather forecasts**](/actions/weather.get_forecasts/) action to retrieve daily, hourly, or twice-daily forecasts.
 
+## Xiaomi Weather automation examples
+
+You can use the current weather conditions to create reminders in Home Assistant.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: show a morning rain reminder
+
+At 07:00, check whether your Xiaomi Weather entity's condition is **Rainy** and show an umbrella reminder in Home Assistant's notification panel. This checks the latest reported conditions, not the day's forecast. The example checks **Rainy** only; **Pouring** and **Lightning, rainy** are separate conditions.
+
+Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create an automation with these settings:
+
+- **Trigger**: Time: 07:00
+- **Condition**: State
+  - **Entity**: Your Xiaomi Weather entity
+  - **State**: Rainy
+- **Action**: Create persistent notification
+  - **Title**: `Morning rain reminder`
+  - **Message**: `Xiaomi Weather reports rain. Remember your umbrella.`
+  - **Notification ID**: `xiaomi_weather_morning_rain`
+
+If you use the YAML example, replace `weather.home` with your Xiaomi Weather entity. You can adjust the time to suit your routine. The notification ID makes subsequent reminders update the same notification.
+
+{% details "YAML example for a morning rain reminder" %}
+
+{% example %}
+automation: |
+  alias: "Show a morning rain reminder"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  conditions:
+    - condition: state
+      entity_id: weather.home
+      state: "rainy"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: "Morning rain reminder"
+        message: "Xiaomi Weather reports rain. Remember your umbrella."
+        notification_id: "xiaomi_weather_morning_rain"
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration retrieves weather data every 15 minutes. Forecast requests use the most recently retrieved data and do not make an additional request to Xiaomi Weather.
