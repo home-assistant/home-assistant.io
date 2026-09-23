@@ -71,7 +71,7 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include proxies, which extend what Home Assistant can reach. For more details, refer to [proxies and remote adapters](#proxies-and-remote-adapters).
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include proxies, which extend what Home Assistant can reach. For more details, refer to [ESPHome remote adapters (proxies)](#about-esphome-remote-adapters-proxies).
 
 If you're looking for pre-built solutions, the [Voice PE](/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
 
@@ -130,7 +130,7 @@ To set up a proxy, add the matching component to the configuration of your ESPHo
 
 - [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=bluetooth) that you can install from your browser
 - [Infrared and radio frequency proxy](https://esphome.io/components/ir_rf_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=irrf)
-- [Serial proxy](https://esphome.io/components/serial_proxy/), which currently has no ready-made projects. To use one, write the configuration for the serial port that your device is wired to, and install it on your ESPHome device yourself.
+- [Serial proxy](https://esphome.io/components/serial_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=serial)
 
 ## Updating data
 
