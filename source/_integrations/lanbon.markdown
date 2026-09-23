@@ -44,10 +44,10 @@ The **LANBON** integration provides the following entities.
 
 ### Switches
 
-- **Panel switches**
-  - **Name**: Each switch uses the name reported by the panel. If no name is provided, the component ID is used instead. The names and number of switches depend on the panel configuration.
-  - **Description**: One entity is created for each switch component that supports on/off control. It shows the current on/off state and lets you turn that switch on or off from Home Assistant or an automation.
-  - **Availability**: A switch is unavailable when its device is offline, its component is disabled, or Home Assistant cannot communicate with the panel.
+- Panel switches
+  - Name: Each switch uses the name reported by the panel. If no name is provided, the component ID is used instead. The names and number of switches depend on the panel configuration.
+  - Description: One entity is created for each switch component that supports on/off control. It shows the current on/off state and lets you turn that switch on or off from Home Assistant or an automation.
+  - Availability: A switch is unavailable when its device is offline, its component is disabled, or Home Assistant cannot communicate with the panel.
 
 ## Data updates
 
@@ -55,10 +55,10 @@ Home Assistant checks the panel every 15 seconds. Panels that support WebSocket 
 
 ## Troubleshooting
 
-- **Cannot connect**: Enable **Open Integration** on the panel and confirm port `8765` is reachable on the local network.
-- **Invalid token**: Enter the current token from the device screen.
-- **Open Integration is off**: Enable it on the panel, then retry. This setting controls access for the integration; Home Assistant does not provide a separate enable switch.
-- **No discovery**: Add the integration manually by IP address. Check that your network allows multicast discovery between Home Assistant and the panel, especially when using Docker, WSL2, or VLANs.
+- Cannot connect: Enable **Open Integration** on the panel and confirm that the configured port (default 8765) is reachable on the local network.
+- Invalid token: Enter the current token from the device screen.
+- Open Integration is off: Enable it on the panel, then retry. This setting controls access for the integration; Home Assistant does not provide a separate enable switch.
+- No discovery: Add the integration manually by IP address. Check that your network allows multicast discovery between Home Assistant and the panel, especially when using Docker, WSL2, or VLANs.
 
 ## Removing the integration
 
