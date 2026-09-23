@@ -74,7 +74,7 @@ Both sensors provide the following attributes:
 - `start`: When the warning starts, in ISO 8601 format.
 - `end`: When the warning ends, in ISO 8601 format.
 - `warning_id`: The identifier GeoSphere Austria assigns to the warning.
-- `level`: The severity of the selected warning. Only set when it differs from the sensor state, which happens when a lower ranked warning of higher severity is present.
+- `level`: The severity of the selected warning. One of `yellow`, `orange`, or `red`. This can be lower than the sensor state when a lower ranked warning of higher severity is present.
 
 When there is no warning, the sensor state is **No warning** and these attributes are not set.
 
