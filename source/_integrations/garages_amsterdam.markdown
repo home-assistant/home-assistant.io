@@ -13,7 +13,7 @@ ha_domain: garages_amsterdam
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Garages Amsterdam** {% term integration %} uses an API provided by the municipality of Amsterdam, to measure the occupancy of Amsterdam parking garages in the Netherlands. You can track multiple garages by adding the integration multiple times.

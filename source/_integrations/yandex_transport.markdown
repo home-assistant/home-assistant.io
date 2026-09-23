@@ -19,7 +19,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `yandex_tranport` {% term integration %} uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
+The **Yandex Transport** {% term integration %} uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
 
 The [Yandex Maps](https://maps.yandex.ru/) website can help to determine the id of your bus stop. You can select a bus stop by clicking on the map, and look to the URL:
 

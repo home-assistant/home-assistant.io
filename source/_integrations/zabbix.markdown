@@ -20,7 +20,7 @@ ha_codeowners:
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
 
-It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). In order to make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
+It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). To make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
 
 There is currently also support for the following device types within Home Assistant:
 
@@ -64,6 +64,11 @@ publish_states_host:
   description: The host that will receive the state changes from Home Assistant. It needs to be manually created in Zabbix first and have the template associated with it (see above).
   required: false
   type: string
+publish_string_states:
+  description: Also publish string states, that is, states which cannot be cast to a numeric value.
+  required: false
+  type: boolean
+  default: false
 exclude:
   type: list
   description: Configure which integrations should be excluded from being published to Zabbix. ([Configure Filter](#configure-filter))
@@ -111,6 +116,7 @@ zabbix:
   username: USERNAME
   password: PASSWORD
   publish_states_host: homeassistant
+  publish_string_states: true
   exclude:
     domains:
       - device_tracker
@@ -122,8 +128,6 @@ zabbix:
 ## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being published to Zabbix, you can use the `include` and `exclude` parameters.
-
-{% raw %}
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -138,8 +142,6 @@ zabbix:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 {% include common-tasks/filters.md %}
 

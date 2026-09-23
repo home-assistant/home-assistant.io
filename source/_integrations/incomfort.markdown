@@ -17,24 +17,30 @@ ha_platforms:
   - diagnostics
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ha_dhcp: true
 ha_quality_scale: platinum
 ---
 
-This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
+This {% term integration %} links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
 The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
 ### Supported devices
 
 The Intergas Gateway connects thermostats based on the OpenTherm standard. An example of such a thermostat is the [Comfort Touch Thermostat](https://www.intergas-verwarming.nl/en/consumer/products/comfort-touch-thermostat/). The thermostats and LAN2RF gateway are often sold as a set. The gateway is suitable for use with Intergas Kombi Kompakt HRE and HReco appliances from year of manufacture 2014. If the Comfort Touch thermostat is used together with the gateway, then this will work in combination with Intergas Kombi Kompakt HRE, HReco, or Xtreme devices from year of manufacture 2017.
 
+{% important %}
+
+The V3 version (EAN: 8718556040273) of the Intergas LAN2RF Gateway is not supported by this integration.
+
+{% endimportant %}
+
 ### Boiler
 
 The boiler is represented as a **Water heater** device. It will report the boiler's `state` and `current_temperature`. The gateway does not expose any means to directly control the boiler or change its configuration.
 
-Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
+Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler. If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
 
 ### Rooms
 
@@ -103,8 +109,6 @@ This integration follows standard integration removal, no extra steps are requir
 
 To send an alert if the CV pressure is too low or too high, consider the following example:
 
-{% raw %}
-
 ```yaml
 - alias: "Low CV Pressure Alert"
   triggers:
@@ -119,7 +123,5 @@ To send an alert if the CV pressure is too low or too high, consider the followi
           {{ trigger.to_state.attributes.friendly_name }}
           is low, {{ trigger.to_state.state }} bar.
 ```
-
-{% endraw %}
 
 Other properties are available via each device's attributes.

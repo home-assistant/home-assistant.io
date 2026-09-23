@@ -78,7 +78,7 @@ We use [Pivotal Tracker] to track things that are in progress and what we might 
 [Paulus Schoutsen]: https://github.com/balloob/
 [ResinOS]: https://resinos.io/
 [Docker]: https://www.docker.com/
-[addons]: /addons/
+[addons]: /apps/
 [bestlibre]: https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037
 [danielperna]: https://community.home-assistant.io/t/repository-hass-configurator/17838
 [olivierg]: https://community.home-assistant.io/t/repository-homebridge-add-on/18569

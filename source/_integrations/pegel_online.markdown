@@ -14,9 +14,10 @@ ha_platforms:
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-This integration uses the data from the German Federal Waterways and Shipping Administration (_Wasserstraßen- und Schifffahrtsverwaltung des Bundes_) [PEGELONLINE](https://www.pegelonline.wsv.de/) to provide different [sensors](#sensors), based on the available data of the selected measurement station.
+This {% term integration %} uses the data from the German Federal Waterways and Shipping Administration (_Wasserstraßen- und Schifffahrtsverwaltung des Bundes_) [PEGELONLINE](https://www.pegelonline.wsv.de/) to provide different [sensors](#sensors), based on the available data of the selected measurement station.
 
 ## Data fetching and limitations
 
@@ -83,6 +84,6 @@ actions:
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

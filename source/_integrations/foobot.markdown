@@ -1,6 +1,6 @@
 ---
 title: Foobot
-description: Instructions on how to setup Foobot Air Quality sensor in Home Assistant.
+description: Instructions on how to set up Foobot Air Quality sensor in Home Assistant.
 ha_category:
   - Health
 ha_release: 0.66
@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
+The **Foobot** {% term integration %} will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
 
 This sensor requires an API token. Please obtain one at [Foobot API site](https://api.foobot.io/apidoc/index.html).
 

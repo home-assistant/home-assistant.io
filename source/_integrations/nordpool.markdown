@@ -12,9 +12,10 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_domain: nordpool
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: hub
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
@@ -23,6 +24,18 @@ The **Nord Pool** {% term integration %} integrates [Nord Pool Group](https://ww
 The {% term integration %} provides the public market prices displayed on the [Nord Pool Auction page](https://data.nordpoolgroup.com/auction/day-ahead/prices).
 
 Most European energy is traded via the Nord Pool Group marketplace. If your energy provider doesn't have a dedicated Home Assistant integration and you have a spot-price-based contract, you can use the **Nord Pool** {% term integration %}. This integration provides spot prices for your selected market, which you can, as an example, use in a {% term template %} to calculate prices for your [energy dashboard](#energy-dashboard).
+
+{% important %}
+
+The energy market is transitioning to 15-minute <abbr title="market time unit">MTU</abbr> instead of 60-minute MTU.
+
+When this finally occurs, the **Nord Pool** {% term integration %} will automatically switch and use the 15-minute <abbr title="market time unit">MTU</abbr>. This means during the transition, you may have a current price which is hourly based and a future price that is a 15-minute price.
+
+If you use this integration to calculate your own energy cost, it is advisable to see how this affects you. Check if any automations, templates, or other settings might need to be modified accordingly.
+
+You can read more and monitor the timeline [on the page about the transition to 15-minute MTU by Nordpool](https://www.nordpoolgroup.com/en/trading/transition-to-15-minute-market-time-unit-mtu/)
+
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +58,7 @@ All prices are displayed as `[Currency]/kWh`.
 Data is polled from the **Nord Pool** API on an hourly basis, exactly on the hour, to ensure the price sensors are displaying the correct price.
 
 If polling cannot happen because of no connectivity or a malfunctioning API, it will wait a retry a few times before failing.
-The user can use the [`homeassistant.update_entity`](homeassistant#action-homeassistantupdate_entity) action to manually try again later, in the case the user has solved the connectivity issue.
+The user can use the [`homeassistant.update_entity`](/integrations/homeassistant/#action-update-entity) action to manually try again later, in the case the user has solved the connectivity issue.
 
 ## Troubleshooting
 
@@ -84,7 +97,7 @@ Additional sensors are provided for peak and off-peak blocks.
 
 | Sensor                          | Type              | Description                                                                       |
 | ------------------------------- | ----------------- | --------------------------------------------------------------------------------- |
-| [peak/off-peak] highest price   | [Currency]/kWh    | The hightest hourly price during the given timeframe.                             |
+| [peak/off-peak] highest price   | [Currency]/kWh    | The highest hourly price during the given timeframe.                             |
 | [peak/off-peak] lowest  price   | [Currency]/kWh    | The lowest hourly price during the given timeframe.                               |
 | [peak/off-peak] average         | [Currency]/kWh    | The average price of the given timeframe.                                         |
 | [peak/off-peak] time from       | Datetime          | The start date/time of the given timeframe.                                       |
@@ -99,56 +112,9 @@ The block price sensors are not enabled by default.
 | Currency                  | [Currency]        | The configured currency.                                                          |
 | Exchange rate             | Decimal           | The exchange rate between the configure currency and Euro's.                      |
 | Last updated              | Datetime          | The time when the market prices were last updated.                                |
+| Tomorrow price available  | Binary            | True or False if tomorrow's price is available                                    |
 
-## Actions
-
-### Get price for date
-
-The integration entities provide price information only for the current date. Use the "Get price for date" action to retrieve pricing information for any date within the last two months or for tomorrow.
-
-The areas and currency parameters are optional. If omitted, the values configured in the integration will be used.
-
-See [examples](#examples) how to use in a trigger template sensor.
-
-{% configuration_basic %}
-Nord Pool configuration entry:
-  description: Select the Nord Pool configuration entry to target.
-Date:
-  description: Pick the date to fetch prices for (see note about possible dates below).
-Areas:
-  description: Select one market area to create output for. If omitted it will use the areas from the configuration entry.
-Currency:
-  description: Currency to display prices in. EUR is the base currency in Nord Pool prices.  If omitted it will use the currency from the configuration entry.
-{% endconfiguration_basic %}
-
-{% note %}
-
-The public API only allows us to see past pricing information for up to 2 months.
-
-Tomorrow's prices are typically released around 13:00 CET, and trying to get them before that time will generate an error that needs to be considered in such a case.
-
-{% endnote %}
-
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
-{% endtip %}
-
-#### Example action with data
-
-{% raw %}
-
-```yaml
-action: nordpool.get_prices_for_date
-data:
-  config_entry: 1234567890a
-  date: "2024-11-10"
-  areas:
-    - SE3
-    - SE4
-  currency: SEK
-```
-
-{% endraw %}
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -158,7 +124,7 @@ A template sensor to add VAT and fixed cost is useful to get the actual energy c
 
 Create a helper using the UI.
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and at the top, choose the **Helpers** tab.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and at the top, choose the **Helpers** tab.
 2. In the bottom right corner, select **Create helper**.
 3. Select **Template** and **Template a sensor**.
 4. Enter the fields as shown below.
@@ -172,8 +138,6 @@ The template below takes the current price attributes, adds 0.1293 EUR as fixed 
 ### YAML Template
 
 A template sensor to add VAT and a fixed cost from an helper entity `input_number.add_fixed_cost`.
-
-{% raw %}
 
 ```yaml
 template:
@@ -190,8 +154,6 @@ template:
           {{ ((cost + add_cost) * 1.25) | round(2, default=0) }}
 ```
 
-{% endraw %}
-
 ### Tomorrow's lowest price
 
 Using a trigger template, you can create a template sensor to calculate tomorrow's lowest price which also puts the list of all prices in the attributes of the sensor. All prices are returned in [Currency]/MWh.
@@ -203,10 +165,8 @@ Below example will convert the action call response to kWh prices in the selecte
 {% endnote %}
 
 {% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
+You can get your `config_entry` by using actions within [Tools](/docs/tools/dev-tools/): use one of the Nord Pool actions and view the YAML.
 {% endtip %}
-
-{% raw %}
 
 ```yaml
 template:
@@ -227,29 +187,19 @@ template:
       - name: Tomorrow lowest price
         unique_id: se3_tomorrow_low_price
         state: >
-          {% if not tomorrow_price %}
-            unavailable
-          {% else %}
-            {% set data = namespace(prices=[]) %}
-            {% for state in tomorrow_price['SE3'] %}
-              {% set data.prices = data.prices + [(state.price / 1000)] %}
-            {% endfor %}
-            {{min(data.prices)}}
-          {% endif %}
+          {% set data = namespace(prices=[]) %}
+          {% for state in tomorrow_price['SE3'] %}
+            {% set data.prices = data.prices + [(state.price / 1000)] %}
+          {% endfor %}
+          {{min(data.prices)}}
         attributes:
           data: >
-            {% if not tomorrow_price %}
-              []
-            {% else %}
-              {% set data = namespace(prices=[]) %}
-              {% for state in tomorrow_price['SE3'] %}
-                {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
-              {% endfor %}
-              {{data.prices}}
-            {% endif %}
+            {% set data = namespace(prices=[]) %}
+            {% for state in tomorrow_price['SE3'] %}
+              {% set data.prices = data.prices + [{'start':state.start, 'end':state.end, 'price': state.price/1000}] %}
+            {% endfor %}
+            {{data.prices}}
 ```
-
-{% endraw %}
 
 <p class='img'>
   <img src='/images/integrations/nordpool/nordpool_tomorrow_lowest_price.png' alt='Screenshot: Trigger template: Tomorrow lowest price'>
@@ -263,6 +213,6 @@ To use the Nordpool integration in the **Energy** dashboard, when configuring gr
   <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
 </p>
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

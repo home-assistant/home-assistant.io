@@ -1,6 +1,23 @@
 {
   "filters": {
-    "comments": true
+    "comments": true,
+    "allowlist": {
+      "allow": [
+        "2fa:",
+        "alexa:",
+        "/:\\s*homeassistant(?=\\b|\\.)/",
+        "homeassistant:",
+        "homekit:",
+        "led:",
+        "mqtt:",
+        "sms:",
+        "sql:",
+        "ssl:",
+        "twitter:",
+        "url:",
+        "/\\{%\\s*include\\s+integrations\\/device_list\\.html\\s+brand=\"[^\"]+\"\\s*%\\}/"
+      ]
+    }
   },
   "rules": {
     "common-misspellings": {
@@ -63,6 +80,7 @@
         "ATEN",
         "Atome",
         "August",
+        "Autoskope",
         "Avi-on",
         "AVM FRITZ!Box",
         "AWS",
@@ -150,7 +168,6 @@
         "iTunes",
         "JSON-RPC",
         "JSON",
-        "JuiceNet",
         "Kafka",
         "KEF",
         "KNX",

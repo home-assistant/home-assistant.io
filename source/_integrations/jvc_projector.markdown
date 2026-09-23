@@ -8,17 +8,17 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@SteveEasley'
-  - '@msavazzi'
 ha_domain: jvc_projector
 ha_platforms:
   - binary_sensor
   - remote
   - select
   - sensor
+  - switch
 ha_integration_type: device
 ---
 
-The JVC Projector integration allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
+The **JVC Projector** {% term integration %} allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
 
 ## Supported models
 
@@ -33,79 +33,156 @@ To set up these models:
 1. Set a password on the projector's network setup page.
 2. Use this password when adding the JVC Projector integration in Home Assistant.
 
-### Password hashing for newer models (NZ800 and NZ900)
-
-For newer projector models (NZ800 and NZ900), the password needs to be hashed before being used in Home Assistant. Here's how to generate the correct hash:
-
-1. Set a password in the projector (for example, "1234567890").
-2. Append the string "JVCKWPJ" to your password (for example, "1234567890JVCKWPJ").
-3. Generate a SHA256 hash of the resulting string using an online tool like [SHA256 Hash Generator](https://emn178.github.io/online-tools/sha256.html).
-4. Use the generated hash as the password when adding the JVC Projector integration in Home Assistant.
-
 {% include integrations/config_flow.md %}
 
 ## Remote
 
 The JVC Projector remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
 
-- `menu`
-- `up`
-- `down`
-- `left`
-- `right`
-- `ok`
-- `back`
-- `info`
-- `input`
-- `hide`
-- `mpc`
-- `cmd`
-- `advanced_menu`
-- `picture_mode`
-- `color_profile`
-- `lens_control`
-- `setting_memory`
-- `gamma_settings`
-- `hdmi_1`
-- `hdmi_2`
-- `mode_1`
-- `mode_2`
-- `mode_3`
-- `lens_ap`
-- `gamma`
-- `color_temp`
-- `natural`
-- `cinema`
-- `anamo`
-- `3d_format`
+- menu
+- up
+- down
+- left
+- right
+- ok
+- back
+- info
+- input
+- hide
+- mpc
+- cmd
+- advanced-menu
+- anamorphic
+- cinema
+- color-profile
+- color-temp
+- gamma-settings
+- gamma
+- hdmi1
+- hdmi2
+- lens-aperture
+- lens-control
+- mode-1
+- mode-2
+- mode-3
+- mode-4
+- mode-5
+- mode-6
+- mode-7
+- mode-8
+- mode-9
+- mode-10
+- natural
+- picture-adjust
+- picture-mode
+- setting-memory
+- 3d-format
 
-### Binary sensor
+## Binary sensor
 
-The following sensor types are supported:
+The JVC Projector binary sensor platform will create the following [Binary Sensor](/integrations/binary_sensor/) entity:
 
-- Power on is True when projector is in status "on", "warming"
+- **Power**
+  - **Description**: Indicates whether the projector is powered on. Returns true when the projector has a status of "on" or "warming", and false when the status is "cooling" or "standby".
+  - **Available for models**: all
 
-### Sensor
+## Device information
 
-Introduces two sensors to detect Power Status and HDMI Input.
+The JVC Projector device information includes the projector model and firmware version. The firmware version is exposed as the device `sw_version` rather than as a separate sensor.
 
-Detailed Power Status values:
+## Sensor
 
-- `standby`
-- `on`
-- `warming`
-- `cooling`
-- `error`
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are disabled by default. Some sensors may not be available for your model.
 
-Please note that if the projector is off, it will not respond to remote polling and will show as *unavailable*.
+- **Status**
+  - **Description**: The power status of the projector.
+  - **Available for models**: all
 
-Detailed HDMI Input values:
+- **Light time**
+  - **Description**: The number of hours on the light source (lamp/laser).
+  - **Available for models**: all
 
-- `hdmi1`
-- `hdmi2`
+- **Color depth**
+  - **Description**: The signal color depth. Note: The projector may incorrectly report 8-bit on YCbCr 4:2:2 signals according to JVC documentation.
+  - **Available for models**: all
 
-### Selects
+- **Color space**
+  - **Description**: The signal color space.
+  - **Available for models**: all
 
-The following Select entities are added. They allow changing the device state from a list of options.
+- **HDR**
+  - **Description**: The signal HDR mode.
+  - **Available for models**: 2017-present
 
-- `input`
+- **Resolution**
+  - **Description**: The current input resolution.
+  - **Available for models**: all supported models
+
+- **Colorimetry**
+  - **Description**: The color space metadata, such as BT.709 and BT.2020.
+  - **Available for models**: selected 2017-present models
+
+- **Link rate**
+  - **Description**: The HDMI link rate and lane configuration.
+  - **Available for models**: selected 2022-present models
+
+## Select
+
+The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some are disabled by default, and some may not be available for your model.
+
+- **Input**
+  - **Description**: The HDMI input source.
+  - **Options**: hdmi1, hdmi2
+  - **Available for models**: all
+
+- **Installation mode**
+  - **Description**: The installation mode.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Light power**
+  - **Description**: The light power setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Dynamic control**
+  - **Description**: The dynamic control setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Clear motion drive**
+  - **Description**: The clear motion drive setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Motion enhance** (disabled by default)
+  - **Description**: The motion enhancement setting.
+  - **Options**: high, low, off
+  - **Available for models**: selected 2016-present models
+
+- **Anamorphic**
+  - **Description**: The anamorphic setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **HDR processing**
+  - **Description**: The HDR processing mode setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: 2017-present
+
+- **Picture mode**
+  - **Description**: The picture mode setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+## Switch
+
+The JVC Projector switch platform will create the following Switch entities. Some may not be available for your model.
+
+- **E-Shift**
+  - **Description**: The E-Shift mode setting.
+  - **Available for models**: 2014-present
+
+- **Low Latency Mode**
+  - **Description**: The low latency mode setting.
+  - **Available for models**: 2017-present

@@ -14,11 +14,11 @@ ha_domain: solarlog
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
-The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
+The **Solar-Log** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation. With the integration you may monitor the solar power production and power consumption as tracked with your Solar-Log device.
 
 ## Supported devices
 
@@ -34,12 +34,12 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 
 {% important %}
 If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons, it is recommended to activate the user's password.
-Please note that the open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
+The open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 Name:
@@ -100,7 +100,12 @@ The following additional sensor becomes available:
 
 | Name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
+| charge_level          | %      | Current charge level of battery.*          |
+| charging_power        | W      | Current power charging battery.*           |
+| discharging_power     | W      | Current power discharging battery.*        |
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+*Only available, if battery connected to solarlog.
 
 In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
 
@@ -113,8 +118,6 @@ In addition, information from devices connected to the Solar-Log device becomes 
 
 In case you would like to get additional calculated sensors such as the amount of excess solar power available or the energy returned to the grid, you can use the [template platform](/integrations/template/).
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 template:
@@ -122,8 +125,6 @@ template:
     - name: "Solarlog return to grid"
       state: "{{ states('sensor.solarlog_consumption_year') | float(0) - states('sensor.self_consumption_year') | float(0) }}"
 ```
-
-{% endraw %}
 
 ## Data updates
 

@@ -40,7 +40,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to {% my integrations title="**Settings** > **Devices & services**" %} and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -102,10 +102,10 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [Smart Gateways NL](https://smartgateways.nl/)
 
 DIY solutions (ESP8266 based):
-
 - [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter) (parse on ESP8266 publish to MQTT)
 - [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
 - [p1-esp8266 (DavyLandman)](https://github.com/DavyLandman/p1-esp8266) (turn ESP8266 into a serial forwarder)
+- [Simple DSMR P1 Meter (maximevince)](https://github.com/maximevince/Simple-DSMR-P1-meter)
 
 
 {% include integrations/config_flow.md %}
@@ -156,4 +156,4 @@ Smart meters in Belgium, Luxembourg and Sweden provided telegrams with largely t
 
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
-Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+Another loop (DSMR class) is set up which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.

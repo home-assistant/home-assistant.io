@@ -83,7 +83,7 @@ Assist can't understand spoken words and needs something to take that audio and 
 
 <p class='img'><img src='/images/blog/2024-12-voice-chapter-8/language-support.png' style='border: 0;box-shadow: none;' alt="Our language checker">See if your language is supported with <a href="/voice-pe/#language-support" target="_blank">our checker</a>.</p>
 
-Assist aims to support more languages than other voice assistants, and this has been a massive undertaking for our community - We need more help. The first step for language support is getting the commands (intents) right, and we have [over 25 major languages](https://home-assistant.github.io/intents/) that are ready to use today. Our wake words are also getting better at understanding different accents thanks to our [Wake Word Collective tool](https://ohf-voice.github.io/wake-word-collective/).
+Assist aims to support more languages than other voice assistants, and this has been a massive undertaking for our community - We need more help. The first step for language support is getting the commands (intents) right, and we have [over 25 major languages](https://ohf-voice.github.io/intents/) that are ready to use today. Our wake words are also getting better at understanding different accents thanks to our [Wake Word Collective tool](https://ohf-voice.github.io/wake-word-collective/).
 
 ### Text-to-speech
 

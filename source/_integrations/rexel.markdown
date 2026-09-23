@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Fan
   - Hub
   - Light
   - Lock
@@ -32,6 +33,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - lock
   - number

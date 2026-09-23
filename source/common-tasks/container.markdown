@@ -1,6 +1,6 @@
 ---
-title: "Common tasks - Container"
-description: "Common tasks for Home Assistant Container"
+title: "Common tasks - Home Assistant Container"
+description: "Tasks specific to Home Assistant Container installations, including updating the container image and managing the underlying Docker environment."
 installation: container
 ---
 
@@ -11,7 +11,7 @@ To learn how to back up the system or how to restore a system from a backup, ref
 ## Update
 
 {% include common-tasks/update.md %}
-{% include common-tasks/specific_version.md %}
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
+{% include common-tasks/specific_version.md %}
 {% include common-tasks/configuration_check.md %}

@@ -11,7 +11,7 @@ ha_domain: purpleair
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ---
 
@@ -38,9 +38,9 @@ To add this integration, you need a (free) Purple Air API Key. A new account cur
 Detailed instructions can be found [here](https://community.purpleair.com/t/creating-api-keys/3951) but in summary you:
 
 - Create an account at https://develop.purpleair.com/ (which uses Single Sign-On through a Google account).
-- On the ['keys'](https://develop.purpleair.com/keys) page press the "plus" button to create an API key.  Leave the defaults of **Read** and **Enabled**.
-- Go to the ['projects'](https://develop.purpleair.com/projects) page and select the edit (pencil) button on the listed Project.  Add points (for example 1,000,000), then select **Update**.
-- Go back to the ['keys'](https://develop.purpleair.com/keys) page and copy the API key.  It will be a value like XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX.
+- On the ['keys'](https://develop.purpleair.com/keys) page press the "plus" button to create an API key. Leave the defaults of **Read** and **Enabled**.
+- Go to the ['projects'](https://develop.purpleair.com/projects) page and select the edit (pencil) button on the listed Project. Add points (for example 1,000,000), then select **Update**.
+- Go back to the ['keys'](https://develop.purpleair.com/keys) page and copy the API key. It will be a value like XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX.
 - Paste that API key into the **API Key** field when creating the integration in Home Assistant.
 
 Note that if you are using your own sensor, it will need to be set to **Public** to be visible.
@@ -108,8 +108,6 @@ Reminder that the breakpoints used below can be determined from the aforemention
 guidelines.
 {% endtip %}
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
@@ -161,5 +159,3 @@ template:
         {% endif %}
       unique_id: local_outdoor_air_quality
 ```
-
-{% endraw %}

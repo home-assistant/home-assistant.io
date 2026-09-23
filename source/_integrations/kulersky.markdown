@@ -12,9 +12,9 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - light
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-This integration connects Brightech Kuler Sky floor lamps to Home Assistant.
+This {% term integration %} connects Brightech Kuler Sky floor lamps to Home Assistant.
 
 {% include integrations/config_flow.md %}

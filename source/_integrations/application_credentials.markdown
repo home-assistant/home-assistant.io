@@ -49,6 +49,6 @@ To delete an application credential, for example because you created a new one, 
     ![Devices and services overflow menu](/images/integrations/application_credentials/devices-and-services-menu.png)
 
 2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
-3. Select the credential from the list, select the three-dots menu and select **Delete**.
+3. Select the credential from the list, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
     ![Application credential list](/images/integrations/application_credentials/application-credential_delete.png)

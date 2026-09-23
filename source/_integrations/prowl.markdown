@@ -8,14 +8,14 @@ ha_iot_class: Cloud Push
 ha_domain: prowl
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
-The `prowl` {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
+The **Prowl** {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
 
 Go to the [Prowl website](https://www.prowlapp.com/) and create a new API key.
 

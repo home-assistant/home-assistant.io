@@ -1,6 +1,6 @@
 ---
 title: Azure Storage
-description: Instructions on how to setup Azure storage accounts to be used with backups.
+description: Instructions on how to set up Azure storage accounts to be used with backups.
 ha_release: 2025.3
 ha_category:
   - Backup
@@ -13,7 +13,7 @@ ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
-This integration allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.
+This {% term integration %} allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.
 
 {% include integrations/config_flow.md %}
 
@@ -43,5 +43,17 @@ This integration follows standard integration removal. No extra steps are requir
 {% details "Authentication failure" %}
 
 Check that your storage account allows [`Shared Key` access](https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent?tabs=portal#remediate-authorization-via-shared-key).
+
+{% enddetails %}
+
+{% details "DNS Error" %}
+
+You may encounter a `aiodns.error.DNSError: (4, 'Domain name not found')` error. 
+
+To resolve this:
+
+1. Navigate to **Settings → System → Network → DNS Servers** in Home Assistant
+2. Manually set fallback DNS servers to `1.1.1.1` (Cloudflare) and `8.8.8.8` (Google) (or any other that you prefer). This allows Home Assistant to resolve Azure domain names successfully.
+3. Restart Home Assistant to propagate the new settings.
 
 {% enddetails %}

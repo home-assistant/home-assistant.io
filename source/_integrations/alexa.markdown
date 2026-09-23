@@ -26,7 +26,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 There are a few ways that you can use Amazon Alexa and Home Assistant together.
 
-- [Create an Alexa Smart Home Skill to control lights, etc.](/integrations/alexa.smart_home/)
+- [Create an Alexa Smart Home Skill to control lights and more](/integrations/alexa.smart_home/)
   - Supports utterances without requiring the skill name, such as "Alexa, turn off the light."
   - Support for controlling devices through Alexa routines.
   - Support for viewing and controlling devices with the Alexa mobile app.

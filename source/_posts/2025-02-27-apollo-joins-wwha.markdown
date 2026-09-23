@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apollo joins the Works With Home Assistant Program"
+title: "Apollo joins the Works with Home Assistant Program"
 description: "Adding three devices, including their community favorite presence and air quality multisensors."
 date: 2025-02-27 00:00:01
 date_formatted: "February 27, 2025"
@@ -23,7 +23,7 @@ Notably, these are the first [ESPHome](https://esphome.io/index.html)-based devi
 Apollo Automation is a growing family-run business rooted in the Home Assistant and ESPHome communities. And yes, they're named after their German Shepherd, Apollo 🐕.
 
 <div class="alert">
-    <p>Apollo Automation is built by and for the Home Assistant community. We believe in open smart home technology that gives users control, privacy, and flexibility. Joining the Works With Home Assistant program is a natural step for us, ensuring our devices integrate seamlessly while supporting the ecosystem we love. Home Assistant allows users to create powerful smart homes, and we are excited to contribute by making high-quality, reliable hardware that enhances the experience for everyone.</p>
+    <p>Apollo Automation is built by and for the Home Assistant community. We believe in open smart home technology that gives users control, privacy, and flexibility. Joining the Works with Home Assistant program is a natural step for us, ensuring our devices integrate seamlessly while supporting the ecosystem we love. Home Assistant allows users to create powerful smart homes, and we are excited to contribute by making high-quality, reliable hardware that enhances the experience for everyone.</p>
     <em style="text-align: right; display: block;">- Justin Bunton, Co-Founder, Apollo Automation</em>
 </div>
 
@@ -43,8 +43,6 @@ Works with Home Assistant differs from other certification programs as products 
 
 Apollo has chosen first to certify three products, which include:
 
-- [MTR-1 Multi-Target Radar Multisensor For Home Assistant (LD2450)](https://apolloautomation.com/products/mtr-1) - A tiny, but powerful radar-based (mmWave) presence sensor that can pack in many other sensors.
-- [MSR-2 mmWave Multisensor For Home Assistant (LD2410B)](https://apolloautomation.com/products/msr-2) - An even smaller multisensor that is the successor of the initial community feedback-driven design.
-- [AIR-1 Air Quality Sensor For Home Assistant](https://apolloautomation.com/products/air-1) - A small air quality multisensor that can be extended to incorporate a huge variety of sensors.
+{% include integrations/device_list.html brand="apollo-automation" %}
 
 We anticipate that Apollo will bring more of their lineup into the program, and we are excited to see their new innovations going forward! This is just the start of a year of many new Works with Home Assistant announcements, so please stay tuned!

@@ -2,6 +2,7 @@
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Notifications
   - Sensor
@@ -12,23 +13,37 @@ ha_codeowners:
 ha_domain: tibber
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - notify
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
+The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 If you have a [Tibber Pulse](https://tibber.com/no/store/produkt/pulse) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. You get a sensor for monthly consumption, monthly cost, and monthly peak hour. If you do have a real-time meter it is updated once every hour, otherwise it is updated once per day. Statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/) (the ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID`). If you produce energy there are also statistics with hourly production and profit data generated which can also be used there (the ids are `tibber:energy_production_HOMEID` and `tibber:energy_profit_HOMEID`).
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Notifications](#notifications)
 - [Sensor](#sensor)
 
 ## Setup
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
+
+
+## Client ID and client secret (Tibber Data API)
+
+1. Go to the Tibber developer portal at https://data-api.tibber.com/clients/manage.
+2. Create a new client.
+3. Add a redirect URI for Home Assistant:
+   - `https://my.home-assistant.io/redirect/oauth`
+
+4. Save the application.
+5. Copy the **client ID** and **client secret**.
+6. Go to {% my application_credentials title="**Settings** > **Devices & services** > **Application credentials**" %}, add Tibber credentials, and paste your client ID and client secret.
 
 {% include integrations/config_flow.md %}
 
@@ -63,7 +78,7 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - net kWh produced since last hour shift
 - Current on L1, L2 and L3
 - Estimate of kWh consumption current hour
-- kWh consumed since since last hour shift
+- kWh consumed since last hour shift
 - Average consumption since midnight (Watt)
 - Last meter active import register state (kWh)
 - Last meter active export register state (kWh)
@@ -79,56 +94,38 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - Monthly net consumption
 - Monthly peak hour
 - Time of max hour consumption
+- Storage state of charge
+- Storage target state of charge
+- Remaining range
+- Maximum charging current
+- Offline fallback charging current
 
-</div>
+## Binary sensor
+
+The Tibber integration provides binary sensors.
+
+## Available binary sensors
+
+
+### Charger sensors
+
+- Charging: Indicates whether the charger is currently charging a vehicle
+- Plug: Indicates whether a vehicle is plugged into the charger
+
+### EV sensors
+
+- Charging: Indicates whether the EV is currently charging
+- Plug: Indicates whether the EV is plugged in
+
+### Heaters
+
+- Power: Indicates whether the smart plug or thermostat is powered on
 
 ## Actions
 
-The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
+The energy prices are exposed using an action that returns [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the price data.
 
-### Action `tibber.get_prices`
-
-Fetches hourly energy prices including price level.
-
-| Data attribute | Optional | Description                                           | Example             |
-| -------------- | -------- | ----------------------------------------------------- | ------------------- |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00  | 2024-01-01 00:00:00 |
-| `end`          | yes      | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
-
-#### Response data
-
-The response data is a dictionary with the energy prices for each Home. `start_time` is returned in local time from the API.
-
-```json
-{
-  "prices": {
-    "Nickname_Home":[
-      {
-        "start_time": "2023-12-09 03:00:00+02:00",
-        "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
-      },
-      {
-        "start_time": "2023-12-09 04:00:00+02:00",
-        "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
-      }
-    ],
-    "Nickname_Home_2":[
-      {
-        "start_time": "2023-12-09 03:00:00+02:00",
-        "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
-      },
-      {
-        "start_time": "2023-12-09 04:00:00+02:00",
-        "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
-      }
-    ]
-  }
-}
-```
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -137,8 +134,6 @@ In this section, you will find some real-life examples of how to use this sensor
 ### Electricity price
 
 The electricity price can be used to make automations. The sensor has a `max_price` and `min_price` attribute, with max and min price for the current day. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
-
-{% raw %}
 
 ```yaml
 - alias: "Electricity price"
@@ -156,5 +151,3 @@ The electricity price can be used to make automations. The sensor has a `max_pri
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
-
-{% endraw %}

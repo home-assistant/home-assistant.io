@@ -20,7 +20,7 @@ related:
     title: Configuration file
 ---
 
-The `filter` {% term integration %} enables sensors that process the states of other entities.
+The **Filter** {% term integration %} enables sensors that process the states of other entities.
 
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 

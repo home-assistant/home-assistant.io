@@ -51,7 +51,7 @@ the [board-specific documentation](https://github.com/home-assistant/operating-s
 by the boot firmware. However, an NVMe SSD can be used through the data disk
 feature.
 
-Buy ODROID-M1 at [Ameridroid](https://ameridroid.com/products/odroid-m1?ref=eeb6nfw07e) or directly at [Hardkernel](https://www.hardkernel.com/shop/odroid-m1-with-4gbyte-ram/)
+Buy ODROID-M1 at [Ameridroid](https://ameridroid.com/products/odroid-m1) or directly at [Hardkernel](https://www.hardkernel.com/shop/odroid-m1-with-4gbyte-ram/)
 
 <img src='/images/blog/2023-04-18-os10/hardkernel-odroid-m1.jpg' alt='Hardkernel ODROID-M1 single board computer with NVMe SSD plugged in'>
 

@@ -19,7 +19,7 @@ ha_zeroconf: true
 ha_quality_scale: gold
 ---
 
-The Slide Local {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
+The **Slide Local** {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
 
 ## Supported devices
 
@@ -38,7 +38,7 @@ LED flashes 2x slow: local API disabled, cloud API enabled
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 hostname:
@@ -74,7 +74,7 @@ The integration fetches data from the device every 15 seconds.
 
 ## Known limitations
 
-The integration only provides connection with Slide devices via the local API. The cloud API is no longer available. 
+The integration only provides connection with Slide devices via the local API. The cloud API is no longer available.
 
 
 ## Removing the integration

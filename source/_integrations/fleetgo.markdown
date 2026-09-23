@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `fleetgo` device tracker {% term integration %} allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
+The **FleetGO** {% term integration %} allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
 ## Setup
 

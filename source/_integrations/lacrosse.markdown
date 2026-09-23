@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `lacrosse` sensor {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
+The **LaCrosse** {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
 
 ## Tested devices
 
@@ -37,8 +37,7 @@ Or, when using Docker containers:
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
 
-If you are using the Home Assistant OS or Supervised installation method, these
-methods are not available for you. The use of an additional computer to figure
+If you are using the Home Assistant OS, these methods are not available for you. The use of an additional computer to figure
 out the ID is advised.
 
 For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
@@ -111,7 +110,7 @@ sensor:
 
 ## Examples
 
-To setup a LaCrosse sensor with multiple sensors, add the following to your {% term "`configuration.yaml`" %} file:
+To set up a LaCrosse sensor with multiple sensors, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

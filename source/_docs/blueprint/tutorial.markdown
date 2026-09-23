@@ -41,7 +41,6 @@ For this tutorial, we use a simple automation. The process for converting a comp
 
 The automation we're going to use in this tutorial controls a light based on a motion sensor:
 
-{% raw %}
 
 ```yaml
 triggers:
@@ -59,7 +58,6 @@ actions:
       entity_id: light.kitchen
 ```
 
-{% endraw %}
 
 The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
 In this example, a [state trigger](/docs/automation/templating/#state) is used.
@@ -100,7 +98,6 @@ For the light, we can offer some more flexibility. We want to allow the user to 
 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
-{% raw %}
 
 ```yaml
 actions:
@@ -113,7 +110,6 @@ actions:
     target: !input target_light
 ```
 
-{% endraw %}
 
 #### Add the inputs to the metadata
 
@@ -151,7 +147,7 @@ Reload automations and your new automation should pop up. Because we configured 
 
 ## Improving the inputs
 
-Blueprints are easier to use if it's easy to see what each field is used for. 
+Blueprints are easier to use if it's easy to see what each field is used for.
 
 ### Add a user friendly names to the inputs
 
@@ -209,7 +205,6 @@ By limiting our blueprint to working with lights and motion sensors, we unlock a
 
 After we have added all the steps, our blueprint will look like this:
 
-{% raw %}
 
 ```yaml
 blueprint:
@@ -247,11 +242,10 @@ actions:
     target: !input target_light
 ```
 
-{% endraw %}
 
 ## Using the blueprint via the UI
 
-1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}.
+1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Find the **Motion Light Tutorial** blueprint and select **Create Automation**.
 
 {% important %}
@@ -279,7 +273,7 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
    - **Filename including extension**: `motion_light_tutorial.yaml`
    - **Content** is the content of the blueprint file.
 2. Select **Create Gist**.
-3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & Scenes** > **Blueprints**" %} and select **Import blueprint**.
+3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & scenes** > **Blueprints**" %} and select **Import blueprint**.
 4. Celebrate! Cheers to you. You created your first blueprint and helped someone in the community.
 
 ### Share on the Blueprint Exchange

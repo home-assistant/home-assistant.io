@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `zestimate` sensor allows one to track the Zestimate® value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). According to Zillow's website, a Zestimate® home valuation is Zillow's estimated market value. It is not an appraisal. Use it as a starting point to determine a home's value. The Zestimate® is provided by [Zillow](https://www.zillow.com), a website primarily for listing homes to buy/sell/rent in the United States.
+The **Zestimate** {% term integration %} allows one to track the Zestimate® value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). According to Zillow's website, a Zestimate® home valuation is Zillow's estimated market value. It is not an appraisal. Use it as a starting point to determine a home's value. The Zestimate® is provided by [Zillow](https://www.zillow.com), a website primarily for listing homes to buy/sell/rent in the United States.
 
 This integration adds one entity per zpid specified, named `sensor.zestimate` with numbers appended if you choose to track more than one Zestimate.
 

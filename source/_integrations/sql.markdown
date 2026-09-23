@@ -19,7 +19,7 @@ related:
     title: Configuration file
 ---
 
-The `sql` sensor {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+The **SQL** {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 **This integration can be configured using both config flow and by YAML.**
@@ -33,7 +33,6 @@ To configure this sensor, define the sensor connection variables and a list of q
 To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml
 sql:
@@ -61,7 +60,6 @@ sql:
         1;
     column: "state"
 ```
-{% endraw %}
 
 {% configuration %}
 sql:
@@ -81,7 +79,7 @@ sql:
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
-      type: string
+      type: template
     column:
       description: The field name to select.
       required: true
@@ -119,6 +117,19 @@ sql:
       required: false
       type: template
 {% endconfiguration %}
+
+## Data updates
+
+By default, the integration executes the SQL query to update the sensor every 30 seconds.
+If you wish to update at a different interval, you can disable the automatic refresh in the integration’s system options (**Enable polling for updates**) and create your own automation with your desired frequency.
+
+For more detailed steps on how to define a custom interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
+{% include integrations/actions.md %}
 
 ## Information
 
@@ -171,6 +182,48 @@ LIMIT
 
 Use `state` as column for value.
 
+### Amount of state changes since using a template
+
+This example shows the amount of state changes of the sensor `sensor.temperature_in`
+using another sensor's state to provide the time window.
+
+```yaml
+sensor:
+  - platform: random
+    name: Temperature in
+    unit_of_measurement: "°C"
+```
+
+The query will look like this:
+
+{% raw %}
+
+```sql
+SELECT
+  count(state) as changes
+FROM
+  (
+    SELECT
+      states.state
+    FROM
+      states
+    WHERE
+      metadata_id = (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND last_updated_ts >= strftime('%s','{{ states("sensor.datetime_helper") }}')
+  )
+```
+
+{% endraw %}
+
+Use `changes` as column for value.
+
 ### Previous state of an entity
 
 Based on previous example with temperature, the query to get the former state is :
@@ -201,6 +254,7 @@ WHERE
       1
   );
 ```
+
 Use `state` as column for value.
 
 ### State of an entity x time ago
@@ -277,29 +331,6 @@ If you are using the `recorder` integration then you don't need to specify the l
 
 ```sql
 SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();
-```
-Use `size` as column for value.
-
-{% tip %}
-The unit of measurement returned by the above query is `MiB`, please configure this correctly.
-
-Set the device class to `Data size` so you can use UI unit conversion.
-{% endtip %}
-
-#### MS SQL
-
-Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
-
-Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
-
-{% note %}
-Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
-  
-"pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
-{% endnote %}
-
-```sql
-SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';
 ```
 Use `size` as column for value.
 

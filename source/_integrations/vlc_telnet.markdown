@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_domain: vlc_telnet
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **VLC media player via Telnet** {% term integration %} allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
@@ -30,7 +30,7 @@ Consider to set the locale to `en_US` before starting VLC.
 
 When using the `media_player.play_media` action, only the "music" media type is supported for now.
 
-## Home Assistant add-on
+## VLC app for Home Assistant
 
-You can run a VLC Media Player on your Home Assistant installation using the official [VLC add-on](https://github.com/home-assistant/addons/blob/master/vlc/DOCS.md).
+You can run a VLC Media Player on your Home Assistant installation using the official [VLC app](https://github.com/home-assistant/addons/blob/master/vlc/DOCS.md).
 Using it you can play files on the local network, Internet or files and playlist locally saved to the `/share` and `/media` folder of your Home Assistant installation.

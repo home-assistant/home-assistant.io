@@ -18,7 +18,7 @@ ha_quality_scale: legacy
 ---
 
 [Orange and Rockland Utility](https://oru.com) is an energy provider in NY and NJ, USA.
-The `oru` sensor {% term integration %} fetches your current energy usage from your ORU smart meter.
+The **ORU** {% term integration %} fetches your current energy usage from your ORU smart meter.
 
 ## Configuration
 

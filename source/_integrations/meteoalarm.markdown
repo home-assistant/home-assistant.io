@@ -14,7 +14,9 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `MeteoAlarm` platform allows one to watch for weather alerts in Europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that it is crucial to write the country name exactly as it appears in the URL starting with https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-, including any hyphens used in the name. Failure to do so may result in errors or incorrect data.
+The **MeteoAlarm** {% term integration %} allows one to watch for weather alerts in Europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). It is crucial to write the country name exactly as it appears in the URL starting with https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-, including any hyphens used in the name. Failure to do so may result in errors or incorrect data.
+
+The name of the province can be found using the [MeteoAlarm EMMA_ID Region explorer tool](https://saratoga-weather.org/meteoalarm-map/)
 
 The binary sensor state shows the warning message if applicable. The details are available as attribute.
 
@@ -87,8 +89,6 @@ There are a few awareness levels:
 
 Example automation
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Alert me about weather warnings"
@@ -102,8 +102,6 @@ automation:
           title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"
           message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
 ```
-
-{% endraw %}
 
 {% note %}
 This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.

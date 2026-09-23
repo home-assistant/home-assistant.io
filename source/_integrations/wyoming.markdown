@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:
-  - '@balloob'
   - '@synesthesiam'
 ha_domain: wyoming
 ha_integration_type: service
@@ -31,26 +30,14 @@ The **Wyoming** {% term integration %} connects external voice services to Home 
 - Piper {% my supervisor_addon badge addon="core_piper" %}
 - openWakeWord {% my supervisor_addon badge addon="core_openwakeword" %}
 
-### Installing a local voice pipeline
+## Installing a local voice pipeline
 
-The Wyoming, Piper, and Whisper add-ons are used to create a fully local voice pipeline. To learn how to do this, follow the procedure on [installing a local voice pipeline](/voice_control/voice_remote_local_assistant/).
+The Wyoming, Piper, and Whisper apps for Home Assistant (formerly known as add-ons) are used to create a fully local voice pipeline. To learn how to do this, follow the procedure on [installing a local voice pipeline](/voice_control/voice_remote_local_assistant/).
+
+## Connecting an external Wyoming service
+
+Wyoming services can run on another device on your local network. This can be useful for resource-intensive services such as Whisper, allowing speech-to-text processing to run on a more powerful computer while Home Assistant runs on another device.
+
+To connect a service running on another device, add the **Wyoming Protocol** integration and enter the hostname or IP address and port of the Wyoming service.
 
 {% include integrations/config_flow.md %}
-
-## Satellites
-
-[Remote voice satellites](https://github.com/rhasspy/wyoming-satellite) can be connected to Home Assistant using the Wyoming protocol. These satellites typically run on Raspberry Pi's, and are automatically discovered by Home Assistant through [Zeroconf](/integrations/zeroconf).
-
-
-### Audio Settings
-
-The following settings control audio processing of a satellite's microphone input:
-
-- Noise suppression
-    - Level of noise suppression (uses [webrtc]). Audio distortion may occur as the level increases.
-- Auto gain
-    - Automatically adjusts volume based on ambient noise (uses [webrtc]). The setting value is the target dBFS.
-- Mic volume
-    - Fixed multiplier applied to microphone audio samples. 2.0 doubles the volume, while 0.5 is halves it. Values above 1.0 may increase noise or cause audio distortion.
-
-[webrtc]: https://github.com/rhasspy/webrtc-noise-gain

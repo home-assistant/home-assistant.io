@@ -23,7 +23,7 @@ ha_codeowners:
   - '@garbled1'
   - '@natekspencer'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 
@@ -50,7 +50,7 @@ Balboa Spa Client integration is not compatible with ControlMySpa™ cloud API u
 
 {% configuration_basic %}
 host:
-  description: "Hostname or IP address of your Balboa Spa Wifi Device, e.g., `192.168.1.58`."
+  description: "Hostname or IP address of your Balboa Spa Wifi Device, for example `192.168.1.58`."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}

@@ -12,7 +12,7 @@ ha_domain: lacrosse_view
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [**LaCrosse View**](https://www.lacrossetechnology.com/pages/la-crosse-view) is the service provided by LaCrosse Technology that allows access to LaCrosse sensors.

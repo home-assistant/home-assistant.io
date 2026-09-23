@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `llamalab_automate` {% term integration %} uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+The **LlamaLab Automate** {% term integration %} uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ Receiving cloud messages in Automate:
 4. Connect OK from Flow beginning to IN of Cloud receive
 5. Connect OK from Cloud receive to Toast show
 6. Connect OK form Toast show to IN of Cloud receive
-7. Tap Cloud receive and select the email account as setup in your configuration
+7. Tap Cloud receive and select the email account as set up in your configuration
 8. Assign a variable name for the Payload
 9. Tap Toast show and set the message value to the variable you've specified
 

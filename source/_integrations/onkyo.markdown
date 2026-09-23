@@ -12,11 +12,13 @@ ha_integration_type: device
 ha_iot_class: Local Push
 ha_platforms:
   - media_player
+  - switch
 ha_release: 0.17
 ha_ssdp: true
+ha_quality_scale: bronze
 ---
 
-The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
+The **Onkyo** {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work with your hardware.
 
 {% include integrations/config_flow.md %}
@@ -32,62 +34,39 @@ Listening modes:
   description: List of listening modes supported by the receiver.
 {% endconfiguration_basic %}
 
-The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three-dot menu on the integration entry and select **Reconfigure**.
+The above settings can also be adjusted later. To change **Host** or **Volume Resolution**, select the three dots {% icon "mdi:dots-vertical" %} menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Max Volume:
-  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, i.e., if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
+  description: Maximum volume limit as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp, that is, if you set this to 50%, when you set Home Assistant to be 100%, then your receiver will be set to 50% of its maximum volume.
 Input sources:
   description: Mappings of input sources to their names.
 Listening modes:
   description: Mappings of listening modes to their names.
 {% endconfiguration_basic %}
 
-## Zones
+## Supported functionality
+
+### Zones
 
 If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
 
-## Actions
+### Channel muting switches
 
-### Action `onkyo_select_hdmi_output`
+If your receiver supports channel muting, the integration creates a switch for each speaker channel. Turning a switch on mutes that channel, and turning it off unmutes it. This lets you mute individual channels independently of the main volume.
 
-Changes HDMI output of your receiver
+{% include integrations/actions.md %}
 
-| Data attribute | Optional | Description                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------- |
-| `entity_id`            | no       | String or list of a single `entity_id` that will change output. |
-| `hdmi_output`          | no       | The desired output code.                                        |
+## Examples
 
-Accepted values are:
-'no', 'analog', 'yes', 'out', 'out-sub', 'sub', 'hdbaset', 'both', 'up'
-which one to use seems to vary depending on model so you will have to try them out.
-( For model TX-NR676E it seems to be 'out' for main, 'out-sub' for sub, and 'sub' for both )
+### Play a radio preset
 
-### Example `onkyo_select_hdmi_output` script
-
-```yaml
-# Example onkyo_select_hdmi_output script
-#
-script:
-  hdmi_sub:
-    alias: "Hdmi out projector"
-    sequence:
-      - action: media_player.onkyo_select_hdmi_output
-        data:
-          entity_id: media_player.onkyo
-          hdmi_output: out-sub
-```
-
-### Example `play_media` script
-
-The `play_media` function can be used in script to play radio station by preset number.
-Not working for NET radio.
+You can use the `media_player.play_media` action in a script to play a radio station by its preset number. This does not work for NET radio.
 
 ```yaml
 # Example play_media script
-#
 script:
   radio1:
     alias: "Radio 1"
@@ -106,6 +85,12 @@ script:
 ## Supported devices
 
 Network receivers from Onkyo and Integra are supported starting with models from the year 2011. Pioneer network receivers are supported starting with models from 2016.
+
+## Troubleshooting
+
+### No entities created
+
+Restart your receiver (power cycle).
 
 ## Removing the integration
 

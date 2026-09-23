@@ -13,25 +13,18 @@ ha_platforms:
   - sensor
 ha_iot_standard: matter
 ha_brand: true
+works_with:
+  - matter
 ---
 
-[Eve](https://www.evehome.com/) is a member of the Works with Home Assistant partner program for their Matter products. Eve is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+{% include integrations/wwha.md url="https://www.evehome.com/" %}
 
-Eve Matter devices work locally and integrate seamlessly with the Matter integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+## Supported devices
 
-{% my add_matter_device badge domain=page.ha_domain %}
+{% include integrations/device_list.html brand="eve" %}
 
-[Learn more about Matter in Home Assistant.](/integrations/matter/)
+## Known limitations
 
-The following devices are supported:
+Some Eve devices were originally sold as Bluetooth or HomeKit-only models and need a firmware upgrade to Matter before you can set them up in Home Assistant via the Matter integration. Eve's upgrade process requires an iPhone or iPad, together with an Apple Thread border router such as a HomePod mini or Apple TV 4K (2nd generation or later). Without an Apple device, these models cannot be upgraded to Matter.
 
-- [Eve Door & Window](https://www.evehome.com/en/eve-door-window)
-- [Eve Energy Outlet](https://www.evehome.com/en/eve-energy-outlet)
-- [Eve Energy Outdoor](https://www.evehome.com/en/eve-energy-outdoor)
-- [Eve Energy](https://www.evehome.com/en/eve-energy)
-- [Eve Light Switch](https://www.evehome.com/en/eve-light-switch)
-- [Eve Dimmer Switch](https://www.evehome.com/en/eve-dimmer-switch)
-- [Eve Motion](https://www.evehome.com/en/eve-motion)
-- [Eve MotionBlinds](https://www.evehome.com/en/eve-blinds-collection)
-- [Eve Thermo](https://www.evehome.com/en/eve-thermo)
-- [Eve Weather](https://www.evehome.com/en/eve-weather)
+Before buying, check [Eve's upgrade to Matter guide](https://www.evehome.com/en/upgrade-to-matter) to confirm whether a device already supports Matter out of the box or needs to be upgraded first.

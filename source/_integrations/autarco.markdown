@@ -13,7 +13,8 @@ ha_domain: autarco
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Autarco** {% term integration %} allows you to gather data from the cloud API of [Autarco](https://www.autarco.com) and use it in Home Assistant.

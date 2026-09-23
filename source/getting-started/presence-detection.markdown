@@ -1,9 +1,9 @@
 ---
 title: "Setting up presence detection"
-description: "Instructions on how to set up zone presence detection within Home Assistant."
+description: "Set up presence detection in Home Assistant to trigger automations when people arrive home or leave."
 ---
 
-Zone presence detection detects if people are within a certain zone, which can be valuable input for automation. Knowing who is home or where they are opens a range of automation options:
+Presence detection tells Home Assistant who is at home and where they are. That is one of the most useful pieces of information you can give your smart home, because it lets your automations react to people arriving and leaving:
 
 - Send me a notification when my child arrives at school
 - Turn on the AC when I leave work
@@ -27,7 +27,7 @@ There are different ways of setting up zone presence detection. One way is to ru
   - The easiest way to do this is by enabling
     - [Home Assistant Cloud](https://nabucasa.com/config/)
 - Mobile phone:
-  - Android (Android 5 or later) or iPhone (iOS 15 or later)
+  - Android (Android 6 or later) or iPhone (iOS 15 or later)
   - Phone plan with Internet access
   - Access to your local network where Home Assistant is running
 - [Home Assistant Companion app installed](https://companion.home-assistant.io/docs/getting_started/) on your phone.

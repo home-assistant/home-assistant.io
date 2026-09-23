@@ -25,7 +25,7 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assistant.

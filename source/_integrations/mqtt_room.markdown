@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `mqtt_room` sensor {% term integration %} allows you to detect the indoor location of devices using MQTT clients.
+The **MQTT room presence** {% term integration %} allows you to detect the indoor location of devices using MQTT clients.
 
 ## Configuration
 

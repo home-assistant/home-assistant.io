@@ -14,14 +14,14 @@ ha_domain: fastdotcom
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
+The **Fast.com** {% term integration %} uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
 {% note %}
 Currently, the Fast.com integration only supports measuring download bandwidth.
-If you want to measure bandwidth metrics other than download such as ping and upload, utilize the [Speedtest.net](/integrations/speedtestdotnet) integration.
+If you want to measure bandwidth metrics other than download such as ping and upload, use the [Speedtest.net](/integrations/speedtestdotnet) integration.
 {% endnote %}
 
 Enabling this integration will automatically create the Fast.com Sensor.

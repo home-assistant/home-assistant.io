@@ -19,10 +19,11 @@ ha_config_flow: true
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-The `tankerkoenig` integration allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
+The **Tankerkoenig** {% term integration %} allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
 
 ## Prerequisites
 
@@ -100,6 +101,6 @@ visibility:
 
 Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, _if still possible_, download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, include them in the issue report.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

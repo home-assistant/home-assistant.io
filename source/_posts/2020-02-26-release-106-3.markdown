@@ -53,7 +53,7 @@ Screenshot of the Coronavirus integration in Home Assistant.
 
 This integration can be configured via the Home Assistant frontend.
 
-- Go to **Configuration** -> **Integrations**.
+- Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - Click on the `+` in the bottom right corner to add a new integration.
 - Search and select the **Coronavirus** integration form the list.
 - Follow the instruction on screen to add the sensors. Either choose for adding

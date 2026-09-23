@@ -14,7 +14,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This sensor will provide you the remaining time, in minutes, for the next bus in a specific stop by using the [iBus service](https://www.tmb.cat/en/barcelona/tmb-ibus).
+This {% term integration %} will provide you the remaining time, in minutes, for the next bus in a specific stop by using the [iBus service](https://www.tmb.cat/en/barcelona/tmb-ibus).
 
 You must create an application on [developer.tmb.cat](https://developer.tmb.cat/account/applications/public/new) to obtain the `app_id` and `app_key` values that you will need.
 

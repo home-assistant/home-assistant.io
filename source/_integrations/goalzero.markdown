@@ -17,7 +17,7 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
+This **Goal Zero Yeti** {% term integration %} pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
 
 {% include integrations/config_flow.md %}
 

@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This integration adds interaction with [Minio](https://min.io).
+This {% term integration %} adds interaction with [Minio](https://min.io).
 It also enables listening for bucket notifications: [see documentation](https://docs.min.io/docs/minio-client-complete-guide.html#watch)
 
 To download or upload files, folders must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs).
@@ -83,8 +83,6 @@ listen:
 
 Automations can be triggered on new files created on the Minio server using the `data_template`.
 
-{% raw %}
-
 ```yaml
 #Automatically upload new local files
 automation:
@@ -120,41 +118,4 @@ automation:
         file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
 
-{% endraw %}
-
-## Actions
-
-These actions are provided:
-
-- `get`
-- `put`
-- `remove`
-
-### Action `minio.get`
-
-Download file.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action `minio.put`
-
-Upload file.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action `minio.remove`
-
-Delete file.
-
-| Data attribute | Required | Description            |
-| ---------------------- | -------- | ---------------------- |
-| `bucket`               | yes      | Bucket to use          |
-| `key`                  | yes      | Object key of the file |
+{% include integrations/actions.md %}

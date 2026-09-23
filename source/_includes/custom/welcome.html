@@ -3,31 +3,31 @@
   Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
 </p>
 
-{%- assign tot = 0 -%}
+{%- assign integration_count = 0 -%}
 {%- for comp in site.integrations -%}
-{%- if comp.ha_category -%}
-{%- if comp.ha_category.first -%}
-{%- assign tot = tot | plus: comp.ha_category.size -%}
-{%- else -%}
-{%- assign tot = tot | plus: 1 -%}
-{%- endif -%}
-{%- endif %}
+  {%- if comp.ha_category and comp.title -%}
+    {%- assign integration_count = integration_count | plus: 1 -%}
+  {%- endif -%}
 {%- endfor -%}
 
 <div class='hero-buttons'>
   <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
   <div>
     <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
-    <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
+    <a href='/integrations/'>Browse {{ integration_count | minus: 1 | divided_by: 100 | times: 100 }}+ integrations</a>
+   {%- comment -%}
+    Subtracting 1 forces a conservative buffer so milestones only flip over 
+    after safely exceeding the baseline (e.g., 1600 stays at 1500+ until 1601).
+   {%- endcomment -%}
   </div>
 </div>
 
 <div class="hero-socialproof">
-  <a href="https://github.blog/news-insights/octoverse/octoverse-2024/#the-state-of-open-source" target="_blank" class="">
+  <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/#the-top-open-source-projects-by-contributors" target="_blank" class="">
     <div class="hero-github-top-project">
       <img src="/images/frontpage/hero-github-logo.svg" alt="GitHub logo"/>
       <img src="/images/frontpage/hero-trophy.svg" alt="Top open source project trophy"/>
-      <p><strong>Top open source project</strong> by contributors in 2024</p>
+      <p><strong>Top open source project</strong> by contributors in 2025</p>
     </div>
   </a>
 
@@ -43,4 +43,3 @@
     </div>
   </div> -->
 </div>
-

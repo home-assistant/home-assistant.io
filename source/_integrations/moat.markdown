@@ -12,7 +12,7 @@ ha_domain: moat
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Moat](https://moat-tech.com/) devices into Home Assistant.

@@ -18,11 +18,11 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@Noltari'
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 
-This integration interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
+This {% term integration %} interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
 
 {% include integrations/config_flow.md %}
 
@@ -90,6 +90,12 @@ The following *sensors* are created for each port (or LACP):
 | Update              | Description                        |
 | :------------------ | :--------------------------------- |
 | firmware_update     | Firmware update status.            |
+
+## Known limitations
+
+The QNAP QSW firmware allows only one authenticated session at a time. Because this integration maintains a persistent session to poll the switch, you cannot sign in to the switch's web management console (QSS) while the integration is active. Attempting to do so results in a "Duplicate login detected" error.
+
+To access the switch's web console, temporarily disable the integration under {% my integrations title="**Settings** > **Devices & services**" %}, then re-enable it when you are done.
 
 ## Removing the integration
 

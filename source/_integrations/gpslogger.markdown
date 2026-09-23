@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
+This {% term integration %} sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
 
 ## Configuration
 
@@ -53,11 +53,29 @@ https://YOUR.DNS.HOSTNAME:PORT/api/webhook/WEBHOOK_ID
 - It's HIGHLY recommended to use SSL/TLS.
 - Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
 - Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
-- Add the following to **HTTP Body**
+- Add the following to **HTTP Body**:
+
 ```text
-latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
+latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
 ```
-- You can change the `device_id` of your phone by replacing `&device=%SER` with `&device=SOME_DEVICE_ID`, otherwise your phone's serial number will be used.
+
+You can change the device identifier by replacing `device=%SER` with `device=my_phone`. Otherwise, your phone's serial number is used.
+
+{% tip %}
+
+You can append optional parameters to the HTTP body if GPSLogger provides them. Add only the parameters your device actually reports:
+
+- `&battery=%BATT`
+- `&speed=%SPD`
+- `&direction=%DIR`
+- `&altitude=%ALT`
+- `&provider=%PROV`
+- `&activity=%ACT`
+
+If GPSLogger sends an empty value for a numeric parameter, like `battery`, `speed`, `direction`, or `altitude`, the webhook returns a 422 error.
+
+{% endtip %}
+
 - Check that the **HTTP Headers** setting contains
 ```text
 Content-Type: application/x-www-form-urlencoded

@@ -83,6 +83,8 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *set TV volume to 90 percent*
 - *change the TV volume to 90*
 - *turn TV volume down to 90 percent*
+- *Mute my TV*
+- *Unmute the television*
 
 ### Vacuum
 
@@ -103,6 +105,10 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *what's the date?*
 
 ## Timers
+
+Timers created with Assist are voice timers. They are separate from [Timer helper entities](/integrations/timer/) and do not create `timer.*` entities that you can use in dashboards, scripts, or automations.
+
+A voice timer belongs to the Assist device where you start it. The device must support handling timer events. If it does not, Assist responds that the device does not support timers.
 
 ### Starting
 

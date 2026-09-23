@@ -12,7 +12,7 @@ ha_codeowners:
   - '@gjong'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **YouLess** {% term integration %} for Home Assistant allows you to read the meter values from sensors created by [YouLess](https://www.youless.nl/home.html).

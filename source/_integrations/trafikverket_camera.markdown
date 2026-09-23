@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 Retrieve camera feed from [Trafikverket](https://www.trafikverket.se/).

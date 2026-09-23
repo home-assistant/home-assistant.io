@@ -30,12 +30,12 @@ ha_platforms:
   - light
   - scene
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-[Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
+[Lutron](https://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, and HVAC controls. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](https://www.lutron.com/controls/systems/ra2select) product line of dimmers, switches, shades, and sensors.
 
-This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/Homeworks/Overview.aspx) **(not QS)** lines of products. 
+This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/controls/systems/ra2select), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://residential.lutron.com/homeworks) **(not QS)** lines of products. 
 
 Supports Bridges:
 
@@ -152,6 +152,8 @@ After setup, fans will appear in Home Assistant using an `entity_id` based on th
 
 For more information on working with fans in Home Assistant, see the [Fans integration](/integrations/fan/).
 
+For supported bridges, a switch entity will be created under the smart bridge called Smart Away. This switch toggles Smart Away on/off.
+
 ## Sensor
 
 Occupancy sensors can be added to a Lutron Caseta system to trigger events when an area becomes vacant and, optionally, occupied. However, Lutron systems report occupancy and vacancy statuses only in *occupancy groups* -- that is, groups of one or more sensors.
@@ -173,11 +175,16 @@ Radio RA3 and HomeWorks QSX systems can use these button entities to activate sc
 
 For more information on working with buttons in Home Assistant, see the [Buttons integration](/integrations/button/).
 
-## Pico and Shade Remotes
+## Keypads and remotes
 
-Pico and Shade remotes are supported on the Smart Bridge (L-BDG2-WH), Smart Bridge PRO (L-BDGPRO2-WH), and RA2 Select (RR-SEL-REP2-BL) models.
+Device triggers are available for every button on Pico remotes, Shade remotes, and keypads (Palladiom, SeeTouch, Sunnata, HomeOwner, etc.). Automations can be triggered on the following actions:
 
-Device triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
+- `press`: Button pressed. Supported on all hardware.
+- `release`: Button released. Supported on all hardware.
+- `multi_tap`: Button tapped multiple times in quick succession. Supported on all hardware.
+- `long_press`: Button held for an extended duration. Supported on HomeWorks QSX processors only.
+
+These are exposed as device triggers in the automation editor, and also fire `lutron_caseta_button_event` events in the format:
 
 {% raw %}
 
@@ -193,3 +200,7 @@ Device triggers are implemented for `press` and `release` of each button on the 
 ```
 
 {% endraw %}
+
+{% note %}
+The `long_press` action relies on a native `LongHold` event sent by the Lutron LEAP protocol. It is currently only confirmed to work on **HomeWorks QSX** processors (for example, HQP7). Caséta and RadioRA 3 bridges do not emit this event, so the `long_press` trigger will not appear in the automation editor for those systems.
+{% endnote %}

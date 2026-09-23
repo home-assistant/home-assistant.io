@@ -30,3 +30,38 @@ Additionally, various sensor entities are provided:
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
 {% include integrations/config_flow.md %}
+
+{% include integrations/actions.md %}
+
+## Examples
+
+{% details "Example template sensor using get_forecast" %}
+
+Example template sensors containing the Stookwijzer forecast for 6 and 12 hours from now.
+
+```yaml
+template:
+  - trigger:
+      - trigger: time_pattern
+        hours: /1
+    action:
+      - action: stookwijzer.get_forecast
+        data:
+          config_entry_id: 1b4a46c6d0f3406c80d275f5b0c6483b
+        response_variable: advice_forecast
+    sensor:
+      - name: Stookwijzer forecast 6 hours
+        unique_id: stookwijzer_forecast_6_hours
+        state: "{{ advice_forecast['forecast'][0]['advice'] }}"
+        attributes:
+          final: "{{ advice_forecast['forecast'][0]['final'] }}"
+          timestamp: "{{ advice_forecast['forecast'][0]['datetime'] }}"
+      - name: Stookwijzer forecast 12 hours
+        unique_id: stookwijzer_forecast_12_hours
+        state: "{{ advice_forecast['forecast'][1]['advice'] }}"
+        attributes:
+          final: "{{ advice_forecast['forecast'][1]['final'] }}"
+          timestamp: "{{ advice_forecast['forecast'][1]['datetime'] }}"
+```
+
+{% enddetails %}

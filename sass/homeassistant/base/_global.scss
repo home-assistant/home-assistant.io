@@ -1,6 +1,9 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 html {
   overflow-y: auto;
-  scroll-snap-type: y proximity;
 }
 
 body, html {
@@ -19,6 +22,16 @@ body, html {
 
   &>.grid-wrapper:last-of-type {
     min-height: calc(100vh - 714px);
+  }
+}
+
+@media only screen and (max-width: $desk-wide-start) {
+  body.documentation-page:has(#toc-bar),
+  body.integration-page:has(#toc-bar),
+  body.blog-post:not(.blog-index) {
+    .page-content {
+      padding-top: 140px;
+    }
   }
 }
 
@@ -86,10 +99,7 @@ textarea {
 }
 
 .divider {
-  border: none;
-  border-bottom: 2px solid $primary-color;
-  clear: both;
-  margin: 2em 0;
+  @include divider;
 }
 
 article.post,
