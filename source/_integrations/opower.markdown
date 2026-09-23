@@ -91,7 +91,11 @@ Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If yo
 
 ## Sensors
 
-The integration adds the following sensors only if your utility provides forecasted usage/cost:
+For an electricity account, the integration creates a **Last bill electricity rate** sensor after Opower provides a completed bill whose usage charges can be safely attributed to a positive billed `NET_USAGE` value in kWh. This sensor shows the historical effective billed-net rate for that bill, not the exact current electricity tariff. It can become unavailable if no later completed bill can be used safely.
+
+On net-metered accounts, energy charges may be deferred until an annual true-up. In this case, the sensor may not be created until Opower provides a qualifying bill.
+
+The integration adds the following sensors only if your utility provides forecasted usage and cost:
 
 For electricity:
 
