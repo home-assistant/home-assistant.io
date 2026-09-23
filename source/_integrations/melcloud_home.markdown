@@ -66,6 +66,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Horizontal vane**: Auto, Swing, Left, Left centre, Centre, Right centre, Right
 - **Target temperature**
 - **Current room temperature**
+- **Outdoor temperature**
 
 #### Air-to-Water (ATW) units
 

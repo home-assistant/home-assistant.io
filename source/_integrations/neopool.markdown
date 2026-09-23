@@ -8,13 +8,15 @@ ha_codeowners:
   - '@svasek'
 ha_domain: neopool
 ha_platforms:
+  - binary_sensor
   - button
   - diagnostics
   - light
+  - number
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_category:
   - Hub
 ---
@@ -102,11 +104,20 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor entities, plus an optional light entity for the pool light relay, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
+The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
 {% endnote %}
+
+### Binary sensors
+
+- **Relay states**: the on/off state of each controller relay, including the filtration pump, pH acid pump, pool light, and auxiliary relays 1 to 4. The pool light and auxiliary relay states are added when the matching integration option is enabled.
+- **Module status**: whether the pH, Redox, chlorine, and conductivity modules are actively measuring or regulating, and whether their dosing pumps are running. Added when the corresponding module is present. Most of these are diagnostic and disabled by default.
+- **Hydrolysis status**: whether the hydrolysis module is enabled, regulating, in chlorine shock (boost) mode, or activated by the Redox or chlorine module. Added when the hydrolysis module is present.
+- **Problem indicators**: hydrolysis and ionization production problems, a chlorine flow sensor problem, and an ionization program time exceeded state. Added when the corresponding module is present.
+- **Pool cover**: whether the pool cover is open. Reads `unknown` unless filtration is running, since the controller only reports a valid cover state then. Added when the cover sensor is enabled in the integration options.
+- **Heating** and **UV lamp**: whether the heating relay or UV lamp is on. Added when the controller reports the corresponding relay.
 
 ### Buttons
 
@@ -126,11 +137,22 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Configuration flags**: Toggles controller settings such as the climate mode for heating, UV mode, smart antifreeze, and hydrolysis shutdown on high temperature. Each flag is added when the controller reports the corresponding module.
 - **Enable cover reduction**: Toggles the cover-driven hydrolysis reduction. Added when the cover sensor is enabled in the integration options and the controller has a hydrolysis module.
 
+### Numbers
+
+- **pH minimum** and **pH maximum**: the low and high pH regulation setpoints. Added when the pH module is present and the controller reports a valid dosing relay for that setpoint (a base relay for pH minimum, an acid relay for pH maximum).
+- **Redox/ORP setpoint**: the target oxidation-reduction potential in mV. Added when the Redox module is present.
+- **Free chlorine setpoint**: the target free chlorine concentration. Added when the chlorine module is present.
+- **Hydrolysis target production level**: the target production level for the electrolytic cell. Added when the hydrolysis module is present. The maximum, unit, and step follow the controller: a percentage when it reports production in percent, or g/h when it reports a nominal production rate.
+- **Heating setpoint**: the target water temperature for the heating relay. Added when the controller has a heating relay and a temperature sensor.
+- **Smart minimum temperature** and **smart maximum temperature**: the low and high water temperatures that bound Smart filtration mode. Added when a temperature sensor is present.
+- **Cover reduction**: the percentage by which hydrolysis production is reduced while the pool cover is closed. Added when the cover sensor is enabled in the integration options and the controller has a hydrolysis module.
+- **Hydrolysis shutdown temperature**: the water temperature below which hydrolysis stops. Added when the cover sensor is enabled in the integration options and the controller has a hydrolysis module and a temperature sensor.
+
 ### Sensors
 
 - **Water temperature**: current pool water temperature (when the temperature sensor is present).
 - **pH**: measured pH level (when the pH module is present).
-- **Redox / ORP**: measured oxidation-reduction potential in mV (when the Redox module is present).
+- **Redox/ORP**: measured oxidation-reduction potential in mV (when the Redox module is present).
 - **Free chlorine**: measured chlorine concentration (when the chlorine module is present).
 - **Conductivity**: measured water conductivity (when the conductivity module is present).
 - **pH pump status**: current state of the pH dosing pump (off, idle, acid pump, base pump, both pumps) (when the pH module is present).
@@ -151,6 +173,17 @@ Only entities backed by a detected hardware module or an enabled controller opti
 The integration {% term polling polls %} the controller over Modbus TCP at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
 
 If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), all entities transition to `unavailable` until the next successful poll.
+
+## Reconfigure
+
+If your Modbus TCP gateway moves to a different IP address or port, or you need to change the unit ID or Modbus framer, you can update the connection settings without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the NeoPool integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+4. Update the settings and submit the form.
+
+The integration verifies the new settings against the controller before saving. If the device reached at the new address reports a different serial number than the one originally configured, the reconfiguration is rejected to prevent pointing the entry at a different controller.
 
 ## Diagnostics
 

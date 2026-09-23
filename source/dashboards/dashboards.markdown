@@ -171,8 +171,8 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
 
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
-   1. Go to {% my profile title="**User profile**" %}.
-   2. On the **General** tab, next to **Dashboard**, select your default dashboard.
+   1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+   2. Next to **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
    3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
@@ -234,8 +234,8 @@ To add or remove a dashboard from the sidebar:
 
 You can define which elements are shown in the sidebar and the order in which they appear.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
 3. Drag and drop items to reorder them, and toggle items to show or hide them.
 4. Select **Save**.
 
@@ -243,8 +243,8 @@ You can define which elements are shown in the sidebar and the order in which th
 
 If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reset to defaults**.
 
 ## Adding YAML dashboards
