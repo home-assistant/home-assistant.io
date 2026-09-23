@@ -352,6 +352,32 @@ This section provides a bit more information on some of the categories:
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
 
+## Viewing your Matter network map
+
+The network map shows all your Matter devices in one interactive visualization, and how they reach Home Assistant. It can help you find devices with a weak connection, or devices that are offline.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant.
+- The Matter Server app 9.2.0 or newer. If you run the Matter server yourself, you need version 1.4.0 or newer.
+
+### To view your Matter network map
+
+1. Go to {% my config_matter title="**Settings** > **Connectivity** > **Matter**" %}.
+2. Under **My network**, select **Show map**.
+   - The map shows Home Assistant in the middle, with your Matter devices around it.
+   - The map updates by itself when your network changes.
+   - If the map shows **No network topology data is available yet.**, Home Assistant has not received network details from your devices yet.
+   - If the map shows **The connected Matter server does not support network topology.**, update the Matter Server app.
+3. To see the details of a device or a connection, point to it or select it.
+   - For a device, you see details such as its role, its network, whether it is online, its area, and when it was last seen.
+   - For a connection, you see the network type and the signal strength in each direction.
+4. To open the page of a device, select the device on the map.
+5. To find a device, enter its name, manufacturer, model, or node ID in the search field.
+6. If the map seems outdated, select **Refresh topology** {% icon "mdi:refresh" %}.
+   - Home Assistant then reads the network details from every online Matter device. This can take a few seconds.
+   - Use it only when needed, because it sends a request to each of your devices.
+
 ## Matter OTA device updates
 
 The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
