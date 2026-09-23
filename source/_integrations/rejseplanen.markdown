@@ -162,7 +162,7 @@ The response includes stops matching your search. In this example, the stop ID i
 4. Replace the coordinates and API key with your values.
 5. The response shows the 10 nearest stops to your location. Find the one you want and use its `extId` as the stop ID.
 
-#### Example search for nearby stops in Copenhagen
+#### Example search for nearby stops in Roskilde
 
 ```text
 https://www.rejseplanen.dk/api/location.nearbystops?originCoordLong=12.088367&originCoordLat=55.637912&maxNo=10&accessId=YOUR_API_KEY
