@@ -7,6 +7,7 @@ ha_category:
   - DIY
   - Infrared
   - Radio frequency
+  - Serial
   - Update
 ha_release: 0.85
 ha_iot_class: Local Push
