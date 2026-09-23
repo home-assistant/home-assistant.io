@@ -273,7 +273,7 @@ Home Assistant lists a port only while it can find it. A port that no {% term in
 
 - A port on a [USB-to-serial adapter](#usb-to-serial-adapter) is found when the adapter is plugged in.
 - A port that a [serial proxy](#serial-proxy) shares is found only while the ESPHome device is online.
-- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. A port that is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, is not listed.
+- A port on a [serial device server](#serial-device-server) is never found automatically. When you set up an integration, it is never in the list of ports. In the **Serial** panel, it is listed only after an integration that you added in the UI uses it. If such a port is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, it is not listed at all. This is different from a local port, which is listed under **Available** in that case.
 
 #### Resolution
 
