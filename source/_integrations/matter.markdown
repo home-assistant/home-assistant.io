@@ -365,7 +365,7 @@ The network map shows all your Matter devices in one interactive visualization, 
 
 1. Go to {% my config_matter title="**Settings** > **Connectivity** > **Matter**" %}.
 2. Under **My network**, select **Show map**.
-   - The map shows Home Assistant in the middle, with your Matter devices around it.
+   - The map shows Home Assistant in the middle, with your Matter devices around it. For what the shapes and lines mean, refer to [About the Matter network map](#about-the-matter-network-map).
    - The map updates by itself when your network changes.
    - If the map shows **No network topology data is available yet.**, Home Assistant has not received network details from your devices yet.
    - If the map shows **The connected Matter server does not support network topology.**, update the Matter Server app.
@@ -377,6 +377,33 @@ The network map shows all your Matter devices in one interactive visualization, 
 6. If the map seems outdated, select **Refresh topology** {% icon "mdi:refresh" %}.
    - Home Assistant then reads the network details from every online Matter device. This can take a few seconds.
    - Use it only when needed, because it sends a request to each of your devices.
+
+### About the Matter network map
+
+Home Assistant reaches your Matter devices in two ways:
+
+- **Thread devices** through a Thread border router. The Thread devices form a mesh network, where routers pass messages on for other devices.
+- **Wi-Fi devices** through a Wi-Fi access point.
+
+The legend on the map shows what each shape stands for. The colors below are those of the default theme:
+
+- <iconify-icon inline icon="mdi:square-rounded" style="color: #009ac7" title="Blue square"></iconify-icon> (blue square) **Home Assistant**: the center of the map.
+- <iconify-icon inline icon="mdi:square-rounded" style="color: #926bc7" title="Purple square"></iconify-icon> (purple square) **Border router**: a Thread border router that connects your Thread network to your home network.
+- <iconify-icon inline icon="mdi:square-rounded" style="color: #ff9800" title="Orange square"></iconify-icon> (orange square) **Wi-Fi access point**: the access point that your Wi-Fi devices connect to.
+- <iconify-icon inline icon="mdi:circle" style="color: #00bcd4" title="Cyan circle"></iconify-icon> (cyan circle) **Router**: a Thread device that can pass messages on for other devices. The router that leads the Thread network has an extra outline.
+- <iconify-icon inline icon="mdi:circle" style="color: #009688" title="Teal circle"></iconify-icon> (teal circle) **End device**: a device that does not pass messages on for other devices.
+- <iconify-icon inline icon="mdi:circle" style="color: #db4437" title="Red circle"></iconify-icon> (red circle) **Offline**: a device that is currently not reachable.
+- <iconify-icon inline icon="mdi:circle" style="color: #bdbdbd" title="Gray circle"></iconify-icon> (gray circle) **Unknown devices**: Thread devices that your Matter devices see as neighbors, but that are not added to Home Assistant. For example, a device of another platform on the same Thread network. Some border routers can show up both as a border router and as an unknown device.
+
+The lines between devices show how they connect, and how well they can reach each other:
+
+- <iconify-icon inline icon="mdi:minus" style="color: #926bc7" title="Purple line"></iconify-icon> (purple line): a Thread connection.
+- <iconify-icon inline icon="mdi:minus" style="color: #ff9800" title="Orange line"></iconify-icon> (orange line): a Wi-Fi connection.
+- <iconify-icon inline icon="mdi:minus-thick" style="color: #9b9b9b" title="Thick line"></iconify-icon> (thick line): a thicker line means a stronger signal. The details of a connection show the signal as **Strong**, **Medium**, or **Weak**, together with the <abbr title="Link Quality Indicator">LQI</abbr> or <abbr title="Received Signal Strength Indicator">RSSI</abbr> value when it is available.
+- <iconify-icon inline icon="tabler:line-dashed" style="color: #9b9b9b" title="Dashed line"></iconify-icon> (dashed line): the signal was only seen in one direction, it differs between the two directions, or one of the devices is offline or unknown.
+- <iconify-icon inline icon="tabler:line-dotted" style="color: #9b9b9b" title="Dotted line"></iconify-icon> (dotted line): the connection is only known from the routing table of a Thread device. Its details show **Learned from routing table**.
+
+A connection without any recent signal is not drawn. A device that has no known route to Home Assistant is shown without a connection.
 
 ## Matter OTA device updates
 
