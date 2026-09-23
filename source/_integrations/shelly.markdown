@@ -129,6 +129,7 @@ The following disabled by default entities {% term polling poll %} data from the
 The following disabled by default entities {% term polling poll %} data from the device every 60 seconds:
 
 - Device temperature sensor
+- Input lock switch
 - RSSI sensor
 - Uptime sensor
 
@@ -227,6 +228,12 @@ Depending on how a device's button type is configured, the integration will crea
 ### Binary input sensors (generation 2+)
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
+
+## Input lock
+
+Generation 2+ devices with a physical input provide an **Input lock** switch. When it is on, the device ignores all changes to its physical inputs. The output can still be controlled from Home Assistant, the Shelly app, and automations.
+
+The switch is created for every switch or cover channel that supports it, and is disabled by default. To use it, enable it on the device page under **Settings** > **Devices & services** > **Shelly**. While it is enabled, Home Assistant keeps it in sync with the device, so changes made in the Shelly app or web interface are reflected in Home Assistant as well.
 
 ## Media player entities
 
