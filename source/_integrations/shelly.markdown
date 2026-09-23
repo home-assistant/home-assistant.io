@@ -193,6 +193,12 @@ Depending on how a device's button type is configured, the integration will crea
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
 
+## Input lock
+
+Generation 2+ devices with a physical input provide an **Input lock** switch. When it is on, the device ignores all changes to its physical inputs. The output can still be controlled from Home Assistant, the Shelly app, and automations.
+
+The switch is created for every switch or cover channel that supports it. Changes made in the Shelly app or web interface are reflected in Home Assistant as well.
+
 ## Media player entities
 
 Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
