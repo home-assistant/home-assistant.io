@@ -258,3 +258,84 @@ template:
 ### Digispark USB Development Board
 
 This [blog post](/blog/2017/10/23/simple-analog-sensor/) describes the setup with a Digispark USB Development Board.
+
+## Troubleshooting
+
+{% details "A serial port is not listed in the Serial panel" %}
+
+### Symptom: the port you want to use is missing from the Serial panel
+
+You go to **Settings** > **Connectivity** > **Serial**, but the port that your device is connected to is not listed.
+
+#### Description
+
+Home Assistant lists a port only while it can find it. A port that no {% term integration %} uses is not listed while it is unavailable. How Home Assistant finds a port depends on how it is connected:
+
+- A port on a [USB-to-serial adapter](#usb-to-serial-adapter) is found when the adapter is plugged in.
+- A port that a [serial proxy](#serial-proxy) shares is found only while the ESPHome device is online.
+- A port on a [serial device server](#serial-device-server) is never found automatically. It is listed only after an integration that you added in the UI uses it. A port that is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, is not listed.
+
+#### Resolution
+
+1. To look for ports again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
+2. If you use a USB-to-serial adapter, make sure it is plugged in. Then, select **Refresh** again.
+3. If you use a serial proxy, make sure the ESPHome device is powered on and connected to your network.
+4. If you use a serial device server, you do not need the port to be listed. Select **Enter manually** during integration setup and enter the URL of the port, such as `socket://192.168.1.10:4001`.
+
+{% enddetails %}
+
+{% details "A serial device server port shows as connected while the device server is offline" %}
+
+### Symptom: the port is listed under Connected, but your device does not respond
+
+A port on a [serial device server](#serial-device-server) is listed under **Connected** in the **Serial** panel, but the integration that uses it gets no data.
+
+#### Description
+
+Home Assistant cannot check whether a serial device server is reachable. As long as an integration uses the port, Home Assistant lists it under **Connected**, even while the device server is offline.
+
+#### Resolution
+
+1. Make sure the device server is powered on and connected to your network.
+2. Make sure the URL that the integration uses matches the IP address and TCP port of the device server.
+3. Make sure your device is wired to the serial port that the device server shares on that TCP port.
+
+{% enddetails %}
+
+{% details "No data or unreadable data from a serial device server" %}
+
+### Symptom: the integration connects, but gets no data or unreadable data
+
+An integration uses a port on a [serial device server](#serial-device-server) with a `socket://` URL. The integration connects, but it does not get any data, or the data it gets is unreadable.
+
+#### Description
+
+With a `socket://` URL, Home Assistant sends and receives only data. The [baud rate](#baud-rate) and the other connection settings that you set in the integration are not passed on to the device server. If the device server uses different settings than your device, the data does not come through correctly.
+
+#### Resolution
+
+1. Check the documentation of your device for the connection settings it expects, such as the baud rate.
+2. On the device server, set the port to the same settings.
+3. If your device server supports <abbr title="Request for Comments">RFC</abbr> 2217, you can use an `rfc2217://` URL instead, such as `rfc2217://192.168.1.10:4001`. Home Assistant then passes the connection settings of the integration on to the device server.
+
+{% enddetails %}
+
+{% details "A serial port stops working after a restart or after moving the adapter" %}
+
+### Symptom: the integration can no longer reach the port
+
+An integration worked before, but after you restarted your system or plugged the USB-to-serial adapter into another USB port, it can no longer reach its serial port.
+
+#### Description
+
+A path like `/dev/ttyUSB0` or `/dev/ttyACM0` is assigned when the adapter is detected, so it can change. After a restart, or when you connect adapters in a different order, another adapter can get that path. The `/dev/serial/by-id/...` link of an adapter stays the same. For more details, refer to [Device path](#device-path).
+
+#### Resolution
+
+1. Go to **Settings** > **Connectivity** > **Serial**.
+   - A port that an integration uses but that Home Assistant cannot find is listed under **Disconnected**.
+2. Change the serial port of the integration to the port of your adapter. How you change it depends on the integration. Refer to the documentation of the integration.
+   - Select the port from the list rather than entering a path like `/dev/ttyUSB0`. Home Assistant then stores the most stable identifier that is available for the port.
+   - If you enter the path yourself, use the `/dev/serial/by-id/...` link. To look it up, select **Port information** {% icon "mdi:information-outline" %} for that port in the **Serial** panel, and copy the **Device** field.
+
+{% enddetails %}
