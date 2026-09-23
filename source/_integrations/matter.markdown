@@ -354,7 +354,7 @@ This section provides a bit more information on some of the categories:
 
 ## Viewing your Matter network map
 
-The network map shows all your Matter devices in one interactive visualization, and how they reach Home Assistant. It can help you find devices with a weak connection, or devices that are offline.
+The network map is an interactive visualization of all your Matter devices and how they reach Home Assistant. It can help you find devices with a weak connection, or devices that are offline.
 
 ### Prerequisites
 
@@ -368,7 +368,7 @@ The network map shows all your Matter devices in one interactive visualization, 
    - The map shows Home Assistant in the middle, with your Matter devices around it. For what the shapes and lines mean, refer to [About the Matter network map](#about-the-matter-network-map).
    - The map updates by itself when your network changes.
    - If the map shows **No network topology data is available yet.**, Home Assistant has not received network details from your devices yet.
-   - If the map shows **The connected Matter server does not support network topology.**, update the Matter Server app.
+   - If the map shows **The connected Matter server does not support network topology.**, update the Matter Server app to 9.2.0 or newer. If you run the Matter server yourself, update it to version 1.4.0 or newer.
 3. To see the details of a device or a connection, point to it or select it.
    - For a device, you see details such as its role, its network, whether it is online, its area, and when it was last seen.
    - For a connection, you see the network type and the signal strength in each direction.
