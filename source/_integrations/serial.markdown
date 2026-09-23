@@ -161,7 +161,7 @@ For a serial port exposed via USB, use the `/dev/serial/by-id/...` path when ava
 
 ### Serial proxy
 
-A remote adapter that shares a serial port with Home Assistant over your network. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one or more of its serial ports, so that Home Assistant can use them as if they were connected to your system. The shared ports appear next to the ports of your own system, so any {% term integration %} that asks for a serial port can use them the same way. The port that the proxy shares is what you select in Home Assistant.
+A remote adapter that shares a serial port with Home Assistant over your network. A serial proxy is an [ESPHome](/integrations/esphome/) device that uses the [serial proxy](https://esphome.io/components/serial_proxy/) component to share one or more of its serial ports, so that Home Assistant can use them as if they were connected to your system. When an {% term integration %} asks you to select a serial port, the shared ports are listed next to the ports of your own system. The port that the proxy shares is what you select in Home Assistant.
 
 A serial proxy is the recommended way to connect a [device connected via serial](#device-connected-via-serial) that is not next to the system running Home Assistant. A direct serial cable only reaches so far, and it ties your device to the place where your system is. With a serial proxy, you place the ESPHome device next to your device instead, and your network covers the rest of the distance. Prefer a wired network connection to the proxy.
 
@@ -177,7 +177,12 @@ A device that adds a serial port to your system over USB. Use a USB-to-serial ad
 
 Another way to put a serial port on your network, without using a serial proxy. This can be a piece of hardware with one or more serial ports, or another computer on your network that shares a port with [`ser2net`](https://ser2net.sourceforge.net/) or [`socat`](http://www.dest-unreach.org/socat/).
 
-Home Assistant uses such a port the same way, with one difference: it does not find the port by itself, so the port is not listed in the **Serial** panel until an integration uses it. To use it, select **Enter manually** during integration setup and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
+Home Assistant uses such a port differently from a serial proxy:
+
+- Home Assistant does not find the port by itself. The port is listed in the **Serial** panel only after an integration that you added in the UI uses it. It is then listed under **Connected**, even while the device server is offline, because Home Assistant cannot check it. A port that is only used by a [Serial sensor](#serial-sensor) in your {% term "`configuration.yaml`" %}, or only by Modbus, is not listed.
+- With a `socket://` URL, Home Assistant sends and receives only data. The [baud rate](#baud-rate) and the other connection settings of the integration are not passed on, so set them on the device server itself. If your device server supports <abbr title="Request for Comments">RFC</abbr> 2217, you can use an `rfc2217://` URL instead. Home Assistant then passes these settings on to the device server.
+
+To use the port with an integration, select **Enter manually** during integration setup and enter its URL, such as `socket://192.168.1.10:4001`. For more details, refer to [Device path](#device-path).
 
 ### Device connected via serial
 
