@@ -168,12 +168,16 @@
     font-family: $heading-font;
     font-size: 14px;
     font-weight: 700;
-    line-height: 1.2;
+    // Same line height as the header button, whose padding is tuned to it.
+    // A taller line pushes the text below the arrow.
+    line-height: 1;
     text-transform: uppercase;
     transition: background 0.2s ease;
 
+    // Same size and offsets as the arrow in the header button.
     iconify-icon {
-      margin-right: -4px;
+      height: 14px;
+      margin: -2px -4px 0 0;
     }
   }
 
