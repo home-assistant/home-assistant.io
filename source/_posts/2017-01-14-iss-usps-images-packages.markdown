@@ -8,7 +8,7 @@ author_twitter: fabaff
 categories:
 - Release-Notes
 - Core
-og_image: /images/blog/2016-01-0.36/social.png
+og_image: /images/blog/2017-01-0.36/social.png
 ---
 
 Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.
