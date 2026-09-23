@@ -13,11 +13,6 @@ Note: the shopping list card is no longer available as a card to add from the us
 
 The shopping list card allows you to add, edit, check-off, and clear items from your shopping list.
 
-<p class='img'>
-<img src='/images/dashboards/shopping_list_card.gif' alt='Screenshot of the shopping list card'>
-Screenshot of the shopping list card.
-</p>
-
 Setup of the [shopping list integration](/integrations/shopping_list/) is required.
 
 All options for this card can be configured via the user interface.

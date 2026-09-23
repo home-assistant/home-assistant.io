@@ -69,8 +69,6 @@ You are in the onboarding procedure, but you get the message **Error installing 
 
 You are in the onboarding procedure, but the process seems stuck at the step **Preparing Home Assistant**.
 
-![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
-
 ### Resolution
 
 1. Select **Show details** to view the log files.
