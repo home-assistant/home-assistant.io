@@ -34,7 +34,7 @@ Before you can use the integration, you have to make sure the slide is configure
 LED flashes 5x fast: cloud API disabled, local API enabled
 LED flashes 2x slow: local API disabled, cloud API enabled
 
-![screenshot slide bottom](/images/integrations/slide_local/slide_bottom.png)
+![screenshot slide bottom](/images/integrations/slide_local/slide-bottom.png)
 
 {% include integrations/config_flow.md %}
 
