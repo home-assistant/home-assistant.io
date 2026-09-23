@@ -6,6 +6,7 @@ date_formatted: "July 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 categories: Announcements
+og_image: /images/default-social.png
 ---
 
 **TL;DR:** Today we're introducing [Hass.io]. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons] including [Google Assistant] and [Let's Encrypt].
