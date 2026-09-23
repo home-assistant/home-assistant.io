@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: brother
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -56,6 +57,47 @@ Type of the printer:
 ## Supported functionality
 
 The Brother integration provides the following entities.
+
+### Binary sensors
+
+- **Door open**
+  - **Description**: Printer door is open
+- **Input tray empty**
+  - **Description**: Input tray is empty
+  - **Remarks**: This entity is disabled by default
+- **Input tray missing**
+  - **Description**: Input tray is missing
+  - **Remarks**: This entity is disabled by default
+- **Low ink**
+  - **Description**: Ink level is low (ink printers only)
+- **Low paper**
+  - **Description**: Paper level is low
+  - **Remarks**: This entity is disabled by default
+- **Low toner**
+  - **Description**: Toner level is low (laser printers only)
+- **No ink**
+  - **Description**: Ink is empty (ink printers only)
+- **No paper**
+  - **Description**: Paper is empty
+- **No toner**
+  - **Description**: Toner is empty (laser printers only)
+- **Output tray full**
+  - **Description**: Output tray is full
+  - **Remarks**: This entity is disabled by default
+- **Output tray near full**
+  - **Description**: Output tray is almost full
+  - **Remarks**: This entity is disabled by default
+- **Output tray missing**
+  - **Description**: Output tray is missing
+  - **Remarks**: This entity is disabled by default
+- **Paper jam**
+  - **Description**: Paper is jammed
+- **Preventive maintenance overdue**
+  - **Description**: Preventive maintenance is overdue
+  - **Remarks**: This entity is disabled by default
+- **Service requested**
+  - **Description**: Printer requests service
+  - **Remarks**: This entity is disabled by default
 
 ### Sensors
 
