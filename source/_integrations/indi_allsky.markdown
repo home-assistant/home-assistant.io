@@ -46,13 +46,28 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 ### Sensors
 
+- **Camera SQM**: Sky Quality Meter magnitude calculated from camera exposures.
+- **Camera SQM ADU**: Camera SQM raw Analog-to-Digital Unit (ADU) count.
+- **Device SQM**: Sky Quality Meter magnitude reading from a dedicated hardware SQM device.
+- **Dew heater duty cycle**: Dew heater power output level (in %).
+- **Dew point**: Calculated atmospheric dew point temperature (in °C).
 - **Exposure time**: The exposure duration of the latest capture (in seconds).
+- **Fan duty cycle**: Cooling fan output level (in %).
+- **Frost point**: Calculated atmospheric frost point temperature (in °C).
+- **Heat index**: Calculated heat index temperature (in °C).
 - **Sky quality**: Sky Quality Meter (SQM) reading.
 - **Stars**: The number of stars detected in the latest image.
-- **Temperature**: Sensor temperature (in °C).
+- **Temperature**: Camera sensor temperature (in °C).
+- **Wind direction**: Measured wind direction (in degrees).
+
 - **Binning mode** (disabled by default): The binning mode used for capture.
+- **CPU temperature** (disabled by default): Server host CPU temperature (in °C).
 - **Filename** (disabled by default): The filename of the latest captured image.
 - **Gain** (disabled by default): The camera gain setting.
+
+### Dynamic hardware sensors
+
+Additional hardware sensors connected to your INDI Allsky instance (such as ambient temperature, relative humidity, barometric pressure, voltage, current, power, or illuminance sensors) are automatically discovered and created dynamically with appropriate units of measurement and device classes.
 
 ## Data updates
 
@@ -63,4 +78,3 @@ The camera entity fetches the latest image on-demand from the INDI Allsky server
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-
