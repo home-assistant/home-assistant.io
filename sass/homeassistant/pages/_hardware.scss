@@ -151,9 +151,10 @@
     }
   }
 
-  // Looks like a button but is part of the card link, so it sits under the
-  // stretched link and takes its hover state from the tile. The shape and
-  // arrow match the "Get started" button in the header.
+  // A copy of the "Get started" button in the header (.menu > li > a.primary
+  // in _overrides.scss, plus what it inherits from the menu), with different
+  // words. It's part of the card link, so it sits under the stretched link and
+  // takes its hover state from the tile.
   .hardware-tile-cta {
     display: inline-flex;
     align-items: center;
@@ -162,27 +163,27 @@
     // Pushes the button to the bottom so buttons line up across a row.
     margin-top: auto;
     padding: 12px 16px 10px;
+    background: $link-color;
     border-radius: 32px;
-    background: #34b155;
     color: $white;
     font-family: $heading-font;
     font-size: 14px;
     font-weight: 700;
-    // Same line height as the header button, whose padding is tuned to it.
-    // A taller line pushes the text below the arrow.
     line-height: 1;
+    letter-spacing: 0.08px;
+    white-space: nowrap;
     text-transform: uppercase;
-    transition: background 0.2s ease;
+    transition: background-color .33s;
 
-    // Same size and offsets as the arrow in the header button.
     iconify-icon {
       height: 14px;
-      margin: -2px -4px 0 0;
+      margin-top: -2px;
+      margin-right: -4px;
     }
   }
 
   .hardware-tile:hover .hardware-tile-cta {
-    background: #2a9146;
+    background: $primary-color;
   }
 
   .hardware-tile-body p.hardware-tile-status {
