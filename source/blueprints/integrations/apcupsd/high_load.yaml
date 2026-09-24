@@ -10,6 +10,7 @@ blueprint:
           filter:
             - integration: apcupsd
               domain: sensor
+              unit_of_measurement: "%"
     threshold:
       name: Load threshold
       default: 80
