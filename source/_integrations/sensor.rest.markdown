@@ -178,6 +178,8 @@ The RESTful sensor {% term polling polls %} the configured endpoint every 30 sec
 
 If you want to refresh the sensor manually, for example, from an automation or a script, call the [`homeassistant.update_entity` action](/integrations/homeassistant/#action-update-entity) and target the sensor. This triggers an immediate request to the endpoint, outside of the normal polling schedule.
 
+### Force update
+
 The `force_update` option changes how state updates are published, not how often the endpoint is polled. When `force_update` is enabled, the sensor still polls on the configured interval, but it emits a state change event on every poll even if the returned value has not changed. This is useful for long-term statistics and history graphs that rely on state change events.
 
 ## Examples
