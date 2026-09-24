@@ -126,6 +126,12 @@ The Energy dashboard now overlays the expected production on your solar graph.
 
 ## Examples
 
+### Run actions when tomorrow's solar forecast is high
+
+Run actions when tomorrow's estimated solar production rises above a chosen threshold.
+
+{% blueprint_example blueprint="forecast_solar/tomorrow_energy_threshold.yaml" %}
+
 ### Run actions at the solar production peak
 
 Run actions when the Forecast.Solar highest-power-peak timestamp is reached.
