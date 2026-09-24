@@ -480,7 +480,7 @@ Adding a new Matter device only works in the Home Assistant Companion app. It is
 
 #### Remedy
 
-Open the Home Assistant Companion app on your phone and add the device from there.
+Open the Home Assistant Companion app on your phone or tablet and add the device from there.
 
 #### Cause: The app can't add Matter devices on your phone or tablet
 
@@ -497,6 +497,7 @@ Make sure the requirements listed in the [prerequisites](#prerequisites) are met
   - Install the app from the Google Play Store. Versions of the app without Google Play services can't add Matter devices.
   - Make sure the Google Play Services are all up to date.
 - **iPhone or iPad**:
+  - Minimum version is iOS or iPadOS 16.4.
   - The Mac app can't add Matter devices. Use an iPhone or iPad instead.
 
 ### When trying to commission using Android, I get an error "Matter is unavailable"
