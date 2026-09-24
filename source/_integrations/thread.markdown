@@ -234,20 +234,22 @@ If you have a Home Assistant Thread adapter, follow the corresponding instructio
 ### To add a Thread adapter to the OpenThread Border Router app
 
 1. Install the **OpenThread Border Router** app.
-   - Go to {% my supervisor_addon title="**Settings** > **Apps**" addon="core_openthread_border_router" %} and select the **OpenThread Border Router** app.
+   - Go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select **Install**.
 2. Plug the adapter into the extension cable and plug it into the Home Assistant hub.
 3. Go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Configuration** tab.
-4. Under **Devices**, select your adapter.
-5. Enter the **Baudrate** as specified in the documentation of your adapter.
-   - If you can't find the baudrate, try `460800` or contact the manufacturer's support.
+4. Under **Device**, select your adapter.
+5. Under **Baudrate**, select the baudrate that is specified in the documentation of your adapter.
+   - If you can't find the baudrate, keep the default `460800` or contact the manufacturer's support.
    - **Save** your changes.
    - Troubleshooting:
      - Check the logs.
      - If the app crashes or fails to communicate with the Thread integration: Toggle the **Hardware flow control** option and try again.
-6. Restart the app and check the logs. Wait.
-7. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-   - Select the cogwheel {% icon "mdi:cog-outline" %}.
-   - **Result**: You should now see a new `ha-thread` Thread network.
+6. Start the app (or restart it if it is already running). Wait until it has started, then check the logs.
+   - Home Assistant then adds the **OpenThread Border Router** integration automatically.
+7. Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - **Result**: You should now see your OpenThread border router.
+   - If you already have a preferred network and the new adapter does not have a Thread network yet, the border router joins your preferred network. If your adapter uses multiprotocol, the preferred network also needs to use the same channel.
+   - Otherwise, the border router creates a new Thread network named `ha-thread-xxxx`. If you did not have a preferred network yet, and Home Assistant does not find any other border router on that network, the new network becomes your preferred network.
    - Troubleshooting: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
 
 ## Migrating a Thread network to a new adapter
