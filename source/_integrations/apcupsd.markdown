@@ -321,25 +321,11 @@ Some sensors are disabled by default, since they are primarily useful for diagno
 
 ## Examples
 
-### Send me a push notification when UPS load is high
+### Run actions when UPS load is high
 
+Run actions when APC UPS Daemon reports load above a chosen percentage.
 
-```yaml
-alias: "APC UPS Load High Notification"
-description: "Notify when APC UPS load is too high"
-mode: single
-triggers:
-  - trigger: numeric_state
-    entity_id:
-      - sensor.apc_ups_load
-    above: 80
-conditions: []
-actions:
-  - action: notify.notify
-    data:
-      message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
-```
-
+{% blueprint_example blueprint="apcupsd/high_load.yaml" %}
 
 ## Data updates
 
