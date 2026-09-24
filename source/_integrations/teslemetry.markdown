@@ -341,7 +341,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Consumer imported from generator|No|Polling|
 |Sensor|Consumer imported from grid|No|Polling|
 |Sensor|Consumer imported from solar|No|Polling|
-|Sensor|Energy left|Yes|Polling|
 |Sensor|Generator exported|Yes|Polling|
 |Sensor|Generator power|No|Polling|
 |Sensor|Grid exported|Yes|Polling|
@@ -360,7 +359,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Solar exported|No|Polling|
 |Sensor|Solar generated|Yes|Polling|
 |Sensor|Solar power|Yes|Polling|
-|Sensor|Total pack energy|No|Polling|
 |Sensor|Version|Yes|Polling|
 |Sensor|VPP backup reserve|Yes|Polling|
 |Switch|Allow charging from grid|Yes|Polling|
