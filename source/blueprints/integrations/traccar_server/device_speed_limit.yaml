@@ -1,0 +1,51 @@
+blueprint:
+  name: Do something when a device are speeding
+  description: |
+    Requirements:
+      - The Traccar Server integration
+      - At least one device in Traccar that is tracked by that integration
+  domain: automation
+  author: ludeeus
+  homeassistant:
+    min_version: 2024.5.0
+  input:
+    devices:
+      name: Devices
+      description: The Traccar sensor that holds the speed you want to act upon
+      selector:
+        entity:
+          multiple: true
+          filter:
+            integration: "traccar_server"
+            domain: "sensor"
+    speed:
+      name: Geofence
+      description: The speed limit
+      selector:
+        number:
+
+    conditions:
+      name: Conditions
+      description: |
+        Extra conditions you may want to add to this automation
+        (Example: Home occupied, TV on, etc)
+      default: []
+      selector:
+        condition:
+
+    actions:
+      name: Actions
+      description: |
+        What you want to do when a device enters the defined geofence
+        (Example: Notification, turn on lights etc.)
+      default: []
+      selector:
+        action:
+
+trigger:
+  - platform: numeric_state
+    entity_id: !input devices
+    above: !input speed
+condition: !input conditions
+action: !input actions
+mode: queued
