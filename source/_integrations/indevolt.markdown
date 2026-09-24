@@ -164,11 +164,11 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ### Setting emergency SOC based on forecasted minimum temperatures
 
-{% blueprint_example blueprint="indevolt/manage_auto_emergency_soc.yml" %}
+{% blueprint_example blueprint="indevolt/manage_auto_emergency_soc.yaml" %}
 
 ### Dynamically control battery discharge based on battery state, grid import/export and solar production
 
-{% blueprint_example blueprint="indevolt/smart_discharge.yml" %}
+{% blueprint_example blueprint="indevolt/smart_discharge.yaml" %}
 
 ## Data updates
 
