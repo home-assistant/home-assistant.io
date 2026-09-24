@@ -30,7 +30,7 @@ isy994:
 ```
 
 __Logbook__
-<img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" /> I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. [See the demo for a live example.](/demo/)
+I (Paulus) have added a logbook component. The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in chronological order. [See the demo for a live example.](/demo/)
 <span class='clearfix'></span>
 
 ```yaml

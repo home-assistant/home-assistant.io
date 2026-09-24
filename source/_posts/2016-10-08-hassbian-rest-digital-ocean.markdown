@@ -32,10 +32,6 @@ As soon as the [Hacktoberfest] started there were a lot of incoming Pull Request
 
 With the [statistics sensor][stats-sensor] we would like to introduce a new sensor that is similar to the [template sensor][template-sensor] or the [trend sensor][trend-sensor]. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.
 
-<p class='img'>
-  <img src='/images/screenshots/stats-sensor.png' />
-</p>
-
 As the results are processed on-the-fly you still need to use the data from your database for an in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
 
 ### REST! We don't...

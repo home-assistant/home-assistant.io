@@ -482,7 +482,7 @@ An excellent addition by [@Netzwerkfehler] is the ability to freely define the
 number of segments, and their colors, of the gauge card!
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
+<img src='/images/dashboards/gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
 Screenshot of the gauge card with multiple colored segments.
 </p>
 
