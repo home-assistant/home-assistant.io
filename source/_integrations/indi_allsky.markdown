@@ -44,7 +44,7 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 ### Camera
 
-- **Camera**: Provides the latest image from your INDI Allsky server.
+- **Latest capture**: Provides the latest image from your INDI Allsky server.
 
 ### Image
 
