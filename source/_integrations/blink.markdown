@@ -116,27 +116,11 @@ Similar to the previous example, this automation will disarm blink when arriving
         entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
-### Save most recent video locally when motion detected
+### Save most recent video locally when motion is detected
 
-When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
+Save the latest recorded Blink video to a local path when a camera detects motion.
 
-The following example assumes your camera's name (in the Blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/templating/).
-
-
-```yaml
-- alias: "Save Blink Video on Motion"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.blink_my_camera_motion_detected
-      to: "on"
-  actions:
-    -  action: blink.save_video
-       target:
-         entity_id: camera.blink_my_camera
-       data:
-         filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
-```
-
+{% blueprint_example blueprint="blink/save_video_on_motion.yaml" %}
 
 ### Save all recent clips locally on a schedule
 
