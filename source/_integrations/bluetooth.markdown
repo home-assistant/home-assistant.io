@@ -22,7 +22,7 @@ related:
     title: Bluetooth proxy page
 ---
 
-The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The **Bluetooth** {% term integration %} supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% include integrations/config_flow.md %}
 
