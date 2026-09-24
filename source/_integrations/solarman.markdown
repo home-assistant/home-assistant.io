@@ -105,6 +105,14 @@ The MR1-D5-W/MR1-D5-WR provides the following sensors:
 
 The **Solarman integration** {% term polling polls %} data from the device every 30 seconds.
 
+## Examples
+
+### Notify when the voltage exceeds a threshold
+
+When the reading from a SOLARMAN voltage sensor in Home Assistant stays above your chosen threshold for 5 minutes, this blueprint creates a persistent notification. After importing the blueprint, select a voltage sensor with a unit of V and set your threshold.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/solarman_voltage_threshold_notification.yaml" %}
+
 ## Known limitations
 
 The integration does not provide the ability to configure the devices, which can instead be done via the manufacturer's app.
