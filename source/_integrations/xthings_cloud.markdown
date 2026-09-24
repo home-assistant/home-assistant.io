@@ -67,8 +67,8 @@ The **Xthings Cloud** integration provides the following entities.
 
 The **Xthings Cloud** integration uses a combination of push and {% term polling %} for data updates:
 
-- With the native bulb connection enabled, A19-C1 bulbs use a separate cloud connection. Home Assistant requests their state at startup, after reconnecting, and approximately every 30 seconds. Changes made in another app can take until the next successful request to appear. A bulb becomes unavailable when Home Assistant cannot confirm its current state.
-- Other devices use WebSocket updates and a cloud API poll every 30 minutes. A failure to set up an optional native bulb connection does not disable these devices. Home Assistant retries native setup during a later cloud API poll; you can also reload the integration to retry sooner.
+- With the native bulb connection enabled, A19-C1 bulbs use a separate cloud connection. Home Assistant requests their state at startup, after reconnecting, and approximately every 30 seconds. Changes made in another app can take until the next successful request to appear. A bulb becomes unavailable when its connection drops or several state requests in a row go unanswered.
+- Other devices use WebSocket updates and a cloud API poll every 30 minutes. If the native bulb connection cannot be set up for a reason other than authentication, these devices keep working. While native setup has failed or a native bulb is unavailable, Home Assistant retries every 10 minutes and looks up the bulb's connection again, so a bulb moved into or between Xthings groups reconnects without a reload. If Xthings rejects your account during native setup, Home Assistant asks you to sign in again; see [Account needs authentication](#account-needs-authentication).
 
 ## Known limitations
 
@@ -76,6 +76,7 @@ The **Xthings Cloud** integration uses a combination of push and {% term polling
 - Only A19-C1 bulbs have been verified with the native connection.
 - A19-C1 bulbs report a warm-to-cool setting from 1 to 100, not a Kelvin value. Home Assistant maps that setting linearly to the advertised 2700–6500 K range. The intermediate Kelvin values are estimates; a vendor conversion formula has not been verified.
 - The native connection depends on shared application credentials. If Xthings revokes or replaces them, native controls may require an integration dependency update.
+- With the native connection enabled, a color or color temperature change from Home Assistant also resends the bulb's other settings as Home Assistant last confirmed them. A change made in the Xthings app shortly before, such as a new brightness, can be undone. Wait until the change appears in Home Assistant before changing color or color temperature there.
 
 ## Troubleshooting
 
@@ -110,9 +111,8 @@ If Xthings rejects your account credentials, Home Assistant asks you to sign in 
 
 1. Check that the bulb has power and is online in the Xthings app.
 2. Check the internet connection for Home Assistant and the bulb.
-3. If you added, removed, or moved the bulb in an Xthings group, reload **Xthings Cloud** to refresh its connection.
-4. Otherwise, wait for another state request. If setup failed, reload **Xthings Cloud** to retry without waiting for the next cloud API poll.
-5. Check {% my logs title="**Settings** > **System** > **Logs**" %} for a native bulb setup or connection error.
+3. Wait up to 10 minutes. Home Assistant retries unavailable bulbs, including bulbs you added to, removed from, or moved between Xthings groups. To retry immediately, reload **Xthings Cloud**.
+4. Check {% my logs title="**Settings** > **System** > **Logs**" %} for a native bulb setup error. Lost connections to a bulb are not logged, so a bulb that is unavailable without a setup error usually means the bulb or the Xthings Cloud service is not responding.
 
 You can disable **Enable native bulb connection** to return to the original cloud connection. That connection may omit the current color temperature, so disabling the option does not provide equivalent temperature readback.
 
