@@ -2,7 +2,7 @@
 title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Sensor
 ha_release: "2026.10"
