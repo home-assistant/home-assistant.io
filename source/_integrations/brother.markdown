@@ -185,39 +185,22 @@ By default, the integration {% term polling polls %} data from the device every 
 
 ## Examples
 
-You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows. First, add the following to {% term "`configuration.yaml`" %} under the `template:` section.
-Replace `sensor.hl_l2340d_status` with the actual name of your sensor.
-
+You can configure Home Assistant to alert you when the printer jams or runs out of paper by using the **Paper jam** and **No paper** binary sensors provided by this integration. Add the following to {% term "`configuration.yaml`" %}. Replace `binary_sensor.hl_l2340d_no_paper` and `binary_sensor.hl_l2340d_paper_jam` with the entity IDs of your printer's binary sensors.
 
 ```yaml
-template:
-  - binary_sensor:
-    - name: 'Laser Printer Out Of Paper'
-      state: >
-        {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
-
-  - binary_sensor:
-    - name: 'Laser Printer Paper Jam'
-      state: >
-        {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
-```
-
-
-Then, add this under the `alert:` section:
-
-```yaml
+alert:
   laser_out_of_paper:
-    name: Laser Printer is Out of Paper
-    done_message: Laser Printer Has Paper
-    entity_id: binary_sensor.laser_printer_out_of_paper
+    name: "Laser printer is out of paper"
+    done_message: "Laser printer has paper"
+    entity_id: binary_sensor.hl_l2340d_no_paper
     can_acknowledge: true
     notifiers:
       - my_phone_notify
 
   laser_paper_jam:
-    name: Laser Printer has a Paper Jam
-    done_message: Laser Printer Paper Jam Cleared
-    entity_id: binary_sensor.laser_printer_paper_jam
+    name: "Laser printer has a paper jam"
+    done_message: "Laser printer paper jam cleared"
+    entity_id: binary_sensor.hl_l2340d_paper_jam
     can_acknowledge: true
     notifiers:
       - my_phone_notify
