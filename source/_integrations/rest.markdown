@@ -27,8 +27,8 @@ Both UI and [YAML setup](#yaml-configuration) are supported.
 
 RESTful uses configuration subentries for configuring the sensors.
 
-1. Set up the resource configuration once per resource you want to scrape information from.
-2. Create one or multiple configuration subentries per sensor you want to create by scraping the website.
+1. Set up the resource configuration once per resource or endpoint.
+2. Create one or multiple configuration subentries for each sensor you want to derive from the endpoint.
 
 {% endnote %}
 
