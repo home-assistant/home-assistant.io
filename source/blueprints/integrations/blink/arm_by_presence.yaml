@@ -33,7 +33,9 @@ actions:
       - conditions:
           - condition: template
             value_template: >-
-              {{ expand(presence_entities) | selectattr('state', 'eq', 'home') | list | count == 0 }}
+              {% set entities = expand(presence_entities) | list %}
+              {{ entities | rejectattr('state', 'in', ['unknown', 'unavailable']) | list | count == entities | count
+                 and entities | selectattr('state', 'eq', 'home') | list | count == 0 }}
         sequence:
           - action: alarm_control_panel.alarm_arm_away
             target:
