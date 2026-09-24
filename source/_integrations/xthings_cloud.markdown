@@ -20,7 +20,7 @@ ha_quality_scale: bronze
 
 The **Xthings Cloud** {% term integration %} allows you to control and monitor your [Xthings](https://xthings.com) smart home devices through the Xthings Cloud service. This integration currently supports the **U-tec Bright A19 Color** smart light bulb.
 
-Use case: Control your Xthings smart lights from a single Home Assistant dashboard with real-time status updates via WebSocket push.
+Control your Xthings smart lights from a single Home Assistant dashboard. For A19-C1 bulbs, you can enable a native cloud connection that requests the bulb's current state and confirms changes after each command.
 
 ## Supported devices
 
@@ -34,7 +34,6 @@ Before setting up the integration, make sure you have:
 
 1. A **Xthings Cloud** account. You can create one in the **Xthings** mobile app.
 2. At least one light device added and online in the **Xthings** app.
-3. If your account has two-factor authentication (2FA) enabled, have access to your registered email or phone to receive verification codes.
 
 {% include integrations/config_flow.md %}
 
@@ -43,9 +42,16 @@ Email:
     description: "The email address used to register your Xthings Cloud account."
 Password:
     description: "Your Xthings Cloud account password. The password is only used during login and is not stored."
-Verification code:
-    description: "The 6-digit verification code sent to your email or phone. Only required if your account has 2FA enabled."
 {% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Enable native bulb connection:
+    description: "Use the native cloud connection for U-tec Bright A19-C1 bulbs. Disabled by default. Home Assistant requests the bulb's current state at startup, after reconnecting, and approximately every 30 seconds. Commands are confirmed by reading the state back from the bulb."
+{% endconfiguration_basic %}
+
+The native connection uses your existing Xthings account and the connection credentials included with the integration. You do not need to configure a separate MQTT broker, an OpenAPI application, or certificate files. It requires internet access and is not a local Wi-Fi or Bluetooth connection. Other models keep their existing connection.
 
 ## Supported functionality
 
@@ -54,19 +60,22 @@ The **Xthings Cloud** integration provides the following entities.
 ### Lights
 
 - **Smart light**
-  - **Description**: On/off, brightness (0–100%), HS color, and color temperature (2000–6500K) control.
+  - **Description**: On/off, brightness (0–100%), color, and color temperature control. A19-C1 bulbs display an approximate color temperature between 2700 and 6500 K.
   - **Remarks**: Devices with brightness in their status are automatically registered as light entities.
 
 ## Data updates
 
 The **Xthings Cloud** integration uses a combination of push and {% term polling %} for data updates:
 
-- **WebSocket push** (primary): The integration maintains a persistent WebSocket connection to the Xthings Cloud. Device status changes and online/offline events are pushed in real-time, typically within 1–2 seconds.
-- **Polling** (fallback): As a safety net, the integration polls the cloud API every 30 minutes to ensure data consistency in case of missed WebSocket messages.
+- With the native bulb connection enabled, A19-C1 bulbs use a separate cloud connection. Home Assistant requests their state at startup, after reconnecting, and approximately every 30 seconds. Changes made in another app can take until the next successful request to appear. A bulb becomes unavailable when Home Assistant cannot confirm its current state.
+- Other devices use WebSocket updates and a cloud API poll every 30 minutes. A failure to set up an optional native bulb connection does not disable these devices. Home Assistant retries native setup during a later cloud API poll; you can also reload the integration to retry sooner.
 
 ## Known limitations
 
 - The integration communicates with devices through the Xthings Cloud service. If the cloud service is unavailable, devices cannot be controlled.
+- Only A19-C1 bulbs have been verified with the native connection.
+- A19-C1 bulbs report a warm-to-cool setting from 1 to 100, not a Kelvin value. Home Assistant maps that setting linearly to the advertised 2700–6500 K range. The intermediate Kelvin values are estimates; a vendor conversion formula has not been verified.
+- The native connection depends on shared application credentials. If Xthings revokes or replaces them, native controls may require an integration dependency update.
 
 ## Troubleshooting
 
@@ -92,6 +101,19 @@ The setup form shows the error "Incorrect password".
 
 1. Double-check your password in the Xthings mobile app.
 2. If you have forgotten your password, use the "Forgot Password" feature in the app to reset it.
+
+### Account needs authentication
+
+If Xthings rejects your account credentials, Home Assistant asks you to sign in again. Open {% my integrations title="**Settings** > **Devices & services**" %}, find **Xthings Cloud**, and follow the authentication prompt. Use the same Xthings account as before. Your existing devices and native connection option are preserved.
+
+### Native bulb is unavailable
+
+1. Check that the bulb has power and is online in the Xthings app.
+2. Check the internet connection for Home Assistant and the bulb.
+3. Wait for another state request. If setup failed, reload **Xthings Cloud** to retry without waiting for the next cloud API poll.
+4. Check {% my logs title="**Settings** > **System** > **Logs**" %} for a native bulb setup or connection error.
+
+You can disable **Enable native bulb connection** to return to the original cloud connection. That connection may omit the current color temperature, so disabling the option does not provide equivalent temperature readback.
 
 ### Devices not showing up
 
