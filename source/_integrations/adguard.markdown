@@ -144,24 +144,9 @@ automation:
 
 ### Monitor DNS performance
 
-Send a notification if DNS response time exceeds threshold:
+Run actions when AdGuard Home's average DNS processing time exceeds a chosen threshold.
 
-
-```yaml
-automation:
-  - alias: "Alert on slow DNS"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.adguard_average_processing_speed
-        above: 50
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          title: "DNS Performance Alert"
-          message: "AdGuard DNS response time is {{ states('sensor.adguard_average_processing_speed') }}ms"
-```
+{% blueprint_example blueprint="adguard/slow_dns.yaml" %}
 
 
 ## Data updates
