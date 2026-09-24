@@ -74,7 +74,7 @@ All communication is local with this integration, and does not require an intern
 - The shade's reported state (opening, closing, opened, or closed) is assumed by Home Assistant and may not always be accurate. See [Data updates](#data-updates) for more info.
 - The shade must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
 - Only PoE shades are fully supported. For RF PowerShades, use a [Bond](/integrations/bond/) bridge for full support. If you have the PowerShades RF hub, it would be helpful to tell the integration owner your experience using it with this integration, and help make it compatible with this integration.
-- Your shade may randomly go unavailable for anywhere between 10-120 seconds. This is normal behavior.
+- Your shade may occasionally go unavailable for anywhere from 10 seconds to a couple of minutes. This comes from the shade itself, not from your network or Home Assistant: the shade briefly stops responding to local commands, then recovers on its own at the same moment its green status LED lights up. This is believed to be related to the shade's own connection to the PowerShades cloud service, which runs separately from this integration.
 
 ## Troubleshooting
 
@@ -85,6 +85,8 @@ This means Home Assistant cannot communicate with the shade. Check the following
 - The shade is powered on and connected to your network.
 - Home Assistant can reach port 42 on the shade, and UDP broadcasts are routed between subnets if Home Assistant and the shade are on different ones.
 - The IP address entered is correct and is not already used by another config entry. If the shade's IP address has changed due to DHCP, remove and re-add the config entry, and set a DHCP reservation for the shade.
+
+If the cover entity is only unavailable for a short time and then recovers on its own, this is expected. See [Known limitations](#known-limitations).
 
 ### Enabling debug logging
 
