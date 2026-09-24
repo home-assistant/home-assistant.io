@@ -274,17 +274,17 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
 
 1. Plug the new adapter into the extension cable and plug it into the Home Assistant hub.
 2. Go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Configuration** tab.
-3. Under **Devices**, select your adapter.
-4. Enter the **Baudrate** as specified in the documentation of your adapter.
-   - If you can't find the baudrate, try `460800` or contact the manufacturer's support.
+3. Under **Device**, select your new adapter.
+4. Under **Baudrate**, select the baudrate that is specified in the documentation of your adapter.
+   - If you can't find the baudrate, try `460800`, which is the default, or contact the manufacturer's support.
    - **Save** your changes.
    - Troubleshooting:
      - Check the logs.
      - If the app crashes or fails to communicate with the Thread integration: Toggle the **Hardware flow control** option and try again.
-5. Restart the app and check the logs. Wait.
+5. Restart the app and check the logs.
    - **Info**: Your Thread network is managed by Home Assistant. It is not stored on the adapter. Migrating the adapter means that Home Assistant will start to use your new adapter's radio instead of the old one.
-6. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-   - Select the cogwheel {% icon "mdi:cog-outline" %}.
+   - When the app starts, it migrates the OTBR settings for the new adapter. In the logs, you see **Migrating OTBR settings if needed...**.
+6. Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
    - **Result**: You should now see that the Thread network is still there.
    - Troubleshooting: If you don't see the network there, go back to the app configuration and adjust your settings, if needed, and try again.
 7. If you no longer want to use the old adapter, you can unplug it now.
