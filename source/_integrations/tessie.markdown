@@ -424,11 +424,26 @@ automation:
           entity_id: switch.my_tesla_charge
 ```
 
-### Stop charging when battery reaches a target
+### Automation: Stop charging when battery reaches target
 
-Stop Tessie charging when the vehicle battery reaches a chosen state of charge.
+This automation stops charging when the desired charge level is reached:
 
-{% blueprint_example blueprint="tessie/stop_charging_at_soc.yaml" %}
+```yaml
+automation:
+  - alias: "Stop Tesla charging at 80%"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.my_tesla_battery_level
+        above: 79
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.my_tesla_battery_charging
+        state: "on"
+    actions:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.my_tesla_charge
+```
 
 ### Open garage door when arriving home
 
