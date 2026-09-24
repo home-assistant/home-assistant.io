@@ -144,15 +144,14 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 #### To make Home Assistant your first Thread network
 
 1. To enable Thread support on your Home Assistant Yellow, Connect&nbsp;ZBT-1, or [Connect&nbsp;ZBT-2](/connect/zbt-2/), you need to install the **OpenThread Border Router** app. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
    - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
    - [Adding a Thread adapter to Home Assistant](#adding-a-third-party-thread-adapter-to-home-assistant).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-   - Then, select **Configure**.
+   - Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
    - You should see the Home Assistant logo under **Preferred network**.
 
      ![image](/images/integrations/thread/thread-preferred-network-ha-only.png)
@@ -161,18 +160,15 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
    - To share the credentials with your Android phone, open the Home Assistant Companion app.
      - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
      - Follow the instructions on screen.
-     - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
+     - **Result**: You see the message **Added network from Home Assistant to this device**.
    - To share the credentials with your iPhone, open the Home Assistant Companion app.
-     - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-     - Select **Configure** under **Services**.
+     - In the Companion app, go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
      - At the bottom of the preferred network box, select **Send credentials to phone**.
 4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
 ### Case 2: Creating a Home Assistant border router when there is an existing network
 
 Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio but you already have third-party Thread networks present. These steps will join the Home Assistant Thread border router with the existing Thread network.
-
-![image](/images/integrations/thread/thread-no-preferred-network-but-third-party-present.png)
 
 If you have both Google and Apple Thread networks present, decide which one you would like add the Home Assistant border router to.
 
@@ -188,12 +184,11 @@ Note: the steps and images here show the process with a Google Thread network. B
 
 1. Make sure you have an Android/iPhone phone and your phone is in the same Wi-Fi network as your Google border router.
 2. First you need to import the Thread credentials of your Google thread network.
-   - In the companion app, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-   - On Android, select **Configure** and **Import Credentials**.
-     - **Result**: You should see a notification that the credentials are imported.
-   - On iOS, select **Send credentials to Home Assistant**.
+   - In the Companion app, go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - Select **Send credentials to Home Assistant**.
+     - **Result**: On Android, you see the message **Imported credential**.
 3. Refresh the screen.
-   - You should now see an <img width="30px" src='/images/integrations/thread/information-outline.png'> icon, indicating that Home Assistant now has the credentials of that network.
+   - You should now see the {% icon "mdi:information-outline" %} icon, indicating that Home Assistant now has the credentials of that network.
 4. Select **Make preferred network**.
    - **Result**: The selected network now shows as the preferred network.
 
@@ -205,6 +200,7 @@ Note: the steps and images here show the process with a Google Thread network. B
    - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
    - [Adding a Thread adapter to Home Assistant](#adding-a-third-party-thread-adapter-to-home-assistant).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
+     - The OpenThread border router only joins the preferred network if it does not have a Thread network yet. If your adapter uses multiprotocol, the preferred network also needs to use the same channel. Otherwise, the border router creates a new Thread network.
 
    ![image](/images/integrations/thread/thread-ha-preferred.png)
    - 🎉 You successfully created a Home Assistant Thread network and joined it with a pre-existing third-party network.
