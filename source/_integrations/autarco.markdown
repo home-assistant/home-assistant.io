@@ -82,6 +82,12 @@ Run actions when Autarco solar power production stays above a chosen threshold.
 
 {% blueprint_example blueprint="autarco/high_solar_production.yaml" %}
 
+### Run actions when battery charge is low
+
+Run actions when an Autarco battery state of charge drops below a chosen percentage.
+
+{% blueprint_example blueprint="autarco/low_battery_soc.yaml" %}
+
 ## Known limitations
 
 The integration does not show data about your self-sufficiency or CO2 savings.
