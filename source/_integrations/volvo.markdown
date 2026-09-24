@@ -234,11 +234,30 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 ## Examples
 
-### Run actions when a door is left open
+### Automation: Notify if doors are left open
 
-Run actions when one of the selected Volvo door or tailgate sensors remains open for a chosen duration.
+This example sends a notification when one of the selected doors or the tailgate remains open for five minutes.
 
-{% blueprint_example blueprint="volvo/door_left_open.yaml" %}
+```yaml
+alias: "Notify if Volvo doors are left open"
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.volvo_YOUR_MODEL_door_front_left
+      - binary_sensor.volvo_YOUR_MODEL_door_front_right
+      - binary_sensor.volvo_YOUR_MODEL_door_rear_left
+      - binary_sensor.volvo_YOUR_MODEL_door_rear_right
+      - binary_sensor.volvo_YOUR_MODEL_tailgate
+    to: "on"
+    for:
+      minutes: 5
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "A Volvo door or the tailgate has been left open for five minutes."
+```
 
 ### Estimated charging finish time
 
