@@ -77,17 +77,41 @@ The integration provides the following sensors:
 
 ## Examples
 
-### Run actions when indoor CO₂ is high
+### Automation: Get notified when indoor CO₂ is high
 
-Run actions when a Fresh-r CO₂ sensor rises above a chosen threshold.
+This example sends a notification when the Fresh-r CO₂ sensor rises above 1000 ppm.
 
-{% blueprint_example blueprint="freshr/high_co2.yaml" %}
+```yaml
+alias: "Fresh-r high CO2 notification"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.freshr_co2
+    above: 1000
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Fresh-r reports an indoor CO2 level above 1000 ppm."
+```
 
-### Run actions when indoor humidity is high
+### Automation: Get notified when indoor humidity is high
 
-Run actions when a Fresh-r humidity sensor rises above a chosen threshold.
+This example sends a notification when the Fresh-r humidity sensor rises above 70%.
 
-{% blueprint_example blueprint="freshr/high_humidity.yaml" %}
+```yaml
+alias: "Fresh-r high humidity notification"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.freshr_humidity
+    above: 70
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Fresh-r reports indoor humidity above 70%."
+```
 
 ### Track ventilation performance
 
