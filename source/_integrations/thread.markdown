@@ -319,11 +319,12 @@ The **preferred network** function isn't completely implemented yet. In particul
 
 You can only set a Thread network as preferred if the credentials are known.
 
-1. To import Thread credentials, you need your Android and iOS companion app.
-2. On your companion app, navigate to the Thread configuration page.
-   - You should see an **Import credentials** button in the lower right corner.
-
-   <img width="400" src='/images/integrations/thread/thread-import-credentials.png'>
+1. To import Thread credentials, you need your Android or iOS companion app.
+   - The Android app sends the preferred Thread network of your phone.
+   - The iOS app sends the preferred Thread network of your iPhone, and any other Thread networks that the app can access.
+2. On your companion app, go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - At the bottom of the page, you should see a **Send credentials to Home Assistant** button.
+   - Select it, then refresh the screen.
 
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
