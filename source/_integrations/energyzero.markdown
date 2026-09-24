@@ -76,6 +76,12 @@ Run actions at the time EnergyZero reports as today's lowest electricity price.
 
 {% blueprint_example blueprint="energyzero/lowest_price_time.yaml" %}
 
+### Run actions when the EnergyZero electricity price is low
+
+Run actions when the current electricity price drops below a chosen threshold.
+
+{% blueprint_example blueprint="energyzero/low_price.yaml" %}
+
 ## Templates
 
 Create template sensors to display the prices in a chart or to calculate the all-in hour price.
