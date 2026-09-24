@@ -74,6 +74,14 @@ If you have a battery connected to your system, you can monitor the battery stat
 - Charged energy this month (kWh)
 - Charged energy total (kWh)
 
+## Examples
+
+### Run actions when solar production is high
+
+Run actions when Autarco solar power production stays above a chosen threshold.
+
+{% blueprint_example blueprint="autarco/high_solar_production.yaml" %}
+
 ## Known limitations
 
 The integration does not show data about your self-sufficiency or CO2 savings.
