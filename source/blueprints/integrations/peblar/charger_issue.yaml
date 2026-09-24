@@ -1,0 +1,24 @@
+blueprint:
+  name: Run actions when a Peblar charger issue is detected
+  description: Run actions when one of the selected Peblar problem sensors turns on.
+  domain: automation
+  input:
+    problem_sensors:
+      name: Error and warning sensors
+      selector:
+        entity:
+          multiple: true
+          filter:
+            - integration: peblar
+              domain: binary_sensor
+              device_class: problem
+    actions:
+      name: Actions
+      selector:
+        action:
+triggers:
+  - trigger: state
+    entity_id: !input problem_sensors
+    from: "off"
+    to: "on"
+actions: !input actions
