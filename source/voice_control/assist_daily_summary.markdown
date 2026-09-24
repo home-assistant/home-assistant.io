@@ -82,7 +82,7 @@ We are using a blueprint (courtesy of [@allenporter]) that polls calendar events
 
 1. To import the blueprint, select the button below:
    
-   {% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/conversation_notify_agent_agenda.yaml" %}
+   {% blueprint_example blueprint="conversation/notify_agent_agenda.yaml" %}
 
 2. Select **Preview**, then select **Import blueprint**.
 3. Select the blueprint **Conversation agent agenda notification** from the list.
