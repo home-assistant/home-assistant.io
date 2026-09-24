@@ -255,7 +255,7 @@ In this section you will find some example automations that you can use to get s
 
 #### Do something when a device enters a geofence
 
-The allows you to do something when the device "Millennium Falcon" enters the defined geofence.
+This automation allows you to do something when the device "Millennium Falcon" enters the defined geofence.
 
 {% blueprint_example blueprint="traccar_server/device_enter_geofence.yaml" %}
 
