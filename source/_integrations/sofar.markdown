@@ -56,7 +56,7 @@ Older Sofar inverters that use the legacy Modbus register map aren't supported. 
 Depending on how you connect the inverter, you need one of the following:
 
 - **Network (Modbus TCP)**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
-- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an [ESPHome serial proxy](https://esphome.io/components/serial_proxy/) with an RS485 interface can share the port with Home Assistant over the network.
+- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
 
 Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
@@ -261,7 +261,7 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 ### Cannot connect to the inverter
 
-1. Make sure the inverter, and the Modbus TCP bridge or serial adapter it's connected through, is powered on.
+1. Make sure the inverter is powered on. If it's connected through a Modbus TCP bridge or an ESPHome serial proxy, make sure that device is also powered on and reachable on your network.
 2. For a network connection, confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
 3. For a serial connection, confirm the serial port is correct and the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
 4. Check that Modbus is enabled on the inverter, if it has a setting for this.
