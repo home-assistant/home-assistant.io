@@ -108,6 +108,14 @@ For the dynamic gas prices, only entities are created that display the
 
 {% include integrations/actions.md %}
 
+## Examples
+
+### Run actions when the EnergyZero electricity price is low
+
+Run actions when the current electricity price drops below a chosen threshold.
+
+{% blueprint_example blueprint="energyzero/low_price.yaml" %}
+
 ## Templates
 
 You can optionally create template sensors to display the prices in a chart or to calculate an electricity price using your own contract rates.
