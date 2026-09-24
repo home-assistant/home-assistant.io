@@ -132,6 +132,12 @@ Run actions when tomorrow's estimated solar production rises above a chosen thre
 
 {% blueprint_example blueprint="forecast_solar/tomorrow_energy_threshold.yaml" %}
 
+### Run actions at the solar production peak
+
+Run actions when the Forecast.Solar highest-power-peak timestamp is reached.
+
+{% blueprint_example blueprint="forecast_solar/peak_time.yaml" %}
+
 ## Data updates
 
 How often the forecast {% term polling updates %} depends on your Forecast.Solar account:
