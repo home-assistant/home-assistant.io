@@ -75,13 +75,13 @@ The {% term integration %} provides the following power controls:
 
 Each control accepts values from 0 to 11,000 W in 100 W increments.
 
-Controls are available only when **Local mode** is enabled and the active manual schedule supports the corresponding setting. Unsupported controls appear unavailable in Home Assistant.
+Controls are available only when **Local mode** is enabled. **Power setpoint** is available in **Inverter charge** and **Inverter discharge** modes. **Grid import limit** and **Grid export limit** are available in **Frequency reserve** mode. The number controls are unavailable in **Idle** and **Solar charge** modes.
 
 ## Troubleshooting
 
 - `Failed to connect`: Confirm the IP address, that the device is powered on, and that it is reachable on your network.
 - `Invalid authentication`: Verify the device password, or remove it if no password is configured.
-- Number controls are unavailable: Enable **Local mode** and select or configure a manual schedule that supports the desired parameter.
+- Number controls are unavailable: Enable **Local mode** and select a **Battery mode** that supports the desired control.
 
 ## Removing the integration
 
