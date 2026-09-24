@@ -48,6 +48,12 @@ Each parking garage also has a binary sensor, which indicates whether there are 
 
 ## Examples
 
+### Run actions when parking availability is low
+
+Run actions when the number of free spaces in an Amsterdam parking garage drops below a chosen threshold.
+
+{% blueprint_example blueprint="garages_amsterdam/low_availability.yaml" %}
+
 ### Run actions when garage data has a problem
 
 Run actions when the selected Garages Amsterdam problem sensor turns on.
