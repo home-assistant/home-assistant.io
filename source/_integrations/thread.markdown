@@ -122,13 +122,14 @@ There are also other companies that provide devices with border router capabilit
 
 Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect/zbt-2/), or another compatible radio.
 
-Find out if you already have Thread networks:
+To find out if you already have Thread networks:
 
-- Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-- If you do not see a **Thread** integration, add it.
-- Then, select **Configure** and check if you see any Thread networks on the overview page.
-- Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
-- Case 2: If you have existing networks, follow [Case 2: Create a Home Assistant border router when there is an existing network](#case-2-creating-a-home-assistant-border-router-when-there-is-an-existing-network)
+1. Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - If **Thread** is not listed under **Settings** > **Connectivity**, {% my config_flow_start domain="thread" title="add the Thread integration" %} first.
+     - If the link does not work, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Add integration**, and search for **Thread**.
+2. Check if you see any Thread networks.
+   - If you do not have any Thread networks yet, the panel shows **You don't have a preferred network yet.** under **Preferred network**, and no **Other networks**. Follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network).
+   - If you have existing networks, they are listed under **Preferred network** or **Other networks**. Follow [Case 2: Create a Home Assistant border router when there is an existing network](#case-2-creating-a-home-assistant-border-router-when-there-is-an-existing-network).
 
 ### Case 1: Making Home Assistant your first Thread network
 
