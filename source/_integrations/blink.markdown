@@ -82,12 +82,6 @@ sequence:
       filename: /tmp/my_image.jpg
 ```
 
-### Arm and disarm Blink based on presence
-
-Arm your Blink system when everyone leaves home and disarm it when someone returns.
-
-{% blueprint_example blueprint="blink/arm_by_presence.yaml" %}
-
 ### Save most recent video locally when motion detected
 
 When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
@@ -134,3 +128,12 @@ The file name of the downloaded video file is not configurable.
       data:
         file_path: /tmp/videos
 ```
+
+
+## Blink automation examples
+
+### Automation: Arm and disarm Blink based on presence
+
+Arm your Blink system when everyone leaves home and disarm it when someone returns.
+
+{% blueprint_example blueprint="blink/arm_by_presence.yaml" %}
