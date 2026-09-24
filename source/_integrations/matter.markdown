@@ -352,6 +352,60 @@ This section provides a bit more information on some of the categories:
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
 
+## Viewing your Matter network map
+
+The network map is an interactive visualization of all your Matter devices and how they reach Home Assistant. It can help you find devices with a weak connection, or devices that are offline.
+
+### Prerequisites
+
+- Administrator rights in Home Assistant.
+- The Matter Server app 9.2.0 or newer. If you run the Matter server yourself, you need version 1.4.0 or newer.
+
+### To view your Matter network map
+
+1. Go to {% my config_matter title="**Settings** > **Connectivity** > **Matter**" %}.
+2. Under **My network**, select **Show map**.
+   - The map shows Home Assistant in the middle, with your Matter devices around it. For what the shapes and lines mean, refer to [About the Matter network map](#about-the-matter-network-map).
+   - The map updates by itself when your network changes.
+   - If the map shows **No network topology data is available yet.**, Home Assistant has not received network details from your devices yet.
+   - If the map shows **The connected Matter server does not support network topology.**, update the Matter Server app to 9.2.0 or newer. If you run the Matter server yourself, update it to version 1.4.0 or newer.
+3. To see the details of a device or a connection, point to it or select it.
+   - For a device, you see details such as its role, its network, whether it is online, its area, and when it was last seen.
+   - For a connection, you see the network type and the signal strength, for each direction when it is available. For a connection that is only known from the routing table of a Thread device, you see its overall signal strength and **Learned from routing table** instead.
+4. To open the page of a Matter device that is added to Home Assistant, select it on the map. Border routers, Wi-Fi access points, and unknown devices do not have a device page.
+5. To find a device, enter its name, manufacturer, model, or node ID in the search field.
+6. If the map seems outdated, select **Refresh topology** {% icon "mdi:refresh" %}.
+   - Home Assistant then reads the network details from every online Matter device. This can take a few seconds.
+   - Use it only when needed, because it sends a request to each of your devices.
+
+### About the Matter network map
+
+How Home Assistant reaches your Matter devices depends on the network they use:
+
+- **Thread devices** through a Thread border router. The Thread devices form a mesh network, where routers pass messages on for other devices.
+- **Wi-Fi devices** through a Wi-Fi access point.
+- **Ethernet devices** through your wired network. The map shows these devices without a connection.
+
+The legend on the map shows what each shape stands for. The colors below are those of the default theme:
+
+- <iconify-icon inline icon="mdi:square-rounded" style="color: #009ac7" title="Blue square"></iconify-icon> (blue square) **Home Assistant**: the center of the map.
+- <iconify-icon inline icon="mdi:square-rounded" style="color: #926bc7" title="Purple square"></iconify-icon> (purple square) **Border router**: a Thread border router that connects your Thread network to your home network.
+- <iconify-icon inline icon="mdi:square-rounded" style="color: #ff9800" title="Orange square"></iconify-icon> (orange square) **Wi-Fi access point**: the access point that your Wi-Fi devices connect to.
+- <iconify-icon inline icon="mdi:circle" style="color: #00bcd4" title="Cyan circle"></iconify-icon> (cyan circle) **Router**: a Thread device that can pass messages on for other devices. The router that leads the Thread network has an extra outline.
+- <iconify-icon inline icon="mdi:circle" style="color: #009688" title="Teal circle"></iconify-icon> (teal circle) **End device**: a device that does not pass messages on for other devices.
+- <iconify-icon inline icon="mdi:circle" style="color: #db4437" title="Red circle"></iconify-icon> (red circle) **Offline**: a device that is currently not reachable.
+- <iconify-icon inline icon="mdi:circle" style="color: #bdbdbd" title="Gray circle"></iconify-icon> (gray circle) **Unknown devices**: Thread devices that your Matter devices see as neighbors, but that are not added to Home Assistant. For example, a device of another platform on the same Thread network. Some border routers can show up both as a border router and as an unknown device.
+
+The lines between devices show how they connect, and how well they can reach each other:
+
+- <iconify-icon inline icon="mdi:minus" style="color: #926bc7" title="Purple line"></iconify-icon> (purple line): a Thread connection.
+- <iconify-icon inline icon="mdi:minus" style="color: #ff9800" title="Orange line"></iconify-icon> (orange line): a Wi-Fi connection.
+- <iconify-icon inline icon="mdi:minus-thick" style="color: #9b9b9b" title="Thick line"></iconify-icon> (thick line): a thicker line means a stronger signal. The details of a connection show the signal as **Strong**, **Medium**, **Weak**, or **Unknown** when there is no measurement, together with the <abbr title="Link Quality Indicator">LQI</abbr> or <abbr title="Received Signal Strength Indicator">RSSI</abbr> value when it is available.
+- <iconify-icon inline icon="tabler:line-dashed" style="color: #9b9b9b" title="Dashed line"></iconify-icon> (dashed line): the signal was only seen in one direction, it differs between the two directions, or one of the devices is offline or unknown.
+- <iconify-icon inline icon="tabler:line-dotted" style="color: #9b9b9b" title="Dotted line"></iconify-icon> (dotted line): the connection is only known from the routing table of a Thread device. Its details show **Learned from routing table**.
+
+A connection without any recent signal is not drawn. A device that has no known route to Home Assistant is shown without a connection.
+
 ## Matter OTA device updates
 
 The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
