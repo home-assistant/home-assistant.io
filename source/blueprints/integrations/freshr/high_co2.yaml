@@ -1,0 +1,31 @@
+blueprint:
+  name: Run actions when Fresh-r CO2 is high
+  description: Run actions when a Fresh-r CO2 sensor rises above a chosen threshold.
+  domain: automation
+  input:
+    co2_sensor:
+      name: CO2 sensor
+      selector:
+        entity:
+          filter:
+            - integration: freshr
+              domain: sensor
+              device_class: carbon_dioxide
+    threshold:
+      name: CO2 threshold
+      default: 1000
+      selector:
+        number:
+          min: 400
+          max: 5000
+          step: 50
+          unit_of_measurement: ppm
+    actions:
+      name: Actions
+      selector:
+        action:
+triggers:
+  - trigger: numeric_state
+    entity_id: !input co2_sensor
+    above: !input threshold
+actions: !input actions
