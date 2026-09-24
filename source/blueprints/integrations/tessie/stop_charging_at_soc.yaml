@@ -27,10 +27,20 @@ blueprint:
           max: 100
           step: 1
           unit_of_measurement: "%"
+variables:
+  battery_sensor: !input battery_sensor
+  target_soc: !input target_soc
+
 triggers:
-  - trigger: numeric_state
+  - trigger: state
     entity_id: !input battery_sensor
-    above: !input target_soc
+
+conditions:
+  - condition: template
+    value_template: >-
+      {% set current = states(battery_sensor) | float(none) %}
+      {{ current is not none and current >= target_soc | float }}
+
 actions:
   - action: switch.turn_off
     target:
