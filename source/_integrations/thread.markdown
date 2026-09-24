@@ -303,7 +303,7 @@ The Thread configuration page shows three vendor-specific Thread networks.
 
 These are all separate networks using different credentials. This means devices can't roam between the Thread networks.
 
-The <img width="30px" src='/images/integrations/thread/information-outline.png'> icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home assistant` network are known.
+The {% icon "mdi:information-outline" %} icon indicates that Home Assistant has the credentials for that network. In this case, only the credentials of the `home-assistant` network are known.
 
 Home Assistant discovers all Thread border routers in your network because they send mDNS/DNS-SD announcements. These local announcements don't contain the network credentials. That's why you see the network there, but not the credentials.
 
