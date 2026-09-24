@@ -76,17 +76,43 @@ If you have a battery connected to your system, you can monitor the battery stat
 
 ## Examples
 
-### Run actions when solar production is high
+### Automation: Act when solar production is high
 
-Run actions when Autarco solar power production stays above a chosen threshold.
+This example sends a notification when solar power production remains above 2 kW for two minutes.
 
-{% blueprint_example blueprint="autarco/high_solar_production.yaml" %}
+```yaml
+alias: "Autarco high solar production"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.autarco_power_production
+    above: 2000
+    for:
+      minutes: 2
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Autarco solar production has remained above 2 kW for two minutes."
+```
 
-### Run actions when battery charge is low
+### Automation: Act when battery charge is low
 
-Run actions when an Autarco battery state of charge drops below a chosen percentage.
+This example sends a notification when the battery state of charge drops below 20%.
 
-{% blueprint_example blueprint="autarco/low_battery_soc.yaml" %}
+```yaml
+alias: "Autarco low battery charge"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.autarco_battery_state_of_charge
+    below: 20
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The Autarco battery state of charge is below 20%."
+```
 
 ## Known limitations
 
