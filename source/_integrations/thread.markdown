@@ -124,10 +124,10 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 
 To find out if you already have Thread networks:
 
-1. Go to **Settings** > **Connectivity**.
-   - If **Thread** is not listed, {% my config_flow_start domain="thread" title="add the Thread integration" %} first.
+1. Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+   - If **Thread** is not listed under **Settings** > **Connectivity**, {% my config_flow_start domain="thread" title="add the Thread integration" %} first.
      - If the link does not work, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Add integration**, and search for **Thread**.
-2. Select **Thread**, and check if you see any Thread networks.
+2. Check if you see any Thread networks.
    - If you do not have any Thread networks yet, the panel shows **You don't have a preferred network yet.** under **Preferred network**, and no **Other networks**. Follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network).
    - If you have existing networks, they are listed under **Preferred network** or **Other networks**. Follow [Case 2: Create a Home Assistant border router when there is an existing network](#case-2-creating-a-home-assistant-border-router-when-there-is-an-existing-network).
 
