@@ -22,6 +22,7 @@ node_modules
 astro/dist/
 astro/.astro/
 astro/src/assets/brands/
+astro/.env*.local
 source/.jekyll-metadata
 *.iml
 .idea/

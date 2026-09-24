@@ -1,0 +1,360 @@
+diff --git a/build-scripts/bundle.cjs b/build-scripts/bundle.cjs
+index b14032d..6fbb519 100644
+--- a/build-scripts/bundle.cjs
++++ b/build-scripts/bundle.cjs
+@@ -296,6 +296,37 @@ module.exports.config = {
+     };
+   },
+ 
++  websiteCards({ isProdBuild, latestBuild }) {
++    return {
++      name: "website-cards" + nameSuffix(latestBuild),
++      entry: {
++        "ha-website-cards": path.resolve(
++          paths.websiteCards_dir,
++          "src/entrypoint.ts"
++        ),
++      },
++      outputPath: outputPath(paths.websiteCards_output_root, latestBuild),
++      // Resolved at runtime from the entry script's URL, so the bundle can be
++      // hosted under any path on the website.
++      publicPath: "auto",
++      isProdBuild,
++      latestBuild,
++      // Skips source maps: the website doesn't serve them, and generating
++      // them for every chunk takes a lot of memory.
++      isTestBuild: true,
++      // One minifier worker per core runs out of memory on 8 GB machines.
++      minifyWorkers: 4,
++      // Keep a stable entry file name so the website can load it directly.
++      dontHash: new Set(["ha-website-cards"]),
++      defineOverlay: {
++        __DEMO__: true,
++        // Static assets (translations, icons, fonts) sit next to the bundle,
++        // see website-cards/src/static-path.ts.
++        __STATIC_PATH__: "globalThis.__HA_WEBSITE_CARDS_STATIC__",
++      },
++    };
++  },
++
+   landingPage({ isProdBuild, latestBuild }) {
+     return {
+       name: "landing-page" + nameSuffix(latestBuild),
+diff --git a/build-scripts/gulp/gather-static.js b/build-scripts/gulp/gather-static.js
+index 9535d1e..7b13f3c 100644
+--- a/build-scripts/gulp/gather-static.js
++++ b/build-scripts/gulp/gather-static.js
+@@ -80,7 +80,10 @@ function copyFonts(staticDir) {
+     npmPath("roboto-fontface/fonts/roboto/"),
+     staticPath("fonts/roboto/"),
+     {
+-      filter: (src) => !src.includes(".") || src.endsWith(".woff2"),
++      // Directories and woff2 files; check the name only, since the
++      // checkout path itself may contain dots.
++      filter: (src) =>
++        !path.basename(src).includes(".") || src.endsWith(".woff2"),
+     }
+   );
+ }
+@@ -200,6 +203,24 @@ gulp.task("copy-static-gallery", async () => {
+   copyMdiIcons(paths.gallery_output_static);
+ });
+ 
++gulp.task("copy-static-website-cards", async () => {
++  // Only the images the cards and more-info dialogs use.
++  for (const image of [
++    "card_media_player_bg.png",
++    "color_wheel.png",
++    "image-broken.svg",
++  ]) {
++    copyFileDir(
++      polyPath("public/static/images", image),
++      path.resolve(paths.websiteCards_output_static, "images")
++    );
++  }
++  copyFonts(paths.websiteCards_output_static);
++  copyTranslations(paths.websiteCards_output_static);
++  copyLocaleData(paths.websiteCards_output_static);
++  copyMdiIcons(paths.websiteCards_output_static);
++});
++
+ gulp.task("copy-static-landing-page", async () => {
+   // Copy landing-page static files
+   fs.copySync(
+diff --git a/build-scripts/gulp/index.mjs b/build-scripts/gulp/index.mjs
+index 529d7fd..77d67e9 100644
+--- a/build-scripts/gulp/index.mjs
++++ b/build-scripts/gulp/index.mjs
+@@ -18,3 +18,4 @@ import "./map-assets.js";
+ import "./rspack.js";
+ import "./service-worker.js";
+ import "./translations.js";
++import "./website-cards.js";
+diff --git a/build-scripts/gulp/rspack.js b/build-scripts/gulp/rspack.js
+index 9347abb..922a4bd 100644
+--- a/build-scripts/gulp/rspack.js
++++ b/build-scripts/gulp/rspack.js
+@@ -13,6 +13,7 @@ import {
+   createCastConfig,
+   createDemoConfig,
+   createGalleryConfig,
++  createWebsiteCardsConfig,
+   createLandingPageConfig,
+   createE2eTestAppConfig,
+ } from "../rspack.cjs";
+@@ -257,6 +258,12 @@ gulp.task("rspack-prod-gallery", () =>
+   )
+ );
+ 
++gulp.task("rspack-prod-website-cards", () =>
++  prodBuild(
++    createWebsiteCardsConfig({ isProdBuild: true, latestBuild: true })
++  )
++);
++
+ gulp.task("rspack-watch-landing-page", () => {
+   // This command will run forever because we don't close compiler
+   rspack(
+diff --git a/build-scripts/gulp/website-cards.js b/build-scripts/gulp/website-cards.js
+new file mode 100644
+index 0000000..69454ae
+--- /dev/null
++++ b/build-scripts/gulp/website-cards.js
+@@ -0,0 +1,83 @@
++// Build a small bundle that renders real dashboard cards on the Home Assistant
++// website, using mocked data instead of a Home Assistant server.
++
++import { execFileSync } from "child_process";
++import { deleteSync } from "del";
++import fs from "fs";
++import gulp from "gulp";
++import path from "path";
++import { createWorkflowLockTask } from "../output-lock.mjs";
++import env from "../env.cjs";
++import paths from "../paths.cjs";
++import "./clean.js";
++import "./gather-static.js";
++import "./gen-icons-json.js";
++import "./locale-data.js";
++import "./rspack.js";
++import "./translations.js";
++
++gulp.task(
++  "clean-website-cards",
++  gulp.parallel("clean-translations", async () =>
++    deleteSync([paths.websiteCards_output_root, paths.build_dir])
++  )
++);
++
++// The website only shows English cards, so drop the other languages' locale
++// data (used by Intl polyfills), then pack the output as an npm package the
++// website can install.
++gulp.task("pack-website-cards", async () => {
++  const root = paths.websiteCards_output_root;
++  const localeData = path.resolve(root, "static/locale-data");
++  for (const dir of fs.readdirSync(localeData)) {
++    for (const file of fs.readdirSync(path.resolve(localeData, dir))) {
++      if (!/^(en|add-all-tz)\.json$/.test(file)) {
++        fs.rmSync(path.resolve(localeData, dir, file));
++      }
++    }
++  }
++
++  // npm needs semver: 20260826.0 -> 20260826.0.0, 20260826.0.dev -> -dev.
++  const [release, dev] = env.version().split(".dev");
++  const version = `${release}.0${dev === undefined ? "" : "-dev"}`;
++
++  fs.writeFileSync(
++    path.resolve(root, "package.json"),
++    JSON.stringify(
++      {
++        name: "@home-assistant/website-cards",
++        version,
++        description:
++          "Home Assistant dashboard cards with mocked data, for the Home Assistant website",
++        license: "Apache-2.0",
++        repository: {
++          type: "git",
++          url: "https://github.com/home-assistant/frontend",
++          directory: "website-cards",
++        },
++        files: ["frontend_latest", "static"],
++      },
++      null,
++      2
++    )
++  );
++  execFileSync("npm", ["pack", "--pack-destination", ".."], {
++    cwd: root,
++    stdio: "inherit",
++  });
++});
++
++gulp.task(
++  "build-website-cards",
++  gulp.series(
++    async function setEnv() {
++      process.env.NODE_ENV = "production";
++    },
++    createWorkflowLockTask("build-website-cards"),
++    "clean-website-cards",
++    gulp.parallel("gen-icons-json", "build-translations", "build-locale-data"),
++    "copy-static-website-cards",
++    "rspack-prod-website-cards",
++    "pack-website-cards"
++  )
++);
+diff --git a/build-scripts/paths.cjs b/build-scripts/paths.cjs
+index 0426394..28d30f6 100644
+--- a/build-scripts/paths.cjs
++++ b/build-scripts/paths.cjs
+@@ -33,6 +33,13 @@ module.exports = {
+   ),
+   gallery_output_static: path.resolve(__dirname, "../gallery/dist/static"),
+ 
++  websiteCards_dir: path.resolve(__dirname, "../website-cards"),
++  websiteCards_output_root: path.resolve(__dirname, "../website-cards/dist"),
++  websiteCards_output_static: path.resolve(
++    __dirname,
++    "../website-cards/dist/static"
++  ),
++
+   landingPage_dir: path.resolve(__dirname, "../landing-page"),
+   landingPage_build: path.resolve(__dirname, "../landing-page/build"),
+   landingPage_output_root: path.resolve(__dirname, "../landing-page/dist"),
+diff --git a/build-scripts/rspack.cjs b/build-scripts/rspack.cjs
+index 546cf50..781c0c6 100644
+--- a/build-scripts/rspack.cjs
++++ b/build-scripts/rspack.cjs
+@@ -99,6 +99,7 @@ const createRspackConfig = ({
+   isTestBuild,
+   isLandingPageBuild,
+   dontHash,
++  minifyWorkers,
+ }) => {
+   if (!dontHash) {
+     dontHash = new Set();
+@@ -186,7 +187,7 @@ const createRspackConfig = ({
+     optimization: {
+       minimizer: [
+         new TerserPlugin({
+-          parallel: true,
++          parallel: minifyWorkers ?? true,
+           extractComments: true,
+           terserOptions: bundle.terserOptions({ latestBuild, isTestBuild }),
+         }),
+@@ -494,6 +495,9 @@ const createGalleryConfig = ({ isProdBuild, latestBuild, isTestBuild }) =>
+     bundle.config.gallery({ isProdBuild, latestBuild, isTestBuild })
+   );
+ 
++const createWebsiteCardsConfig = ({ isProdBuild, latestBuild }) =>
++  createRspackConfig(bundle.config.websiteCards({ isProdBuild, latestBuild }));
++
+ const createLandingPageConfig = ({ isProdBuild, latestBuild }) =>
+   createRspackConfig(bundle.config.landingPage({ isProdBuild, latestBuild }));
+ 
+@@ -517,6 +521,7 @@ module.exports = {
+   createDemoConfig,
+   createCastConfig,
+   createGalleryConfig,
++  createWebsiteCardsConfig,
+   createRspackConfig,
+   createLandingPageConfig,
+   createE2eTestAppConfig,
+diff --git a/src/components/ha-icon.ts b/src/components/ha-icon.ts
+index b4ee911..89c3101 100644
+--- a/src/components/ha-icon.ts
++++ b/src/components/ha-icon.ts
+@@ -166,7 +166,7 @@ export class HaIcon extends LitElement {
+       return;
+     }
+ 
+-    const iconPromise = fetch(`/static/mdi/${chunk}.json`).then((response) =>
++    const iconPromise = fetch(`${__STATIC_PATH__}mdi/${chunk}.json`).then((response) =>
+       response.json()
+     );
+     chunks[chunk] = iconPromise;
+diff --git a/src/dialogs/more-info/components/lights/dialog-light-color-favorite.ts b/src/dialogs/more-info/components/lights/dialog-light-color-favorite.ts
+index 4444f69..e4de12c 100644
+--- a/src/dialogs/more-info/components/lights/dialog-light-color-favorite.ts
++++ b/src/dialogs/more-info/components/lights/dialog-light-color-favorite.ts
+@@ -1,5 +1,5 @@
+ import type { CSSResultGroup } from "lit";
+-import { css, html, LitElement, nothing } from "lit";
++import { css, html, LitElement, nothing, unsafeCSS } from "lit";
+ import { customElement, property, state } from "lit/decorators";
+ import { classMap } from "lit/directives/class-map";
+ import { fireEvent } from "../../../../common/dom/fire_event";
+@@ -274,7 +274,7 @@ class DialogLightColorFavorite extends DirtyStateProviderMixin<LightColorFavorit
+           border-radius: var(--ha-border-radius-xl);
+         }
+         .wheel.color {
+-          background-image: url("/static/images/color_wheel.png");
++          background-image: url(${unsafeCSS(__STATIC_PATH__)}images/color_wheel.png);
+           background-size: cover;
+         }
+         .wheel.color_temp {
+diff --git a/src/dialogs/more-info/controls/more-info-light.ts b/src/dialogs/more-info/controls/more-info-light.ts
+index 136d080..6d09127 100644
+--- a/src/dialogs/more-info/controls/more-info-light.ts
++++ b/src/dialogs/more-info/controls/more-info-light.ts
+@@ -8,7 +8,7 @@ import {
+   mdiPower,
+ } from "@mdi/js";
+ import type { CSSResultGroup, PropertyValues } from "lit";
+-import { LitElement, css, html, nothing } from "lit";
++import { LitElement, css, html, nothing, unsafeCSS } from "lit";
+ import { customElement, property, state } from "lit/decorators";
+ import { consumeLocalize } from "../../../common/decorators/consume-context-entry";
+ import { supportsFeature } from "../../../common/entity/supports-feature";
+@@ -373,7 +373,7 @@ class MoreInfoLight extends LitElement {
+           border-radius: var(--ha-border-radius-circle);
+         }
+         .wheel.color {
+-          background-image: url("/static/images/color_wheel.png");
++          background-image: url(${unsafeCSS(__STATIC_PATH__)}images/color_wheel.png);
+           background-size: cover;
+         }
+         .wheel.color-temp {
+diff --git a/src/panels/lovelace/cards/hui-media-control-card.ts b/src/panels/lovelace/cards/hui-media-control-card.ts
+index f580fe4..c9def89 100644
+--- a/src/panels/lovelace/cards/hui-media-control-card.ts
++++ b/src/panels/lovelace/cards/hui-media-control-card.ts
+@@ -4,7 +4,7 @@ import {
+   mdiSpeakerMultiple,
+ } from "@mdi/js";
+ import type { PropertyValues } from "lit";
+-import { css, html, LitElement, nothing } from "lit";
++import { css, html, LitElement, nothing, unsafeCSS } from "lit";
+ import { customElement, property, query, state } from "lit/decorators";
+ import { classMap } from "lit/directives/class-map";
+ import { styleMap } from "lit/directives/style-map";
+@@ -705,7 +705,7 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
+       position: absolute;
+       right: 0;
+       height: 100%;
+-      background-image: url("/static/images/card_media_player_bg.png");
++      background-image: url(${unsafeCSS(__STATIC_PATH__)}images/card_media_player_bg.png);
+       width: 50%;
+       transition:
+         opacity 0.8s,
+diff --git a/src/panels/lovelace/components/hui-image.ts b/src/panels/lovelace/components/hui-image.ts
+index 087b2c5..ef33e50 100644
+--- a/src/panels/lovelace/components/hui-image.ts
++++ b/src/panels/lovelace/components/hui-image.ts
+@@ -1,5 +1,5 @@
+ import type { PropertyValues } from "lit";
+-import { css, html, LitElement, nothing } from "lit";
++import { css, html, LitElement, nothing, unsafeCSS } from "lit";
+ import { customElement, property, state } from "lit/decorators";
+ import { classMap } from "lit/directives/class-map";
+ import { styleMap } from "lit/directives/style-map";
+@@ -517,7 +517,7 @@ export class HuiImage extends LitElement {
+     }
+ 
+     #brokenImage {
+-      background: grey url("/static/images/image-broken.svg") center/36px
++      background: grey url(${unsafeCSS(__STATIC_PATH__)}images/image-broken.svg) center/36px
+         no-repeat;
+     }
+   `;

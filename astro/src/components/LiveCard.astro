@@ -1,0 +1,201 @@
+---
+// A real, interactive Home Assistant dashboard card, running on example
+// data instead of a Home Assistant server.
+//
+// New component, not a Jekyll port. It uses the embeddable cards that
+// the Home Assistant demo publishes (demo.home-assistant.io/embed.js):
+// <ha-embed-provider> holds the example entities, and <ha-embed-card>
+// creates the same card a dashboard would, so selecting it changes the
+// example state just like in Home Assistant. The website does not
+// build or host any of the card code.
+//
+// The cards cannot be rendered at build time: they need the embed
+// script and a browser. So the build renders an empty card shape at
+// the card's expected height instead, and the real card fades in over
+// it once it has drawn, without moving the page around it.
+//
+// Cards with the same `group` share their example data, wherever they
+// are on the page: selecting a light in one card changes it in the
+// others too. Pass `entities` to exactly one card of the group; its
+// `colorScheme` applies to the whole group.
+//
+// The embed script is loaded when a card is about one screen away from
+// the viewport, so pages without live cards, and visitors who never
+// scroll to one, do not download it. Set PUBLIC_HA_EMBED_URL to load
+// it from elsewhere, for example a local build of the demo.
+interface Props {
+  // Card configuration, the same as the card's YAML in a dashboard.
+  config: Record<string, unknown>;
+  // Example entities the card can show and control. In a group, only
+  // one card passes them.
+  entities?: {
+    entity_id: string;
+    state: string;
+    attributes?: Record<string, unknown>;
+  }[];
+  // Light by default, to match the website, which has no dark mode yet.
+  colorScheme?: "light" | "dark";
+  // Space to keep free for the card before it draws, in rem. Only
+  // needed when the estimate below does not fit the card.
+  height?: number;
+  // Name of a group of cards that share their example data.
+  group?: string;
+}
+
+const {
+  config,
+  entities,
+  colorScheme = "light",
+  height = estimateHeight(config),
+  group,
+} = Astro.props;
+
+// In a group, the card with the entities holds the example data (the
+// provider), and the other cards link to it by its ID.
+const providerId = group && `live-card-${group}`;
+const linked = Boolean(group) && !entities;
+
+// Expected card height in rem, measured from the cards at the
+// component's maximum width. It is a minimum, so a taller card still
+// fits; it only avoids most of the jump when the card appears.
+function estimateHeight(card: Record<string, any>): number {
+  const count = (list: unknown) => (Array.isArray(list) ? list.length : 0);
+  switch (card.type) {
+    case "tile":
+      // Inline features sit next to the name, in the same row.
+      return card.features_position === "inline"
+        ? 3.5
+        : 3.5 + 3.375 * count(card.features);
+    case "entities":
+      return (card.title ? 4.75 : 1) + 3 * count(card.entities);
+    case "thermostat":
+      return 24;
+    default:
+      return 3.5;
+  }
+}
+
+const embedUrl =
+  import.meta.env.PUBLIC_HA_EMBED_URL ??
+  "https://demo.home-assistant.io/embed.js";
+
+// Inline JSON must not be able to close its <script> element early.
+const json = (data: unknown) =>
+  JSON.stringify(data).replace(/</g, "\\u003c");
+---
+
+<div
+  class:list={["live-card", { dark: colorScheme === "dark" }]}
+  style={`--live-card-height: ${height}rem`}
+  data-embed={embedUrl}
+>
+  {
+    linked ? (
+      <ha-embed-card provider={providerId}>
+        <script is:inline type="application/json" set:html={json(config)} />
+      </ha-embed-card>
+    ) : (
+      <ha-embed-provider id={providerId} color-scheme={colorScheme}>
+        <script
+          is:inline
+          type="application/json"
+          set:html={json(entities ?? [])}
+        />
+        <ha-embed-card>
+          <script is:inline type="application/json" set:html={json(config)} />
+        </ha-embed-card>
+      </ha-embed-provider>
+    )
+  }
+</div>
+
+<script>
+  const wrappers = document.querySelectorAll<HTMLElement>(".live-card");
+
+  // Added as a module script rather than import(), so Vite leaves the
+  // URL alone: the embed script is not part of the Astro build.
+  const loader = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.find((entry) => entry.isIntersecting);
+      if (visible) {
+        loader.disconnect();
+        const script = document.createElement("script");
+        script.type = "module";
+        script.src = (visible.target as HTMLElement).dataset.embed!;
+        document.head.append(script);
+      }
+    },
+    { rootMargin: "100% 0px" },
+  );
+
+  // A card has drawn once it has a height. Waiting for the element to
+  // be defined is not enough: some card types load more code first.
+  const drawn = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.contentRect.height > 0) {
+        drawn.unobserve(entry.target);
+        entry.target.closest<HTMLElement>(".live-card")!.dataset.ready = "";
+      }
+    }
+  });
+
+  wrappers.forEach((wrapper) => {
+    loader.observe(wrapper);
+    drawn.observe(wrapper.querySelector("ha-embed-card")!);
+  });
+</script>
+
+<style lang="scss">
+  .live-card {
+    // The empty card matches the shape and colors of a Home Assistant
+    // card (ha-card), so the real card replaces it without a visible
+    // change in outline.
+    --live-card-surface: var(--color-surface);
+    --live-card-border: rgb(0 0 0 / 12%);
+
+    position: relative;
+    max-width: 25rem;
+    min-height: var(--live-card-height);
+
+    &.dark {
+      --live-card-surface: #1c1c1c;
+      --live-card-border: rgb(255 255 255 / 12%);
+    }
+
+    // The empty card, shown until the real one has drawn.
+    &::before {
+      background: var(--live-card-surface);
+      border: 1px solid var(--live-card-border);
+      border-radius: 0.75rem;
+      content: "";
+      inset: 0;
+      position: absolute;
+      transition: opacity 0.2s;
+    }
+
+    ha-embed-card {
+      opacity: 0;
+      position: relative;
+      transition: opacity 0.2s;
+    }
+
+    &[data-ready] {
+      min-height: 0;
+
+      &::before {
+        opacity: 0;
+      }
+
+      ha-embed-card {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &::before,
+      ha-embed-card {
+        transition: none;
+      }
+    }
+  }
+</style>
