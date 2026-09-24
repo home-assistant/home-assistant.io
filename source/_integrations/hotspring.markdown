@@ -78,7 +78,7 @@ The **Hot Spring** integration provides the following entities:
 
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
-  - **Range**: 80 °F to 104 °F
+  - **Range**: 26 °C to 40 °C (80 °F to 104 °F)
 
 ### Select
 
