@@ -19,7 +19,7 @@ blueprint:
     refresh_interval:
       name: Refresh interval
       description: How often to refresh the selected entities.
-      default: 45
+      default: "45"
       selector:
         select:
           options:
