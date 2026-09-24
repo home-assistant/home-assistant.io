@@ -74,6 +74,14 @@ If you have a battery connected to your system, you can monitor the battery stat
 - Charged energy this month (kWh)
 - Charged energy total (kWh)
 
+## Examples
+
+### Run actions when battery charge is low
+
+Run actions when an Autarco battery state of charge drops below a chosen percentage.
+
+{% blueprint_example blueprint="autarco/low_battery_soc.yaml" %}
+
 ## Known limitations
 
 The integration does not show data about your self-sufficiency or CO2 savings.
