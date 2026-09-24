@@ -371,8 +371,8 @@ The network map is an interactive visualization of all your Matter devices and h
    - If the map shows **The connected Matter server does not support network topology.**, update the Matter Server app to 9.2.0 or newer. If you run the Matter server yourself, update it to version 1.4.0 or newer.
 3. To see the details of a device or a connection, point to it or select it.
    - For a device, you see details such as its role, its network, whether it is online, its area, and when it was last seen.
-   - For a connection, you see the network type and the signal strength in each direction.
-4. To open the page of a device, select the device on the map.
+   - For a connection, you see the network type and the signal strength, for each direction when it is available. For a connection that is only known from the routing table of a Thread device, you see its overall signal strength and **Learned from routing table** instead.
+4. To open the page of a Matter device that is added to Home Assistant, select it on the map. Border routers, Wi-Fi access points, and unknown devices do not have a device page.
 5. To find a device, enter its name, manufacturer, model, or node ID in the search field.
 6. If the map seems outdated, select **Refresh topology** {% icon "mdi:refresh" %}.
    - Home Assistant then reads the network details from every online Matter device. This can take a few seconds.
@@ -380,10 +380,11 @@ The network map is an interactive visualization of all your Matter devices and h
 
 ### About the Matter network map
 
-Home Assistant reaches your Matter devices in two ways:
+How Home Assistant reaches your Matter devices depends on the network they use:
 
 - **Thread devices** through a Thread border router. The Thread devices form a mesh network, where routers pass messages on for other devices.
 - **Wi-Fi devices** through a Wi-Fi access point.
+- **Ethernet devices** through your wired network. The map shows these devices without a connection.
 
 The legend on the map shows what each shape stands for. The colors below are those of the default theme:
 
@@ -399,7 +400,7 @@ The lines between devices show how they connect, and how well they can reach eac
 
 - <iconify-icon inline icon="mdi:minus" style="color: #926bc7" title="Purple line"></iconify-icon> (purple line): a Thread connection.
 - <iconify-icon inline icon="mdi:minus" style="color: #ff9800" title="Orange line"></iconify-icon> (orange line): a Wi-Fi connection.
-- <iconify-icon inline icon="mdi:minus-thick" style="color: #9b9b9b" title="Thick line"></iconify-icon> (thick line): a thicker line means a stronger signal. The details of a connection show the signal as **Strong**, **Medium**, or **Weak**, together with the <abbr title="Link Quality Indicator">LQI</abbr> or <abbr title="Received Signal Strength Indicator">RSSI</abbr> value when it is available.
+- <iconify-icon inline icon="mdi:minus-thick" style="color: #9b9b9b" title="Thick line"></iconify-icon> (thick line): a thicker line means a stronger signal. The details of a connection show the signal as **Strong**, **Medium**, **Weak**, or **Unknown** when there is no measurement, together with the <abbr title="Link Quality Indicator">LQI</abbr> or <abbr title="Received Signal Strength Indicator">RSSI</abbr> value when it is available.
 - <iconify-icon inline icon="tabler:line-dashed" style="color: #9b9b9b" title="Dashed line"></iconify-icon> (dashed line): the signal was only seen in one direction, it differs between the two directions, or one of the devices is offline or unknown.
 - <iconify-icon inline icon="tabler:line-dotted" style="color: #9b9b9b" title="Dotted line"></iconify-icon> (dotted line): the connection is only known from the routing table of a Thread device. Its details show **Learned from routing table**.
 
