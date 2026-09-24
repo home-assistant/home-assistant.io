@@ -168,7 +168,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 1. Open The Home Assistant app on your phone.
 2. Go to {% my config_matter title="**Settings** > **Connectivity** > **Matter**" %}.
 3. Select the **Add device** button.
-4. In the dialog, select **No, it's new.**.
+4. In the dialog, select **No. It’s new.**
 5. Scan the QR-code of the Matter device with your phone camera or select **More options...** to manually enter the Commission code.
 6. Select **Add to Home Assistant**.
    - This starts the commissioning process which may take a few minutes.
@@ -178,6 +178,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - This is an internal reference for iOS. It won't be visible in Home Assistant.
    - After entering a name, select **Continue**.
 9. Once the process is complete, select **Done**.
+   - In Home Assistant, the **Device added** dialog opens. Optionally, enter a name and select an area for the device.
+   - Select **Finish**.
    - You are now redirected to the device page within Home Assistant. It is ready for use.
 
 ### To add a new device using the Android Companion app
