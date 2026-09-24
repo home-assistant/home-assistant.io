@@ -66,25 +66,22 @@ Each stop you want to monitor is added as a separate device. After you set up th
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Rejseplanen**.
 2. Select **Add stop**.
-3. Enter the stop ID for the location you want to monitor (see [Finding a stop ID](#finding-a-stop-id)).
-4. Optionally, give the stop a name.
-5. Optionally, filter by direction or departure type.
-6. Select **Submit**.
-
+3. Enter the details for the stop. Only the stop ID is required. The options are described after these steps.
+4. Select **Submit**.
    - Result: The integration immediately starts monitoring the stop and creates sensor entities for the next departure.
 
-    {% configuration_basic %}
-    Stop ID:
-        description: The unique identifier for the stop or station you want to monitor. See [Finding a stop ID](#finding-a-stop-id) for how to obtain this value.
-    Name:
-        description: An optional name for this stop. The name is used in the device and entity names. It defaults to **Unknown stop**, so give each stop its own name to keep your devices and entities easy to tell apart.
-    Direction:
-        description: An optional filter that only shows departures toward a specific destination. Leave it empty to show all departures. You can add multiple directions, and each value must match exactly what the Rejseplanen API returns (case-sensitive). See [Finding direction values](#finding-direction-values).
-    Departure type:
-        description: An optional filter that only shows specific types of departures, such as S-trains, buses, or metro. You can select multiple types. Leave it empty to show all departure types available at the stop. See [Departure types](#departure-types) for all options.
-    {% endconfiguration_basic %}
+When you add a stop, you're asked for the following:
 
-   - If you don't set any filters, the integration shows all departures from the stop.
+{% configuration_basic %}
+Stop ID:
+  description: The unique identifier for the stop or station you want to monitor. See [Finding a stop ID](#finding-a-stop-id) for how to obtain this value.
+Name:
+  description: An optional name for this stop. The name is used in the device and entity names. It defaults to **Unknown stop**, so give each stop its own name to keep your devices and entities easy to tell apart.
+Direction:
+  description: An optional filter that only shows departures toward a specific destination. Leave it empty to show all departures. You can add multiple directions, and each value must match exactly what the Rejseplanen API returns (case-sensitive). See [Finding direction values](#finding-direction-values).
+Departure type:
+  description: An optional filter that only shows specific types of departures, such as S-trains, buses, or metro. You can select multiple types. Leave it empty to show all departure types available at the stop. See [Departure types](#departure-types) for all options.
+{% endconfiguration_basic %}
 
 ## Finding a stop ID
 
@@ -294,7 +291,9 @@ The integration fetches the departures for all your stops in a single request, s
 
 This example updates the sensors every 2 minutes during the morning rush hour (7:00–9:00) and every minute during the last 5 minutes before a typical commute time.
 
-- **Triggers**: Time pattern, every 2 minutes; and time, at 08:55, 08:56, 08:57, 08:58, and 08:59
+- **Triggers**:
+  - Time pattern, every 2 minutes
+  - Time, at 08:55, 08:56, 08:57, 08:58, and 08:59
 - **Condition**: Time, between 07:00 and 09:00
 - **Action**: Update entity
 
