@@ -128,7 +128,7 @@ Additionally, this integration {% term polling polls %} for updated device and p
 
 ### Clean area(s) when a Litter-Robot cycles
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/litterrobot_clean_area_on_cycle.yaml" %}
+{% blueprint_example blueprint="litterrobot/clean_area_on_cycle.yaml" %}
 
 ## Known limitations
 
