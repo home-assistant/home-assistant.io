@@ -416,9 +416,9 @@ Thread channel 26 is the least likely to experience Wi-Fi interference. Channel 
 
 You can change the Thread channel through the Thread integration in Home Assistant.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Thread** integration.
-2. Select **Configure**.
-3. Change the channel to your desired value (for example, **26**).
+1. Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+2. Next to your OpenThread border router, select **Overflow menu** {% icon "mdi:dots-vertical" %}, then **Change channel**.
+3. Enter your desired channel (for example, **26**), and select **Change channel**.
 4. After you confirm the change, the network will continue to operate normally on the current channel. The border router schedules the switch for approximately five minutes later so that all devices on the mesh can learn about the new channel and switch simultaneously. During this waiting period, nothing will appear to have changed — this is expected. Do not restart the border router or make additional changes while the switch is pending.
 
 {% important %}
