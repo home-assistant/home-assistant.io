@@ -267,11 +267,37 @@ automation:
             the update.
 ```
 
-### Run actions when a charger issue is detected
+### Notify when an issue is detected
 
-Run actions when a selected Peblar error or warning sensor reports a problem.
+The following example automation will send out a notification when the charger
+detects an error or raises a warning.
 
-{% blueprint_example blueprint="peblar/charger_issue.yaml" %}
+```yaml
+automation:
+  - alias: "Peblar issue detected"
+    triggers:
+      - trigger: state
+        entity_id:
+          - binary_sensor.peblar_active_error
+          - binary_sensor.peblar_active_warning
+        from: "off"
+        to: "on"
+      - trigger: state
+        entity_id: sensor.peblar_state
+        to:
+          - "error"
+          - "fault"
+
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Peblar charger issue detected!"
+          message: >
+            An issue with your Peblar charger has been detected.
+            Please check the charger's local web interface for more information.
+```
 
 ## Known limitations
 
