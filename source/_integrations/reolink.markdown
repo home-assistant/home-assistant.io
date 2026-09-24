@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - camera
   - diagnostics
   - light
@@ -379,6 +380,15 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Floodlight schedule end*+
 
 **Floodlight schedule start** and **Floodlight schedule end** set the time window during which the floodlight turns on while the **Floodlight mode** select entity is set to **Schedule**. Because the camera only stores the schedule in this mode, setting either time also switches the floodlight to **Schedule** mode. If the configured window covers the current time, the floodlight turns on immediately. The times are entered as 24-hour `HH:MM` and are evaluated using the camera's own clock and time zone (Home Assistant does not convert them). Windows that span midnight are supported, for example a start of `22:00` and an end of `06:00`.
+
+### Calendar entities
+
+Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following calendar entities are added:
+
+- Siren schedule*
+- Recording schedule*
+
+Each calendar shows the weekly schedule of the camera as events named after the detection type: **Motion**, **Person**, **Vehicle**, **Pet** (or **Animal**), and **Continuous** for continuous recording. An event marks the hours during which the siren can sound or a recording is made for that detection type. The camera stores these schedules per hour and repeats them every week, so events must start and end on whole hours and always repeat weekly. Events can be added, changed, and deleted in the calendar panel or with the `calendar.create_event` action. A recurrence can only be weekly on selected weekdays or daily. An event that spans several days marks every hour in between, for example Monday 00:00 to the next Monday 00:00 enables all hours of the week. Deleting a single occurrence clears that weekday only; deleting the series clears all its weekdays. The schedule is evaluated using the camera's own clock and time zone, which is assumed to match Home Assistant. The **Siren schedule** only takes effect when the **Siren on event** switch is ON, and the **Recording schedule** only when the **Record** switch is ON.
 
 ### Update entity
 
