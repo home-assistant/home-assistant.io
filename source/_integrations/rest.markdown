@@ -17,7 +17,7 @@ ha_integration_type: service
 
 The **RESTful** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
-Both UI and [YAML setup](#yaml-configuration) is supported.
+Both UI and [YAML setup](#yaml-configuration) are supported.
 
 [RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary Sensor](/integrations/binary_sensor.rest) can also be set up as platforms in the [YAML Configuration](#yaml-configuration) if there is only a single sensor per endpoint.
 
