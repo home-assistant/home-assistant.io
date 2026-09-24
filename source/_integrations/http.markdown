@@ -111,7 +111,7 @@ If your reverse proxy or content delivery network (CDN) caches responses, set it
 
 - Do not cache HTML pages, such as the main app page (`index.html`).
 - Do not cache `404` (not found) responses.
-- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/` for a long time. Their file names change whenever their content changes, so a cached copy is never out of date.
+- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/`. Home Assistant already tells browsers to cache these for up to a month.
 
 Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML by default. You only need to check this if you added your own caching rules.
 
