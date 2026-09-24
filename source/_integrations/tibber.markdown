@@ -127,11 +127,9 @@ The energy prices are exposed using an action that returns [response data](/docs
 
 {% include integrations/actions.md %}
 
-## Examples
+## Tibber automation examples
 
-In this section, you will find some real-life examples of how to use this sensor.
-
-### Electricity price
+### Automation: Electricity price
 
 Run actions when the current Tibber electricity price exceeds a chosen percentage of today's maximum price.
 
