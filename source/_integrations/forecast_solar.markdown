@@ -124,6 +124,14 @@ To add the forecast:
 
 The Energy dashboard now overlays the expected production on your solar graph.
 
+## Examples
+
+### Run actions when tomorrow's solar forecast is high
+
+Run actions when tomorrow's estimated solar production rises above a chosen threshold.
+
+{% blueprint_example blueprint="forecast_solar/tomorrow_energy_threshold.yaml" %}
+
 ## Data updates
 
 How often the forecast {% term polling updates %} depends on your Forecast.Solar account:
