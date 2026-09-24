@@ -110,6 +110,12 @@ For the dynamic gas prices, only entities are created that display the
 
 ## Examples
 
+### Run actions at the EnergyZero lowest price time
+
+Run actions at the time EnergyZero reports as today's lowest electricity price.
+
+{% blueprint_example blueprint="energyzero/lowest_price_time.yaml" %}
+
 ### Run actions when the EnergyZero electricity price is low
 
 Run actions when the current electricity price drops below a chosen threshold.
