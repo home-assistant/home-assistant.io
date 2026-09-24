@@ -83,6 +83,14 @@ You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 - Energy Consumption Price Low/High
 - Energy Production Price Low/High
 
+## Examples
+
+### Run actions when power consumption is high
+
+Run actions when P1 Monitor reports sustained power consumption above a chosen threshold.
+
+{% blueprint_example blueprint="p1_monitor/high_power_consumption.yaml" %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
