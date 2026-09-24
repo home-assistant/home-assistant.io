@@ -55,10 +55,22 @@ triggers:
     below: !input low_threshold
     id: auto
 actions:
-  - action: fan.set_percentage
-    target:
-      entity_id: !input fan
-    data:
-      percentage: "{{ boost_percentage if trigger.id == 'boost' else 0 }}"
-variables:
-  boost_percentage: !input boost_percentage
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: boost
+        sequence:
+          - action: fan.set_percentage
+            target:
+              entity_id: !input fan
+            data:
+              percentage: !input boost_percentage
+      - conditions:
+          - condition: trigger
+            id: auto
+        sequence:
+          - action: fan.set_percentage
+            target:
+              entity_id: !input fan
+            data:
+              percentage: 0
