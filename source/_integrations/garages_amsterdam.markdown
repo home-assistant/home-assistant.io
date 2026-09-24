@@ -46,6 +46,14 @@ Some parking garages don't have long-term parking spaces, in which case the 2 sp
 
 Each parking garage also has a binary sensor, which indicates whether there are problems in the data provision from the API. When it indicates `ok` everything is fine. If the state changes to `problem`, the upstream data might not be up to date or reliable and will remain in this state until new data is coming in.
 
+## Examples
+
+### Run actions when parking availability is low
+
+Run actions when the number of free spaces in an Amsterdam parking garage drops below a chosen threshold.
+
+{% blueprint_example blueprint="garages_amsterdam/low_availability.yaml" %}
+
 ## Removing the integration
 
 You can remove each parking garage instance by following the default removal process.
