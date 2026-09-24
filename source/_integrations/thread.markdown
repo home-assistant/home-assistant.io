@@ -332,7 +332,9 @@ You can only set a Thread network as preferred if the credentials are known.
 
 ### Combining Thread networks
 
-In the current implementation, having multiple <abbr title="Thread border routers">TBRs</abbr> from different vendors results in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
+Having multiple <abbr title="Thread border routers">TBRs</abbr> from different vendors can result in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
+
+A new Home Assistant border router can join an existing Thread network from another vendor. For the steps, refer to [Case 2: Creating a Home Assistant border router when there is an existing network](#case-2-creating-a-home-assistant-border-router-when-there-is-an-existing-network).
 
 ## Troubleshooting
 
