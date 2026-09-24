@@ -139,7 +139,7 @@ The `manual_alarm_code_used` event is fired when the state of a manual alarm con
 - **entity_id** (string): The entity ID of the alarm control panel (for example, `alarm_control_panel.my_alarm`).
 - **target_state** (string): The target state (for example, `disarmed`, `armed_away`, `armed_home`).
 - **user_id** (string): The user ID who initiated the action (if available).
-- **code_id** (string): The name of the used code when **code** is a mapping, its index when **code** is a list, or `null` when a single code or **code_template** is configured.
+- **code_id** (string or `null`): The name of the used code when **code** is a mapping, or its index when **code** is a list. It is `null` when a single code or **code_template** is configured, because there is nothing to tell the codes apart by.
 
 Example automation trigger:
 
@@ -156,7 +156,9 @@ automation:
       - action: logbook.log
         data:
           name: Alarm
-          message: "Disarmed with the code of {{ trigger.event.data.code_id }}"
+          message: >
+            Disarmed with the code of
+            {{ trigger.event.data.code_id | default("an unnamed user", true) }}
 ```
 
 ## State machine
