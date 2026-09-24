@@ -409,7 +409,7 @@ If you experience frequent pairing failures or devices that drop off the network
 
 ##### Description
 
-Thread uses the IEEE 802.15.4 radio standard, which operates in the 2.4 GHz band — the same band used by Wi-Fi and Bluetooth. Thread channels 11 through 24 can overlap with 2.4 GHz Wi-Fi, including common Wi-Fi channels like 1, 6, and 11. This overlap can cause interference that prevents the Thread radio from transmitting successfully.
+Thread uses the IEEE 802.15.4 radio standard, which operates in the 2.4 GHz band, the same band used by Wi-Fi and Bluetooth. Thread channels 11 through 24 can overlap with 2.4 GHz Wi-Fi, including common Wi-Fi channels like 1, 6, and 11. This overlap can cause interference that prevents the Thread radio from transmitting successfully.
 
 A sign of interference in the OTBR app logs is repeated `ChannelAccessFailure` errors. This means the radio attempted to send a frame but the channel was too busy, even after multiple retries.
 
@@ -419,14 +419,22 @@ Thread channel 26 is the least likely to experience Wi-Fi interference. Channel 
 
 You can change the Thread channel through the Thread integration in Home Assistant.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Thread** integration.
-2. Select **Configure**.
-3. Change the channel to your desired value (for example, **26**).
-4. After you confirm the change, the network will continue to operate normally on the current channel. The border router schedules the switch for approximately five minutes later so that all devices on the mesh can learn about the new channel and switch simultaneously. During this waiting period, nothing will appear to have changed — this is expected. Do not restart the border router or make additional changes while the switch is pending.
+{% note %}
+**Risk of Thread devices becoming unavailable after a channel change**
 
-{% important %}
-If you already have Thread devices paired, changing the channel will temporarily disrupt communication while devices transition. For best results, change the channel before pairing devices if possible.
-{% endimportant %}
+Some Thread devices might not move to the new channel automatically. You might need to add them to your Thread network again before they show up in Home Assistant. If the new channel is busy, your Thread devices can also become unavailable from time to time. You can only undo the change by changing the channel again.
+
+To avoid this:
+
+- Change the channel before you add Thread devices, if possible.
+
+{% endnote %}
+
+1. Go to {% my config_thread title="**Settings** > **Connectivity** > **Thread**" %}.
+2. Next to your OpenThread border router, select **Overflow menu** {% icon "mdi:dots-vertical" %}, then **Change channel**.
+3. Enter your desired channel (for example, **26**), and select **Change channel**.
+4. After you confirm the change, the network will continue to operate normally on the current channel. The border router schedules the switch for approximately five minutes later so that all devices on the mesh can learn about the new channel and switch simultaneously. During this waiting period, nothing will appear to have changed. This is expected. Do not restart the border router or make additional changes while the switch is pending.
+5. After the switch, check your Thread devices. If a device does not come back, add it to your Thread network again.
 
 ### Pairing a Thread device fails
 
