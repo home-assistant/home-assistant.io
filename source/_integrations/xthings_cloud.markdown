@@ -61,7 +61,7 @@ The **Xthings Cloud** integration provides the following entities.
 
 - **Smart light**
   - **Description**: On/off, brightness (0–100%), color, and color temperature control. A19-C1 bulbs display an approximate color temperature between 2700 and 6500 K.
-  - **Remarks**: Devices with brightness in their status are automatically registered as light entities.
+  - **Remarks**: Devices with brightness in their status are automatically registered as light entities. With the native connection enabled, A19-C1 bulbs in Xthings groups remain individually controllable.
 
 ## Data updates
 
@@ -110,8 +110,9 @@ If Xthings rejects your account credentials, Home Assistant asks you to sign in 
 
 1. Check that the bulb has power and is online in the Xthings app.
 2. Check the internet connection for Home Assistant and the bulb.
-3. Wait for another state request. If setup failed, reload **Xthings Cloud** to retry without waiting for the next cloud API poll.
-4. Check {% my logs title="**Settings** > **System** > **Logs**" %} for a native bulb setup or connection error.
+3. If you added, removed, or moved the bulb in an Xthings group, reload **Xthings Cloud** to refresh its connection.
+4. Otherwise, wait for another state request. If setup failed, reload **Xthings Cloud** to retry without waiting for the next cloud API poll.
+5. Check {% my logs title="**Settings** > **System** > **Logs**" %} for a native bulb setup or connection error.
 
 You can disable **Enable native bulb connection** to return to the original cloud connection. That connection may omit the current color temperature, so disabling the option does not provide equivalent temperature readback.
 
