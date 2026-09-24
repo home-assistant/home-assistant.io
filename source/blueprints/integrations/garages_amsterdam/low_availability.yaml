@@ -1,0 +1,30 @@
+blueprint:
+  name: Run actions when parking availability is low
+  description: Run actions when a Garages Amsterdam free-space sensor drops below a chosen number of spaces.
+  domain: automation
+  input:
+    free_space_sensor:
+      name: Free space sensor
+      selector:
+        entity:
+          filter:
+            - integration: garages_amsterdam
+              domain: sensor
+    threshold:
+      name: Free spaces threshold
+      default: 25
+      selector:
+        number:
+          min: 1
+          max: 1000
+          step: 1
+          mode: box
+    actions:
+      name: Actions
+      selector:
+        action:
+triggers:
+  - trigger: numeric_state
+    entity_id: !input free_space_sensor
+    below: !input threshold
+actions: !input actions
