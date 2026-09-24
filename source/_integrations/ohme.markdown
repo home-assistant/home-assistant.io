@@ -160,24 +160,11 @@ This creates a new sensor, e.g. `sensor.ohme_energy`, reporting cumulative energ
 
 ## Examples
 
-### Send a notification on status change
+### Run actions when charger status changes
 
-To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
+Run actions when an Ohme charger status changes from a selected state.
 
-```yaml
-# Example automation
-triggers:
-  - trigger: state
-    entity_id:
-      - sensor.ohme_home_pro_status
-    from: unplugged
-actions:
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      message: "Vehicle plugged in"
-```
+{% blueprint_example blueprint="ohme/status_change.yaml" %}
 
 ## Troubleshooting
 
