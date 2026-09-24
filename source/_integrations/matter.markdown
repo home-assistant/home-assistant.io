@@ -273,17 +273,13 @@ To allow Home Assistant to control the Matter device that has already been added
 1. Open the Home Assistant app on your phone.
 2. Go to {% my config_matter title="**Settings** > **Connectivity** > **Matter**" %}.
 3. Select the **Add device** button.
-4. In the dialog, select **Yes, it's already in use**, then select which controller it is already connected to. For example, Google Home.
+4. In the dialog, select **Yes. It’s already in use.**, then select which controller it is already connected to. For example, **Google Home**.
 5. Follow the instructions given in the dialog.
    - Troubleshooting: If Home Assistant fails to add the device, check if you have the Matter integration installed and the latest version of the Companion app.
-6. Once the device has been added to Home Assistant, you see a notification **Your device has been added**.
-   - When the process finishes, you're redirected to the device page in Home Assistant.
+6. Once the device has been added, the **Device added** dialog opens. Optionally, enter a name and select an area for the device.
+   - Select **Finish**, or **Skip and finish** if you didn't change anything.
+   - You are now redirected to the device page within Home Assistant.
    - You can now control your device from within Home Assistant, as well as from Google Home.
-
-<p class='img'>
-    <img width="300" src="/images/integrations/matter/matter_share_from_apple.webp" alt="Screencast showing how to share a Matter device from Apple Home."/>
-    Screencast showing how to share a Matter device from Apple Home.
-</p>
 
 ### Using a Matter bridge
 
