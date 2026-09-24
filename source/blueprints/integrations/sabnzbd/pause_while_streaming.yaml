@@ -44,12 +44,16 @@ triggers:
 
 actions:
   - choose:
-      - conditions: "{{ trigger.id == 'pause' }}"
+      - conditions:
+          - condition: trigger
+            id: pause
         sequence:
           - action: button.press
             target:
               entity_id: !input pause_button
-      - conditions: "{{ trigger.id == 'resume' }}"
+      - conditions:
+          - condition: trigger
+            id: resume
         sequence:
           - action: button.press
             target:
