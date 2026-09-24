@@ -164,11 +164,11 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ### Setting emergency SOC based on forecasted minimum temperatures
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_manage_auto_emergency_soc.yml" %}
+{% blueprint_example blueprint="indevolt/manage_auto_emergency_soc.yml" %}
 
 ### Dynamically control battery discharge based on battery state, grid import/export and solar production
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_smart_discharge.yml" %}
+{% blueprint_example blueprint="indevolt/smart_discharge.yml" %}
 
 ## Data updates
 
