@@ -28,6 +28,5 @@ actions:
       {% set target = state_attr(sauna, 'temperature') | float(none) %}
       {{ current is not none and target is not none and current >= target }}
     continue_on_timeout: false
-  - choose: []
-    default: !input actions
+  - sequence: !input actions
 mode: restart
