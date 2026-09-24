@@ -179,25 +179,7 @@ For each park & ride you add, the following sensor entities are created:
 
 Get fresher upcoming-departure data before your commute without raising the polling rate the rest of the day. This blueprint refreshes a transit stop's sensors at a configurable interval inside a time window — by default, every minute between 8:00 and 9:00.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/data_grand_lyon_refresh_during_time_window.yaml" %}
-
-{% details "Example YAML" %}
-
-```yaml
-triggers:
-  - trigger: time_pattern
-    minutes: "/1"
-conditions:
-  - condition: time
-    after: "08:00:00"
-    before: "09:00:00"
-actions:
-  - action: homeassistant.update_entity
-    target:
-      entity_id: sensor.my_stop_next_departure_1
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="data_grand_lyon/refresh_during_time_window.yaml" %}
 
 ## Data updates
 
