@@ -5,6 +5,7 @@ blueprint:
   input:
     price_sensor:
       name: Electricity price sensor
+      description: Select the Tibber electricity price sensor. This sensor exposes today's maximum price as an attribute.
       selector:
         entity:
           filter:
