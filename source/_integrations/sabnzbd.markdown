@@ -82,86 +82,23 @@ This integration creates the following sensors to monitor your SABnzbd instance:
 
 ## Examples
 
-### Basic download monitoring automation
+### Run actions when a download completes
 
-This automation sends a notification when a download completes:
+Run actions when SABnzbd changes from downloading to idle, such as sending a notification.
 
-```yaml
-- alias: "SABnzbd download complete"
-  triggers:
-    - trigger: state
-      entity_id: sensor.sabnzbd_status
-      to: "Idle"
-      from: "Downloading"
-  actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        title: "Download Complete"
-        message: "SABnzbd has finished downloading and extracting files"
-```
+{% blueprint_example blueprint="sabnzbd/download_complete.yaml" %}
 
-### Disk space warning
+### Run actions when disk space is low
 
-Get notified when your download drive is running low on space:
+Run actions when SABnzbd reports less than a chosen amount of free disk space.
 
-```yaml
-- alias: "SABnzbd low disk space warning"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.sabnzbd_disk_free
-      below: 10
-  actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        title: "Low Disk Space"
-        message: "Download drive has less than {{ states('sensor.sabnzbd_disk_free') }} GB free"
-        data:
-          priority: high
-```
+{% blueprint_example blueprint="sabnzbd/low_disk_space.yaml" %}
 
-### Bandwidth management during streaming
+### Pause downloads while streaming
 
-Automatically pause downloads when your media players are active:
+Pause SABnzbd when a media player starts playing and resume downloads after playback stops.
 
-```yaml
-- alias: "Pause downloads during movie time"
-  triggers:
-    - trigger: state
-      entity_id: media_player.living_room_tv
-      to: "playing"
-  conditions:
-    - condition: state
-      entity_id: sensor.sabnzbd_status
-      state: "Downloading"
-  actions:
-    - action: button.press
-      target:
-        entity_id: button.sabnzbd_pause
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        message: "Downloads paused for movie time"
-
-- alias: "Resume downloads after movie time"
-  triggers:
-    - trigger: state
-      entity_id: media_player.living_room_tv
-      from: "playing"
-      for: "00:05:00"
-  conditions:
-    - condition: state
-      entity_id: sensor.sabnzbd_status
-      state: "Paused"
-  actions:
-    - action: button.press
-      target:
-        entity_id: button.sabnzbd_resume
-```
+{% blueprint_example blueprint="sabnzbd/pause_while_streaming.yaml" %}
 
 ### Smart scheduling with speed limits
 
