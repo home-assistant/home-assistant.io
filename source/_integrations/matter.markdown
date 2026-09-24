@@ -468,24 +468,37 @@ The diagnostics file contains device attributes, cluster data, and network infor
 
 - For more detailed information on network configuration, refer to the [Matter server Docker documentation](https://github.com/matter-js/matterjs-server/blob/main/docs/docker.md).
 
-### I do not see the button _Commission using the Companion app_
+### I get the message _You need to use the Home Assistant Companion app_
 
-The **Commission using the Companion app** button only exists in the Home Assistant Companion App. It is not available in the browser.
+#### Symptom
+
+When you add a new device, you select **Add device**, then **No. It’s new.** Instead of starting the setup, the dialog shows **You need to use the Home Assistant Companion app on your mobile phone to add Matter devices.**
+
+#### Cause: Home Assistant is open in a browser
+
+Adding a new Matter device only works in the Home Assistant Companion app. It is not available in the browser.
 
 #### Remedy
 
-If you don't see the button in the Companion app:
+Open the Home Assistant Companion app on your phone or tablet and add the device from there.
 
-1. Make sure the requirements listed in the [prerequisites](#prerequisites) are met.
-2. This includes meeting the minimum system requirements:
+#### Cause: The app can't add Matter devices on your phone or tablet
 
-   - **Android**:
-     - Minimum version is 8.1. Recommended is version 12 or higher.
-       - More issues have been reported by people using older Android versions.
-       - Use a regular, Google-account Android setup. No alternative Android versions.
-       - Make sure the Google Play Services are all up to date.
-   - **iPhone**:
-     - Have the iOS version 16 or higher
+You see this message in the Companion app, but your phone, tablet, or app version doesn't meet the requirements for adding Matter devices.
+
+#### Remedy
+
+Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
+
+- **Android**:
+  - Minimum version is 8.1. Recommended is version 12 or higher.
+    - More issues have been reported by people using older Android versions.
+  - Android Automotive is not supported.
+  - Install the app from the Google Play Store. Versions of the app without Google Play services can't add Matter devices.
+  - Make sure the Google Play Services are all up to date.
+- **iPhone or iPad**:
+  - Minimum version is iOS or iPadOS 16.4.
+  - The Mac app can't add Matter devices. Use an iPhone or iPad instead.
 
 ### When trying to commission using Android, I get an error "Matter is unavailable"
 
