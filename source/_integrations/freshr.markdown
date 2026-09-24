@@ -77,9 +77,11 @@ The integration provides the following sensors:
 
 ## Examples
 
-### Get notified when indoor CO2 levels are high
+### Run actions when indoor CO₂ is high
 
-CO2 levels above 1000 ppm are generally considered poor for indoor air quality. You can create an automation that sends you a notification when the **CO2** sensor crosses that threshold, so you know to check that your ventilation unit is running correctly and that its filter does not need cleaning.
+Run actions when a Fresh-r CO₂ sensor rises above a chosen threshold.
+
+{% blueprint_example blueprint="freshr/high_co2.yaml" %}
 
 ### Run actions when indoor humidity is high
 
