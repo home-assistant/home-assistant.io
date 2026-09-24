@@ -76,6 +76,12 @@ If you have a battery connected to your system, you can monitor the battery stat
 
 ## Examples
 
+### Run actions when solar production is high
+
+Run actions when Autarco solar power production stays above a chosen threshold.
+
+{% blueprint_example blueprint="autarco/high_solar_production.yaml" %}
+
 ### Run actions when battery charge is low
 
 Run actions when an Autarco battery state of charge drops below a chosen percentage.
