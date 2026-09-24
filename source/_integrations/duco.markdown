@@ -289,35 +289,11 @@ Boost a Duco fan when CO₂ rises above a chosen threshold and return it to auto
 
 {% blueprint_example blueprint="duco/co2_ventilation.yaml" %}
 
-### Boost ventilation when humidity is high
+### Boost ventilation based on humidity
 
-This automation switches to medium speed when relative humidity rises above 70% on a UCRH or BSRH sensor module, and returns to automatic mode when it drops back below 60%.
+Boost a Duco fan when humidity rises above a chosen threshold and return it to automatic mode when humidity drops below a lower threshold.
 
-```yaml
-- alias: "Boost ventilation on high humidity"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.node_113_humidity
-      above: 70
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.node_1
-      data:
-        percentage: 66
-
-- alias: "Return to auto when humidity is normal"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sensor.node_113_humidity
-      below: 60
-  actions:
-    - action: fan.set_percentage
-      target:
-        entity_id: fan.node_1
-      data:
-        percentage: 0
-```
+{% blueprint_example blueprint="duco/humidity_ventilation.yaml" %}
 
 ## Data updates
 
