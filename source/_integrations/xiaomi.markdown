@@ -140,6 +140,13 @@ camera:
 
 The **Xiaomi** router integration offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
 
+### Prerequisites
+
+Before you add the integration, check that your router is compatible: navigate to `http://YOUR_ROUTER_IP/api/misystem/devicelist`.
+You should see a listing of the device currently connected to your router.
+
+However, some users report that even when the previous URL does not work, they have been able to integrate their Mi Router 3 in Home Assistant. For example, some users with the Mi Router 3 and firmware version 2.10.46 Stable have integrated their routers successfully and an alternative URL to test integration with is `http://YOUR_ROUTER_IP/cgi-bin/luci/api/misystem/devicelist`. Navigating to this page should show the `{"code":401,"msg":"Invalid token"}` message.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -152,13 +159,6 @@ Password:
 {% endconfiguration_basic %}
 
 This configuration sets up the router (presence detection). The camera platform is configured separately in the [Camera](#camera) section above and remains a {% term "`configuration.yaml`" %} configuration.
-
-### Compatibility test
-
-To ensure that your router is compatible, navigate to `http://YOUR_ROUTER_IP/api/misystem/devicelist`.
-You should see a listing of the device currently connected to your router.
-
-However, some users report that even when the previous URL does not work, they have been able to integrate their Mi Router 3 in Home Assistant. For example, some users with the Mi Router 3 and firmware version 2.10.46 Stable have integrated their routers successfully and an alternative URL to test integration with is `http://YOUR_ROUTER_IP/cgi-bin/luci/api/misystem/devicelist`. Navigating to this page should show the `{"code":401,"msg":"Invalid token"}` message.
 
 ## Migrating from YAML configuration
 
