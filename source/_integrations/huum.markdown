@@ -87,51 +87,11 @@ The **Huum** integration provides the following entities.
 
 Examples of automations you can create using the Huum integration.
 
-### Sauna ready notification with light
+### Run actions when the sauna is ready
 
-Send a notification and turn on the sauna light when the target temperature is reached.
+Run actions when a Huum sauna reaches its target temperature.
 
-{% details "Example YAML configuration" %}
-
-```yaml
-alias: "Sauna ready notification with light"
-description: >-
-  Sends a notification and turns on the sauna light when the target
-  temperature is reached.
-
-mode: restart
-
-variables:
-  notification_title: "Sauna is Ready!"
-  notification_message: "Your sauna has reached {target_temperature}°C. Enjoy!"
-
-triggers:
-  - trigger: state
-    entity_id: climate.huum_sauna
-    to: heat
-    from: "off"
-
-actions:
-  - wait_template: >-
-      {% set current = state_attr('climate.huum_sauna', 'current_temperature') | float(0) %}
-      {% set target = state_attr('climate.huum_sauna', 'temperature') | float(0) %}
-      {{ current >= target }}
-    continue_on_timeout: false
-  - action: light.turn_on
-    target:
-      entity_id: light.huum_sauna_light
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      title: "{{ notification_title }}"
-      message: >-
-        {% set target_temperature = state_attr('climate.huum_sauna', 'temperature') | int %}
-        {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
-
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="huum/sauna_ready.yaml" %}
 
 ## Data updates
 
