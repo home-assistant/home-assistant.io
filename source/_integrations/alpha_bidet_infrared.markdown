@@ -74,6 +74,66 @@ Each button sends the code for one key on the remote:
 
 The remote sends these temperatures as absolute levels, so choosing an option sets the bidet to that level directly, whatever it was before.
 
+## Alpha Bidet Infrared automation examples
+
+The buttons and selects can be used in automations like any other entity. Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Pre-wash when the bathroom door closes
+
+Start the pre-wash as soon as someone closes the bathroom door, so the bowl is ready by the time it is used.
+
+- **Trigger**: Entity: bathroom door sensor changes from **Open** to **Closed**
+- **Action**: Button: press **Stop (hold)**
+
+{% details "YAML example for a pre-wash when the door closes" %}
+
+{% example %}
+automation: |
+  alias: "Pre-wash the bidet when the bathroom door closes"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.bathroom_door
+      from: "on"
+      to: "off"
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.alpha_bidet_jx2_stop_hold
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn the seat heating off overnight
+
+Save power by turning the seat heating off at night and back on in the morning.
+
+- **Trigger**: Time: 23:00, and Time: 06:00
+- **Action**: Select: set **Seat temperature** to **Off** at night and **Medium** in the morning
+
+{% details "YAML example for turning the seat heating off overnight" %}
+
+{% example %}
+automation: |
+  alias: "Bidet seat heating off overnight"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+      id: night
+    - trigger: time
+      at: "06:00:00"
+      id: morning
+  actions:
+    - action: select.select_option
+      target:
+        entity_id: select.alpha_bidet_jx2_seat_temperature
+      data:
+        option: "{{ 'off' if trigger.id == 'night' else 'medium' }}"
+{% endexample %}
+
+{% enddetails %}
+
 ## Known limitations
 
 - The integration uses assumed state, meaning Home Assistant cannot read the actual state of the bidet. The water and seat temperature selects show the last level Home Assistant sent.
