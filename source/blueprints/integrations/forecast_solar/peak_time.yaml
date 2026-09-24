@@ -1,0 +1,21 @@
+blueprint:
+  name: Run actions at the Forecast.Solar production peak
+  description: Run actions when a Forecast.Solar highest-power-peak timestamp is reached.
+  domain: automation
+  input:
+    peak_time_sensor:
+      name: Highest power peak time sensor
+      selector:
+        entity:
+          filter:
+            - integration: forecast_solar
+              domain: sensor
+              device_class: timestamp
+    actions:
+      name: Actions
+      selector:
+        action:
+triggers:
+  - trigger: time
+    at: !input peak_time_sensor
+actions: !input actions

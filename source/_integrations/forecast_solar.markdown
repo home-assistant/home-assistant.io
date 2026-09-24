@@ -124,6 +124,14 @@ To add the forecast:
 
 The Energy dashboard now overlays the expected production on your solar graph.
 
+## Examples
+
+### Run actions at the solar production peak
+
+Run actions when the Forecast.Solar highest-power-peak timestamp is reached.
+
+{% blueprint_example blueprint="forecast_solar/peak_time.yaml" %}
+
 ## Data updates
 
 How often the forecast {% term polling updates %} depends on your Forecast.Solar account:
