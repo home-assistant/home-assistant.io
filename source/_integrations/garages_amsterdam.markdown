@@ -54,6 +54,12 @@ Run actions when the number of free spaces in an Amsterdam parking garage drops 
 
 {% blueprint_example blueprint="garages_amsterdam/low_availability.yaml" %}
 
+### Run actions when garage data has a problem
+
+Run actions when the selected Garages Amsterdam problem sensor turns on.
+
+{% blueprint_example blueprint="garages_amsterdam/data_problem.yaml" %}
+
 ## Removing the integration
 
 You can remove each parking garage instance by following the default removal process.
