@@ -111,7 +111,7 @@ GEM
       logger
       prism (>= 1.6.0)
       tsort
-    regexp_parser (2.12.0)
+    regexp_parser (2.13.0)
     rexml (3.4.4)
     rouge (4.7.0)
     rubocop (1.91.0)
