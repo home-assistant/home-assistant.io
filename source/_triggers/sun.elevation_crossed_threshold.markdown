@@ -57,6 +57,7 @@ trigger: |
     threshold:
       type: below
       value:
+        active_choice: number
         number: 4
 {% endexample %}
 
@@ -71,10 +72,10 @@ threshold:
   description: |
     A mapping that defines the elevation crossing that fires the trigger. Angles are in degrees.
 
-    - `type: above` (exclusive): Fires when the elevation crosses to strictly above `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
-    - `type: below` (exclusive): Fires when the elevation crosses to strictly below `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Fires when the elevation crosses into the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
-    - `type: outside` (inclusive): Fires when the elevation crosses out of the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: above` (exclusive): Fires when the elevation crosses to strictly above `value`. Provide `value` with `active_choice: number` and a `number` key (a fixed angle in degrees), or `active_choice: entity` and an `entity` key (an `input_number`, `number`, or `sensor` entity).
+    - `type: below` (exclusive): Fires when the elevation crosses to strictly below `value`. Provide `value` with `active_choice: number` and a `number` key (a fixed angle in degrees), or `active_choice: entity` and an `entity` key (an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (exclusive): Fires when the elevation crosses into the range. Provide `value_min` and `value_max`, each with `active_choice: number` and a `number` key (a fixed angle in degrees), or `active_choice: entity` and an `entity` key.
+    - `type: outside` (inclusive): Fires when the elevation crosses out of the range. Provide `value_min` and `value_max`, each with `active_choice: number` and a `number` key (a fixed angle in degrees), or `active_choice: entity` and an `entity` key.
   required: true
   type: map
 for:
@@ -119,6 +120,7 @@ automation: |
         threshold:
           type: below
           value:
+            active_choice: number
             number: 4
   actions:
     - action: light.turn_on
@@ -149,8 +151,10 @@ automation: |
         threshold:
           type: between
           value_min:
+            active_choice: number
             number: 0
           value_max:
+            active_choice: number
             number: 15
         for: "00:02:00"
   actions:
