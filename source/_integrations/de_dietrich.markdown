@@ -26,7 +26,7 @@ Hardware testing has focused on one iSystem installation reporting type code `D4
 
 ## Unsupported devices
 
-Diematic Delta is not supported.
+Diematic Delta and Diematic Evolution are not supported.
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ If a group of readings fails to update, its sensors become unavailable while suc
 ## Known limitations
 
 - The integration does not control heating circuits, heating modes, heating curves, weekly schedules, the boiler clock, the burner, or the pump. The only controls it exposes are the hot-water operating mode and the day-mode target temperature, both on the water heater entity.
-- Circuit C, burner and pump status, fault codes, energy consumption, and the library's other readings are not exposed as entities.
+- Burner and pump status, fault codes, energy consumption, and the library's other readings are not exposed as entities.
 - Only RTU framing over a TCP connection is supported. Standard Modbus TCP framing and direct serial connections are not supported.
 - The official De Dietrich Modbus communication gateway ([Modbus communication gateway for CTM and BMS](https://www.dedietrich-heating.com/products/product_ranges/control_panels/modbus_communication_gateway_for_ctm_and_bms)) has not been tested with this integration and might not work. The integration was tested with third-party RS485-to-TCP gateways.
 - The integration has no additional settings or **Reconfigure** option. To change the host, port, or unit ID, remove the integration entry and add it again. Check any automations or dashboards that reference its entities afterward.
