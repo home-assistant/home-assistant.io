@@ -1,10 +1,10 @@
 ---
 title: Mitsubishi Comfort
-description: Integrate Mitsubishi Electric ductless minisplit heat pump and air conditioning systems with Home Assistant.
+description: Control Mitsubishi Electric minisplit heat pump and air conditioning systems through local or cloud connections with Home Assistant.
 ha_category:
   - Climate
 ha_release: 2026.6
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_dhcp: true
 ha_codeowners:
@@ -14,26 +14,33 @@ ha_platforms:
   - climate
 ha_integration_type: hub
 ha_quality_scale: bronze
-ha_dhcp: true
 ---
 
-The **Mitsubishi Comfort** {% term integration %} connects Mitsubishi Electric ductless minisplit heat pump and air conditioning systems to Home Assistant. It communicates directly with each indoor unit over your local network for low-latency control, using the Kumo Cloud account only for initial device discovery and credential retrieval.
+The **Mitsubishi Comfort** {% term integration %} connects Mitsubishi Electric ductless minisplit heat pump and air conditioning systems to Home Assistant. It uses your Mitsubishi Comfort account to discover devices and retrieve any available local-control credentials. Indoor units use your local network when those credentials and a local IP address are available. Otherwise, they use Mitsubishi Comfort cloud control.
 
-This integration supports indoor units (full climate control) and Kumo Station outdoor units (temperature monitoring only).
+This integration provides climate control for indoor units. It can also discover Kumo Station devices, but it does not currently provide entities for them.
+
+{% important %}
+Mitsubishi has removed information required for local control from its API responses for new Mitsubishi Comfort accounts. If your account does not provide these credentials, your indoor units use cloud control, which requires an internet connection and access to Mitsubishi's service. Kumo Station devices still require local-control credentials.
+
+Existing installations can continue to use local control if Home Assistant has cached the required credentials or your account still provides them. Avoid removing a working integration, as you may lose the ability to control your devices locally.
+{% endimportant %}
 
 ## Supported devices
 
 - **Indoor unit** (ductless, ducted)
   - Controls: mode, temperature, fan speed, vane direction
-  - Sensors: temperature, humidity, filter status, Wi-Fi signal
-- **Kumo Station** (outdoor unit, read-only)
-  - Sensors: outdoor temperature, Wi-Fi signal
+  - Readings: current temperature and humidity, when reported by the device
+- **Kumo Station** (discovery only)
+  - Requires local-control credentials and a local IP address
+  - Cloud control and sensor entities are not supported
 
 ## Prerequisites
 
-- A [Kumo Cloud](https://app.kumocloud.com) account with your Mitsubishi devices registered
-- Devices must be connected to your local network via their Wi-Fi adapters
-- During setup you will be asked to enter the **username** and **password** for your Kumo Cloud account. The integration uses these credentials to discover your devices and retrieve the local API passwords needed for direct communication.
+- A [Mitsubishi Comfort (Kumo Cloud)](https://app.kumocloud.com) account with your Mitsubishi devices registered.
+- Devices must be connected via their Wi-Fi adapters. Cloud control requires an internet connection for both Home Assistant and your devices.
+- Home Assistant must be able to reach Mitsubishi's service when the integration starts or reloads, even if your devices use local control afterward.
+- During setup you will be asked to enter the **username** and **password** for your Kumo Cloud account. The integration uses these credentials to discover your devices, retrieve available local-control credentials, and control indoor units through the cloud when needed.
 
 {% include integrations/config_flow.md %}
 
@@ -44,16 +51,34 @@ Password:
   description: The password for your Kumo Cloud account.
 {% endconfiguration_basic %}
 
-## Finding device IP addresses
+## Configuration options
 
-The Kumo Cloud account provides the device list and credentials, but never a device's local IP address. The integration finds each address automatically through DHCP discovery—including devices that were already seen on the network before the integration was set up—and records the new address when a device's IP changes. Automatic discovery works when your devices are on the same network as Home Assistant.
+### Automatic local or cloud control
 
-If a device is on a different subnet or VLAN, DHCP discovery cannot reach it. The device then has no entities yet, and the integration raises a repair issue where you can enter the IP address manually:
+You do not need to enable cloud control separately. The integration selects a connection for each indoor unit when it starts or reloads:
+
+- If local-control credentials and a local IP address are available, it uses local control.
+- If either is missing, it uses cloud control through your Mitsubishi Comfort account.
+
+You can have both local and cloud-controlled units on the same account. Both use the same climate controls in Home Assistant, subject to each unit's capabilities. Cloud control does not require you to enter a local IP address or keep Home Assistant on the same network as your units.
+
+If a unit has local-control credentials and its IP address is later discovered or entered through the repair below, the integration reloads and switches it to local control. Its entity ID stays the same, so your existing dashboards and automations continue to use it.
+
+### Finding device IP addresses
+
+For devices with local-control credentials, the integration finds the local IP address automatically through DHCP discovery. This works when your devices are on the same network as Home Assistant. Indoor units use cloud control while their local address is unknown. If a device is on a different subnet or VLAN, you can enter its IP address manually:
 
 1. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
-2. Select the **Mitsubishi Comfort devices have no local IP address** issue.
-3. Enter the local IP address for each listed device. Each field is labeled with the device's MAC address.
-4. Leave a field blank to keep waiting for DHCP discovery for that device.
+2. Select **Mitsubishi Comfort devices have no local IP address** and open the repair.
+3. Enter the local IP address for each device that the integration cannot find on its own.
+4. Leave a field blank to keep using DHCP discovery for that device.
+
+This repair is only offered for devices that have local-control credentials. Entering an IP address cannot enable local control if Mitsubishi no longer provides those credentials for your account.
+
+{% configuration_basic %}
+Device IP addresses:
+  description: The local IP address for each device, shown as one field per device. Leave a field blank to keep using DHCP discovery, which only works when the device is on the same network as Home Assistant.
+{% endconfiguration_basic %}
 
 {% tip %}
 If you set an IP address manually, give the device a fixed IP address in your router (a DHCP reservation) so the address does not change over time.
@@ -78,13 +103,33 @@ Each indoor unit is exposed as a climate entity with the following capabilities:
 
 ## Data updates
 
-The Mitsubishi Comfort integration {% term polling polls %} the status of your devices every 60 seconds. When you send a command (such as changing the mode or adjusting the temperature), Home Assistant reflects the change straight away, without waiting for the next poll.
+The Mitsubishi Comfort integration {% term polling polls %} the status of your devices every 60 seconds, using the selected local or cloud connection. After a command is accepted (such as changing the mode or adjusting the temperature), Home Assistant displays the requested setting without waiting for the next poll.
+
+For cloud-controlled units, accepting a command does not confirm that the device has applied it. The next successful poll updates Home Assistant with the state reported by Mitsubishi. Cloud control does not provide the current heating or cooling activity. Cloud rate limits can delay updates.
+
+## Known limitations
+
+- The cloud fallback applies when local connection information is missing. If a unit already uses local control and becomes unreachable, the integration does not automatically switch it to cloud control.
+- Cloud-controlled units require Mitsubishi's service and an internet connection for status updates and commands. They become unavailable when cloud updates fail. Units with working local connections can continue operating while the integration remains loaded.
+- A command that times out is not automatically retried through the cloud. Check the device's reported state before sending it again.
 
 ## Troubleshooting
 
-### Devices show up without entities or stay unavailable
+### Local control is unavailable
 
-A device has no entities until its local IP address is known. The integration normally finds the address through DHCP discovery, which only works when the device is on the same network as Home Assistant. While any device lacks an address, the integration raises a repair issue where you can enter it manually. See [Finding device IP addresses](#finding-device-ip-addresses).
+If your account is affected by Mitsubishi's API changes described above, indoor units use cloud control. Retrying setup or entering a device's IP address cannot replace the missing credentials. Only devices with local-control credentials can switch to local control when their address is discovered or entered manually.
+
+### A cloud-controlled unit is unavailable
+
+Check that the unit works in the Mitsubishi Comfort app and that both Home Assistant and the unit can reach the internet. If Mitsubishi's service is unavailable or temporarily limits requests, updates resume when requests succeed again.
+
+### Home Assistant asks you to sign in again
+
+If Mitsubishi rejects the integration's account credentials, Home Assistant prompts you to reauthenticate. Go to {% my integrations title="**Settings** > **Devices & services**" %} and follow the prompt for **Mitsubishi Comfort**. Sign in with the same account you used to set up the integration. Reauthentication preserves your cached local-control credentials and device IP addresses.
+
+### A locally controlled unit is unavailable
+
+Check that Home Assistant can reach the unit on your network and that its local IP address has not changed. For devices on a different subnet or VLAN with no known address, use the repair described in [Finding device IP addresses](#finding-device-ip-addresses). A unit with a known local address does not automatically switch to cloud control when that address stops responding.
 
 ## Removing the integration
 
