@@ -56,6 +56,7 @@ Enjoy the release!
   - [2026.9.1 - September 5](#202691---september-5)
   - [2026.9.2 - September 11](#202692---september-11)
   - [2026.9.3 - September 18](#202693---september-18)
+  - [2026.9.4 - September 25](#202694---september-25)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -831,6 +832,43 @@ release once a week, aiming for Friday.
 [@sdague]: https://github.com/sdague
 [@starkillerOG]: https://github.com/starkillerOG
 [@synesthesiam]: https://github.com/synesthesiam
+
+### 2026.9.4 - September 25
+
+- Turn off Tuya fans when the speed is set to 0% ([@frenck] - [#181972])
+- Fix Todoist timed calendar event duration ([@andremmfaria] - [#182121])
+- Fix ISEO Argo BLE offering unrelated devices for discovery ([@FezVrasta] - [#182315])
+- Bump pyenphase to 4.0.5 ([@catsmanac] - [#182473])
+- Make HTTP security filter scan cost track request target length ([@frenck] - [#182570])
+- Fix HomematicIP Cloud config flow advancing on a rejected PIN ([@frenck] - [#182601])
+- Fix friends' achievement stats in Xbox integration ([@scardus] - [#182686])
+- Fix typo in the Z-Wave controller statistics key ([@balloob] - [#182827])
+- Log the entity ID in the MQTT group member update message ([@David-Wu1119] - [#182928])
+- Bump pyenphase to 4.0.6 ([@catsmanac] - [#183094])
+- Handle MissingSerial during OpenEVSE entry setup ([@firstof9] - [#183105])
+- Bump imgw_pib to 2.5.2 ([@bieniu] - [#183111])
+
+[#181972]: https://github.com/home-assistant/core/pull/181972
+[#182121]: https://github.com/home-assistant/core/pull/182121
+[#182315]: https://github.com/home-assistant/core/pull/182315
+[#182473]: https://github.com/home-assistant/core/pull/182473
+[#182570]: https://github.com/home-assistant/core/pull/182570
+[#182601]: https://github.com/home-assistant/core/pull/182601
+[#182686]: https://github.com/home-assistant/core/pull/182686
+[#182827]: https://github.com/home-assistant/core/pull/182827
+[#182928]: https://github.com/home-assistant/core/pull/182928
+[#183094]: https://github.com/home-assistant/core/pull/183094
+[#183105]: https://github.com/home-assistant/core/pull/183105
+[#183111]: https://github.com/home-assistant/core/pull/183111
+[@David-Wu1119]: https://github.com/David-Wu1119
+[@FezVrasta]: https://github.com/FezVrasta
+[@andremmfaria]: https://github.com/andremmfaria
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@catsmanac]: https://github.com/catsmanac
+[@firstof9]: https://github.com/firstof9
+[@frenck]: https://github.com/frenck
+[@scardus]: https://github.com/scardus
 
 ## Need help? Join the community
 
