@@ -1,0 +1,99 @@
+blueprint:
+  name: "Hydro-Québec Peak Events: run actions around a peak event"
+  description: >
+    Run actions before a Hydro-Québec peak event begins, when it begins, and
+    when it ends. For example, preheat the home ahead of the event, lower the
+    thermostats when it begins, and restore the normal temperature when it
+    ends.
+
+
+    Hydro-Québec recommends preheating about 2 hours before an event begins.
+  domain: automation
+  author: Beat-YT
+  input:
+    event_begin:
+      name: Peak event begins sensor
+      description: The Peak event begins sensor of the offer you are enrolled in.
+      selector:
+        entity:
+          filter:
+            - integration: hydroquebec_peak
+              domain: sensor
+              device_class: timestamp
+    event_end:
+      name: Peak event ends sensor
+      description: The Peak event ends sensor of the same offer.
+      selector:
+        entity:
+          filter:
+            - integration: hydroquebec_peak
+              domain: sensor
+              device_class: timestamp
+    lead_time:
+      name: Lead time
+      description: How long before the event begins to run the "Before the event" actions.
+      default: "-02:00:00"
+      selector:
+        select:
+          options:
+            - label: 30 minutes before
+              value: "-00:30:00"
+            - label: 1 hour before
+              value: "-01:00:00"
+            - label: 1 hour 30 minutes before
+              value: "-01:30:00"
+            - label: 2 hours before
+              value: "-02:00:00"
+            - label: 3 hours before
+              value: "-03:00:00"
+            - label: 4 hours before
+              value: "-04:00:00"
+    before_actions:
+      name: Before the event
+      description: Actions to run ahead of the event, for example preheat the home.
+      default: []
+      selector:
+        action:
+    begin_actions:
+      name: When the event begins
+      description: Actions to run when the event begins, for example lower the thermostats.
+      default: []
+      selector:
+        action:
+    end_actions:
+      name: When the event ends
+      description: Actions to run when the event ends, for example restore the normal temperature.
+      default: []
+      selector:
+        action:
+
+triggers:
+  - trigger: time
+    id: before
+    at:
+      entity_id: !input event_begin
+      offset: !input lead_time
+  - trigger: time
+    id: begin
+    at: !input event_begin
+  - trigger: time
+    id: end
+    at: !input event_end
+
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: before
+        sequence: !input before_actions
+      - conditions:
+          - condition: trigger
+            id: begin
+        sequence: !input begin_actions
+      - conditions:
+          - condition: trigger
+            id: end
+        sequence: !input end_actions
+
+mode: queued
+max_exceeded: silent
