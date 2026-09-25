@@ -304,6 +304,186 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+## Actions
+
+### Action: Time of use
+
+The `tesla_fleet.time_of_use` {% term action %} configures the time-of-use tariff on a Tesla energy site (Powerwall), so the battery knows when energy is cheap or expensive and can charge and discharge accordingly. The Tesla application must have been granted the **Energy Product Settings** scope, otherwise the action fails with an error.
+
+| Data attribute | Required | Description |
+| -------------- | -------- | ----------- |
+| `device_id` | yes | The energy site to apply the tariff to. |
+| `name` | yes | Name of the tariff, for example `Agile Octopus`. |
+| `utility` | yes | Name of the energy supplier, for example `Octopus Energy`. |
+| `currency` | yes | Three-letter currency code for the rates, for example `GBP`. |
+| `daily_charge` | no | Fixed standing charge applied each day, in the selected currency. |
+| `seasons` | yes | The seasons that make up the tariff. |
+
+#### Seasons
+
+A tariff is made up of one or more seasons. A single season with no dates applies all year, which is the common case. If you use more than one season, every season needs all four date fields.
+
+| Data attribute | Required | Description |
+| -------------- | -------- | ----------- |
+| `name` | yes | Name of the season, for example `Summer`. `ALL` is reserved by Tesla and cannot be used. |
+| `start_month` | no | Month the season starts, between `1` and `12`. |
+| `start_day` | no | Day of the start month the season begins on. |
+| `end_month` | no | Month the season ends, between `1` and `12`. |
+| `end_day` | no | Day of the end month the season runs until. |
+| `periods` | yes | The rate periods in this season. |
+
+A season may wrap the end of the year, for example October to March.
+
+#### Periods
+
+| Data attribute | Required | Description |
+| -------------- | -------- | ----------- |
+| `name` | yes | Name of the rate period, for example `On peak`. |
+| `days` | no | Days of the week the period applies to. Leave empty for every day. |
+| `start_time` | no | Time the period starts. |
+| `end_time` | no | Time the period ends. |
+| `buy_rate` | yes | Import price per kWh. Negative prices are supported. |
+| `sell_rate` | no | Export price per kWh. Negative prices are supported. |
+
+`start_time` and `end_time` must be given together. Leave both out for a period that runs from midnight to midnight.
+
+If you set `sell_rate` on any period, you must set it on every period. Export rates use the same time boundaries as import rates.
+
+Periods within a season must not overlap, and seasons must not cover the same dates. A period that runs past midnight continues into the following day.
+
+You can reuse a period name within a season to describe a period that is split across the day, such as an off-peak rate that runs overnight and again in the afternoon. Every occurrence of the same name must use the same rates.
+
+{% note %}
+Period names are converted into Tesla time-of-use labels, so `Off peak` becomes `OFF_PEAK`. Any name works, but the Tesla mobile app only displays the labels `ON_PEAK`, `OFF_PEAK`, `PARTIAL_PEAK` and `SUPER_OFF_PEAK`.
+{% endnote %}
+
+#### Examples
+
+A day and night tariff with a standing charge:
+
+```yaml
+action: tesla_fleet.time_of_use
+data:
+  device_id: 1a2b3c4d5e6f
+  name: Economy 7
+  utility: Example Energy
+  currency: GBP
+  daily_charge: 0.6
+  seasons:
+    - name: All year
+      periods:
+        - name: Off peak
+          start_time: "00:30:00"
+          end_time: "07:30:00"
+          buy_rate: 0.09
+        - name: On peak
+          start_time: "07:30:00"
+          end_time: "00:30:00"
+          buy_rate: 0.27
+```
+
+A seasonal tariff with export rates, where the peak rate only applies on weekday evenings. The off-peak name is reused to cover the rest of the week, which is allowed as long as the rates match:
+
+```yaml
+action: tesla_fleet.time_of_use
+data:
+  device_id: 1a2b3c4d5e6f
+  name: Seasonal saver
+  utility: Example Energy
+  currency: GBP
+  seasons:
+    - name: Summer
+      start_month: 4
+      start_day: 1
+      end_month: 9
+      end_day: 30
+      periods:
+        - name: On peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "16:00:00"
+          end_time: "19:00:00"
+          buy_rate: 0.30
+          sell_rate: 0.15
+        - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "00:00:00"
+          end_time: "16:00:00"
+          buy_rate: 0.18
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "19:00:00"
+          end_time: "00:00:00"
+          buy_rate: 0.18
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - saturday
+            - sunday
+          buy_rate: 0.18
+          sell_rate: 0.08
+    - name: Winter
+      start_month: 10
+      start_day: 1
+      end_month: 3
+      end_day: 31
+      periods:
+        - name: On peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "16:00:00"
+          end_time: "19:00:00"
+          buy_rate: 0.42
+          sell_rate: 0.15
+        - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "00:00:00"
+          end_time: "16:00:00"
+          buy_rate: 0.21
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+          start_time: "19:00:00"
+          end_time: "00:00:00"
+          buy_rate: 0.21
+          sell_rate: 0.08
+        - name: Off peak
+          days:
+            - saturday
+            - sunday
+          buy_rate: 0.21
+          sell_rate: 0.08
+```
+
 ## Vehicle sleep
 
 Constant API {% term polling %} will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping. The {% term integration %} automatically stops {% term polling %} these vehicles for 15 minutes after inactivity. You can call the `homeassistant.update_entity` {% term action %} to force {% term polling %}, which will reset the timer.
