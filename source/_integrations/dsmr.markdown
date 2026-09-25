@@ -44,7 +44,7 @@ To configure options for DSMR integration go to {% my integrations title="**Sett
 
 #### Time between updates
 
-Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
+Typically, the smart meter sends new data every 1 to 10 seconds. This option sets how often Home Assistant updates the entities (in seconds). If you set it to `0`, entities are updated each time data is received from the smart meter. Only entities with new data are published. If you set it to a value greater than `0`, power, current, voltage, frequency, and power factor readings are averaged over the selected interval, while the remaining readings publish the latest received value at that interval. This ensures the published values are representative of the whole interval. When using this mode, entities which stop receiving new data for a whole averaging interval are marked as `unavailable`.
 
 {% important %}
 Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
@@ -156,4 +156,4 @@ Smart meters in Belgium, Luxembourg and Sweden provided telegrams with largely t
 
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
-Another loop (DSMR class) is set up which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+Another loop (DSMR class) reads the queue and feeds each telegram to the Entities, which accumulate the data as it arrives: sensors flagged `average=True` keep a running mean, the rest cache their latest value. A fixed-cadence timer (`async_track_time_interval`) then publishes at the user-configured interval — the mean for averaged sensors, the last value for the rest. An interval of `0`, or an empty telegram, publishes immediately (previous per-telegram behavior); an averaged sensor with no readings in an interval reports `unavailable`.
