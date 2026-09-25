@@ -31,6 +31,7 @@ related:
 
 The **EZVIZ** integration uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
+Devices without RTSP, such as battery cameras and doorbells, show live video through the EZVIZ cloud instead. For details, see [Live view without RTSP](#live-view-without-rtsp).
 
 The integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
@@ -49,6 +50,15 @@ The local RTSP server on your camera needs to be enabled. To do that:
 Your cameras will now show under integration options as "discovered devices". Please complete the setup for each camera to see the video stream within Home Assistant.
 
 You can also change the camera options should you need to access a high or low res stream. Generally, though it will just work without any modification to options.
+
+### Live view without RTSP
+
+Some EZVIZ devices do not have a local RTSP server, for example battery cameras, doorbells, and cameras with newer firmware. For these devices, Home Assistant shows live video through the EZVIZ cloud, the same way the EZVIZ app does. You don't need to enter a camera verification code for this.
+
+- Live video needs an internet connection and a working EZVIZ cloud service.
+- Video encryption must be turned off for the device in the EZVIZ app. Encrypted cloud video is not supported.
+- Opening the live view wakes up a battery device, so video starts after a few seconds. The device stays awake while you watch, which uses battery power.
+- While the live view is open, the camera picture on your dashboard comes from the live video. Otherwise, it shows the picture of the last detected event, so dashboards do not wake up battery devices.
 
 ### Integration entity options
 
