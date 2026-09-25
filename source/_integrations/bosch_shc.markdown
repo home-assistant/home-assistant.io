@@ -87,6 +87,10 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 The number platform lets you fine-tune numeric device settings. A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
 
+### Select
+
+The select platform lets you choose between a set of predefined options. An Outdoor Siren gets a **Siren volume** select entity, letting you choose between reduced, medium, or loud.
+
 ### Sensors
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
