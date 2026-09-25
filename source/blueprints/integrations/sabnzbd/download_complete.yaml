@@ -1,0 +1,25 @@
+blueprint:
+  name: Run actions when a SABnzbd download completes
+  description: Run actions when SABnzbd changes from downloading to idle.
+  domain: automation
+  input:
+    status_sensor:
+      name: Status sensor
+      selector:
+        entity:
+          filter:
+            - integration: sabnzbd
+              domain: sensor
+    actions:
+      name: Actions
+      description: Actions to run when downloading completes, such as sending a notification.
+      selector:
+        action:
+
+triggers:
+  - trigger: state
+    entity_id: !input status_sensor
+    from: "Downloading"
+    to: "Idle"
+
+actions: !input actions

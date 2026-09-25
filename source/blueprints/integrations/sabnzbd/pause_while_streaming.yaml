@@ -1,0 +1,60 @@
+blueprint:
+  name: Pause SABnzbd while a media player is streaming
+  description: Pause SABnzbd when a media player starts playing and resume after playback stops.
+  domain: automation
+  input:
+    media_player:
+      name: Media player
+      selector:
+        entity:
+          filter:
+            - domain: media_player
+    pause_button:
+      name: SABnzbd pause button
+      selector:
+        entity:
+          filter:
+            - integration: sabnzbd
+              domain: button
+    resume_button:
+      name: SABnzbd resume button
+      selector:
+        entity:
+          filter:
+            - integration: sabnzbd
+              domain: button
+    resume_delay:
+      name: Resume delay
+      description: How long playback must remain stopped before downloads resume.
+      default:
+        minutes: 5
+      selector:
+        duration:
+
+triggers:
+  - trigger: state
+    entity_id: !input media_player
+    to: "playing"
+    id: pause
+  - trigger: state
+    entity_id: !input media_player
+    from: "playing"
+    for: !input resume_delay
+    id: resume
+
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: pause
+        sequence:
+          - action: button.press
+            target:
+              entity_id: !input pause_button
+      - conditions:
+          - condition: trigger
+            id: resume
+        sequence:
+          - action: button.press
+            target:
+              entity_id: !input resume_button

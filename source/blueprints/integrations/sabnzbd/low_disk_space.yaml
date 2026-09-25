@@ -1,0 +1,35 @@
+blueprint:
+  name: Run actions when SABnzbd disk space is low
+  description: Run actions when the free space reported by SABnzbd drops below a chosen level.
+  domain: automation
+  input:
+    disk_free_sensor:
+      name: Disk free sensor
+      selector:
+        entity:
+          filter:
+            - integration: sabnzbd
+              domain: sensor
+    threshold:
+      name: Free space threshold
+      description: Run the actions when free disk space drops below this value in GB.
+      default: 10
+      selector:
+        number:
+          min: 1
+          max: 1000
+          step: 1
+          unit_of_measurement: GB
+          mode: box
+    actions:
+      name: Actions
+      description: Actions to run when disk space is low, such as sending a notification.
+      selector:
+        action:
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input disk_free_sensor
+    below: !input threshold
+
+actions: !input actions
