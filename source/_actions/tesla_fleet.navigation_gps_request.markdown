@@ -80,7 +80,7 @@ order:
 
 ### Automation: navigate home when leaving work
 
-When you leave the work zone on a weekday, send your home location to the car so navigation is ready when you get in.
+When you leave the work zone, send your home location to the car so navigation is ready when you get in.
 
 - **Trigger**: Zone: you leave the work zone
 - **Action**: Navigate to coordinates, with the location of your home zone
@@ -95,14 +95,6 @@ automation: |
       entity_id: person.alex
       zone: zone.work
       event: leave
-  conditions:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
   actions:
     - action: tesla_fleet.navigation_gps_request
       data:

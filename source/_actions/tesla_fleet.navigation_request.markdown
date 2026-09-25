@@ -86,7 +86,7 @@ automation: |
       offset: "-0:30:0"
   conditions:
     - condition: template
-      value_template: "{{ trigger.calendar_event.location | default('') != '' }}"
+      value_template: "{{ trigger.calendar_event.location | default('', true) != '' }}"
   actions:
     - action: tesla_fleet.navigation_request
       data:
