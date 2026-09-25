@@ -321,11 +321,23 @@ Some sensors are disabled by default, since they are primarily useful for diagno
 
 ## Examples
 
-### Run actions when UPS load is high
+### Automation: Notify when UPS load is high
 
-Run actions when APC UPS Daemon reports load above a chosen percentage.
+This example sends a notification when the UPS load rises above 80%.
 
-{% blueprint_example blueprint="apcupsd/high_load.yaml" %}
+```yaml
+alias: "APC UPS load high notification"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.apc_ups_load
+    above: 80
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "APC UPS load is above 80%."
+```
 
 ## Data updates
 
