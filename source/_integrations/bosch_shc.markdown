@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Hub
+  - Number
   - Sensor
   - Switch
   - Valve
@@ -18,6 +19,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - number
   - sensor
   - switch
   - valve
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensors](#binary-sensors)
 - [Covers](#covers)
+- [Number](#number)
 - [Sensors](#sensors)
 - [Switches](#switches)
 - [Valve](#valve)
