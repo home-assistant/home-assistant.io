@@ -1,0 +1,46 @@
+blueprint:
+  name: Run actions when the Tibber electricity price is high
+  description: Run actions when the current Tibber electricity price exceeds a percentage of today's maximum price.
+  domain: automation
+  input:
+    price_sensor:
+      name: Electricity price sensor
+      description: Select the Tibber electricity price sensor. This sensor exposes today's maximum price as an attribute.
+      selector:
+        entity:
+          filter:
+            - integration: tibber
+              domain: sensor
+    percentage:
+      name: Percentage of maximum price
+      description: Run the actions when the current price exceeds this percentage of today's maximum price.
+      default: 90
+      selector:
+        number:
+          min: 1
+          max: 100
+          step: 1
+          unit_of_measurement: "%"
+          mode: slider
+    actions:
+      name: Actions
+      description: Actions to run when the price is high, such as sending a notification.
+      selector:
+        action:
+
+variables:
+  price_sensor: !input price_sensor
+  percentage: !input percentage
+
+triggers:
+  - trigger: state
+    entity_id: !input price_sensor
+
+conditions:
+  - condition: template
+    value_template: >-
+      {% set current = states(price_sensor) | float(none) %}
+      {% set maximum = state_attr(price_sensor, 'max_price') | float(none) %}
+      {{ current is not none and maximum is not none and current > maximum * percentage / 100 }}
+
+actions: !input actions

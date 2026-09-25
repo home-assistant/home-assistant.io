@@ -127,27 +127,10 @@ The energy prices are exposed using an action that returns [response data](/docs
 
 {% include integrations/actions.md %}
 
-## Examples
+## Tibber automation examples
 
-In this section, you will find some real-life examples of how to use this sensor.
+### Automation: Electricity price
 
-### Electricity price
+Run actions when the current Tibber electricity price exceeds a chosen percentage of today's maximum price.
 
-The electricity price can be used to make automations. The sensor has a `max_price` and `min_price` attribute, with max and min price for the current day. Here is an example to get a notification when the price is above 90% of the maximum price for the day:
-
-```yaml
-- alias: "Electricity price"
-  triggers:
-    - trigger: time_pattern
-      # Matches every hour at 1 minutes past whole
-      minutes: 1
-  conditions:
-    - condition: template
-      value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
-  actions:
-   - action: notify.pushbullet
-     data:
-       title: "Electricity price"
-       target: "device/daniel_telefon_cat"
-       message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
-```
+{% blueprint_example blueprint="tibber/high_price.yaml" %}
