@@ -85,11 +85,25 @@ You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 
 ## Examples
 
-### Run actions when power consumption is high
+### Automation: Get alerted when power consumption is high
 
-Run actions when P1 Monitor reports sustained power consumption above a chosen threshold.
+This example sends a notification when P1 Monitor reports more than 4 kW of power consumption for two minutes.
 
-{% blueprint_example blueprint="p1_monitor/high_power_consumption.yaml" %}
+```yaml
+alias: "P1 Monitor high power consumption"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.p1_monitor_power_consumption
+    above: 4000
+    for:
+      minutes: 2
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "P1 Monitor reports sustained power consumption above 4 kW."
+```
 
 ## Removing the integration
 
