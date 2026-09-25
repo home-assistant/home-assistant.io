@@ -12,11 +12,12 @@ ha_domain: gree_infrared
 ha_config_flow: true
 ha_platforms:
   - climate
+  - switch
 ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **Gree Infrared** {% term integration %} lets you control a compatible Gree air conditioner using any infrared emitter previously configured in Home Assistant. It can also keep the climate entity in sync when you have an infrared receiver set up, so the entity follows along when you use the physical Gree remote.
+The **Gree Infrared** {% term integration %} lets you control a compatible Gree air conditioner using any infrared emitter previously configured in Home Assistant. It can also keep the entities in sync when you have an infrared receiver set up, so they follow along when you use the physical Gree remote.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the air conditioner but there is no feedback channel to confirm the current state. The integration therefore uses assumed states. It remembers the last known state and restores it after a restart.
 
@@ -36,18 +37,26 @@ Gree manufactures air conditioners sold under many brand names. Units branded On
 Infrared emitter:
   description: "The infrared emitter entity to use for sending commands to your air conditioner. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR emitter. It is required."
 Infrared receiver:
-  description: "The infrared receiver entity to use for receiving commands from your Gree remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. It is optional and keeps the climate entity in sync with the physical remote."
+  description: "The infrared receiver entity to use for receiving commands from your Gree remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. It is optional and keeps the entities in sync with the physical remote."
 Supported modes:
   description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, **Fan only**, and **Auto**. Check your remote or the manual of your unit to see which modes it has. Not all Gree models support heat. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-A climate entity is created for each Gree air conditioner device you set up.
+A climate entity and three switch entities are created for each Gree air conditioner device you set up.
 
 - **Gree AC**
   - **Description**: Represents the Gree air conditioner and allows you to control it using infrared commands.
   - **Supported features**: Set HVAC mode, set target temperature, and set fan mode.
+- **Turbo**
+  - **Description**: Enables or disables turbo mode, which runs the unit at maximum output.
+- **Panel light**
+  - **Description**: Turns the front panel light on or off.
+- **Xtra fan**
+  - **Description**: Enables or disables extra fan mode, to help remove moisture from the coils. Gree remotes label this button **X-Fan** or **Blow**.
+
+These three features are switches rather than buttons because the Gree remote sends the wanted state, not a toggle, so Home Assistant can track whether each one is on or off. They are named to match the [Gree](/integrations/gree/) integration, which controls the same features over Wi-Fi.
 
 ### Supported modes
 
@@ -72,14 +81,16 @@ Supported range: 16 °C to 30 °C in 1 °C steps.
 
 ### Physical remote state tracking
 
-If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical Gree air conditioner remote and updates the climate entity to match, so the mode, fan speed, and target temperature stay in sync.
+If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical Gree air conditioner remote and updates the entities to match, so the mode, fan speed, target temperature, and the turbo, panel light, and extra fan switches stay in sync.
 
 ## Known limitations
 
-- The climate entity for the air conditioner uses assumed state. Home Assistant cannot verify the actual state of the unit and instead tracks the last known state.
+- The climate entity and the switches for the air conditioner use assumed state. Home Assistant cannot verify the actual state of the unit and instead tracks the last known state.
 - Even with physical remote state tracking enabled, the receiver reports what the remote sent, not what the unit is actually doing, so the two can still drift apart, for example if something blocks the line of sight.
 - Changing the target temperature or the fan speed while the air conditioner is off is remembered rather than sent. It is applied with the next command that turns the unit on.
 - With physical remote state tracking, commands from the remote for a mode you did not select during setup are ignored, so the entity does not switch to a mode it cannot control.
+- Every Gree command carries the whole state of the unit, so operating one entity also resends the others. Turning a switch on or off resends the current mode, target temperature, and fan speed, and changing the climate entity resends the turbo, panel light, and extra fan settings.
+- Toggling a switch while the air conditioner is off does not turn the unit on. The frame that is sent carries the switch you changed along with the off state.
 
 ## Troubleshooting
 
