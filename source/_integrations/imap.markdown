@@ -72,7 +72,7 @@ Another way to process the `text` data, is to use the `imap.fetch` action. In th
 ### Selecting an alternate SSL cipher list or disabling SSL verification
 
 If the default IMAP server settings do not work, you might try to set an alternate SSL cipher list.
-The SSL cipher list option allows you to select the list of SSL ciphers to be accepted from this endpoint: `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+The SSL cipher list option allows you to select the list of SSL ciphers to be accepted from this endpoint: `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://docs.tlsref.org/server-side-tls.html)_).
 
 If you are using self signed certificates, you can turn off SSL verification.
 
